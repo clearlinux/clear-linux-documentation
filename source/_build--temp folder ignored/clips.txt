@@ -1,0 +1,25 @@
+Clear Linux OS for Intel Architecture
+
+Clear Linux* OS for Intel® Architecture
+
+.. code:: text
+
+
+
+
+TOPIC TITLE
+####################
+
+
+**first**
+-----------------
+
+
+**second**
+~~~~~~~~~~~~
+
+
+**third**
+^^^^^^^^^^^^^^^^
+
+

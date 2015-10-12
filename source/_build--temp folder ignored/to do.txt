@@ -1,0 +1,1 @@
+* Figure out how to insert static html for generated bundle list

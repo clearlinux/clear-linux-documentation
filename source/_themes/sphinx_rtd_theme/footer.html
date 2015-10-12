@@ -1,0 +1,134 @@
+<footer>
+  <div class="container">
+  {% if next or prev %}
+    <div class="rst-footer-buttons row" role="navigation" aria-label="footer navigation">
+      {% if next %}
+        <a href="{{ next.link|e }}" class="btn btn-neutral float-right" title="{{ next.title|striptags|e }}" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      {% endif %}
+      {% if prev %}
+        <a href="{{ prev.link|e }}" class="btn btn-neutral" title="{{ prev.title|striptags|e }}" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+ <div role="contentinfo" class="row">
+    <p>
+    {%- if show_copyright %}
+      {%- if hasdoc('copyright') %}
+        {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}
+      {%- else %}
+        {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}
+      {%- endif %}
+    {%- endif %}
+
+    {%- if build_id and build_url %}
+      {% trans build_url=build_url, build_id=build_id %}
+        <span class="build">
+          Build
+          <a href="{{ build_url }}">{{ build_id }}</a>.
+        </span>
+      {% endtrans %}
+    {%- elif commit %}
+      {% trans commit=commit %}
+        <span class="commit">
+          Revision <code>{{ commit }}</code>.
+        </span>
+      {% endtrans %}
+    {%- elif last_updated %}
+      {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+    {%- endif %}
+
+    </p>
+  </div>
+
+  {%- if show_sphinx %}
+  {% trans %}Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>{% endtrans %}.
+  {%- endif %}
+  </div>
+  {%- block extrafooter %} 
+              <div class="region-footer-navigation-container hidden-sm hidden-xs">
+          <div class="container align-center">
+          <div class="footer-logo">
+          {% if theme_local_env %}
+            <img src="{{ pathto('_static/RGB_logo_zephyr_colored_negative_small.png', 1) }}" class="logo">
+          {% else %}
+            <img src="/sites/all/themes/custom/zephyr_theme/images/RGB_logo_zephyr_colored_negative_small.png" class="logo">
+          {% endif %}
+          </div>
+            <div class="region region-footer-navigation">
+    <div id="block-menu-block-1" class="block block-menu-block">
+
+    
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-1729"><a href="/" title="Link to home page" class="home">Home</a></li>
+<li class="expanded menu-mlid-1209"><a href="/about" title="This link takes an user to the project's about page.">About</a><ul class="menu"><li class="first last leaf menu-mlid-1730"><a href="/about/zephyr-project">About Zephyr Project</a></li>
+</ul></li>
+<li class="leaf active-trail active menu-mlid-1206"><a href="/docs" title="This link takes an user to the project's documentation." class="active-trail active">Documentation</a></li>
+<li class="leaf menu-mlid-1207"><a href="/downloads" title="This link takes an user to the downloads.">Downloads</a></li>
+<li class="leaf menu-mlid-1208"><a href="/community" title="This link takes an user to the project's community section.">Community</a></li>
+<li class="last leaf menu-mlid-1770"><a href="/" class="contact-us">Contact us</a></li>
+</ul></div>
+  </div>
+</div>
+  </div>
+          </div>
+        </div> 
+      
+              <div class="region-footer-menu-container">
+          <div class="container -align-center">
+            <div class="region region-footer-menu">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/">Privacy Policy</a></li>
+<li class="leaf"><a href="/">Terms of Service</a></li>
+<li class="leaf"><a href="/" class="contact-us">Contact us</a></li>
+<li class="leaf"><a href="/">*Trademarks</a></li>
+<li class="last leaf"><a href="/">Cookies</a></li>
+</ul>  </div>
+</div>
+  </div>
+          </div>
+        </div> 
+      
+            <div class="region-footer-disclaimer-container">
+        <div class="container -align-center">
+            <div class="region region-footer-disclaimer">
+    <div id="block-views-4b414253a299d2a6fc506bb1f2446cfd" class="block block-views">
+
+    
+  <div class="content">
+    <div class="view view-footer-disclaimer view-id-footer_disclaimer view-display-id-block_footer_disclaimer view-dom-id-bf3fcf7707e99ee9254efa232aed2646">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+  <div>        <div>
+<p><a rel="license"
+   href="http://creativecommons.org/licenses/by/4.0/"><img
+   alt="Creative Commons License" style="border-width:0"
+   src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br
+   />This work is licensed under a <a rel="license"
+   href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+   Attribution 4.0 International License</a> </p>
+<p>Zephyr was created by the Intel Open Source Technology Center. Copyright 2015 Intel Corporation</p><p>All rights reserved. *Other names and brands may be claimed as the property of others</p></div>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+  </div>
+        </div>
+      </div>
+  {% endblock %}
+
+</footer>
+
