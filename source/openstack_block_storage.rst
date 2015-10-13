@@ -437,10 +437,10 @@ Restart the Block Storage volume service including its dependencies:
 	# systemctl enable iscsid tgtd cinder-volume 
 	# systemctl start iscsid tgtd cinder-volume
 
-Configuring a compute node to use Block Storage
+Configuring a Compute Node to use Block Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to enable a compute node to work with block
+Perform the following steps to enable a Compute Node to work with block
 storage:
 
 .. code:: text
