@@ -1,11 +1,7 @@
 {# TEMPLATE VAR SETTINGS #}
-{%- if theme_local_env %}
-  {%- set css_files = css_files + ['_static/main.css'] %}
-  {%- set script_files = script_files + ['_static/main.js'] %}
-{% else %}
-  {%- set css_files = css_files + ['/sites/all/themes/custom/zephyr_theme/css/main.css'] %}
-  {%- set script_files = script_files + ['/sites/all/themes/custom/zephyr_theme/js/main.js'] %}
-{%- endif %}
+{%- set css_files = css_files + ['/sites/all/themes/custom/zephyr_theme/css/main.css'] %}
+{%- set script_files = script_files + ['/sites/all/themes/custom/zephyr_theme/js/main.js'] %}
+{%- set script_files = script_files + ['/sites/all/themes/custom/zephyr_theme/js/vendor/affix.js'] %}
 {%- set url_root = pathto('', 1) %}
 {%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
 {%- if not embedded and docstitle %}
@@ -53,6 +49,7 @@
     <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
   {% endfor %}
 
+    <link rel="stylesheet" href="{{ pathto('_static/css/overrides.css', 1) }}" type="text/css" />
   {%- block linktags %}
     {%- if hasdoc('about') %}
         <link rel="author" title="{{ _('About these documents') }}"
@@ -86,7 +83,7 @@
 
 </head>
 
-<body class="wy-body-for-nav not-front" role="document">
+<body class="wy-body-for-nav not-front" role="document" >
   <div id="wrapper">
   <header class="region-header">
         <div class="inner-header-wide-container">
@@ -99,7 +96,7 @@
                 <a href="/" title="Home" rel="home" id="logo">
                   {% if logo %}
                     {# Not strictly valid HTML, but it's the only way to display/scale it properly, without weird scripting or heaps of work #}
-                    <img src="{{ pathto('_static/' + logo, 1) }}" />
+                    <img src="{{ pathto('_static/img/' + logo, 1) }}" />
                   {% endif %}
                 </a>
               </div>
@@ -130,12 +127,15 @@
           </div>
         </div>
       </header>
-  <div class="wy-grid-for-nav container" id="main-content">
-    <div class="row">
+  <div class="wy-grid-for-nav" id="main-content">
+          {% include "breadcrumbs.html" %}
+          <div class="container">
+    <div id="content" class="row">
 
     {# SIDE NAV, TOGGLES ON MOBILE #}
     <nav data-toggle="wy-nav-shift" class="wy-nav-side col-xs-3" id="sidebar">
-      <div class="wy-side-scroll">
+
+      <div class="wy-side-scroll" data-spy="affix" data-offset-bottom="630" data-offset-top="0">
         <div class="wy-side-nav-search">
           {% block sidebartitle %}
 
@@ -154,7 +154,7 @@
           {% endblock %}
         </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <div class="wy-menu wy-menu-vertical"role="navigation" aria-label="main navigation">
           {% block menu %}
             {% set toctree = toctree(maxdepth=4, collapse=theme_collapse_navigation, includehidden=True) %}
             {% if toctree %}
@@ -180,19 +180,19 @@
       {# PAGE CONTENT #}
       <div class="wy-nav-content">
         <div class="rst-content">
-          {% include "breadcrumbs.html" %}
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             {% block body %}{% endblock %}
            </div>
           </div>
         </div>
+          {% include "navigation.html" %}
       </div>
 
     </section>
     </div>
   </div>
-  
+  </div> 
           {% include "footer.html" %}
   </div>
   {% include "versions.html" %}

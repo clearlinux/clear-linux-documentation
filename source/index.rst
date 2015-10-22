@@ -16,6 +16,7 @@ Getting started
    gs_creating_bootable_usb
    gs_installing_clr_as_host
    gs_running_clr_virtual
+   gs-clear-containers-gettting-started
 
 Software update
 ###############
