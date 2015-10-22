@@ -440,7 +440,7 @@ Restart the Block Storage volume service including its dependencies:
 Configuring a compute node to use Block Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to enable a compute node to work with block
+Perform the following steps to enable a compute code to work with block
 storage:
 
 .. code:: text
