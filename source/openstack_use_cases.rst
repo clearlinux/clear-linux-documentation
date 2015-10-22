@@ -30,3 +30,7 @@ presents an example architecture of MVP:
 .. image:: images\openstack_example_architecture.jpg
     :align: center
     :alt: sample OpenStack* architecture
+
+*Note:* Optional Services (Cinder) and OpenStack Dashboard (Horizon) are
+not part of the OpenStack MVP.
+
