@@ -39,7 +39,7 @@ Complete the following steps to configure the message broker service:
 
   .. code:: console
 
-    rabbitmqctl add_user openstack RABBIT_PASS
+    # rabbitmqctl add_user openstack RABBIT_PASS
     Creating user openstack ...
     ...done.
 
