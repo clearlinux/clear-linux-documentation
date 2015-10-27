@@ -20,13 +20,4 @@ OpenStack supports the following use cases:
 
 Clear Linux OS for Intel Architecture is designed with all of these use
 cases in mind, but the initial target is to enable only those services
-required for Cloud. As such, the Minimum Viable Product (MVP) is
-defined as giving the capability for Clear Linux OS for Intel Architecture to boot an instance
-(Virtual Machine) through OpenStack Services. In order to achieve this,
-it's necessary to enable only those OpenStack services and dependent
-components involved during that interaction. The following diagram
-presents an example architecture of MVP:
-
-.. image:: images\openstack_example_architecture.jpg
-    :align: center
-    :alt: sample OpenStack* architecture
+required for Cloud.

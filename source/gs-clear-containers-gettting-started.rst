@@ -21,7 +21,7 @@ Currently experimental builds are available for:
 - Debian* 8.0
 - Ubuntu* 15.04
 
-If you have any feedback, please mail it to the ``dev@lists.clearlinux.org`` mailing list. Subscription to this list is
+If you have any feedback, please mail it to the dev@lists.clearlinux.org mailing list. Subscription to this list is
 available at: https://lists.clearlinux.org/mailman/listinfo/dev.
 
 Installation instructions
