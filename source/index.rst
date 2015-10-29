@@ -46,6 +46,12 @@ OpenStack* implementation
    openstack_bundle_and_service_summary
    openstack_sys_req_and_pw_summary
    openstack_installing_bundles
+   openstack_environment-database
+   openstack_environment-messaging
+   openstack_identity
+   openstack_identity-openrc
+   openstack_image
+   openstack_compute
    openstack_block_storage
    openstack_dashboard
    openstack_networking
