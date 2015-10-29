@@ -159,10 +159,10 @@ Finalize the installation
     .. code-block:: console
 
        # systemctl enable nginx uwsgi@keystone-admin.socket \
-        uwsgi@keystone-main.socket
+        uwsgi@keystone-public.socket
 
        # systemctl start nginx uwsgi@keystone-admin.socket \
-        uwsgi@keystone-main.socket
+        uwsgi@keystone-public.socket
 
 
 Create the service entity and API endpoints
