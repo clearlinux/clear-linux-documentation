@@ -1,5 +1,5 @@
 Create OpenStack client environment scripts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+###########################################
 
 The previous section used a combination of environment variables and
 command options to interact with the Identity service via the

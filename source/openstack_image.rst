@@ -24,15 +24,15 @@ systems to object-storage systems like OpenStack Object Storage.
    config-reference/content/
    ch_configuring-openstack-image-service.html>`__.
 
-Install and configure
-~~~~~~~~~~~~~~~~~~~~~
+Install and configure the Image Service
+---------------------------------------
 
 This section describes how to install and configure the Image service,
 code-named glance, on the controller node. For simplicity, this
 configuration stores images on the local file system.
 
 Prerequisites
--------------
+~~~~~~~~~~~~~
 
 Before you install and configure the Image service, you must
 create a database, service credentials, and API endpoints.
@@ -277,7 +277,7 @@ Finalize installation
     # systemctl start glance-api.service glance-registry.service
 
 Verify operation
-~~~~~~~~~~~~~~~~
+----------------
 
 Verify operation of the Image service using
 `CirrOS <http://launchpad.net/cirros>`__, a small

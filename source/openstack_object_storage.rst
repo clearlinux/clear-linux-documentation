@@ -1,5 +1,5 @@
 OpenStack* object storage
-========================
+#########################
 
 Install and configure the controller node
 -----------------------------------------

@@ -7,7 +7,7 @@ services. This dashboard enables interaction with the OpenStack Compute
 cloud controller via OpenStack APIs.
 
 Installation and configuration
-==============================
+------------------------------
 
 Please note that the dashboard relies on functional core services in
 `OpenStack MVP <openstack_installing_bundles.html>`__,
