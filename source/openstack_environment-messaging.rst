@@ -1,5 +1,5 @@
 Message queue
-~~~~~~~~~~~~~
+#############
 
 OpenStack uses a `message queue` to coordinate operations and
 status information among services. The message queue service typically
@@ -16,7 +16,7 @@ Install the message queue service
      # clr_bundle_add message-broker-rabbitmq
 
 Configuring the message broker service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 Complete the following steps to configure the message broker service:
 

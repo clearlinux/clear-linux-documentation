@@ -1,5 +1,5 @@
 Database
-~~~~~~~~
+########
 Most OpenStack services use an SQL database to store information. The
 database typically runs on the controller node. The procedures in this
 guide use MariaDB.
@@ -36,7 +36,7 @@ Install and configure the database server
     character-set-server = utf8
 
 Finalizing database installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 Complete the following steps to finalize database installation:
 
