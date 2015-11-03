@@ -1,10 +1,6 @@
 ..
     Clear Linux Project documentation master file
 
-
-.. include:: documentation_license.rst
-
-
 Getting started
 ###############
 
@@ -65,3 +61,6 @@ Index and search
 * :ref:`genindex`
 
 * :ref:`search`
+
+.. include:: documentation_license.rst
+
