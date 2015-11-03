@@ -1,4 +1,4 @@
-OpenStack* object storage
+OpenStack* Object Storage
 #########################
 
 Install and configure the controller node
@@ -30,7 +30,7 @@ credentials and an API endpoint.
 
 #. To create the Identity service credentials, complete these steps:
 
-   #.  Create the swift user::
+   * Create the swift user::
 
          $ openstack user create --password-prompt swift                 
          User Password:                 
@@ -45,7 +45,7 @@ credentials and an API endpoint.
          | username | swift                            |                  
          +----------+----------------------------------+
 
-   #.  Add the admin role to the swift user::
+   * Add the admin role to the swift user::
 
          $ openstack role add --project service --user swift admin                 
          +-------+----------------------------------+                 
@@ -55,7 +55,7 @@ credentials and an API endpoint.
          | name  | admin                            |                 
          +-------+----------------------------------+
 
-   #.  Create the swift service entity::
+   * Create the swift service entity::
 
          $ openstack service create --name swift \                 
          --description "OpenStack Object Storage" object-store                 
@@ -109,30 +109,30 @@ To install and configure the controller node components
 #. Edit the ``/etc/swift/proxy-server.conf`` file and complete the
    following actions:
 
-   #.  In the ``[pipeline:main]`` section, enable the appropriate
-       modules::
+   * In the ``[pipeline:main]`` section, enable the appropriate
+     modules::
 
          [pipeline:main]                 
          pipeline = catch_errors gatekeeper healthcheck proxy-logging cache container_sync bulk ratelimit authtoken keystoneauth container-quotas account-quotas slo dlo proxy-logging proxy-server
 
-   #.  In the ``[app:proxy-server]`` section, enable automatic account
-       creation::
+   * In the ``[app:proxy-server]`` section, enable automatic account
+     creation::
 
          [app:proxy-server]                 
          ...                 
          account_autocreate = true
 
-   #.  In the ``[filter:keystoneauth]`` section, configure the operator
-       roles::
+   * In the ``[filter:keystoneauth]`` section, configure the operator
+     roles::
 
          [filter:keystoneauth]                 
          use = egg:swift#keystoneauth                 
          ...                 
          operator_roles = admin,user
 
-   #.  In the ``[filter:authtoken]`` section, configure Identity service
-       access. Replace SWIFT\_PASS with the password you chose for the
-       swift user in the Identity service::
+   * In the ``[filter:authtoken]`` section, configure Identity service
+     access. Replace SWIFT\_PASS with the password you chose for the
+     swift user in the Identity service::
 
          [filter:authtoken]                 
          paste.filter_factory = keystonemiddleware.auth_token:filter_factory                 
@@ -147,8 +147,8 @@ To install and configure the controller node components
          password = SWIFT_PASS                 
          delay_auth_decision = true
 
-   #.  In the ``[filter:cache]`` section, configure the memcached
-       location::
+   * In the ``[filter:cache]`` section, configure the memcached
+     location::
 
          [filter:cache]                 
          ...                 
@@ -177,56 +177,56 @@ a separate network for replication.
 
 #. Configure unique items on the first storage node:
 
-   #. Configure the management interface::
+   * Configure the management interface::
 
          IP address: 10.0.0.51
          Network mask: 255.255.255.0 (or /24)
          Default gateway: 10.0.0.1
 
-   #. Set the hostname of the node to ``object1``.
+   * Set the hostname of the node to ``object1``.
 
 #. Configure unique items on the second storage node:
 
-   #. Configure the management interface::
+   * Configure the management interface::
 
          IP address: 10.0.0.52
          Network mask: 255.255.255.0 (or /24)
          Default gateway: 10.0.0.1
 
-   #. Set the hostname of the node to ``object2``.
+   * Set the hostname of the node to ``object2``.
 
 #. Configure shared items on both storage nodes:
 
-   #. Copy the contents of the ``/etc/hosts`` file from the controller
-      node and add the following to it::
+   * Copy the contents of the ``/etc/hosts`` file from the controller
+     node and add the following to it::
 
          # object1
          10.0.0.51 object1
          # object2
          10.0.0.52 object2
 
-      Also add this content to the ``/etc/hosts`` file on all other nodes in your environment.
+     Also add this content to the ``/etc/hosts`` file on all other nodes in your environment.
 
-   #. Install the OpenStack Object Storage bundle::
+   * Install the OpenStack Object Storage bundle::
 
          # clr\_bundle\_add openstack-object-storage
 
-   #. Format the ``/dev/sdb1`` and ``/dev/sdc1`` partitions as XFS::
+   * Format the ``/dev/sdb1`` and ``/dev/sdc1`` partitions as XFS::
 
          # mkfs.xfs /dev/sdb1
          # mkfs.xfs /dev/sdc1
 
-   #. Create the mount point directory structure::
+   * Create the mount point directory structure::
 
          # mkdir -p /srv/node/sdb1
          # mkdir -p /srv/node/sdc1
 
-   #. Edit the ``/etc/fstab`` file and add the following to it::
+   * Edit the ``/etc/fstab`` file and add the following to it::
 
          /dev/sdb1 /srv/node/sdb1 xfs noatime,nodiratime,nobarrier,logbufs=8 0 2
          /dev/sdc1 /srv/node/sdc1 xfs noatime,nodiratime,nobarrier,logbufs=8 0 2
 
-   #. Mount the devices::
+   * Mount the devices::
 
          # mount /srv/node/sdb1
          # mount /srv/node/sdc1
@@ -282,8 +282,8 @@ Install and configure storage node components
 #. Edit the ``/etc/swift/account-server.conf`` file and complete the
    following actions:
 
-   #. In the ``[DEFAULT]`` section, configure the bind IP address and
-      mount point directory::
+   * In the ``[DEFAULT]`` section, configure the bind IP address and
+     mount point directory::
 
          [DEFAULT]
          ...
@@ -293,14 +293,14 @@ Install and configure storage node components
       Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP
       address of the management network on the storage node.
 
-   #. In the ``[pipeline:main]`` section, enable the appropriate
-      modules::
+   * In the ``[pipeline:main]`` section, enable the appropriate
+     modules::
 
          [pipeline:main]
          pipeline = healthcheck recon account-server
 
-   #. In the ``[filter:recon]`` section, configure the recon (metrics)
-      cache directory::
+   * In the ``[filter:recon]`` section, configure the recon (metrics)
+     cache directory::
 
          [filter:recon]
          ...
@@ -309,8 +309,8 @@ Install and configure storage node components
 #. Edit the ``/etc/swift/container-server.conf`` file and complete the
    following actions:
 
-   #. In the ``[DEFAULT]`` section, configure the bind IP address and
-      mount point directory::
+   * In the ``[DEFAULT]`` section, configure the bind IP address and
+     mount point directory::
 
          [DEFAULT]
          ...
@@ -320,14 +320,13 @@ Install and configure storage node components
       Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP
       address of the management network on the storage node.
 
-   #. In the ``[pipeline:main]`` section, enable the appropriate
-      modules::
+   *   modules::
 
          [pipeline:main]
          pipeline = healthcheck recon container-server
 
-   #. In the ``[filter:recon]`` section, configure the recon (metrics)
-      cache directory::
+   * In the ``[filter:recon]`` section, configure the recon (metrics)
+     cache directory::
 
          [filter:recon]
          ...
@@ -336,8 +335,8 @@ Install and configure storage node components
 #. Edit the ``/etc/swift/object-server.conf`` file and complete the
    following actions:
 
-   #. In the ``[DEFAULT]`` section, configure the bind IP address and
-      mount point directory::
+   * In the ``[DEFAULT]`` section, configure the bind IP address and
+     mount point directory::
 
          [DEFAULT]
          ...
@@ -347,14 +346,14 @@ Install and configure storage node components
       Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP
       address of the management network on the storage node.
 
-   #. In the ``[pipeline:main]`` section, enable the appropriate
-      modules::
+   * In the ``[pipeline:main]`` section, enable the appropriate
+     modules::
 
          [pipeline:main]
          pipeline = healthcheck recon object-server
 
-   #. In the ``[filter:recon]`` section, configure the recon (metrics)
-      cache and lock directories::
+   * In the ``[filter:recon]`` section, configure the recon (metrics)
+     cache and lock directories::
 
          [filter:recon]
          ...
@@ -567,16 +566,16 @@ Configure hashes and default storage policy
 #. Edit the ``/etc/swift/swift.conf`` file and complete the following
    actions:
 
-   #. In the ``[swift-hash]`` section, configure the hash path prefix and
-      suffix for your environment::
+   * In the ``[swift-hash]`` section, configure the hash path prefix and
+     suffix for your environment::
 
          [swift-hash] 
          ... 
          swift_hash_path_suffix = HASH_PATH_PREFIX
          swift_hash_path_prefix = HASH_PATH_SUFFIX
 
-   #. In the ``[storage-policy:0]`` section, configure the default storage
-      policy::
+   * In the ``[storage-policy:0]`` section, configure the default storage
+     policy::
 
         [storage-policy:0] 
         ... 

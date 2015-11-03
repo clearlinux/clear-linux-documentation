@@ -1,13 +1,13 @@
-OpenStack Compute
-#################
+OpenStack* Compute
+##################
 
 Use OpenStack Compute to host and manage cloud computing systems.
 OpenStack Compute interacts with OpenStack Identity for authentication,
 OpenStack Image Service for disk and server images, and OpenStack
-dashboard for the user and administrative interface. Image access is
+Dashboard for the user and administrative interface. Image access is
 limited by projects, and by users; quotas are limited per project (the
 number of instances, for example). OpenStack Compute can scale
-horizontally on standard hardware, and download images to launch
+horizontally on standard hardware and download images to launch
 instances.
 
 Install and configure controller node
@@ -24,44 +24,34 @@ create a database, service credentials, and API endpoints.
 
 #. To create the database, complete these steps:
 
-   #. Use the database access client to connect to the database server
-      as the root user:
-
-      .. code-block:: console
+   * Use the database access client to connect to the database server
+     as the root user::
 
         $ mysql -u root -p
 
-   #. Create the ``nova`` database:
-
-      .. code-block:: console
+   * Create the ``nova`` database::
 
         CREATE DATABASE nova;
 
-   #. Grant proper access to the nova database. Replace ``NOVA_DBPASS``
-      with a suitable password.
-
-      .. code-block:: console
+   * Grant proper access to the nova database. Replace ``NOVA_DBPASS``
+     with a suitable password::
 
         GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' \
         IDENTIFIED BY 'NOVA_DBPASS';
         GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' \
         IDENTIFIED BY 'NOVA_DBPASS';
 
-   #. Exit the database access client.
+   * Exit the database access client.
 
 #. Source the admin credentials to gain access to admin-only CLI
-   commands:
-
-   .. code-block:: console
+   commands::
 
     $ source admin-openrc.sh
 
 #. To create the service credentials, complete these steps:
 
    * Create the ``nova`` user. Replace ``NOVA_PASS`` with a suitable
-      password.
-
-      .. code-block:: console
+     password::
 
         $ openstack user create --domain default --password NOVA_PASS nova
         +-----------+----------------------------------+
@@ -73,15 +63,11 @@ create a database, service credentials, and API endpoints.
         | name      | nova                             |
         +-----------+----------------------------------+
 
-   * Add the ``admin`` role to the ``nova`` user:
-
-      .. code-block:: console
+   * Add the ``admin`` role to the ``nova`` user::
 
         $ openstack role add --project service --user nova admin
 
-   #. Create the ``nova`` service entity:
-
-      .. code-block:: console
+   * Create the ``nova`` service entity::
 
         $ openstack service create --name nova \
         --description "OpenStack Compute" compute
@@ -95,9 +81,7 @@ create a database, service credentials, and API endpoints.
         | type        | compute                          |
         +-------------+----------------------------------+
 
-#. Create the Compute service API endpoints:
-
-   .. code-block:: console
+#. Create the Compute service API endpoints::
 
       $ openstack endpoint create --region RegionOne \
         compute public http://controller:8774/v2/%\(tenant_id\)s
@@ -152,23 +136,17 @@ Installing and configuring the Compute controller components
 
 To install and configure the Compute controller components:
 
-#. Install OpenStack Compute Controller bundle:
-
-   .. code-block:: console
+#. Install OpenStack Compute Controller bundle::
 
     # clr_bundle_add openstack-compute-controller
 
 #. Custom configurations will be located at ``/etc/nova``.
 
-   * Create ``/etc/nova directory``.
-
-      .. code-block:: console
+   * Create ``/etc/nova directory``::
 
         # mkdir /etc/nova
 
-   * Create empty nova configuration file ``/etc/nova/nova.conf``.
-
-      .. code-block:: console
+   * Create empty nova configuration file ``/etc/nova/nova.conf``::
 
         # touch /etc/nova/nova.conf
 
@@ -176,26 +154,19 @@ To install and configure the Compute controller components:
    actions:
 
    * In the ``[database]`` section, configure database access. Replace
-      ``NOVA_DBPASS`` with the password you chose for the Compute
-      database.
-
-      .. code-block:: ini
+     ``NOVA_DBPASS`` with the password you chose for the Compute database::
 
         [database]
         ...
         connection=mysql://nova:NOVA_DBPASS@controller/nova
 
    * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
-      configure ``RabbitMQ`` message queue access. Replace ``RABBIT_PASS``
-      with the password you chose for the guest account in RabbitMQ.
-
-      .. code-block:: ini
+     configure ``RabbitMQ`` message queue access. Replace ``RABBIT_PASS``
+     with the password you chose for the guest account in RabbitMQ::
 
         [DEFAULT]
         ...
         rpc_backend = rabbit
-
-      .. code-block:: console
 
         [oslo_messaging_rabbit]
         ...
@@ -204,10 +175,8 @@ To install and configure the Compute controller components:
         rabbit_password = RABBIT_PASS
 
    * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
-      configure Identity service access. Replace ``NOVA_PASS`` with the
-      password you chose for the nova user in the Identity service.
-
-      .. code-block:: ini
+     configure Identity service access. Replace ``NOVA_PASS`` with the
+     password you chose for the nova user in the Identity service::
 
         [DEFAULT]
         ...
@@ -226,17 +195,13 @@ To install and configure the Compute controller components:
 
 
    * In the ``[DEFAULT]`` section, configure the ``my_ip`` option to
-      use the management interface IP address of the controller node:
-
-      .. code-block:: ini
+     use the management interface IP address of the controller node::
 
         [DEFAULT]
         ...
         my_ip = 10.0.0.11
 
-   * In the ``[DEFAULT]`` section, enable support for the Networking service:
-
-     .. code-block:: ini
+   * In the ``[DEFAULT]`` section, enable support for the Networking service::
 
         [DEFAULT]
         ...
@@ -246,9 +211,7 @@ To install and configure the Compute controller components:
         firewall_driver = nova.virt.firewall.NoopFirewallDriver
 
    * In the ``[vnc]`` section, configure the VNC proxy to use the
-      management interface IP address of the controller node:
-
-      .. code-block:: ini
+     management interface IP address of the controller node::
 
         [vnc]
         ...
@@ -256,23 +219,17 @@ To install and configure the Compute controller components:
         vncserver_proxyclient_address = 10.0.0.11
 
    * In the ``[glance]`` section, configure the location of the
-     Image Service:
-
-      .. code-block:: ini
+     Image Service::
 
         [glance]
         ...
         host = controller
 
-#. Let systemd set the correct permissions for files in ``/etc/nova``.
-
-   .. code-block:: console
+#. Let systemd set the correct permissions for files in ``/etc/nova``::
 
     # systemctl restart update-triggers.target
 
-#. Populate the Compute database:
-
-   .. code-block:: console
+#. Populate the Compute database::
 
     su -s /bin/sh -c "nova-manage db sync" nova
 
@@ -282,9 +239,7 @@ Finalizing Compute installation
 Complete the following steps to finalize Compute installation:
 
 #. Start the Compute Service services and configure them to start
-   when the system boots:
-
-   .. code-block:: console
+   when the system boots::
 
     # systemctl enable uwsgi@nova-api.socket \
       nova-cert.service nova-consoleauth.service \
@@ -306,23 +261,17 @@ virtual machines.
 Install and configure components
 --------------------------------
 
-#. Install OpenStack Compute bundle:
-
-   .. code-block:: console
+#. Install OpenStack Compute bundle::
 
     # clr_bundle_add openstack-compute
 
 #. Custom configurations will be located at ``/etc/nova``.
 
-   * Create ``/etc/nova`` directory.
-
-      .. code-block:: console
+   * Create ``/etc/nova`` directory::
 
         # mkdir /etc/nova
 
-   * Create empty nova configuration file ``/etc/nova/nova.conf``.
-
-      .. code-block:: console
+   * Create empty nova configuration file ``/etc/nova/nova.conf``::
 
         # touch /etc/nova/nova.conf
 
@@ -331,15 +280,11 @@ Install and configure components
 
    * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
      configure RabbitMQ message broker access. Replace ``RABBIT_PASS``
-     with the password you chose for the ``openstack`` account in ``RabbitMQ``.
-
-     .. code-block:: ini
+     with the password you chose for the ``openstack`` account in ``RabbitMQ``::
 
         [DEFAULT]
         ...
         rpc_backend = rabbit
-
-     .. code-block:: ini
 
         [oslo_messaging_rabbit]
         ...
@@ -349,9 +294,7 @@ Install and configure components
 
    * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
      configure Identity service access. Replace ``NOVA_PASS`` with the
-     password you chose for the nova user in the Identity service.
-
-      .. code-block:: console
+     password you chose for the nova user in the Identity service::
 
         [DEFAULT]
         ...
@@ -371,17 +314,13 @@ Install and configure components
    * In the ``[DEFAULT]`` section, configure the ``my_ip`` option.
      Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP address of
      the management network interface on your compute node, typically
-     ``10.0.0.31`` for the first node in the example architecture.
-
-      .. code-block:: ini
+     ``10.0.0.31`` for the first node in the example architecture::
 
         [DEFAULT]
         ...
         my_ip = MANAGEMENT_INTERFACE_IP_ADDRESS
 
-   * In the ``[DEFAULT]`` section, enable support for the Networking service:
-
-     .. code-block:: ini
+   * In the ``[DEFAULT]`` section, enable support for the Networking service::
 
         [DEFAULT]
         ...
@@ -390,8 +329,7 @@ Install and configure components
         linuxnet_interface_driver = nova.network.linux_net.NeutronLinuxBridgeInterfaceDriver
         firewall_driver = nova.virt.firewall.NoopFirewallDriver
 
-   * In the ``[vnc]`` section, enable and configure remote console access:
-      .. code-block:: ini
+   * In the ``[vnc]`` section, enable and configure remote console access::
 
         [vnc]
         ...
@@ -407,9 +345,7 @@ Install and configure components
      this compute node.
 
    * In the ``[glance]`` section, configure the location of the
-     Image Service:
-
-      .. code-block:: ini
+     Image Service::
 
         [glance]
         ...
@@ -419,9 +355,7 @@ Finalize compute node installation
 ----------------------------------
 
 #. Determine whether your compute node supports hardware acceleration
-   for virtual machines:
-
-   .. code-block:: console
+   for virtual machines::
 
     $ egrep -c '(vmx|svm)' /proc/cpuinfo
 
@@ -434,18 +368,14 @@ Finalize compute node installation
    to use QEMU instead of KVM.
 
    * Edit the ``[libvirt]`` section in the ``/etc/nova/nova.conf`` file
-     as follows:
-
-      .. code-block:: ini
+     as follows::
 
         [libvirt]
         ...
         virt_type = qemu
 
 #. Start the Compute service including its dependencies and configure
-   them to start automatically when the system boots:
-
-  .. code-block:: console
+   them to start automatically when the system boots::
 
      # systemctl enable libvirtd.service \
        nova-compute.service
@@ -456,21 +386,15 @@ Verify operation
 ~~~~~~~~~~~~~~~~
 Verify operation of the Compute service.
 
-.. note::
-
-   Perform these commands on the controller node.
+*Note:* Perform these commands on the controller node.
 
 #. Source the ``admin`` credentials to gain access to
-   admin-only CLI commands:
-
-   .. code-block:: console
+   admin-only CLI commands::
 
       $ source admin-openrc.sh
 
 #. List service components to verify successful launch and
-   registration of each process:
-
-   .. code-block:: console
+   registration of each process::
 
       $ nova service-list
       +----+------------------+------------+----------+---------+-------+--------------+-----------------+
@@ -482,10 +406,9 @@ Verify operation of the Compute service.
       | 4  | nova-cert        | controller | internal | enabled | up    | 2014-09-16.. | -               |
       | 5  | nova-compute     | compute1   | nova     | enabled | up    | 2014-09-16.. | -               |
       +----+------------------+------------+----------+---------+-------+--------------+-----------------+
-#. List API endpoints in the Identity service to verify connectivity
-   with the Identity service:
 
-   .. code-block:: console
+#. List API endpoints in the Identity service to verify connectivity
+   with the Identity service::
 
       $ nova endpoints
       +-----------+------------------------------------------------------------+
@@ -572,14 +495,10 @@ Verify operation of the Compute service.
       | url       | http://controller:35357/v2.0     |
       +-----------+----------------------------------+
 
-   .. note::
-
-      Ignore any warnings in this output.
+   *Note:* Ignore any warnings in this output.
 
 #. List images in the Image service catalog to verify connectivity
-   with the Image service:
-
-   .. code-block:: console
+   with the Image service::
 
       $ nova image-list
       +--------------------------------------+--------+--------+--------+

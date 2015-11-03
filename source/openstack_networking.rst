@@ -1,4 +1,4 @@
-OpenStack networking
+OpenStack* Networking
 ############################################################
 
 OpenStack* Networking allows you to create and attach interface devices
@@ -17,44 +17,34 @@ database, service credentials, and an API endpoint.
 
 #. Create the database:
 
-   #. Use the database access client to connect to the database server
-      as the ``root`` user:
-
-      .. code:: text
+   * Use the database access client to connect to the database server
+     as the ``root`` user::
 
       	$ mysql -u root -p
 
-   #. Create the ``neutron`` database:
+   * Create the ``neutron`` database::
       
-      .. code:: text
-
       	CREATE DATABASE neutron;
 
-   #. Grant proper access to the ``neutron`` database. Replace
-      *``NEUTRON_DBPASS``* with a suitable password.
-
-      .. code:: text
+   * Grant proper access to the ``neutron`` database. Replace
+     *``NEUTRON_DBPASS``* with a suitable password::
 
 		GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' \
 		IDENTIFIED BY 'NEUTRON_DBPASS'; 
 		GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' \
 		IDENTIFIED BY 'NEUTRON_DBPASS';
 
-   #. Exit the database access client.
+   * Exit the database access client.
 
 #. Source the ``admin`` credentials to gain access to admin-only CLI
-   commands:
-
-   .. code:: text
+   commands::
 
    	$ source admin-openrc.sh
 
 #. To create the service credentials, complete these steps:
 
-   #. Create the ``neutron`` user:
+   * Create the ``neutron`` user::
       
-      .. code:: text
-
 		$ openstack user create --password-prompt neutron 
 		User Password: 
 		Repeat User Password: 
@@ -68,10 +58,8 @@ database, service credentials, and an API endpoint.
 		| username | neutron                          | 
 		+----------+----------------------------------+
 
-   #. Add the ``admin`` role to the ``neutron`` user:
+   * Add the ``admin`` role to the ``neutron`` user::
       
-      .. code:: text
-
 		+-------+----------------------------------+ 
 		| Field | Value                            | 
 		+-------+----------------------------------+ 
@@ -79,10 +67,8 @@ database, service credentials, and an API endpoint.
 		| name  | admin                            | 
 		+-------+----------------------------------+
 
-   #. Create the ``neutron`` service entity:
+   * Create the ``neutron`` service entity::
       
-      .. code:: text
-
 		$ openstack service create --name neutron \
 		--description "OpenStack Networking" network 
 		+-------------+----------------------------------+ 
@@ -95,10 +81,8 @@ database, service credentials, and an API endpoint.
 		| type        | network                          | 
 		+-------------+----------------------------------+
  
-#. Create the Networking service API endpoint:
+#. Create the Networking service API endpoint::
    
-   .. code:: text
-
 		--publicurl http://controller:9696 \
 		--adminurl http://controller:9696 \
 		--internalurl http://controller:9696 \
@@ -122,10 +106,8 @@ Installing the Networking components
 
 Complete the following step to install the Networking components:
 
--  Install OpenStack networking bundle:
+-  Install OpenStack networking bundle::
    
-   .. code:: text
-
    	# clr_bundle_add openstack-network
 
 Configuring the Networking server component
@@ -137,27 +119,21 @@ The Networking server component configuration includes the database,
 authentication mechanism, message queue, topology change notifications,
 and plug-in.
 
-Edit the ``/etc/neutron/neutron.conf ``file:
+Edit the ``/etc/neutron/neutron.conf `` file:
 
 #. Custom configurations will be located at ``/etc/neutron``.
 
-   #. Create /etc/neutron directory:
+   * Create /etc/neutron directory::
       
-      .. code:: text
-
       	$ mkdir /etc/neutron
 
-   #. Create empty neutron configuration
-      file:
-
-      .. code:: text
+   * Create empty neutron configuration
+     file::
 
       	$ touch /etc/neutron/neutron.conf
 
 #. In the ``[database]`` section, configure database access. Replace
-   *``NEUTRON_DBPASS``* with the password you chose for the database.
-
-   .. code:: text
+   *NEUTRON_DBPASS* with the password you chose for the database::
 
 		[database] 
 		... 
@@ -166,9 +142,7 @@ Edit the ``/etc/neutron/neutron.conf ``file:
 #. In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
    configure RabbitMQ message queue access. Replace *``RABBIT_PASS``*
    with the password you chose for the ``openstack`` account in
-   RabbitMQ.
-
-   .. code:: text
+   RabbitMQ::
 
 		[DEFAULT] 
 		... 
@@ -181,9 +155,7 @@ Edit the ``/etc/neutron/neutron.conf ``file:
    
 #. In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections, configure
    Identity service access. Replace *``NEUTRON_PASS``* with the password
-   you chose for the ``neutron`` user in the Identity service.
-
-   .. code:: text
+   you chose for the ``neutron`` user in the Identity service::
 
 		[DEFAULT] 
 		... 
@@ -200,9 +172,7 @@ Edit the ``/etc/neutron/neutron.conf ``file:
 		password = NEUTRON_PASS
  
 #. In the ``[DEFAULT]`` section, enable the Modular Layer 2 (ML2)
-   plug-in, router service, and overlapping IP addresses:
-
-   .. code:: text
+   plug-in, router service, and overlapping IP addresses::
 
 	[DEFAULT] 
 	... 
@@ -213,9 +183,7 @@ Edit the ``/etc/neutron/neutron.conf ``file:
 #. In the ``[DEFAULT]`` and ``[nova]`` sections, configure Networking to
    notify Compute of network topology changes. Replace ``NOVA_PASS``
    with the password you chose for the ``nova`` user in the Identity
-   service.
-
-   .. code:: text
+   service::
 
 		[DEFAULT] 
 		... 
@@ -241,20 +209,16 @@ the virtual networking framework for instances. However, the controller
 node does not need the OVS components because it does not handle
 instance network traffic.
 
-#. Custom configuration for ML2 plug-in will be stored in ``/etc/neutron/plugins/ml2``.
+#. Custom configuration for ML2 plug-in will be stored in ``/etc/neutron/plugins/ml2``::
    
-   .. code:: text
-
    	mkdir -p /etc/neutron/plugins/ml2
    	touch /etc/neutron.plugins/ml2/ml2_conf.ini
 
 #. Edit the ``/etc/neutron/plugins/ml2/ml2_conf.ini`` file as follows:
 
-   #. In the ``[ml2]`` section, enable the flat, VLAN, generic routing
-      encapsulation (GRE), and virtual extensible LAN (VXLAN) network
-      type drivers, GRE tenant networks, and the OVS mechanism driver:
-
-      .. code:: text
+   * In the ``[ml2]`` section, enable the flat, VLAN, generic routing
+     encapsulation (GRE), and virtual extensible LAN (VXLAN) network
+     type drivers, GRE tenant networks, and the OVS mechanism driver::
 
 		[ml2] 
 		... 
@@ -262,19 +226,15 @@ instance network traffic.
 		tenant_network_types = gre 
 		mechanism_drivers = openvswitch
 
-   #. In the ``[ml2_type_gre]`` section, configure the tunnel identifier
-      (id) range:
+   * In the ``[ml2_type_gre]`` section, configure the tunnel identifier
+     (id) range::
       
-      .. code:: text
-
 		[ml2_type_gre] 
 		... 
 		tunnel_id_ranges = 1:1000
 
-   #. In the ``[securitygroup]`` section, enable security groups, enable
-      ipset, and configure the OVS iptables firewall driver:
-
-      .. code:: text
+   * In the ``[securitygroup]`` section, enable security groups, enable
+     ipset, and configure the OVS iptables firewall driver::
 
 		[securitygroup] 
 		... 
@@ -292,10 +252,8 @@ Networking.
 #. Edit the ``/etc/nova/nova.conf`` file on the controller node as
    follows:
 
-   #. In the ``[DEFAULT]`` section, configure the APIs and drivers:
+   * In the ``[DEFAULT]`` section, configure the APIs and drivers::
       
-      .. code:: text
-
 	[DEFAULT] 
 	... 
 	network_api_class = nova.network.neutronv2.api.API 
@@ -303,11 +261,9 @@ Networking.
 	linuxnet_interface_driver = nova.network.linux_net.LinuxOVSInterfaceDriver 
 	firewall_driver = nova.virt.firewall.NoopFirewallDriver
 
-   #. In the ``[neutron]`` section, configure access
-      parameters. Replace *NEUTRON_PASS* with the password you
-      chose for the ``neutron`` user in the Identity service.
-
-      .. code:: text
+   * In the ``[neutron]`` section, configure access
+     parameters. Replace *NEUTRON_PASS* with the password you
+     chose for the ``neutron`` user in the Identity service::
 
 		[neutron] 
 		... 
@@ -324,36 +280,26 @@ Finalizing installation
 #. The Networking service initialization scripts expect a symbolic link
    ``/etc/neutron/plugin.ini`` pointing to the ML2 plug-in configuration
    file, ``/etc/neutron/plugins/ml2/ml2_conf.ini``. If this symbolic
-   link does not exist, create it using the following command:
-
-   .. code:: text
+   link does not exist, create it using the following command::
 
    	# ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
 
-2. Populate the database:
+#. Populate the database::
    
-   .. code:: text
-
    	# su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf \ 
    	--config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
 
-3. Let ``systemd`` set the correct permissions for files in ``/etc/neutron``.
-
-   .. code:: text
+#. Let ``systemd`` set the correct permissions for files in ``/etc/neutron``::
 
     # systemctl restart update-triggers.target
 
-#. Restart the Compute services:
+#. Restart the Compute services::
    
-   .. code:: text
-
 	# systemctl restart nova-api.service nova-scheduler.service \ 
 	nova-conductor.service
 
 #. Start the Networking service and configure it to start when the
-   system boots:
-
-   .. code:: text
+   system boots::
 
    	# systemctl enable neutron-server.service 
    	# systemctl start neutron-server.service

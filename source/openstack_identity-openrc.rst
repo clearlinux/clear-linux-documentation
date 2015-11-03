@@ -1,12 +1,12 @@
-Create OpenStack client environment scripts
-###########################################
+Create OpenStack* client environment scripts
+############################################
 
 The previous section used a combination of environment variables and
 command options to interact with the Identity service via the
 ``openstack`` client. To increase efficiency of client operations,
 OpenStack supports simple client environment scripts also known as
 OpenRC files. These scripts typically contain common options for
-all clients, but also support unique options. For more information, see the
+all clients but also support unique options. For more information, see the
 `OpenStack User Guide <http://docs.openstack.org/user-guide/common/
 cli_set_environment_variables_using_openstack_rc.html>`__.
 
@@ -17,9 +17,7 @@ Create client environment scripts for the ``admin`` and ``demo``
 projects and users. Future portions of this guide reference these
 scripts to load appropriate credentials for client operations.
 
-#. Edit the ``admin-openrc.sh`` file and add the following content:
-
-   .. code-block:: bash
+#. Edit the ``admin-openrc.sh`` file and add the following content::
 
       export OS_PROJECT_DOMAIN_ID=default
       export OS_USER_DOMAIN_ID=default
@@ -33,9 +31,7 @@ scripts to load appropriate credentials for client operations.
    Replace ``ADMIN_PASS`` with the password you chose
    for the ``admin`` user in the Identity service.
 
-#. Edit the ``demo-openrc.sh`` file and add the following content:
-
-   .. code-block:: bash
+#. Edit the ``demo-openrc.sh`` file and add the following content::
 
       export OS_PROJECT_DOMAIN_ID=default
       export OS_USER_DOMAIN_ID=default
@@ -58,15 +54,11 @@ For example:
 
 #. Load the ``admin-openrc.sh`` file to populate
    environment variables with the location of the Identity service
-   and the ``admin`` project and user credentials:
-
-   .. code-block:: console
+   and the ``admin`` project and user credentials::
 
       $ source admin-openrc.sh
 
-#. Request an authentication token:
-
-   .. code-block:: console
+#. Request an authentication token::
 
       $ openstack token issue
       +------------+----------------------------------+
