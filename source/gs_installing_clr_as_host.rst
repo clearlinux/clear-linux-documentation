@@ -1,4 +1,4 @@
-.. _gs_installing_clr_as_host.rst:
+.. _gs_installing_clr_as_host:
 
 Installing the OS as host
 ##########################################################
