@@ -1,4 +1,4 @@
-.. _gs-clear-containers-gettting-started.rst:
+.. _gs-clear-containers-gettting-started:
 
 Clear Containers getting started guide
 ######################################
