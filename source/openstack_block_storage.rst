@@ -1,4 +1,4 @@
-OpenStack block storage
+OpenStack* Block Storage
 ############################################################
 
 Clear Linux* OS for Intel® Architecture can be used with the
@@ -27,22 +27,16 @@ database, complete these steps:
 **Create a database:**
 
 #. Use the database access client to connect to the database server as
-   the root user:
-
-   .. code:: text
+   the root user::
 
    	$ mysql -u root -p
 
-#. Create the cinder database.
+#. Create the cinder database::
    
-   .. code:: text
-
    	CREATE DATABASE cinder;
 
 #. Grant proper access to the cinder database. Replace ``CINDER_DBPASS``
-   with a suitable password.
-
-   .. code:: text
+   with a suitable password::
 
    	GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'localhost' \ 
    	IDENTIFIED BY 'CINDER_DBPASS'; 
@@ -54,18 +48,14 @@ database, complete these steps:
 **Create service credentials:**
 
 #. Now source the admin credentials to gain access to admin-only CLI
-   commands:
-
-   .. code:: text
+   commands::
 
    	$ source admin-openrc.sh
 
 #. To create the service credentials, complete these steps:
 
-   #. Create a cinder user:
+   * Create a cinder user::
       
-      .. code:: text
-
 		$ openstack user create --password-prompt cinder
 		User Password:
 		Repeat User Password: 
@@ -79,10 +69,8 @@ database, complete these steps:
 		| username | cinder                           |
 		+----------+----------------------------------+ 
 
-   #. Add the admin role to the cinder user:
+   * Add the admin role to the cinder user::
       
-      .. code:: text
-
 		$ openstack role add --project service --user cinder admin 
 		+-------+----------------------------------+
 		| Field | Value                            |
@@ -91,11 +79,9 @@ database, complete these steps:
 		| name  | admin                            |
 		+-------+----------------------------------+ 
 
-   #. Now create the cinder service entities:
+   * Now create the cinder service entities::
       
-      .. code:: text
-
-		$ openstack service create --name cinder \ 
+ 		$ openstack service create --name cinder \ 
 		--description "OpenStack Block Storage" volume 
 		| Field       | Value                            |
 		+-------------+----------------------------------+
@@ -119,9 +105,7 @@ database, complete these steps:
 
 **Create service endpoints:**
 
-The last prerequisite is to create the Block Storage service API endpoints:
-
-.. code:: text
+The last prerequisite is to create the Block Storage service API endpoints::
 
 	$ openstack endpoint create \ 
 	--publicurl http://controller:8776/v2/%\(tenant_id\)s \ 
@@ -166,46 +150,36 @@ Installing and configuring Block Storage controller components
 Once your prerequisites are finished, you can install and configure
 Block Storage controller components:
 
-#. Install OpenStack Block Storage Controller bundle:
+#. Install OpenStack Block Storage Controller bundle::
    
-   .. code:: text
-
    	# clr_bundle_add openstack-block-storage-controller
 
 #. Custom configurations will be located at ``/etc/cinder``.
 
-   #. Create ``/etc/cinder`` directory.
+   * Create ``/etc/cinder`` directory::
       
-      .. code:: text
-
       	mkdir /etc/cinder
 
-   #. Create empty cinder configuration file in
-      ``/etc/cinder/cinder.conf``
-
-      .. code:: text
+   * Create empty cinder configuration file in
+     ``/etc/cinder/cinder.conf``::
 
       	touch /etc/cinder/cinder.conf
 
 #. Edit the ``/etc/cinder/cinder.conf`` file and complete the following
    actions:
 
-   #. In the ``[database]`` section, configure database access. Replace
-      ``CINDER_DBPASS`` with the password you chose for the
-      database.
-
-      .. code:: text
+   * In the ``[database]`` section, configure database access. Replace
+     ``CINDER_DBPASS`` with the password you chose for the
+     database::
 
       	[database]
       	... 
       	connection=mysql://cinder:CINDER_DBPASS@controller/cinder
 
-   #. In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` section,
-      configure RabbitMQ message queue access. Replace ``RABBIT_PASS``
-      with the password you chose for the account in
-      RabbitMQ.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` section,
+     configure RabbitMQ message queue access. Replace ``RABBIT_PASS``
+     with the password you chose for the account in
+     RabbitMQ::
 
 		[DEFAULT] 
 		... 
@@ -216,12 +190,10 @@ Block Storage controller components:
 		rabbit_userid = openstack 
 		rabbit_password = RABBIT_PASS
 
-   #. In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
-      configure Identity service access. Replace ``CINDER_PASS`` with the
-      password you chose for the cinder user in the Identity
-      service.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
+     configure Identity service access. Replace ``CINDER_PASS`` with the
+     password you chose for the cinder user in the Identity
+     service::
 
 		[DEFAULT] 
 		... 
@@ -233,31 +205,23 @@ Block Storage controller components:
 		admin_user = cinder 
 		admin_password = CINDER_PASS
 
-   #. In the ``[DEFAULT]`` section, configure the ``my_ip`` option to
-      use the management interface IP address of the controller node:
+   * In the ``[DEFAULT]`` section, configure the ``my_ip`` option to
+     use the management interface IP address of the controller node::
 
-      .. code:: text
+       	[DEFAULT] ... my_ip = 10.0.0.11
 
-      	[DEFAULT] ... my_ip = 10.0.0.11
-
-#. Let ``systemd`` set the correct permissions for files in ``/etc/cinder``.
+#. Let ``systemd`` set the correct permissions for files in ``/etc/cinder``::
    
-   .. code:: text
-
    	# systemctl restart update-triggers.target
 
-#. Populate the Block Storage database:
+#. Populate the Block Storage database::
    
-   .. code:: text
-
    	# su -s /bin/sh -c "cinder-manage db sync" cinder
 
 Finalizing installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To finalize installation, enable and start the Block Storage services:
-
-.. code:: text
+To finalize installation, enable and start the Block Storage services::
 
 	# systemctl enable cinder-api cinder-scheduler 
 	# systemctl start cinder-api cinder-scheduler 
@@ -279,9 +243,7 @@ storage nodes.
 Install Block Storage volume components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install the packages:
-
-.. code:: text
+Install the packages::
 
 	# clr_bundle_add openstack-block-storage
 
@@ -294,24 +256,20 @@ storage node also needs an empty block storage device of suitable size
 for your environment.
 
 #. Create the LVM physical volume: ``/dev/sdb1`` If your system uses a
-   different device name, adjust these steps accordingly.
-
-   .. code:: text
+   different device name, adjust these steps accordingly::
 
    	# pvcreate /dev/sdb1 
 	Physical volume "/dev/sdb1" successfully created
 
-#. Create the LVM volume group ``cinder-volumes``:
+#. Create the LVM volume group ``cinder-volumes``::
    
-   .. code:: text
-
    	# vgcreate cinder-volumes /dev/sdb1 
    	Volume group "cinder-volumes" successfully created 
 
    The Block Storage service creates logical volumes in this volume
    group.
 
-#. Only instances can access Block Storage volumes. However, the
+   Only instances can access Block Storage volumes. However, the
    underlying operating system manages the devices associated with the
    volumes. By default, the LVM volume scanning tool scans the ``/dev``
    directory for block storage devices that contain volumes. If projects
@@ -319,13 +277,13 @@ for your environment.
    attempts to cache them which can cause a variety of problems with
    both the underlying operating system and project volumes. You must
    reconfigure LVM to scan only the devices that contain the
-   ``cinder-volume`` volume group. Edit the ``/etc/lvm/lvm.conf`` file
+   ``cinder-volume`` volume group. 
+
+#. Edit the ``/etc/lvm/lvm.conf`` file
    and complete the following action:
 
-   #. In the ``devices`` section, add a filter that accepts the
-      ``/dev/sdb`` device and rejects all other devices:
-
-      .. code:: text
+   * In the ``devices`` section, add a filter that accepts the
+     ``/dev/sdb`` device and rejects all other devices::
 
       	devices { 
       	filter = [ "a/sdb/", "r/.*/"] 
@@ -336,22 +294,18 @@ for your environment.
 #. Edit the ``/etc/cinder/cinder.conf`` file and complete the following
    actions:
 
-   #. In the ``[database]`` section, configure database access. Replace
-      ``CINDER_DBPASS`` with the password you chose for the Block Storage
-      database.
-
-      .. code:: text
+   * In the ``[database]`` section, configure database access. Replace
+     ``CINDER_DBPASS`` with the password you chose for the Block Storage
+     database::
 
       [database] 
       ... 
       connection = mysql://cinder:CINDER_DBPASS@controller/cinder
 
-   #. In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
-      configure *RabbitMQ* message queue access. Replace ``RABBIT_PASS``
-      with the password you chose for the openstack account in
-      *RabbitMQ*.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
+     configure *RabbitMQ* message queue access. Replace ``RABBIT_PASS``
+     with the password you chose for the openstack account in
+     *RabbitMQ*::
 
       	[DEFAULT] 
 		... 
@@ -362,11 +316,9 @@ for your environment.
 		rabbit_userid = openstack 
 		rabbit_password = RABBIT_PASS
 
-   #. In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
-      configure Identity service access. Replace ``CINDER_PASS`` with the
-      password you chose for the cinder user in the Identity service.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
+     configure Identity service access. Replace ``CINDER_PASS`` with the
+     password you chose for the cinder user in the Identity service::
 
 		[DEFAULT] 
 		... 
@@ -379,23 +331,19 @@ for your environment.
 		admin_user = cinder 
 		admin_password = CINDER_PASS
 
-   #. In the ``[DEFAULT]`` section, configure the ``my_ip`` option.
-      Replace *MANAGEMENT_INTERFACE_IP_ADDRESS* with the IP address
-      of the management network interface on your storage node,
-      typically 10.0.0.41 for the first node in the example
-      architecture.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` section, configure the ``my_ip`` option.
+     Replace *MANAGEMENT_INTERFACE_IP_ADDRESS* with the IP address
+     of the management network interface on your storage node,
+     typically 10.0.0.41 for the first node in the example
+     architecture::
 
 		[DEFAULT] 
 		... 
 		my_ip = MANAGEMENT_INTERFACE_IP_ADDRESS
 
-   #. In the ``[lvm]`` section, configure the LVM back end with the LVM
-      driver, ``cinder-volumes`` volume group, iSCSI protocol, and
-      appropriate iSCSI service.
-
-      .. code:: text
+   * In the ``[lvm]`` section, configure the LVM back end with the LVM
+     driver, ``cinder-volumes`` volume group, iSCSI protocol, and
+     appropriate iSCSI service::
 
 		[lvm] 
 		... 
@@ -404,35 +352,27 @@ for your environment.
 		iscsi_protocol = iscsi 
 		iscsi_helper = tgtadm
 
-   #. In the ``[DEFAULT]`` section, enable the LVM back end:
+   * In the ``[DEFAULT]`` section, enable the LVM back end::
       
-      .. code:: text
-
 		[DEFAULT] 
 		... 
 		enabled_backends = lvm
 
-   #. In the ``[DEFAULT]`` section, configure the location of the Image
-      service:
-
-      .. code:: text
+   * In the ``[DEFAULT]`` section, configure the location of the Image
+     service::
 
 		[DEFAULT] 
 		... 
 		glance_host = controller
 
-#. Let systemd set the correct permissions for files in /etc/cinder
+#. Let systemd set the correct permissions for files in ``/etc/cinder``::
    
-   .. code:: text
-
    	# systemctl restart update-triggers.target
 
 Finalizing installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Restart the Block Storage volume service including its dependencies:
-
-.. code:: text
+Restart the Block Storage volume service including its dependencies::
 
 	# systemctl enable iscsid tgtd cinder-volume 
 	# systemctl start iscsid tgtd cinder-volume
@@ -440,10 +380,8 @@ Restart the Block Storage volume service including its dependencies:
 Configuring a compute node to use Block Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform the following steps to enable a compute code to work with block
-storage:
-
-.. code:: text
+Perform the following steps to enable a compute node to work with block
+storage::
 
 	# systemctl enable iscsid 
 	# systemctl start iscsi-gen-initiatorname 

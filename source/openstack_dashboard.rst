@@ -1,7 +1,7 @@
-OpenStack* dashboard
+OpenStack* Dashboard
 ############################################################
 
-The OpenStack dashboard, also known as Horizon, is a web-based interface
+The OpenStack Dashboard, also known as Horizon, is a web-based interface
 for cloud administrators to manage various OpenStack resources and
 services. This dashboard enables interaction with the OpenStack Compute
 cloud controller via OpenStack APIs.
@@ -17,17 +17,13 @@ including identity, image service, compute, and either networking
 Environments with stand-alone services, such as Object Storage, cannot
 use the dashboard.
 
-To get started with OpenStack dashboard services:
+To get started with OpenStack Dashboard services:
 
-#. Install the OpenStack dashboard bundle:
+#. Install the OpenStack Dashboard bundle::
    
-   .. code:: text
-
    	# clr_bundle_add openstack-dashboard
 
-#. Enable and start the memcached service and the httpd server:
+#. Enable and start the memcached service and the httpd server::
    
-   .. code:: text
-
    	# systemctl enable httpd memcached  
    	# systemctl restart httpd memcached

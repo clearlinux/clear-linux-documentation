@@ -1,5 +1,5 @@
-OpenStack Image
-###############
+OpenStack* Image
+################
 
 The OpenStack Image service (glance) enables users to discover,
 register, and retrieve virtual machine images. It offers a
@@ -9,20 +9,18 @@ You can store virtual machine images made available through
 the Image service in a variety of locations, from simple file
 systems to object-storage systems like OpenStack Object Storage.
 
-.. important::
+  **Important:** For simplicity, this guide describes configuring the Image service to
+  use the ``file`` back end, which uploads and stores in a
+  directory on the controller node hosting the Image service. By
+  default, this directory is ``/var/lib/glance/images/``.
 
-   For simplicity, this guide describes configuring the Image service to
-   use the ``file`` back end, which uploads and stores in a
-   directory on the controller node hosting the Image service. By
-   default, this directory is ``/var/lib/glance/images/``.
+  Before you proceed, ensure that the controller node has at least
+  several gigabytes of space available in this directory.
 
-   Before you proceed, ensure that the controller node has at least
-   several gigabytes of space available in this directory.
-
-   For information on requirements for other back ends, see
-   `Configuration Reference <http://docs.openstack.org/liberty/
-   config-reference/content/
-   ch_configuring-openstack-image-service.html>`__.
+  For information on requirements for other back ends, see
+  `Configuration Reference <http://docs.openstack.org/liberty/
+  config-reference/content/
+  ch_configuring-openstack-image-service.html>`_.
 
 Install and configure the Image Service
 ---------------------------------------
@@ -39,44 +37,34 @@ create a database, service credentials, and API endpoints.
 
 #. To create the database, complete these steps:
 
-  * Use the database access client to connect to the database
-    server as the ``root`` user:
-
-    .. code-block:: console
+   * Use the database access client to connect to the database
+     server as the ``root`` user::
 
        $ mysql -u root -p
 
-  * Create the ``glance`` database:
-
-    .. code-block:: console
+   * Create the ``glance`` database::
 
        CREATE DATABASE glance;
 
-  * Grant proper access to the ``glance`` database:
-
-    .. code-block:: console
+   * Grant proper access to the ``glance`` database::
 
        GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' \
          IDENTIFIED BY 'GLANCE_DBPASS';
        GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' \
          IDENTIFIED BY 'GLANCE_DBPASS';
 
-    Replace ``GLANCE_DBPASS`` with a suitable password.
+     Replace ``GLANCE_DBPASS`` with a suitable password.
 
-  * Exit the database access client.
+   * Exit the database access client.
 
 #. Source the ``admin`` credentials to gain access to
-   admin-only CLI commands:
-
-   .. code-block:: console
+   admin-only CLI commands::
 
       $ source admin-openrc.sh
 #. To create the service credentials, complete these steps:
 
-  * Create the ``glance`` user. Replace ``GLANCE_PASS`` with a suitable
-    password.
-
-    .. code-block:: console
+   * Create the ``glance`` user. Replace ``GLANCE_PASS`` with a suitable
+     password::
 
        $ openstack user create --domain default --password GLANCE_PASS glance
        +-----------+----------------------------------+
@@ -88,16 +76,12 @@ create a database, service credentials, and API endpoints.
        | name      | glance                           |
        +-----------+----------------------------------+
 
-  * Add the ``admin`` role to the ``glance`` user and
-    ``service`` project:
-
-    .. code-block:: console
+   * Add the ``admin`` role to the ``glance`` user and
+     ``service`` project::
 
        $ openstack role add --project service --user glance admin
 
-  * Create the ``glance`` service entity:
-
-    .. code-block:: console
+   * Create the ``glance`` service entity::
 
        $ openstack service create --name glance \
          --description "OpenStack Image service" image
@@ -111,9 +95,7 @@ create a database, service credentials, and API endpoints.
        | type        | image                            |
        +-------------+----------------------------------+
 
-#. Create the Image service API endpoints:
-
-  .. code-block:: console
+#. Create the Image service API endpoints::
 
      $ openstack endpoint create --region RegionOne \
        image public http://controller:9292
@@ -166,45 +148,35 @@ create a database, service credentials, and API endpoints.
 Install and configure components
 --------------------------------
 
-#. Install OpenStack Image bundle:
-
-   .. code:: console
+#. Install OpenStack Image bundle::
 
     # clr_bundle_add openstack-image
 
-#. configurations will be located at ``/etc/glance``
+#. configurations will be located at ``/etc/glance``.
 
-  * Create ``/etc/glance`` directory:
-
-     .. code:: console
+   * Create ``/etc/glance`` directory::
 
        # mkdir /etc/glance
 
-  * Create empty configuration files ``/etc/glance/glance-api.conf``
-    and ``/etc/glance/glance-registry.conf``:
-
-     .. code:: console
+   * Create empty configuration files ``/etc/glance/glance-api.conf``
+     and ``/etc/glance/glance-registry.conf``::
 
        # touch /etc/glance/glance-{api,registry}.conf
 
 #. Edit the ``/etc/glance/glance-api.conf`` file and complete
    the following actions:
 
-  * In the ``[database]`` section, configure database access:
-
-    .. code-block:: ini
+   * In the ``[database]`` section, configure database access::
 
        [database]
        ...
        connection = mysql://glance:GLANCE_DBPASS@controller/glance
 
-    Replace ``GLANCE_DBPASS`` with the password you chose for the
-    Image service database.
+     Replace ``GLANCE_DBPASS`` with the password you chose for the
+     Image service database.
 
-  * In the ``[keystone_authtoken]`` section, configure Identity
-    service access:
-
-    .. code-block:: ini
+   * In the ``[keystone_authtoken]`` section, configure Identity
+     service access::
 
        [keystone_authtoken]
        ...
@@ -217,27 +189,23 @@ Install and configure components
        username = glance
        password = GLANCE_PASS
 
-    Replace ``GLANCE_PASS`` with the password you chose for the
-    ``glance`` user in the Identity service.
+     Replace ``GLANCE_PASS`` with the password you chose for the
+     ``glance`` user in the Identity service.
 
 #. Edit the ``/etc/glance/glance-registry.conf`` file and
    complete the following actions:
 
-  * In the ``[database]`` section, configure database access:
-
-    .. code-block:: ini
+   * In the ``[database]`` section, configure database access::
 
        [database]
        ...
        connection = mysql://glance:GLANCE_DBPASS@controller/glance
 
-    Replace ``GLANCE_DBPASS`` with the password you chose for the
-    Image service database.
+     Replace ``GLANCE_DBPASS`` with the password you chose for the
+     Image service database.
 
-  * In the ``[keystone_authtoken]`` section,configure Identity
-    service access:
-
-    .. code-block:: ini
+   * In the ``[keystone_authtoken]`` section, configure Identity
+     service access::
 
        [keystone_authtoken]
        ...
@@ -250,18 +218,14 @@ Install and configure components
        username = glance
        password = GLANCE_PASS
 
-    Replace ``GLANCE_PASS`` with the password you chose for the
-    ``glance`` user in the Identity service.
+     Replace ``GLANCE_PASS`` with the password you chose for the
+     ``glance`` user in the Identity service.
 
-#. Let systemd set the correct permissions for files in ``/etc/glance``.
-
-   .. code:: console
+#. Let systemd set the correct permissions for files in ``/etc/glance``::
 
     # systemctl restart update-triggers.target
 
-#. Populate the Image Service database:
-
-   .. code:: console
+#. Populate the Image Service database::
 
     # su -s /bin/sh -c "glance-manage db_sync" glance
 
@@ -269,9 +233,7 @@ Finalize installation
 ---------------------
 
 #. Start the Image Service services and configure them to start when the
-   system boots:
-
-   .. code:: console
+   system boots::
 
     # systemctl enable glance-api.service glance-registry.service
     # systemctl start glance-api.service glance-registry.service
@@ -291,31 +253,23 @@ For information about how to manage images, see the
 <http://docs.openstack.org/user-guide/common/cli_manage_images.html>`__.
 
 #. In each client environment script, configure the Image service
-   client to use API version 2.0:
-
-   .. code-block:: console
+   client to use API version 2.0::
 
       $ echo "export OS_IMAGE_API_VERSION=2" \
         | tee -a admin-openrc.sh demo-openrc.sh
 
 #. Source the ``admin`` credentials to gain access to
-   admin-only CLI commands:
-
-   .. code-block:: console
+   admin-only CLI commands::
 
       $ source admin-openrc.sh
 
-#. Download the source image:
-
-   .. code-block:: console
+#. Download the source image::
 
       $ curl -Ok http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
 
 #. Upload the image to the Image service using the
    `QCOW2` disk format, `bare` container format, and
-   public visibility so all projects can access it:
-
-   .. code-block:: console
+   public visibility so all projects can access it::
 
       $ openstack image create cirros --file cirros-0.3.4-x86_64-disk.img \
         --disk-format qcow2 --container-format bare --public
@@ -342,9 +296,7 @@ For information about how to manage images, see the
         | visibility       | public                                               |
         +------------------+------------------------------------------------------+
 
-#. Confirm upload of the image and validate attributes:
-
-   .. code-block:: console
+#. Confirm upload of the image and validate attributes::
 
       $ openstack image list
       +--------------------------------------+--------+

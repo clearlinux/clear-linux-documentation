@@ -30,15 +30,11 @@ management interface on the controller node.
 
 To configure name resolution:
 
-#. Set the hostname of the node to ``controller``:
-
-   ::
+#. Set the hostname of the node to ``controller``::
 
        # hostnamectl set-hostname controller
 
-#. Edit the ``/etc/hosts`` file to contain the following:
-
-   ::
+#. Edit the ``/etc/hosts`` file to contain the following::
 
        # controller 10.0.0.11 controller
        # compute1 10.0.0.31 compute1

@@ -1,4 +1,4 @@
-OpenStack orchestration
+OpenStack* Orchestration
 ############################################################
 
 The Orchestration module provides template-based OpenStack* API calls
@@ -27,44 +27,34 @@ database, service credentials, and API endpoints.
 
 #. To create the database, complete these steps:
 
-   #. Use the database access client to connect to the database server
-      as the ``root`` user:
-
-      .. code:: text
+   * Use the database access client to connect to the database server
+     as the ``root`` user::
 
       	$ mysql -u root -p
 
-   #. Create the ``heat`` database:
+   * Create the ``heat`` database::
       
-      .. code:: text
-
       	CREATE DATABASE heat;
 
-   #. Grant proper access to the ``heat`` database.
-      Replace *HEAT_DBPASS*  with a suitable password.
-
-      .. code:: text
+   * Grant proper access to the ``heat`` database.
+     Replace *HEAT_DBPASS*  with a suitable password::
 
 		GRANT ALL PRIVILEGES ON heat.* TO 'heat'@'localhost' \
 		IDENTIFIED BY 'HEAT_DBPASS'; 
 		GRANT ALL PRIVILEGES ON heat.* TO 'heat'@'%' \
 		IDENTIFIED BY 'HEAT_DBPASS';
      
-   #. Exit the database access client.
+   * Exit the database access client.
 
 #. Source the ``admin`` credentials to gain access to admin-only CLI
-   commands:
-
-   .. code:: text
+   commands::
 
    	$ source admin-openrc.sh
 
 #. To create the service credentials, complete these steps:
 
-   #. Create the ``heat`` user:
+   * Create the ``heat`` user::
       
-      .. code:: text
-
 		$ openstack user create --password-prompt heat 
 		User Password: 
 		Repeat User Password: 
@@ -78,10 +68,8 @@ database, service credentials, and API endpoints.
 		| username | heat                             | 
 		+----------+----------------------------------+
       
-   #. Add the ``admin`` role to the ``heat`` user:
+   * Add the ``admin`` role to the ``heat`` user::
       
-      .. code:: text
-
 		$ openstack role add --project service --user heat admin 
 		+-------+----------------------------------+ 
 		| Field | Value                            | 
@@ -90,10 +78,8 @@ database, service credentials, and API endpoints.
 		| name  | admin                            | 
 		+-------+----------------------------------+
 
-   #. Create the ``heat_stack_owner`` role:
+   * Create the ``heat_stack_owner`` role::
       
-      .. code:: text
-
 		$ openstack role create heat_stack_owner 
 		+-------+----------------------------------+ 
 		| Field | Value                            | 
@@ -102,13 +88,11 @@ database, service credentials, and API endpoints.
 		| name  | heat_stack_owner                 | 
 		+-------+----------------------------------+
 
-   #. Add the ``heat_stack_owner`` role to the ``demo`` tenant and
-      user.
+   * Add the ``heat_stack_owner`` role to the ``demo`` tenant and
+     user.
 
-      Note: You must add the ``heat_stack_owner`` role to users that
-      manage stacks.
-
-      .. code:: text
+     Note: You must add the ``heat_stack_owner`` role to users that
+     manage stacks::
 
 		$ openstack role add --project demo --user demo heat_stack_owner 
 		+-------+----------------------------------+ 
@@ -118,24 +102,23 @@ database, service credentials, and API endpoints.
 		| name  | heat_stack_owner                 | 
 		+-------+----------------------------------+
 
-   #. Create the ``heat_stack_user`` role. 
+   * Create the ``heat_stack_user`` role. 
       
-      Note: The Orchestration service automatically assigns the ``heat_stack_user`` role to users that it creates during stack deployment. By default, this role restricts API operations. To avoid conflicts, do not add this role to users with the heat_stack_owner role.
+     Note: The Orchestration service automatically assigns the ``heat_stack_user`` role 
+     to users that it creates during stack deployment. By default, this role restricts 
+     API operations. To avoid conflicts, do not add this role to users with the 
+     heat_stack_owner role::
 
-      .. code:: text
+		$ openstack role create heat_stack_user 
+		+-------+----------------------------------+ 
+		| Field | Value                            | 
+		+-------+----------------------------------+ 
+		| id    | e01546b1a81c4e32a6d14a9259e60154 | 
+		| name  | heat_stack_user                  | 
+		+-------+----------------------------------+
 
-	$ openstack role create heat_stack_user 
-	+-------+----------------------------------+ 
-	| Field | Value                            | 
-	+-------+----------------------------------+ 
-	| id    | e01546b1a81c4e32a6d14a9259e60154 | 
-	| name  | heat_stack_user                  | 
-	+-------+----------------------------------+
-
-   #. Create the ``heat`` and ``heat-cfn`` service entities:
+   * Create the ``heat`` and ``heat-cfn`` service entities::
       
-      .. code:: text
-
 		+-------------+----------------------------------+ 
 		| Field       | Value                            | 
 		+-------------+----------------------------------+ 
@@ -157,10 +140,8 @@ database, service credentials, and API endpoints.
 		| type        | cloudformation                   | 
 		+-------------+----------------------------------+
 
-#. Create the Orchestration service API endpoints:
+#. Create the Orchestration service API endpoints::
    
-   .. code:: text
-
 		$ openstack endpoint create \
 		--publicurl http://controller:8004/v1/%\(tenant_id\)s \
 		--internalurl http://controller:8004/v1/%\(tenant_id\)s \
@@ -203,37 +184,29 @@ Installing and configuring the Orchestration components
 
 To install and configure the Orchestration components:
 
-#. Install OpenStack Orchestration bundle:
+#. Install OpenStack Orchestration bundle::
    
-   .. code:: text
-
    	# clr_bundle_add openstack-orchestration
 
-#. Create the ``/etc/heat/heat.conf file``.
+#. Create the ``/etc/heat/heat.conf file``::
    
-   .. code:: text
-
    	# mkdir /etc/heat # touch /etc/heat/heat.conf
 
 #. Edit the ``/etc/heat/heat.conf`` file and complete the following
    actions:
 
-   #. In the ``[database]`` section, configure database access.
-      Replace *HEAT_DBPASS*  with the password you chose for the
-      Orchestration database.
-
-      .. code:: text
+   * In the ``[database]`` section, configure database access.
+     Replace *HEAT_DBPASS*  with the password you chose for the
+     Orchestration database::
 
       	[database] 
       	... 
       	connection = mysql://heat:HEAT_DBPASS@controller/heat
 
-   #. In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
-      configure RabbitMQ message queue access.
-      Replace *``RABBIT_PASS``*  with the password you chose for
-      the ``openstack`` account in RabbitMQ.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
+     configure RabbitMQ message queue access.
+     Replace *``RABBIT_PASS``*  with the password you chose for
+     the ``openstack`` account in RabbitMQ::
 
 		[DEFAULT] 
 		... 
@@ -244,12 +217,10 @@ To install and configure the Orchestration components:
 		rabbit_userid = openstack 
 		rabbit_password = RABBIT_PASS
 
-   #. In the ``[keystone_authtoken]`` and ``[ec2authtoken]`` sections,
-      configure Identity service access. Replace *HEAT_PASS*  with
-      the password you chose for the ``heat`` user in the Identity
-      service.
-
-      .. code:: text
+   * In the ``[keystone_authtoken]`` and ``[ec2authtoken]`` sections,
+     configure Identity service access. Replace *HEAT_PASS*  with
+     the password you chose for the ``heat`` user in the Identity
+     service::
 
 		[keystone_authtoken] 
 		... 
@@ -262,22 +233,18 @@ To install and configure the Orchestration components:
 		... 
 		auth_uri = http://controller:5000/v2.0
 
-   #. In the ``[DEFAULT]`` section, configure the metadata and wait
-      condition URLs:
-
-      .. code:: text
+   * In the ``[DEFAULT]`` section, configure the metadata and wait
+     condition URLs::
 
 		[DEFAULT] 
 		... 
 		heat_metadata_server_url = http://controller:8000 
 		heat_waitcondition_server_url = http://controller:8000/v1/waitcondition
 
-   #. In the ``[DEFAULT]`` section, configure information about the
-      heat Identity service domain. Replace  *``HEAT_DOMAIN_PASS``*
-       with the password you chose for the admin user of
-      the ``heat`` user domain in the Identity service.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` section, configure information about the
+     heat Identity service domain. Replace  *``HEAT_DOMAIN_PASS``*
+     with the password you chose for the admin user of
+     the ``heat`` user domain in the Identity service::
 
 		[DEFAULT] 
 		... 
@@ -286,33 +253,25 @@ To install and configure the Orchestration components:
 		stack_user_domain_name = heat_user_domain
 
 #. Source the ``admin`` credentials to gain access to admin-only CLI
-   commands:
-
-   .. code:: text
+   commands::
 
    	$ source admin-openrc.sh
 
 #. Create the heat domain in Identity service.
    Replace *``HEAT_DOMAIN_PASS``*  with a suitable
-   password.
-
-   .. code:: text
+   password::
 
 	$ heat-keystone-setup-domain \
 	--stack-user-domain-name heat_user_domain \
 	--stack-domain-admin heat_domain_admin \
 	--stack-domain-admin-password HEAT_DOMAIN_PASS
 
-#. Let systemd set the correct permissions for files in ``/etc/heat``.
-
-   .. code:: text
+#. Let systemd set the correct permissions for files in ``/etc/heat``::
 
    	# systemctl restart update-triggers.target
 
-#. Populate the Orchestration database:
+#. Populate the Orchestration database::
    
-   .. code:: text
-
    	# su -s /bin/sh -c "heat-manage db_sync" heat``
 
 Finalizing installation
@@ -320,10 +279,8 @@ Finalizing installation
 
 Complete this step to finalize the installation:
 
--  Start the Orchestration services and configure them to start when the
-   system boots:
-
-   .. code:: text
+* Start the Orchestration services and configure them to start when the
+  system boots::
 
    	# systemctl enable heat-api.service heat-api-cfn.service heat-engine.service 
    	# systemctl start heat-api.service heat-api-cfn.service heat-engine.service``

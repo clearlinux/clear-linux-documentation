@@ -1,4 +1,4 @@
-OpenStack telemetry service
+OpenStack* Telemetry
 ############################################################
 
 Overview
@@ -28,33 +28,25 @@ Before installing and configuring the ``telemetry`` module, install
 MongoDB* and create a MongoDB database, service credentials, and API
 endpoint.
 
-#. Install the MongoDB bundle:
+#. Install the MongoDB bundle::
    
-   .. code:: text
-
    	# clr_bundle_add database-mongodb
 
 #. Create the ``/etc/mongodb/`` folder and the
    ``/etc/mongodb/openstack.cnf`` file.
 #. Configure the ``bind_ip`` key to use the management interface IP
-   address of the controller node.
-
-   .. code:: text
+   address of the controller node::
 
    	bind_ip = 10.0.0.11
 
 #. Start the database service and configure it to start when the system
-   boots with the following commands:
-
-   .. code:: text
+   boots with the following commands::
 
    	# systemctl enable mongodb.service 
    	# systemctl start mongodb.service
 
 #. Create the ``ceilometer`` database. Replace *CEILOMETER_DBPASS*
-   with a suitable password.
-
-   .. code:: text
+   with a suitable password::
 
 	# mongo --host controller --eval ' 
 	db = db.getSiblingDB("ceilometer"); 
@@ -67,18 +59,14 @@ endpoint.
 	Successfully added user: { "user" : "ceilometer", "roles" : [ "readWrite", "dbAdmin" ] }
 
 #. Source the ``admin`` credentials to gain access to admin-only CLI
-   commands:
-
-   .. code:: text
+   commands::
 
    	$ source admin-openrc.sh
 
 #. To create the service credentials, complete these steps:
 
-   #. Create the ``ceilometer`` user:
+   * Create the ``ceilometer`` user::
       
-      .. code:: text
-
 		$ openstack user create --password-prompt ceilometer 
 		User Password: 
 		Repeat User Password: 
@@ -92,10 +80,8 @@ endpoint.
 		| username | ceilometer                       | 
 		+----------+----------------------------------+
 
-   #. Add the ``admin`` role to the ``ceilometer`` user.
+   * Add the ``admin`` role to the ``ceilometer`` user::
       
-      .. code:: text
-
 		$ openstack role add --project service --user ceilometer admin 
 		+-------+----------------------------------+ 
 		| Field | Value                            | 
@@ -104,10 +90,8 @@ endpoint.
 		| name  | admin                            | 
 		+-------+----------------------------------+
 
-   #. Create the ``ceilometer`` service entity:
+   * Create the ``ceilometer`` service entity::
       
-      .. code:: text
-
 		$ openstack service create --name ceilometer \
 		--description "Telemetry" metering 
 		+-------------+----------------------------------+ 
@@ -120,10 +104,8 @@ endpoint.
 		| type        | metering                         | 
 		+-------------+----------------------------------+
 
-#. Create the Telemetry module API endpoint:
+#. Create the Telemetry module API endpoint::
    
-   .. code:: text
-
 	$ openstack endpoint create \
 	  --publicurl http://controller:8777 \
 	  --internalurl http://controller:8777 \
@@ -146,54 +128,42 @@ endpoint.
 Installing and configuring the Telemetry module components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Install the OpenStack Telemetry Controller bundle:
+#. Install the OpenStack Telemetry Controller bundle::
    
-   .. code:: text
-
    	# clr_bundle_add openstack-telemetry-controller
 
-#. Generate a random value to use as the telemetry secret:
+#. Generate a random value to use as the telemetry secret::
    
-   .. code:: text
-
    	$ openssl rand -hex 10
 
 #. Custom configurations will be located at ``/etc/ceilometer``.
 
-   #. Create ``/etc/ceilometer`` directory.
+   * Create ``/etc/ceilometer`` directory::
       
-      .. code:: text
-
       	mkdir /etc/ceilometer
 
-   #. Create the empty ceilometer configuration file
+   * Create the empty ceilometer configuration file::
       
-      .. code:: text
-
       	/etc/ceilometer/ceilometer.conf
        	touch /etc/ceilometer/ceilometer.conf
 
 #. Edit the following file:\ ``/etc/ceilometer/ceilometer.conf``\ Then
    complete the following actions:
 
-   #. In the ``[database]`` section, configure database access. Replace
-      *``CEILOMETER_DBPASS``* with the password you chose for the
-      Telemetry module database. You must escape special characters such
-      as ':', '/', '+', and '@' in the connection string in accordance
-      with RFC2396.
-
-      .. code:: text
+   * In the ``[database]`` section, configure database access. Replace
+     *``CEILOMETER_DBPASS``* with the password you chose for the
+     Telemetry module database. You must escape special characters such
+     as ':', '/', '+', and '@' in the connection string in accordance
+     with RFC2396::
 
       	[database] 
       	... 
       	connection = mongodb://ceilometer:CEILOMETER_DBPASS@controller:27017/ceilometer
 
-   #. In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
-      configure RabbitMQ message queue access. Replace *``RABBIT_PASS``*
-      with the password you chose for the ``openstack`` account in
-      RabbitMQ.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
+     configure RabbitMQ message queue access. Replace *``RABBIT_PASS``*
+     with the password you chose for the ``openstack`` account in
+     RabbitMQ::
 
 		[DEFAULT] 
 		... 
@@ -203,12 +173,10 @@ Installing and configuring the Telemetry module components
 		rabbit_userid = openstack 
 		rabbit_password = RABBIT_PASS
 
-   #. In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
-      configure Identity service access. Replace *``CEILOMETER_PASS``*
-      with the password you chose for the ``celiometer`` user in the
-      Identity service.
-
-      .. code:: text
+   * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
+     configure Identity service access. Replace *``CEILOMETER_PASS``*
+     with the password you chose for the ``celiometer`` user in the
+     Identity service::
 
 		[DEFAULT] 
 		... 
@@ -220,11 +188,9 @@ Installing and configuring the Telemetry module components
 		admin_user = ceilometer 
 		admin_password = CEILOMETER_PASS
 
-   #. In the ``[service_credentials]`` section, configure service
-      credentials. Replace *``CEILOMETER_PASS``* with the password you
-      chose for the ``ceilometer`` user in the Identity service.
-
-      .. code:: text
+   * In the ``[service_credentials]`` section, configure service
+     credentials. Replace *``CEILOMETER_PASS``* with the password you
+     chose for the ``ceilometer`` user in the Identity service::
 
 		[service_credentials] 
 		... 
@@ -235,11 +201,9 @@ Installing and configuring the Telemetry module components
 		os_endpoint_type = internalURL 
 		os_region_name = RegionOne
 
-   #. In the ``[publisher]`` section, configure the telemetry secret.
-      Replace *``TELEMETRY_SECRET``* with the telemetry secret that you
-      generated in a previous step.
-
-      .. code:: text
+   * In the ``[publisher]`` section, configure the telemetry secret.
+     Replace *``TELEMETRY_SECRET``* with the telemetry secret that you
+     generated in a previous step::
 
 		[publisher] 
 		... 
@@ -248,10 +212,8 @@ Installing and configuring the Telemetry module components
 Finalizing installation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Start the Telemetry services and configure them to start when the system boots:
+* Start the Telemetry services and configure them to start when the system boots::
   
-  .. code:: text
-
 	# systemctl enable ceilometer-api.service ceilometer-agent-notification.service ceilometer-agent-central.service ceilometer-collector.service \
 	ceilometer-alarm-evaluator.service ceilometer-alarm-notifier.service 
 	# systemctl start ceilometer-api.service ceilometer-agent-notification.service ceilometer-agent-central.service ceilometer-collector.service \

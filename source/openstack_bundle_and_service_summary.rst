@@ -1,4 +1,4 @@
-OpenStack* Bundle and service summary
+OpenStack* bundle and service summary
 ############################################################
 
 OpenStack provides an Infrastructure-as-a-Service (IaaS) solution
