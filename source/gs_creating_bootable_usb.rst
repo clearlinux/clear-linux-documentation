@@ -1,12 +1,16 @@
+.. _gs_creating_bootable_usb:
+
 Creating a bootable USB to install the OS
-=========================================
+##########################################
+
 Here's how to create a USB drive that initiates the process for
-`installing Clear Linux OS for Intel Architecture as host <gs_installing_clr_as_host.html>`_.
-Alternatively, you can test the OS by `running in a virtualized environment <gs_running_clr_virtual.html>`_.
+:ref:`gs_installing_clr_as_host`. Alternatively, you can test the 
+OS by :ref:`gs_running_clr_virtual`.
 
 
 What you need
--------------
+=============
+
 * A USB stick, formatted as ``ext4``. Remember that the process of flashing
   data to a USB completely deletes the contents of the drive; as always, run
   ``dd`` with caution.
@@ -19,7 +23,7 @@ What you need
 
 
 Download and checksum
----------------------
+=====================
 
 ::
 
@@ -27,7 +31,8 @@ $ wget https://download.clearlinux.org/image/clear-[release_number]-installer.im
 $ sha512sum clear-[release_number]-installer.img.xz`
 
 Confirm the mount point on the USB drive
-----------------------------------------
+========================================
+
 Using ``$ lsblk`` is helpful to show the block-level devices; a USB drive
 usually shows up under ``/sdb`` or ``/sdc`` (almost never ``/sda``), and should
 indicate disk space approximately the size of the USB drive::
@@ -42,7 +47,8 @@ and make sure the drive isn't already mounted. The easiest way is with::
 	# df
 
 Flash the image to the USB
---------------------------
+==========================
+
 Flash the image with the following command, adding the ``-v`` option for verbose mode
 (recommended), as the image file may be large, and the process can take a while. This
 may need to be done as root::
@@ -50,7 +56,8 @@ may need to be done as root::
   $ xzcat -v clear-[release_number]-installer.img.xz | dd of=/dev/sdb bs=4M
 
 Wait for the final confirmation
--------------------------------
+===============================
+
 This example shows ``clear-2190-installer.img.xz`` flashed to a 16GB USB drive
 mounted on ``/sdc``.
 
@@ -59,4 +66,4 @@ mounted on ``/sdc``.
    :alt: confirmation
 
 Success!  Your USB stick is now ready to boot and initiate the process for
-`installing Clear Linux OS for Intel Architecture as host <gs_installing_clr_as_host.html>`_.
+:ref:`gs_installing_clr_as_host`.
