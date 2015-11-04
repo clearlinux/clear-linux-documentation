@@ -118,7 +118,7 @@ Install and configure components
 
      Replace ``KEYSTONE_DBPASS`` with the password you chose for the database.
 
-#. Enter the following command::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
 
@@ -165,7 +165,7 @@ environment variables to reduce command length.
 
      $ export OS_TOKEN=294a4c8a8a475f9b9836
 
-#. Configure the endpoint::
+#. Configure the endpoint URL::
 
      $ export OS_URL=http://controller:35357/v3
 
@@ -180,11 +180,12 @@ environment variables to reduce command length.
 Create the service entity and API endpoints
 -------------------------------------------
 
-The Identity service manages a catalog of services in your OpenStack
-environment. Services use this catalog to determine the other services
-available in your environment.
 
-#. Create the service entity for the Identity service::
+#. The Identity service manages a catalog of services in your OpenStack
+   environment. Services use this catalog to determine the other services
+   available in your environment.
+
+   Create the service entity for the Identity service::
 
      $ openstack service create \
        --name keystone --description "OpenStack Identity" identity
@@ -198,7 +199,7 @@ available in your environment.
      | type        | identity                         |
      +-------------+----------------------------------+
 
-   The Identity service manages a catalog of API endpoints associated with
+#. The Identity service manages a catalog of API endpoints associated with
    the services in your OpenStack environment. Services use this catalog to
    determine how to communicate with other services in your environment.
 
@@ -216,7 +217,7 @@ available in your environment.
    management network for all endpoint variations and the default
    ``RegionOne`` region.
 
-#. Create the Identity service API endpoints::
+   Create the Identity service API endpoints::
 
      $ openstack endpoint create --region RegionOne \
        identity public http://controller:5000/v3
@@ -291,10 +292,12 @@ Complete the following steps to create projects, users and roles:
         +-------------+----------------------------------+
 
    * Create the ``admin`` user. Replace ``ADMIN_PASS`` with a suitable
-     password and ``EMAIL_ADDRESS`` with a suitable e-mail address::
+     password::
 
         $ openstack user create --domain default \
-          --password ADMIN_PASS --email EMAIL_ADDRESS admin
+          --password-prompt admin
+        User Password:
+        Repeat User Password:
         +-----------+----------------------------------+
         | Field     | Value                            |
         +-----------+----------------------------------+
@@ -357,11 +360,12 @@ Complete the following steps to create projects, users and roles:
         +-------------+----------------------------------+
 
    * Create the ``demo`` user.  Replace ``DEMO_PASS``
-     with a suitable password and ``EMAIL_ADDRESS`` with a suitable
-     e-mail address::
+     with a suitable password::
 
         $ openstack user create --domain default \
-          --password DEMO_PASS --email EMAIL_ADDRESS demo
+          --password-prompt demo
+        User Password:
+        Repeat User Password:
         +-----------+----------------------------------+
         | Field     | Value                            |
         +-----------+----------------------------------+
