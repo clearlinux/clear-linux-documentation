@@ -53,7 +53,9 @@ create a database, service credentials, and API endpoints.
    * Create the ``nova`` user. Replace ``NOVA_PASS`` with a suitable
      password::
 
-        $ openstack user create --domain default --password NOVA_PASS nova
+        $ openstack user create --domain default --password-prompt nova
+        User Password:
+        Repeat User Password:
         +-----------+----------------------------------+
         | Field     | Value                            |
         +-----------+----------------------------------+
@@ -237,6 +239,12 @@ Finalizing Compute installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Complete the following steps to finalize Compute installation:
+
+#. Create the ``/etc/nginx`` directory if doesn't exists and setup the
+   nova-api to start with the Nginx http server::
+
+    # mkdir -p /etc/nginx
+    # cp /usr/share/nginx/conf.d/nova-api.template /etc/nginx/nova-api.conf
 
 #. Start the Compute Service services and configure them to start
    when the system boots::
