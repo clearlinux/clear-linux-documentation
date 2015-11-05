@@ -221,7 +221,7 @@ Install and configure components
      Replace ``GLANCE_PASS`` with the password you chose for the
      ``glance`` user in the Identity service.
 
-#. Let systemd set the correct permissions for files in ``/etc/glance``::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
 

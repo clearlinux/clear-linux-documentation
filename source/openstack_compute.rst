@@ -50,8 +50,7 @@ create a database, service credentials, and API endpoints.
 
 #. To create the service credentials, complete these steps:
 
-   * Create the ``nova`` user. Replace ``NOVA_PASS`` with a suitable
-     password::
+   * Create the ``nova`` user::
 
         $ openstack user create --domain default --password-prompt nova
         User Password:
@@ -227,7 +226,7 @@ To install and configure the Compute controller components:
         ...
         host = controller
 
-#. Let systemd set the correct permissions for files in ``/etc/nova``::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
 

@@ -291,8 +291,7 @@ Complete the following steps to create projects, users and roles:
         | parent_id   | None                             |
         +-------------+----------------------------------+
 
-   * Create the ``admin`` user. Replace ``ADMIN_PASS`` with a suitable
-     password::
+   * Create the ``admin`` user::
 
         $ openstack user create --domain default \
           --password-prompt admin
@@ -359,8 +358,7 @@ Complete the following steps to create projects, users and roles:
         | parent_id   | None                             |
         +-------------+----------------------------------+
 
-   * Create the ``demo`` user.  Replace ``DEMO_PASS``
-     with a suitable password::
+   * Create the ``demo`` user::
 
         $ openstack user create --domain default \
           --password-prompt demo
