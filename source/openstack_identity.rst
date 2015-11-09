@@ -403,6 +403,10 @@ services.
 
      $ unset OS_TOKEN OS_URL
 
+#. Restart the keystone-admin service to reload the changes::
+
+     # systemctl restart uwsgi@keystone-admin.service
+
 #. As the ``admin`` user, request an authentication token::
 
      $ openstack --os-auth-url http://controller:35357/v3 \
