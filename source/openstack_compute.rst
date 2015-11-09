@@ -381,7 +381,7 @@ Finalize compute node installation
         ...
         virt_type = qemu
 
-#. Let systemd set the correct permissions for files in ``/etc/nova``::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
 
