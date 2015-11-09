@@ -63,10 +63,11 @@ create a database, service credentials, and API endpoints.
       $ source admin-openrc.sh
 #. To create the service credentials, complete these steps:
 
-   * Create the ``glance`` user. Replace ``GLANCE_PASS`` with a suitable
-     password::
+   * Create the ``glance`` user::
 
-       $ openstack user create --domain default --password GLANCE_PASS glance
+       $ openstack user create --domain default --password-prompt glance
+       User Password:
+       Repeat User Password:
        +-----------+----------------------------------+
        | Field     | Value                            |
        +-----------+----------------------------------+
