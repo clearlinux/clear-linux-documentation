@@ -26,4 +26,4 @@ To get started with OpenStack Dashboard services:
 #. Enable and start the dashboard socket and the Nginx server::
    
         # systemctl enable nginx uwsgi@horizon.socket
-        # systemctl restart nginx uwsgi@horizon.service
+        # systemctl restart nginx uwsgi@horizon.socket
