@@ -394,18 +394,18 @@ Verify operation
 Verify operation of the Identity service before installing other
 services.
 
-#. For security reasons, remove the admin_token value in
+#. For security reasons, remove admin_token from
    ``/etc/keystone/keystone.conf``:
 
    Edit the ``[DEFAULT]`` section and remove ``admin_token``.
 
-#. Unset the temporary ``OS_TOKEN`` and ``OS_URL`` environment variables::
-
-     $ unset OS_TOKEN OS_URL
-
 #. Restart the keystone-admin service to reload the changes::
 
      # systemctl restart uwsgi@keystone-admin.service
+
+#. Unset the temporary ``OS_TOKEN`` and ``OS_URL`` environment variables::
+
+     $ unset OS_TOKEN OS_URL
 
 #. As the ``admin`` user, request an authentication token::
 
