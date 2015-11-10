@@ -239,11 +239,12 @@ Finalizing Compute installation
 
 Complete the following steps to finalize Compute installation:
 
-#. Create the ``/etc/nginx`` directory if doesn't exists and setup the
-   nova-api to start with the Nginx http server::
+#. Create the ``/etc/nginx`` directory if doesn't exists and setup nova-api
+   and nova-metadata to start with the Nginx http server::
 
     # mkdir -p /etc/nginx
     # ln -s /usr/share/nginx/conf.d/nova-api.template /etc/nginx/nova-api.conf
+    # ln -s /usr/share/nginx/conf.d/nova-metadata.template /etc/nginx/nova-metadata.conf
 
 #. Restart the Nginx server to reload new configurations::
 
@@ -253,13 +254,13 @@ Complete the following steps to finalize Compute installation:
    when the system boots::
 
     # systemctl enable uwsgi@nova-api.socket \
-      nova-cert.service nova-consoleauth.service \
-      nova-scheduler.service nova-conductor.service \
-      nova-novncproxy.service
+      uwsgi@nova-metadata.socket nova-cert.service \
+      nova-consoleauth.service nova-scheduler.service \
+      nova-conductor.service nova-novncproxy.service
     # systemctl start uwsgi@nova-api.socket \
-      nova-cert.service nova-consoleauth.service \
-      nova-scheduler.service nova-conductor.service \
-      nova-novncproxy.service
+      uwsgi@nova-metadata.socket nova-cert.service \
+      nova-consoleauth.service nova-scheduler.service \
+      nova-conductor.service nova-novncproxy.service
 
 Install and configure a compute note
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
