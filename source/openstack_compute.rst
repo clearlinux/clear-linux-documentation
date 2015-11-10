@@ -243,7 +243,11 @@ Complete the following steps to finalize Compute installation:
    nova-api to start with the Nginx http server::
 
     # mkdir -p /etc/nginx
-    # cp /usr/share/nginx/conf.d/nova-api.template /etc/nginx/nova-api.conf
+    # ln -s /usr/share/nginx/conf.d/nova-api.template /etc/nginx/nova-api.conf
+
+#. Restart the Nginx server to reload new configurations::
+
+    # systemctl restart nginx
 
 #. Start the Compute Service services and configure them to start
    when the system boots::
