@@ -1,38 +1,11 @@
 OpenStack* Identity
 ###################
 
-The OpenStack Identity service provides a single point of
-integration for managing authentication, authorization, and service catalog
-services. Other OpenStack services use the Identity service as a common
-unified API. Additionally, services that provide information about users
-but that are not included in OpenStack (such as LDAP services) can be
-integrated into a pre-existing infrastructure.
-
-In order to benefit from the Identity service, other OpenStack services need to
-collaborate with it. When an OpenStack service receives a request from a user,
-it checks with the Identity service whether the user is authorized to make the
-request.
-
-The Identity service contains these components:
-
-**Server**
-    A centralized server provides authentication and authorization
-    services using a RESTful interface.
-
-**Drivers**
-    Drivers or a service back end are integrated to the centralized
-    server. They are used for accessing identity information in
-    repositories external to OpenStack, and may already exist in
-    the infrastructure where OpenStack is deployed (for example, SQL
-    databases or LDAP servers).
-
-**Modules**
-    Middleware modules run in the address space of the OpenStack
-    component that is using the Identity service. These modules
-    intercept service requests, extract user credentials, and send them
-    to the centralized server for authorization. The integration between
-    the middleware modules and OpenStack components uses the Python* Web
-    Server Gateway Interface.
+The OpenStack Identity service provides a single point of integration for
+managing authentication, authorization, and service catalog services.
+Additionally, it provides information about users but that are not included in
+OpenStack (such as LDAP services) can be integrated into a pre-existing
+infrastructure.
 
 When installing OpenStack Identity service, you must register each
 service in your OpenStack installation. Identity service can then track
@@ -56,22 +29,22 @@ database and an administration token.
 #. To create the database, complete the following actions:
 
    * Use the database access client to connect to the database server as the
-     ``root`` user::
+     ``root`` user.::
 
          $ mysql -u root -p
 
-   * Create the ``keystone`` database::
+   * Create the ``keystone`` database.::
 
         CREATE DATABASE keystone;
 
-   * Grant proper access to the ``keystone`` database::
+   * Grant proper access to the ``keystone`` databaseReplace ``KEYSTONE_DBPASS``
+     with a suitable password.::
 
         GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' \
           IDENTIFIED BY 'KEYSTONE_DBPASS';
         GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' \
           IDENTIFIED BY 'KEYSTONE_DBPASS';
 
-     Replace ``KEYSTONE_DBPASS`` with a suitable password.
 
    * Exit the database access client.
 
@@ -83,17 +56,18 @@ database and an administration token.
 Install and configure components
 --------------------------------
 
-#. Run the following command to install the packages::
+#. Run the following command to install the packages.::
 
      # clr_bundle_add openstack-identity
+     # swupd_verify --fix
 
 #. Custom configurations will be located at ``/etc/keystone/``.
 
-   * Create the ``/etc/keystone`` directory::
+   * Create the ``/etc/keystone`` directory.::
 
        # mkdir /etc/keystone
 
-   * Create empty keystone configuration file ``/etc/keystone/keystone.conf``::
+   * Create keystone configuration file ``/etc/keystone/keystone.conf``.::
 
        # touch /etc/keystone/keystone.conf
 
@@ -101,22 +75,20 @@ Install and configure components
    actions:
 
    * In the ``[DEFAULT]`` section, define the value of the initial
-     administration token::
+     administration token. Replace ``ADMIN_TOKEN`` with the random value that 
+     you generated in a previous step.::
 
         [DEFAULT]
         ...
         admin_token = ADMIN_TOKEN
 
-     Replace ``ADMIN_TOKEN`` with the random value that you generated in a
-     previous step.
-
-   * In the ``[database]`` section, configure database access::
+   * In the ``[database]`` section, configure database access. Replace
+     ``KEYSTONE_DBPASS`` with the password you chose for the database.::
 
         [database]
         ...
         connection = mysql://keystone:KEYSTONE_DBPASS@controller/keystone
 
-     Replace ``KEYSTONE_DBPASS`` with the password you chose for the database.
 
 #. Ensure files have proper ownership by running the following command::
 
@@ -130,7 +102,7 @@ Finalize the installation
 -------------------------
 
 #. Keystone is deployed as a uwsgi module. To start the Identity
-   service, you should enable and start the nginx service::
+   service, you should enable and start the nginx service.::
 
        # systemctl enable nginx uwsgi@keystone-admin.socket \
         uwsgi@keystone-public.socket
@@ -176,6 +148,8 @@ environment variables to reduce command length.
 #. Install the OpenStack Python clients bundle::
 
      # clr_bundle_add openstack-python-clients
+     # swupd_verify --fix
+     
 
 Create the service entity and API endpoints
 -------------------------------------------
