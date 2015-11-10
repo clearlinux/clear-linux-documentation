@@ -463,10 +463,6 @@ Verify operation
 ~~~~~~~~~~~~~~~~
 Verify operation of the Block Storage service.
 
-.. note::
-
-   Perform these commands on the controller node.
-
 #. Source the ``admin`` credentials to gain access to
    admin-only CLI commands::
 
