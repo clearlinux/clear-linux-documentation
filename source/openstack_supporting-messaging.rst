@@ -9,9 +9,10 @@ services. This guide implements the RabbitMQ message queue service.
 Install the message queue service
 ---------------------------------
 
-#. Install the message queue bundle::
+#. Install the message queue bundle.::
 
-      # clr_bundle_add message-broker-rabbitmq
+   # clr_bundle_add message-broker-rabbitmq
+   # swupd_verify --fix
 
 Configuring the message broker service
 --------------------------------------
@@ -19,25 +20,24 @@ Configuring the message broker service
 Complete the following steps to configure the message broker service:
 
 #. Message broker service needs to be able to resolve to itself. Add the
-   following line to ``/etc/hosts``::
+   following line to ``/etc/hosts``.::
 
     127.0.0.1 controller
 
 #. Start the message broker service and configure it to start when the
-   system boots::
+   system boots.::
 
     # systemctl enable rabbitmq-server.service
     # systemctl start rabbitmq-server.service
 
-#. Add the OpenStack user::
+#. Add the OpenStack user. Replace ``RABBIT_PASS`` with a suitable password.::
 
     # rabbitmqctl add_user openstack RABBIT_PASS
     Creating user openstack ...
     ...done.
 
-   Replace ``RABBIT_PASS`` with a suitable password.
 
-#. Permit configuration, write, and read access for the OpenStack user::
+#. Permit configuration, write, and read access for the OpenStack user.::
 
     # rabbitmqctl set_permissions openstack ".*" ".*" ".*"
     Setting permissions for user "openstack" in vhost "/" ...

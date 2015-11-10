@@ -11,8 +11,10 @@ Install and configure the database server
 #. Install MariaDB bundle::
 
      # clr_bundle_add database-mariadb
+     # swupd_verify --fix
 
-#. Create the ``/etc/mariadb/`` folder and the ``/etc/mariadb/openstack.cnf`` file::
+#. Create the ``/etc/mariadb/`` folder and the ``/etc/mariadb/openstack.cnf``
+   file::
 
      # mkdir /etc/mariadb
      # touch /etc/mariadb/openstack.cnf

@@ -8,8 +8,8 @@ for your environment.
 
 To install, continue with the following topics:
 
-* `Database <openstack_environment-database.html>`_
-* `Message queue <openstack_environment-messaging.html>`_
+* `Database <openstack_supporting-database.html>`_
+* `Message queue <openstack_supporting-messaging.html>`_
 * `OpenStack Identity <openstack_identity.html>`_
 * `Create OpenStack client environment scripts <openstack_identity-openrc.html>`_
 * `OpenStack Image <openstack_image.html>`_
