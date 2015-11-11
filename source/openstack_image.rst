@@ -7,7 +7,7 @@ retrieve virtual machine images.
 Install and configure the Image Service
 ---------------------------------------
 
-This section describes how to install and configure the Image service, 
+This section describes how to install and configure the Image service,
 code-named glance, on the controller node. For simplicity, this configuration
 stores images on the local file system. By default, this directory is
 ``/var/lib/glance/images/``.
@@ -141,7 +141,7 @@ Install and configure components
 
        # mkdir /etc/glance
 
-   * Create ``/etc/glance/glance-api.conf`` and 
+   * Create ``/etc/glance/glance-api.conf`` and
      ``/etc/glance/glance-registry.conf`` configuration files.::
 
        # touch /etc/glance/glance-{api,registry}.conf
@@ -214,3 +214,61 @@ Finalize installation
 
     # systemctl enable glance-api.service glance-registry.service
     # systemctl start glance-api.service glance-registry.service
+
+Verify operation
+----------------
+
+Verify operation of the Image service using
+`CirrOS <http://launchpad.net/cirros>`__, a small
+Linux image that helps you test your OpenStack deployment.
+
+#. In each client environment script, configure the Image service
+   client to use API version 2.0::
+
+    $ echo "export OS_IMAGE_API_VERSION=2" \
+      | tee -a admin-openrc.sh demo-openrc.sh
+
+#. Source the ``admin`` credentials to gain access to admin-only CLI commands::
+
+    $ source admin-openrc.sh
+
+#. Download the source image::
+
+    $ curl -Ok http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
+
+#. Upload the image to the Image service using the `QCOW2` disk format, `bare`
+   container format, and public visibility so all projects can access it::
+
+    $ openstack image create cirros --file cirros-0.3.4-x86_64-disk.img \
+      --disk-format qcow2 --container-format bare --public
+    +------------------+------------------------------------------------------+
+    | Field            | Value                                                |
+    +------------------+------------------------------------------------------+
+    | checksum         | ee1eca47dc88f4879d8a229cc70a07c6                     |
+    | container_format | bare                                                 |
+    | created_at       | 2015-10-26T23:40:03Z                                 |
+    | disk_format      | qcow2                                                |
+    | file             | /v2/images/fcf6fa55-56e9-4402-8137-3e9315c84905/file |
+    | id               | fcf6fa55-56e9-4402-8137-3e9315c84905                 |
+    | min_disk         | 0                                                    |
+    | min_ram          | 0                                                    |
+    | name             | cirros                                               |
+    | owner            | 2e3093872ebf4143a122e2cc01a50d13                     |
+    | protected        | False                                                |
+    | schema           | /v2/schemas/image                                    |
+    | size             | 13287936                                             |
+    | status           | active                                               |
+    | tags             |                                                      |
+    | updated_at       | 2015-10-26T23:40:03Z                                 |
+    | virtual_size     | None                                                 |
+    | visibility       | public                                               |
+    +------------------+------------------------------------------------------+
+
+#. Confirm upload of the image and validate attributes::
+
+    $ openstack image list
+    +--------------------------------------+--------+
+    | ID                                   | Name   |
+    +--------------------------------------+--------+
+    | 38047887-61a7-41ea-9b49-27987d5e8bb9 | cirros |
+    +--------------------------------------+--------+
