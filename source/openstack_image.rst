@@ -132,8 +132,8 @@ Install and configure components
 
 #. Install OpenStack Image bundle.::
 
-    # clr_bundle_add openstack-image
-    # swupd_verify --fix
+    # swupd bundle-add openstack-image
+    # swupd verify --fix
 
 #. Configurations will be located at ``/etc/glance``.
 
@@ -216,7 +216,7 @@ Finalize installation
     # systemctl start glance-api.service glance-registry.service
 
 Verify operation
-----------------
+~~~~~~~~~~~~~~~~
 
 Verify operation of the Image service using
 `CirrOS <http://launchpad.net/cirros>`__, a small
