@@ -1,3 +1,5 @@
+.. _openstack_identity-openrc:
+
 Create OpenStack* client environment scripts
 ############################################
 
@@ -17,7 +19,7 @@ Create client environment scripts for the ``admin`` and ``demo``
 projects and users. Future portions of this guide reference these
 scripts to load appropriate credentials for client operations.
 
-#. Edit the ``admin-openrc.sh`` file and add the following content::
+#. Create the ``admin-openrc.sh`` file and add the following content::
 
       export OS_PROJECT_DOMAIN_ID=default
       export OS_USER_DOMAIN_ID=default
@@ -31,7 +33,7 @@ scripts to load appropriate credentials for client operations.
    Replace ``ADMIN_PASS`` with the password you chose
    for the ``admin`` user in the Identity service.
 
-#. Edit the ``demo-openrc.sh`` file and add the following content::
+#. Create the ``demo-openrc.sh`` file and add the following content::
 
       export OS_PROJECT_DOMAIN_ID=default
       export OS_USER_DOMAIN_ID=default
@@ -70,3 +72,4 @@ For example:
       | user_id    | 4d411f2291f34941b30eef9bd797505a |
       +------------+----------------------------------+
 
+Next topic: :ref:`openstack_image`.

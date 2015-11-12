@@ -1,3 +1,5 @@
+.. _openstack_compute:
+
 OpenStack* Compute
 ##################
 
@@ -50,10 +52,11 @@ create a database, service credentials, and API endpoints.
 
 #. To create the service credentials, complete these steps:
 
-   * Create the ``nova`` user. Replace ``NOVA_PASS`` with a suitable
-     password::
+   * Create the ``nova`` user::
 
-        $ openstack user create --domain default --password NOVA_PASS nova
+        $ openstack user create --domain default --password-prompt nova
+        User Password:
+        Repeat User Password:
         +-----------+----------------------------------+
         | Field     | Value                            |
         +-----------+----------------------------------+
@@ -138,7 +141,8 @@ To install and configure the Compute controller components:
 
 #. Install OpenStack Compute Controller bundle::
 
-    # clr_bundle_add openstack-compute-controller
+    # swupd bundle-add openstack-compute-controller
+    # swupd verify --fix
 
 #. Custom configurations will be located at ``/etc/nova``.
 
@@ -225,7 +229,7 @@ To install and configure the Compute controller components:
         ...
         host = controller
 
-#. Let systemd set the correct permissions for files in ``/etc/nova``::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
 
@@ -238,17 +242,27 @@ Finalizing Compute installation
 
 Complete the following steps to finalize Compute installation:
 
+#. Create the ``/etc/nginx`` directory if doesn't exists and setup nova-api
+   and nova-metadata to start with the Nginx http server::
+
+    # mkdir -p /etc/nginx
+    # ln -s /usr/share/nginx/conf.d/nova-api.template /etc/nginx/nova-api.conf
+
+#. Restart the Nginx server to reload new configurations::
+
+    # systemctl restart nginx
+
 #. Start the Compute Service services and configure them to start
    when the system boots::
 
     # systemctl enable uwsgi@nova-api.socket \
-      nova-cert.service nova-consoleauth.service \
-      nova-scheduler.service nova-conductor.service \
-      nova-novncproxy.service
+      uwsgi@nova-metadata.socket nova-cert.service \
+      nova-consoleauth.service nova-scheduler.service \
+      nova-conductor.service nova-novncproxy.service
     # systemctl start uwsgi@nova-api.socket \
-      nova-cert.service nova-consoleauth.service \
-      nova-scheduler.service nova-conductor.service \
-      nova-novncproxy.service
+      uwsgi@nova-metadata.socket nova-cert.service \
+      nova-consoleauth.service nova-scheduler.service \
+      nova-conductor.service nova-novncproxy.service
 
 Install and configure a compute note
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -373,6 +387,10 @@ Finalize compute node installation
         [libvirt]
         ...
         virt_type = qemu
+
+#. Ensure files have proper ownership by running the following command::
+
+    # systemctl restart update-triggers.target
 
 #. Start the Compute service including its dependencies and configure
    them to start automatically when the system boots::
@@ -506,3 +524,5 @@ Verify operation of the Compute service.
       +--------------------------------------+--------+--------+--------+
       | 38047887-61a7-41ea-9b49-27987d5e8bb9 | cirros | ACTIVE |        |
       +--------------------------------------+--------+--------+--------+
+
+Next topic: :ref:`openstack_block_storage`.

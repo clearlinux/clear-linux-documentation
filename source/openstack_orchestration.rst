@@ -1,3 +1,5 @@
+.. _openstack_orchestration:
+
 OpenStack* Orchestration
 ############################################################
 
@@ -284,3 +286,5 @@ Complete this step to finalize the installation:
 
    	# systemctl enable heat-api.service heat-api-cfn.service heat-engine.service 
    	# systemctl start heat-api.service heat-api-cfn.service heat-engine.service``
+
+Next topic: :ref:`openstack_telemetry`.

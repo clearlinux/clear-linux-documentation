@@ -1,3 +1,5 @@
+.. _openstack_sys_req_and_pw_summary:
+
 System requirements and password summary
 ############################################################
 
@@ -72,3 +74,5 @@ and their associated references in the guide:
 +----------------------------------------+--------------------------------------------------+
 | CINDER_PASS                            | Password of Block Storage service user cinder    |
 +----------------------------------------+--------------------------------------------------+
+
+Next topic: :ref:`openstack_installing_bundles`.

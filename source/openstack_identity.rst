@@ -1,38 +1,13 @@
+.. _openstack_identity:
+
 OpenStack* Identity
 ###################
 
-The OpenStack Identity service provides a single point of
-integration for managing authentication, authorization, and service catalog
-services. Other OpenStack services use the Identity service as a common
-unified API. Additionally, services that provide information about users
-but that are not included in OpenStack (such as LDAP services) can be
-integrated into a pre-existing infrastructure.
-
-In order to benefit from the Identity service, other OpenStack services need to
-collaborate with it. When an OpenStack service receives a request from a user,
-it checks with the Identity service whether the user is authorized to make the
-request.
-
-The Identity service contains these components:
-
-**Server**
-    A centralized server provides authentication and authorization
-    services using a RESTful interface.
-
-**Drivers**
-    Drivers or a service back end are integrated to the centralized
-    server. They are used for accessing identity information in
-    repositories external to OpenStack, and may already exist in
-    the infrastructure where OpenStack is deployed (for example, SQL
-    databases or LDAP servers).
-
-**Modules**
-    Middleware modules run in the address space of the OpenStack
-    component that is using the Identity service. These modules
-    intercept service requests, extract user credentials, and send them
-    to the centralized server for authorization. The integration between
-    the middleware modules and OpenStack components uses the Python* Web
-    Server Gateway Interface.
+The OpenStack Identity service provides a single point of integration for
+managing authentication, authorization, and service catalog services.
+Additionally, it provides information about users but that are not included in
+OpenStack (such as LDAP services) can be integrated into a pre-existing
+infrastructure.
 
 When installing OpenStack Identity service, you must register each
 service in your OpenStack installation. Identity service can then track
@@ -56,22 +31,22 @@ database and an administration token.
 #. To create the database, complete the following actions:
 
    * Use the database access client to connect to the database server as the
-     ``root`` user::
+     ``root`` user.::
 
          $ mysql -u root -p
 
-   * Create the ``keystone`` database::
+   * Create the ``keystone`` database.::
 
         CREATE DATABASE keystone;
 
-   * Grant proper access to the ``keystone`` database::
+   * Grant proper access to the ``keystone`` databaseReplace ``KEYSTONE_DBPASS``
+     with a suitable password.::
 
         GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' \
           IDENTIFIED BY 'KEYSTONE_DBPASS';
         GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' \
           IDENTIFIED BY 'KEYSTONE_DBPASS';
 
-     Replace ``KEYSTONE_DBPASS`` with a suitable password.
 
    * Exit the database access client.
 
@@ -83,17 +58,18 @@ database and an administration token.
 Install and configure components
 --------------------------------
 
-#. Run the following command to install the packages::
+#. Run the following command to install the packages.::
 
-     # clr_bundle_add openstack-identity
+     # swupd bundle-add openstack-identity
+     # swupd verify --fix
 
 #. Custom configurations will be located at ``/etc/keystone/``.
 
-   * Create the ``/etc/keystone`` directory::
+   * Create the ``/etc/keystone`` directory.::
 
        # mkdir /etc/keystone
 
-   * Create empty keystone configuration file ``/etc/keystone/keystone.conf``::
+   * Create keystone configuration file ``/etc/keystone/keystone.conf``.::
 
        # touch /etc/keystone/keystone.conf
 
@@ -101,24 +77,22 @@ Install and configure components
    actions:
 
    * In the ``[DEFAULT]`` section, define the value of the initial
-     administration token::
+     administration token. Replace ``ADMIN_TOKEN`` with the random value that 
+     you generated in a previous step.::
 
         [DEFAULT]
         ...
         admin_token = ADMIN_TOKEN
 
-     Replace ``ADMIN_TOKEN`` with the random value that you generated in a
-     previous step.
-
-   * In the ``[database]`` section, configure database access::
+   * In the ``[database]`` section, configure database access. Replace
+     ``KEYSTONE_DBPASS`` with the password you chose for the database.::
 
         [database]
         ...
         connection = mysql://keystone:KEYSTONE_DBPASS@controller/keystone
 
-     Replace ``KEYSTONE_DBPASS`` with the password you chose for the database.
 
-#. Enter the following command::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
 
@@ -130,7 +104,7 @@ Finalize the installation
 -------------------------
 
 #. Keystone is deployed as a uwsgi module. To start the Identity
-   service, you should enable and start the nginx service::
+   service, you should enable and start the nginx service.::
 
        # systemctl enable nginx uwsgi@keystone-admin.socket \
         uwsgi@keystone-public.socket
@@ -165,7 +139,7 @@ environment variables to reduce command length.
 
      $ export OS_TOKEN=294a4c8a8a475f9b9836
 
-#. Configure the endpoint::
+#. Configure the endpoint URL::
 
      $ export OS_URL=http://controller:35357/v3
 
@@ -175,16 +149,19 @@ environment variables to reduce command length.
 
 #. Install the OpenStack Python clients bundle::
 
-     # clr_bundle_add openstack-python-clients
+     # swupd bundle-add openstack-python-clients
+     # swupd verify --fix
+     
 
 Create the service entity and API endpoints
 -------------------------------------------
 
-The Identity service manages a catalog of services in your OpenStack
-environment. Services use this catalog to determine the other services
-available in your environment.
 
-#. Create the service entity for the Identity service::
+#. The Identity service manages a catalog of services in your OpenStack
+   environment. Services use this catalog to determine the other services
+   available in your environment.
+
+   Create the service entity for the Identity service::
 
      $ openstack service create \
        --name keystone --description "OpenStack Identity" identity
@@ -198,7 +175,7 @@ available in your environment.
      | type        | identity                         |
      +-------------+----------------------------------+
 
-   The Identity service manages a catalog of API endpoints associated with
+#. The Identity service manages a catalog of API endpoints associated with
    the services in your OpenStack environment. Services use this catalog to
    determine how to communicate with other services in your environment.
 
@@ -216,7 +193,7 @@ available in your environment.
    management network for all endpoint variations and the default
    ``RegionOne`` region.
 
-#. Create the Identity service API endpoints::
+   Create the Identity service API endpoints::
 
      $ openstack endpoint create --region RegionOne \
        identity public http://controller:5000/v3
@@ -290,11 +267,12 @@ Complete the following steps to create projects, users and roles:
         | parent_id   | None                             |
         +-------------+----------------------------------+
 
-   * Create the ``admin`` user. Replace ``ADMIN_PASS`` with a suitable
-     password and ``EMAIL_ADDRESS`` with a suitable e-mail address::
+   * Create the ``admin`` user::
 
         $ openstack user create --domain default \
-          --password ADMIN_PASS --email EMAIL_ADDRESS admin
+          --password-prompt admin
+        User Password:
+        Repeat User Password:
         +-----------+----------------------------------+
         | Field     | Value                            |
         +-----------+----------------------------------+
@@ -356,12 +334,12 @@ Complete the following steps to create projects, users and roles:
         | parent_id   | None                             |
         +-------------+----------------------------------+
 
-   * Create the ``demo`` user.  Replace ``DEMO_PASS``
-     with a suitable password and ``EMAIL_ADDRESS`` with a suitable
-     e-mail address::
+   * Create the ``demo`` user::
 
         $ openstack user create --domain default \
-          --password DEMO_PASS --email EMAIL_ADDRESS demo
+          --password-prompt demo
+        User Password:
+        Repeat User Password:
         +-----------+----------------------------------+
         | Field     | Value                            |
         +-----------+----------------------------------+
@@ -392,10 +370,14 @@ Verify operation
 Verify operation of the Identity service before installing other
 services.
 
-#. For security reasons, remove the admin_token value in
+#. For security reasons, remove admin_token from
    ``/etc/keystone/keystone.conf``:
 
    Edit the ``[DEFAULT]`` section and remove ``admin_token``.
+
+#. Restart the keystone-admin service to reload the changes::
+
+     # systemctl restart uwsgi@keystone-admin.service
 
 #. Unset the temporary ``OS_TOKEN`` and ``OS_URL`` environment variables::
 
@@ -432,3 +414,5 @@ services.
      | project_id | 4aa51bb942be4dd0ac0555d7591f80a6 |
      | user_id    | 7004dfa0dda84d63aef81cf7f100af01 |
      +------------+----------------------------------+
+
+Next topic: :ref:`openstack_identity-openrc`.

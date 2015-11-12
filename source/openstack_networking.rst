@@ -1,3 +1,5 @@
+.. _openstack_networking:
+
 OpenStack* Networking
 ############################################################
 
@@ -303,3 +305,5 @@ Finalizing installation
 
    	# systemctl enable neutron-server.service 
    	# systemctl start neutron-server.service
+
+Next topic: :ref:`openstack_orchestration`.
