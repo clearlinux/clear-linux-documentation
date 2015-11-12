@@ -414,3 +414,5 @@ services.
      | project_id | 4aa51bb942be4dd0ac0555d7591f80a6 |
      | user_id    | 7004dfa0dda84d63aef81cf7f100af01 |
      +------------+----------------------------------+
+
+Next topic: :ref:`openstack_identity-openrc`.
