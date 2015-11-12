@@ -1,3 +1,5 @@
+.. _openstack_bundle_and_service_summary:
+
 OpenStack* bundle and service summary
 ############################################################
 

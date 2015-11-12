@@ -1,3 +1,5 @@
+.. _openstack_object_storage:
+
 OpenStack* Object Storage
 #########################
 

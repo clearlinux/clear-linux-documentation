@@ -1,3 +1,5 @@
+.. _openstack_orchestration:
+
 OpenStack* Orchestration
 ############################################################
 

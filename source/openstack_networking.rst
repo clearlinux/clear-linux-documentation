@@ -1,3 +1,5 @@
+.. _openstack_networking:
+
 OpenStack* Networking
 ############################################################
 

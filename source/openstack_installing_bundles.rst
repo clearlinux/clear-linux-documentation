@@ -1,3 +1,5 @@
+.. _openstack_installing_bundles:
+
 Installing OpenStack* MVP bundles
 ############################################################
 

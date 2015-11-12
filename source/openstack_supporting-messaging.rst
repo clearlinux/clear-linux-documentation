@@ -1,3 +1,5 @@
+.. _openstack_supporting-messaging:
+
 Message queue
 #############
 

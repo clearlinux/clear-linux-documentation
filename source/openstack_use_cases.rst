@@ -1,3 +1,5 @@
+.. _openstack_use_cases:
+
 OpenStack* use cases with Clear Linux* OS for Intel® Architecture
 ###################################################################
 

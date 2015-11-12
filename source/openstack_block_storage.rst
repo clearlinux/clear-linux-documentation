@@ -1,3 +1,5 @@
+.. _openstack_block_storage:
+
 OpenStack* Block Storage
 ########################
 
