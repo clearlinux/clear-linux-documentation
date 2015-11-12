@@ -245,7 +245,6 @@ Complete the following steps to finalize Compute installation:
 
     # mkdir -p /etc/nginx
     # ln -s /usr/share/nginx/conf.d/nova-api.template /etc/nginx/nova-api.conf
-    # ln -s /usr/share/nginx/conf.d/nova-metadata.template /etc/nginx/nova-metadata.conf
 
 #. Restart the Nginx server to reload new configurations::
 
