@@ -49,3 +49,5 @@ Complete the following steps to finalize database installation:
    for the root account::
 
     # mysql_secure_installation
+
+Next topic: :ref:`openstack_supporting-messaging`.

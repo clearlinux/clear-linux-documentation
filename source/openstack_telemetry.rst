@@ -221,3 +221,4 @@ Finalizing installation
 	# systemctl start ceilometer-api.service ceilometer-agent-notification.service ceilometer-agent-central.service ceilometer-collector.service \
 	ceilometer-alarm-evaluator.service ceilometer-alarm-notifier.service
 
+Next topic: :ref:`openstack_object_storage`.

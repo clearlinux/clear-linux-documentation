@@ -524,3 +524,5 @@ Verify operation of the Compute service.
       +--------------------------------------+--------+--------+--------+
       | 38047887-61a7-41ea-9b49-27987d5e8bb9 | cirros | ACTIVE |        |
       +--------------------------------------+--------+--------+--------+
+
+Next topic: :ref:`openstack_block_storage`.

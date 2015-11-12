@@ -23,3 +23,5 @@ OpenStack supports the following use cases:
 Clear Linux OS for Intel Architecture is designed with all of these use
 cases in mind, but the initial target is to enable only those services
 required for Cloud.
+
+Next topic: :ref:`openstack_bundle_and_service_summary`.

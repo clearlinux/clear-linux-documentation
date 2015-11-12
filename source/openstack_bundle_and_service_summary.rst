@@ -47,3 +47,5 @@ uses two-node architecture with legacy networking (Nova-network).
    with layer-3 (routing) services that enable self-service networks
    using overlay segmentation methods. Additionally, this option provides
    the foundation for advanced services such as LBaaS and FWaaS.
+
+Next topic: :ref:`openstack_sys_req_and_pw_summary`.

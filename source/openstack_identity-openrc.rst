@@ -72,3 +72,4 @@ For example:
       | user_id    | 4d411f2291f34941b30eef9bd797505a |
       +------------+----------------------------------+
 
+Next topic: :ref:`openstack_image`.

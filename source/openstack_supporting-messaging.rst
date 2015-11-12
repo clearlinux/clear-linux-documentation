@@ -44,3 +44,5 @@ Complete the following steps to configure the message broker service:
     # rabbitmqctl set_permissions openstack ".*" ".*" ".*"
     Setting permissions for user "openstack" in vhost "/" ...
     ...done.
+
+Next topic: :ref:`openstack_identity`.

@@ -274,3 +274,5 @@ Linux image that helps you test your OpenStack deployment.
     +--------------------------------------+--------+
     | 38047887-61a7-41ea-9b49-27987d5e8bb9 | cirros |
     +--------------------------------------+--------+
+
+Next topic: :ref:`openstack_compute`.

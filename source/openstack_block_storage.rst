@@ -480,3 +480,5 @@ Verify operation of the Block Storage service.
     | cinder-scheduler | controller | nova | enabled |   up  | 2014-10-18T01:30:54.000000 |       None      |
     | cinder-volume    | block1@lvm | nova | enabled |   up  | 2014-10-18T01:30:57.000000 |       None      |
     +------------------+------------+------+---------+-------+----------------------------+-----------------+
+
+Next topic: :ref:`openstack_dashboard`.
