@@ -1,6 +1,6 @@
 .. _openstack_image:
 
-OpenStack* Image
+Image Service
 ################
 
 The OpenStack Image service (glance) enables users to discover, register, and

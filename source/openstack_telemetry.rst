@@ -1,6 +1,6 @@
 .. _openstack_telemetry:
 
-OpenStack* Telemetry
+Telemetry
 ############################################################
 
 Overview

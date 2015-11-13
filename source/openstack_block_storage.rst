@@ -1,4 +1,4 @@
-OpenStack* Block Storage
+Block Storage
 ############################################################
 
 Clear Linux* OS for Intel® Architecture can be used with the
