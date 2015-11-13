@@ -23,7 +23,7 @@ To get started with OpenStack Dashboard services:
 
 #. Install the OpenStack Dashboard bundle::
    
-        # clr_bundle_add openstack-dashboard
+        # swupd bundle-add openstack-dashboard
         # swupd verify --fix
 
 #. Enable and start the dashboard socket and the Nginx server::
