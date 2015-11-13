@@ -1,6 +1,6 @@
 .. _openstack_orchestration:
 
-OpenStack* Orchestration
+Orchestration
 ############################################################
 
 The Orchestration module provides template-based OpenStack* API calls

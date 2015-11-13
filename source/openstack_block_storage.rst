@@ -1,6 +1,6 @@
 .. _openstack_block_storage:
 
-OpenStack* Block Storage
+Block Storage
 ########################
 
 The OpenStack Block Storage service (cinder) adds persistent storage to

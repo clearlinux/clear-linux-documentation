@@ -1,6 +1,6 @@
 .. _openstack_dashboard:
 
-OpenStack* Dashboard
+Dashboard
 ####################
 
 The OpenStack Dashboard, also known as Horizon, is a web-based interface

@@ -1,6 +1,6 @@
 .. _openstack_identity:
 
-OpenStack* Identity
+Identity Service
 ###################
 
 The OpenStack Identity service provides a single point of integration for

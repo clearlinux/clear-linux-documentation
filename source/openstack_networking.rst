@@ -1,6 +1,6 @@
 .. _openstack_networking:
 
-OpenStack* Networking
+Networking
 ############################################################
 
 OpenStack* Networking allows you to create and attach interface devices

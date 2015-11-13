@@ -1,6 +1,6 @@
 .. _openstack_compute:
 
-OpenStack* Compute
+Compute
 ##################
 
 Use OpenStack Compute to host and manage cloud computing systems.
