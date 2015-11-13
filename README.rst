@@ -11,7 +11,7 @@ Building with `Sphinx`_, however, requires a few prerequisites:
 * `Python`_ 
 * `PIP`_  
 
-The instructions for installing these varies according to OS.  You can  On a basic
+The instructions for installing these varies according to OS. On a basic
 out-of-the-box Ubuntu-like install, you might need something like:
 
 ..
@@ -168,3 +168,4 @@ Open a page in a web browser to view the rendered documentation.
 .. _GNU make: https://www.gnu.org/software/make/
 .. _Python: https://www.python.org/
 .. _PIP: https://pypi.python.org/pypi/pip/
+.. _Sphinx: http://sphinx-doc.org/
