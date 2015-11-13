@@ -247,10 +247,9 @@ Install and configure components
         rabbit_userid = openstack
         rabbit_password = RABBIT_PASS
 
-   * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
-     configure Identity service access:
-
-     .. code-block:: ini
+   * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections, configure
+     Identity service access. Replace ``CINDER_PASS`` with the password you
+     chose for the ``cinder`` user in the Identity service.::
 
         [DEFAULT]
         ...
@@ -267,13 +266,8 @@ Install and configure components
         username = cinder
         password = CINDER_PASS
 
-     Replace ``CINDER_PASS`` with the password you chose for
-     the ``cinder`` user in the Identity service.
-
    * In the ``[DEFAULT]`` section, configure the ``my_ip`` option to
-     use the management interface IP address of the controller node:
-
-     .. code-block:: ini
+     use the management interface IP address of the controller node::
 
         [DEFAULT]
         ...
