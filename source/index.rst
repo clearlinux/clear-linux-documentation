@@ -7,16 +7,11 @@
 Welcome to ClearLinux Documentation
 ===================================
 
-Contents:
+Contents
+========
 
 .. toctree::
    :maxdepth: 2
-
-   ..
-    Clear Linux Project documentation master file
-
-
-.. include:: documentation_license.rst
 
 
 Getting started
@@ -32,6 +27,7 @@ Getting started
    gs_running_clr_virtual
    gs-clear-containers-gettting-started
 
+
 Software update
 ###############
 
@@ -41,6 +37,7 @@ Software update
    swupdate_about_sw_update
    swupdate_how_to_run_the_updater
 
+
 Bundles
 #######
 
@@ -49,7 +46,7 @@ Bundles
 
    bundles_overview
    bundles_in_clr
-   bundles_in_clr_html
+   table_view_bundles
 
 
 OpenStack``*`` implementation
@@ -78,17 +75,12 @@ OpenStack``*`` implementation
    openstack_supporting-messaging
 
 
-Disclaimers
-===========
+License and Disclaimers
+=======================
+.. toctree::   
+
    disclaimers
-
-
-Index and search
-################
-
-* :ref:`genindex`
-
-* :ref:`search`
+   documentation_license
 
 
 Indices and tables

@@ -1,7 +1,7 @@
-.. _bundles_in_clr_html:
+.. _table_view_bundles:
 
-Bundles in ClearLinux
-#####################
+Table View of Bundles 
+=====================
 
 .. raw:: html
 
