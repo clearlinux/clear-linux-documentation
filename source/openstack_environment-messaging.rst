@@ -24,7 +24,7 @@ Complete the following steps to configure the message broker service:
 1. Message broker service needs to be able to resolve to itself. Add the
    following line to :file:`/etc/hosts`
 
-  .. code-block:: literal
+  .. code-block:: raw
      
      127.0.0.1 controller
 

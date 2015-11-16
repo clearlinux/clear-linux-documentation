@@ -12,7 +12,7 @@ Building with `Sphinx`_, however, requires a few prerequisites:
 * `PIP`_  
 
 The instructions for installing these varies according to OS.  On a basic
-out-of-the-box Ubuntu-like (which usually has Python installed by default),
+out-of-the-box Ubuntu-like OS (which usually has Python installed by default),
 you might need something like:
 
 .. codeblock:: shell-session
@@ -64,7 +64,7 @@ a series of questions. The main things to be conscious of here:
   will generate *another* :file:`source/` directory, which can be confusing. 
 
 What follows here is a log from a successful :command:`sphinx-quickstart` build started from 
-within the :file:`project-docs/` directory.
+within the :file:`project-docs/` directory.  Blank answers indicate default used.
 
 .. codeblock:: shell-session
 
@@ -132,7 +132,7 @@ within the :file:`project-docs/` directory.
 	> viewcode: include links to the source code of documented Python objects (y/n) [n]: y
 
 	A Makefile and a Windows command file can be generated for you so that you
-	only have to run e.g. `make html' instead of invoking sphinx-build
+	only have to run e.g. "make html" instead of invoking sphinx-build
 	directly.
 	> Create Makefile? (y/n) [y]: y
 	> Create Windows command file? (y/n) [n]: n
