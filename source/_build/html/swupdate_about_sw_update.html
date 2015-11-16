@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>About software update &mdash; ClearLinux Documentation 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ClearLinux Documentation 1.0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="about-software-update">
+<h1>About software update<a class="headerlink" href="#about-software-update" title="Permalink to this headline">¶</a></h1>
+<p>Linux*-based operating systems contain the code of several hundred, if
+not thousands, of open source projects. To make this manageable,
+distributions use a concept called &#8220;packages&#8221; to configure and compile
+the source code of these projects into binaries, which can then be
+logically installed.</p>
+<p>Many distributions then combine these compiled binaries into so-called
+packages, resolving dependencies and providing everything needed to
+install. This is the granularity at which typical distributions deploy
+their software, enabling system administrators to install and update
+each package individually or as a set, using tools such as &#8220;yum&#8221; and
+&#8220;apt-get.&#8221;</p>
+<div class="section" id="the-clear-way">
+<h2>The Clear way<a class="headerlink" href="#the-clear-way" title="Permalink to this headline">¶</a></h2>
+<p>The Clear Linux OS for Intel® Architecture does things a bit
+differently. While we use the concept of packages to manage compiling
+source code into installable binaries, we do not deploy software through
+packages as many distributions do. Instead, we provide &#8220;bundles&#8221; that
+each contain a set of functionality for the system
+administrator&#8211;functionality that is enabled by composing all the
+required upstream open source projects into one logical unit: a bundle.</p>
+<p>There is another notable difference between package-based distributions
+and the Clear Linux OS for Intel Architecture. On a package-based OS, a
+system administrator can update each individual package or piece of
+software to a newer (or older!) version. In the Clear Linux OS for Intel
+Architecture, an update translates to an entirely new OS version,
+containing one or many updates; it is not possible to update a piece of
+the system while remaining on the same version of Clear Linux.</p>
+<p>Why would you want this? This may sound like a huge restriction or
+limitation at first, but we consider this a great feature. Imagine a
+cloud environment with many machines. In this case, it is desirable and
+more advantageous to have a homogeneous set of software.</p>
+<p>With traditional distributions, to describe what version of software a
+server is running, one might need to:</p>
+<ul class="simple">
+<li>List and keep track of the current OS release (generally
+uninformative about any singular packages or functionality)</li>
+<li>Keep track of all packages and repositories used, updating those as
+required to keep up to date</li>
+<li>List and keep track of every package available and installed on the
+system, none of which are directly tied to the current OS release</li>
+</ul>
+<p>This is done very well, but given the nearly endless combinations of
+packages and versions of packages a server may have, it quickly becomes
+non-trivial to define what &#8220;version&#8221; the system is and what software it
+is running without explicitly going through each system and inspecting
+every package.</p>
+<p>With the Clear Linux OS for Intel Architecture, we must keep track of:</p>
+<ul class="simple">
+<li>One single number</li>
+</ul>
+<p>That number represents the current OS release, and it is sufficient to
+describe the versions of all the software on the OS. Each build is
+composed of a specific set of bundles made from a particular version of
+packages. This matters on a daily basis to system administrators, who
+need to determine which of their systems do not have the latest security
+fixes, or which combinations of software have been tested with which
+other pieces. Every release of the same number is guaranteed to contain
+the same versions of software, so there is no ambiguity between two
+systems running the same Clear Linux OS for Intel Architecture.</p>
+</div>
+<div class="section" id="incredible-update-speeds">
+<h2>Incredible update speeds<a class="headerlink" href="#incredible-update-speeds" title="Permalink to this headline">¶</a></h2>
+<p>Software updates with Clear Linux OS for Intel Architecture are also
+efficient; bundles are only describing a set of files, and the update
+technology only updates files that actually changed, using so-called
+binary-delta technology for efficiency. Updating using this method is
+different from operating systems that use packages as the unit of
+deployment. In those operating systems, the entire package gets updated
+when needed, even if only one small file in that package has changed.</p>
+<p>It is quite common for a full OS update fixing a security hole to be
+only 15 kilobytes in total update size. If only several kilobytes need
+to be changed, it does not make sense to re-download and reinstall an
+entire package or suite of programs just to incorporate a miniscule (yet
+important) update. Through binary deltas, the OS is able to update only
+those bits that changed, yielding very small update content (deltas)
+that can be applied exceedingly fast. One can then expect a major
+security patch or core update to take seconds.</p>
+<p>We realize that while our definition of bundles makes sense to us, each
+data center operator may have special needs and ideas. For that reason
+we are working on completing a &#8220;mixer&#8221; tool, which would allow users of
+Clear Linux OS for Intel Architecture to customize and add bundles and
+their own software while still using the content of the operating
+system, and its updates, as the base. This way system administrators can
+focus on the pieces of their OS deployment that are custom to their
+environment, while continuing to stay on a controlled update stream.</p>
+<p>Note: The software update technology for Clear Linux OS for Intel Architecture
+was first presented at the Linux Plumbers conference in 2012.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">About software update</a><ul>
+<li><a class="reference internal" href="#the-clear-way">The Clear way</a></li>
+<li><a class="reference internal" href="#incredible-update-speeds">Incredible update speeds</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/swupdate_about_sw_update.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Intel OTC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/swupdate_about_sw_update.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

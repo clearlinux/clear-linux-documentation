@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenStack* bundle and service summary &mdash; ClearLinux Documentation 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ClearLinux Documentation 1.0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="openstack-bundle-and-service-summary">
+<span id="id1"></span><h1>OpenStack* bundle and service summary<a class="headerlink" href="#openstack-bundle-and-service-summary" title="Permalink to this headline">¶</a></h1>
+<p>OpenStack provides an Infrastructure-as-a-Service (IaaS) solution
+through a variety of complementary services. Each service offers an
+application programming interface (API) that facilitates this
+integration. The following table provides a list of OpenStack MVP
+services:</p>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">OpenStack MVP services</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="19%" />
+<col width="19%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Bundle Name (service)</th>
+<th class="head">Project Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>openstack-compute-controller</td>
+<td>Nova</td>
+<td>Manages the lifecycle of compute instances in an OpenStack environment. Responsibilities include spawning, scheduling and decommissioning of virtual machines on demand.</td>
+</tr>
+<tr class="row-odd"><td>openstack-identity</td>
+<td>Keystone</td>
+<td>Provides an authentication and authorization service for other OpenStack services. Provides a catalog of endpoints for all OpenStack services.</td>
+</tr>
+<tr class="row-even"><td>openstack-image</td>
+<td>Glance</td>
+<td>Stores and retrieves virtual machine disk images. OpenStack Compute makes use of this during instance provisioning.</td>
+</tr>
+<tr class="row-odd"><td>openstack-dashboard</td>
+<td>Horizon</td>
+<td>Provides a web-based self-service portal to interact with underlying OpenStack services.</td>
+</tr>
+<tr class="row-even"><td>openstack-network</td>
+<td>Neutron</td>
+<td>Enables Network-Connectivity-as-a-Service for some OpenStack services. Besides, it provides an API for users to define networks and the attachments into them.</td>
+</tr>
+<tr class="row-odd"><td>openstack-object-storage</td>
+<td>Swift</td>
+<td>Stores and retrieves arbitrary unstructured data objects. It is highly fault tolerant with its data replication and scale-out architecture.</td>
+</tr>
+<tr class="row-even"><td>openstack-block-storage/openstack-block-storage-controller</td>
+<td>Cinder</td>
+<td>Provides persistent block storage to running instances.</td>
+</tr>
+<tr class="row-odd"><td>openstack-telemetry-controller</td>
+<td>Ceilometer</td>
+<td>Monitors and meters the OpenStack cloud for billing, benchmarking, scalability, and statistical purposes.</td>
+</tr>
+<tr class="row-even"><td>openstack-orchestration</td>
+<td>Heat</td>
+<td>Orchestrates multiple composite cloud applications by using either the native Heat Orchestration Template (HOT) template format or the AWS CloudFormation template format.</td>
+</tr>
+</tbody>
+</table>
+<p>OpenStack is highly configurable to meet different needs. This guide
+uses two-node architecture with legacy networking (Nova-network).</p>
+<ul class="simple">
+<li>The controller node runs the Identity Service, Image Service,
+management portion of Compute, and the Dashboard. It also includes
+supporting services such as a SQL database and message queue.
+Optionally, the controller node runs management portions of Block
+Storage services.</li>
+<li>The compute node runs the hypervisor portion of Compute that operates
+project virtual machines or instances. By default, Compute uses KVM
+as the hypervisor. Compute also provisions project networks and
+provides firewalling (security groups) services. You can run more
+than one compute node.</li>
+<li>(Optional) Block Storage node contains the disks that the Block
+Storage service provisions for instances. You can deploy more than
+one block storage node.</li>
+<li>(Optional) Object Storage node contain the disks that the Object
+Storage service uses for storing accounts, containers, and objects.
+This service requires two nodes. Each node requires a minimum of one
+network interface. You can deploy more than two object storage nodes.</li>
+<li>The self-service networks option augments the provider networks option
+with layer-3 (routing) services that enable self-service networks
+using overlay segmentation methods. Additionally, this option provides
+the foundation for advanced services such as LBaaS and FWaaS.</li>
+</ul>
+<p>Next topic: <a class="reference internal" href="openstack_sys_req_and_pw_summary.html#openstack-sys-req-and-pw-summary"><span>System requirements and password summary</span></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/openstack_bundle_and_service_summary.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Intel OTC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/openstack_bundle_and_service_summary.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Telemetry &mdash; ClearLinux Documentation 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ClearLinux Documentation 1.0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="telemetry">
+<span id="openstack-telemetry"></span><h1>Telemetry<a class="headerlink" href="#telemetry" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Telemetry module performs the following functions:</p>
+<ul class="simple">
+<li>Efficiently polls metering data related to OpenStack services;</li>
+<li>Collects event and metering data by monitoring notifications sent
+from services;</li>
+<li>Publishes collected data to various targets, including data stores
+and message queues; and</li>
+<li>Creates alarms when collected data breaks defined rules.</li>
+</ul>
+</div>
+<div class="section" id="installing-and-configuring-controller-node">
+<h2>Installing and configuring controller node<a class="headerlink" href="#installing-and-configuring-controller-node" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how to install and configure the Telemetry
+module, code-named ceilometer, on the controller node. The Telemetry
+module uses separate agents to collect measurements from each OpenStack
+service in your environment.</p>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Before installing and configuring the <code class="docutils literal"><span class="pre">telemetry</span></code> module, install
+MongoDB* and create a MongoDB database, service credentials, and API
+endpoint.</p>
+<ol class="arabic">
+<li><p class="first">Install the MongoDB bundle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># clr_bundle_add database-mongodb</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the <code class="docutils literal"><span class="pre">/etc/mongodb/</span></code> folder and the
+<code class="docutils literal"><span class="pre">/etc/mongodb/openstack.cnf</span></code> file.</p>
+</li>
+<li><p class="first">Configure the <code class="docutils literal"><span class="pre">bind_ip</span></code> key to use the management interface IP
+address of the controller node:</p>
+<div class="highlight-python"><div class="highlight"><pre>bind_ip = 10.0.0.11
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start the database service and configure it to start when the system
+boots with the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl enable mongodb.service</span>
+<span class="c"># systemctl start mongodb.service</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the <code class="docutils literal"><span class="pre">ceilometer</span></code> database. Replace <em>CEILOMETER_DBPASS</em>
+with a suitable password:</p>
+<div class="highlight-python"><div class="highlight"><pre># mongo --host controller --eval &#39;
+db = db.getSiblingDB(&quot;ceilometer&quot;);
+db.createUser({user: &quot;ceilometer&quot;,
+pwd: &quot;CEILOMETER_DBPASS&quot;,
+roles: [ &quot;readWrite&quot;, &quot;dbAdmin&quot; ]})&#39;
+
+MongoDB shell version: 2.6.x
+connecting to: controller:27017/test
+Successfully added user: { &quot;user&quot; : &quot;ceilometer&quot;, &quot;roles&quot; : [ &quot;readWrite&quot;, &quot;dbAdmin&quot; ] }
+</pre></div>
+</div>
+</li>
+<li><p class="first">Source the <code class="docutils literal"><span class="pre">admin</span></code> credentials to gain access to admin-only CLI
+commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ source admin-openrc.sh
+</pre></div>
+</div>
+</li>
+<li><p class="first">To create the service credentials, complete these steps:</p>
+<ul>
+<li><p class="first">Create the <code class="docutils literal"><span class="pre">ceilometer</span></code> user:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack user create --password-prompt ceilometer
+User Password:
+Repeat User Password:
++----------+----------------------------------+
+| Field    | Value                            |
++----------+----------------------------------+
+| email    | None                             |
+| enabled  | True                             |
+| id       | b7657c9ea07a4556aef5d34cf70713a3 |
+| name     | ceilometer                       |
+| username | ceilometer                       |
++----------+----------------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the <code class="docutils literal"><span class="pre">admin</span></code> role to the <code class="docutils literal"><span class="pre">ceilometer</span></code> user:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack role add --project service --user ceilometer admin
++-------+----------------------------------+
+| Field | Value                            |
++-------+----------------------------------+
+| id    | cd2cb9a39e874ea69e5d4b896eb16128 |
+| name  | admin                            |
++-------+----------------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the <code class="docutils literal"><span class="pre">ceilometer</span></code> service entity:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack service create --name ceilometer \
+--description &quot;Telemetry&quot; metering
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Telemetry                        |
+| enabled     | True                             |
+| id          | 3405453b14da441ebb258edfeba96d83 |
+| name        | ceilometer                       |
+| type        | metering                         |
++-------------+----------------------------------+
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Create the Telemetry module API endpoint:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack endpoint create \
+  --publicurl http://controller:8777 \
+  --internalurl http://controller:8777 \
+  --adminurl http://controller:8777 \
+  --region RegionOne \
+  metering
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| adminurl     | http://controller:8777           |
+| id           | d3716d85b10d4e60a67a52c6af0068cd |
+| internalurl  | http://controller:8777           |
+| publicurl    | http://controller:8777           |
+| region       | RegionOne                        |
+| service_id   | 3405453b14da441ebb258edfeba96d83 |
+| service_name | ceilometer                       |
+| service_type | metering                         |
++--------------+----------------------------------+
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-and-configuring-the-telemetry-module-components">
+<h3>Installing and configuring the Telemetry module components<a class="headerlink" href="#installing-and-configuring-the-telemetry-module-components" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Install the OpenStack Telemetry Controller bundle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># clr_bundle_add openstack-telemetry-controller</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Generate a random value to use as the telemetry secret:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openssl rand -hex 10
+</pre></div>
+</div>
+</li>
+<li><p class="first">Custom configurations will be located at <code class="docutils literal"><span class="pre">/etc/ceilometer</span></code>.</p>
+<ul>
+<li><p class="first">Create <code class="docutils literal"><span class="pre">/etc/ceilometer</span></code> directory:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ceilometer</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the empty ceilometer configuration file:</p>
+<div class="highlight-python"><div class="highlight"><pre>/etc/ceilometer/ceilometer.conf
+touch /etc/ceilometer/ceilometer.conf
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Edit the following file:<code class="docutils literal"><span class="pre">/etc/ceilometer/ceilometer.conf</span></code>Then
+complete the following actions:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[database]</span></code> section, configure database access. Replace
+<em>``CEILOMETER_DBPASS``</em> with the password you chose for the
+Telemetry module database. You must escape special characters such
+as &#8216;:&#8217;, &#8216;/&#8217;, &#8216;+&#8217;, and &#8216;&#64;&#8217; in the connection string in accordance
+with RFC2396:</p>
+<div class="highlight-python"><div class="highlight"><pre>[database]
+...
+connection = mongodb://ceilometer:CEILOMETER_DBPASS@controller:27017/ceilometer
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> and <code class="docutils literal"><span class="pre">[oslo_messaging_rabbit]</span></code> sections,
+configure RabbitMQ message queue access. Replace <em>``RABBIT_PASS``</em>
+with the password you chose for the <code class="docutils literal"><span class="pre">openstack</span></code> account in
+RabbitMQ:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">rpc_backend</span> <span class="o">=</span> <span class="n">rabbit</span>
+<span class="p">[</span><span class="n">oslo_messaging_rabbit</span><span class="p">]</span>
+<span class="n">rabbit_host</span> <span class="o">=</span> <span class="n">controller</span>
+<span class="n">rabbit_userid</span> <span class="o">=</span> <span class="n">openstack</span>
+<span class="n">rabbit_password</span> <span class="o">=</span> <span class="n">RABBIT_PASS</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> and <code class="docutils literal"><span class="pre">[keystone_authtoken]</span></code> sections,
+configure Identity service access. Replace <em>``CEILOMETER_PASS``</em>
+with the password you chose for the <code class="docutils literal"><span class="pre">celiometer</span></code> user in the
+Identity service:</p>
+<div class="highlight-python"><div class="highlight"><pre>[DEFAULT]
+...
+auth_strategy = keystone
+[keystone_authtoken]
+auth_uri = http://controller:5000/v2.0
+identity_uri = http://controller:35357
+admin_tenant_name = service
+admin_user = ceilometer
+admin_password = CEILOMETER_PASS
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[service_credentials]</span></code> section, configure service
+credentials. Replace <em>``CEILOMETER_PASS``</em> with the password you
+chose for the <code class="docutils literal"><span class="pre">ceilometer</span></code> user in the Identity service:</p>
+<div class="highlight-python"><div class="highlight"><pre>[service_credentials]
+...
+os_auth_url = http://controller:5000/v2.0
+os_username = ceilometer
+os_tenant_name = service
+os_password = CEILOMETER_PASS
+os_endpoint_type = internalURL
+os_region_name = RegionOne
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[publisher]</span></code> section, configure the telemetry secret.
+Replace <em>``TELEMETRY_SECRET``</em> with the telemetry secret that you
+generated in a previous step:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">publisher</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">telemetry_secret</span> <span class="o">=</span> <span class="n">TELEMETRY_SECRET</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="finalizing-installation">
+<h3>Finalizing installation<a class="headerlink" href="#finalizing-installation" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Start the Telemetry services and configure them to start when the system boots:</p>
+<div class="highlight-python"><div class="highlight"><pre># systemctl enable ceilometer-api.service ceilometer-agent-notification.service ceilometer-agent-central.service ceilometer-collector.service \
+ceilometer-alarm-evaluator.service ceilometer-alarm-notifier.service
+# systemctl start ceilometer-api.service ceilometer-agent-notification.service ceilometer-agent-central.service ceilometer-collector.service \
+ceilometer-alarm-evaluator.service ceilometer-alarm-notifier.service
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Next topic: <a class="reference internal" href="openstack_object_storage.html#openstack-object-storage"><span>Object Storage</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Telemetry</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#installing-and-configuring-controller-node">Installing and configuring controller node</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#installing-and-configuring-the-telemetry-module-components">Installing and configuring the Telemetry module components</a></li>
+<li><a class="reference internal" href="#finalizing-installation">Finalizing installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/openstack_telemetry.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Intel OTC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/openstack_telemetry.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

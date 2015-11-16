@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Networking &mdash; ClearLinux Documentation 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ClearLinux Documentation 1.0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="networking">
+<span id="openstack-networking"></span><h1>Networking<a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h1>
+<p>OpenStack* Networking allows you to create and attach interface devices
+managed by other OpenStack services to networks. Plug-ins can be
+implemented to accommodate different networking equipment and software,
+providing flexibility to OpenStack architecture and deployment.</p>
+<div class="section" id="installing-and-configuring-the-controller-node">
+<h2>Installing and configuring the controller node<a class="headerlink" href="#installing-and-configuring-the-controller-node" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Before configuring the OpenStack Networking (neutron) service, create a
+database, service credentials, and an API endpoint.</p>
+<ol class="arabic">
+<li><p class="first">Create the database:</p>
+<ul>
+<li><p class="first">Use the database access client to connect to the database server
+as the <code class="docutils literal"><span class="pre">root</span></code> user:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mysql -u root -p
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the <code class="docutils literal"><span class="pre">neutron</span></code> database:</p>
+<div class="highlight-python"><div class="highlight"><pre>CREATE DATABASE neutron;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Grant proper access to the <code class="docutils literal"><span class="pre">neutron</span></code> database. Replace
+<em>``NEUTRON_DBPASS``</em> with a suitable password:</p>
+<div class="highlight-python"><div class="highlight"><pre>GRANT ALL PRIVILEGES ON neutron.* TO &#39;neutron&#39;@&#39;localhost&#39; \
+IDENTIFIED BY &#39;NEUTRON_DBPASS&#39;;
+GRANT ALL PRIVILEGES ON neutron.* TO &#39;neutron&#39;@&#39;%&#39; \
+IDENTIFIED BY &#39;NEUTRON_DBPASS&#39;;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Exit the database access client.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Source the <code class="docutils literal"><span class="pre">admin</span></code> credentials to gain access to admin-only CLI
+commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ source admin-openrc.sh
+</pre></div>
+</div>
+</li>
+<li><p class="first">To create the service credentials, complete these steps:</p>
+<ul>
+<li><p class="first">Create the <code class="docutils literal"><span class="pre">neutron</span></code> user:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack user create --password-prompt neutron
+User Password:
+Repeat User Password:
++----------+----------------------------------+
+| Field    | Value                            |
++----------+----------------------------------+
+| email    | None                             |
+| enabled  | True                             |
+| id       | ab67f043d9304017aaa73d692eeb4945 |
+| name     | neutron                          |
+| username | neutron                          |
++----------+----------------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the <code class="docutils literal"><span class="pre">admin</span></code> role to the <code class="docutils literal"><span class="pre">neutron</span></code> user:</p>
+<div class="highlight-python"><div class="highlight"><pre>+-------+----------------------------------+
+| Field | Value                            |
++-------+----------------------------------+
+| id    | cd2cb9a39e874ea69e5d4b896eb16128 |
+| name  | admin                            |
++-------+----------------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the <code class="docutils literal"><span class="pre">neutron</span></code> service entity:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack service create --name neutron \
+--description &quot;OpenStack Networking&quot; network
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | OpenStack Networking             |
+| enabled     | True                             |
+| id          | f71529314dab4a4d8eca427e701d209e |
+| name        | neutron                          |
+| type        | network                          |
++-------------+----------------------------------+
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Create the Networking service API endpoint:</p>
+<div class="highlight-python"><div class="highlight"><pre>--publicurl http://controller:9696 \
+--adminurl http://controller:9696 \
+--internalurl http://controller:9696 \
+--region RegionOne \
+network
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| adminurl     | http://controller:9696           |
+| id           | 04a7d3c1de784099aaba83a8a74100b3 |
+| internalurl  | http://controller:9696           |
+| publicurl    | http://controller:9696           |
+| region       | RegionOne                        |
+| service_id   | f71529314dab4a4d8eca427e701d209e |
+| service_name | neutron                          |
+| service_type | network                          |
++--------------+----------------------------------+
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-the-networking-components">
+<h3>Installing the Networking components<a class="headerlink" href="#installing-the-networking-components" title="Permalink to this headline">¶</a></h3>
+<p>Complete the following step to install the Networking components:</p>
+<ul>
+<li><p class="first">Install OpenStack networking bundle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># clr_bundle_add openstack-network</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="configuring-the-networking-server-component">
+<h3>Configuring the Networking server component<a class="headerlink" href="#configuring-the-networking-server-component" title="Permalink to this headline">¶</a></h3>
+<p>Complete the following steps to configure the Networking server component:</p>
+<p>The Networking server component configuration includes the database,
+authentication mechanism, message queue, topology change notifications,
+and plug-in.</p>
+<p>Edit the <code class="docutils literal"><span class="pre">/etc/neutron/neutron.conf&nbsp;</span></code> file:</p>
+<ol class="arabic">
+<li><p class="first">Custom configurations will be located at <code class="docutils literal"><span class="pre">/etc/neutron</span></code>.</p>
+<ul>
+<li><p class="first">Create /etc/neutron directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mkdir /etc/neutron
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create empty neutron configuration
+file:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ touch /etc/neutron/neutron.conf
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[database]</span></code> section, configure database access. Replace
+<em>NEUTRON_DBPASS</em> with the password you chose for the database:</p>
+<div class="highlight-python"><div class="highlight"><pre>[database]
+...
+connection = mysql://neutron:NEUTRON_DBPASS@controller/neutron
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> and <code class="docutils literal"><span class="pre">[oslo_messaging_rabbit]</span></code> sections,
+configure RabbitMQ message queue access. Replace <em>``RABBIT_PASS``</em>
+with the password you chose for the <code class="docutils literal"><span class="pre">openstack</span></code> account in
+RabbitMQ:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">rpc_backend</span> <span class="o">=</span> <span class="n">rabbit</span>
+<span class="p">[</span><span class="n">oslo_messaging_rabbit</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">rabbit_host</span> <span class="o">=</span> <span class="n">controller</span>
+<span class="n">rabbit_userid</span> <span class="o">=</span> <span class="n">openstack</span>
+<span class="n">rabbit_password</span> <span class="o">=</span> <span class="n">RABBIT_PASS</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> and <code class="docutils literal"><span class="pre">[keystone_authtoken]</span></code> sections, configure
+Identity service access. Replace <em>``NEUTRON_PASS``</em> with the password
+you chose for the <code class="docutils literal"><span class="pre">neutron</span></code> user in the Identity service:</p>
+<div class="highlight-python"><div class="highlight"><pre>[DEFAULT]
+...
+auth_strategy = keystone
+[keystone_authtoken]
+...
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = neutron
+password = NEUTRON_PASS
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> section, enable the Modular Layer 2 (ML2)
+plug-in, router service, and overlapping IP addresses:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">core_plugin</span> <span class="o">=</span> <span class="n">ml2</span>
+<span class="n">service_plugins</span> <span class="o">=</span> <span class="n">router</span>
+<span class="n">allow_overlapping_ips</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> and <code class="docutils literal"><span class="pre">[nova]</span></code> sections, configure Networking to
+notify Compute of network topology changes. Replace <code class="docutils literal"><span class="pre">NOVA_PASS</span></code>
+with the password you chose for the <code class="docutils literal"><span class="pre">nova</span></code> user in the Identity
+service:</p>
+<div class="highlight-python"><div class="highlight"><pre>[DEFAULT]
+...
+notify_nova_on_port_status_changes = True
+notify_nova_on_port_data_changes = True
+nova_url = http://controller:8774/v2
+[nova]
+...
+auth_url = http://controller:35357
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+region_name = RegionOne
+project_name = service
+username = nova
+password = NOVA_PASS
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configuring-the-modular-layer-2-ml2-plug-in">
+<h3>Configuring the Modular Layer 2 (ML2) plug-in<a class="headerlink" href="#configuring-the-modular-layer-2-ml2-plug-in" title="Permalink to this headline">¶</a></h3>
+<p>The ML2 plug-in uses the Open vSwitch (OVS) mechanism (agent) to build
+the virtual networking framework for instances. However, the controller
+node does not need the OVS components because it does not handle
+instance network traffic.</p>
+<ol class="arabic">
+<li><p class="first">Custom configuration for ML2 plug-in will be stored in <code class="docutils literal"><span class="pre">/etc/neutron/plugins/ml2</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">neutron</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">ml2</span>
+<span class="n">touch</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">neutron</span><span class="o">.</span><span class="n">plugins</span><span class="o">/</span><span class="n">ml2</span><span class="o">/</span><span class="n">ml2_conf</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/neutron/plugins/ml2/ml2_conf.ini</span></code> file as follows:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[ml2]</span></code> section, enable the flat, VLAN, generic routing
+encapsulation (GRE), and virtual extensible LAN (VXLAN) network
+type drivers, GRE tenant networks, and the OVS mechanism driver:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">ml2</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">type_drivers</span> <span class="o">=</span> <span class="n">flat</span><span class="p">,</span><span class="n">vlan</span><span class="p">,</span><span class="n">gre</span><span class="p">,</span><span class="n">vxlan</span>
+<span class="n">tenant_network_types</span> <span class="o">=</span> <span class="n">gre</span>
+<span class="n">mechanism_drivers</span> <span class="o">=</span> <span class="n">openvswitch</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[ml2_type_gre]</span></code> section, configure the tunnel identifier
+(id) range:</p>
+<div class="highlight-python"><div class="highlight"><pre>[ml2_type_gre]
+...
+tunnel_id_ranges = 1:1000
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[securitygroup]</span></code> section, enable security groups, enable
+ipset, and configure the OVS iptables firewall driver:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">securitygroup</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">enable_security_group</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">enable_ipset</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">firewall_driver</span> <span class="o">=</span> <span class="n">neutron</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">linux</span><span class="o">.</span><span class="n">iptables_firewall</span><span class="o">.</span><span class="n">OVSHybridIptablesFirewallDriver</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="configuring-compute-to-use-networking">
+<h3>Configuring Compute to use Networking<a class="headerlink" href="#configuring-compute-to-use-networking" title="Permalink to this headline">¶</a></h3>
+<p>By default, distribution packages configure Compute to use legacy
+networking. You must reconfigure Compute to manage networks through
+Networking.</p>
+<ol class="arabic">
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/nova/nova.conf</span></code> file on the controller node as
+follows:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> section, configure the APIs and drivers:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">network_api_class</span> <span class="o">=</span> <span class="n">nova</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">neutronv2</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">API</span>
+<span class="n">security_group_api</span> <span class="o">=</span> <span class="n">neutron</span>
+<span class="n">linuxnet_interface_driver</span> <span class="o">=</span> <span class="n">nova</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">linux_net</span><span class="o">.</span><span class="n">LinuxOVSInterfaceDriver</span>
+<span class="n">firewall_driver</span> <span class="o">=</span> <span class="n">nova</span><span class="o">.</span><span class="n">virt</span><span class="o">.</span><span class="n">firewall</span><span class="o">.</span><span class="n">NoopFirewallDriver</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[neutron]</span></code> section, configure access
+parameters.&nbsp;Replace&nbsp;<em>NEUTRON_PASS</em> with the password you
+chose for the&nbsp;<a href="#id1"><span class="problematic" id="id2">``</span></a>neutron``&nbsp;user in the Identity service:</p>
+<div class="highlight-python"><div class="highlight"><pre>[neutron]
+...
+url = http://controller:9696
+auth_strategy = keystone
+admin_auth_url = http://controller:35357/v2.0
+admin_tenant_name = service
+admin_username = neutron
+admin_password = NEUTRON_PASS
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="finalizing-installation">
+<h3>Finalizing installation<a class="headerlink" href="#finalizing-installation" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">The Networking service initialization scripts expect a symbolic link
+<code class="docutils literal"><span class="pre">/etc/neutron/plugin.ini</span></code> pointing to the ML2 plug-in configuration
+file, <code class="docutils literal"><span class="pre">/etc/neutron/plugins/ml2/ml2_conf.ini</span></code>. If this symbolic
+link does not exist, create it using the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Populate the database:</p>
+<div class="highlight-python"><div class="highlight"><pre># su -s /bin/sh -c &quot;neutron-db-manage --config-file /etc/neutron/neutron.conf \
+--config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head&quot; neutron
+</pre></div>
+</div>
+</li>
+<li><p class="first">Let <code class="docutils literal"><span class="pre">systemd</span></code> set the correct permissions for files in <code class="docutils literal"><span class="pre">/etc/neutron</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl restart update-triggers.target</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the Compute services:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl restart nova-api.service nova-scheduler.service \</span>
+<span class="n">nova</span><span class="o">-</span><span class="n">conductor</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start the Networking service and configure it to start when the
+system boots:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl enable neutron-server.service</span>
+<span class="c"># systemctl start neutron-server.service</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Next topic: <a class="reference internal" href="openstack_orchestration.html#openstack-orchestration"><span>Orchestration</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Networking</a><ul>
+<li><a class="reference internal" href="#installing-and-configuring-the-controller-node">Installing and configuring the controller node</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#installing-the-networking-components">Installing the Networking components</a></li>
+<li><a class="reference internal" href="#configuring-the-networking-server-component">Configuring the Networking server component</a></li>
+<li><a class="reference internal" href="#configuring-the-modular-layer-2-ml2-plug-in">Configuring the Modular Layer 2 (ML2) plug-in</a></li>
+<li><a class="reference internal" href="#configuring-compute-to-use-networking">Configuring Compute to use Networking</a></li>
+<li><a class="reference internal" href="#finalizing-installation">Finalizing installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/openstack_networking.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Intel OTC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/openstack_networking.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Creating a bootable USB to install the OS &mdash; ClearLinux Documentation 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ClearLinux Documentation 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Installing the OS as host" href="gs_installing_clr_as_host.html" />
+    <link rel="prev" title="Supported hardware" href="gs_supported_hardware.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="creating-a-bootable-usb-to-install-the-os">
+<span id="gs-creating-bootable-usb"></span><h1>Creating a bootable USB to install the OS<a class="headerlink" href="#creating-a-bootable-usb-to-install-the-os" title="Permalink to this headline">¶</a></h1>
+<p>Here&#8217;s how to create a USB drive that initiates the process for
+<a class="reference internal" href="gs_installing_clr_as_host.html#gs-installing-clr-as-host"><span>Installing the OS as host</span></a>. Alternatively, you can test the
+OS by <a class="reference internal" href="gs_running_clr_virtual.html#gs-running-clr-virtual"><span>Running in a virtualized environment</span></a>.</p>
+<div class="section" id="what-you-need">
+<h2>What you need<a class="headerlink" href="#what-you-need" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">A USB stick, formatted as <code class="docutils literal"><span class="pre">ext4</span></code>. Remember that the process of flashing
+data to a USB completely deletes the contents of the drive; as always, run
+<code class="docutils literal"><span class="pre">dd</span></code> with caution.</p>
+</li>
+<li><p class="first">A ClearLinux OS image; the most current version can be found here:
+<a class="reference external" href="https://download.clearlinux.org/image">https://download.clearlinux.org/image</a></p>
+<blockquote>
+<div><div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">For older versions, see our <a class="reference external" href="https://download.clearlinux.org/">downloads page</a>.</p>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="download-and-checksum">
+<h2>Download and checksum<a class="headerlink" href="#download-and-checksum" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>$ wget https://download.clearlinux.org/image/clear-[release_number]-installer.img.xz
+$ sha512sum clear-[release_number]-installer.img.xz`
+</pre></div>
+</div>
+</div>
+<div class="section" id="confirm-the-mount-point-on-the-usb-drive">
+<h2>Confirm the mount point on the USB drive<a class="headerlink" href="#confirm-the-mount-point-on-the-usb-drive" title="Permalink to this headline">¶</a></h2>
+<p>Using <code class="docutils literal"><span class="pre">$</span> <span class="pre">lsblk</span></code> is helpful to show the block-level devices; a USB drive
+usually shows up under <code class="docutils literal"><span class="pre">/sdb</span></code> or <code class="docutils literal"><span class="pre">/sdc</span></code> (almost never <code class="docutils literal"><span class="pre">/sda</span></code>), and should
+indicate disk space approximately the size of the USB drive:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ lsblk /dev/sdb
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+?? sdb  8:16 1 14.9G 0
+?? sdb1 8:17 1 14.9G 0 part
+</pre></div>
+</div>
+<p>and make sure the drive isn&#8217;t already mounted. The easiest way is with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># df</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="flash-the-image-to-the-usb">
+<h2>Flash the image to the USB<a class="headerlink" href="#flash-the-image-to-the-usb" title="Permalink to this headline">¶</a></h2>
+<p>Flash the image with the following command, adding the <code class="docutils literal"><span class="pre">-v</span></code> option for verbose mode
+(recommended), as the image file may be large, and the process can take a while. This
+may need to be done as root:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ xzcat -v clear-[release_number]-installer.img.xz | dd of=/dev/sdb bs=4M
+</pre></div>
+</div>
+</div>
+<div class="section" id="wait-for-the-final-confirmation">
+<h2>Wait for the final confirmation<a class="headerlink" href="#wait-for-the-final-confirmation" title="Permalink to this headline">¶</a></h2>
+<p>This example shows <code class="docutils literal"><span class="pre">clear-2190-installer.img.xz</span></code> flashed to a 16GB USB drive
+mounted on <code class="docutils literal"><span class="pre">/sdc</span></code>.</p>
+<img alt="confirmation" class="align-center" src="_images/gs_confirmation_screen.png" />
+<p>Success!  Your USB stick is now ready to boot and initiate the process for
+<a class="reference internal" href="gs_installing_clr_as_host.html#gs-installing-clr-as-host"><span>Installing the OS as host</span></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating a bootable USB to install the OS</a><ul>
+<li><a class="reference internal" href="#what-you-need">What you need</a></li>
+<li><a class="reference internal" href="#download-and-checksum">Download and checksum</a></li>
+<li><a class="reference internal" href="#confirm-the-mount-point-on-the-usb-drive">Confirm the mount point on the USB drive</a></li>
+<li><a class="reference internal" href="#flash-the-image-to-the-usb">Flash the image to the USB</a></li>
+<li><a class="reference internal" href="#wait-for-the-final-confirmation">Wait for the final confirmation</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="gs_supported_hardware.html" title="previous chapter">Supported hardware</a></li>
+      <li>Next: <a href="gs_installing_clr_as_host.html" title="next chapter">Installing the OS as host</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gs_creating_bootable_usb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Intel OTC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/gs_creating_bootable_usb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

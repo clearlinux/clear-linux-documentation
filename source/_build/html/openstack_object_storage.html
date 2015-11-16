@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Object Storage &mdash; ClearLinux Documentation 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ClearLinux Documentation 1.0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="object-storage">
+<span id="openstack-object-storage"></span><h1>Object Storage<a class="headerlink" href="#object-storage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-and-configure-the-controller-node">
+<h2>Install and configure the controller node<a class="headerlink" href="#install-and-configure-the-controller-node" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how to install and configure the proxy service
+that handles requests for the account, container, and object services
+operating on the storage nodes. For simplicity, this guide installs and
+configures the proxy service on the controller node. However, you can
+run the proxy service on any node with network connectivity to the
+storage nodes. Additionally, you can install and configure the proxy
+service on multiple nodes to increase performance and redundancy.</p>
+<div class="section" id="to-configure-prerequisites">
+<h3>To configure prerequisites<a class="headerlink" href="#to-configure-prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>The proxy service relies on an authentication and authorization
+mechanism such as the Identity service. However, unlike other services,
+it also offers an internal mechanism that allows it to operate without
+any other OpenStack* services. However, for simplicity, this guide
+references the Identity service OpenStack Identity Service. Before you
+configure the Object Storage service, you must create service
+credentials and an API endpoint.</p>
+<ol class="arabic">
+<li><p class="first">Source the <code class="docutils literal"><span class="pre">admin</span></code> credentials to gain access to admin-only CLI
+commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ source admin-openrc.sh
+</pre></div>
+</div>
+</li>
+<li><p class="first">To create the Identity service credentials, complete these steps:</p>
+<ul>
+<li><p class="first">Create the swift user:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack user create --password-prompt swift
+User Password:
+Repeat User Password:
++----------+----------------------------------+
+| Field    | Value                            |
++----------+----------------------------------+
+| email    | None                             |
+| enabled  | True                             |
+| id       | d535e5cbd2b74ac7bfb97db9cced3ed6 |
+| name     | swift                            |
+| username | swift                            |
++----------+----------------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the admin role to the swift user:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack role add --project service --user swift admin
++-------+----------------------------------+
+| Field | Value                            |
++-------+----------------------------------+
+| id    | cd2cb9a39e874ea69e5d4b896eb16128 |
+| name  | admin                            |
++-------+----------------------------------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the swift service entity:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack service create --name swift \
+--description &quot;OpenStack Object Storage&quot; object-store
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | OpenStack Object Storage         |
+| enabled     | True                             |
+| id          | 75ef509da2c340499d454ae96a2c5c34 |
+| name        | swift                            |
+| type        | object-store                     |
++-------------+----------------------------------+
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Create the Object Storage service API endpoint:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack endpoint create \
+--publicurl &#39;http://controller:8080/v1/AUTH_%(tenant_id)s&#39; \
+--internalurl &#39;http://controller:8080/v1/AUTH_%(tenant_id)s&#39; \
+--adminurl http://controller:8080 \
+--region RegionOne \
+object-store
++--------------+----------------------------------------------+
+| Field        | Value                                        |
++--------------+----------------------------------------------+
+| adminurl     | http://controller:8080/                      |
+| id           | af534fb8b7ff40a6acf725437c586ebe             |
+| internalurl  | http://controller:8080/v1/AUTH_%(tenant_id)s |
+| publicurl    | http://controller:8080/v1/AUTH_%(tenant_id)s |
+| region       | RegionOne                                    |
+| service_id   | 75ef509da2c340499d454ae96a2c5c34             |
+| service_name | swift                                        |
+| service_type | object-store                                 |
++--------------+----------------------------------------------+
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="to-install-and-configure-the-controller-node-components">
+<h3>To install and configure the controller node components<a class="headerlink" href="#to-install-and-configure-the-controller-node-components" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Install the bundle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># clr_bundle_add openstack-object-storage</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the directory <code class="docutils literal"><span class="pre">/etc/swift</span></code> if does not exist:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># mkdir /etc/swift</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the sample proxy-server config file to the configuration
+directory:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># cp /usr/share/defaults/swift/proxy-server.conf /etc/swift</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/swift/proxy-server.conf</span></code> file and complete the
+following actions:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[pipeline:main]</span></code> section, enable the appropriate
+modules:</p>
+<div class="highlight-python"><div class="highlight"><pre>[pipeline:main]
+pipeline = catch_errors gatekeeper healthcheck proxy-logging cache container_sync bulk ratelimit authtoken keystoneauth container-quotas account-quotas slo dlo proxy-logging proxy-server
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[app:proxy-server]</span></code> section, enable automatic account
+creation:</p>
+<div class="highlight-python"><div class="highlight"><pre>[app:proxy-server]
+...
+account_autocreate = true
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[filter:keystoneauth]</span></code> section, configure the operator
+roles:</p>
+<div class="highlight-python"><div class="highlight"><pre>[filter:keystoneauth]
+use = egg:swift#keystoneauth
+...
+operator_roles = admin,user
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[filter:authtoken]</span></code> section, configure Identity service
+access. Replace SWIFT_PASS with the password you chose for the
+swift user in the Identity service:</p>
+<div class="highlight-python"><div class="highlight"><pre>[filter:authtoken]
+paste.filter_factory = keystonemiddleware.auth_token:filter_factory
+...
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = swift
+password = SWIFT_PASS
+delay_auth_decision = true
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[filter:cache]</span></code> section, configure the memcached
+location:</p>
+<div class="highlight-python"><div class="highlight"><pre>[filter:cache]
+...
+memcache_servers = 127.0.0.1:11211
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="install-and-configure-the-storage-nodes">
+<h2>Install and configure the storage nodes<a class="headerlink" href="#install-and-configure-the-storage-nodes" title="Permalink to this headline">¶</a></h2>
+<p>This section describes how to install and configure storage nodes that
+operate the account, container, and object services. For simplicity,
+this configuration references two storage nodes, each containing two
+empty local block storage devices. Each of the devices, <code class="docutils literal"><span class="pre">/dev/sdb</span></code> and
+<code class="docutils literal"><span class="pre">/dev/sdc</span></code>, must contain a suitable partition table with one partition
+occupying the entire device. Although the Object Storage service
+supports any file system with extended attributes (xattr), testing and
+benchmarking indicate the best performance and reliability on XFS.</p>
+<div class="section" id="id1">
+<h3>To configure prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>You must configure each storage node before you install and configure
+the Object Storage service on it. Similar to the controller node, each
+storage node contains one network interface on the management network.
+Optionally, each storage node can contain a second network interface on
+a separate network for replication.</p>
+<ol class="arabic">
+<li><p class="first">Configure unique items on the first storage node:</p>
+<ul>
+<li><p class="first">Configure the management interface:</p>
+<div class="highlight-python"><div class="highlight"><pre>IP address: 10.0.0.51
+Network mask: 255.255.255.0 (or /24)
+Default gateway: 10.0.0.1
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set the hostname of the node to <code class="docutils literal"><span class="pre">object1</span></code>.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Configure unique items on the second storage node:</p>
+<ul>
+<li><p class="first">Configure the management interface:</p>
+<div class="highlight-python"><div class="highlight"><pre>IP address: 10.0.0.52
+Network mask: 255.255.255.0 (or /24)
+Default gateway: 10.0.0.1
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set the hostname of the node to <code class="docutils literal"><span class="pre">object2</span></code>.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Configure shared items on both storage nodes:</p>
+<ul>
+<li><p class="first">Copy the contents of the <code class="docutils literal"><span class="pre">/etc/hosts</span></code> file from the controller
+node and add the following to it:</p>
+<div class="highlight-python"><div class="highlight"><pre># object1
+10.0.0.51 object1
+# object2
+10.0.0.52 object2
+</pre></div>
+</div>
+<p>Also add this content to the <code class="docutils literal"><span class="pre">/etc/hosts</span></code> file on all other nodes in your environment.</p>
+</li>
+<li><p class="first">Install the OpenStack Object Storage bundle:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># clr\_bundle\_add openstack-object-storage</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Format the <code class="docutils literal"><span class="pre">/dev/sdb1</span></code> and <code class="docutils literal"><span class="pre">/dev/sdc1</span></code> partitions as XFS:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># mkfs.xfs /dev/sdb1</span>
+<span class="c"># mkfs.xfs /dev/sdc1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the mount point directory structure:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># mkdir -p /srv/node/sdb1</span>
+<span class="c"># mkdir -p /srv/node/sdc1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/fstab</span></code> file and add the following to it:</p>
+<div class="highlight-python"><div class="highlight"><pre>/dev/sdb1 /srv/node/sdb1 xfs noatime,nodiratime,nobarrier,logbufs=8 0 2
+/dev/sdc1 /srv/node/sdc1 xfs noatime,nodiratime,nobarrier,logbufs=8 0 2
+</pre></div>
+</div>
+</li>
+<li><p class="first">Mount the devices:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># mount /srv/node/sdb1</span>
+<span class="c"># mount /srv/node/sdc1</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/rsyncd.conf</span></code> file and add the following to it:</p>
+<div class="highlight-python"><div class="highlight"><pre>uid = swift
+gid = swift
+log file = /var/log/rsyncd.log
+pid file = /var/run/rsyncd.pid
+address = MANAGEMENT\_INTERFACE\_IP\_ADDRESS
+[account]
+max connections = 2
+path = /srv/node/
+read only = false
+lock file = /var/lock/account.lock
+[container]
+max connections = 2
+path = /srv/node/
+read only = false
+lock file = /var/lock/container.lock
+[object]
+max connections = 2
+path = /srv/node/
+read only = false
+lock file = /var/lock/object.lock
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal"><span class="pre">MANAGEMENT_INTERFACE_IP_ADDRESS</span></code> with the IP address of
+the management network on the storage node.</p>
+<p>Note: The <code class="docutils literal"><span class="pre">rsync</span></code> service requires no authentication, so consider
+running it on a private network.</p>
+</li>
+<li><p class="first">Start the <code class="docutils literal"><span class="pre">rsyncd</span></code> service and configure it to start when the
+system boots:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl enable rsyncd.service</span>
+<span class="c"># systemctl start rsyncd.service</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="install-and-configure-storage-node-components">
+<h3>Install and configure storage node components<a class="headerlink" href="#install-and-configure-storage-node-components" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Copy the accounting, container, object, container-reconciler, and
+object-expirer service configuration files to the configuration
+directory:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># cp /usr/share/defaults/swift/account-server.conf /etc/swift</span>
+<span class="c"># cp /usr/share/defaults/swift/container-server.conf /etc/swift</span>
+<span class="c"># cp /usr/share/defaults/swift/object-server.conf /etc/swift</span>
+<span class="c"># cp /usr/share/defaults/swift/container-reconciler.conf/etc/swift</span>
+<span class="c"># cp /usr/share/defaults/swift/object-expirer.conf /etc/swift</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/swift/account-server.conf</span></code> file and complete the
+following actions:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> section, configure the bind IP address and
+mount point directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>   [DEFAULT]
+   ...
+   bind\_ip = MANAGEMENT\_INTERFACE\_IP\_ADDRESS
+   devices = /srv/node
+
+Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP
+address of the management network on the storage node.
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[pipeline:main]</span></code> section, enable the appropriate
+modules:</p>
+<div class="highlight-python"><div class="highlight"><pre>[pipeline:main]
+pipeline = healthcheck recon account-server
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[filter:recon]</span></code> section, configure the recon (metrics)
+cache directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>[filter:recon]
+...
+recon\_cache\_path = /var/cache/swift
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/swift/container-server.conf</span></code> file and complete the
+following actions:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> section, configure the bind IP address and
+mount point directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>   [DEFAULT]
+   ...
+   bind\_ip = MANAGEMENT\_INTERFACE\_IP\_ADDRESS
+   devices = /srv/node
+
+Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP
+address of the management network on the storage node.
+</pre></div>
+</div>
+</li>
+<li><p class="first">modules:</p>
+<div class="highlight-python"><div class="highlight"><pre>[pipeline:main]
+pipeline = healthcheck recon container-server
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[filter:recon]</span></code> section, configure the recon (metrics)
+cache directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>[filter:recon]
+...
+recon\_cache\_path = /var/cache/swift
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/swift/object-server.conf</span></code> file and complete the
+following actions:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> section, configure the bind IP address and
+mount point directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>   [DEFAULT]
+   ...
+   bind\_ip = MANAGEMENT\_INTERFACE\_IP\_ADDRESS
+   devices = /srv/node
+
+Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP
+address of the management network on the storage node.
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[pipeline:main]</span></code> section, enable the appropriate
+modules:</p>
+<div class="highlight-python"><div class="highlight"><pre>[pipeline:main]
+pipeline = healthcheck recon object-server
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[filter:recon]</span></code> section, configure the recon (metrics)
+cache and lock directories:</p>
+<div class="highlight-python"><div class="highlight"><pre>[filter:recon]
+...
+recon\_cache\_path = /var/cache/swift
+recon\_lock\_path = /var/lock
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Ensure proper ownership of the mount point directory structure:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl restart update-triggers.target</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="about-creating-initial-rings">
+<h2>About Creating initial rings<a class="headerlink" href="#about-creating-initial-rings" title="Permalink to this headline">¶</a></h2>
+<p>Before starting the Object Storage services, you must create the initial
+account, container, and object rings. The ring builder creates
+configuration files that each node uses to determine and deploy the
+storage architecture. For simplicity, this guide uses one region and
+zone with 2^10 (1024) maximum partitions, 3 replicas of each object, and
+1 hour minimum time between moving a partition more than once. For
+Object Storage, a partition indicates a directory on a storage device
+rather than a conventional partition table.</p>
+</div>
+<div class="section" id="create-account-ring">
+<h2>Create Account Ring<a class="headerlink" href="#create-account-ring" title="Permalink to this headline">¶</a></h2>
+<p>The account server uses the account ring to maintain lists of
+containers.</p>
+<div class="section" id="to-create-the-ring">
+<h3>To create the ring<a class="headerlink" href="#to-create-the-ring" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Change to the /etc/swift directory.</p>
+</li>
+<li><p class="first">Create the base account.builder file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># swift-ring-builder account.builder create 10 3 1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add each storage node to the ring:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder account.builder \
+add r1z1-STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS:6002/DEVICE_NAME DEVICE_WEIGHT
+</pre></div>
+</div>
+<p>Replace <em>STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS</em> with the
+IP address of the management network on the storage node. Replace
+<em>DEVICE_NAME</em> with a storage device name on the same storage node.
+For example, using the first storage node with the <code class="docutils literal"><span class="pre">/dev/sdb1</span></code> storage
+device and weight of 100:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># swift-ring-builder account.builder add r1z1-10.0.0.51:6002/sdb1 100</span>
+</pre></div>
+</div>
+<p>Repeat this command for each storage device on each storage node. In
+the example architecture, use the command in four variations:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder account.builder add r1z1-10.0.0.51:6002/sdb1 100
+Device d0r1z1-10.0.0.51:6002R10.0.0.51:6002/sdb1_&quot;&quot; with 100.0 weight got id 0
+# swift-ring-builder account.builder add r1z2-10.0.0.51:6002/sdc1 100
+Device d1r1z2-10.0.0.51:6002R10.0.0.51:6002/sdc1_&quot;&quot; with 100.0 weight got id 1
+# swift-ring-builder account.builder add r1z3-10.0.0.52:6002/sdb1 100
+Device d2r1z3-10.0.0.52:6002R10.0.0.52:6002/sdb1_&quot;&quot; with 100.0 weight got id 2
+# swift-ring-builder account.builder add r1z4-10.0.0.52:6002/sdc1 100
+Device d3r1z4-10.0.0.52:6002R10.0.0.52:6002/sdc1_&quot;&quot; with 100.0 weight got id 3
+</pre></div>
+</div>
+</li>
+<li><p class="first">Verify the ring contents:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder account.builder account.builder, build version 4
+1024 partitions, 3.000000 replicas, 1 regions, 4 zones, 4 devices, 100.00 balance, 0.00 dispersion
+The minimum number of hours before a partition can be reassigned is 1
+The overload factor is 0.00% (0.000000)
+Devices:    id  region  zone      ip address  port  replication ip  replication port      name weight partitions balance meta
+             0       1     1       10.0.0.51  6002       10.0.0.51              6002      sdb1 100.00          0 -100.00
+             1       1     2       10.0.0.51  6002       10.0.0.51              6002      sdc1 100.00          0 -100.00
+             2       1     3       10.0.0.52  6002       10.0.0.52              6002      sdb1 100.00          0 -100.00
+             3       1     4       10.0.0.52  6002       10.0.0.52              6002      sdc1 100.00          0 -100.00
+</pre></div>
+</div>
+</li>
+<li><p class="first">Rebalance the ring:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder account.builder rebalance
+Reassigned 1024 (100.00%) partitions. Balance is now 0.00. Dispersion is now 0.00
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="create-container-ring">
+<h2>Create Container Ring<a class="headerlink" href="#create-container-ring" title="Permalink to this headline">¶</a></h2>
+<p>The container server uses the container ring to maintain lists of
+objects. However, it does not track object locations.</p>
+<div class="section" id="id2">
+<h3>To create the ring<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Change to the <code class="docutils literal"><span class="pre">/etc/swift</span></code> directory.</p>
+</li>
+<li><p class="first">Create the base container.builder file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># swift-ring-builder container.builder create 10 3 1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add each storage node to the ring:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder container.builder \
+add r1z1-STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS:6001/DEVICE_NAME DEVICE_WEIGHT
+</pre></div>
+</div>
+<p>Replace <em>STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS</em> with the
+IP address of the management network on the storage node. Replace
+<em>DEVICE_NAME</em> with a storage device name on the same storage node.
+For example, using the first storage node with the /dev/sdb1 storage
+device and weight of 100:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># swift-ring-builder container.builder add r1z1-10.0.0.51:6001/sdb1 100</span>
+</pre></div>
+</div>
+<p>Repeat this command for each storage device on each storage node. In
+the example architecture, use the command in four variations:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder container.builder add r1z1-10.0.0.51:6001/sdb1 100
+Device d0r1z1-10.0.0.51:6002R10.0.0.51:6002/sdb1_&quot;&quot; with 100.0 weight got id 0
+# swift-ring-builder container.builder add r1z2-10.0.0.51:6001/sdc1 100
+Device d1r1z2-10.0.0.51:6002R10.0.0.51:6002/sdc1_&quot;&quot; with 100.0 weight got id 1
+# swift-ring-builder container.builder add r1z3-10.0.0.52:6001/sdb1 100
+Device d2r1z3-10.0.0.52:6002R10.0.0.52:6002/sdb1_&quot;&quot; with 100.0 weight got id 2
+# swift-ring-builder container.builder add r1z4-10.0.0.52:6001/sdc1 100
+Device d3r1z4-10.0.0.52:6002R10.0.0.52:6002/sdc1_&quot;&quot; with 100.0 weight got id 3
+</pre></div>
+</div>
+</li>
+<li><p class="first">Verify the ring contents:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder container.builder
+container.builder, build version 4
+1024 partitions, 3.000000 replicas, 1 regions, 4 zones, 4 devices, 100.00 balance, 0.00 dispersion
+The minimum number of hours before a partition can be reassigned is 1
+The overload factor is 0.00% (0.000000)
+Devices:    id  region  zone      ip address  port  replication ip  replication port      name weight partitions balance meta
+             0       1     1       10.0.0.51  6001       10.0.0.51              6001      sdb1 100.00          0 -100.00
+             1       1     2       10.0.0.51  6001       10.0.0.51              6001      sdc1 100.00          0 -100.00
+             2       1     3       10.0.0.52  6001       10.0.0.52              6001      sdb1 100.00          0 -100.00
+             3       1     4       10.0.0.52  6001       10.0.0.52              6001      sdc1 100.00          0 -100.00
+</pre></div>
+</div>
+</li>
+<li><p class="first">Rebalance the ring:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder container.builder rebalance
+Reassigned 1024 (100.00%) partitions. Balance is now 0.00. Dispersion is now 0.00
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="create-object-ring">
+<h2>Create Object Ring<a class="headerlink" href="#create-object-ring" title="Permalink to this headline">¶</a></h2>
+<p>The object server uses the object ring to maintain lists of object
+locations on local devices.</p>
+<div class="section" id="id3">
+<h3>To create the ring<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Change to the <code class="docutils literal"><span class="pre">/etc/swift</span></code> directory.</p>
+</li>
+<li><p class="first">Create the base <code class="docutils literal"><span class="pre">object.builder</span></code> file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># swift-ring-builder object.builder create 10 3 1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add each storage node to the ring:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder object.builder \
+add r1z1-STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS:6000/DEVICE_NAME DEVICE_WEIGHT
+</pre></div>
+</div>
+<p>Replace <em>STORAGE_NODE_MANAGEMENT_INTERFACE_IP_ADDRESS</em> with the
+IP address of the management network on the storage node. Replace
+<em>DEVICE_NAME</em> with a storage device name on the same storage node.
+For example, using the first storage node with the /dev/sdb1 storage
+device and weight of 100:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># swift-ring-builder object.builder add r1z1-10.0.0.51:6000/sdb1 100</span>
+</pre></div>
+</div>
+<p>Repeat this command for each storage device on each storage node. In
+the example architecture, use the command in four variations:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder object.builder add r1z1-10.0.0.51:6000/sdb1 100
+Device d0r1z1-10.0.0.51:6002R10.0.0.51:6002/sdb1_&quot;&quot; with 100.0 weight got id 0
+# swift-ring-builder object.builder add r1z2-10.0.0.51:6000/sdc1 100
+Device d1r1z2-10.0.0.51:6002R10.0.0.51:6002/sdc1_&quot;&quot; with 100.0 weight got id 1
+# swift-ring-builder object.builder add r1z3-10.0.0.52:6000/sdb1 100
+Device d2r1z3-10.0.0.52:6002R10.0.0.52:6002/sdb1_&quot;&quot; with 100.0 weight got id 2
+# swift-ring-builder object.builder add r1z4-10.0.0.52:6000/sdc1 100
+Device d3r1z4-10.0.0.52:6002R10.0.0.52:6002/sdc1_&quot;&quot; with 100.0 weight got id 3
+</pre></div>
+</div>
+</li>
+<li><p class="first">Verify the ring contents:</p>
+<div class="highlight-python"><div class="highlight"><pre># swift-ring-builder object.builder
+object.builder, build version 4
+1024 partitions, 3.000000 replicas, 1 regions, 4 zones, 4 devices, 100.00 balance, 0.00 dispersion
+The minimum number of hours before a partition can be reassigned is 1
+The overload factor is 0.00% (0.000000)
+Devices:    id  region  zone      ip address  port  replication ip  replication port      name weight partitions balance meta
+             0       1     1       10.0.0.51  6000       10.0.0.51              6000      sdb1 100.00          0 -100.00
+             1       1     2       10.0.0.51  6000       10.0.0.51              6000      sdc1 100.00          0 -100.00
+             2       1     3       10.0.0.52  6000       10.0.0.52              6000      sdb1 100.00          0 -100.00
+             3       1     4       10.0.0.52  6000       10.0.0.52              6000      sdc1 100.00          0 -100.00
+</pre></div>
+</div>
+</li>
+<li><p class="first">Rebalance the ring:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># swift-ring-builder object.builder rebalance</span>
+</pre></div>
+</div>
+<p>Reassigned 1024 (100.00%) partitions. Balance is now 0.00. Dispersion is now 0.00</p>
+</li>
+</ol>
+</div>
+<div class="section" id="distribute-ring-configuration-files">
+<h3>Distribute ring configuration files<a class="headerlink" href="#distribute-ring-configuration-files" title="Permalink to this headline">¶</a></h3>
+<p>Copy the account.ring.gz, container.ring.gz, and object.ring.gz files to
+the /etc/swift directory on each storage node and any additional nodes
+running the proxy service.</p>
+</div>
+</div>
+<div class="section" id="finalize-installation">
+<h2>Finalize installation<a class="headerlink" href="#finalize-installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-hashes-and-default-storage-policy">
+<h3>Configure hashes and default storage policy<a class="headerlink" href="#configure-hashes-and-default-storage-policy" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Copy the swift service configuration file to the configuration directory:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># cp /usr/share/defaults/swift/swift.conf /etc/swift</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/swift/swift.conf</span></code> file and complete the following
+actions:</p>
+<ul>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[swift-hash]</span></code> section, configure the hash path prefix and
+suffix for your environment:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">swift</span><span class="o">-</span><span class="nb">hash</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">swift_hash_path_suffix</span> <span class="o">=</span> <span class="n">HASH_PATH_PREFIX</span>
+<span class="n">swift_hash_path_prefix</span> <span class="o">=</span> <span class="n">HASH_PATH_SUFFIX</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[storage-policy:0]</span></code> section, configure the default storage
+policy:</p>
+<div class="highlight-python"><div class="highlight"><pre>[storage-policy:0]
+...
+name = Policy-0
+default = yes
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Copy the swift.conf file to the <code class="docutils literal"><span class="pre">/etc/swift</span></code> directory on each storage
+node and any additional nodes running the proxy service.</p>
+</li>
+<li><p class="first">On all nodes, ensure proper ownership of the configuration directory:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl restart update-triggers.target</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">On the controller node and any other nodes running the proxy service,
+start the Object Storage proxy service including its dependencies and
+configure them to start when the system boots:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl enable swift-proxy.service memcached.service</span>
+<span class="c"># systemctl start swift-proxy.service memcached.service</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">On the storage nodes, start the Object Storage services and configure
+them to start when the system boots:</p>
+<div class="highlight-python"><div class="highlight"><pre># systemctl enable swift-account.service \
+                swift-account-auditor.service \
+                swift-account-reaper.service \
+                swift-account-replicator.service \
+                swift-container.service \
+                swift-container-auditor.service \
+                swift-container-replicator.service \
+                swift-container-updater.service \
+                swift-object.service \
+                swift-object-auditor.service \
+                swift-object-replicator.service \
+                swift-object-updater.service
+# systemctl start swift-account.service \
+                swift-account-auditor.service \
+                swift-account-reaper.service \
+                swift-account-replicator.service \
+                swift-container.service \
+                swift-container-auditor.service \
+                swift-container-replicator.service \
+                swift-container-updater.service \
+                swift-object.service \
+                swift-object-auditor.service \
+                swift-object-replicator.service \
+                swift-object-updater.service
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Object Storage</a><ul>
+<li><a class="reference internal" href="#install-and-configure-the-controller-node">Install and configure the controller node</a><ul>
+<li><a class="reference internal" href="#to-configure-prerequisites">To configure prerequisites</a></li>
+<li><a class="reference internal" href="#to-install-and-configure-the-controller-node-components">To install and configure the controller node components</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-and-configure-the-storage-nodes">Install and configure the storage nodes</a><ul>
+<li><a class="reference internal" href="#id1">To configure prerequisites</a></li>
+<li><a class="reference internal" href="#install-and-configure-storage-node-components">Install and configure storage node components</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#about-creating-initial-rings">About Creating initial rings</a></li>
+<li><a class="reference internal" href="#create-account-ring">Create Account Ring</a><ul>
+<li><a class="reference internal" href="#to-create-the-ring">To create the ring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-container-ring">Create Container Ring</a><ul>
+<li><a class="reference internal" href="#id2">To create the ring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-object-ring">Create Object Ring</a><ul>
+<li><a class="reference internal" href="#id3">To create the ring</a></li>
+<li><a class="reference internal" href="#distribute-ring-configuration-files">Distribute ring configuration files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finalize-installation">Finalize installation</a><ul>
+<li><a class="reference internal" href="#configure-hashes-and-default-storage-policy">Configure hashes and default storage policy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/openstack_object_storage.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Intel OTC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/openstack_object_storage.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
