@@ -61,7 +61,7 @@ Wait for the final confirmation
 This example shows ``clear-2190-installer.img.xz`` flashed to a 16GB USB drive
 mounted on ``/sdc``.
 
-.. image:: images/gs_confirmation_screen.png
+.. image:: _static/images/gs_confirmation_screen.png
    :align: center
    :alt: confirmation
 

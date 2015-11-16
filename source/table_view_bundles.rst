@@ -1,7 +1,12 @@
+.. _table_view_bundles:
+
+Table View of Bundles 
+=====================
+
 .. raw:: html
 
 	<head>
-
+		<title>Bundles in ClearLinux</title>
 		<style media="screen" type="text/css">
 			table { margin: 2em; border-collapse: collapse; }
 			td, th { padding: .5em; border: 1px #ccc solid; }

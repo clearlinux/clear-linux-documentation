@@ -1,6 +1,22 @@
-..
-    Clear Linux Project documentation master file
+.. ClearLinux Documentation documentation master file, created by
+   sphinx-quickstart on Fri Nov 13 12:23:35 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
+<<<<<<< HEAD
+=======
+
+Welcome to ClearLinux Documentation
+===================================
+
+Contents
+========
+
+.. toctree::
+   :maxdepth: 2
+
+
+>>>>>>> staging
 Getting started
 ###############
 
@@ -14,6 +30,7 @@ Getting started
    gs_running_clr_virtual
    gs-clear-containers-gettting-started
 
+
 Software update
 ###############
 
@@ -23,6 +40,7 @@ Software update
    swupdate_about_sw_update
    swupdate_how_to_run_the_updater
 
+
 Bundles
 #######
 
@@ -31,9 +49,11 @@ Bundles
 
    bundles_overview
    bundles_in_clr
+   table_view_bundles
 
-OpenStack* implementation
-#########################
+
+OpenStack``*`` implementation
+#############################
 
 .. toctree::
    :maxdepth: 1
@@ -54,13 +74,27 @@ OpenStack* implementation
    openstack_orchestration
    openstack_telemetry
    openstack_object_storage
+   openstack_supporting-database
+   openstack_supporting-messaging
 
-Index and search
-################
+
+License and Disclaimers
+=======================
+.. toctree::   
+
+   disclaimers
+   documentation_license
+
+
+Indices and tables
+==================
 
 * :ref:`genindex`
-
+* :ref:`modindex`
 * :ref:`search`
 
+<<<<<<< HEAD
 .. include:: documentation_license.rst
 
+=======
+>>>>>>> staging

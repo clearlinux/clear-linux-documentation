@@ -20,6 +20,6 @@ administrator, independent of how many and which pieces of the upstream
 open source projects are needed for this functionality. The diagram
 below gives an overall picture of it.
 
-.. image:: images\bundles_overview.png
+.. image:: _static/images/bundles_overview.png
     :align: center
     :alt: confirmation
