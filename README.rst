@@ -1,9 +1,9 @@
 Documentation Build Instructions
 ================================
 
-ClearLinux Docs are written in :abbr:`ReStructuredText (ReST)` which makes for  
-easily-parsable, command-line readable, indexed and search-friendly documentation
-and APIs.  
+ClearLinux Docs are written in :abbr:`ReStructuredText (ReST)` AKA ``.rst``, which
+makes for easily-parsable, command-line readable, indexed and search-friendly
+documentation and APIs.  
 
 Building with `Sphinx`_, however, requires a few prerequisites: 
 
@@ -15,12 +15,12 @@ The instructions for installing these varies according to OS.  On a basic
 out-of-the-box Ubuntu-like (which usually has Python installed by default),
 you might need something like:
 
-..
+.. codeblock:: shell-session
 
    $ sudo apt-get install python-pip
    $ sudo pip install -U sphinx sphinx-autobuild
 
-.. codeblock:: python 
+.. codeblock:: shell-session 
 	
 	$ python -c 'print __import__("sphinx").__version__'
 	  1.3.1
@@ -56,7 +56,7 @@ box, and they don't quite work on Linux. These should be removed from ``master``
 
 In the cloned source directory, we have all the .rst files we need to build the docs.  We 
 run a native instance of :command:`sphinx-quickstart`. The program will run you through
-a series of questons. The main things to be conscious of here:
+a series of questions. The main things to be conscious of here:
 
 * Tell it to use the existing :file:`source/` directory as the Root path for 
   the documentation; this is what it looks in, in order to generate the HTML
@@ -168,6 +168,10 @@ Open one of these pages in a web browser to view the rendered documentation.  Yo
 contents of the oldindex.rst into the generated index file, re-run :command:`make`, to generate
 the new HTML, and your local Table of Contents should index and update accordingly.      
 
+For extra help and tips for contributing documentation which will render beautifully on websites,
+despite being written in .rst see:  `Theming_Sphinx`_. 
+
 .. _GNU make: https://www.gnu.org/software/make/
 .. _Python: https://www.python.org/
 .. _PIP: https://pypi.python.org/pypi/pip/
+.. _Theming Sphinx: https://github.com/otcshare/tcs-hub/blob/master/theming-sphinx.rst
