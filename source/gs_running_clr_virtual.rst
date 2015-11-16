@@ -1,12 +1,12 @@
 .. _gs_running_clr_virtual:
 
 Running in a virtualized environment
-##########################################################################
+####################################
 
-The easiest way to get started running Clear Linux* OS for Intel® Architecture in a virtualized
-environment is to download a recent KVM image from the `image
-directory <http://download.clearlinux.org/image/>`_. This directory
-contains an image file, the UEFI firmware helper and the KVM start
+The easiest way to get started running Clear Linux* OS for Intel®
+Architecture in a virtualized environment is to download a recent KVM image
+from the `image directory <http://download.clearlinux.org/image/>`_. This
+directory contains an image file, the UEFI firmware helper and the KVM start
 helper script.
 
 Starter script
@@ -15,9 +15,11 @@ Starter script
 To start the image, run the ``start_qemu.sh`` script from
 `here <http://download.clearlinux.org/image/start_qemu.sh>`_, or modify
 the following script for your needs and run it from the command line
-with ``$ script clr_image``::
+with ``$ script clr_image``
 
-    #!/bin/bash 
+.. code-block:: bash
+
+    #!/bin/bash
     if [ $#  -eq 0 ] ; then
       echo "Please provide an image to emulate as first argument"
       exit 1
@@ -39,7 +41,7 @@ with ``$ script clr_image``::
 To run this script, connect from host via SSH. Take note that SSH is not
 enabled by default. To enable it, log in through serial console with the
 username ``root``. After setting the password, enable root login via SSH
-by configuring ``/etc/ssh/sshd_config`` with this content::
+by configuring :file:`/etc/ssh/sshd_config` with this content::
 
     PermitRootLogin yes
 
@@ -47,7 +49,7 @@ Now you may connect from host via SSH through 2223::
 
     $ ssh -p 2223 root@localhost
 
-Alternately, there are a few other ways to approach this.
+Alternatively, there are a few other ways to approach this.
 
 -  To run the script without modifying its permissions::
 
@@ -55,7 +57,7 @@ Alternately, there are a few other ways to approach this.
 
 -  To run it as a background process::
 
-       $ `bash start_qemu.sh clr_image` &
+       $ bash start_qemu.sh clr_image &
 
 -  If you'd like to run the script with execute permission::
 
@@ -64,4 +66,4 @@ Alternately, there are a few other ways to approach this.
 
 -  And to run it as a background process::
 
-       $ `./start_qemu.sh clr_image` &
+       $ ./start_qemu.sh clr_image &
