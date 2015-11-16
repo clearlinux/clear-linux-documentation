@@ -318,7 +318,8 @@ Prerequisites
 
 #. Install the openstack block storage bundle::
 
-    # clr_bundle_add openstack-block-storage
+    # swupd bundle-add openstack-block-storage
+    # swupd verify --fix
 
 #. Create the LVM physical volume: ``/dev/sdb1`` If your system uses a
    different device name, adjust these steps accordingly::
