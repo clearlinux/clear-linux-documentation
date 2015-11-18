@@ -186,6 +186,7 @@ generate the new HTML, and your local Table of Contents should index and update 
 For extra help and tips contributing docs in the .rst format needed for Clearlinux.org, see: 
 `Theming Sphinx`_.
 
+.. _Sphinx: http://sphinx-doc.org
 .. _GNU make: https://www.gnu.org/software/make/
 .. _Python: https://www.python.org/
 .. _PIP: https://pypi.python.org/pypi/pip/
