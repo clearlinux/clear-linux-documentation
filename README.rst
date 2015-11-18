@@ -160,6 +160,8 @@ within an older clone of the :file:`project-docs/` directory.  Blank answers ind
 	    make builder
    where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
 
+.. _run_make:
+
 Run ``make``
 ------------
 
@@ -169,6 +171,7 @@ directory before running :command:`make` ``html``.
 .. code-block:: console
 
    $ make html
+   >
    sphinx-build -b html -d _build/doctrees   . _build/html
    Running Sphinx v1.3.1
    making output directory...
@@ -183,10 +186,10 @@ Open one of these pages in a web browser to view the rendered documentation.  If
 copy the contents of the oldindex.rst into the generated index file, re-run :command:`make`, to
 generate the new HTML, and your local Table of Contents should index and update accordingly.
 
-For extra help and tips contributing docs in the .rst format needed for Clearlinux.org, see: 
-`Theming Sphinx`_.
+For tips on how to contribute documentation formatted in the .rst style needed to integrate on the
+Clearlinux.org website, please see `Theming Sphinx`_.
 
-.. _Sphinx: http://sphinx-doc.org
+.. _Sphinx: http://sphinx-doc.org/
 .. _GNU make: https://www.gnu.org/software/make/
 .. _Python: https://www.python.org/
 .. _PIP: https://pypi.python.org/pypi/pip/
