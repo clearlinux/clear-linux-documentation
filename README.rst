@@ -162,11 +162,11 @@ within an older clone of the :file:`project-docs/` directory.  Blank answers ind
 
 .. _run_make:
 
-Run ``make``
-------------
+Run make
+--------
 
 Finally are we ready to run :command:`make`. Be sure to :command:`cd` to the :file:`source/`
-directory before running :command:`make` ``html``.
+directory before running :command:`make` ``html``, or the doc format of your choice.
 
 .. code-block:: console
 
