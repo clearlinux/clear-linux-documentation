@@ -214,12 +214,12 @@ Install and configure components
 
    * Create ``/etc/cinder`` directory::
 
-       mkdir /etc/cinder
+       # mkdir /etc/cinder
 
    * Create empty cinder configuration file in
      ``/etc/cinder/cinder.conf``::
 
-       touch /etc/cinder/cinder.conf
+       # touch /etc/cinder/cinder.conf
 
 #. Edit the ``/etc/cinder/cinder.conf`` file and complete the following
    actions:
@@ -316,7 +316,7 @@ horizontally scale your environment with additional storage nodes.
 Prerequisites
 -------------
 
-#. Install the openstack block storage bundle::
+#. Install the Openstack Block Storage bundle::
 
     # swupd bundle-add openstack-block-storage
     # swupd verify --fix
@@ -350,8 +350,8 @@ Prerequisites
      ``/dev/sdb`` device and rejects all other devices::
 
         devices {
+        ...
         filter = [ "a/sdb/", "r/.*/"]
-        }
 
 Install and configure components
 --------------------------------
@@ -435,7 +435,7 @@ Install and configure components
         ...
         glance_host = controller
 
-#. Let systemd set the correct permissions for files in ``/etc/cinder``::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
 
