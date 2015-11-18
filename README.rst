@@ -2,14 +2,14 @@ Documentation Build Instructions
 ================================
 
 ClearLinux Docs are written in :abbr:`ReStructuredText (ReST)` AKA ``.rst``, which
-makes for easily-parsable, command-line readable, indexed and search-friendly
-documentation and APIs.  
+makes it easy to build parsable, command-line readable, indexed, and search-friendly
+documentation and APIs with `Sphinx`_.
 
-Building with `Sphinx`_, however, requires a few prerequisites: 
+Building the docs with Sphinx, however, requires a few prerequisites:
 
-* `GNU make`_ 
-* `Python`_ 
-* `PIP`_  
+* `GNU make`_
+* `Python`_
+* `PIP`_
 
 The instructions for installing these varies according to OS.  On a basic
 out-of-the-box Ubuntu-like OS (which usually has Python installed by default),
@@ -20,12 +20,12 @@ you might need something like:
    $ sudo apt-get install python-pip
    $ sudo pip install -U sphinx sphinx-autobuild
 
-.. code-block:: console 
-	
+.. code-block:: console
+
 	$ python -c 'print __import__("sphinx").__version__'
 	  1.3.1
 
-Dependencies fulfilled, let's now clone that gitlab repo: 
+Dependencies fulfilled, let's now clone that gitlab repo:
 
 .. code-block:: console
 
@@ -38,11 +38,18 @@ Dependencies fulfilled, let's now clone that gitlab repo:
 	Resolving deltas: 100% (349/349), done.
 	Checking connectivity... done.
 
+.. tip::
+
+   If the first time you've cloned the ``project-docs`` is following along with this tutorial,
+   you can skip this section; go straight ahead to the :ref:`Run make` section. However, if you
+   cloned an earlier version and had trouble generating HTML documentation locally, try the steps
+   documented here.
+
 Before running Sphinx, we need to correct some of the problems in the Gitlab repo.
-Running :command:`make` straightaway from our clone won't work.  We need to delete the
-existing conf.py file and also rename the existing index file so it can generate a new one
-with the correct parameters. These files in the Gitlab repo are remnant of a build on a Windows
-box, and they don't quite work on Linux. These should be removed from ``master`` eventually.
+Running :command:`make` straightaway from the root of our clone won't work.  We need to delete the
+existing :file:`conf.py` file and also rename the existing index file so it can generate a new one
+with the correct parameters. Some files in the Gitlab repo are remnant of a build on a Windows
+box, and they don't quite work on Linux. 
 
 .. code-block:: console
 
@@ -50,21 +57,26 @@ box, and they don't quite work on Linux. These should be removed from ``master``
 	$ ls
 	make.bat  Makefile  source/
 	$ rm -rf Makefile make.bat
-	$ rm -rf source/conf.py 
+	$ rm -rf source/conf.py
 	$ mv source/index.rst source/oldindex.rst
 
 
-In the cloned source directory, we have all the .rst files we need to build the docs.  We 
+In the cloned source directory, we have all the .rst files we need to build the docs. We
 run a native instance of :command:`sphinx-quickstart`. The program will run you through
 a series of questions. The main things to be conscious of here:
 
-* Tell it to use the existing :file:`source/` directory as the Root path for 
-  the documentation; this is what it looks in, in order to generate the HTML
-* It's better to tell it to **not** separate the source and build directories; the Sphinx
-  will generate *another* :file:`source/` directory, which can be confusing. 
+* Tell it to use the existing :file:`source/` directory as the Root path for
+  the documentation; this is where it looks to find what it needs to generate the HTML.
+* It's better to tell it to **not** separate the source and build directories; if you
+  answer "y" here, Sphinx will generate *another* :file:`source/` directory, which
+  can be confusing.
+* The running quickstart also creates as :file:`_static` directory where you should put
+  all images, screenshots, and other static content.  The builder might complain about this
+  directory if it exists already, but it's easy to fix.  
+* Run the builder only once.
 
-What follows here is a log from a successful :command:`sphinx-quickstart` build started from 
-within the :file:`project-docs/` directory.  Blank answers indicate default used.
+What follows here is a log from a successful :command:`sphinx-quickstart` build started from
+within an older clone of the :file:`project-docs/` directory.  Blank answers indicate default.
 
 .. code-block:: console
 
@@ -85,7 +97,7 @@ within the :file:`project-docs/` directory.  Blank answers indicate default used
    Inside the root directory, two more directories will be created; "_templates"
    for custom HTML templates and "_static" for custom stylesheets and other static
    files. You can enter another prefix (such as ".") to replace the underscore.
-   > Name prefix for templates and static dir [_]: 
+   > Name prefix for templates and static dir [_]:
 
    The project name will occur in several places in the built documentation.
    > Project name: ClearLinux Docs
@@ -115,7 +127,7 @@ within the :file:`project-docs/` directory.  Blank answers indicate default used
    "contents tree", that is, it is the root of the hierarchical structure
    of the documents. Normally, this is "index", but if your "index"
    document is a custom template, you can also set this to another filename.
-   > Name of your master document (without suffix) [index]: 
+   > Name of your master document (without suffix) [index]:
 
    Sphinx can also add configuration for epub output:
    > Do you want to use the epub builder (y/n) [n]: n
@@ -148,29 +160,36 @@ within the :file:`project-docs/` directory.  Blank answers indicate default used
 	    make builder
    where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
 
-Finally are we ready to run :command:`make`.  Be sure to :command:`cd` to the :file:`source/`
-directory before running :command:`make` . 
+.. _run_make:
+
+Run make
+--------
+
+Finally are we ready to run :command:`make`. Be sure to :command:`cd` to the :file:`source/`
+directory before running :command:`make` ``html``, or the doc format of your choice.
 
 .. code-block:: console
 
    $ make html
+   >
    sphinx-build -b html -d _build/doctrees   . _build/html
    Running Sphinx v1.3.1
    making output directory...
    .
    .
    .
-   build succeeded, 9 warnings.
+   build succeeded, 0 warnings.
 
    Build finished. The HTML pages are in _build/html.
 
-Open one of these pages in a web browser to view the rendered documentation.  You can copy the
-contents of the oldindex.rst into the generated index file, re-run :command:`make`, to generate
-the new HTML, and your local Table of Contents should index and update accordingly.      
+Open one of these pages in a web browser to view the rendered documentation.  If needed, you can
+copy the contents of the oldindex.rst into the generated index file, re-run :command:`make`, to
+generate the new HTML, and your local Table of Contents should index and update accordingly.
 
-For extra help and tips for contributing documentation which will render beautifully on websites,
-despite being written in .rst see:  `Theming_Sphinx`_. 
+For tips on how to contribute documentation formatted in the .rst style needed to integrate on the
+Clearlinux.org website, please see `Theming Sphinx`_.
 
+.. _Sphinx: http://sphinx-doc.org/
 .. _GNU make: https://www.gnu.org/software/make/
 .. _Python: https://www.python.org/
 .. _PIP: https://pypi.python.org/pypi/pip/
