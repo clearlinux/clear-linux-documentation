@@ -21,6 +21,7 @@ Prerequisites:
 --------------
 
 Before you install and configure the Block Storage service, you
+must create a database, service credentials, and API endpoints.
 
 #. To create the database, complete these steps:
 
