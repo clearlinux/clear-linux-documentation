@@ -21,6 +21,5 @@ To install, continue with the following topics:
 * `OpenStack Networking <openstack_networking.html>`_
 * `OpenStack Orchestration <openstack_orchestration.html>`_
 * `OpenStack Telemetry <openstack_telemetry.html>`_
-* `OpenStack Object Storage <openstack_object_storage.html>`_
 
 Next topic: :ref:`openstack_supporting-database`.
