@@ -1,3 +1,5 @@
+.. _openstack_orchestration:
+
 OpenStack* Orchestration
 ############################################################
 
@@ -403,3 +405,5 @@ Verify operation
     | controller | heat-engine | 51162b63-ecb8-4c6c-98c6-993af899c4f7 | controller | engine | 2015-10-13T14:16:06.000000 | up     |
     | controller | heat-engine | 8d7edc6d-77a6-460d-bd2a-984d76954646 | controller | engine | 2015-10-13T14:16:06.000000 | up     |
     +------------+-------------+--------------------------------------+------------+--------+----------------------------+--------+
+
+Next topic: :ref:`openstack_telemetry`.
