@@ -209,7 +209,6 @@ Install and configure components
 #. Install OpenStack Block Storage Controller bundle::
 
     # swupd bundle-add openstack-block-storage-controller
-    # swupd verify --fix
 
 #. Custom configurations will be located at ``/etc/cinder``.
 
@@ -320,7 +319,6 @@ Prerequisites
 #. Install the Openstack Block Storage bundle::
 
     # swupd bundle-add openstack-block-storage
-    # swupd verify --fix
 
 #. Create the LVM physical volume: ``/dev/sdb1`` If your system uses a
    different device name, adjust these steps accordingly::

@@ -34,7 +34,6 @@ endpoint.
 #. Install the MongoDB bundle::
 
    	# swupd bundle-add database-mongodb
-   	# swupd verify --fix
 
 #. Create the ``/etc/mongodb/`` folder and the
    ``/etc/mongodb/openstack.cnf`` file.::

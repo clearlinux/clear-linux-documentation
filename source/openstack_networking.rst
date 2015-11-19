@@ -142,7 +142,6 @@ Complete the following step to install the Networking components:
 #. Install OpenStack networking bundle::
 
    # swupd bundle-add openstack-network
-   # swupd verify --fix
 
 Configuring the Networking server component
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -510,7 +509,6 @@ Install the components
 * Install OpenStack networking bundle::
 
     # swupd bundle-add openstack-network
-    # swupd verify --fix
 
 Configure the common component
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -275,7 +275,6 @@ To install and configure the Orchestration components:
 #. Install OpenStack Orchestration bundle::
 
     # swupd bundle-add openstack-orchestration
-    # swupd verify --fix
 
 #. Custom configuration will be located at ``/etc/heat/heat.conf file``.
 
