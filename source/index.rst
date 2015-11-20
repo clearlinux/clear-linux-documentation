@@ -3,12 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
-Welcome to ClearLinux Documentation
-===================================
-
-Contents
-========
+Clear Linux* Project for Intel® Architecture--Documentation
+===========================================================
 
 .. toctree::
    :maxdepth: 2
@@ -72,18 +68,16 @@ OpenStack* implementation
    openstack_telemetry
 
 
-License and Disclaimers
-=======================
-.. toctree::   
-
-   disclaimers
-   documentation_license
-
-
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+License and Disclaimers
+=======================
+.. toctree::   
+
+.. include:: documentation_license.rst
 
