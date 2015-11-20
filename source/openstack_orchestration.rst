@@ -1,16 +1,17 @@
 .. _openstack_orchestration:
 
-OpenStack* Orchestration
+Orchestration
 ############################################################
 
-The Orchestration service provides a template-based orchestration for
-describing a cloud application by running OpenStack* API calls to generate
+The OpenStack* Orchestration service provides a template-based orchestration for
+describing a cloud application by running OpenStack API calls to generate
 running cloud applications. The software integrates other core components of
-OpenStack* into a one-file template system.
-The templates allow you to create most OpenStack* resource types, such as
+OpenStack into a one-file template system.
+
+The templates allow you to create most OpenStack resource types, such as
 instances, floating IPs, volumes, security groups and users. It also provides
 advanced functionality, such as instance high availability, instance
-auto-scaling, and nested stacks. This enables OpenStack* core projects to
+auto-scaling, and nested stacks. This enables OpenStack core projects to
 receive a larger user base.
 
 Installing and configuring controller node
@@ -71,145 +72,129 @@ database, service credentials, and API endpoints.
 
      $ openstack role add --project service --user heat admin
 
-   * Create the ``heat`` and ``heat-cfn`` service entities:
+   * Create the ``heat`` and ``heat-cfn`` service entities::
 
-      * ::
+        $ openstack service create --name heat \
+          --description "Orchestration" orchestration
+        +-------------+----------------------------------+
+        | Field       | Value                            |
+        +-------------+----------------------------------+
+        | description | Orchestration                    |
+        | enabled     | True                             |
+        | id          | 727841c6f5df4773baa4e8a5ae7d72eb |
+        | name        | heat                             |
+        | type        | orchestration                    |
+        +-------------+----------------------------------+
 
-            $ openstack service create --name heat \
-              --description "Orchestration" orchestration
-            +-------------+----------------------------------+
-            | Field       | Value                            |
-            +-------------+----------------------------------+
-            | description | Orchestration                    |
-            | enabled     | True                             |
-            | id          | 727841c6f5df4773baa4e8a5ae7d72eb |
-            | name        | heat                             |
-            | type        | orchestration                    |
-            +-------------+----------------------------------+
+        $ openstack service create --name heat-cfn \
+          --description "Orchestration" cloudformation
+        +-------------+----------------------------------+
+        | Field       | Value                            |
+        +-------------+----------------------------------+
+        | description | Orchestration                    |
+        | enabled     | True                             |
+        | id          | c42cede91a4e47c3b10c8aedc8d890c6 |
+        | name        | heat-cfn                         |
+        | type        | cloudformation                   |
+        +-------------+----------------------------------+
 
-      * ::
+#. Create the Orchestration service API endpoints::
 
-            $ openstack service create --name heat-cfn \
-              --description "Orchestration" cloudformation
-            +-------------+----------------------------------+
-            | Field       | Value                            |
-            +-------------+----------------------------------+
-            | description | Orchestration                    |
-            | enabled     | True                             |
-            | id          | c42cede91a4e47c3b10c8aedc8d890c6 |
-            | name        | heat-cfn                         |
-            | type        | cloudformation                   |
-            +-------------+----------------------------------+
+        $ openstack endpoint create --region RegionOne \
+           orchestration public http://controller:8004/v1/%\(tenant_id\)s
+        +--------------+-----------------------------------------+
+        | Field        | Value                                   |
+        +--------------+-----------------------------------------+
+        | enabled      | True                                    |
+        | id           | 3f4dab34624e4be7b000265f25049609        |
+        | interface    | public                                  |
+        | region       | RegionOne                               |
+        | region_id    | RegionOne                               |
+        | service_id   | 727841c6f5df4773baa4e8a5ae7d72eb        |
+        | service_name | heat                                    |
+        | service_type | orchestration                           |
+        | url          | http://controller:8004/v1/%(tenant_id)s |
+        +--------------+-----------------------------------------+
 
-#. Create the Orchestration service API endpoints:
+        $ openstack endpoint create --region RegionOne \
+          orchestration internal http://controller:8004/v1/%\(tenant_id\)s
+        +--------------+-----------------------------------------+
+        | Field        | Value                                   |
+        +--------------+-----------------------------------------+
+        | enabled      | True                                    |
+        | id           | 9489f78e958e45cc85570fec7e836d98        |
+        | interface    | internal                                |
+        | region       | RegionOne                               |
+        | region_id    | RegionOne                               |
+        | service_id   | 727841c6f5df4773baa4e8a5ae7d72eb        |
+        | service_name | heat                                    |
+        | service_type | orchestration                           |
+        | url          | http://controller:8004/v1/%(tenant_id)s |
+        +--------------+-----------------------------------------+
 
-      * ::
+        $ openstack endpoint create --region RegionOne \
+          orchestration admin http://controller:8004/v1/%\(tenant_id\)s
+        +--------------+-----------------------------------------+
+        | Field        | Value                                   |
+        +--------------+-----------------------------------------+
+        | enabled      | True                                    |
+        | id           | 76091559514b40c6b7b38dde790efe99        |
+        | interface    | admin                                   |
+        | region       | RegionOne                               |
+        | region_id    | RegionOne                               |
+        | service_id   | 727841c6f5df4773baa4e8a5ae7d72eb        |
+        | service_name | heat                                    |
+        | service_type | orchestration                           |
+        | url          | http://controller:8004/v1/%(tenant_id)s |
+        +--------------+-----------------------------------------+
 
-            $ openstack endpoint create --region RegionOne \
-              orchestration public http://controller:8004/v1/%\(tenant_id\)s
-            +--------------+-----------------------------------------+
-            | Field        | Value                                   |
-            +--------------+-----------------------------------------+
-            | enabled      | True                                    |
-            | id           | 3f4dab34624e4be7b000265f25049609        |
-            | interface    | public                                  |
-            | region       | RegionOne                               |
-            | region_id    | RegionOne                               |
-            | service_id   | 727841c6f5df4773baa4e8a5ae7d72eb        |
-            | service_name | heat                                    |
-            | service_type | orchestration                           |
-            | url          | http://controller:8004/v1/%(tenant_id)s |
-            +--------------+-----------------------------------------+
+        $ openstack endpoint create --region RegionOne \
+          cloudformation public http://controller:8000/v1
+        +--------------+----------------------------------+
+        | Field        | Value                            |
+        +--------------+----------------------------------+
+        | enabled      | True                             |
+        | id           | b3ea082e019c4024842bf0a80555052c |
+        | interface    | public                           |
+        | region       | RegionOne                        |
+        | region_id    | RegionOne                        |
+        | service_id   | c42cede91a4e47c3b10c8aedc8d890c6 |
+        | service_name | heat-cfn                         |
+        | service_type | cloudformation                   |
+        | url          | http://controller:8000/v1        |
+        +--------------+----------------------------------+
 
-      * ::
+        $ openstack endpoint create --region RegionOne \
+          cloudformation internal http://controller:8000/v1
+        +--------------+----------------------------------+
+        | Field        | Value                            |
+        +--------------+----------------------------------+
+        | enabled      | True                             |
+        | id           | 169df4368cdc435b8b115a9cb084044e |
+        | interface    | internal                         |
+        | region       | RegionOne                        |
+        | region_id    | RegionOne                        |
+        | service_id   | c42cede91a4e47c3b10c8aedc8d890c6 |
+        | service_name | heat-cfn                         |
+        | service_type | cloudformation                   |
+        | url          | http://controller:8000/v1        |
+        +--------------+----------------------------------+
 
-            $ openstack endpoint create --region RegionOne \
-              orchestration internal http://controller:8004/v1/%\(tenant_id\)s
-            +--------------+-----------------------------------------+
-            | Field        | Value                                   |
-            +--------------+-----------------------------------------+
-            | enabled      | True                                    |
-            | id           | 9489f78e958e45cc85570fec7e836d98        |
-            | interface    | internal                                |
-            | region       | RegionOne                               |
-            | region_id    | RegionOne                               |
-            | service_id   | 727841c6f5df4773baa4e8a5ae7d72eb        |
-            | service_name | heat                                    |
-            | service_type | orchestration                           |
-            | url          | http://controller:8004/v1/%(tenant_id)s |
-            +--------------+-----------------------------------------+
-
-      * ::
-
-            $ openstack endpoint create --region RegionOne \
-              orchestration admin http://controller:8004/v1/%\(tenant_id\)s
-            +--------------+-----------------------------------------+
-            | Field        | Value                                   |
-            +--------------+-----------------------------------------+
-            | enabled      | True                                    |
-            | id           | 76091559514b40c6b7b38dde790efe99        |
-            | interface    | admin                                   |
-            | region       | RegionOne                               |
-            | region_id    | RegionOne                               |
-            | service_id   | 727841c6f5df4773baa4e8a5ae7d72eb        |
-            | service_name | heat                                    |
-            | service_type | orchestration                           |
-            | url          | http://controller:8004/v1/%(tenant_id)s |
-            +--------------+-----------------------------------------+
-
-      * ::
-
-            $ openstack endpoint create --region RegionOne \
-              cloudformation public http://controller:8000/v1
-            +--------------+----------------------------------+
-            | Field        | Value                            |
-            +--------------+----------------------------------+
-            | enabled      | True                             |
-            | id           | b3ea082e019c4024842bf0a80555052c |
-            | interface    | public                           |
-            | region       | RegionOne                        |
-            | region_id    | RegionOne                        |
-            | service_id   | c42cede91a4e47c3b10c8aedc8d890c6 |
-            | service_name | heat-cfn                         |
-            | service_type | cloudformation                   |
-            | url          | http://controller:8000/v1        |
-            +--------------+----------------------------------+
-
-      * ::
-
-            $ openstack endpoint create --region RegionOne \
-              cloudformation internal http://controller:8000/v1
-            +--------------+----------------------------------+
-            | Field        | Value                            |
-            +--------------+----------------------------------+
-            | enabled      | True                             |
-            | id           | 169df4368cdc435b8b115a9cb084044e |
-            | interface    | internal                         |
-            | region       | RegionOne                        |
-            | region_id    | RegionOne                        |
-            | service_id   | c42cede91a4e47c3b10c8aedc8d890c6 |
-            | service_name | heat-cfn                         |
-            | service_type | cloudformation                   |
-            | url          | http://controller:8000/v1        |
-            +--------------+----------------------------------+
-
-      * ::
-
-            $ openstack endpoint create --region RegionOne \
-              cloudformation admin http://controller:8000/v1
-            +--------------+----------------------------------+
-            | Field        | Value                            |
-            +--------------+----------------------------------+
-            | enabled      | True                             |
-            | id           | 3d3edcd61eb343c1bbd629aa041ff88b |
-            | interface    | internal                         |
-            | region       | RegionOne                        |
-            | region_id    | RegionOne                        |
-            | service_id   | c42cede91a4e47c3b10c8aedc8d890c6 |
-            | service_name | heat-cfn                         |
-            | service_type | cloudformation                   |
-            | url          | http://controller:8000/v1        |
-            +--------------+----------------------------------+
+        $ openstack endpoint create --region RegionOne \
+          cloudformation admin http://controller:8000/v1
+        +--------------+----------------------------------+
+        | Field        | Value                            |
+        +--------------+----------------------------------+
+        | enabled      | True                             |
+        | id           | 3d3edcd61eb343c1bbd629aa041ff88b |
+        | interface    | internal                         |
+        | region       | RegionOne                        |
+        | region_id    | RegionOne                        |
+        | service_id   | c42cede91a4e47c3b10c8aedc8d890c6 |
+        | service_name | heat-cfn                         |
+        | service_type | cloudformation                   |
+        | url          | http://controller:8000/v1        |
+        +--------------+----------------------------------+
 
 #. Orchestration requires additional information in the Identity service to
    manage stacks. To add this information, complete these steps:

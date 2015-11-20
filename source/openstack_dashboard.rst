@@ -3,7 +3,7 @@
 Dashboard
 ####################
 
-The OpenStack Dashboard, also known as Horizon, is a web-based interface
+The OpenStack* Dashboard, also known as Horizon, is a web-based interface
 for cloud administrators and users to manage various OpenStack resources
 and services.
 

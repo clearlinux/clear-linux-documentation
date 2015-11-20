@@ -3,10 +3,10 @@
 Block Storage
 ########################
 
-The OpenStack Block Storage service (cinder) adds persistent storage to
+The OpenStack* Block Storage service (cinder) adds persistent storage to
 a virtual machine. Block Storage provides an infrastructure for managing
 volumes, and interacts with OpenStack Compute to provide volumes for
-instances. The service also enables management of volume snapshots, and
+instances. The service also enables management of volume snapshots and
 volume types.
 
 Install and configure controller node
@@ -96,9 +96,9 @@ must create a database, service credentials, and API endpoints.
         | type        | volumev2                         |
         +-------------+----------------------------------+
 
-   .. note::
+      .. note::
 
-      The Block Storage services requires two service entities.
+        The Block Storage services requires two service entities.
 
 #. Create the Block Storage service API endpoints::
 

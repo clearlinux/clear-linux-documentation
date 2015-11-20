@@ -1,22 +1,22 @@
 .. _openstack_telemetry:
 
-OpenStack* Telemetry
+Telemetry
 ############################################################
 
 Overview
 ---------
 
-The Telemetry service performs the following functions:
+The OpenStack* Telemetry service performs the following functions:
 
--  Efficiently polls metering data related to OpenStack services;
+-  Efficiently polls metering data related to OpenStack services
 -  Collects event and metering data by monitoring notifications sent
-   from services;
+   from services
 -  Publishes collected data to various targets, including data stores
-   and message queues;
--  Creates alarms when collected data breaks defined rules.
+   and message queues
+-  Creates alarms when collected data breaks defined rules
 
-Installing and configure
-------------------------
+Installing and configuring
+---------------------------
 
 This section describes how to install and configure the Telemetry
 service, code-named ceilometer, on the controller node. The Telemetry
@@ -88,21 +88,21 @@ endpoint.
 
    * Add the ``admin`` role to the ``ceilometer`` user::
 
-		$ openstack role add --project service --user ceilometer admin
+		 $ openstack role add --project service --user ceilometer admin
 
    * Create the ``ceilometer`` service entity::
 
-		$ openstack service create --name ceilometer \
-		--description "Telemetry" metering
-		+-------------+----------------------------------+
-		| Field       | Value                            |
-		+-------------+----------------------------------+
-		| description | Telemetry                        |
-		| enabled     | True                             |
-		| id          | 3405453b14da441ebb258edfeba96d83 |
-		| name        | ceilometer                       |
-		| type        | metering                         |
-		+-------------+----------------------------------+
+  		$ openstack service create --name ceilometer \
+  		--description "Telemetry" metering
+  		+-------------+----------------------------------+
+  		| Field       | Value                            |
+  		+-------------+----------------------------------+
+  		| description | Telemetry                        |
+  		| enabled     | True                             |
+  		| id          | 3405453b14da441ebb258edfeba96d83 |
+  		| name        | ceilometer                       |
+  		| type        | metering                         |
+  		+-------------+----------------------------------+
 
 #. Create the Telemetry service API endpoints::
 
@@ -190,15 +190,15 @@ Install and configure components
      with the password you chose for the ``openstack`` account in
      RabbitMQ::
 
-		[DEFAULT]
-		...
-		rpc_backend = rabbit
-
-		[oslo_messaging_rabbit]
-		...
-		rabbit_host = controller
-		rabbit_userid = openstack
-		rabbit_password = RABBIT_PASS
+		  [DEFAULT]
+ 		  ...
+		  rpc_backend = rabbit
+      
+		  [oslo_messaging_rabbit]
+		  ...
+		  rabbit_host = controller
+		  rabbit_userid = openstack
+		  rabbit_password = RABBIT_PASS
 
    * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
      configure Identity service access. Replace *CEILOMETER_PASS*
@@ -224,14 +224,14 @@ Install and configure components
      credentials. Replace *CEILOMETER_PASS* with the password you
      chose for the ``ceilometer`` user in the Identity service::
 
-		[service_credentials]
-		...
-		os_auth_url = http://controller:5000/v2.0
-		os_username = ceilometer
-		os_tenant_name = service
-		os_password = CEILOMETER_PASS
-		os_endpoint_type = internalURL
-		os_region_name = RegionOne
+		  [service_credentials]
+		  ...
+		  os_auth_url = http://controller:5000/v2.0
+		  os_username = ceilometer
+		  os_tenant_name = service
+		  os_password = CEILOMETER_PASS
+		  os_endpoint_type = internalURL
+		  os_region_name = RegionOne
 
    * Ensure files have proper ownership by running the following command::
 

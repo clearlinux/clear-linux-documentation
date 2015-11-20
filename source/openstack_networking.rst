@@ -62,7 +62,7 @@ database, service credentials, and an API endpoint.
 
      $ openstack role add --project service --user neutron admin
 
-    Note: This command provides no output.
+     Note: This command provides no output.
 
    * Create the ``neutron`` service entity::
 
@@ -365,8 +365,8 @@ The Layer-3 (L3) agent provides routing and NAT services for virtual networks.
         interface_driver = neutron.agent.linux.interface.BridgeInterfaceDriver
         external_network_bridge =
 
-    Note: The ``external_network_bridge`` option intentionally lacks a value to
-    enable multiple external networks on a single agent.
+     Note: The ``external_network_bridge`` option intentionally lacks a value to
+     enable multiple external networks on a single agent.
 
 Configure the DHCP agent
 ~~~~~~~~~~~~~~~~~~~~~~~~
