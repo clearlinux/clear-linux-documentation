@@ -24,7 +24,7 @@ services:
    "openstack-orchestration", "Heat", "Orchestrates multiple composite cloud applications by using either the native Heat Orchestration Template (HOT) template format or the AWS CloudFormation template format."
 
 OpenStack is highly configurable to meet different needs. This guide
-uses two-node architecture with legacy networking (Nova-network).
+uses a two-node architecture.
 
 -  The controller node runs the Identity Service, Image Service,
    management portion of Compute, and the Dashboard. It also includes
