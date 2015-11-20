@@ -142,7 +142,6 @@ To install and configure the Compute controller components:
 #. Install OpenStack Compute Controller bundle::
 
     # swupd bundle-add openstack-compute-controller
-    # swupd verify --fix
 
 #. Custom configurations will be located at ``/etc/nova``.
 

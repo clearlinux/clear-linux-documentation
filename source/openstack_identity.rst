@@ -61,7 +61,6 @@ Install and configure components
 #. Run the following command to install the packages.::
 
      # swupd bundle-add openstack-identity
-     # swupd verify --fix
 
 #. Custom configurations will be located at ``/etc/keystone/``.
 
@@ -150,7 +149,6 @@ environment variables to reduce command length.
 #. Install the OpenStack Python clients bundle::
 
      # swupd bundle-add openstack-python-clients
-     # swupd verify --fix
      
 
 Create the service entity and API endpoints

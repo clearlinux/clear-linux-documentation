@@ -14,7 +14,6 @@ Install the message queue service
 #. Install the message queue bundle.::
 
    # swupd bundle-add message-broker-rabbitmq
-   # swupd verify --fix
 
 Configuring the message broker service
 --------------------------------------

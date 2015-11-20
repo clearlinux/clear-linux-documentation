@@ -135,7 +135,6 @@ Install and configure components
 #. Install OpenStack Image bundle.::
 
     # swupd bundle-add openstack-image
-    # swupd verify --fix
 
 #. Configurations will be located at ``/etc/glance``.
 

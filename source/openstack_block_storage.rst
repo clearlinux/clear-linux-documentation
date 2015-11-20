@@ -1,17 +1,12 @@
-<<<<<<< HEAD
-Block Storage
-############################################################
-=======
 .. _openstack_block_storage:
->>>>>>> staging
 
 Block Storage
 ########################
 
-The OpenStack Block Storage service (cinder) adds persistent storage to
+The OpenStack* Block Storage service (cinder) adds persistent storage to
 a virtual machine. Block Storage provides an infrastructure for managing
 volumes, and interacts with OpenStack Compute to provide volumes for
-instances. The service also enables management of volume snapshots, and
+instances. The service also enables management of volume snapshots and
 volume types.
 
 Install and configure controller node
@@ -22,28 +17,14 @@ Storage service, code-named cinder, on the controller node. This
 service requires at least one additional storage node that provides
 volumes to instances.
 
-<<<<<<< HEAD
-**Create a database:**
-
-#. Use the database access client to connect to the database server as
-   the root user::
-=======
 Prerequisites:
 --------------
 
 Before you install and configure the Block Storage service, you
->>>>>>> staging
+must create a database, service credentials, and API endpoints.
 
 #. To create the database, complete these steps:
 
-<<<<<<< HEAD
-#. Create the cinder database::
-   
-   	CREATE DATABASE cinder;
-
-#. Grant proper access to the cinder database. Replace ``CINDER_DBPASS``
-   with a suitable password::
-=======
    * Use the database access client to connect to the database
      server as the ``root`` user::
 
@@ -52,7 +33,6 @@ Before you install and configure the Block Storage service, you
    * Create the ``cinder`` database::
 
         CREATE DATABASE cinder;
->>>>>>> staging
 
    * Grant proper access to the ``cinder`` database::
 
@@ -63,121 +43,15 @@ Before you install and configure the Block Storage service, you
 
      Replace ``CINDER_DBPASS`` with a suitable password.
 
-<<<<<<< HEAD
-#. Now source the admin credentials to gain access to admin-only CLI
-   commands::
-=======
    * Exit the database access client.
 
 #. Source the ``admin`` credentials to gain access to admin-only
    CLI commands::
->>>>>>> staging
 
     $ source admin-openrc.sh
 
 #. To create the service credentials, complete these steps:
 
-<<<<<<< HEAD
-   * Create a cinder user::
-      
-		$ openstack user create --password-prompt cinder
-		User Password:
-		Repeat User Password: 
-		+----------+----------------------------------+
-		| Field    | Value                            |
-		+----------+----------------------------------+
-		| email    | None                             |
-		| enabled  | True                             |
-		| id       | 881ab2de4f7941e79504a759a83308be |
-		| name     | cinder                           |
-		| username | cinder                           |
-		+----------+----------------------------------+ 
-
-   * Add the admin role to the cinder user::
-      
-		$ openstack role add --project service --user cinder admin 
-		+-------+----------------------------------+
-		| Field | Value                            |
-		+-------+----------------------------------+
-		| id    | cd2cb9a39e874ea69e5d4b896eb16128 |
-		| name  | admin                            |
-		+-------+----------------------------------+ 
-
-   * Now create the cinder service entities::
-      
- 		$ openstack service create --name cinder \ 
-		--description "OpenStack Block Storage" volume 
-		| Field       | Value                            |
-		+-------------+----------------------------------+
-		| description | OpenStack Block Storage          |
-		| enabled     | True                             |
-		| id          | 1e494c3e22a24baaafcaf777d4d467eb |
-		| name        | cinder                           |
-		| type        | volume                           |
-		+-------------+----------------------------------+
-		$ openstack service create --name cinderv2 
-		--description "OpenStack Block Storage" volumev2
-		+-------------+----------------------------------+
-		| Field       | Value                            |
-		+-------------+----------------------------------+
-		| description | OpenStack Block Storage          |
-		| enabled     | True                             |
-		| id          | 16e038e449c94b40868277f1d801edb5 |
-		| name        | cinderv2                         |
-		| type        | volumev2                         |
-		+-------------+----------------------------------+ 
-
-**Create service endpoints:**
-
-The last prerequisite is to create the Block Storage service API endpoints::
-
-	$ openstack endpoint create \ 
-	--publicurl http://controller:8776/v2/%\(tenant_id\)s \ 
-	--internalurl http://controller:8776/v2/%\(tenant_id\)s \ 
-	--adminurl http://controller:8776/v2/%\(tenant_id\)s \ 
-	--region RegionOne \ 
-	volume
-	+--------------+-----------------------------------------+
-	|Field         | Value                                   +
-	|--------------+-----------------------------------------+
-	| adminurl     | http://controller:8776/v2/%(tenant_id)s |
-	| id           | d1b7291a2d794e26963b322c7f2a55a4        |
-	| internalurl  | http://controller:8776/v2/%(tenant_id)s |
-	| publicurl    | http://controller:8776/v2/%(tenant_id)s |
-	| region       | RegionOne                               |
-	| service_id   | 1e494c3e22a24baaafcaf777d4d467eb        |
-	| service_name | cinder                                  |
-	| service_type | volume                                  |
-	+--------------+-----------------------------------------+
-	$ openstack endpoint create \ 
-	--publicurl http://controller:8776/v2/%\(tenant_id\)s \ 
-	--internalurl http://controller:8776/v2/%\(tenant_id\)s \ 
-	--adminurl http://controller:8776/v2/%\(tenant_id\)s \ 
-	--region RegionOne \ 
-	volumev2
-	+--------------+-----------------------------------------+
-	| Field        | Value                                   |
-	+--------------+-----------------------------------------+
-	| adminurl     | http://controller:8776/v2/%(tenant_id)s |
-	| id           | 097b4a6fc8ba44b4b10d4822d2d9e076        |
-	| internalurl  | http://controller:8776/v2/%(tenant_id)s |
-	| publicurl    | http://controller:8776/v2/%(tenant_id)s |
-	| region       | RegionOne                               |
-	| service_id   | 16e038e449c94b40868277f1d801edb5        |
-	| service_name | cinderv2                                |
-	| service_type | volumev2                                |
-	+--------------+-----------------------------------------+
-
-Installing and configuring Block Storage controller components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Once your prerequisites are finished, you can install and configure
-Block Storage controller components:
-
-#. Install OpenStack Block Storage Controller bundle::
-   
-   	# clr_bundle_add openstack-block-storage-controller
-=======
    * Create a ``cinder`` user::
 
         $ openstack user create --domain default --password-prompt cinder
@@ -222,9 +96,9 @@ Block Storage controller components:
         | type        | volumev2                         |
         +-------------+----------------------------------+
 
-   .. note::
+      .. note::
 
-      The Block Storage services requires two service entities.
+        The Block Storage services requires two service entities.
 
 #. Create the Block Storage service API endpoints::
 
@@ -335,28 +209,17 @@ Install and configure components
 #. Install OpenStack Block Storage Controller bundle::
 
     # swupd bundle-add openstack-block-storage-controller
-    # swupd verify --fix
->>>>>>> staging
 
 #. Custom configurations will be located at ``/etc/cinder``.
 
    * Create ``/etc/cinder`` directory::
-<<<<<<< HEAD
-      
-      	mkdir /etc/cinder
-=======
 
-       mkdir /etc/cinder
->>>>>>> staging
+       # mkdir /etc/cinder
 
    * Create empty cinder configuration file in
      ``/etc/cinder/cinder.conf``::
 
-<<<<<<< HEAD
-      	touch /etc/cinder/cinder.conf
-=======
-       touch /etc/cinder/cinder.conf
->>>>>>> staging
+       # touch /etc/cinder/cinder.conf
 
 #. Edit the ``/etc/cinder/cinder.conf`` file and complete the following
    actions:
@@ -364,19 +227,11 @@ Install and configure components
    * In the ``[database]`` section, configure database access. Replace
      ``CINDER_DBPASS`` with the password you chose for the
      database::
-<<<<<<< HEAD
-
-      	[database]
-      	... 
-      	connection=mysql://cinder:CINDER_DBPASS@controller/cinder
-
-=======
 
        [database]
        ...
        connection=mysql://cinder:CINDER_DBPASS@controller/cinder
 
->>>>>>> staging
    * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` section,
      configure RabbitMQ message queue access. Replace ``RABBIT_PASS``
      with the password you chose for the account in
@@ -386,12 +241,6 @@ Install and configure components
         ...
         rpc_backend = rabbit
 
-<<<<<<< HEAD
-   * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
-     configure Identity service access. Replace ``CINDER_PASS`` with the
-     password you chose for the cinder user in the Identity
-     service::
-=======
         [oslo_messaging_rabbit]
         ...
         rabbit_host = controller
@@ -401,26 +250,11 @@ Install and configure components
    * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections, configure
      Identity service access. Replace ``CINDER_PASS`` with the password you
      chose for the ``cinder`` user in the Identity service.::
->>>>>>> staging
 
         [DEFAULT]
         ...
         auth_strategy = keystone
 
-<<<<<<< HEAD
-   * In the ``[DEFAULT]`` section, configure the ``my_ip`` option to
-     use the management interface IP address of the controller node::
-
-       	[DEFAULT] ... my_ip = 10.0.0.11
-
-#. Let ``systemd`` set the correct permissions for files in ``/etc/cinder``::
-   
-   	# systemctl restart update-triggers.target
-
-#. Populate the Block Storage database::
-   
-   	# su -s /bin/sh -c "cinder-manage db sync" cinder
-=======
         [keystone_authtoken]
         ...
         auth_uri = http://controller:5000
@@ -448,19 +282,14 @@ Configure Compute to use Block Storage
 
 * Edit the ``/etc/nova/nova.conf`` file and add the following
   to it::
->>>>>>> staging
 
     [cinder]
     os_region_name = RegionOne
 
-<<<<<<< HEAD
-To finalize installation, enable and start the Block Storage services::
-=======
 Finalize installation
 ---------------------
 
 #. Restart the Compute API service::
->>>>>>> staging
 
     # systemctl restart uwsgi@nova-api.service
 
@@ -473,9 +302,6 @@ Finalize installation
 Install and configure a storage node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<<<<<<< HEAD
-Install the packages::
-=======
 This section describes how to install and configure storage nodes
 for the Block Storage service. For simplicity, this configuration
 references one storage node with an empty local block storage device.
@@ -486,41 +312,29 @@ The service provisions logical volumes on this device using the
 LVM driver and provides them to instances via iSCSI transport.
 You can follow these instructions with minor modifications to
 horizontally scale your environment with additional storage nodes.
->>>>>>> staging
 
 Prerequisites
 -------------
 
-#. Install the openstack block storage bundle::
+#. Install the Openstack Block Storage bundle::
 
     # swupd bundle-add openstack-block-storage
-    # swupd verify --fix
 
 #. Create the LVM physical volume: ``/dev/sdb1`` If your system uses a
    different device name, adjust these steps accordingly::
-<<<<<<< HEAD
-=======
 
     # pvcreate /dev/sdb1
     Physical volume "/dev/sdb1" successfully created
->>>>>>> staging
 
 #. Create the LVM volume group ``cinder-volumes``::
 
-<<<<<<< HEAD
-#. Create the LVM volume group ``cinder-volumes``::
-   
-   	# vgcreate cinder-volumes /dev/sdb1 
-   	Volume group "cinder-volumes" successfully created 
-=======
     # vgcreate cinder-volumes /dev/sdb1
     Volume group "cinder-volumes" successfully created
->>>>>>> staging
 
    The Block Storage service creates logical volumes in this volume
    group.
 
-   Only instances can access Block Storage volumes. However, the
+#. Only instances can access Block Storage volumes. However, the
    underlying operating system manages the devices associated with the
    volumes. By default, the LVM volume scanning tool scans the ``/dev``
    directory for block storage devices that contain volumes. If projects
@@ -528,20 +342,15 @@ Prerequisites
    attempts to cache them which can cause a variety of problems with
    both the underlying operating system and project volumes. You must
    reconfigure LVM to scan only the devices that contain the
-   ``cinder-volume`` volume group. 
-
-<<<<<<< HEAD
-#. Edit the ``/etc/lvm/lvm.conf`` file
+   ``cinder-volume`` volume group. Edit the ``/etc/lvm/lvm.conf`` file
    and complete the following action:
 
-=======
->>>>>>> staging
    * In the ``devices`` section, add a filter that accepts the
      ``/dev/sdb`` device and rejects all other devices::
 
         devices {
+        ...
         filter = [ "a/sdb/", "r/.*/"]
-        }
 
 Install and configure components
 --------------------------------
@@ -558,11 +367,6 @@ Install and configure components
       connection = mysql://cinder:CINDER_DBPASS@controller/cinder
 
    * In the ``[DEFAULT]`` and ``[oslo_messaging_rabbit]`` sections,
-<<<<<<< HEAD
-     configure *RabbitMQ* message queue access. Replace ``RABBIT_PASS``
-     with the password you chose for the openstack account in
-     *RabbitMQ*::
-=======
      configure ``RabbitMQ`` message queue access. Replace ``RABBIT_PASS``
      with the password you chose for the openstack account in
      ``RabbitMQ``::
@@ -570,7 +374,6 @@ Install and configure components
         [DEFAULT]
         ...
         rpc_backend = rabbit
->>>>>>> staging
 
         [oslo_messaging_rabbit]
         ...
@@ -581,13 +384,10 @@ Install and configure components
    * In the ``[DEFAULT]`` and ``[keystone_authtoken]`` sections,
      configure Identity service access. Replace ``CINDER_PASS`` with the
      password you chose for the cinder user in the Identity service::
-<<<<<<< HEAD
-=======
 
         [DEFAULT]
         ...
         auth_strategy = keystone
->>>>>>> staging
 
         [keystone_authtoken]
         ...
@@ -601,12 +401,6 @@ Install and configure components
         password = CINDER_PASS
 
    * In the ``[DEFAULT]`` section, configure the ``my_ip`` option.
-<<<<<<< HEAD
-     Replace *MANAGEMENT_INTERFACE_IP_ADDRESS* with the IP address
-     of the management network interface on your storage node,
-     typically 10.0.0.41 for the first node in the example
-     architecture::
-=======
      Replace ``MANAGEMENT_INTERFACE_IP_ADDRESS`` with the IP address
      of the management network interface on your storage node,
      typically 10.0.0.41 for the first node in the example
@@ -615,17 +409,11 @@ Install and configure components
         [DEFAULT]
         ...
         my_ip = MANAGEMENT_INTERFACE_IP_ADDRESS
->>>>>>> staging
 
    * In the ``[lvm]`` section, configure the LVM back end with the LVM
      driver, ``cinder-volumes`` volume group, iSCSI protocol, and
      appropriate iSCSI service::
 
-<<<<<<< HEAD
-   * In the ``[lvm]`` section, configure the LVM back end with the LVM
-     driver, ``cinder-volumes`` volume group, iSCSI protocol, and
-     appropriate iSCSI service::
-=======
         [lvm]
         ...
         volume_driver = cinder.volume.drivers.lvm.LVMVolumeDriver
@@ -634,22 +422,11 @@ Install and configure components
         iscsi_helper = tgtadm
 
    * In the ``[DEFAULT]`` section, enable the LVM back end::
->>>>>>> staging
 
         [DEFAULT]
         ...
         enabled_backends = lvm
 
-<<<<<<< HEAD
-   * In the ``[DEFAULT]`` section, enable the LVM back end::
-      
-		[DEFAULT] 
-		... 
-		enabled_backends = lvm
-
-   * In the ``[DEFAULT]`` section, configure the location of the Image
-     service::
-=======
    * In the ``[DEFAULT]`` section, configure the location of the Image
      service::
 
@@ -657,24 +434,13 @@ Install and configure components
         ...
         glance_host = controller
 
-#. Let systemd set the correct permissions for files in ``/etc/cinder``::
+#. Ensure files have proper ownership by running the following command::
 
     # systemctl restart update-triggers.target
->>>>>>> staging
 
 Finalize installation
 ---------------------
 
-<<<<<<< HEAD
-#. Let systemd set the correct permissions for files in ``/etc/cinder``::
-   
-   	# systemctl restart update-triggers.target
-
-Finalizing installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Restart the Block Storage volume service including its dependencies::
-=======
 #. Start the Block Storage volume service including its dependencies
    and configure them to start when the system boots::
 
@@ -686,7 +452,6 @@ Configuring a compute node to use Block Storage
 
 #. Perform the following steps to enable a compute node to work with
    block storage::
->>>>>>> staging
 
     # systemctl enable iscsid
     # systemctl start iscsi-gen-initiatorname iscsid
@@ -695,15 +460,10 @@ Verify operation
 ~~~~~~~~~~~~~~~~
 Verify operation of the Block Storage service.
 
-<<<<<<< HEAD
-Perform the following steps to enable a compute node to work with block
-storage::
-=======
 #. Source the ``admin`` credentials to gain access to
    admin-only CLI commands::
 
     $ source admin-openrc.sh
->>>>>>> staging
 
 #. List service components to verify successful launch of each process::
 
