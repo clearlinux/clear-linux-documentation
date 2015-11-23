@@ -18,7 +18,7 @@ or better. However, binaries for a range of operating systems are available from
 Currently experimental builds are available for:
 
 - CentOS*, Scientific Linux* 7
-- Fedora* 21, 22
+- Fedora* 21, 22, 23
 - openSUSE* 13.1, 13.2, Tumbleweed
 - SUSE* Linux Enterprise 12
 - Debian* 8.0
@@ -69,7 +69,7 @@ instructions below:
 Source Code
 ===========
 
-The experimental source code is based on the Docker version 1.8.1 upstream release and is available at:
+The experimental source code is based on the Docker version 1.9.0 upstream release and is available at:
 
 - https://github.com/clearlinux/docker
 
