@@ -8,37 +8,37 @@ Clear Linux* Project for Intel® Architecture--Documentation
 
 
 Getting started
-================
+***************
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    index_gs.rst
 
 
 Software update
-===============
+***************
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    index_sw_update.rst
 
 
 Bundles
-=======
+*******
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    index_bundles.rst
 
 
 OpenStack* implementation
-=========================
+*************************
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    index-openstack.rst
 
@@ -52,7 +52,7 @@ Indices and tables
 
 License and Disclaimers
 #######################
-.. toctree::   
+.. toctree::
 
 .. include:: documentation_license.rst
 
