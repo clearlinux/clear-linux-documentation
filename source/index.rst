@@ -4,79 +4,54 @@
    contain the root `toctree` directive.
 
 Clear Linux* Project for Intel® Architecture--Documentation
-===========================================================
+############################################################
+
+
+Getting started
+================
 
 .. toctree::
    :maxdepth: 2
 
-
-Getting started
-###############
-
-.. toctree::
-   :maxdepth: 1
-
-   gs_getting_started
-   gs_supported_hardware
-   gs_creating_bootable_usb
-   gs_installing_clr_as_host
-   gs_running_clr_virtual
-   gs-clear-containers-gettting-started
+   index_gs.rst
 
 
 Software update
-###############
+===============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   swupdate_about_sw_update
-   swupdate_how_to_run_the_updater
+   index_sw_update.rst
 
 
 Bundles
-#######
+=======
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   bundles_overview
-   bundles_in_clr
-   table_view_bundles
+   index_bundles.rst
 
 
 OpenStack* implementation
-#############################
+=========================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   openstack_use_cases
-   openstack_bundle_and_service_summary
-   openstack_sys_req_and_pw_summary
-   openstack_installing_bundles
-   openstack_supporting-database
-   openstack_supporting-messaging
-   openstack_identity
-   openstack_identity-openrc
-   openstack_image
-   openstack_compute
-   openstack_block_storage
-   openstack_dashboard
-   openstack_networking
-   openstack_orchestration
-   openstack_telemetry
+   index-openstack.rst
 
 
 Indices and tables
-==================
+##################
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
 License and Disclaimers
-=======================
+#######################
 .. toctree::   
 
 .. include:: documentation_license.rst
