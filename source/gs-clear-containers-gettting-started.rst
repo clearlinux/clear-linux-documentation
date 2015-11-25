@@ -56,7 +56,7 @@ instructions below:
 
 #. Enable the repository by running the following as the ``root`` user::
 
-   # clr_bundle_add containers-basic
+   # swupd bundle-add containers-basic
 
 #. Reload your systemd configuration::
 
