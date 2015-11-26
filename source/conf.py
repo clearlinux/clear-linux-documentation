@@ -126,7 +126,7 @@ html_theme = 'clearlinux'
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ['./_themes']
+html_theme_path = ['_themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -293,9 +293,5 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
-#breathe_projects = {
-#    "Zephyr": "xml",
-#    "doc-examples": "xml"
-#}
-#breathe_default_project = "Zephyr"
+# If true, generates permalinks on the HTML output.
 html_add_permalinks = False

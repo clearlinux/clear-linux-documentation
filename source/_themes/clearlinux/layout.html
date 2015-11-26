@@ -1,0 +1,162 @@
+{# TEMPLATE VAR SETTINGS #}
+{% set script_files = script_files + ['_static/js/affix.js'] %}
+{% set script_files = script_files + ['_static/js/project.js'] %}
+{% set script_files = script_files + ['_static/js/main.js'] %}
+{%- set url_root = pathto('', 1) %}
+{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  {{ metatags }}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block htmltitle %}
+  <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+  {% endblock %}
+
+  {# FAVICON #}
+  {% if favicon %}
+    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+  {% endif %}
+
+  {# CSS #}
+
+  {# OPENSEARCH #}
+  {% if not embedded %}
+    {% if use_opensearch %}
+      <link rel="search" type="application/opensearchdescription+xml" title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}" href="{{ pathto('_static/opensearch.xml', 1) }}"/>
+    {% endif %}
+
+  {% endif %}
+
+  {# RTD hosts this file, so just load on non RTD builds #}
+  {% if not READTHEDOCS %}
+    <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+  {% endif %}
+
+  {% for cssfile in css_files %}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {% endfor %}
+
+  {% for cssfile in extra_css_files %}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {% endfor %}
+
+    <link rel="stylesheet" href="{{ pathto('_static/css/overrides.css', 1) }}" type="text/css" />
+  {%- block linktags %}
+    {%- if hasdoc('about') %}
+        <link rel="author" title="{{ _('About these documents') }}"
+              href="{{ pathto('about') }}"/>
+    {%- endif %}
+    {%- if hasdoc('genindex') %}
+        <link rel="index" title="{{ _('Index') }}"
+              href="{{ pathto('genindex') }}"/>
+    {%- endif %}
+    {%- if hasdoc('search') %}
+        <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}"/>
+    {%- endif %}
+    {%- if hasdoc('copyright') %}
+        <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}"/>
+    {%- endif %}
+    <link rel="top" title="{{ docstitle|e }}" href="{{ pathto('index') }}"/>
+    {%- if parents %}
+        <link rel="up" title="{{ parents[-1].title|striptags|e }}" href="{{ parents[-1].link|e }}"/>
+    {%- endif %}
+    {%- if next %}
+        <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}"/>
+    {%- endif %}
+    {%- if prev %}
+        <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}"/>
+    {%- endif %}
+  {%- endblock %}
+  {%- block extrahead %}
+     {% if theme_touch_icon %}
+      <link rel="apple-touch-icon" href="{{ pathto('_static/' ~ theme_touch_icon, 1) }}" />
+      {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  {% endblock %}
+
+  {# Keep modernizr in head - http://modernizr.com/docs/#installing #}
+  <script src="{{ pathto('_static/js/modernizr.min.js', 1) }}"></script>
+
+</head>
+
+<body class="wy-body-for-nav not-front" role="document" >
+  <div id="wrapper">
+  {% include "header.html" %}
+      {# PAGE CONTENT #}
+      <div class="main-content">
+        <div class="container clearfix">
+          <div id="site-breadcrumb" class="hidden-sm">
+            {% include "breadcrumbs.html" %}
+          </div>
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">{% include "navigation.html" %}</div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">{% include "searchbox.html" %}</div></div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">{% block body %}{% endblock %}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      {% include "footer.html" %}
+    </div>
+    {% if not embedded %}
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'{{ url_root }}',
+              VERSION:'{{ release|e }}',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'{{ '' if no_search_suffix else file_suffix }}',
+              HAS_SOURCE:  {{ has_source|lower }}
+          };
+      </script>
+      {%- for scriptfile in script_files %}
+        <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+      {%- endfor %}
+
+    {% endif %}
+
+    {# RTD hosts this file, so just load on non RTD builds #}
+    {% if not READTHEDOCS %}
+      <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
+    {% endif %}
+
+    {# STICKY NAVIGATION #}
+    {% if theme_sticky_navigation %}
+    <script type="text/javascript">
+        jQuery(function () {
+            SphinxRtdTheme.StickyNav.enable();
+        });
+    </script>
+    {% endif %}
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("{{ pathto('searchindex.js', 1) }}"); });
+    </script>
+    {# this is used when loading the search index using $.ajax fails,
+       such as on Chrome for documents on localhost #}
+    <script type="text/javascript" id="searchindexloader"></script>
+
+  {# Disable base theme's top+bottom related navs; we have our own in sidebar #}
+  {%- block relbar1 %}{% endblock %}
+  {%- block relbar2 %}{% endblock %}
+
+  {%- block footer %} {% endblock %}
+
+</body>
+</html>
+
