@@ -1,7 +1,8 @@
-.. rubric:: Software update
+Software update
+###############
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    swupdate_about_sw_update
    swupdate_how_to_run_the_updater

@@ -15,11 +15,17 @@ Starter script
 To start the image, run the ``start_qemu.sh`` script from
 `here <http://download.clearlinux.org/image/start_qemu.sh>`_, or modify
 the following script for your needs and run it from the command line
+<<<<<<< HEAD
+with ``$ script clr_image``::
+
+    #!/bin/bash 
+=======
 with ``$ script clr_image``
 
 .. code-block:: bash
 
     #!/bin/bash
+>>>>>>> staging
     if [ $#  -eq 0 ] ; then
       echo "Please provide an image to emulate as first argument"
       exit 1
@@ -41,7 +47,11 @@ with ``$ script clr_image``
 To run this script, connect from host via SSH. Take note that SSH is not
 enabled by default. To enable it, log in through serial console with the
 username ``root``. After setting the password, enable root login via SSH
+<<<<<<< HEAD
+by configuring ``/etc/ssh/sshd_config`` with this content::
+=======
 by configuring :file:`/etc/ssh/sshd_config` with this content::
+>>>>>>> staging
 
     PermitRootLogin yes
 
@@ -49,16 +59,26 @@ Now you may connect from host via SSH through 2223::
 
     $ ssh -p 2223 root@localhost
 
+<<<<<<< HEAD
+Alternately, there are a few other ways to approach this.
+=======
 Alternatively, there are a few other ways to approach this.
+>>>>>>> staging
 
 -  To run the script without modifying its permissions::
 
        $ bash start_qemu.sh clr_image
 
 -  To run it as a background process::
+<<<<<<< HEAD
+
+       $ `bash start_qemu.sh clr_image` &
+
+=======
 
        $ bash start_qemu.sh clr_image &
 
+>>>>>>> staging
 -  If you'd like to run the script with execute permission::
 
        $ chmod +x start_qemu.sh

@@ -1,7 +1,8 @@
-.. rubric:: Getting started
+Getting started
+###############
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    gs_getting_started
    gs_supported_hardware

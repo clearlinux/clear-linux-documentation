@@ -11,7 +11,7 @@ Getting started
 ***************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    index_gs.rst
 
@@ -20,7 +20,7 @@ Software update
 ***************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    index_sw_update.rst
 
@@ -29,7 +29,7 @@ Bundles
 *******
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    index_bundles.rst
 
@@ -38,7 +38,7 @@ OpenStack* implementation
 *************************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    index-openstack.rst
 

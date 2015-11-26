@@ -1,7 +1,8 @@
-.. rubric:: Bundles
+Bundles
+#######
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    bundles_overview
    bundles_in_clr
