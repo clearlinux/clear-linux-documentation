@@ -6,4 +6,3 @@ Bundles
 
    bundles_overview
    bundles_in_clr
-   table_view_bundles
