@@ -1,4 +1,5 @@
-.. rubric:: OpenStack* implementation
+OpenStack* implementation
+#########################
 
 .. toctree::
    :maxdepth: 1
