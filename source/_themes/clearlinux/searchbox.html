@@ -1,0 +1,12 @@
+{%- if builder != 'singlehtml' %}
+<br />
+<div id="searchbox" role="search">
+  <h1>Quick Search</h1>
+  <form class="search" action="{{ pathto('search') }}" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div>
+{%- endif %}
