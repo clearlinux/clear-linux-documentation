@@ -34,5 +34,5 @@ You might need to switch to another TTY.
 For feedback on installation or other topics, please feel free to write in to our 
 `mailing list <https://lists.clearlinux.org/mailman/listinfo/dev>`_.
 
-Note: You can also :ref:`gs_running_clr_virtual`.
+Note: You can also try :ref:`gs_running_clr_virtual`.
 
