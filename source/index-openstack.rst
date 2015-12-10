@@ -19,3 +19,4 @@ OpenStack* implementation
    openstack_networking
    openstack_orchestration
    openstack_telemetry
+   openstack_object_storage
