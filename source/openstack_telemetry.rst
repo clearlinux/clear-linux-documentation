@@ -256,3 +256,5 @@ Finalizing installation
                       ceilometer-collector.service \
                       ceilometer-alarm-evaluator.service \
                       ceilometer-alarm-notifier.service
+
+Next topic: :ref:`openstack_object_storage`.
