@@ -1,10 +1,10 @@
 .. _openstack_sys_req_and_pw_summary:
 
 System requirements and password summary
-############################################################
+########################################
 
 System requirements
-----------------------------
+-------------------
 
 For best performance, we recommend that your environment meets or
 exceeds the following hardware requirements:
@@ -17,7 +17,7 @@ service account passwords and ``SERVICE_DBPASS`` to reference database
 passwords.
 
 Prerequisites
----------------------
+-------------
 
 All nodes require Internet access to install OpenStack bundles and
 perform maintenance tasks such as periodic updates.
@@ -42,37 +42,27 @@ To configure name resolution:
        # compute1 10.0.0.31 compute1
 
 Password summary
-------------------------
+----------------
 
-The following table provides a list of services that require passwords
-and their associated references in the guide:
+The following table provides a list of services that require passwords,
+as well as their associated references in the guide:
 
-+----------------------------------------+--------------------------------------------------+
-| **Password name**                      | **Description**                                  |
-+----------------------------------------+--------------------------------------------------+
-| Database password (no variable used)   | Root password for the database                   |
-+----------------------------------------+--------------------------------------------------+
-| RABBIT_PASS                            | Password of user guest of RabbitMQ               |
-+----------------------------------------+--------------------------------------------------+
-| KEYSTONE_DBPASS                        | Database password of Identity service            |
-+----------------------------------------+--------------------------------------------------+
-| DEMO_PASS                              | Password of user demo                            |
-+----------------------------------------+--------------------------------------------------+
-| ADMIN_PASS                             | Password of user admin                           |
-+----------------------------------------+--------------------------------------------------+
-| GLANCE_DBPASS                          | Database password for Image Service              |
-+----------------------------------------+--------------------------------------------------+
-| GLANCE_PASS                            | Password of Image Service user glance            |
-+----------------------------------------+--------------------------------------------------+
-| NOVA_DBPASS                            | Database password for Compute service            |
-+----------------------------------------+--------------------------------------------------+
-| NOVA_PASS                              | Password of Compute service user nova            |
-+----------------------------------------+--------------------------------------------------+
-| DASH_DBPASS                            | Database password for the dashboard              |
-+----------------------------------------+--------------------------------------------------+
-| CINDER_DBPASS                          | Database password for the Block Storage service  |
-+----------------------------------------+--------------------------------------------------+
-| CINDER_PASS                            | Password of Block Storage service user cinder    |
-+----------------------------------------+--------------------------------------------------+
+.. csv-table:: Password Services
+   :header: "Password name", "Description"
+   :widths: 100, 100
+
+   "Database password (no variable used)", "Root password for the database."
+   "RABBIT_PASS", "Password of user ``guest`` of RabbitMQ."
+   "KEYSTONE_DBPASS", "Database password of Identity service."
+   "DEMO_PASS", "Password of user ``demo``."
+   "ADMIN_PASS", "Password of user ``admin``."
+   "GLANCE_DBPASS", "Database password for Image Service."
+   "GLANCE_PASS", "Password of Image Service user ``glance``."
+   "NOVA_DBPASS", "Database password for Compute service." 
+   "NOVA_PASS", "Password of Compute service user ``nova``."
+   "DASH_DBPASS", "Database password for the dashboard."
+   "CINDER_DBPASS", "Database password for the Block Storage service."
+   "CINDER_PASS",  "Password of Block Storage service user ``cinder``."
+
 
 Next topic: :ref:`openstack_installing_bundles`.
