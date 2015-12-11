@@ -1,3 +1,5 @@
+.. _openstack_object_storage:
+
 OpenStack* Object Storage
 #########################
 
@@ -442,7 +444,7 @@ Install and configure storage node components
 
    # systemctl restart update-triggers.target
 
-About Creating initial rings
+About creating initial rings
 ----------------------------
 
 Before starting the Object Storage services, you must create the initial
@@ -767,4 +769,4 @@ Replace *FILE* with the name of a local file to upload to the ``container1`` con
      $ swift download container1 FILE
      FILE [auth 0.295s, headers 0.339s, total 0.339s, 0.005 MB/s]
 
-Replace *FILE* with the name of the file uploaded to the ``container1`` container.
+   Replace *FILE* with the name of the file uploaded to the ``container1`` container.
