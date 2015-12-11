@@ -3,9 +3,38 @@
 Getting started with Clear Linux* OS for Intel® Architecture
 ############################################################
 
-The easiest way to give Clear Linux OS for Intel Architecture a spin is to download a
-recent KVM image from the `image directory <http://download.clearlinux.org/image/>`_
-on our download page. This directory contains a current image, the UEFI firmware
-helper and the KVM start helper script. See :ref:`gs_running_clr_virtual` for details.
+There are a number of ways to download and run Clear Linux OS for Intel Architecture. 
+All of the images are in our `image directory <http://download.clearlinux.org/image/>`_. 
 
-You can also try :ref:`gs_installing_clr_as_host` on a target computer.
+KVM Image
+=========
+
+Download a recent KVM image along with the UEFI firmware
+helper ``OVMF.fd`` and the KVM start helper script ``start_qemu.sh.`` 
+See :ref:`gs_running_clr_virtual` for details.
+
+Live Image
+==========
+With the live image you can boot right into Clear in a VM or, or lay the image down 
+on a USB drive with a tool like ``dd`` and boot from USB. This is a great 
+way to kick the tires with a minimal amount of effort. 
+
+Installer Image
+===============
+The installer image allows you to manipulate and target partitions, and set 
+other OS configuration features (hostname, administrative user) commonly found in 
+Linux Installers. See :ref:`gs_installing_clr_as_host` on a target computer for more information.
+
+**CAUTION** If you do not manually configure the install and 
+instead but instead use the auto-install, it will repartition ``/dev/sda``. 
+
+Provisioning Image
+==================
+**CAUTION:** This image is intended to be used in a provioning environment - the installer will 
+repartition /dev/sda and install Clear Linux OS for Intel Architecture into the new 
+partition. Don't use this on a system where you care about the data on ``/dev/sda``.
+
+Container Evaluation
+====================
+
+
