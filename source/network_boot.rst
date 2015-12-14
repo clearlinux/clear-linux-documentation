@@ -296,24 +296,6 @@ Next create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd servic
   # touch /var/db/dhcp.leases
   # systemctl start dhcp4.service
 
-TFTP configuration
-~~~~~~~~~~~~~~~~~~
-
-Clear Linux uses ``dnsmasq`` to provide the tftpd service. It requires
-the following entries exist in :file:`/etc/dnsmasq.conf`:
-
-.. code-block:: console
-
-  enable-tftp
-  tftp-root=/srv/tftp/
-
-The Linux kernel and initrd files can be downloaded from https://download.clearlinux.org/image/
-(with a name clear-$version-pxe.tar.xz) as a compressed tar file containing two clearly-labeled
-files that should be moved to the tftp root (``/srv/tftp/`` per the tftp server configuration),
-as linux and initrd respectively. The bootloader :file:`grubx64.efi` and its configuration file
-:file:`grub.cfg` should also be placed in the tftp root ``/srv/tftp/``.
-
-Now start the tftp service with :command:`systemctl start dnsmasq.service`
 
 GRUB configuration
 ~~~~~~~~~~~~~~~~~~
@@ -329,7 +311,7 @@ command:
   mdraid1x minicmd multiboot multiboot2 normal part_apple part_msdos
   part_gpt password_pbkdf2 png reboot search search_fs_uuid search_fs_file
   search_label serial sleep syslinuxcfg test tftp usbserial_pl2303
-  usbserial_ftdi usbserial_usbdebugvideo xfs
+  usbserial_ftdi xfs
 
 and it will be placed in your current directory.
 
@@ -375,3 +357,23 @@ following content:
   }
 
 Where the Linux kernel is named "linux" and the initrd "initrd".
+
+
+TFTP configuration
+~~~~~~~~~~~~~~~~~~
+
+Clear Linux uses ``dnsmasq`` to provide the tftpd service. It requires
+the following entries exist in :file:`/etc/dnsmasq.conf`:
+
+.. code-block:: console
+
+  enable-tftp
+  tftp-root=/srv/tftp/
+
+The Linux kernel and initrd files can be downloaded from https://download.clearlinux.org/current/
+(with a name clear-$version-pxe.tar.xz) as a compressed tar file containing two clearly-labeled
+files that should be moved to the tftp root (``/srv/tftp/`` per the tftp server configuration),
+as linux and initrd respectively. The bootloader :file:`grubx64.efi` and its configuration file
+:file:`grub.cfg` should also be placed in the tftp root ``/srv/tftp/``.
+
+Now start the tftp service with :command:`systemctl start dnsmasq.service`
