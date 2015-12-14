@@ -151,7 +151,7 @@ Next, create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd servi
 TFTP configuration
 ~~~~~~~~~~~~~~~~~~
 
-Clear Linux uses ``dnsmasq`` to provide the tftpd service. Modify 
+Clear Linux uses ``dnsmasq`` to provide the tftpd service. Modify
 :file:`/etc/dnsmasq.conf` with the following required entries:
 
 .. code-block:: console
@@ -209,7 +209,7 @@ following:
 iPXE script
 ~~~~~~~~~~~
 
-The iPXE script used is  
+The iPXE script used is
 
 .. code-block:: console
 
@@ -309,7 +309,7 @@ the following entries exist in :file:`/etc/dnsmasq.conf`:
 
 The Linux kernel and initrd files can be downloaded from https://download.clearlinux.org/image/
 (with a name clear-$version-pxe.tar.xz) as a compressed tar file containing two clearly-labeled
-files that should be moved to the tftp root (``/srv/tftp/`` per the tftp server configuration), 
+files that should be moved to the tftp root (``/srv/tftp/`` per the tftp server configuration),
 as linux and initrd respectively. The bootloader :file:`grubx64.efi` and its configuration file
 :file:`grub.cfg` should also be placed in the tftp root ``/srv/tftp/``.
 
