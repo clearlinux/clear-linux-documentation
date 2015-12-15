@@ -34,13 +34,22 @@ Bundles
    index_bundles.rst
 
 
+Advanced configuration
+======================
+
+.. toctree::
+   :maxdepth: 2
+
+   index_advanced_configuration.rst
+
+
 OpenStack* implementation
 =========================
 
 .. toctree::
    :maxdepth: 2
 
-   index-openstack.rst
+   index_advanced_configuration.rst
 
 
 Indices and tables
@@ -50,7 +59,7 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-License and Disclaimers
+License and disclaimers
 #######################
 .. toctree::   
 
