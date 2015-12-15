@@ -73,7 +73,7 @@ Here's one way to do this:
           }
   }
 
-This ensures that either iPXE image (undionly.kpxe for BIOS or ipxe.efi for EFI) is handed
+This ensures that either iPXE image (``undionly.kpxe`` for BIOS or ``ipxe.efi`` for EFI) is handed
 out only when the DHCP request comes from a legacy PXE client or from a UEFI client. Once
 iPXE loads, the DHCP server will direct it to boot from options configured in your
 ``http://my.web.server/real_boot_script.txt`` file, where ``my.web.server`` and the filename
