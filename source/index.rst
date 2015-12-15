@@ -49,7 +49,7 @@ OpenStack* implementation
 .. toctree::
    :maxdepth: 2
 
-   index_advanced_configuration.rst
+   index-openstack.rst
 
 
 Indices and tables
