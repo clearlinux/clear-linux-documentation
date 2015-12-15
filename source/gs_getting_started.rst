@@ -3,7 +3,7 @@
 Getting started with Clear Linux* OS for Intel® Architecture
 ############################################################
 
-**Note:** To improve quality the Telemetry service is enabled by default. See the `Telemetry feature page <https://clearlinux.org/features/telemetry>`_ for more details. Use the ``telemctl`` command to manage this service.
+**Note:** To improve quality, the Telemetry service is enabled by default. See the `Telemetry feature page <https://clearlinux.org/features/telemetry>`_ for more details. Use the ``telemctl`` command to manage this service.
 
 There are a number of ways to download and run Clear Linux OS for Intel Architecture. 
 All of the images are in our `image directory <http://download.clearlinux.org/image/>`_. 
