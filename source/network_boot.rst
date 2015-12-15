@@ -1,7 +1,7 @@
-.. _network_booting:
+.. _network_boot:
 
-Network Booting
-===============
+Network booting
+################
 
 Network booting is an important feature that every data center should have;
 it can be used, among other things, to install an operating system. To do this,
@@ -11,23 +11,23 @@ industry-standard Internet protocols and services, namely TCP/IP, DHCP, and
 
 .. tip::
 
-  Clear Linux Project for Intel Architecture uses UEFI to boot, so your target
+  Clear Linux* Project for Intel® Architecture uses UEFI to boot, so your target
   machine should be UEFI capable. At present, the UEFI binary is not signed, so
   be sure to disable secure boot.
 
 PXE + iPXE
-----------
+===========
 
-To retrieve data through other protocols like: HTTP, iSCSI, ATA over Ethernet
+To retrieve data through other protocols such as HTTP, iSCSI, ATA over Ethernet
 (AoE), and Fiber Channel over Ethernet (FCoE), an open source network boot
-firmware called iPXE was created. iPXE  provides a full PXE implementation,
+firmware called iPXE was created. iPXE provides a full PXE implementation,
 enhanced with additional features. It can be used to enable network booting from
 computers that lack built-in PXE support.
 
 Clear Linux Project for Intel Architecture can be configured to do network
 booting via HTTP with the help of iPXE. The following sets up an iPXE
-environment using Clear Linux, but the configuration options may apply
-elsewhere. First, add the ``pxe-server`` bundle to your
+environment using Clear Linux OS for Intel Architecture, but the configuration 
+options may apply elsewhere. First, add the ``pxe-server`` bundle to your
 system with:
 
 .. code-block:: console
@@ -36,9 +36,9 @@ system with:
 
 
 DHCP configuration
-~~~~~~~~~~~~~~~~~~
+-------------------
 
-To use PXE chainloading, set up ISC DHCPD to hand out undionly.kpxe to legacy
+To use PXE chainloading, set up ISC DHCPD to hand out ``undionly.kpxe`` to legacy
 PXE clients and then hand out boot configuration only to iPXE clients. Do
 this by telling ISC DHCPD to use different configurations based on the DHCP user class.
 Here's one way to do this:
@@ -76,9 +76,8 @@ Here's one way to do this:
 This ensures that either iPXE image (undionly.kpxe for BIOS or ipxe.efi for EFI) is handed
 out only when the DHCP request comes from a legacy PXE client or from a UEFI client. Once
 iPXE loads, the DHCP server will direct it to boot from options configured in your
-``http://my.web.server/real_boot_script.txt`` file.
-
-Replace "http://my.web.server/real_boot_script.txt" with the address you want iPXE to boot from.
+``http://my.web.server/real_boot_script.txt`` file, where ``my.web.server`` and the filename 
+are replaced with your actual location.
 
 The address ``192.168.1.1`` should be set to the address your TFTP server is using.
 
@@ -86,11 +85,11 @@ The subnet being used in this example is private; if the DHCPD service you use a
 entire network, modify the configuration as needed.
 
 iPXE-specific options
-~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 There are several DHCP options specific to `iPXE <http://ipxe.org/>`_ which are not recognized by the standard ISC
 dhcpd installation. To add support for these options, place the following at the start of your
-:file:`/etc/dhcpd.conf` :
+:file:`/etc/dhcpd.conf`:
 
 .. code-block:: console
 
@@ -149,7 +148,7 @@ Next, create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd servi
   # systemctl start dhcp4.service
 
 TFTP configuration
-~~~~~~~~~~~~~~~~~~
+-----------------------
 
 Clear Linux uses ``dnsmasq`` to provide the tftpd service. Modify
 :file:`/etc/dnsmasq.conf` with the following required entries:
@@ -159,7 +158,7 @@ Clear Linux uses ``dnsmasq`` to provide the tftpd service. Modify
   enable-tftp
   tftp-root=/srv/tftp/
 
-Download the undionly.kpxe (legacy) and ipxe.efi (EFI) files from
+Download the ``undionly.kpxe`` (legacy) and ``ipxe.efi`` (EFI) files from
 `the iPXE website <http://boot.ipxe.org/>`_ and place them in your TFTP
 directory. Then you can start the service with
 
@@ -169,13 +168,13 @@ directory. Then you can start the service with
 
 
 HTTP configuration
-~~~~~~~~~~~~~~~~~~
+-----------------------
 
 The kernel (linux), initramfs (initrd) and the iPXE scripts are transported
 via HTTP. The Linux kernel and initrd files can be downloaded from
-https://download.clearlinux.org/image/ where clear-$version-pxe.tar.xz is a
+https://download.clearlinux.org/image/ where ``clear-$version-pxe.tar.xz`` is a
 compressed tar file containing two clearly-labeled files that should be moved
-to the http server root /var/www/pxe/.
+to the http server root ``/var/www/pxe/``.
 
 Create a configuration file for the http service (nginx in this example) to
 serve the kernel and initramfs in :file:`/etc/nginx/nginx.conf` with the
@@ -207,7 +206,7 @@ following:
 
 
 iPXE script
-~~~~~~~~~~~
+-----------------------
 
 The iPXE script used is
 
@@ -219,19 +218,19 @@ The iPXE script used is
   tsc=reliable no_timer_check noreplace-smp rw initrd=initrd initrd initrd
   boot
 
-this should be located in ``/var/www/pxe`` with the kernel and initrd.
+This should be located in ``/var/www/pxe`` with the kernel and initrd.
 
 
 PXE + grub
-----------
+=======================
 
-Another option for network booting Clear Linux is to use the GRUB bootloader
+Another option for network booting Clear Linux OS for Intel Architecture is to use the GRUB bootloader
 for booting in UEFI mode. The bootloader will get its files over TFTP and does
 not require having another service to host the network boot artifacts. The
-following sets up up a PXE using the GRUB bootloader environment and Clear Linux,
+following sets up up a PXE using the GRUB bootloader environment and Clear Linux OS for Intel Architecture,
 but the configuration options should apply elsewhere.
 
-The first thing to do is add the pxe-server bundle to your system with:
+First add the pxe-server bundle to your system with:
 
 .. code-block:: console
 
@@ -239,9 +238,9 @@ The first thing to do is add the pxe-server bundle to your system with:
 
 
 DHCP configuration
-~~~~~~~~~~~~~~~~~~
+-----------------------
 
-Add the following content to your :file:`/etc/dhcpd.conf` file
+Add the following content to your :file:`/etc/dhcpd.conf` file:
 
 .. code-block:: console
 
@@ -267,11 +266,11 @@ Add the following content to your :file:`/etc/dhcpd.conf` file
   }
 
 
-Where 192.168.1.1 is set to the address your TFTP server is using, and grubx64.efi is set
+Where ``192.168.1.1`` is set to the address your TFTP server is using, and ``grubx64.efi`` is set
 to the name of your grub bootloader file.
 
 The subnet being used in this example is private; if the DHCPD service you use applies to your
-entire network, modify the configuration as needed.  Also, if multiple devices (including those
+entire network, modify the configuration as needed. Also, if multiple devices (including those
 not using UEFI) are being supported by this DHCPD service, adding the following logic will allow
 selection of the filename fetched from the client:
 
@@ -298,7 +297,7 @@ Next create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd servic
 
 
 GRUB configuration
-~~~~~~~~~~~~~~~~~~
+-----------------------
 
 Create the GRUB bootloader file (:file:`grubx64.efi`) with the following
 command:
@@ -313,7 +312,7 @@ command:
   search_label serial sleep syslinuxcfg test tftp usbserial_pl2303
   usbserial_ftdi xfs
 
-and it will be placed in your current directory.
+This file will then be placed in your current directory.
 
 Next, a GRUB configuration file (:file:`grub.cfg`) should contain the
 following content:
@@ -360,9 +359,9 @@ Where the Linux kernel is named "linux" and the initrd "initrd".
 
 
 TFTP configuration
-~~~~~~~~~~~~~~~~~~
+-----------------------
 
-Clear Linux uses ``dnsmasq`` to provide the tftpd service. It requires
+Clear Linux OS for Intel Archiecture uses ``dnsmasq`` to provide the tftpd service. It requires
 the following entries exist in :file:`/etc/dnsmasq.conf`:
 
 .. code-block:: console
@@ -376,4 +375,8 @@ files that should be moved to the tftp root (``/srv/tftp/`` per the tftp server 
 as linux and initrd respectively. The bootloader :file:`grubx64.efi` and its configuration file
 :file:`grub.cfg` should also be placed in the tftp root ``/srv/tftp/``.
 
-Now start the tftp service with :command:`systemctl start dnsmasq.service`
+Now start the tftp service with this command:
+
+.. code-block:: console
+
+  systemctl start dnsmasq.service
