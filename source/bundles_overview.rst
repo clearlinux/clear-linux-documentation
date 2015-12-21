@@ -34,7 +34,7 @@ Current list of available bundles:
    <head>
 		<title>Bundles in ClearLinux</title>
 		<style type="text/css">
-			table { margin: 2em; border-collapse: collapse; width: auto; }
+			table { margin: 2em; border: 1px solid #e0e0e0; border-collapse: collapse; width: auto; }
 			th { align: center; padding: 0.5em; border: #ccc solid 1px; background-color: #555; color: #fff; text-transform: uppercase; }
 			tbody tr:nth-child(odd) { background-color:#e0e0e0; } 			
 			.bundlename { font-family: monospace; font-size: 1.3em; font-weight: bold;}
