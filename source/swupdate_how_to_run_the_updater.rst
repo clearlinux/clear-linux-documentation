@@ -19,7 +19,9 @@ Running the updater
 
 #. Open a Terminal Emulator.
 
-#. Become root and trigger update by typing ``# swupd_update``
+#. Become root and trigger an update with this command::
+
+    # swupd update
 
 #. If the updater console output indicates a kernel update occurred,
    then at your convenience reboot to begin using the new OS version.
