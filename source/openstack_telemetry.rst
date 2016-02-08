@@ -160,7 +160,7 @@ Install and configure components
 
 #. Install the OpenStack Telemetry Controller bundle::
 
-   	# swupd bundle-add openstack-telemetry-controller
+   	# swupd bundle-add openstack-telemetry
 
 #. Custom configurations will be located at ``/etc/ceilometer``.
 

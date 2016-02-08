@@ -31,7 +31,7 @@ services:
    replication and scale-out architecture."
    "openstack-block-storage/openstack-block-storage-controller", "Cinder", "Provides
    persistent block storage to running instances."
-   "openstack-telemetry-controller", "Ceilometer", "Monitors and meters the
+   "openstack-telemetry", "Ceilometer", "Monitors and meters the
    OpenStack cloud for billing, benchmarking, scalability, and statistical
    purposes."
    "openstack-orchestration", "Heat", "Orchestrates multiple composite cloud
