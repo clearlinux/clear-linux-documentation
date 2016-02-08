@@ -431,7 +431,7 @@ Current list of available bundles:
                                                                             <li>Includes (openstack-orchestration) bundle.</p>
                                                                                 <li>Includes (openstack-python-clients) bundle.</p>
                                                                                     <li>Includes (openstack-vpnaas) bundle.</p>
-                                                                                        <li>Includes (openstack-telemetry-controller) bundle.</p>
+                                                                                        <li>Includes (openstack-telemetry) bundle.</p>
             </td>
             <!-- <td><p></p></td> -->
             <!-- <td><p></p></td> -->
@@ -589,7 +589,7 @@ Current list of available bundles:
             <!-- <td><p></p></td> -->
         </tr>
         <tr>
-            <td class="bundlename"> openstack-telemetry-controller</td>
+            <td class="bundlename"> openstack-telemetry</td>
             <td class="bundlestatus"> WIP</td>
             <td class="bundledesc">
                 <p> Provides an OpenStack Telemetry server</p>
