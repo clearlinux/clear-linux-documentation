@@ -1,7 +1,7 @@
 .. _vm-kvm:
 
-Running in a virtualized environment
-####################################
+Using KVM
+#########
 
 The easiest way to get started running Clear Linux* OS for Intel®
 Architecture in a virtualized environment is to download a recent KVM image

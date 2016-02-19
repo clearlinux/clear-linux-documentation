@@ -1,8 +1,8 @@
 .. _vm-virtualbox:
 
-=========================
-Clear Linux on VirtualBox
-=========================
+================
+Using VirtualBox
+================
 
 This section explains how to run Clear Linux inside
 VirtualBox_ environment.

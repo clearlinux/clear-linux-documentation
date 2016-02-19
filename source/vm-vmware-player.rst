@@ -1,8 +1,8 @@
 .. _vm-vmware-player:
 
-=======================================
-Clear Linux on VMware* Player
-=======================================
+====================
+Using VMware* Player
+====================
 
 This section explains how to run Clear Linux inside
 `VMWare Player`_ environment.

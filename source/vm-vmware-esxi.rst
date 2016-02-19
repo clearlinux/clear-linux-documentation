@@ -1,7 +1,7 @@
 .. _vm-vmware-esxi:
 
-Using Clear Linux* as VMware* ESXi guest
-========================================
+Using VMware* ESXi guest
+========================
 
 This documentation explains how to use Clear Linux as ESXi Guest.
 This docuemnt is based on VMware vSphere 6.
