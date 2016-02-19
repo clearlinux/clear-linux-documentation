@@ -1,4 +1,4 @@
-.. _gs_running_clr_virtual:
+.. _vm_kvm:
 
 Running in a virtualized environment
 ####################################

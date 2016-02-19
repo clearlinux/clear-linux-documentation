@@ -5,7 +5,7 @@ Creating a bootable USB to install the OS
 
 Here's how to create a USB drive that initiates the process for
 :ref:`gs_installing_clr_as_host`. Alternatively, you can test the 
-OS by :ref:`gs_running_clr_virtual`.
+OS by :ref:`vm_kvm`.
 
 
 What you need
