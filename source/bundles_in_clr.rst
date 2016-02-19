@@ -511,7 +511,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 </ul>
                 <p></p>
                 <ul>
-                    <li>Includes (openstack-telemetry-controller) bundle.</li>
+                    <li>Includes (openstack-telemetry) bundle.</li>
                 </ul>
                 <p></p>
             </td><!-- <td align=left><p></p></td> -->
@@ -671,7 +671,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
             <!-- <td align=left><p></p></td> -->
         </tr>
         <tr>
-            <td align="left">openstack-telemetry-controller</td>
+            <td align="left">openstack-telemetry</td>
             <td align="center">WIP</td>
             <td align="left">
                 <p>Provides an OpenStack Telemetry server</p>

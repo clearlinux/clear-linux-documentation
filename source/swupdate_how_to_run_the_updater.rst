@@ -1,5 +1,5 @@
 How to run the updater
-############################################################
+######################
 
 This section describes how to manually trigger the software update code in Clear Linux* OS for Intel® Architecture.
 
@@ -7,7 +7,7 @@ Prerequisites
 ~~~~~~~~~~~~~
 
 -  System is up and running a Clear Linux OS for Intel
-   Architecture official build 300 or later.
+   Architecture official build, 300 or later.
 
 -  Device is on a well-connected network.
 

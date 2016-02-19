@@ -6,14 +6,15 @@ Getting started with Clear Linux* OS for Intel® Architecture
 **Note:** To improve quality, the Telemetry service is enabled by default. See the `Telemetry feature page <https://clearlinux.org/features/telemetry>`_ for more details. Use the ``telemctl`` command to manage this service.
 
 There are a number of ways to download and run Clear Linux OS for Intel Architecture. 
-All of the images are in our `image directory <http://download.clearlinux.org/image/>`_. 
+The most `current <http://download.clearlinux.org/current/>`_ image options can
+be found in our image directory.  For older ones, see our `releases <https://download.clearlinux.org/releases>`_ page.
 
 KVM Image
 =========
 
 Download a recent KVM image along with the UEFI firmware
 helper ``OVMF.fd`` and the KVM start helper script ``start_qemu.sh.`` 
-See :ref:`gs_running_clr_virtual` for details.
+See :ref:`vm-kvm` for details.
 
 Live Image
 ==========

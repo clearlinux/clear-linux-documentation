@@ -4,8 +4,8 @@ About software update
 The traditional way
 ===================
 
-Traditional Linux-based operating systems are often an amalgation of
-several hundred, if not thousands, of open source projects. To make them
+Traditional Linux-based operating systems are often a mix of several
+hundred, if not thousands, of open source projects. To make them
 manageable, most distributions use the concept of "packages" to configure
 and compile source code into binaries for installation.
 
@@ -19,9 +19,9 @@ each package individually or as a set, using tools such as ``yum`` and
 The Clear way
 =============
 
-Clear Linux OS for Intel® Architecture has a few notable features that
-distinguish it from standard OSes: bundles, versioning, updating, and update
-speed. 
+Clear Linux OS for Intel® Architecture does things a little differently. 
+Following here are a few notable features that distinguish it from
+standard OSes: bundles, versioning, updating, and update speed.
 
 Bundles
 -------
