@@ -27,5 +27,5 @@ The entire installation should take no more than a few minutes.
 For feedback on installation or other topics, please feel free to write in to our 
 `mailing list <https://lists.clearlinux.org/mailman/listinfo/dev>`_.
 
-Note: You can also try :ref:`vm_kvm`.
+Note: You can also try :ref:`vm-kvm`.
 

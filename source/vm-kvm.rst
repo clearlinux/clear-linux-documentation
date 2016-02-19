@@ -1,4 +1,4 @@
-.. _vm_kvm:
+.. _vm-kvm:
 
 Running in a virtualized environment
 ####################################
