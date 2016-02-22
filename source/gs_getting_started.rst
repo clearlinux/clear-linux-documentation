@@ -14,7 +14,7 @@ KVM Image
 
 Download a recent KVM image along with the UEFI firmware
 helper ``OVMF.fd`` and the KVM start helper script ``start_qemu.sh.`` 
-See :ref:`gs_running_clr_virtual` for details.
+See :ref:`vm-kvm` for details.
 
 Live Image
 ==========
