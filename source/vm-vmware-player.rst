@@ -38,7 +38,7 @@ https://download.clearlinux.org/image/. In  Clear Linux website you can find
 different image flavors (kvm, clear-containers, cloud and live), please
 download the live image (clear-XXXX-live.img.xz).
 
-1. Decompress the image:
+1. Decompress Clear Linux image. Uncompressed image size is ~ **5GiB**.
 
   - On Linux ::
 
