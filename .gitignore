@@ -2,3 +2,5 @@
 source/_build/
 # ignore vi temporary files
 *.swp
+*~
+.*~
