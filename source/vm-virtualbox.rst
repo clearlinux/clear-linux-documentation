@@ -26,7 +26,7 @@ Create a virtual machine in VirtualBox
 1. Download the latest_ Clear linux live version (clear-XXXX-live.img.xz)
    from https://download.clearlinux.org/image/.
 
-2. Decompress clear linux image
+2. Decompress Clear Linux image. Uncompressed image size is ~ **5GiB**.
 
    - On Linux ::
 
