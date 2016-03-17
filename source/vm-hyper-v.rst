@@ -18,11 +18,11 @@ Please refer to `Microsoft documentation`_ to install and configure
 Create a virtual machine
 ------------------------
 
-1. Download the latest_ Clear linux live version (clear-XXXX-live.img.xz)
+1. Download the latest_ Clear Linux live version (clear-XXXX-live.img.xz)
    from https://download.clearlinux.org/image/.
 
-2. Decompress clear linux image (you can use 7zip_). Uncompressed image
-   size is ~ 5GiB.
+2. Decompress Clear Linux image (you can use 7zip_). Uncompressed image
+   size is ~ **5GiB**.
 
 3. To convert Clear Linux raw image to :abbr:`VHD (Virtual Hard Disk)`
    format, you need to use VirtualBox_ or QEMU_ (windows version available on
@@ -45,7 +45,8 @@ Create a virtual machine
          PS C:\> Test-VHD -Path c:\path\to\clear-XXXX-live.vhd
 
    Clear Linux uses *EFI* to boot, and this featue is only availible in `Generation 2`_
-   virtual machines, so, you need to convert from **VHD** to **VHDX** you can use::
+   virtual machines, so, you need to convert from **VHD** to **VHDX**, to do this
+   you can use the following *PowerShell* command::
 
          PS C:\> Convert-VHD -Path c:\path\to\clear-XXXX-live.vhd -DestinationPath c:\path\to\clear-XXXX-live.vhdx
 
@@ -54,7 +55,7 @@ Create a virtual machine
 4. Create virtual machine using the **Hyper-V Manager**:
 
    * Choose **Generation 2** when you need to *specify VM generation*.
-   * Choose **Use an existing virtual hard disk** and browse to find the :file:clear-XXXX-live.vhdx file.
+   * Choose **Use an existing virtual hard disk** and browse to find the :file:`clear-XXXX-live.vhdx` file.
 
 5. Connect to your new VM and start it.
 
