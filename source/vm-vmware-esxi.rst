@@ -14,8 +14,9 @@ Run Clear Linux*
 1. In order to boot Clear Linux* download the latest_ live disk image from
    https://download.clearlinux.org/image/
 
+2. Decompress Clear Linux image. Uncompressed image size is ~ **5GiB**.
 
-2. Create and configure a virtual machine with the following configuration:
+3. Create and configure a virtual machine with the following configuration:
 
   - Guest Operating system: **Linux, Distribution Other 3.x Linux (64-bits)**
 
@@ -26,13 +27,14 @@ Run Clear Linux*
     In VMware vShere GUI go to the configuration settings of the
     virtual machine->General Tab-> And select **EFI boot firmware**
 
+
   - **IDE disk**: Convert to vmdk and attach the Clear Linux image downloaded
     above. To convert Clear Linux image to VMWare* disk (vmdk) you can use
     qemu-img command::
 
       $qemu-img convert -f raw -O vmdk  -p clear-vmware.img clear-vmware.vmdk
 
-3. Start the Clear Linux* virtual machine
+4. Start the Clear Linux* virtual machine
 
 *********************************
 Using optimized kernel for VMware

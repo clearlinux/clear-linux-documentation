@@ -8,4 +8,5 @@ Running in a virtualized environment
    vm-virtualbox
    vm-vmware-esxi
    vm-vmware-player
+   vm-hyper-v
 
