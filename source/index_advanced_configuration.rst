@@ -5,4 +5,4 @@ Advanced configuration
    :maxdepth: 2
 
    network_boot
-   mixer_tool
+   mixer
