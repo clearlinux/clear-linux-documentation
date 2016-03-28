@@ -50,12 +50,11 @@ Mixing
      # ./mixer-init-mix.sh
 
    Currently, the only correct way to update an existing Clear image to a
-   mixer-created update is
-
-   * To create an initial update that contains the same bundles
-   and content as the VM.
-   * To verify ``--fix`` the Clear image to it.
-   * To update the Clear image as it normally would. This step auto-generates that first version 10 for you, so you can focus on just your custom mix.
+   mixer-created update is to create an initial update that contains the same
+   bundles and content as the VM. Then you can verify ``--fix`` the
+   Clear image to it.  Lastly, update the Clear image as it normally would. 
+   This step auto-generates that first version 10 for you, so you can focus
+   on just your custom mix.
 
 #. **Create/locate RPMs for mix.**. (Steps 3 and 4 are necessary only if you
    want to add your own RPMs to the Mix. If you are simply working with Clear
