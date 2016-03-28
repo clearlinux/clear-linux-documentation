@@ -45,16 +45,17 @@ Mixing
    reflects the path of the current workspace we are working in. The
    :file:`.yum-mix.conf` file will be auto-generated for you.
 
-#. **Generate the starting point for your Mixer**.  In your workspace, run::
-   # ./mixer-init-mix.sh.
+#. **Generate the starting point for your Mixer**. In your workspace, run::
+   
+     # ./mixer-init-mix.sh
 
-   Currently, the only correct way to update an existing Clear image to a mixer
-   created update is
+   Currently, the only correct way to update an existing Clear image to a
+   mixer-created update is
 
-   a. To create an initial update that contains the same bundles
+   * To create an initial update that contains the same bundles
    and content as the VM.
-   b. To verify ``--fix`` the Clear image to it.
-   c. To update the Clear image as it normally would. This step auto-generates that first version 10 for you, so you can focus on just your custom mix.
+   * To verify ``--fix`` the Clear image to it.
+   * To update the Clear image as it normally would. This step auto-generates that first version 10 for you, so you can focus on just your custom mix.
 
 #. **Create/locate RPMs for mix.**. (Steps 3 and 4 are necessary only if you
    want to add your own RPMs to the Mix. If you are simply working with Clear
