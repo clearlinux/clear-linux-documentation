@@ -19,7 +19,6 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
 		</style>
 
 	</head>
-
         <table>
         <tr>
             <th align=left>Bundle Name</th>
