@@ -9,1026 +9,823 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
 	<head>
 		<title>Bundles in ClearLinux</title>
 		<style type="text/css">
-			table { margin: 2em; border-collapse: collapse; }
-			td, th { padding: .5em; border: 1px #ccc solid; }
-			thead { background: #fc9; }
+			table { margin: 2em; border: 1px solid #e0e0e0; border-collapse: collapse; width: auto; }
+                th { align: center; padding: 0.5em; border: #ccc solid 1px; background-color: #555; color: #fff; text-transform: uppercase; font-size: 1.21em }
+                tbody tr:nth-child(odd) { background-color:#e0e0e0; }           
+                .bundlename { font-family: monospace; font-size: 1.23em; font-weight: bold;}
+                .bundlestatus { font-weight: bold; }
+                .bundledesc { font-size: 1em; line-height: 0.88em; font-family: sans; }
+                li { margin-left: 0.53em; padding-left: 0.23em; }
 		</style>
 
 	</head>
 
-	<table>
-	 <tr>
-            <th align="left">Bundle Name</th>
-            <th align="center">Status</th>
-            <th align="left">Description</th>
-            <!-- <th align=left>Capabilities</th> -->
-            <!-- <th align=left>Maintainer</th> -->
-        </tr>
-        <tr>
-            <td align="left">bat</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides the neccesary bundles to perform BAT
-                succesfully</p>
-                <ul>
-                    <li>Includes (devtools-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-test-suite) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (os-testsuite) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (pnp-tools-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-all-in-one) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (storage-utils) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">bootloader</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>UEFI bootloaders</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">clr-devops</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides build/release tools for Clear devops team</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">containers-basic</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Installs rkt base for Clear Containers</p>
-                <ul>
-                    <li>Includes (storage-utils) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (network-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (kernel-container) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">cryptography</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Cryptographic tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">database-mariadb</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides components needed to run MariaDB</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">database-mongodb</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides components needed to run mongodb</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">devtools-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides basic set of languages and tools for
-                development</p>
-                <ul>
-                    <li>Includes (R-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (go-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (hpc-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (os-core-dev) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (perl-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (python-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (ruby-basic) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">devtools-extras</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides extra set of languages and tools for
-                development</p>
-                <ul>
-                    <li>Includes (R-extras) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (devtools-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (go-extras) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (perl-extras) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (python-extras) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (ruby-extras) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">dev-utils</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a limited set of development utilities</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">dpdk-dev</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>All headers and libraries necessary to develop with the Data
-                Plane Development Kit.</p>
-                <ul>
-                    <li>Includes (os-core-dev) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">editors</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides popular text editors</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">file-utils</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides basic set of file manipulation utilities</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">Games</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>A colossal, but entertaining waste of time</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">go-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides basic Go language development</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">go-extras</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Most popular Golang libraries</p>
-                <ul>
-                    <li>Includes (go-basic) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">hpc-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides basic suite of MPI/HPC development tools</p>
-                <ul>
-                    <li>Includes (os-core-dev) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">iot</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>The IoT (Internet of Things) base bundle</p>
-                <ul>
-                    <li>Includes (kernel-embedded) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">java-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides all openjdk tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">kernel-container</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides a Linux kernel appropriate for a Clear
-                Container</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">kernel-embedded</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a Linux kernel appropriate for embedded devices</p>
-                <ul>
-                    <li>Includes (bootloader) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">kernel-kvm</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a Linux kernel appropriate for running under
-                KVM</p>
-                <ul>
-                    <li>Includes (bootloader) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">kernel-native</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a Linux kernel appropriate for physical
-                machines</p>
-                <ul>
-                    <li>Includes (bootloader) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">kernel-pxe</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a Linux kernel linking an initramfs as root</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">koji</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Sets up a koji build service (builder-only, for now) based
-                on NFS mounts.</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">kvm-host</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides necessary tools to run usable virtual machines with
-                QEMU-KVM (independently of OpenStack).</p>
-                <ul>
-                    <li>Includes (kernel-kvm) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">lamp-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Basic LAMP Server (apache2, mariadb, php5)</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">mail-utils</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides utilities for reading and sending email</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">message-broker-rabbitmq</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides the RabbitMQ messaging service</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">mixer</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provide required utilities to make derivative releases</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">net-utils</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides an essential suite of core networking configuration
-                and debug tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">network-advanced</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>More utilities for advanced host-level networking; bridge,
-                switch, netfilter, vpn etc.</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">network-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a basic suite of networking utilities</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">network-proxy-client</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Tools for dealing with client-side network proxy
-                settings.</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openssh-server</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides an SSH server (and client)</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-all-in-one</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an All-in-one OpenStack deployment</p>
-                <ul>
-                    <li>Includes (database-mariadb) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (database-mongodb) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (message-broker-rabbitmq) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-block-storage) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-block-storage-controller)
-                    bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-compute) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-compute-controller) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-dashboard) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-database) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-identity) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-image) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-lbaas) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-network) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-object-storage) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-orchestration) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-python-clients) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-vpnaas) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-telemetry) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-block-storage</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Cinder service</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-block-storage-controller</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Cinder controller service</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-compute</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack nova-compute node</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-compute-controller</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Nova control server</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-configure</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides a suggested default configuration for OpenStack on
-                Clear Linux.</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-controller</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack multi-service control server</p>
-                <ul>
-                    <li>Includes (database-mariadb) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (message-broker-rabbitmq) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-identity) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-image) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-compute-controller) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-dashboard) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (openstack-python-clients) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-dashboard</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Horizon server</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-database</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides a Database as a Service server</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-identity</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Keystone server</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-image</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Glance server</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-lbaas</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides Load Balancing as a Service</p>
-                <ul>
-                    <li>Includes (openstack-network) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-network</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Neutron server</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-object-storage</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Swift service</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-orchestration</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Heat service</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-python-clients</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides OpenStack command-line utilities</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-telemetry</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Telemetry server</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-test-suite</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides an OpenStack Tempest/test suite</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">openstack-vpnaas</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides VPN as a Service</p>
-                <ul>
-                    <li>Includes (openstack-network) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-cloudguest</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides clr-cloud-init cloud guest configuration
-                utilities</p>
-                <ul>
-                    <li>Includes (openssh-server) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (telemetrics) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-cloudguest-cci</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Retired bundle - now provided by os-cloudguest</p>
-                <ul>
-                    <li>Includes (os-cloudguest) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-clr-on-clr</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>content for development of the Clear Linux OS on the Clear
-                Linux OS</p>
-                <ul>
-                    <li>Includes (mail-utils) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (storage-utils) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (os-core-update) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-core</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>The basic core OS components of Clear Linux for iA</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-core-dev</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Basic development tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-core-update</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides basic suite for running the Clear Linux for iA
-                Updater</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-installer</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides an installer for Clear Linux for iA</p>
-                <ul>
-                    <li>Includes (telemetrics) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (network-proxy-client) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-testsuite</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides basic test suite for Clear Linux for iA</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-testsuite-phoronix</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>All the required pieces for running the Phoronix Test
-                Suite</p>
-                <ul>
-                    <li>Includes (os-utils) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (devtools-basic) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-utils</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a core set of OS utilities</p>
-                <ul>
-                    <li>Includes (editors) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (dev-utils) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (sysadmin) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (network-basic) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (file-utils) bundle.</li>
-                </ul>
-                <p></p>
-                <ul>
-                    <li>Includes (network-proxy-client) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">os-utils-gui</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a graphical desktop environment</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">perl-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides essential Perl language and dev tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">perl-extras</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides extra libraries for Perl</p>
-                <ul>
-                    <li>Includes (perl-basic) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">pnp-tools-advanced</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides advanced Power and Performance measurement
-                tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">pnp-tools-basic</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides basic Power and Performance testing tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">pnp-tools-intermediate</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Provides a deeper-level suite of Power and Performance
-                testing tools</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">pxe-server</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>All the bits to run a PXE server for Clear Linux</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">python-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides core Python language and libraries</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">python-extras</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides extra libraries for Python</p>
-                <ul>
-                    <li>Includes (python-basic) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">R-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides core R language and libraries</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">R-extras</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides deeper functionality R language libraries</p>
-                <ul>
-                    <li>Includes (R-basic) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">ruby-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Top 3 basic Ruby Libraries</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">ruby-extras</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Top 3 to 6 basic Ruby Libraries</p>
-                <ul>
-                    <li>Includes (ruby-basic) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">rust-basic</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>rust compiler and cargo packaging tool</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">shells</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>All available shell programs for Clear, along with ancillary
-                files</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">storage-utils</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides basic storage-related utilities</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">sysadmin</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides a basic set of system administration utilities.</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">sysadmin-hostmgmt</td>
-            <td align="center">WIP</td>
-            <td align="left">
-                <p>Utilities and Services for managing large-scale clusters of
-                networked hosts</p>
-                <ul>
-                    <li>Includes (pxe-server) bundle.</li>
-                </ul>
-                <p></p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">telemetrics</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Provides the Telemetrics client for Clear Linux for iA</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        <tr>
-            <td align="left">virtualbox-guest</td>
-            <td align="center">ACTIVE</td>
-            <td align="left">
-                <p>Include the modules and binaries meant to be used as a
-                VirtualBox instance</p>
-            </td><!-- <td align=left><p></p></td> -->
-            <!-- <td align=left><p></p></td> -->
-        </tr>
-        </table>
+    <table>
+    <tr>
+        <th align=left>Bundle Name</th>
+        <th align=center>Status</th>
+        <th align=left>Description</th>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides the neccesary bundles to perform BAT succesfully</p>
+            <li>Includes (devtools-basic) bundle.</p>
+                <li>Includes (openstack-test-suite) bundle.</p>
+                    <li>Includes (os-testsuite) bundle.</p>
+                        <li>Includes (pnp-tools-advanced) bundle.</p>
+                            <li>Includes (openstack-all-in-one) bundle.</p>
+                                <li>Includes (storage-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bootloader">bootloader</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>UEFI bootloaders</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-control">cloud-control</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Support packages for a cloud control surface</p>
+            <li>Includes (os-utils) bundle.</p>
+                <li>Includes (kvm-host) bundle.</p>
+                    <li>Includes (net-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/clr-devops">clr-devops</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides build/release tools for Clear devops team</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic">containers-basic</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Installs rkt base for Clear Containers</p>
+            <li>Includes (storage-utils) bundle.</p>
+                <li>Includes (network-basic) bundle.</p>
+                    <li>Includes (kernel-container) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cryptography">cryptography</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Cryptographic tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb">database-mariadb</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides components needed to run MariaDB</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb-dev">database-mariadb-dev</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides MariaDB development tools (libraries and drivers)</p>
+            <li>Includes (database-mariadb) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mongodb">database-mongodb</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides components needed to run mongodb</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-basic">devtools-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides basic set of languages and tools for development</p>
+            <li>Includes (R-basic) bundle.</p>
+                <li>Includes (go-basic) bundle.</p>
+                    <li>Includes (hpc-basic) bundle.</p>
+                        <li>Includes (os-core-dev) bundle.</p>
+                            <li>Includes (perl-basic) bundle.</p>
+                                <li>Includes (python-basic) bundle.</p>
+                                    <li>Includes (ruby-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-extras">devtools-extras</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides extra set of languages and tools for development</p>
+            <li>Includes (R-extras) bundle.</p>
+                <li>Includes (devtools-basic) bundle.</p>
+                    <li>Includes (go-extras) bundle.</p>
+                        <li>Includes (perl-extras) bundle.</p>
+                            <li>Includes (python-extras) bundle.</p>
+                                <li>Includes (ruby-extras) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils">dev-utils</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a limited set of development utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dpdk-dev">dpdk-dev</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>All headers and libraries necessary to develop with the Data Plane Development Kit.</p>
+            <li>Includes (os-core-dev) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors">editors</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides popular text editors</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils">file-utils</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides basic set of file manipulation utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/Games">Games</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>A colossal, but entertaining waste of time</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic">go-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides basic Go language development</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-extras">go-extras</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Most popular Golang libraries</p>
+            <li>Includes (go-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/hpc-basic">hpc-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides basic suite of MPI/HPC development tools</p>
+            <li>Includes (os-core-dev) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils">internet-console-utils</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Includes internet console tools to interact with internet</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>The IoT (Internet of Things) base bundle</p>
+            <li>Includes (kernel-embedded) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides all openjdk tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-container">kernel-container</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides a Linux kernel appropriate for a Clear Container</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-embedded">kernel-embedded</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a Linux kernel appropriate for embedded devices</p>
+            <li>Includes (bootloader) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-kvm">kernel-kvm</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a Linux kernel appropriate for running under KVM</p>
+            <li>Includes (bootloader) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-native">kernel-native</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a Linux kernel appropriate for physical machines</p>
+            <li>Includes (bootloader) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-pxe">kernel-pxe</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a Linux kernel linking an initramfs as root</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/koji">koji</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Sets up a koji build service (builder-only, for now) based on NFS mounts.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kvm-host">kvm-host</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides necessary tools to run usable virtual machines with QEMU-KVM (independently of OpenStack).</p>
+            <li>Includes (kernel-kvm) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lamp-basic">lamp-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Basic LAMP Server (apache2, mariadb, php5)</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mail-utils">mail-utils</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides utilities for reading and sending email</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/message-broker-rabbitmq">message-broker-rabbitmq</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides the RabbitMQ messaging service</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mixer">mixer</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provide required utilities to make derivative releases</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/net-utils">net-utils</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides an essential suite of core networking configuration and debug tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-advanced">network-advanced</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>More utilities for advanced host-level networking; bridge, switch, netfilter, vpn etc.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic">network-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a basic suite of networking utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client">network-proxy-client</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Tools for dealing with client-side network proxy settings.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/nfs-utils">nfs-utils</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides NFS binaries, associated utilities, and tools. Currently only client services are fully supported.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/opencontainers-dev">opencontainers-dev</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Includes required components for developing against the Open Container Specification</p>
+            <li>Includes (go-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openssh-server">openssh-server</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides an SSH server (and client)</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-all-in-one">openstack-all-in-one</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an All-in-one OpenStack deployment</p>
+            <li>Includes (database-mariadb) bundle.</p>
+                <li>Includes (database-mongodb) bundle.</p>
+                    <li>Includes (message-broker-rabbitmq) bundle.</p>
+                        <li>Includes (openstack-block-storage) bundle.</p>
+                            <li>Includes (openstack-block-storage-controller) bundle.</p>
+                                <li>Includes (openstack-compute) bundle.</p>
+                                    <li>Includes (openstack-compute-controller) bundle.</p>
+                                        <li>Includes (openstack-dashboard) bundle.</p>
+                                            <li>Includes (openstack-data-processing) bundle.</p>
+                                                <li>Includes (openstack-database) bundle.</p>
+                                                    <li>Includes (openstack-identity) bundle.</p>
+                                                        <li>Includes (openstack-image) bundle.</p>
+                                                            <li>Includes (openstack-lbaas) bundle.</p>
+                                                                <li>Includes (openstack-network) bundle.</p>
+                                                                    <li>Includes (openstack-object-storage) bundle.</p>
+                                                                        <li>Includes (openstack-orchestration) bundle.</p>
+                                                                            <li>Includes (openstack-python-clients) bundle.</p>
+                                                                                <li>Includes (openstack-telemetry) bundle.</p>
+                                                                                    <li>Includes (openstack-vpnaas) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage">openstack-block-storage</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Cinder service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage-controller">openstack-block-storage-controller</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Cinder controller service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ openstack-common"> openstack-common</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>common components for OpenStack functionalit</p>
+            <li>Includes (python-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute">openstack-compute</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack nova-compute node</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute-controller">openstack-compute-controller</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Nova control server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-configure">openstack-configure</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides a suggested default configuration for OpenStack on Clear Linux.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-controller">openstack-controller</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack multi-service control server</p>
+            <li>Includes (database-mariadb) bundle.</p>
+                <li>Includes (message-broker-rabbitmq) bundle.</p>
+                    <li>Includes (openstack-identity) bundle.</p>
+                        <li>Includes (openstack-image) bundle.</p>
+                            <li>Includes (openstack-compute-controller) bundle.</p>
+                                <li>Includes (openstack-dashboard) bundle.</p>
+                                    <li>Includes (openstack-python-clients) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-dashboard">openstack-dashboard</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Horizon server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-database">openstack-database</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides a Database as a Service server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-data-processing">openstack-data-processing</a></td>
+        <td align=center>WIP </td>
+        <td align=left>
+            <p>Provides a simple means to provision a data-intensive application cluster </p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-identity">openstack-identity</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Keystone server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-image">openstack-image</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Glance server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-lbaas">openstack-lbaas</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides Load Balancing as a Service</p>
+            <li>Includes (openstack-common) bundle.</p>
+                <li>Includes (openstack-network) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-network">openstack-network</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Neutron server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-object-storage">openstack-object-storage</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Swift service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-orchestration">openstack-orchestration</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Heat service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-python-clients">openstack-python-clients</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides OpenStack command-line utilities</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry">openstack-telemetry</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Telemetry server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry-controller">openstack-telemetry-controller</a></td>
+        <td align=center>Deprecated</td>
+        <td align=left>
+            <p>Provides an OpenStack Telemetry server</p>
+            <li>Includes (openstack-telemetry) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-test-suite">openstack-test-suite</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides an OpenStack Tempest/test suite </p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-vpnaas">openstack-vpnaas</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides VPN as a Service</p>
+            <li>Includes (openstack-common) bundle.</p>
+                <li>Includes (openstack-network) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest">os-cloudguest</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides clr-cloud-init cloud guest configuration utilities</p>
+            <li>Includes (openssh-server) bundle.</p>
+                <li>Includes (telemetrics) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest-cci">os-cloudguest-cci</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Retired bundle - now provided by os-cloudguest</p>
+            <li>Includes (os-cloudguest) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-clr-on-clr">os-clr-on-clr</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>content for development of the Clear Linux OS on the Clear Linux OS</p>
+            <li>Includes (os-dev-extras) bundle.</p>
+                <li>Includes (mail-utils) bundle.</p>
+                    <li>Includes (storage-utils) bundle.</p>
+                        <li>Includes (os-core-update) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core">os-core</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>The basic core OS components of Clear Linux for iA </p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-dev">os-core-dev</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Basic development tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update">os-core-update</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides basic suite for running the Clear Linux for iA Updater</p>
+            <li>Includes (os-core) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-extras">os-dev-extras</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Additional C/C++ development packages (beyond os-core-dev)</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-full">os-dev-full</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>A bundle containing all development libraries and headers</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-installer">os-installer</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides an installer for Clear Linux for iA</p>
+            <li>Includes (telemetrics) bundle.</p>
+                <li>Includes (network-proxy-client) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite">os-testsuite</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides basic test suite for Clear Linux for iA</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-phoronix">os-testsuite-phoronix</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>All the required pieces for running the Phoronix Test Suite</p>
+            <li>Includes (os-utils) bundle.</p>
+                <li>Includes (devtools-extras) bundle.</p>
+                    <li>Includes (lamp-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils">os-utils</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a core set of OS utilities</p>
+            <li>Includes (editors) bundle.</p>
+                <li>Includes (dev-utils) bundle.</p>
+                    <li>Includes (sysadmin-basic) bundle.</p>
+                        <li>Includes (network-basic) bundle.</p>
+                            <li>Includes (file-utils) bundle.</p>
+                                <li>Includes (network-proxy-client) bundle.</p>
+                                    <li>Includes (internet-console-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-gui">os-utils-gui</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a graphical desktop environment </p>
+            <li>Includes (os-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic">perl-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides essential Perl language and dev tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-extras">perl-extras</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides extra libraries for Perl</p>
+            <li>Includes (perl-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-advanced">pnp-tools-advanced</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides advanced Power and Performance measurement tools</p>
+            <li>Includes (pnp-tools-intermediate) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-basic">pnp-tools-basic</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides basic Power and Performance testing tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-intermediate">pnp-tools-intermediate</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Provides a deeper-level suite of Power and Performance testing tools</p>
+            <li>Includes (pnp-tools-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pxe-server">pxe-server</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>All the bits to run a PXE server for Clear Linux</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic">python-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides core Python language and libraries</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-extras">python-extras</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides extra libraries for Python</p>
+            <li>Includes (python-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-basic">R-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides core R language and libraries</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-extras">R-extras</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides deeper functionality R language libraries</p>
+            <li>Includes (R-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-basic">ruby-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Top 3 basic Ruby Libraries</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-extras">ruby-extras</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Top 3 to 6 basic Ruby Libraries</p>
+            <li>Includes (ruby-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/rust-basic">rust-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>rust compiler and cargo packaging tool</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/shells">shells</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>All available shell programs for Clear, along with ancillary files</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-cluster">storage-cluster</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Ceph Cluster Storage</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils">storage-utils</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides basic storage-related utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin">sysadmin</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Moved to sysadmin-basic</p>
+            <li>Includes (sysadmin-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-advanced">sysadmin-advanced</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Toolchest that a sysadmin needs to diagnose issues</p>
+            <li>Includes (sysadmin-basic) bundle.</p>
+                <li>Includes (pnp-tools-advanced) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic">sysadmin-basic</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides a basic set of system administration utilities.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-hostmgmt">sysadmin-hostmgmt</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Utilities and Services for managing large-scale clusters of networked hosts</p>
+            <li>Includes (os-utils) bundle.</p>
+                <li>Includes (pxe-server) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/tcl-basic">tcl-basic</a></td>
+        <td align=center>WIP</td>
+        <td align=left>
+            <p>Components related to the TCL interpreter and associated tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/telemetrics">telemetrics</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Provides the Telemetrics client for Clear Linux for iA</p>
+        </td>
+    </tr>
+    <tr>
+        <td align=left><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/virtualbox-guest">virtualbox-guest</a></td>
+        <td align=center>ACTIVE</td>
+        <td align=left>
+            <p>Include the modules and binaries meant to be used as a VirtualBox instance</p>
+        </td>
+    </tr>
+</table>
+
+	
