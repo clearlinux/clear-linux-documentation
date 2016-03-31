@@ -9,7 +9,7 @@ bundles available for Clear Linux* OS for Intel® Architecture.
 The sample configuration files that are included will likely
 require modification for your specific environment.
 
-This installer will be using Ansible* as configuration management tool.
+This installer uses Ansible* as configuration management tool.
 
 
 Components supported by this installer
