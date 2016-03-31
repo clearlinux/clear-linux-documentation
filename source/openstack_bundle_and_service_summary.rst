@@ -63,4 +63,4 @@ uses a two-node architecture.
    using overlay segmentation methods. Additionally, this option provides
    the foundation for advanced services such as LBaaS and FWaaS.
 
-Next topic: :ref:``.
+Next topic: :ref:`installing_openstack`.
