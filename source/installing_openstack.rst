@@ -24,7 +24,7 @@ components:
  - Glance
  - Nova
  - Neutron
- - Dashboard (An identity node)
+ - Dashboard (In identity node)
  - Heat
 
 Prerequisites
