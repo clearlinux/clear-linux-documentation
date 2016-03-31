@@ -6,10 +6,9 @@ OpenStack* bundle and service summary
 OpenStack provides an Infrastructure-as-a-Service (IaaS) solution
 through a variety of complementary services. Each service offers an
 application programming interface (API) that facilitates this
-integration. The following table provides a list of OpenStack MVP
-services:
+integration. The following table provides a list of OpenStack services:
 
-.. csv-table:: OpenStack MVP services
+.. csv-table:: OpenStack services
    :header: "Bundle Name (service)", "Project Name", "Description"
    :widths: 90, 90, 300
 

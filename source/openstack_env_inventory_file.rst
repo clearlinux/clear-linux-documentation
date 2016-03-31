@@ -30,7 +30,7 @@ Inventory file groups
 Below you will find the description of each group in the `hosts` file.
 
 .. csv-table:: "Inventory File Groups"
-      :header: "Group", "Components", "Comments"
+   :header: "Group", "Components", "Comments"
    :widths: 40, 40, 300 
 
    "[dbservers]", "MariaDB", ""
