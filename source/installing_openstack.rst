@@ -35,7 +35,7 @@ its support in Clear Config Management is still pending of development:
 
 .. csv-table:: "Supported Components on ClearLinux*, but unsupported by Clear Config Management"
    :header: "Component", "Bundles", "OpenStack* official documentation"
-   :widths: 20, 70, 300 
+   :widths: 20, 70, 100 
 
    "Swift", "openstack-object-storage and openstack-block-storage-controller", "http://docs.openstack.org/developer/swift/"
    "Cinder", "openstack-block-storage and openstack-block-storage-controller", "http://docs.openstack.org/developer/cinder/"
