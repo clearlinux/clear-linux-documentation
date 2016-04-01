@@ -6,7 +6,7 @@ Mixer Tool
 *Mixing* refers to composing an operating system for specific use cases.
 While the default ClearLinux provides options to install bundles for various
 server capabilities, some developers may wish to augment the operating system
-itself with functionality from their own packages, or modify the structure of
+itself with functionality from their own packages, or to modify the structure of
 current bundles to cater to their particular needs.
 
 
@@ -34,15 +34,15 @@ Mixing
    use as a "workspace" for mixing. For these steps, assume that the workspace
    location is :file:`/home/clr/mix`.
 
-#. **Configure builder.conf**. The :command:`bundle-chroot-builder` uses a specific
-   configuration file, located in ``/usr/share/defaults/bundle-chroot-builder``. You
-   must edit the :file:`builder.conf` to point to the correct path
-   for ``BUNDLE_REPO``. Optionally, you may set a different ``YUM_CONF`` path to use
-   if you do not wish to use the provided default.
-   Do not edit the conf in ``/usr/share/defaults/bundle-chroot-builder``, this is a
-   template provided by the mixer bundle. Copy it to
-   ``/etc/bundle-chroot-builder/``, to your current workspace, or a directory you wish
-   to hold your configs in. In this case, copy it to ``/etc/bundle-chroot-builder/``,
+#. **Configure builder.conf**. The :command:`bundle-chroot-builder` uses a
+   specific configuration file, located in
+   ``/usr/share/defaults/bundle-chroot-builder``. You must edit the
+   :file:`builder.conf` to point to the correct path for ``BUNDLE_REPO``.
+   Optionally, you may set a different ``YUM_CONF`` path to use if you do not wish to use the provided default. Do not edit the conf in 
+   ``/usr/share/defaults/bundle-chroot-builder``; this is a template provided
+   by the mixer bundle. Copy it to ``/etc/bundle-chroot-builder/``, to your 
+   current workspace, or to a directory where you want your configs. For this
+   to work, copy it to ``/etc/bundle-chroot-builder/``,
    and edit :file:`builder.conf` such that::
 
       [Builder]
@@ -56,11 +56,12 @@ Mixing
       VERSIONURL=<URL where version will be hosted>
       FORMAT=mixer
 
-   reflects the path of the current workspace we are working in. The builder.conf will
-   be automatically read from /etc, but all of the scripts accept a -c/--config option
-   to specify where the file is, should you want to store it elsewhere. The
-   :file:`.yum-mix.conf` file will be auto-generated for you, and the URL should be
-   the location on your server that content is published, i.e myserver.com/update.
+   reflects the path of the current workspace we are working in. The
+   :file:`builder.conf` will read automatically from ``/etc``, but all
+   of the scripts accept a :option:`-c/--config` option to specify where
+   the file is, should you want to store it elsewhere. The :file:`.yum-mix.conf`
+   file will be auto-generated for you, and the URL should be the location
+   on your server where content is published, i.e myserver.com/update.
 
 #. **Generate the starting point for your Mixer**. In your workspace, run::
    
@@ -69,7 +70,7 @@ Mixing
    Currently, the only correct way to update an existing Clear image to a
    mixer-created update is to create an initial update that contains the same
    bundles and content as the image. Then you can verify ``--fix`` the
-   Clear image to it.  Lastly, update the Clear image as it normally would. 
+   Clear image to it. Lastly, update the Clear image as it normally would. 
    This step auto-generates that first version 10 for you, so you can focus
    on just your custom mix.
 
@@ -131,10 +132,10 @@ Mixing
    this work can be abstracted out and git work will be more automated.
 
    To add your own bundle, create a bundle definition file in ``bundles/``
-   refer to :file:`os-core-update` for formatting), but be sure that the name
-   does not conflict with another bundle. Add your package name(s) in that
-   bundle definition file to tell it what package(s) must be installed as part
-   of that bundle.
+   and refer to :file:`os-core-update` for formatting, but be sure that
+   the name does not conflict with another bundle. Add your package
+   name(s) in that  bundle definition file to tell it what package(s)
+   must be installed as part of that bundle.
 
 #. **Build the bundle chroots** To build all of the ``chroots``
    that are based on the bundles you defined, in your workspace run::
