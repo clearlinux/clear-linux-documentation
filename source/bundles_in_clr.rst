@@ -158,7 +158,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
             </td>
         </tr>
         <tr>
-            <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/Games">Games</a></td>
+            <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/games">games</a></td>
             <td class="bundlestatus">ACTIVE</td>
             <td class="bundledesc">
                 <p>A colossal, but entertaining waste of time</p>
@@ -383,10 +383,10 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
             </td>
         </tr>
         <tr>
-            <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ openstack-common"> openstack-common</a></td>
+            <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-common"> openstack-common</a></td>
             <td class="bundlestatus">WIP</td>
             <td class="bundledesc">
-                <p>common components for OpenStack functionalit</p>
+                <p>common components for OpenStack functionality</p>
                 <li>Includes (python-basic) bundle.</p>
             </td>
         </tr>
