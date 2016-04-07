@@ -14,10 +14,10 @@ Consider the following example::
     [openstack_identity]
     192.168.50.13
 
-Here the :role:`[openstack_identity]` syntax defines the group, and
+Here, the role ``[openstack_identity]`` syntax defines the group, and
 ``192.168.50.13`` specifies the machine(s) that possess that role. You
 may define multiple machines in the same group; this is a standard
-configuration for :role:`[openstack_compute]` nodes::
+configuration for role ``[openstack_compute]`` nodes::
 
     [openstack_compute]
     192.168.50.16
