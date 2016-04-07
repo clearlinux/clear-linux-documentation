@@ -4,7 +4,7 @@
 Configure your environment
 ==========================
 
-Before continuing with the installation process, is important to understand:
+Before continuing with the installation process, it's important to understand:
 
 * The :file:`hosts` file; this file defines the roles your machines play in the
   overall scheme of your network mapping.

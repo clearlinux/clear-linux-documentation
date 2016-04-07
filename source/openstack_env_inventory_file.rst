@@ -6,7 +6,7 @@ The "hosts" file
 The :file:`hosts` file is an inventory file where you specify, via
 ``ini`` format, the roles your machine plays.
 
-The hosts file can be structured with different groups, where each
+The :file:`hosts` file can be structured with different groups, where each
 group plays a specific role in your environment and network mapping.
 
 Consider the following example::
@@ -15,7 +15,7 @@ Consider the following example::
     192.168.50.13
 
 Here the :role:`[openstack_identity]` syntax defines the group, and
-``192.168.50.13`` specifies the machines that possess that role. You
+``192.168.50.13`` specifies the machine(s) that possess that role. You
 may define multiple machines in the same group; this is a standard
 configuration for :role:`[openstack_compute]` nodes::
 
