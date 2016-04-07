@@ -8,7 +8,7 @@ variables; below you will find a reference of the components supported
 with Clear Linux* OS for Intel® Architecture.
 
 .. csv-table:: "Required Parameters Per Component"
-      :header: "Variable", "Components Impacted", "Description"
+   :header: "Variable", "Components Impacted", "Description"
    :widths: 90, 90, 150
 
    "rabbitmq_password", "RabbitMQ, Neutron, Nova, Heat", "Password of
@@ -37,7 +37,7 @@ with Clear Linux* OS for Intel® Architecture.
 
 
 .. csv-table:: "Optional Parameters Per Component"
-      :header: "Variable", "Default Value", "Components Impacted", "Description"
+   :header: "Variable", "Default Value", "Components Impacted", "Description"
    :widths: 90, 40, 90, 150
 
    "swupd_args", "", "ALL", "Optional arguments for swupd"
