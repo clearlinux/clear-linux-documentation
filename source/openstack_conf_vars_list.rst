@@ -14,36 +14,36 @@ Required Variables
    :header: "*(Component)* `Variable`", "Description"
    :widths: 90, 150
 
-   "*(Heat, Neutron, Nova, RabbitMQ)* `rabbitmq_password`", "Password of RabbitMQ user "
-   "*(ALL)* `database_root_password`","Password for root database user"
-   "*(Keystone)* `keystone_database_password`", "Password for 'keystone' database"
-   "*(ALL)* `keystone_admin_password`", "Password for 'admin' user"
-   "*(Glance)* `glance_user_password`", "Password for 'glance' user"
-   "*(Glance)* `glance_database_password`", "Password for 'glance' database"
-   "*(Neutron, Nova)* `nova_user_password`", "Password for 'nova' user"
-   "*(Nova)* `nova_database_password`", "Password for 'nova' database"
-   "*(Neutron)* `neutron_database_password`", "Password for 'neutron' database"
-   "*(Neutron, Nova)* `neutron_user_password`", "Password for 'neutron' user"
-   "*(Neutron, Nova)* `metadata_proxy_shared_secret`", "Secret for the metadata proxy"
-   "*(Heat)* `heat_domain_admin_password`", "Password for heat domain admin user"
-   "*(Heat)* `heat_user_password`", "Password for heat user"
-   "*(Heat)* `heat_database_password`", "Password for heat database"
-   "*(Heat)* `heat_domain`", "The heat domain that contains projects and users for stacks"
+   "*(Heat, Neutron, Nova, RabbitMQ)* **rabbitmq_password**", "Password of RabbitMQ user "
+   "*(ALL)* **database_root_password**","Password for root database user"
+   "*(Keystone)* **keystone_database_password**", "Password for 'keystone' database"
+   "*(ALL)* **keystone_admin_password**", "Password for 'admin' user"
+   "*(Glance)* **glance_user_password**", "Password for 'glance' user"
+   "*(Glance)* **glance_database_password**", "Password for 'glance' database"
+   "*(Neutron, Nova)* **nova_user_password**", "Password for 'nova' user"
+   "*(Nova)* **nova_database_password**", "Password for 'nova' database"
+   "*(Neutron)* **neutron_database_password**", "Password for 'neutron' database"
+   "*(Neutron, Nova)* **neutron_user_password**", "Password for 'neutron' user"
+   "*(Neutron, Nova)* **metadata_proxy_shared_secret**", "Secret for the metadata proxy"
+   "*(Heat)* **heat_domain_admin_password**", "Password for heat domain admin user"
+   "*(Heat)* **heat_user_password**", "Password for heat user"
+   "*(Heat)* **heat_database_password**", "Password for heat database"
+   "*(Heat)* **heat_domain**", "The heat domain that contains projects and users for stacks"
 
 Optional Variables
 ==================
 
 .. csv-table::
-   :header: "*(Component)* `Variable` : **Default value**", "Description"
+   :header: "*(Component)* **Variable** : Default value", "Description"
    :widths: 90, 150
 
-   "*(ALL)* `swupd_args` : **unset**", "Optional arguments for swupd"
-   "*(ALL)* `log_debug` : **False**", "Set to True to enable debug log level on all services"
-   "*(Heat, Neutron, Nova, RabbitMQ)* `rabbitmq_username` : **openstack**", "User ID for RabbitMQ"
-   "*(Neutron, Nova)* `neutron_public_interface_name`: **unset**", "Public interface of Neutron machines, if is not set, it will take the default interface reported by `ip route`"
-   "*(Nova)* `nova_public_interface_name` : **unset**", "Public interface of Neutron machines, if is not set, it will take the default interface reported by `ip route`"
-   "*(Nova)* `nova_virt_type`: **qemu**", "Virtualization type (qemu | kvm), if this is not set, then the playbook will try to guess it"
-   "*(Neutron)* `os_tuning_params`: **net.ipv4.ip_forward: 1, net.ipv4.conf.default.rp_filter: 0, net.ipv4.conf.all.rp_filter: 0, net.bridge.bridge-nf-call-iptables: 1, net.bridge.bridge-nf-call-ip6tables: 1**", "syctl values needed by neutron when using openvswitch deployment scenario"
+   "*(ALL)* **swupd_args**: unset", "Optional arguments for swupd"
+   "*(ALL)* **log_debug**: False", "Set to True to enable debug log level on all services"
+   "*(Heat, Neutron, Nova, RabbitMQ)* **rabbitmq_username**: openstack", "User ID for RabbitMQ"
+   "*(Neutron, Nova)* **neutron_public_interface_name**: unset", "Public interface of Neutron machines, if is not set, it will take the default interface reported by **ip route**"
+   "*(Nova)* **nova_public_interface_name**: unset", "Public interface of Neutron machines, if is not set, it will take the default interface reported by **ip route**"
+   "*(Nova)* **nova_virt_type**: qemu", "Virtualization type (qemu | kvm), if this is not set, then the playbook will try to guess it"
+   "*(Neutron)* **os_tuning_params**: net.ipv4.ip_forward: 1, net.ipv4.conf.default.rp_filter: 0, net.ipv4.conf.all.rp_filter: 0, net.bridge.bridge-nf-call-iptables: 1, net.bridge.bridge-nf-call-ip6tables: 1", "syctl values needed by neutron when using openvswitch deployment scenario"
 
 Note:
 -----
