@@ -35,23 +35,16 @@ with Clear Linux* OS for Intel® Architecture.
 
 
 .. csv-table:: "Optional Parameters Per Component"
-   :header: "Variable", "Default Value", "Components Impacted", "Description"
-   :widths: 90, 40, 90, 150
+   :header: "*(Component)* `Variable` : **Value**", "Description"
+   :widths: 90, 150
 
-   "swupd_args", "", "ALL", "Optional arguments for swupd"
-   "log_debug", "False", "ALL", "Set to True to enable debug log level on all
-   services"
-   "rabbitmq_username", "openstack", "RabbitMQ, Neutron, Nova, Heat", "User ID for
-   RabbitMQ"
-   "neutron_public_interface_name", "First default iface", "Neutron, Nova", "Public interface of
-   Neutron machines, if not define it will make autodiscovery for each machine"
-   "nova_public_interface_name", "First default iface", "Nova", "Public
-   interface of Nova machines, if not define it will make autodiscovery for each
-   machine"
-   "nova_virt_type", "qemu", "Nova", "Virtualization type (qemu | kvm), if
-   this is not set, then the playbook will try to guess it"
-   "os_tuning_params", "net.ipv4.ip_forward: 1, net.ipv4.conf.default.rp_filter: 0, net.ipv4.conf.all.rp_filter: 0, net.bridge.bridge-nf-call-iptables: 1, net.bridge.bridge-nf-call-ip6tables: 1", "Neutron", "syctl values needed by neutron when
-   using openvswitch deployment scenario"
+   "*(ALL)* `swupd_args` : **unset**", "Optional arguments for swupd"
+   "*(ALL)* `log_debug` : **False**", "Set to True to enable debug log level on all services"
+   "*(Heat, Neutron, Nova, RabbitMQ)* `rabbitmq_username` : **openstack**", "User ID for RabbitMQ"
+   "*(Neutron, Nova)* `neutron_public_interface_name`: **unset**", "Public interface of Neutron machines, if is not set, it will take the default interface reported by `ip route`"
+   "*(Nova)* `nova_public_interface_name` : **unset**", "Public interface of Neutron machines, if is not set, it will take the default interface reported by `ip route`"
+   "*(Nova)* `nova_virt_type`: **qemu**", "Virtualization type (qemu | kvm), if this is not set, then the playbook will try to guess it"
+   "*(Neutron)* `os_tuning_params`: **net.ipv4.ip_forward: 1, net.ipv4.conf.default.rp_filter: 0, net.ipv4.conf.all.rp_filter: 0, net.bridge.bridge-nf-call-iptables: 1, net.bridge.bridge-nf-call-ip6tables: 1**", "syctl values needed by neutron when using openvswitch deployment scenario"
 
 Note:
 -----
