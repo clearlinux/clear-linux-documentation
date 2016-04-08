@@ -17,8 +17,6 @@ with Clear Linux* OS for Intel® Architecture.
    "keystone_database_password", "Keystone", "Password for 'keystone'
    database"
    "keystone_admin_password", "ALL", "Password for 'admin' user"
-   "keystone_admin_token", "Keystone", "Used only for installation
-   process of keystone"
    "glance_user_password", "Glance", "Password for 'glance' user"
    "glance_database_password", "Glance", "Password for 'glance' database"
    "nova_user_password", "Nova, Neutron", "Password for 'nova' user"
