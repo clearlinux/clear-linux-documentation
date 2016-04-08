@@ -7,35 +7,34 @@ This installer provides a variety of configurations you can set through
 variables; below you will find a reference of the components supported
 with Clear Linux* OS for Intel® Architecture.
 
-.. csv-table:: "Required Parameters Per Component"
-   :header: "Variable", "Components Impacted", "Description"
-   :widths: 90, 90, 150
+Required Variables
+==================
 
-   "rabbitmq_password", "RabbitMQ, Neutron, Nova, Heat", "Password of
-   RabbitMQ user "
-   "database_root_password", "ALL", "Password for root database user"
-   "keystone_database_password", "Keystone", "Password for 'keystone'
-   database"
-   "keystone_admin_password", "ALL", "Password for 'admin' user"
-   "glance_user_password", "Glance", "Password for 'glance' user"
-   "glance_database_password", "Glance", "Password for 'glance' database"
-   "nova_user_password", "Nova, Neutron", "Password for 'nova' user"
-   "nova_database_password", "Nova", "Password for 'nova' database"
-   "neutron_database_password", "Neutron", "Password for 'neutron'
-   database"
-   "neutron_user_password", "Neutron, Nova", "Password for 'neutron'
-   user"
-   "metadata_proxy_shared_secret", "Neutron, Nova", "Proxy"
-   "heat_domain_admin_password", "Heat", "Password for heat domain admin
-   user"
-   "heat_user_password", "Heat", "Password for heat user"
-   "heat_database_password", "Heat", "Password for heat database"
-   "heat_domain", "Heat", "The heat domain that contains projects and
-   users for stacks"
+.. csv-table::
+   :header: "*(Component)* `Variable`", "Description"
+   :widths: 90, 150
 
+   "*(Heat, Neutron, Nova, RabbitMQ)* `rabbitmq_password`", "Password of RabbitMQ user "
+   "*(ALL)* `database_root_password`","Password for root database user"
+   "*(Keystone)* `keystone_database_password`", "Password for 'keystone' database"
+   "*(ALL)* `keystone_admin_password`", "Password for 'admin' user"
+   "*(Glance)* `glance_user_password`", "Password for 'glance' user"
+   "*(Glance)* `glance_database_password`", "Password for 'glance' database"
+   "*(Neutron, Nova)* `nova_user_password`", "Password for 'nova' user"
+   "*(Nova)* `nova_database_password`", "Password for 'nova' database"
+   "*(Neutron)* `neutron_database_password`", "Password for 'neutron' database"
+   "*(Neutron, Nova)* `neutron_user_password`", "Password for 'neutron' user"
+   "*(Neutron, Nova)* `metadata_proxy_shared_secret`", "Secret for the metadata proxy"
+   "*(Heat)* `heat_domain_admin_password`", "Password for heat domain admin user"
+   "*(Heat)* `heat_user_password`", "Password for heat user"
+   "*(Heat)* `heat_database_password`", "Password for heat database"
+   "*(Heat)* `heat_domain`", "The heat domain that contains projects and users for stacks"
 
-.. csv-table:: "Optional Parameters Per Component"
-   :header: "*(Component)* `Variable` : **Value**", "Description"
+Optional Variables
+==================
+
+.. csv-table::
+   :header: "*(Component)* `Variable` : **Default value**", "Description"
    :widths: 90, 150
 
    "*(ALL)* `swupd_args` : **unset**", "Optional arguments for swupd"
