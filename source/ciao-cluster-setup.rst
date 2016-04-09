@@ -324,13 +324,13 @@ and network node already up and running together.
 #. Copy in the test.yaml file from
    ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
 
-Tim's
-`workload\_resources.csv <http://tcpepper-desk.jf.intel.com/~tpepper/sn/config/workload_resources.csv>`__
+The ciao-controlle
+`workload\_resources.csv <https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv>`__
 and
-`workload\_template.csv <http://tcpepper-desk.jf.intel.com/~tpepper/sn/config/workload_template.csv>`__
+`workload\_template.csv <https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv>`__
 have four stanzas and so should yours to successfully run each of the
 four images currently described earlier on this page (ie: Fedora, Clear,
-Ubuntu, CNCI). To run other images of your choosing you'd do similar to
+Docker Ubuntu, CNCI). To run other images of your choosing you'd do similar to
 the above for prepopulating OS images, and similarly edit these two
 files on your controller node.
 
