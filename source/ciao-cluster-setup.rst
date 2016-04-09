@@ -140,11 +140,11 @@ roles, following the instructions at the link below:
 Pass in the host name for the host on which you will be running the service when generating the certificate, 
 or simply use "localhost".
 
-You should create certificates for server, client agent, client cnciagent,
-client controller, and client netagent, saving each to a unique name. The
-names, locations, and contents (eg: signer and role) of the certificates
-are very important. The rest of this topic will consistently use the
-following example file names:
+You should create certificates for scheduler, compute node and network node
+launchers, cnciagent, controller, and the CNCI launcher, saving each to a
+unique name. The names, locations, and contents (eg: signer and role) of the
+certificates are very important. The rest of this topic will consistently use
+the following example file names:
 
 * ``CAcert-server-localhost.pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
 * ``cert-client-agent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
