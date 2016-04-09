@@ -333,8 +333,10 @@ option is optional; otherwise it refers to your scheduler SSNTP server
 IP.
 
 For the ciao-controller go code to correctly use the CA certificate generated
-earlier when building your keystone server need placed in the control
-node's CA root. On Clear Linux OS for Intel Architecture, this is by::
+earlier when building your keystone server, this certificate needs to
+be installed in the control node and be part of the control node
+CA root.
+On Clear Linux OS for Intel Architecture, this is by::
 
     sudo mkdir /etc/ca-certs                                                             
     sudo cp cacert.pem /etc/ca-certs                                                        
@@ -344,9 +346,6 @@ node's CA root. On Clear Linux OS for Intel Architecture, this is by::
     sudo mkdir /etc/ssl                                                                  
     sudo ln -s /etc/ca-certs/ /etc/ssl/certs                                              
     sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
-
-For the dev/test clusters, the keystone CA's are in the mgmt-scripts
-repo.
 
 You will need to tell the controller where the keystone service is located and
 pass it the supernova service username and password. DO NOT USE
