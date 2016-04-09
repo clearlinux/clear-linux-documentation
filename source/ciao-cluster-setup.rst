@@ -1,20 +1,21 @@
 .. _ciao-cluster-setup:
 
+.. contents::
+
 Introduction
 ############
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS 
 for Intel® Architecture to use cloud integrated advanced orchestrator (CIAO).
 
-While the table of contents provides links to specific points of information, 
-this topic is intended as an ordered workflow. Make sure you set up and start 
-your cluster components in the correct order as explained below.
-
+While the table of contents provides links to specific points of information, this topic 
+is intended as an ordered workflow. Make sure you set up and start your cluster components 
+in the correct order as explained below.
 
 Infrastructure prerequisites
 ############################
 
-Hardware Needs
+Hardware needs
 ~~~~~~~~~~~~~~
 
 You'll need at least four machines and a switch connecting them to form
@@ -47,7 +48,7 @@ Compute node ("cn"):
 * Runs Launcher with ``--network=cn option``
 * Has workload images in ``/var/lib/supernova/images``
 
-Network Needs
+Network needs
 ~~~~~~~~~~~~~
 
 A detailed description of how to set up your networking cluster is
@@ -74,7 +75,7 @@ Note: If you are using dnsmasq as your DHCP/DNS server, complete the following:
 #. Set up static MAC to IP mappings (using the dhcp-host option) for your NUCs 
    to ensure you never lose network connectivity.
 
-Node Setup
+Node setup
 ##########
 
 Install Clear Linux OS for Intel Architecture as host on all nodes
@@ -165,7 +166,7 @@ For our dev test clusters, the keys are already in ``/etc/pki/supernova``.
 You'll also need to pull that certificate into your browser as noted below in
 the `Starting a workload` section.
 
-Keystone Node
+Keystone node
 ~~~~~~~~~~~~~
 
 Some node needs to run your Keystone service. You can run it anywhere
@@ -178,7 +179,7 @@ Keystone VM for use with our software is described at the link below:
 
 <$$$ Content from the above location needs to be converted for external consumption, then the link will be updated. $$$>
 
-Controller Node Setup
+Controller node setup
 ~~~~~~~~~~~~~~~~~~~~~
 
 The controller node will host your CSR and scheduler. Certificates are assumed
@@ -208,7 +209,7 @@ CSR
 Important! DO NOT START THE CSR YET! It must only be started after a network
 node is connected to the scheduler.
 
-Compute Node Setup
+Compute node setup
 ~~~~~~~~~~~~~~~~~~
 
 Each compute node needs one launcher daemon connected to the scheduler.
@@ -243,7 +244,7 @@ Ubuntu::
 
     <Insert link here>
 
-Start the Compute Node Launcher
+Start the compute node launcher
 -------------------------------
 
 The launcher is run with options declaring certificates, maximum VMs
@@ -259,7 +260,7 @@ console logging output.
 The launcher runs as root because launching qemu/kvm virtual machines
 requires ``/dev/kvm`` and other restricted resource access.
 
-Network Node Setup
+Network node setup
 ~~~~~~~~~~~~~~~~~~
 
 The network node hosts VMs running the Compute Network Concentrator(s)
@@ -305,7 +306,7 @@ explicitly set it::
     sudo umount /mnt 
     sudo qemu-nbd -d /dev/nbd0 
 
-Start the Network Node Launcher
+Start the network node launcher
 -------------------------------
 
 The network node's launcher is run almost the same as the compute node.
@@ -435,7 +436,7 @@ You will also see activity related to this launch across your cluster
 components if you've got consoles open and logging to standard output as
 described above.
 
-Resetting Your Cluster
+Resetting your cluster
 ######################
 
 In the `controller node stats UI <http://192.168.0.101:8889/stats>`__:
@@ -462,10 +463,10 @@ through the UI, then on each compute node run these commands::
 Restart your scheduler, network node launcher, compute node launcher,
 and csr.
 
-Debug Tips
+Debug tips
 ##########
 
-General Debug
+General debug
 ~~~~~~~~~~~~~
 
 For general debuging, you can:
@@ -490,7 +491,7 @@ For general debuging, you can:
   etc. (KVM Image: username: root password: supernova) (Cloud Image: username: supernova Password: supernova)
 * Ssh into the workload instance VM by CNCI IP and port ``33000+ip[2]<<8+ip[3]``.
 
-CSR Debug
+CSR debug
 ~~~~~~~~~
 
 The CSR's port 8889 listener has a number of interesting debug data
@@ -509,10 +510,10 @@ outputs at urls like:
 * `hostname:8889/getWorkloads <http://hostname:8889/getWorkloads>`__
 * `hostname:8889/getCNCI <http://hostname:8889/getCNCI>`__
 
-Network Debug
+Network debug
 ~~~~~~~~~~~~~
 
-Data Center DHCP Server
+Data center DHCP server
 -----------------------
 
 The Data Center DHCP server is the server that serves the Physical
@@ -549,7 +550,7 @@ script that can do this is::
     rm -f /var/lib/misc/tenant_dns.leases
     dnsmasq -C tenant_dns.cfg
 
-Compute Node
+Compute node
 ------------
 
 Once instances are created, do the following:
@@ -568,7 +569,7 @@ Once instances are created, do the following:
 
    The above is example only. Insert your MAC and the desired IP address.  
 
-Network Node
+Network node
 ------------
 
 Complete the following:
@@ -601,7 +602,7 @@ Complete the following:
 
    * The above command instructs: "For all source MAC's, ignore the client id."
 
-CNCI Image
+CNCI image
 ----------
 
 Complete the following:
