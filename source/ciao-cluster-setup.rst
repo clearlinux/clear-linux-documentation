@@ -278,21 +278,14 @@ correct roles and names as previously described.
 Prepopulate the CNCI image cache
 --------------------------------
 
-CNCI images are still in flux. (We will need to create a custom CNCI
-image which support dnsmasq and iptables). Manohar `committed a
-script <http://kojiclear.jf.intel.com/cgit/supernova/networking/tree/cnci_agent/scripts/update_cnci_image.sh>`__
-which can help you manage your CNCI images. This wiki section describes
-what you would do manually to tune a CNCI image. Currently you need to
-open up the base image, add your generated cert's (taking care to note
-the different location and names vs. other steps) and edit the
-cnci\_agent systemd service to point at the correct ssntp server IP. The
-image currently is based on a Clear Cloud image (140MB compressed)::
+This section describes how to generate a CNCI image from a vanilla
+clear cloud qcow2 image:
 
     cd /var/lib/ciao/images 
-    curl -O http://tcpepper-desk.jf.intel.com/~tpepper/sn/clear-6580-cloud-cnci.img.qcow2.xz 
-    xz -T0 --decompress clear-6580-cloud-cnci.img.qcow2.xz 
-    ln -s clear-6580-cloud-cnci.img.qcow2 4e16e743-265a-4bf2-9fd1-57ada0b28904
-    $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-6580-cloud-cnci.img.qcow2 /etc/pki/ciao/
+    curl -O https://download.clearlinux.org/image/clear-7310-cloud.img.xz
+    xz -T0 --decompress clear-7310-cloud.img.xz
+    ln -s clear-7310-cloud.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
+    $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7310-cloud.img /etc/pki/ciao/
 
 Start the network node launcher
 -------------------------------
