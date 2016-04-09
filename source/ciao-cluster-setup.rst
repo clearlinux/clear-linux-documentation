@@ -290,25 +290,8 @@ image currently is based on a Clear Cloud image (140MB compressed)::
     cd /var/lib/ciao/images 
     curl -O http://tcpepper-desk.jf.intel.com/~tpepper/sn/clear-6580-cloud-cnci.img.qcow2.xz 
     xz -T0 --decompress clear-6580-cloud-cnci.img.qcow2.xz 
-    ln -s clear-6580-cloud-cnci.img.qcow2 4e16e743-265a-4bf2-9fd1-57ada0b28904 
-    sudo rmmod nbd 
-    sudo modprobe nbd max_part=63 
-    sudo qemu-nbd -c /dev/nbd0 clear-6580-cloud-cnci.img.qcow2 
-    sudo mount /dev/nbd0p2 /mnt 
-    cd /mnt 
-    sudo cp.../cert-client-cnciagent-localhost.pem var/lib/ciao/cert-client-localhost.pem 
-    sudo cp.../CAcert-server-localhost.pem var/lib/ciao 
-
-
-The CNCI server can now auto-configure itself when invoked with -server
-auto as is the case in the above CNCI image, but if you need to
-explicitly set it::
-
-    sudo vi ./usr/lib/systemd/system/cnci-agent.service 
-    modify "-server auto" to explicitly match your controller node ip, eg: "-server 192.168.0.101" 
-    cd 
-    sudo umount /mnt 
-    sudo qemu-nbd -d /dev/nbd0 
+    ln -s clear-6580-cloud-cnci.img.qcow2 4e16e743-265a-4bf2-9fd1-57ada0b28904
+    $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-6580-cloud-cnci.img.qcow2 /etc/pki/ciao/
 
 Start the network node launcher
 -------------------------------
@@ -317,7 +300,7 @@ The network node's launcher is run almost the same as the compute node.
 The primary difference is that it uses the network node ("nn") launching
 type::
 
-    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
+    sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
 
 Starting the CSR
 ################
