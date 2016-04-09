@@ -116,9 +116,13 @@ following the instructions given at the link below:
 
 <$$$ Content from the above location needs to be converted for external consumption, then the link will be updated. $$$>
 
-Run the "go installation" to build the binaries you need. The binaries
-will install to ``$GOPATH/bin``. You should have ``cnci\_agent``, launcher, csr,
-and scheduler.
+Install and build the Ciao binaries::
+
+  cd $GOPATH/src/github.com/01org/ciao
+  go install ./...
+
+The binaries will install to ``$GOPATH/bin``. You should have ``cnci\_agent``, ciao-launcher,
+ciao-controller, and ciao-scheduler.
 
 Build certificates
 ~~~~~~~~~~~~~~~~~~
