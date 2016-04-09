@@ -207,11 +207,11 @@ across your cluster. Launching it first means this console output helps
 confirm your subsequent cluster configurations actions are indeed
 succeeding.
 
-CSR
----
+ciao-controller
+---------------
 
-Important! DO NOT START THE CSR YET! It must only be started after a network
-node is connected to the scheduler.
+Important! DO NOT START CIAO-CONTROLLER YET! It must only be started after a network
+node is connected to the scheduler or else workloads may fail to start.
 
 Compute node setup
 ~~~~~~~~~~~~~~~~~~
