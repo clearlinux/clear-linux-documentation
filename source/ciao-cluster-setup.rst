@@ -322,20 +322,20 @@ Starting the CSR on the controller node is what truly activates your
 cluster for use. NOTE: Before starting the CSR you must have a scheduler
 and network node already up and running together.
 
-Copy in the csr binary from your build/development machine to any
-location. Certificates are assumed to be in ``/etc/pki/supernova``, generated with
-the correct roles and names as previously described.
+#. Copy in the csr binary from your build/development machine to any
+   location. Certificates are assumed to be in ``/etc/pki/supernova``, generated with
+   the correct roles and names as previously described.
 
-Copy in the initial database table data from the csr source
-(``$GOPATH/src/kojiclear.jf.intel.com/supernova/csr`` on your
-build/development) to the same directory as the csr binary. Copying in
-``\*.csv`` will work.
+#. Copy in the initial database table data from the csr source
+   (``$GOPATH/src/kojiclear.jf.intel.com/supernova/csr`` on your
+   build/development) to the same directory as the csr binary. Copying in
+   ``\*.csv`` will work.
 
-Copy in the csr html templates from the csr source to the same directory
-as the csr binary. Copying in ``\*.gtpl`` will work.
+#. Copy in the csr html templates from the csr source to the same directory
+   as the csr binary. Copying in ``\*.gtpl`` will work.
 
-Copy in the test.yaml file from
-``$GOPATH/src/kojiclear.jf.intel.com/supernova/csr/test.yaml``.
+#. Copy in the test.yaml file from
+   ``$GOPATH/src/kojiclear.jf.intel.com/supernova/csr/test.yaml``.
 
 Tim's
 `workload\_resources.csv <http://tcpepper-desk.jf.intel.com/~tpepper/sn/config/workload_resources.csv>`__
@@ -371,7 +371,7 @@ You will need to tell the CSR where the keystone service is located and
 pass it the supernova service username and password. DO NOT USE
 localhost for your server name. **It must be the fully qualified DNS
 name of the system which is hosting the keystone service**. As of March
-22, 2016 an SSL enabled Keystone is required, with additional parameters
+22, 2016, an SSL enabled Keystone is required, with additional parameters
 for CSR pointing at its certificates::
 
     ./csr --cacert=/etc/pki/supernova/CAcert-server-localhost.pem --cert=/etc/pki/supernova/cert-client-csr-localhost.pem -identity=https://kristen-supernova-ctrl.jf.intel.com:35357 --username=csr --password=hello --nokeystone=false --logtostderr --httpskey=./key.pem --httpscert=./cert.pem
