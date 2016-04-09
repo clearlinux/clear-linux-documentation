@@ -34,19 +34,19 @@ Network node ("nn"):
 
 * IP ``192.168.0.102``
 * Runs Launcher with ``--network=nn`` option
-* Has CNCI image in ``/var/lib/supernova/images``. See below for more on CNCI image preparation.
+* Has CNCI image in ``/var/lib/ciao/images``. See below for more on CNCI image preparation.
 
 Compute node ("cn"):
 
 * IP ``192.168.0.103``
 * Runs Launcher with ``--network=cn`` option
-* Has workload images in ``/var/lib/supernova/images``
+* Has workload images in ``/var/lib/ciao/images``
 
 Compute node ("cn"):
 
 * ``IP 192.168.0.104``
 * Runs Launcher with ``--network=cn option``
-* Has workload images in ``/var/lib/supernova/images``
+* Has workload images in ``/var/lib/ciao/images``
 
 Network needs
 ~~~~~~~~~~~~~
@@ -142,12 +142,12 @@ names, locations, and contents (eg: signer and role) of the certificates
 are very important. The rest of this topic will consistently use the
 following example file names:
 
-* ``CAcert-server-localhost.pem``: copy to all nodes' ``/etc/pki/supernova`` and the CNCI image's ``/var/lib/supernova``. See below for more on CNCI image preparation.
-* ``cert-client-agent-localhost.pem``: copy to all compute nodes' ``/etc/pki/supernova``.
-* ``cert-client-cnciagent-localhost.pem``: copy into your CNCI image's ``/var/lib/supernova``. See below for more on CNCI image preparation.
-* ``cert-client-csr-localhost.pem``: copy into your controller node's ``/etc/pki/supernova``.
-* ``cert-client-netagent-localhost.pem``: copy into your network node's ``/etc/pki/supernova``.
-* ``cert-server-localhost.pem``: copy into your contoller node's ``/etc/pki/supernova``.
+* ``CAcert-server-localhost.pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
+* ``cert-client-agent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
+* ``cert-client-cnciagent-localhost.pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
+* ``cert-client-csr-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
+* ``cert-client-netagent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``.
+* ``cert-server-localhost.pem``: copy into your contoller node's ``/etc/pki/ciao``.
 
 Correct client / server certificate roles will soon be required, so get
 in the habit of doing this correctly now.
@@ -161,7 +161,7 @@ On your development box, generate Certificates for the CSR's https service::
 
 Copy the ``csr\_cert.pem`` and ``csr\_key.pem`` files to your controller node. 
 You can use the same location where you will be storing your CSR binary.
-For our dev test clusters, the keys are already in ``/etc/pki/supernova``.
+For our dev test clusters, the keys are already in ``/etc/pki/ciao``.
 
 You'll also need to pull that certificate into your browser as noted below in
 the `Starting a workload` section.
@@ -183,7 +183,7 @@ Controller node setup
 ~~~~~~~~~~~~~~~~~~~~~
 
 The controller node will host your CSR and scheduler. Certificates are assumed
-to be in ``/etc/pki/supernova``, generated with the correct roles and names
+to be in ``/etc/pki/ciao``, generated with the correct roles and names
 as previously described.
 
 Scheduler
@@ -192,12 +192,12 @@ Scheduler
 Copy in the scheduler binary from your build/develop machine to any
 location, then launch it first (does not require root)::
 
-    ./scheduler --cacert=/etc/pki/supernova/CAcert-server-localhost.pem --cert=/etc/pki/supernova/cert-server-localhost.pem
+    ./scheduler --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-server-localhost.pem
 
 The scheduler console will output once per second a heartbeat message
 showing connected CSR and Compute Node client statistics. It also
 displays a line of information for each command or event traversing the
-ssntp server. As the sole SSNTP server in the supernova cluster, it is a
+ssntp server. As the sole SSNTP server in the Ciao cluster, it is a
 key debugging point to understand failed flows of actions/reactions
 across your cluster. Launching it first means this console output helps
 confirm your subsequent cluster configurations actions are indeed
@@ -213,7 +213,7 @@ Compute node setup
 ~~~~~~~~~~~~~~~~~~
 
 Each compute node needs one launcher daemon connected to the scheduler.
-Certificates are assumed to be in ``/etc/pki/supernova``, generated with the
+Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
 correct roles and names as previously described.
 
 Copy in the launcher binary from your build/development machine to any
@@ -252,7 +252,7 @@ The launcher is run with options declaring certificates, maximum VMs
 available on your node), server location, and compute node ("cn")
 launching type. For example::
 
-    sudo ./launcher --cacert=/etc/pki/supernova/CAcert-server-localhost.pem --cert=/etc/pki/supernova/cert-client-agent-localhost.pem --server=<your-server-address> --network=cn
+    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-agent-localhost.pem --server=<your-server-address> --network=cn
 
 Optionally add ``-logtostderr`` (more verbose with also "-v=2") to get
 console logging output.
@@ -267,7 +267,7 @@ The network node hosts VMs running the Compute Network Concentrator(s)
 "CNCI" agent, one per tenant. These VMs are automatically launched at
 CSR start time.
 
-Certificates are assumed to be in ``/etc/pki/supernova``, generated with the
+Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
 correct roles and names as previously described.
 
 Prepopulate the CNCI image cache
@@ -283,7 +283,7 @@ the different location and names vs. other steps) and edit the
 cnci\_agent systemd service to point at the correct ssntp server IP. The
 image currently is based on a Clear Cloud image (140MB compressed)::
 
-    cd /var/lib/supernova/images 
+    cd /var/lib/ciao/images 
     curl -O http://tcpepper-desk.jf.intel.com/~tpepper/sn/clear-6580-cloud-cnci.img.qcow2.xz 
     xz -T0 --decompress clear-6580-cloud-cnci.img.qcow2.xz 
     ln -s clear-6580-cloud-cnci.img.qcow2 4e16e743-265a-4bf2-9fd1-57ada0b28904 
@@ -292,8 +292,8 @@ image currently is based on a Clear Cloud image (140MB compressed)::
     sudo qemu-nbd -c /dev/nbd0 clear-6580-cloud-cnci.img.qcow2 
     sudo mount /dev/nbd0p2 /mnt 
     cd /mnt 
-    sudo cp.../cert-client-cnciagent-localhost.pem var/lib/supernova/cert-client-localhost.pem 
-    sudo cp.../CAcert-server-localhost.pem var/lib/supernova 
+    sudo cp.../cert-client-cnciagent-localhost.pem var/lib/ciao/cert-client-localhost.pem 
+    sudo cp.../CAcert-server-localhost.pem var/lib/ciao 
 
 
 The CNCI server can now auto-configure itself when invoked with -server
@@ -313,7 +313,7 @@ The network node's launcher is run almost the same as the compute node.
 The primary difference is that it uses the network node ("nn") launching
 type::
 
-    sudo ./launcher --cacert=/etc/pki/supernova/CAcert-server-localhost.pem --cert=/etc/pki/supernova/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
+    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
 
 Starting the CSR
 ################
@@ -323,11 +323,11 @@ cluster for use. NOTE: Before starting the CSR you must have a scheduler
 and network node already up and running together.
 
 #. Copy in the csr binary from your build/development machine to any
-   location. Certificates are assumed to be in ``/etc/pki/supernova``, generated with
+   location. Certificates are assumed to be in ``/etc/pki/ciao``, generated with
    the correct roles and names as previously described.
 
 #. Copy in the initial database table data from the csr source
-   (``$GOPATH/src/kojiclear.jf.intel.com/supernova/csr`` on your
+   (``$GOPATH/src/github.com/01org/ciao/ciao-controller`` on your
    build/development) to the same directory as the csr binary. Copying in
    ``\*.csv`` will work.
 
@@ -335,7 +335,7 @@ and network node already up and running together.
    as the csr binary. Copying in ``\*.gtpl`` will work.
 
 #. Copy in the test.yaml file from
-   ``$GOPATH/src/kojiclear.jf.intel.com/supernova/csr/test.yaml``.
+   ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
 
 Tim's
 `workload\_resources.csv <http://tcpepper-desk.jf.intel.com/~tpepper/sn/config/workload_resources.csv>`__
@@ -372,9 +372,9 @@ pass it the supernova service username and password. DO NOT USE
 localhost for your server name. **It must be the fully qualified DNS
 name of the system which is hosting the keystone service**. As of March
 22, 2016, an SSL enabled Keystone is required, with additional parameters
-for CSR pointing at its certificates::
+for ciao-controller pointing at its certificates::
 
-    ./csr --cacert=/etc/pki/supernova/CAcert-server-localhost.pem --cert=/etc/pki/supernova/cert-client-csr-localhost.pem -identity=https://kristen-supernova-ctrl.jf.intel.com:35357 --username=csr --password=hello --nokeystone=false --logtostderr --httpskey=./key.pem --httpscert=./cert.pem
+    ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-csr-localhost.pem -identity=https://kristen-supernova-ctrl.jf.intel.com:35357 --username=csr --password=hello --nokeystone=false --logtostderr --httpskey=./key.pem --httpscert=./cert.pem
 
 Optionally add ``-logtostderr`` (more verbose with also "-v=2") to get
 console logging output.
@@ -415,7 +415,7 @@ Login information will be validated to the keystone service. After
 successful login, you will be redirected to a page where you can launch
 workloads.
 
-#. Select a tenant, eg: "Supernova Test User No Limits".
+#. Select a tenant, eg: "Ciao Test User No Limits".
 #. Select an image, eg: "Clear Cloud".
 #. Enter an instance count, eg: "1".
 #. Press "Send".
@@ -450,14 +450,14 @@ In the `controller node stats UI <http://192.168.0.101:8889/stats>`__:
 On the network node, run the following commands::
 
     sudo killall -9 qemu-system-x86_64
-    sudo rm -rf /var/lib/supernova/instances/
+    sudo rm -rf /var/lib/ciao/instances/
     sudo reboot
 
 If you were unable to successfully delete all workload VM instances
 through the UI, then on each compute node run these commands::
 
     sudo killall -9 qemu-system-x86_64
-    sudo rm -rf /var/lib/supernova/instances/
+    sudo rm -rf /var/lib/ciao/instances/
     sudo reboot
 
 Restart your scheduler, network node launcher, compute node launcher,
