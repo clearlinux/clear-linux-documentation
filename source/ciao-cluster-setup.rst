@@ -27,7 +27,7 @@ on a ``192.168.0.0/16`` network:
 Controller node:
 
 * IP ``192.168.0.101``
-* Runs CSR, Scheduler, SSL Keystone
+* Runs Controller, Scheduler, SSL Keystone
 
 
 Network node ("nn"):
@@ -141,7 +141,7 @@ Pass in the host name for the host on which you will be running the service when
 or simply use "localhost".
 
 You should create certificates for server, client agent, client cnciagent,
-client csr, and client netagent, saving each to a unique name. The
+client controller, and client netagent, saving each to a unique name. The
 names, locations, and contents (eg: signer and role) of the certificates
 are very important. The rest of this topic will consistently use the
 following example file names:
@@ -149,22 +149,23 @@ following example file names:
 * ``CAcert-server-localhost.pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
 * ``cert-client-agent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
 * ``cert-client-cnciagent-localhost.pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
-* ``cert-client-csr-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
+* ``cert-client-controller-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
 * ``cert-client-netagent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``.
 * ``cert-server-localhost.pem``: copy into your contoller node's ``/etc/pki/ciao``.
 
 Correct client / server certificate roles will soon be required, so get
 in the habit of doing this correctly now.
 
-Create the CSR web certificates
--------------------------------
+Create the controller web certificates
+--------------------------------------
 
-On your development box, generate Certificates for the CSR's https service::
+On your development box, generate Certificates for the controller's https service::
 
-    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout csr_key.pem -out csr_cert.pem
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout controller_key.pem -out controller_cert.pem
 
-Copy the ``csr\_cert.pem`` and ``csr\_key.pem`` files to your controller node. 
-You can use the same location where you will be storing your CSR binary.
+Copy the ``controller\_cert.pem`` and ``controller\_key.pem`` files to your
+controller node.  You can use the same location where you will be storing
+your controller binary (ciao-controller).
 For our dev test clusters, the keys are already in ``/etc/pki/ciao``.
 
 You'll also need to pull that certificate into your browser as noted below in
@@ -174,7 +175,7 @@ Keystone node
 ~~~~~~~~~~~~~
 
 Some node needs to run your Keystone service. You can run it anywhere
-that is network accessible from both your control node's CSR software
+that is network accessible from both your control node's controller software
 and your web browser. As a convenience you might run it on your control
 node or on your network node. Detailed documentation on setting up a
 Keystone VM for use with our software is described at the link below:
@@ -186,7 +187,7 @@ Keystone VM for use with our software is described at the link below:
 Controller node setup
 ~~~~~~~~~~~~~~~~~~~~~
 
-The controller node will host your CSR and scheduler. Certificates are assumed
+The controller node will host your controller and scheduler. Certificates are assumed
 to be in ``/etc/pki/ciao``, generated with the correct roles and names
 as previously described.
 
@@ -196,10 +197,10 @@ Scheduler
 Copy in the scheduler binary from your build/develop machine to any
 location, then launch it first (does not require root)::
 
-    ./scheduler --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-server-localhost.pem
+    ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-server-localhost.pem
 
 The scheduler console will output once per second a heartbeat message
-showing connected CSR and Compute Node client statistics. It also
+showing connected Controller and Compute Node client statistics. It also
 displays a line of information for each command or event traversing the
 ssntp server. As the sole SSNTP server in the Ciao cluster, it is a
 key debugging point to understand failed flows of actions/reactions
@@ -269,7 +270,7 @@ Network node setup
 
 The network node hosts VMs running the Compute Network Concentrator(s)
 "CNCI" agent, one per tenant. These VMs are automatically launched at
-CSR start time.
+controller start time.
 
 Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
 correct roles and names as previously described.
@@ -302,24 +303,24 @@ type::
 
     sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
 
-Starting the CSR
-################
+Starting the Controller
+#######################
 
-Starting the CSR on the controller node is what truly activates your
-cluster for use. NOTE: Before starting the CSR you must have a scheduler
+Starting the Controller on the controller node is what truly activates your
+cluster for use. NOTE: Before starting the controller you must have a scheduler
 and network node already up and running together.
 
-#. Copy in the csr binary from your build/development machine to any
+#. Copy in the ciao-controller binary from your build/development machine to any
    location. Certificates are assumed to be in ``/etc/pki/ciao``, generated with
    the correct roles and names as previously described.
 
-#. Copy in the initial database table data from the csr source
+#. Copy in the initial database table data from the ciao-controller source
    (``$GOPATH/src/github.com/01org/ciao/ciao-controller`` on your
-   build/development) to the same directory as the csr binary. Copying in
-   ``\*.csv`` will work.
+   build/development) to the same directory as the ciao-controller binary.
+   Copying in ``\*.csv`` will work.
 
-#. Copy in the csr html templates from the csr source to the same directory
-   as the csr binary. Copying in ``\*.gtpl`` will work.
+#. Copy in the controller html templates from the ciao-controller source to the
+   same directory as the ciao-controller binary. Copying in ``\*.gtpl`` will work.
 
 #. Copy in the test.yaml file from
    ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
@@ -334,11 +335,11 @@ Docker Ubuntu, CNCI). To run other images of your choosing you'd do similar to
 the above for prepopulating OS images, and similarly edit these two
 files on your controller node.
 
-If the csr is on the same physical machine as the scheduler, the "--url"
+If the controller is on the same physical machine as the scheduler, the "--url"
 option is optional; otherwise it refers to your scheduler SSNTP server
 IP.
 
-For the CSR go code to correctly use the CA certificate generated
+For the ciao-controller go code to correctly use the CA certificate generated
 earlier when building your keystone server need placed in the control
 node's CA root. On Clear Linux OS for Intel Architecture, this is by::
 
@@ -354,20 +355,17 @@ node's CA root. On Clear Linux OS for Intel Architecture, this is by::
 For the dev/test clusters, the keystone CA's are in the mgmt-scripts
 repo.
 
-You will need to tell the CSR where the keystone service is located and
+You will need to tell the controller where the keystone service is located and
 pass it the supernova service username and password. DO NOT USE
 localhost for your server name. **It must be the fully qualified DNS
 name of the system which is hosting the keystone service**. As of March
 22, 2016, an SSL enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
 
-    ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-csr-localhost.pem -identity=https://kristen-supernova-ctrl.jf.intel.com:35357 --username=csr --password=hello --nokeystone=false --logtostderr --httpskey=./key.pem --httpscert=./cert.pem
+    ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-controller-localhost.pem -identity=https://kristen-supernova-ctrl.jf.intel.com:35357 --username=csr --password=hello --nokeystone=false --logtostderr --httpskey=./key.pem --httpscert=./cert.pem
 
 Optionally add ``-logtostderr`` (more verbose with also "-v=2") to get
 console logging output.
-
-As soon as the CSR is started you should see activity start on your
-network node as your tenants network concentrator VMs are spun up.
 
 Point a browser at your controller node. For example:
 
@@ -386,12 +384,12 @@ Because we are using self signed certificates and our debug code counts
 on AJAX being able to communicate directly with the keystone service,
 you need to find a way to accept the certificate for the keystone
 service before you will be able to launch a workload. For some browsers,
-it's sufficient to go to the CSR's web server and accept the certificate. You may
-also update your system's CA certs on the system your browser is running
-on to include the keystone .pem file. You'll have to check your operating system's
-instructions on how to do this. For Chrome* on Linux, there seems to be
-further unexplained issues, so that browser is unfortunately not able to
-be used right now.
+it's sufficient to go to the controller's web server and accept the
+certificate. You may also update your system's CA certs on the system your
+browser is running on to include the keystone .pem file. You'll have to
+check your operating system's instructions on how to do this. For Chrome*
+on Linux, there seems to be further unexplained issues, so that browser
+is unfortunately not able to be used right now.
 
 To start a workload, you will first need to login as a valid user with
 permissions for one or more projects (tenants).
@@ -430,9 +428,9 @@ In the `controller node stats UI <http://192.168.0.101:8889/stats>`__:
 
 #. Select and delete all workload VM instances.
 #. Stop all daemons.
-#. Delete the "csr.db" from the directory in which you ran the "csr"
-   binary.
-#. Delete "/tmp/sn\_stats.db" to remove the event log.
+#. Delete the "ciao-controller.db" from the directory in which you ran the
+   "ciao-controller" binary.
+#. Delete "/tmp/ciao-controller-stats.db".
 
 On the network node, run the following commands::
 
@@ -448,7 +446,7 @@ through the UI, then on each compute node run these commands::
     sudo reboot
 
 Restart your scheduler, network node launcher, compute node launcher,
-and csr.
+and controller.
 
 Debug tips
 ##########
@@ -464,10 +462,7 @@ For general debuging, you can:
 * Reduce your tenants to one (specifically the one with no limits).
 * Launch less VMs in a herd. Our NUC's can handle approx. <= 50-100
   starting at once per compute node. Our Haswell-EP servers can handle
-  approx. <= 500 starting at once per compute node. The CSR in particular
-  is known to have a database lock scalability issue that shows in the UI
-  as page loads with a message indicating a failure due to the db being
-  locked.
+  approx. <= 500 starting at once per compute node.
 * Tweak the launcher to enable remote access. For example, when using netcat, if you Control-C, that kills netcat. 
   Instead from the host, send a Control-C via netcat to the target as::
 
@@ -478,10 +473,10 @@ For general debuging, you can:
   etc. (KVM Image: username: root password: supernova) (Cloud Image: username: supernova Password: supernova)
 * Ssh into the workload instance VM by CNCI IP and port ``33000+ip[2]<<8+ip[3]``.
 
-CSR debug
-~~~~~~~~~
+Controller debug
+~~~~~~~~~~~~~~~~
 
-The CSR's port 8889 listener has a number of interesting debug data
+The controller's port 8889 listener has a number of interesting debug data
 outputs at urls like:
 
 * `hostname:8889/workload <http://hostname:8889/workload>`__
@@ -576,8 +571,6 @@ Complete the following:
    requests coming very close to on another.
 
    * If you are using dnsmasq as your DHCP/DNS Server ensure that the dhcp-sequential-ip option is set.
-   * Currently the CSR spins up CNCI's in series, with the next one only being started when the prior has succeeded, 
-     and with a 30 second delay between each, in order to try to work around supposed odd DHCP server behavior.
 
 #. Or, if your DHCP server is spec compliant and is seeing duplicate
    client-id's (ie: multiple vm's with the same hostname):
@@ -610,7 +603,7 @@ Complete the following:
 
    * Check that the agent is running.
    * Ensure that it is connecting to the correct scheduler address.
-   * Check that its UUID matches the CSR generated UUID for the CNCI.
+   * Check that its UUID matches the controller generated UUID for the CNCI.
 
 #. If the cnci-agent failed to start, run the command below to determine the reason::
 
