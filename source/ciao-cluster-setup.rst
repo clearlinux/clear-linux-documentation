@@ -213,6 +213,8 @@ ciao-controller
 
 Important! DO NOT START CIAO-CONTROLLER YET! It must only be started after a network
 node is connected to the scheduler or else workloads may fail to start.
+This restriction will be adressed once `Ciao issue #12 <https://github.com/01org/ciao/issues/12>`__
+is closed.
 
 Compute node setup
 ~~~~~~~~~~~~~~~~~~
@@ -269,8 +271,8 @@ Network node setup
 ~~~~~~~~~~~~~~~~~~
 
 The network node hosts VMs running the Compute Network Concentrator(s)
-"CNCI" agent, one per tenant. These VMs are automatically launched at
-controller start time.
+Instance "CNCI" agent, one per tenant. These VMs are automatically
+launched by the controller.
 
 Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
 correct roles and names as previously described.
