@@ -350,13 +350,13 @@ On Clear Linux OS for Intel Architecture, this is by::
     sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
 
 You will need to tell the controller where the keystone service is located and
-pass it the supernova service username and password. DO NOT USE
+pass it the Ciao service username and password. DO NOT USE
 localhost for your server name. **It must be the fully qualified DNS
-name of the system which is hosting the keystone service**. As of March
-22, 2016, an SSL enabled Keystone is required, with additional parameters
+name of the system which is hosting the keystone service**.
+An SSL enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
 
-    ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-controller-localhost.pem -identity=https://kristen-supernova-ctrl.jf.intel.com:35357 --username=csr --password=hello --nokeystone=false --logtostderr --httpskey=./key.pem --httpscert=./cert.pem
+    sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-[scheduler-hostname].pem --cert=/etc/pki/ciao/cert-client-controller-[controller-hostname].pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
 
 Optionally add ``-logtostderr`` (more verbose with also "-v=2") to get
 console logging output.
