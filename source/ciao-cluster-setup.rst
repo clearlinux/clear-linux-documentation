@@ -197,16 +197,16 @@ Scheduler
 Copy in the scheduler binary from your build/develop machine to any
 location, then launch it first (does not require root)::
 
-    ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-server-localhost.pem
+    ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-server-localhost.pem --heartbeat
 
-The scheduler console will output once per second a heartbeat message
-showing connected Controller and Compute Node client statistics. It also
-displays a line of information for each command or event traversing the
-ssntp server. As the sole SSNTP server in the Ciao cluster, it is a
-key debugging point to understand failed flows of actions/reactions
-across your cluster. Launching it first means this console output helps
-confirm your subsequent cluster configurations actions are indeed
-succeeding.
+With the optional ``--heartbeat`` option, the scheduler console will
+output once per second a heartbeat message showing connected Controller
+and Compute Node client statistics. It also displays a line of
+information for each command or event traversing the SSNTP server.
+As the sole SSNTP server in the Ciao cluster, it is a key debugging point
+to understand failed flows of actions/reactions across your cluster.
+Launching it first means this console output helps confirm your subsequent
+cluster configurations actions are indeed succeeding.
 
 ciao-controller
 ---------------
