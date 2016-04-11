@@ -6,17 +6,8 @@ OpenStack* implementation
 
    openstack_use_cases
    openstack_bundle_and_service_summary
-   openstack_sys_req_and_pw_summary
-   openstack_installing_bundles
-   openstack_supporting-database
-   openstack_supporting-messaging
-   openstack_identity
-   openstack_identity-openrc
-   openstack_image
-   openstack_compute
-   openstack_block_storage
-   openstack_dashboard
-   openstack_networking
-   openstack_orchestration
-   openstack_telemetry
-   openstack_object_storage
+   installing_openstack
+   configure_openstack_environment
+   openstack_env_inventory_file
+   openstack_conf_vars_about
+   openstack_conf_vars_list
