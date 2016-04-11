@@ -319,7 +319,7 @@ and network node already up and running together.
 #. Copy in the test.yaml file from
    ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
 
-The ciao-controlle
+The ciao-controller
 `workload\_resources.csv <https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv>`__
 and
 `workload\_template.csv <https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv>`__
