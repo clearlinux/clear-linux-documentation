@@ -27,7 +27,7 @@ on a ``192.168.0.0/16`` network:
 Controller node:
 
 * IP ``192.168.0.101``
-* Runs Controller, Scheduler, SSL Keystone
+* Runs Controller, Scheduler, SSL Keystone.
 
 
 Network node ("nn"):
@@ -138,8 +138,7 @@ roles, following the instructions at the link below:
 
 <$$$ Content from the above location needs to be converted for external consumption, then the link will be updated. $$$>
 
-Pass in the host name for the host on which you will be running the service when generating the certificate, 
-or simply use "localhost".
+Pass in the host name for the host on which you will be running the service when generating the certificate.
 
 You should create certificates for scheduler, compute node and network node
 launchers, cnciagent, controller, and the CNCI launcher, saving each to a
@@ -147,12 +146,12 @@ unique name. The names, locations, and contents (eg: signer and role) of the
 certificates are very important. The rest of this topic will consistently use
 the following example file names:
 
-* ``CAcert-server-localhost.pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
-* ``cert-client-agent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
-* ``cert-client-cnciagent-localhost.pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
-* ``cert-client-controller-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
-* ``cert-client-netagent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``.
-* ``cert-server-localhost.pem``: copy into your contoller node's ``/etc/pki/ciao``.
+* ``CAcert-server-[scheduler-node-hostname].pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
+* ``cert-client-agent-[launcher-hostname].pem``: copy to all compute nodes' ``/etc/pki/ciao``.
+* ``cert-client-cnciagent-[network-node-hostname].pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
+* ``cert-client-controller-[controller-node-hostname].pem``: copy into your controller node's ``/etc/pki/ciao``.
+* ``cert-client-netagent-[network-node-hostname].pem``: copy into your network node's ``/etc/pki/ciao``.
+* ``cert-server-[scheduler-hostname].pem``: copy into your controller node's ``/etc/pki/ciao``.
 
 Correct client / server certificate roles will soon be required, so get
 in the habit of doing this correctly now.
