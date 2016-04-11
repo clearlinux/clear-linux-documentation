@@ -90,10 +90,10 @@ Launcher can be launched from the command line as follows::
 
   $ launcher -server <URL of my server> -network [cn|nn|none]
 
-As previously mentioned, the :option:`-cacert` and :option:`-cert `options
-can be used to override the SSNTP certificates.  You can also specify to
-force the ``--with-ui`` parameter, which forces launcher to launch VMs in the foreground, and can be useful for debugging.  The :option:`-max-vm` option allows the user to specify the maximum number of VM instances that a given launcher
-instance is prepared to manage.  This is a soft, rather than a hard limit,
+As previously mentioned, the :option:`-cacert` and :option:`-cert` options
+can be used to override the SSNTP certificates.  You can also specify
+the ``--with-ui`` parameter, which forces launcher to launch VMs in the foreground, and can be useful for debugging.  The :option:`-max-vm` option allows the user to specify the maximum number of VM instances that a given launcher
+instance is prepared to manage. This is a soft, rather than a hard limit,
 and will be discussed in the reporting section below.
 
 Launcher uses `glog`_ for logging. By default, launcher stores logs
