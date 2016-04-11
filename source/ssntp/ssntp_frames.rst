@@ -59,8 +59,8 @@ CONNECT
 
 ``CONNECT`` must be the *first* frame SSNTP clients send when trying to
 connect to a SSNTP server. Any frame sent to a SSNTP server from a client
-that did not initially sent a CONNECT frame will be discarded and the TLS
-connection to the client will be closed.
+that did not initially sent a ``CONNECT`` frame will be discarded, and the
+TLS connection to the client will be closed.
 
 The purpose of the ``CONNECT`` command frame is for the client to advertise
 its role and for the server to verify that the advertised role matches the
@@ -84,7 +84,7 @@ schedule a new workload. The `START command YAML payload`_ is mandatory and
 contains a full workload description.
 
 If the Scheduler finds a :abbr:`compute node (CN)` with enough capacity to run this
-workload, it will then send a START command to the given Agent UUID managing
+workload, it will then send a ``START`` command to the given Agent UUID managing
 this CN with the same payload.
 
 If the Scheduler cannot find a suitable CN for this workload, it will asynchronously
@@ -98,7 +98,7 @@ START YAML payload. If that fails, the Agent should asynchronously sends a SSNTP
 ERROR back to the Scheduler and the error code should be ``StartFailure (0x2)``. The
 Scheduler must then forward that error frame to the CSR.
 
-The ``START`` command payload is mandatory:
+The ``START`` command payload is mandatory.
 
 +-------+-------+-------+---------+-----------------+----------------------+
 | Major | Minor | Type  | Operand |  Payload Length | YAML-formatted       |
@@ -117,13 +117,13 @@ mandatory and contains the instance UUID to be stopped, as well as the agent
 UUID that manages this instance.
 
 To ``STOP`` an instance means you're shutting it down. Non-persistent instances
-are deleted as well when you issue a STOP. Persistent instances of metadata and
+are deleted as well when you issue a ``STOP``. Persistent instances of metadata and
 disks images are stored and can be started again through the ``RESTART`` SSNTP
 command.
 
 There are several possible error cases related to the ``STOP`` command:
 
-* If the Scheduler cannot find the Agent identified in the STOP
+* If the Scheduler cannot find the Agent identified in the ``STOP``
    command payload, it should send a SSNTP error with the
    ``StopFailure (0x3)`` error code back to the CSR.
 
@@ -146,7 +146,7 @@ CIAO CN Agents periodically send the ``STATS`` command to the Scheduler, in orde
 to provide a complete view of the compute node status. It is up to the CN Agent
 implementation to define the STATS' sending period.
 
-Upon reception of Agent STATS commands, the Scheduler must forward it to the CSR
+Upon reception of Agent ``STATS`` commands, the Scheduler must forward it to the CSR
 so that it can provide a complete cloud status report back to the users.
 
 The ``STATS`` command comes with a mandatory `YAML-formatted payload`_.
@@ -192,7 +192,7 @@ it should no longer be reachable like it is with, for example, a ``RESTART`` com
 When asked to delete a non existing instance the CN Agent must reply with a ``DeleteFailure``
 error frame.
 
-The `DELETE YAML payload schema`_ is the same as the STOP one.
+The `DELETE YAML payload schema`_ is the same as the ``STOP`` one.
 
 +-------+-------+-------+---------+-----------------+----------------+
 | Major | Minor | Type  | Operand |  Payload Length | YAML-formatted |
@@ -226,7 +226,7 @@ The `RESTART YAML payload schema`_ is the same as the STOP one.
 AssignPublicIP
 ==============
 
-``AssingPublicIP`` is a command sent by the CSR to assign a publically-routable
+``AssignPublicIP`` is a command sent by the CSR to assign a publically-routable
 IP to a given instance. It is sent to the Scheduler and must be forwarded to the
 right CNCI.
 
