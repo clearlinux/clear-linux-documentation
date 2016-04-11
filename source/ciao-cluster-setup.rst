@@ -82,8 +82,9 @@ Install Clear Linux OS for Intel Architecture as host on all nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Install Clear Linux OS for Intel Architecture as the host OS on all nodes following 
-the instructions in the topic :ref:`_gs_installing_clr_as_host`. The current March 2016 downloadable
-images are compatible with CIAO.
+the instructions in the topic :ref:`_gs_installing_clr_as_host`. The current April 2016
+`downloadable images <https://download.clearlinux.org/image/>`__
+are compatible with CIAO.
 
 After the installation, complete the following steps:
 
