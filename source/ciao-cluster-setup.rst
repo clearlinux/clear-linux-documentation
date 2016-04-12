@@ -6,81 +6,89 @@ Introduction
 ############
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
-for Intel® Architecture to use cloud integrated advanced orchestrator (CIAO).
+for Intel® Architecture to use :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,
+or CIAO.
 
-While the table of contents provides links to specific points of information, this topic
-is intended as an ordered workflow. Make sure you set up and start your cluster components
+While the table of contents provides links to specific points of information, this
+topic is intended as an ordered workflow. Be sure to start your cluster components
 in the correct order as explained below.
 
 Infrastructure prerequisites
 ############################
 
 Hardware needs
-~~~~~~~~~~~~~~
+==============
 
 You'll need at least four machines and a switch connecting them to form
-your beginning cloud integrated advanced orchestrator (CIAO) cluster.
-The switch is assumed to be plugged directly into an "upstream" network
-running a DHCP server. The following examples assume you have four nodes
-on a ``192.168.0.0/16`` network:
+your beginning CIAO cluster. The switch is assumed to be plugged directly
+into an "upstream" network running a DHCP server. The following examples
+assume you have four nodes on a ``192.168.0.0/16`` network:
 
-Controller node:
+Controller node
+---------------
 
 * IP ``192.168.0.101``
 * Runs Controller, Scheduler, SSL Keystone.
 
 
-Network node ("nn"):
+Network node ("nn")
+-------------------
 
 * IP ``192.168.0.102``
 * Runs Launcher with ``--network=nn`` option
 * Has CNCI image in ``/var/lib/ciao/images``. See below for more on CNCI image preparation.
 
-Compute node ("cn"):
+Compute node 1 ("cn1")
+----------------------
 
 * IP ``192.168.0.103``
 * Runs Launcher with ``--network=cn`` option
 * Has workload images in ``/var/lib/ciao/images``
 
-Compute node ("cn"):
+Compute node 2 ("cn2")
+----------------------
 
 * ``IP 192.168.0.104``
 * Runs Launcher with ``--network=cn option``
 * Has workload images in ``/var/lib/ciao/images``
 
-Network needs
-~~~~~~~~~~~~~
 
-A detailed description of how to set up your networking cluster is
+Network needs
+=============
+
+A detailed description of how to set up your self-contained-cluster is
 documented at the link below. This allows you to set up your own self
 contained isolated cluster of nodes.
 
 :ref:`self-contained-cluster`
 
+
 It is possible to use a corporate or a lab network and not install a
-separate DHCP server, BUT the DHCP server and network management
+separate DHCP server; however, the DHCP server and network management
 infrastructure supplying your switch's upstream port needs to allow you
 to have "enough" IPs. A corporate network may have issues if it sees too
 many MACs (for example, more than dozens) on your port.
 
-Note: If you are using dnsmasq as your DHCP/DNS server, complete the following:
+.. note::
 
-#. Ensure that the ``dhcp-sequential-ip`` option is set.
-#. Configure ``dhcp-host=\*:\*:\*:\*:\*:\*,id:\*``, which ensures that the CNCI's get
-   unique IP addresses even if their hostnames are the same inside the VM. A longer term
-   fix is to use ``cloud-init meta-data.json`` to give each a
-   tenant specific hostname.
-#. Set up static MAC to IP mappings (using the dhcp-host option) for your NUCs
-   to ensure you never lose network connectivity.
+  If you are using dnsmasq as your DHCP/DNS server, complete the following:
+
+  #. Ensure that the ``dhcp-sequential-ip`` option is set.
+  #. Configure ``dhcp-host=\*:\*:\*:\*:\*:\*,id:\*`` to ensure that the CNCIs get
+     unique IP addresses even when their hostnames are the same inside the VM. A
+     long-term fix is to use :file:`cloud-init meta-data.json` to give each a
+     tenant-specific hostname.
+  #. Set up static MAC to IP mappings (using the dhcp-host option) for your NUCs
+     to ensure you never lose network connectivity.
 
 Node setup
-##########
+==========
 
 Install Clear Linux OS for Intel Architecture as host on all nodes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------------
 
 Install Clear Linux OS for Intel Architecture as the host OS on all nodes following
-the instructions in the topic :ref:`_gs_installing_clr_as_host`. The current April 2016
+the instructions in the topic :ref:`gs_installing_clr_as_host`. The current April 2016
 `downloadable images <https://download.clearlinux.org/image/>`__
 are compatible with CIAO.
 
@@ -88,59 +96,54 @@ After the installation, complete the following steps:
 
 #. Ensure your system is 100% up to date::
 
-    swupd verify
+    $ swupd verify
 
 #. If the above command does not show zero failures, run the command below repeatedly
    until it shows zero uncorrected errors.::
 
-    swupd verify --fix
+    $ swupd verify --fix
 
-#. After the installation is verified as up to date, add the following additional bundle,
+#. After the installation is verified as up-to-date, add the following additional bundle,
    which adds componenents needed by CIAO::
 
-    swupd bundle-add cloud-control
+    $ swupd bundle-add cloud-control
 
 #. As a final double check, run the updater again and then repair if any errors persist::
 
-    swupd verify
-    swupd verify --fix
+    $ swupd verify
+    $ swupd verify --fix
 
 Build the CIAO software
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
-On your go development machine, obtain the relevant CIAO packages,
-following the instructions given at the link below:
+#. On your development machine, obtain the relevant CIAO packages by following
+   the instructions given at :ref:`go-get-ciao`. Note that this is not a complete
+   manual on how to use the ``go get`` tool, but it contains enough information
+   to help experienced developers obtain the binaries needed to build CIAO.
 
-`https://securewiki.ith.intel.com/display/otcclr/Development+Environment <https://securewiki.ith.intel.com/display/otcclr/Development+Environment>`__
+#. Install and build the Ciao binaries::
 
-<$$$ Content from the above location needs to be converted for external consumption, then the link will be updated. $$$>
+  $ cd $GOPATH/src github.com/01org/ciao
+  $ go install ./...
 
-Install and build the Ciao binaries::
-
-  cd $GOPATH/src/github.com/01org/ciao
-  go install ./...
-
-The binaries will install to ``$GOPATH/bin``. You should have ``cnci\_agent``, ciao-launcher,
-ciao-controller, and ciao-scheduler.
+The binaries will install to ``$GOPATH/bin``. You should have ``cnci\_agent``, ``ciao-launcher``, ``ciao-controller``, and ``ciao-scheduler``.
 
 Build certificates
-~~~~~~~~~~~~~~~~~~
+==================
 
 Create the ssntp-internal communications certificates
 -----------------------------------------------------
 
-On your development/build machine, generate the certificates for each of your
-roles, following the instructions at the link below:
+On your development machine, generate the certificates for each of your
+roles; general instructions can be found under the :ref:`ssntp_overview`
+documentation.
 
-`https://securewiki.ith.intel.com/display/otcclr/SSNTP <https://securewiki.ith.intel.com/display/otcclr/SSNTP>`__.
+Pass in the host name for the host on which you will be running the service
+when generating the certificate.
 
-<$$$ Content from the above location needs to be converted for external consumption, then the link will be updated. $$$>
-
-Pass in the host name for the host on which you will be running the service when generating the certificate.
-
-You should create certificates for scheduler, compute node and network node
-launchers, cnciagent, controller, and the CNCI launcher, saving each to a
-unique name. The names, locations, and contents (eg: signer and role) of the
+Create unique certificates for each of your scheduler, compute node and network
+node launchers, cnciagent, controller, and the CNCI launcher; save each with a
+unique name. The names, locations, and contents (signer and role) of the
 certificates are very important. The rest of this topic will consistently use
 the following example file names:
 
@@ -159,7 +162,7 @@ Create the controller web certificates
 
 On your development box, generate Certificates for the controller's https service::
 
-    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout controller_key.pem -out controller_cert.pem
+    $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout controller_key.pem -out controller_cert.pem
 
 Copy the ``controller\_cert.pem`` and ``controller\_key.pem`` files to your
 controller node.  You can use the same location where you will be storing
@@ -629,3 +632,5 @@ Complete the following:
 
    * Check the MTU set on the interface. The MTU has to match the MTU sent by the CNCI (1400 currently).
    * If the MTU on the interface is still 1500, then the DHCP client on the instance does not respect the MTU sent in by the DHCP server.
+
+.. _go: https://golang.org/doc/articles/go_command.html
