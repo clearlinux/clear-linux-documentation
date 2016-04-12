@@ -6,16 +6,18 @@ OpenvSwitch and DPDK use case
 Introduction
 ============
 
-OpenvSwitch project using DPDK support gets an important network performance, an easy way for 
+Using *DPDK* support on **OpenvSwitch project**, gets an important network performance, an easy way for 
 understanding the magnitude of this increment is to compare to another software solution and 
 even compare with itself without using DPDK support, this document describes the "HOWTO" about 
-a simple use case (figure 1.0) where one virtual machine sends 1 million of HTTP requests to 
+a simple use case (:ref:`f1ovs`) where one virtual machine sends 1 million of HTTP requests to 
 another virtual machine using Linux bridges, OpenvSwitch bridges and of course 
 OpenvSwitch-DPDK bridges as a network link.
 
+.. _f1ovs:
+
 .. figure:: _static/images/use_case.png
 
-    figure 1.0 Basic virtual network environment.
+    Figure 1: Basic virtual network environment.
 
 **Requirements:**
 
@@ -25,13 +27,13 @@ OpenvSwitch-DPDK bridges as a network link.
 
  .. code-block:: bash
 	
-		$ swupd bundle-add network-advanced os-clr-on-clr
+		# swupd bundle-add network-advanced os-clr-on-clr
 
 * Get 2 Clear Linux kvm images (recommended release 7160), these images will be the guest virtual machines, you can download them https://download.clearlinux.org/releases/. The virtual machines must have installed "network-basic" and "lamp-basic" bundles.
  
  .. code-block:: bash
 
-        $ swupd bundle-add network-basic lamp-basic
+        # swupd bundle-add network-basic lamp-basic
 
 
 Using Linux Bridges
@@ -59,19 +61,19 @@ Using Linux Bridges
 
  .. code-block:: bash
 
-    $ chmod a+x qemu-ifup
+    # chmod a+x qemu-ifup
 
 3. Create a bridge using the openvswitch tool, you can verify if the bridge was created using ip tool.
 
  .. code-block:: bash
 
-    $ brctl addbr br0
+    # brctl addbr br0
 
  Note: At this point as an option is possible to add a NIC with the next command: **brctl addif br0 <network interface>** e.g: 
 
  .. code-block:: bash
 
-    $ brctl addif br0 enp3s0f0
+    # brctl addif br0 enp3s0f0
 
  If the last option is used, and the NIC is connected to DHCP server, the 1 and 2 steps should be omitted in "Setting ip address" section.
 
@@ -79,7 +81,7 @@ Using Linux Bridges
 
  .. code-block:: bash
 
-    $ ip link set dev br0 up
+    # ip link set dev br0 up
 
 5. Run guest virtual machine A using the next configuration as reference, where **$IMAGE** var is the clear linux image name.
 
@@ -103,8 +105,8 @@ Using Linux Bridges
 
  .. code-block:: bash
 
-	$ ip link set dev br0 down
-	$ brctl delbr br0
+	# ip link set dev br0 down
+	# brctl delbr br0
 
 
 Using OpenvSwitch
@@ -114,14 +116,14 @@ Using OpenvSwitch
 
  .. code-block:: bash
 
-    $ systemctl start openvswitch.service
+    # systemctl start openvswitch.service
 
 2. Create a bridge using the openvswitch tool, you can verify if the bridge was created using ip tool.
 
  .. code-block:: bash
 
-	$ ovs-vsctl add-br br0
-	$ ip a
+	# ovs-vsctl add-br br0
+	# ip a
 
 3. Create **UP-DOWN** scripts, this is in order to bring up the tap devices into the bridge created in the step 2 for **ovs-ifdown** script:
 
@@ -145,8 +147,8 @@ Using OpenvSwitch
 
  .. code-block:: bash
 
-	$ chmod a+x ovs-ifdown
-	$ chmod a+x ovs-ifup
+	# chmod a+x ovs-ifdown
+	# chmod a+x ovs-ifup
 
 5. Run guest virtual machine A using the next configuration as reference, where **$IMAGE** var is the clear linux image name, notice that network configuration use the up-down scripts (step ).
 
@@ -173,63 +175,62 @@ Using Linux OpenvSwitch-DPDK
 
  .. code-block:: bash
 
-    $mkdir mnt
-    $ mount /dev/sda1 mnt
-    $ cd mnt/loader/entries/
+      # systemctl start boot.mount
+      # cd /boot/loader/entries/
 
  Edit Clear-linux-native-<kernel-version>.conf and add **iommu=pt intel_iommu=on** in the end of the line, umount and reboot.
  
  .. code-block:: bash
- 
-    $ cd ../../../
-    $ umount mnt
-    $ reboot
+
+      # cd /
+      # systemctl stop boot.mount
+      # reboot
     
 
 2. Set number of hugepages
 
  .. code-block:: bash
 
-	$ echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+	# echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 
 3. Allocate pages on NUMA machines
 
  .. code-block:: bash
 
-	$ echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-	$ echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+	# echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+	# echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
 4. Making memory available for DPDK.
 
  .. code-block:: bash
 
-	$ mkdir -p /mnt/huge
-	$ mount -t hugetlbfs nodev /mnt/huge
+	# mkdir -p /mnt/huge
+	# mount -t hugetlbfs nodev /mnt/huge
 
 5. Add cores and memory configuration to OpenvSwitch example, the file **/usr/share/openvswitch/scripts/ovs-ctl** can be edited in the line 256 and add DPDK configuration it should look like this:  **set ovs-vswitchd --dpdk -c 0x2 -n 4 --socket-mem 2048 -- unix:"$DB_SOCK"** or the next regular expression could be helpful:
 
  .. code-block:: bash
 
-	$ sed -i s/"set ovs-vswitchd unix:"/"set ovs-vswitchd --dpdk -c 0x2 -n 4 --socket-mem 2048 -- unix:"/g /usr/share/openvswitch/scripts/ovs-ctl
+	# sed -i s/"set ovs-vswitchd unix:"/"set ovs-vswitchd --dpdk -c 0x2 -n 4 --socket-mem 2048 -- unix:"/g /usr/share/openvswitch/scripts/ovs-ctl
 
 6. Start OpenvSwitch service
 
  .. code-block:: bash
 
-	$ systemctl start openvswitch.service
+	# systemctl start openvswitch.service
 
 7. Create a virtual bridge using openvswitch
 
  .. code-block:: bash
 
-	$ ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
+	# ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
 
 8. Add dpdk ports to the bridge
 
  .. code-block:: bash
 
-	$ ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
-	$ ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
+	# ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
+	# ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
 
 
 9. Run guest virtual machine A using the next configuration as reference, where **$IMAGE** var is the clear linux image name.
@@ -260,30 +261,31 @@ Setting ip address
 
 1. Set ip address to virtual machine for virtual machine A:
 
- .. code-block:: bash
+   .. code-block:: bash
 
-	$ ip addr add dev enp0s2 10.0.0.5/24
+      # ip addr add dev enp0s2 10.0.0.5/24
 
- for virtual machine B:
+   for virtual machine B:
 
- .. code-block:: bash
+   .. code-block:: bash
 
-	$ ip addr add dev enp0s2 10.0.0.6/24
+      # ip addr add dev enp0s2 10.0.0.6/24
 
 2. Check if there is communication between both virtual machines using ping tool.
 
 3. Verify if apache service is running:
 
- .. code-block:: bash
+   .. code-block:: bash
 
-	$ systemctl status httpd.service
-	$ systemctl start httpd.service 
+      # systemctl status httpd.service
+      # systemctl start httpd.service 
 
- (start httpd service only if it is inactive).
- Use apache benchmark in order to get information about the network performance between both virtual machines.
+   (start httpd service only if it is inactive).
+   Use apache benchmark in order to get information about the
+   network performance between both virtual machines.
 
- .. code-block:: bash
+   .. code-block:: bash
 
-	$ ab -n 1000000 -c 100 http://10.0.0.6/
+      # ab -n 1000000 -c 100 http://10.0.0.6/
 
 
