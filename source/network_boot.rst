@@ -214,8 +214,8 @@ The iPXE script used is
 
   #!ipxe
 
-  kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug
-  tsc=reliable no_timer_check noreplace-smp rw initrd=initrd initrd initrd
+  kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd
+  initrd initrd
   boot
 
 This should be located in ``/var/www/pxe`` with the kernel and initrd.

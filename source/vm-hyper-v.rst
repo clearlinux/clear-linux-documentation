@@ -50,7 +50,7 @@ Create a virtual machine
 
          PS C:\> Convert-VHD -Path c:\path\to\clear-XXXX-live.vhd -DestinationPath c:\path\to\clear-XXXX-live.vhdx
 
-   You can save the new *VHDX* virtual hard disk in :file:`C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks`.
+   You can save the new *VHDX* virtual hard disk in :file:`C:\\Users\\Public\\Documents\\Hyper-V\\Virtual Hard Disks`.
 
 4. Create virtual machine using the **Hyper-V Manager**:
 
