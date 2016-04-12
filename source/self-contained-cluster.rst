@@ -1,34 +1,34 @@
 .. _self-contained-cluster:
 
-Self-contained CIAO Cluster
-###########################
+Self-contained cloud integrated advanced orchestrator (ciao) cluster
+####################################################################
 
-The current iteration of self-contained CIAO cluster networking
+The current iteration of self-contained ciao cluster networking
 is based on the capabilities of Tunnel-Concentrator-Mode.
 
 The followings section explains how to test the networking setup with 3 or more systems.
 
-Typical CIAO Node
+Typical ciao node
 =================
 
 A typical node used in the data center connects to two separate physical networks:
 
 * **Management Network** carries command and control traffic such as the
-  CIAO CSR, Scheduler, SSNTP
+  ciao CSR, Scheduler, SSNTP
 * **Compute Network** carries all the traffic between workloads and instances; a
-  Typical CIAO Node
+  Typical ciao Node
 
-This is not strictly necessary, but the CIAO Networking implementation supports
+This is not strictly necessary, but the ciao Networking implementation supports
 the notion that there may be separate Compute and Management networks. For example,
 it's possible to connect NUCs running Clear Linux directly to a corporate
 network for Management and to run your own private network with its own DHCP
 server for the workload traffic.
 
 
-Simple Networking Setup
+Simple networking setup
 =======================
 
-This is an example of a 3+ NUC CIAO Network test setup with the same network
+This is an example of a 3+ NUC ciao Network test setup with the same network
 for both Management and Compute, isolated from the corporate network. The
 mandatory components are:
 
@@ -42,15 +42,15 @@ nodes, limited only by the size of the DHCP subnet configured on the
 gateway.
 
 
-Gateway Setup
+Gateway setup
 -------------
 
-The dual-homed gateway node in this isolates the CIAO Cluster from the
+The dual-homed gateway node in this isolates the ciao Cluster from the
 corporate network. It has the following functionality:
 
-* DHCP Server for the CIAO Nodes
-* DNS Server for the CIAO Nodes
-* A NAT and basic firewall between the CIAO Network and the corporate
+* DHCP Server for the ciao Nodes
+* DNS Server for the ciao Nodes
+* A NAT and basic firewall between the ciao Network and the corporate
   network
 
 .. note::
@@ -58,7 +58,7 @@ corporate network. It has the following functionality:
 The gateway node can be your dual-homed development system for easier deployment.
 
 
-Network Interface Setup
+Network interface setup
 -----------------------
 
 The ``eth1`` interface is set up to have a static IP address of ``192.168.0.200``
@@ -81,10 +81,10 @@ Sample :file:`/etc/network/interfaces` file::
     netmask 255.255.255.0
 
 
-DHCP Setup
+DHCP setup
 ----------
 
-The :file:`tenant_dns.cfg` can be set up to serve DHCP addresses for the CIAO
+The :file:`tenant_dns.cfg` can be set up to serve DHCP addresses for the ciao
 Network (CN, NN, Control nodes and the CNCI). In the following sample, the DHCP
 server always provides the same IP address to the same Node; however, this is
 optional. Please replace the MAC addresses below with your own.
@@ -122,12 +122,12 @@ The example above shows sub-slicing the DHCP network such that the CNCI gets
 a DHCP range that can be independently routeable.
 
 
-NAT Setup
+NAT setup
 ---------
 
 To set your gateway node, the following commands can be used (assuming
 ``eth0`` is connected to the corporate network and ``eth1`` is connected
-to the CIAO Compute and Management private network):
+to the ciao Compute and Management private network):
 
 Script to setup and reset your gateway and DHCP server::
 
@@ -153,26 +153,26 @@ Script to setup and reset your gateway and DHCP server::
 This setup assumes:
 
 * Keystone VM runs on the same system that runs the CSR and Scheduler.
-* The CIAO nodes can reach the corporate network and Internet (being NATed by
+* The ciao nodes can reach the corporate network and Internet (being NATed by
   the gateway).
 * Being able to reach the nodes by connectint to the gateway and then connecting
   to the nodes for port forwarding.  For this setup above, you can reach the WebUI
   and Keystone ports presented by the CSR and Keystone through the gateway IP
   address
 
-Controller Node Setup
+Controller node setup
 ---------------------
 
 One node in this sample setup, ``192.168.0.101``, is set as the
 controller node. It runs the CSR, Scheduler and Keystone VM.
 
-Network Node Setup
+Network node setup
 ------------------
 
 One node in this sample setup, ``192.168.0.102``, is set as the network
 node. It runs the launcher that launches CNCIs.
 
-Compute Node Setup
+Compute node setup
 ------------------
 
 All other nodes in this sample setup ``192.168.0.103, 104, ..`` are compute
@@ -180,7 +180,7 @@ nodes. Compute nodes currently have a statically-assigned IPs. This allows
 the CNCIs to come out of fixed range.
 
 
-Connecting to Instances
+Connecting to instances
 =======================
 
 On the CNCI there will be a lease file :file:`/tmp/dnsmasq_*.leases`, which
