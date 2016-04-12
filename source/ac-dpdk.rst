@@ -55,7 +55,8 @@ application will forward those packages (:ref:`f1`).
 
    .. code-block:: bash
 
-      # systemctl start boot.mount
+      # cd /
+      # systemctl stop boot.mount
       # reboot
 
 
