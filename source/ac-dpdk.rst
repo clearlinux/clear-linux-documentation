@@ -6,24 +6,29 @@ Clear Linux & DPDK
 Introduction
 ============
 
-This document describes HOWTO run a basic use case that involves to l3fwd DPDK example, the objective is to send 
-packages between 2 platforms using a traffic generator called pktgen where l3fwd example application will forward 
-those packages (figure 1.0).
+This document describes *how to* run a basic use case that involves **l3fwd
+DPDK example**, the objective is to *send packages between 2 platforms* using a
+traffic generator called :ref:`pktgen <sec_pktgen>` where l3fwd example
+application will forward those packages (:ref:`f1`).
+
+.. _f1:
 
 .. figure:: _static/images/pktgen_lw3fd.png
+   :align: center
+   :alt: platform A and B
 
-	figure 1.0 environment for l3fwd DPDK application.
+   Figure 1: environment for l3fwd DPDK application.
 
 
 **Requirements:**
 
-* 2 platform using Clear Linux (recommended release 7160).
-* both Clear Linux images have to use kernel-native
+* 2 platform using Clear Linux (recommended release 7160 or higher).
+* both Clear Linux images have to use **kernel-native boundle**
 * Install "dpdk-dev", "os-core-dev" and "sysadmin-basic" bundles
 
- .. code-block:: bash
-	
-		$ swupd bundle-add dpdk-dev os-core-dev sysadmin-basic
+  .. code-block:: bash
+
+      # swupd bundle-add dpdk-dev os-core-dev sysadmin-basic
 
 * The Platforms must have 2 NICs at least each one, check Network cards compatibility, it's very important to verify if your NIC is compatible with DPDK project, you can check it in this site http://dpdk.org/doc/nics.
 * 2 Network cables.
@@ -32,28 +37,26 @@ those packages (figure 1.0).
 1. Disable iommu on Clear Linux (platform A and B). 
 ===================================================
 
-1. mount sda1 partition 
+1. mount the :abbr:`ESP (EFI system partition)`
 
- .. code-block:: bash 
+   .. code-block:: bash
 
-    $ mkdir mnt 
-    $ mount /dev/sda1 mnt 
+       # systemctl start boot.mount
 
 2. move to entries directory 
 
- .. code-block:: bash
+   .. code-block:: bash
 
-    $ cd mnt/loader/entries/ 
+      # cd /boot/loader/entries/
 
  edit **Clear-linux-native-.conf** and add **intel_iommu=off** in the end of the last line. 
 
-3. Umount partition and reboot
+3. Umount *ESP* and reboot
 
- .. code-block:: bash
+   .. code-block:: bash
 
-    cd ../../../
-    umount mnt
-    reboot
+      # systemctl start boot.mount
+      # reboot
 
 
 2. Installing dpdk bundle on Clear Linux and build l3fwd example (platform B).
@@ -63,43 +66,47 @@ those packages (figure 1.0).
 
  .. code-block:: bash
 
-    $ swupd bundle-add dpdk-dev 
+    # swupd bundle-add dpdk-dev
 
 2. Move to l3fwd example 
 
  .. code-block:: bash
 
-	$ cd /usr/share/dpdk/examples/l3fwd
+	# cd /usr/share/dpdk/examples/l3fwd
 
 3. Assign RTE_SDK var the path where makefiles are
 
  .. code-block:: bash
 
-    $ export RTE_SDK=/usr/share/dpdk/
+    # export RTE_SDK=/usr/share/dpdk/
 
 4. Assign RTE_TARGET var the value where config file is
 
  .. code-block:: bash
 
-    $ export RTE_TARGET=x86_64-native-linuxapp-gcc
+    # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
 5. Build the l3fwd application and add the configuration header to CFLAGS var
 
  .. code-block:: bash
 
-    $ make CFLAGS+="-include /usr/include/rte_config.h" 
+    # make CFLAGS+="-include /usr/include/rte_config.h"
 
+
+
+.. _sec_pktgen:
 
 3. Building pktgen (platform A).
 ================================
 
-Currently pktgen project is not included in Clear Linux, for that reason it is necessary to download it from upstream and build it:
+Currently **pktgen project** is not included in Clear Linux, for that reason
+it is necessary to download it from upstream and build it:
 
 1. Install dpdk bundle
 
  .. code-block:: bash
 
-    $ swupd bundle-add dpdk-dev
+    # swupd bundle-add dpdk-dev
 
 2. Download pktgen tar package 2.9.12 version from this site: http://dpdk.org/browse/apps/pktgen-dpdk/refs/
 
@@ -109,19 +116,19 @@ Currently pktgen project is not included in Clear Linux, for that reason it is n
 
  .. code-block:: bash 
 
-    $ export RTE_SDK=/usr/share/dpdk/ 
+    # export RTE_SDK=/usr/share/dpdk/
 
 5. Assign RTE_TARGET var the value where config file is
 
  .. code-block:: bash
 
-    $ export RTE_TARGET=x86_64-native-linuxapp-gcc
+    # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
 6. Build Pktgen project setting CONFIG_RTE_BUILD_SHARED_LIB variable with "n"
  
  .. code-block:: bash
 
-    $ make CONFIG_RTE_BUILD_SHARED_LIB=n
+    # make CONFIG_RTE_BUILD_SHARED_LIB=n
 
 
 4. Binding NIC's to dpdk kernel drivers (platform A and B). 
@@ -133,19 +140,19 @@ l3fwd application will use 2 NIC's, DPDK has useful tools in order for binding N
 
  .. code-block:: bash 
 
-    $ modprobe igb_uio
+    # modprobe igb_uio
 
 2. Check your status of your NIC's, this in order to know which network cards are not busy, in case that another application is using them, the status will be “Active” and those NICs could not be bound.
 
  .. code-block:: bash
 
-    $ dpdk_nic_bind.py --status
+    # dpdk_nic_bind.py --status
 
 3. Binding 2 available NICs using the syntax: **dpdk_nic_bind.py --bind=igb_uio <device-entry>** , example:
 
  .. code-block:: bash
 
-	$ dpdk_nic_bind.py --bind=igb_uio 01:00.0
+	# dpdk_nic_bind.py --bind=igb_uio 01:00.0
 
 4. Be sure that your NIC's was binding correctly checking the status (point 2), drv should has igb_uio value, at this point the NIC's are using the DPDK modules. 
 
@@ -159,20 +166,20 @@ Clear Linux supports hugepages for the large memory pool allocation used for pac
 
  .. code-block:: bash 
 
-    $ echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+    # echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 
 2. Allocate pages on NUMA machines.
 
  .. code-block:: bash
 	
-    $ echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-    $ echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+    # echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+    # echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
 3. Making memory available for DPDK.
 
  .. code-block:: bash
 
-    $ mkdir -p /mnt/huge $ mount -t hugetlbfs nodev /mnt/huge
+    # mkdir -p /mnt/huge $ mount -t hugetlbfs nodev /mnt/huge
 
  If you would like to know more about this, you can check this site: http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html
 
@@ -180,11 +187,15 @@ Clear Linux supports hugepages for the large memory pool allocation used for pac
 6. Setting a physical environment (platform A and B).
 =====================================================
 
-In order to achieve the model proposed in the introduction of this document (figure 1.0), we need to connect the first grantley’s NICs  to the second grantley’s NICs using the network cables (Figure 2.0).
+In order to achieve the model proposed in the introduction of this document
+(:ref:`f1`), we need to connect the first grantley’s NICs  to the second
+grantley’s NICs using the network cables (:ref:`f2`).
+
+.. _f2:
 
 .. figure:: _static/images/pyshical_net.png
 
-    figure 2.0 Physical network environment.
+    Figure 2: Physical network environment.
 
 
 7. Running l3fwd application (platform B).
@@ -196,7 +207,7 @@ l3fwd application is one of the DPDK examples available when you install dpdk-de
 
  .. code-block:: bash 
 
-    $ cd  /usr/share/dpdk/examples/l3fwd
+    # cd  /usr/share/dpdk/examples/l3fwd
 
 2. The next step is very important, DPDK needs poll drivers for working, these poll drivers are shared objects and they are in /usr/lib64, dpdk just support some NICs, you can see which in the next link: <http://dpdk.org/doc/nics>, you need to know which kernel module the NIC is using and choose poll driver according to your NICs.
 
@@ -204,7 +215,7 @@ l3fwd application is one of the DPDK examples available when you install dpdk-de
 
  .. code-block:: bash
 
-    $ ./build/l3fwd -c 0x3 -n 2 -d librte_pmd_e1000.so -- -p 0x3 --config="(0,0,0),(1,0,1)"
+    # ./build/l3fwd -c 0x3 -n 2 -d librte_pmd_e1000.so -- -p 0x3 --config="(0,0,0),(1,0,1)"
 
 4. When the application start to run, it will show a lot information about the steps that l3fwd is doing, pay attention when the application in the step when it is Initializing ports, after port 0 initialization it will show a mac address and the same for port 1, save this information in order to set configuration to Pktgen project.
 
@@ -218,7 +229,7 @@ Pktgen is network traffic generator, it will be used to measure the network pack
 
  .. code-block:: bash
 
-    $ ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0xf -n 4 -- -p 0xf -P -m "1.0, 2.1"
+    # ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0xf -n 4 -- -p 0xf -P -m "1.0, 2.1"
 
 2. Active colorful output (this step is optional). 
 
