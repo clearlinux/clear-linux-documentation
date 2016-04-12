@@ -6,6 +6,7 @@ DPDK
 Introduction
 ============
 
+DPDK_ is a set of libraries and drivers for fast packet processing.
 This document describes *how to* run a basic use case that involves **l3fwd
 DPDK example**, the objective is to *send packages between 2 platforms* using a
 traffic generator called :ref:`pktgen <sec_pktgen>` where l3fwd example
@@ -339,6 +340,5 @@ This section will explain how to do in order to work in a virtual environment wh
 7. Run "start_qemu.sh" script.
 
 
-
-
+.. _DPDK: http://dpdk.org
 
