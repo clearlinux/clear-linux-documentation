@@ -6,3 +6,6 @@ Advanced configuration
 
    network_boot
    mixer
+   ac-dpdk
+   ac-ovs-dpdk
+
