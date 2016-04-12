@@ -1,7 +1,7 @@
 .. _ac-ovs-dpdk:
 
-OpenvSwitch and DPDK use case
-#############################
+OpenvSwitch and DPDK
+####################
 
 Introduction
 ============

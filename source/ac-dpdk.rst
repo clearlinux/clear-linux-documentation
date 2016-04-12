@@ -1,7 +1,7 @@
 .. _ac-dpdk:
 
-Clear Linux & DPDK
-##################
+DPDK
+####
 
 Introduction
 ============
