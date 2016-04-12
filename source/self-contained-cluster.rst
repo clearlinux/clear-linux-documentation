@@ -63,9 +63,10 @@ Network Interface Setup
 
 The ``eth1`` interface is set up to have a static IP address of ``192.168.0.200``
 
-Sample :file:`/etc/network/interfaces` file:
+Sample :file:`/etc/network/interfaces` file::
 
-:: 
+
+.. code-block:: raw
 
 /etc/network/interfaces
 # interfaces(5) file used by ifup(8) and ifdown(8)
@@ -97,27 +98,28 @@ optional. Please replace the MAC addresses below with your own.
 Please ensure the interfaces set here match yours. If you don't, and you
 start responding to corporate DHCP, you will be booted off the network.  
  
-Sample :file:`tenant_dns.cfg` configuration file, presuming you're using ``dnsmasq`` as your DHCP+DNS server::
+Sample :file:`tenant_dns.cfg` configuration file, presuming you're using
+``dnsmasq`` as your DHCP+DNS server::
 
-strict-order
-bind-interfaces
-interface=eth1
-except-interface=lo
-except-interface=eth0
-pid-file=/var/run/tenant_dns.pid
-dhcp-leasefile=/var/lib/misc/tenant_dns.leases
-listen-address=192.168.0.200
-#Allows subslicing to 192.168.0.64/26
-dhcp-range=192.168.0.65,192.168.0.126,12h
-dhcp-host=*:*:*:*:*:*,id:*
-dhcp-no-override
-dhcp-lease-max=253
-dhcp-option-force=3,192.168.0.200
-dhcp-sequential-ip
-dhcp-host=B8:AE:ED:7B:51:50,192.168.0.101
-dhcp-host=C0:3F:D5:67:A7:6F,192.168.0.102
-dhcp-host=B8:AE:ED:7B:72:58,192.168.0.103
-dhcp-host=C0:3F:D5:67:A1:FB,192.168.0.104
+    strict-order
+    bind-interfaces
+    interface=eth1
+    except-interface=lo
+    except-interface=eth0
+    pid-file=/var/run/tenant_dns.pid
+    dhcp-leasefile=/var/lib/misc/tenant_dns.leases
+    listen-address=192.168.0.200
+    #Allows subslicing to 192.168.0.64/26
+    dhcp-range=192.168.0.65,192.168.0.126,12h
+    dhcp-host=*:*:*:*:*:*,id:*
+    dhcp-no-override
+    dhcp-lease-max=253
+    dhcp-option-force=3,192.168.0.200
+    dhcp-sequential-ip
+    dhcp-host=B8:AE:ED:7B:51:50,192.168.0.101
+    dhcp-host=C0:3F:D5:67:A7:6F,192.168.0.102
+    dhcp-host=B8:AE:ED:7B:72:58,192.168.0.103
+    dhcp-host=C0:3F:D5:67:A1:FB,192.168.0.104
 
  
 The example above shows sub-slicing the DHCP network such that the CNCI gets
@@ -133,24 +135,24 @@ to the CIAO Compute and Management private network):
 
 Script to setup and reset your gateway and DHCP server::
 
-echo 0 > /proc/sys/net/ipv4/ip_forward
-iptables -F
-iptables -t nat -F
-iptables -t mangle -F
-iptables -X
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
-#iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 8889 -j DNAT --to 192.168.0.101:8889
-#iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 35357 -j DNAT --to 192.168.0.101:35357
-#iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 5000 -j DNAT --to 192.168.0.101:5000
-iptables -t nat -A PREROUTING -p tcp --dport 8889 -j DNAT --to 192.168.0.101:8889
-iptables -t nat -A PREROUTING -p tcp --dport 35357 -j DNAT --to 192.168.0.101:35357
-iptables -t nat -A PREROUTING -p tcp --dport 5000 -j DNAT --to 192.168.0.101:5000
-echo 1 > /proc/sys/net/ipv4/ip_forward
-killall dnsmasq
-rm -f /var/lib/misc/tenant_dns.leases
-dnsmasq -C tenant_dns.cfg
+    echo 0 > /proc/sys/net/ipv4/ip_forward
+    iptables -F
+    iptables -t nat -F
+    iptables -t mangle -F
+    iptables -X
+    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+    iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+    iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+    #iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 8889 -j DNAT --to 192.168.0.101:8889
+    #iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 35357 -j DNAT --to 192.168.0.101:35357
+    #iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 5000 -j DNAT --to 192.168.0.101:5000
+    iptables -t nat -A PREROUTING -p tcp --dport 8889 -j DNAT --to 192.168.0.101:8889
+    iptables -t nat -A PREROUTING -p tcp --dport 35357 -j DNAT --to 192.168.0.101:35357
+    iptables -t nat -A PREROUTING -p tcp --dport 5000 -j DNAT --to 192.168.0.101:5000
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    killall dnsmasq
+    rm -f /var/lib/misc/tenant_dns.leases
+    dnsmasq -C tenant_dns.cfg
 
 This setup assumes:
 
