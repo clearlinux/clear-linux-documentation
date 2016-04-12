@@ -24,18 +24,18 @@ it's possible to connect NUCs running Clear Linux directly to a corporate
 network for Management and to run your own private network with its own DHCP
 server for the workload traffic.
 
- 
+
 Simple Networking Setup
-======================= 
+=======================
 
 This is an example of a 3+ NUC CIAO Network test setup with the same network
 for both Management and Compute, isolated from the corporate network. The
 mandatory components are:
 
 * the Gateway
-* Control Node 
-* Network Node 1 
-* Compute Node 1 
+* Control Node
+* Network Node 1
+* Compute Node 1
 
 The setup supports any number of additional compute nodes and network
 nodes, limited only by the size of the DHCP subnet configured on the
@@ -65,26 +65,22 @@ The ``eth1`` interface is set up to have a static IP address of ``192.168.0.200`
 
 Sample :file:`/etc/network/interfaces` file::
 
+    /etc/network/interfaces
+    # interfaces(5) file used by ifup(8) and ifdown(8)
+    auto lo
+    iface lo inet loopback
 
-.. code-block:: raw
+    # The primary network interface, connected to corporate network
+    auto eth0
+    iface eth0 inet dhcp
 
-/etc/network/interfaces
-# interfaces(5) file used by ifup(8) and ifdown(8)
-auto lo
-iface lo inet loopback
+    #Static interface connected to the supernova network
+    auto eth1
+    iface eth1 inet static
+    address 192.168.0.200
+    netmask 255.255.255.0
 
-# The primary network interface, connected to corporate network
-auto eth0
-iface eth0 inet dhcp
 
-#Static interface connected to the supernova network
-
-auto eth1
-iface eth1 inet static
-address 192.168.0.200
-netmask 255.255.255.0
-
- 
 DHCP Setup
 ----------
 
@@ -93,11 +89,11 @@ Network (CN, NN, Control nodes and the CNCI). In the following sample, the DHCP
 server always provides the same IP address to the same Node; however, this is
 optional. Please replace the MAC addresses below with your own.
 
-.. caution:: 
+.. caution::
 
 Please ensure the interfaces set here match yours. If you don't, and you
-start responding to corporate DHCP, you will be booted off the network.  
- 
+start responding to corporate DHCP, you will be booted off the network.
+
 Sample :file:`tenant_dns.cfg` configuration file, presuming you're using
 ``dnsmasq`` as your DHCP+DNS server::
 
@@ -121,9 +117,9 @@ Sample :file:`tenant_dns.cfg` configuration file, presuming you're using
     dhcp-host=B8:AE:ED:7B:72:58,192.168.0.103
     dhcp-host=C0:3F:D5:67:A1:FB,192.168.0.104
 
- 
+
 The example above shows sub-slicing the DHCP network such that the CNCI gets
-a DHCP range that can be independently routeable. 
+a DHCP range that can be independently routeable.
 
 
 NAT Setup
@@ -183,7 +179,7 @@ All other nodes in this sample setup ``192.168.0.103, 104, ..`` are compute
 nodes. Compute nodes currently have a statically-assigned IPs. This allows
 the CNCIs to come out of fixed range.
 
- 
+
 Connecting to Instances
 =======================
 
