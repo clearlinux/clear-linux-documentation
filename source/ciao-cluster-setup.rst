@@ -5,11 +5,11 @@
 Introduction
 ############
 
-This topic explains how to set up a cluster of machines running Clear Linux* OS 
+This topic explains how to set up a cluster of machines running Clear Linux* OS
 for Intel® Architecture to use cloud integrated advanced orchestrator (CIAO).
 
-While the table of contents provides links to specific points of information, this topic 
-is intended as an ordered workflow. Make sure you set up and start your cluster components 
+While the table of contents provides links to specific points of information, this topic
+is intended as an ordered workflow. Make sure you set up and start your cluster components
 in the correct order as explained below.
 
 Infrastructure prerequisites
@@ -52,10 +52,10 @@ Network needs
 ~~~~~~~~~~~~~
 
 A detailed description of how to set up your networking cluster is
-documented at the link below. This allows you to set up your own self 
+documented at the link below. This allows you to set up your own self
 contained isolated cluster of nodes.
 
-:ref:`self-contained-cluster` 
+:ref:`self-contained-cluster`
 
 It is possible to use a corporate or a lab network and not install a
 separate DHCP server, BUT the DHCP server and network management
@@ -67,10 +67,10 @@ Note: If you are using dnsmasq as your DHCP/DNS server, complete the following:
 
 #. Ensure that the ``dhcp-sequential-ip`` option is set.
 #. Configure ``dhcp-host=\*:\*:\*:\*:\*:\*,id:\*``, which ensures that the CNCI's get
-   unique IP addresses even if their hostnames are the same inside the VM. A longer term 
+   unique IP addresses even if their hostnames are the same inside the VM. A longer term
    fix is to use ``cloud-init meta-data.json`` to give each a
-   tenant specific hostname. 
-#. Set up static MAC to IP mappings (using the dhcp-host option) for your NUCs 
+   tenant specific hostname.
+#. Set up static MAC to IP mappings (using the dhcp-host option) for your NUCs
    to ensure you never lose network connectivity.
 
 Node setup
@@ -79,7 +79,7 @@ Node setup
 Install Clear Linux OS for Intel Architecture as host on all nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install Clear Linux OS for Intel Architecture as the host OS on all nodes following 
+Install Clear Linux OS for Intel Architecture as the host OS on all nodes following
 the instructions in the topic :ref:`_gs_installing_clr_as_host`. The current April 2016
 `downloadable images <https://download.clearlinux.org/image/>`__
 are compatible with CIAO.
@@ -90,7 +90,7 @@ After the installation, complete the following steps:
 
     swupd verify
 
-#. If the above command does not show zero failures, run the command below repeatedly 
+#. If the above command does not show zero failures, run the command below repeatedly
    until it shows zero uncorrected errors.::
 
     swupd verify --fix
@@ -281,7 +281,7 @@ Prepopulate the CNCI image cache
 This section describes how to generate a CNCI image from a vanilla
 clear cloud qcow2 image:
 
-    cd /var/lib/ciao/images 
+    cd /var/lib/ciao/images
     curl -O https://download.clearlinux.org/image/clear-7310-cloud.img.xz
     xz -T0 --decompress clear-7310-cloud.img.xz
     ln -s clear-7310-cloud.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
@@ -338,13 +338,13 @@ be installed in the control node and be part of the control node
 CA root.
 On Clear Linux OS for Intel Architecture, this is by::
 
-    sudo mkdir /etc/ca-certs                                                             
-    sudo cp cacert.pem /etc/ca-certs                                                        
-    sudo c_hash /etc/ca-certs/cacert.pem                                                    
+    sudo mkdir /etc/ca-certs
+    sudo cp cacert.pem /etc/ca-certs
+    sudo c_hash /etc/ca-certs/cacert.pem
     (note the generated hash from the prior command and use it in the next commands:)
-    sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>                           
-    sudo mkdir /etc/ssl                                                                  
-    sudo ln -s /etc/ca-certs/ /etc/ssl/certs                                              
+    sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>
+    sudo mkdir /etc/ssl
+    sudo ln -s /etc/ca-certs/ /etc/ssl/certs
     sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
 
 You will need to tell the controller where the keystone service is located and
@@ -455,7 +455,7 @@ For general debuging, you can:
 * Launch less VMs in a herd. Our NUC's can handle approx. <= 50-100
   starting at once per compute node. Our Haswell-EP servers can handle
   approx. <= 500 starting at once per compute node.
-* Tweak the launcher to enable remote access. For example, when using netcat, if you Control-C, that kills netcat. 
+* Tweak the launcher to enable remote access. For example, when using netcat, if you Control-C, that kills netcat.
   Instead from the host, send a Control-C via netcat to the target as::
 
     echo -ne "99||\x03" | netcat 192.168.0.102 6309
@@ -541,7 +541,7 @@ Once instances are created, do the following:
 
     dhcp-host=c0:3f:d5:63:13:d9,192.168.0.101
 
-   The above is example only. Insert your MAC and the desired IP address.  
+   The above is example only. Insert your MAC and the desired IP address.
 
 Network node
 ------------
@@ -558,7 +558,7 @@ Complete the following:
    Note: You *cannot* ping the CNCI IP from the same Network Node (a
    macvtap vepa mode limitation). However you can ping it with any other NN or CN/
 
-#. For Data Center DHCP Server, check that the CNCI MAC addresses all show up with unique IP addresses. 
+#. For Data Center DHCP Server, check that the CNCI MAC addresses all show up with unique IP addresses.
    If not your DHCP server may not be able to handle large volume of DHCP
    requests coming very close to on another.
 
@@ -606,7 +606,7 @@ Once instances are created:
 #. Check that you can ping the instance IP address.
 #. ``ip -d link \| grep alias``: Check to see that there exists a gre tunnel to the CN.
 #. ``ps auxw | grep dns``: Check to see that a dnsqmasq running on behalf of the tenant subnet.
-#. ``cat /tmp/dns*leases``: Check to see that your instance has connected to CNCI and requested an IP address. If you do not 
+#. ``cat /tmp/dns*leases``: Check to see that your instance has connected to CNCI and requested an IP address. If you do not
    see your instance MAC in the leases, it means your VM never connected to the CNCI, which
    means that the VM will not have network access.
 #. ``iptables-save``: Check to see the ssh forwarding rules are setup correctly.
@@ -622,7 +622,7 @@ Complete the following:
 
    * Check that the interface is setup correctly to perform DHCP.
    * Check that the launcher is attaching the right interface to the VM.
-   * Check that the interface exists on the CN and is attached to the right 
+   * Check that the interface exists on the CN and is attached to the right
      bridge and is attached to the right tunnel.
 
 #. If the instance can be pinged but you cannot SSH into the instance:

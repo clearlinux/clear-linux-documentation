@@ -1,4 +1,4 @@
-.. _self-contained-ciao-cluster:
+.. _self-contained-cluster:
 
 Self-contained CIAO Cluster
 ###########################
