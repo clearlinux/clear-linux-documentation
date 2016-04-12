@@ -55,9 +55,7 @@ A detailed description of how to set up your networking cluster is
 documented at the link below. This allows you to set up your own self 
 contained isolated cluster of nodes.
 
-`https://securewiki.ith.intel.com/display/otcclr/Supernova+Networking+-+Self+Contained+Setup <https://securewiki.ith.intel.com/display/otcclr/Supernova+Networking+-+Self+Contained+Setup>`__
-
-<$$$ Content from the above location needs to be converted for external consumption, then the link will be updated. $$$>
+:ref:`self-contained-cluster` 
 
 It is possible to use a corporate or a lab network and not install a
 separate DHCP server, BUT the DHCP server and network management
