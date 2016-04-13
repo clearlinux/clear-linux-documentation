@@ -6,7 +6,7 @@ Introduction
 ############
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
-for Intel® Architecture to use :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,
+for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,
 or CIAO.
 
 While the table of contents provides links to specific points of information, this
@@ -84,13 +84,12 @@ many MACs (for example, more than dozens) on your port.
 Node setup
 ==========
 
-Install Clear Linux OS for Intel Architecture as host on all nodes
-------------------------------------------------------------------
+Install Clear Linux as host on all nodes
+----------------------------------------
 
-Install Clear Linux OS for Intel Architecture as the host OS on all nodes following
-the instructions in the topic :ref:`gs_installing_clr_as_host`. The current April 2016
-`downloadable images <https://download.clearlinux.org/image/>`__
-are compatible with CIAO.
+Install Clear Linux as the host OS on all nodes by following the instructions
+in the topic :ref:`gs_installing_clr_as_host`. The current April 2016
+`downloadable images`_ are compatible with CIAO.
 
 After the installation, complete the following steps:
 
@@ -112,6 +111,7 @@ After the installation, complete the following steps:
 
     $ swupd verify
     $ swupd verify --fix
+
 
 Build the CIAO software
 -----------------------
@@ -160,14 +160,14 @@ in the habit of doing this correctly now.
 Create the controller web certificates
 --------------------------------------
 
-On your development box, generate Certificates for the controller's https service::
+On your development box, generate ssl certificates for the controller's https service::
 
     $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout controller_key.pem -out controller_cert.pem
 
 Copy the ``controller\_cert.pem`` and ``controller\_key.pem`` files to your
 controller node.  You can use the same location where you will be storing
-your controller binary (ciao-controller).
-For our dev test clusters, the keys are already in ``/etc/pki/ciao``.
+your controller binary (ciao-controller).  For our dev test clusters, the keys
+are already in ``/etc/pki/ciao``.
 
 You'll also need to pull that certificate into your browser as noted below in
 the `Starting a workload` section.
@@ -177,13 +177,10 @@ Keystone node
 
 Some node needs to run your Keystone service. You can run it anywhere
 that is network accessible from both your control node's controller software
-and your web browser. As a convenience you might run it on your control
-node or on your network node. Detailed documentation on setting up a
-Keystone VM for use with our software is described at the link below:
+and your web browser. For convenience, you might run it on your control
+node or on your network node. General documentation on setting up Keystone
+services can be found at the `Openstack developer`_ website.
 
-`https://securewiki.ith.intel.com/display/otcclr/OpenStack+Integration#OpenStackIntegration-KeystonewithSSL <https://securewiki.ith.intel.com/display/otcclr/OpenStack+Integration#OpenStackIntegration-KeystonewithSSL>`__.
-
-<$$$ Content from the above location needs to be converted for external consumption, then the link will be updated. $$$>
 
 Controller node setup
 ~~~~~~~~~~~~~~~~~~~~~
@@ -232,7 +229,7 @@ Prepopulate the OS image cache
 
 We have tested the Fedora 23 cloud
 `image <https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2>`__,
-Clear Linux OS for Intel Architecture cloud `images <https://download.clearlinux.org/image/>`__, and an
+Clear Linux OS for Intel Architecture cloud `downloadable images`_, and an
 Ubuntu image. Each will be referenced very specifically by a UUID in our
 configuration files, so follow the instructions here exactly. Symlinks
 are used, so you as a human can easily see which image is which with a
@@ -633,4 +630,6 @@ Complete the following:
    * Check the MTU set on the interface. The MTU has to match the MTU sent by the CNCI (1400 currently).
    * If the MTU on the interface is still 1500, then the DHCP client on the instance does not respect the MTU sent in by the DHCP server.
 
+.. _downloadable images: https://download.clearlinux.org/image
+.. _Openstack developer: http://docs.openstack.org/developer/keystone/setup.html
 .. _go: https://golang.org/doc/articles/go_command.html
