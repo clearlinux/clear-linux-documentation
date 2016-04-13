@@ -280,7 +280,7 @@ This section describes how to generate a CNCI image from a vanilla
 clear cloud qcow2 image::
 
   cd /var/lib/ciao/images
-  curl -O https://download.clearlinux.org/image/clear-7310-cloud.img.xz
+  curl -O https://download.clearlinux.org/demos/ciao/clear-7370-ciao-networking.img.xz
   xz -T0 --decompress clear-7310-cloud.img.xz
   ln -s clear-7310-cloud.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
   $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7310-cloud.img /etc/pki/ciao/
