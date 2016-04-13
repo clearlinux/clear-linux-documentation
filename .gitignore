@@ -1,5 +1,5 @@
 #Exluding from the tree the html build files
-source/_build/
+build
 # ignore vi temporary files
 *.swp
 *~
