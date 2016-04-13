@@ -26,34 +26,144 @@ computers that lack built-in PXE support.
 
 Clear Linux Project for Intel Architecture can be configured to do network
 booting via HTTP with the help of iPXE. The following sets up an iPXE
-environment using Clear Linux OS for Intel Architecture, but the configuration 
-options may apply elsewhere. First, add the ``pxe-server`` bundle to your
-system with:
+environment using Clear Linux OS for Intel Architecture, but the configuration
+options may apply elsewhere.
+
+Step 1
+-------
+
+Add the pxe-server bundle to your system which has all the bits to run a PXE
+server for Clear Linux.
 
 .. code-block:: console
 
   # swupd bundle-add pxe-server
 
+Step 2
+-------
 
-DHCP configuration
--------------------
+Configure the tftpd service using ``dnsmasq``. To do this, create the
+:file:`/etc/dnsmasq.conf` file with the following entries:
 
-To use PXE chainloading, set up ISC DHCPD to hand out ``undionly.kpxe`` to legacy
-PXE clients and then hand out boot configuration only to iPXE clients. Do
-this by telling ISC DHCPD to use different configurations based on the DHCP user class.
-Here's one way to do this:
+.. code-block:: console
+
+  # cat << EOF > /etc/dnsmasq.conf
+  enable-tftp
+  tftp-root=/srv/tftp/
+  EOF
+
+Step 3
+-------
+
+Download the ``undionly.kpxe`` (legacy) and ``ipxe.efi`` (EFI) files from `the
+iPXE website <http://boot.ipxe.org/>`_, and place them in your TFTP directory.
+
+.. code-block:: console
+
+  # mkdir /srv/tftp/
+  # curl -o /srv/tftp/undionly.kpxe http://boot.ipxe.org/undionly.kpxe
+  # curl -o /srv/tftp/ipxe.efi http://boot.ipxe.org/ipxe.efi
+
+Step 4
+-------
+
+Start the dnsmasq service with:
+
+.. code-block:: console
+
+  # systemctl start dnsmasq.service
+
+Step 5
+-------
+
+The kernel (linux), initramfs (initrd) and the iPXE scripts are transported via
+HTTP. Download the Linux kernel and initrdfiles, and place them into the http
+server root ``/var/www/pxe/``.
+
+.. code-block:: console
+
+  # mkdir -p /var/www/pxe/
+  # version=$(cat /usr/share/clear/version)
+  # curl -o /var/www/pxe/clear-${version}-pxe.tar.xz https://download.clearlinux.org/image/clear-${version}-pxe.tar.xz
+  # tar -xJf /var/www/pxe/clear-${version}-pxe.tar.xz -C /var/www/pxe/ && rm /var/www/pxe/clear-${version}-pxe.tar.xz
+  # unset version
+
+Step 6
+-------
+
+Create an iPXE script, and place it into the http server root
+:file:`/var/www/pxe/ipxe_boot_script.txt`.
+
+.. code-block:: console
+
+  # cat << EOF > /var/www/pxe/ipxe_boot_script.txt
+  #!ipxe
+  
+  kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd
+  initrd initrd
+  boot
+  EOF
+
+If your kernel is not named linux, either rename the kernel or create a symlink.
+
+.. code-block:: console
+
+  # kernel=$(find /var/www/pxe/ -name 'org.clearlinux.*')
+  # ln -s ${kernel} /var/www/pxe/linux
+  # unset kernel
+
+Step 7
+-------
+
+Create a configuration file for the http service (nginx in this example) to
+serve the kernel, initramfs, and ipxe_boot_script in
+:file:`/etc/nginx/nginx.conf` with the following:
+
+.. code-block:: console
+
+  # mkdir /etc/nginx/
+  # cat << EOF > /etc/nginx/nginx.conf
+  server {
+      listen       80;
+      server_name  hostname;
+      server_name_in_redirect off;
+      location / {
+          root   /var/www/pxe;
+          autoindex on;
+          index  index.html index.htm;
+      }
+  }
+  EOF
+
+Step 8
+-------
+
+Start the nginx service with:
+
+.. code-block:: console
+
+  # systemctl start nginx.service
+
+Step 9
+-------
+
+To use PXE chainloading, set up ISC DHCPD to hand out ``undionly.kpxe`` to
+legacy PXE clients and then hand out boot configuration only to iPXE clients.
+Do this by telling ISC DHCPD to use different configurations based on the DHCP
+user class. Here’s one way to do this using the :file:`/etc/dhcpd.conf` file:
 
 .. code-block:: console
 
   allow booting;
   allow bootp;
-
+  DHCPDARGS="interface";
+  
   # Set up a class to assign an IP only to devices is attempting network boot.
   class "pxeclients" {
           match if substring(option vendor-class-identifier, 0, 9) = "PXEClient";
           next-server 192.168.1.1;
           if exists user-class and option user-class = "iPXE" {
-                  filename "http://my.web.server/real_boot_script.txt";
+                  filename "http://my.web.server/ipxe_boot_script.txt";
           } elsif exists client-arch and option client-arch = 9 {
                   # client-arch = 9 (64-bit EFI)
                   filename "ipxe.efi";
@@ -62,6 +172,7 @@ Here's one way to do this:
                   filename "undionly.kpxe";
           }
   }
+  
   # Private subnet, in case you aren't able to run your own network wide DHCP service.
   # Works when the machine you are network booting has two network interfaces,
   # one connected to the private PXE boot network and the other connected to an external
@@ -73,23 +184,23 @@ Here's one way to do this:
           }
   }
 
-This ensures that either iPXE image (``undionly.kpxe`` for BIOS or ``ipxe.efi`` for EFI) is handed
-out only when the DHCP request comes from a legacy PXE client or from a UEFI client. Once
-iPXE loads, the DHCP server will direct it to boot from options configured in your
-``http://my.web.server/real_boot_script.txt`` file, where ``my.web.server`` and the filename
-are replaced with your actual location.
+This ensures that either iPXE image (``undionly.kpxe`` for BIOS or ``ipxe.efi``
+for EFI) is handed out only when the DHCP request comes from a legacy PXE client
+or from a UEFI client. Once iPXE loads, the DHCP server will direct it to boot
+from options configured in your ``http://my.web.server/real_boot_script.txt``
+file.
 
-The address ``192.168.1.1`` should be set to the address your TFTP server is using.
+Note.
+``192.168.1.1`` is set to the address your TFTP server is using.
+``my.web.server`` is set to the address your web server is using.
+``DHCPDARGS`` is set to the interface you are using.
 
-The subnet being used in this example is private; if the DHCPD service you use applies to your
-entire network, modify the configuration as needed.
+Step 10
+-------
 
-iPXE-specific options
------------------------
-
-There are several DHCP options specific to `iPXE <http://ipxe.org/>`_ which are not recognized by the standard ISC
-dhcpd installation. To add support for these options, place the following at the start of your
-:file:`/etc/dhcpd.conf`:
+There are several DHCP options specific to `iPXE <http://ipxe.org/>`_ which are
+not recognized by the standard ISC dhcpd installation. To add suport for these
+options, place the following at the start of your :file:`/etc/dhcpd.conf`:
 
 .. code-block:: console
 
@@ -98,6 +209,7 @@ dhcpd installation. To add support for these options, place the following at the
   #   Source: http://www.ipxe.org/howto/dhcpd       #
   ###################################################
   option space ipxe;
+  option client-arch code 93 = unsigned integer 16;
   option ipxe-encap-opts code 175 = encapsulate ipxe;
   option ipxe.priority code 1 = signed integer 8;
   option ipxe.keep-san code 8 = unsigned integer 8;
@@ -139,87 +251,24 @@ dhcpd installation. To add support for these options, place the following at the
   option ipxe.sdi code 40 = unsigned integer 8;
   option ipxe.nfs code 41 = unsigned integer 8;
 
-Next, create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd service with:
+Step 11
+-------
+
+Create an empty :file:`/var/db/dhcpd.leases` file.
 
 .. code-block:: console
 
-  # mkdir -p /var/db
-  # touch /var/db/dhcp.leases
+  # mkdir /var/db/
+  # touch /var/db/dhcpd.leases
+
+Step 12
+-------
+
+Start the dhcp service with:
+
+.. code-block:: console
+
   # systemctl start dhcp4.service
-
-TFTP configuration
------------------------
-
-Clear Linux uses ``dnsmasq`` to provide the tftpd service. Modify
-:file:`/etc/dnsmasq.conf` with the following required entries:
-
-.. code-block:: console
-
-  enable-tftp
-  tftp-root=/srv/tftp/
-
-Download the ``undionly.kpxe`` (legacy) and ``ipxe.efi`` (EFI) files from
-`the iPXE website <http://boot.ipxe.org/>`_ and place them in your TFTP
-directory. Then you can start the service with
-
-.. code-block:: console
-
-  # systemctl start dnsmasq.service
-
-
-HTTP configuration
------------------------
-
-The kernel (linux), initramfs (initrd) and the iPXE scripts are transported
-via HTTP. The Linux kernel and initrd files can be downloaded from
-https://download.clearlinux.org/image/ where ``clear-$version-pxe.tar.xz`` is a
-compressed tar file containing two clearly-labeled files that should be moved
-to the http server root ``/var/www/pxe/``.
-
-Create a configuration file for the http service (nginx in this example) to
-serve the kernel and initramfs in :file:`/etc/nginx/nginx.conf` with the
-following:
-
-.. code-block:: console
-
-  worker_processes  1;
-  http {
-      sendfile        on;
-      keepalive_timeout  65;
-      server {
-          listen       80;
-          server_name  hostname;
-          server_name_in_redirect off;
-          location / {
-              root   /var/www/pxe;
-              autoindex on;
-              index  index.html index.htm;
-          }
-      }
-  }
-
- And start the service with:
-
-.. code-block:: console
-
-  # systemctl start nginx.service
-
-
-iPXE script
------------------------
-
-The iPXE script used is
-
-.. code-block:: console
-
-  #!ipxe
-
-  kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd
-  initrd initrd
-  boot
-
-This should be located in ``/var/www/pxe`` with the kernel and initrd.
-
 
 PXE + grub
 =======================
