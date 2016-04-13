@@ -127,7 +127,7 @@ Build the CIAO software
    $ cd $GOPATH/src github.com/01org/ciao
    $ go install ./...
 
-The binaries will install to ``$GOPATH/bin``. You should have ``cnci\_agent``, ``ciao-launcher``, ``ciao-controller``, and ``ciao-scheduler``.
+The binaries will install to ``$GOPATH/bin``. You should have ``cnci_agent``, ``ciao-launcher``, ``ciao-controller``, and ``ciao-scheduler``.
 
 Build certificates
 ------------------
