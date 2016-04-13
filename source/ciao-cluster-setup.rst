@@ -123,8 +123,8 @@ Build the CIAO software
 
 #. Install and build the Ciao binaries::
 
-  $ cd $GOPATH/src github.com/01org/ciao
-  $ go install ./...
+   $ cd $GOPATH/src github.com/01org/ciao
+   $ go install ./...
 
 The binaries will install to ``$GOPATH/bin``. You should have ``cnci\_agent``, ``ciao-launcher``, ``ciao-controller``, and ``ciao-scheduler``.
 
@@ -227,15 +227,13 @@ location.
 Prepopulate the OS image cache
 ------------------------------
 
-We have tested the Fedora 23 cloud
-`image <https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2>`__,
-Clear Linux OS for Intel Architecture cloud `downloadable images`_, and an
-Ubuntu image. Each will be referenced very specifically by a UUID in our
-configuration files, so follow the instructions here exactly. Symlinks
-are used, so you as a human can easily see which image is which with a
-human readable name, while still having the UUID-name file nodes that
-the cloud config expects. The references below download from a system in
-JF, which has compressed versions of the images.
+We have tested the `Fedora 23 cloud image`_, Clear Linux OS for Intel
+Architecture cloud `downloadable images`_, and an Ubuntu image. Each will
+be referenced very specifically by a UUID in our configuration files, so
+follow the instructions here exactly. Symlinks are used, so you as a human
+can easily see which image is which with a human readable name, while still
+having the UUID-name file nodes that the cloud config expects. The references
+below download from a system in JF, which has compressed versions of the images.
 
 Fedora* Cloud::
 
@@ -259,7 +257,7 @@ launching type. For example::
 
     sudo ./launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-agent-localhost.pem --server=<your-server-address> --network=cn
 
-Optionally add ``-logtostderr`` (more verbose with also "-v=2") to get
+Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
 The launcher runs as root because launching qemu/kvm virtual machines
@@ -275,17 +273,17 @@ launched by the controller.
 Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
 correct roles and names as previously described.
 
-Prepopulate the CNCI image cache
---------------------------------
+Pre-populate the CNCI image cache
+---------------------------------
 
 This section describes how to generate a CNCI image from a vanilla
-clear cloud qcow2 image:
+clear cloud qcow2 image::
 
-    cd /var/lib/ciao/images
-    curl -O https://download.clearlinux.org/image/clear-7310-cloud.img.xz
-    xz -T0 --decompress clear-7310-cloud.img.xz
-    ln -s clear-7310-cloud.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
-    $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7310-cloud.img /etc/pki/ciao/
+  cd /var/lib/ciao/images
+  curl -O https://download.clearlinux.org/image/clear-7310-cloud.img.xz
+  xz -T0 --decompress clear-7310-cloud.img.xz
+  ln -s clear-7310-cloud.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
+  $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7310-cloud.img /etc/pki/ciao/
 
 Start the network node launcher
 -------------------------------
@@ -294,7 +292,8 @@ The network node's launcher is run almost the same as the compute node.
 The primary difference is that it uses the network node ("nn") launching
 type::
 
-    sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
+  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
+
 
 Starting the Controller
 #######################
@@ -338,25 +337,27 @@ be installed in the control node and be part of the control node
 CA root.
 On Clear Linux OS for Intel Architecture, this is by::
 
-    sudo mkdir /etc/ca-certs
-    sudo cp cacert.pem /etc/ca-certs
-    sudo c_hash /etc/ca-certs/cacert.pem
-    (note the generated hash from the prior command and use it in the next commands:)
-    sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>
-    sudo mkdir /etc/ssl
-    sudo ln -s /etc/ca-certs/ /etc/ssl/certs
-    sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
+    $ sudo mkdir /etc/ca-certs
+    $ sudo cp cacert.pem /etc/ca-certs
+    $ sudo c_hash /etc/ca-certs/cacert.pem
+    
+Note the generated hash from the prior command and use it in the next commands::
+
+    $ sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>
+    $ sudo mkdir /etc/ssl
+    $ sudo ln -s /etc/ca-certs/ /etc/ssl/certs
+    $ sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
 
 You will need to tell the controller where the keystone service is located and
 pass it the Ciao service username and password. DO NOT USE
 localhost for your server name. **It must be the fully qualified DNS
 name of the system which is hosting the keystone service**.
-An SSL enabled Keystone is required, with additional parameters
+An SSL-enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
 
-    sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-[scheduler-hostname].pem --cert=/etc/pki/ciao/cert-client-controller-[controller-hostname].pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
+    $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-[scheduler-hostname].pem --cert=/etc/pki/ciao/cert-client-controller-[controller-hostname].pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
 
-Optionally add ``-logtostderr`` (more verbose with also "-v=2") to get
+Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
 Point a browser at your controller node. For example:
@@ -392,9 +393,9 @@ Login information will be validated to the keystone service. After
 successful login, you will be redirected to a page where you can launch
 workloads.
 
-#. Select a tenant, eg: "Ciao Test User No Limits".
-#. Select an image, eg: "Clear Cloud".
-#. Enter an instance count, eg: "1".
+#. Select a tenant, such as: "Ciao Test User No Limits".
+#. Select an image, such as: "Clear Cloud".
+#. Enter an instance count, such as: "1".
 #. Press "Send".
 
 If you would like to see performance data, you may optionally check the
@@ -426,16 +427,16 @@ In the `controller node stats UI <http://192.168.0.101:8889/stats>`__:
 
 On the network node, run the following commands::
 
-    sudo killall -9 qemu-system-x86_64
-    sudo rm -rf /var/lib/ciao/instances/
-    sudo reboot
+  $ sudo killall -9 qemu-system-x86_64
+  $ sudo rm -rf /var/lib/ciao/instances/
+  $ sudo reboot
 
 If you were unable to successfully delete all workload VM instances
 through the UI, then on each compute node run these commands::
 
-    sudo killall -9 qemu-system-x86_64
-    sudo rm -rf /var/lib/ciao/instances/
-    sudo reboot
+  $ sudo killall -9 qemu-system-x86_64
+  $ sudo rm -rf /var/lib/ciao/instances/
+  $ sudo reboot
 
 Restart your scheduler, network node launcher, compute node launcher,
 and controller.
@@ -616,9 +617,10 @@ Instance
 
 Complete the following:
 
-#. In case of systemd-based operating systems, ensure that ``UseMTU=true``. The default is sometimes false, but in newer bundles
-   of Clear Linux OS for Intel Architecture, the default is set to true.
-#. If the instance cannot be pinged from the CNCI as inferred from ``ip -d link | grep alias``:
+#. In case of systemd-based operating systems, ensure that ``UseMTU=true``. The
+   default is sometimes false, but in newer bundles of Clear Linux OS for Intel Architecture, the default is set to true.
+#. If the instance cannot be pinged from the CNCI as inferred from
+   ``ip -d link | grep alias``:
 
    * Check that the interface is setup correctly to perform DHCP.
    * Check that the launcher is attaching the right interface to the VM.
@@ -631,5 +633,6 @@ Complete the following:
    * If the MTU on the interface is still 1500, then the DHCP client on the instance does not respect the MTU sent in by the DHCP server.
 
 .. _downloadable images: https://download.clearlinux.org/image
+.. _Fedora 23 cloud image: https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
 .. _Openstack developer: http://docs.openstack.org/developer/keystone/setup.html
 .. _go: https://golang.org/doc/articles/go_command.html
