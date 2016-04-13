@@ -2,8 +2,9 @@
 
 .. contents::
 
-Introduction
-############
+ciao cluster setup
+##################
+
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
 for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,
@@ -14,10 +15,10 @@ topic is intended as an ordered workflow. Be sure to start your cluster componen
 in the correct order as explained below.
 
 Infrastructure prerequisites
-############################
+============================
 
 Hardware needs
-==============
+--------------
 
 You'll need at least four machines and a switch connecting them to form
 your beginning CIAO cluster. The switch is assumed to be plugged directly
@@ -25,28 +26,28 @@ into an "upstream" network running a DHCP server. The following examples
 assume you have four nodes on a ``192.168.0.0/16`` network:
 
 Controller node
----------------
+~~~~~~~~~~~~~~~
 
 * IP ``192.168.0.101``
 * Runs Controller, Scheduler, SSL Keystone.
 
 
 Network node ("nn")
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 * IP ``192.168.0.102``
 * Runs Launcher with ``--network=nn`` option
 * Has CNCI image in ``/var/lib/ciao/images``. See below for more on CNCI image preparation.
 
 Compute node 1 ("cn1")
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 * IP ``192.168.0.103``
 * Runs Launcher with ``--network=cn`` option
 * Has workload images in ``/var/lib/ciao/images``
 
 Compute node 2 ("cn2")
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 * ``IP 192.168.0.104``
 * Runs Launcher with ``--network=cn option``
@@ -54,7 +55,7 @@ Compute node 2 ("cn2")
 
 
 Network needs
-=============
+-------------
 
 A detailed description of how to set up your self-contained-cluster is
 documented at the link below. This allows you to set up your own self
@@ -84,10 +85,10 @@ many MACs (for example, more than dozens) on your port.
 Node setup
 ==========
 
-Install Clear Linux as host on all nodes
-----------------------------------------
+Install Clear Linux OS for Intel Architecture as host on all nodes
+------------------------------------------------------------------
 
-Install Clear Linux as the host OS on all nodes by following the instructions
+Install Clear Linux OS for Intel Architecture as the host OS on all nodes by following the instructions
 in the topic :ref:`gs_installing_clr_as_host`. The current April 2016
 `downloadable images`_ are compatible with CIAO.
 
@@ -129,10 +130,10 @@ Build the CIAO software
 The binaries will install to ``$GOPATH/bin``. You should have ``cnci\_agent``, ``ciao-launcher``, ``ciao-controller``, and ``ciao-scheduler``.
 
 Build certificates
-==================
+------------------
 
 Create the ssntp-internal communications certificates
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On your development machine, generate the certificates for each of your
 roles; general instructions can be found under the :ref:`ssntp_overview`
@@ -158,7 +159,7 @@ Correct client / server certificate roles will soon be required, so get
 in the habit of doing this correctly now.
 
 Create the controller web certificates
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On your development box, generate ssl certificates for the controller's https service::
 
@@ -173,7 +174,7 @@ You'll also need to pull that certificate into your browser as noted below in
 the `Starting a workload` section.
 
 Keystone node
-~~~~~~~~~~~~~
+-------------
 
 Some node needs to run your Keystone service. You can run it anywhere
 that is network accessible from both your control node's controller software
@@ -183,14 +184,14 @@ services can be found at the `Openstack developer`_ website.
 
 
 Controller node setup
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 The controller node will host your controller and scheduler. Certificates are assumed
 to be in ``/etc/pki/ciao``, generated with the correct roles and names
 as previously described.
 
 Scheduler
----------
+~~~~~~~~~
 
 Copy in the scheduler binary from your build/develop machine to any
 location, then launch it first (does not require root)::
@@ -207,7 +208,7 @@ Launching it first means this console output helps confirm your subsequent
 cluster configurations actions are indeed succeeding.
 
 ciao-controller
----------------
+~~~~~~~~~~~~~~~
 
 Important! DO NOT START CIAO-CONTROLLER YET! It must only be started after a network
 node is connected to the scheduler or else workloads may fail to start.
@@ -215,7 +216,7 @@ This restriction will be adressed once `Ciao issue #12 <https://github.com/01org
 is closed.
 
 Compute node setup
-~~~~~~~~~~~~~~~~~~
+------------------
 
 Each compute node needs one launcher daemon connected to the scheduler.
 Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
@@ -225,7 +226,7 @@ Copy in the launcher binary from your build/development machine to any
 location.
 
 Prepopulate the OS image cache
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We have tested the `Fedora 23 cloud image`_, Clear Linux OS for Intel
 Architecture cloud `downloadable images`_, and an Ubuntu image. Each will
@@ -248,7 +249,7 @@ Ubuntu::
     <Insert link here>
 
 Start the compute node launcher
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The launcher is run with options declaring certificates, maximum VMs
 (controls when "FULL" is returned by a node, scale to the resources
@@ -264,7 +265,7 @@ The launcher runs as root because launching qemu/kvm virtual machines
 requires ``/dev/kvm`` and other restricted resource access.
 
 Network node setup
-~~~~~~~~~~~~~~~~~~
+------------------
 
 The network node hosts VMs running the Compute Network Concentrator(s)
 Instance "CNCI" agent, one per tenant. These VMs are automatically
@@ -274,7 +275,7 @@ Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
 correct roles and names as previously described.
 
 Pre-populate the CNCI image cache
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section describes how to generate a CNCI image from a vanilla
 clear cloud qcow2 image::
@@ -286,7 +287,7 @@ clear cloud qcow2 image::
   $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7310-cloud.img /etc/pki/ciao/
 
 Start the network node launcher
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The network node's launcher is run almost the same as the compute node.
 The primary difference is that it uses the network node ("nn") launching
@@ -294,9 +295,8 @@ type::
 
   $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
 
-
-Starting the Controller
-#######################
+Starting the controller
+=======================
 
 Starting the Controller on the controller node is what truly activates your
 cluster for use. NOTE: Before starting the controller you must have a scheduler
@@ -371,7 +371,7 @@ a blank list of compute workload instances.
 
 
 Starting a workload
-###################
+===================
 
 Because we are using self signed certificates and our debug code counts
 on AJAX being able to communicate directly with the keystone service,
@@ -415,7 +415,7 @@ components if you've got consoles open and logging to standard output as
 described above.
 
 Resetting your cluster
-######################
+======================
 
 In the `controller node stats UI <http://192.168.0.101:8889/stats>`__:
 
@@ -442,10 +442,10 @@ Restart your scheduler, network node launcher, compute node launcher,
 and controller.
 
 Debug tips
-##########
+==========
 
 General debug
-~~~~~~~~~~~~~
+-------------
 
 For general debuging, you can:
 
@@ -467,7 +467,7 @@ For general debuging, you can:
 * Ssh into the workload instance VM by CNCI IP and port ``33000+ip[2]<<8+ip[3]``.
 
 Controller debug
-~~~~~~~~~~~~~~~~
+----------------
 
 The controller's port 8889 listener has a number of interesting debug data
 outputs at urls like:
@@ -486,10 +486,10 @@ outputs at urls like:
 * `hostname:8889/getCNCI <http://hostname:8889/getCNCI>`__
 
 Network debug
-~~~~~~~~~~~~~
+-------------
 
 Data center DHCP server
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The Data Center DHCP server is the server that serves the Physical
 network.
@@ -526,7 +526,7 @@ script that can do this is::
     dnsmasq -C tenant_dns.cfg
 
 Compute node
-------------
+~~~~~~~~~~~~
 
 Once instances are created, do the following:
 
@@ -545,7 +545,7 @@ Once instances are created, do the following:
    The above is example only. Insert your MAC and the desired IP address.
 
 Network node
-------------
+~~~~~~~~~~~~
 
 Complete the following:
 
@@ -576,7 +576,7 @@ Complete the following:
    * The above command instructs: "For all source MAC's, ignore the client id."
 
 CNCI image
-----------
+~~~~~~~~~~
 
 Complete the following:
 
@@ -585,7 +585,7 @@ Complete the following:
    of Clear Linux OS for Intel Architecture, the default is set to true.
 
 CNCI
-----
+~~~~
 
 Complete the following:
 
@@ -613,7 +613,7 @@ Once instances are created:
 #. ``iptables-save``: Check to see the ssh forwarding rules are setup correctly.
 
 Instance
---------
+~~~~~~~~
 
 Complete the following:
 
