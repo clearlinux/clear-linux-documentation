@@ -136,8 +136,7 @@ Create the ssntp-internal communications certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On your development machine, generate the certificates for each of your
-roles; general instructions can be found under the [ciao-cert](https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md)
-documentation.
+roles; general instructions can be found under the `ciao-cert`_ documentation.
 
 Pass in the host name for the host on which you will be running the service
 when generating the certificate.
@@ -633,3 +632,4 @@ Complete the following:
 .. _Fedora 23 cloud image: https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
 .. _Openstack developer: http://docs.openstack.org/developer/keystone/setup.html
 .. _go: https://golang.org/doc/articles/go_command.html
+.. _ciao-cert: https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md
