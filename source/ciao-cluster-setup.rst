@@ -74,7 +74,7 @@ many MACs (for example, more than dozens) on your port.
   If you are using ``dnsmasq`` as your DHCP/DNS server, complete the following:
 
   #. Ensure that the ``dhcp-sequential-ip`` option is set.
-  #. Configure ``dhcp-host=\*:\*:\*:\*:\*:\*,id:\*`` to ensure that the CNCIs get
+  #. Configure ``dhcp-host=*:*:*:*:*:*,id:*`` to ensure that the CNCIs get
      unique IP addresses even when their hostnames are the same inside the VM. A
      long-term fix is to use :file:`cloud-init meta-data.json` to give each a
      tenant-specific hostname.
@@ -161,7 +161,7 @@ On your development box, generate ssl certificates for the controller's https se
 
     $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout controller_key.pem -out controller_cert.pem
 
-Copy the ``controller\_cert.pem`` and ``controller\_key.pem`` files to your
+Copy the ``controller_cert.pem`` and ``controller_key.pem`` files to your
 controller node.  You can use the same location where you will be storing
 your controller binary (ciao-controller).  For our dev test clusters, the keys
 are already in ``/etc/pki/ciao``.
@@ -304,10 +304,10 @@ and network node already up and running together.**
 #. Copy in the initial database table data from the ciao-controller source
    (``$GOPATH/src/github.com/01org/ciao/ciao-controller`` on your
    build/development) to the same directory as the ciao-controller binary.
-   Copying in ``\*.csv`` will work.
+   Copying in ``*.csv`` will work.
 
 #. Copy in the controller html templates from the ciao-controller source to the
-   same directory as the ciao-controller binary. Copying in ``\*.gtpl`` will work.
+   same directory as the ciao-controller binary. Copying in ``*.gtpl`` will work.
 
 #. Copy in the test.yaml file from
    ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
@@ -525,7 +525,7 @@ Once instances are created, do the following:
 
 #. Run this command to Check the gre tunnels to find out the CNCI IP address for each interface::
 
-    ip -d link \| grep alias
+    ip -d link | grep alias
 
 #. Ensure that you can ping the CNCI IP from the CN IP. If not you have a problem with base network connectivity.
 #. Check that you can ping the Scheduler IP.
@@ -547,7 +547,7 @@ Complete the following:
 #. Check that you can ping the Scheduler IP.
 #. Check that you can ping all the CNs::
 
-    $ ip -d link \| grep alias
+    $ ip -d link | grep alias
 
    Note: You *cannot* ping the CNCI IP from the same Network Node (a
    macvtap vepa mode limitation). However you can ping it with any other NN or CN/
@@ -598,7 +598,7 @@ Complete the following:
 Once instances are created:
 
 #. Check that you can ping the instance IP address.
-#. ``ip -d link \| grep alias``: Check to see that there exists a gre tunnel to the CN.
+#. ``ip -d link | grep alias``: Check to see that there exists a gre tunnel to the CN.
 #. ``ps auxw | grep dns``: Check to see that a dnsqmasq running on behalf of the tenant subnet.
 #. ``cat /tmp/dns*leases``: Check to see that your instance has connected to CNCI and requested an IP address. If you do not
    see your instance MAC in the leases, it means your VM never connected to the CNCI, which
