@@ -63,14 +63,20 @@ or provide alternative locations for these files via the ``-cert`` and
 Install Dependencies
 --------------------
 
-Launcher has three external packages dependencies:
+Launcher has external packages dependencies:
 
-#. On ``qemu`` to launch the VMs.
+#. On ``qemu-system-x86_64`` to launch the VMs.
+#. On ``qemu-img`` to manipulate disk images.
 #. On ``xorriso`` to create ISO images for cloudinit.
 #. On ``ovmf``, which contains EFI firmware required for some images.
+#. On ``fuser``, for process statistics (part of most distros' psmisc package).
+#. On ``docker``, to manage docker containers.
 
 All of these packages need to be installed on your :abbr:`compute node (CN)`
 before launcher can be run.
+
+An optimized OVMF is available from ClearLinux.  Download the `OVMF.fd`_
+file and save it to /usr/share/qemu/OVMF.fd on each CN.
 
 To create a new instance, launcher needs a template ``.iso`` image to use
 as a backing file. Currently, launcher requires all such backing files to
@@ -363,3 +369,4 @@ Again, the behavior of launcher in this situation needs to be agreed.
 
 
 .. _glog: https://google-glog.googlecode.com/svn/trunk/doc/glog.html
+.. _OVMF.fd: https://download.clearlinux.org/image/OVMF.fd
