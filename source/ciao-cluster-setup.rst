@@ -153,7 +153,7 @@ the following example file names:
 * ``cert-CNCIAgent-localhost.pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
 * ``cert-Controller-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
 * ``cert-NetworkingAgent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``.
-* ``cert-Scheduler-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
+* ``cert-Scheduler-[scheduler-node-hostname].pem``: copy into your controller node's ``/etc/pki/ciao``.
 
 Create the controller web certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -193,7 +193,7 @@ Scheduler
 Copy in the scheduler binary from your build/develop machine to any
 location, then launch it first (does not require root)::
 
-    ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-server-localhost.pem --heartbeat
+    ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Scheduler-[scheduler-node-hostname].pem --heartbeat
 
 With the optional ``--heartbeat`` option, the scheduler console will
 output once per second a heartbeat message showing connected Controller
@@ -253,7 +253,7 @@ The launcher is run with options declaring certificates, maximum VMs
 available on your node), server location, and compute node ("cn")
 launching type. For example::
 
-    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-agent-localhost.pem --server=<your-server-address> --network=cn
+    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn
 
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
@@ -290,7 +290,7 @@ The network node's launcher is run almost the same as the compute node.
 The primary difference is that it uses the network node ("nn") launching
 type::
 
-  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-server-localhost.pem --cert=/etc/pki/ciao/cert-client-netagent-localhost.pem --server=<your-server-address> --network=nn
+  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn
 
 Starting the controller
 =======================
@@ -352,7 +352,7 @@ name of the system which is hosting the keystone service**.
 An SSL-enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
 
-    $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-server-[scheduler-hostname].pem --cert=/etc/pki/ciao/cert-client-controller-[controller-hostname].pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
+    $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
 
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
