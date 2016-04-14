@@ -23,7 +23,7 @@ Getting the Code
 
 Launcher can be downloaded and installed using go get::
 
-  $ go get --insecure [[INSERT non-internal URL]]
+  $ go get [[INSERT non-internal URL]]
 
 The resulting binary will be placed in ``$GOPATH/bin``, which you should
 already have in your ``$PATH``.
@@ -48,12 +48,13 @@ Installing Certificates
 Secondly, generate a certificate pair to allow launcher to connect to
 the SSNTP server.  The default location for these certificates is::
 
-  /var/lib/ciao/{ssntp_certs}
+  /etc/pki/ciao/{ssntp_certs}
 
 So you can either copy the certs to this location::
 
-  $ cp CAcert-server-localhost.pem /var/lib/ciao/{ssntp_certs}
-  $ cp cert-client-localhost.pem /var/lib/ciao/{ssntp_certs}
+  $ sudo mkdir -p /etc/pki/ciao
+  $ cp CAcert-server-localhost.pem /etc/pki/ciao/{ssntp_certs}
+  $ cp cert-client-localhost.pem /etc/pki/ciao/{ssntp_certs}
 
 or provide alternative locations for these files via the ``-cert`` and
 ``-cacert`` command-line options.
@@ -97,7 +98,7 @@ instance is prepared to manage. This is a soft, rather than a hard limit,
 and will be discussed in the reporting section below.
 
 Launcher uses `glog`_ for logging. By default, launcher stores logs
-in files written to :file:`/var/lib/supernova/logs`. This behavior can be
+in files written to :file:`/var/lib/ciao/logs`. This behavior can be
 overridden with a number of different command-line arguments (
 ``-alsologtostderr``, for example) added by `glog`_.
 
@@ -107,9 +108,9 @@ Here is a full list of the command-line parameters supported by launcher::
     -alsologtostderr
       	log to standard error as well as files
     -cacert string
-      	Client certificate (default /var/lib/ciao/CAcert-server-localhost.pem)
+      	Client certificate (default /etc/pki/ciao/CAcert-server-localhost.pem)
     -cert string
-      	CA certificate (default /var/lib/ciao/cert-client-localhost.pem)
+      	CA certificate (default /etc/pki/ciao/cert-client-localhost.pem)
     -compute-net string
       	Compute Subnet
     -log_backtrace_at value
@@ -147,7 +148,7 @@ START
 `START` payloads are shown below.
 
 This first payload example will create a new CN VM instance using the backing file
-stored in ``/var/lib/supernova/images/b286cd45-7d0c-4525-a140-4db6c95e41fa``.
+stored in ``/var/lib/ciao/images/b286cd45-7d0c-4525-a140-4db6c95e41fa``.
 The disk image has a maximum size of 80GBs, and the VM will be run with two
 CPUS and 256MBs of memory. The first part of the payload corresponds to the
 ``cloudinit`` user-data file. This data will be extracted from the payload
@@ -158,7 +159,7 @@ will be created, and the hostname of the image will be set to the instance uuid:
   #cloud-config
     runcmd:
       - [ touch, "/etc/bootdone" ]
-    supernova_start:
+    start:
       requested_resources:
          - type: vcpus
            value: 2
@@ -183,7 +184,7 @@ The following payload creates a CN VM instance using a different image that need
   #cloud-config
     runcmd:
       - [ touch, "/etc/bootdone" ]
-    supernova_start:
+    start:
       requested_resources:
          - type: vcpus
            value: 2
@@ -209,7 +210,7 @@ the networking parameters are different::
   #cloud-config
     runcmd:
       - [ touch, "/etc/bootdone" ]
-    supernova_start:
+    start:
       requested_resources:
          - type: vcpus
            value: 2
@@ -230,23 +231,23 @@ the networking parameters are different::
 Launcher detects and returns a number of errors when executing the start command.
 These are listed below:
 
-* ``invalid\_payload`` if the YAML is corrupt
+* ``invalid_payload`` if the YAML is corrupt
 
-* ``invalid\_supernova`` if the supernova section of the payload is corrupt or
+* ``invalid_data`` if the start section of the payload is corrupt or
   missing information, such as ``image-id``
 
-* ``already\_running`` if you try to start an existing instance that is already
+* ``already_running`` if you try to start an existing instance that is already
   running
 
-* ``instance\_exists`` if you try to start an instance that has already been created but is not currently running
+* ``instance_exists`` if you try to start an instance that has already been created but is not currently running
 
-* ``image\_failure`` if launcher is unable to prepare the file for the instance;
+* ``image_failure`` if launcher is unable to prepare the file for the instance;
   this happens, for example, if the ``image_uuid`` tries to refer to an non-existant backing image
 
 * ``network_failure`` if it was impossible to initialize networking for
   the instance
 
-* ``launch\_failure`` if the instance was successfully created but,
+* ``launch_failure`` if the instance was successfully created but,
   could not be launched. This is sort of an odd situation as the ``START``
   command partially succeeded. Launcher returns an error code, but the instance has been created and could be booted a later stage via ``RESTART``.
 
@@ -269,7 +270,7 @@ files associated with that instance from the compute node. If the VM instance
 is running when the ``DELETE`` command is received, it will be powered down.
 An example of the  ``DELETE`` command is as follows::
 
- supernova_delete:
+ delete:
    instance_uuid: 67d86208-b46c-4465-9018-fe14087d415f
 
 
@@ -282,7 +283,7 @@ can be restarted at a later date via the ``RESTART`` command
 
 An example of the ``STOP`` command is as follows::
 
- supernova_stop:
+ stop:
    instance_uuid: 67d86208-b46c-4465-9018-fe14087d415f
 
 
@@ -299,7 +300,7 @@ from the initial settings.
 
 An example of the RESTART command is as follows::
 
- supernova_restart:
+ restart:
    instance_uuid: 67d86208-b46c-4465-9018-fe14087d415f
 
 
@@ -336,7 +337,7 @@ and STATUS update payloads as follows:
 +-----------------+--------------------------------------------------------+
 | DiskTotalMB     | "/var/lib/ciao/instances"                              |
 +-----------------+--------------------------------------------------------+
-| DiskAvailableMB | statfs("/var/lib/supernova/instances")                 |
+| DiskAvailableMB | statfs("/var/lib/ciao/instances")                 |
 +-----------------+--------------------------------------------------------+
 | Load            | /proc/loadavg (Average over last minute reported)      |
 +-----------------+--------------------------------------------------------+
