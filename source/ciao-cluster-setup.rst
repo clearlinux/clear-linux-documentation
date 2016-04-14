@@ -136,7 +136,7 @@ Create the ssntp-internal communications certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On your development machine, generate the certificates for each of your
-roles; general instructions can be found under the :ref:`ssntp_overview`
+roles; general instructions can be found under the [ciao-cert](https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md)
 documentation.
 
 Pass in the host name for the host on which you will be running the service
@@ -148,15 +148,12 @@ unique name. The names, locations, and contents (signer and role) of the
 certificates are very important. The rest of this topic will consistently use
 the following example file names:
 
-* ``CAcert-server-[scheduler-node-hostname].pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
-* ``cert-client-agent-[launcher-hostname].pem``: copy to all compute nodes' ``/etc/pki/ciao``.
-* ``cert-client-cnciagent-[network-node-hostname].pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
-* ``cert-client-controller-[controller-node-hostname].pem``: copy into your controller node's ``/etc/pki/ciao``.
-* ``cert-client-netagent-[network-node-hostname].pem``: copy into your network node's ``/etc/pki/ciao``.
-* ``cert-server-[scheduler-hostname].pem``: copy into your controller node's ``/etc/pki/ciao``.
-
-Correct client / server certificate roles will soon be required, so get
-in the habit of doing this correctly now.
+* ``CAcert-[scheduler-node-hostname].pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
+* ``cert-CNAgent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
+* ``cert-CNCIAgent-localhost.pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
+* ``cert-Controller-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
+* ``cert-NetworkingAgent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``.
+* ``cert-Scheduler-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
 
 Create the controller web certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
