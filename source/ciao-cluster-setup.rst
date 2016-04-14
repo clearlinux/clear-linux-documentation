@@ -7,8 +7,7 @@ ciao cluster setup
 
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
-for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,
-or CIAO.
+for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`, or ciao.
 
 While the table of contents provides links to specific points of information, this
 topic is intended as an ordered workflow. Be sure to start your cluster components
@@ -21,7 +20,7 @@ Hardware needs
 --------------
 
 You'll need at least four machines and a switch connecting them to form
-your beginning CIAO cluster. The switch is assumed to be plugged directly
+your beginning ciao cluster. The switch is assumed to be plugged directly
 into an "upstream" network running a DHCP server. The following examples
 assume you have four nodes on a ``192.168.0.0/16`` network:
 
@@ -72,7 +71,7 @@ many MACs (for example, more than dozens) on your port.
 
 .. note::
 
-  If you are using dnsmasq as your DHCP/DNS server, complete the following:
+  If you are using ``dnsmasq`` as your DHCP/DNS server, complete the following:
 
   #. Ensure that the ``dhcp-sequential-ip`` option is set.
   #. Configure ``dhcp-host=\*:\*:\*:\*:\*:\*,id:\*`` to ensure that the CNCIs get
@@ -88,9 +87,10 @@ Node setup
 Install Clear Linux OS for Intel Architecture as host on all nodes
 ------------------------------------------------------------------
 
-Install Clear Linux OS for Intel Architecture as the host OS on all nodes by following the instructions
-in the topic :ref:`gs_installing_clr_as_host`. The current April 2016
-`downloadable images`_ are compatible with CIAO.
+Install Clear Linux OS for Intel Architecture as the host
+OS on all nodes by following the instructions in the topic 
+:ref:`gs_installing_clr_as_host`. The current April 2016
+`downloadable images`_ are compatible with ciao.
 
 After the installation, complete the following steps:
 
@@ -117,12 +117,12 @@ After the installation, complete the following steps:
 Build the CIAO software
 -----------------------
 
-#. On your development machine, obtain the relevant CIAO packages by following
+#. On your development machine, obtain the relevant ciao packages by following
    the instructions given at :ref:`go-get-ciao`. Note that this is not a complete
    manual on how to use the ``go get`` tool, but it contains enough information
-   to help experienced developers obtain the binaries needed to build CIAO.
+   to help experienced developers obtain the binaries needed to build ciao.
 
-#. Install and build the Ciao binaries::
+#. Install and build the binaries needed for ciao::
 
    $ cd $GOPATH/src github.com/01org/ciao
    $ go install ./...
@@ -198,7 +198,7 @@ With the optional ``--heartbeat`` option, the scheduler console will
 output once per second a heartbeat message showing connected Controller
 and Compute Node client statistics. It also displays a line of
 information for each command or event traversing the SSNTP server.
-As the sole SSNTP server in the Ciao cluster, it is a key debugging point
+As the sole SSNTP server in the ciao cluster, it is a key debugging point
 to understand failed flows of actions/reactions across your cluster.
 Launching it first means this console output helps confirm your subsequent
 cluster configurations actions are indeed succeeding.
@@ -206,10 +206,10 @@ cluster configurations actions are indeed succeeding.
 ciao-controller
 ~~~~~~~~~~~~~~~
 
-Important! DO NOT START CIAO-CONTROLLER YET! It must only be started after a network
-node is connected to the scheduler or else workloads may fail to start.
-This restriction will be adressed once `Ciao issue #12 <https://github.com/01org/ciao/issues/12>`__
-is closed.
+**Important: Do not start the ciao controller just yet!** It should only
+be started after a network node is connected to the scheduler; otherwise
+workloads may fail to start. This restriction will be adressed once 
+`ciao issue #12`_ is closed.
 
 Compute node setup
 ------------------
@@ -227,10 +227,9 @@ Prepopulate the OS image cache
 We have tested the `Fedora 23 cloud image`_, Clear Linux OS for Intel
 Architecture cloud `downloadable images`_, and an Ubuntu image. Each will
 be referenced very specifically by a UUID in our configuration files, so
-follow the instructions here exactly. Symlinks are used, so you as a human
-can easily see which image is which with a human readable name, while still
-having the UUID-name file nodes that the cloud config expects. The references
-below download from a system in JF, which has compressed versions of the images.
+follow the instructions here exactly. Symlinks are used so you, as a human,
+can easily see which image is which with a human-readable name, while still
+having the UUID-name file nodes that the cloud config expects. 
 
 Fedora* Cloud::
 
@@ -276,10 +275,10 @@ Pre-populate the CNCI image cache
 This section describes how to generate a CNCI image from a vanilla
 clear cloud qcow2 image::
 
-  cd /var/lib/ciao/images
-  curl -O https://download.clearlinux.org/demos/ciao/clear-7370-ciao-networking.img.xz
-  xz -T0 --decompress clear-7310-cloud.img.xz
-  ln -s clear-7310-cloud.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
+  $ cd /var/lib/ciao/images
+  $ curl -O https://download.clearlinux.org/demos/ciao/clear-7370-ciao-networking.img.xz
+  $ xz -T0 --decompress clear-7310-cloud.img.xz
+  $ ln -s clear-7310-cloud.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
   $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7310-cloud.img /etc/pki/ciao/
 
 Start the network node launcher
@@ -295,8 +294,8 @@ Starting the controller
 =======================
 
 Starting the Controller on the controller node is what truly activates your
-cluster for use. NOTE: Before starting the controller you must have a scheduler
-and network node already up and running together.
+cluster for use. **NOTE: Before starting the controller you must have a scheduler
+and network node already up and running together.**
 
 #. Copy in the ciao-controller binary from your build/development machine to any
    location. Certificates are assumed to be in ``/etc/pki/ciao``, generated with
@@ -313,25 +312,23 @@ and network node already up and running together.
 #. Copy in the test.yaml file from
    ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
 
-The ciao-controller
-`workload\_resources.csv <https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv>`__
-and
-`workload\_template.csv <https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv>`__
-have four stanzas and so should yours to successfully run each of the
-four images currently described earlier on this page (ie: Fedora, Clear,
-Docker Ubuntu, CNCI). To run other images of your choosing you'd do similar to
-the above for prepopulating OS images, and similarly edit these two
-files on your controller node.
+The `ciao-controller workload_resources.csv`_ and the 
+`ciao-controller workload_template.csv`_ have four stanzas, so yours
+should as well to successfully run each of the four images currently
+described earlier on this page (ie: Fedora, Clear, Docker Ubuntu, CNCI). 
+To run other images of your choosing you'd do similar to the above for
+pre-populating OS images, and similarly edit these two files on your
+controller node.
 
-If the controller is on the same physical machine as the scheduler, the "--url"
-option is optional; otherwise it refers to your scheduler SSNTP server
-IP.
+If the controller is on the same physical machine as the scheduler, the
+``--url`` option is optional; otherwise it refers to your scheduler
+SSNTP server IP.
 
-For the ciao-controller go code to correctly use the CA certificate generated
-earlier when building your keystone server, this certificate needs to
-be installed in the control node and be part of the control node
-CA root.
-On Clear Linux OS for Intel Architecture, this is by::
+In order for the ciao-controller go code to correctly use the CA
+certificate generated earlier when you built your keystone server,
+this certificate needs to be installed in the control node and be
+part of the control node CA root. On Clear Linux OS for Intel
+Architecture, this is accomplished with::
 
     $ sudo mkdir /etc/ca-certs
     $ sudo cp cacert.pem /etc/ca-certs
@@ -351,7 +348,7 @@ name of the system which is hosting the keystone service**.
 An SSL-enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
 
-    $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
+  $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
 
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
@@ -369,18 +366,18 @@ a blank list of compute workload instances.
 Starting a workload
 ===================
 
-Because we are using self signed certificates and our debug code counts
+Because we are using self-signed certificates and our debug code counts
 on AJAX being able to communicate directly with the keystone service,
 you need to find a way to accept the certificate for the keystone
 service before you will be able to launch a workload. For some browsers,
 it's sufficient to go to the controller's web server and accept the
 certificate. You may also update your system's CA certs on the system your
-browser is running on to include the keystone .pem file. You'll have to
+browser is running on to include the keystone ``.pem`` file. You'll have to
 check your operating system's instructions on how to do this. For Chrome*
-on Linux, there seems to be further unexplained issues, so that browser
-is unfortunately not able to be used right now.
+on Linux, other problems persist, so that browser is unfortunately not
+a working option at this time.
 
-To start a workload, you will first need to login as a valid user with
+To start a workload, you will first need to log in as a valid user with
 permissions for one or more projects (tenants).
 
 `https://192.168.0.1:8889/login <http://192.168.0.1:8889/login>`__
@@ -402,9 +399,9 @@ You should note a change in activity in the `controller node stats
 UI <http://192.168.0.101:8889/stats>`__, with a new VM showing as
 pending and then running.
 
-The Clear Cloud VM consumes a bit more than 128MB of RAM and within 30s
-(the refresh rate of the stats page) you should see the status as
-running instead of pending.
+The Clear Cloud VM consumes a bit more than 128MB of RAM; so within
+~30 seconds (the refresh rate of the stats page), you should see the
+status as ``running`` instead of ``pending``.
 
 You will also see activity related to this launch across your cluster
 components if you've got consoles open and logging to standard output as
@@ -545,12 +542,12 @@ Network node
 
 Complete the following:
 
-#. Make sure your top level DHCP server always serves the same IP address
-   to the same network node
+#. Make sure your top-level DHCP server always serves the same IP address
+   to the same network node.
 #. Check that you can ping the Scheduler IP.
 #. Check that you can ping all the CNs::
 
-    ip -d link \| grep alias
+    $ ip -d link \| grep alias
 
    Note: You *cannot* ping the CNCI IP from the same Network Node (a
    macvtap vepa mode limitation). However you can ping it with any other NN or CN/
@@ -585,18 +582,18 @@ CNCI
 
 Complete the following:
 
-#. ssh into the CNCI (user: supernova with password supernova).
+#. ssh into the CNCI (user: UPDATE with password UPDATE).
 #. Run the following command::
 
-        systemctl status cnci-agent -l
+    $ systemctl status cnci-agent -l
 
    * Check that the agent is running.
    * Ensure that it is connecting to the correct scheduler address.
-   * Check that its UUID matches the controller generated UUID for the CNCI.
+   * Check that its UUID matches the controller-generated UUID for the CNCI.
 
 #. If the cnci-agent failed to start, run the command below to determine the reason::
 
-    journalctl -b
+    $ journalctl -b
 
 Once instances are created:
 
@@ -628,6 +625,9 @@ Complete the following:
    * Check the MTU set on the interface. The MTU has to match the MTU sent by the CNCI (1400 currently).
    * If the MTU on the interface is still 1500, then the DHCP client on the instance does not respect the MTU sent in by the DHCP server.
 
+.. _ciao issue #12: https://github.com/01org/ciao/issues/12
+.. _ciao-controller workload_resources.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv
+.. _ciao-controller workload_template.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv
 .. _downloadable images: https://download.clearlinux.org/image
 .. _Fedora 23 cloud image: https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
 .. _Openstack developer: http://docs.openstack.org/developer/keystone/setup.html
