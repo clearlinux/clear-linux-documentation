@@ -76,7 +76,7 @@ All of these packages need to be installed on your :abbr:`compute node (CN)`
 before launcher can be run.
 
 An optimized OVMF is available from ClearLinux.  Download the `OVMF.fd`_
-file and save it to /usr/share/qemu/OVMF.fd on each CN.
+file and save it to /usr/share/qemu/OVMF.fd on each compute node.
 
 To create a new instance, launcher needs a template ``.iso`` image to use
 as a backing file. Currently, launcher requires all such backing files to
