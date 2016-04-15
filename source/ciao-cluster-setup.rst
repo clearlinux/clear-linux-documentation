@@ -57,11 +57,18 @@ Network needs
 -------------
 
 
+Our system assumes cluster nodes have full connectivity at a routed
+IP level.  Additionally, the network node must have access to a DHCP
+server which serves address which also are routable across the cluster.
+
 It is possible to use a corporate or a lab network and not install a
 separate DHCP server; however, the DHCP server and network management
 infrastructure supplying your switch's upstream port needs to allow you
-to have "enough" IPs. A corporate network may have issues if it sees too
-many MACs (for example, more than dozens) on your port.
+to have enough IPs for your nodes and some appliance VMs ciao runs for
+network management purposes.  One of these ``CNCI`` appliances (Compute
+Node Concentrator Instance, see the `CNCI Agent`_ documentation for more
+information) is run for each tenant network.  If you're testing with
+two tenants, you will have to CNCI VMs, each needing one DHCP address.
 
 .. note::
 
@@ -70,10 +77,10 @@ many MACs (for example, more than dozens) on your port.
   #. Ensure that the ``dhcp-sequential-ip`` option is set.
   #. Configure ``dhcp-host=*:*:*:*:*:*,id:*`` to ensure that the CNCIs get
      unique IP addresses even when their hostnames are the same inside the VM. A
-     long-term fix is to use :file:`cloud-init meta-data.json` to give each a
-     tenant-specific hostname.
-  #. Set up static MAC to IP mappings (using the dhcp-host option) for your NUCs
-     to ensure you never lose network connectivity.
+  #. Set up static MAC to IP mappings (using the dhcp-host option) for your cluster
+     nodes to ensure you never lose network connectivity.
+  #. Configure a dynamic range within the subnet with enough IPs for the
+     number of tenant CNCI instances you wish to run.
 
 Node setup
 ==========
@@ -627,3 +634,4 @@ Complete the following:
 .. _Openstack developer: http://docs.openstack.org/developer/keystone/setup.html
 .. _go: https://golang.org/doc/articles/go_command.html
 .. _ciao-cert: https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md
+.. _CNCI Agent: https://github.com/01org/ciao/tree/master/networking/cnci_agent
