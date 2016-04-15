@@ -1,8 +1,7 @@
 .. _configure_openstack_environment:
 
-
-Configure your environment
-==========================
+Configure environment
+#####################
 
 Before continuing with the installation process, it's important to understand:
 
