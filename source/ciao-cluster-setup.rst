@@ -97,26 +97,11 @@ OS on all nodes by following the instructions in the topic
 :ref:`gs_installing_clr_as_host`. The current April 2016
 `downloadable images`_ are compatible with ciao.
 
-After the installation, complete the following steps:
-
-#. Ensure your system is 100% up to date::
-
-    $ swupd verify
-
-#. If the above command does not show zero failures, run the command below repeatedly
-   until it shows zero uncorrected errors.::
-
-    $ swupd verify --fix
-
-#. After the installation is verified as up-to-date, add the following additional bundle,
-   which adds componenents needed by CIAO::
+After the base installation on each node add the following additional
+bundle, which adds componenents needed by CIAO::
 
     $ swupd bundle-add cloud-control
 
-#. As a final double check, run the updater again and then repair if any errors persist::
-
-    $ swupd verify
-    $ swupd verify --fix
 
 
 Build the CIAO software
