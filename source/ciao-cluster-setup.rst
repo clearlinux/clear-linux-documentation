@@ -166,12 +166,19 @@ the `Starting a workload` section.
 Keystone node
 -------------
 
-Some node needs to run your Keystone service. You can run it anywhere
-that is network accessible from both your control node's controller software
-and your web browser. For convenience, you might run it on your control
-node or on your network node. General documentation on setting up Keystone
-services can be found at the `Openstack developer`_ website.
+You need to run a Keystone service.  General documentation on setting
+up Keystone services can be found at the `Openstack developer`_ website.
+We need a few configuration points::
 
+  $ openstack service create --name ciao compute
+  $ openstack user create --password hello csr
+  $ openstack role add --project service --user csr admin
+  $ openstack user create --password giveciaoatry demo
+  $ openstack role add --project demo --user demo user
+
+This adds a ciao compute service, a keystone user and project for the
+controller (aka csr) node, and a demo user with the password
+``giveciaoatry``.
 
 Controller node setup
 ---------------------
