@@ -247,6 +247,9 @@ Clear Linux OS for Intel Architecture Cloud::
 
 Docker images will be pulled down automatically at the time of first usage.
 
+Each compute node needs its /var/lib/ciao/images populated with all images
+with which you wish to test.
+
 Start the compute node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
