@@ -420,7 +420,7 @@ described above.
 Resetting your cluster
 ======================
 
-In the `controller node stats UI <http://192.168.0.101:8889/stats>`__:
+In the `controller node stats debug UI <http://192.168.0.101:8889/stats>`__:
 
 #. Select and delete all workload VM instances.
 #. Stop all daemons.
