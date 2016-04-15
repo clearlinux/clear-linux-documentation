@@ -410,7 +410,8 @@ pending and then running.
 
 The Clear Cloud VM consumes a bit more than 128MB of RAM; so within
 ~30 seconds (the refresh rate of the stats page), you should see the
-status as ``running`` instead of ``pending``.
+status as ``running`` instead of ``pending`` and 128MB less RAM shown as
+available in the UI stats.
 
 You will also see activity related to this launch across your cluster
 components if you've got consoles open and logging to standard output as
