@@ -240,9 +240,10 @@ Fedora* Cloud::
 
 Clear Linux OS for Intel Architecture Cloud::
 
-  $ curl -O https://download.clearlinux.org/image/clear-7410-cloud.img.xz
-  $ xz -T0 --decompress clear-7410-cloud.img.xz
-  $ ln -s clear-7140-cloud.img df3768da-31f5-4ba6-82f0-127a1a705169
+  $ LATEST=$(curl https://download.clearlinux.org/latest)
+  $ curl -O https://download.clearlinux.org/image/clear-${LATEST}-cloud.img.xz
+  $ xz -T0 --decompress clear-${LATEST}-cloud.img.xz
+  $ ln -s clear-${LATEST}-cloud.img df3768da-31f5-4ba6-82f0-127a1a705169
 
 Docker images will be pulled down automatically at the time of first usage.
 
