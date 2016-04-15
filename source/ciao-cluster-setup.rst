@@ -131,8 +131,11 @@ Create the ssntp-internal communications certificates
 On your development machine, generate the certificates for each of your
 roles; general instructions can be found under the `ciao-cert`_ documentation.
 
-Pass in the host name for the host on which you will be running the service
-when generating the certificate.
+When generating the certificates, pass in the IP and host name for
+the host on which you will be running the scheduler in the ``-ip`` and
+``-host`` arguments respectively.  The scheduler acts as the cluster
+SSNTP server and clients connecting will validate its credentials match
+those embedded in the certificates.
 
 Create unique certificates for each of your scheduler, compute node and network
 node launchers, cnciagent, controller, and the CNCI launcher; save each with a
