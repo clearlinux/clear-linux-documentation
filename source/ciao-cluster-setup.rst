@@ -5,7 +5,6 @@
 ciao cluster setup
 ##################
 
-
 This topic explains how to set up a cluster of machines running Clear Linux* OS
 for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`, or ciao.
 
@@ -56,7 +55,6 @@ Compute node 2 ("cn2")
 Network needs
 -------------
 
-
 Our system assumes cluster nodes have full connectivity at a routed
 IP level.  Additionally, the network node must have access to a DHCP
 server for serving addresses that can be routable across the cluster.
@@ -64,12 +62,12 @@ server for serving addresses that can be routable across the cluster.
 It is possible to use a corporate or a lab network and not install a
 separate DHCP server; however, the DHCP server and network management
 infrastructure supplying your switch's upstream port needs to allow you
-to have enough IPs for your all of your nodes and for some appliance
-VMs that ciao requires for network management purposes.  One of these
-``CNCI`` appliances (Compute Node Concentrator Instance, see the
-`CNCI Agent`_ documentation for more information) is run for each tenant
-network. If you're testing with two tenants, you will have to CNCI VMs,
-each needing one DHCP address.
+to have enough IPs for your all of your nodes and the appliance VMs that
+ciao requires for network management purposes.  One of these
+``CNCI`` appliances (:abbr:`Compute Node Concentrator Instance (CNCI)`;
+see the `CNCI Agent`_ documentation for more information) is run for each
+tenant network. If you're testing with two tenants, you will have to CNCI
+VMs, each needing one DHCP address.
 
 .. note::
 
@@ -94,7 +92,7 @@ Install Clear Linux OS for Intel Architecture as host on all nodes
 ------------------------------------------------------------------
 
 Install Clear Linux OS for Intel Architecture as the host
-OS on all nodes by following the instructions in the topic 
+OS on all nodes by following the instructions in the topic
 :ref:`gs_installing_clr_as_host`. The current April 2016
 `downloadable installer images`_ are compatible with ciao.
 
@@ -210,7 +208,7 @@ ciao-controller
 
 **Important: Do not start the ciao controller just yet!** It should only
 be started after a network node is connected to the scheduler; otherwise
-workloads may fail to start. This restriction will be adressed once 
+workloads may fail to start. This restriction will be adressed once
 `ciao issue #12`_ is closed.
 
 Compute node setup
@@ -329,10 +327,10 @@ and network node already up and running together.**
 #. Copy in the test.yaml file from
    ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
 
-The `ciao-controller workload_resources.csv`_ and the 
+The `ciao-controller workload_resources.csv`_ and the
 `ciao-controller workload_template.csv`_ have four stanzas, so yours
 should as well to successfully run each of the four images currently
-described earlier on this page (ie: Fedora, Clear, Docker Ubuntu, CNCI). 
+described earlier on this page (ie: Fedora, Clear, Docker Ubuntu, CNCI).
 To run other images of your choosing you'd do similar to the above for
 pre-populating OS images, and similarly edit these two files on your
 controller node.
@@ -350,7 +348,7 @@ Architecture, this is accomplished with::
     $ sudo mkdir /etc/ca-certs
     $ sudo cp cacert.pem /etc/ca-certs
     $ sudo c_hash /etc/ca-certs/cacert.pem
-    
+
 Note the generated hash from the prior command and use it in the next commands::
 
     $ sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>
