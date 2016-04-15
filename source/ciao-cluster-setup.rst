@@ -145,7 +145,7 @@ the following example file names:
 
 * ``CAcert-[scheduler-node-hostname].pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
 * ``cert-CNAgent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
-* ``cert-CNCIAgent-localhost.pem``: copy into your CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
+* ``cert-CNCIAgent-localhost.pem``: copy into your network node's ``/var/lib/ciao``. A script later will copy it into the CNCI appliance image.  See below for more on CNCI image preparation.
 * ``cert-Controller-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
 * ``cert-NetworkingAgent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``.
 * ``cert-Scheduler-[scheduler-node-hostname].pem``: copy into your controller node's ``/etc/pki/ciao``.
