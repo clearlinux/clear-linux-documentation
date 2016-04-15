@@ -79,8 +79,12 @@ two tenants, you will have to CNCI VMs, each needing one DHCP address.
      unique IP addresses even when their hostnames are the same inside the VM. A
   #. Set up static MAC to IP mappings (using the dhcp-host option) for your cluster
      nodes to ensure you never lose network connectivity.
-  #. Configure a dynamic range within the subnet with enough IPs for the
-     number of tenant CNCI instances you wish to run.
+  #. Configure a dynamic range within the subnet (using the dhcp-range
+     option) with enough IPs for the number of tenant CNCI instances you wish to run.
+
+  If you are using another DHCP/DNS server, apply appropriately similar
+  configuration.
+
 
 Node setup
 ==========
