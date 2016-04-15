@@ -95,7 +95,7 @@ Install Clear Linux OS for Intel Architecture as host on all nodes
 Install Clear Linux OS for Intel Architecture as the host
 OS on all nodes by following the instructions in the topic 
 :ref:`gs_installing_clr_as_host`. The current April 2016
-`downloadable images`_ are compatible with ciao.
+`downloadable installer images`_ are compatible with ciao.
 
 After the base installation on each node add the following additional
 bundle, which adds componenents needed by CIAO::
@@ -218,24 +218,33 @@ location.
 Prepopulate the OS image cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We have tested the `Fedora 23 cloud image`_, Clear Linux OS for Intel
-Architecture cloud `downloadable images`_, and an Ubuntu image. Each will
-be referenced very specifically by a UUID in our configuration files, so
-follow the instructions here exactly. Symlinks are used so you, as a human,
-can easily see which image is which with a human-readable name, while still
-having the UUID-name file nodes that the cloud config expects. 
+Ciao has not yet integrated with an existing image server and for
+simplicity presumes one has prepopulated an image cache on each compute
+node in /var/lib/ciao/images.
+
+We have tested the `Fedora 23 Cloud`_, Clear Linux OS for Intel
+Architecture cloud `downloadable cloud images`_, and Ubuntu images. Each image
+will be referenced very specifically by a UUID in our configuration
+files, so follow the instructions here exactly.  You may wish to create
+the needed UUID named image files as symlinks to a more human readable
+and descriptively named image files as is done in the following
+example::
+
+  $ mkdir -p /var/lib/ciao/images
+  $ cd /var/lib/ciao/images
 
 Fedora* Cloud::
 
-    <Insert link here>
+  $ curl -O https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
+  $ ln -s Fedora-Cloud-Base-23-20151030.x86_64.qcow2 73a86d7e-93c0-480e-9c41-ab42f69b7799
 
 Clear Linux OS for Intel Architecture Cloud::
 
-    <Insert link here>
+  $ curl -O https://download.clearlinux.org/image/clear-7410-cloud.img.xz
+  $ xz -T0 --decompress clear-7410-cloud.img.xz
+  $ ln -s clear-7140-cloud.img df3768da-31f5-4ba6-82f0-127a1a705169
 
-Ubuntu::
-
-    <Insert link here>
+Docker images will be pulled down automatically at the time of first usage.
 
 Start the compute node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -622,8 +631,9 @@ Complete the following:
 .. _ciao issue #12: https://github.com/01org/ciao/issues/12
 .. _ciao-controller workload_resources.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv
 .. _ciao-controller workload_template.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv
-.. _downloadable images: https://download.clearlinux.org/image
-.. _Fedora 23 cloud image: https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
+.. _downloadable installer images: https://download.clearlinux.org/image
+.. _downloadable cloud images: https://download.clearlinux.org/image
+.. _Fedora 23 Cloud: https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
 .. _Openstack developer: http://docs.openstack.org/developer/keystone/setup.html
 .. _go: https://golang.org/doc/articles/go_command.html
 .. _ciao-cert: https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md
