@@ -59,16 +59,17 @@ Network needs
 
 Our system assumes cluster nodes have full connectivity at a routed
 IP level.  Additionally, the network node must have access to a DHCP
-server which serves address which also are routable across the cluster.
+server for serving addresses that can be routable across the cluster.
 
 It is possible to use a corporate or a lab network and not install a
 separate DHCP server; however, the DHCP server and network management
 infrastructure supplying your switch's upstream port needs to allow you
-to have enough IPs for your nodes and some appliance VMs ciao runs for
-network management purposes.  One of these ``CNCI`` appliances (Compute
-Node Concentrator Instance, see the `CNCI Agent`_ documentation for more
-information) is run for each tenant network.  If you're testing with
-two tenants, you will have to CNCI VMs, each needing one DHCP address.
+to have enough IPs for your all of your nodes and for some appliance
+VMs that ciao requires for network management purposes.  One of these
+``CNCI`` appliances (Compute Node Concentrator Instance, see the
+`CNCI Agent`_ documentation for more information) is run for each tenant
+network. If you're testing with two tenants, you will have to CNCI VMs,
+each needing one DHCP address.
 
 .. note::
 
@@ -77,8 +78,8 @@ two tenants, you will have to CNCI VMs, each needing one DHCP address.
   #. Ensure that the ``dhcp-sequential-ip`` option is set.
   #. Configure ``dhcp-host=*:*:*:*:*:*,id:*`` to ensure that the CNCIs get
      unique IP addresses even when their hostnames are the same inside the VM. A
-  #. Set up static MAC to IP mappings (using the dhcp-host option) for your cluster
-     nodes to ensure you never lose network connectivity.
+  #. Set up static MAC to IP mappings (using the dhcp-host option) for your
+     cluster nodes to ensure you never lose network connectivity.
   #. Configure a dynamic range within the subnet (using the dhcp-range
      option) with enough IPs for the number of tenant CNCI instances you wish to run.
 
@@ -166,12 +167,19 @@ the `Starting a workload` section.
 Keystone node
 -------------
 
-Some node needs to run your Keystone service. You can run it anywhere
-that is network accessible from both your control node's controller software
-and your web browser. For convenience, you might run it on your control
-node or on your network node. General documentation on setting up Keystone
-services can be found at the `Openstack developer`_ website.
+You need to run a Keystone service.  General documentation on setting
+up Keystone services can be found at the `Openstack developer`_ website.
+We need a few configuration points::
 
+  $ openstack service create --name ciao compute
+  $ openstack user create --password hello csr
+  $ openstack role add --project service --user csr admin
+  $ openstack user create --password giveciaoatry demo
+  $ openstack role add --project demo --user demo user
+
+This adds a ciao compute service, a keystone user and project for the
+controller (aka csr) node, and a demo user with the password
+``giveciaoatry``.
 
 Controller node setup
 ---------------------
@@ -297,8 +305,8 @@ type::
 
   $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn
 
-Starting the controller
-=======================
+Start the controller
+====================
 
 Starting the Controller on the controller node is what truly activates your
 cluster for use. **NOTE: Before starting the controller you must have a scheduler
@@ -372,8 +380,8 @@ with an IP from your upstream net's dhcp server), a blank event log and
 a blank list of compute workload instances.
 
 
-Starting a workload
-===================
+Start a workload
+================
 
 Because we are using self-signed certificates and our debug UI code counts
 on AJAX being able to communicate directly with the keystone service,
@@ -417,16 +425,16 @@ You will also see activity related to this launch across your cluster
 components if you've got consoles open and logging to standard output as
 described above.
 
-Resetting your cluster
-======================
+Reset your cluster
+==================
 
 In the `controller node stats debug UI <http://192.168.0.101:8889/stats>`__:
 
 #. Select and delete all workload VM instances.
 #. Stop all daemons.
-#. Delete the "ciao-controller.db" from the directory in which you ran the
-   "ciao-controller" binary.
-#. Delete "/tmp/ciao-controller-stats.db".
+#. Delete the :file:`ciao-controller.db` from the directory in which you ran the
+   ciao-controller binary.
+#. Delete :file:`/tmp/ciao-controller-stats.db`.
 
 On the network node, run the following commands::
 
