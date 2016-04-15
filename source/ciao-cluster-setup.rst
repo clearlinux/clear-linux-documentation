@@ -447,193 +447,33 @@ and controller.
 Debug tips
 ==========
 
-General debug
--------------
-
 For general debuging, you can:
 
 * Reset you cluster.
 * Pull in up to date go binaries.
-* Enable verbose console logging.
+* Enable verbose console logging with ``-logtostderr -v=2`` on the go
+  binaries' command lines.
 * Reduce your tenants to one (specifically the one with no limits).
-* Launch less VMs in a herd. Our NUC's can handle approx. <= 50-100
-  starting at once per compute node. Our Haswell-EP servers can handle
-  approx. <= 500 starting at once per compute node.
-* Tweak the launcher to enable remote access. For example, when using netcat, if you Control-C, that kills netcat.
-  Instead from the host, send a Control-C via netcat to the target as::
+* Launch less VMs in a herd. A small Intel NUC with 16GB of RAM can handle as much as 50-100
+  2vcpu 218MB RAM VMs starting at once per compute node. Larger dual socket many thread CPU
+  with hundreds of GB RAM Haswell-EP servers can handle as much as 500 such VMs starting
+  at once per compute node.
+* Tweak the launcher to enable remote access: go get with ``--tags=debug`` to enable
+  a netcat based console redirection for each VM.  The launcher console verbose output
+  will indicate per VM how to connect to the console, eg::
 
-    echo -ne "99||\x03" | netcat 192.168.0.102 6309
+  $  netcat 192.168.0.102 6309
 
-* Ssh into the node(s) by IP, look at top, df, ps, ip a, ip r, netstat -a, etc.
-* Ssh into the CNCI(s) by IP, look at top, df, ps, ip a, ip r, netstat -a,
-  etc. (KVM Image: username: root password: supernova) (Cloud Image: username: supernova Password: supernova)
-* Ssh into the workload instance VM by CNCI IP and port ``33000+ip[2]<<8+ip[3]``.
+* Ssh into the compute node(s) by IP, look at top, df, ps, ip a, ip r, netstat -a, etc.
+* Ssh into the CNCI(s) by IP, look at top, df, ps, ip a, ip r, netstat -a, etc.
+* Ssh into the workload instance VMs via CNCI IP and port redirection.  Each VM will be
+  at a port composed from the VM's IP address added to 33000, eg:: ``33000+ip[2]<<8+ip[3]``.
+  The VM IP is availabe in the ciao-cli and ciao-webui.
+* Instance credentials for netcat or ssh connectivity depend on the contents of
+  the cloud-init configuration used by ciao-controller for the workload.
 
-Controller debug
-----------------
-
-The controller's port 8889 listener has a number of interesting debug data
-outputs at urls like:
-
-* `hostname:8889/workload <http://hostname:8889/workload>`__
-* `hostname:8889/debug <http://hostname:8889/debug>`__
-* `hostname:8889/tenantDebug <http://hostname:8889/tenantDebug>`__
-* `hostname:8889/stats <http://hostname:8889/stats>`__
-* `hostname:8889/login <http://hostname:8889/login>`__
-* `hostname:8889/getNodeStats <http://hostname:8889/getNodeStats>`__
-* `hostname:8889/getInstances <http://hostname:8889/getInstances>`__
-* `hostname:8889/getTenants <http://hostname:8889/getTenants>`__
-* `hostname:8889/getEventLog <http://hostname:8889/getEventLog>`__
-* `hostname:8889/getNodeSummary <http://hostname:8889/getNodeSummary>`__
-* `hostname:8889/getWorkloads <http://hostname:8889/getWorkloads>`__
-* `hostname:8889/getCNCI <http://hostname:8889/getCNCI>`__
-
-Network debug
--------------
-
-Data center DHCP server
-~~~~~~~~~~~~~~~~~~~~~~~
-
-The Data Center DHCP server is the server that serves the Physical
-network.
-
-We have seen a tendency for the Data Center DHCP server to serve out the
-same IP address to all the CNCIs.
-
-Check the DHCP server lease file to ensure that each CNCI has a
-different IP address. The UI will also show this.
-
-If the CNCI's do not have different IP addresses, nothing will work
-properly.
-
-Reset the DHCP server, clear its leases and then reset the cluster. A
-script that can do this is::
-
-    echo 0 > /proc/sys/net/ipv4/ip_forward
-    iptables -F
-    iptables -t nat -F
-    iptables -t mangle -F
-    iptables -X
-    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-    iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
-    iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
-    #iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 8889 -j DNAT --to 192.168.0.101:8889
-    #iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 35357 -j DNAT --to 192.168.0.101:35357
-    #iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 5000 -j DNAT --to 192.168.0.101:5000
-    iptables -t nat -A PREROUTING -p tcp --dport 8889 -j DNAT --to 192.168.0.101:8889
-    iptables -t nat -A PREROUTING -p tcp --dport 35357 -j DNAT --to 192.168.0.101:35357
-    iptables -t nat -A PREROUTING -p tcp --dport 5000 -j DNAT --to 192.168.0.101:5000
-    echo 1 > /proc/sys/net/ipv4/ip_forward
-    killall dnsmasq
-    rm -f /var/lib/misc/tenant_dns.leases
-    dnsmasq -C tenant_dns.cfg
-
-Compute node
-~~~~~~~~~~~~
-
-Once instances are created, do the following:
-
-#. Run this command to Check the gre tunnels to find out the CNCI IP address for each interface::
-
-    ip -d link | grep alias
-
-#. Ensure that you can ping the CNCI IP from the CN IP. If not you have a problem with base network connectivity.
-#. Check that you can ping the Scheduler IP.
-#. Make sure your top level DHCP server always serves the same IP address to the same compute node.
-   If not you will have issues restarting the cluster easily.
-#. If you are using dnsmasq use the dhcp-host option to achieve this. For example::
-
-    dhcp-host=c0:3f:d5:63:13:d9,192.168.0.101
-
-   The above is example only. Insert your MAC and the desired IP address.
-
-Network node
-~~~~~~~~~~~~
-
-Complete the following:
-
-#. Make sure your top-level DHCP server always serves the same IP address
-   to the same network node.
-#. Check that you can ping the Scheduler IP.
-#. Check that you can ping all the CNs::
-
-    $ ip -d link | grep alias
-
-   Note: You *cannot* ping the CNCI IP from the same Network Node (a
-   macvtap vepa mode limitation). However you can ping it with any other NN or CN/
-
-#. For Data Center DHCP Server, check that the CNCI MAC addresses all show up with unique IP addresses.
-   If not your DHCP server may not be able to handle large volume of DHCP
-   requests coming very close to on another.
-
-   * If you are using dnsmasq as your DHCP/DNS Server ensure that the dhcp-sequential-ip option is set.
-
-#. Or, if your DHCP server is spec compliant and is seeing duplicate
-   client-id's (ie: multiple vm's with the same hostname):
-
-   * If you are using dnsmasq, you can choose to be spec-non-compliant and
-     work around with::
-
-       dhcp-host=*:*:*:*:*:*,id:*
-
-   * The above command instructs: "For all source MAC's, ignore the client id."
-
-CNCI image
-~~~~~~~~~~
-
-Complete the following:
-
-#. Ensure that the CNCI Image has both dnsmasq and iptables installed.
-#. In case of systemd-based operating systems, ensure that ``UseMTU=true``. The default is sometimes false, but in newer bundles
-   of Clear Linux OS for Intel Architecture, the default is set to true.
-
-CNCI
-~~~~
-
-Complete the following:
-
-#. ssh into the CNCI (user: UPDATE with password UPDATE).
-#. Run the following command::
-
-    $ systemctl status cnci-agent -l
-
-   * Check that the agent is running.
-   * Ensure that it is connecting to the correct scheduler address.
-   * Check that its UUID matches the controller-generated UUID for the CNCI.
-
-#. If the cnci-agent failed to start, run the command below to determine the reason::
-
-    $ journalctl -b
-
-Once instances are created:
-
-#. Check that you can ping the instance IP address.
-#. ``ip -d link | grep alias``: Check to see that there exists a gre tunnel to the CN.
-#. ``ps auxw | grep dns``: Check to see that a dnsqmasq running on behalf of the tenant subnet.
-#. ``cat /tmp/dns*leases``: Check to see that your instance has connected to CNCI and requested an IP address. If you do not
-   see your instance MAC in the leases, it means your VM never connected to the CNCI, which
-   means that the VM will not have network access.
-#. ``iptables-save``: Check to see the ssh forwarding rules are setup correctly.
-
-Instance
-~~~~~~~~
-
-Complete the following:
-
-#. In case of systemd-based operating systems, ensure that ``UseMTU=true``. The
-   default is sometimes false, but in newer bundles of Clear Linux OS for Intel Architecture, the default is set to true.
-#. If the instance cannot be pinged from the CNCI as inferred from
-   ``ip -d link | grep alias``:
-
-   * Check that the interface is setup correctly to perform DHCP.
-   * Check that the launcher is attaching the right interface to the VM.
-   * Check that the interface exists on the CN and is attached to the right
-     bridge and is attached to the right tunnel.
-
-#. If the instance can be pinged but you cannot SSH into the instance:
-
-   * Check the MTU set on the interface. The MTU has to match the MTU sent by the CNCI (1400 currently).
-   * If the MTU on the interface is still 1500, then the DHCP client on the instance does not respect the MTU sent in by the DHCP server.
+Please contact our `mailing list`_ for more help with initial bringup and
+testing.
 
 .. _ciao issue #12: https://github.com/01org/ciao/issues/12
 .. _ciao-controller workload_resources.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv
@@ -645,3 +485,4 @@ Complete the following:
 .. _go: https://golang.org/doc/articles/go_command.html
 .. _ciao-cert: https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md
 .. _CNCI Agent: https://github.com/01org/ciao/tree/master/networking/cnci_agent
+.. _mailing list: https://lists.clearlinux.org/mailman/listinfo/ciao-devel
