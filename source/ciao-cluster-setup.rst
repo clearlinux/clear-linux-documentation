@@ -107,17 +107,21 @@ bundle, which adds componenents needed by CIAO::
 Build the CIAO software
 -----------------------
 
-#. On your development machine, obtain the relevant ciao packages by following
-   the instructions given at :ref:`go-get-ciao`. Note that this is not a complete
-   manual on how to use the ``go get`` tool, but it contains enough information
-   to help experienced developers obtain the binaries needed to build ciao.
+#. On a linux development machine with Go language development tooling
+   present, use the ``go get`` tool to fetch and build ciao and its go
+   dependencies::
+
+   $ cd $GOPATH/src
+   $ go get -v -u github.com/01org/ciao
 
 #. Install and build the binaries needed for ciao::
 
-   $ cd $GOPATH/src github.com/01org/ciao
+   $ cd github.com/01org/ciao
    $ go install ./...
 
-The binaries will install to ``$GOPATH/bin``. You should have ``cnci_agent``, ``ciao-launcher``, ``ciao-controller``, and ``ciao-scheduler``.
+The binaries will install to ``$GOPATH/bin``. You should have
+``ciao-cli``, ``ciao-cert``, ``cnci_agent``, ``ciao-launcher``,
+``ciao-controller``, and ``ciao-scheduler``.
 
 Build certificates
 ------------------
