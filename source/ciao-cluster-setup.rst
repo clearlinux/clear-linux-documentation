@@ -56,12 +56,6 @@ Compute node 2 ("cn2")
 Network needs
 -------------
 
-A detailed description of how to set up your self-contained-cluster is
-documented at the link below. This allows you to set up your own self
-contained isolated cluster of nodes.
-
-:ref:`self-contained-cluster`
-
 
 It is possible to use a corporate or a lab network and not install a
 separate DHCP server; however, the DHCP server and network management
