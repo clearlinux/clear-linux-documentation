@@ -424,7 +424,7 @@ components if you've got consoles open and logging to standard output as
 described above.
 
 Reset your cluster
-==================
+##################
 
 In the `controller node stats debug UI <http://192.168.0.101:8889/stats>`__:
 
@@ -451,7 +451,7 @@ Restart your scheduler, network node launcher, compute node launcher,
 and controller.
 
 Debug tips
-==========
+##########
 
 For general debuging, you can:
 
