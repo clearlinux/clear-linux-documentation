@@ -375,7 +375,7 @@ a blank list of compute workload instances.
 Starting a workload
 ===================
 
-Because we are using self-signed certificates and our debug code counts
+Because we are using self-signed certificates and our debug UI code counts
 on AJAX being able to communicate directly with the keystone service,
 you need to find a way to accept the certificate for the keystone
 service before you will be able to launch a workload. For some browsers,
