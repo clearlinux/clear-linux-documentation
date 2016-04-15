@@ -21,11 +21,13 @@ SSNTP roles allow for both filtering and routing of frames:
 There are currently 6 different SSNTP roles:
 
 * **SERVER (0x1)**: A generic SSNTP server.
-* **CSR (0x2)**: The CIAO :abbr:`Command and Status Reporting (CSR)` client.
+* **CONROLLER (0x2)**: The CIAO Controller client dispatches user commands to
+  the server and receives status reports from agent
 * **AGENT (0x4)**: The CIAO compute node Agent receives workload commands
-  from the Scheduler and manages the workload on a given compute node accordingly.
+  from the Scheduler, manages the workload on a given compute node accordingly,
+  and sends node and workload status to the scheduler and controller.
 * **SCHEDULER (0x8)**: The CIAO workload Scheduler receives workload-related
-  commands from the CSR and schedules them on the available compute nodes.
+  commands from the controller and schedules them on the available compute nodes.
 * **NETAGENT (0x10)**: The CIAO networking compute node NetAgent receives
   networking workload commands from the Scheduler and manages the workload on a
   given networking compute node accordingly.
