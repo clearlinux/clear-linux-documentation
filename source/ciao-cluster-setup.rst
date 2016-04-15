@@ -311,7 +311,9 @@ and network node already up and running together.**
 #. Copy in the initial database table data from the ciao-controller source
    (``$GOPATH/src/github.com/01org/ciao/ciao-controller`` on your
    build/development) to the same directory as the ciao-controller binary.
-   Copying in ``*.csv`` will work.
+   Copying in ``*.csv`` will work if you are testing a Clear Cloud image,
+   Fedora image and docker.  Other images will require edits to the csv
+   config files.
 
 #. Copy in the controller html templates from the ciao-controller source to the
    same directory as the ciao-controller binary. Copying in ``*.gtpl`` will work.
