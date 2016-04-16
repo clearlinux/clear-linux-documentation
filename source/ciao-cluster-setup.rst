@@ -159,8 +159,7 @@ On your development box, generate ssl certificates for the controller's https se
 
 Copy the ``controller_cert.pem`` and ``controller_key.pem`` files to your
 controller node.  You can use the same location where you will be storing
-your controller binary (ciao-controller).  For our dev test clusters, the keys
-are already in ``/etc/pki/ciao``.
+your controller binary (ciao-controller).
 
 You'll also need to pull that certificate into your browser as noted below in
 the `Starting a workload` section.
