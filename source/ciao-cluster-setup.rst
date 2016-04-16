@@ -169,7 +169,7 @@ Keystone node
 
 You need to run a Keystone service.  General documentation on setting
 up Keystone services can be found at the `Openstack developer`_ website.
-We need a few configuration points::
+We need a few configuration points, eg::
 
   $ openstack service create --name ciao compute
   $ openstack user create --password hello csr
