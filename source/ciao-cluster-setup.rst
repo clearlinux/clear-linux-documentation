@@ -57,32 +57,7 @@ Network needs
 
 Our system assumes cluster nodes have full connectivity at a routed
 IP level.  Additionally, the network node must have access to a DHCP
-server for serving addresses that can be routable across the cluster.
-
-It is possible to use a corporate or a lab network and not install a
-separate DHCP server; however, the DHCP server and network management
-infrastructure supplying your switch's upstream port needs to allow you
-to have enough IPs for your all of your nodes and the appliance VMs that
-ciao requires for network management purposes.  One of these
-``CNCI`` appliances (:abbr:`Compute Node Concentrator Instance (CNCI)`;
-see the `CNCI Agent`_ documentation for more information) is run for each
-tenant network. If you're testing with two tenants, you will have to CNCI
-VMs, each needing one DHCP address.
-
-.. note::
-
-  If you are using ``dnsmasq`` as your DHCP/DNS server, complete the following:
-
-  #. Ensure that the ``dhcp-sequential-ip`` option is set.
-  #. Configure ``dhcp-host=*:*:*:*:*:*,id:*`` to ensure that the CNCIs get
-     unique IP addresses even when their hostnames are the same inside the VM. A
-  #. Set up static MAC to IP mappings (using the dhcp-host option) for your
-     cluster nodes to ensure you never lose network connectivity.
-  #. Configure a dynamic range within the subnet (using the dhcp-range
-     option) with enough IPs for the number of tenant CNCI instances you wish to run.
-
-  If you are using another DHCP/DNS server, apply appropriately similar
-  configuration.
+server offering addresses that are routable across the cluster.
 
 
 Node setup
@@ -291,10 +266,10 @@ This section describes how to generate a CNCI image from a vanilla
 clear cloud qcow2 image::
 
   $ cd /var/lib/ciao/images
-  $ curl -O https://download.clearlinux.org/demos/ciao/clear-7370-ciao-networking.img.xz
-  $ xz -T0 --decompress clear-7370-ciao-networking.img.xz
-  $ ln -s clear-7370-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
-  $ $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7370-ciao-networking.img /etc/pki/ciao/
+  $ curl -O https://download.clearlinux.org/demos/ciao/clear-7470-ciao-networking.img.xz
+  $ xz -T0 --decompress clear-7470-ciao-networking.img.xz
+  $ ln -s clear-7470-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
+  $ $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7470-ciao-networking.img /etc/pki/ciao/
 
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
