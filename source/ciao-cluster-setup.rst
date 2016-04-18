@@ -20,7 +20,11 @@ Hardware needs
 
 You'll need at least four machines and a switch connecting them to form
 your beginning ciao cluster. The switch is assumed to be plugged directly
-into an "upstream" network running a DHCP server. The following examples
+into an "upstream" network running a DHCP server. See the illustration below as an example:
+
+.. image:: image-blob-ciao-networking.png
+
+The following examples
 assume you have four nodes on a ``192.168.0.0/16`` network:
 
 Controller node
