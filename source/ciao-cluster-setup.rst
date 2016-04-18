@@ -283,52 +283,6 @@ type::
 
   $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <network node compute subnet> --mgmt-net <network node management subnet>
 
-Ciao CLI setup
-==============
-
-The `ciao-cli`_ command-line tool can be set up by exporting a set of ciao-
-specific environment variables:
-
-* ``CIAO_CONTROLLER`` exports the ciao controller FQDN
-* ``CIAO_IDENTITY`` exports the ciao keystone instance FQDN
-* ``CIAO_COMPUTEPORT`` exports the ciao compute alternative port
-* ``CIAO_USERNAME`` exports the ciao username
-* ``CIAO_PASSWORD`` export the ciao password for ``CIAO_USERNAME``
-
-For example::
-
-  $ cat ciao-cli-example.sh
-
-  export CIAO_CONTROLLER=ciao-ctl.intel.com
-  export CIAO_IDENTITY=https://ciao-identity.intel.com:35357
-  export CIAO_USERNAME=user
-  export CIAO_PASSWORD=ciaouser
-
-  $ source ciao-cli-example.sh
-
-Defining those variables is optional. The same pieces of information
-can be passed to `ciao-cli`_ through the various command line options.
-The command line options will take precedence over the ciao environment
-variables and override them:
-
-* ``CIAO_CONTROLLER`` can be defined by the ``--controller`` option
-* ``CIAO_IDENTITY`` can be defined by the ``--identity`` option
-* ``CIAO_COMPUTEPORT`` can be defined by the ``--computeport`` option
-* ``CIAO_USERNAME`` can be defined by the ``--username`` option
-* ``CIAO_PASSWORD`` can be defined by the ``--password`` option
-
-Interacting with your cluster
-=============================
-
-Ciao Web UI setup
------------------
-
-In addition to `ciao-cli`_, a node.js-based web UI offers a means of
-interacting with your cluster visually.  Documentation for this is in
-the `ciao-webui`_ github repository.  A simple JSON configuration file
-allows you to specify the webui configuration and point its back end to
-your keystone and ciao-controller systems.
-
 Start the controller
 --------------------
 
@@ -405,6 +359,53 @@ status of each.
 available resources per node, etc.).
 
 ``-list-cncis`` provides information about the current CNCI VMs, and their statuses.
+
+Interacting with your cluster
+=============================
+
+Ciao Web UI setup
+-----------------
+
+In addition to `ciao-cli`_, a node.js-based web UI offers a means of
+interacting with your cluster visually.  Documentation for this is in
+the `ciao-webui`_ github repository.  A simple JSON configuration file
+allows you to specify the webui configuration and point its back end to
+your keystone and ciao-controller systems.
+
+Ciao CLI setup
+--------------
+
+The `ciao-cli`_ command-line tool can be set up by exporting a set of ciao-
+specific environment variables:
+
+* ``CIAO_CONTROLLER`` exports the ciao controller FQDN
+* ``CIAO_IDENTITY`` exports the ciao keystone instance FQDN
+* ``CIAO_COMPUTEPORT`` exports the ciao compute alternative port
+* ``CIAO_USERNAME`` exports the ciao username
+* ``CIAO_PASSWORD`` export the ciao password for ``CIAO_USERNAME``
+
+For example::
+
+  $ cat ciao-cli-example.sh
+
+  export CIAO_CONTROLLER=ciao-ctl.intel.com
+  export CIAO_IDENTITY=https://ciao-identity.intel.com:35357
+  export CIAO_USERNAME=user
+  export CIAO_PASSWORD=ciaouser
+
+  $ source ciao-cli-example.sh
+
+Defining those variables is optional. The same pieces of information
+can be passed to `ciao-cli`_ through the various command line options.
+The command line options will take precedence over the ciao environment
+variables and override them:
+
+* ``CIAO_CONTROLLER`` can be defined by the ``--controller`` option
+* ``CIAO_IDENTITY`` can be defined by the ``--identity`` option
+* ``CIAO_COMPUTEPORT`` can be defined by the ``--computeport`` option
+* ``CIAO_USERNAME`` can be defined by the ``--username`` option
+* ``CIAO_PASSWORD`` can be defined by the ``--password`` option
+
 
 Start a workload
 ================
