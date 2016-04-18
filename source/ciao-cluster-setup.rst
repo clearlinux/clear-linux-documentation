@@ -316,8 +316,11 @@ variables and override them:
 * ``CIAO_USERNAME`` can be defined by the ``--username`` option
 * ``CIAO_PASSWORD`` can be defined by the ``--password`` option
 
+Interacting with your cluster
+=============================
+
 Ciao Web UI setup
-=================
+-----------------
 
 In addition to `ciao-cli`_, a node.js-based web UI offers a means of
 interacting with your cluster visually.  Documentation for this is in
@@ -326,7 +329,7 @@ allows you to specify the webui configuration and point its back end to
 your keystone and ciao-controller systems.
 
 Start the controller
-====================
+--------------------
 
 Starting the Controller on the controller node is what truly activates your
 cluster for use. **NOTE: Before starting the controller, you must have a scheduler
