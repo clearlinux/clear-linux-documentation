@@ -9,3 +9,9 @@ Getting started
    gs_creating_bootable_usb
    gs_installing_clr_as_host
    gs-clear-containers-gettting-started
+   vm-kvm
+   vm-virtualbox
+   vm-vmware-esxi
+   vm-vmware-player
+   vm-hyper-v
+

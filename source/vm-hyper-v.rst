@@ -1,22 +1,21 @@
 .. _vm-hyper-v:
 
-================
 Using Hyper-V
-================
+#############
 
 This section explains how to run Clear Linux inside
 `Windows Server Virtualization`_  *A.K.A.* **Hyper-V** environment.
 
 
 Install Hyper-V
----------------
+===============
 
 Please refer to `Microsoft documentation`_ to install and configure
 *Hyper-V* on your machine.
 
 
 Create a virtual machine
-------------------------
+========================
 
 1. Download the latest_ Clear Linux live version (clear-XXXX-live.img.xz)
    from https://download.clearlinux.org/image/.
