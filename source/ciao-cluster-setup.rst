@@ -347,9 +347,6 @@ and network node already up and running together.**
    Fedora image and Docker. Other images will require edits to the csv
    config files.
 
-#. Copy in the controller html templates from the ciao-controller source to the
-   same directory as the ciao-controller binary. Copying in ``*.gtpl`` will work.
-
 #. Copy in the test.yaml file from
    ``$GOPATH/src/github.com/01org/ciao/ciao-controller/test.yaml``.
 
