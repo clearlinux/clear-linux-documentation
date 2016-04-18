@@ -84,17 +84,18 @@ bundle, which adds components needed by CIAO::
 Build the CIAO software
 -----------------------
 
-#. On a Linux development machine with Go language development tooling
-   present, use the ``go get`` tool to fetch and build ciao and its go
-   dependencies::
+Ciao is written in the Go programming language. It requires Go 1.6 to
+build. Most Linux distributions have out of date versions of Go in their
+repositories, so you will probably need to download and install a recent
+version of Go. This can be easily done by following the
+`Go installation instructions <https://golang.org/doc/install>`__.
 
-   $ cd $GOPATH/src
-   $ go get -v -u github.com/01org/ciao
+On a Linux development machine with Go language development tooling
+present, use the ``go get`` tool to fetch and build ciao and its go
+dependencies::
 
-#. Install and build the binaries needed for ciao::
-
-   $ cd github.com/01org/ciao
-   $ go install ./...
+    $ cd $GOPATH/src
+    $ go get -v -u github.com/01org/ciao
 
 The binaries will install to ``$GOPATH/bin``. You should have
 ``ciao-cli``, ``ciao-cert``, ``cnci_agent``, ``ciao-launcher``,
