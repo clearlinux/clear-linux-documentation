@@ -147,7 +147,7 @@ Keystone node
 -------------
 
 You need to run a Keystone service.  General documentation on setting
-up Keystone services can be found at the `OpenStack* developer`_ website.
+up Keystone services can be found at the `OpenStack developer`_ website.
 We need a few configuration points, eg::
 
   $ openstack service create --name ciao compute
