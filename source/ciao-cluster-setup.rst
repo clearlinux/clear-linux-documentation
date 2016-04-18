@@ -241,7 +241,7 @@ The launcher is run with options declaring certificates, maximum VMs
 available on your node), server location, and compute node ("cn")
 launching type. For example::
 
-    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn
+    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet>
 
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
@@ -278,7 +278,7 @@ The network node's launcher is run almost the same as the compute node.
 The primary difference is that it uses the network node ("nn") launching
 type::
 
-  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn
+  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <network node compute subnet> --mgmt-net <network node management subnet>
 
 Start the controller
 ====================
@@ -416,6 +416,7 @@ On the node running your keystone VM, run the following command::
 
 On the network node, run the following commands::
 
+  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <node compute subnet> --mgmt-net <node management subnet> --hard-reset
   $ sudo killall -9 qemu-system-x86_64
   $ sudo rm -rf /var/lib/ciao/instances/
   $ sudo reboot
@@ -423,6 +424,7 @@ On the network node, run the following commands::
 If you were unable to successfully delete all workload VM instances
 through the UI, then on each compute node run these commands::
 
+  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet> --hard-reset
   $ sudo killall -9 qemu-system-x86_64
   $ sudo docker rm $(sudo docker ps -qa)
   $ sudo docker network rm $(sudo docker network ls -q -f "type=custom")
