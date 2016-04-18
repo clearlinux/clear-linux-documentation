@@ -427,7 +427,7 @@ components if you have consoles open and logging to standard output as
 described above.
 
 Reset your cluster
-##################
+==================
 
 First you should delete all instances with the `ciao-cli`_ command line
 tool::
@@ -469,7 +469,7 @@ Restart your scheduler, network node launcher, compute node launcher,
 and controller.
 
 Debug tips
-##########
+==========
 
 For general debugging, you can:
 
