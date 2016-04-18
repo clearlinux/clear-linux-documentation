@@ -24,8 +24,7 @@ into an "upstream" network running a DHCP server. See the illustration below as 
 
 .. image:: image-blob-ciao-networking.png
 
-The following examples
-assume you have four nodes on a ``192.168.0.0/16`` network:
+The following examples assume you have four nodes on a ``192.168.0.0/16`` network:
 
 Controller node
 ~~~~~~~~~~~~~~~
@@ -112,8 +111,8 @@ roles; general instructions can be found under the `ciao-cert`_ documentation.
 
 When generating the certificates, pass in the IP and host name for
 the host on which you will be running the scheduler in the ``-ip`` and
-``-host`` arguments respectively.  The scheduler acts as the cluster
-SSNTP server, and clients connecting will validate its credentials match
+``-host`` arguments, respectively. The scheduler acts as the cluster
+SSNTP server, and connecting clients will validate credentials matched by
 those embedded in the certificates.
 
 Create unique certificates for each of your scheduler, compute node, network
@@ -137,8 +136,8 @@ On your development box, generate ssl certificates for the controller's https se
     $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout controller_key.pem -out controller_cert.pem
 
 Copy the ``controller_cert.pem`` and ``controller_key.pem`` files to your
-controller node.  You can use the same location where you will be storing
-your controller binary (ciao-controller).
+controller node. You can use the same location where you will be storing
+your controller binary (``ciao-controller``).
 
 You'll also need to pull that certificate into your browser as noted below in
 the `Starting a workload` section.
@@ -170,13 +169,13 @@ as previously described.
 Scheduler
 ~~~~~~~~~
 
-Copy in the scheduler binary from your build/develop machine to any
+Copy in the scheduler binary from your build/development machine to any
 location, then launch it first (does not require root)::
 
-    ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Scheduler-[scheduler-node-hostname].pem --heartbeat
+    $ ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Scheduler-[scheduler-node-hostname].pem --heartbeat
 
 With the optional ``--heartbeat`` option, the scheduler console will
-output once per second a heartbeat message showing connected Controller
+output once per-second a heartbeat message showing connected Controller
 and Compute Node client statistics. It also displays a line of
 information for each command or event traversing the SSNTP server.
 As the sole SSNTP server in the ciao cluster, it is a key debugging point
@@ -205,17 +204,16 @@ location.
 Prepopulate the OS image cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Ciao has not yet integrated with an existing image server and for
-simplicity presumes one has prepopulated an image cache on each compute
+Ciao has not yet integrated with an existing image server; so for
+simplicity, presume a prepopulated image cache for each compute
 node in ``/var/lib/ciao/images``.
 
 We have tested the `Fedora* 23 Cloud`_, Clear Linux OS for Intel
 Architecture cloud `downloadable cloud images`_, and Ubuntu* images. Each image
 will be referenced very specifically by a UUID in our configuration
-files, so follow the instructions here exactly.  You may wish to create
+files, so follow the instructions here exactly. You may wish to create
 the needed UUID named image files as symlinks to a more human readable
-and descriptively named image files as is done in the following
-example::
+and descriptively named image files as is done in the following example::
 
   $ mkdir -p /var/lib/ciao/images
   $ cd /var/lib/ciao/images
@@ -234,20 +232,20 @@ Clear Linux OS for Intel Architecture Cloud::
 
 Docker* images will be pulled down automatically at the time of first usage.
 
-Each compute node needs its /var/lib/ciao/images populated with all images
-with which you wish to test.
+Each compute node needs its ``/var/lib/ciao/images`` directory populated with
+images with which you wish to test.
 
 Start the compute node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The launcher is run with options declaring certificates, maximum VMs
-(controls when "FULL" is returned by a node, scaling to the resources
+(controls when FULL is returned by a node, scaling to the resources
 available on your node), server location, and compute node ("cn")
 launching type. For example::
 
-    sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet>
+    $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet>
 
-Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
+Optionally, add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
 The launcher runs as root because launching QEMU/KVM virtual machines
@@ -256,9 +254,9 @@ requires ``/dev/kvm`` and other restricted resource access.
 Network node setup
 ------------------
 
-The network node hosts VMs running the Compute Network Concentrator(s)
-Instance "CNCI" agent, one per tenant. These VMs are automatically
-launched by the controller.
+The network node hosts VMs running the :abbr:`Compute Network Concentrators
+Instance (CNCI)` or the **CNCI Agent**, one for each tenant. These VMs
+are automatically launched by the controller.
 
 Certificates are assumed to be in ``/etc/pki/ciao``, generated with the
 correct roles and names as previously described.
@@ -278,7 +276,7 @@ Clear Cloud qcow2 image::
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The network node's launcher is run almost the same as the compute node.
+The network node's launcher is run similarly to the compute node's launcher.
 The primary difference is that it uses the network node ("nn") launching
 type::
 
@@ -287,7 +285,7 @@ type::
 Ciao CLI setup
 ==============
 
-The `ciao-cli`_ command line tool can be set up by exporting a set of ciao
+The `ciao-cli`_ command-line tool can be set up by exporting a set of ciao-
 specific environment variables:
 
 * ``CIAO_CONTROLLER`` exports the ciao controller FQDN
@@ -333,7 +331,7 @@ and network node already up and running together.**
    (``$GOPATH/src/github.com/01org/ciao/ciao-controller`` on your
    build/development) to the same directory as the ciao-controller binary.
    Copying in ``*.csv`` will work if you are testing a Clear Cloud image,
-   Fedora image and Docker.  Other images will require edits to the csv
+   Fedora image and Docker. Other images will require edits to the csv
    config files.
 
 #. Copy in the controller html templates from the ciao-controller source to the
@@ -344,18 +342,18 @@ and network node already up and running together.**
 
 The `ciao-controller workload_resources.csv`_ and the
 `ciao-controller workload_template.csv`_ have four stanzas, so yours
-should as well to successfully run each of the four images currently
-described earlier on this page (Fedora, Clear, Docker Ubuntu, CNCI).
-To run other images of your choosing you'd do similar to the above for
-pre-populating OS images, similarly editing these two files on your
-controller node.
+should as well, in order to successfully run each of the four images
+currently described earlier on this page (Fedora, Clear, Docker Ubuntu,
+CNCI). To run other images of your choosing, follow a process similar to
+the above: pre-populate OS images and edit each of these two files on
+your controller node.
 
 If the controller is on the same physical machine as the scheduler, the
 ``--url`` option is optional; otherwise it refers to your scheduler
 SSNTP server IP.
 
-In order for the ciao-controller go code to correctly use the CA
-certificate generated earlier when you built your keystone server,
+In order for the ciao-controller's go code to correctly use the CA
+certificate(s) generated earlier when you built your keystone server,
 this certificate needs to be installed in the control node and be
 part of the control node CA root. On Clear Linux OS for Intel
 Architecture, this is accomplished with::
@@ -372,8 +370,8 @@ Note the generated hash from the prior command and use it in the next commands::
     $ sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
 
 You will need to tell the controller where the keystone service is located and
-pass it the ciao service username and password. DO NOT USE
-localhost for your server name. **It must be the fully qualified DNS
+pass the ciao service username and password to it. DO NOT USE
+localhost for your server name; **it must be the fully qualified DNS
 name of the system that is hosting the keystone service**.
 An SSL-enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
@@ -390,22 +388,20 @@ now up and running::
   $ ciao-cli -username admin -password <admin_password> -list-cns
   $ ciao-cli -username admin -password <admin_password> -list-cncis
 
-``-cluster-status`` will show you how many nodes your cluster is made of,
-together with their statuses.
+``-cluster-status`` shows the number of nodes in your cluster, and the
+status of each.
 
-``-list-cns`` will display a more detailed view (number of instances,
-available resources, etc.) of each of those nodes.
+``-list-cns`` displays a more detailed view (number of instances per node,
+available resources per node, etc.).
 
-``-list-cncis`` will give you information about the current CNCI VMs
-and their statuses.
+``-list-cncis`` provides information about the current CNCI VMs, and their statuses.
 
 Start a workload
 ================
 
-As a valid user, the `ciao-cli`_ command line tool allows you to
-start a workload.
+As a valid user, the `ciao-cli`_ tool allows you to start a workload.
 
-First you may want to know which workloads are available::
+First, you may want to know which workloads are available::
 
   $ ciao-cli -list-workloads
 
@@ -416,8 +412,8 @@ Then you can launch one or more workloads::
 And you can monitor all your instances statuses (``pending`` or ``running``)::
 
   $ ciao-cli -list-instances
- 
-You can get performance data by optionally adding a specific label
+
+Performance data can be obtained (optionally) by adding a specific label
 to all your instances::
 
   $ ciao-cli -launch-instances -instance-label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
@@ -478,14 +474,14 @@ Debug tips
 For general debugging, you can:
 
 * Reset you cluster.
-* Pull in up to date go binaries.
+* Pull in updated go binaries.
 * Enable verbose console logging with ``-logtostderr -v=2`` on the go
   binaries' command lines.
 * Reduce your tenants to one (specifically the one with no limits).
-* Launch fewer VMs in a herd. A small Intel NUC with 16GB of RAM can handle as many as 50-100
-  2vcpu 218MB RAM VMs starting at once per compute node. Larger dual socket many thread CPU
-  with hundreds of GB RAM Haswell-EP servers can handle as many as 500 such VMs starting
-  at once per compute node.
+* Launch fewer VMs in a herd. A small Intel NUC with 16GB of RAM can handle as many as
+  50-100 2vcpu 218MB RAM VMs starting at once per compute node. Larger dual socket
+  many thread CPU with hundreds of GB RAM Haswell-EP servers can handle as many as 500
+  such VMs starting at once per compute node.
 * Tweak the launcher to enable remote access: go get with ``--tags=debug`` to enable
   a netcat based console redirection for each VM.  The launcher console verbose output
   will indicate per VM how to connect to the console. For example::
@@ -498,7 +494,7 @@ For general debugging, you can:
   at a port composed from the VM's IP address added to 33000. For example::
 
    33000+ip[2]<<8+ip[3]
-  
+
   The VM IP is available in the `ciao-cli`_.
 * Instance credentials for netcat or ssh connectivity depend on the contents of
   the cloud-init configuration used by ciao-controller for the workload.
