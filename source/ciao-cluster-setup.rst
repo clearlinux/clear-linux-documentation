@@ -76,7 +76,7 @@ OS on all nodes by following the instructions in the topic
 `downloadable installer images`_ are compatible with ciao.
 
 After the base installation on each node add the following additional
-bundle, which adds componenents needed by CIAO::
+bundle, which adds components needed by CIAO::
 
     $ swupd bundle-add cloud-control
 
@@ -147,7 +147,7 @@ Keystone node
 -------------
 
 You need to run a Keystone service.  General documentation on setting
-up Keystone services can be found at the `Openstack developer`_ website.
+up Keystone services can be found at the `OpenStack* developer`_ website.
 We need a few configuration points, eg::
 
   $ openstack service create --name ciao compute
@@ -189,7 +189,7 @@ ciao-controller
 
 **Important: Do not start the ciao controller just yet!** It should only
 be started after a network node is connected to the scheduler; otherwise
-workloads may fail to start. This restriction will be adressed once
+workloads may fail to start. This restriction will be addressed once
 `ciao issue #12`_ is closed.
 
 Compute node setup
@@ -250,7 +250,7 @@ launching type. For example::
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
-The launcher runs as root because launching qemu/kvm virtual machines
+The launcher runs as root because launching QEMU/KVM virtual machines
 requires ``/dev/kvm`` and other restricted resource access.
 
 Network node setup
@@ -345,7 +345,7 @@ and network node already up and running together.**
 The `ciao-controller workload_resources.csv`_ and the
 `ciao-controller workload_template.csv`_ have four stanzas, so yours
 should as well to successfully run each of the four images currently
-described earlier on this page (ie: Fedora, Clear, Docker Ubuntu, CNCI).
+described earlier on this page (Fedora, Clear, Docker Ubuntu, CNCI).
 To run other images of your choosing you'd do similar to the above for
 pre-populating OS images, similarly editing these two files on your
 controller node.
@@ -393,8 +393,8 @@ now up and running::
 ``-cluster-status`` will show you how many nodes your cluster is made of,
 together with their statuses.
 
-``-list-cns`` will display a more detailled view (number of instances,
-available esources, etc.) of each of those nodes.
+``-list-cns`` will display a more detailed view (number of instances,
+available resources, etc.) of each of those nodes.
 
 ``-list-cncis`` will give you information about the current CNCI VMs
 and their statuses.
@@ -475,7 +475,7 @@ and controller.
 Debug tips
 ##########
 
-For general debuging, you can:
+For general debugging, you can:
 
 * Reset you cluster.
 * Pull in up to date go binaries.
@@ -496,7 +496,7 @@ For general debuging, you can:
 * Ssh into the CNCI(s) by IP, looking at top, df, ps, ip a, ip r, netstat -a, etc.
 * Ssh into the workload instance VMs via CNCI IP and port redirection.  Each VM will be
   at a port composed from the VM's IP address added to 33000, eg:: ``33000+ip[2]<<8+ip[3]``.
-  The VM IP is availabe in the `ciao-cli`_.
+  The VM IP is available in the `ciao-cli`_.
 * Instance credentials for netcat or ssh connectivity depend on the contents of
   the cloud-init configuration used by ciao-controller for the workload.
 
