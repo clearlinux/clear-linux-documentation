@@ -280,6 +280,40 @@ type::
 
   $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <network node compute subnet> --mgmt-net <network node management subnet>
 
+Ciao CLI setup
+==============
+
+The `ciao-cli`_ command line tool can be setup by exporting a set of Ciao
+specific environment variables:
+
+* ``CIAO_CONTROLLER`` exports the Ciao controller FQDN
+* ``CIAO_IDENTITY`` exports the Ciao keystone instance FQDN
+* ``CIAO_COMPUTEPORT`` exports the Ciao compute alternative port
+* ``CIAO_USERNAME`` exports the Ciao username
+* ``CIAO_PASSWORD`` export the Ciao password for ``CIAO_USERNAME``
+
+For example::
+
+  $ cat ciao-cli-example.sh
+
+  export CIAO_CONTROLLER=ciao-ctl.intel.com
+  export CIAO_IDENTITY=https://ciao-identity.intel.com:35357
+  export CIAO_USERNAME=user
+  export CIAO_PASSWORD=ciaouser
+
+  $ source ciao-cli-example.sh
+
+Defining those variables is optional. The same pieces of information
+can be passed to `ciao-cli`_ through the various command line options.
+The command line options will take precedence over the Ciao environment
+variables and override them:
+
+* ``CIAO_CONTROLLER`` can be defined by the ``--controller`` option
+* ``CIAO_IDENTITY`` can be defined by the ``--identity`` option
+* ``CIAO_COMPUTEPORT`` can be defined by the ``--computeport`` option
+* ``CIAO_USERNAME`` can be defined by the ``--username`` option
+* ``CIAO_PASSWORD`` can be defined by the ``--password`` option
+
 Start the controller
 ====================
 
@@ -348,9 +382,9 @@ console logging output.
 Use the `ciao-cli`_ command line tool to verify that your cluster is
 now up and running::
 
-  $ ciao-cli -username admin -password <admin_password> -cluster-status -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
-  $ ciao-cli -username admin -password <admin_password> -list-cns -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
-  $ ciao-cli -username admin -password <admin_password> -list-cncis -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -username admin -password <admin_password> -cluster-status
+  $ ciao-cli -username admin -password <admin_password> -list-cns
+  $ ciao-cli -username admin -password <admin_password> -list-cncis
 
 ``-cluster-status`` will show you how many nodes your cluster is made of,
 together with their statuses.
@@ -369,24 +403,24 @@ start a workload.
 
 First you may want to know which workloads are available::
 
-  $ ciao-cli -username user -password <user_password> -list-workloads -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -list-workloads
 
 Then you can launch one or more workload::
 
-  $ ciao-cli -username user -password <user_password> -launch-instances -workload <workload UUID> -instances <number of instances to launch> -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -launch-instances -workload <workload UUID> -instances <number of instances to launch>
 
 And you can monitor all your instances statuses (``pending`` or ``running``)::
 
-  $ ciao-cli -username user -password <user_password> -list-instances -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -list-instances
  
 You can get performance data by optionally adding a specific label
 to all your instances::
 
-  $ ciao-cli -username user -password <user_password> -launch-instances -instance-label <instance-label> -workload <workload UUID> -instances <number of instances to launch> -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -launch-instances -instance-label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
 
 And eventually fetch the performance data::
 
-  $ ciao-cli -username user -password <user_password> -dump-label <instance-label> -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -dump-label <instance-label>
 
 You will also see activity related to this launch across your cluster
 components if you've got consoles open and logging to standard output as
@@ -398,7 +432,7 @@ Reset your cluster
 First you should delete all instances with the `ciao-cli`_ command line
 tool::
 
-  $ ciao-cli -username user -password <user_password> -delete-instance -all-instances -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -delete-instance -all-instances
 
 On your scheduler node, run the following command::
 
@@ -458,7 +492,7 @@ For general debuging, you can:
 * Ssh into the CNCI(s) by IP, look at top, df, ps, ip a, ip r, netstat -a, etc.
 * Ssh into the workload instance VMs via CNCI IP and port redirection.  Each VM will be
   at a port composed from the VM's IP address added to 33000, eg:: ``33000+ip[2]<<8+ip[3]``.
-  The VM IP is availabe in the ciao-cli and ciao-webui.
+  The VM IP is availabe in the `ciao-cli`_.
 * Instance credentials for netcat or ssh connectivity depend on the contents of
   the cloud-init configuration used by ciao-controller for the workload.
 
