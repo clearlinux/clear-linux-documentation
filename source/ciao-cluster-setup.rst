@@ -345,56 +345,48 @@ for ciao-controller pointing at its certificates::
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
-Point a browser at your controller node. For example:
+Use the `ciao-cli`_ command line tool to verify that your cluster is
+now up and running::
 
-`https://192.168.0.101:8889/stats <http://192.168.0.101:8889/stats>`__
+  $ ciao-cli -username admin -password <admin_password> -cluster-status -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -username admin -password <admin_password> -list-cns -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+  $ ciao-cli -username admin -password <admin_password> -list-cncis -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
 
-You should see a page with graphs showing resource data for your
-connected nodes, a table of your Network node's CNCI VM status (each
-with an IP from your upstream net's dhcp server), a blank event log and
-a blank list of compute workload instances.
+``-cluster-status`` will show you how many nodes your cluster is made of,
+together with their statuses.
 
+``-list-cns`` will display a more detailled view (number of instances,
+available esources, etc...) of each of those nodes.
+
+``-list-cncis`` will give you information about the current CNCI VMs
+and their statuses.
 
 Start a workload
 ================
 
-Because we are using self-signed certificates and our debug UI code counts
-on AJAX being able to communicate directly with the keystone service,
-you need to find a way to accept the certificate for the keystone
-service before you will be able to launch a workload. For some browsers,
-it's sufficient to go to the controller's web server and accept the
-certificate. You may also update your system's CA certs on the system your
-browser is running on to include the keystone ``.pem`` file. You'll have to
-check your operating system's instructions on how to do this. For Chrome*
-on Linux, other problems persist, so that browser is unfortunately not
-a working option at this time.
+As a valid user, the `ciao-cli`_ command line tool allows you to
+start a workload.
 
-To start a workload, you will first need to log in as a valid user with
-permissions for one or more projects (tenants).
+First you may want to know which workloads are available::
 
-`https://192.168.0.1:8889/login <http://192.168.0.1:8889/login>`__
+  $ ciao-cli -username user -password <user_password> -list-workloads -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
 
-Login information will be validated to the keystone service. After
-successful login, you will be redirected to a page where you can launch
-workloads.
+Then you can launch one or more workload::
 
-#. Select a tenant, such as: "Ciao Test User No Limits".
-#. Select an image, such as: "Clear Cloud".
-#. Enter an instance count, such as: "1".
-#. Press "Send".
+  $ ciao-cli -username user -password <user_password> -launch-instances -workload <workload UUID> -instances <number of instances to launch> -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
 
-If you would like to see performance data, you may optionally check the
-"trace" box and provide a label for the test run. These stats will be
-available to you from the controller node stats UI.
+And you can monitor all your instances statuses (``pending`` or ``running``)::
 
-You should note a change in activity in the `controller node stats
-UI <http://192.168.0.101:8889/stats>`__, with a new VM showing as
-pending and then running.
+  $ ciao-cli -username user -password <user_password> -list-instances -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+ 
+You can get performance data by optionally adding a specific label
+to all your instances::
 
-The Clear Cloud VM consumes a bit more than 128MB of RAM; so within
-~30 seconds (the refresh rate of the stats page), you should see the
-status as ``running`` instead of ``pending`` and 128MB less RAM shown as
-available in the UI stats.
+  $ ciao-cli -username user -password <user_password> -launch-instances -instance-label <instance-label> -workload <workload UUID> -instances <number of instances to launch> -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+
+And eventually fetch the performance data::
+
+  $ ciao-cli -username user -password <user_password> -dump-label <instance-label> -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
 
 You will also see activity related to this launch across your cluster
 components if you've got consoles open and logging to standard output as
@@ -403,13 +395,24 @@ described above.
 Reset your cluster
 ##################
 
-In the `controller node stats debug UI <http://192.168.0.101:8889/stats>`__:
+First you should delete all instances with the `ciao-cli`_ command line
+tool::
 
-#. Select and delete all workload VM instances.
-#. Stop all daemons.
-#. Delete the :file:`ciao-controller.db` from the directory in which you ran the
-   ciao-controller binary.
-#. Delete :file:`/tmp/ciao-controller-stats.db`.
+  $ ciao-cli -username user -password <user_password> -delete-instance -all-instances -identity https://[keystone-FQDN]:35357 -controller <controller-FQDN>
+
+On your scheduler node, run the following command::
+
+  $ sudo killall -w -9 qemu-system-x86_64
+
+On your controller node, go to the directory in which you ran the
+ciao-controller binary and run the following commands::
+
+  $ sudo killall -w -9 ciao-controller
+  $ sudo rm $HOME/bin/ciao-controller.db /tmp/ciao-controller-stats.db
+
+On the node running your keystone VM, run the following command::
+
+  $ sudo killall -w -9 qemu-system-x86_64
 
 On the network node, run the following commands::
 
@@ -421,6 +424,8 @@ If you were unable to successfully delete all workload VM instances
 through the UI, then on each compute node run these commands::
 
   $ sudo killall -9 qemu-system-x86_64
+  $ sudo docker rm $(sudo docker ps -qa)
+  $ sudo docker network rm $(sudo docker network ls -q -f "type=custom")
   $ sudo rm -rf /var/lib/ciao/instances/
   $ sudo reboot
 
@@ -469,3 +474,4 @@ testing.
 .. _ciao-cert: https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md
 .. _CNCI Agent: https://github.com/01org/ciao/tree/master/networking/cnci_agent
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/ciao-devel
+.. _ciao-cli: https://github.com/01org/ciao/tree/master/ciao-cli
