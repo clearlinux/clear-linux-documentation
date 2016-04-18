@@ -1,44 +1,41 @@
 .. _vm-vmware-esxi:
 
 Using VMware* ESXi guest
-========================
+########################
 
-This documentation explains how to use Clear Linux as ESXi Guest.
-This docuemnt is based on VMware vSphere 6.
+This topic, which is based on VMware vSphere* 6, explains how to use Clear Linux* OS 
+for Intel® Architecture as ESXi Guest.
 
+Run Clear Linux OS for Intel Architecture
+=========================================
 
-****************
-Run Clear Linux* 
-****************
-
-1. In order to boot Clear Linux* download the latest_ live disk image from
+1. To boot Clear Linux OS for Intel Architecture, download the latest_ live disk image from
    https://download.clearlinux.org/image/
 
-2. Decompress Clear Linux image. Uncompressed image size is ~ **5GiB**.
+2. Decompress the image. Uncompressed image size is ~ **5GiB**.
 
 3. Create and configure a virtual machine with the following configuration:
 
-  - Guest Operating system: **Linux, Distribution Other 3.x Linux (64-bits)**
+   - Guest Operating system: **Linux, Distribution Other 3.x Linux (64-bits)**
 
-  - **UEFI support**: Clear Linux uses as default bootloader systemd-boot a
-    UEFI boot manager for EFI images
+   - **UEFI support**: Clear Linux uses as default bootloader systemd-boot a
+     UEFI boot manager for EFI images
 
-  .. tip::
-    In VMware vShere GUI go to the configuration settings of the
-    virtual machine->General Tab-> And select **EFI boot firmware**
+    .. tip::
+      In VMware vShere GUI go to the configuration settings of the
+      virtual machine->General Tab-> And select **EFI boot firmware**
 
 
-  - **IDE disk**: Convert to vmdk and attach the Clear Linux image downloaded
-    above. To convert Clear Linux image to VMWare* disk (vmdk) you can use
-    qemu-img command::
+   - **IDE disk**: Convert to vmdk and attach the Clear Linux image downloaded
+     above. To convert Clear Linux image to VMWare* disk (vmdk) you can use
+     qemu-img command::
 
       $qemu-img convert -f raw -O vmdk  -p clear-vmware.img clear-vmware.vmdk
 
 4. Start the Clear Linux* virtual machine
 
-*********************************
-Using optimized kernel for VMware
-*********************************
+Using optimized kernel for VMware*
+==================================
 
 Clear Linux provides a bundle called *kernel-vmware* that contains a specialized
 kernel that uses an specific configuration for *VMware hypervisor* such as:

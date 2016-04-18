@@ -16,15 +16,6 @@ Getting started
    index_gs.rst
 
 
-Running in a virtualized environment
-====================================
-
-.. toctree::
-   :maxdepth: 2
-
-   index_vm.rst
-
-
 Software update
 ===============
 
@@ -62,14 +53,14 @@ OpenStack* implementation
 
 
 Indices and tables
-##################
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
 License and disclaimers
-#######################
+=======================
 .. toctree::   
 
 .. include:: documentation_license.rst

@@ -1,14 +1,13 @@
 .. _vm-virtualbox:
 
-================
 Using VirtualBox
-================
+################
 
 This section explains how to run Clear Linux inside
 VirtualBox_ environment.
 
 Download VirtualBox
--------------------
+===================
 
 Virtualbox is a hypervisor supported by *Oracle**, you can
 download it from its official site
@@ -21,7 +20,7 @@ that is used in Clear Linux.
 
 
 Create a virtual machine in VirtualBox
---------------------------------------
+======================================
 
 1. Download the latest_ Clear linux live version (clear-XXXX-live.img.xz)
    from https://download.clearlinux.org/image/.
@@ -60,7 +59,7 @@ Create a virtual machine in VirtualBox
    * System -> Enable EFI (special OSes only)
 
 Run your new VM
----------------
+===============
 
 Clear Linux comes with VirtualBox kernel modules in a bundle. You can install
 these modules using

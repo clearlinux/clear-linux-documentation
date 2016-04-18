@@ -1,14 +1,13 @@
 .. _vm-vmware-player:
 
-====================
 Using VMware* Player
-====================
+####################
 
 This section explains how to run Clear Linux inside
 `VMWare Player`_ environment.
 
 Install VMware player
----------------------
+=====================
 
 *VMware Workstation Player*, formerly VMware Player, is a virtualization
 software package for x64 computers running Microsoft Windows or Linux. To 
@@ -16,7 +15,7 @@ download VMware player, you can click on the following link:
 https://www.vmware.com/products/player/playerpro-evaluation.html
 
 Player on Linux
-^^^^^^^^^^^^^^^
+---------------
 
 If you have chosen Linux option, you got a :file:`VMWARE_FILE.bundle` file. To
 install VMWare Player, run:
@@ -26,12 +25,12 @@ install VMWare Player, run:
   $ sudo bash ./VMware-Player-12.0.0-2985596.x86_64.bundle
 
 Player on windows
-^^^^^^^^^^^^^^^^^
+-----------------
 
 Please follow the instructions from the Setup Assistant
 
 Prepare Clear Linux Image
--------------------------
+=========================
 
 Download the latest_ Clear Linux live disk image  from
 https://download.clearlinux.org/image/. In  Clear Linux website you can find
@@ -66,11 +65,11 @@ download the live image (clear-XXXX-live.img.xz).
 
 
 Run Clear Linux* using VMware* Player
--------------------------------------
+=====================================
 
 
 Create a new Virtual Machine
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
 
 Click on “Create a new Virtual Machine”
 
@@ -84,7 +83,7 @@ Click on “Create a new Virtual Machine”
 4. Perform the *remaining steps* using the default options.
 
 Change boot type to EFI 
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 You must change VMware virtual machine *configuration* to
 **support efi firmware**, by editing a configuration .vmx file,
@@ -95,7 +94,7 @@ that is located in the virtual machine folder, and add the next line:
   firmware = "efi"
 
 Attach Clear Linux image as SATA disk
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
 When you have created a new virtual machine, you can edit its configuration:
 
@@ -115,7 +114,7 @@ verify it in “Advanced button” in the disk settings
 
 
 Start the virtual machine
--------------------------
+=========================
 
 After the above configuration start the virtual machine.
 
