@@ -148,7 +148,7 @@ Keystone node
 
 You need to run a Keystone service.  General documentation on setting
 up Keystone services can be found at the `OpenStack developer`_ website.
-We need a few configuration points, eg::
+We need a few configuration points. For example:::
 
   $ openstack service create --name ciao compute
   $ openstack user create --password hello csr
@@ -495,7 +495,10 @@ For general debugging, you can:
 * Ssh into the compute node(s) by IP, looking at top, df, ps, ip a, ip r, netstat -a, etc.
 * Ssh into the CNCI(s) by IP, looking at top, df, ps, ip a, ip r, netstat -a, etc.
 * Ssh into the workload instance VMs via CNCI IP and port redirection.  Each VM will be
-  at a port composed from the VM's IP address added to 33000, eg:: ``33000+ip[2]<<8+ip[3]``.
+  at a port composed from the VM's IP address added to 33000. For example::
+
+   33000+ip[2]<<8+ip[3]
+  
   The VM IP is available in the `ciao-cli`_.
 * Instance credentials for netcat or ssh connectivity depend on the contents of
   the cloud-init configuration used by ciao-controller for the workload.
