@@ -81,7 +81,7 @@ bundle, which adds componenents needed by CIAO::
 Build the CIAO software
 -----------------------
 
-#. On a linux development machine with Go language development tooling
+#. On a Linux development machine with Go language development tooling
    present, use the ``go get`` tool to fetch and build ciao and its go
    dependencies::
 
@@ -109,14 +109,14 @@ roles; general instructions can be found under the `ciao-cert`_ documentation.
 When generating the certificates, pass in the IP and host name for
 the host on which you will be running the scheduler in the ``-ip`` and
 ``-host`` arguments respectively.  The scheduler acts as the cluster
-SSNTP server and clients connecting will validate its credentials match
+SSNTP server, and clients connecting will validate its credentials match
 those embedded in the certificates.
 
-Create unique certificates for each of your scheduler, compute node and network
+Create unique certificates for each of your scheduler, compute node, network
 node launchers, cnciagent, controller, and the CNCI launcher; save each with a
 unique name. The names, locations, and contents (signer and role) of the
 certificates are very important. The rest of this topic will consistently use
-the following example file names:
+the following example filenames:
 
 * ``CAcert-[scheduler-node-hostname].pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
 * ``cert-CNAgent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
@@ -153,7 +153,7 @@ We need a few configuration points, eg::
   $ openstack role add --project demo --user demo user
 
 This adds a ciao compute service, a keystone user and project for the
-controller (aka csr) node, and a demo user with the password
+controller (a.k.a. csr) node, and a demo user with the password
 ``giveciaoatry``.
 
 Controller node setup
@@ -203,10 +203,10 @@ Prepopulate the OS image cache
 
 Ciao has not yet integrated with an existing image server and for
 simplicity presumes one has prepopulated an image cache on each compute
-node in /var/lib/ciao/images.
+node in ``/var/lib/ciao/images``.
 
-We have tested the `Fedora 23 Cloud`_, Clear Linux OS for Intel
-Architecture cloud `downloadable cloud images`_, and Ubuntu images. Each image
+We have tested the `Fedora* 23 Cloud`_, Clear Linux OS for Intel
+Architecture cloud `downloadable cloud images`_, and Ubuntu* images. Each image
 will be referenced very specifically by a UUID in our configuration
 files, so follow the instructions here exactly.  You may wish to create
 the needed UUID named image files as symlinks to a more human readable
@@ -216,7 +216,7 @@ example::
   $ mkdir -p /var/lib/ciao/images
   $ cd /var/lib/ciao/images
 
-Fedora* Cloud::
+Fedora Cloud::
 
   $ curl -O https://dl.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
   $ ln -s Fedora-Cloud-Base-23-20151030.x86_64.qcow2 73a86d7e-93c0-480e-9c41-ab42f69b7799
@@ -228,7 +228,7 @@ Clear Linux OS for Intel Architecture Cloud::
   $ xz -T0 --decompress clear-${LATEST}-cloud.img.xz
   $ ln -s clear-${LATEST}-cloud.img df3768da-31f5-4ba6-82f0-127a1a705169
 
-Docker images will be pulled down automatically at the time of first usage.
+Docker* images will be pulled down automatically at the time of first usage.
 
 Each compute node needs its /var/lib/ciao/images populated with all images
 with which you wish to test.
@@ -237,7 +237,7 @@ Start the compute node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The launcher is run with options declaring certificates, maximum VMs
-(controls when "FULL" is returned by a node, scale to the resources
+(controls when "FULL" is returned by a node, scaling to the resources
 available on your node), server location, and compute node ("cn")
 launching type. For example::
 
@@ -263,7 +263,7 @@ Pre-populate the CNCI image cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section describes how to generate a CNCI image from a vanilla
-clear cloud qcow2 image::
+Clear Cloud qcow2 image::
 
   $ cd /var/lib/ciao/images
   $ curl -O https://download.clearlinux.org/demos/ciao/clear-7470-ciao-networking.img.xz
@@ -283,14 +283,14 @@ type::
 Ciao CLI setup
 ==============
 
-The `ciao-cli`_ command line tool can be setup by exporting a set of Ciao
+The `ciao-cli`_ command line tool can be set up by exporting a set of ciao
 specific environment variables:
 
-* ``CIAO_CONTROLLER`` exports the Ciao controller FQDN
-* ``CIAO_IDENTITY`` exports the Ciao keystone instance FQDN
-* ``CIAO_COMPUTEPORT`` exports the Ciao compute alternative port
-* ``CIAO_USERNAME`` exports the Ciao username
-* ``CIAO_PASSWORD`` export the Ciao password for ``CIAO_USERNAME``
+* ``CIAO_CONTROLLER`` exports the ciao controller FQDN
+* ``CIAO_IDENTITY`` exports the ciao keystone instance FQDN
+* ``CIAO_COMPUTEPORT`` exports the ciao compute alternative port
+* ``CIAO_USERNAME`` exports the ciao username
+* ``CIAO_PASSWORD`` export the ciao password for ``CIAO_USERNAME``
 
 For example::
 
@@ -305,7 +305,7 @@ For example::
 
 Defining those variables is optional. The same pieces of information
 can be passed to `ciao-cli`_ through the various command line options.
-The command line options will take precedence over the Ciao environment
+The command line options will take precedence over the ciao environment
 variables and override them:
 
 * ``CIAO_CONTROLLER`` can be defined by the ``--controller`` option
@@ -318,7 +318,7 @@ Start the controller
 ====================
 
 Starting the Controller on the controller node is what truly activates your
-cluster for use. **NOTE: Before starting the controller you must have a scheduler
+cluster for use. **NOTE: Before starting the controller, you must have a scheduler
 and network node already up and running together.**
 
 #. Copy in the ciao-controller binary from your build/development machine to any
@@ -329,7 +329,7 @@ and network node already up and running together.**
    (``$GOPATH/src/github.com/01org/ciao/ciao-controller`` on your
    build/development) to the same directory as the ciao-controller binary.
    Copying in ``*.csv`` will work if you are testing a Clear Cloud image,
-   Fedora image and docker.  Other images will require edits to the csv
+   Fedora image and Docker.  Other images will require edits to the csv
    config files.
 
 #. Copy in the controller html templates from the ciao-controller source to the
@@ -343,7 +343,7 @@ The `ciao-controller workload_resources.csv`_ and the
 should as well to successfully run each of the four images currently
 described earlier on this page (ie: Fedora, Clear, Docker Ubuntu, CNCI).
 To run other images of your choosing you'd do similar to the above for
-pre-populating OS images, and similarly edit these two files on your
+pre-populating OS images, similarly editing these two files on your
 controller node.
 
 If the controller is on the same physical machine as the scheduler, the
@@ -368,9 +368,9 @@ Note the generated hash from the prior command and use it in the next commands::
     $ sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
 
 You will need to tell the controller where the keystone service is located and
-pass it the Ciao service username and password. DO NOT USE
+pass it the ciao service username and password. DO NOT USE
 localhost for your server name. **It must be the fully qualified DNS
-name of the system which is hosting the keystone service**.
+name of the system that is hosting the keystone service**.
 An SSL-enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
 
@@ -390,7 +390,7 @@ now up and running::
 together with their statuses.
 
 ``-list-cns`` will display a more detailled view (number of instances,
-available esources, etc...) of each of those nodes.
+available esources, etc.) of each of those nodes.
 
 ``-list-cncis`` will give you information about the current CNCI VMs
 and their statuses.
@@ -405,7 +405,7 @@ First you may want to know which workloads are available::
 
   $ ciao-cli -list-workloads
 
-Then you can launch one or more workload::
+Then you can launch one or more workloads::
 
   $ ciao-cli -launch-instances -workload <workload UUID> -instances <number of instances to launch>
 
@@ -423,7 +423,7 @@ And eventually fetch the performance data::
   $ ciao-cli -dump-label <instance-label>
 
 You will also see activity related to this launch across your cluster
-components if you've got consoles open and logging to standard output as
+components if you have consoles open and logging to standard output as
 described above.
 
 Reset your cluster
@@ -478,18 +478,18 @@ For general debuging, you can:
 * Enable verbose console logging with ``-logtostderr -v=2`` on the go
   binaries' command lines.
 * Reduce your tenants to one (specifically the one with no limits).
-* Launch less VMs in a herd. A small Intel NUC with 16GB of RAM can handle as much as 50-100
+* Launch fewer VMs in a herd. A small Intel NUC with 16GB of RAM can handle as many as 50-100
   2vcpu 218MB RAM VMs starting at once per compute node. Larger dual socket many thread CPU
-  with hundreds of GB RAM Haswell-EP servers can handle as much as 500 such VMs starting
+  with hundreds of GB RAM Haswell-EP servers can handle as many as 500 such VMs starting
   at once per compute node.
 * Tweak the launcher to enable remote access: go get with ``--tags=debug`` to enable
   a netcat based console redirection for each VM.  The launcher console verbose output
-  will indicate per VM how to connect to the console, eg::
+  will indicate per VM how to connect to the console. For example::
 
   $  netcat 192.168.0.102 6309
 
-* Ssh into the compute node(s) by IP, look at top, df, ps, ip a, ip r, netstat -a, etc.
-* Ssh into the CNCI(s) by IP, look at top, df, ps, ip a, ip r, netstat -a, etc.
+* Ssh into the compute node(s) by IP, looking at top, df, ps, ip a, ip r, netstat -a, etc.
+* Ssh into the CNCI(s) by IP, looking at top, df, ps, ip a, ip r, netstat -a, etc.
 * Ssh into the workload instance VMs via CNCI IP and port redirection.  Each VM will be
   at a port composed from the VM's IP address added to 33000, eg:: ``33000+ip[2]<<8+ip[3]``.
   The VM IP is availabe in the `ciao-cli`_.
