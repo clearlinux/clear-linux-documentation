@@ -23,7 +23,7 @@ application will forward those packages (:ref:`f1`).
 
 **Requirements:**
 
-* Two platforms using Clear Linux (recommended release 7160 or higher).
+* Two platforms using Clear Linux (recommended release `7160`_ or higher).
 * Both Clear Linux images have added the **kernel-native bundle**.
 * Installation of ``dpdk-dev``, ``os-core-dev`` and ``sysadmin-basic`` bundles
 
@@ -40,21 +40,21 @@ application will forward those packages (:ref:`f1`).
 Disabling iommu on Clear Linux (Platforms A and B)
 ==================================================
 
-#. Mount the :abbr:`ESP (EFI system partition)`
+#. Mount the :abbr:`ESP (EFI system partition)`.
 
    .. code-block:: bash
 
       # systemctl start boot.mount
 
-#. Move to entries directory
+#. Move to entries directory.
 
    .. code-block:: bash
 
       # cd /boot/loader/entries/
 
-#. Edit ``clear-linux-native.conf`` and add ``intel_iommu=off`` after the last line.
+#. Edit ``clear-linux-native.conf`` by adding ``intel_iommu=off`` after the last line.
 
-#. Umount *ESP* and reboot
+#. Umount *ESP* and reboot.
 
    .. code-block:: bash
 
@@ -66,31 +66,31 @@ Disabling iommu on Clear Linux (Platforms A and B)
 Installing dpdk and build l3fwd example (Platform B)
 ====================================================
 
-#. Install ``dpdk`` bundle
+#. Install ``dpdk`` bundle.
 
    .. code-block:: bash
 
       # swupd bundle-add dpdk-dev
 
-#. Move to ``l3fwd`` example
+#. Move to ``l3fwd`` example.
 
    .. code-block:: bash
 
       # cd /usr/share/dpdk/examples/l3fwd
 
-#. Assign ``RTE_SDK var`` the path where makefiles are
+#. Assign ``RTE_SDK var`` the path where makefiles are.
 
    .. code-block:: bash
 
       # export RTE_SDK=/usr/share/dpdk/
 
-#. Assign ``RTE_TARGET var`` the value where the gcc config file is
+#. Assign ``RTE_TARGET var`` the value where the gcc config file is located.
 
    .. code-block:: bash
 
       # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
-#. Build the ``l3fwd`` application and add the configuration header to the ``CFLAGS`` var
+#. Build the ``l3fwd`` application and add the configuration header to the ``CFLAGS`` var.
 
    .. code-block:: bash
 
@@ -106,7 +106,7 @@ Building Pktgen (Platform A)
 Currently, the ``pktgen`` project is not included in Clear Linux; so for that reason,
 it is necessary to download it from upstream and build it:
 
-#. Install ``dpdk`` bundle
+#. Install ``dpdk`` bundle.
 
    .. code-block:: bash
 
@@ -116,19 +116,19 @@ it is necessary to download it from upstream and build it:
 
 #. Decompress packages and move to uncompressed source directory.
 
-#. Assign ``RTE_SDK var`` the path where makefiles are
+#. Assign ``RTE_SDK var`` the path where makefiles are located.
 
    .. code-block:: bash
 
       # export RTE_SDK=/usr/share/dpdk/
 
-#. Assign ``RTE_TARGET var`` the value where the gcc config file is
+#. Assign ``RTE_TARGET var`` the value where the gcc config file is located.
 
    .. code-block:: bash
 
       # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
-#. Build pktgen project, set the CONFIG_RTE_BUILD_SHARED_LIB variable with "n"
+#. Build pktgen project; set the ``CONFIG_RTE_BUILD_SHARED_LIB`` variable with "n".
 
    .. code-block:: bash
 
@@ -155,8 +155,8 @@ DPDK modules in order to run DPDK applications.
       # dpdk_nic_bind.py --status
 
 #. Bind 2 available NICs. The general syntax for binding is
-   **dpdk_nic_bind.py --bind=igb_uio <device-entry>**
-   and the following is a working example
+   **dpdk_nic_bind.py --bind=igb_uio <device-entry>**,
+   and the following is a working example:
 
    .. code-block:: bash
 
@@ -169,7 +169,7 @@ DPDK modules in order to run DPDK applications.
 Setting hugepages (platforms A and B)
 =====================================
 
-Clear Linux supports hugepages for the large memory pool allocation used for packet buffers.
+Clear Linux supports ``hugepages`` for the large memory pool allocation used for packet buffers.
 
 #. Set number of hugepages.
 
@@ -185,6 +185,7 @@ Clear Linux supports hugepages for the large memory pool allocation used for pac
       # echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Make memory available for DPDK.
+   
    .. code-block:: bash
 
       # mkdir -p /mnt/huge $ mount -t hugetlbfs nodev /mnt/huge
@@ -212,7 +213,7 @@ Running l3fwd application (Platform B)
 The ``l3fwd`` application is one of the DPDK examples available when you install ``dpdk-dev``
 bundle; this application forwards packages from one NIC to another.
 
-#. Open the l3fwd example directory
+#. Open the l3fwd example directory.
 
    .. code-block:: bash
 
@@ -355,6 +356,7 @@ control the host's NICs.
 #. Finally, run the ``start_qemu.sh`` script.
 
 
+.. _7160: https://download.clearlinux.org/releases/7160/
 .. _DPDK: http://dpdk.org
 .. _dpdk.org NICS: http://dpdk.org/doc/nics
 .. _pktgen tar package 2.9.12: http://dpdk.org/browse/apps/pktgen-dpdk/refs
