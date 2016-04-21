@@ -20,7 +20,7 @@ To start working with the Mixer tools, you'll need a recent Clear Linux* image,
 and to have the following bundles installed. If you don't have them already,
 you can add them with the :command:`swupd bundle-add` command::
 
-# swupd bundle-add mixer-tools bundle-chroot-builder
+# swupd bundle-add mixer
 
 To satisfy all dependencies (until further development), you'll need the
 following additional bundles::
@@ -34,17 +34,19 @@ Mixing
    use as a "workspace" for mixing. For these steps, assume that the workspace
    location is :file:`/home/clr/mix`.
 
-#. **Configure builder.conf**. The :command:`bundle-chroot-builder` uses a
-   specific configuration file, located in
-   ``/usr/share/defaults/bundle-chroot-builder``. You must edit the
-   :file:`builder.conf` to point to the correct path for ``BUNDLE_REPO``.
-   Optionally, you may set a different ``YUM_CONF`` path to use if you do not wish to use the provided default. Do not edit the conf in 
-   ``/usr/share/defaults/bundle-chroot-builder``; this is a template provided
-   by the mixer bundle. Copy it to ``/etc/bundle-chroot-builder/``, to your 
-   current workspace, or to a directory where you want your configs. For this
-   to work, copy it to ``/etc/bundle-chroot-builder/``,
-   and edit :file:`builder.conf` such that::
+#. **Configure builder.conf**. Copy the template conf file:
 
+``#  cp /usr/share/defaults/bundle-chroot-builder/builder.conf /etc/bundle-chroot-builder/``
+
+   Note there are different sections to the builder.conf. The [Builder] section
+   provides the mixer tools with required configuration options, defining where
+   generated bundles and update metadata should get published. The [swupd] section
+   is used by swupd-server to create an update with the newly mixed content.
+
+   Edit the template configuration file according to your needs:
+
+``#  vim /etc/bundle-chroot-builder/builder.conf:``
+::
       [Builder]
       SERVER_STATE_DIR = /var/lib/update
       BUNDLE_DIR = /home/clr/mix/bundles
@@ -52,16 +54,18 @@ Mixing
 
       [swupd]
       BUNDLE=os-core-update
-      CONTENTURL=<URL where content will be hosted>
-      VERSIONURL=<URL where version will be hosted>
-      FORMAT=mixer
+      CONTENTURL=<URL where content will be hosted>   ### URL where swupd content is
+                                                        #  published. Optional if not hosting updates
+      VERSIONURL=<URL where version will be hosted>   ### Should be the same as CONTENTURL.
+                                                        #  Optional if not hosting updates
+      FORMAT=1                                        ### Can be any number.
+                                                        # See 'OS Epoch' discussion for details
 
    reflects the path of the current workspace we are working in. The
-   :file:`builder.conf` will read automatically from ``/etc``, but all
-   of the scripts accept a :option:`-c/--config` option to specify where
+   :file:`builder.conf` will read automatically from ``/etc/bundle-chroot-builder``,
+   but all of the scripts accept a :option:`-c/--config` option to specify where
    the file is, should you want to store it elsewhere. The :file:`.yum-mix.conf`
-   file will be auto-generated for you, and the URL should be the location
-   on your server where content is published, i.e myserver.com/update.
+   file will be auto-generated for you.
 
 #. **Generate the starting point for your Mixer**. In your workspace, run::
    
@@ -151,3 +155,23 @@ Mixing
    When the script completes, you'll find your mix update content under
    ``/var/lib/update/www/VER``, in this example, it will be located in
    ``/var/lib/update/www/20``.
+
+
+OS Epoch or Format version
+--------------------------
+
+    The "format" used in builder.conf might be more precisely referred to as an
+    OS "compatibility epoch".  Versions of the OS within a given epoch are fully
+    compatible with themselves.  Across the epoch boundary _something_ has
+    changed in the OS. This change is impactful enough that release where the
+    change has taken place must be visited, to ensure operations occur in the
+    correct order.  A format increment is the way we insure pre- and co-requisite
+    changes flow out with proper ordering.
+
+    From an update perspective, the format, or compatibility epoch, limits the
+    extent to which the client can be updated in a single step.
+
+    For the creation of a custom mix, the format version should start at '1',
+    or some known number, and increment only when a compatibility breakage is
+    introduced. Normal updates, updating a software package for example,
+    do not require a format increment.
