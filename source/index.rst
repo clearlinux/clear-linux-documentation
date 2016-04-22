@@ -61,6 +61,15 @@ OpenStack* implementation
    index-openstack.rst
 
 
+Storage solutions
+=================
+
+.. toctree::
+   :maxdepth: 2
+
+   index-storage.rst
+
+
 Indices and tables
 ==================
 
@@ -70,7 +79,6 @@ Indices and tables
 
 License and disclaimers
 =======================
-.. toctree::   
+.. toctree::
 
 .. include:: documentation_license.rst
-
