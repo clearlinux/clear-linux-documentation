@@ -46,7 +46,7 @@ This image is intended to be used in a provioning environment. Find the
 
 Container Evaluation
 ====================
-Clear Containers for Docker``*``Engine is now available on multiple operating
+Clear Containers for Docker* Engine is now available on multiple operating
 systems. This enables executing existing Docker applications in the secure and
 fast Clear Containers environment. Find the ``clear-[version_number]-containers.img.xz``
 and see :ref:`gs-clear-containers-gettting-started` for further detail.
