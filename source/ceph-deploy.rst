@@ -1,23 +1,24 @@
 Ceph
 ####
 
-Ceph is a distributed storage system designed to scale well and can be integrated with
+Ceph is a distributed storage system designed to scale well. It can be integrated with
 OpenStack as the storage backend for the OS images and Volumes.
 
-The deployment of a ceph storage cluster is really easy in ClearLinux* with the help of
-Ansible which we will demonstrate on this blog post.
+Deploying a ceph storage cluster is simple using Clear Linux and Ansible.
 
 Environment
 ===========
-For this example we are going to use 5 nodes. A deployment node which we will use to run
-the playbooks, a monitor node and 3 storage nodes.
+For this example, we'll use a total of 5 nodes: a **deployment node** which we will use
+to run the playbooks, a **monitor node**, and 3 **storage nodes**.
 
-It is recommended to install each component on its own server, however, for testing
+Install each component on its own server for best results; however, for testing
 purposes you can install the monitor and storage nodes on the same hosts.
 
 Prerequisites
 =============
-Ansible uses ssh to run commands on the remote servers, in order to do that, the servers should be configured to allow passwordless ssh connections from the root user. Follow these steps to configure your nodes.
+Ansible uses ssh to run commands on the remote servers. In order to do that, the servers
+must be configured to allow passwordless ssh connections from the root user. Follow these
+steps to configure your nodes.
 
 #. Generate ssh keys::
 
@@ -36,21 +37,27 @@ Ansible uses ssh to run commands on the remote servers, in order to do that, the
 
     # ssh-copy-id root@node
 
+
 Install the software
 ====================
-Install the sysadmin-hostmgmt bundle on the development node.
-This bundle contains the ansible software required to run the playbooks as well as some ansible roles and sample playbooks that you can use to make your own.::
+
+Install the ``sysadmin-hostmgmt`` bundle on the development node. This bundle contains
+the Ansible software required to run the playbooks, as well as some ansible roles and
+sample playbooks that you can use to build your own.::
 
     # swupd bundle-add sysadmin-hostmgmt
 
+
 Create the playbook
 ===================
-sysadmin-hostmgmt bundle ships some sample playbooks that you cant tweak to your own needs.
-Start by making a copy of the sample playbook into your home folder.::
+
+The ``sysadmin-hostmgmt`` bundle includes some sample playbooks that you may use and
+customize for your own needs. Start by making a copy of the sample playbook into your
+home folder.::
 
     # cp /usr/share/ansible/examples/ceph ~/
 
-The playbook consist of 4 files that you should modify to your needs::
+The playbook consist of 4 files that you should modify to fit your needs::
 
     ceph
     |-- group_vars/
@@ -59,7 +66,8 @@ The playbook consist of 4 files that you should modify to your needs::
     |-- hosts
     +-- ceph_deploy.yml
 
-The hosts file contains the ip addresses of your servers grouped under the roles they will serve.::
+The hosts file contains the ip addresses of your servers grouped under the roles
+they will serve.::
 
     [mons]
     172.28.128.7
@@ -69,8 +77,9 @@ The hosts file contains the ip addresses of your servers grouped under the roles
     172.28.128.9
     172.28.128.10
 
-This groups_var/all file contains variables that will be used in all your nodes.
-The mandatory variables are already there, make sure to change the values accordingly to your environment. It should look like this.::
+This :file:`groups_var/all` file contains variables that will applied to all your nodes.
+The mandatory variables are already there; be sure to change the values accordingly to
+fit your environment. It should look something like this.::
 
     ---
     journal_size: 1024
@@ -78,12 +87,15 @@ The mandatory variables are already there, make sure to change the values accord
     public_network: 172.28.128.0/24
     cluster_network: "{{ public_network }}"
 
-A full list of available variables can be found in /usr/share/ansible/roles/<role>/defaults/main.yml
+A full list of available variables can be found under
+:file:`/usr/share/ansible/roles/<role>/defaults/main.yml`
 
-This groups_var/osd file contains the variables that will apply only to the hosts under the mons section in your hosts file.
-You can choose one of the three available scenarios for this playbooks
+This :file:`groups_var/osd` file contains variables that apply only to the hosts under the
+``[mons]`` section in your hosts file. You can choose one of the three available scenarios
+for this playbooks.
 
-#. Journal and osd_data on the same device: This will collocate both journal and data on the same disk creating a partition at the beginning of the device::
+#. **Journal and osd_data on the same device**: This will co-locate both journal and data
+   on the same disk, creating a partition at the beginning of the device::
 
     journal_collocation: true
     devices:
@@ -91,7 +103,8 @@ You can choose one of the three available scenarios for this playbooks
       - /dev/sdc
       - /dev/sdd
 
-#. N journal devices for N OSDs: In this example: sdb will be used for journaling of sdc and sdd sdf will be used for journaling of sde::
+#. **N journal devices for N OSDs**: In this example, the ``sdb`` partition will be used
+   for journaling of ``sdc`` and ``sdd sdf`` will be used for journaling of ``sde``::
 
     raw_multi_journal: true
     devices:
@@ -103,7 +116,7 @@ You can choose one of the three available scenarios for this playbooks
       - /dev/sdb
       - /dev/sdf
 
-#. Use directory instead of disk for OSDs::
+#. **Specify directory instead of disk for OSDs**::
 
     osd_directory: true
     osd_directories:
@@ -111,15 +124,19 @@ You can choose one of the three available scenarios for this playbooks
       - /var/lib/ceph/osd/mydir2
       - /var/lib/ceph/osd/mydir3
 
+
 Run the playbook
 ================
-Once you have your variables and hosts file configured, the deployment can be fired with the following command::
+Once you have your variables and hosts file configured, the deployment can be fired
+with the following command::
 
     # ansible-playbook -i hosts ceph_deploy.yml
 
+
 Verify
 ======
-Now that ansible has finished with the deployment, you can verify the health of the cluster with ceph util::
+Now that Ansible has finished with the deployment, you can verify the health of the cluster
+with the ceph utilites like :cmd:`ceph status` and :cmd:`ceph osd tree`::
 
     # ceph status
         cluster ee1fae3b-b95b-494c-abd7-f0629d113446
