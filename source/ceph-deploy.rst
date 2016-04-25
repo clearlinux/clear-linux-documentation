@@ -136,7 +136,7 @@ with the following command::
 Verify
 ======
 Now that Ansible has finished with the deployment, you can verify the health of the cluster
-with the ceph utilites like :cmd:`ceph status` and :cmd:`ceph osd tree`::
+with the ceph utilites like ``ceph status`` and ``ceph osd tree``::
 
     # ceph status
         cluster ee1fae3b-b95b-494c-abd7-f0629d113446
