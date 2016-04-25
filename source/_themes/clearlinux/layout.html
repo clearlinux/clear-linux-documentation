@@ -1,7 +1,6 @@
 {# TEMPLATE VAR SETTINGS #}
 {% set script_files = script_files + ['_static/js/affix.js'] %}
 {% set script_files = script_files + ['_static/js/project.js'] %}
-{% set script_files = script_files + ['_static/js/main.js'] %}
 {%- set url_root = pathto('', 1) %}
 {%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
 
@@ -11,15 +10,29 @@
 <head>
   <meta charset="utf-8">
   {{ metatags }}
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   {% block htmltitle %}
   <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
   {% endblock %}
 
-  {# FAVICON #}
-  {% if favicon %}
-    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
-  {% endif %}
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
 
   {# CSS #}
 
@@ -44,7 +57,9 @@
     <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
   {% endfor %}
 
+    <link rel="stylesheet" href="{{ '/sites/all/themes/custom/clearlinux_theme/css/main.css' }}" type="text/css" />
     <link rel="stylesheet" href="{{ pathto('_static/css/overrides.css', 1) }}" type="text/css" />
+
   {%- block linktags %}
     {%- if hasdoc('about') %}
         <link rel="author" title="{{ _('About these documents') }}"
@@ -79,7 +94,7 @@
   {% endblock %}
 
   {# Keep modernizr in head - http://modernizr.com/docs/#installing #}
-  <script src="{{ pathto('_static/js/modernizr.min.js', 1) }}"></script>
+  <script src="{{ '/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js' }}"></script>
 
 </head>
 
@@ -88,10 +103,10 @@
   {% include "header.html" %}
       {# PAGE CONTENT #}
       <div class="main-content">
-        <div class="container clearfix">
-          <div id="site-breadcrumb" class="hidden-sm">
-            {% include "breadcrumbs.html" %}
+        <div id="site-breadcrumb" class="hidden-sm">
+            <div class="container">{% include "breadcrumbs.html" %}</div>
           </div>
+        <div class="container clearfix">
           <div class="row">
            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="region region-content">
@@ -162,9 +177,7 @@
   {# Disable base theme's top+bottom related navs; we have our own in sidebar #}
   {%- block relbar1 %}{% endblock %}
   {%- block relbar2 %}{% endblock %}
-
   {%- block footer %} {% endblock %}
-
 </body>
 </html>
 
