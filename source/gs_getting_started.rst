@@ -1,6 +1,6 @@
 .. _gs_getting_started:
 
-Getting Started
+Getting started
 ###############
 
 Options for downloading and running Clear Linux OS for Intel® Architecture:
