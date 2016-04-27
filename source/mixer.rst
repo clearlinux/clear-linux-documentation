@@ -30,11 +30,11 @@ following additional bundles::
 Mixing
 ------
 
-#. **Create a workspace**. Create an empty directory in your Clear image to
-   use as a "workspace" for mixing. For these steps, assume that the workspace
+1. **Create a workspace**. Create an empty directory in your Clear image to
+   use as a "workspace" for mixing. For these steps, we assume your workspace
    location is :file:`/home/clr/mix`.
 
-#. **Configure builder.conf**. Copy the template conf file:
+2. **Configure builder.conf**. Copy the template conf file:
 
 ``#  cp /usr/share/defaults/bundle-chroot-builder/builder.conf /etc/bundle-chroot-builder/``
 
@@ -45,6 +45,7 @@ Mixing
 
    Edit the template configuration file according to your needs:
 
+.. code-block:: console
 ``#  vim /etc/bundle-chroot-builder/builder.conf:``
 ::
       [Builder]
@@ -61,13 +62,14 @@ Mixing
       FORMAT=1                                        ### Can be any number.
                                                         # See 'OS Epoch' discussion for details
 
-   reflects the path of the current workspace we are working in. The
-   :file:`builder.conf` will read automatically from ``/etc/bundle-chroot-builder``,
+
+
+   The file `builder.conf` will be read automatically from ``/etc/bundle-chroot-builder``,
    but all of the scripts accept a :option:`-c/--config` option to specify where
    the file is, should you want to store it elsewhere. The :file:`.yum-mix.conf`
    file will be auto-generated for you.
 
-#. **Generate the starting point for your Mixer**. In your workspace, run::
+3. **Generate the starting point for your Mixer**. In your workspace, run::
    
      # ./mixer-init-mix.sh -c /etc/bundle-chroot-builder/builder.conf
 
@@ -78,7 +80,7 @@ Mixing
    This step auto-generates that first version 10 for you, so you can focus
    on just your custom mix.
 
-#. **Create/locate RPMs for mix.**. (Steps 4-6 are necessary only if you
+4. **Create/locate RPMs for mix.**. (Steps 4-6 are necessary only if you
    want to add your own RPMs to the Mix. If you are simply working with Clear
    only bundles, then skip to Step 7.)
 
@@ -86,12 +88,12 @@ Mixing
    :command:`mock`, :command:`rpmbuild`, etc. to build them. If they are not
    built on Clear, make sure your configuration builds them correctly for Clear.
 
-#. **Import RPMs into workspace**. The easiest way to do this is to create a
+5. **Import RPMs into workspace**. The easiest way to do this is to create a
    ``results`` directory in your workspace *ala* ``/home/clr/mix/results``,
    and to copy the RPMs you want into that directory. The mixer script will
    look here for RPMs needed to build a local RPM repo for yum to use.
 
-#. **Create a local RPM repo**. Create an empty directory in your workspace
+6. **Create a local RPM repo**. Create an empty directory in your workspace
    name ``local`` and run::
 
    # mixer-add-rpms.sh --rpmdir results --repodir local
@@ -100,7 +102,7 @@ Mixing
    ``/home/clr/mix/local``. If the RPMs are not all in the local directory, check
    to make sure that they are indeed valid RPM files and not corrupt.
 
-#. **Initialize Clear/Mix version info**. In the workspace, run::
+7. **Initialize Clear/Mix version info**. In the workspace, run::
 
    # mixer-init-versions.sh -m 20
 
@@ -108,7 +110,7 @@ Mixing
    ``-c/--clear-version`` to use another Clear build's content), and uses
    "20" for the mix version.
 
-#. **Download Bundles**.  Download ``clr-bundles``.  In the workspace,
+8. **Download Bundles**.  Download ``clr-bundles``.  In the workspace,
    run::
 
    # mixer-update-bundles.sh
@@ -117,7 +119,7 @@ Mixing
    later steps; it also creates a ``bundles/`` directory (symlink) in your
    workspace, which contains the bundle definitions for the mix.
 
-#. **Update bundle definitions**. The mixer uses a local clone of the
+9. **Update bundle definitions**. The mixer uses a local clone of the
    ``clr-bundles`` repo to define bundles for the mix.
 
    To define your bundles:
@@ -141,14 +143,14 @@ Mixing
    name(s) in that  bundle definition file to tell it what package(s)
    must be installed as part of that bundle.
 
-#. **Build the bundle chroots** To build all of the ``chroots``
+10. **Build the bundle chroots** To build all of the ``chroots``
    that are based on the bundles you defined, in your workspace run::
    
    # mixer-build-chroots.sh
 
    If you have many bundles defined for your mix, this step may take some time.
 
-#. **Create update**. In the workspace, run::
+11. **Create update**. In the workspace, run::
 
    # mixer-create-update.sh
 
