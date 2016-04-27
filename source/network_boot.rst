@@ -200,8 +200,11 @@ from options configured in your ``http://my.web.server/real_boot_script.txt``
 file.
 
 Note.
+
 ``192.168.1.1`` is set to the address your TFTP server is using.
+
 ``my.web.server`` is set to the address your web server is using.
+
 ``DHCPDARGS`` is set to the interface you are using.
 
 Step 10
