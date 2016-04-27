@@ -55,14 +55,23 @@ Configure the tftpd service using ``dnsmasq``. To do this, create the
 Step 3
 -------
 
-Download the ``undionly.kpxe`` (legacy) and ``ipxe.efi`` (EFI) files from `the
-iPXE website <http://boot.ipxe.org/>`_, and place them in your TFTP directory.
+Copy the :file:`/usr/share/ipxe/undionly.kpxe` (legacy) and
+:file:`/usr/share/ipxe/ipxe-x86_64.efi` files, and place them in your TFTP
+directory.
+
+You can also download the ``undionly.kpxe`` (legacy) and ``ipxe.efi`` (EFI)
+files from `the iPXE website <http://boot.ipxe.org/>`_.
 
 .. code-block:: console
 
   # mkdir /srv/tftp/
-  # curl -o /srv/tftp/undionly.kpxe http://boot.ipxe.org/undionly.kpxe
-  # curl -o /srv/tftp/ipxe.efi http://boot.ipxe.org/ipxe.efi
+  # cp /usr/share/ipxe/undionly.kpxe /srv/tftp/undionly.kpxe
+  # cp /usr/share/ipxe/ipxe-x86_64.efi /srv/tftp/ipxe.efi
+
+Note.
+
+If you are booting on a 32-bit UEFI, you should copy the
+:file:`/usr/share/ipxe/ipxe-i386.efi` file.
 
 Step 4
 -------
