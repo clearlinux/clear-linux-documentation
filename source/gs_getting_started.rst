@@ -3,7 +3,14 @@
 Getting started
 ###############
 
-Options for downloading and running Clear Linux OS for Intel® Architecture:
+There are a number of options available for downloading and running Clear Linux*
+OS for Intel® Architecture. Be sure to check your system hardware capabilities
+against our list of `supported processors`_; alternatively, you can download and
+run the `clear-linux-check-config`_ script to check the hardware compatibility of
+your system from the command line.
+
+Once you're ready to download an image, you can choose from these options:
+
 
 KVM Image
 =========
@@ -53,5 +60,7 @@ and see :ref:`gs-clear-containers-gettting-started` for further detail.
 
 For older versions, see our `releases <https://download.clearlinux.org/releases>`_ page.
 
+.. _clear-linux-check-config: http://download.clearlinux.org/current/clear-linux-check-config.sh
 .. _current: http://download.clearlinux.org/current
 .. _telemetry: https://clearlinux.org/features/telemetry
+.. _supported processors: http://clearlinux.org/documentation/gs_supported_hardware.html
