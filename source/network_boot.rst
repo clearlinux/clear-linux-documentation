@@ -84,7 +84,7 @@ server root ``/var/www/pxe/``.
 
   # mkdir -p /var/www/pxe/
   # version=$(cat /usr/share/clear/version)
-  # curl -o /var/www/pxe/clear-${version}-pxe.tar.xz https://download.clearlinux.org/image/clear-${version}-pxe.tar.xz
+  # curl -o /var/www/pxe/clear-${version}-pxe.tar.xz https://download.clearlinux.org/current/clear-${version}-pxe.tar.xz
   # tar -xJf /var/www/pxe/clear-${version}-pxe.tar.xz -C /var/www/pxe/ && rm /var/www/pxe/clear-${version}-pxe.tar.xz
   # unset version
 
