@@ -38,9 +38,9 @@ Mixing
 
     # cp /usr/share/defaults/bundle-chroot-builder/builder.conf /etc/bundle-chroot-builder/`
 
-   Note there are different sections to the builder.conf. The [Builder] section
+   Note there are different sections to the builder.conf. The ``[Builder]`` section
    provides the mixer tools with required configuration options, defining where
-   generated bundles and update metadata should get published. The [swupd] section
+   generated bundles and update metadata should get published. The ``[swupd]`` section
    is used by swupd-server to create an update with the newly mixed content.
 
    Edit the template configuration file according to your needs::
@@ -61,9 +61,9 @@ Mixing
       FORMAT=1                                        ### Can be any number.
                                                         # See 'OS Epoch' discussion for details
 
-   The file `builder.conf` will be read automatically from ``/etc/bundle-chroot-builder``,
-   but all of the scripts accept a :option:`-c/--config` option to specify where
-   the file is, should you want to store it elsewhere. The :file:`.yum-mix.conf`
+   The file ``builder.conf`` will be read automatically from ``/etc/bundle-chroot-builder``,
+   but all of the scripts accept a ``-c/--config`` option to specify where
+   the file is if you want to store it elsewhere. The :file:``.yum-mix.conf``
    file will be auto-generated for you.
 
 #. **Generate the starting point for your Mixer**. In your workspace, run::
@@ -81,17 +81,17 @@ Mixing
    want to add your own RPMs to the Mix. If you are simply working with Clear
    only bundles, then skip to Step 7.)
 
-   If you are creating RPMs from scratch, you may use :command:`autospec`,
-   :command:`mock`, :command:`rpmbuild`, etc. to build them. If they are not
+   If you are creating RPMs from scratch, you may use ``autospec``,
+   ``mock``, ``rpmbuild``, etc. to build them. If they are not
    built on Clear, make sure your configuration builds them correctly for Clear.
 
 #. **Import RPMs into workspace**. The easiest way to do this is to create a
-   ``results`` directory in your workspace *ala* ``/home/clr/mix/results``,
+   ``results`` directory in your workspace (for example ``/home/clr/mix/results``),
    and to copy the RPMs you want into that directory. The mixer script will
    look here for RPMs needed to build a local RPM repo for yum to use.
 
 #. **Create a local RPM repo**. Create an empty directory in your workspace
-   name ``local`` and run::
+   named ``local`` and run::
 
     # mixer-add-rpms.sh --rpmdir results --repodir local
 
@@ -127,12 +127,12 @@ Mixing
          $ git add .
          $ git commit -s -m 'Update bundles for mix'
 
-   Why do this? With git history, mixes are easy to revert to or refer
+   Why do this? With Git history, mixes are easy to revert to or refer
    to in the future if something were to go wrong with a new mix. If
-   you're just testing this out, or really do not want to mess with git,
+   you're just testing this out, or if you really do not want to mess with Git,
    you can ignore committing for now. The next feature will be to
    implement an interactive way to modify/add/delete bundles, so much of
-   this work can be abstracted out and git work will be more automated.
+   this work can be abstracted out so Git work will be more automated.
 
    To add your own bundle, create a bundle definition file in ``bundles/``
    and refer to :file:`os-core-update` for formatting, but be sure that
@@ -159,12 +159,12 @@ Mixing
 OS Epoch or Format version
 --------------------------
 
-The "format" used in builder.conf might be more precisely referred to as an
-OS "compatibility epoch".  Versions of the OS within a given epoch are fully
-compatible with themselves.  Across the epoch boundary _something_ has
-changed in the OS. This change is impactful enough that release where the
-change has taken place must be visited, to ensure operations occur in the
-correct order.  A format increment is the way we insure pre- and co-requisite
+The "format" used in ``builder.conf`` might be more precisely referred to as an
+OS "compatibility epoch". Versions of the OS within a given epoch are fully
+compatible with themselves. Across the epoch boundary *something* has
+changed in the OS. This change is impactful enough that the release where the
+change has taken place must be visited to ensure operations occur in the
+correct order. A format increment is the way we insure pre- and co-requisite
 changes flow out with proper ordering.
 
 From an update perspective, the format, or compatibility epoch, limits the
@@ -172,5 +172,5 @@ extent to which the client can be updated in a single step.
 
 For the creation of a custom mix, the format version should start at '1',
 or some known number, and increment only when a compatibility breakage is
-introduced. Normal updates, updating a software package for example,
+introduced. Normal updates (updating a software package for example)
 do not require a format increment.
