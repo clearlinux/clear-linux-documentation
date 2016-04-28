@@ -2,6 +2,6 @@ Storage solutions
 #################
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    ceph-deploy
