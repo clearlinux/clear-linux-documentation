@@ -1,9 +1,9 @@
 .. _installing_openstack:
 
-Installing OpenStack
-####################
+Installing OpenStack*
+#####################
 
-This section details an OpenStack* installation that uses
+This section details an OpenStack installation that uses
 bundles available for Clear Linux* OS for Intel® Architecture.
 
 The sample configuration files that are included will likely
@@ -26,18 +26,18 @@ components:
  - Neutron
  - Dashboard (In identity node)
  - Heat
+ - Swift
 
 Note:
 -----
 
-Below you will find the reference to componets supported on ClearLinux* but
-its support in Clear Config Management is still pending of development:
+Below you will find the reference to componets supported on Clear Linux OS for Intel Architecture, but
+its support in Clear Config Management is still pending development:
 
 .. csv-table:: "Supported Components on ClearLinux*, but unsupported by Clear Config Management"
    :header: "Component", "Bundles", "OpenStack* official documentation"
-   :widths: 20, 70, 100 
+   :widths: 20, 70, 100
 
-   "Swift", "openstack-object-storage and openstack-block-storage-controller", "http://docs.openstack.org/developer/swift/"
    "Cinder", "openstack-block-storage and openstack-block-storage-controller", "http://docs.openstack.org/developer/cinder/"
    "Ceilometer", "openstack-telemetry", "http://docs.openstack.org/developer/ceilometer/"
 
@@ -45,7 +45,7 @@ its support in Clear Config Management is still pending of development:
 Prerequisites
 =============
 
-Before the installer can set up your cloud environment, these requirements
+Before the installer can set up your cloud environment, these prerequisites
 should be completed (if they aren't already):
 
 #. Create a pair of SSH keys.
@@ -65,7 +65,7 @@ should be completed (if they aren't already):
 Using the Installer
 ===================
 
-This step presumes a Clear Linux* machine as the ansible host.
+This step presumes a machine running Clear Linux OS for Intel Architecture as the ansible host.
 
 
 Install the bundle

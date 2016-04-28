@@ -55,14 +55,23 @@ Configure the tftpd service using ``dnsmasq``. To do this, create the
 Step 3
 -------
 
-Download the ``undionly.kpxe`` (legacy) and ``ipxe.efi`` (EFI) files from `the
-iPXE website <http://boot.ipxe.org/>`_, and place them in your TFTP directory.
+Copy the :file:`/usr/share/ipxe/undionly.kpxe` (legacy) and
+:file:`/usr/share/ipxe/ipxe-x86_64.efi` files, and place them in your TFTP
+directory.
+
+You can also download the ``undionly.kpxe`` (legacy) and ``ipxe.efi`` (EFI)
+files from `the iPXE website <http://boot.ipxe.org/>`_.
 
 .. code-block:: console
 
   # mkdir /srv/tftp/
-  # curl -o /srv/tftp/undionly.kpxe http://boot.ipxe.org/undionly.kpxe
-  # curl -o /srv/tftp/ipxe.efi http://boot.ipxe.org/ipxe.efi
+  # cp /usr/share/ipxe/undionly.kpxe /srv/tftp/undionly.kpxe
+  # cp /usr/share/ipxe/ipxe-x86_64.efi /srv/tftp/ipxe.efi
+
+Note.
+
+If you are booting on a 32-bit UEFI, you should copy the
+:file:`/usr/share/ipxe/ipxe-i386.efi` file.
 
 Step 4
 -------
@@ -84,7 +93,7 @@ server root ``/var/www/pxe/``.
 
   # mkdir -p /var/www/pxe/
   # version=$(cat /usr/share/clear/version)
-  # curl -o /var/www/pxe/clear-${version}-pxe.tar.xz https://download.clearlinux.org/image/clear-${version}-pxe.tar.xz
+  # curl -o /var/www/pxe/clear-${version}-pxe.tar.xz https://download.clearlinux.org/current/clear-${version}-pxe.tar.xz
   # tar -xJf /var/www/pxe/clear-${version}-pxe.tar.xz -C /var/www/pxe/ && rm /var/www/pxe/clear-${version}-pxe.tar.xz
   # unset version
 
@@ -191,8 +200,11 @@ from options configured in your ``http://my.web.server/real_boot_script.txt``
 file.
 
 Note.
+
 ``192.168.1.1`` is set to the address your TFTP server is using.
+
 ``my.web.server`` is set to the address your web server is using.
+
 ``DHCPDARGS`` is set to the interface you are using.
 
 Step 10

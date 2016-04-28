@@ -31,7 +31,7 @@ Below you will find the description of each group in the `hosts` file.
 
 .. csv-table:: "Inventory File Groups"
    :header: "Group", "Components", "Comments"
-   :widths: 40, 40, 300 
+   :widths: 40, 40, 300
 
    "[dbservers]", "MariaDB", ""
    "[messaging_servers]", "RabbitMQ", ""
@@ -41,9 +41,11 @@ Below you will find the description of each group in the `hosts` file.
    "[openstack_compute]", "Nova", "Accepts multiple entries to have multiple compute nodes. You can add more entries and re-run the installer to add them to your environment."
    "[openstack_networking]", "Neutron", ""
    "[openstack_orchestration]", "Heat", ""
+   "[openstack_object_storage_controller]", "Swift", "The Swift storage controller. It runs the swift proxy server and the memcache server"
+   "[openstack_object_storage]", "Swift", "The Swift Storage nodes. Accepts multiple entries to have multiple storage nodes"
 
 
-Important Notes
+Important notes
 ---------------
 
 * To omit any role, do not add an entry under its group section.
