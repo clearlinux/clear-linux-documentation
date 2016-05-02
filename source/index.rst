@@ -52,15 +52,6 @@ Advanced configuration
    index_advanced_configuration.rst
 
 
-OpenStack* implementation
-=========================
-
-.. toctree::
-   :maxdepth: 2
-
-   index-openstack.rst
-
-
 Storage solutions
 =================
 
