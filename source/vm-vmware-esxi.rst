@@ -1,87 +1,83 @@
 .. _vm-vmware-esxi:
 
-Using VMware* ESXi guest
-########################
+Using *VMware** ESXi guest
+##########################
 
-This topic, which is based on VMware vSphere* 6, explains how to use Clear Linux* OS 
+
+This topic, which is based on *VMware vSphere 6*, explains how to use Clear Linux* OS
 for Intel® Architecture as ESXi Guest.
 
 Run Clear Linux OS for Intel Architecture
 =========================================
 
-1. To boot Clear Linux OS for Intel Architecture, download the latest_ live disk image from
-   https://download.clearlinux.org/image/
+#. Download the `latest`_ live version of the disk image.
 
-2. Decompress the image. Uncompressed image size is ~ **5GiB**.
+#. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
-3. Create and configure a virtual machine with the following configuration:
+#. Create a virtual machine with the following configuration:
 
-   - Guest Operating system: **Linux, Distribution Other 3.x Linux (64-bits)**
+   - **Guest OS**: Linux, Distribution Other 3.x Linux (64-bits)
 
-   - **UEFI support**: Clear Linux uses as default bootloader systemd-boot a
-     UEFI boot manager for EFI images
+   - **UEFI support**: Clear Linux uses `systemd-boot` as the UEFI boot manager
+     for EFI images. Find the settings for this option using the vSphere GUI; go
+     to the configuration settings of the virtual machine and select
+     **EFI boot firmware**.
 
-    .. tip::
-      In VMware vShere GUI go to the configuration settings of the
-      virtual machine->General Tab-> And select **EFI boot firmware**
+   - **IDE disk**: Convert to vmdk and attach the Clear Linux image you downloaded
+     above. To convert Clear Linux image to VMware disk (vmdk) you can use the
+     ``qemu-img`` command::
+
+       $ qemu-img convert -f raw -O vmdk  -p clear-vmware.img clear-vmware.vmdk
+
+#. Start the virtual machine
 
 
-   - **IDE disk**: Convert to vmdk and attach the Clear Linux image downloaded
-     above. To convert Clear Linux image to VMWare* disk (vmdk) you can use
-     qemu-img command::
+Using an optimized kernel for *VMware*
+======================================
 
-      $qemu-img convert -f raw -O vmdk  -p clear-vmware.img clear-vmware.vmdk
+Clear Linux provides an optional bundle called *kernel-vmware* that contains a
+specialized kernel with specific configuration for VMware hypervisor, including:
 
-4. Start the Clear Linux* virtual machine
+* **vmw_balloon** -- A technique for memory reclamation that works like a
+  balloon. A guest can be inflated to reclaim physical memory. The balloon
+  can also be deflated to allow the guest free memory pages.
 
-Using optimized kernel for VMware*
-==================================
+* **vmw_pvscsi** -- A driver that allows use of the para-virtualized SCSI provided
+  by *VMware* hypervisors.
 
-Clear Linux provides a bundle called *kernel-vmware* that contains a specialized
-kernel that uses an specific configuration for *VMware hypervisor* such as:
+* **vmxnet3** -- Allows use of VMware virtual ethernet NICs.
 
-- **vmw_balloon**: Use a technique for memory reclamation that works   a "balloon".
-  The guest can be inflated to reclaim physical memory. The balloon can also be
-  deflated to allow the guest free memory pages
-- **vmw_pvscsi**: A driver that allows to use a paravirtualized SCSI provided by
-  VMware* hypervisors
-- **vmxnet3**: Allows to use  VMware virtual ethernet NIC
-- **vmwgfx**: Allows to use DRM driver for the VMware virtual hardware
+* **vmwgfx** -- Allows use of a DRM driver for the VMware virtual hardware
 
-In order to use this features install the kernel-vmware bundle in you Clear
-Linux using a virtual machine configured in the previos version::
+To use these features, add the ``kernel-vmware`` bundle to your Clear Linux install::
 
-  # swupd bundle-add kernel-vmware
+   # swupd bundle-add kernel-vmware
 
-Turn off virtual machine and change the virtual machine configuration as follow:
+Now turn off the virtual machine and change the configuration as follows:
 
-- Guest Operating system: Linux, Distribution Other 3.x Linux (64-bits)
-- UEFI support: Clear Linux use as default bootloader systemd-boot  a UEFI boot
-  manager for  EFI images. To add UEFI support go to:
+  - **Guest OS**: Linux / 3.x Linux (64-bits)
 
-  .. tip::
-    Go to "Configuration settings of the virtual machine" -> "General Tab" ->
-    "And select EFI boot firmware"
+  - **UEFI support**: Clear Linux uses `systemd-boot` as the UEFI boot manager
+     for EFI images. To add UEFI support, go to "Configuration settings of the
+     virtual machine" -> "General Tab" -> "And select EFI boot firmware"
 
-- SCSI Paravirtualized disk: Convert the Clear Linux image to a SCSI VMWare*
-  disk imagek and attach it again
-  To do this you can follow this steps:
+  - **SCSI Para-virtualized disk**: Convert the Clear Linux image to an SCSI
+    VMware disk image and re-attach it.
 
-  1. Extract the image from the EXSi server to one Linux machine and use
-     qemu-img command::
+    #. Extract the image from the EXSi server to one Linux machine and use
+       ``qemu-img`` command::
 
-       $ qemu-img convert -f raw -O vmdk -o adapter_type=lsilogic -o compat6 -p
-       clear-vmware.img clear-vmware.vmdk
+       $ qemu-img convert -f raw -O vmdk -o adapter_type=lsilogic -o compat6 -p clear-vmware.img clear-vmware.vmdk
 
-  2. Transfer the Clear Linux* image to the VMware* ESXi server and use
-     :command:`vmkfstools` command (you need to access to ESXi command line )::
+    #. Transfer the Clear Linux image to the VMware ESXi server and use the
+       :command:`vmkfstools` command (you need to access to ESXi command line )::
 
        $ vmkfstools -i clear-vmware.vmdk -d zeroedthick clear-vmware-fix.vmdk
 
-  3. Add the converted image to the guest by using VMware* vSphere virtual
-     machine settings
+    #. Add the converted image to the guest by using VMware vSphere virtual
+       machine settings
 
-- Start the modificated virtual machine
+Finally, start the modified virtual machine.
 
 .. _latest: https://download.clearlinux.org/latest
 
