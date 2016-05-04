@@ -58,8 +58,8 @@ Now turn off the virtual machine and change the configuration as follows:
   - **Guest OS**: Linux / 3.x Linux (64-bits)
 
   - **UEFI support**: Clear Linux uses `systemd-boot` as the UEFI boot manager
-     for EFI images. To add UEFI support, go to "Configuration settings of the
-     virtual machine" -> "General Tab" -> "And select EFI boot firmware"
+    for EFI images. To add UEFI support, go to "Configuration settings of the
+    virtual machine" -> "General Tab" -> "And select EFI boot firmware"
 
   - **SCSI Para-virtualized disk**: Convert the Clear Linux image to an SCSI
     VMware disk image and re-attach it.
