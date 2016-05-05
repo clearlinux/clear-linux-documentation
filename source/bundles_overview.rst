@@ -458,34 +458,6 @@ Current list of available bundles:
             </tr>
             <tr>
                 <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-all-in-one">openstack-all-in-one</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides an All-in-one OpenStack deployment</p>
-                    <li>Includes (database-mariadb) bundle.</p>
-                        <li>Includes (database-mongodb) bundle.</p>
-                            <li>Includes (message-broker-rabbitmq) bundle.</p>
-                                <li>Includes (openstack-block-storage) bundle.</p>
-                                    <li>Includes (openstack-block-storage-controller) bundle.</p>
-                                        <li>Includes (openstack-compute) bundle.</p>
-                                            <li>Includes (openstack-compute-controller) bundle.</p>
-                                                <li>Includes (openstack-dashboard) bundle.</p>
-                                                    <li>Includes (openstack-data-processing) bundle.</p>
-                                                        <li>Includes (openstack-database) bundle.</p>
-                                                            <li>Includes (openstack-identity) bundle.</p>
-                                                                <li>Includes (openstack-image) bundle.</p>
-                                                                    <li>Includes (openstack-lbaas) bundle.</p>
-                                                                        <li>Includes (openstack-network) bundle.</p>
-                                                                            <li>Includes (openstack-object-storage) bundle.</p>
-                                                                                <li>Includes (openstack-orchestration) bundle.</p>
-                                                                                    <li>Includes (openstack-python-clients) bundle.</p>
-                                                                                        <li>Includes (openstack-telemetry) bundle.</p>
-                                                                                            <li>Includes (openstack-vpnaas) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
                     <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage">openstack-block-storage</a>
                 </td>
                 <td class="bundlestatus">WIP</td>
@@ -516,76 +488,11 @@ Current list of available bundles:
             </tr>
             <tr>
                 <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute">openstack-compute</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides an OpenStack nova-compute node</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute-controller">openstack-compute-controller</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides an OpenStack Nova control server</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-configure">openstack-configure</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides a suggested default configuration for OpenStack on Clear Linux.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-controller">openstack-controller</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides an OpenStack multi-service control server</p>
-                    <li>Includes (database-mariadb) bundle.</p>
-                        <li>Includes (message-broker-rabbitmq) bundle.</p>
-                            <li>Includes (openstack-identity) bundle.</p>
-                                <li>Includes (openstack-image) bundle.</p>
-                                    <li>Includes (openstack-compute-controller) bundle.</p>
-                                        <li>Includes (openstack-dashboard) bundle.</p>
-                                            <li>Includes (openstack-python-clients) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
                     <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-dashboard">openstack-dashboard</a>
                 </td>
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Horizon server</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-database">openstack-database</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides a Database as a Service server</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-data-processing">openstack-data-processing</a>
-                </td>
-                <td class="bundlestatus">WIP </td>
-                <td class="bundledesc">
-                    <p>Provides a simple means to provision a data-intensive application cluster </p>
                     <li>Includes (openstack-common) bundle.</p>
                 </td>
             </tr>
@@ -606,27 +513,6 @@ Current list of available bundles:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Glance server</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-lbaas">openstack-lbaas</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides Load Balancing as a Service</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                        <li>Includes (openstack-network) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-network">openstack-network</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides an OpenStack Neutron server</p>
                     <li>Includes (openstack-common) bundle.</p>
                 </td>
             </tr>
@@ -662,43 +548,12 @@ Current list of available bundles:
             </tr>
             <tr>
                 <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry">openstack-telemetry</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides an OpenStack Telemetry server</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry-controller">openstack-telemetry-controller</a>
-                </td>
-                <td class="bundlestatus">Deprecated</td>
-                <td class="bundledesc">
-                    <p>Provides an OpenStack Telemetry server</p>
-                    <li>Includes (openstack-telemetry) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
                     <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-test-suite">openstack-test-suite</a>
                 </td>
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Tempest/test suite </p>
                     <li>Includes (openstack-common) bundle.</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="bundlename">
-                    <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-vpnaas">openstack-vpnaas</a>
-                </td>
-                <td class="bundlestatus">WIP</td>
-                <td class="bundledesc">
-                    <p>Provides VPN as a Service</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                        <li>Includes (openstack-network) bundle.</p>
                 </td>
             </tr>
             <tr>
