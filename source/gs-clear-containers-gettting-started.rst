@@ -3,16 +3,17 @@
 Clear Containers getting started guide
 ######################################
 
-The Clear Containers for Docker* Engine package is now available on multiple
-operating systems. This enables executing existing Docker applications in the
-secure and fast Clear Containers environment.
+Clear Containers for Docker* Engine is now available on multiple
+operating systems. This enables executing existing Docker applications
+in the secure and fast Clear Containers environment.
 
 Binary packages
 ===============
 
 The primary host platform is Clear Linux* Project for Intel® Architecture, version 4000
-or better. However, binaries for a range of operating systems are available from
-the `OpenSUSE`_ website:
+or better. However, binaries for a range of operating systems are available from:
+
+- https://software.opensuse.org/download.html?project=home%3Aclearlinux%3Apreview&package=clear-containers-docker
 
 Currently experimental builds are available for:
 
@@ -34,10 +35,16 @@ Using hosts other than Clear Linux OS for Intel Architecture
 
 If you are *not* using Clear Linux OS for Intel Architecture, follow the instructions below:
 
-#. Visit the link below, and select your operating system by clicking the appropriate icon:
+#. Visit the link below and select your operating system by clicking the appropriate icon:
    https://software.opensuse.org/download.html?project=home%3Aclearlinux%3Apreview&package=clear-containers-docker
 
 #. Follow the brief instructions shown.
+
+#. If your host is behind a proxy, you will need to add the proxies to the docker service. Create ``/etc/systemd/system/docker.service.d/proxy.conf`` and add the next lines to the file::
+
+    [Service]
+    Environment=HTTP_PROXY=http://proxy.example.com:80/
+    Environment=NO_PROXY=localhost,127.0.0.1
 
 #. Reload your systemd configuration::
 
@@ -51,26 +58,24 @@ Using Clear Linux OS for Intel Architecture as Host
 ---------------------------------------------------
 
 If you are running Clear Linux OS for Intel Architecture on your host system, follow the
-instructions below as the ``root`` Clear Linux user:
+instructions below:
 
-#. Enable the repository::
+#. Enable the repository by running the following as the ``root`` user::
 
    # swupd bundle-add containers-basic
 
-#. Reload your ``systemd`` configuration::
+#. Reload your systemd configuration::
 
-   # systemctl daemon-reload
+   $ sudo systemctl daemon-reload
 
 #. Start the Docker service::
 
-   # systemctl restart docker
+   $ systemctl restart docker
 
 Source Code
 ===========
 
-The experimental source code is based on the Docker version 1.9.0 upstream release and is available in the `Docker* github repo`_:
+The experimental source code is based on the Docker version 1.9.0 upstream release and is available at:
 
-.. _OpenSUSE website: https://software.opensuse.org/download.html?project=home%3Aclearlinux%3Apreview&package=clear-containers-docker
-
-.. _Docker* github repo: https://github.com/clearlinux/docker
+- https://github.com/clearlinux/docker
 
