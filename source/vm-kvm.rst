@@ -4,15 +4,15 @@ Using KVM
 #########
 
 The easiest way to get started in a virtualized environment is to download
-a recent KVM image from the `image directory`_ . This directory contains an
+a recent KVM image from the `images`_ directory. Here you'll find a kvm
 image file, the UEFI firmware helper, and the KVM start helper script.
 
 
 Starter script
 ==============
 
-To start the image, run the ``start_qemu.sh`` script available in the
-`download directory`, or modify the following script for your needs and run it
+To start the image, run the `qemu shell script`_ script available in the
+`images`_ directory, or modify the following script for your needs and run it
 from the command line with ``$ [script name] clr_image``
 
 .. code-block:: bash
@@ -67,6 +67,9 @@ Alternatively, there are a few other ways to approach this.
 
    $ ./start_qemu.sh clr_image &
 
+If you run into any trouble with qemu getting locked up, try editing the `qemu shell script`_
+and removing the ``aio=threads``
 
-.. _download directory: http://download.clearlinux.org/image/start_qemu.sh
-.. _image directory: http://download.clearlinux.org/image/
+
+.. _qemu shell script: http://download.clearlinux.org/image/start_qemu.sh
+.. _images: http://download.clearlinux.org/image/
