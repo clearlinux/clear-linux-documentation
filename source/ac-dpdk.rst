@@ -7,10 +7,10 @@ Introduction
 ============
 
 DPDK_ is a set of libraries and drivers for fast packet processing.
-This document describes *how to* run a basic use case that involves **l3fwd
-DPDK example**, the objective is to *send packages between 2 platforms* using a
-traffic generator called :ref:`pktgen <sec_pktgen>` where l3fwd example
-application will forward those packages (:ref:`f1`).
+This document describes how to run a basic use case for **l3fwd
+DPDK example**. The objective is to *send packages between two platforms* using a
+traffic generator called :ref:`pktgen <sec_pktgen>`, where the l3fwd example
+application will forward those packages. See (:ref:`f1`)
 
 .. _f1:
 
@@ -23,22 +23,21 @@ application will forward those packages (:ref:`f1`).
 
 **Requirements:**
 
-* Two platforms using Clear Linux (recommended release `7160`_ or higher).
-* Both Clear Linux images have added the **kernel-native bundle**.
-* Installation of ``dpdk-dev``, ``os-core-dev`` and ``sysadmin-basic`` bundles
+* Two platforms using Clear Linux* for Intel® Architecture (recommended release `7160`_ or higher).
+* Both images have the **kernel-native bundle** added.
+* Installation of ``dpdk-dev``, ``os-core-dev`` and ``sysadmin-basic`` bundles:
 
   .. code-block:: bash
 
      # swupd bundle-add dpdk-dev os-core-dev sysadmin-basic
 
-* The platforms must have 2 NICs -- at least one each-- so check network card's compatibility.
-  It is very important to verify whether your NIC is compatible with DPDK project; you can check
-  it in on the `dpdk.org NICS`_ site.
+* The platforms must have two NICs, at least one each. It's very important to check network card 
+  compatibility with the DPDK project. You can do this on the `dpdk.org NICS`_ site.
 * Two network cables.
 
 
-Disabling iommu on Clear Linux (Platforms A and B)
-==================================================
+Disabling iommu on Clear Linux OS for Intel Architecture (Platforms A and B)
+============================================================================
 
 #. Mount the :abbr:`ESP (EFI system partition)`.
 
@@ -54,7 +53,7 @@ Disabling iommu on Clear Linux (Platforms A and B)
 
 #. Edit ``clear-linux-native.conf`` by adding ``intel_iommu=off`` after the last line.
 
-#. Umount *ESP* and reboot.
+#. Umount ESP and reboot.
 
    .. code-block:: bash
 
@@ -78,7 +77,7 @@ Installing dpdk and build l3fwd example (Platform B)
 
       # cd /usr/share/dpdk/examples/l3fwd
 
-#. Assign ``RTE_SDK var`` the path where makefiles are.
+#. Assign ``RTE_SDK var`` to the makefiles path.
 
    .. code-block:: bash
 
@@ -90,7 +89,7 @@ Installing dpdk and build l3fwd example (Platform B)
 
       # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
-#. Build the ``l3fwd`` application and add the configuration header to the ``CFLAGS`` var.
+#. Build the ``l3fwd`` application, and add the configuration header to the ``CFLAGS`` var.
 
    .. code-block:: bash
 
@@ -103,8 +102,8 @@ Installing dpdk and build l3fwd example (Platform B)
 Building Pktgen (Platform A)
 ============================
 
-Currently, the ``pktgen`` project is not included in Clear Linux; so for that reason,
-it is necessary to download it from upstream and build it:
+Since the ``pktgen`` project is currently not included in Clear Linux OS for Intel 
+Architecture, you must download it from upstream and build it:
 
 #. Install ``dpdk`` bundle.
 
@@ -128,33 +127,33 @@ it is necessary to download it from upstream and build it:
 
       # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
-#. Build pktgen project; set the ``CONFIG_RTE_BUILD_SHARED_LIB`` variable with "n".
+#. Build pktgen project, and set the ``CONFIG_RTE_BUILD_SHARED_LIB`` variable with "n".
 
    .. code-block:: bash
 
       # make CONFIG_RTE_BUILD_SHARED_LIB=n
 
-Binding NICs to dpdk kernel drivers (Platforms A and B)
+Binding NICs to DPDK kernel drivers (Platforms A and B)
 =======================================================
 
-The ``l3fwd`` application uses 2 NICs. DPDK has useful tools for binding NICs to
-DPDK modules in order to run DPDK applications.
+The ``l3fwd`` application uses two NICs. DPDK has useful tools for binding NICs to
+DPDK modules to run DPDK applications.
 
-#. Load dpdk I/O kernel module
+#. Load the dpdk I/O kernel module
 
    .. code-block:: bash
 
       # modprobe igb_uio
 
 #. Check the status of your NICs; this will show which network cards are not busy. When
-   another application is using them, the status shows ``Active`` and those NICs cannot be
+   another application is using them, the status shows ``Active``, and those NICs cannot be
    bound.
 
    .. code-block:: bash
 
       # dpdk_nic_bind.py --status
 
-#. Bind 2 available NICs. The general syntax for binding is
+#. Bind two available NICs. The general syntax for binding is
    **dpdk_nic_bind.py --bind=igb_uio <device-entry>**,
    and the following is a working example:
 
@@ -169,7 +168,7 @@ DPDK modules in order to run DPDK applications.
 Setting hugepages (platforms A and B)
 =====================================
 
-Clear Linux supports ``hugepages`` for the large memory pool allocation used for packet buffers.
+Clear Linux OS for Intel Architecture supports ``hugepages`` for the large memory pool allocation used for packet buffers.
 
 #. Set number of hugepages.
 
@@ -190,13 +189,13 @@ Clear Linux supports ``hugepages`` for the large memory pool allocation used for
 
       # mkdir -p /mnt/huge $ mount -t hugetlbfs nodev /mnt/huge
 
-   If you would like to know more about this, read more at the `DPDK guide`_.
+   If you would like to know more about this, refer to the `DPDK guide`_.
 
 
 Setting a physical environment (Platforms A and B)
 ==================================================
 
-To achieve the model proposed in the introduction of this document, (:ref:`f1`), we need
+To achieve the model proposed in the introduction of this topic, (:ref:`f1`), we need
 to connect the first Grantley’s NICs to the second Grantley’s NICs using the network cables
 (:ref:`f2`).
 
@@ -210,7 +209,7 @@ to connect the first Grantley’s NICs to the second Grantley’s NICs using the
 Running l3fwd application (Platform B)
 ======================================
 
-The ``l3fwd`` application is one of the DPDK examples available when you install ``dpdk-dev``
+The ``l3fwd`` application is one of the DPDK examples available when you install the ``dpdk-dev``
 bundle; this application forwards packages from one NIC to another.
 
 #. Open the l3fwd example directory.
@@ -220,15 +219,15 @@ bundle; this application forwards packages from one NIC to another.
       # cd  /usr/share/dpdk/examples/l3fwd
 
 #. **This step is very important.** DPDK needs poll drivers for work; these poll drivers are
-   shared objects in :file:`/usr/lib64`. DPDK supports some NICs, the full list available at the
-   `dpdk.org NICS`_ docs. You should know which kernel module the NIC is using, and choose a poll
+   shared objects in :file:`/usr/lib64`. DPDK supports some NICs. The full list available at the
+   `dpdk.org NICS`_ docs. You should know which kernel module the NIC is using and choose a poll
    driver according to your NICs.
 
 #. At this point the system must have ``hugepages`` requirements. The NICs bound and the
    configuration for running ``pktgen`` depends upon network use cases and available system
-   resources.  Use the ``-d`` flag for setting the pull driver.  For example, if the NICs are
+   resources. Use the ``-d`` flag for setting the pull driver. For example, if the NICs are
    using ``e1000`` network driver, they are going to use ``e1000`` poll driver
-   (``librte_pmd_e1000.so``); it should be in :file:`/usr/lib64` in Clear Linux, and it
+   (``librte_pmd_e1000.so``); it should be in :file:`/usr/lib64` in Clear Linux OS for Intel Architecture, and it
    should be enough to add the name. For example
 
    .. code-block:: bash
@@ -236,7 +235,7 @@ bundle; this application forwards packages from one NIC to another.
       # ./build/l3fwd -c 0x3 -n 2 -d librte_pmd_e1000.so -- -p 0x3 --config="(0,0,0),(1,0,1)"
 
 #. When the application starts to run, it will show information about the ``l3fwd`` running, so
-   pay attention when the application is Initializing ports.  After port 0 initialization, you'll
+   pay attention when the application is Initializing ports. After port 0 initialization, you'll
    see a MAC address and the same for port 1. Save this information for setting configuration
    to `Pktgen` project.
 
@@ -248,7 +247,7 @@ in a forwarding use case.
 
 #. At this point the system must have ``hugepages`` requirements and the NICs bound. The
    configuration for running ``pktgen`` depends upon the network use case and the available
-   system resources.  The following is a basic configuration.
+   system resources. The following is a basic configuration.
 
    .. code-block:: bash
 
@@ -296,7 +295,7 @@ control the host's NICs.
 
       $ curl -O https://download.clearlinux.org/image/start_qemu.sh
 
-#. Download a bare-metal Clear Linux image and rename it as ``clear.img``.
+#. Download a bare-metal image of Clear Linux OS for Intel Architecture and rename it as ``clear.img``.
 
 #. Look for an entry for device and vendor & device ID:
 
@@ -306,18 +305,18 @@ control the host's NICs.
 
    An output example from the last step::
 
-   03:00.0 Ethernet controller [0200]: Intel Corporation I350 Gigabit Network Connection [8086:1521]
+       03:00.0 Ethernet controller [0200]: Intel Corporation I350 Gigabit Network Connection [8086:1521]
 
    where ``8086:1521`` is ``vendor:device ID`` and ``03:00.0`` is the entry for device.  Make
    note of this information; it is necessary for unbinding a host's NICs.
 
-#. Unbind NICs from host to do passthrough with virtual machines.  Clear Linux currently supports
-   this action, you can use the following commands::
+#. Unbind NICs from host to do passthrough with virtual machines. Clear Linux OS for Intel Architecture 
+   currently supports this action. You can use the following commands::
 
-   echo "vendor device_ID" > /sys/bus/pci/drivers/pci-stub/new_id
-   echo "entry for device" > /sys/bus/pci/drivers/igb/unbind
-   echo "entry for device" > /sys/bus/pci/drivers/pci-stub/bind
-   echo "vendor device_ID" > /sys/bus/pci/drivers/pci-stub/remove_id
+      echo "vendor device_ID" > /sys/bus/pci/drivers/pci-stub/new_id
+      echo "entry for device" > /sys/bus/pci/drivers/igb/unbind
+      echo "entry for device" > /sys/bus/pci/drivers/pci-stub/bind
+      echo "vendor device_ID" > /sys/bus/pci/drivers/pci-stub/remove_id
 
    .. code-block:: bash
 
@@ -326,7 +325,7 @@ control the host's NICs.
       $ echo "0000:03:00.0" > /sys/bus/pci/drivers/pci-stub/bind
       $ echo "8086 1521" > /sys/bus/pci/drivers/pci-stub/remove_id
 
-#. Assign to kvm virtual machine (guest) the unbound NICs previously noted. Modify the
+#. Assign to the KVM virtual machine (guest) the unbound NICs previously noted. Modify the
    ``start_qemu.sh`` script in ``qemu-system-x86_64`` arguments, and add the lines with
    the host's NICs information::
 
@@ -341,17 +340,17 @@ control the host's NICs.
       -device pci-assign,host=03:00.3,id=passnic1,addr=04.0 \
 
 #. If you would like to add more NUMA machines to the virtual machine, you can add the next
-   line in Makefile boot target::
+   line in the Makefile boot target::
 
-   -numa node,mem=<memory>,cpus=<number of cpus>
+      -numa node,mem=<memory>,cpus=<number of cpus>
 
-   A working example for a virtual machine with 4096 of memory and 4 cpus, the configuration
+   As a working example for a virtual machine with 4096 of memory and four CPUs, the configuration
    would look like this::
 
     -numa node,mem=2048,cpus=0-1 \
     -numa node,mem=2048,cpus=2-3 \
 
-   which means that each NUMA machine has to use the same quantity of memory.
+   This means that each NUMA machine has to use the same quantity of memory.
 
 #. Finally, run the ``start_qemu.sh`` script.
 
