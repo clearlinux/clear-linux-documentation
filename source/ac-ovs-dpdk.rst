@@ -7,16 +7,18 @@ Introduction
 ============
 
 Enabling `DPDK`_ support on the **OpenvSwitch project** can yield significant
-improvements in network performance. To illustrate one such example, we'll 
-cover a basic "HOWTO" for a simple use case -- :ref:`f1ovs` -- where one virtual
-machine sends 1,000,000 HTTP requests to another virtual machine by making use
-of **Linux bridges**, **OpenvSwitch bridges** and custom-built **OpenvSwitch-DPDK bridges** as the network link.
+network performance improvements. To illustrate one such example, we'll 
+cover a simple use case with :ref:`f1ovs`, where one virtual machine sends
+1,000,000 HTTP requests to another virtual machine using 
+* *Linux bridges**
+* **OpenvSwitch bridges**
+* And custom-built **OpenvSwitch-DPDK bridges** as the network link.
 
 .. _f1ovs:
 
 .. figure:: _static/images/use_case.png
 
-    Figure 1: Basic virtual network environment.
+   Figure 1: Basic virtual network environment.
 
 **Requirements:**
 
@@ -32,18 +34,18 @@ To follow along with this example, you will need:
 		# swupd bundle-add network-advanced os-clr-on-clr
 
 You'll also need two `Clear Linux kvm`_ images (recommended release  >= ``7160``).
-These images will create the guest virtual machines. The virtual machines must
-also have ``network-basic`` and ``lamp-basic`` bundles installed.
+These images will create the guest virtual machines A and B. These virtual machines
+must also have ``network-basic`` and ``lamp-basic`` bundles installed.
  
  .. code-block:: bash
 
-        # swupd bundle-add network-basic lamp-basic
+    # swupd bundle-add network-basic lamp-basic
 
 
 Using Linux Bridges
 ===================
 
-#. Create a script named **(qemu-ifup)** for a linux bridge in a virtual machine.
+#. Create a script named **qemu-ifup** for a linux bridge in a virtual machine.
 
    .. code-block:: bash
 
@@ -68,24 +70,24 @@ Using Linux Bridges
 
       # chmod a+x qemu-ifup
 
-#. Create a bridge using the Openvswitch tool; you can verify if the bridge
-   was created using ip tool.
+#. Create a bridge using the OpenvSwitch tool; you can verify whether the bridge
+   was successfully created by using ip tool.
 
    .. code-block:: bash
 
       # brctl addbr br0
 
  Note: At this point, you have the option to add a NIC with ``brctl addif br0 <network interface>``.  Sample interface below should be replaced with your local
- NIC.
+ NIC's designation.
 
 .. code-block:: bash
 
    # brctl addif br0 enp3s0f0
 
-When the above option is used, and the NIC is connected to DHCP server, Steps 1 and 
-2 should be omitted in "Setting ip address" section.
+When the above option is used, and the NIC is connected to DHCP server, so Steps
+1 and 2 under the `Setting IP address`_ section.
 
-#. Set up the linux bridge.
+#. Set up the Linux bridge.
 
    .. code-block:: bash
 
@@ -107,9 +109,9 @@ When the above option is used, and the NIC is connected to DHCP server, Steps 1 
 
 
 #. Run guest virtual machine B using the configuration from the previous step; 
-   take care to update the MAC address with the correct identifier.
+   take care to update the MAC address.
 
-#. Follow the instructions from `Setting IP Address`_ section.
+#. Follow the instructions from the `Setting IP Address`_ section.
 
 #. And to clean the previous environment, turn off the virtual machines and delete
    the bridge.
@@ -129,16 +131,18 @@ Using OpenvSwitch
 
       # systemctl start openvswitch.service
 
-#. Create a bridge using the openvswitch tool; you can verify whether or not the
-   bridge was successfully created by running an ip tool.
+#. Create a bridge using the OpenvSwitch tool; you can verify whether or not the
+   bridge was successfully created by running ip tool.
 
    .. code-block:: bash
 
 	  # ovs-vsctl add-br br0
 	  # ip a
 
-#. Create **UP-DOWN** scripts which can bring up the tap devices into the bridge
-   we created in Step 2 for the **ovs-ifdown** script:
+#. Create **UP-DOWN** scripts which can bring up the tap devices through the
+   bridge we created in Step 2. 
+
+   The **ovs-ifdown** script should look something like:
 
    .. code-block:: bash
 
@@ -147,7 +151,7 @@ Using OpenvSwitch
 	   /usr/bin/ifconfig $1 0.0.0.0 down
 	   ovs-vsctl del-port ${switch} $1
 
-   and for the **ovs-ifup script**:
+   And the **ovs-ifup script** should look something like:
 
    .. code-block:: bash
 
@@ -181,7 +185,7 @@ Using OpenvSwitch
 #. Run guest virtual machine B using the configuration from step 5, only
    it's necessary to change the MAC address to something like *00:11:22:33:44:56*
 
-#. Follow the instructions from "Setting IP address" section.
+#. Follow the instructions in the `Setting IP address`_ section.
 
 
 Using Linux OpenvSwitch-DPDK
