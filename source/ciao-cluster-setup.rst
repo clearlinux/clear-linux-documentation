@@ -98,7 +98,7 @@ dependencies::
     $ go get -v -u github.com/01org/ciao/...
 
 The binaries will install to ``$GOPATH/bin``. You should have
-``ciao-cli``, ``ciao-cert``, ``cnci_agent``, ``ciao-launcher``,
+``ciao-cli``, ``ciao-cert``, ``ciao-cnci-agent``, ``ciao-launcher``,
 ``ciao-controller``, and ``ciao-scheduler``.
 
 Build certificates
@@ -117,7 +117,7 @@ SSNTP server, and connecting clients will validate credentials matched by
 those embedded in the certificates.
 
 Create unique certificates for each of your scheduler, compute node, network
-node launchers, cnciagent, controller, and the CNCI launcher; save each with a
+node launchers, cnci agent, controller, and the CNCI launcher; save each with a
 unique name. The names, locations, and contents (signer and role) of the
 certificates are very important. The rest of this topic will consistently use
 the following example filenames:
@@ -273,7 +273,7 @@ Clear Cloud qcow2 image::
   $ curl -O https://download.clearlinux.org/demos/ciao/clear-7520-ciao-networking.img.xz
   $ xz -T0 --decompress clear-7520-ciao-networking.img.xz
   $ ln -s clear-7520-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
-  $ $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7520-ciao-networking.img /etc/pki/ciao/
+  $ $GOPATH/src/github.com/01org/ciao/networking/ciao-cnci-agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7520-ciao-networking.img /etc/pki/ciao/
 
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -530,7 +530,7 @@ testing.
 .. _setting up Keystone: http://docs.openstack.org/developer/keystone/setup.html
 .. _go: https://golang.org/doc/articles/go_command.html
 .. _ciao-cert: https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md
-.. _CNCI Agent: https://github.com/01org/ciao/tree/master/networking/cnci_agent
+.. _CNCI Agent: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/ciao-devel
 .. _ciao-cli: https://github.com/01org/ciao/tree/master/ciao-cli
 .. _ciao-webui: https://github.com/01org/ciao-webui
