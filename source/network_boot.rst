@@ -194,7 +194,7 @@ user class. Here’s one way to do this using the :file:`/etc/dhcpd.conf` file:
 
 This ensures that either iPXE image (``undionly.kpxe`` for BIOS or ``ipxe.efi``
 for EFI) is handed out only when the DHCP request comes from a legacy PXE client
-or from a UEFI client, respectifully. Once iPXE loads, the DHCP server will direct it to
+or from a UEFI client, respectfully. Once iPXE loads, the DHCP server will direct it to
 boot from options configured in your ``http://my.web.server/real_boot_script.txt``
 file.
 
