@@ -1,0 +1,690 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Network booting</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/overrides.css" type="text/css" />
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html"/>
+        <link rel="up" title="Advanced configuration" href="index_advanced_configuration.html"/>
+        <link rel="next" title="Mixer Tool" href="mixer.html"/>
+        <link rel="prev" title="Advanced configuration" href="index_advanced_configuration.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" >
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp;</span>
+            <span id="project-name-right">Project <sup>*</sup></span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+                        <div class="region region-header">
+    <div id="block-system-main-menu" class="block block-system block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+<li class="collapsed"><a href="/features" title="Features">Features</a></li>
+<li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-get-involved" class="block block-menu">
+
+        <h4>Get Involved</h4>
+
+  <ul class="menu">
+    <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+<li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+<li class="last leaf"><a href="/blogs">Blogs</a></li>
+</ul>
+</div>
+  </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+
+      </div>
+    </div>
+  </div></header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb" class="hidden-sm">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb" class="hidden-sm">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="index.html">Documentation</a> » Network booting
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_gs.html">Getting started</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_getting_started.html">Getting started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_supported_hardware.html">Supported hardware</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_creating_bootable_usb.html">Creating a bootable USB to install the OS</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_installing_clr_as_host.html">Installing the OS as host</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs-clear-containers-gettting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ciao-cluster-setup.html">Getting started with ciao</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_vm.html">Running in a virtualized environment</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-kvm.html">Using KVM</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-virtualbox.html">Using VirtualBox</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-esxi.html">Using VMware* ESXi guest</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-player.html">Using VMware* Player</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-hyper-v.html">Using Hyper-V</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_sw_update.html">Software update</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_about_sw_update.html">About software update</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_how_to_run_the_updater.html">How to run the updater</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_bundles.html">Bundles</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="bundles_overview.html">Bundles overview</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="index_advanced_configuration.html">Advanced configuration</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="active">Network booting</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="mixer.html">Mixer Tool</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ac-dpdk.html">DPDK</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ac-ovs-dpdk.html">OpenvSwitch and DPDK</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index-openstack.html">OpenStack* implementation</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_use_cases.html">OpenStack* use cases with Clear Linux* OS for Intel® Architecture</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_bundle_and_service_summary.html">OpenStack* bundle and service summary</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="installing_openstack.html">Installing OpenStack*</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="configure_openstack_environment.html">Configure environment</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_env_inventory_file.html">The &#8220;hosts&#8221; file</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_about.html">About &#8220;group_vars/all&#8221;</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_list.html">Variables for OpenStack* Deployment</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index-storage.html">Storage solutions</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="ceph-deploy.html">Ceph*</a></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+  <div class="section" id="network-booting">
+<span id="network-boot"></span><h1>Network booting</h1>
+<p>Network booting is an important feature that every data center should have;
+it can be used, among other things, to install an operating system. To do this,
+a <abbr title="PXE">Pre-boot eXecution Environment</abbr> is defined upon a foundation of
+industry-standard Internet protocols and services, namely TCP/IP, DHCP, and
+<a class="reference external" href="http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf">TFTP</a>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Clear Linux* Project for Intel® Architecture uses UEFI to boot, so your target
+machine should be UEFI capable. At present, the UEFI binary is not signed, so
+be sure to disable secure boot.</p>
+</div>
+<div class="section" id="pxe-ipxe">
+<h2>PXE + iPXE</h2>
+<p>To retrieve data through other protocols such as HTTP, iSCSI, ATA over Ethernet
+(AoE), and Fiber Channel over Ethernet (FCoE), an open source network boot
+firmware called iPXE was created. iPXE provides a full PXE implementation,
+enhanced with additional features. It can be used to enable network booting from
+computers that lack built-in PXE support.</p>
+<p>Clear Linux Project for Intel Architecture can be configured to do network
+booting via HTTP with the help of iPXE. The following sets up an iPXE
+environment using Clear Linux OS for Intel Architecture, but the configuration
+options may apply elsewhere.</p>
+<div class="section" id="step-1">
+<h3>Step 1</h3>
+<p>Add the pxe-server bundle to your system which has all the bits to run a PXE
+server for Clear Linux.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> swupd bundle-add pxe-server
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2">
+<h3>Step 2</h3>
+<p>Configure the tftpd service using <code class="docutils literal"><span class="pre">dnsmasq</span></code>. To do this, create the
+<code class="file docutils literal"><span class="pre">/etc/dnsmasq.conf</span></code> file with the following entries:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> cat &lt;&lt; EOF &gt; /etc/dnsmasq.conf
+<span class="go">enable-tftp</span>
+<span class="go">tftp-root=/srv/tftp/</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3">
+<h3>Step 3</h3>
+<p>Copy the <code class="file docutils literal"><span class="pre">/usr/share/ipxe/undionly.kpxe</span></code> (legacy) and
+<code class="file docutils literal"><span class="pre">/usr/share/ipxe/ipxe-x86_64.efi</span></code> files, and place them in your TFTP
+directory.</p>
+<p>You can also download the <code class="docutils literal"><span class="pre">undionly.kpxe</span></code> (legacy) and <code class="docutils literal"><span class="pre">ipxe.efi</span></code> (EFI)
+files from <a class="reference external" href="http://boot.ipxe.org/">the iPXE website</a>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> mkdir /srv/tftp/
+<span class="gp">#</span> cp /usr/share/ipxe/undionly.kpxe /srv/tftp/undionly.kpxe
+<span class="gp">#</span> cp /usr/share/ipxe/ipxe-x86_64.efi /srv/tftp/ipxe.efi
+</pre></div>
+</div>
+<p>Note.</p>
+<p>If you are booting on a 32-bit UEFI, you should copy the
+<code class="file docutils literal"><span class="pre">/usr/share/ipxe/ipxe-i386.efi</span></code> file.</p>
+</div>
+<div class="section" id="step-4">
+<h3>Step 4</h3>
+<p>Start the dnsmasq service with:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> systemctl start dnsmasq.service
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5">
+<h3>Step 5</h3>
+<p>The kernel (linux), initramfs (initrd) and the iPXE scripts are transported via
+HTTP. Download the Linux kernel and initrdfiles, and place them into the http
+server root <code class="docutils literal"><span class="pre">/var/www/pxe/</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> mkdir -p /var/www/pxe/
+<span class="gp">#</span> <span class="nv">version</span><span class="o">=</span><span class="k">$(</span>cat /usr/share/clear/version<span class="k">)</span>
+<span class="gp">#</span> curl -o /var/www/pxe/clear-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>-pxe.tar.xz https://download.clearlinux.org/current/clear-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>-pxe.tar.xz
+<span class="gp">#</span> tar -xJf /var/www/pxe/clear-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>-pxe.tar.xz -C /var/www/pxe/ <span class="o">&amp;&amp;</span> rm /var/www/pxe/clear-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>-pxe.tar.xz
+<span class="gp">#</span> <span class="nb">unset </span>version
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6">
+<h3>Step 6</h3>
+<p>Create an iPXE script, and place it into the http server root
+<code class="file docutils literal"><span class="pre">/var/www/pxe/ipxe_boot_script.txt</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> cat &lt;&lt; EOF &gt; /var/www/pxe/ipxe_boot_script.txt
+<span class="gp">#</span>!ipxe
+
+<span class="go">kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd</span>
+<span class="go">initrd initrd</span>
+<span class="go">boot</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+<p>If your kernel is not named linux, either rename the kernel or create a symlink.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> <span class="nv">kernel</span><span class="o">=</span><span class="k">$(</span>find /var/www/pxe/ -name <span class="s1">&#39;org.clearlinux.*&#39;</span><span class="k">)</span>
+<span class="gp">#</span> ln -s <span class="si">${</span><span class="nv">kernel</span><span class="si">}</span> /var/www/pxe/linux
+<span class="gp">#</span> <span class="nb">unset </span>kernel
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7">
+<h3>Step 7</h3>
+<p>Create a configuration file for the http service (nginx in this example) to
+serve the kernel, initramfs, and ipxe_boot_script in
+<code class="file docutils literal"><span class="pre">/etc/nginx/nginx.conf</span></code> with the following:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> mkdir /etc/nginx/
+<span class="gp">#</span> cat &lt;&lt; EOF &gt; /etc/nginx/nginx.conf
+<span class="go">server {</span>
+<span class="go">    listen       80;</span>
+<span class="go">    server_name  hostname;</span>
+<span class="go">    server_name_in_redirect off;</span>
+<span class="go">    location / {</span>
+<span class="go">        root   /var/www/pxe;</span>
+<span class="go">        autoindex on;</span>
+<span class="go">        index  index.html index.htm;</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+<span class="go">EOF</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-8">
+<h3>Step 8</h3>
+<p>Start the nginx service with:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> systemctl start nginx.service
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-9">
+<h3>Step 9</h3>
+<p>To use PXE chainloading, set up ISC DHCPD to hand out <code class="docutils literal"><span class="pre">undionly.kpxe</span></code> to
+legacy PXE clients and then hand out boot configuration only to iPXE clients.
+Do this by telling ISC DHCPD to use different configurations based on the DHCP
+user class. Here’s one way to do this using the <code class="file docutils literal"><span class="pre">/etc/dhcpd.conf</span></code> file:</p>
+<div class="highlight-console"><div class="highlight"><pre>allow booting;
+allow bootp;
+DHCPDARGS=&quot;interface&quot;;
+
+# Set up a class to assign an IP only to devices is attempting network boot.
+class &quot;pxeclients&quot; {
+        match if substring(option vendor-class-identifier, 0, 9) = &quot;PXEClient&quot;;
+        next-server 192.168.1.1;
+        if exists user-class and option user-class = &quot;iPXE&quot; {
+                filename &quot;http://my.web.server/ipxe_boot_script.txt&quot;;
+        } elsif exists client-arch and option client-arch = 9 {
+                # client-arch = 9 (64-bit EFI)
+                filename &quot;ipxe.efi&quot;;
+        } else {
+                # client-arch = 0 (Standard PC BIOS)
+                filename &quot;undionly.kpxe&quot;;
+        }
+}
+
+# Private subnet, in case you aren&#39;t able to run your own network wide DHCP service.
+# Works when the machine you are network booting has two network interfaces,
+# one connected to the private PXE boot network and the other connected to an external
+# network.
+subnet 192.168.1.0 netmask 255.255.255.0 {
+        pool {
+                allow members of &quot;pxeclients&quot;;
+                range 192.168.1.100 192.168.1.200;
+        }
+}
+</pre></div>
+</div>
+<p>This ensures that either iPXE image (<code class="docutils literal"><span class="pre">undionly.kpxe</span></code> for BIOS or <code class="docutils literal"><span class="pre">ipxe.efi</span></code>
+for EFI) is handed out only when the DHCP request comes from a legacy PXE client
+or from a UEFI client. Once iPXE loads, the DHCP server will direct it to boot
+from options configured in your <code class="docutils literal"><span class="pre">http://my.web.server/real_boot_script.txt</span></code>
+file.</p>
+<p>Note.</p>
+<p><code class="docutils literal"><span class="pre">192.168.1.1</span></code> is set to the address your TFTP server is using.</p>
+<p><code class="docutils literal"><span class="pre">my.web.server</span></code> is set to the address your web server is using.</p>
+<p><code class="docutils literal"><span class="pre">DHCPDARGS</span></code> is set to the interface you are using.</p>
+</div>
+<div class="section" id="step-10">
+<h3>Step 10</h3>
+<p>There are several DHCP options specific to <a class="reference external" href="http://ipxe.org/">iPXE</a> which are
+not recognized by the standard ISC dhcpd installation. To add suport for these
+options, place the following at the start of your <code class="file docutils literal"><span class="pre">/etc/dhcpd.conf</span></code>:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span><span class="c">##################################################</span>
+<span class="gp">#</span>   iPXE-specific options                         <span class="c">#</span>
+<span class="gp">#</span>   Source: http://www.ipxe.org/howto/dhcpd       <span class="c">#</span>
+<span class="gp">#</span><span class="c">##################################################</span>
+<span class="go">option space ipxe;</span>
+<span class="go">option client-arch code 93 = unsigned integer 16;</span>
+<span class="go">option ipxe-encap-opts code 175 = encapsulate ipxe;</span>
+<span class="go">option ipxe.priority code 1 = signed integer 8;</span>
+<span class="go">option ipxe.keep-san code 8 = unsigned integer 8;</span>
+<span class="go">option ipxe.skip-san-boot code 9 = unsigned integer 8;</span>
+<span class="go">option ipxe.syslogs code 85 = string;</span>
+<span class="go">option ipxe.cert code 91 = string;</span>
+<span class="go">option ipxe.privkey code 92 = string;</span>
+<span class="go">option ipxe.crosscert code 93 = string;</span>
+<span class="go">option ipxe.no-pxedhcp code 176 = unsigned integer 8;</span>
+<span class="go">option ipxe.bus-id code 177 = string;</span>
+<span class="go">option ipxe.bios-drive code 189 = unsigned integer 8;</span>
+<span class="go">option ipxe.username code 190 = string;</span>
+<span class="go">option ipxe.password code 191 = string;</span>
+<span class="go">option ipxe.reverse-username code 192 = string;</span>
+<span class="go">option ipxe.reverse-password code 193 = string;</span>
+<span class="go">option ipxe.version code 235 = string;</span>
+<span class="go">option iscsi-initiator-iqn code 203 = string;</span>
+<span class="gp">#</span> Feature indicators
+<span class="go">option ipxe.pxeext code 16 = unsigned integer 8;</span>
+<span class="go">option ipxe.iscsi code 17 = unsigned integer 8;</span>
+<span class="go">option ipxe.aoe code 18 = unsigned integer 8;</span>
+<span class="go">option ipxe.http code 19 = unsigned integer 8;</span>
+<span class="go">option ipxe.https code 20 = unsigned integer 8;</span>
+<span class="go">option ipxe.tftp code 21 = unsigned integer 8;</span>
+<span class="go">option ipxe.ftp code 22 = unsigned integer 8;</span>
+<span class="go">option ipxe.dns code 23 = unsigned integer 8;</span>
+<span class="go">option ipxe.bzimage code 24 = unsigned integer 8;</span>
+<span class="go">option ipxe.multiboot code 25 = unsigned integer 8;</span>
+<span class="go">option ipxe.slam code 26 = unsigned integer 8;</span>
+<span class="go">option ipxe.srp code 27 = unsigned integer 8;</span>
+<span class="go">option ipxe.nbi code 32 = unsigned integer 8;</span>
+<span class="go">option ipxe.pxe code 33 = unsigned integer 8;</span>
+<span class="go">option ipxe.elf code 34 = unsigned integer 8;</span>
+<span class="go">option ipxe.comboot code 35 = unsigned integer 8;</span>
+<span class="go">option ipxe.efi code 36 = unsigned integer 8;</span>
+<span class="go">option ipxe.fcoe code 37 = unsigned integer 8;</span>
+<span class="go">option ipxe.vlan code 38 = unsigned integer 8;</span>
+<span class="go">option ipxe.menu code 39 = unsigned integer 8;</span>
+<span class="go">option ipxe.sdi code 40 = unsigned integer 8;</span>
+<span class="go">option ipxe.nfs code 41 = unsigned integer 8;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-11">
+<h3>Step 11</h3>
+<p>Create an empty <code class="file docutils literal"><span class="pre">/var/db/dhcpd.leases</span></code> file.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> mkdir /var/db/
+<span class="gp">#</span> touch /var/db/dhcpd.leases
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-12">
+<h3>Step 12</h3>
+<p>Start the dhcp service with:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> systemctl start dhcp4.service
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pxe-grub">
+<h2>PXE + grub</h2>
+<p>Another option for network booting Clear Linux OS for Intel Architecture is to use the GRUB bootloader
+for booting in UEFI mode. The bootloader will get its files over TFTP and does
+not require having another service to host the network boot artifacts. The
+following sets up up a PXE using the GRUB bootloader environment and Clear Linux OS for Intel Architecture,
+but the configuration options should apply elsewhere.</p>
+<p>First add the pxe-server bundle to your system with:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> swupd bundle-add pxe-server
+</pre></div>
+</div>
+<div class="section" id="dhcp-configuration">
+<h3>DHCP configuration</h3>
+<p>Add the following content to your <code class="file docutils literal"><span class="pre">/etc/dhcpd.conf</span></code> file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">allow booting;</span>
+<span class="go">allow bootp;</span>
+
+<span class="gp">#</span> Set up a class so you can give out an IP only <span class="k">for</span> devices is attempting network boot.
+<span class="go"> {</span>
+<span class="go"> match if substring(option vendor-class-identifier, 0, ;</span>
+<span class="go">        next-server 192.168.1.1;</span>
+<span class="go"> grubx64.</span>
+<span class="go">}</span>
+
+<span class="gp">#</span> Private subnet, in <span class="k">case</span> you are able to run your own network wide DHCP service.
+<span class="gp">#</span> Works when the machine you are network booting has two network interfaces,
+<span class="gp">#</span> one connected to the private PXE boot network and the other connected to an external
+<span class="gp">#</span> network.
+<span class="go">subnet 192.168.1.0 netmask 255.255.255.0 {</span>
+<span class="go">        pool {</span>
+<span class="go">        allow members</span>
+<span class="go">                range 192.168.1.100 192.168.1.200;</span>
+<span class="go">        }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal"><span class="pre">192.168.1.1</span></code> is set to the address your TFTP server is using, and <code class="docutils literal"><span class="pre">grubx64.efi</span></code> is set
+to the name of your grub bootloader file.</p>
+<p>The subnet being used in this example is private; if the DHCPD service you use applies to your
+entire network, modify the configuration as needed. Also, if multiple devices (including those
+not using UEFI) are being supported by this DHCPD service, adding the following logic will allow
+selection of the filename fetched from the client:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">if exists client-arch and option client-arch = 9 {</span>
+<span class="go">        # client-arch = 9 (64-bit EFI)</span>
+<span class="go">        filename &quot;grubx64.efi&quot;;</span>
+<span class="go">} elsif exists client-arch and option client-arch = 6 {</span>
+<span class="go">        # client-arch = 6 (32-bit EFI)</span>
+<span class="go">        filename &quot;grubx32.efi&quot;;</span>
+<span class="go">} else {</span>
+<span class="go">        # client-arch = 0 (Standard PC BIOS)</span>
+<span class="go">        filename &quot;pxelinux.0&quot;;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Next create an empty <code class="file docutils literal"><span class="pre">/var/db/dhcp.leases</span></code> file and start the dhcpd service with:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> mkdir -p /var/db
+<span class="gp">#</span> touch /var/db/dhcp.leases
+<span class="gp">#</span> systemctl start dhcp4.service
+</pre></div>
+</div>
+</div>
+<div class="section" id="grub-configuration">
+<h3>GRUB configuration</h3>
+<p>Create the GRUB bootloader file (<code class="file docutils literal"><span class="pre">grubx64.efi</span></code>) with the following
+command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">#</span> grub-mkimage -O x86_64-efi -o grubx64.efi all_video boot btrfs cat
+<span class="go">chain configfile echo efifwsetup efinet ext2 fat font gfxmenu gfxterm</span>
+<span class="go">gzio halt hfsplus iso9660 jpeg linuxefi loadenv loopback lvm mdraid09</span>
+<span class="go">mdraid1x minicmd multiboot multiboot2 normal part_apple part_msdos</span>
+<span class="go">part_gpt password_pbkdf2 png reboot search search_fs_uuid search_fs_file</span>
+<span class="go">search_label serial sleep syslinuxcfg test tftp usbserial_pl2303</span>
+<span class="go">usbserial_ftdi xfs</span>
+</pre></div>
+</div>
+<p>This file will then be placed in your current directory.</p>
+<p>Next, a GRUB configuration file (<code class="file docutils literal"><span class="pre">grub.cfg</span></code>) should contain the
+following content:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">set pager=1</span>
+
+<span class="go">export menuentry_id_option</span>
+
+<span class="go">function load_video {</span>
+<span class="go">  if [ x$feature_all_video_module = xy ]; then</span>
+<span class="go">    insmod all_video</span>
+<span class="go">  else</span>
+<span class="go">    insmod efi_gop</span>
+<span class="go">    insmod efi_uga</span>
+<span class="go">    insmod ieee1275_fb</span>
+<span class="go">    insmod vbe</span>
+<span class="go">    insmod vga</span>
+<span class="go">    insmod video_bochs</span>
+<span class="go">    insmod video_cirrus</span>
+<span class="go">  fi</span>
+<span class="go">}</span>
+
+<span class="go">terminal_output console</span>
+<span class="go">if [ x$feature_timeout_style = xy ] ; then</span>
+<span class="go">  set timeout_style=menu</span>
+<span class="go">  set timeout=5</span>
+<span class="go">else</span>
+<span class="go">  set timeout=5</span>
+<span class="go">fi</span>
+
+<span class="go">menuentry &#39;Clear Linux Installation&#39; --class gnu-linux --class gnu --class os {</span>
+<span class="go">  load_video</span>
+<span class="go">  set gfxpayload=keep</span>
+<span class="go">  insmod gzio</span>
+<span class="go">  insmod part_gpt</span>
+<span class="go">  insmod ext2</span>
+<span class="go">  linuxefi /linux</span>
+<span class="go">  initrdefi /initrd</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Where the Linux kernel is named &#8220;linux&#8221; and the initrd &#8220;initrd&#8221;.</p>
+</div>
+<div class="section" id="tftp-configuration">
+<h3>TFTP configuration</h3>
+<p>Clear Linux OS for Intel Archiecture uses <code class="docutils literal"><span class="pre">dnsmasq</span></code> to provide the tftpd service. It requires
+the following entries exist in <code class="file docutils literal"><span class="pre">/etc/dnsmasq.conf</span></code>:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">enable-tftp</span>
+<span class="go">tftp-root=/srv/tftp/</span>
+</pre></div>
+</div>
+<p>The Linux kernel and initrd files can be downloaded from <a class="reference external" href="https://download.clearlinux.org/current/">https://download.clearlinux.org/current/</a>
+(with a name clear-$version-pxe.tar.xz) as a compressed tar file containing two clearly-labeled
+files that should be moved to the tftp root (<code class="docutils literal"><span class="pre">/srv/tftp/</span></code> per the tftp server configuration),
+as linux and initrd respectively. The bootloader <code class="file docutils literal"><span class="pre">grubx64.efi</span></code> and its configuration file
+<code class="file docutils literal"><span class="pre">grub.cfg</span></code> should also be placed in the tftp root <code class="docutils literal"><span class="pre">/srv/tftp/</span></code>.</p>
+<p>Now start the tftp service with this command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">systemctl start dnsmasq.service</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/affix.js"></script>
+        <script type="text/javascript" src="_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

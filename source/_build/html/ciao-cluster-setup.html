@@ -1,0 +1,845 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Getting started with ciao</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/overrides.css" type="text/css" />
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html"/>
+        <link rel="up" title="Getting started" href="index_gs.html"/>
+        <link rel="next" title="Running in a virtualized environment" href="index_vm.html"/>
+        <link rel="prev" title="Clear Containers getting started guide" href="gs-clear-containers-gettting-started.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" >
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp;</span>
+            <span id="project-name-right">Project <sup>*</sup></span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+                        <div class="region region-header">
+    <div id="block-system-main-menu" class="block block-system block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+<li class="collapsed"><a href="/features" title="Features">Features</a></li>
+<li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-get-involved" class="block block-menu">
+
+        <h4>Get Involved</h4>
+
+  <ul class="menu">
+    <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+<li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+<li class="last leaf"><a href="/blogs">Blogs</a></li>
+</ul>
+</div>
+  </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+
+      </div>
+    </div>
+  </div></header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb" class="hidden-sm">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb" class="hidden-sm">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="index.html">Documentation</a> » Getting started with ciao
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="index_gs.html">Getting started</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_getting_started.html">Getting started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_supported_hardware.html">Supported hardware</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_creating_bootable_usb.html">Creating a bootable USB to install the OS</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_installing_clr_as_host.html">Installing the OS as host</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs-clear-containers-gettting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="active">Getting started with ciao</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_vm.html">Running in a virtualized environment</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-kvm.html">Using KVM</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-virtualbox.html">Using VirtualBox</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-esxi.html">Using VMware* ESXi guest</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-player.html">Using VMware* Player</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-hyper-v.html">Using Hyper-V</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_sw_update.html">Software update</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_about_sw_update.html">About software update</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_how_to_run_the_updater.html">How to run the updater</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_bundles.html">Bundles</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="bundles_overview.html">Bundles overview</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_advanced_configuration.html">Advanced configuration</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="network_boot.html">Network booting</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="mixer.html">Mixer Tool</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ac-dpdk.html">DPDK</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ac-ovs-dpdk.html">OpenvSwitch and DPDK</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index-openstack.html">OpenStack* implementation</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_use_cases.html">OpenStack* use cases with Clear Linux* OS for Intel® Architecture</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_bundle_and_service_summary.html">OpenStack* bundle and service summary</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="installing_openstack.html">Installing OpenStack</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="configure_openstack_environment.html">Configure environment</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_env_inventory_file.html">The &#8220;hosts&#8221; file</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_about.html">About &#8220;group_vars/all&#8221;</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_list.html">Variables for OpenStack Deployment</a></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+  <div class="contents topic" id="contents">
+<span id="ciao-cluster-setup"></span><p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#getting-started-with-ciao" id="id1">Getting started with ciao</a><ul>
+<li><a class="reference internal" href="#infrastructure-prerequisites" id="id2">Infrastructure prerequisites</a><ul>
+<li><a class="reference internal" href="#hardware-needs" id="id3">Hardware needs</a><ul>
+<li><a class="reference internal" href="#controller-node" id="id4">Controller node</a></li>
+<li><a class="reference internal" href="#network-node-nn" id="id5">Network node (&#8220;nn&#8221;)</a></li>
+<li><a class="reference internal" href="#compute-node-1-cn1" id="id6">Compute node 1 (&#8220;cn1&#8221;)</a></li>
+<li><a class="reference internal" href="#compute-node-2-cn2" id="id7">Compute node 2 (&#8220;cn2&#8221;)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#network-needs" id="id8">Network needs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#node-setup" id="id9">Node setup</a><ul>
+<li><a class="reference internal" href="#install-clear-linux-os-for-intel-architecture-as-host-on-all-nodes" id="id10">Install Clear Linux OS for Intel Architecture as host on all nodes</a></li>
+<li><a class="reference internal" href="#build-the-ciao-software" id="id11">Build the ciao software</a></li>
+<li><a class="reference internal" href="#build-certificates" id="id12">Build certificates</a><ul>
+<li><a class="reference internal" href="#create-the-ssntp-internal-communications-certificates" id="id13">Create the ssntp-internal communications certificates</a></li>
+<li><a class="reference internal" href="#create-the-controller-web-certificates" id="id14">Create the controller web certificates</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keystone-node" id="id15">Keystone node</a></li>
+<li><a class="reference internal" href="#controller-node-setup" id="id16">Controller node setup</a><ul>
+<li><a class="reference internal" href="#scheduler" id="id17">Scheduler</a></li>
+<li><a class="reference internal" href="#ciao-controller" id="id18">ciao-controller</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compute-node-setup" id="id19">Compute node setup</a><ul>
+<li><a class="reference internal" href="#prepopulate-the-os-image-cache" id="id20">Prepopulate the OS image cache</a></li>
+<li><a class="reference internal" href="#start-the-compute-node-launcher" id="id21">Start the compute node launcher</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#network-node-setup" id="id22">Network node setup</a><ul>
+<li><a class="reference internal" href="#pre-populate-the-cnci-image-cache" id="id23">Pre-populate the CNCI image cache</a></li>
+<li><a class="reference internal" href="#start-the-network-node-launcher" id="id24">Start the network node launcher</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#start-the-controller" id="id25">Start the controller</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#interacting-with-your-cluster" id="id26">Interacting with your cluster</a><ul>
+<li><a class="reference internal" href="#ciao-web-ui-setup" id="id27">Ciao Web UI setup</a></li>
+<li><a class="reference internal" href="#ciao-cli-setup" id="id28">Ciao CLI setup</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#start-a-workload" id="id29">Start a workload</a></li>
+<li><a class="reference internal" href="#reset-your-cluster" id="id30">Reset your cluster</a></li>
+<li><a class="reference internal" href="#debug-tips" id="id31">Debug tips</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="getting-started-with-ciao">
+<h1><a class="toc-backref" href="#id1">Getting started with ciao</a></h1>
+<p>This topic explains how to set up a cluster of machines running Clear Linux* OS
+for Intel® Architecture with <abbr title="CIAO">Cloud Integrated Advanced Orchestrator</abbr>, or ciao.</p>
+<p>While the table of contents provides links to specific points of information, this
+topic is intended as an ordered workflow. Be sure to start your cluster components
+in the correct order as explained below.</p>
+<div class="section" id="infrastructure-prerequisites">
+<h2><a class="toc-backref" href="#id2">Infrastructure prerequisites</a></h2>
+<div class="section" id="hardware-needs">
+<h3><a class="toc-backref" href="#id3">Hardware needs</a></h3>
+<p>You&#8217;ll need at least four machines and a switch connecting them to form
+your beginning ciao cluster. The switch is assumed to be plugged directly
+into an &#8220;upstream&#8221; network running a DHCP server. See the illustration below as an example:</p>
+<img alt="_images/image-blob-ciao-networking.png" src="_images/image-blob-ciao-networking.png" />
+<p>The following examples assume you have four nodes on a <code class="docutils literal"><span class="pre">192.168.0.0/16</span></code> network:</p>
+<div class="section" id="controller-node">
+<h4><a class="toc-backref" href="#id4">Controller node</a></h4>
+<ul class="simple">
+<li>IP <code class="docutils literal"><span class="pre">192.168.0.101</span></code></li>
+<li>Runs Controller, Scheduler, SSL Keystone.</li>
+</ul>
+</div>
+<div class="section" id="network-node-nn">
+<h4><a class="toc-backref" href="#id5">Network node (&#8220;nn&#8221;)</a></h4>
+<ul class="simple">
+<li>IP <code class="docutils literal"><span class="pre">192.168.0.102</span></code></li>
+<li>Runs Launcher with <code class="docutils literal"><span class="pre">--network=nn</span></code> option</li>
+<li>Has CNCI image in <code class="docutils literal"><span class="pre">/var/lib/ciao/images</span></code>. See below for more on CNCI image preparation.</li>
+</ul>
+</div>
+<div class="section" id="compute-node-1-cn1">
+<h4><a class="toc-backref" href="#id6">Compute node 1 (&#8220;cn1&#8221;)</a></h4>
+<ul class="simple">
+<li>IP <code class="docutils literal"><span class="pre">192.168.0.103</span></code></li>
+<li>Runs Launcher with <code class="docutils literal"><span class="pre">--network=cn</span></code> option</li>
+<li>Has workload images in <code class="docutils literal"><span class="pre">/var/lib/ciao/images</span></code></li>
+</ul>
+</div>
+<div class="section" id="compute-node-2-cn2">
+<h4><a class="toc-backref" href="#id7">Compute node 2 (&#8220;cn2&#8221;)</a></h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">IP</span> <span class="pre">192.168.0.104</span></code></li>
+<li>Runs Launcher with <code class="docutils literal"><span class="pre">--network=cn</span> <span class="pre">option</span></code></li>
+<li>Has workload images in <code class="docutils literal"><span class="pre">/var/lib/ciao/images</span></code></li>
+</ul>
+</div>
+</div>
+<div class="section" id="network-needs">
+<h3><a class="toc-backref" href="#id8">Network needs</a></h3>
+<p>Our system assumes cluster nodes have full connectivity at a routed
+IP level.  Additionally, the network node must have access to a DHCP
+server offering addresses that are routable across the cluster.</p>
+</div>
+</div>
+<div class="section" id="node-setup">
+<h2><a class="toc-backref" href="#id9">Node setup</a></h2>
+<div class="section" id="install-clear-linux-os-for-intel-architecture-as-host-on-all-nodes">
+<h3><a class="toc-backref" href="#id10">Install Clear Linux OS for Intel Architecture as host on all nodes</a></h3>
+<p>Install Clear Linux OS for Intel Architecture as the host
+OS on all nodes by following the instructions in the topic
+<a class="reference internal" href="gs_installing_clr_as_host.html#gs-installing-clr-as-host"><span class="std std-ref">Installing the OS as host</span></a>. The current April 2016
+<a class="reference external" href="https://download.clearlinux.org/image">downloadable installer images</a> are compatible with ciao.</p>
+<p>After the base installation on each node add the following additional
+bundle, which adds components needed by ciao:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ swupd bundle-add cloud-control
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-the-ciao-software">
+<h3><a class="toc-backref" href="#id11">Build the ciao software</a></h3>
+<p>Ciao is written in the Go programming language. It requires Go 1.6 to
+build. Most Linux distributions have out of date versions of Go in their
+repositories, so you will probably need to download and install a recent
+version of Go. This can be easily done by following the
+<a class="reference external" href="https://golang.org/doc/install">Go installation instructions</a>.</p>
+<p>On a Linux development machine with Go language development tooling
+present, use the <code class="docutils literal"><span class="pre">go</span> <span class="pre">get</span></code> tool to fetch and build ciao and its go
+dependencies:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd $GOPATH/src
+$ go get -v -u github.com/01org/ciao/...
+</pre></div>
+</div>
+<p>The binaries will install to <code class="docutils literal"><span class="pre">$GOPATH/bin</span></code>. You should have
+<code class="docutils literal"><span class="pre">ciao-cli</span></code>, <code class="docutils literal"><span class="pre">ciao-cert</span></code>, <code class="docutils literal"><span class="pre">cnci_agent</span></code>, <code class="docutils literal"><span class="pre">ciao-launcher</span></code>,
+<code class="docutils literal"><span class="pre">ciao-controller</span></code>, and <code class="docutils literal"><span class="pre">ciao-scheduler</span></code>.</p>
+</div>
+<div class="section" id="build-certificates">
+<h3><a class="toc-backref" href="#id12">Build certificates</a></h3>
+<div class="section" id="create-the-ssntp-internal-communications-certificates">
+<h4><a class="toc-backref" href="#id13">Create the ssntp-internal communications certificates</a></h4>
+<p>On your development machine, generate the certificates for each of your
+roles; general instructions can be found under the <a class="reference external" href="https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md">ciao-cert</a> documentation.</p>
+<p>When generating the certificates, pass in the IP and host name for
+the host on which you will be running the scheduler in the <code class="docutils literal"><span class="pre">-ip</span></code> and
+<code class="docutils literal"><span class="pre">-host</span></code> arguments, respectively. The scheduler acts as the cluster
+SSNTP server, and connecting clients will validate credentials matched by
+those embedded in the certificates.</p>
+<p>Create unique certificates for each of your scheduler, compute node, network
+node launchers, cnciagent, controller, and the CNCI launcher; save each with a
+unique name. The names, locations, and contents (signer and role) of the
+certificates are very important. The rest of this topic will consistently use
+the following example filenames:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CAcert-[scheduler-node-hostname].pem</span></code>: copy to all nodes&#8217; <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code> and the CNCI image&#8217;s <code class="docutils literal"><span class="pre">/var/lib/ciao</span></code>. See below for more on CNCI image preparation.</li>
+<li><code class="docutils literal"><span class="pre">cert-CNAgent-localhost.pem</span></code>: copy to all compute nodes&#8217; <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">cert-CNCIAgent-localhost.pem</span></code>: copy into your network node&#8217;s <code class="docutils literal"><span class="pre">/var/lib/ciao</span></code>. A script later will copy it into the CNCI appliance image.  See below for more on CNCI image preparation.</li>
+<li><code class="docutils literal"><span class="pre">cert-Controller-localhost.pem</span></code>: copy into your controller node&#8217;s <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">cert-NetworkingAgent-localhost.pem</span></code>: copy into your network node&#8217;s <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">cert-Scheduler-[scheduler-node-hostname].pem</span></code>: copy into your controller node&#8217;s <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="create-the-controller-web-certificates">
+<h4><a class="toc-backref" href="#id14">Create the controller web certificates</a></h4>
+<p>On your development box, generate ssl certificates for the controller&#8217;s https service:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout controller_key.pem -out controller_cert.pem
+</pre></div>
+</div>
+<p>Copy the <code class="docutils literal"><span class="pre">controller_cert.pem</span></code> and <code class="docutils literal"><span class="pre">controller_key.pem</span></code> files to your
+controller node. You can use the same location where you will be storing
+your controller binary (<code class="docutils literal"><span class="pre">ciao-controller</span></code>).</p>
+<p>You&#8217;ll also need to pull that certificate into your browser as noted below in
+the <cite>Starting a workload</cite> section.</p>
+</div>
+</div>
+<div class="section" id="keystone-node">
+<h3><a class="toc-backref" href="#id15">Keystone node</a></h3>
+<p>You need to run a Keystone service.  General documentation on
+<a class="reference external" href="http://docs.openstack.org/developer/keystone/installing.html">installing Keystone</a> and
+<a class="reference external" href="http://docs.openstack.org/developer/keystone/setup.html">setting up Keystone</a> services can be found at the OpenStack developer website.
+Once your Keystone is running, we need a few configuration points. For example::</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openstack service create --name ciao compute
+$ openstack user create --password hello csr
+$ openstack role add --project service --user csr admin
+$ openstack user create --password giveciaoatry demo
+$ openstack role add --project demo --user demo user
+</pre></div>
+</div>
+<p>This adds a ciao compute service, a keystone user and project for the
+controller (a.k.a. csr) node, and a demo user with the password
+<code class="docutils literal"><span class="pre">giveciaoatry</span></code>.</p>
+</div>
+<div class="section" id="controller-node-setup">
+<h3><a class="toc-backref" href="#id16">Controller node setup</a></h3>
+<p>The controller node will host your controller and scheduler. Certificates are assumed
+to be in <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>, generated with the correct roles and names
+as previously described.</p>
+<div class="section" id="scheduler">
+<h4><a class="toc-backref" href="#id17">Scheduler</a></h4>
+<p>Copy in the scheduler binary from your build/development machine to any
+location, then launch it first (does not require root):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Scheduler-[scheduler-node-hostname].pem --heartbeat
+</pre></div>
+</div>
+<p>With the optional <code class="docutils literal"><span class="pre">--heartbeat</span></code> option, the scheduler console will
+output once per-second a heartbeat message showing connected Controller
+and Compute Node client statistics. It also displays a line of
+information for each command or event traversing the SSNTP server.
+As the sole SSNTP server in the ciao cluster, it is a key debugging point
+to understand failed flows of actions/reactions across your cluster.
+Launching it first means this console output helps confirm your subsequent
+cluster configurations actions are indeed succeeding.</p>
+</div>
+<div class="section" id="ciao-controller">
+<h4><a class="toc-backref" href="#id18">ciao-controller</a></h4>
+<p><strong>Important: Do not start the ciao controller just yet!</strong> It should only
+be started after a network node is connected to the scheduler; otherwise
+workloads may fail to start. This restriction will be addressed once
+<a class="reference external" href="https://github.com/01org/ciao/issues/12">ciao issue #12</a> is closed.</p>
+</div>
+</div>
+<div class="section" id="compute-node-setup">
+<h3><a class="toc-backref" href="#id19">Compute node setup</a></h3>
+<p>Each compute node needs one launcher daemon connected to the scheduler.
+Certificates are assumed to be in <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>, generated with the
+correct roles and names as previously described.</p>
+<p>Copy in the launcher binary from your build/development machine to any
+location.</p>
+<div class="section" id="prepopulate-the-os-image-cache">
+<h4><a class="toc-backref" href="#id20">Prepopulate the OS image cache</a></h4>
+<p>Ciao has not yet integrated with an existing image server; so for
+simplicity, presume a prepopulated image cache for each compute
+node in <code class="docutils literal"><span class="pre">/var/lib/ciao/images</span></code>.</p>
+<p>We have tested the <a href="#id32"><span class="problematic" id="id33">`Fedora* 23 Cloud`_</span></a>, Clear Linux OS for Intel
+Architecture cloud <a class="reference external" href="https://download.clearlinux.org/image">downloadable cloud images</a>, and Ubuntu* images. Each image
+will be referenced very specifically by a UUID in our configuration
+files, so follow the instructions here exactly. You may wish to create
+the needed UUID named image files as symlinks to a more human readable
+and descriptively named image files as is done in the following example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mkdir -p /var/lib/ciao/images
+$ cd /var/lib/ciao/images
+</pre></div>
+</div>
+<p>Fedora Cloud:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ curl -O https://dl.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
+$ ln -s Fedora-Cloud-Base-23-20151030.x86_64.qcow2 73a86d7e-93c0-480e-9c41-ab42f69b7799
+</pre></div>
+</div>
+<p>Clear Linux OS for Intel Architecture Cloud:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ LATEST=$(curl https://download.clearlinux.org/latest)
+$ curl -O https://download.clearlinux.org/image/clear-${LATEST}-cloud.img.xz
+$ xz -T0 --decompress clear-${LATEST}-cloud.img.xz
+$ ln -s clear-${LATEST}-cloud.img df3768da-31f5-4ba6-82f0-127a1a705169
+</pre></div>
+</div>
+<p>Docker* images will be pulled down automatically at the time of first usage.</p>
+<p>Each compute node needs its <code class="docutils literal"><span class="pre">/var/lib/ciao/images</span></code> directory populated with
+images with which you wish to test.</p>
+</div>
+<div class="section" id="start-the-compute-node-launcher">
+<h4><a class="toc-backref" href="#id21">Start the compute node launcher</a></h4>
+<p>The launcher is run with options declaring certificates, maximum VMs
+(controls when FULL is returned by a node, scaling to the resources
+available on your node), server location, and compute node (&#8220;cn&#8221;)
+launching type. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=&lt;your-server-address&gt; --network=cn --compute-net &lt;node compute subnet&gt; --mgmt-net &lt;node management subnet&gt;
+</pre></div>
+</div>
+<p>Optionally, add <code class="docutils literal"><span class="pre">-logtostderr</span></code> (more verbose with also <code class="docutils literal"><span class="pre">-v=2</span></code>) to get
+console logging output.</p>
+<p>The launcher runs as root because launching QEMU/KVM virtual machines
+requires <code class="docutils literal"><span class="pre">/dev/kvm</span></code> and other restricted resource access.</p>
+</div>
+</div>
+<div class="section" id="network-node-setup">
+<h3><a class="toc-backref" href="#id22">Network node setup</a></h3>
+<p>The network node hosts VMs running the <abbr title="CNCI">Compute Network Concentrators
+Instance</abbr> or the <strong>CNCI Agent</strong>, one for each tenant. These VMs
+are automatically launched by the controller.</p>
+<p>Certificates are assumed to be in <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>, generated with the
+correct roles and names as previously described.</p>
+<div class="section" id="pre-populate-the-cnci-image-cache">
+<h4><a class="toc-backref" href="#id23">Pre-populate the CNCI image cache</a></h4>
+<p>This section describes how to generate a CNCI image from a vanilla
+Clear Cloud qcow2 image:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd /var/lib/ciao/images
+$ curl -O https://download.clearlinux.org/demos/ciao/clear-7520-ciao-networking.img.xz
+$ xz -T0 --decompress clear-7520-ciao-networking.img.xz
+$ ln -s clear-7520-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
+$ $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7520-ciao-networking.img /etc/pki/ciao/
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-the-network-node-launcher">
+<h4><a class="toc-backref" href="#id24">Start the network node launcher</a></h4>
+<p>The network node&#8217;s launcher is run similarly to the compute node&#8217;s launcher.
+The primary difference is that it uses the network node (&#8220;nn&#8221;) launching
+type:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=&lt;your-server-address&gt; --network=nn --compute-net &lt;network node compute subnet&gt; --mgmt-net &lt;network node management subnet&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="start-the-controller">
+<h3><a class="toc-backref" href="#id25">Start the controller</a></h3>
+<p>Starting the Controller on the controller node is what truly activates your
+cluster for use. <strong>NOTE: Before starting the controller, you must have a scheduler
+and network node already up and running together.</strong></p>
+<ol class="arabic simple">
+<li>Copy in the ciao-controller binary from your build/development machine to any
+location. Certificates are assumed to be in <code class="docutils literal"><span class="pre">/etc/pki/ciao</span></code>, generated with
+the correct roles and names as previously described.</li>
+<li>Copy in the initial database table data from the ciao-controller source
+(<code class="docutils literal"><span class="pre">$GOPATH/src/github.com/01org/ciao/ciao-controller/tables</span></code> on your
+build/development) to <code class="docutils literal"><span class="pre">./tables</span></code> in the same directory as the
+ciao-controller binary.  Copying in <code class="docutils literal"><span class="pre">*.csv</span></code> will work if you are testing
+a Clear Cloud image, Fedora image and Docker. Other images will require
+edits to the csv config files.  This location is the default, but can be
+changed by modifying the controller command line to include
+<code class="docutils literal"><span class="pre">--tables_init_path=&lt;your</span> <span class="pre">tables</span> <span class="pre">path&gt;</span></code>.</li>
+<li>Copy in the test workload definitions from
+<code class="docutils literal"><span class="pre">$GOPATH/src/github.com/01org/ciao/ciao-controller/workloads</span></code> on your
+build/development machine to <code class="docutils literal"><span class="pre">./workloads</span></code> in the same directory as the
+ciao-controller binary.  This location is the default, but can be changed
+by modifying the controller command line to include
+<code class="docutils literal"><span class="pre">--workloads_path=&lt;your</span> <span class="pre">workloads</span> <span class="pre">path&gt;</span></code>.</li>
+</ol>
+<p>The <a class="reference external" href="https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv">ciao-controller workload_resources.csv</a> and the
+<a class="reference external" href="https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv">ciao-controller workload_template.csv</a> have four stanzas, so yours
+should as well, in order to successfully run each of the four images
+currently described earlier on this page (Fedora, Clear, Docker Ubuntu,
+CNCI). To run other images of your choosing, follow a process similar to
+the above: pre-populate OS images and edit each of these two files on
+your controller node.</p>
+<p>If the controller is on the same physical machine as the scheduler, the
+<code class="docutils literal"><span class="pre">--url</span></code> option is optional; otherwise it refers to your scheduler
+SSNTP server IP.</p>
+<p>In order for the ciao-controller&#8217;s go code to correctly use the CA
+certificate(s) generated earlier when you built your keystone server,
+this certificate needs to be installed in the control node and be
+part of the control node CA root. On Clear Linux OS for Intel
+Architecture, this is accomplished with:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo mkdir /etc/ca-certs
+$ sudo cp cacert.pem /etc/ca-certs
+$ sudo c_hash /etc/ca-certs/cacert.pem
+</pre></div>
+</div>
+<p>Note the generated hash from the prior command and use it in the next commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/&lt;hashvalue&gt;
+$ sudo mkdir /etc/ssl
+$ sudo ln -s /etc/ca-certs/ /etc/ssl/certs
+$ sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/&lt;hashvalue&gt;
+</pre></div>
+</div>
+<p>You will need to tell the controller where the keystone service is located and
+pass the ciao service username and password to it. DO NOT USE
+localhost for your server name; <strong>it must be the fully qualified DNS
+name of the system that is hosting the keystone service</strong>.
+An SSL-enabled Keystone is required, with additional parameters
+for ciao-controller pointing at its certificates:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem -identity=https://[keystone-FQDN]:35357 --username=&lt;Ciao keystone service username&gt; --password=&lt;Ciao keystone service password&gt; --url &lt;scheduler-FQDN&gt; --httpskey=./key.pem --httpscert=./cert.pem
+</pre></div>
+</div>
+<p>Optionally add <code class="docutils literal"><span class="pre">-logtostderr</span></code> (more verbose with also <code class="docutils literal"><span class="pre">-v=2</span></code>) to get
+console logging output.</p>
+<p>Use the <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-cli">ciao-cli</a> command line tool to verify that your cluster is
+now up and running:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ciao-cli -username admin -password &lt;admin_password&gt; -cluster-status
+$ ciao-cli -username admin -password &lt;admin_password&gt; -list-cns
+$ ciao-cli -username admin -password &lt;admin_password&gt; -list-cncis
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">-cluster-status</span></code> shows the number of nodes in your cluster, and the
+status of each.</p>
+<p><code class="docutils literal"><span class="pre">-list-cns</span></code> displays a more detailed view (number of instances per node,
+available resources per node, etc.).</p>
+<p><code class="docutils literal"><span class="pre">-list-cncis</span></code> provides information about the current CNCI VMs, and their statuses.</p>
+</div>
+</div>
+<div class="section" id="interacting-with-your-cluster">
+<h2><a class="toc-backref" href="#id26">Interacting with your cluster</a></h2>
+<div class="section" id="ciao-web-ui-setup">
+<h3><a class="toc-backref" href="#id27">Ciao Web UI setup</a></h3>
+<p>In addition to <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-cli">ciao-cli</a>, a node.js-based web UI offers a means of
+interacting with your cluster visually.  Documentation for this is in
+the <a class="reference external" href="https://github.com/01org/ciao-webui">ciao-webui</a> github repository.  A simple JSON configuration file
+allows you to specify the webui configuration and point its back end to
+your keystone and ciao-controller systems.</p>
+</div>
+<div class="section" id="ciao-cli-setup">
+<h3><a class="toc-backref" href="#id28">Ciao CLI setup</a></h3>
+<p>The <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-cli">ciao-cli</a> command-line tool can be set up by exporting a set of ciao-
+specific environment variables:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CIAO_CONTROLLER</span></code> exports the ciao controller FQDN</li>
+<li><code class="docutils literal"><span class="pre">CIAO_IDENTITY</span></code> exports the ciao keystone instance FQDN</li>
+<li><code class="docutils literal"><span class="pre">CIAO_COMPUTEPORT</span></code> exports the ciao compute alternative port</li>
+<li><code class="docutils literal"><span class="pre">CIAO_USERNAME</span></code> exports the ciao username</li>
+<li><code class="docutils literal"><span class="pre">CIAO_PASSWORD</span></code> export the ciao password for <code class="docutils literal"><span class="pre">CIAO_USERNAME</span></code></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cat ciao-cli-example.sh
+
+export CIAO_CONTROLLER=ciao-ctl.intel.com
+export CIAO_IDENTITY=https://ciao-identity.intel.com:35357
+export CIAO_USERNAME=user
+export CIAO_PASSWORD=ciaouser
+
+$ source ciao-cli-example.sh
+</pre></div>
+</div>
+<p>Defining those variables is optional. The same pieces of information
+can be passed to <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-cli">ciao-cli</a> through the various command line options.
+The command line options will take precedence over the ciao environment
+variables and override them:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CIAO_CONTROLLER</span></code> can be defined by the <code class="docutils literal"><span class="pre">--controller</span></code> option</li>
+<li><code class="docutils literal"><span class="pre">CIAO_IDENTITY</span></code> can be defined by the <code class="docutils literal"><span class="pre">--identity</span></code> option</li>
+<li><code class="docutils literal"><span class="pre">CIAO_COMPUTEPORT</span></code> can be defined by the <code class="docutils literal"><span class="pre">--computeport</span></code> option</li>
+<li><code class="docutils literal"><span class="pre">CIAO_USERNAME</span></code> can be defined by the <code class="docutils literal"><span class="pre">--username</span></code> option</li>
+<li><code class="docutils literal"><span class="pre">CIAO_PASSWORD</span></code> can be defined by the <code class="docutils literal"><span class="pre">--password</span></code> option</li>
+</ul>
+</div>
+</div>
+<div class="section" id="start-a-workload">
+<h2><a class="toc-backref" href="#id29">Start a workload</a></h2>
+<p>As a valid user, the <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-cli">ciao-cli</a> tool allows you to start a workload.</p>
+<p>First, you may want to know which workloads are available:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ciao-cli -list-workloads
+</pre></div>
+</div>
+<p>Then you can launch one or more workloads:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ciao-cli -launch-instances -workload &lt;workload UUID&gt; -instances &lt;number of instances to launch&gt;
+</pre></div>
+</div>
+<p>And you can monitor all your instances statuses (<code class="docutils literal"><span class="pre">pending</span></code> or <code class="docutils literal"><span class="pre">running</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ciao-cli -list-instances
+</pre></div>
+</div>
+<p>Performance data can be obtained (optionally) by adding a specific label
+to all your instances:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ciao-cli -launch-instances -instance-label &lt;instance-label&gt; -workload &lt;workload UUID&gt; -instances &lt;number of instances to launch&gt;
+</pre></div>
+</div>
+<p>And eventually fetch the performance data:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ciao-cli -dump-label &lt;instance-label&gt;
+</pre></div>
+</div>
+<p>You will also see activity related to this launch across your cluster
+components if you have consoles open and logging to standard output as
+described above.</p>
+</div>
+<div class="section" id="reset-your-cluster">
+<h2><a class="toc-backref" href="#id30">Reset your cluster</a></h2>
+<p>First you should delete all instances with the <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-cli">ciao-cli</a> command line
+tool:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ciao-cli -delete-instance -all-instances
+</pre></div>
+</div>
+<p>On your scheduler node, run the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo killall -w -9 qemu-system-x86_64
+</pre></div>
+</div>
+<p>On your controller node, go to the directory in which you ran the
+ciao-controller binary and run the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo killall -w -9 ciao-controller
+$ sudo rm $HOME/bin/ciao-controller.db /tmp/ciao-controller-stats.db
+</pre></div>
+</div>
+<p>On the node running your keystone VM, run the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo killall -w -9 qemu-system-x86_64
+</pre></div>
+</div>
+<p>On the network node, run the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=&lt;your-server-address&gt; --network=nn --compute-net &lt;node compute subnet&gt; --mgmt-net &lt;node management subnet&gt; --hard-reset
+$ sudo killall -9 qemu-system-x86_64
+$ sudo rm -rf /var/lib/ciao/instances/
+$ sudo reboot
+</pre></div>
+</div>
+<p>If you were unable to successfully delete all workload VM instances
+through the UI, then on each compute node run these commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=&lt;your-server-address&gt; --network=cn --compute-net &lt;node compute subnet&gt; --mgmt-net &lt;node management subnet&gt; --hard-reset
+$ sudo killall -9 qemu-system-x86_64
+$ sudo docker rm $(sudo docker ps -qa)
+$ sudo docker network rm $(sudo docker network ls -q -f &quot;type=custom&quot;)
+$ sudo rm -rf /var/lib/ciao/instances/
+$ sudo reboot
+</pre></div>
+</div>
+<p>Restart your scheduler, network node launcher, compute node launcher,
+and controller.</p>
+</div>
+<div class="section" id="debug-tips">
+<h2><a class="toc-backref" href="#id31">Debug tips</a></h2>
+<p>For general debugging, you can:</p>
+<ul>
+<li><p class="first">Reset you cluster.</p>
+</li>
+<li><p class="first">Pull in updated go binaries.</p>
+</li>
+<li><p class="first">Enable verbose console logging with <code class="docutils literal"><span class="pre">-logtostderr</span> <span class="pre">-v=2</span></code> on the go
+binaries&#8217; command lines.</p>
+</li>
+<li><p class="first">Reduce your tenants to one (specifically the one with no limits).</p>
+</li>
+<li><p class="first">Launch fewer VMs in a herd. A small Intel NUC with 16GB of RAM can handle as many as
+50-100 2vcpu 218MB RAM VMs starting at once per compute node. Larger dual socket
+many thread CPU with hundreds of GB RAM Haswell-EP servers can handle as many as 500
+such VMs starting at once per compute node.</p>
+</li>
+<li><p class="first">Tweak the launcher to enable remote access: go get with <code class="docutils literal"><span class="pre">--tags=debug</span></code> to enable
+a netcat based console redirection for each VM.  The launcher console verbose output
+will indicate per VM how to connect to the console. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$  netcat 192.168.0.102 6309
+</pre></div>
+</div>
+</li>
+<li><p class="first">Ssh into the compute node(s) by IP, looking at top, df, ps, ip a, ip r, netstat -a, etc.</p>
+</li>
+<li><p class="first">Ssh into the CNCI(s) by IP, looking at top, df, ps, ip a, ip r, netstat -a, etc.</p>
+</li>
+<li><p class="first">Ssh into the workload instance VMs via CNCI IP and port redirection.  Each VM will be
+at a port composed from the VM&#8217;s IP address added to 33000. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">33000</span><span class="o">+</span><span class="n">ip</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="o">+</span><span class="n">ip</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The VM IP is available in the <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-cli">ciao-cli</a>.</p>
+</li>
+<li><p class="first">Instance credentials for netcat or ssh connectivity depend on the contents of
+the cloud-init configuration used by ciao-controller for the workload.</p>
+</li>
+</ul>
+<p>Please contact our <a class="reference external" href="https://lists.clearlinux.org/mailman/listinfo/ciao-devel">mailing list</a> for more help with initial bringup and
+testing.</p>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/affix.js"></script>
+        <script type="text/javascript" src="_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

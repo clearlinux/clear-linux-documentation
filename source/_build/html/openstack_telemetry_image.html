@@ -1,0 +1,339 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OpenStack* Telemetry - Enable image service meters</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/overrides.css" type="text/css" />
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" >
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp;</span>
+            <span id="project-name-right">Project <sup>*</sup></span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+                        <div class="region region-header">
+    <div id="block-system-main-menu" class="block block-system block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+<li class="collapsed"><a href="/features" title="Features">Features</a></li>
+<li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-get-involved" class="block block-menu">
+
+        <h4>Get Involved</h4>
+
+  <ul class="menu">
+    <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+<li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+<li class="last leaf"><a href="/blogs">Blogs</a></li>
+</ul>
+</div>
+  </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+
+      </div>
+    </div>
+  </div></header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb" class="hidden-sm">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb" class="hidden-sm">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="index.html">Documentation</a> » OpenStack* Telemetry - Enable image service meters
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_gs.html">Getting started</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_getting_started.html">Getting started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_supported_hardware.html">Supported hardware</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_creating_bootable_usb.html">Creating a bootable USB to install the OS</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_installing_clr_as_host.html">Installing the OS as host</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs-clear-containers-gettting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ciao-cluster-setup.html">Getting started with ciao</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_vm.html">Running in a virtualized environment</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-kvm.html">Using KVM</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-virtualbox.html">Using VirtualBox</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-esxi.html">Using VMware* ESXi guest</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-player.html">Using VMware* Player</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-hyper-v.html">Using Hyper-V</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_sw_update.html">Software update</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_about_sw_update.html">About software update</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_how_to_run_the_updater.html">How to run the updater</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_bundles.html">Bundles</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="bundles_overview.html">Bundles overview</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_advanced_configuration.html">Advanced configuration</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="network_boot.html">Network booting</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="mixer.html">Mixer Tool</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ac-dpdk.html">DPDK</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ac-ovs-dpdk.html">OpenvSwitch and DPDK</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index-openstack.html">OpenStack* implementation</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_use_cases.html">OpenStack* use cases with Clear Linux* OS for Intel® Architecture</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_bundle_and_service_summary.html">OpenStack* bundle and service summary</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="installing_openstack.html">Installing OpenStack</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="configure_openstack_environment.html">Configure environment</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_env_inventory_file.html">The &#8220;hosts&#8221; file</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_about.html">About &#8220;group_vars/all&#8221;</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_list.html">Variables for OpenStack Deployment</a></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+  <div class="section" id="openstack-telemetry-enable-image-service-meters">
+<h1>OpenStack* Telemetry - Enable image service meters</h1>
+<p>Telemetry uses notifications to collect Image service meters.
+Perform these steps on the controller node.</p>
+<div class="section" id="configure-the-image-service-to-use-telemetry">
+<h2>Configure the Image service to use Telemetry</h2>
+<p>Edit the <code class="docutils literal"><span class="pre">/etc/glance/glance-api.conf</span></code> and <code class="docutils literal"><span class="pre">/etc/glance/glance-registry.conf</span></code>
+files and complete the following actions:</p>
+<ol class="arabic">
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> section, configure notifications and RabbitMQ message broker access:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">notification_driver</span> <span class="o">=</span> <span class="n">messagingv2</span>
+<span class="n">rpc_backend</span> <span class="o">=</span> <span class="n">rabbit</span>
+
+<span class="p">[</span><span class="n">oslo_messaging_rabbit</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">rabbit_host</span> <span class="o">=</span> <span class="n">controller</span>
+<span class="n">rabbit_userid</span> <span class="o">=</span> <span class="n">openstack</span>
+<span class="n">rabbit_password</span> <span class="o">=</span> <span class="n">RABBIT_PASS</span>
+</pre></div>
+</div>
+<p>Replace the <code class="docutils literal"><span class="pre">RABBIT_PASS</span></code> with the password you chose for the openstack account in RabbitMQ.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="finalize-the-installation">
+<h2>Finalize the installation</h2>
+<ol class="arabic">
+<li><p class="first">Restart the image service:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># systemctl restart glance-registry.service</span>
+<span class="c"># systemctl restart glance-api.service</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/affix.js"></script>
+        <script type="text/javascript" src="_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

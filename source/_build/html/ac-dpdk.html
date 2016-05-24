@@ -1,0 +1,620 @@
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DPDK</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/overrides.css" type="text/css" />
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html"/>
+        <link rel="up" title="Advanced configuration" href="index_advanced_configuration.html"/>
+        <link rel="next" title="OpenvSwitch and DPDK" href="ac-ovs-dpdk.html"/>
+        <link rel="prev" title="Mixer Tool" href="mixer.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" >
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp;</span>
+            <span id="project-name-right">Project <sup>*</sup></span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+                        <div class="region region-header">
+    <div id="block-system-main-menu" class="block block-system block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+<li class="collapsed"><a href="/features" title="Features">Features</a></li>
+<li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+</ul>
+</div>
+<div id="block-menu-menu-get-involved" class="block block-menu">
+
+        <h4>Get Involved</h4>
+
+  <ul class="menu">
+    <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+<li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+<li class="last leaf"><a href="/blogs">Blogs</a></li>
+</ul>
+</div>
+  </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+
+      </div>
+    </div>
+  </div></header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb" class="hidden-sm">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb" class="hidden-sm">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="index.html">Documentation</a> » DPDK
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_gs.html">Getting started</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_getting_started.html">Getting started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_supported_hardware.html">Supported hardware</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_creating_bootable_usb.html">Creating a bootable USB to install the OS</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs_installing_clr_as_host.html">Installing the OS as host</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="gs-clear-containers-gettting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ciao-cluster-setup.html">Getting started with ciao</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_vm.html">Running in a virtualized environment</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-kvm.html">Using KVM</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-virtualbox.html">Using VirtualBox</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-esxi.html">Using VMware* ESXi guest</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-vmware-player.html">Using VMware* Player</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="vm-hyper-v.html">Using Hyper-V</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_sw_update.html">Software update</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_about_sw_update.html">About software update</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="swupdate_how_to_run_the_updater.html">How to run the updater</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index_bundles.html">Bundles</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="bundles_overview.html">Bundles overview</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="index_advanced_configuration.html">Advanced configuration</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="network_boot.html">Network booting</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="mixer.html">Mixer Tool</a></li>
+<li class="child-item first-level no-childs"><a class="active">DPDK</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="ac-ovs-dpdk.html">OpenvSwitch and DPDK</a></li>
+</ul>
+</li>
+</ul>
+<ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="index-openstack.html">OpenStack* implementation</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_use_cases.html">OpenStack* use cases with Clear Linux* OS for Intel® Architecture</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_bundle_and_service_summary.html">OpenStack* bundle and service summary</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="installing_openstack.html">Installing OpenStack</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="configure_openstack_environment.html">Configure environment</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_env_inventory_file.html">The &#8220;hosts&#8221; file</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_about.html">About &#8220;group_vars/all&#8221;</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="openstack_conf_vars_list.html">Variables for OpenStack Deployment</a></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+  <div class="section" id="dpdk">
+<span id="ac-dpdk"></span><h1>DPDK</h1>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p><a class="reference external" href="http://dpdk.org">DPDK</a> is a set of libraries and drivers for fast packet processing.
+This document describes <em>how to</em> run a basic use case that involves <strong>l3fwd
+DPDK example</strong>, the objective is to <em>send packages between 2 platforms</em> using a
+traffic generator called <a class="reference internal" href="#sec-pktgen"><span class="std std-ref">pktgen</span></a> where l3fwd example
+application will forward those packages (<a class="reference internal" href="#f1"><span class="std std-ref">Figure 1: environment for l3fwd DPDK application.</span></a>).</p>
+<div class="figure align-center" id="id3">
+<span id="f1"></span><img alt="platform A and B" src="_images/pktgen_lw3fd.png" />
+<p class="caption"><span class="caption-text">Figure 1: environment for l3fwd DPDK application.</span></p>
+</div>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><p class="first">Two platforms using Clear Linux (recommended release <a class="reference external" href="https://download.clearlinux.org/releases/7160/">7160</a> or higher).</p>
+</li>
+<li><p class="first">Both Clear Linux images have added the <strong>kernel-native bundle</strong>.</p>
+</li>
+<li><p class="first">Installation of <code class="docutils literal"><span class="pre">dpdk-dev</span></code>, <code class="docutils literal"><span class="pre">os-core-dev</span></code> and <code class="docutils literal"><span class="pre">sysadmin-basic</span></code> bundles</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># swupd bundle-add dpdk-dev os-core-dev sysadmin-basic</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The platforms must have 2 NICs &#8211; at least one each&#8211; so check network card&#8217;s compatibility.
+It is very important to verify whether your NIC is compatible with DPDK project; you can check
+it in on the <a class="reference external" href="http://dpdk.org/doc/nics">dpdk.org NICS</a> site.</p>
+</li>
+<li><p class="first">Two network cables.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="disabling-iommu-on-clear-linux-platforms-a-and-b">
+<h2>Disabling iommu on Clear Linux (Platforms A and B)</h2>
+<ol class="arabic">
+<li><p class="first">Mount the <abbr title="EFI system partition">ESP</abbr>.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># systemctl start boot.mount</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Move to entries directory.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># cd /boot/loader/entries/</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit <code class="docutils literal"><span class="pre">clear-linux-native.conf</span></code> by adding <code class="docutils literal"><span class="pre">intel_iommu=off</span></code> after the last line.</p>
+</li>
+<li><p class="first">Umount <em>ESP</em> and reboot.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># cd /</span>
+<span class="c"># systemctl stop boot.mount</span>
+<span class="c"># reboot</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="installing-dpdk-and-build-l3fwd-example-platform-b">
+<h2>Installing dpdk and build l3fwd example (Platform B)</h2>
+<ol class="arabic">
+<li><p class="first">Install <code class="docutils literal"><span class="pre">dpdk</span></code> bundle.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># swupd bundle-add dpdk-dev</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Move to <code class="docutils literal"><span class="pre">l3fwd</span></code> example.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># cd /usr/share/dpdk/examples/l3fwd</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_SDK</span> <span class="pre">var</span></code> the path where makefiles are.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># export RTE_SDK=/usr/share/dpdk/</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_TARGET</span> <span class="pre">var</span></code> the value where the gcc config file is located.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># export RTE_TARGET=x86_64-native-linuxapp-gcc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build the <code class="docutils literal"><span class="pre">l3fwd</span></code> application and add the configuration header to the <code class="docutils literal"><span class="pre">CFLAGS</span></code> var.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># make CFLAGS+=&quot;-include /usr/include/rte_config.h&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="building-pktgen-platform-a">
+<span id="sec-pktgen"></span><h2>Building Pktgen (Platform A)</h2>
+<p>Currently, the <code class="docutils literal"><span class="pre">pktgen</span></code> project is not included in Clear Linux; so for that reason,
+it is necessary to download it from upstream and build it:</p>
+<ol class="arabic">
+<li><p class="first">Install <code class="docutils literal"><span class="pre">dpdk</span></code> bundle.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># swupd bundle-add dpdk-dev</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download the <a class="reference external" href="http://dpdk.org/browse/apps/pktgen-dpdk/refs">pktgen tar package 2.9.12</a>.</p>
+</li>
+<li><p class="first">Decompress packages and move to uncompressed source directory.</p>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_SDK</span> <span class="pre">var</span></code> the path where makefiles are located.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># export RTE_SDK=/usr/share/dpdk/</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_TARGET</span> <span class="pre">var</span></code> the value where the gcc config file is located.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># export RTE_TARGET=x86_64-native-linuxapp-gcc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build pktgen project; set the <code class="docutils literal"><span class="pre">CONFIG_RTE_BUILD_SHARED_LIB</span></code> variable with &#8220;n&#8221;.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># make CONFIG_RTE_BUILD_SHARED_LIB=n</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="binding-nics-to-dpdk-kernel-drivers-platforms-a-and-b">
+<h2>Binding NICs to dpdk kernel drivers (Platforms A and B)</h2>
+<p>The <code class="docutils literal"><span class="pre">l3fwd</span></code> application uses 2 NICs. DPDK has useful tools for binding NICs to
+DPDK modules in order to run DPDK applications.</p>
+<ol class="arabic">
+<li><p class="first">Load dpdk I/O kernel module</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># modprobe igb_uio</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Check the status of your NICs; this will show which network cards are not busy. When
+another application is using them, the status shows <code class="docutils literal"><span class="pre">Active</span></code> and those NICs cannot be
+bound.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># dpdk_nic_bind.py --status</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Bind 2 available NICs. The general syntax for binding is
+<strong>dpdk_nic_bind.py &#8211;bind=igb_uio &lt;device-entry&gt;</strong>,
+and the following is a working example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># dpdk_nic_bind.py --bind=igb_uio 01:00.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Check that your NICs binded correctly by checking the status; <code class="docutils literal"><span class="pre">drv</span></code> should have <code class="docutils literal"><span class="pre">igb_uio</span></code>
+value; at this point, the NICs are using the DPDK modules.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-hugepages-platforms-a-and-b">
+<h2>Setting hugepages (platforms A and B)</h2>
+<p>Clear Linux supports <code class="docutils literal"><span class="pre">hugepages</span></code> for the large memory pool allocation used for packet buffers.</p>
+<ol class="arabic">
+<li><p class="first">Set number of hugepages.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># echo 1024 &gt; /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Allocate pages on NUMA machines.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># echo 1024 &gt; /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages</span>
+<span class="c"># echo 1024 &gt; /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Make memory available for DPDK.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># mkdir -p /mnt/huge $ mount -t hugetlbfs nodev /mnt/huge</span>
+</pre></div>
+</div>
+<p>If you would like to know more about this, read more at the <a class="reference external" href="http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html">DPDK guide</a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-a-physical-environment-platforms-a-and-b">
+<h2>Setting a physical environment (Platforms A and B)</h2>
+<p>To achieve the model proposed in the introduction of this document, (<a class="reference internal" href="#f1"><span class="std std-ref">Figure 1: environment for l3fwd DPDK application.</span></a>), we need
+to connect the first Grantley’s NICs to the second Grantley’s NICs using the network cables
+(<a class="reference internal" href="#f2"><span class="std std-ref">Figure 2: Physical network environment.</span></a>).</p>
+<div class="figure" id="id4">
+<span id="f2"></span><img alt="_images/pyshical_net.png" src="_images/pyshical_net.png" />
+<p class="caption"><span class="caption-text">Figure 2: Physical network environment.</span></p>
+</div>
+</div>
+<div class="section" id="running-l3fwd-application-platform-b">
+<h2>Running l3fwd application (Platform B)</h2>
+<p>The <code class="docutils literal"><span class="pre">l3fwd</span></code> application is one of the DPDK examples available when you install <code class="docutils literal"><span class="pre">dpdk-dev</span></code>
+bundle; this application forwards packages from one NIC to another.</p>
+<ol class="arabic">
+<li><p class="first">Open the l3fwd example directory.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># cd  /usr/share/dpdk/examples/l3fwd</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>This step is very important.</strong> DPDK needs poll drivers for work; these poll drivers are
+shared objects in <code class="file docutils literal"><span class="pre">/usr/lib64</span></code>. DPDK supports some NICs, the full list available at the
+<a class="reference external" href="http://dpdk.org/doc/nics">dpdk.org NICS</a> docs. You should know which kernel module the NIC is using, and choose a poll
+driver according to your NICs.</p>
+</li>
+<li><p class="first">At this point the system must have <code class="docutils literal"><span class="pre">hugepages</span></code> requirements. The NICs bound and the
+configuration for running <code class="docutils literal"><span class="pre">pktgen</span></code> depends upon network use cases and available system
+resources.  Use the <code class="docutils literal"><span class="pre">-d</span></code> flag for setting the pull driver.  For example, if the NICs are
+using <code class="docutils literal"><span class="pre">e1000</span></code> network driver, they are going to use <code class="docutils literal"><span class="pre">e1000</span></code> poll driver
+(<code class="docutils literal"><span class="pre">librte_pmd_e1000.so</span></code>); it should be in <code class="file docutils literal"><span class="pre">/usr/lib64</span></code> in Clear Linux, and it
+should be enough to add the name. For example</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># ./build/l3fwd -c 0x3 -n 2 -d librte_pmd_e1000.so -- -p 0x3 --config=&quot;(0,0,0),(1,0,1)&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">When the application starts to run, it will show information about the <code class="docutils literal"><span class="pre">l3fwd</span></code> running, so
+pay attention when the application is Initializing ports.  After port 0 initialization, you&#8217;ll
+see a MAC address and the same for port 1. Save this information for setting configuration
+to <cite>Pktgen</cite> project.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="running-pktgen-application-platform-a">
+<h2>Running Pktgen application (Platform A)</h2>
+<p>The <cite>Pktgen</cite> is network traffic generator. It measures the network packaging performance
+in a forwarding use case.</p>
+<ol class="arabic">
+<li><p class="first">At this point the system must have <code class="docutils literal"><span class="pre">hugepages</span></code> requirements and the NICs bound. The
+configuration for running <code class="docutils literal"><span class="pre">pktgen</span></code> depends upon the network use case and the available
+system resources.  The following is a basic configuration.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0xf -n 4 -- -p 0xf -P -m &quot;1.0, 2.1&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enable active colorful output (optional).</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">Pktgen&gt; theme enable</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">l3fwd</span></code> application showed a MAC address per-port initialized; this MAC addresses
+should have been set in the pktgen environment:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; set mac &lt;port number&gt; &lt;mac address&gt;
+</pre></div>
+</div>
+<p>And a working example:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">Pktgen&gt; set mac 0 00:1E:67:CB:E8:C9</span>
+<span class="go">Pktgen&gt; set mac 1 00:1E:67:CB:E8:C9</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start to send packages using the next command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">Pktgen&gt; start 0-1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you followed these steps correctly, you&#8217;ll see that <code class="docutils literal"><span class="pre">pktgen</span></code> is sending and receiving
+packages. For more information, see the <a class="reference external" href="`Pktgendocumentation`_https://media.readthedocs.org/pdf/pktgen/latest/pktgen.pdf">Pktgen documentation</a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="annex-a-using-pass-through-for-running-on-virtual-machines">
+<h2>Annex A: Using pass-through for running on virtual machines</h2>
+<p>This section explains how to set up a virtual environment where virtual machines
+control the host&#8217;s NICs.</p>
+<ol class="arabic">
+<li><p class="first">Create a new directory and move to it.</p>
+</li>
+<li><p class="first">Download or create a <code class="docutils literal"><span class="pre">start_qemu.sh</span></code> script for running a kvm virtual machine:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>curl -O https://download.clearlinux.org/image/start_qemu.sh
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download a bare-metal Clear Linux image and rename it as <code class="docutils literal"><span class="pre">clear.img</span></code>.</p>
+</li>
+<li><p class="first">Look for an entry for device and vendor &amp; device ID:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>lspci -nn <span class="p">|</span> grep Ethernet
+</pre></div>
+</div>
+<p>An output example from the last step:</p>
+<p>03:00.0 Ethernet controller [0200]: Intel Corporation I350 Gigabit Network Connection [8086:1521]</p>
+<p>where <code class="docutils literal"><span class="pre">8086:1521</span></code> is <code class="docutils literal"><span class="pre">vendor:device</span> <span class="pre">ID</span></code> and <code class="docutils literal"><span class="pre">03:00.0</span></code> is the entry for device.  Make
+note of this information; it is necessary for unbinding a host&#8217;s NICs.</p>
+</li>
+<li><p class="first">Unbind NICs from host to do passthrough with virtual machines.  Clear Linux currently supports
+this action, you can use the following commands:</p>
+<p>echo &#8220;vendor device_ID&#8221; &gt; /sys/bus/pci/drivers/pci-stub/new_id
+echo &#8220;entry for device&#8221; &gt; /sys/bus/pci/drivers/igb/unbind
+echo &#8220;entry for device&#8221; &gt; /sys/bus/pci/drivers/pci-stub/bind
+echo &#8220;vendor device_ID&#8221; &gt; /sys/bus/pci/drivers/pci-stub/remove_id</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;8086 1521&quot;</span> &gt; /sys/bus/pci/drivers/pci-stub/new_id
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;0000:03:00.0&quot;</span> &gt; /sys/bus/pci/drivers/igb/unbind
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;0000:03:00.0&quot;</span> &gt; /sys/bus/pci/drivers/pci-stub/bind
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;8086 1521&quot;</span> &gt; /sys/bus/pci/drivers/pci-stub/remove_id
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign to kvm virtual machine (guest) the unbound NICs previously noted. Modify the
+<code class="docutils literal"><span class="pre">start_qemu.sh</span></code> script in <code class="docutils literal"><span class="pre">qemu-system-x86_64</span></code> arguments, and add the lines with
+the host&#8217;s NICs information:</p>
+<div class="highlight-python"><div class="highlight"><pre>-device pci-assign,host=&quot;&lt;entry for device&gt;&quot;,id=passnic0,addr=03.0
+-device pci-assign,host=&quot;&lt;entry for device&gt;&quot;,id=passnic1,addr=04.0
+</pre></div>
+</div>
+<p>A working example:</p>
+<div class="highlight-bash"><div class="highlight"><pre>-device pci-assign,host<span class="o">=</span>03:00.0,id<span class="o">=</span>passnic0,addr<span class="o">=</span>03.0 <span class="se">\</span>
+-device pci-assign,host<span class="o">=</span>03:00.3,id<span class="o">=</span>passnic1,addr<span class="o">=</span>04.0 <span class="se">\</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you would like to add more NUMA machines to the virtual machine, you can add the next
+line in Makefile boot target:</p>
+<div class="highlight-python"><div class="highlight"><pre>-numa node,mem=&lt;memory&gt;,cpus=&lt;number of cpus&gt;
+</pre></div>
+</div>
+<p>A working example for a virtual machine with 4096 of memory and 4 cpus, the configuration
+would look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>-numa node,mem=2048,cpus=0-1 \
+-numa node,mem=2048,cpus=2-3 \
+</pre></div>
+</div>
+<p>which means that each NUMA machine has to use the same quantity of memory.</p>
+</li>
+<li><p class="first">Finally, run the <code class="docutils literal"><span class="pre">start_qemu.sh</span></code> script.</p>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/affix.js"></script>
+        <script type="text/javascript" src="_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>
