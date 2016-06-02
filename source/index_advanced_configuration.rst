@@ -8,4 +8,5 @@ Advanced configuration
    mixer
    ac-dpdk
    ac-ovs-dpdk
+   clear_containers
 
