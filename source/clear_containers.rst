@@ -49,7 +49,7 @@ V1.0 of Clear Containers (also know as ‘Clear Containers for Docker*
 Engine’) is based around ``kvmtool`` with example host integrations for
 Docker and ``rkt``.
 
- .. figure:: _static/images/clr-containers-v1.png
+ .. figure:: _static/images/clearcontainersV1.svg
    :align: center
    :alt: Clear Containers V1.0
 
@@ -145,7 +145,7 @@ runtime specification standard, introducing a host-side abstraction tool to
 ease host-side integration and to isolate integration instances from future
 changes to the underlying Clear Containers architecture.
 
-.. figure:: _static/images/clr-containers-v2.png
+.. figure:: _static/images/clearcontainersV2.svg
    :align: center
    :alt: Clear Containers V2.0
 
@@ -199,5 +199,225 @@ Containers V1.0.
 
 
 
+Architectural component details
+===============================
+
+Host kernel components
+----------------------
+
+KSM
+~~~
+
+**Kernel Samepage Merging (KSM)** 
+
+:abbr:`KSM (Kernel Samepage Merging)` allows the kernel to locate
+and merge (share) identical memory pages within the system, even
+when they are not sourced from the same binary. When sourced from
+the same binary, the kernel will naturally share through the :abbr:`copy-on-write (COW)` or COW methods. 
+
+KSM allows the kernel to localize and to coalesce pages from within
+virtual machine memory spaces that would not normally be shared, thus
+saving memory space.
+
+To enable KSM, check that your host kernel config includes ``CONFIG_KSM``,
+and that your host system is running the ``ksmd`` daemon.
+
+EPT
+~~~
+
+**Intel Enhanced Page Tables (EPT)** 
+
+Linux Kernel Documentation: Documentation/virtual/kvm/mmu.txt
+
+EPT is an acceleration technology for virtual machine memory mappings.
+It reduces the number of Virtual Machine Manager entry/exits from the
+host system, thus improving system performance. If your hardware system
+supports EPT, you'll see the **ept** feature listed in the ``/proc/cpuinfo``
+information from your system. The kernel, KVM and qemu will automatically
+use and benefit from EPT when supported by your system hardware.
+
+You can also check on the `Intel ARK website`_ to see if your Intel CPU
+supports **Intel VT-x with Extended Page Tables** under the *Advanced Technologies* table on the specific page for your CPU.
+
+KVM startup optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Host kernel startup was optimized before the Linux kernel v4.0
+release by removing some unnecessary ``synchronize_rcu()`` calls. You
+should ensure your kernel is at least v4.0, or that you have backported
+any appropriate patches to your host kernel:  the ``syncronize_rcu() opt``,
+at the very least.
+
+Persistence
+~~~~~~~~~~~
+
+
+Host tooling
+------------
+
+Kvmtool
+~~~~~~~
+
+Kvmtool is used in Clear Containers V1.0 for virtual machine
+configuration and management. It was chosen because it is lighter
+and faster than the alternatives, and it's also easily modifiable.
+
+Modifications to kvmtool include:
+
+* Implementation of **copy-free DAX file-system access**.
+* **Less verbosity**.
+* **Minimal UART scanning** to improve speed.
+* **TSC timer functionality changes** passing the client apic timer
+  calibration step speeds up container creation time.
+* Adding ability to **skip unused features**, (such as creation of a
+  custom rootfs).
+* **Removing need for BIOS** saves boot time.
+* **No bootloader required** speeds up initial booting of a machine.
+* **Direct kernel boot** -- The hypervisor can boot the kernel directly as
+  an uncompressed ELF binary. Although the kernel image is slightly larger
+  than a compressed one, it ends up being faster to read and boot the larger
+  file than it is to uncompress and boot the slightly smaller file.
+
+
+Qemu-lite
+~~~~~~~~~
+
+Qemu-lite is a modified version of qemu used for the virtual
+machine configuration and management in Clear Containers 2.0.
+
+The modifications made beyond generic qemu are described in the
+following sections:
+
+DAX enablement
+^^^^^^^^^^^^^^
+
+DAX enablement under QEMU-lite utilizes existing QEMU ``nvdimm
+memdev`` functionality.
+
+PC-lite
+^^^^^^^
+
+A new QEMU PC model, called ‘pc-lite’, has been added that removes
+all unused or unnecessary PC style elements from the machine emulation
+that are not required for the client VM. This improves both speed of
+execution and memory footprint.
+
+Cor
+^^^
+
+Cor (the Clear OCI runtime manager) implements the OCI runtime
+specification atop of the Clear Containers V2.0 infrastructure
+(such as qemu-lite). By utilising Cor your OCI compliant system
+can be implemented with Clear Containers whilst also insulating
+the user against any future underlying changes in Clear Containers,
+thus allowing easier future integration of upgrades. Cor currently
+supports OCI runtime version 0.6.0.
+
+Client components
+~~~~~~~~~~~~~~~~~
+
+The client-side components consist of the mini-OS kernel and root
+filesystem, and optionally further customer specific items, such as
+a further fuller distribution or system to load. The intention is
+that customers may either extend and expand the mini-OS as required,
+or they can use the mini-OS to further load a complete self-contained
+image of their choice.
+
+Client mini-OS
+^^^^^^^^^^^^^^
+
+The mini-OS is an optimized version of Clear Linux designed for the
+fastest and smallest container boot. The mini-OS consists of a Linux
+kernel image and root filesystem image.
+
+* **Kernel** -- The mini-OS's kernel is a Clear Linux kernel containing
+  the minimum feature set required to boot the client container. The kernel
+  has optimized for space and speed. This kernel can be modified and
+  re-built as desired, for specific requirements.
+
+* **DAX** -- The :abbr:`Direct Access (DAX)` filesystem. (Linux Kernel
+  Documentation: Documentation/filesystems/dax.txt)  Mapping host-side
+  files into the memory map of the client allows the use of DAX to
+  directly mount those files, bypassing the client side page cache and
+  the virtual device mechanisms between host and client. This allows
+  efficient zero-copy mapping and replaces costly virtual device
+  manipulations with efficient page fault handling, thus being faster and
+  more space-efficient than other filesystem mount methods.  DAX is
+  enabled in Clear Containers V1.0 using a shmem PCI-BAR mechanism
+  configured by kvmtool.
+
+  .. figure:: _static/images/dax-v1.svg
+  	 :align: center
+
+  DAX is enabled in Clear Containers V2.0 using an NVDIMM QEMU memdev
+  mechanism:
+
+    .. figure:: _static/images/dax-v2.svg
+  	 :align: center
+
+  DAX can only be used to mount single flat files from the host side
+  (such as uncompressed filesystems), and not trees of files in the
+  host filesystem. More than one DAX mount can be utilized though. DAX
+  is limited only by the virtual address space available, so it can easily
+  accommodate large file mappings.
+
+  DAX support was introduced in v4.0 of the kernel. Also see the
+  :ref:`Qemu-lite`section.
+
+* **Rootfs image** -- The mini-OS rootfs image is a Clear Linux
+  rootfs. It can execute the client workload and be modified and
+  extended using the Clear Linux bundle method to enable further
+  features as necessary. It can also be used to further execute
+  another client container image, such as a different Linux
+  distribution.
+
+
+Customer Client images and workloads
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Customers may utilize their own client images by instructing
+the mini-OS to execute them using as the mini-OS workload. Please
+refer to the Clear Containers integration guide for more details.
+
+Integration examples
+--------------------
+
+For examples of integrating and adopting Clear Containers
+technology, please consult the ‘Clear Containers Integration Guide’
+section. 
+
+FAQ
+===
+
+Q. **"Can I run CC on any host Linux?"**
+
+A. Yes, any up-to date or recent Linux host should be able to run CC,
+   as long as the host system kernel contains the necessary features and
+   is configured with the necessary support enabled.
+
+   [to do: finish this section]
+
+Q. **"Do I need to use all of CC, or can I cherry pick parts?"**
+
+A. You can cherry pick the parts of CC you need. Some parts will make
+   your life generally easier (such as the qemu wrapper tool cor) and
+   will help insulate you from future development changes, so you
+   should consider which parts you need for which features. The client
+   side obviously can be quite flexible in its configuration depending
+   on the deployment environment.
+
+Q. **"Can I use CC technology to run other VMs, not just container
+   style ones?"**
+
+A. Yes, the underlying mechanisms and accelerations used for Clear
+   Containers can be applied to any Virtual Machine setup, not just
+   those that are based around a container style workflow.
+
+
+
+
+
+
 .. _SR-IOV: http://www.intel.com/content/www/us/en/pci-express/pci-sig-sr-iov-primer-sr-iov-technology-paper.html
 .. _mmu.txt:  Documentation/virtual/kvm/mmu.txt
+.. _Intel ARK website: http://ark.intel.com
