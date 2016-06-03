@@ -49,7 +49,7 @@ V1.0 of Clear Containers (also know as ‘Clear Containers for Docker*
 Engine’) is based around ``kvmtool`` with example host integrations for
 Docker and ``rkt``.
 
- .. figure:: _static/images/clear-containers-v1.png
+ .. figure:: _static/images/clr-containers-v1.png
    :align: center
    :alt: Clear Containers V1.0
 
@@ -145,8 +145,7 @@ runtime specification standard, introducing a host-side abstraction tool to
 ease host-side integration and to isolate integration instances from future
 changes to the underlying Clear Containers architecture.
 
-
-.. figure:: _static/images/clear-containers-v2.png
+.. figure:: _static/images/clr-containers-v2.png
    :align: center
    :alt: Clear Containers V2.0
 
