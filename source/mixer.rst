@@ -69,6 +69,9 @@ Mixing
 #. **Generate the starting point for your Mixer**. In your workspace, run::
    
      # ./mixer-init-mix.sh -c /etc/bundle-chroot-builder/builder.conf
+   Optionally, the ``-b/--buildver`` option can be passed to tell the script which
+   Clear version to build the initial mix against. This may be needed if the build
+   you are currently on is newer than the latest clr-bundles release tag.
 
    Currently, the only correct way to update an existing Clear image to a
    mixer-created update is to create an initial update that contains the same
@@ -107,25 +110,32 @@ Mixing
    ``-c/--clear-version`` to use another Clear build's content), and uses
    "20" for the mix version.
 
-#. **Download Bundles**.  Download ``clr-bundles``.  In the workspace,
+#. **Download Bundles (Optional)**.  Download ``clr-bundles``.  In the workspace,
    run::
 
     # mixer-update-bundles.sh
 
-   This creates a ``.repos`` directory with git repos that are needed for
-   later steps; it also creates a ``bundles/`` directory (symlink) in your
-   workspace, which contains the bundle definitions for the mix.
+   This creates two folders: ``clr-bundles``, which contains all of the upstream
+   bundles and should ``NOT`` be modified or touched, and ``mix-bundles``, which
+   contains the bundle definitions the mixer will use.
+
+   This step is optional because the script is already called by mixer-init-mix.sh,
+   and only needs to be called again when you want to update the upstream clr-bundles
+   folder in your workspace.
 
 #. **Update bundle definitions**. The mixer uses a local clone of the
    ``clr-bundles`` repo to define bundles for the mix.
 
    To define your bundles:
-      #. Navigate to the ``bundles/`` directory.
+      #. Navigate to the ``mix-bundles/`` directory.
       #. Make any needed modifications to the bundle set.
       #. Commit the result::
          
          $ git add .
          $ git commit -s -m 'Update bundles for mix'
+   You can easily copy bundles over from the ``clr-bundles/bundles`` directory in
+   the case that you want to simply use existing bundle sets. Note that
+   ``mix-bundles`` should not have any folders inside of it, only bundle definitions.
 
    Why do this? With Git history, mixes are easy to revert to or refer
    to in the future if something were to go wrong with a new mix. If
@@ -134,7 +144,7 @@ Mixing
    implement an interactive way to modify/add/delete bundles, so much of
    this work can be abstracted out so Git work will be more automated.
 
-   To add your own bundle, create a bundle definition file in ``bundles/``
+   To add your own bundle, create a bundle definition file in ``mix-bundles/``
    and refer to :file:`os-core-update` for formatting, but be sure that
    the name does not conflict with another bundle. Add your package
    name(s) in that  bundle definition file to tell it what package(s)
