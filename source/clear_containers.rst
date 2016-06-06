@@ -14,10 +14,12 @@ be derived only from hardware-backed virtual machines (hardware-enforced
 isolation and security, for example) on Intel VT technology.
 
 These methods are applied across all levels of the host/virtual machine
-hierarchy, from the host side userland software stack down through the host
-Linux kernel and into the client side kernel and userland. While a standalone
-offering, Clear Containers leverage technology included as  part of the Clear
-Linux distribution for many of their technology improvements.
+hierarchy: from the host-side userland software stack down through the host
+Linux kernel and into the client-side kernel and userland. 
+
+Although it is available as a standalone offering, the Clear Containers
+technology works best when it is able to leverage optimizations designed
+into the Clear Linux* Project.
 
 Customers can integrate all or parts of Clear Containers into a container
 infrastructure.
@@ -45,8 +47,8 @@ feature set to include key technologies, such as `SR-IOV`_, and the
 V1.0
 ====
 
-V1.0 of Clear Containers (also know as ‘Clear Containers for Docker*
-Engine’) is based around ``kvmtool`` with example host integrations for
+V1.0 of Clear Containers (also known as **Clear Containers for Docker*
+Engine**) is based around ``kvmtool``, with example host integrations for
 Docker and ``rkt``.
 
  .. figure:: _static/images/clearcontainersV1.svg
@@ -60,9 +62,9 @@ Host kernel optimizations
 Clear Containers operate better when a number of host kernel features and
 optimizations are applied:
 
-* Enabling Kernel Samepage Merging (KSM) in the host kernel is recommended
-  to allow efficient page sharing of VM pages. Kernel documentation:
-  Documentation/vm/ksm.txt  Config symbol: CONFIG_KSM
+* Enabling :abbr:`Kernel Samepage Merging (KSM)` in the host kernel
+  is recommended for efficient page sharing of VM pages. Kernel documentation
+  can be found in Documentation/vm/ksm.txt  Config symbol: ``CONFIG_KSM``
 * Ensuring KVM VM startup times have been optimized by using a kernel
   version >= v4.0, or by backporting appropriate patches if your kernel
   version is v4.0 or lower.
@@ -80,7 +82,7 @@ Host user space
 ---------------
 
 Clear Containers V1.0 host user space is based around ``kvmtool`` as a fast
-and lightweight hypervisor. Optimiztions to ``kvmtool`` include:
+and lightweight hypervisor. Optimizations to ``kvmtool`` include:
 
 * **File access**, enabling efficient *shmem* / *pci-bar* / DAX file
   access to client.
@@ -102,7 +104,7 @@ Client mini-OS
 --------------
 
 Clear Containers V1.0 uses an optimized client user space (mini-OS) as its
-primary launch vehicle to execute workload commands.The mini-OS is built
+primary launch vehicle to execute workload commands. The mini-OS is built
 with a Clear Linux distribution that has an optimized configuration for
 time and space efficiency. The mini-OS includes:
 
@@ -128,7 +130,7 @@ virtual device interfaces. These customer images could for example:
 * Mount a new subsystem and chroot to it for contained execution.
 
 The mini-OS image has been optimized for size and speed. It may be replaced
-or superceded -- in whole or in part -- by customer-created images.  Keep
+or superseded -- in whole or in part -- by customer-created images.  Keep
 in mind, of course, that any benefits the mini-OS provides may be lost
 unless equivalent optimizations exist in the customer-created image, or have
 been migrated into the image they create.
@@ -153,7 +155,7 @@ Host kernel optimizations
 -------------------------
 
 Clear Containers V2.0 host kernel optimizations are currently the same as
-the V1.0 optimisations.
+the V1.0 optimizations.
 
 
 
@@ -307,7 +309,7 @@ Cor
 
 Cor (the Clear OCI runtime manager) implements the OCI runtime
 specification atop of the Clear Containers V2.0 infrastructure
-(such as qemu-lite). By utilising Cor your OCI compliant system
+(such as qemu-lite). By utilizing Cor, your OCI-compliant system
 can be implemented with Clear Containers whilst also insulating
 the user against any future underlying changes in Clear Containers,
 thus allowing easier future integration of upgrades. Cor currently
