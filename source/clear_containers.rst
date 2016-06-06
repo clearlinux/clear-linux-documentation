@@ -7,7 +7,7 @@ Introduction
 ============
 
 Clear Containers is a collection of tools, configurations, and techniques
-anchored on an implementation that leverages Intel Architecture to optimize
+anchored on an implementation that leverages Intel® Architecture to optimize
 container launching and execution workflow. These optimizations improve
 speed, size, and efficiency while offering a number of benefits that can
 be derived only from hardware-backed virtual machines (hardware-enforced
@@ -29,16 +29,16 @@ infrastructure.
 Architecture Overview
 =====================
 
-Clear Containers are architected around the Linux* Kernel Virtual Machine
-(KVM) virtualization infrastructure to make best use of Intel Architecture
-VT features. Operational speed gets improved and overhead gets reduced by
-optimizing existing code, removing redundant components, and implementing
-new techniques for containers with KVM.
+Clear Containers are architected around the Linux* :abbr:`Kernel Virtual
+Machine (KVM)` virtualization infrastructure to make best use of Intel
+Architecture VT features. Operational speed gets improved and overhead gets
+reduced by optimizing existing code, removing redundant components, and
+implementing new techniques for containers with KVM.
 
 Version 1.0 of Clear Containers was designed as a lightweight container
-system based around lkvm, KVM and Intel VT-x features; the initial version
-was aimed primarily at Docker integration. Version 2.0 replaces ``lkvm``
-with a lightweight version of ``qemu``. Version 1.0 also expands the
+system based around ``lkvm``, KVM and Intel VT-x features; the initial
+version was aimed primarily at Docker* integration. Version 2.0 replaces
+``lkvm`` with a lightweight version of ``qemu``. Version 2.0 also expands the
 feature set to include key technologies, such as `SR-IOV`_, and the
 :abbr:`Open Container Initiative (OCI)` runtime API.
 
@@ -47,7 +47,7 @@ feature set to include key technologies, such as `SR-IOV`_, and the
 V1.0
 ====
 
-V1.0 of Clear Containers (also known as **Clear Containers for Docker*
+V1.0 of Clear Containers (also known as **Clear Containers for Docker
 Engine**) is based around ``kvmtool``, with example host integrations for
 Docker and ``rkt``.
 
@@ -67,7 +67,7 @@ optimizations are applied:
   can be found in Documentation/vm/ksm.txt  Config symbol: ``CONFIG_KSM``
 * Ensuring KVM VM startup times have been optimized by using a kernel
   version >= v4.0, or by backporting appropriate patches if your kernel
-  version is v4.0 or lower.
+  version is less than v4.0.
 
 .. note::
 
@@ -96,7 +96,7 @@ and lightweight hypervisor. Optimizations to ``kvmtool`` include:
 * **No bootloader required** speeds up initial booting of a machine.
 * **Direct kernel boot** -- The hypervisor can boot the kernel directly as
   an uncompressed ELF binary. Although the kernel image is slightly larger
-  than a compressed one, it ends up being faster to read and boot the larger
+  than a compressed one, it is faster to read and boot the larger
   file than it is to uncompress and boot the slightly smaller file.
 
 
@@ -170,7 +170,7 @@ Qemu-lite has the following modifications:
 * **DAX support**, enabling fast and space efficient file access through
   zero-copy mapping and multi-container sharing of raw client filesystem
   images from the host filesystem.
-* **Reduced "slimline" PC model** to reduce startup costs in both qemu
+* **Reduced "slimline" PC model** to reduce startup costs in both ``qemu``
   and the client kernel.
 * **Removed need for BIOS**, saving boot time.
 * **No bootloader requirement**, to speed up boot.
@@ -178,7 +178,7 @@ Qemu-lite has the following modifications:
   are not required by the client system.
 * **Direct kernel boot**, allowing fast booting by loading the kernel as
   an uncompressed ELF binary. Although the kernel image is slightly larger
-  than a compressed one, it ends up being faster to read and boot the larger
+  than a compressed one, it is faster to read and boot the larger
   file than it is to uncompress and boot the slightly smaller file.
 * **Added and OCI runtime-compliant wrapper AKA ``cor``** for easier
   integration with OCI-compliant host orchestration systems.
@@ -212,10 +212,13 @@ KSM
 
 **Kernel Samepage Merging (KSM)** 
 
+Linux Kernel Documentation: Documentation/vm/ksm.txt
+
 :abbr:`KSM (Kernel Samepage Merging)` allows the kernel to locate
 and merge (share) identical memory pages within the system, even
 when they are not sourced from the same binary. When sourced from
-the same binary, the kernel will naturally share through the :abbr:`copy-on-write (COW)` or COW methods. 
+the same binary, the kernel will naturally share through the
+:abbr:`copy-on-write (COW)` method. 
 
 KSM allows the kernel to localize and to coalesce pages from within
 virtual machine memory spaces that would not normally be shared, thus
@@ -231,15 +234,17 @@ EPT
 
 Linux Kernel Documentation: Documentation/virtual/kvm/mmu.txt
 
-EPT is an acceleration technology for virtual machine memory mappings.
-It reduces the number of Virtual Machine Manager entry/exits from the
-host system, thus improving system performance. If your hardware system
-supports EPT, you'll see the **ept** feature listed in the ``/proc/cpuinfo``
-information from your system. The kernel, KVM and qemu will automatically
-use and benefit from EPT when supported by your system hardware.
+:abbr:`EPT (Enhanced Page Tables)` is an acceleration technology for virtual
+machine memory mappings. It reduces the number of Virtual Machine Manager
+entry/exits from the host system, thus improving system performance. If your
+hardware system supports EPT, you'll see the ``ept`` feature listed in the
+``/proc/cpuinfo`` information from your system. The kernel, KVM and ``qemu``
+will automatically use and benefit from EPT when supported by your system
+hardware.
 
 You can also check on the `Intel ARK website`_ to see if your Intel CPU
-supports **Intel VT-x with Extended Page Tables** under the *Advanced Technologies* table on the specific page for your CPU.
+supports **Intel VT-x with Extended Page Tables** under the *Advanced
+Technologies* table on the specific page for your CPU.
 
 KVM startup optimizations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -250,8 +255,11 @@ should ensure your kernel is at least v4.0, or that you have backported
 any appropriate patches to your host kernel:  the ``syncronize_rcu() opt``,
 at the very least.
 
-Persistence
-~~~~~~~~~~~
+.. We should add a Persistent data (how do we do that on R/O or COW'd
+  filesystems for instance?
+  [do we have a standard pattern to do for these docs?]
+  Persistence
+  ~~~~~~~~~~~
 
 
 Host tooling
@@ -283,11 +291,12 @@ Modifications to kvmtool include:
 
 Qemu-lite
 ~~~~~~~~~
+.. _Qemu-lite:
 
-Qemu-lite is a modified version of qemu used for the virtual
+Qemu-lite is a modified version of ``qemu`` used for the virtual
 machine configuration and management in Clear Containers 2.0.
 
-The modifications made beyond generic qemu are described in the
+The modifications made beyond generic ``qemu`` are described in the
 following sections:
 
 DAX enablement
@@ -364,7 +373,7 @@ kernel image and root filesystem image.
   accommodate large file mappings.
 
   DAX support was introduced in v4.0 of the kernel. Also see the
-  :ref:`Qemu-lite`section.
+  `Qemu-lite`_ section.
 
 * **Rootfs image** -- The mini-OS rootfs image is a Clear Linux
   rootfs. It can execute the client workload and be modified and
@@ -397,12 +406,12 @@ A. Yes, any up-to date or recent Linux host should be able to run CC,
    as long as the host system kernel contains the necessary features and
    is configured with the necessary support enabled.
 
-   [to do: finish this section]
+..   [to do: finish this section]
 
 Q. **"Do I need to use all of CC, or can I cherry pick parts?"**
 
 A. You can cherry pick the parts of CC you need. Some parts will make
-   your life generally easier (such as the qemu wrapper tool cor) and
+   your life generally easier (such as the qemu wrapper tool ``cor``) and
    will help insulate you from future development changes, so you
    should consider which parts you need for which features. The client
    side obviously can be quite flexible in its configuration depending
