@@ -14,7 +14,6 @@ be derived only from hardware-backed virtual machines (hardware-enforced
 isolation and security, for example) on Intel VT technology.
 
 These methods are applied across all levels of the host/virtual machine
-<<<<<<< 093e66657e8dfa6269a63dab85deaf545f79ec0d
 hierarchy: from the host-side userland software stack down through the host
 Linux* kernel and into the client-side kernel and userland. 
 
@@ -38,12 +37,12 @@ implementing new techniques for containers with :abbr:`KVM (Kernel Virtual
 Machine)`.
 
 Version 1.0 of Clear Containers was designed as a lightweight container
-system based around ``lkvm``, :abbr:`KVM (Kernel Virtual Machine)` and Intel
-VT-x features; the initial version was aimed primarily at Docker* integration.
-Version 2.0 replaces ``lkvm`` with a lightweight version of :abbr:`QEMU
-(Quick Emulator)` `(link) <http:www.qemu.org>`_. Version 2.0 also expands the
-feature set to include key technologies, such as `SR-IOV`_, and the
-:abbr:`Open Container Initiative (OCI)` runtime API.
+system based around `kvmtool`_'s ``lkvm``, :abbr:`KVM (Kernel Virtual
+Machine)` and Intel VT-x features; the initial version was aimed primarily
+at Docker* integration.  Version 2.0 replaces ``lkvm`` with a lightweight
+version of :abbr:`QEMU (Quick Emulator)` `(link) <http:www.qemu.org>`_.
+Version 2.0 also expands the feature set to include key technologies, such
+as `SR-IOV`_, and the :abbr:`Open Container Initiative (OCI)` runtime API.
 
 
 
@@ -51,8 +50,8 @@ V1.0
 ====
 
 V1.0 of Clear Containers (also known as **Clear Containers for Docker
-Engine**) is based around ``kvmtool``, with example host integrations for
-Docker and ``rkt``.
+Engine**) is based around `kvmtool`_, with example host integrations for
+Docker and `rkt`_\*.
 
  .. figure:: _static/images/clearcontainersV1.svg
    :align: center
@@ -84,8 +83,8 @@ optimizations are applied:
 Host user space
 ---------------
 
-Clear Containers V1.0 host user space is based around ``kvmtool`` as a fast
-and lightweight hypervisor. Optimizations to ``kvmtool`` include:
+Clear Containers V1.0 host user space is based around `kvmtool`_ as a fast
+and lightweight hypervisor. Optimizations to `kvmtool`_ include:
 
 * **File access**, enabling efficient *shmem* / *pci-bar* / :abbr:`Direct
   Access (DAX)` file
@@ -279,7 +278,7 @@ Kvmtool is used in Clear Containers V1.0 for virtual machine
 configuration and management. It was chosen because it is lighter
 and faster than the alternatives, and it's also easily modifiable.
 
-Modifications to kvmtool include:
+Modifications to `kvmtool`_ include:
 
 * Implementation of **copy-free** :abbr:`DAX (Direct Access)` **file-system
   access**.
@@ -364,7 +363,7 @@ kernel image and root filesystem image.
   device manipulations with efficient page fault handling, thus being faster
   and more space-efficient than other filesystem mount methods. :abbr:`DAX
   (Direct Access)` is enabled in Clear Containers V1.0 using a shmem PCI-BAR
-  mechanism configured by kvmtool.
+  mechanism configured by `kvmtool`_.
 
   .. figure:: _static/images/dax-v1.svg
   	 :align: center
@@ -443,3 +442,5 @@ A. Yes, the underlying mechanisms and accelerations used for Clear
 .. _QEMU: http://www.qemu.org
 .. _mmu.txt:  Documentation/virtual/kvm/mmu.txt
 .. _Intel ARK website: http://ark.intel.com
+.. _kvmtool: https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/
+.. _rkt: https://coreos.com/rkt/
