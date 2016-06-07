@@ -14,12 +14,13 @@ be derived only from hardware-backed virtual machines (hardware-enforced
 isolation and security, for example) on Intel VT technology.
 
 These methods are applied across all levels of the host/virtual machine
+<<<<<<< 093e66657e8dfa6269a63dab85deaf545f79ec0d
 hierarchy: from the host-side userland software stack down through the host
-Linux kernel and into the client-side kernel and userland. 
+Linux* kernel and into the client-side kernel and userland. 
 
 Although it is available as a standalone offering, the Clear Containers
 technology works best when it is able to leverage optimizations designed
-into the Clear Linux* Project.
+into the Clear Linux Project.
 
 Customers can integrate all or parts of Clear Containers into a container
 infrastructure.
@@ -29,7 +30,7 @@ infrastructure.
 Architecture Overview
 =====================
 
-Clear Containers are architected around the Linux* :abbr:`Kernel Virtual
+Clear Containers are architected around the Linux :abbr:`Kernel Virtual
 Machine (KVM)` virtualization infrastructure to make best use of Intel
 Architecture VT features. Operational speed gets improved and overhead gets
 reduced by optimizing existing code, removing redundant components, and
