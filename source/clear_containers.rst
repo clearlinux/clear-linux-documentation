@@ -15,7 +15,7 @@ isolation and security, for example) on Intel VT technology.
 
 These methods are applied across all levels of the host/virtual machine
 hierarchy: from the host-side userland software stack down through the host
-Linux* kernel and into the client-side kernel and userland. 
+Linux* kernel, and into the client-side kernel and userland. 
 
 Although it is available as a standalone offering, the Clear Containers
 technology works best when it is able to leverage optimizations designed
@@ -40,7 +40,7 @@ Version 1.0 of Clear Containers was designed as a lightweight container
 system based around `kvmtool`_'s ``lkvm``, :abbr:`KVM (Kernel Virtual
 Machine)` and Intel VT-x features; the initial version was aimed primarily
 at Docker* integration.  Version 2.0 replaces ``lkvm`` with a lightweight
-version of :abbr:`QEMU (Quick Emulator)` `(link) <http:www.qemu.org>`_.
+version of :abbr:`QEMU (Quick EMUlator)` `(link) <http:www.qemu.org>`_.
 Version 2.0 also expands the feature set to include key technologies, such
 as `SR-IOV`_, and the :abbr:`Open Container Initiative (OCI)` runtime API.
 
@@ -51,9 +51,9 @@ V1.0
 
 V1.0 of Clear Containers (also known as **Clear Containers for Docker
 Engine**) is based around `kvmtool`_, with example host integrations for
-Docker and `rkt`_\*.
+Docker and `rkt`_.
 
- .. figure:: _static/images/clearcontainersV1.svg
+.. figure:: _static/images/clearcontainersV1.svg
    :align: center
    :alt: Clear Containers V1.0
 
@@ -67,17 +67,17 @@ optimizations are applied:
 * Enabling :abbr:`Kernel Samepage Merging (KSM)` in the host kernel
   is recommended for efficient page sharing of VM pages. Kernel documentation
   can be found in Documentation/vm/ksm.txt  Config symbol: ``CONFIG_KSM``
-* Ensuring :abr:`KVM (Kernel Virtual Machine)` VM startup times have been
-  optimized by using a kernel version >= v4.0, or by backporting appropriate
-  patches if your kernel version is less than v4.0.
+* Using a kernel version >= v4.0 (or backporting appropriate
+  patches if your kernel version is less than v4.0), to get the best 
+  :abbr:`KVM (Kernel Virtual Machine)` VM startup times
 
-.. note::
+  .. note::
 
-  Intel :abbr:`Extended Page Table (EPT)` acceleration will automatically be
-  detected and used by your host kernel if supported by your hardware. You
-  can check whether this feature is present by looking for the string ``ept``
-  in the :file:`/proc/cpuinfo` of your system. See `mmu.txt`_ for more
-  details.
+     Intel :abbr:`Extended Page Table (EPT)` acceleration will be
+     automatically detected and used by your host kernel if supported
+     by your hardware. You can check whether this feature is present by
+     looking for the ``ept`` string in the :file:`/proc/cpuinfo` of your
+     system. See `mmu.txt`_ for more details.
 
 
 Host user space
@@ -87,8 +87,7 @@ Clear Containers V1.0 host user space is based around `kvmtool`_ as a fast
 and lightweight hypervisor. Optimizations to `kvmtool`_ include:
 
 * **File access**, enabling efficient *shmem* / *pci-bar* / :abbr:`Direct
-  Access (DAX)` file
-  access to client.
+  Access (DAX)` file access to client.
 * **Less verbosity**.
 * **Minimal UART scanning** to improve speed.
 * **TSC timer functionality changes** passing the client apic timer
@@ -128,7 +127,7 @@ Clear Containers V1.0 mini-OS workloads can be used to bootstrap further
 customer images. These customer images would generally be mapped into the
 client via the host filesystem using :abbr:`9p (Plan 9 9p remote filesystem
 protocol)`, :abbr:`DAX (Direct Access)` or other filesystem and virtual
-device interfaces. These customer images could for example:
+device interfaces. These customer images could, for example:
 
 * Mount a new subtree containing a payload and execute it.
 * Mount a new subsystem and chroot to it for contained execution.
@@ -146,8 +145,8 @@ V2.0
 
 Clear Containers V2.0 adopts an optimized version of the established `QEMU`_ 
 host virtualization engine, in order to support extra features not found in
-Clear Containers V1.0. Clear Containers V2.0 is also compatible with the
-:abbr:`OCI (Open Container Initiative)` runtime specification standard,
+Clear Containers V1.0. Clear Containers. V2.0 is also compatible with the
+:abbr:`OCI (Open Container Initiative)` runtime-specification standard,
 introducing a host-side abstraction tool to ease host-side integration and to
 isolate integration instances from future changes to the underlying Clear
 Containers architecture.
@@ -171,7 +170,7 @@ Host user space is based around an optimized version of `QEMU`_ called
 ``qemu-lite``, with an :abbr:`OCI (Open Container Initiative)`
 runtime-compliant wrapper called ``cor``.
 
-``qemu-lite`` has the following modifications:
+Our version of ``qemu-lite`` has the following modifications:
 
 * :abbr:`DAX (Direct Access)` support, **enabling fast and space efficient**
   file access through
@@ -188,7 +187,7 @@ runtime-compliant wrapper called ``cor``.
   than a compressed one, it is faster to read and boot the larger
   file than it is to uncompress and boot the slightly smaller file.
 * **Added an** :abbr:`OCI (Open Container Initiative)` **runtime-compliant
-  wrapper** AKA ``cor`` for easier integration with
+  wrapper**, AKA ``cor``, for easier integration with
   :abbr:`OCI (Open Container Initiative)`-compliant host orchestration systems.
 
 
@@ -198,7 +197,7 @@ Client mini-OS
 
 The Client mini-OS is based on the same Clear Linux based system as used in
 Clear Containers V1.0; however, it may be built from more recent versions
-and with more up-to date components, such as the kernel version.
+and with more current components, such as the kernel version.
 
 
 Client customer images
@@ -215,7 +214,7 @@ Architectural component details
 Host kernel components
 ----------------------
 
-:abbr:`KSM (Kernel SamePage Merging)`
+:abbr:`Kernel SamePage Merging (KSM)`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Linux Kernel Documentation: Documentation/vm/ksm.txt
@@ -226,9 +225,9 @@ when they are not sourced from the same binary. When sourced from
 the same binary, the kernel will naturally share through the
 :abbr:`copy-on-write (COW)` method. 
 
-:abbr:`KSM (Kernel Samepage Merging)` allows the kernel to localize and to
-coalesce pages from within virtual machine memory spaces that would not
-normally be shared, thus saving memory space.
+:abbr:`KSM (Kernel Samepage Merging)` also allows the kernel to
+localize and to coalesce pages from within virtual machine memory
+spaces that would not normally be shared, thus saving memory space.
 
 To enable :abbr:`KSM (Kernel Samepage Merging)`, check that your host kernel
 config includes ``CONFIG_KSM``, and that your host system is running the
@@ -249,16 +248,16 @@ automatically use and benefit from :abbr:`EPT (Extended Page Tables)`
 when supported by your system hardware.
 
 You can also check on the `Intel ARK website`_ to see if your Intel CPU
-supports **Intel VT-x with Extended Page Tables** under the *Advanced
-Technologies* table on the specific page for your CPU.
+supports **Intel VT-x with Extended Page Tables**; check under the
+*Advanced Technologies* table on the specific page for your CPU.
 
 :abbr:`KVM (Kernel Virtual Machine)` startup optimizations
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Host kernel startup was optimized before the Linux kernel v4.0
 release by removing some unnecessary ``synchronize_rcu()`` calls. You
 should ensure your kernel is at least v4.0, or that you have backported
-any appropriate patches to your host kernel:  the ``syncronize_rcu() opt``,
+any appropriate patches to your host kernel:  the ``synchronize_rcu() opt``,
 at the very least.
 
 .. We should add a Persistent data (how do we do that on R/O or COW'd
@@ -276,7 +275,7 @@ Kvmtool
 
 Kvmtool is used in Clear Containers V1.0 for virtual machine
 configuration and management. It was chosen because it is lighter
-and faster than the alternatives, and it's also easily modifiable.
+and faster than the alternatives, and it's also easy to modify.
 
 Modifications to `kvmtool`_ include:
 
@@ -296,9 +295,10 @@ Modifications to `kvmtool`_ include:
   file than it is to uncompress and boot the slightly smaller file.
 
 
+.. _qemu-lite:
+
 qemu-lite
 ~~~~~~~~~
-.. _qemu-lite:
 
 ``qemu-lite`` is a modified version of `QEMU`_ used for the virtual
 machine configuration and management in Clear Containers 2.0.
@@ -354,7 +354,7 @@ kernel image and root filesystem image.
   has optimized for space and speed. This kernel can be modified and
   re-built as desired, for specific requirements.
 
-* :abbr:`DAX (Direct Access)` -- The :abbr:`Direct Access (DAX)` filesystem.
+* **DAX** -- The :abbr:`Direct Access (DAX)` filesystem.
   (Linux Kernel Documentation: Documentation/filesystems/dax.txt)  Mapping
   host-side files into the memory map of the client allows the use of
   :abbr:`DAX (Direct Access)` to directly mount those files, bypassing the
