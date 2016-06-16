@@ -355,17 +355,17 @@ console logging output.
 Use the `ciao-cli`_ command line tool to verify that your cluster is
 now up and running::
 
-  $ ciao-cli -username admin -password <admin_password> -cluster-status
-  $ ciao-cli -username admin -password <admin_password> -list-cns
-  $ ciao-cli -username admin -password <admin_password> -list-cncis
+  $ ciao-cli -username admin -password <admin_password> node status
+  $ ciao-cli -username admin -password <admin_password> node list -compute
+  $ ciao-cli -username admin -password <admin_password> node list -cnci
 
-``-cluster-status`` shows the number of nodes in your cluster, and the
+``node status`` shows the number of nodes in your cluster, and the
 status of each.
 
-``-list-cns`` displays a more detailed view (number of instances per node,
+``node list -compute`` displays a more detailed view (number of instances per node,
 available resources per node, etc.).
 
-``-list-cncis`` provides information about the current CNCI VMs, and their statuses.
+``node list -cnci`` provides information about the current CNCI VMs, and their statuses.
 
 Interacting with your cluster
 =============================
@@ -421,24 +421,24 @@ As a valid user, the `ciao-cli`_ tool allows you to start a workload.
 
 First, you may want to know which workloads are available::
 
-  $ ciao-cli -list-workloads
+  $ ciao-cli workload list
 
 Then you can launch one or more workloads::
 
-  $ ciao-cli -launch-instances -workload <workload UUID> -instances <number of instances to launch>
+  $ ciao-cli instance add -workload <workload UUID> -instances <number of instances to launch>
 
 And you can monitor all your instances statuses (``pending`` or ``running``)::
 
-  $ ciao-cli -list-instances
+  $ ciao-cli instance list
 
 Performance data can be obtained (optionally) by adding a specific label
 to all your instances::
 
-  $ ciao-cli -launch-instances -instance-label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
+  $ ciao-cli instance add -label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
 
 And eventually fetch the performance data::
 
-  $ ciao-cli -dump-label <instance-label>
+  $ ciao-cli trace show <label>
 
 You will also see activity related to this launch across your cluster
 components if you have consoles open and logging to standard output as
@@ -450,7 +450,7 @@ Reset your cluster
 First you should delete all instances with the `ciao-cli`_ command line
 tool::
 
-  $ ciao-cli -delete-instance -all-instances
+  $ ciao-cli instance delete -all
 
 On your scheduler node, run the following command::
 
