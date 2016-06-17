@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Clear Linux* Project for Intel® Architecture'
-copyright = u'2015, many'
+copyright = u'2016, many'
 author = u'many'
 
 # The version info for the project you're documenting, acts as replacement for

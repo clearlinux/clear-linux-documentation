@@ -1,5 +1,5 @@
 <sidebar>
-  <h1>Content Map</h1>
+  <h2>Content Map</h2>
       {% set toctree = toctree(maxdepth=2, collapse=theme_collapse_navigation, includehidden=True) %}
       {% set toctree = toctree|replace("<ul>", "<ul class=\"custom-dropdown-menu\">", -1)  %}
       {% set toctree = toctree|replace("<ul class=\"current\">", "<ul class=\"custom-dropdown-menu\">", -1)  %}

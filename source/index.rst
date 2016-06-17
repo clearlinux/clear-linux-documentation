@@ -1,5 +1,5 @@
 .. ClearLinux Documentation documentation master file, created by
-   sphinx-quickstart on Fri Nov 13 12:23:35 2015.
+   sphinx-quickstart on Fri Nov 13 12:23:35 2015. 
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -52,25 +52,24 @@ Advanced configuration
    index_advanced_configuration.rst
 
 
-OpenStack* implementation
-=========================
+Storage solutions
+=================
 
 .. toctree::
    :maxdepth: 2
 
-   index-openstack.rst
+   index-storage.rst
 
 
 Indices and tables
-##################
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
 
 License and disclaimers
-#######################
-.. toctree::   
+=======================
+.. toctree::
 
 .. include:: documentation_license.rst
-

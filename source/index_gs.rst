@@ -9,3 +9,6 @@ Getting started
    gs_creating_bootable_usb
    gs_installing_clr_as_host
    gs-clear-containers-gettting-started
+   ciao-cluster-setup
+
+
