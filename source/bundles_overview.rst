@@ -56,6 +56,1010 @@ Current list of available bundles:
 	</head>
     
      <table>
+<<<<<<< HEAD
+    <tr>
+        <th align=left>Bundle Name</th>
+        <th align=center>Status</th>
+        <th align=left>Description</th>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides the neccesary bundles to perform BAT succesfully</p>
+            <li>Includes (devtools-basic) bundle.</p>
+                <li>Includes (openstack-test-suite) bundle.</p>
+                    <li>Includes (os-testsuite) bundle.</p>
+                        <li>Includes (pnp-tools-advanced) bundle.</p>
+                            <li>Includes (openstack-all-in-one) bundle.</p>
+                                <li>Includes (storage-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bootloader">bootloader</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>UEFI bootloaders</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-control">cloud-control</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Support packages for a cloud control surface</p>
+            <li>Includes (os-utils) bundle.</p>
+                <li>Includes (kvm-host) bundle.</p>
+                    <li>Includes (net-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/clr-devops">clr-devops</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides build/release tools for Clear devops team</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic">containers-basic</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Installs rkt base for Clear Containers</p>
+            <li>Includes (storage-utils) bundle.</p>
+                <li>Includes (network-basic) bundle.</p>
+                    <li>Includes (kernel-container) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cryptography">cryptography</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Cryptographic tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb">database-mariadb</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides components needed to run MariaDB</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb-dev">database-mariadb-dev</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides MariaDB development tools (libraries and drivers)</p>
+            <li>Includes (database-mariadb) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mongodb">database-mongodb</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides components needed to run mongodb</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-basic">devtools-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides basic set of languages and tools for development</p>
+            <li>Includes (R-basic) bundle.</p>
+                <li>Includes (go-basic) bundle.</p>
+                    <li>Includes (hpc-basic) bundle.</p>
+                        <li>Includes (os-core-dev) bundle.</p>
+                            <li>Includes (perl-basic) bundle.</p>
+                                <li>Includes (python-basic) bundle.</p>
+                                    <li>Includes (ruby-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-extras">devtools-extras</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides extra set of languages and tools for development</p>
+            <li>Includes (R-extras) bundle.</p>
+                <li>Includes (devtools-basic) bundle.</p>
+                    <li>Includes (go-extras) bundle.</p>
+                        <li>Includes (perl-extras) bundle.</p>
+                            <li>Includes (python-extras) bundle.</p>
+                                <li>Includes (ruby-extras) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils">dev-utils</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a limited set of development utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dpdk-dev">dpdk-dev</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>All headers and libraries necessary to develop with the Data Plane Development Kit.</p>
+            <li>Includes (os-core-dev) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors">editors</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides popular text editors</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils">file-utils</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides basic set of file manipulation utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/Games">Games</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>A colossal, but entertaining waste of time</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic">go-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides basic Go language development</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-extras">go-extras</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Most popular Golang libraries</p>
+            <li>Includes (go-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/hpc-basic">hpc-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides basic suite of MPI/HPC development tools</p>
+            <li>Includes (os-core-dev) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils">internet-console-utils</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Includes internet console tools to interact with internet</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>The IoT (Internet of Things) base bundle</p>
+            <li>Includes (kernel-embedded) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides all openjdk tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-container">kernel-container</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides a Linux kernel appropriate for a Clear Container</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-embedded">kernel-embedded</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a Linux kernel appropriate for embedded devices</p>
+            <li>Includes (bootloader) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-kvm">kernel-kvm</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a Linux kernel appropriate for running under KVM</p>
+            <li>Includes (bootloader) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-native">kernel-native</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a Linux kernel appropriate for physical machines</p>
+            <li>Includes (bootloader) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-pxe">kernel-pxe</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a Linux kernel linking an initramfs as root</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/koji">koji</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Sets up a koji build service (builder-only, for now) based on NFS mounts.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kvm-host">kvm-host</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides necessary tools to run usable virtual machines with QEMU-KVM (independently of OpenStack).</p>
+            <li>Includes (kernel-kvm) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lamp-basic">lamp-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Basic LAMP Server (apache2, mariadb, php5)</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mail-utils">mail-utils</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides utilities for reading and sending email</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/message-broker-rabbitmq">message-broker-rabbitmq</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides the RabbitMQ messaging service</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mixer">mixer</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provide required utilities to make derivative releases</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/net-utils">net-utils</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides an essential suite of core networking configuration and debug tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-advanced">network-advanced</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>More utilities for advanced host-level networking; bridge, switch, netfilter, vpn etc.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic">network-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a basic suite of networking utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client">network-proxy-client</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Tools for dealing with client-side network proxy settings.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/nfs-utils">nfs-utils</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides NFS binaries, associated utilities, and tools. Currently only client services are fully supported.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/opencontainers-dev">opencontainers-dev</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Includes required components for developing against the Open Container Specification</p>
+            <li>Includes (go-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openssh-server">openssh-server</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides an SSH server (and client)</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-all-in-one">openstack-all-in-one</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an All-in-one OpenStack deployment</p>
+            <li>Includes (database-mariadb) bundle.</p>
+                <li>Includes (database-mongodb) bundle.</p>
+                    <li>Includes (message-broker-rabbitmq) bundle.</p>
+                        <li>Includes (openstack-block-storage) bundle.</p>
+                            <li>Includes (openstack-block-storage-controller) bundle.</p>
+                                <li>Includes (openstack-compute) bundle.</p>
+                                    <li>Includes (openstack-compute-controller) bundle.</p>
+                                        <li>Includes (openstack-dashboard) bundle.</p>
+                                            <li>Includes (openstack-data-processing) bundle.</p>
+                                                <li>Includes (openstack-database) bundle.</p>
+                                                    <li>Includes (openstack-identity) bundle.</p>
+                                                        <li>Includes (openstack-image) bundle.</p>
+                                                            <li>Includes (openstack-lbaas) bundle.</p>
+                                                                <li>Includes (openstack-network) bundle.</p>
+                                                                    <li>Includes (openstack-object-storage) bundle.</p>
+                                                                        <li>Includes (openstack-orchestration) bundle.</p>
+                                                                            <li>Includes (openstack-python-clients) bundle.</p>
+                                                                                <li>Includes (openstack-telemetry) bundle.</p>
+                                                                                    <li>Includes (openstack-vpnaas) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage">openstack-block-storage</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Cinder service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage-controller">openstack-block-storage-controller</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Cinder controller service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ openstack-common"> openstack-common</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>common components for OpenStack functionalit</p>
+            <li>Includes (python-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute">openstack-compute</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack nova-compute node</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute-controller">openstack-compute-controller</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Nova control server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-configure">openstack-configure</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides a suggested default configuration for OpenStack on Clear Linux.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-controller">openstack-controller</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack multi-service control server</p>
+            <li>Includes (database-mariadb) bundle.</p>
+                <li>Includes (message-broker-rabbitmq) bundle.</p>
+                    <li>Includes (openstack-identity) bundle.</p>
+                        <li>Includes (openstack-image) bundle.</p>
+                            <li>Includes (openstack-compute-controller) bundle.</p>
+                                <li>Includes (openstack-dashboard) bundle.</p>
+                                    <li>Includes (openstack-python-clients) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-dashboard">openstack-dashboard</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Horizon server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-database">openstack-database</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides a Database as a Service server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-data-processing">openstack-data-processing</a>
+        </td>
+        <td class="bundlestatus">WIP </td>
+        <td class="bundledesc">
+            <p>Provides a simple means to provision a data-intensive application cluster </p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-identity">openstack-identity</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Keystone server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-image">openstack-image</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Glance server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-lbaas">openstack-lbaas</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides Load Balancing as a Service</p>
+            <li>Includes (openstack-common) bundle.</p>
+                <li>Includes (openstack-network) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-network">openstack-network</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Neutron server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-object-storage">openstack-object-storage</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Swift service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-orchestration">openstack-orchestration</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Heat service</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-python-clients">openstack-python-clients</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides OpenStack command-line utilities</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry">openstack-telemetry</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Telemetry server</p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry-controller">openstack-telemetry-controller</a>
+        </td>
+        <td class="bundlestatus">Deprecated</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Telemetry server</p>
+            <li>Includes (openstack-telemetry) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-test-suite">openstack-test-suite</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides an OpenStack Tempest/test suite </p>
+            <li>Includes (openstack-common) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-vpnaas">openstack-vpnaas</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides VPN as a Service</p>
+            <li>Includes (openstack-common) bundle.</p>
+                <li>Includes (openstack-network) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest">os-cloudguest</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides clr-cloud-init cloud guest configuration utilities</p>
+            <li>Includes (openssh-server) bundle.</p>
+                <li>Includes (telemetrics) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest-cci">os-cloudguest-cci</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Retired bundle - now provided by os-cloudguest</p>
+            <li>Includes (os-cloudguest) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-clr-on-clr">os-clr-on-clr</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>content for development of the Clear Linux OS on the Clear Linux OS</p>
+            <li>Includes (os-dev-extras) bundle.</p>
+                <li>Includes (mail-utils) bundle.</p>
+                    <li>Includes (storage-utils) bundle.</p>
+                        <li>Includes (os-core-update) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core">os-core</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>The basic core OS components of Clear Linux for iA </p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-dev">os-core-dev</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Basic development tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update">os-core-update</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides basic suite for running the Clear Linux for iA Updater</p>
+            <li>Includes (os-core) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-extras">os-dev-extras</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Additional C/C++ development packages (beyond os-core-dev)</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-full">os-dev-full</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>A bundle containing all development libraries and headers</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-installer">os-installer</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides an installer for Clear Linux for iA</p>
+            <li>Includes (telemetrics) bundle.</p>
+                <li>Includes (network-proxy-client) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite">os-testsuite</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides basic test suite for Clear Linux for iA</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-phoronix">os-testsuite-phoronix</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>All the required pieces for running the Phoronix Test Suite</p>
+            <li>Includes (os-utils) bundle.</p>
+                <li>Includes (devtools-extras) bundle.</p>
+                    <li>Includes (lamp-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils">os-utils</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a core set of OS utilities</p>
+            <li>Includes (editors) bundle.</p>
+                <li>Includes (dev-utils) bundle.</p>
+                    <li>Includes (sysadmin-basic) bundle.</p>
+                        <li>Includes (network-basic) bundle.</p>
+                            <li>Includes (file-utils) bundle.</p>
+                                <li>Includes (network-proxy-client) bundle.</p>
+                                    <li>Includes (internet-console-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-gui">os-utils-gui</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a graphical desktop environment </p>
+            <li>Includes (os-utils) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic">perl-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides essential Perl language and dev tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-extras">perl-extras</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides extra libraries for Perl</p>
+            <li>Includes (perl-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-advanced">pnp-tools-advanced</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides advanced Power and Performance measurement tools</p>
+            <li>Includes (pnp-tools-intermediate) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-basic">pnp-tools-basic</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides basic Power and Performance testing tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-intermediate">pnp-tools-intermediate</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Provides a deeper-level suite of Power and Performance testing tools</p>
+            <li>Includes (pnp-tools-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pxe-server">pxe-server</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>All the bits to run a PXE server for Clear Linux</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic">python-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides core Python language and libraries</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-extras">python-extras</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides extra libraries for Python</p>
+            <li>Includes (python-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-basic">R-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides core R language and libraries</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-extras">R-extras</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides deeper functionality R language libraries</p>
+            <li>Includes (R-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-basic">ruby-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Top 3 basic Ruby Libraries</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-extras">ruby-extras</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Top 3 to 6 basic Ruby Libraries</p>
+            <li>Includes (ruby-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/rust-basic">rust-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>rust compiler and cargo packaging tool</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/shells">shells</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>All available shell programs for Clear, along with ancillary files</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-cluster">storage-cluster</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Ceph Cluster Storage</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils">storage-utils</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides basic storage-related utilities</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin">sysadmin</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Moved to sysadmin-basic</p>
+            <li>Includes (sysadmin-basic) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-advanced">sysadmin-advanced</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Toolchest that a sysadmin needs to diagnose issues</p>
+            <li>Includes (sysadmin-basic) bundle.</p>
+                <li>Includes (pnp-tools-advanced) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic">sysadmin-basic</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides a basic set of system administration utilities.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-hostmgmt">sysadmin-hostmgmt</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Utilities and Services for managing large-scale clusters of networked hosts</p>
+            <li>Includes (os-utils) bundle.</p>
+                <li>Includes (pxe-server) bundle.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/tcl-basic">tcl-basic</a>
+        </td>
+        <td class="bundlestatus">WIP</td>
+        <td class="bundledesc">
+            <p>Components related to the TCL interpreter and associated tools</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/telemetrics">telemetrics</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Provides the Telemetrics client for Clear Linux for iA</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="bundlename">
+            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/virtualbox-guest">virtualbox-guest</a>
+        </td>
+        <td class="bundlestatus">ACTIVE</td>
+        <td class="bundledesc">
+            <p>Include the modules and binaries meant to be used as a VirtualBox instance</p>
+        </td>
+    </tr>
+</table>
+=======
             <tr>
                 <th align=left>Bundle Name</th>
                 <th align=center>Status</th>
@@ -913,3 +1917,4 @@ Current list of available bundles:
                 </td>
             </tr>
         </table>
+>>>>>>> f2d91732d57ed248f417c926377da86d0a7103ae
