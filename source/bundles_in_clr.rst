@@ -32,12 +32,12 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides the neccesary bundles to perform BAT succesfully</p>
-                    <li>Includes (devtools-basic) bundle.</p>
-                        <li>Includes (openstack-test-suite) bundle.</p>
-                            <li>Includes (os-testsuite) bundle.</p>
-                                <li>Includes (pnp-tools-advanced) bundle.</p>
-                                    <li>Includes (openstack-all-in-one) bundle.</p>
-                                        <li>Includes (storage-utils) bundle.</p>
+                    <li>Includes (devtools-basic) bundle.</li>
+                        <li>Includes (openstack-test-suite) bundle.</li>
+                            <li>Includes (os-testsuite) bundle.</li>
+                                <li>Includes (pnp-tools-advanced) bundle.</li>
+                                    <li>Includes (openstack-all-in-one) bundle.</li>
+                                        <li>Includes (storage-utils) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -56,9 +56,9 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Support packages for a cloud control surface</p>
-                    <li>Includes (os-utils) bundle.</p>
-                        <li>Includes (kvm-host) bundle.</p>
-                            <li>Includes (net-utils) bundle.</p>
+                    <li>Includes (os-utils) bundle.</li>
+                        <li>Includes (kvm-host) bundle.</li>
+                            <li>Includes (net-utils) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -77,9 +77,9 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Installs rkt base for Clear Containers</p>
-                    <li>Includes (storage-utils) bundle.</p>
-                        <li>Includes (network-basic) bundle.</p>
-                            <li>Includes (kernel-container) bundle.</p>
+                    <li>Includes (storage-utils) bundle.</li>
+                        <li>Includes (network-basic) bundle.</li>
+                            <li>Includes (kernel-container) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -107,7 +107,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides MariaDB development tools (libraries and drivers)</p>
-                    <li>Includes (database-mariadb) bundle.</p>
+                    <li>Includes (database-mariadb) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -126,13 +126,13 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides basic set of languages and tools for development</p>
-                    <li>Includes (R-basic) bundle.</p>
-                        <li>Includes (go-basic) bundle.</p>
-                            <li>Includes (hpc-basic) bundle.</p>
-                                <li>Includes (os-core-dev) bundle.</p>
-                                    <li>Includes (perl-basic) bundle.</p>
-                                        <li>Includes (python-basic) bundle.</p>
-                                            <li>Includes (ruby-basic) bundle.</p>
+                    <li>Includes (R-basic) bundle.</li>
+                        <li>Includes (go-basic) bundle.</li>
+                            <li>Includes (hpc-basic) bundle.</li>
+                                <li>Includes (os-core-dev) bundle.</li>
+                                    <li>Includes (perl-basic) bundle.</li>
+                                        <li>Includes (python-basic) bundle.</li>
+                                            <li>Includes (ruby-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -142,12 +142,12 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides extra set of languages and tools for development</p>
-                    <li>Includes (R-extras) bundle.</p>
-                        <li>Includes (devtools-basic) bundle.</p>
-                            <li>Includes (go-extras) bundle.</p>
-                                <li>Includes (perl-extras) bundle.</p>
-                                    <li>Includes (python-extras) bundle.</p>
-                                        <li>Includes (ruby-extras) bundle.</p>
+                    <li>Includes (R-extras) bundle.</li>
+                        <li>Includes (devtools-basic) bundle.</li>
+                            <li>Includes (go-extras) bundle.</li>
+                                <li>Includes (perl-extras) bundle.</li>
+                                    <li>Includes (python-extras) bundle.</li>
+                                        <li>Includes (ruby-extras) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -166,7 +166,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>All headers and libraries necessary to develop with the Data Plane Development Kit.</p>
-                    <li>Includes (os-core-dev) bundle.</p>
+                    <li>Includes (os-core-dev) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -212,7 +212,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Most popular Golang libraries</p>
-                    <li>Includes (go-basic) bundle.</p>
+                    <li>Includes (go-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -222,7 +222,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides basic suite of MPI/HPC development tools</p>
-                    <li>Includes (os-core-dev) bundle.</p>
+                    <li>Includes (os-core-dev) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -241,7 +241,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>The IoT (Internet of Things) base bundle</p>
-                    <li>Includes (kernel-embedded) bundle.</p>
+                    <li>Includes (kernel-embedded) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -269,7 +269,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides a Linux kernel appropriate for embedded devices</p>
-                    <li>Includes (bootloader) bundle.</p>
+                    <li>Includes (bootloader) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -279,7 +279,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides a Linux kernel appropriate for running under KVM</p>
-                    <li>Includes (bootloader) bundle.</p>
+                    <li>Includes (bootloader) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -289,7 +289,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides a Linux kernel appropriate for physical machines</p>
-                    <li>Includes (bootloader) bundle.</p>
+                    <li>Includes (bootloader) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -317,7 +317,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides necessary tools to run usable virtual machines with QEMU-KVM (independently of OpenStack).</p>
-                    <li>Includes (kernel-kvm) bundle.</p>
+                    <li>Includes (kernel-kvm) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -408,7 +408,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Includes required components for developing against the Open Container Specification</p>
-                    <li>Includes (go-basic) bundle.</p>
+                    <li>Includes (go-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -427,25 +427,25 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an All-in-one OpenStack deployment</p>
-                    <li>Includes (database-mariadb) bundle.</p>
-                        <li>Includes (database-mongodb) bundle.</p>
-                            <li>Includes (message-broker-rabbitmq) bundle.</p>
-                                <li>Includes (openstack-block-storage) bundle.</p>
-                                    <li>Includes (openstack-block-storage-controller) bundle.</p>
-                                        <li>Includes (openstack-compute) bundle.</p>
-                                            <li>Includes (openstack-compute-controller) bundle.</p>
-                                                <li>Includes (openstack-dashboard) bundle.</p>
-                                                    <li>Includes (openstack-data-processing) bundle.</p>
-                                                        <li>Includes (openstack-database) bundle.</p>
-                                                            <li>Includes (openstack-identity) bundle.</p>
-                                                                <li>Includes (openstack-image) bundle.</p>
-                                                                    <li>Includes (openstack-lbaas) bundle.</p>
-                                                                        <li>Includes (openstack-network) bundle.</p>
-                                                                            <li>Includes (openstack-object-storage) bundle.</p>
-                                                                                <li>Includes (openstack-orchestration) bundle.</p>
-                                                                                    <li>Includes (openstack-python-clients) bundle.</p>
-                                                                                        <li>Includes (openstack-telemetry) bundle.</p>
-                                                                                            <li>Includes (openstack-vpnaas) bundle.</p>
+                    <li>Includes (database-mariadb) bundle.</li>
+                        <li>Includes (database-mongodb) bundle.</li>
+                            <li>Includes (message-broker-rabbitmq) bundle.</li>
+                                <li>Includes (openstack-block-storage) bundle.</li>
+                                    <li>Includes (openstack-block-storage-controller) bundle.</li>
+                                        <li>Includes (openstack-compute) bundle.</li>
+                                            <li>Includes (openstack-compute-controller) bundle.</li>
+                                                <li>Includes (openstack-dashboard) bundle.</li>
+                                                    <li>Includes (openstack-data-processing) bundle.</li>
+                                                        <li>Includes (openstack-database) bundle.</li>
+                                                            <li>Includes (openstack-identity) bundle.</li>
+                                                                <li>Includes (openstack-image) bundle.</li>
+                                                                    <li>Includes (openstack-lbaas) bundle.</li>
+                                                                        <li>Includes (openstack-network) bundle.</li>
+                                                                            <li>Includes (openstack-object-storage) bundle.</li>
+                                                                                <li>Includes (openstack-orchestration) bundle.</li>
+                                                                                    <li>Includes (openstack-python-clients) bundle.</li>
+                                                                                        <li>Includes (openstack-telemetry) bundle.</li>
+                                                                                            <li>Includes (openstack-vpnaas) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -455,7 +455,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Cinder service</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -465,7 +465,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Cinder controller service</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -475,7 +475,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>common components for OpenStack functionalit</p>
-                    <li>Includes (python-basic) bundle.</p>
+                    <li>Includes (python-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -485,7 +485,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack nova-compute node</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -495,7 +495,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Nova control server</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -513,14 +513,14 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 </td>
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
-                    <p>Provides an OpenStack multi-service control server</p>
-                    <li>Includes (database-mariadb) bundle.</p>
-                        <li>Includes (message-broker-rabbitmq) bundle.</p>
-                            <li>Includes (openstack-identity) bundle.</p>
-                                <li>Includes (openstack-image) bundle.</p>
-                                    <li>Includes (openstack-compute-controller) bundle.</p>
-                                        <li>Includes (openstack-dashboard) bundle.</p>
-                                            <li>Includes (openstack-python-clients) bundle.</p>
+                    <p>Provides an OpenStack multi-service control server</li>
+                    <li>Includes (database-mariadb) bundle.</li>
+                        <li>Includes (message-broker-rabbitmq) bundle.</li>
+                            <li>Includes (openstack-identity) bundle.</li>
+                                <li>Includes (openstack-image) bundle.</li>
+                                    <li>Includes (openstack-compute-controller) bundle.</li>
+                                        <li>Includes (openstack-dashboard) bundle.</li>
+                                            <li>Includes (openstack-python-clients) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -530,7 +530,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Horizon server</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -540,7 +540,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides a Database as a Service server</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -550,7 +550,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP </td>
                 <td class="bundledesc">
                     <p>Provides a simple means to provision a data-intensive application cluster </p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -560,7 +560,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Keystone server</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -570,7 +570,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Glance server</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -580,7 +580,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides Load Balancing as a Service</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                         <li>Includes (openstack-network) bundle.</p>
                 </td>
             </tr>
@@ -591,7 +591,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Neutron server</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -601,7 +601,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Swift service</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -611,7 +611,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Heat service</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -621,7 +621,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides OpenStack command-line utilities</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -631,7 +631,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Telemetry server</p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -641,7 +641,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">Deprecated</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Telemetry server</p>
-                    <li>Includes (openstack-telemetry) bundle.</p>
+                    <li>Includes (openstack-telemetry) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -651,7 +651,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides an OpenStack Tempest/test suite </p>
-                    <li>Includes (openstack-common) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -661,8 +661,8 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides VPN as a Service</p>
-                    <li>Includes (openstack-common) bundle.</p>
-                        <li>Includes (openstack-network) bundle.</p>
+                    <li>Includes (openstack-common) bundle.</li>
+                        <li>Includes (openstack-network) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -672,8 +672,8 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides clr-cloud-init cloud guest configuration utilities</p>
-                    <li>Includes (openssh-server) bundle.</p>
-                        <li>Includes (telemetrics) bundle.</p>
+                    <li>Includes (openssh-server) bundle.</li>
+                        <li>Includes (telemetrics) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -683,7 +683,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Retired bundle - now provided by os-cloudguest</p>
-                    <li>Includes (os-cloudguest) bundle.</p>
+                    <li>Includes (os-cloudguest) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -693,10 +693,10 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>content for development of the Clear Linux OS on the Clear Linux OS</p>
-                    <li>Includes (os-dev-extras) bundle.</p>
-                        <li>Includes (mail-utils) bundle.</p>
-                            <li>Includes (storage-utils) bundle.</p>
-                                <li>Includes (os-core-update) bundle.</p>
+                    <li>Includes (os-dev-extras) bundle.</li>
+                        <li>Includes (mail-utils) bundle.</li>
+                            <li>Includes (storage-utils) bundle.</li>
+                                <li>Includes (os-core-update) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -724,7 +724,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides basic suite for running the Clear Linux for iA Updater</p>
-                    <li>Includes (os-core) bundle.</p>
+                    <li>Includes (os-core) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -752,8 +752,8 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides an installer for Clear Linux for iA</p>
-                    <li>Includes (telemetrics) bundle.</p>
-                        <li>Includes (network-proxy-client) bundle.</p>
+                    <li>Includes (telemetrics) bundle.</li>
+                        <li>Includes (network-proxy-client) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -772,9 +772,9 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>All the required pieces for running the Phoronix Test Suite</p>
-                    <li>Includes (os-utils) bundle.</p>
-                        <li>Includes (devtools-extras) bundle.</p>
-                            <li>Includes (lamp-basic) bundle.</p>
+                    <li>Includes (os-utils) bundle.</li>
+                        <li>Includes (devtools-extras) bundle.</li>
+                            <li>Includes (lamp-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -784,13 +784,13 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides a core set of OS utilities</p>
-                    <li>Includes (editors) bundle.</p>
-                        <li>Includes (dev-utils) bundle.</p>
-                            <li>Includes (sysadmin-basic) bundle.</p>
-                                <li>Includes (network-basic) bundle.</p>
-                                    <li>Includes (file-utils) bundle.</p>
-                                        <li>Includes (network-proxy-client) bundle.</p>
-                                            <li>Includes (internet-console-utils) bundle.</p>
+                    <li>Includes (editors) bundle.</li>
+                        <li>Includes (dev-utils) bundle.</li>
+                            <li>Includes (sysadmin-basic) bundle.</li>
+                                <li>Includes (network-basic) bundle.</li>
+                                    <li>Includes (file-utils) bundle.</li>
+                                        <li>Includes (network-proxy-client) bundle.</li>
+                                            <li>Includes (internet-console-utils) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -800,7 +800,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides a graphical desktop environment </p>
-                    <li>Includes (os-utils) bundle.</p>
+                    <li>Includes (os-utils) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -819,7 +819,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides extra libraries for Perl</p>
-                    <li>Includes (perl-basic) bundle.</p>
+                    <li>Includes (perl-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -829,7 +829,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides advanced Power and Performance measurement tools</p>
-                    <li>Includes (pnp-tools-intermediate) bundle.</p>
+                    <li>Includes (pnp-tools-intermediate) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -848,7 +848,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Provides a deeper-level suite of Power and Performance testing tools</p>
-                    <li>Includes (pnp-tools-basic) bundle.</p>
+                    <li>Includes (pnp-tools-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -876,7 +876,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides extra libraries for Python</p>
-                    <li>Includes (python-basic) bundle.</p>
+                    <li>Includes (python-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -895,7 +895,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Provides deeper functionality R language libraries</p>
-                    <li>Includes (R-basic) bundle.</p>
+                    <li>Includes (R-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -914,7 +914,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Top 3 to 6 basic Ruby Libraries</p>
-                    <li>Includes (ruby-basic) bundle.</p>
+                    <li>Includes (ruby-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -960,7 +960,7 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Moved to sysadmin-basic</p>
-                    <li>Includes (sysadmin-basic) bundle.</p>
+                    <li>Includes (sysadmin-basic) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -970,8 +970,8 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">ACTIVE</td>
                 <td class="bundledesc">
                     <p>Toolchest that a sysadmin needs to diagnose issues</p>
-                    <li>Includes (sysadmin-basic) bundle.</p>
-                        <li>Includes (pnp-tools-advanced) bundle.</p>
+                    <li>Includes (sysadmin-basic) bundle.</li>
+                        <li>Includes (pnp-tools-advanced) bundle.</li>
                 </td>
             </tr>
             <tr>
@@ -990,8 +990,8 @@ Current list of bundles available for Clear Linux* OS for Intel® Architecture:
                 <td class="bundlestatus">WIP</td>
                 <td class="bundledesc">
                     <p>Utilities and Services for managing large-scale clusters of networked hosts</p>
-                    <li>Includes (os-utils) bundle.</p>
-                        <li>Includes (pxe-server) bundle.</p>
+                    <li>Includes (os-utils) bundle.</li>
+                        <li>Includes (pxe-server) bundle.</li>
                 </td>
             </tr>
             <tr>
