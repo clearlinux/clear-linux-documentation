@@ -168,6 +168,35 @@ The controller node will host your controller and scheduler. Certificates are as
 to be in ``/etc/pki/ciao``, generated with the correct roles and names
 as previously described.
 
+Cluster Configuration
+~~~~~~~~~~~~~~~~~~~~~
+Ciao's cluster configuration is stored and fetched from a cluster specific storage backend.
+Supported backends are plain **local file**, **etcd** [WIP] and **ZooKeeper** [WIP].
+
+For more details about Cluster Configuration Architecture: `CIAO Configuration Architecture`_
+
+- Local File backend
+
+  - Create the ``/etc/ciao/configuration.yaml`` file. Example::
+
+      configure:
+        scheduler:
+	  storage_uri: /etc/ciao/configuration.yaml
+        controller:
+          compute_ca: /etc/pki/ciao/compute_ca.pem
+	  compute_cert: /etc/pki/ciao/compute_key.pem
+	  identity_user: controller
+	  identity_password: ciao
+	launcher:
+	  compute_net: 192.168.1.110
+	  mgmt_net: 192.168.1.111
+	image_service:
+	  url: http://glance.example.com
+	identity_service:
+	  url: http://keystone.example.com
+
+  - More examples at: `CIAO Configuration examples`_
+
 Scheduler
 ~~~~~~~~~
 
@@ -245,7 +274,7 @@ The launcher is run with options declaring certificates, maximum VMs
 available on your node), server location, and compute node ("cn")
 launching type. For example::
 
-    $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet>
+    $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --network=cn
 
 Optionally, add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
@@ -282,7 +311,7 @@ The network node's launcher is run similarly to the compute node's launcher.
 The primary difference is that it uses the network node ("nn") launching
 type::
 
-  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <network node compute subnet> --mgmt-net <network node management subnet>
+  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --network=nn
 
 Start the controller
 --------------------
@@ -319,10 +348,6 @@ CNCI). To run other images of your choosing, follow a process similar to
 the above: pre-populate OS images and edit each of these two files on
 your controller node.
 
-If the controller is on the same physical machine as the scheduler, the
-``--url`` option is optional; otherwise it refers to your scheduler
-SSNTP server IP.
-
 In order for the ciao-controller's go code to correctly use the CA
 certificate(s) generated earlier when you built your keystone server,
 this certificate needs to be installed in the control node and be
@@ -347,7 +372,7 @@ name of the system that is hosting the keystone service**.
 An SSL-enabled Keystone is required, with additional parameters
 for ciao-controller pointing at its certificates::
 
-  $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
+  $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem
 
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
@@ -468,7 +493,7 @@ On the node running your keystone VM, run the following command::
 
 On the network node, run the following commands::
 
-  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <node compute subnet> --mgmt-net <node management subnet> --hard-reset
+  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --network=nn
   $ sudo killall -9 qemu-system-x86_64
   $ sudo rm -rf /var/lib/ciao/instances/
   $ sudo reboot
@@ -476,7 +501,7 @@ On the network node, run the following commands::
 If you were unable to successfully delete all workload VM instances
 through the UI, then on each compute node run these commands::
 
-  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet> --hard-reset
+  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --network=cn
   $ sudo killall -9 qemu-system-x86_64
   $ sudo docker rm $(sudo docker ps -qa)
   $ sudo docker network rm $(sudo docker network ls -q -f "type=custom")
@@ -534,3 +559,5 @@ testing.
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/ciao-devel
 .. _ciao-cli: https://github.com/01org/ciao/tree/master/ciao-cli
 .. _ciao-webui: https://github.com/01org/ciao-webui
+.. _CIAO Configuration Architecture: https://github.com/01org/ciao/wiki/Configuration
+.. _CIAO Configuration Examples: https://github.com/01org/ciao/tree/master/configuration#configuration-examples
