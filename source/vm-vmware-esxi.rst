@@ -79,5 +79,5 @@ Now turn off the virtual machine and change the configuration as follows:
 
 Finally, start the modified virtual machine.
 
-.. _latest: https://download.clearlinux.org/latest
+.. _latest: https://download.clearlinux.org/image/
 
