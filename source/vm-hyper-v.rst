@@ -52,6 +52,10 @@ Create a virtual machine
 
    * Choose **Generation 2** when you need to *specify VM generation*.
    * Choose **Use an existing virtual hard disk** and browse to find the :file:`clear-XXXX-live.vhdx` file.
+   * When finised, open VM settings, select Firmware Section and in Secure Boot
+     config, **uncheck** Enable Secure Boot.
+
+     +  Currently Clear Linux does not boot with secure boot enabled.
 
 #. Finally, connect to your new VM and start it. You should see a prompt asking for
    a user; use::
@@ -62,7 +66,7 @@ Create a virtual machine
 
 .. _Windows Server Virtualization: https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx
 .. _Microsoft documentation: https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx
-.. _latest: https://download.clearlinux.org/latest
+.. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
 .. _VirtualBox: https://www.virtualbox.org/
 .. _QEMU: http://wiki.qemu.org/Links

@@ -93,7 +93,7 @@ After configuring the settings above, start the virtual machine.
 
 .. _VMware website: https://www.vmware.com/products/player/playerpro-evaluation.html
 .. _VMWare Player: http://www.vmware.com/products/player/
-.. _latest: https://download.clearlinux.org/current/
+.. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
 .. _VirtualBox: https://www.virtualbox.org/
 
