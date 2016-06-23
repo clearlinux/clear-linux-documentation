@@ -52,6 +52,10 @@ Create a virtual machine
 
    * Choose **Generation 2** when you need to *specify VM generation*.
    * Choose **Use an existing virtual hard disk** and browse to find the :file:`clear-XXXX-live.vhdx` file.
+   * When finised, open VM settings, select Firmware Section and in Secure Boot
+     config, **uncheck** Enable Secure Boot.
+
+     +  Currently Clear Linux does not boot with secure boot enabled.
 
 #. Finally, connect to your new VM and start it. You should see a prompt asking for
    a user; use::
