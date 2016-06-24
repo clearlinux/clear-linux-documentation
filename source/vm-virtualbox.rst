@@ -71,6 +71,6 @@ And to use the VirtualBox additions, load the ``vboxsf`` module::
 
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
 .. _VirtualBox: https://www.virtualbox.org/
-.. _latest: https://download.clearlinux.org/latest
+.. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
 
