@@ -437,6 +437,23 @@ You will also see activity related to this launch across your cluster
 components if you have consoles open and logging to standard output as
 described above.
 
+
+Access your workload
+====================
+
+Before you can access a workload, you need to set a SSH key on your configuration before launch the workload, first create a pair of ssh keys and add the public key to you configuration file ciao-controller/workload/test.yml in the  ssh-authorized-keys section
+
+*     ssh-authorized-keys: 
+        - <your SSH key>
+
+After this you can start/restart the ciao-controller and launch your workload, once your workload is up, you need to know it's IP address, you can find it via ciao-cli
+
+$ ciao-cli instance list 
+
+then look for the section "SSH IP", there is the IP assigned to your workload, then access the workload using your private key and the user "demouser"
+
+$ssh demouser@<workload_ip> -i </path/to/your/private-key>
+
 Reset your cluster
 ==================
 
