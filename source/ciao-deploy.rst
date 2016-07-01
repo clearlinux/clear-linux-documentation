@@ -22,7 +22,7 @@ For this example, we'll use a total of three nodes:
 
 Prerequisites
 =============
-Ansible uses ssh to run commands on the remote servers. In order to do that, the servers
+Ansible uses ssh to run commands on the remote nodes. In order to do that, the nodes
 must be configured to allow passwordless ssh connections from the root user. Follow these
 steps to configure your nodes.
 
@@ -69,7 +69,7 @@ The playbook consist of three files that you should modify to fit your needs::
     |   `-- all
     +-- hosts
 
-The hosts file contains the IP addresses/hostnames of your servers grouped under the roles
+The hosts file contains the IP addresses/hostnames of your nodes grouped under the roles
 they will serve. For this example it should look like this::
 
     [dbservers]
