@@ -53,7 +53,7 @@ Flash the image with the following command, adding the ``-v`` option for verbose
 (recommended), as the image file may be large, and the process can take a while. This
 may need to be done as root::
 
-  $ xzcat -v clear-[release_number]-installer.img.xz | dd of=/dev/sdb bs=4M
+  $ xzcat -v clear-[release_number]-installer.img.xz | dd of=/dev/sdb
 
 Wait for the final confirmation
 ===============================
