@@ -58,8 +58,8 @@ may need to be done as root::
 Wait for the final confirmation
 ===============================
 
-This example shows ``clear-2190-installer.img.xz`` flashed to a 16GB USB drive
-mounted on ``/sdc``.
+This example shows ``clear-9130-installer.img.xz`` flashed to a 16GB USB drive
+mounted on ``/sdb``.
 
 .. image:: _static/images/gs_confirmation_screen.png
    :align: center
