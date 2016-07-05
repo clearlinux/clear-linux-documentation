@@ -10,5 +10,6 @@ Getting started
    gs_installing_clr_as_host
    gs-clear-containers-gettting-started
    ciao-cluster-setup
+   ciao-deploy
 
 
