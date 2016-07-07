@@ -299,10 +299,10 @@ This section describes how to generate a CNCI image from a vanilla
 Clear Cloud qcow2 image::
 
   $ cd /var/lib/ciao/images
-  $ curl -O https://download.clearlinux.org/demos/ciao/clear-7520-ciao-networking.img.xz
-  $ xz -T0 --decompress clear-7520-ciao-networking.img.xz
-  $ ln -s clear-7520-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
-  $ $GOPATH/src/github.com/01org/ciao/networking/ciao-cnci-agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7520-ciao-networking.img /etc/pki/ciao/
+  $ curl -O https://download.clearlinux.org/demos/ciao/clear-8260-ciao-networking.img.xz
+  $ xz -T0 --decompress clear-8260-ciao-networking.img.xz
+  $ ln -s clear-8260-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
+  $ $GOPATH/src/github.com/01org/ciao/networking/ciao-cnci-agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-8260-ciao-networking.img /etc/pki/ciao/
 
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
