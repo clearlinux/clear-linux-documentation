@@ -37,21 +37,21 @@ Network node ("nn")
 ~~~~~~~~~~~~~~~~~~~
 
 * IP ``192.168.0.102``
-* Runs Launcher with ``--network=nn`` option
+* Runs Launcher
 * Has CNCI image in ``/var/lib/ciao/images``. See below for more on CNCI image preparation.
 
 Compute node 1 ("cn1")
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * IP ``192.168.0.103``
-* Runs Launcher with ``--network=cn`` option
+* Runs Launcher
 * Has workload images in ``/var/lib/ciao/images``
 
 Compute node 2 ("cn2")
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * ``IP 192.168.0.104``
-* Runs Launcher with ``--network=cn option``
+* Runs Launcher
 * Has workload images in ``/var/lib/ciao/images``
 
 
@@ -269,12 +269,9 @@ images with which you wish to test.
 Start the compute node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The launcher is run with options declaring certificates, maximum VMs
-(controls when FULL is returned by a node, scaling to the resources
-available on your node), server location, and compute node ("cn")
-launching type. For example::
+The launcher is run with options for declaring certificates. For example::
 
-    $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --network=cn
+    $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem
 
 Optionally, add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
@@ -307,11 +304,9 @@ Clear Cloud qcow2 image::
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The network node's launcher is run similarly to the compute node's launcher.
-The primary difference is that it uses the network node ("nn") launching
-type::
+The network node's launcher is run similarly to the compute node's launcher::
 
-  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --network=nn
+  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem
 
 Start the controller
 --------------------
@@ -493,19 +488,13 @@ On the node running your keystone VM, run the following command::
 
 On the network node, run the following commands::
 
-  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --network=nn
-  $ sudo killall -9 qemu-system-x86_64
-  $ sudo rm -rf /var/lib/ciao/instances/
+  $ sudo ./launcher --hard-reset
   $ sudo reboot
 
 If you were unable to successfully delete all workload VM instances
 through the UI, then on each compute node run these commands::
 
-  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --network=cn
-  $ sudo killall -9 qemu-system-x86_64
-  $ sudo docker rm $(sudo docker ps -qa)
-  $ sudo docker network rm $(sudo docker network ls -q -f "type=custom")
-  $ sudo rm -rf /var/lib/ciao/instances/
+  $ sudo ./launcher --hard-reset
   $ sudo reboot
 
 Restart your scheduler, network node launcher, compute node launcher,
