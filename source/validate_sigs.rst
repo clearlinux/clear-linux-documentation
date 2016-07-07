@@ -40,7 +40,7 @@ Verification of images is done by humans when they download an image via the fol
 
         .. code-block:: console_output
 
-           .. You should see this (accurate as of 2016-06-14 00:00 UTC): 
+           .. (accurate as of 2016-06-14 00:00 UTC) 
 
            4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890  ClearLinuxRoot.pem
 
@@ -98,7 +98,7 @@ An overview of the mechanism used internal to :command:`swupd`
    * **Success** When a successful signature verification occurs, you
      should see the message ``Signature check succeeded`` as part of the\
      :command:`swupd` output.
-       
+
    * **Fail** Should verification fail, you will see ``WARNING!!! FAILED TO VERIFY SIGNATURE OF Manifest.MoM``.
 
 #. As :command:`swupd` then uses or installs bundle manifests, that
@@ -108,12 +108,6 @@ An overview of the mechanism used internal to :command:`swupd`
 
 Clear Linux* OS for Intel® Architecture Public Key as of 06/16/2016 00:00 UTC
 -----------------------------------------------------------------------------
-
-You can re-create this when given a cert with the command:
-
-.. code-block:: console
-
-   $ openssl x509 -pubkey -noout -in ClearLinuxRoot.pem
 
   -----BEGIN PUBLIC KEY-----
 
@@ -127,3 +121,8 @@ You can re-create this when given a cert with the command:
 
   -----END PUBLIC KEY-----
 
+You can re-create this when given a cert with the command:
+
+.. code-block:: console
+
+   $ openssl x509 -pubkey -noout -in ClearLinuxRoot.pem
