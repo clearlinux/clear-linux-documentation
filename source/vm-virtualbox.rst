@@ -3,25 +3,25 @@
 Using VirtualBox
 ################
 
-This section explains how to run Clear Linux inside a `VirtualBox`_
-environment.
+This section explains how to run Clear Linux OS for Intel® Architecture
+inside a `VirtualBox`_* environment.
 
 Download VirtualBox
 ===================
 
-VirtualBox is a hypervisor supported by *Oracle**. You can
+VirtualBox is a hypervisor supported by Oracle. You can
 download it from the `official VirtualBox website`_ and select
 the operating system you are using.
 
 Download **version 5.0 or greater** to ensure support for
 the :abbr:`AVX (Advanced Vector Extensions)` needed to run
-Clear Linux.
+Clear Linux OS for Intel Architecture.
 
 
 Create a virtual machine in VirtualBox
 ======================================
 
-#. Download the `latest`_ live version of Clear Linux (clear-XXXX-live.img.xz)
+#. Download the `latest`_ live version (clear-XXXX-live.img.xz)
    from https://download.clearlinux.org/image/.
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
@@ -32,7 +32,7 @@ Create a virtual machine in VirtualBox
 
    - On Windows you can use `7zip`_.
 
-#. To convert a Clear Linux raw image to :abbr:`VDI (VirtualBox Disk Image)`
+#. To convert a raw image to :abbr:`VDI (VirtualBox Disk Image)`
    format, you can use one of the following commands::
 
       $ VBoxManage convertfromraw clear-XXXX-live.img clear-XXXX-live.vdi --format VDI
@@ -59,8 +59,8 @@ Create a virtual machine in VirtualBox
 Run your new VM
 ===============
 
-Clear Linux can support kernel modules for VirtualBox. Install the bundle
-that supports these modules with::
+Clear Linux OS for Intel Architecture can support kernel modules for
+VirtualBox. Install the bundle that supports these modules with::
 
   # swupd bundle-add virtualbox-guest
 
@@ -73,4 +73,3 @@ And to use the VirtualBox additions, load the ``vboxsf`` module::
 .. _VirtualBox: https://www.virtualbox.org/
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
-
