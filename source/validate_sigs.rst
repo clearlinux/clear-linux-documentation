@@ -17,8 +17,8 @@ Multiple types of artifacts have signing/verifying:
   ``https://download.clearlinux.org/update/8890/`` has ``Manifest.MoM`` and
   ``Manifest.MoM.sig`` signature file.
 
-Verifying a Clear OS Image
-==========================
+Verifying the downloaded image of Clear Linux OS for Intel Architecture
+=======================================================================
 
 Verification of images is done by humans when they download an image via the following steps:
 
@@ -47,7 +47,7 @@ Verification of images is done by humans when they download an image via the fol
      * Now we verify that the signature file is valid, which also proves
        the OS image tarball is as trusted as the ``ClearLinuxRoot`` certificate. 
        To do this, create the **SHA512SUMS** file of the tarball. This is the
-       content which is actually signed by the Clear Linux* OS for Intel® Architecture's release team.
+       content which is actually signed by the release team.
 
         .. code-block:: console
 
@@ -72,7 +72,7 @@ An overview of the mechanism used internal to :command:`swupd`
 (implemented in C calls to the openssl library API) is as follows:
 
 #. A trusted certificate is distributed with all Clear Linux
-   OS for Intel® Architecture releases in :file:`/usr/share/clear/update-ca/ClearLinuxRoot.pem`.
+   OS for Intel Architecture releases in :file:`/usr/share/clear/update-ca/ClearLinuxRoot.pem`.
 
 #. The :command:`swupd` downloads the top-level manifest (MoM), as
    well as the signed :file:`MoM.sig` for either the currently-installed
