@@ -9,24 +9,23 @@ by code to confirm that we are indeed dealing with official outputs.
 
 Multiple types of artifacts have signing/verifying:
 
-* Image checksums files; for example, the release
-  ``https://download.clearlinux.org/releases/8890/clear/`` has ``clear-*.img.xz``
-  image files, ``clear-*.img.xz-SHA512SUMS`` checksum files, and
-  ``clear-*.img.xz-SHA512SUMS.sig`` signature files.
-* Software Update :command:`swupd`; :abbr:`Manifest of Manifests (MoM)`:
-  ``https://download.clearlinux.org/update/8890/`` has ``Manifest.MoM`` and
-  ``Manifest.MoM.sig`` signature file.
+* Image checksums files; for example,  `release 8890`_ has 
+    * ``clear-*.img.xz`` image files, 
+    * ``clear-*.img.xz-SHA512SUMS`` checksum files, and
+    * ``clear-*.img.xz-SHA512SUMS.sig`` signature files.
+* The :command:`swupd` **Manifest of Manifests** (aka :abbr:`MoM (Manifest of Manifests)`)
+  ``https://download.clearlinux.org/update/8890/`` has ``Manifest.MoM``
+  and ``Manifest.MoM.sig`` signature file.
 
-Verifying the downloaded image of Clear Linux OS for Intel Architecture
-=======================================================================
+Verifying a Clear Linux OS for Intel Architecture image
+=======================================================
 
 Verification of images is done by humans when they download an image via the following steps:
 
 #. Download the current ``ClearLinuxRoot.pem`` certificate; this is provided
    with the release being downloaded. For example, if you're interested in verifying
-   the ``8970`` release, obtain the certificate from `https://download.clearlinux.org/releases/8970/clear/ClearLinuxRoot.pem`_.
-#. Download the desired OS image, as well as the ``[image]-SHA512SUMS.sig`` file
-   to a directory. 
+   the ``8970`` release, obtain the certificate from https://download.clearlinux.org/releases/8970/clear/ClearLinuxRoot.pem.
+#. Download the desired OS image, as well as the ``[image]-SHA512SUMS.sig`` file.
 #. Download and validate the release's OS ``ClearLinuxRoot.pem`` certificate:
 
      * Validate the certificate by comparing the downloaded certificate's
@@ -38,7 +37,7 @@ Verification of images is done by humans when they download an image via the fol
 
         You should see this:
 
-        .. code-block:: console_output
+        .. code-block:: console
 
            .. (accurate as of 2016-06-16 00:00 UTC) 
 
@@ -88,8 +87,7 @@ An overview of the mechanism used internal to :command:`swupd`
 
       openssl smime -verify -in sha256sums.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem
 
-   .. note::
-      The actual API call is to ``PKCS7_verify())``
+   Note that the actual API call is to ``PKCS7_verify())``.
 
 #. With a successful verification, we can proceed to trust this
    MoM and its contents, which consist of hashes of the contents
@@ -109,8 +107,9 @@ An overview of the mechanism used internal to :command:`swupd`
 Clear Linux* OS for Intel® Architecture Public Key as of 06/16/2016 00:00 UTC
 -----------------------------------------------------------------------------
 
-  -----BEGIN PUBLIC KEY-----
+.. code-block:: raw  
 
+  -----BEGIN PUBLIC KEY-----
   MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfnY2m665SwYxr4/R+8L
   X1IMAkVYmvNiI5KmV815WvVQwUQDDCY1HUag+wb2BhTxkotKUdm6LGY1ck+Eb742
   rdICMToX+32vFM3XvIK16TKM6ficPsGA4xmbE/9qp01bn0O4MCwKjPAmxJkW+UOO
@@ -118,11 +117,15 @@ Clear Linux* OS for Intel® Architecture Public Key as of 06/16/2016 00:00 UTC
   9aRlCNl1sb2g5DwSx9G0dWTS+YPchpclV7fBGQUiTuxb72hpVRE66CfR8tTd14np
   IbsKGq0S5PzkR9ubilDywFQ/6XPc1Rur/4g0rm6pPPx7DLQK3EqC8d4Z/C2nywje
   PwIDAQAB
-
   -----END PUBLIC KEY-----
+
 
 You can re-create this when given a cert with the command:
 
 .. code-block:: console
 
    $ openssl x509 -pubkey -noout -in ClearLinuxRoot.pem
+
+
+
+.. _release 8890: https://download.clearlinux.org/releases/8890/clear/
