@@ -3,9 +3,9 @@
 Clear Containers getting started guide
 ######################################
 
-Clear Containers for Docker* Engine is now available on multiple
+Intel® Clear Containers for Docker* Engine is now available on multiple
 operating systems. This enables executing existing Docker applications
-in the secure and fast Clear Containers environment.
+in the secure and fast Intel Clear Containers environment.
 
 Binary packages
 ===============
