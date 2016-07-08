@@ -40,7 +40,7 @@ Verification of images is done by humans when they download an image via the fol
 
         .. code-block:: console_output
 
-           .. (accurate as of 2016-06-14 00:00 UTC) 
+           .. (accurate as of 2016-06-16 00:00 UTC) 
 
            4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890  ClearLinuxRoot.pem
 
