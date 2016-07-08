@@ -22,7 +22,7 @@ Verifying a Clear OS Image
 
 Verification of images is done by humans when they download an image via the following steps:
 
-#. Download the current Clear Linux public ``.pem`` certificate; this is provided
+#. Download the current ``ClearLinuxRoot.pem`` certificate; this is provided
    with the release being downloaded. For example, if you're interested in verifying
    the ``8970`` release, obtain the certificate from `https://download.clearlinux.org/releases/8970/clear/ClearLinuxRoot.pem`_.
 #. Download the desired OS image, as well as the ``[image]-SHA512SUMS.sig`` file
@@ -72,7 +72,7 @@ An overview of the mechanism used internal to :command:`swupd`
 (implemented in C calls to the openssl library API) is as follows:
 
 #. A trusted certificate is distributed with all Clear Linux
-   releases in :file:`/usr/share/clear/update-ca/ClearLinuxRoot.pem`.
+   OS for Intel® Architecture releases in :file:`/usr/share/clear/update-ca/ClearLinuxRoot.pem`.
 
 #. The :command:`swupd` downloads the top-level manifest (MoM), as
    well as the signed :file:`MoM.sig` for either the currently-installed
@@ -93,7 +93,7 @@ An overview of the mechanism used internal to :command:`swupd`
 
 #. With a successful verification, we can proceed to trust this
    MoM and its contents, which consist of hashes of the contents
-   of all the Clear Linux bundle manifests.
+   of all bundle manifests.
 
    * **Success** When a successful signature verification occurs, you
      should see the message ``Signature check succeeded`` as part of the\
