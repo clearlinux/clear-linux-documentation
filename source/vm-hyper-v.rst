@@ -3,12 +3,12 @@
 Using Hyper-V
 #############
 
-This section explains how to run Clear Linux inside a
-`Windows Server Virtualization`_  *A.K.A.* **Hyper-V** environment.
+This section explains how to run Clear Linux OS for Intel® Architecture
+inside a `Windows Server Virtualization`_  *A.K.A.* **Hyper-V** environment.
 
 
-Install Hyper-V
-===============
+Install Hyper-V*
+================
 
 Please refer to `Microsoft documentation`_ to install and configure
 *Hyper-V* on your machine.
@@ -17,11 +17,12 @@ Please refer to `Microsoft documentation`_ to install and configure
 Create a virtual machine
 ========================
 
-#. Download the `latest`_ live version (clear-XXXX-live.img.xz) of Clear Linux.
+#. Download the `latest`_ live version (clear-XXXX-live.img.xz) of Clear Linux OS
+   for Intel Architecture.
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
-#. To convert a Clear Linux raw image to :abbr:`VHD (Virtual Hard Disk)`
+#. To convert a raw image to :abbr:`VHD (Virtual Hard Disk)`
    format, you can use VirtualBox_ or QEMU_.
 
    *  With *VirtualBox*, you can use one of the following commands::
@@ -40,9 +41,10 @@ Create a virtual machine
 
          PS C:\> Test-VHD -Path c:\path\to\clear-XXXX-live.vhd
 
-   Clear Linux uses *EFI* to boot.  Since this featue is availible only in `Generation 2`_
-   or later virtual machines, you'll need to convert from **VHD** to **VHDX**. To do this,
-   you can use the following *PowerShell* command::
+   Clear Linux OS for Intel Architecture uses *EFI* to boot.  Since this feature
+   is availible only in `Generation 2`_ or later virtual machines, you'll need
+   to convert from **VHD** to **VHDX**. To do this, you can use the following
+   *PowerShell* command::
 
          PS C:\> Convert-VHD -Path c:\path\to\clear-XXXX-live.vhd -DestinationPath c:\path\to\clear-XXXX-live.vhdx
 
