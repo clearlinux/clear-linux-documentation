@@ -24,8 +24,8 @@ cover a simple use case with :ref:`f1ovs`, where one virtual machine sends
 
 To follow along with this example, you will need:
 
-* At least one platform using Clear Linux (recommended release >= ``7160``)
-  as Host,
+* At least one platform using Clear Linux* OS for Intel® Architecture 
+  (recommended release >= ``7160``) as Host,
 * The ``kernel-native`` bundle enabled on that particular Host, 
 * And the ``network-advanced``, and ``os-clr-on-clr`` bundles installed.
 
@@ -33,7 +33,7 @@ To follow along with this example, you will need:
 	
 		# swupd bundle-add network-advanced os-clr-on-clr
 
-You'll also need two `Clear Linux kvm`_ images (recommended release  >= ``7160``).
+You'll also need two `kvm`_ images (recommended release  >= ``7160``).
 These images will create the guest virtual machines A and B. These virtual machines
 must also have ``network-basic`` and ``lamp-basic`` bundles installed.
  
@@ -169,7 +169,8 @@ Using OpenvSwitch
 	  # chmod a+x ovs-ifup
 
 #. Run guest virtual machine A using the next configuration as reference, where
-   **$IMAGE** var is the Clear Linux image name. Notice the network configuration uses the up-down scripts.
+   **$IMAGE** var is the name of the Clear Linux* OS for Intel Architecture image. 
+   Notice the network configuration uses the up-down scripts.
 
    .. code-block:: bash
 
@@ -263,7 +264,7 @@ Using Linux OpenvSwitch-DPDK
 	  # ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
 
 #. Run guest virtual machine A using the next configuration as reference, where
-   **$IMAGE** var is the Clear Linux image name.
+   **$IMAGE** var is the name of the Clear Linux* OS for Intel Architecture image.
 
    .. code-block:: bash
  
@@ -281,7 +282,8 @@ Using Linux OpenvSwitch-DPDK
           -debugcon file:debug.log -global isa-debugcon.iobase=0x402
 
 #. Run guest virtual machine B, use the configuration from the previous step; 
-   simply change the MAC address and the port socket. You can use 00:00:00:00:00:02 as a MAC address and vhost-user2 as a socket.
+   simply change the MAC address and the port socket. You can use 00:00:00:00:00:02 as a 
+   MAC address and vhost-user2 as a socket.
 
 #. Follow the instructions from the `Setting IP address`_ section.
 
@@ -322,4 +324,4 @@ Setting IP address
 
 
 .. _DPDK: http://dpdk.org/
-.. _Clear Linux kvm: https://download.clearlinux.org/releases/
+.. _kvm: https://download.clearlinux.org/releases/

@@ -168,7 +168,8 @@ DPDK modules to run DPDK applications.
 Setting hugepages (platforms A and B)
 =====================================
 
-Clear Linux OS for Intel Architecture supports ``hugepages`` for the large memory pool allocation used for packet buffers.
+Clear Linux OS for Intel Architecture supports ``hugepages`` for the large memory pool
+allocation used for packet buffers.
 
 #. Set number of hugepages.
 
