@@ -13,7 +13,7 @@ Multiple types of artifacts have signing/verifying:
     * ``clear-*.img.xz`` image files, 
     * ``clear-*.img.xz-SHA512SUMS`` checksum files, and
     * ``clear-*.img.xz-SHA512SUMS.sig`` signature files.
-* The :command:`swupd` **Manifest of Manifests** (aka :abbr:`MoM (Manifest of Manifests)`)
+* The :command:`swupd` Manifest of Manifests (aka :abbr:`MoM (Manifest of Manifests)`)
   ``https://download.clearlinux.org/update/8890/`` has ``Manifest.MoM``
   and ``Manifest.MoM.sig`` signature file.
 
@@ -35,11 +35,9 @@ Verification of images is done by humans when they download an image via the fol
 
            $ sha256sum ClearLinuxRoot.pem
 
-        You should see this:
+        You should see this (accurate as of 2016-06-16 00:00 UTC):
 
         .. code-block:: console
-
-           .. (accurate as of 2016-06-16 00:00 UTC) 
 
            4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890  ClearLinuxRoot.pem
 
@@ -94,10 +92,18 @@ An overview of the mechanism used internal to :command:`swupd`
    of all bundle manifests.
 
    * **Success** When a successful signature verification occurs, you
-     should see the message ``Signature check succeeded`` as part of the\
-     :command:`swupd` output.
+     should see the following message as part of the :command:`swupd`
+     output:
 
-   * **Fail** Should verification fail, you will see ``WARNING!!! FAILED TO VERIFY SIGNATURE OF Manifest.MoM``.
+     .. code-block:: console
+
+        Signature check succeeded
+
+   * **Fail** Should verification fail, you will see:
+
+     .. code-block:: console
+
+        WARNING!!! FAILED TO VERIFY SIGNATURE OF Manifest.MoM
 
 #. As :command:`swupd` then uses or installs bundle manifests, that
    bundle manifest hash is matched to the trusted MoM, extending the
