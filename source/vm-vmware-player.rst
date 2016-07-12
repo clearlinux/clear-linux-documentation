@@ -3,13 +3,13 @@
 Using *VMware* Player
 #####################
 
-This section explains how to run Clear Linux within a `VMWare Player`_
-environment.
+This section explains how to run Clear Linux OS for Intel® Architecture 
+within a `VMware* Player`_ environment.
 
-Install VMware player
+Install VMware Player
 =====================
 
-*VMware Workstation Player*, formerly VMware Player, is a virtualization
+VMware* Workstation Player, formerly VMware Player, is a virtualization
 software package for x64 computers running Microsoft Windows or Linux. Download
 VMware player from the `VMware website`_.
 
@@ -29,13 +29,13 @@ Player on Windows
 Follow the instructions from the Setup Assistant.
 
 
-Prepare Clear Linux Image
-=========================
+Prepare Image
+=============
 
-#. Download the `latest`_ Clear Linux **live** disk image, named
-   ``[clear-[version_number]-live.img.xz]``.
+#. Download the `latest`_ Clear Linux OS for Intel Architecture **live** 
+   disk image, named ``[clear-[version_number]-live.img.xz]``.
 
-#. Decompress the Clear Linux image. Uncompressed image size ~ **5GB**.
+#. Decompress the image. Uncompressed image size ~ **5GB**.
 
    * On Linux ::
 
@@ -53,8 +53,8 @@ Prepare Clear Linux Image
     with a tool like VBoxManage from `VirtualBox`_.
 
 
-Run Clear Linux* using VMware* Player
-=====================================
+Run using VMware* Player
+========================
 
 
 #. Create a new virtual machine.
@@ -72,7 +72,7 @@ Run Clear Linux* using VMware* Player
 
      firmware = "efi"
 
-#. Attach the Clear Linux image as SATA disk.  And when you have a new virtual machine,
+#. Attach the prepared image as SATA disk.  And when you have a new virtual machine,
    edit its configuration as follows:
 
    * Click on “Edit virtual machine settings”.
@@ -80,9 +80,9 @@ Run Clear Linux* using VMware* Player
    * Click on “Add” option below devices list tab and choose Hard disk.
 
       * Choose **SATA** as the virtual disk type.
-      * Use the  existing Clear Linux virtual disk
+      * Use the existing Clear Linux OS for Intel Architecture virtual disk
 
-     The  Clear Linux live disk must set as ``SATA 0:1 Hard Disk (SATA)``; you can verify
+     The live disk must be set as ``SATA 0:1 Hard Disk (SATA)``; you can verify
      this under the “Advanced" section of the disk settings.
 
 Start the virtual machine

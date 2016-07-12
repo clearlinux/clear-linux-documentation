@@ -32,7 +32,7 @@ Step 1
 ------
 
 Add the ``pxe-server`` bundle to your system; this has all the bits to run a PXE
-server for Clear Linux.
+server.
 
 .. code-block:: console
 
