@@ -8,7 +8,7 @@ capable of running the Clear Linux* OS for Intel® Architecture by downloading
 and running the simple `clear-linux-check-config.sh`_ script locally. This script
 is available in the `current`_ download directory; it checks the hardware
 capabilities of your system to determine whether it will work with the
-latest current release of Clear Linux.
+latest current release.
 
 For developers who are already familiar with the hardware capabilities of their
 system(s), the following processors have been tested to be successful

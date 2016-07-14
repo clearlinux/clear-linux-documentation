@@ -23,9 +23,9 @@ a container, download the `clear-linux-check-config`_ script and run::
   ``clear-[version_number]-kvm.img.xz`` image in the `current`_ directory and see
   :ref:`vm-kvm` for further detail.
 
-* **Container Evaluation** -- Clear Containers for Docker* Engine is available for
-  numerous operating systems. It enables executing existing Docker applications in
-  the secure and fast Clear Containers environment. Find the
+* **Container Evaluation** -- Intel® Clear Containers for Docker* Engine is available for
+  numerous operating systems. This allows you to execute existing Docker applications in
+  the secure and fast Intel Clear Containers environment. Find the
   ``clear-[version_number]-containers.img.xz`` in the `current`_ directory and see
   :ref:`gs-clear-containers-gettting-started` for more information.
 
@@ -47,7 +47,7 @@ download the `clear-linux-check-config`_ script and run::
 
 * **Provisioning Image** -- This image is intended to be used in a provioning environment.
   Find the ``clear-[version_number]-provision.img.xz`` image in our `current`_ directory.
-  *Warning*: This installer repartitions ``/dev/sda`` and installs the OS to the new
+  *Warning*: This installer re-partitions ``/dev/sda`` and installs the OS to the new
   partition. Don't use this image on a system where you care about existing data on
   ``/dev/sda``.
 
