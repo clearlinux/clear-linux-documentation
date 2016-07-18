@@ -72,7 +72,7 @@ An overview of the mechanism used internal to :command:`swupd`
    OS for Intel Architecture releases in :file:`/usr/share/clear/update-ca/ClearLinuxRoot.pem`.
 
 #. The :command:`swupd` downloads the top-level manifest (MoM), as
-   well as the signed :file:`MoM.sig` for either the currently-installed
+   well as the signed :file:`MoM.sig` for the currently-installed
    image, and for the release being updated to in the case of an update.
 
 #. The :command:`swupd` generates a ``sha256sum`` of the MoM.
