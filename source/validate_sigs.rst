@@ -71,13 +71,13 @@ An overview of the mechanism used internal to :command:`swupd`
 #. A trusted certificate is distributed with all Clear Linux
    OS for Intel Architecture releases in :file:`/usr/share/clear/update-ca/ClearLinuxRoot.pem`.
 
-#. The :command:`swupd` downloads the top-level manifest (MoM), as
+#. :command:`swupd` downloads the top-level manifest (MoM), as
    well as the signed :file:`MoM.sig` for the currently-installed
    image, and for the release being updated to in the case of an update.
 
-#. The :command:`swupd` generates a ``sha256sum`` of the MoM.
+#. :command:`swupd` generates a ``sha256sum`` of the MoM.
 
-#. The :command:`swupd` uses the :file:`MoM.sig` downloaded in step 1,
+#. :command:`swupd` uses the :file:`MoM.sig` downloaded in step 1,
    as well as the ``sha256sum``; and, using the openssl API, it makes
    an equivalent call to the verification command:
 
