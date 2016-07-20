@@ -67,7 +67,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -83,7 +83,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bootloader">bootloader</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bootloader">bootloader</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -92,7 +92,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-control">cloud-control</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-control">cloud-control</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -104,7 +104,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-dashboard">cloud-dashboard</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-dashboard">cloud-dashboard</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -114,7 +114,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-network">cloud-network</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-network">cloud-network</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -125,7 +125,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/clr-devops">clr-devops</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/clr-devops">clr-devops</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -134,7 +134,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic">containers-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic">containers-basic</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -146,7 +146,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cryptography">cryptography</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cryptography">cryptography</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -155,7 +155,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb">database-mariadb</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb">database-mariadb</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -164,7 +164,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb-dev">database-mariadb-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb-dev">database-mariadb-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -174,7 +174,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mongodb">database-mongodb</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mongodb">database-mongodb</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -183,7 +183,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-basic">devtools-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-basic">devtools-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -200,7 +200,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-extras">devtools-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-extras">devtools-extras</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -215,7 +215,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils">dev-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils">dev-utils</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -224,7 +224,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-dev">dev-utils-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-dev">dev-utils-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -236,7 +236,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-doc">dev-utils-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-doc">dev-utils-doc</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -246,7 +246,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dpdk-dev">dpdk-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dpdk-dev">dpdk-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -257,7 +257,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors">editors</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors">editors</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -266,7 +266,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors-dev">editors-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors-dev">editors-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -278,7 +278,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors-doc">editors-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors-doc">editors-doc</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -288,7 +288,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils">file-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils">file-utils</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -297,7 +297,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils-dev">file-utils-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils-dev">file-utils-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -309,7 +309,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils-doc">file-utils-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils-doc">file-utils-doc</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -319,7 +319,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/games">games</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/games">games</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -329,7 +329,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic">go-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic">go-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -338,7 +338,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-extras">go-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-extras">go-extras</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -348,7 +348,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/hpc-basic">hpc-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/hpc-basic">hpc-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -359,7 +359,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils">internet-console-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils">internet-console-utils</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -368,7 +368,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils-dev">internet-console-utils-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils-dev">internet-console-utils-dev</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -380,7 +380,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils-doc">internet-console-utils-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/internet-console-utils-doc">internet-console-utils-doc</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -390,7 +390,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -400,7 +400,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-base">iot-base</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-base">iot-base</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -410,7 +410,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a>
         </td>
         <td class="bundlestatus"># [STATUS]:</td>
         <td class="bundledesc">
@@ -420,7 +420,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-extras">iot-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-extras">iot-extras</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -432,7 +432,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/">
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/">
                 </a>
         </td>
         <td class="bundlestatus"></td>
@@ -442,7 +442,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -452,7 +452,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-container">kernel-container</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-container">kernel-container</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -461,7 +461,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-embedded">kernel-embedded</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-embedded">kernel-embedded</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -471,7 +471,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-hyperv">kernel-hyperv</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-hyperv">kernel-hyperv</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -481,7 +481,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-iot">kernel-iot</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-iot">kernel-iot</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -491,7 +491,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-kvm">kernel-kvm</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-kvm">kernel-kvm</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -501,7 +501,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-lts">kernel-lts</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-lts">kernel-lts</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -511,7 +511,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-native">kernel-native</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-native">kernel-native</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -521,7 +521,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-pxe">kernel-pxe</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-pxe">kernel-pxe</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -530,7 +530,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/koji">koji</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/koji">koji</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -539,7 +539,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kvm-host">kvm-host</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kvm-host">kvm-host</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -549,7 +549,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lamp-basic">lamp-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lamp-basic">lamp-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -558,7 +558,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/libX11client">libX11client</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/libX11client">libX11client</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -567,7 +567,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lnmp-basic">lnmp-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lnmp-basic">lnmp-basic</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -576,7 +576,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/machine-learning-basic">machine-learning-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/machine-learning-basic">machine-learning-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -587,7 +587,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mail-utils">mail-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mail-utils">mail-utils</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -596,7 +596,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mail-utils-dev">mail-utils-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mail-utils-dev">mail-utils-dev</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -608,7 +608,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/message-broker-rabbitmq">message-broker-rabbitmq</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/message-broker-rabbitmq">message-broker-rabbitmq</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -617,7 +617,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mixer">mixer</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mixer">mixer</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -627,7 +627,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/net-utils">net-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/net-utils">net-utils</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -636,7 +636,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-advanced">network-advanced</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-advanced">network-advanced</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -646,7 +646,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic">network-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic">network-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -655,7 +655,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic-dev">network-basic-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic-dev">network-basic-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -667,7 +667,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic-doc">network-basic-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic-doc">network-basic-doc</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -677,7 +677,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client">network-proxy-client</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client">network-proxy-client</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -686,7 +686,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client-dev">network-proxy-client-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client-dev">network-proxy-client-dev</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -698,7 +698,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client-doc">network-proxy-client-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-proxy-client-doc">network-proxy-client-doc</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -708,7 +708,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/nfs-utils">nfs-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/nfs-utils">nfs-utils</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -717,7 +717,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/nodejs-basic">nodejs-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/nodejs-basic">nodejs-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -726,7 +726,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/opencontainers-dev">opencontainers-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/opencontainers-dev">opencontainers-dev</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -737,7 +737,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openssh-server">openssh-server</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openssh-server">openssh-server</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -746,7 +746,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-all-in-one">openstack-all-in-one</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-all-in-one">openstack-all-in-one</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -765,7 +765,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage">openstack-block-storage</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage">openstack-block-storage</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -775,7 +775,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage-controller">openstack-block-storage-controller</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-block-storage-controller">openstack-block-storage-controller</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -785,7 +785,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-common">openstack-common</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-common">openstack-common</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -795,7 +795,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute">openstack-compute</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute">openstack-compute</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -804,7 +804,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute-controller">openstack-compute-controller</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-compute-controller">openstack-compute-controller</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -813,7 +813,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-configure">openstack-configure</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-configure">openstack-configure</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -822,7 +822,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-controller">openstack-controller</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-controller">openstack-controller</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -831,7 +831,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-dashboard">openstack-dashboard</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-dashboard">openstack-dashboard</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -841,7 +841,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-database">openstack-database</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-database">openstack-database</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -850,7 +850,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-data-processing">openstack-data-processing</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-data-processing">openstack-data-processing</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -859,7 +859,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-identity">openstack-identity</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-identity">openstack-identity</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -869,7 +869,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-image">openstack-image</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-image">openstack-image</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -879,7 +879,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-lbaas">openstack-lbaas</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-lbaas">openstack-lbaas</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -888,7 +888,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-network">openstack-network</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-network">openstack-network</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -897,7 +897,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-object-storage">openstack-object-storage</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-object-storage">openstack-object-storage</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -907,7 +907,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-orchestration">openstack-orchestration</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-orchestration">openstack-orchestration</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -917,7 +917,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-python-clients">openstack-python-clients</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-python-clients">openstack-python-clients</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -927,7 +927,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry">openstack-telemetry</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry">openstack-telemetry</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -936,7 +936,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry-controller">openstack-telemetry-controller</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-telemetry-controller">openstack-telemetry-controller</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -945,7 +945,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-test-suite">openstack-test-suite</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-test-suite">openstack-test-suite</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -955,7 +955,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-vpnaas">openstack-vpnaas</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-vpnaas">openstack-vpnaas</a>
         </td>
         <td class="bundlestatus">Deprecated</td>
         <td class="bundledesc">
@@ -964,7 +964,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest">os-cloudguest</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest">os-cloudguest</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -974,7 +974,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest-azure">os-cloudguest-azure</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest-azure">os-cloudguest-azure</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -984,7 +984,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest-cci">os-cloudguest-cci</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest-cci">os-cloudguest-cci</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -994,7 +994,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-clr-on-clr">os-clr-on-clr</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-clr-on-clr">os-clr-on-clr</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1011,7 +1011,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-clr-on-clr-dev">os-clr-on-clr-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-clr-on-clr-dev">os-clr-on-clr-dev</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1035,7 +1035,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core">os-core</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core">os-core</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1044,7 +1044,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-dev">os-core-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-dev">os-core-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1054,7 +1054,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-doc">os-core-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-doc">os-core-doc</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1064,7 +1064,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update">os-core-update</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update">os-core-update</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1074,7 +1074,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update-dev">os-core-update-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update-dev">os-core-update-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1088,7 +1088,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-extras">os-dev-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-extras">os-dev-extras</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1097,7 +1097,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-full">os-dev-full</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-full">os-dev-full</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1106,7 +1106,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-installer">os-installer</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-installer">os-installer</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1117,7 +1117,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite">os-testsuite</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite">os-testsuite</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1126,7 +1126,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-phoronix">os-testsuite-phoronix</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-phoronix">os-testsuite-phoronix</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1139,7 +1139,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils">os-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils">os-utils</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1155,7 +1155,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-dev">os-utils-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-dev">os-utils-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1181,7 +1181,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-doc">os-utils-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-doc">os-utils-doc</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1198,7 +1198,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-gui">os-utils-gui</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-gui">os-utils-gui</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1210,7 +1210,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic">perl-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic">perl-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1219,7 +1219,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic-dev">perl-basic-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic-dev">perl-basic-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1231,7 +1231,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-extras">perl-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-extras">perl-extras</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1241,7 +1241,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-advanced">pnp-tools-advanced</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-advanced">pnp-tools-advanced</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1251,7 +1251,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-basic">pnp-tools-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-basic">pnp-tools-basic</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1260,7 +1260,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-intermediate">pnp-tools-intermediate</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pnp-tools-intermediate">pnp-tools-intermediate</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1270,7 +1270,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pxe-server">pxe-server</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pxe-server">pxe-server</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1279,7 +1279,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic">python-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic">python-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1288,7 +1288,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic-dev">python-basic-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic-dev">python-basic-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1300,7 +1300,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-extras">python-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-extras">python-extras</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1310,7 +1310,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-basic">R-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-basic">R-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1320,7 +1320,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-extras">R-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-extras">R-extras</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1330,7 +1330,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-basic">ruby-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-basic">ruby-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1339,7 +1339,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-extras">ruby-extras</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-extras">ruby-extras</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1349,7 +1349,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/rust-basic">rust-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/rust-basic">rust-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1358,7 +1358,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/shells">shells</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/shells">shells</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1367,7 +1367,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-cluster">storage-cluster</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-cluster">storage-cluster</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1377,7 +1377,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils">storage-utils</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils">storage-utils</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1386,7 +1386,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils-dev">storage-utils-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils-dev">storage-utils-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1398,7 +1398,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin">sysadmin</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin">sysadmin</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1408,7 +1408,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-advanced">sysadmin-advanced</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-advanced">sysadmin-advanced</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1419,7 +1419,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic">sysadmin-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic">sysadmin-basic</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1428,7 +1428,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic-dev">sysadmin-basic-dev</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic-dev">sysadmin-basic-dev</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1440,7 +1440,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic-doc">sysadmin-basic-doc</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic-doc">sysadmin-basic-doc</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1450,7 +1450,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-hostmgmt">sysadmin-hostmgmt</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-hostmgmt">sysadmin-hostmgmt</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1462,7 +1462,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/tcl-basic">tcl-basic</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/tcl-basic">tcl-basic</a>
         </td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc">
@@ -1472,7 +1472,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/telemetrics">telemetrics</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/telemetrics">telemetrics</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1481,7 +1481,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/virtualbox-guest">virtualbox-guest</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/virtualbox-guest">virtualbox-guest</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
@@ -1491,7 +1491,7 @@ Current list of available bundles:
     </tr>
     <tr>
         <td class="bundlename">
-            <href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/xfce4-desktop">xfce4-desktop</a>
+            <a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/xfce4-desktop">xfce4-desktop</a>
         </td>
         <td class="bundlestatus">ACTIVE</td>
         <td class="bundledesc">
