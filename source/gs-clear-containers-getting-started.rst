@@ -1,19 +1,21 @@
-.. _gs-clear-containers-gettting-started:
+.. _gs-clear-containers-getting-started:
 
 Clear Containers getting started guide
 ######################################
 
-Intel® Clear Containers for Docker* Engine is now available on multiple
-operating systems. This enables executing existing Docker applications
-in the secure and fast Intel Clear Containers environment.
+Intel® Clear Containers for Docker* Engine is now available 
+for multiple operating systems. This enables executing existing
+Docker applications in the secure and fast Intel Clear Containers
+environment.
 
 Binary packages
 ===============
 
-The primary host platform is Clear Linux* Project for Intel® Architecture, version 4000
-or better. However, binaries for a range of operating systems are available from:
+The primary host platform is Clear Linux* Project for Intel® 
+Architecture, version 4000 or better. However, binaries for a
+range of operating systems are available from:
 
-- https://software.opensuse.org/download.html?project=home%3Aclearlinux%3Apreview&package=clear-containers-docker
+- https://software.opensuse.org/package/clear-containers-docker
 
 Currently experimental builds are available for:
 
@@ -24,8 +26,9 @@ Currently experimental builds are available for:
 - Debian* 8.0
 - Ubuntu* 15.04
 
-If you have any feedback, please mail it to the dev@lists.clearlinux.org mailing list.
-Subscription to this list is available at: https://lists.clearlinux.org/mailman/listinfo/dev.
+If you have any feedback, please mail it to the 
+dev@lists.clearlinux.org mailing list. Subscription to this 
+list is available at: https://lists.clearlinux.org/mailman/listinfo/dev.
 
 Installation instructions
 =========================
@@ -57,8 +60,8 @@ If you are *not* using Clear Linux OS for Intel Architecture, follow the instruc
 Using Clear Linux OS for Intel Architecture as Host
 ---------------------------------------------------
 
-If you are running Clear Linux OS for Intel Architecture on your host system, follow the
-instructions below:
+If you are running Clear Linux OS for Intel Architecture on your 
+host system, follow the instructions below:
 
 #. Enable the repository by running the following as the ``root`` user::
 
@@ -75,7 +78,8 @@ instructions below:
 Source Code
 ===========
 
-The experimental source code is based on the Docker version 1.9.0 upstream release and is available at:
+The experimental source code is based on the Docker version 1.9.0
+upstream release and is available at:
 
 - https://github.com/clearlinux/docker
 
