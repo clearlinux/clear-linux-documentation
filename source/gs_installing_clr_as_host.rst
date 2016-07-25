@@ -24,7 +24,7 @@ Installing Clear Linux OS for Intel Architecture to a target system
 The entire installation should take no more than a few minutes. 
 
 For feedback on installation or other topics, please feel free to write in to our 
-`mailing list_.
+`mailing list`_.
 
 Note: You can also try :ref:`vm-kvm`.
 
