@@ -51,7 +51,7 @@ Flash the image to the USB
 
 Flash the image with the following command, adding the ``-v`` option for verbose mode
 (recommended), as the image file may be large, and the process can take a while. This
-may need to be done as root::
+may need to be done as root or with sudo::
 
   $ xzcat -v clear-[release_number]-installer.img.xz | dd of=/dev/sdb
 
