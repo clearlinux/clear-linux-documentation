@@ -14,7 +14,7 @@ What you need
 * A USB stick, formatted as ``ext4``. Remember that the process of flashing
   data to a USB completely deletes the contents of the drive; as always, run
   ``dd`` with caution.
-* A Clear Linux OS for Intel® Architecture image; the most current version can
+* A Clear Linux* OS for Intel® Architecture image; the most current version can
   be found here:  
   `https://download.clearlinux.org/image <https://download.clearlinux.org/image>`_
 
