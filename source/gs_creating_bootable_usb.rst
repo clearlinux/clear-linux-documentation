@@ -14,7 +14,8 @@ What you need
 * A USB stick, formatted as ``ext4``. Remember that the process of flashing
   data to a USB completely deletes the contents of the drive; as always, run
   ``dd`` with caution.
-* A ClearLinux OS image; the most current version can be found here:
+* A Clear Linux OS for Intel® Architecture image; the most current version can
+  be found here:  
   `https://download.clearlinux.org/image <https://download.clearlinux.org/image>`_
 
     .. tip::
@@ -42,7 +43,9 @@ indicate disk space approximately the size of the USB drive::
 	?? sdb  8:16 1 14.9G 0
 	?? sdb1 8:17 1 14.9G 0 part
 
-and make sure the drive isn't already mounted. The easiest way is with::
+and make sure the drive isn't already mounted. The easiest way is with ``umount`` or
+
+::
 
 	# df
 
