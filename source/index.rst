@@ -42,6 +42,14 @@ Bundles
 
    index_bundles.rst
 
+Intel® Clear Containers
+=======================
+
+.. toctree::
+   :maxdepth: 2
+
+   gs-clear-containers-getting-started.rst
+
 
 Advanced configuration
 ======================
