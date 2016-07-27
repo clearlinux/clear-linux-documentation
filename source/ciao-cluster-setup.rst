@@ -2,11 +2,12 @@
 
 .. contents::
 
-ciao cluster setup
+CIAO cluster setup
 ##################
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
-for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`, or ciao.
+for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,
+or ciao.
 
 While the table of contents provides links to specific points of information, this
 topic is intended as an ordered workflow. Be sure to start your cluster components
@@ -20,7 +21,8 @@ Hardware needs
 
 You'll need at least four machines and a switch connecting them to form
 your beginning ciao cluster. The switch is assumed to be plugged directly
-into an "upstream" network running a DHCP server. See the illustration below as an example:
+into an "upstream" network running a DHCP server. See the illustration below as 
+an example:
 
 .. image:: image-blob-ciao-networking.png
 

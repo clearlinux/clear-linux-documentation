@@ -42,13 +42,15 @@ Bundles
 
    index_bundles.rst
 
-Intel® Clear Containers
-=======================
+Intel® Clear Containers and CIAO
+================================
 
 .. toctree::
    :maxdepth: 2
 
    gs-clear-containers-getting-started.rst
+   ciao-deploy
+   ciao-cluster-setup
 
 
 Advanced configuration
