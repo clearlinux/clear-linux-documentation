@@ -226,6 +226,7 @@ Current list of available bundles:
             <td class="bundlestatus">ACTIVE</td>
             <td class="bundledesc">
                 <p>Provides popular text editors</p>
+                <li>Includes (python-basic) bundle.</p>
             </td>
         </tr>
         <tr>
