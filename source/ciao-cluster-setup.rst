@@ -1,4 +1,4 @@
-.. _ciao-cluster-setup:
+﻿.. _ciao-cluster-setup:
 
 .. contents::
 
@@ -143,9 +143,9 @@ controller node. You can use the same location where you will be storing
 your controller binary (``ciao-controller``).
 
 You'll also need to pull that controller certificate into system
-CA trust.  The specifics of how to do this vary by linux distribution
+CA trust. The specifics of how to do this vary by Linux distribution
 (eg: ``update-ca-certificates``, ``update-ca-trust``, and ``trust``
-are examples of tools for this purpose on Ubuntu, Fedora and ClearLinux
+are examples of tools for this purpose on Ubuntu, Fedora and Clear Linux
 respectively).
 
 Keystone node
