@@ -142,8 +142,11 @@ Copy the ``controller_cert.pem`` and ``controller_key.pem`` files to your
 controller node. You can use the same location where you will be storing
 your controller binary (``ciao-controller``).
 
-You'll also need to pull that certificate into your browser as noted below in
-the `Starting a workload` section.
+You'll also need to pull that controller certificate into system
+CA trust.  The specifics of how to do this vary by linux distribution
+(eg: ``update-ca-certificates``, ``update-ca-trust``, and ``trust``
+are examples of tools for this purpose on Ubuntu, Fedora and ClearLinux
+respectively).
 
 Keystone node
 -------------
