@@ -270,14 +270,10 @@ correct roles and names as previously described.
 Pre-populate the CNCI image cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section describes how to generate a CNCI image from a vanilla
-Clear Cloud qcow2 image::
 
-  $ cd /var/lib/ciao/images
-  $ curl -O https://download.clearlinux.org/demos/ciao/clear-7470-ciao-networking.img.xz
-  $ xz -T0 --decompress clear-7470-ciao-networking.img.xz
-  $ ln -s clear-7470-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
-  $ $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7470-ciao-networking.img /etc/pki/ciao/
+You need to generate a CNCI image with your cluster TLS keys inside
+it, based on the latest base image published by ClearLinux.  This is
+accomplished through scripting as described in `ciao-cnci-agent`_.
 
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -548,3 +544,4 @@ testing.
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/ciao-devel
 .. _ciao-cli: https://github.com/01org/ciao/tree/master/ciao-cli
 .. _ciao-webui: https://github.com/01org/ciao-webui
+.. _ciao-cnci-agent: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent/scripts
