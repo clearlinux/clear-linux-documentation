@@ -2,8 +2,8 @@
 
 .. contents::
 
-CIAO cluster setup
-##################
+Manually setting up a ciao cluster
+##################################
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
 for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,

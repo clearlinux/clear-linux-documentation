@@ -2,8 +2,8 @@
 
 .. contents::
 
-CIAO on Clear Linux* for Intel® Architecture
-############################################
+Deploying ciao via automation
+#############################
 
 Cloud Integrated Advanced Orchestrator (ciao) is a new workload 
 scheduler designed to address limitations of current cloud OS

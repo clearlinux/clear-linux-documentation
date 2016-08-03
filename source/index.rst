@@ -42,16 +42,6 @@ Bundles
 
    index_bundles.rst
 
-Intel® Clear Containers and CIAO
-================================
-
-.. toctree::
-   :maxdepth: 2
-
-   gs-clear-containers-getting-started.rst
-   ciao-deploy
-   ciao-cluster-setup
-
 
 Advanced configuration
 ======================
@@ -69,6 +59,15 @@ Storage solutions
    :maxdepth: 2
 
    index-storage.rst
+
+
+Tutorials
+=========
+
+.. toctree::
+   :maxdepth: 2
+
+   index-ts.rst
 
 
 Indices and tables
