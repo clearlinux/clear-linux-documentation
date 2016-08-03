@@ -329,16 +329,9 @@ this certificate needs to be installed in the control node and be
 part of the control node CA root. On Clear Linux OS for Intel
 Architecture, this is accomplished with::
 
-    $ sudo mkdir /etc/ca-certs
-    $ sudo cp cacert.pem /etc/ca-certs
-    $ sudo c_hash /etc/ca-certs/cacert.pem
-
-Note the generated hash from the prior command and use it in the next commands::
-
-    $ sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>
-    $ sudo mkdir /etc/ssl
-    $ sudo ln -s /etc/ca-certs/ /etc/ssl/certs
-    $ sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
+    $ sudo mkdir /etc/ssl/certs
+    $ sudo cp cacert.pem /etc/ssl/certs
+    $ sudo trust-certs
 
 You will need to tell the controller where the keystone service is located and
 pass the ciao service username and password to it. DO NOT USE
