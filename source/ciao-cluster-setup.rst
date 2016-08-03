@@ -275,6 +275,12 @@ You need to generate a CNCI image with your cluster TLS keys inside
 it, based on the latest base image published by ClearLinux.  This is
 accomplished through scripting as described in `ciao-cnci-agent`_.
 
+Once created, move your image to the cache on your network node and
+symlink it::
+
+  $ mv clear-7470-ciao-networking.img /var/lib/ciao/images
+  $ ln -s /var/lib/ciao/images/clear-${VERSION}-ciao-networking.img /var/lib/ciao/images/4e16e743-265a-4bf2-9fd1-57ada0b28904
+
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
