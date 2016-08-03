@@ -4,7 +4,7 @@ Using VirtualBox
 ################
 
 This section explains how to run Clear Linux OS for Intel® Architecture
-inside a `VirtualBox`_* environment.
+inside a `VirtualBox`_\* environment.
 
 Download VirtualBox
 ===================
@@ -59,10 +59,42 @@ Create a virtual machine in VirtualBox
 Run your new VM
 ===============
 
-Clear Linux OS for Intel Architecture can support kernel modules for
-VirtualBox. Install the bundle that supports these modules with::
+Clear Linux OS for Intel Architecture support VirtualBox kernel modules used
+by the Linux kernel 4.4 :abbr:`LTS (Long Term Support)` (*kernel-lts bundle*).
+This kernel was selected due to Clear Linux OS main kernel
+(*kernel-native bundle*) keeps up-to-date with Linux Kernel upstream and
+some times VirtualBox kernel modules doesn't fit in early days of a new
+kernel release.
 
-  # swupd bundle-add virtualbox-guest
+To install the VirtualBox kernel modules you should follow these steps:
+
+#. Install the bundle that supports VirtualBox modules::
+
+     # swupd bundle-add virtualbox-guest
+
+#. Set a timeout in the bootmanager to shows a menu at boot time::
+
+     # clr-boot-manager set-timeout 10
+
+#. Update the bootloader entries with::
+
+     # clr-boot-manager update
+
+#. Reboot your system with::
+
+     # reboot
+
+   and choose LTS kernel version.
+
+#. (*Optional*) Unset timeout to boot directly to LTS version::
+
+     # clr-boot-manager set-timeout 0
+
+#. (*Mandatory*) Update bootmanger to use always LTS version::
+
+     # clr-boot-manager update
+
+
 
 And to use the VirtualBox additions, load the ``vboxsf`` module::
 
