@@ -273,7 +273,7 @@ Pre-populate the CNCI image cache
 
 
 You need to generate a CNCI image with your cluster TLS keys inside
-it, based on the latest base image published by ClearLinux.  This is
+it, based on the latest base image published by Clear Linux.  This is
 accomplished through scripting as described in `ciao-cnci-agent`_.
 
 Once created, move your image to the cache on your network node and
