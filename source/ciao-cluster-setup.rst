@@ -158,6 +158,7 @@ We need a few configuration points. For example:::
   $ openstack service create --name ciao compute
   $ openstack user create --password hello csr
   $ openstack role add --project service --user csr admin
+  $ openstack project create --description "Demostration Tenant Project" demo
   $ openstack user create --password giveciaoatry demo
   $ openstack role add --project demo --user demo user
 
@@ -270,14 +271,16 @@ correct roles and names as previously described.
 Pre-populate the CNCI image cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This section describes how to generate a CNCI image from a vanilla
-Clear Cloud qcow2 image::
 
-  $ cd /var/lib/ciao/images
-  $ curl -O https://download.clearlinux.org/demos/ciao/clear-7470-ciao-networking.img.xz
-  $ xz -T0 --decompress clear-7470-ciao-networking.img.xz
-  $ ln -s clear-7470-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
-  $ $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7470-ciao-networking.img /etc/pki/ciao/
+You need to generate a CNCI image with your cluster TLS keys inside
+it, based on the latest base image published by ClearLinux.  This is
+accomplished through scripting as described in `ciao-cnci-agent`_.
+
+Once created, move your image to the cache on your network node and
+symlink it::
+
+  $ mv clear-7470-ciao-networking.img /var/lib/ciao/images
+  $ ln -s /var/lib/ciao/images/clear-${VERSION}-ciao-networking.img /var/lib/ciao/images/4e16e743-265a-4bf2-9fd1-57ada0b28904
 
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -327,16 +330,9 @@ this certificate needs to be installed in the control node and be
 part of the control node CA root. On Clear Linux OS for Intel
 Architecture, this is accomplished with::
 
-    $ sudo mkdir /etc/ca-certs
-    $ sudo cp cacert.pem /etc/ca-certs
-    $ sudo c_hash /etc/ca-certs/cacert.pem
-
-Note the generated hash from the prior command and use it in the next commands::
-
-    $ sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>
-    $ sudo mkdir /etc/ssl
-    $ sudo ln -s /etc/ca-certs/ /etc/ssl/certs
-    $ sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
+    $ sudo mkdir /etc/ssl/certs
+    $ sudo cp cacert.pem /etc/ssl/certs
+    $ sudo trust-certs
 
 You will need to tell the controller where the keystone service is located and
 pass the ciao service username and password to it. DO NOT USE
@@ -351,19 +347,20 @@ Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
 Use the `ciao-cli`_ command line tool to verify that your cluster is
-now up and running::
+now up and running (NOTE: you should have exported CIAO_* environment
+variables as per `ciao-cli`_ documentation)::
 
-  $ ciao-cli -username admin -password <admin_password> -cluster-status
-  $ ciao-cli -username admin -password <admin_password> -list-cns
-  $ ciao-cli -username admin -password <admin_password> -list-cncis
+  $ ciao-cli node status
+  $ ciao-cli node list -compute
+  $ ciao-cli node list -cnci
 
-``-cluster-status`` shows the number of nodes in your cluster, and the
+``node status`` shows the number of nodes in your cluster, and the
 status of each.
 
-``-list-cns`` displays a more detailed view (number of instances per node,
+``node list -compute`` displays a more detailed view (number of instances per node,
 available resources per node, etc.).
 
-``-list-cncis`` provides information about the current CNCI VMs, and their statuses.
+``node list -cnci`` provides information about the current CNCI VMs, and their statuses.
 
 Interacting with your cluster
 =============================
@@ -388,6 +385,7 @@ specific environment variables:
 * ``CIAO_COMPUTEPORT`` exports the ciao compute alternative port
 * ``CIAO_USERNAME`` exports the ciao username
 * ``CIAO_PASSWORD`` export the ciao password for ``CIAO_USERNAME``
+* ``CIAO_TENANT_NAME`` export the ciao tenant name for the user
 
 For example::
 
@@ -397,6 +395,7 @@ For example::
   export CIAO_IDENTITY=https://ciao-identity.intel.com:35357
   export CIAO_USERNAME=user
   export CIAO_PASSWORD=ciaouser
+  export CIAO_TENANT_NAME=demo
 
   $ source ciao-cli-example.sh
 
@@ -410,6 +409,7 @@ variables and override them:
 * ``CIAO_COMPUTEPORT`` can be defined by the ``--computeport`` option
 * ``CIAO_USERNAME`` can be defined by the ``--username`` option
 * ``CIAO_PASSWORD`` can be defined by the ``--password`` option
+* ``CIAO_TENANT_NAME`` can be defined by the ``--tenant-name`` option
 
 
 Start a workload
@@ -419,24 +419,24 @@ As a valid user, the `ciao-cli`_ tool allows you to start a workload.
 
 First, you may want to know which workloads are available::
 
-  $ ciao-cli -list-workloads
+  $ ciao-cli workload list
 
 Then you can launch one or more workloads::
 
-  $ ciao-cli -launch-instances -workload <workload UUID> -instances <number of instances to launch>
+  $ ciao-cli instance add -workload <workload UUID> -instances <number of instances to launch>
 
 And you can monitor all your instances statuses (``pending`` or ``running``)::
 
-  $ ciao-cli -list-instances
+  $ ciao-cli instance list
 
 Performance data can be obtained (optionally) by adding a specific label
 to all your instances::
 
-  $ ciao-cli -launch-instances -instance-label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
+  $ ciao-cli instance add -label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
 
 And eventually fetch the performance data::
 
-  $ ciao-cli -dump-label <instance-label>
+  $ ciao-cli trace show <instance-label>
 
 You will also see activity related to this launch across your cluster
 components if you have consoles open and logging to standard output as
@@ -465,7 +465,7 @@ Reset your cluster
 First you should delete all instances with the `ciao-cli`_ command line
 tool::
 
-  $ ciao-cli -delete-instance -all-instances
+  $ ciao-cli instance delete -all
 
 On your scheduler node, run the following command::
 
@@ -548,3 +548,4 @@ testing.
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/ciao-devel
 .. _ciao-cli: https://github.com/01org/ciao/tree/master/ciao-cli
 .. _ciao-webui: https://github.com/01org/ciao-webui
+.. _ciao-cnci-agent: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent/scripts
