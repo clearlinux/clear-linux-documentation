@@ -145,7 +145,7 @@ your controller binary (``ciao-controller``).
 You'll also need to pull that controller certificate into system
 CA trust. The specifics of how to do this vary by Linux distribution
 (eg: ``update-ca-certificates``, ``update-ca-trust``, and ``trust``
-are examples of tools for this purpose on Ubuntu, Fedora and Clear Linux
+are examples of tools for this purpose on Ubuntu*, Fedora* and Clear Linux
 respectively).
 
 Keystone node
@@ -215,8 +215,8 @@ Ciao has not yet integrated with an existing image server; so for
 simplicity, presume a prepopulated image cache for each compute
 node in ``/var/lib/ciao/images``.
 
-We have tested the `Fedora* 23 Cloud`_, Clear Linux OS for Intel
-Architecture cloud `downloadable cloud images`_, and Ubuntu* images. Each image
+We have tested the `Fedora 23 Cloud`_, Clear Linux OS for Intel
+Architecture cloud `downloadable cloud images`_, and Ubuntu images. Each image
 will be referenced very specifically by a UUID in our configuration
 files, so follow the instructions here exactly. You may wish to create
 the needed UUID named image files as symlinks to a more human readable
