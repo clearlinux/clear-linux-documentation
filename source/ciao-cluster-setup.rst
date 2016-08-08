@@ -175,7 +175,7 @@ as previously described.
 
 Cluster Configuration
 ~~~~~~~~~~~~~~~~~~~~~
-Ciao's cluster configuration is stored and fetched from a cluster specific storage backend.
+Ciao's cluster configuration is stored and fetched from a cluster-specific storage backend.
 Supported backends are plain **local file**, **etcd** [WIP] and **ZooKeeper** [WIP].
 
 For more details about Cluster Configuration Architecture: `CIAO Configuration Architecture`_
@@ -363,7 +363,7 @@ Architecture, this is accomplished with::
     $ sudo cp cacert.pem /etc/ssl/certs
     $ sudo trust-certs
 
-The controller is run with options declaring certificates, other options will be
+The controller is run with options declaring certificates. Other options will be
 be fetched from the scheduler.::
 
   $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem
@@ -471,8 +471,8 @@ described above.
 Access your workload
 ====================
 
-Before you can access a workload, you need to set a SSH key on your configuration
-before launch the workload, first create a pair of ssh keys and add the public
+Before you can access a workload, you need to set a SSH key on your configuration.
+Before launching the workload, first create a pair of ssh keys and add the public
 key to your configuration file ciao-controller/workloads/test.yml in the
 ssh-authorized-keys section.::
 
