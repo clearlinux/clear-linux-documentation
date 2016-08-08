@@ -5,12 +5,11 @@
 Deploying ciao via automation
 #############################
 
-Cloud Integrated Advanced Orchestrator (ciao) is a new workload 
-scheduler designed to address limitations of current cloud OS
-projects. CIAO provides a lightweight, fully TLS-based minimal 
-config, is workload-agnostic, easy to update, offers an
-optimized-for-speed scheduler, and is currently optimized for 
-OpenStack*.
+Cloud Integrated Advanced Orchestrator (``ciao``) is a new workload 
+scheduler designed to address limitations of current cloud OS projects. 
+CIAO provides a lightweight, fully TLS-based minimal config, is 
+workload-agnostic, easy to update, offers an optimized-for-speed 
+scheduler, and is currently optimized for OpenStack*.
 
 For more information, see https://clearlinux.org/ciao.
 
@@ -21,7 +20,7 @@ Environment
 For this example, we'll use a total of four nodes:
  - A `controller`_ node which will be used to communicate with Keystone.
  - Two `compute nodes`_, which will spawn the VMs and containers.
- - A `network node`_ which will handle the netowrking for the workloads.
+ - A `network node`_ which will handle the networking for the workloads.
 
 
 .. _prerequisites:
