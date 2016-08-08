@@ -59,12 +59,12 @@ Current list of available bundles:
 		</style>
 	</head>
     
-    <table>
-      <tr>
-        <th align=left>Bundle Name</th>
-        <th align=center>Status</th>
-        <th align=left>Description</th>
-      </tr>
+  <table>
+    <tr>
+      <th align=left>Bundle Name</th>
+      <th align=center>Status</th>
+      <th align=left>Description</th>
+    </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a></td>
       <td class="bundlestatus">ACTIVE</td>
@@ -112,6 +112,7 @@ Current list of available bundles:
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic">containers-basic</a></td>
       <td class="bundlestatus">WIP</td>
       <td class="bundledesc"><p>Installs rkt base for Clear Containers
+              <li>Includes (network-advanced) bundle.</li>
               <li>Includes (storage-utils) bundle.</li>
               <li>Includes (network-basic) bundle.</li>
               <li>Includes (kernel-container) bundle.</li></p></td>
@@ -236,6 +237,14 @@ Current list of available bundles:
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic">go-basic</a></td>
       <td class="bundlestatus">ACTIVE</td>
       <td class="bundledesc"><p>Provides basic Go language development</p></td>
+    </tr>
+    <tr>
+      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic-dev">go-basic-dev</a></td>
+      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundledesc"><p>All packages required to build the go-basic bundle.
+              <li>Includes (go-basic) bundle.</li>
+              <li>Includes (os-core-dev) bundle.</li>
+              <li>Includes (os-dev-extras) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-extras">go-extras</a></td>
@@ -956,5 +965,5 @@ Current list of available bundles:
       <td class="bundledesc"><p>Provides the XFCE4 graphical desktop environment 
               <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
-    </table>
+  </table>
 
