@@ -48,7 +48,7 @@ Verification of images is done by humans when they download an image via the fol
 
         .. code-block:: console
 
-        $ sha512sum ./[image-####].img.xz > sha512sum.out
+           $ sha512sum ./[image-####].img.xz > sha512sum.out
 
      * Finally, we can use :command:`openssl` to validate the signed
        :file:`SHA512SUMS.sig` was signed by the ``ClearLinuxRoot`` certificate:
