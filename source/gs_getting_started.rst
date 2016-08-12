@@ -10,8 +10,10 @@ the list of `supported processors`_; alternatively, download and run the
 system from the command line.
 
 
-Virtual machine installer images
-================================
+Virtualised images
+==================
+
+Images are also available to run under Virtual Machines or containers.
 
 To test whether your host contains the necessary components to run the OS in
 a container, download the `clear-linux-check-config`_ script and run::
@@ -23,11 +25,15 @@ a container, download the `clear-linux-check-config`_ script and run::
   ``clear-[version_number]-kvm.img.xz`` image in the `current`_ directory and see
   :ref:`vm-kvm` for further detail.
 
-* **Container Evaluation** -- Clear Containers for Docker* Engine is available for
-  numerous operating systems. It enables executing existing Docker applications in
-  the secure and fast Clear Containers environment. Find the
-  ``clear-[version_number]-containers.img.xz`` in the `current`_ directory and see
-  :ref:`gs-clear-containers-gettting-started` for more information.
+* **Docker Image** -- A Clear Linux* Docker* image can be downloaded
+  directly from the Docker hub and executed within the Docker environment.
+  Details were posted in the blog post `Clear Linux Highlights 3`_, and
+  on a Docker* enabled system you can execute::
+
+    docker pull clearlinux
+    docker run -it clearlinux
+
+  and then follow the normal Clear Linux* instuctions to add bundles etc.
 
 
 Bare metal installer images
@@ -71,6 +77,7 @@ For older versions, see our `releases`_ page.
 .. _clear-linux-check-config: http://download.clearlinux.org/current/clear-linux-check-config.sh
 .. _current: http://download.clearlinux.org/current
 .. _blog post: https://clearlinux.org/blogs/clear-linux-installer-v20
+:: _Clear Linux Highlights 3: https://clearlinux.org/blogs/clear-linux-highlights-3
 .. _telemetry: https://clearlinux.org/features/telemetry
 .. _supported processors: http://clearlinux.org/documentation/gs_supported_hardware.html
 .. _releases: https://download.clearlinux.org/releases
