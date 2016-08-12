@@ -1,81 +1,46 @@
-.. _gs-clear-containers-gettting-started:
+.. _gs-clear-containers-getting-started:
 
 Clear Containers getting started guide
 ######################################
 
-Clear Containers for Docker* Engine is now available on multiple
-operating systems. This enables executing existing Docker applications
-in the secure and fast Clear Containers environment.
+Introduction
+============
 
-Binary packages
-===============
-
-The primary host platform is Clear Linux* Project for Intel® Architecture, version 4000
-or better. However, binaries for a range of operating systems are available from:
-
-- https://software.opensuse.org/download.html?project=home%3Aclearlinux%3Apreview&package=clear-containers-docker
-
-Currently experimental builds are available for:
-
-- CentOS*, Scientific Linux* 7
-- Fedora* 21, 22, 23
-- openSUSE* 13.1, 13.2, Tumbleweed
-- SUSE* Linux Enterprise 12
-- Debian* 8.0
-- Ubuntu* 15.04
-
-If you have any feedback, please mail it to the dev@lists.clearlinux.org mailing list.
-Subscription to this list is available at: https://lists.clearlinux.org/mailman/listinfo/dev.
+Intel® Clear Containers v2.0 beta release is now available for evaluation.
+This enables executing existing Docker applications in the secure
+and fast Intel Clear Containers environment under Docker 1.12 and beyond
+via an :abbr:`Open Container Initiative (OCI)` compatible `runtime`.
 
 Installation instructions
 =========================
 
-Using hosts other than Clear Linux OS for Intel Architecture
-------------------------------------------------------------
+The primary host platform is Clear Linux* Project for Intel® 
+Architecture. For instructions on installing Docker and Clear Containers under
+Clear Linux please refer to the below instructions from the runtime source tree:
 
-If you are *not* using Clear Linux OS for Intel Architecture, follow the instructions below:
+- https://github.com/01org/cc-oci-runtime/blob/master/INSTALL_DOCKER.rst
 
-#. Visit the link below and select your operating system by clicking the appropriate icon:
-   https://software.opensuse.org/download.html?project=home%3Aclearlinux%3Apreview&package=clear-containers-docker
+Packages and instructions for other Linux* distributions will be released
+and updated on that site as they become available.
 
-#. Follow the brief instructions shown.
+If you have any feedback, questions, or would like to participate and
+contribute, then  please consult the contact details (mailing list, IRC etc.)
+in the document at:
 
-#. If your host is behind a proxy, you will need to add the proxies to the docker service. Create ``/etc/systemd/system/docker.service.d/proxy.conf`` and add the next lines to the file::
-
-    [Service]
-    Environment=HTTP_PROXY=http://proxy.example.com:80/
-    Environment=NO_PROXY=localhost,127.0.0.1
-
-#. Reload your systemd configuration::
-
-   $ sudo systemctl daemon-reload
-
-#. Start the Docker service::
-
-   $ systemctl restart docker
-
-Using Clear Linux OS for Intel Architecture as Host
----------------------------------------------------
-
-If you are running Clear Linux OS for Intel Architecture on your host system, follow the
-instructions below:
-
-#. Enable the repository by running the following as the ``root`` user::
-
-   # swupd bundle-add containers-basic
-
-#. Reload your systemd configuration::
-
-   $ sudo systemctl daemon-reload
-
-#. Start the Docker service::
-
-   $ systemctl restart docker
+- https://github.com/01org/cc-oci-runtime/blob/master/CONTRIBUTING.md
 
 Source Code
 ===========
 
-The experimental source code is based on the Docker version 1.9.0 upstream release and is available at:
+The source code for the Clear Containers 2.0 `runtime` and corresponding
+qemu-lite are publicly hosted on github:
 
-- https://github.com/clearlinux/docker
+- https://github.com/01org/cc-oci-runtime
+- https://github.com/01org/qemu-lite
 
+Architecture Overview
+=====================
+
+For an overview of the Clear Containers architecture please see:
+
+- https://clearlinux.org/documentation/clear_containers.html
