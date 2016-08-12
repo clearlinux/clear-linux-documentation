@@ -6,7 +6,8 @@ Clear Containers getting started guide
 Intel® Clear Containers for Docker* Engine is now available 
 for multiple operating systems. This enables executing existing
 Docker applications in the secure and fast Intel Clear Containers
-environment.
+environment.  See also the `Architecture Overview`_.
+
 
 Binary packages
 ===============
@@ -83,3 +84,6 @@ upstream release and is available at:
 
 - https://github.com/clearlinux/docker
 
+
+
+.. _Architecture Overview: https://clearlinux.org/documentation/clear-containers.html#architecture-overview
