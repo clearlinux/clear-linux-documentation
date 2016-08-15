@@ -3,15 +3,17 @@
 Getting started
 ###############
 
-There are a number of options available for downloading and running Clear Linux*
-OS for Intel® Architecture. You can check your system hardware capabilities against
-the list of `supported processors`_; alternatively, download and run the
-`clear-linux-check-config`_ script to check the hardware compatibility of your
-system from the command line.
+There are a number of options available for downloading and running Clear 
+Linux* OS for Intel® Architecture. You can check your system hardware
+capabilities against the list of `supported processors`_; alternatively,
+download and run the `clear-linux-check-config`_ script to check the hardware
+compatibility of your system from the command line.
 
 
-Virtual machine installer images
-================================
+Virtualized images
+==================
+
+Images are also available to run under Virtual Machines or containers.
 
 To test whether your host contains the necessary components to run the OS in
 a container, download the `clear-linux-check-config`_ script and run::
@@ -23,11 +25,15 @@ a container, download the `clear-linux-check-config`_ script and run::
   ``clear-[version_number]-kvm.img.xz`` image in the `current`_ directory and see
   :ref:`vm-kvm` for further detail.
 
-* **Container Evaluation** -- Intel® Clear Containers for Docker* Engine is available for
-  numerous operating systems. This allows you to execute existing Docker applications in
-  the secure and fast Intel Clear Containers environment. Find the
-  ``clear-[version_number]-containers.img.xz`` in the `current`_ directory and see
-  :ref:`gs-clear-containers-gettting-started` for more information.
+* **Docker Image** -- A Clear Linux* Docker* image can be downloaded
+  directly from the Docker hub and executed within the Docker environment.
+  Details were posted in the blog post `Clear Linux Highlights 3`_, and
+  on a Docker* enabled system you can execute::
+
+    docker pull clearlinux
+    docker run -it clearlinux
+
+  and then follow the normal Clear Linux* instuctions to add bundles etc.
 
 
 Bare metal installer images
@@ -47,7 +53,7 @@ download the `clear-linux-check-config`_ script and run::
 
 * **Provisioning Image** -- This image is intended to be used in a provioning environment.
   Find the ``clear-[version_number]-provision.img.xz`` image in our `current`_ directory.
-  *Warning*: This installer re-partitions ``/dev/sda`` and installs the OS to the new
+  *Warning*: This installer repartitions ``/dev/sda`` and installs the OS to the new
   partition. Don't use this image on a system where you care about existing data on
   ``/dev/sda``.
 
@@ -71,6 +77,7 @@ For older versions, see our `releases`_ page.
 .. _clear-linux-check-config: http://download.clearlinux.org/current/clear-linux-check-config.sh
 .. _current: http://download.clearlinux.org/current
 .. _blog post: https://clearlinux.org/blogs/clear-linux-installer-v20
+.. _Clear Linux Highlights 3: https://clearlinux.org/blogs/clear-linux-highlights-3
 .. _telemetry: https://clearlinux.org/features/telemetry
 .. _supported processors: http://clearlinux.org/documentation/gs_supported_hardware.html
 .. _releases: https://download.clearlinux.org/releases
