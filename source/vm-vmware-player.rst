@@ -1,15 +1,15 @@
 .. _vm-vmware-player:
 
-Using *VMware* Player
-#####################
+Using VMware* Player
+####################
 
 This section explains how to run Clear Linux OS for Intel® Architecture 
-within a `VMware* Player`_ environment.
+within a `VMware Player`_ environment.
 
 Install VMware Player
 =====================
 
-VMware* Workstation Player, formerly VMware Player, is a virtualization
+VMware Workstation Player, formerly VMware Player, is a virtualization
 software package for x64 computers running Microsoft Windows or Linux. Download
 VMware player from the `VMware website`_.
 
@@ -92,7 +92,7 @@ After configuring the settings above, start the virtual machine.
 
 
 .. _VMware website: https://www.vmware.com/products/player/playerpro-evaluation.html
-.. _VMWare Player: http://www.vmware.com/products/player/
+.. _VMware Player: http://www.vmware.com/products/player/
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
 .. _VirtualBox: https://www.virtualbox.org/
