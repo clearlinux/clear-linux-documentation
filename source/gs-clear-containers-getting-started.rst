@@ -42,7 +42,9 @@ qemu-lite are publicly hosted on github:
 Architecture Overview
 =====================
 
-For an overview of the Clear Containers architecture please see:
+Please see the the `Architecture Overview`_ section.
 
-- https://clearlinux.org/documentation/clear_containers.html
+
+
+.. _Architecture Overview: https://clearlinux.org/documentation/clear-containers.html#architecture-overview
 
