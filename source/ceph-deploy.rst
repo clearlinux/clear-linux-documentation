@@ -14,11 +14,11 @@ Intel® Architecture and Ansible*.
 Environment
 ===========
 
-For this example, we'll use a total of five nodes: a **deployment node**,
-to run the playbooks, a **monitor node**, and three **storage nodes**.
+For this example, we'll use a total of six nodes: a **deployment node**,
+to run the playbooks, a **monitor node**, a **metadata node** and three **storage nodes**.
 
 Install each component on its own server for best results; however,
-for testing purposes you can install the monitor and storage nodes
+for testing purposes you can install the monitor, metadata and storage nodes
 on the same host.
 
 
@@ -30,9 +30,8 @@ do that, the servers must be configured to allow passwordless ssh
 connections from the root user. Follow these steps to configure
 your nodes.
 
-#. Generate ssh keys::
-
-    # ssh-keygen
+On your cluster nodes
+---------------------
 
 #. Enable root login::
 
@@ -43,7 +42,14 @@ your nodes.
     # systemctl enable sshd
     # systemctl start sshd
 
-#. Allow passwordless login::
+On your deployment node
+-----------------------
+
+#. Generate an ssh key if you have not already::
+
+    # ssh-keygen
+
+#. Copy your public key (:file:`~/.ssh/id_rsa.pub`) to :file:`/root/.ssh/authorized_keys` on each node::
 
     # ssh-copy-id root@node
 
@@ -51,7 +57,7 @@ your nodes.
 Install the software
 ====================
 
-Install the ``sysadmin-hostmgmt`` bundle on the development node. This
+Install the ``sysadmin-hostmgmt`` bundle on the deployment node. This
 bundle contains the Ansible software required to run the playbooks, as
 well as some Ansible roles and sample playbooks that you can use to
 build your own::
@@ -66,7 +72,7 @@ The ``sysadmin-hostmgmt`` bundle includes some sample playbooks that
 can be customized for your own needs. Start by making a copy of the
 sample playbook into your home folder.::
 
-    # cp /usr/share/ansible/examples/ceph ~/
+    # cp -r /usr/share/ansible/examples/ceph ~/
 
 The playbook consist of four files that you should modify to fit
 your needs::
@@ -89,6 +95,9 @@ under the roles they will serve::
     172.28.128.9
     172.28.128.10
 
+    [mdss]
+    172.28.128.11
+
 This :file:`groups_var/all` file contains variables that will applied
 to all your nodes. The mandatory variables are already there; be sure
 to change the values accordingly to fit your environment. It should
@@ -100,8 +109,12 @@ look something like this::
     public_network: 172.28.128.0/24
     cluster_network: "{{ public_network }}"
 
-A full list of available variables can be found under
-:file:`/usr/share/ansible/roles/<role>/defaults/main.yml`
+A full list of available variables can be found under each role defaults/main.yml
+
+* `ceph-common/defaults/main.yml`_
+* `ceph-mon/defaults/main.yml`_
+* `ceph-mds/defaults/main.yml`_
+* `ceph-osd/defaults/main.yml`_
 
 This :file:`groups_var/osd` file contains variables that apply only
 to the hosts under the ``[mons]`` section in your hosts file. You can
@@ -138,6 +151,8 @@ choose one of the three available scenarios for this playbook.
         - /var/lib/ceph/osd/mydir1
         - /var/lib/ceph/osd/mydir2
         - /var/lib/ceph/osd/mydir3
+
+  Note: The directories should reside on an XFS filesystem. EXT4 is not supported.
 
 
 Run the playbook
@@ -178,3 +193,13 @@ with the Ceph utilites like ``ceph status`` and
      1 0.01900         osd.1       up  1.00000          1.00000
     -4 0.01900     host node5
      2 0.01900         osd.2       up  1.00000          1.00000
+
+::
+
+    # ceph fs ls
+    name: cephfs, metadata pool: cephfs_metadata, data pools: [cephfs_data ]
+
+.. _ceph-common/defaults/main.yml: https://github.com/clearlinux/clear-config-management/blob/master/roles/ceph-common/defaults/main.yml
+.. _ceph-mon/defaults/main.yml: https://github.com/clearlinux/clear-config-management/blob/master/roles/ceph-mon/defaults/main.yml
+.. _ceph-mds/defaults/main.yml: https://github.com/clearlinux/clear-config-management/blob/master/roles/ceph-mds/defaults/main.yml
+.. _ceph-osd/defaults/main.yml: https://github.com/clearlinux/clear-config-management/blob/master/roles/ceph-osd/defaults/main.yml
