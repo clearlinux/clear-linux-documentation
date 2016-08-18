@@ -55,7 +55,7 @@ V1.0 (also known as **Intel® Clear Containers for Docker
 Engine**) is based around `kvmtool`_, with example host integrations for
 Docker and `rkt`_.
 
-.. figure:: _static/images/clear-containers-V1.png
+.. figure:: _static/images/clear-containers-v1.png
    :align: center
    :alt: Intel Clear Containers V1.0
 
@@ -153,7 +153,7 @@ introducing a host-side abstraction tool to ease host-side integration and to
 isolate integration instances from future changes to the underlying Clear
 Containers architecture.
 
-.. figure:: _static/images/clear-containers-V2.png
+.. figure:: _static/images/clear-containers-v2.png
    :align: center
    :alt: Clear Containers V2.0
 
