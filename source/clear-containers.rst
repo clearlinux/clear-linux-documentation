@@ -55,7 +55,7 @@ V1.0 (also known as **Intel® Clear Containers for Docker
 Engine**) is based around `kvmtool`_, with example host integrations for
 Docker and `rkt`_.
 
-.. figure:: _static/images/clearcontainersV1.png
+.. figure:: _static/images/clear-containers-V1.png
    :align: center
    :alt: Intel Clear Containers V1.0
 
@@ -153,7 +153,7 @@ introducing a host-side abstraction tool to ease host-side integration and to
 isolate integration instances from future changes to the underlying Clear
 Containers architecture.
 
-.. figure:: _static/images/clearcontainersV2.png
+.. figure:: _static/images/clear-containers-V2.png
    :align: center
    :alt: Clear Containers V2.0
 
@@ -361,13 +361,13 @@ mini-OS consists of a Linux kernel image and root filesystem image.
   (Direct Access)` is enabled in Intel Clear Containers V1.0 using a shmem
   PCI-BAR mechanism configured by `kvmtool`_.
 
-  .. figure:: _static/images/dax-v1.svg
+  .. figure:: _static/images/dax-v1.png
   	 :align: center
 
   :abbr:`DAX (Direct Access)` is enabled in Intel Clear Containers 
   V2.0 using an   NVDIMM `QEMU`_ memdev mechanism:
 
-    .. figure:: _static/images/dax-v2.svg
+    .. figure:: _static/images/dax-v2.png
   	 :align: center
 
   :abbr:`DAX (Direct Access)` can only be used to mount single flat files
