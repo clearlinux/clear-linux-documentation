@@ -400,27 +400,27 @@ further detail.
 FAQ
 ===
 
-Q. **"Can I run Clear Containers on any host Linux?"**
+**Q.** "Can I run Clear Containers on any host Linux?"
 
-A. Yes, any up-to date or recent Linux host should be able to run Clear
+**A.** Yes, any up-to date or recent Linux host should be able to run Clear
    Containers, as long as the host system kernel contains the necessary
    features and is configured with the necessary support enabled.
 
 ..   [to do: finish this section]
 
-Q. **"Do I need to use all of Clear Containers, or can I cherry pick parts?"**
+**Q.** "Do I need to use all of Clear Containers, or can I cherry pick parts?"
 
-A. You can cherry pick the parts of Clear Containers you need. Some parts
+**A.** You can cherry pick the parts of Clear Containers you need. Some parts
    will make your life generally easier (such as the `QEMU`_ wrapper tool
    ``cor``) and will help insulate you from future development changes, so you
    should consider which parts you need for which features. The client
    side obviously can be quite flexible in its configuration depending
    on the deployment environment.
 
-Q. **"Can I use Clear Containers technology to run other VMs, not just
-   container style ones?"**
+**Q.** "Can I use Clear Containers technology to run other VMs, not just
+   container style ones?"
 
-A. Yes, the underlying mechanisms and accelerations used for Clear
+**A.** Yes, the underlying mechanisms and accelerations used for Clear
    Containers can be applied to any Virtual Machine setup, not just
    those that are based around a container style workflow.
 
