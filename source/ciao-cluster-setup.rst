@@ -410,7 +410,7 @@ variables and override them:
 Start a workload
 ================
 
-As a valid user, the `ciao-cli`_ tool allows you to start a workload.
+As a valid user, the `ciao-cli`tool allows you to start a workload.
 
 First, you may want to know which workloads are available::
 
@@ -443,16 +443,19 @@ Access your workload
 
 Before you can access a workload, you need to set a SSH key on your configuration before launch the workload, first create a pair of ssh keys and add the public key to you configuration file ciao-controller/workload/test.yml in the  ssh-authorized-keys section
 
-*     ssh-authorized-keys: 
+*     ssh-authorized-keys:
         - <your SSH key>
 
 After this you can start/restart the ciao-controller and launch your workload, once your workload is up, you need to know it's IP address, you can find it via ciao-cli
 
-$ ciao-cli instance list 
 
-then look for the section "SSH IP", there is the IP assigned to your workload, then access the workload using your private key and the user "demouser"
+  $ ciao-cli instance list
 
-$ssh demouser@<workload_ip> -i </path/to/your/private-key>
+
+then look for the section "SSH IP", there is the IP assigned to your workload, next to it, you will see the field Port, thats the port that you will use to access a speific workload, then access the workload using your private key and the user "demouser"
+
+``$ ssh -p <workload_port> -i </path/to/your/private-key> demouser@<workload-ip>``
+
 
 Reset your cluster
 ==================
