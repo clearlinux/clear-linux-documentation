@@ -156,10 +156,10 @@ up Keystone services can be found at the `OpenStack developer`_ website.
 We need a few configuration points. For example:::
 
   $ openstack service create --name ciao compute
-  $ openstack user create --password hello csr
+  $ openstack user create --password secret csr
   $ openstack role add --project service --user csr admin
   $ openstack project create --description "Demostration Tenant Project" demo
-  $ openstack user create --password giveciaoatry demo
+  $ openstack user create --password secret demo
   $ openstack role add --project demo --user demo user
 
 This adds a ciao compute service, a keystone user and project for the
@@ -195,8 +195,10 @@ For more details about Cluster Configuration Architecture: `CIAO Configuration A
           identity_user: csr
           identity_password: giveciaoatry
         launcher:
-          compute_net: 192.168.0.0/16
-          mgmt_net: 192.168.0.0/16
+          compute_net:
+          - 192.168.0.0/16
+          mgmt_net:
+          - 192.168.0.0/16
           disk_limit: true
           mem_limit: true
         identity_service:
@@ -224,14 +226,6 @@ As the sole SSNTP server in the ciao cluster, it is a key debugging point
 to understand failed flows of actions/reactions across your cluster.
 Launching it first means this console output helps confirm your subsequent
 cluster configurations actions are indeed succeeding.
-
-ciao-controller
-~~~~~~~~~~~~~~~
-
-**Important: Do not start the ciao controller just yet!** It should only
-be started after a network node is connected to the scheduler; otherwise
-workloads may fail to start. This restriction will be addressed once
-`ciao issue #12`_ is closed.
 
 Compute node setup
 ------------------
