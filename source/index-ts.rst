@@ -7,6 +7,7 @@ Tutorials
    gs-clear-containers-getting-started
    ciao-deploy
    ciao-cluster-setup
+   multiboot
 
 
 
