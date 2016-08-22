@@ -195,8 +195,10 @@ For more details about Cluster Configuration Architecture: `CIAO Configuration A
           identity_user: csr
           identity_password: giveciaoatry
         launcher:
-          compute_net: 192.168.0.0/16
-          mgmt_net: 192.168.0.0/16
+          compute_net:
+          - 192.168.0.0/16
+          mgmt_net:
+          - 192.168.0.0/16
           disk_limit: true
           mem_limit: true
         identity_service:
