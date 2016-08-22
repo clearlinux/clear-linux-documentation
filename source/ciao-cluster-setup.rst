@@ -156,10 +156,10 @@ up Keystone services can be found at the `OpenStack developer`_ website.
 We need a few configuration points. For example:::
 
   $ openstack service create --name ciao compute
-  $ openstack user create --password hello csr
+  $ openstack user create --password secret csr
   $ openstack role add --project service --user csr admin
   $ openstack project create --description "Demostration Tenant Project" demo
-  $ openstack user create --password giveciaoatry demo
+  $ openstack user create --password secret demo
   $ openstack role add --project demo --user demo user
 
 This adds a ciao compute service, a keystone user and project for the
