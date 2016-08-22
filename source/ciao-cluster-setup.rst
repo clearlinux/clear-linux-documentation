@@ -227,14 +227,6 @@ to understand failed flows of actions/reactions across your cluster.
 Launching it first means this console output helps confirm your subsequent
 cluster configurations actions are indeed succeeding.
 
-ciao-controller
-~~~~~~~~~~~~~~~
-
-**Important: Do not start the ciao controller just yet!** It should only
-be started after a network node is connected to the scheduler; otherwise
-workloads may fail to start. This restriction will be addressed once
-`ciao issue #12`_ is closed.
-
 Compute node setup
 ------------------
 
