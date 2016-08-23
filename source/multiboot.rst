@@ -64,9 +64,9 @@ partitioning, take into account the following:
 * We will use ``efibootmgr`` to manipulate the boot manager, so double
   check that your alternative Linux distribution has it (most do).
 
-* Centos 7 uses anaconda as the installer software. Fedora and RedHat
-  do also, so you should follow the installation guide as it is the
-  same for any of these Linux distributions.
+* CentOS 7 uses anaconda as the installer software. Fedora and RedHat
+  do also, so the installation guide is the same as it is for either
+  of these Linux distributions.
 
 
 Prerequisites
@@ -75,46 +75,51 @@ Prerequisites
 OS installation images
 ----------------------
 
-The Clearlinux image can be downloaded from
-`*https://download.clearlinux.org/releases/* <https://download.clearlinux.org/releases/>`__
-where you can find all the versions and flavors of images. Choose a
-recent one and the installer flavor which contains installer software
-and sizes around 300 MB.
+For each OS you want to be able to boot into from the multiboot
+environment, you'll need an installation image.  To create the specific
+multiboot environment we proposed in the beginning of this tutorial,
+you will need:
 
-The Centos image can be found in their homepage, they have 3 flavors:
-DVD, Everything and Minimal, in this case, a Minimal image will be used,
-but should be the same for anyone. Besides this you can found another
-distro image in it’s own page.
+  *  A **Clear Linux OS image**, which can be downloaded from our
+     `releases page`_; be sure to select a version that includes
+     installer software.
+  *  The CentOS image (select the "Minimal" version), which can be
+     found on the `CentOS website`_.
+  *  A Windows installation image, or a system with Windows
+     pre-installed.
 
-And for the windows image, get it from somewhere.
-
-If you have Non-installer versions of the images, then pre partitioning
-work should be done, and then land the images into the partitions.
+If you have non-installer versions of images you want to use in
+your multiboot environment, pre-partitioning work should be done
+before landing the images into the partitions.
 
 Bootable media
 --------------
 
-This documentation includes the installation in an Intel’s NUC using a
-USB flash memory, however it may also work if you burn the image in a
-DVD or something and use a DVD drive. The USB stick capacity will depend
-on the size of the image, for Linux’s images shouldn’t be a problem, but
-I have seen Windows images of 10Gb, so take that in count.
+Any bootable media that can be used to write installation images
+will work. Our tutorial includes instructions for installing to an
+Intel NUC using USB flash memory.  Burning installation images to a CD 
+or DVD can also work if you don't have a flash drive handy.
 
 Network connection
 ------------------
 
-The Clearlinux installer uses swupd software to manage the installation
-and it’s being done through internet. If no internet is available, then
-you can do 2 things: to land a Clearlinux live image in the hard disk or
-to use a private network to connect to a mixer server, these cases won’t
-be covered in this documentation and we will assume that internet access
-is available.
+The Clear Linux OS installer uses a tool called ``swupd`` to manage
+the installation, and ``swupd`` requires an internet connection. When no
+internet is available, there are two ways to get around this: 
+
+* Land a Clear Linux "live" image directly in the hard disk, or
+* Use a private network to connect to a mixer server.
+
+These edge cases won't be covered in this tutorial.  We are
+assuming that the system you want to allow multiboot on has a
+network connection and that internet access is available.
 
 UEFI
 ----
 
 Since ``systemd-boot`` uses this capability, it is required that the
 images support UEFI.
+
 
 Installing Windows
 ==================
@@ -155,7 +160,7 @@ of the ESP, just delete the system partition created by windows.
 
 Wait until finish and then reboot.
 
-Installing Centos 7
+Installing CentOS 7
 ===================
 
 Creating a bootable USB stick
@@ -174,8 +179,8 @@ Wait for it to finish, may take long, and that’s it.
 Disk Partitioning and Installation
 ----------------------------------
 
-Insert a Centos 7 bootable USB, turn on the computer wait it to boot and
-start installation program by selecting “Install Centos 7” option. Next
+Insert a CentOS 7 bootable USB, turn on the computer wait it to boot and
+start installation program by selecting “Install CentOS 7” option. Next
 select keyboard layout and click “Continue”. You can set at this moment
 your hostname in the “Network & Hostname” section.
 
@@ -206,7 +211,7 @@ Creating a bootable USB stick
 -----------------------------
 
 After you download the Clearlinux image you will need to uncompress it
-using unxz and do the same as for Centos image::
+using unxz and do the same as for CentOS image::
 
   # dd if=/path/to/your/clear-9990-installer.img of=/dev/sdb
   # sync
@@ -313,7 +318,7 @@ To learn more about this spec, go to:
 
 `*https://www.freedesktop.org/wiki/Specifications/BootLoaderSpec/* <https://www.freedesktop.org/wiki/Specifications/BootLoaderSpec/>`__.
 
-Centos boot entry
+CentOS boot entry
 ~~~~~~~~~~~~~~~~~
 
 At this point you can find the Clearlinux entry but missing the
@@ -321,7 +326,7 @@ centos.conf, here is an example::
 
   # cat loader/entries/centos.conf
 
-  title		Centos 7
+  title		CentOS 7
   linux 	/vmlinuz-linux-3.10.0-300.4.6.el7.x86_64
   initrd 	initramfs-3.10.0-300.4.6.el7.x86_64.img
   options 	root=PARTUUID=14420948-2cea-4de7-b042-40f67c618660 ro quiet
@@ -384,3 +389,8 @@ If you want to unmount it, just::
   # mountvol b: /d
 
 TODO: Find a way to use efibootmgr capabilities within Windows.
+
+
+
+
+.. _https://download.clearlinux.org/releases: 
