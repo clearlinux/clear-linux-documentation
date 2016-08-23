@@ -1,68 +1,73 @@
-﻿Introduction
+﻿.. _multiboot: 
+
+Creating a multiboot environment
+################################
+
+Introduction
 ============
 
-This topic explains how to install Clear Linux as one of two or three
-operating systems, with the bootloader being managed by systemd-boot.
-The documentation includes the installation of Windows* server 2016
-Technical review 5, CentOS* 7, and Clear Linux build 9990. This is an
-example only, and multiboot is not limited to these operating systems.
-The installation process can be similar for other versions or distros.
+Another customization option is to install Clear Linux* OS for
+Intel® Architecture alongside other operating systems.
+
+In this tutorial, we will show how to install Clear Linux build
+9990 on a machine that will also be able to boot CentOS* 7 and Windows*
+server 2016. These operating systems are, of course, only examples;
+this process can be used to install a Clear Linux release alongside
+whatever OSes you wish. 
+
 
 Use case development
 --------------------
 
-In this documentation, we do disk partitioning according to our needs,
-if you want to do a different partitioning, take in count the following:
+For such a scenario, where the boot loader will be managed by
+``systemd-boot``, we'll create disk partitioning to fit our
+system requirements. If your system will require a different
+partitioning, take into account the following:
 
--  An ESP partition is required, every OS can have their own ESP
-   partition, but we recommend to use the same for all of them, as only
-   one is going to be used. On every OS installation don’t forget to NOT
-   format the ESP, because it will hold previous OS files.
+* An :abbr:`EFI System Partition (ESP)` is required. Every OS can
+  have its own ESP partition; and every ESP should be formatted.  
 
--  In most cases the ESP will be mounted in /boot/efi with the exception
-   of Clearlinux which ESP should be in /boot (Clearlinux don’t use
-   GRUB). Windows do not mount ESP automatically.
+* In most cases the ESP will be mounted in ``/boot/efi``, with the
+  exception of Clear Linux OS, which should be in ``/boot`` (Clear
+  Linux OS doesn’t use GRUB). Windows does not mount ESPs automatically.
 
--  The ESP partition generally is the first partition for performance
-   reasons, however, Windows sets its recovery partition as first and
-   ESP as second. Don’t forget which partition is ESP because you will
-   need to have that information when configuring the boot loader.
+* The ESP partition is generally the first partition for performance
+  reasons; however, Windows sets its recovery partition as first and
+  ESP as second. Make note of which partition is the ESP because that
+  information will be needed when configuring the boot loader.
 
--  The size of the partition hosting root file systems should be enough.
-   Generally, users would like to have some free space for data. I
-   recommend using 20 Gb for each, normally 8Gb would be enough for
-   linux, it will depend on your case. Windows needs at least 10Gb of
-   space.
+* The size of the partition hosting root file systems should be
+  enough. Generally, users like to have some free space for data.
+  If you're unsure, 20 GB for each should be sufficient for a dual-boot
+  of Linux and Windows.  Windows tends to need at least 10 GB of disk space.
 
--  For Linux, there are multiple formats of disk partitioning, some can
-   be encrypted and some can be grouped, in these case we will use
-   standard partitioning with ext4 format without any swap partitions.
+* For Linux, there are multiple formats for disk partitioning. Some
+  can be encrypted and some can be grouped; in these cases we will use
+  standard partitioning formatted as ``ext4`` without any swap partitions.
 
--  For Linux, partitions can be mounted on different paths, for this
-   case we will use the simplest, an ESP partition mounted in /boot/efi
-   (Or /boot for Clearlinux) and a ext4 Linux filesystem partition for
-   root (at “/”).
+* For Linux, partitions can be mounted on different paths, and in our
+  use case we will use the simplest -- an ESP partition mounted in
+  ``/boot/efi`` (Or ``/boot`` for Clear Linux) and an ``ext4`` Linux
+  filesystem partition for root (at "``/``").
 
--  Since Windows creates their own partitioning and recommends a
-   specific order, we will install it first than the others. I assume
-   that there is a way to install it afterwards, but that case won’t be
-   covered here.
+* Due to the fact that Windows creates its own partitioning scheme
+  and recommends a specific order, we will install it before the others.
 
--  Since Windows creates the ESP automatically, you won’t be able to set
-   the size, it defaults to 100Mb and should be enough for this case.
-   Generally Linux reserves 500Mb for this partition, but that is too
-   much.
+* Windows creates the ESP automatically, so you won’t be able to set
+  the size. It defaults to 100 MB and should be enough for this case.
+  Linux OSes generally reserve ~ 500 MB for this partition, but that
+  is too much.
 
--  Generally, the last OS installed will write the EFI. Since I have not
-   discovered how to configure EFI boot order from Windows, a Linux OS
-   will be used as last installed system.
+* In general, the last OS installed will write the EFI. Since we want
+  Linux to write its own EFI, it makes sense to install it afterward.
 
--  We will use efibootmgr to manipulate the boot manager, make sure that
-   Linux distros have it. (Generally they do).
+* We will use ``efibootmgr`` to manipulate the boot manager, so double
+  check that your alternative Linux distribution has it (most do).
 
--  Centos 7 uses anaconda as the installer software, which is the same
-   for Fedora and RedHat, you should follow the installation guide as
-   the same for any of these Linux distributions.
+* Centos 7 uses anaconda as the installer software. Fedora and RedHat
+  do also, so you should follow the installation guide as it is the
+  same for any of these Linux distributions.
+
 
 Prerequisites
 =============
@@ -72,9 +77,9 @@ OS installation images
 
 The Clearlinux image can be downloaded from
 `*https://download.clearlinux.org/releases/* <https://download.clearlinux.org/releases/>`__
-where you can find all the versions and flavors of images, choose a
+where you can find all the versions and flavors of images. Choose a
 recent one and the installer flavor which contains installer software
-and sizes around 300Mb.
+and sizes around 300 MB.
 
 The Centos image can be found in their homepage, they have 3 flavors:
 DVD, Everything and Minimal, in this case, a Minimal image will be used,
@@ -108,9 +113,8 @@ is available.
 UEFI
 ----
 
-Since systemd-boot uses this capability, it is required that the images
-support UEFI, you shouldn’t have any problems with latest operating
-systems.
+Since ``systemd-boot`` uses this capability, it is required that the
+images support UEFI.
 
 Installing Windows
 ==================
