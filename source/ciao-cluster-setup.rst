@@ -451,7 +451,7 @@ After this you can start/restart the ciao-controller and launch your workload, o
 
 then look for the column "SSH IP", there is the IP assigned to your workload, next to it, you will see the column SSH PORT, that's the port that you will use to access a specific workload, then access the workload using your private key and the user "demouser"::
 
-``$ ssh -p <workload_port> -i </path/to/your/private-key> demouser@<workload-ip>``
+  $ ssh -p <workload_port> -i </path/to/your/private-key> demouser@<workload-ip>
 
 
 Reset your cluster
