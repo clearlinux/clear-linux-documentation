@@ -441,17 +441,15 @@ described above.
 Access your workload
 ====================
 
-Before you can access a workload, you need to set a SSH key on your configuration before launch the workload, first create a pair of ssh keys and add the public key to you configuration file ciao/group_vars/all in the ciao_guest_key value
+Before you can access a workload, you need to set a SSH key on your configuration before launch the workload, first create a pair of ssh keys and add the public key to you configuration file ciao/group_vars/all in the ciao_guest_key value::
 
-*     ciao_guest_key: /path/to/your/public-key.pub
+* ciao_guest_key: /path/to/your/public-key.pub
 
-After this you can start/restart the ciao-controller and launch your workload, once your workload is up, you need to know it's IP address and assigned port, you can find it via ciao-cli
-
+After this you can start/restart the ciao-controller and launch your workload, once your workload is up, you need to know it's IP address and assigned port, you can find it via ciao-cli::
 
   $ ciao-cli instance list
 
-
-then look for the column "SSH IP", there is the IP assigned to your workload, next to it, you will see the column SSH PORT, that's the port that you will use to access a specific workload, then access the workload using your private key and the user "demouser"
+then look for the column "SSH IP", there is the IP assigned to your workload, next to it, you will see the column SSH PORT, that's the port that you will use to access a specific workload, then access the workload using your private key and the user "demouser"::
 
 ``$ ssh -p <workload_port> -i </path/to/your/private-key> demouser@<workload-ip>``
 
