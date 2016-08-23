@@ -156,15 +156,15 @@ up Keystone services can be found at the `OpenStack developer`_ website.
 We need a few configuration points. For example:::
 
   $ openstack service create --name ciao compute
-  $ openstack user create --password secretAdminPassword admin
-  $ openstack role add --project service --user admin admin
+  $ openstack user create --password ciaoUserPassword ciao \
+      --description "privileged user for the ciao-controller node"
+  $ openstack role add --project service --user ciao admin
   $ openstack project create --description "Demostration Tenant Project" demo
-  $ openstack user create --password secretDemoPassword demo
+  $ openstack user create --password demoUserPassword demo
   $ openstack role add --project demo --user demo user
 
-This adds a ciao compute service, an admin user with the password
-``secretAdminPassword``, a keystone admin project, a demo user with the
-password ``secretDemoPassword`` and a demo project for the controller node.
+This adds a ciao compute service, a keystone user(ciao) and project for the
+ciao-controller node, and a demo user with the password "demoUserPassword".
 
 Controller node setup
 ---------------------
@@ -192,8 +192,8 @@ For more details about Cluster Configuration Architecture: `CIAO Configuration A
           compute_port: 8774
           compute_ca: /etc/pki/ciao/controller_cert.pem
           compute_cert: /etc/pki/ciao/controller_key.pem
-          identity_user: admin
-          identity_password: secretAdminPassword
+          identity_user: ciao
+          identity_password: ciaoUserPassword
         launcher:
           compute_net:
           - 192.168.0.0/16
