@@ -66,11 +66,14 @@ This kernel was selected due to Clear Linux OS main kernel
 some times VirtualBox kernel modules doesn't fit in early days of a new
 kernel release.
 
+In the first boot Clear Linux will ask for a login user, type **root** and
+then the system will ask you for a new password.
+
 To install the VirtualBox kernel modules you should follow these steps:
 
 #. Install the bundle that supports VirtualBox modules::
 
-     # swupd bundle-add virtualbox-guest
+     # swupd bundle-add kernel-lts
 
 #. Set a timeout in the bootmanager to shows a menu at boot time::
 
@@ -95,11 +98,33 @@ To install the VirtualBox kernel modules you should follow these steps:
      # clr-boot-manager update
 
 
+Install Guest Additions
+-----------------------
 
-And to use the VirtualBox additions, load the ``vboxsf`` module::
+The kernel modules are shipped by *kernel-lts* bundle, but you need to install
+the *user* Linux Guest Additions. To install the VirtualBox Guest Additions
+you should follow these steps:
 
-  # modprobe vboxsf
+#. Insert Guest Additions CD image using *Devices* menu
 
+#. Install Linux users Guest Additions::
+
+     # install-vbox-lga
+
+#. Reboot your system::
+
+     # reboot
+
+#. (*Optional*) To use Clear Linux graphical user interface please do::
+
+     # swupd bundle-add os-utils-gui
+
+   once the *os-ultils-gui* bundle is installed you can start
+   graphical user interface with::
+
+     # startx
+
+   Clear Linux doesn't provide a graphical display manager.
 
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
 .. _VirtualBox: https://www.virtualbox.org/
