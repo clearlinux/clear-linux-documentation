@@ -9,7 +9,7 @@ Introduction
 Another customization option is to install Clear Linux* OS for
 Intel® Architecture alongside other operating systems.
 
-In this tutorial, we will show how to install Clear Linux build
+In this tutorial, we will show how to install Clear Linux OS build
 9990 on a machine that will also be able to boot CentOS* 7 and Windows*
 server 2016. These operating systems are, of course, only examples;
 this process can be used to install a Clear Linux release alongside
@@ -34,7 +34,7 @@ partitioning, take into account the following:
 * The ESP partition is generally the first partition for performance
   reasons; however, Windows sets its recovery partition as first and
   ESP as second. Make note of which partition is the ESP because that
-  information will be needed when configuring the boot loader.
+  information will be needed later when configuring the boot loader.
 
 * The size of the partition hosting root file systems should be
   large enough for core files and data. Generally, users like to have
@@ -42,13 +42,13 @@ partitioning, take into account the following:
   for a dual-boot, as Windows tends to need at least 10 GB of disk space.
 
 * For Linux, there are multiple formats for disk partitioning. Some
-  can be encrypted and some can be grouped; in these cases we will use
+  can be encrypted and some can be grouped; for our example, we will use
   standard partitioning formatted as ``ext4`` without any swap partitions.
 
 * For Linux, partitions can be mounted on different paths, and in our
   use case we will use the simplest -- an ESP partition mounted in
   ``/boot/efi`` (Or ``/boot`` for Clear Linux) and an ``ext4`` Linux
-  filesystem partition for root (at "``/``").
+  filesystem partition for root (at ``/``).
 
 * Due to the fact that Windows creates its own partitioning scheme
   and recommends a specific order, we will install it before the others.
@@ -76,18 +76,17 @@ OS installation images
 ----------------------
 
 For each OS you want to be able to boot into from the multiboot
-environment, you'll need an installation image.  To create the specific
-multiboot environment we proposed in the beginning of this tutorial,
+menu, you'll need an installation image.  To create the specific
+multiboot setup we proposed in the beginning of this tutorial,
 you will need:
 
   *  A **Clear Linux OS image**, which can be downloaded from our
      `releases page`_; be sure to select a version that includes
      installer software.
-  *  The **CentOS image** (select the "Minimal" version); links
-     for where to download CentOS Minimal iso images can be found
-     on the `CentOS website`_.
+  *  The **CentOS image** ("Minimal" version); links for where to
+     download CentOS Minimal iso images can be found on the `CentOS website`_.
   *  A Windows installation image, or a system with Windows
-     pre-installed can work just as well.
+     pre-installed can work as well.
 
 If you have non-installer versions of images you want to use in
 your multiboot environment, pre-partitioning work should be done
@@ -111,7 +110,7 @@ internet is available, there are two ways to get around this:
 * Land a Clear Linux "live" image directly in the hard disk, or
 * Use a private network to connect to a mixer server.
 
-These edge cases won't be covered in this tutorial.  We are
+These use cases won't be covered in this tutorial.  We are
 assuming that the system you want to allow multiboot on has a
 network connection and that internet access is available.
 
@@ -128,13 +127,13 @@ Installing Windows
 Creating a bootable USB stick
 -----------------------------
 
-**This process has not been verified as it has known issues.**
+**This process has not been verified and may have known issues.**
 
 An ISO-to-USB program can be used for Windows, or to get an
 already bootable Windows USB stick. One way of doing this is to 
 inject the :abbr:`Master Boot Record (MBR)` into the first logical
 bytes of the USB stick; files can be found in the `syslinux distribution`_,
-using :file:`gptmbr.bin`, since we want UEFI to boot:
+using :file:`gptmbr.bin` to get UEFI to boot:
 
 1. Using GPT: Format USB stick with NTFS format and bootable flag.
 
@@ -142,7 +141,7 @@ using :file:`gptmbr.bin`, since we want UEFI to boot:
      
      # dd if=/usr/share/syslinux/gptmbr.bin of=/dev/sdb
 
-3. Copy Windows files into USB stick.
+3. Copy Windows files to a USB stick.
 
 4. Make sure to remove USB safely by # sync
 
@@ -205,17 +204,17 @@ Finally, click on the "Begin installation" button and enter a root password.
 Wait to end and reboot.
 
 
-Installing Clearlinux
-=====================
+Installing Clear Linux OS
+=========================
 
 Creating a bootable USB stick
 -----------------------------
 
 After you download the Clear Linux OS image, uncompress it
-using ``unxz`` and do the same as for CentOS image::
+using ``unxz`` and write it to a different USB with the
+same kind of command::
 
-  # dd if=/path/to/your/clear-9990-installer.img of=/dev/sdb
-  # sync
+  # dd if=/path/to/your/clear-9990-installer.img of=/dev/sdb && sync
 
 Disk partitioning and installation
 ----------------------------------
@@ -224,25 +223,27 @@ Insert the Clear Linux OS bootable USB, turn on the computer,
 wait for it to boot, and installation software will start
 automatically. Then follow these steps:
 
-1. Select "Manual installation", then "I will configure partitioning".
+1. Select "Manual installation", and "I will configure partitioning".
 
-2. Select the disk where you want your root filesystem and create a 20Gb
-   Linux filesystem, then select "Next" .
+2. Select the disk where you want your root filesystem and create
+   a 20 GB Linux filesystem, then select "Next" .
 
 3. Configure the mount point of the recently-created partition as root
-   (``/``), and the ESP as ``/boot``; remember to NOT format partition.
+   (``/``), and the ESP as ``/boot``; remember to NOT select formatting
+   the partition.
 
-4. Continue with the installation process, selecting bundles, user
-   creation, and DHCP enabling).
+4. Continue with the installation process: create your user and select
+   "DHCP" enabling.
 
-5. Start the installation and reboot.
+5. Finish the installation and reboot.
 
 
 Configuring Boot Loader
 =======================
 
-For this section we will rely on ``efibootmgr`` tool, and more information
-about this tool can be found here: `*http://linux.die.net/man/8/efibootmgr* <http://linux.die.net/man/8/efibootmgr>`__).
+For this section we will rely on ``efibootmgr`` tool. Information
+about this tool can be found here: `*http://linux.die.n
+et/man/8/efibootmgr* <http://linux.die.net/man/8/efibootmgr>`__).
 If your system automatically boots Windows, then you can find a
 way to do this from Windows or to boot a Linux live media with
 efibootmgr.
@@ -250,8 +251,8 @@ efibootmgr.
 EFI boot manager
 ----------------
 
-To see the current EFI settings:
- 
+To see the current EFI settings::
+
   # efibootmgr -v
 
 You should see the boot entries for your installed OSes, except for
@@ -261,11 +262,11 @@ Windows. Nevertheless, the EFI always comes with a Windows entry named
 The ``systemd-boot`` entry should be the first one, and you can identify
 it because is the one whose EFI points to :file:`/EFI/systemd/systemd-boot.efi`.
 Specify a new order with option ``-o``; for example, if the ``systemd-boot``
-entry is number 0006, you should type:
+entry is number 0006, you should type::
 
   # efibootmgr -o 6
 
-When no ``systemd-boot`` entry exists, then you can create it as follows::
+When no ``systemd-boot`` entry exists, it can be created as follows::
 
   # efibootmgr -c -L "Systemd-Boot" -l "\EFI\systemd\systemd-boot.efi"
 
@@ -350,12 +351,14 @@ following command::
 
   # ls -l /dev/disk/by-uuid
 
-If you want the PARTUUID as the example above, then this is the command::
+And to identify the PARTUUID as the above example has done, this
+command will allow you to find the one on your system::
 
   # ls -l /dev/disk/by-partuuid
 
 And lastly, the kernel boot options are found in the :file:`grub2.cfg`
-file; find and inspect it to see what specific options your OS may need.
+file; find and inspect it to see what other specific options your OS
+may need.
 
 Windows boot entry
 ~~~~~~~~~~~~~~~~~~
