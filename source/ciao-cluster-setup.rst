@@ -2,12 +2,11 @@
 
 .. contents::
 
-Manually setting up a ciao cluster
-##################################
+ciao cluster setup
+##################
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
-for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`,
-or ciao.
+for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`, or ciao.
 
 While the table of contents provides links to specific points of information, this
 topic is intended as an ordered workflow. Be sure to start your cluster components
@@ -21,8 +20,7 @@ Hardware needs
 
 You'll need at least four machines and a switch connecting them to form
 your beginning ciao cluster. The switch is assumed to be plugged directly
-into an "upstream" network running a DHCP server. See the illustration below as
-an example:
+into an "upstream" network running a DHCP server. See the illustration below as an example:
 
 .. image:: image-blob-ciao-networking.png
 
@@ -39,21 +37,21 @@ Network node ("nn")
 ~~~~~~~~~~~~~~~~~~~
 
 * IP ``192.168.0.102``
-* Runs Launcher
+* Runs Launcher with ``--network=nn`` option
 * Has CNCI image in ``/var/lib/ciao/images``. See below for more on CNCI image preparation.
 
 Compute node 1 ("cn1")
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * IP ``192.168.0.103``
-* Runs Launcher
+* Runs Launcher with ``--network=cn`` option
 * Has workload images in ``/var/lib/ciao/images``
 
 Compute node 2 ("cn2")
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * ``IP 192.168.0.104``
-* Runs Launcher
+* Runs Launcher with ``--network=cn option``
 * Has workload images in ``/var/lib/ciao/images``
 
 
@@ -100,7 +98,7 @@ dependencies::
     $ go get -v -u github.com/01org/ciao
 
 The binaries will install to ``$GOPATH/bin``. You should have
-``ciao-cli``, ``ciao-cert``, ``ciao-cnci-agent``, ``ciao-launcher``,
+``ciao-cli``, ``ciao-cert``, ``cnci_agent``, ``ciao-launcher``,
 ``ciao-controller``, and ``ciao-scheduler``.
 
 Build certificates
@@ -119,14 +117,14 @@ SSNTP server, and connecting clients will validate credentials matched by
 those embedded in the certificates.
 
 Create unique certificates for each of your scheduler, compute node, network
-node launchers, cnci agent, controller, and the CNCI launcher; save each with a
+node launchers, cnciagent, controller, and the CNCI launcher; save each with a
 unique name. The names, locations, and contents (signer and role) of the
 certificates are very important. The rest of this topic will consistently use
 the following example filenames:
 
 * ``CAcert-[scheduler-node-hostname].pem``: copy to all nodes' ``/etc/pki/ciao`` and the CNCI image's ``/var/lib/ciao``. See below for more on CNCI image preparation.
 * ``cert-CNAgent-localhost.pem``: copy to all compute nodes' ``/etc/pki/ciao``.
-* ``cert-CNCIAgent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``. A script later will copy it into the CNCI appliance image. See below for more on CNCI image preparation.
+* ``cert-CNCIAgent-localhost.pem``: copy into your network node's ``/var/lib/ciao``. A script later will copy it into the CNCI appliance image.  See below for more on CNCI image preparation.
 * ``cert-Controller-localhost.pem``: copy into your controller node's ``/etc/pki/ciao``.
 * ``cert-NetworkingAgent-localhost.pem``: copy into your network node's ``/etc/pki/ciao``.
 * ``cert-Scheduler-[scheduler-node-hostname].pem``: copy into your controller node's ``/etc/pki/ciao``.
@@ -142,11 +140,8 @@ Copy the ``controller_cert.pem`` and ``controller_key.pem`` files to your
 controller node. You can use the same location where you will be storing
 your controller binary (``ciao-controller``).
 
-You'll also need to pull that controller certificate into system
-CA trust. The specifics of how to do this vary by Linux distribution
-(eg: ``update-ca-certificates``, ``update-ca-trust``, and ``trust``
-are examples of tools for this purpose on Ubuntu*, Fedora* and Clear Linux
-respectively).
+You'll also need to pull that certificate into your browser as noted below in
+the `Starting a workload` section.
 
 Keystone node
 -------------
@@ -156,15 +151,14 @@ up Keystone services can be found at the `OpenStack developer`_ website.
 We need a few configuration points. For example:::
 
   $ openstack service create --name ciao compute
-  $ openstack user create --password ciaoUserPassword ciao \
-      --description "privileged user for the ciao-controller node"
-  $ openstack role add --project service --user ciao admin
-  $ openstack project create --description "Demostration Tenant Project" demo
-  $ openstack user create --password demoUserPassword demo
+  $ openstack user create --password hello csr
+  $ openstack role add --project service --user csr admin
+  $ openstack user create --password giveciaoatry demo
   $ openstack role add --project demo --user demo user
 
-This adds a ciao compute service, a keystone user(ciao) and project for the
-ciao-controller node, and a demo user with the password "demoUserPassword".
+This adds a ciao compute service, a keystone user and project for the
+controller (a.k.a. csr) node, and a demo user with the password
+``giveciaoatry``.
 
 Controller node setup
 ---------------------
@@ -172,40 +166,6 @@ Controller node setup
 The controller node will host your controller and scheduler. Certificates are assumed
 to be in ``/etc/pki/ciao``, generated with the correct roles and names
 as previously described.
-
-Cluster Configuration
-~~~~~~~~~~~~~~~~~~~~~
-Ciao's cluster configuration is stored and fetched from a cluster-specific storage backend.
-Supported backends are plain **local file**, **etcd** [WIP] and **ZooKeeper** [WIP].
-
-For more details about Cluster Configuration Architecture: `CIAO Configuration Architecture`_
-
-- Local File backend
-
-  - Create the ``/etc/ciao/configuration.yaml`` file. Example::
-
-      configure:
-        scheduler:
-          storage_type: file
-          storage_uri: file:///etc/ciao/configuration.yaml
-        controller:
-          compute_port: 8774
-          compute_ca: /etc/pki/ciao/controller_cert.pem
-          compute_cert: /etc/pki/ciao/controller_key.pem
-          identity_user: ciao
-          identity_password: ciaoUserPassword
-        launcher:
-          compute_net:
-          - 192.168.0.0/16
-          mgmt_net:
-          - 192.168.0.0/16
-          disk_limit: true
-          mem_limit: true
-        identity_service:
-          type: keystone
-          url: https://controller.example.com:35357
-
-  - More examples at: `CIAO Configuration examples`_
 
 Scheduler
 ~~~~~~~~~
@@ -215,9 +175,6 @@ location, then launch it first (does not require root)::
 
     $ ./ciao-scheduler --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Scheduler-[scheduler-node-hostname].pem --heartbeat
 
-Optionally, add ``-logtostderr`` (more verbose with also ``-v=2``) to get
-console logging output.
-
 With the optional ``--heartbeat`` option, the scheduler console will
 output once per-second a heartbeat message showing connected Controller
 and Compute Node client statistics. It also displays a line of
@@ -226,6 +183,14 @@ As the sole SSNTP server in the ciao cluster, it is a key debugging point
 to understand failed flows of actions/reactions across your cluster.
 Launching it first means this console output helps confirm your subsequent
 cluster configurations actions are indeed succeeding.
+
+ciao-controller
+~~~~~~~~~~~~~~~
+
+**Important: Do not start the ciao controller just yet!** It should only
+be started after a network node is connected to the scheduler; otherwise
+workloads may fail to start. This restriction will be addressed once
+`ciao issue #12`_ is closed.
 
 Compute node setup
 ------------------
@@ -245,7 +210,7 @@ simplicity, presume a prepopulated image cache for each compute
 node in ``/var/lib/ciao/images``.
 
 We have tested the `Fedora 23 Cloud`_, Clear Linux OS for Intel
-Architecture cloud `downloadable cloud images`_, and Ubuntu images. Each image
+Architecture cloud `downloadable cloud images`_, and Ubuntu* images. Each image
 will be referenced very specifically by a UUID in our configuration
 files, so follow the instructions here exactly. You may wish to create
 the needed UUID named image files as symlinks to a more human readable
@@ -274,9 +239,12 @@ images with which you wish to test.
 Start the compute node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The launcher is run with options declaring certificates. For example::
+The launcher is run with options declaring certificates, maximum VMs
+(controls when FULL is returned by a node, scaling to the resources
+available on your node), server location, and compute node ("cn")
+launching type. For example::
 
-    $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem
+    $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet>
 
 Optionally, add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
@@ -297,22 +265,23 @@ correct roles and names as previously described.
 Pre-populate the CNCI image cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You need to generate a CNCI image with your cluster TLS keys inside
-it, based on the latest base image published by Clear Linux.  This is
-accomplished through scripting as described in `ciao-cnci-agent`_.
+This section describes how to generate a CNCI image from a vanilla
+Clear Cloud qcow2 image::
 
-Once created, move your image to the cache on your network node and
-symlink it::
-
-  $ mv clear-8260-ciao-networking.img /var/lib/ciao/images
-  $ ln -s /var/lib/ciao/images/clear-8260-ciao-networking.img /var/lib/ciao/images/4e16e743-265a-4bf2-9fd1-57ada0b28904
+  $ cd /var/lib/ciao/images
+  $ curl -O https://download.clearlinux.org/demos/ciao/clear-7470-ciao-networking.img.xz
+  $ xz -T0 --decompress clear-7470-ciao-networking.img.xz
+  $ ln -s clear-7470-ciao-networking.img 4e16e743-265a-4bf2-9fd1-57ada0b28904
+  $ $GOPATH/src/github.com/01org/ciao/networking/cnci_agent/scripts/update_cnci_cloud_image.sh /var/lib/ciao/images/clear-7470-ciao-networking.img /etc/pki/ciao/
 
 Start the network node launcher
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The network node's launcher is run similarly to the compute node's launcher.::
+The network node's launcher is run similarly to the compute node's launcher.
+The primary difference is that it uses the network node ("nn") launching
+type::
 
-  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem
+  $ sudo ./ciao-launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <network node compute subnet> --mgmt-net <network node management subnet>
 
 Start the controller
 --------------------
@@ -326,7 +295,7 @@ and network node already up and running together.**
    the correct roles and names as previously described.
 
 #. Copy in the initial database table data from the ciao-controller source
-   (``$GOPATH/src/github.com/01org/ciao/ciao-controller/tables/`` on your
+   (``$GOPATH/src/github.com/01org/ciao/ciao-controller`` on your
    build/development) to the same directory as the ciao-controller binary.
    Copying in ``*.csv`` will work if you are testing a Clear Cloud image,
    Fedora image and Docker. Other images will require edits to the csv
@@ -353,33 +322,43 @@ this certificate needs to be installed in the control node and be
 part of the control node CA root. On Clear Linux OS for Intel
 Architecture, this is accomplished with::
 
-    $ sudo mkdir /etc/ssl/certs
-    $ sudo cp cacert.pem /etc/ssl/certs
-    $ sudo trust-certs
+    $ sudo mkdir /etc/ca-certs
+    $ sudo cp cacert.pem /etc/ca-certs
+    $ sudo c_hash /etc/ca-certs/cacert.pem
 
-The controller is run with options declaring certificates. Other options will be
-be fetched from the scheduler.::
+Note the generated hash from the prior command and use it in the next commands::
 
-  $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem
+    $ sudo ln -s /etc/ca-certs/cacert.pem /etc/ca-certs/<hashvalue>
+    $ sudo mkdir /etc/ssl
+    $ sudo ln -s /etc/ca-certs/ /etc/ssl/certs
+    $ sudo ln -s /etc/ca-certs/cacert.pem /usr/share/ca-certs/<hashvalue>
+
+You will need to tell the controller where the keystone service is located and
+pass the ciao service username and password to it. DO NOT USE
+localhost for your server name; **it must be the fully qualified DNS
+name of the system that is hosting the keystone service**.
+An SSL-enabled Keystone is required, with additional parameters
+for ciao-controller pointing at its certificates::
+
+  $ sudo ./ciao-controller --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-Controller-localhost.pem -identity=https://[keystone-FQDN]:35357 --username=<Ciao keystone service username> --password=<Ciao keystone service password> --url <scheduler-FQDN> --httpskey=./key.pem --httpscert=./cert.pem
 
 Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
 Use the `ciao-cli`_ command line tool to verify that your cluster is
-now up and running (NOTE: you should have exported CIAO_* environment
-variables as per `ciao-cli`_ documentation)::
+now up and running::
 
-  $ ciao-cli node status
-  $ ciao-cli node list -compute
-  $ ciao-cli node list -cnci
+  $ ciao-cli -username admin -password <admin_password> -cluster-status
+  $ ciao-cli -username admin -password <admin_password> -list-cns
+  $ ciao-cli -username admin -password <admin_password> -list-cncis
 
-``node status`` shows the number of nodes in your cluster, and the
+``-cluster-status`` shows the number of nodes in your cluster, and the
 status of each.
 
-``node list -compute`` displays a more detailed view (number of instances per node,
+``-list-cns`` displays a more detailed view (number of instances per node,
 available resources per node, etc.).
 
-``node list -cnci`` provides information about the current CNCI VMs, and their statuses.
+``-list-cncis`` provides information about the current CNCI VMs, and their statuses.
 
 Interacting with your cluster
 =============================
@@ -404,7 +383,6 @@ specific environment variables:
 * ``CIAO_COMPUTEPORT`` exports the ciao compute alternative port
 * ``CIAO_USERNAME`` exports the ciao username
 * ``CIAO_PASSWORD`` export the ciao password for ``CIAO_USERNAME``
-* ``CIAO_TENANT_NAME`` export the ciao tenant name for the user
 
 For example::
 
@@ -414,7 +392,6 @@ For example::
   export CIAO_IDENTITY=https://ciao-identity.intel.com:35357
   export CIAO_USERNAME=user
   export CIAO_PASSWORD=ciaouser
-  export CIAO_TENANT_NAME=demo
 
   $ source ciao-cli-example.sh
 
@@ -428,34 +405,33 @@ variables and override them:
 * ``CIAO_COMPUTEPORT`` can be defined by the ``--computeport`` option
 * ``CIAO_USERNAME`` can be defined by the ``--username`` option
 * ``CIAO_PASSWORD`` can be defined by the ``--password`` option
-* ``CIAO_TENANT_NAME`` can be defined by the ``--tenant-name`` option
 
 
 Start a workload
 ================
 
-As a valid user, the `ciao-cli`_ tool allows you to start a workload.
+As a valid user, the `ciao-cli`tool allows you to start a workload.
 
 First, you may want to know which workloads are available::
 
-  $ ciao-cli workload list
+  $ ciao-cli -list-workloads
 
 Then you can launch one or more workloads::
 
-  $ ciao-cli instance add -workload <workload UUID> -instances <number of instances to launch>
+  $ ciao-cli -launch-instances -workload <workload UUID> -instances <number of instances to launch>
 
 And you can monitor all your instances statuses (``pending`` or ``running``)::
 
-  $ ciao-cli instance list
+  $ ciao-cli -list-instances
 
 Performance data can be obtained (optionally) by adding a specific label
 to all your instances::
 
-  $ ciao-cli instance add -label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
+  $ ciao-cli -launch-instances -instance-label <instance-label> -workload <workload UUID> -instances <number of instances to launch>
 
 And eventually fetch the performance data::
 
-  $ ciao-cli trace show <instance-label>
+  $ ciao-cli -dump-label <instance-label>
 
 You will also see activity related to this launch across your cluster
 components if you have consoles open and logging to standard output as
@@ -465,21 +441,14 @@ described above.
 Access your workload
 ====================
 
-Before you can access a workload, you need to set a SSH key on your configuration.
-Before launching the workload, first create a pair of ssh keys and add the public
-key to your configuration file ciao-controller/workloads/test.yml in the
-ssh-authorized-keys section.::
-
-  ssh-authorized-keys:
-    - <your SSH key>
-
-After this you can start/restart the ciao-controller and launch your workload, once your workload is up, you need to know it's IP address, you can find it via ciao-cli
+Once your workload is up, you need to know it's IP address and assigned port, you can find it via ciao-cli::
 
   $ ciao-cli instance list
 
-then look for the section "SSH IP", there is the IP assigned to your workload, then access the workload using your private key and the user "demouser"
+Then look for the column "SSH IP", there is the IP assigned to your workload, next to it, you will see the column SSH PORT, that's the port that you will use to access a specific workload using your private key defined in the cloud-init configuration and the user "demouser"::
 
-  $ ssh demouser@<workload_ip> -i </path/to/your/private-key>
+  $ ssh -p <workload_port> -i </path/to/your/private-key> demouser@<workload-ip>
+
 
 Reset your cluster
 ==================
@@ -487,7 +456,7 @@ Reset your cluster
 First you should delete all instances with the `ciao-cli`_ command line
 tool::
 
-  $ ciao-cli instance delete -all
+  $ ciao-cli -delete-instance -all-instances
 
 On your scheduler node, run the following command::
 
@@ -505,7 +474,7 @@ On the node running your keystone VM, run the following command::
 
 On the network node, run the following commands::
 
-  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --hard-reset
+  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-NetworkingAgent-localhost.pem --server=<your-server-address> --network=nn --compute-net <node compute subnet> --mgmt-net <node management subnet> --hard-reset
   $ sudo killall -9 qemu-system-x86_64
   $ sudo rm -rf /var/lib/ciao/instances/
   $ sudo reboot
@@ -513,7 +482,7 @@ On the network node, run the following commands::
 If you were unable to successfully delete all workload VM instances
 through the UI, then on each compute node run these commands::
 
-  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --hard-reset
+  $ sudo ./launcher --cacert=/etc/pki/ciao/CAcert-[scheduler-node-hostname].pem --cert=/etc/pki/ciao/cert-CNAgent-localhost.pem --server=<your-server-address> --network=cn --compute-net <node compute subnet> --mgmt-net <node management subnet> --hard-reset
   $ sudo killall -9 qemu-system-x86_64
   $ sudo docker rm $(sudo docker ps -qa)
   $ sudo docker network rm $(sudo docker network ls -q -f "type=custom")
@@ -558,19 +527,15 @@ Please contact our `mailing list`_ for more help with initial bringup and
 testing.
 
 .. _ciao issue #12: https://github.com/01org/ciao/issues/12
-.. _ciao-controller workload_resources.csv: https://github.com/01org/ciao/blob/master/ciao-controller/tables/workload_resources.csv
-.. _ciao-controller workload_template.csv: https://github.com/01org/ciao/blob/master/ciao-controller/tables/workload_template.csv
+.. _ciao-controller workload_resources.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv
+.. _ciao-controller workload_template.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv
 .. _downloadable installer images: https://download.clearlinux.org/image
 .. _downloadable cloud images: https://download.clearlinux.org/image
 .. _Fedora 23 Cloud: https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-23-20151030.x86_64.qcow2
 .. _Openstack developer: http://docs.openstack.org/developer/keystone/setup.html
 .. _go: https://golang.org/doc/articles/go_command.html
-.. _ciao-cert: https://github.com/01org/ciao/blob/master/ciao-cert
-.. _CNCI Agent: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent
+.. _ciao-cert: https://github.com/01org/ciao/blob/master/ssntp/ciao-cert/README.md
+.. _CNCI Agent: https://github.com/01org/ciao/tree/master/networking/cnci_agent
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/ciao-devel
 .. _ciao-cli: https://github.com/01org/ciao/tree/master/ciao-cli
 .. _ciao-webui: https://github.com/01org/ciao-webui
-.. _ciao-cnci-agent: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent/scripts
-.. _ciao configuration: https://github.com/01org/ciao/tree/master/configuration
-.. _CIAO Configuration Architecture: https://github.com/01org/ciao/wiki/Configuration
-.. _CIAO Configuration Examples: https://github.com/01org/ciao/tree/master/configuration#configuration-examples
