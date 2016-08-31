@@ -6,6 +6,7 @@ Advanced configuration
 
    clear-containers
    network_boot
+   bulk_provisioning
    mixer
    ac-dpdk
    ac-ovs-dpdk
