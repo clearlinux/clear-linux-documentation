@@ -80,7 +80,7 @@ Here is a high-level overview describing set up and configuration of a bulk-prov
 * Stage config files for ``ister`` that will govern Ister's behavior. This includes modifying the 
   script for ipxe boot, getting it to pass an additional parameter to the kernel.
 
-  The magic that ties all of this together is that the pxe script conveys to ister the location of its configuration files via the kernel command line of the installer it kicks off. The kernel preserves its command line precisely, and ister inspects it via /proc/cmdline.
+  The magic that ties all of this together is that the pxe script conveys to ister the location of its configuration files via the kernel command line of the installer it kicks off. The kernel preserves its command line precisely, and ister inspects it via ``/proc/cmdline``.
 
   Here is an example pxe script:
 
@@ -131,8 +131,9 @@ Here is a high-level overview describing set up and configuration of a bulk-prov
       "IsterCloudInitSvc": ["http://192.168.1.1/"]
     }
 
-* Configure ICIS to map MAC addresses to role files appropriately. Then create the role files, which are ``cloud-init`` configuration files. Note, it is possible to simply specify a "default" role for any unmatched MAC address; this may
-be handy when all install targets are to be configured identically.
+* Configure ICIS to map MAC addresses to role files appropriately. Then create the role files, which 
+  are ``cloud-init`` configuration files. Note, it is possible to simply specify a "default" role for 
+  any unmatched MAC address; this may be handy when all install targets are to be configured identically.
 
 * Final pre-flight check. Assuming your iPXE server is at 192.168.1.1, all of the following urls need to be working.
 
