@@ -441,11 +441,16 @@ described above.
 Access your workload
 ====================
 
-Once your workload is up, you need to know it's IP address and assigned port, you can find it via ciao-cli::
+Once your workload is up, you need to know its IP address and assigned 
+port, you can find it via ciao-cli::
 
   $ ciao-cli instance list
 
-Then look for the column "SSH IP", there is the IP assigned to your workload, next to it, you will see the column SSH PORT, that's the port that you will use to access a specific workload using your private key defined in the cloud-init configuration and the user "demouser"::
+Then look for the column "SSH IP", there is the IP assigned to your 
+workload, next to it, you will see the column SSH PORT; that's the 
+port that you will use to access a specific workload using your 
+private key defined in the cloud-init configuration and the demo
+user name ``demouser``::
 
   $ ssh -p <workload_port> -i </path/to/your/private-key> demouser@<workload-ip>
 
@@ -462,7 +467,7 @@ On your scheduler node, run the following command::
 
   $ sudo killall -w -9 qemu-system-x86_64
 
-On your controller node, go to the directory in which you ran the
+On your controller node, go to the directory where you ran the
 ciao-controller binary and run the following commands::
 
   $ sudo killall -w -9 ciao-controller
@@ -503,9 +508,9 @@ For general debugging, you can:
   binaries' command lines.
 * Reduce your tenants to one (specifically the one with no limits).
 * Launch fewer VMs in a herd. A small Intel NUC with 16GB of RAM can handle as many as
-  50-100 2vcpu 218MB RAM VMs starting at once per compute node. Larger dual socket
-  many thread CPU with hundreds of GB RAM Haswell-EP servers can handle as many as 500
-  such VMs starting at once per compute node.
+  50-100 2vcpu 218MB RAM VMs starting at once per compute node. Larger dual-socket
+  many threaded CPUs with hundreds of GB RAM Haswell-EP servers can handle as many as
+  500 such VMs starting at once per compute node.
 * Tweak the launcher to enable remote access: go get with ``--tags=debug`` to enable
   a netcat based console redirection for each VM.  The launcher console verbose output
   will indicate per VM how to connect to the console. For example::
