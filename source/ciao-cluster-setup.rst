@@ -71,10 +71,10 @@ Install Clear Linux OS for Intel Architecture as host on all nodes
 
 Install Clear Linux OS for Intel Architecture as the host
 OS on all nodes by following the instructions in the topic
-:ref:`gs_installing_clr_as_host`. The current April 2016
-`downloadable installer images`_ are compatible with ciao.
+:ref:`gs_installing_clr_as_host`. The current `downloadable installer images`_ 
+are compatible with ciao.
 
-After the base installation on each node add the following additional
+After the base installation on each node, add the following additional
 bundle, which adds components needed by CIAO::
 
     $ swupd bundle-add cloud-control
@@ -85,7 +85,7 @@ Build the CIAO software
 -----------------------
 
 Ciao is written in the Go programming language. It requires Go 1.6 to
-build. Most Linux distributions have out of date versions of Go in their
+build. Most Linux distributions have out-of-date versions of Go in their
 repositories, so you will probably need to download and install a recent
 version of Go. This can be easily done by following the
 `Go installation instructions <https://golang.org/doc/install>`__.
@@ -146,7 +146,7 @@ the `Starting a workload` section.
 Keystone node
 -------------
 
-You need to run a Keystone service.  General documentation on setting
+You need to run a Keystone service. General documentation on setting
 up Keystone services can be found at the `OpenStack developer`_ website.
 We need a few configuration points. For example:::
 
@@ -157,7 +157,7 @@ We need a few configuration points. For example:::
   $ openstack role add --project demo --user demo user
 
 This adds a ciao compute service, a keystone user and project for the
-controller (a.k.a. csr) node, and a demo user with the password
+controller (a.k.a. ``csr``) node, and a demo user with the password
 ``giveciaoatry``.
 
 Controller node setup
