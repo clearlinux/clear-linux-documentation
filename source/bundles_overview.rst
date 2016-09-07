@@ -59,7 +59,6 @@ Current list of available bundles:
 		</style>
 	</head>
 
-
   <table>
     <tr>
       <th align=left>Bundle Name</th>
@@ -68,7 +67,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Provides the neccesary bundles to perform BAT succesfully
           <li>Includes (devtools-extras) bundle.</li>
           <li>Includes (openstack-test-suite) bundle.</li>
@@ -81,21 +80,26 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bootloader">bootloader</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>UEFI bootloaders</p></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Loads kernel from disk and boots the system</p></td>
+    </tr>
+    <tr>
+      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/c-basic">c-basic</a></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>c compilers</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-control">cloud-control</a></td>
-      <td class="bundlestatus">WIP</td>
-      <td class="bundledesc"><p>Support packages for a cloud control surface
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Run a cloud orchestration server
           <li>Includes (os-utils) bundle.</li>
           <li>Includes (kvm-host) bundle.</li>
           <li>Includes (net-utils) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-dashboard">cloud-dashboard</a></td>
-      <td class="bundlestatus">WIP</td>
-      <td class="bundledesc"><p>A graphical, web-based frontend UI for a cloud scheduler service.  Dependencies only for now.
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Run web-based UI for a cloud scheduler service
           <li>Includes (nodejs-basic) bundle.</li></p></td>
     </tr>
     <tr>
@@ -213,7 +217,9 @@ Current list of available bundles:
       <td class="bundledesc"><p>All packages required to build the editors bundle.
           <li>Includes (editors) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
-          <li>Includes (os-dev-extras) bundle.</li></p></td>
+          <li>Includes (os-dev-extras) bundle.</li>
+          <li>Includes (python-basic) bundle.</li>
+          <li>Includes (python-basic-dev) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors-doc">editors-doc</a></td>
@@ -427,7 +433,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mixer">mixer</a></td>
-      <td class="bundlestatus">WIP</td>
+      <td class="bundlestatus">ACTIVE</td>
       <td class="bundledesc"><p>Provide required utilities to make derivative releases
           <li>Includes (os-clr-on-clr) bundle.</li></p></td>
     </tr>
@@ -642,7 +648,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest-cci">os-cloudguest-cci</a></td>
-      <td class="bundlestatus">WIP</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Retired bundle - now provided by os-cloudguest
           <li>Includes (os-cloudguest) bundle.</li></p></td>
     </tr>
@@ -861,14 +867,14 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-basic">R-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Provides core R language and libraries
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Run R language programs
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/R-extras">R-extras</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Provides deeper functionality R language libraries
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Improve the user experience with a common set of prebuilt R libraries
           <li>Includes (R-basic) bundle.</li></p></td>
     </tr>
     <tr>
@@ -913,7 +919,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin">sysadmin</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Moved to sysadmin-basic
           <li>Includes (sysadmin-basic) bundle.</li></p></td>
     </tr>
@@ -964,7 +970,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/virtualbox-guest">virtualbox-guest</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Include the kernel modules to be used in a VirtualBox instance
           <li>Includes (kernel-lts) bundle.</li></p></td>
     </tr>
@@ -975,4 +981,7 @@ Current list of available bundles:
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
   </table>
+
+
+  
 
