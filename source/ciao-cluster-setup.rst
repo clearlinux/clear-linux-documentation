@@ -2,8 +2,8 @@
 
 .. contents::
 
-ciao cluster setup
-##################
+Detailed manual ciao cluster setup
+##################################
 
 This topic explains how to set up a cluster of machines running Clear Linux* OS
 for Intel® Architecture with :abbr:`Cloud Integrated Advanced Orchestrator (CIAO)`, or ciao.
@@ -71,10 +71,10 @@ Install Clear Linux OS for Intel Architecture as host on all nodes
 
 Install Clear Linux OS for Intel Architecture as the host
 OS on all nodes by following the instructions in the topic
-:ref:`gs_installing_clr_as_host`. The current April 2016
-`downloadable installer images`_ are compatible with ciao.
+:ref:`gs_installing_clr_as_host`. The current `downloadable installer images`_ 
+are compatible with ciao.
 
-After the base installation on each node add the following additional
+After the base installation on each node, add the following additional
 bundle, which adds components needed by CIAO::
 
     $ swupd bundle-add cloud-control
@@ -85,7 +85,7 @@ Build the CIAO software
 -----------------------
 
 Ciao is written in the Go programming language. It requires Go 1.6 to
-build. Most Linux distributions have out of date versions of Go in their
+build. Most Linux distributions have out-of-date versions of Go in their
 repositories, so you will probably need to download and install a recent
 version of Go. This can be easily done by following the
 `Go installation instructions <https://golang.org/doc/install>`__.
@@ -146,7 +146,7 @@ the `Starting a workload` section.
 Keystone node
 -------------
 
-You need to run a Keystone service.  General documentation on setting
+You need to run a Keystone service. General documentation on setting
 up Keystone services can be found at the `OpenStack developer`_ website.
 We need a few configuration points. For example:::
 
@@ -157,7 +157,7 @@ We need a few configuration points. For example:::
   $ openstack role add --project demo --user demo user
 
 This adds a ciao compute service, a keystone user and project for the
-controller (a.k.a. csr) node, and a demo user with the password
+controller (a.k.a. ``csr``) node, and a demo user with the password
 ``giveciaoatry``.
 
 Controller node setup
@@ -441,11 +441,16 @@ described above.
 Access your workload
 ====================
 
-Once your workload is up, you need to know it's IP address and assigned port, you can find it via ciao-cli::
+Once your workload is up, you need to know its IP address and assigned 
+port, you can find it via ciao-cli::
 
   $ ciao-cli instance list
 
-Then look for the column "SSH IP", there is the IP assigned to your workload, next to it, you will see the column SSH PORT, that's the port that you will use to access a specific workload using your private key defined in the cloud-init configuration and the user "demouser"::
+Then look for the column "SSH IP", there is the IP assigned to your 
+workload, next to it, you will see the column SSH PORT; that's the 
+port that you will use to access a specific workload using your 
+private key defined in the cloud-init configuration and the demo
+user name ``demouser``::
 
   $ ssh -p <workload_port> -i </path/to/your/private-key> demouser@<workload-ip>
 
@@ -462,7 +467,7 @@ On your scheduler node, run the following command::
 
   $ sudo killall -w -9 qemu-system-x86_64
 
-On your controller node, go to the directory in which you ran the
+On your controller node, go to the directory where you ran the
 ciao-controller binary and run the following commands::
 
   $ sudo killall -w -9 ciao-controller
@@ -503,9 +508,9 @@ For general debugging, you can:
   binaries' command lines.
 * Reduce your tenants to one (specifically the one with no limits).
 * Launch fewer VMs in a herd. A small Intel NUC with 16GB of RAM can handle as many as
-  50-100 2vcpu 218MB RAM VMs starting at once per compute node. Larger dual socket
-  many thread CPU with hundreds of GB RAM Haswell-EP servers can handle as many as 500
-  such VMs starting at once per compute node.
+  50-100 2vcpu 218MB RAM VMs starting at once per compute node. Larger dual-socket
+  many threaded CPUs with hundreds of GB RAM Haswell-EP servers can handle as many as
+  500 such VMs starting at once per compute node.
 * Tweak the launcher to enable remote access: go get with ``--tags=debug`` to enable
   a netcat based console redirection for each VM.  The launcher console verbose output
   will indicate per VM how to connect to the console. For example::
