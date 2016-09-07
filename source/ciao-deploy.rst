@@ -89,10 +89,9 @@ The relevant files in the playbook are the following:
     sure to change the values accordingly to fit your environment
 
   * The ``ciao_guest_key`` value in :file:`groups_var/all` is the key to be used to connect to the VMs created by
-    ciao; you can use the ``ssh-keygen`` command to create one as explained in the
-    :ref:`prerequisites` section.
+    ciao; you can use the ``ssh-keygen`` command to create one.
 
-A full list of available variables can be found in the ciao-* roles at
+A full list of available variables can be found in the :file:`defaults/main.yml` file of each role at
 https://github.com/clearlinux/clear-config-management/tree/master/roles
 
 Install the required ansible-roles
@@ -106,7 +105,7 @@ Install the required ansible-roles
 Run the playbook
 ================
 Once you have your variables and hosts file configured, the deployment can
-be fired with the following command:
+be started with the following command:
 
 .. code-block:: console
 
@@ -129,8 +128,8 @@ was specified in the ``groups_var/all`` file:
     Offline 0
     Maintenance 0
 
-You could also take a look at the :file:`./ciaorc` file that contains the
-following environment variables:
+You could also take a look at the :file:`./ciaorc` file created on your
+deployment node, which contains the following environment variables:
 
 .. code-block:: console
 
