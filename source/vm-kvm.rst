@@ -23,7 +23,7 @@ with this line::
 
 Now you may connect from host via SSH through 2223::
 
-    $ ssh -p 2223 root@localhost
+    $ ssh -p 10022 root@localhost
 
 Alternatively, there are a few other ways to approach this.
 
