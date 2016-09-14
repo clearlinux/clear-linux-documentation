@@ -46,16 +46,16 @@ Current list of available bundles:
 
 .. raw:: html
    
-   <head>
+  <head>
 	<title>Bundles in Clear Linux OS for Intel® Architecture</title>
-	<style type="text/css">
-		table { margin: 2em; border: 1px solid #e0e0e0; border-collapse: collapse; width: auto; }
-		th { align: center; padding: 0.5em; border: #ccc solid 1px; background-color: #555; color: #fff; text-transform: uppercase; font-size: 1.21em }
-		tbody tr:nth-child(odd) { background-color:#e0e0e0; } 			
-	    .bundlename { font-family: monospace; font-size: 1.23em; font-weight: bold;}
-	    .bundlestatus { font-weight: bold; }
-	    .bundledesc { font-size: 1em; line-height: 0.88em; font-family: sans; }
-		li { margin-left: 0.53em; padding-left: 0.23em; }
+	  <style type="text/css">
+  		table { margin: 2em; border: 1px solid #e0e0e0; border-collapse: collapse; width: auto; }
+  		th { align: center; padding: 0.5em; border: #ccc solid 1px; background-color: #555; color: #fff; text-transform: uppercase; font-size: 1.21em }
+  		tbody tr:nth-child(odd) { background-color:#e0e0e0; } 			
+  	    .bundlename { font-family: monospace; font-size: 1.23em; font-weight: bold;}
+  	    .bundlestatus { font-weight: bold; }
+  	    .bundledesc { font-size: 1em; line-height: 0.88em; font-family: sans; }
+  		li { margin-left: 0.53em; padding-left: 0.23em; }
 		</style>
 	</head>
 
@@ -104,20 +104,20 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-network">cloud-network</a></td>
-      <td class="bundlestatus">WIP</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Support for cloud networking agents
           <li>Includes (openssh-server) bundle.</li>
           <li>Includes (net-utils) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/clr-devops">clr-devops</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Provides build/release tools for Clear devops team</p></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Run all Clear Linux devops workloads</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic">containers-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Provides basic functionality to run containers workloads
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Run container applications from Dockerhub
           <li>Includes (kernel-container) bundle.</li>
           <li>Includes (network-advanced) bundle.</li>
           <li>Includes (storage-utils) bundle.</li></p></td>
@@ -136,12 +136,17 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cryptography">cryptography</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Cryptographic tools</p></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Encrypt, decrypt, sign and verify objects</p></td>
+    </tr>
+    <tr>
+      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-basic">database-basic</a></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Run a SQL database</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb">database-mariadb</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Provides components needed to run MariaDB</p></td>
     </tr>
     <tr>
@@ -157,7 +162,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-basic">devtools-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Provides basic set of languages and tools for development
           <li>Includes (R-basic) bundle.</li>
           <li>Includes (go-basic) bundle.</li>
@@ -170,7 +175,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devtools-extras">devtools-extras</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Provides extra set of languages and tools for development
           <li>Includes (R-extras) bundle.</li>
           <li>Includes (devtools-basic) bundle.</li>
@@ -181,8 +186,8 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils">dev-utils</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Provides a limited set of development utilities</p></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Assist application development</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-dev">dev-utils-dev</a></td>
@@ -200,15 +205,13 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dpdk-dev">dpdk-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>All headers and libraries necessary to develop with the Data Plane Development Kit.
-          <li>Includes (os-core-dev) bundle.</li>
-          <li>Includes (os-dev-extras) bundle.</li></p></td>
+      <td class="bundlestatus">Deprecated</td>
+      <td class="bundledesc"><p>All headers and libraries necessary to develop with the Data Plane Development Kit.</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors">editors</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Provides popular text editors
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Run popular terminal text editors
           <li>Includes (python-basic) bundle.</li></p></td>
     </tr>
     <tr>
@@ -229,7 +232,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils">file-utils</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Provides basic set of file manipulation utilities</p></td>
     </tr>
     <tr>
@@ -248,14 +251,14 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/games">games</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>A colossal, but entertaining waste of time
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Play games in Clear Linux
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic">go-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Provides basic Go language development</p></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Build and run go language programs</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic-dev">go-basic-dev</a></td>
@@ -267,8 +270,8 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-extras">go-extras</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>Most popular Golang libraries
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Improve the user experience with a common set of go libraries
           <li>Includes (go-basic) bundle.</li></p></td>
     </tr>
     <tr>
@@ -311,7 +314,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a></td>
-      <td class="bundlestatus"># [STATUS]:</td>
+      <td class="bundlestatus">Deprecated:</td>
       <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
           <li>Includes (iot-base) bundle.</li></p></td>
     </tr>
@@ -322,11 +325,6 @@ Current list of available bundles:
           <li>Includes (iot-base) bundle.</li>
           <li>Includes (nodejs-basic) bundle.</li>
           <li>Includes (iot-message-broker) bundle.</li></p></td>
-    </tr>
-    <tr>
-      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/"></a></td>
-      <td class="bundlestatus"></td>
-      <td class="bundledesc"><p></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a></td>
@@ -890,8 +888,8 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/rust-basic">rust-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
-      <td class="bundledesc"><p>rust compiler and cargo packaging tool</p></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Build and run rust language programs</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/shells">shells</a></td>
