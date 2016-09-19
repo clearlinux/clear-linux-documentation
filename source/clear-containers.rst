@@ -8,10 +8,11 @@ Introduction
 
 Intel® Clear Containers is a collection of tools, configurations,
 and techniques anchored on an implementation that leverages Intel® 
-Architecture to optimize container launching and execution workflow. These optimizations improve speed, size, and efficiency while offering a number
-of benefits that can be derived only from hardware-backed virtual machines 
-(hardware-enforced isolation and security, for example) on Intel® VT 
-technology.
+Architecture to optimize container launching and execution workflow. 
+These optimizations improve speed, size, and efficiency while offering 
+a number of benefits that can be derived only from hardware-backed 
+virtual machines (hardware-enforced isolation and security, for 
+example) on Intel® VT technology.
 
 These methods are applied across all levels of the host/virtual machine
 hierarchy: from the host-side userland software stack down through the host
@@ -390,8 +391,8 @@ mini-OS consists of a Linux kernel image and root filesystem image.
 Customer Client images and workloads
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Customers may utilize their own client images by instructing
-the mini-OS to execute them using as the mini-OS workload. Please
+Customers may use their own client images by instructing
+the mini-OS to execute them using the mini-OS workload. Please
 refer to the `Intel Clear Containers integration guide`_ for
 further detail.
 
@@ -402,7 +403,7 @@ FAQ
 
 **Q.** "Can I run Clear Containers on any host Linux?"
 
-**A.** Yes, any up-to date or recent Linux host should be able to run Clear
+**A.** Yes, any up-to-date or recent Linux host should be able to run Clear
    Containers, as long as the host system kernel contains the necessary
    features and is configured with the necessary support enabled.
 
