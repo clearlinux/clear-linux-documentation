@@ -124,7 +124,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic-dev">containers-basic-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the containers-basic bundle.
           <li>Includes (containers-basic) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -151,7 +151,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/database-mariadb-dev">database-mariadb-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides MariaDB development tools (libraries and drivers)
           <li>Includes (database-mariadb) bundle.</li></p></td>
     </tr>
@@ -191,7 +191,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-dev">dev-utils-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the dev-utils bundle.
           <li>Includes (dev-utils) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -199,7 +199,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-doc">dev-utils-doc</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides documentation and manpages for dev-utils
           <li>Includes (dev-utils) bundle.</li></p></td>
     </tr>
@@ -216,7 +216,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors-dev">editors-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the editors bundle.
           <li>Includes (editors) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -226,7 +226,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/editors-doc">editors-doc</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides documentation and manpages for editors
           <li>Includes (editors) bundle.</li></p></td>
     </tr>
@@ -237,7 +237,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils-dev">file-utils-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the file-utils bundle.
           <li>Includes (file-utils) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -245,7 +245,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/file-utils-doc">file-utils-doc</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides documentation and manpages for file-utils
           <li>Includes (file-utils) bundle.</li></p></td>
     </tr>
@@ -262,7 +262,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/go-basic-dev">go-basic-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the go-basic bundle.
           <li>Includes (go-basic) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -276,7 +276,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/hpc-basic">hpc-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides basic suite of MPI/HPC development tools
           <li>Includes (os-core-dev) bundle.</li>
           <li>Includes (os-dev-extras) bundle.</li></p></td>
@@ -304,19 +304,14 @@ Current list of available bundles:
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a></td>
       <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
-          <li>Includes (iot-extras) bundle.</li></p></td>
+          <li>Includes (iot-extras) bundle.</li>
+          <li>Includes (iot-base) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-base">iot-base</a></td>
       <td class="bundlestatus">WIP</td>
       <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
           <li>Includes (kernel-iot) bundle.</li></p></td>
-    </tr>
-    <tr>
-      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a></td>
-      <td class="bundlestatus">Deprecated:</td>
-      <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
-          <li>Includes (iot-base) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-extras">iot-extras</a></td>
@@ -328,13 +323,13 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides all openjdk tools
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-container">kernel-container</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a Linux kernel appropriate for a Clear Container</p></td>
     </tr>
     <tr>
@@ -345,31 +340,31 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-hyperv">kernel-hyperv</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a Linux kernel appropriate for running under HyperV
           <li>Includes (bootloader) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-iot">kernel-iot</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a Linux kernel appropriate for iot devices
           <li>Includes (bootloader) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-kvm">kernel-kvm</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a Linux kernel appropriate for running under KVM
           <li>Includes (bootloader) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-lts">kernel-lts</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a Linux LTS kernel appropriate for physical machines
           <li>Includes (bootloader) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-native">kernel-native</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a Linux kernel appropriate for physical machines
           <li>Includes (bootloader) bundle.</li></p></td>
     </tr>
@@ -391,12 +386,12 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lamp-basic">lamp-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Basic LAMP Server (apache2, mariadb, php5)</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/libX11client">libX11client</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides basic client libraries for X11 applications</p></td>
     </tr>
     <tr>
@@ -406,7 +401,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/machine-learning-basic">machine-learning-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Basic components for machine learning development 
           <li>Includes (os-core-dev) bundle.</li>
           <li>Includes (devtools-extras) bundle.</li></p></td>
@@ -426,18 +421,18 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/message-broker-rabbitmq">message-broker-rabbitmq</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides the RabbitMQ messaging service</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mixer">mixer</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provide required utilities to make derivative releases
           <li>Includes (os-clr-on-clr) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/net-utils">net-utils</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides an essential suite of core networking configuration and debug tools</p></td>
     </tr>
     <tr>
@@ -448,12 +443,12 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic">network-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a basic suite of networking utilities</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic-dev">network-basic-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the network-basic bundle.
           <li>Includes (network-basic) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -461,7 +456,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic-doc">network-basic-doc</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides documentation and manpages for network-basic
           <li>Includes (network-basic) bundle.</li></p></td>
     </tr>
@@ -491,7 +486,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/nodejs-basic">nodejs-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>NodeJS and associated dev tools</p></td>
     </tr>
     <tr>
@@ -501,7 +496,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openssh-server">openssh-server</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides an SSH server (and client)</p></td>
     </tr>
     <tr>
@@ -685,30 +680,30 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core">os-core</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>The basic core OS components of Clear Linux for iA </p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-dev">os-core-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the os-core bundle.
           <li>Includes (os-core) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-doc">os-core-doc</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides documentation and manpages for os-core
           <li>Includes (os-core) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update">os-core-update</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides basic suite for running the Clear Linux for iA Updater
           <li>Includes (os-core) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-update-dev">os-core-update-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the os-core-update bundle.
           <li>Includes (os-core-update) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -718,7 +713,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-dev-extras">os-dev-extras</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Development utilities and helpful base Linux dev environment tools</p></td>
     </tr>
     <tr>
@@ -728,7 +723,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-installer">os-installer</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides an installer for Clear Linux for iA
           <li>Includes (telemetrics) bundle.</li>
           <li>Includes (network-proxy-client) bundle.</li></p></td>
@@ -740,7 +735,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-phoronix">os-testsuite-phoronix</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All the required pieces for running the Phoronix Test Suite
           <li>Includes (os-utils-gui) bundle.</li>
           <li>Includes (devtools-extras) bundle.</li>
@@ -749,7 +744,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils">os-utils</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a core set of OS utilities
           <li>Includes (editors) bundle.</li>
           <li>Includes (dev-utils) bundle.</li>
@@ -761,7 +756,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-dev">os-utils-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the os-utils bundle.
           <li>Includes (os-utils) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -783,7 +778,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-doc">os-utils-doc</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides documentation and manpages for os-utils
           <li>Includes (os-utils) bundle.</li>
           <li>Includes (editors-doc) bundle.</li>
@@ -796,7 +791,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-utils-gui">os-utils-gui</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a graphical desktop environment 
           <li>Includes (cryptography) bundle.</li>
           <li>Includes (os-utils) bundle.</li>
@@ -805,12 +800,12 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic">perl-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides essential Perl language and dev tools</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-basic-dev">perl-basic-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the perl-basic bundle.
           <li>Includes (perl-basic) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -818,7 +813,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/perl-extras">perl-extras</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides extra libraries for Perl
           <li>Includes (perl-basic) bundle.</li></p></td>
     </tr>
@@ -841,17 +836,17 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pxe-server">pxe-server</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All the bits to run a PXE server for Clear Linux</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic">python-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides core Python language and libraries</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-basic-dev">python-basic-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the python-basic bundle.
           <li>Includes (python-basic) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -859,7 +854,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/python-extras">python-extras</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides extra libraries for Python
           <li>Includes (python-basic) bundle.</li></p></td>
     </tr>
@@ -877,12 +872,12 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-basic">ruby-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Top 3 basic Ruby Libraries</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ruby-extras">ruby-extras</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Top 3 to 6 basic Ruby Libraries
           <li>Includes (ruby-basic) bundle.</li></p></td>
     </tr>
@@ -893,7 +888,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/shells">shells</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All available shell programs for Clear, along with ancillary files</p></td>
     </tr>
     <tr>
@@ -904,12 +899,12 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils">storage-utils</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides basic storage-related utilities</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils-dev">storage-utils-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the storage-utils bundle.
           <li>Includes (storage-utils) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -923,19 +918,19 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-advanced">sysadmin-advanced</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Toolchest that a sysadmin needs to diagnose issues
           <li>Includes (sysadmin-basic) bundle.</li>
           <li>Includes (pnp-tools-advanced) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic">sysadmin-basic</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides a basic set of system administration utilities.</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic-dev">sysadmin-basic-dev</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the sysadmin-basic bundle.
           <li>Includes (sysadmin-basic) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -943,7 +938,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/sysadmin-basic-doc">sysadmin-basic-doc</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides documentation and manpages for sysadmin-basic
           <li>Includes (sysadmin-basic) bundle.</li></p></td>
     </tr>
@@ -963,7 +958,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/telemetrics">telemetrics</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides the Telemetrics client for Clear Linux for iA</p></td>
     </tr>
     <tr>
@@ -974,7 +969,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/xfce4-desktop">xfce4-desktop</a></td>
-      <td class="bundlestatus">ACTIVE</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Provides the XFCE4 graphical desktop environment 
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
