@@ -121,7 +121,7 @@ was specified in the ``groups_var/all`` file:
 
 .. code-block:: console
 
-   # ciao-cli -identity=https://ciao-controller.example.com:35357 -username admin -password secret -controller=ciao-controller.example.com node status
+   # ciao-cli -identity=https://ciao-controller.example.com:35357 -username ciao -password ciaoUserPassword -controller=ciao-controller.example.com node status
    Total Nodes 3
     Ready 0
     Full 3
@@ -136,8 +136,8 @@ deployment node, which contains the following environment variables:
    # cat ciaorc
    export CIAO_CONTROLLER=ciao-controller.example.com
    export CIAO_IDENTITY=https://ciao-controller.example.com:35357
-   export CIAO_USERNAME=csr
-   export CIAO_PASSWORD=secret
+   export CIAO_USERNAME=ciao
+   export CIAO_PASSWORD=ciaoUserPassword
 
 then you could verify with the following command:
 
