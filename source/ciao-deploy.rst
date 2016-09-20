@@ -111,6 +111,15 @@ be started with the following command:
 
    $ ansible-playbook -i hosts ciao.yml --private-key=<ssh_key>
 
+Note: The playbook will create the following files in the current folder of the machine runninng the playbooks.
+
+  * ./certificates: This directory contains the certificates that where created and copied to the cluster nodes.
+
+  * ./images: This directory contains the images used by the ciao cluster. (fedora, clearlinux, cnci, ovmf.fd)
+
+  * ./ciaorc: This file contains environment variables needed by ciao cli to authenticate to the ciao cluster.
+
+  * ./openrc: This file contains environment variables needed by openstack cli to authenticate with the ciao cluster.
 
 Verify
 ======
