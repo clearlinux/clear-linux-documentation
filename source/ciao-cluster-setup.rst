@@ -84,7 +84,7 @@ bundle, which adds components needed by CIAO::
 Build the CIAO software
 -----------------------
 
-Ciao is written in the Go programming language. It requires Go 1.6 to
+Ciao is written in the Go programming language. It requires Go 1.7 to
 build. Most Linux distributions have out-of-date versions of Go in their
 repositories, so you will probably need to download and install a recent
 version of Go. This can be easily done by following the
