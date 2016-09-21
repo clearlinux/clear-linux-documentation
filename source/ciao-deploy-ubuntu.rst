@@ -72,7 +72,9 @@ Make sure apt can run. Edit ``/etc/apt/apt.conf``, appending it with::
 
   Acquire::http::Proxy "http://yourproxyaddress:proxyport";
   
-Install Docker and make sure you can pull images. Edit ``/etc/systemd/system/docker.service.d/http-proxy.conf``, appending it with::
+Install Docker and make sure you can pull images. Edit 
+``/etc/systemd/system/docker.service.d/http-proxy.conf``, appending it 
+with::
 
   [Service]
   Environment="HTTP_PROXY=http://hostname:port/"
@@ -152,6 +154,7 @@ Install the required ansible-roles
 
 Run the playbook
 ================
+
 Once you have your variables and hosts file configured, the deployment can
 be started with the following command:
 
@@ -159,15 +162,14 @@ be started with the following command:
 
    $ ansible-playbook -i hosts ciao.yml --private-key=<ssh_key>
 
-Note: If you want the latest CIAO changes, change the  ``ciao_dev`` variable to ``True`` in the :file:`group_vars/all` file In the ``clear-config-management`` project.
-
-
-
-
+Note: If you want the latest CIAO changes, change the  ``ciao_dev`` 
+variable to ``True`` in the :file:`group_vars/all` file In the 
+``clear-config-management`` project.
 
 
 Verify
 ======
+
 After ansible is done with the setup, you can verify the cluster is ready
 by running the following command on the controller node. Change the **username**,
 **password**, **controller**, and **identity** values to match your setup, as
