@@ -46,7 +46,7 @@ bundle contains the Ansible software required to run the playbooks.
    # swupd bundle-add sysadmin-hostmgmt
 
 Install ``go-basic``, ``os-core-dev``, ``kvm-host`` and ``os-common`` bundles
-on the development node. These bundles contain requirements needed by the playbooks.
+on the deployment node. These bundles contain requirements needed by the playbooks.
 
 .. code-block:: console
 
