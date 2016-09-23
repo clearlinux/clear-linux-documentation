@@ -92,7 +92,6 @@ Current list of available bundles:
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cloud-control">cloud-control</a></td>
       <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Run a cloud orchestration server
-          <li>Includes (os-utils) bundle.</li>
           <li>Includes (kvm-host) bundle.</li>
           <li>Includes (net-utils) bundle.</li></p></td>
     </tr>
@@ -304,8 +303,7 @@ Current list of available bundles:
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a></td>
       <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
-          <li>Includes (iot-extras) bundle.</li>
-          <li>Includes (iot-base) bundle.</li></p></td>
+          <li>Includes (iot-extras) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-base">iot-base</a></td>
@@ -314,12 +312,23 @@ Current list of available bundles:
           <li>Includes (kernel-iot) bundle.</li></p></td>
     </tr>
     <tr>
+      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a></td>
+      <td class="bundlestatus">WIP</td>
+      <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
+          <li>Includes (iot-base) bundle.</li></p></td>
+    </tr>
+    <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-extras">iot-extras</a></td>
       <td class="bundlestatus">WIP</td>
       <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
           <li>Includes (iot-base) bundle.</li>
           <li>Includes (nodejs-basic) bundle.</li>
           <li>Includes (iot-message-broker) bundle.</li></p></td>
+    </tr>
+    <tr>
+      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/"></a></td>
+      <td class="bundlestatus"></td>
+      <td class="bundledesc"><p></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a></td>
@@ -626,6 +635,11 @@ Current list of available bundles:
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/openstack-vpnaas">openstack-vpnaas</a></td>
       <td class="bundlestatus">Deprecated</td>
       <td class="bundledesc"><p>Provides VPN as a Service</p></td>
+    </tr>
+    <tr>
+      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-clear-containers">os-clear-containers</a></td>
+      <td class="bundlestatus">Active</td>
+      <td class="bundledesc"><p>Control Clear Containers guest setup and workloads</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-cloudguest">os-cloudguest</a></td>
