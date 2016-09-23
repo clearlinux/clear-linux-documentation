@@ -91,7 +91,7 @@ server root ``/var/www/pxe/``.
 .. code-block:: console
 
    # mkdir -p /var/www/pxe/
-   # version=$(cat /usr/share/clear/version)
+   # version=$(curl https://download.clearlinux.org/latest)
    # curl -o /var/www/pxe/clear-${version}-pxe.tar.xz https://download.clearlinux.org/current/clear-${version}-pxe.tar.xz
    # tar -xJf /var/www/pxe/clear-${version}-pxe.tar.xz -C /var/www/pxe/ && rm /var/www/pxe/clear-${version}-pxe.tar.xz
    # unset version

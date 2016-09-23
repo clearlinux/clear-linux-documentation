@@ -2,8 +2,8 @@
 
 .. contents::
 
-Deploying ciao via automation
-#############################
+Deploying ciao via automation -- Ubuntu 16.04
+#############################################
 
 Cloud Integrated Advanced Orchestrator (``ciao``) is a new workload
 scheduler designed to address limitations of current cloud OS projects.
@@ -29,52 +29,100 @@ For this example, we'll use a total of five nodes:
 
 Prerequisites
 =============
-Ansible* uses :command:`ssh` to run commands on the remote nodes. In order to do
-that, the nodes must be configured to allow passwordless SSH connections
-from the deployment machine to the cluster nodes. The user should also have
-sudo privileges on the cluster nodes.
+
+Ansible* uses :command:`ssh` to run commands on the remote nodes. In 
+order to do that, the nodes must be configured to allow passwordless SSH 
+connections from the deployment machine to the cluster nodes. The user 
+should also have sudo privileges on the cluster nodes.
+
+The deployment machine needs::
+
+  Python 2.7
+  Ansible >= 2.1
+  Golang >= 1.7
+  qemu-utils
+  python-docker
+  python-openstackclient
+  Ansible ciao roles from ansible-galaxy
+
+The managed nodes need::
+  
+  python 2.6 >=
+
+
+Proxy
+=====
+
+If you are running behind a proxy, the following additional steps are needed:
+
+In the deployment node
+----------------------
+
+Make sure apt can run. Edit ``/etc/apt/apt.conf`` (to install ansible and 
+dependencies), appending it with::
+
+  Acquire::http::Proxy "http://yourproxyaddress:proxyport";
+  Install the CIAO roles from ansible-galaxy:
+  $ sudo -E ansible-galaxy -r requirements --ignore-certs
+
+In the managed nodes
+--------------------
+
+Make sure apt can run. Edit ``/etc/apt/apt.conf``, appending it with::
+
+  Acquire::http::Proxy "http://yourproxyaddress:proxyport";
+  
+Install Docker and make sure you can pull images. Edit 
+``/etc/systemd/system/docker.service.d/http-proxy.conf``, appending it 
+with::
+
+  [Service]
+  Environment="HTTP_PROXY=http://hostname:port/"
+  Environment="HTTPS_PROXY=http://hostname:port/"
+  Environment=”NO_PROXY=localhost,127.0.0.1,.example.com”
+
+Note: replace the hostname and port of your proxy server and append your local domain name.
+
+Reload and restart the docker daemon::
+
+  $ sudo systemctl daemon-reload && sudo systemctl restart docker
+
+  (OPTIONAL): You can download the docker images used in the CIAO deployment.
+  $ sudo docker pull clearlinux/keystone
+  $ sudo docker pull clearlinux/ciao-webui
 
 
 Install the software
 ====================
 
-In Clear Linux, install the ``sysadmin-hostmgmt`` bundle on the deployment node. This
-bundle contains the Ansible software required to run the playbooks.
+Install ansible from ubuntu packages if the package version is >= 2.1.0; 
+otherwise, install it from pip (``pip install ansible``).
 
-.. code-block:: console
+Install Dependencies in the deployment machine
+----------------------------------------------
 
-   # swupd bundle-add sysadmin-hostmgmt
+::
 
-Install ``go-basic``, ``os-core-dev``, ``kvm-host`` and ``os-common`` bundles
-on the development node. These bundles contain requirements needed by the playbooks.
+  python-docker (apt-get) or docker-py (pip)
+  python-openstackclient (apt-get)
+  qemu-utils (apt-get)
 
-.. code-block:: console
+Download the ``clear-config-management`` project from github::
 
-   # swupd bundle-add go-basic os-core-dev kvm-host os-common
+  $ git clone https://github.com/clearlinux/clear-config-management.git
 
-go-basic
-  provides golang, which is needed to compile ciao
-os-core-dev
-  provides gcc, which is needed to compile some ciao dependencies
-kvm-host
-  provides qemu, which is needed to build the CNCI image
-os-common
-  provides python-keystone client, which is a dependency of the keystone role
-
-For Ubuntu and Fedora, follow the instructions from `github`_
 
 Create the playbook
 ===================
 
-The ``sysadmin-hostmgmt`` bundle includes some sample playbooks that
-you may use and customize for your own needs. Start by making a copy
-of the sample playbook into your home folder
+The ``clear-config-management`` project includes some sample playbooks that 
+you may use and customize for your own needs. Start by making a copy of the 
+sample playbook into your home folder::
 
-.. code-block:: console
+  # cp -r clear-config-management/examples/ciao ~/
 
-   # cp -r /usr/share/ansible/examples/ciao ~/
 
-Note: These files are also hosted in `github`_
+Note: These files are also hosted in github
 
 The relevant files in the playbook are the following:
 
@@ -88,11 +136,13 @@ The relevant files in the playbook are the following:
     to your ciao setup. The mandatory variables are already there; be
     sure to change the values accordingly to fit your environment
 
-  * The ``ciao_guest_key`` value in :file:`groups_var/all` is the key to be used to connect to the VMs created by
-    ciao; you can use the ``ssh-keygen`` command to create one.
+  * The ``ciao_guest_key`` value in :file:`groups_var/all` is the key 
+    to be used to connect to the VMs created by ciao; you can use the 
+    ``ssh-keygen`` command to create one.
 
-A full list of available variables can be found in the :file:`defaults/main.yml` file of each role at
-https://github.com/clearlinux/clear-config-management/tree/master/roles
+A full list of available variables can be found in the :file:`defaults/main.yml` 
+file of each role at https://github.com/clearlinux/clear-config-management/tree/master/roles
+
 
 Install the required ansible-roles
 ==================================
@@ -104,6 +154,7 @@ Install the required ansible-roles
 
 Run the playbook
 ================
+
 Once you have your variables and hosts file configured, the deployment can
 be started with the following command:
 
@@ -111,18 +162,14 @@ be started with the following command:
 
    $ ansible-playbook -i hosts ciao.yml --private-key=<ssh_key>
 
-Note: The playbook will create the following files in the current folder of the machine runninng the playbooks.
+Note: If you want the latest CIAO changes, change the  ``ciao_dev`` 
+variable to ``True`` in the :file:`group_vars/all` file In the 
+``clear-config-management`` project.
 
-  * ./certificates: This directory contains the certificates that where created and copied to the cluster nodes.
-
-  * ./images: This directory contains the images used by the ciao cluster. (fedora, clearlinux, cnci, ovmf.fd)
-
-  * ./ciaorc: This file contains environment variables needed by ciao cli to authenticate to the ciao cluster.
-
-  * ./openrc: This file contains environment variables needed by openstack cli to authenticate with the ciao cluster.
 
 Verify
 ======
+
 After ansible is done with the setup, you can verify the cluster is ready
 by running the following command on the controller node. Change the **username**,
 **password**, **controller**, and **identity** values to match your setup, as
@@ -130,7 +177,11 @@ was specified in the ``groups_var/all`` file:
 
 .. code-block:: console
 
-   # ciao-cli -identity=https://ciao-controller.example.com:35357 -username ciao -password ciaoUserPassword -controller=ciao-controller.example.com node status
+   # ciao-cli -identity=https://ciao-controller.example.com:35357 \
+   -username admin \ 
+   -password secret \ 
+   -controller=ciao-controller.example.com 
+   # node status
    Total Nodes 3
     Ready 0
     Full 3
@@ -145,8 +196,8 @@ deployment node, which contains the following environment variables:
    # cat ciaorc
    export CIAO_CONTROLLER=ciao-controller.example.com
    export CIAO_IDENTITY=https://ciao-controller.example.com:35357
-   export CIAO_USERNAME=ciao
-   export CIAO_PASSWORD=ciaoUserPassword
+   export CIAO_USERNAME=csr
+   export CIAO_PASSWORD=secret
 
 then you could verify with the following command:
 
