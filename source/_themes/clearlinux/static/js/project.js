@@ -17,6 +17,10 @@ jQuery(document).ready(function($){
     $(this).parent().toggleClass('menu-open');
   });
 
+  $('#block-menu-menu-social-media, #block-menu-menu-get-involved').click(function(){
+    $(this).find('.menu').slideToggle();
+  });
+
   $('.custom-dropdown-menu li.parent-item .fa').click(function(evt){
    evt.stopPropagation();
    $(this).toggleClass('fa-chevron-up fa-chevron-down');
