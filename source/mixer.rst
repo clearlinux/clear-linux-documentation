@@ -17,15 +17,10 @@ Prerequisites
 -------------
 
 To start working with the Mixer tools, you'll need a recent image of Clear Linux OS for Intel Architecture
-with the following bundles installed. If you don't have them already,
-you can add them with the :command:`swupd bundle-add` command::
+with the following bundle installed. If you don't have it already,
+you can add it with the :command:`swupd bundle-add` command like so::
 
   # swupd bundle-add mixer
-
-To satisfy all dependencies (until further development), you'll need the
-following additional bundles::
-
-  # swupd bundle-add os-clr-on-clr os-core-dev
 
 Mixing
 ------
@@ -36,7 +31,13 @@ Mixing
 
 #. **Configure builder.conf**. Copy the template conf file::
 
-    # cp /usr/share/defaults/bundle-chroot-builder/builder.conf /etc/bundle-chroot-builder/`
+    # cp /usr/share/defaults/bundle-chroot-builder/builder.conf /etc/bundle-chroot-builder/
+
+   The file ``builder.conf`` will be read automatically from ``/etc/bundle-chroot-builder``,
+   but all of the scripts accept a ``-c/--config`` option to specify where
+   the file is if you want to store it elsewhere. If you wish to use one in your current workspace,
+   you can copy the template and supply it to the scripts when you run them. The :file:``.yum-mix.conf``
+   file will be auto-generated for you.
 
    Note there are different sections to the builder.conf. The ``[Builder]`` section
    provides the mixer tools with required configuration options, defining where
@@ -49,7 +50,7 @@ Mixing
 
       [Builder]
       SERVER_STATE_DIR = /var/lib/update
-      BUNDLE_DIR = /home/clr/mix/bundles
+      BUNDLE_DIR = /home/clr/mix/mix-bundles
       YUM_CONF = /home/clr/mix/.yum-mix.conf
 
       [swupd]
@@ -61,24 +62,23 @@ Mixing
       FORMAT=1                                        ### Can be any number.
                                                         # See 'OS Epoch' discussion for details
 
-   The file ``builder.conf`` will be read automatically from ``/etc/bundle-chroot-builder``,
-   but all of the scripts accept a ``-c/--config`` option to specify where
-   the file is if you want to store it elsewhere. The :file:``.yum-mix.conf``
-   file will be auto-generated for you.
+   You may include a ``CERT=/path/to/cert`` line which tells the chroot builder to insert the certificate
+   specified for the mix in ``<BUNDLE>/usr/share/clear/update-ca/``. This would be the certificate used
+   by the software update client to verify the Manifest.MoM signature.
 
-#. **Generate the starting point for your Mixer**. In your workspace, run::
+#. **Generate the starting point for your Mix**. In your workspace, run::
    
-     # ./mixer-init-mix.sh -c /etc/bundle-chroot-builder/builder.conf
-   Optionally, the ``-b/--buildver`` option can be passed to tell the script which
-   Clear version to build the initial mix against. This may be needed if the build
+     # mixer-init-mix.sh -c /etc/bundle-chroot-builder/builder.conf
+   Optionally, the ``-b/--clear-version`` option can be passed to tell the script which
+   Clear version to build the initial mix against, and the ``-m/--mix-version`` can be used
+   to specify what the starting mix version should be. This may be needed if the build
    you are currently on is newer than the latest clr-bundles release tag.
 
-   Currently, the only correct way to update an existing Clear image to a
-   mixer-created update is to create an initial update that contains the same
-   bundles and content as the image. Then you can verify ``--fix`` the
-   Clear image to it. Lastly, update the Clear image as it normally would. 
-   This step auto-generates that first version 10 for you, so you can focus
-   on just your custom mix.
+   *If you wish to just build a mix that includes all Clear bundles with no modifications, run*::
+
+    # mixer-init-mix.sh -c /etc/bundle-chroots-builder/builder.conf --all-bundles
+   And skip to ``Creating an image``. All the required content will be automatically built, and this mix
+   will be identical to the version of Clear it is being composed from.
 
 #. **Create/locate RPMs for mix.**. (Steps 4-6 are necessary only if you
    want to add your own RPMs to the Mix. If you are simply working with Clear
@@ -86,42 +86,21 @@ Mixing
 
    If you are creating RPMs from scratch, you may use ``autospec``,
    ``mock``, ``rpmbuild``, etc. to build them. If they are not
-   built on Clear, make sure your configuration builds them correctly for Clear.
+   built on Clear, make sure your configuration and toolchain builds them correctly for Clear.
 
 #. **Import RPMs into workspace**. The easiest way to do this is to create a
-   ``results`` directory in your workspace (for example ``/home/clr/mix/results``),
+   ``rpms`` directory in your workspace (for example ``/home/clr/mix/rpms``),
    and to copy the RPMs you want into that directory. The mixer script will
-   look here for RPMs needed to build a local RPM repo for yum to use.
+   look here for RPMs in order to build a local RPM repo for yum to use.
 
 #. **Create a local RPM repo**. Create an empty directory in your workspace
    named ``local`` and run::
 
-    # mixer-add-rpms.sh --rpmdir results --repodir local
+    # mixer-add-rpms.sh --rpmdir rpms --repodir local
 
    After the script exits, you should see your RPMs and a repodata directory in
    ``/home/clr/mix/local``. If the RPMs are not all in the local directory, check
    to make sure that they are indeed valid RPM files and not corrupt.
-
-#. **Initialize Clear/Mix version info**. In the workspace, run::
-
-    # mixer-init-versions.sh -m 20
-
-   This takes the Clear version from your image (or override it with
-   ``-c/--clear-version`` to use another Clear build's content), and uses
-   "20" for the mix version.
-
-#. **Download Bundles (Optional)**.  Download ``clr-bundles``.  In the workspace,
-   run::
-
-    # mixer-update-bundles.sh
-
-   This creates two folders: ``clr-bundles``, which contains all of the upstream
-   bundles and should ``NOT`` be modified or touched, and ``mix-bundles``, which
-   contains the bundle definitions the mixer will use.
-
-   This step is optional because the script is already called by mixer-init-mix.sh,
-   and only needs to be called again when you want to update the upstream clr-bundles
-   folder in your workspace.
 
 #. **Update bundle definitions**. The mixer uses a local clone of the
    ``clr-bundles`` repo to define bundles for the mix.
@@ -132,10 +111,12 @@ Mixing
       #. Commit the result::
          
          $ git add .
-         $ git commit -s -m 'Update bundles for mix'
+         $ git commit -s -m 'Update bundles for mix #<VER>'
    You can easily copy bundles over from the ``clr-bundles/bundles`` directory in
    the case that you want to simply use existing bundle sets. Note that
    ``mix-bundles`` should not have any folders inside of it, only bundle definitions.
+   Do *not* modify things in the clr-bundles dir, this is simply a mirror for you to
+   use or refer to the Clear Linux OS bundle definitions.
 
    Why do this? With Git history, mixes are easy to revert to or refer
    to in the future if something were to go wrong with a new mix. If
@@ -163,22 +144,69 @@ Mixing
 
    When the script completes, you'll find your mix update content under
    ``/var/lib/update/www/VER``, in this example, it will be located in
-   ``/var/lib/update/www/20``.
+   ``/var/lib/update/www/<MIXVERSION>``, where <MIXVERSION> is the mix version you
+   defined, or 10 by default.
 
+#. **Initialize next Mix version info**. To update the versions and prep for your
+   next mix, in the workspace run::
+
+    # mixer-init-versions.sh -m 20
+
+   This takes the Clear version from your image (or override it with
+   ``-c/--clear-version`` to use another Clear build's content), and sets
+   "20" for the mix version. From this point you can iterate through starting again at step
+   4 and doing modifications as needed.
+
+
+#. **Update Bundles (Optional)**.  Update ``clr-bundles``.  In the workspace,
+   run::
+
+    # mixer-update-bundles.sh
+
+   This step is optional because the script is already called by mixer-init-mix.sh,
+   and only needs to be called again when you want to update the upstream clr-bundles
+   folder in your workspace.
+
+**Creating an image**
+To create a bootable image from your update content, you will need the configuration file for
+ister to create images::
+
+    # curl -O https://raw.githubusercontent.com/clearlinux/ister/master/release-image-config.json
+
+Edit this to include  all the bundles you want pre-installed into your image. For a minimal, base
+image this would be::
+
+    "Bundles": ["os-core", "os-core-update", "kernel-native"]
+
+And lastly, set the "Version:" to say which mix version content the image should be built from,
+i.e 10 for your first build. To build the image, run::
+
+    #  ister.py -t release-image-config.json -V file:///home/clr/mix/update/www/ -C file:///home/clr/mix/update/www/
+
+The output from this should be an image that is bootable as a VM or installable to baremetal. *Note* that 
+you may need to pass in -f/--format <FORMAT_NUMBER> if the format you are building is different than the
+format of Clear Linux OS you are currently building on. Format version can be found via::
+    # cat /usr/share/defaults/swupd/format
 
 OS Epoch or Format version
 --------------------------
 
 The "format" used in ``builder.conf`` might be more precisely referred to as an
 OS "compatibility epoch". Versions of the OS within a given epoch are fully
-compatible with themselves. Across the epoch boundary *something* has
-changed in the OS. This change is impactful enough that the release where the
-change has taken place must be visited to ensure operations occur in the
-correct order. A format increment is the way we insure pre- and co-requisite
-changes flow out with proper ordering.
+compatible with themselves and can update to any version in that epoch. Across
+the format boundary *something* has changed in the OS, such that updating from
+build M in format X, to build N in format Y will not work. Generally this occurs
+when the software updater or manifests changed in a way that is no longer
+compatible with the previous update scheme.
 
-From an update perspective, the format, or compatibility epoch, limits the
-extent to which the client can be updated in a single step.
+A format increment is the way we insure pre- and co-requisite
+changes flow out with proper ordering. The update client will only ever update
+to the latest release in its respective format version (unless overridden by
+command line flags), thus we can guarantee all clients will update to the final
+version in their given format, which *must* contain all the changes needed
+to understand the content built in the following format. Only after reaching the
+final release in the old format will a client be able to continue to update to
+releases in the new format.
 
 For the creation of a custom mix, the format version should start at '1',
 or some known number, and increment only when a compatibility breakage is
