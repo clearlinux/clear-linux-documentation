@@ -30,7 +30,7 @@ networks. NAT allows you to control the traffic that goes to the external networ
 A script for NAT setup can be found on this `gist`_. Be sure
 to export the DOMAIN and DNS variables to be the domain name of your internal
 network (example.com) and whatever DNS servers you want to use (8.8.8.8 and
-8.8.4.4 DNS can work some situations).
+8.8.4.4 DNS can work for some situations).
 
 
 Network Topologies
@@ -228,8 +228,8 @@ Step 9
 
 To use PXE chainloading, set up ISC DHCPD to first assign ``undionly.kpxe`` to any
 legacy PXE clients, and to then assign boot configuration to iPXE clients. Do this
-by telling ISC DHCPD to make the assignments based on the DHCP
-user class. Here’s one way to do this using the :file:`/etc/dhcpd.conf` file:
+by telling ISC DHCPD to make the assignments based on the DHCP user class. Here’s 
+one way to do this using the :file:`/etc/dhcpd.conf` file:
 
 .. code-block:: console
 
