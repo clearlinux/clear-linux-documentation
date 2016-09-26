@@ -88,7 +88,7 @@ Here is a high-level overview describing set up and configuration of a bulk-prov
 
     #!ipxe
     kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable 
-    no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1/static/ister/ister.conf
+    no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1/icis/static/ister/ister.conf
     initrd initrd
     boot
 
@@ -128,7 +128,7 @@ Here is a high-level overview describing set up and configuration of a bulk-prov
       "Bundles": ["kernel-native", "os-core-update", "os-core",
                   "bootloader", "sysadmin-hostmgmt", "openssh-server"],
       "PostNonChroot": ["./installation-image-post-update-version.py"],
-      "IsterCloudInitSvc": ["http://192.168.1.1/"]
+      "IsterCloudInitSvc": ["http://192.168.1.1/icis/"]
     }
 
 * Configure ICIS to map MAC addresses to role files appropriately. Then create the role files, which 
