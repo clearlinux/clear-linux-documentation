@@ -14,6 +14,79 @@ machine should be UEFI capable. At present, the UEFI binary is not signed, so
 be sure to disable secure boot.
 
 
+Network Setup Options
+=====================
+
+There are two basic network configurations you can have. You can put all your
+nodes behind a NAT or if they have two network interfaces, you can connect one
+to your regular network and the other to a switch connecting all your machines.
+
+If you opt for the dual NIC per host method make sure you do the following.
+Otherwise NAT instructions are provided at the bottom of this document. It
+should be noted that if you don't choose to NAT you are exposing your external
+network to your cluster. If you NAT then you can control the traffic that goes
+to the external network.
+
+A script to do the NAT setup can be found `here
+<https://gist.github.com/pdxjohnny/d6945910bf7bed962438bf64e70a6a40>`_. Be sure
+to export the DOMAIN and DNS variables to be the domain name of your internal
+network (example.com) and the DNS servers you want to use (usually "8.8.8.8,
+8.8.4.4").
+
+
+Network Topologies
+==================
+
+Dual NIC
+--------
+
+.. code-block:: console
+
+   +----------+
+   | External |
+   | Network  |
+   +----------+-----------+----------------+----------------+
+        |                 |                |                |
+        |                 |                |                |
+   +----------+      +----------+     +----------+     +----------+
+   | Network  |      | PXE      |     | PXE      |     | PXE      |
+   | Boot     |      | Boot     |     | Boot     |     | Boot     |
+   | Server   |      | Client   |     | Client   |     | Client   |
+   +----------+      +----------+     +----------+     +----------+
+        |                 |                |                |
+        |                 |                |                |
+   +----------+-----------+----------------+----------------+
+   | Internal |
+   | Network  |
+   +----------+
+
+NAT
+---
+
+.. code-block:: console
+
+   +----------+
+   | External |
+   | Network  |
+   +----------+
+        |
+        |
+   +----------+      +----------+     +----------+     +----------+
+   | Network  |      | PXE      |     | PXE      |     | PXE      |
+   | Boot     |      | Boot     |     | Boot     |     | Boot     |
+   | Server   |      | Client   |     | Client   |     | Client   |
+   +----------+      +----------+     +----------+     +----------+
+        |                 |                |                |
+        |                 |                |                |
+   +----------+-----------+----------------+----------------+
+   | Internal |
+   | Network  |
+   +----------+
+
+Dual NIC setup information will be added in the future. This guide currently
+only covers NAT setup.
+
+
 PXE + iPXE
 ===========
 
@@ -27,6 +100,7 @@ Clear Linux* Project for Intel Architecture can be configured to do network
 booting via HTTP, with the help of iPXE. The following sets up an iPXE
 environment using Clear Linux OS for Intel Architecture, but the configuration
 options may apply elsewhere.
+
 
 Step 1
 ------
@@ -165,7 +239,7 @@ user class. Here’s one way to do this using the :file:`/etc/dhcpd.conf` file:
    allow booting;
    allow bootp;
    DHCPDARGS="interface";
-  
+   
    # Set up a class to assign an "IP only" to devices attempting network boot.
    class "pxeclients" {
            match if substring(option vendor-class-identifier, 0, 9) = "PXEClient";
@@ -180,16 +254,34 @@ user class. Here’s one way to do this using the :file:`/etc/dhcpd.conf` file:
                    filename "undionly.kpxe";
            }
    }
-  
+   
    # Private subnet, in case you aren't able to run your own network wide DHCP service.
    # Works when the machine you are network booting has two network interfaces,
    # one connected to the private PXE boot network and the other connected to an external
    # network.
-   subnet 192.168.1.0 netmask 255.255.255.0 {
+   subnet 192.168.0.0 netmask 255.255.0.0 {
            pool {
+                   # These IPs will only be asigned to PXE clients
                    allow members of "pxeclients";
-                   range 192.168.1.100 192.168.1.200;
+                   range 192.168.1.150 192.168.1.254;
            }
+   
+           # If you are not doing the NAT setup do not add the following to this
+           # section. These IPs will be assigned to the hosts when they boot and
+           # after they have been installed
+           range 192.168.1.2 192.168.1.149;
+           default-lease-time 600;
+           max-lease-time 7200;
+           option subnet-mask 255.255.0.0;
+           option broadcast-address 192.168.255.255;
+           option routers 192.168.1.1;
+           # If your external network runs its own DNS servers then replace the
+           # following with those
+           option domain-name-servers 8.8.8.8, 8.8.4.4;
+           # You can leave this change this or remove it. It changes the FQDNs
+           # of your hosts. So host bob can be accessed (from this machine) at
+           # bob.example.com
+           option domain-name "example.com";
    }
 
 This ensures that either iPXE image (``undionly.kpxe`` for BIOS or ``ipxe.efi``
@@ -205,6 +297,9 @@ Note.
 ``my.web.server`` is set to the address your web server is using.
 
 ``DHCPDARGS`` is set to the interface you are using.
+
+If you are doing a NAT setup then you need to set ``interface`` to the interface
+connected to the internal network.
 
 Step 10
 -------
@@ -275,11 +370,105 @@ Create an empty :file:`/var/db/dhcpd.leases` file.
 Step 12
 -------
 
+If you are doing the NAT setup skip this we will do it at the end.
+
 Start the dhcp service:
 
 .. code-block:: console
 
    # systemctl start dhcp4.service
+
+Step 13
+-------
+
+From here on out we are doing NAT specific steps. Set your external and
+internal network interface names to variables for convenience.
+
+.. code-block:: console
+
+   # export external_iface=eno0
+   # export internal_iface=eno1
+
+Disable auto-starting dhcp for all interfaces
+
+.. code-block:: console
+
+   # mkdir -p /etc/systemd/network/
+   # cd /etc/systemd/network/
+   # ln -s /dev/null 80-dhcp.network
+
+Set your external and internal network interfaces to behave accordingly. You
+may need to change the external.network if the external network is not going to
+assign this machine an IP via dhcp. The internal network address corresponds to
+the settings in dhcpd.conf
+
+.. code-block:: console
+
+   # cat << EOF > 80-external-dynamic.network
+   [Match]
+   Name=$external_iface
+   [Network]
+   DHCP=yes
+   EOF
+   # cat << EOF > 80-internal-static.network
+   [Match]
+   Name=$internal_iface
+   [Network]
+   Address=192.168.1.1/16
+   EOF
+
+Step 14
+-------
+
+Configure iptables to forward all traffic coming from inside the NAT to the
+external network. Without this swupd will not be able to connect to the
+internet.
+
+.. code-block:: console
+
+   # cat << EOF > ~/natrules
+   *nat
+   :PREROUTING ACCEPT [5077:516379]
+   :INPUT ACCEPT [5054:514369]
+   :OUTPUT ACCEPT [147:7526]
+   :POSTROUTING ACCEPT [114:5508]
+   :PROXY - [0:0]
+   -A POSTROUTING -o $external_iface -j MASQUERADE
+   COMMIT
+   *filter
+   :INPUT ACCEPT [338542:30287508]
+   :FORWARD ACCEPT [168279:154877988]
+   :OUTPUT ACCEPT [49875:536021461]
+   -A FORWARD -i $external_iface -o $internal_iface -m state --state RELATED,ESTABLISHED -j ACCEPT
+   -A FORWARD -i $internal_iface -o $external_iface -j ACCEPT
+   -A FORWARD -j REJECT --reject-with icmp-host-prohibited
+   COMMIT
+   EOF
+   # iptables-restore ~/natrules
+   # for unitfile in $(cd /usr/lib/systemd/system/; ls ip*)
+   do
+   systemctl enable ${unitfile}
+   systemctl start ${unitfile}
+   done
+
+Tell the kernel to forward packets. Without this the above rules do nothing.
+
+.. code-block:: console
+
+   # echo 1 > /proc/sys/net/ipv4/ip_forward
+   # echo net.ipv4.ip_forward=1 > /etc/sysctl.conf
+
+Step 15
+-------
+
+Restart all your networking. If you did something wrong then you may loose
+connection if you are working over ssh.
+
+.. code-block:: console
+
+   # systemctl restart systemd-networkd
+   # systemctl restart dhcp4.service
+
 
 PXE + GRUB
 ==========
