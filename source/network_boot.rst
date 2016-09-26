@@ -10,28 +10,27 @@ industry-standard Internet protocols and services, namely TCP/IP, DHCP, and
 `TFTP`_.
 
 Clear Linux* Project for Intel® Architecture uses UEFI to boot, so your target
-machine should be UEFI capable. At present, the UEFI binary is not signed, so
+machine should be UEFI-capable. At present, the UEFI binary is not signed, so
 be sure to disable secure boot.
 
 
 Network Setup Options
 =====================
 
-There are two basic network configurations you can have. You can put all your
-nodes behind a NAT or if they have two network interfaces, you can connect one
-to your regular network and the other to a switch connecting all your machines.
+There are two basic network configurations: 
 
-If you opt for the dual NIC per host method make sure you do the following.
-Otherwise NAT instructions are provided at the bottom of this document. It
-should be noted that if you don't choose to NAT you are exposing your external
-network to your cluster. If you NAT then you can control the traffic that goes
-to the external network.
+*  Place all of your nodes behind a :abbr:`Network Address Traversal (NAT)`, or 
+*  Connect one node to your regular network and the other to a switch 
+   connecting all your machines. This option requires at least two network
+   interfaces (dual NIC).
 
-A script to do the NAT setup can be found `here
-<https://gist.github.com/pdxjohnny/d6945910bf7bed962438bf64e70a6a40>`_. Be sure
+Note that lack of (or incorrectly-configured) NAT can expose your cluster to external
+networks. NAT allows you to control the traffic that goes to the external network.
+
+A script for NAT setup can be found on this `gist`_. Be sure
 to export the DOMAIN and DNS variables to be the domain name of your internal
-network (example.com) and the DNS servers you want to use (usually "8.8.8.8,
-8.8.4.4").
+network (example.com) and whatever DNS servers you want to use (8.8.8.8 and
+8.8.4.4 DNS can work some situations).
 
 
 Network Topologies
@@ -83,7 +82,7 @@ NAT
    | Network  |
    +----------+
 
-Dual NIC setup information will be added in the future. This guide currently
+Dual-NIC setup information will be added in the future. This guide currently
 only covers NAT setup.
 
 
@@ -98,8 +97,8 @@ computers that lack built-in PXE support.
 
 Clear Linux* Project for Intel Architecture can be configured to do network
 booting via HTTP, with the help of iPXE. The following sets up an iPXE
-environment using Clear Linux OS for Intel Architecture, but the configuration
-options may apply elsewhere.
+environment using Clear Linux OS for Intel Architecture; these configuration
+options can also be applied elsewhere.
 
 
 Step 1
@@ -141,10 +140,8 @@ files from the `iPXE website`_.
    # cp /usr/share/ipxe/undionly.kpxe /srv/tftp/undionly.kpxe
    # cp /usr/share/ipxe/ipxe-x86_64.efi /srv/tftp/ipxe.efi
 
-Note.
-
-If you are booting on a 32-bit UEFI, you should copy the
-:file:`/usr/share/ipxe/ipxe-i386.efi` file.
+**Note**: If booting with a 32-bit UEFI, copy the 
+:file:`/usr/share/ipxe/ipxe-i386.efi` file instead.
 
 Step 4
 -------
@@ -537,7 +534,7 @@ selection of the filename fetched from the client:
            filename "pxelinux.0";
    }
 
-Next create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd service with:
+Next, create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd service with:
 
 .. code-block:: console
 
@@ -605,24 +602,26 @@ following content:
       initrdefi /initrd
     }
 
-Where the Linux kernel is named "linux" and the initrd "initrd".
+Where the Linux kernel is named ``linux`` and the initrd ``initrd``.
 
 
 TFTP configuration
 ------------------
 
-Clear Linux OS for Intel Archiecture uses ``dnsmasq`` to provide the tftpd service. It requires
-the following entries exist in :file:`/etc/dnsmasq.conf`:
+Clear Linux OS for Intel Archiecture uses ``dnsmasq`` to provide the tftpd 
+service. It requires the following entries exist in :file:`/etc/dnsmasq.conf`:
 
 .. code-block:: console
 
    enable-tftp
    tftp-root=/srv/tftp/
 
-The Linux kernel and initrd files can be downloaded from https://download.clearlinux.org/current/
-(with a name clear-$version-pxe.tar.xz) as a compressed tar file containing two clearly-labeled
-files that should be moved to the tftp root (``/srv/tftp/`` per the tftp server configuration),
-as linux and initrd respectively. The bootloader :file:`grubx64.efi` and its configuration file
+The Linux kernel and initrd files can be downloaded from
+ https://download.clearlinux.org/current/ (with a name like
+ ``clear-$version-pxe.tar.xz``) as a compressed tar file containing two 
+ clearly-labeled files that should be moved to the tftp root (``/srv/tftp/``, 
+ per the tftp server configuration), as ``linux`` and ``initrd`` respectively. 
+ The bootloader :file:`grubx64.efi` and its configuration file
 :file:`grub.cfg` should also be placed in the tftp root ``/srv/tftp/``.
 
 Now start the tftp service with this command:
@@ -632,7 +631,7 @@ Now start the tftp service with this command:
    systemctl start dnsmasq.service
 
 
-
 .. _TFTP: http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf
+.. _gist: https://gist.github.com/pdxjohnny/d6945910bf7bed962438bf64e70a6a40
 .. _iPXE website: http://boot.ipxe.org/
 .. _iPXE: http://ipxe.org/
