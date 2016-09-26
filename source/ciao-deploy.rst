@@ -50,15 +50,15 @@ on the deployment node. These bundles contain requirements needed by the playboo
 
 .. code-block:: console
 
-   # swupd bundle-add go-basic os-core-dev kvm-host os-common
+   # swupd bundle-add go-basic c-basic kvm-host openstack-common
 
 go-basic
   provides golang, which is needed to compile ciao
-os-core-dev
+c-basic
   provides gcc, which is needed to compile some ciao dependencies
 kvm-host
   provides qemu, which is needed to build the CNCI image
-os-common
+openstack-common
   provides python-keystone client, which is a dependency of the keystone role
 
 For Ubuntu and Fedora, follow the instructions from `github`_
