@@ -312,23 +312,12 @@ Current list of available bundles:
           <li>Includes (kernel-iot) bundle.</li></p></td>
     </tr>
     <tr>
-      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot">iot</a></td>
-      <td class="bundlestatus">WIP</td>
-      <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
-          <li>Includes (iot-base) bundle.</li></p></td>
-    </tr>
-    <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-extras">iot-extras</a></td>
       <td class="bundlestatus">WIP</td>
       <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
           <li>Includes (iot-base) bundle.</li>
           <li>Includes (nodejs-basic) bundle.</li>
           <li>Includes (iot-message-broker) bundle.</li></p></td>
-    </tr>
-    <tr>
-      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/"></a></td>
-      <td class="bundlestatus"></td>
-      <td class="bundledesc"><p></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/java-basic">java-basic</a></td>
