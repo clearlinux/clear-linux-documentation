@@ -34,52 +34,34 @@ that, the nodes must be configured to allow passwordless SSH connections
 from the deployment machine to the cluster nodes. The user should also have
 sudo privileges on the cluster nodes.
 
+This guide uses a docker container to provide all the needed deployment tools,
+in order to use it you will need docker in the machine you're orchestating
+your deployment.
 
-Install the software
-====================
 
-In Clear Linux, install the ``sysadmin-hostmgmt`` bundle on the deployment node. This
-bundle contains the Ansible software required to run the playbooks.
+Setup your deployment machine
+=============================
 
-.. code-block:: console
-
-   # swupd bundle-add sysadmin-hostmgmt
-
-Install ``go-basic``, ``os-core-dev``, ``kvm-host`` and ``os-common`` bundles
-on the deployment node. These bundles contain requirements needed by the playbooks.
+We provide a ready-to-use docker container, you just need to download it and
+setup your cluster configurations.
 
 .. code-block:: console
 
-   # swupd bundle-add go-basic c-basic kvm-host openstack-common
+   $ docker pull clearlinux/ciao-deploy
 
-go-basic
-  provides golang, which is needed to compile ciao
-c-basic
-  provides gcc, which is needed to compile some ciao dependencies
-kvm-host
-  provides qemu, which is needed to build the CNCI image
-openstack-common
-  provides python-keystone client, which is a dependency of the keystone role
 
-For Ubuntu and Fedora, follow the instructions from `github`_
-
-Create the playbook
-===================
-
-The ``sysadmin-hostmgmt`` bundle includes some sample playbooks that
-you may use and customize for your own needs. Start by making a copy
-of the sample playbook into your home folder
+You can later launch the container by doing
 
 .. code-block:: console
 
-   # cp -r /usr/share/ansible/examples/ciao ~/
+   $ docker run --privileged -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
+                -it clearlinux/ciao-deploy
 
-Note: These files are also hosted in `github`_
+Note: container is called in `privileged` mode in order to install your
+certificates in the CNCI image.
 
-The relevant files in the playbook are the following:
-
-  * The `ciao.yml`_ file is the master playbook file and includes a playbook
-    for each component of the cluster.
+Once you're inside the container, you will need to setup the configuration files
+for your cluster:
 
   * The `hosts`_ file is the hosts inventory file and contains the IP
     addresses/FQDN of your nodes, grouped under the roles they will serve
@@ -88,18 +70,15 @@ The relevant files in the playbook are the following:
     to your ciao setup. The mandatory variables are already there; be
     sure to change the values accordingly to fit your environment
 
-  * The ``ciao_guest_key`` value in :file:`groups_var/all` is the key to be used to connect to the VMs created by
-    ciao; you can use the ``ssh-keygen`` command to create one.
+  * The ``ciao_guest_key`` value in :file:`groups_var/all` is the key to be
+    used to connect to the VMs created by ciao; you can use the
+    ``ssh-keygen`` command to create one.
 
-A full list of available variables can be found in the :file:`defaults/main.yml` file of each role at
+A full list of available variables can be found in the
+:file:`defaults/main.yml` file of each role at
 https://github.com/clearlinux/clear-config-management/tree/master/roles
 
-Install the required ansible-roles
-==================================
-
-.. code-block:: console
-
-   # ansible-galaxy install -r requirements.yml
+Note: All the files in :file:`/root/ciao/` are hosted in `github`_
 
 
 Run the playbook
@@ -109,7 +88,9 @@ be started with the following command:
 
 .. code-block:: console
 
-   $ ansible-playbook -i hosts ciao.yml --private-key=<ssh_key>
+   # ansible-playbook -i hosts ciao.yml \
+       --private-key=~/.ssh/id_rsa \
+       --user=<REMOTE_USER>
 
 Note: The playbook will create the following files in the current folder of the machine runninng the playbooks.
 
@@ -163,7 +144,6 @@ then you could verify with the following command:
 .. _controller: https://github.com/01org/ciao/tree/master/ciao-controller
 .. _compute nodes: https://github.com/01org/ciao/tree/master/ciao-launcher
 .. _network node: https://github.com/01org/ciao/tree/master/ciao-launcher
-.. _ciao.yml: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/ciao.yml
 .. _hosts: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/hosts
 .. _groups_vars/all: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/group_vars/all
 .. _github: https://github.com/clearlinux/clear-config-management/tree/master/examples/ciao
