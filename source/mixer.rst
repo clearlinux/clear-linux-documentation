@@ -63,7 +63,7 @@ Mixing
                                                         # See 'OS Epoch' discussion for details
 
    You may include a ``CERT=/path/to/cert`` line which tells the chroot builder to insert the certificate
-   specified for the mix in ``<BUNDLE>/usr/share/clear/update-ca/``. This would be the certificate used
+   specified for the mix in ``/os-core-update/usr/share/clear/update-ca/``. This would be the certificate used
    by the software update client to verify the Manifest.MoM signature.
 
 #. **Generate the starting point for your Mix**. In your workspace, run::
