@@ -1,9 +1,10 @@
 Documentation Build Instructions
 ================================
 
-ClearLinux Docs are written in :abbr:`ReStructuredText (ReST)` AKA ``.rst``, which
-makes it easy to build parsable, command-line readable, indexed, and search-friendly
-documentation and APIs with `Sphinx`_.
+The `website documentation`_ for Clear Linux* OS for Intel Architecture 
+should be written in :abbr:`ReStructuredText (ReST)` AKA ``.rst``, which 
+makes it easy to build parsable, command-line readable, indexed, and 
+search-friendly documentation and APIs with `Sphinx`_.
 
 
 .. _requirements:
@@ -11,14 +12,16 @@ documentation and APIs with `Sphinx`_.
 Requirements
 ------------
 
-Building the docs with Sphinx, however, requires a few prerequisites:
+To build documentation with Sphinx, ensure your system has these prerequisites:
 
 * `GNU make`_
 * `Python`_
 * `PIP`_
 
-The instructions for installing these varies according to OS.  On a basic
+The instructions for installing these varies according to OS. On a basic
 out-of-the-box Ubuntu-like OS (which usually has Python installed by default),
+check your python version
+
 you might need something like:
 
 .. code-block:: console
@@ -26,38 +29,36 @@ you might need something like:
    $ sudo apt-get install python-pip
    $ sudo pip install -U sphinx sphinx-autobuild
 
-.. code-block:: console
+   .. code-block:: console
 
-	$ python -c 'print __import__("sphinx").__version__'
-	  1.3.1
+   $ python -c 'print __import__("sphinx").__version__'
+     1.3.1
 
-Dependencies fulfilled, let's now clone that gitlab repo:
+
+We have confirmed Sphinx installed.  The next step is to clone Gitlab
+repo to our local machine.
+
 
 .. code-block:: console
 
 	$ git clone git@clrgitlab.intel.com:clr-documentation/project-docs.git
 	Cloning into 'project-docs'...
-	remote: Counting objects: 631, done.
-	remote: Compressing objects: 100% (583/583), done.
-	remote: Total 631 (delta 349), reused 108 (delta 35)
-	Receiving objects: 100% (631/631), 2.10 MiB | 0 bytes/s, done.
-	Resolving deltas: 100% (349/349), done.
-	Checking connectivity... done.
+	.
+   .
 
-.. tip::
 
-   If the first time you've cloned ``project-docs`` is following along
-   with this tutorial, you may skip this section; go straight ahead to the 
-   :ref:`Run make` section. However, if you cloned an earlier version and
-   had trouble generating HTML documentation locally, try the steps documented
-   here.
+**Note**:  If the first time you've cloned ``project-docs`` is following
+along with these instructions, you may skip this section; go straight 
+ahead to the :ref:`Run make` section. However, if you cloned an earlier 
+version and ran into trouble generating HTML documentation locally, try 
+the steps documented here.
 
-Before running Sphinx, we need to correct some of the problems in the Gitlab
-repo. Running :command:`make` straightaway from the root of our clone won't
-work.  We need to delete the existing :file:`conf.py` file and also rename
-the existing index file so it can generate a new one with the correct
-parameters. Some files in the Gitlab repo are remnant of a build on a Windows
-box, and they don't quite work on Linux.
+Before running Sphinx, we may need to correct some of the problems in the 
+legacy Gitlab repo. Running :command:`make` straightaway from the root of 
+our clone won't work.  We need to delete the existing :file:`conf.py` file 
+and also rename the existing index file so it can generate a new one with 
+the correct parameters. Some files in the Gitlab repo are remnant of a build 
+on a Windows box, and they don't quite work on Linux.
 
 .. code-block:: console
 
@@ -68,23 +69,22 @@ box, and they don't quite work on Linux.
 	$ rm -rf source/conf.py
 	$ mv source/index.rst source/oldindex.rst
 
-
-In the cloned source directory, we have all the .rst files we need to build
-the docs. We run a native instance of :command:`sphinx-quickstart`. The
-program will run you through a series of questions. The main things to be
-conscious of here:
+In the cloned source directory, we have all the ``.rst`` files needed to 
+build the docs. We run a native instance of :command:`sphinx-quickstart`. 
+The program will run you through a series of questions. The main things to be
+conscious of here are:
 
 * Tell it to use the existing :file:`source/` directory as the Root path for
   the documentation; this is where it looks to find what it needs to generate
   the HTML.
 * It's better to tell it to **not** separate the source and build directories;
   if you answer "y" here, Sphinx will generate *another* :file:`source/` directory,
-  which can be confusing.
+  which can be confusing.  
 * Running quickstart also creates a :file:`_static` directory where you
   should put all images, screenshots, and other content that is linked as static
   content. The builder has been known to complain about this directory if it exists
   already, but it's easy to fix. 
-* Run the builder only once.
+* It is only necessary to run the builder **once**.
 
 What follows here is a log from a successful :command:`sphinx-quickstart` build
 started from within an older clone of the :file:`project-docs/` directory.  Blank
@@ -173,14 +173,15 @@ answers indicate default.
    where "builder" is one of the supported builders, e.g. html, latex or
    linkcheck.
 
+
 .. _run_make:
 
 Run make
 --------
 
 Finally are we ready to run :command:`make`. Be sure to :command:`cd` to the
-:file:`source/` directory before running :command:`make` ``html``, or the doc
-format of your choice.
+:file:`source/` directory where your ``.rst`` files are (or will be), before 
+running :command:`make` ``html``, or the doc format of your choice.
 
 .. code-block:: console
 
@@ -196,13 +197,13 @@ format of your choice.
 
    Build finished. The HTML pages are in _build/html.
 
-Open one of these pages in a web browser to view the rendered documentation.
-If needed, you can copy the contents of the oldindex.rst into the generated
-index file, re-run :command:`make`, to generate the new HTML, and your local
-Table of Contents should index and update accordingly.
+Open one of the .html pages in a web browser to view the rendered 
+documentation. If needed, you can copy the contents of the oldindex.rst
+into the generated index file, re-run :command:`make`, to generate the 
+new HTML, and your local Table of Contents should update accordingly.
 
 For tips on how to contribute documentation formatted in the .rst style
-needed to integrate on the Clearlinux.org website, please see
+needed to integrate beautifully on the clearlinux.org website, please see
  `Theming Sphinx`_.
 
 .. _Sphinx: http://sphinx-doc.org/
