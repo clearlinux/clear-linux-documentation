@@ -59,17 +59,17 @@ Create a virtual machine in VirtualBox
 Run your new VM
 ===============
 
-Clear Linux OS for Intel Architecture support VirtualBox kernel modules used
+Clear Linux OS for Intel Architecture supports VirtualBox kernel modules used
 by the Linux kernel 4.4 :abbr:`LTS (Long Term Support)` (*kernel-lts bundle*).
-This kernel was selected due to Clear Linux OS main kernel
-(*kernel-native bundle*) keeps up-to-date with Linux Kernel upstream and
-some times VirtualBox kernel modules doesn't fit in early days of a new
-kernel release.
+This kernel was selected because Clear Linux OS's main kernel
+(``kernel-native``) bundle keeps up-to-date with the upstream Linux kernel, 
+and sometimes VirtualBox kernel modules aren't compatible with pre-kernel
+releases.
 
-In the first boot Clear Linux will ask for a login user, type **root** and
+In the first boot, Clear Linux will ask for a login user, type **root** and
 then the system will ask you for a new password.
 
-To install the VirtualBox kernel modules you should follow these steps:
+To install the VirtualBox kernel modules, here are the steps:
 
 #. Install the bundle that supports VirtualBox modules::
 
@@ -101,9 +101,9 @@ To install the VirtualBox kernel modules you should follow these steps:
 Install Guest Additions
 -----------------------
 
-The kernel modules are shipped by *kernel-lts* bundle, but you need to install
-the *user* Linux Guest Additions. To install the VirtualBox Guest Additions
-you should follow these steps:
+The kernel modules are shipped with the ``kernel-lts`` bundle; however,
+you'll need to install the *user* Linux Guest Additions. To install the 
+VirtualBox Guest Additions, follow these steps:
 
 #. Insert Guest Additions CD image using *Devices* menu
 
@@ -115,12 +115,12 @@ you should follow these steps:
 
      # reboot
 
-#. (*Optional*) To use Clear Linux graphical user interface please do::
+#. (*Optional*) To use Clear Linux graphical user interface, add the GUI bundle::
 
      # swupd bundle-add os-utils-gui
 
-   once the *os-ultils-gui* bundle is installed you can start
-   graphical user interface with::
+   once the ``os-utils-gui`` bundle is installed, start your graphical 
+   user interface with::
 
      # startx
 
