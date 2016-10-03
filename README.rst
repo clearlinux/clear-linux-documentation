@@ -206,6 +206,8 @@ For tips on how to contribute documentation formatted in the .rst style
 needed to integrate beautifully on the clearlinux.org website, please see
  `Theming Sphinx`_.
 
+
+.. _website documentation:  https://clearlinux.org/documentation
 .. _Sphinx: http://sphinx-doc.org/
 .. _GNU make: https://www.gnu.org/software/make/
 .. _Python: https://www.python.org/
