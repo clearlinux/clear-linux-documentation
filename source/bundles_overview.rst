@@ -312,6 +312,11 @@ Current list of available bundles:
           <li>Includes (kernel-iot) bundle.</li></p></td>
     </tr>
     <tr>
+      <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-dev">iot-dev</a></td>
+      <td class="bundlestatus">Deprecated</td>
+      <td class="bundledesc"><p>The IoT (Internet of Things) base bundle</p></td>
+    </tr>
+    <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/iot-extras">iot-extras</a></td>
       <td class="bundlestatus">WIP</td>
       <td class="bundledesc"><p>The IoT (Internet of Things) base bundle
@@ -379,7 +384,7 @@ Current list of available bundles:
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kvm-host">kvm-host</a></td>
       <td class="bundlestatus">WIP</td>
-      <td class="bundledesc"><p>Provides necessary tools to run usable virtual machines with QEMU-KVM (independently of OpenStack).
+      <td class="bundledesc"><p>Provides necessary tools to run usable virtual machines with QEMU-KVM.
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
     <tr>
@@ -977,7 +982,6 @@ Current list of available bundles:
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
   </table>
-
 
   
 
