@@ -18,14 +18,14 @@ For this example, we'll use a total of six nodes: a **deployment node**,
 to run the playbooks, a **monitor node**, a **metadata node** and three **storage nodes**.
 
 Install each component on its own server for best results; however,
-for testing purposes you can install the monitor, metadata and storage nodes
-on the same host.
+for testing purposes you can install the monitor, metadata, and storage 
+nodes all on the same host.
 
 
 Prerequisites
 =============
 
-Ansible uses ssh to run commands on the remote servers. In order to
+Ansible uses ``ssh`` to run commands on the remote servers. In order to
 do that, the servers must be configured to allow passwordless ssh
 connections from the root user. Follow these steps to configure
 your nodes.
@@ -57,7 +57,7 @@ On your deployment node
 Install the software
 ====================
 
-Install the ``sysadmin-hostmgmt`` bundle on the deployment node. This
+Install the `sysadmin-hostmgmt`_ bundle on the deployment node. This
 bundle contains the Ansible software required to run the playbooks, as
 well as some Ansible roles and sample playbooks that you can use to
 build your own::
@@ -84,7 +84,7 @@ your needs::
     |-- hosts
     +-- ceph_deploy.yml
 
-The hosts file contains the IP addresses of your servers grouped
+The ``hosts`` file contains the IP addresses of your servers grouped
 under the roles they will serve::
 
     [mons]
@@ -98,7 +98,7 @@ under the roles they will serve::
     [mdss]
     172.28.128.11
 
-This :file:`groups_var/all` file contains variables that will applied
+This :file:`groups_var/all` file contains variables that will be applied
 to all your nodes. The mandatory variables are already there; be sure
 to change the values accordingly to fit your environment. It should
 look something like this::
@@ -109,12 +109,13 @@ look something like this::
     public_network: 172.28.128.0/24
     cluster_network: "{{ public_network }}"
 
-A full list of available variables can be found under each role defaults/main.yml
+A full list of available variables can be found under each role 
+in ``defaults/main.yml``::
 
-* `ceph-common/defaults/main.yml`_
-* `ceph-mon/defaults/main.yml`_
-* `ceph-mds/defaults/main.yml`_
-* `ceph-osd/defaults/main.yml`_
+   * `ceph-common/defaults/main.yml`_
+   * `ceph-mon/defaults/main.yml`_
+   * `ceph-mds/defaults/main.yml`_
+   * `ceph-osd/defaults/main.yml`_
 
 This :file:`groups_var/osd` file contains variables that apply only
 to the hosts under the ``[mons]`` section in your hosts file. You can
@@ -169,7 +170,7 @@ Verify
 
 After Ansible has finished deployment, you may
 like to verify and watch the health of the cluster
-with the Ceph utilites like ``ceph status`` and
+with Ceph utilites such as ``ceph status`` and
 ``ceph osd tree``::
 
     # ceph status
@@ -182,6 +183,7 @@ with the Ceph utilites like ``ceph status`` and
           pgmap v14: 64 pgs, 1 pools, 0 bytes data, 0 objects
                 7566 MB used, 49647 MB / 59896 MB avail
                       64 active+clean
+
 ::
 
     # ceph osd tree
@@ -203,3 +205,5 @@ with the Ceph utilites like ``ceph status`` and
 .. _ceph-mon/defaults/main.yml: https://github.com/clearlinux/clear-config-management/blob/master/roles/ceph-mon/defaults/main.yml
 .. _ceph-mds/defaults/main.yml: https://github.com/clearlinux/clear-config-management/blob/master/roles/ceph-mds/defaults/main.yml
 .. _ceph-osd/defaults/main.yml: https://github.com/clearlinux/clear-config-management/blob/master/roles/ceph-osd/defaults/main.yml
+.. _sysadmin-hostmgmt: https://github.com/clearlinux/clr-bundles/blob/master/bundles/sysadmin-hostmgmt
+
