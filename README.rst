@@ -45,8 +45,7 @@ repo to our local machine.
 
 	$ git clone git@clrgitlab.intel.com:clr-documentation/project-docs.git
 	Cloning into 'project-docs'...
-	.
-   .
+
 
 
 **Note**:  If the first time you've cloned ``project-docs`` is following
