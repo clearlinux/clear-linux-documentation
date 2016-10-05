@@ -25,8 +25,8 @@ Download and checksum
 
 ::
 
-$ wget https://download.clearlinux.org/image/clear-[release_number]-installer.img.xz
-$ sha512sum clear-[release_number]-installer.img.xz`
+  $ wget https://download.clearlinux.org/image/clear-[release_number]-installer.img.xz
+  $ sha512sum clear-[release_number]-installer.img.xz
 
 
 Confirm the mount point on the USB drive
