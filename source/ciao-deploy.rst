@@ -60,8 +60,13 @@ You can later launch the container by doing
 Note: container is called in `privileged` mode in order to install your
 certificates in the CNCI image.
 
-Once you're inside the container, you will need to setup the configuration files
-for your cluster:
+Once you're inside the container, continue working in the `/root/` directory
+
+.. code-block:: console
+
+   # cd /root/
+
+Next, you will need to setup the configuration files for your cluster:
 
   * The `hosts`_ file is the hosts inventory file and contains the IP
     addresses/FQDN of your nodes, grouped under the roles they will serve
