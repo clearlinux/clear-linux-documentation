@@ -30,9 +30,9 @@ For this example, we'll use a total of five nodes:
 Prerequisites
 =============
 Ansible* uses :command:`ssh` to run commands on the remote nodes. In order to do
-that, the nodes must be configured to allow passwordless SSH connections
-from the deployment machine to the cluster nodes. The user should also have
-sudo privileges on the cluster nodes.
+that, configure a user for passwordless SSH connections from the deployment
+container to the cluster nodes. This user must also have passwordless sudo
+privileges on the cluster nodes.
 
 This guide uses a docker container to provide all the needed deployment tools,
 in order to use it you will need docker in the machine you're orchestating
