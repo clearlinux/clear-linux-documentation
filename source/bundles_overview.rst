@@ -61,9 +61,9 @@ Current list of available bundles:
 
   <table>
     <tr>
-      <th>Bundle Name</th>
-      <th>Status</th>
-      <th>Description</th>
+      <th align=left>Bundle Name</th>
+      <th align=center>Status</th>
+      <th align=left>Description</th>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a></td>
@@ -110,7 +110,12 @@ Current list of available bundles:
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/clr-devops">clr-devops</a></td>
       <td class="bundlestatus">Active</td>
-      <td class="bundledesc"><p>Run all Clear Linux devops workloads</p></td>
+      <td class="bundledesc"><p>Run all Clear Linux devops workloads
+          <li>Includes (os-installer) bundle.</li>
+          <li>Includes (os-core-update) bundle.</li>
+          <li>Includes (mixer) bundle.</li>
+          <li>Includes (java-basic) bundle.</li>
+          <li>Includes (rust-basic) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/containers-basic">containers-basic</a></td>
@@ -128,8 +133,9 @@ Current list of available bundles:
           <li>Includes (os-core-dev) bundle.</li>
           <li>Includes (os-dev-extras) bundle.</li>
           <li>Includes (kernel-container) bundle.</li>
-          <li>Includes (network-advanced) bundle.</li>
+          <li>Includes (network-basic) bundle.</li>
           <li>Includes (storage-utils) bundle.</li>
+          <li>Includes (network-basic-dev) bundle.</li>
           <li>Includes (storage-utils-dev) bundle.</li></p></td>
     </tr>
     <tr>
@@ -394,7 +400,7 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mail-utils-dev">mail-utils-dev</a></td>
-      <td class="bundlestatus">WIP</td>
+      <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the mail-utils bundle.
           <li>Includes (mail-utils) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
@@ -427,6 +433,13 @@ Current list of available bundles:
       <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>Run network utilities and modify network settings
           <li>Includes # bundle.</li>
+          <li>Includes TODO bundle.</li>
+          <li>Includes remove bundle.</li>
+          <li>Includes openssh-server bundle.</li>
+          <li>Includes for bundle.</li>
+          <li>Includes format bundle.</li>
+          <li>Includes change bundle.</li>
+          <li>Includes # bundle.</li>
           <li>Includes perl-basic bundle.</li>
           <li>Includes and bundle.</li>
           <li>Includes tcl-basic bundle.</li>
@@ -434,6 +447,7 @@ Current list of available bundles:
           <li>Includes to bundle.</li>
           <li>Includes avoid bundle.</li>
           <li>Includes duplication bundle.</li>
+          <li>Includes (openssh-server) bundle.</li>
           <li>Includes (perl-basic) bundle.</li>
           <li>Includes (tcl-basic) bundle.</li></p></td>
     </tr>
@@ -443,7 +457,11 @@ Current list of available bundles:
       <td class="bundledesc"><p>All packages required to build the network-basic bundle.
           <li>Includes (network-basic) bundle.</li>
           <li>Includes (os-core-dev) bundle.</li>
-          <li>Includes (os-dev-extras) bundle.</li></p></td>
+          <li>Includes (os-dev-extras) bundle.</li>
+          <li>Includes (openssh-server) bundle.</li>
+          <li>Includes (perl-basic) bundle.</li>
+          <li>Includes (tcl-basic) bundle.</li>
+          <li>Includes (perl-basic-dev) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-basic-doc">network-basic-doc</a></td>
@@ -658,20 +676,37 @@ Current list of available bundles:
       <td class="bundlestatus">Active</td>
       <td class="bundledesc"><p>All packages required to build the os-clr-on-clr bundle.
           <li>Includes (os-clr-on-clr) bundle.</li>
-          <li>Includes (os-core-dev) bundle.</li>
           <li>Includes (os-dev-extras) bundle.</li>
+          <li>Includes (c-basic) bundle.</li>
+          <li>Includes (dev-utils-dev) bundle.</li>
+          <li>Includes (dev-utils-doc) bundle.</li>
+          <li>Includes (editors-doc) bundle.</li>
+          <li>Includes (go-basic) bundle.</li>
+          <li>Includes (koji) bundle.</li>
+          <li>Includes (kvm-host) bundle.</li>
           <li>Includes (mail-utils) bundle.</li>
-          <li>Includes (storage-utils) bundle.</li>
-          <li>Includes (os-core-update) bundle.</li>
-          <li>Includes (python-basic) bundle.</li>
-          <li>Includes (perl-basic) bundle.</li>
-          <li>Includes (os-utils) bundle.</li>
           <li>Includes (mail-utils-dev) bundle.</li>
-          <li>Includes (storage-utils-dev) bundle.</li>
+          <li>Includes (mixer) bundle.</li>
+          <li>Includes (network-basic-dev) bundle.</li>
+          <li>Includes (network-basic-doc) bundle.</li>
+          <li>Includes (openssh-server) bundle.</li>
+          <li>Includes (os-core-dev) bundle.</li>
+          <li>Includes (os-core-doc) bundle.</li>
           <li>Includes (os-core-update-dev) bundle.</li>
-          <li>Includes (python-basic-dev) bundle.</li>
+          <li>Includes (perl-basic) bundle.</li>
+          <li>Includes (python-basic) bundle.</li>
+          <li>Includes (storage-utils-dev) bundle.</li>
+          <li>Includes # bundle.</li>
+          <li>Includes needs bundle.</li>
+          <li>Includes autodoc bundle.</li>
+          <li>Includes first bundle.</li>
+          <li>Includes (storage-utils-doc) bundle.</li>
+          <li>Includes (sysadmin-basic-dev) bundle.</li>
+          <li>Includes (sysadmin-basic-doc) bundle.</li>
+          <li>Includes (go-basic-dev) bundle.</li>
+          <li>Includes (mail-utils-dev) bundle.</li>
           <li>Includes (perl-basic-dev) bundle.</li>
-          <li>Includes (os-utils-dev) bundle.</li></p></td>
+          <li>Includes (python-basic-dev) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core">os-core</a></td>
@@ -942,6 +977,8 @@ Current list of available bundles:
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
   </table>
+
+  
 
   
 
