@@ -34,23 +34,23 @@ that, configure a user for passwordless SSH connections from the deployment
 container to the cluster nodes. This user must also have passwordless sudo
 privileges on the cluster nodes.
 
-This guide uses a docker container to provide all the needed deployment tools,
-in order to use it you will need docker in the machine you're orchestating
+This guide uses a docker container to provide all the needed deployment tools;
+in order to use it, you will need docker in the machine you're orchestating
 your deployment.
 
 
 Setup your deployment machine
 =============================
 
-We provide a ready-to-use docker container, you just need to download it and
-setup your cluster configurations.
+We provide a ready-to-use docker container. Simply download it and
+setup your cluster configurations:
 
 .. code-block:: console
 
    $ docker pull clearlinux/ciao-deploy
 
 
-You can later launch the container by doing
+You can later launch the container with:
 
 .. code-block:: console
 
@@ -66,14 +66,14 @@ Once you're inside the container, continue working in the `/root/` directory
 
    # cd /root/
 
-Next, you will need to setup the configuration files for your cluster:
+Next, set up the configuration files for the cluster:
 
-  * The `hosts`_ file is the hosts inventory file and contains the IP
-    addresses/FQDN of your nodes, grouped under the roles they will serve
+  * The `hosts`_ file is the hosts inventory file which contains the IP
+    addresses/FQDN of your nodes, grouped under the roles they will serve.
 
   * The `groups_vars/all`_ file contains variables that will be applied
     to your ciao setup. The mandatory variables are already there; be
-    sure to change the values accordingly to fit your environment
+    sure to change the values accordingly to fit your environment.
 
   * The ``ciao_guest_key`` value in :file:`groups_var/all` is the key to be
     used to connect to the VMs created by ciao; you can use the
@@ -88,8 +88,8 @@ Note: All the files in :file:`/root/ciao/` are hosted in `github`_
 
 Run the playbook
 ================
-Once you have your variables and hosts file configured, the deployment can
-be started with the following command:
+Once the variables and hosts file are configured, start deployment
+with the following command:
 
 .. code-block:: console
 
@@ -97,15 +97,20 @@ be started with the following command:
        --private-key=~/.ssh/id_rsa \
        --user=<REMOTE_USER>
 
-Note: The playbook will create the following files in the current folder of the machine runninng the playbooks.
+Note: The playbook will create the following files in the current folder of 
+the machine running the playbooks.
 
-  * ./certificates: This directory contains the certificates that where created and copied to the cluster nodes.
+  * ``./certificates``: This directory contains the certificates
+    that where created and copied to the cluster nodes.
 
-  * ./images: This directory contains the images used by the ciao cluster. (fedora, clearlinux, cnci, ovmf.fd)
+  * ``./images``: This directory contains the images used by the 
+    ciao cluster (fedora, clearlinux, cnci, ovmf.fd).
 
-  * ./ciaorc: This file contains environment variables needed by ciao cli to authenticate to the ciao cluster.
+  * ``./ciaorc``: This file contains environment variables needed 
+    by ciao cli to authenticate to the ciao cluster.
 
-  * ./openrc: This file contains environment variables needed by openstack cli to authenticate with the ciao cluster.
+  * ``./openrc``: This file contains environment variables needed by 
+    openstack cli to authenticate with the ciao cluster.
 
 Verify
 ======
@@ -123,7 +128,7 @@ was specified in the ``groups_var/all`` file:
     Offline 0
     Maintenance 0
 
-You could also take a look at the :file:`./ciaorc` file created on your
+You could also take a look at the ``./ciaorc`` file created on your
 deployment node, which contains the following environment variables:
 
 .. code-block:: console
