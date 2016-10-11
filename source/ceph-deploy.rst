@@ -15,7 +15,8 @@ Environment
 ===========
 
 For this example, we'll use a total of six nodes: a **deployment node**,
-to run the playbooks, a **monitor node**, a **metadata node** and three **storage nodes**.
+to run the playbooks, a **monitor node**, a **metadata node** and three 
+**storage nodes**.
 
 Install each component on its own server for best results; however,
 for testing purposes you can install the monitor, metadata, and storage 
