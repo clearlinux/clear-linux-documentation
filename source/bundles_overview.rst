@@ -27,22 +27,35 @@ diagram below gives an overall picture of it.
      :alt: bundles-overview
 
 
+
+To see a list of currently-installed bundles
+============================================
+
+.. code-block:: console
+ 
+   # ls /usr/share/clear/bundles
+
+
+
+To see the list of optional bundles you can install
+===================================================
+
+.. code-block:: console
+ 
+   # swupd bundle-add --list
+
+
 To add a bundle
 ===============
 
-``# swupd bundle-add [bundle name]``
-
-To see a list of installed bundles
-==================================
-
-``# swupd bundle-add --list``
-
-Or
-
-``# ls /usr/share/clear/bundles``
+.. code-block:: console
+ 
+   # swupd bundle-add [bundle name]
 
 
-Current list of available bundles: 
+
+
+Current list of available bundles as of ``[[12 October 2016]]``.
 
 .. raw:: html
    
@@ -68,14 +81,7 @@ Current list of available bundles:
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a></td>
       <td class="bundlestatus">Deprecated</td>
-      <td class="bundledesc"><p>Provides the neccesary bundles to perform BAT succesfully
-          <li>Includes (kvm-host) bundle.</li>
-          <li>Includes (lamp-basic) bundle.</li>
-          <li>Includes (openstack-all-in-one) bundle.</li>
-          <li>Includes (openstack-test-suite) bundle.</li>
-          <li>Includes (pnp-tools-advanced) bundle.</li>
-          <li>Includes (storage-utils) bundle.</li>
-          <li>Includes (sysadmin-hostmgmt) bundle.</li></p></td>
+      <td class="bundledesc"><p>Provides the neccesary bundles to perform BAT succesfully</p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bootloader">bootloader</a></td>
@@ -373,8 +379,11 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lamp-basic">lamp-basic</a></td>
-      <td class="bundlestatus">Active</td>
-      <td class="bundledesc"><p>Basic LAMP Server (apache2, mariadb, php5)</p></td>
+      <td class="bundlestatus">Deprecated</td>
+      <td class="bundledesc"><p>Basic LAMP Server (apache2, mariadb, php5)
+          <li>Includes (database-basic) bundle.</li>
+          <li>Includes (php-basic) bundle.</li>
+          <li>Includes (web-server-basic) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/libX11client">libX11client</a></td>
@@ -383,8 +392,11 @@ Current list of available bundles:
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lnmp-basic">lnmp-basic</a></td>
-      <td class="bundlestatus">WIP</td>
-      <td class="bundledesc"><p>Basic LNMP Server (nginx, mariadb, php5)</p></td>
+      <td class="bundlestatus">Deprecated</td>
+      <td class="bundledesc"><p>Basic LNMP Server (nginx, mariadb, php5)
+          <li>Includes (database-basic) bundle.</li>
+          <li>Includes (php-basic) bundle.</li>
+          <li>Includes (web-server-basic) bundle.</li></p></td>
     </tr>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/machine-learning-basic">machine-learning-basic</a></td>
@@ -765,8 +777,10 @@ Current list of available bundles:
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-phoronix">os-testsuite-phoronix</a></td>
       <td class="bundlestatus">Active</td>
-      <td class="bundledesc"><p>All the required pieces for running the Phoronix Test Suite
-          <li>Includes (lamp-basic) bundle.</li>
+      <td class="bundledesc"><p>Run the Phoronix testsuite
+          <li>Includes (database-basic) bundle.</li>
+          <li>Includes (php-basic) bundle.</li>
+          <li>Includes (web-server-basic) bundle.</li>
           <li>Includes (machine-learning-basic) bundle.</li>
           <li>Includes (os-utils-gui) bundle.</li></p></td>
     </tr>
