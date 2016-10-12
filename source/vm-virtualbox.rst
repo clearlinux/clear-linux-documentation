@@ -122,7 +122,7 @@ VirtualBox Guest Additions, follow these steps:
    once the ``os-utils-gui`` bundle is installed, start your graphical 
    user interface with::
 
-     # startx
+     # startxfce4
 
    Clear Linux doesn't provide a graphical display manager.
 
