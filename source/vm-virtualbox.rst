@@ -105,6 +105,10 @@ The kernel modules are shipped with the ``kernel-lts`` bundle; however,
 you'll need to install the *user* Linux Guest Additions. To install the 
 VirtualBox Guest Additions, follow these steps:
 
+#. Install the **sysadmin-basic** bundle::
+
+     # swupd bundle-add sysadmin-basic
+
 #. Insert Guest Additions CD image using *Devices* menu
 
 #. Install Linux users Guest Additions::
