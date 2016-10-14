@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using VMware* ESXi guest &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Running in a virtualized environment" href="index_vm.html" />
+    <link rel="next" title="Using VMware* Player" href="vm-vmware-player.html" />
+    <link rel="prev" title="Using VirtualBox" href="vm-virtualbox.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-vmware-esxi-guest">
+<span id="vm-vmware-esxi"></span><h1>Using <em>VMware*</em> ESXi guest</h1>
+<p>This topic, which is based on <em>VMware vSphere 6</em>, explains how to use Clear Linux* OS
+for Intel® Architecture as ESXi Guest.</p>
+<div class="section" id="run-clear-linux-os-for-intel-architecture">
+<h2>Run Clear Linux OS for Intel Architecture</h2>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="https://download.clearlinux.org/image/">latest</a> live version of the disk image.</p>
+</li>
+<li><p class="first">Decompress the downloaded image. Uncompressed image size is ~ <strong>5GB</strong>.</p>
+</li>
+<li><p class="first">Create a virtual machine with the following configuration:</p>
+<ul>
+<li><p class="first"><strong>Guest OS</strong>: Linux, Distribution Other 3.x Linux (64-bits)</p>
+</li>
+<li><p class="first"><strong>UEFI support</strong>: Clear Linux uses <cite>systemd-boot</cite> as the UEFI boot manager
+for EFI images. Find the settings for this option using the vSphere GUI; go
+to the configuration settings of the virtual machine and select
+<strong>EFI boot firmware</strong>.</p>
+</li>
+<li><p class="first"><strong>IDE disk</strong>: Convert to vmdk and attach the Clear Linux image you downloaded
+above. To convert Clear Linux image to VMware disk (vmdk) you can use the
+<code class="docutils literal"><span class="pre">qemu-img</span></code> command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ qemu-img convert -f raw -O vmdk  -p clear-vmware.img clear-vmware.vmdk
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Start the virtual machine</p>
+</li>
+</ol>
+</div>
+<div class="section" id="using-an-optimized-kernel-for-vmware">
+<h2>Using an optimized kernel for <em>VMware</em></h2>
+<p>Clear Linux provides an optional bundle called <em>kernel-vmware</em> that contains a
+specialized kernel with specific configuration for VMware hypervisor, including:</p>
+<ul class="simple">
+<li><strong>vmw_balloon</strong> &#8211; A technique for memory reclamation that works like a
+balloon. A guest can be inflated to reclaim physical memory. The balloon
+can also be deflated to allow the guest free memory pages.</li>
+<li><strong>vmw_pvscsi</strong> &#8211; A driver that allows use of the para-virtualized SCSI provided
+by <em>VMware</em> hypervisors.</li>
+<li><strong>vmxnet3</strong> &#8211; Allows use of VMware virtual ethernet NICs.</li>
+<li><strong>vmwgfx</strong> &#8211; Allows use of a DRM driver for the VMware virtual hardware</li>
+</ul>
+<p>To use these features, add the <code class="docutils literal"><span class="pre">kernel-vmware</span></code> bundle to your Clear Linux install:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add kernel-vmware</span>
+</pre></div>
+</div>
+<p>Now turn off the virtual machine and change the configuration as follows:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Guest OS</strong>: Linux / 3.x Linux (64-bits)</p>
+</li>
+<li><p class="first"><strong>UEFI support</strong>: Clear Linux uses <cite>systemd-boot</cite> as the UEFI boot manager
+for EFI images. To add UEFI support, go to &#8220;Configuration settings of the
+virtual machine&#8221; -&gt; &#8220;General Tab&#8221; -&gt; &#8220;And select EFI boot firmware&#8221;</p>
+</li>
+<li><p class="first"><strong>SCSI Para-virtualized disk</strong>: Convert the Clear Linux image to an SCSI
+VMware disk image and re-attach it.</p>
+<ol class="arabic">
+<li><p class="first">Extract the image from the EXSi server to one Linux machine and use
+<code class="docutils literal"><span class="pre">qemu-img</span></code> command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ qemu-img convert -f raw -O vmdk -o adapter_type=lsilogic -o compat6 -p clear-vmware.img clear-vmware.vmdk
+</pre></div>
+</div>
+</li>
+<li><p class="first">Transfer the Clear Linux image to the VMware ESXi server and use the
+<strong class="command">vmkfstools</strong> command (you need to access to ESXi command line ):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ vmkfstools -i clear-vmware.vmdk -d zeroedthick clear-vmware-fix.vmdk
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the converted image to the guest by using VMware vSphere virtual
+machine settings</p>
+</li>
+</ol>
+</li>
+</ul>
+</div></blockquote>
+<p>Finally, start the modified virtual machine.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using <em>VMware*</em> ESXi guest</a><ul>
+<li><a class="reference internal" href="#run-clear-linux-os-for-intel-architecture">Run Clear Linux OS for Intel Architecture</a></li>
+<li><a class="reference internal" href="#using-an-optimized-kernel-for-vmware">Using an optimized kernel for <em>VMware</em></a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_vm.html">Running in a virtualized environment</a><ul>
+      <li>Previous: <a href="vm-virtualbox.html" title="previous chapter">Using VirtualBox</a></li>
+      <li>Next: <a href="vm-vmware-player.html" title="next chapter">Using VMware* Player</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vm-vmware-esxi.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/vm-vmware-esxi.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The “hosts” file &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-hosts-file">
+<span id="openstack-env-inventory-file"></span><h1>The &#8220;hosts&#8221; file</h1>
+<p>The <code class="file docutils literal"><span class="pre">hosts</span></code> file is an inventory file where you specify, via
+<code class="docutils literal"><span class="pre">ini</span></code> format, the roles your machine plays.</p>
+<p>The <code class="file docutils literal"><span class="pre">hosts</span></code> file can be structured with different groups, where each
+group plays a specific role in your environment and network mapping.</p>
+<p>Consider the following example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">openstack_identity</span><span class="p">]</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">50.13</span>
+</pre></div>
+</div>
+<p>Here, the role <code class="docutils literal"><span class="pre">[openstack_identity]</span></code> syntax defines the group, and
+<code class="docutils literal"><span class="pre">192.168.50.13</span></code> specifies the machine(s) that possess that role. You
+may define multiple machines in the same group; this is a standard
+configuration for role <code class="docutils literal"><span class="pre">[openstack_compute]</span></code> nodes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">openstack_compute</span><span class="p">]</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">50.16</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">50.17</span>
+</pre></div>
+</div>
+<div class="section" id="inventory-file-groups">
+<h2>Inventory file groups</h2>
+<p>Below you will find the description of each group in the <cite>hosts</cite> file.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">&#8220;Inventory File Groups&#8221;</caption>
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Group</th>
+<th class="head">Components</th>
+<th class="head">Comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>[dbservers]</td>
+<td>MariaDB</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>[messaging_servers]</td>
+<td>RabbitMQ</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>[openstack_identity]</td>
+<td>Keystone, Horizon</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>[openstack_image]</td>
+<td>Glance</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>[openstack_compute_controller]</td>
+<td>Nova</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>[openstack_compute]</td>
+<td>Nova</td>
+<td>Accepts multiple entries to have multiple compute nodes. You can add more entries and re-run the installer to add them to your environment.</td>
+</tr>
+<tr class="row-even"><td>[openstack_networking]</td>
+<td>Neutron</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>[openstack_orchestration]</td>
+<td>Heat</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>[openstack_object_storage_controller]</td>
+<td>Swift</td>
+<td>The Swift storage controller. It runs the swift proxy server and the memcache server</td>
+</tr>
+<tr class="row-odd"><td>[openstack_object_storage]</td>
+<td>Swift</td>
+<td>The Swift Storage nodes. Accepts multiple entries to have multiple storage nodes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="important-notes">
+<h2>Important notes</h2>
+<ul class="simple">
+<li>To omit any role, do not add an entry under its group section.</li>
+<li>To create an <code class="docutils literal"><span class="pre">All</span> <span class="pre">In</span> <span class="pre">One</span></code> scenario, specify the same machine name or IPv4
+Address under all of the groups.</li>
+</ul>
+<p>For further reference, check out the <a class="reference external" href="http://docs.ansible.com/ansible/intro_inventory.html">Ansible</a> documentation.</p>
+<p><strong>Back to Configuration Section</strong> <a class="reference internal" href="configure_openstack_environment.html#configure-openstack-environment"><span class="std std-ref">Configure environment</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The &#8220;hosts&#8221; file</a><ul>
+<li><a class="reference internal" href="#inventory-file-groups">Inventory file groups</a></li>
+<li><a class="reference internal" href="#important-notes">Important notes</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/openstack_env_inventory_file.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/openstack_env_inventory_file.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

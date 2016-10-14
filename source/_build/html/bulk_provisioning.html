@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bulk Provisioning &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Advanced configuration" href="index_advanced_configuration.html" />
+    <link rel="next" title="Mixer Tool" href="mixer.html" />
+    <link rel="prev" title="Network booting" href="network_boot.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bulk-provisioning">
+<span id="id1"></span><h1>Bulk Provisioning</h1>
+<p>Data centers tend to land and install new machines in bulk. When dealing with
+large quantities of new machines or hardware upgrades, data center admins may need
+a way to install and configure with a minimal amount of effort. To support this
+use case, the Clear Linux team has developed some tooling and instructions for
+how to bulk-load machines with Clear Linux using iPXE.</p>
+<p>This bulk provisioning scenario is a variation on the <a class="reference internal" href="network_boot.html#network-boot"><span class="std std-ref">Network booting</span></a> scenario,
+with some alterations to facilitate installing and configuring many hosts. The Clear
+Linux installer (<code class="docutils literal"><span class="pre">Ister</span></code>) was augmented to detect and find <code class="docutils literal"><span class="pre">cloud-init</span></code> configuration
+data during the install. When this data is found, a <code class="file docutils literal"><span class="pre">cloud-init</span></code> file is fetched,
+and the host, after being rebooted by <code class="docutils literal"><span class="pre">ister</span></code>, uses micro-config drive (<code class="docutils literal"><span class="pre">ucf</span></code>) to
+configure the host as directed by the <code class="file docutils literal"><span class="pre">cloud-init</span></code> configuration file.</p>
+<p>In our pilot of this workflow, we used <code class="docutils literal"><span class="pre">clear-cloud-init</span></code> (which will become ucf - micro config drive)
+to install the trust relationships for the host to be further managed by Ansible. The
+<code class="file docutils literal"><span class="pre">cloud-init</span></code> configuration file was served by a simple little web application
+that <code class="docutils literal"><span class="pre">Ister</span></code> knows how to query for host configuration data. This allowed us to
+simultaneously power-on one hundred machines, each of which
+* picked up the Clear Linux installer via PXE,
+* installed Clear Linux,
+* rebooted, and
+* entered into a mode that can be managed through Ansible.</p>
+<p>The web application that serves cloud-init configurations to <code class="docutils literal"><span class="pre">Ister</span></code> is uninspiringly named
+&#8220;Ister Cloud Init Service&#8221; (ICIS), and is available at github - <a class="reference external" href="https://github.com/clearlinux/ister-cloud-init-svc">https://github.com/clearlinux/ister-cloud-init-svc</a></p>
+<p>One nice attribute of this system is that once the iPXE bits are created, many installer
+behaviors can be configured without having to regenerate the iPXE bits.</p>
+<div class="section" id="system-architecture">
+<h2>System Architecture</h2>
+<p>The following diagrams illustrate the system architecture.</p>
+<img alt="pxe-server-overview" class="align-center" src="_images/icis_pxe_diagram.png" />
+<p>As can be seen, ICIS is a web application (specifically a Flask application, hence managed by <code class="docutils literal"><span class="pre">uwsgi</span></code>
+under nginx) that can run <strong>anywhere</strong> visible to hosts booting from PXE. In our example, we simply
+hosted it on the same system serving the pxe content.</p>
+<p>The following diagram illustrates the flow of information between the pxe server and a host booting
+into the installer via pxe. This diagram is intended to show the logical flow of information, and
+is not a literal depiction of the protocol-level exchanges.</p>
+<img alt="pxe-icis-install-workflow" class="align-center" src="_images/icis_installer_workflow.png" />
+</div>
+<div class="section" id="configuration-overview">
+<h2>Configuration Overview</h2>
+<p>Here is a high-level overview describing set up and configuration of a bulk-provisioning solution.</p>
+<ul>
+<li><p class="first">First, stand up an iPXE server as described in the <a class="reference internal" href="network_boot.html#network-boot"><span class="std std-ref">Network booting</span></a> docs. Note that you will
+be generating your own artifacts to be served by PXE in a later step.</p>
+</li>
+<li><p class="first">Land <a class="reference external" href="https://github.com/clearlinux/ister-cloud-init-svc">Ister Cloud Init Service</a> on the
+pxe server. The README in the ICIS github repo has directions on how to install and configure.</p>
+</li>
+<li><p class="first">Generate the installer that will load and boot over PXE. Copy the relevant files into the
+appropriate location on the iPXE server.</p>
+<p>A pxe installer is generated for every release of Clear Linux OS. It can be found alongside the
+published images in <a class="reference external" href="https://download.clearlinux.org/releases/XXXXX/clear/clear-XXXXX-pxe.tar.xz">https://download.clearlinux.org/releases/XXXXX/clear/clear-XXXXX-pxe.tar.xz</a></p>
+<p>Alternatively, use the <a class="reference external" href="https://github.com/bryteise/ister/blob/master/create_pxe.sh">create_pxe.sh</a>
+script to roll your own. Note this creates the pxe-installer from the &#8220;provisioning&#8221; installer in
+Clear Linux.  This is a touchless installer that takes all installation information from a config
+file. You can get this image from a given Clear Linux release by looking
+in <a class="reference external" href="https://download.clearlinux.org/releases/XXXX/clear/">https://download.clearlinux.org/releases/XXXX/clear/</a> where XXXX is a Clear Linux release number.
+Just download the image alongside the <code class="docutils literal"><span class="pre">create_pxe.sh</span></code> script and name it <code class="docutils literal"><span class="pre">provision.img</span></code>.</p>
+</li>
+<li><p class="first">Stage config files for <code class="docutils literal"><span class="pre">ister</span></code> that will govern Ister&#8217;s behavior. This includes modifying the
+script for ipxe boot, getting it to pass an additional parameter to the kernel.</p>
+<p>The magic that ties all of this together is that the pxe script conveys to ister the location of its configuration files via the kernel command line of the installer it kicks off. The kernel preserves its command line precisely, and ister inspects it via <code class="docutils literal"><span class="pre">/proc/cmdline</span></code>.</p>
+<p>Here is an example pxe script:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span>!ipxe
+<span class="go">kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable</span>
+<span class="go">no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1/icis/static/ister/ister.conf</span>
+<span class="go">initrd initrd</span>
+<span class="go">boot</span>
+</pre></div>
+</div>
+<p>When the pxe installer kicks off <code class="docutils literal"><span class="pre">ister</span></code>, it will make note of the location of the <code class="docutils literal"><span class="pre">conf</span></code> file
+that was given on the kernel command line, and fetch the file. This file then tells <code class="docutils literal"><span class="pre">ister</span></code> where
+to get the json template file that describes partition schemes, and which version of Clear Linux to
+install. This means that so long as the contents of a release are compatible with the version of
+software update (<code class="docutils literal"><span class="pre">swupd</span></code>) in the installer, this pxe installer can be told to install a newer
+version of Clear Linux simply by tweaking the json on the web server, rather than rolling an
+entirely new installer.</p>
+<p>One other important piece of configuration data in the json configuration file is the location of
+an ICIS configuration service. Ister will query ICIS for a role using the MAC address of the network
+interface being used to communicate with the ICIS service. Ister will then fetch that specific
+<code class="file docutils literal"><span class="pre">cloud-init</span></code> file and <code class="docutils literal"><span class="pre">configure</span> <span class="pre">ucd</span></code> to run on first-boot against that config file.</p>
+<p>The <a class="reference external" href="https://github.com/clearlinux/ister-cloud-init-svc">Ister Cloud Init Service</a> github repo
+has example ister configuration files under <code class="docutils literal"><span class="pre">static/ister</span></code>.</p>
+<p>Here is an example ister-template.json file.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;DestinationType&quot; : &quot;phyiscal&quot;,</span>
+<span class="go">  &quot;PartitionLayout&quot; : [ { &quot;disk&quot; : &quot;/dev/sda&quot;, &quot;partition&quot; : 1,</span>
+<span class="go">                          &quot;size&quot; : &quot;64M&quot;, &quot;type&quot; : &quot;EFI&quot; },</span>
+<span class="go">                        { &quot;disk&quot; : &quot;/dev/sda&quot;, &quot;partition&quot; : 2,</span>
+<span class="go">                          &quot;size&quot; : &quot;2G&quot;, &quot;type&quot; : &quot;linux&quot; } ],</span>
+<span class="go">  &quot;FilesystemTypes&quot; : [ { &quot;disk&quot; : &quot;/dev/sda&quot;, &quot;partition&quot; : 1, &quot;type&quot; : &quot;vfat&quot; },</span>
+<span class="go">                        { &quot;disk&quot; : &quot;/dev/sda&quot;, &quot;partition&quot; : 2, &quot;type&quot; : &quot;ext4&quot; } ],</span>
+<span class="go">  &quot;PartitionMountPoints&quot; : [ { &quot;disk&quot; : &quot;/dev/sda&quot;, &quot;partition&quot; : 1,</span>
+<span class="go">                               &quot;mount&quot; : &quot;/boot&quot; },</span>
+<span class="go">                             { &quot;disk&quot; : &quot;/dev/sda&quot;, &quot;partition&quot; : 2,</span>
+<span class="go">                               &quot;mount&quot; : &quot;/&quot; } ],</span>
+<span class="go">  &quot;Version&quot;: 6580,</span>
+<span class="go">  &quot;Bundles&quot;: [&quot;kernel-native&quot;, &quot;os-core-update&quot;, &quot;os-core&quot;,</span>
+<span class="go">              &quot;bootloader&quot;, &quot;sysadmin-hostmgmt&quot;, &quot;openssh-server&quot;],</span>
+<span class="go">  &quot;PostNonChroot&quot;: [&quot;./installation-image-post-update-version.py&quot;],</span>
+<span class="go">  &quot;IsterCloudInitSvc&quot;: [&quot;http://192.168.1.1/icis/&quot;]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Configure ICIS to map MAC addresses to role files appropriately. Then create the role files, which
+are <code class="docutils literal"><span class="pre">cloud-init</span></code> configuration files. Note, it is possible to simply specify a &#8220;default&#8221; role for
+any unmatched MAC address; this may be handy when all install targets are to be configured identically.</p>
+</li>
+<li><p class="first">Final pre-flight check. Assuming your iPXE server is at 192.168.1.1, all of the following urls need to be working.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://192.168.1.1/icis/static/ister/ister.conf">http://192.168.1.1/icis/static/ister/ister.conf</a></li>
+<li><a class="reference external" href="http://192.168.1.1/icis/static/ister/ister_config.json">http://192.168.1.1/icis/static/ister/ister_config.json</a></li>
+<li><a class="reference external" href="http://192.168.1.1/icis/get_config">http://192.168.1.1/icis/get_config</a>/&lt;MAC ADDR&gt;</li>
+<li><a class="reference external" href="http://192.168.1.1/icis/get_role">http://192.168.1.1/icis/get_role</a>/&lt;role returned from previous url&gt;</li>
+<li><a class="reference external" href="http://192.168.1.1/ipxe_boot_script.txt">http://192.168.1.1/ipxe_boot_script.txt</a></li>
+</ul>
+</li>
+<li><p class="first">Boot an iPXE client and watch Clear Linux install.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Bulk Provisioning</a><ul>
+<li><a class="reference internal" href="#system-architecture">System Architecture</a></li>
+<li><a class="reference internal" href="#configuration-overview">Configuration Overview</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_advanced_configuration.html">Advanced configuration</a><ul>
+      <li>Previous: <a href="network_boot.html" title="previous chapter">Network booting</a></li>
+      <li>Next: <a href="mixer.html" title="next chapter">Mixer Tool</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bulk_provisioning.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/bulk_provisioning.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

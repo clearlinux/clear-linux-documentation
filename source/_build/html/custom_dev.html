@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Custom Web Application Development &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Tutorials" href="index-ts.html" />
+    <link rel="prev" title="Detailed manual ciao cluster setup" href="ciao-cluster-setup.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="contents topic" id="contents">
+<span id="custom-dev"></span><p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#custom-web-application-development" id="id1">Custom Web Application Development</a><ul>
+<li><a class="reference internal" href="#initial-machine-configuration" id="id2">Initial Machine Configuration</a></li>
+<li><a class="reference internal" href="#web-application-development-tools" id="id3">Web Application Development Tools</a><ul>
+<li><a class="reference internal" href="#sublime-text" id="id4">Sublime Text</a></li>
+<li><a class="reference internal" href="#bundles" id="id5">Bundles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="custom-web-application-development">
+<h1><a class="toc-backref" href="#id1">Custom Web Application Development</a></h1>
+<p>For something as trivial as a Wordpress install, you know you can use
+a tool like <a class="reference external" href="https://hub.docker.com/_/wordpress/">Docker Wordpress</a>, to integrate easily enough with Intel
+Clear Containers. But what if your goal is to build a custom web
+application?</p>
+<p>Let&#8217;s say your aspirations are fairly modest. You have an idea for an
+application. This is an idea that, if successful, you&#8217;d likely want to
+scale up to a cloud-based model at some point in the future.  For now,
+however, your goal is simply to build and test without the abstract &#8220;container&#8221;
+environment; it&#8217;s just not necessary. For development, you prefer to
+build and test within the actual environment that exists (or will exist)
+on your host.</p>
+<p>This tutorial walks through a basic development box setup.</p>
+<div class="section" id="initial-machine-configuration">
+<h2><a class="toc-backref" href="#id2">Initial Machine Configuration</a></h2>
+<ol class="arabic">
+<li><p class="first">After a successful bare metal install on something like a <a class="reference external" href="http://www.intel.com/content/www/us/en/nuc/overview.html">NUC</a>,
+you&#8217;re prompted to reboot, log in as root, and change your
+password right away.</p>
+</li>
+<li><p class="first">Install the following bundle:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add os-utils-gui</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Launch the GUI and see the very basic (but still lovely) desktop:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># startx</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/clr-desktop-screenshot.png"><img alt="clear-desktop" class="align-center" src="_images/clr-desktop-screenshot.png" style="width: 500px;" /></a>
+</li>
+<li><p class="first">Launch a terminal and generate SSH keys.  ED25519 is new; it has been designed
+to replace soon-to-be-deprecated DSA and RSA. ED25519 is a reference
+implementation of EdDSA with <a class="reference external" href="http://en.wikipedia.com/wiki/Twisted_Edwards_curve">Twisted Edwards curve</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ssh-keygen -o -a 100 -t ed25519</span>
+</pre></div>
+</div>
+<img alt="ssh keygen" class="align-center" src="_images/ssh_ed25519_keygen.png" />
+</li>
+<li><p class="first">Copy your public key, <code class="docutils literal"><span class="pre">id_ed25519.pub</span></code> to any centralized repos where
+you&#8217;re storing or backing up your development code (gerrit, github, bitbucket).
+If you need to copy the key to a remote machine, try something like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># scp ~/.ssh/id_25519.pub user@ip-addr-of-remote-machine:~</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="web-application-development-tools">
+<h2><a class="toc-backref" href="#id3">Web Application Development Tools</a></h2>
+<ol class="arabic">
+<li><p class="first">Now we&#8217;re ready to install the bundles that will give us the tools we need to
+do run web applications locally</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#  swupd bundle-add database-basic editors-dev web-server-basic</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div>ruby-basic</div></blockquote>
+<div class="section" id="sublime-text">
+<h3><a class="toc-backref" href="#id4">Sublime Text</a></h3>
+<ol class="arabic">
+<li><p class="first">Add a text editor IDE of your choosing; for example, Sublime:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mkdir /opt/</span>
+<span class="c1"># cd /opt/</span>
+<span class="c1"># curl -O https://download.sublimetext.com/sublime_text_3_build_3126_x64.tar.bz2</span>
+<span class="c1"># tar -xjvf sublime_text_3_build_xxxx_x64.tar.bz2</span>
+<span class="c1"># touch /usr/bin/sublime</span>
+<span class="c1"># nano /usr/bin/sublime</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Put the following script in <code class="docutils literal"><span class="pre">usr/bin/sublime</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#!/bin/sh
+
+export SUBLIME_HOME=&quot;/opt/sublime_text_3&quot;
+
+$SUBLIME_HOME/sublime_text $*
+</pre></div>
+</div>
+</li>
+<li><p class="first">Make the file executable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># chmod +x /usr/bin/sublime</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="bundles">
+<h3><a class="toc-backref" href="#id5">Bundles</a></h3>
+<ol class="arabic">
+<li><p class="first">Add the bundles:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#  swupd bundle-add database-basic editors-dev web-server-basic ruby-basic</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Custom Web Application Development</a><ul>
+<li><a class="reference internal" href="#initial-machine-configuration">Initial Machine Configuration</a></li>
+<li><a class="reference internal" href="#web-application-development-tools">Web Application Development Tools</a><ul>
+<li><a class="reference internal" href="#sublime-text">Sublime Text</a></li>
+<li><a class="reference internal" href="#bundles">Bundles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index-ts.html">Tutorials</a><ul>
+      <li>Previous: <a href="ciao-cluster-setup.html" title="previous chapter">Detailed manual ciao cluster setup</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/custom_dev.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/custom_dev.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

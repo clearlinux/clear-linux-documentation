@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advanced configuration &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="next" title="Intel® Clear Containers" href="clear-containers.html" />
+    <link rel="prev" title="os-core" href="bdl-os-core.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="advanced-configuration">
+<h1>Advanced configuration</h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clear-containers.html">Intel® Clear Containers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clear-containers.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clear-containers.html#architecture-overview">Architecture Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clear-containers.html#v1-0">V1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clear-containers.html#v2-0">V2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clear-containers.html#architectural-component-details">Architectural component details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clear-containers.html#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_boot.html">Network booting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_boot.html#network-setup-options">Network Setup Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_boot.html#network-topologies">Network Topologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_boot.html#pxe-ipxe">PXE + iPXE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_boot.html#pxe-grub">PXE + GRUB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bulk_provisioning.html">Bulk Provisioning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bulk_provisioning.html#system-architecture">System Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bulk_provisioning.html#configuration-overview">Configuration Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mixer.html">Mixer Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mixer.html#current-workflow">Current Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ac-dpdk.html">DPDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#disabling-iommu-on-clear-linux-os-for-intel-architecture-platforms-a-and-b">Disabling iommu on Clear Linux OS for Intel Architecture (Platforms A and B)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#installing-dpdk-and-build-l3fwd-example-platform-b">Installing dpdk and build l3fwd example (Platform B)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#building-pktgen-platform-a">Building Pktgen (Platform A)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#binding-nics-to-dpdk-kernel-drivers-platforms-a-and-b">Binding NICs to DPDK kernel drivers (Platforms A and B)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#setting-hugepages-platforms-a-and-b">Setting hugepages (platforms A and B)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#setting-a-physical-environment-platforms-a-and-b">Setting a physical environment (Platforms A and B)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#running-l3fwd-application-platform-b">Running l3fwd application (Platform B)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#running-pktgen-application-platform-a">Running Pktgen application (Platform A)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-dpdk.html#annex-a-using-pass-through-for-running-on-virtual-machines">Annex A: Using pass-through for running on virtual machines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ac-ovs-dpdk.html">OpenvSwitch and DPDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ac-ovs-dpdk.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-ovs-dpdk.html#using-linux-bridges">Using Linux Bridges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-ovs-dpdk.html#using-openvswitch">Using OpenvSwitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-ovs-dpdk.html#using-linux-openvswitch-dpdk">Using Linux OpenvSwitch-DPDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ac-ovs-dpdk.html#setting-ip-address">Setting IP address</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validate_sigs.html">Validating Signatures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="validate_sigs.html#verifying-a-clear-linux-os-for-intel-architecture-image">Verifying a Clear Linux OS for Intel Architecture image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validate_sigs.html#verification-of-the-signed-mom">Verification of the signed MoM</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="bdl-os-core.html" title="previous chapter">os-core</a></li>
+      <li>Next: <a href="clear-containers.html" title="next chapter">Intel® Clear Containers</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index_advanced_configuration.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/index_advanced_configuration.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Ceph* &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Storage solutions" href="index-storage.html" />
+    <link rel="next" title="Tutorials" href="index-ts.html" />
+    <link rel="prev" title="Storage solutions" href="index-storage.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ceph">
+<span id="ceph-deploy"></span><h1>Ceph*</h1>
+<p>Ceph is a distributed storage system designed to scale well. It can be
+integrated with OpenStack* as the storage backend for the OS images and
+volumes.</p>
+<p>Deploying a Ceph storage cluster is simple using Clear Linux* OS for
+Intel® Architecture and Ansible*.</p>
+<div class="section" id="environment">
+<h2>Environment</h2>
+<p>For this example, we&#8217;ll use a total of six nodes: a <strong>deployment node</strong>,
+to run the playbooks, a <strong>monitor node</strong>, a <strong>metadata node</strong> and three
+<strong>storage nodes</strong>.</p>
+<p>Install each component on its own server for best results; however,
+for testing purposes you can install the monitor, metadata, and storage
+nodes all on the same host.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>Ansible uses <code class="docutils literal"><span class="pre">ssh</span></code> to run commands on the remote servers. In order to
+do that, the servers must be configured to allow passwordless ssh
+connections from the root user. Follow these steps to configure
+your nodes.</p>
+<div class="section" id="on-your-cluster-nodes">
+<h3>On your cluster nodes</h3>
+<ol class="arabic">
+<li><p class="first">Enable root login:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># echo &quot;PermitRootLogin yes&quot; &gt;&gt; /etc/ssh/sshd_config</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enable sshd service:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># systemctl enable sshd</span>
+<span class="c1"># systemctl start sshd</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="on-your-deployment-node">
+<h3>On your deployment node</h3>
+<ol class="arabic">
+<li><p class="first">Generate an ssh key if you have not already:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ssh-keygen</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy your public key (<code class="file docutils literal"><span class="pre">~/.ssh/id_rsa.pub</span></code>) to <code class="file docutils literal"><span class="pre">/root/.ssh/authorized_keys</span></code> on each node:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ssh-copy-id root@node</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="install-the-software">
+<h2>Install the software</h2>
+<p>Install the <a class="reference external" href="https://github.com/clearlinux/clr-bundles/blob/master/bundles/sysadmin-hostmgmt">sysadmin-hostmgmt</a> bundle on the deployment node. This
+bundle contains the Ansible software required to run the playbooks, as
+well as some Ansible roles and sample playbooks that you can use to
+build your own:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add sysadmin-hostmgmt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-the-playbook">
+<h2>Create the playbook</h2>
+<p>The <code class="docutils literal"><span class="pre">sysadmin-hostmgmt</span></code> bundle includes some sample playbooks that
+can be customized for your own needs. Start by making a copy of the
+sample playbook into your home folder.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cp -r /usr/share/ansible/examples/ceph ~/</span>
+</pre></div>
+</div>
+<p>The playbook consist of four files that you should modify to fit
+your needs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ceph</span>
+<span class="o">|--</span> <span class="n">group_vars</span><span class="o">/</span>
+<span class="o">|</span>    <span class="o">|--</span> <span class="nb">all</span>
+<span class="o">|</span>    <span class="o">+--</span> <span class="n">mons</span>
+<span class="o">|--</span> <span class="n">hosts</span>
+<span class="o">+--</span> <span class="n">ceph_deploy</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">hosts</span></code> file contains the IP addresses of your servers grouped
+under the roles they will serve:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">mons</span><span class="p">]</span>
+<span class="mf">172.28</span><span class="o">.</span><span class="mf">128.7</span>
+
+<span class="p">[</span><span class="n">osds</span><span class="p">]</span>
+<span class="mf">172.28</span><span class="o">.</span><span class="mf">128.8</span>
+<span class="mf">172.28</span><span class="o">.</span><span class="mf">128.9</span>
+<span class="mf">172.28</span><span class="o">.</span><span class="mf">128.10</span>
+
+<span class="p">[</span><span class="n">mdss</span><span class="p">]</span>
+<span class="mf">172.28</span><span class="o">.</span><span class="mf">128.11</span>
+</pre></div>
+</div>
+<p>This <code class="file docutils literal"><span class="pre">groups_var/all</span></code> file contains variables that will be applied
+to all your nodes. The mandatory variables are already there; be sure
+to change the values accordingly to fit your environment. It should
+look something like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">journal_size</span><span class="p">:</span> <span class="mi">1024</span>
+<span class="n">monitor_interface</span><span class="p">:</span> <span class="n">enp0s8</span>
+<span class="n">public_network</span><span class="p">:</span> <span class="mf">172.28</span><span class="o">.</span><span class="mf">128.0</span><span class="o">/</span><span class="mi">24</span>
+<span class="n">cluster_network</span><span class="p">:</span> <span class="s2">&quot;{{ public_network }}&quot;</span>
+</pre></div>
+</div>
+<p>A full list of available variables can be found under each role
+in <code class="docutils literal"><span class="pre">defaults/main.yml</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>* `ceph-common/defaults/main.yml`_
+* `ceph-mon/defaults/main.yml`_
+* `ceph-mds/defaults/main.yml`_
+* `ceph-osd/defaults/main.yml`_
+</pre></div>
+</div>
+<p>This <code class="file docutils literal"><span class="pre">groups_var/osd</span></code> file contains variables that apply only
+to the hosts under the <code class="docutils literal"><span class="pre">[mons]</span></code> section in your hosts file. You can
+choose one of the three available scenarios for this playbook.</p>
+<ol class="arabic">
+<li><p class="first"><strong>Journal and osd_data on the same device</strong>: This will co-locate both
+journal and data on the same disk, creating a partition at the
+beginning of the device:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">journal_collocation</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">devices</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdc</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdd</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>N journal devices for N OSDs</strong>: In this example, the <code class="docutils literal"><span class="pre">sdb</span></code>
+partition will be used for journaling of <code class="docutils literal"><span class="pre">sdc</span></code>. The <code class="docutils literal"><span class="pre">sdd</span> <span class="pre">sdf</span></code>
+will be used for journaling of <code class="docutils literal"><span class="pre">sde</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">raw_multi_journal</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">devices</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdc</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdd</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sde</span>
+<span class="n">raw_journal_devices</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdf</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Specify a directory instead of disk for OSDs</strong>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">osd_directory</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">osd_directories</span><span class="p">:</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ceph</span><span class="o">/</span><span class="n">osd</span><span class="o">/</span><span class="n">mydir1</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ceph</span><span class="o">/</span><span class="n">osd</span><span class="o">/</span><span class="n">mydir2</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ceph</span><span class="o">/</span><span class="n">osd</span><span class="o">/</span><span class="n">mydir3</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div>Note: The directories should reside on an XFS filesystem. EXT4 is not supported.</div></blockquote>
+</div>
+<div class="section" id="run-the-playbook">
+<h2>Run the playbook</h2>
+<p>Once the variables and hosts file is configured,
+deployment is as simple as issuing the command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ansible-playbook -i hosts ceph_deploy.yml</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verify">
+<h2>Verify</h2>
+<p>After Ansible has finished deployment, you may
+like to verify and watch the health of the cluster
+with Ceph utilites such as <code class="docutils literal"><span class="pre">ceph</span> <span class="pre">status</span></code> and
+<code class="docutils literal"><span class="pre">ceph</span> <span class="pre">osd</span> <span class="pre">tree</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ceph status</span>
+    <span class="n">cluster</span> <span class="n">ee1fae3b</span><span class="o">-</span><span class="n">b95b</span><span class="o">-</span><span class="mi">494</span><span class="n">c</span><span class="o">-</span><span class="n">abd7</span><span class="o">-</span><span class="n">f0629d113446</span>
+     <span class="n">health</span> <span class="n">HEALTH_OK</span>
+     <span class="n">monmap</span> <span class="n">e1</span><span class="p">:</span> <span class="mi">1</span> <span class="n">mons</span> <span class="n">at</span> <span class="p">{</span><span class="n">node2</span><span class="o">=</span><span class="mf">172.28</span><span class="o">.</span><span class="mf">128.5</span><span class="p">:</span><span class="mi">6789</span><span class="o">/</span><span class="mi">0</span><span class="p">}</span>
+            <span class="n">election</span> <span class="n">epoch</span> <span class="mi">2</span><span class="p">,</span> <span class="n">quorum</span> <span class="mi">0</span> <span class="n">node2</span>
+     <span class="n">osdmap</span> <span class="n">e8</span><span class="p">:</span> <span class="mi">3</span> <span class="n">osds</span><span class="p">:</span> <span class="mi">3</span> <span class="n">up</span><span class="p">,</span> <span class="mi">3</span> <span class="ow">in</span>
+            <span class="n">flags</span> <span class="n">sortbitwise</span>
+      <span class="n">pgmap</span> <span class="n">v14</span><span class="p">:</span> <span class="mi">64</span> <span class="n">pgs</span><span class="p">,</span> <span class="mi">1</span> <span class="n">pools</span><span class="p">,</span> <span class="mi">0</span> <span class="nb">bytes</span> <span class="n">data</span><span class="p">,</span> <span class="mi">0</span> <span class="n">objects</span>
+            <span class="mi">7566</span> <span class="n">MB</span> <span class="n">used</span><span class="p">,</span> <span class="mi">49647</span> <span class="n">MB</span> <span class="o">/</span> <span class="mi">59896</span> <span class="n">MB</span> <span class="n">avail</span>
+                  <span class="mi">64</span> <span class="n">active</span><span class="o">+</span><span class="n">clean</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ceph osd tree</span>
+<span class="n">ID</span> <span class="n">WEIGHT</span>  <span class="n">TYPE</span> <span class="n">NAME</span>      <span class="n">UP</span><span class="o">/</span><span class="n">DOWN</span> <span class="n">REWEIGHT</span> <span class="n">PRIMARY</span><span class="o">-</span><span class="n">AFFINITY</span>
+<span class="o">-</span><span class="mi">1</span> <span class="mf">0.05699</span> <span class="n">root</span> <span class="n">default</span>
+<span class="o">-</span><span class="mi">2</span> <span class="mf">0.01900</span>     <span class="n">host</span> <span class="n">node3</span>
+ <span class="mi">0</span> <span class="mf">0.01900</span>         <span class="n">osd</span><span class="o">.</span><span class="mi">0</span>       <span class="n">up</span>  <span class="mf">1.00000</span>          <span class="mf">1.00000</span>
+<span class="o">-</span><span class="mi">3</span> <span class="mf">0.01900</span>     <span class="n">host</span> <span class="n">node4</span>
+ <span class="mi">1</span> <span class="mf">0.01900</span>         <span class="n">osd</span><span class="o">.</span><span class="mi">1</span>       <span class="n">up</span>  <span class="mf">1.00000</span>          <span class="mf">1.00000</span>
+<span class="o">-</span><span class="mi">4</span> <span class="mf">0.01900</span>     <span class="n">host</span> <span class="n">node5</span>
+ <span class="mi">2</span> <span class="mf">0.01900</span>         <span class="n">osd</span><span class="o">.</span><span class="mi">2</span>       <span class="n">up</span>  <span class="mf">1.00000</span>          <span class="mf">1.00000</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ceph fs ls</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">cephfs</span><span class="p">,</span> <span class="n">metadata</span> <span class="n">pool</span><span class="p">:</span> <span class="n">cephfs_metadata</span><span class="p">,</span> <span class="n">data</span> <span class="n">pools</span><span class="p">:</span> <span class="p">[</span><span class="n">cephfs_data</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Ceph*</a><ul>
+<li><a class="reference internal" href="#environment">Environment</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#on-your-cluster-nodes">On your cluster nodes</a></li>
+<li><a class="reference internal" href="#on-your-deployment-node">On your deployment node</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-the-software">Install the software</a></li>
+<li><a class="reference internal" href="#create-the-playbook">Create the playbook</a></li>
+<li><a class="reference internal" href="#run-the-playbook">Run the playbook</a></li>
+<li><a class="reference internal" href="#verify">Verify</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index-storage.html">Storage solutions</a><ul>
+      <li>Previous: <a href="index-storage.html" title="previous chapter">Storage solutions</a></li>
+      <li>Next: <a href="index-ts.html" title="next chapter">Tutorials</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ceph-deploy.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/ceph-deploy.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

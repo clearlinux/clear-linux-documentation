@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>About software update &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Software update" href="index_sw_update.html" />
+    <link rel="next" title="How to run the updater" href="swupdate_how_to_run_the_updater.html" />
+    <link rel="prev" title="Software update" href="index_sw_update.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="about-software-update">
+<h1>About software update</h1>
+<div class="section" id="the-traditional-way">
+<h2>The traditional way</h2>
+<p>Traditional Linux-based operating systems are often a mix of several
+hundred, if not thousands, of open source projects. To make them
+manageable, most distributions use the concept of &#8220;packages&#8221; to configure
+and compile source code into binaries for installation.</p>
+<p>Many distributions then combine these compiled binaries into so-called
+packages, resolving dependencies and providing everything needed to
+install. This is the granularity at which typical distributions deploy
+their software, enabling system administrators to install and update
+each package individually or as a set, using tools such as <code class="docutils literal"><span class="pre">yum</span></code> and
+<code class="docutils literal"><span class="pre">apt-get</span></code>.</p>
+</div>
+<div class="section" id="the-clear-way">
+<h2>The Clear way</h2>
+<p>Clear Linux OS for Intel® Architecture does things a little differently.
+Following here are a few notable features that distinguish it from
+standard OSes: bundles, versioning, updating, and update speed.</p>
+<div class="section" id="bundles">
+<h3>Bundles</h3>
+<p>While we use the concept of packages to manage compiling source code into
+installable binaries, we do not deploy software through packages. Instead,
+we provide &#8220;bundles&#8221; which operate as a self-contained set of functionality
+for the system administrator &#8211; functionality that gets enabled by composing
+all the required upstream open-source projects into one logical unit: a
+bundle.</p>
+</div>
+<div class="section" id="versioning">
+<h3>Versioning</h3>
+<p>On a traditional distribution, the process of describing current software
+versioning usually involves:</p>
+<ul class="simple">
+<li>Listing and keeping track of the current OS release (generally
+uninformative about any singular packages or functionality),</li>
+<li>Keeping track of packages and repositories being used, updating them
+individually,</li>
+<li>Listing and tracking every package available and installed on the
+system, none of which are directly tied to the current OS release</li>
+</ul>
+<p>This can be done effectively, but given the nearly endless combinations of
+packages and versions of packages a server may have, it quickly becomes
+non-trivial to define what &#8220;version&#8221; the system is and what software it
+is running without explicitly going through each system and inspecting
+every package.</p>
+<p>With the Clear Linux OS for Intel Architecture, we need only track:</p>
+<ul class="simple">
+<li>One single number</li>
+</ul>
+<p>A number representing the <strong>current</strong> release of the OS is sufficient to
+describe the versions of all the software on the OS. Each build is
+composed of a specific set of bundles made from a particular version of
+packages. This matters on a daily basis to system administrators, who
+need to determine which of their systems do not have the latest security
+fixes, or which combinations of software have been tested, and on what
+other pieces. Every release of the same number is guaranteed to contain
+the same versions of software, so there&#8217;s no ambiguity between two
+systems running the same Clear Linux OS for Intel Architecture.</p>
+</div>
+<div class="section" id="updating">
+<h3>Updating</h3>
+<p>Another notable difference between package-based distributions and Clear Linux
+is how updates are managed. On a package-based OS, system administrators update
+each individual package or piece of software to a newer (or older!) version. With
+Clear Linux OS for Intel Architecture, an update translates to an entirely new
+OS version, containing one or many updates.  It is not possible to update a
+piece of the system while remaining on the same version of Clear Linux.</p>
+<p>How is this useful? Although it seems, at first, like a huge restriction
+or limitation, this method has many non-obvious benefits. Imagine a
+cloud environment composed of numerous machines.  Here, a homogeneous set of
+software makes sense &#8211; from the system administrator&#8217;s level down to the
+user level. Homogeneous systems allow users the ability to focus on their
+contributions and/or code, rather than configuring environments or worrying
+about synchronizing versions and updates.  At the system admin level, it
+ensures security is tighter and makes it far easier to monitor and update
+patches.</p>
+</div>
+<div class="section" id="update-speed">
+<h3>Update speed</h3>
+<p>Software updates with Clear Linux OS for Intel Architecture are also
+efficient. Bundles simply describe a set of files, and the update
+technology updates <em>only</em> files that actually changed by using so-called
+binary-delta technology for efficiency <a class="footnote-reference" href="#id2" id="id1">[1]</a>. Operating systems that use
+packages as the unit of deployment require full package updates (thus
+hogging resources), even when one small file in that package has changed.</p>
+<p>It is quite common for a full OS update fixing a security hole to be
+only 15 kilobytes in total update size. If only several kilobytes need
+to be changed, it does not make sense to re-download and reinstall an
+entire package or suite of programs just to incorporate a minuscule (yet
+important) update. Through binary deltas, the OS is able to update only
+those bits that changed, yielding very small update content (deltas)
+that can be applied exceedingly fast.  As a result, major security patches
+and core update take merely seconds.</p>
+<p>We realize that while our definition of bundles makes sense to us, each
+data center operator may have special needs and ideas. For that reason
+we&#8217;re hard at work on a &#8220;mixer&#8221; tool, which allows users of Clear Linux OS
+for Intel Architecture the ability to customize and add bundles and
+their own software while keeping the content of the operating
+system, and its updates, as the base. With this tool, system administrators
+can focus on the pieces of their OS deployment that are custom to their
+environment, while continuing to stay on a controlled update stream.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The software update technology for Clear Linux* OS for Intel Architecture
+was first presented at the Linux Plumbers conference in 2012.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">About software update</a><ul>
+<li><a class="reference internal" href="#the-traditional-way">The traditional way</a></li>
+<li><a class="reference internal" href="#the-clear-way">The Clear way</a><ul>
+<li><a class="reference internal" href="#bundles">Bundles</a></li>
+<li><a class="reference internal" href="#versioning">Versioning</a></li>
+<li><a class="reference internal" href="#updating">Updating</a></li>
+<li><a class="reference internal" href="#update-speed">Update speed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_sw_update.html">Software update</a><ul>
+      <li>Previous: <a href="index_sw_update.html" title="previous chapter">Software update</a></li>
+      <li>Next: <a href="swupdate_how_to_run_the_updater.html" title="next chapter">How to run the updater</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/swupdate_about_sw_update.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/swupdate_about_sw_update.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

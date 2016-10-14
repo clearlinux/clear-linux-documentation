@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configure environment &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configure-environment">
+<span id="configure-openstack-environment"></span><h1>Configure environment</h1>
+<p>Before continuing with the installation process, it&#8217;s important to understand:</p>
+<ul>
+<li><p class="first">The <code class="file docutils literal"><span class="pre">hosts</span></code> file; this file defines the roles your machines play in the
+overall scheme of your network mapping.</p>
+<blockquote>
+<div><p><strong>Note</strong>: For more in-depth information, see <a class="reference internal" href="openstack_env_inventory_file.html#openstack-env-inventory-file"><span class="std std-ref">The &#8220;hosts&#8221; file</span></a></p>
+</div></blockquote>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">group_vars/all</span></code> structuring can be used to override variable
+values. <strong>Note</strong>: For more in-depth information, see <a class="reference internal" href="openstack_conf_vars_about.html#openstack-conf-vars-about"><span class="std std-ref">About &#8220;group_vars/all&#8221;</span></a></p>
+</li>
+</ul>
+<p>Once you understand these components and are comfortable modifying them to affect
+the network configuration, you can proceed as follows:</p>
+<ol class="arabic simple">
+<li>Copy <code class="docutils literal"><span class="pre">/usr/share/ansible/examples/openstack</span></code> to your working directory.</li>
+<li>Move into the copied directory.</li>
+<li>Edit the <code class="file docutils literal"><span class="pre">hosts</span></code> file to specify node roles.</li>
+<li>Edit the contents under <code class="docutils literal"><span class="pre">group_vars/all</span></code> to set passwords and other needed
+variables. <strong>Note</strong>: Default variables exist for every role in the
+<code class="file docutils literal"><span class="pre">roles/&lt;role&gt;/defaults/main.yml</span></code> file. To override a default, define
+it with specifications under <code class="docutils literal"><span class="pre">group_vars/all</span></code>.</li>
+</ol>
+<div class="section" id="run-the-installer">
+<h2>Run the installer</h2>
+<p>Finally, you can run the installer.</p>
+<ol class="arabic">
+<li><p class="first">Run the installer as follows, replacing <code class="docutils literal"><span class="pre">&lt;ssh_key&gt;</span></code> with the key you&#8217;ve
+previously set up:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ansible-playbook -i hosts openstack_deployment.yml --private-key=&lt;ssh_key&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<p>After running the previous command you should see the output of the tasks
+that are running.</p>
+<p>At the end of the execution Ansible* will display a summary of the results.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configure environment</a><ul>
+<li><a class="reference internal" href="#run-the-installer">Run the installer</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/configure_openstack_environment.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/configure_openstack_environment.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

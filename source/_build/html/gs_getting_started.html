@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting started &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Getting started" href="index_gs.html" />
+    <link rel="next" title="Supported hardware" href="gs_supported_hardware.html" />
+    <link rel="prev" title="Getting started" href="index_gs.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<span id="gs-getting-started"></span><h1>Getting started</h1>
+<p>There are a number of options available for downloading and running Clear
+Linux* OS for Intel® Architecture. You can check your system hardware
+capabilities against the list of <a class="reference external" href="http://clearlinux.org/documentation/gs_supported_hardware.html">supported processors</a>; alternatively,
+download and run the <a class="reference external" href="http://download.clearlinux.org/current/clear-linux-check-config.sh">clear-linux-check-config</a> script to check the hardware
+compatibility of your system from the command line.</p>
+<div class="section" id="virtualized-images">
+<h2>Virtualized images</h2>
+<p>Images are also available to run under Virtual Machines or containers.</p>
+<p>To test whether your host contains the necessary components to run the OS in
+a container, download the <a class="reference external" href="http://download.clearlinux.org/current/clear-linux-check-config.sh">clear-linux-check-config</a> script and run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./clear-linux-check-config.sh container
+</pre></div>
+</div>
+<ul>
+<li><p class="first"><strong>KVM Image</strong> &#8211; Download a recent KVM image, along with the UEFI firmware helper,
+<code class="docutils literal"><span class="pre">OVMF.fd</span></code> and the KVM start helper script <code class="docutils literal"><span class="pre">start_qemu.sh.</span></code> Find the
+<code class="docutils literal"><span class="pre">clear-[version_number]-kvm.img.xz</span></code> image in the <a class="reference external" href="http://download.clearlinux.org/current">current</a> directory and see
+<a class="reference internal" href="vm-kvm.html#vm-kvm"><span class="std std-ref">Using KVM</span></a> for further detail.</p>
+</li>
+<li><p class="first"><strong>Docker Image</strong> &#8211; A Clear Linux* Docker* image can be downloaded
+directly from the Docker hub and executed within the Docker environment.
+Details were posted in the blog post <a class="reference external" href="https://clearlinux.org/blogs/clear-linux-highlights-3">Clear Linux Highlights 3</a>, and
+on a Docker* enabled system you can execute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">clearlinux</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">clearlinux</span>
+</pre></div>
+</div>
+<p>and then follow the normal Clear Linux* instuctions to add bundles etc.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="bare-metal-installer-images">
+<h2>Bare metal installer images</h2>
+<p>To test whether your system contains the necessary components to run the OS natively,
+download the <a class="reference external" href="http://download.clearlinux.org/current/clear-linux-check-config.sh">clear-linux-check-config</a> script and run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./clear-linux-check-config.sh host
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>Installer Image</strong> &#8211; The installer image allows you to manipulate and target
+partitions, and to set other OS configuration features (hostname, administrative user)
+commonly found in Linux installers. Find the <code class="docutils literal"><span class="pre">clear-[version_number]-installer.img.xz</span></code>
+in our <a class="reference external" href="http://download.clearlinux.org/current">current</a> directory and see <a class="reference internal" href="gs_installing_clr_as_host.html#gs-installing-clr-as-host"><span class="std std-ref">Installing the OS as host</span></a>. This <a class="reference external" href="https://clearlinux.org/blogs/clear-linux-installer-v20">blog post</a>
+contains more detail about the evolution of our installer.</li>
+<li><strong>Provisioning Image</strong> &#8211; This image is intended to be used in a provioning environment.
+Find the <code class="docutils literal"><span class="pre">clear-[version_number]-provision.img.xz</span></code> image in our <a class="reference external" href="http://download.clearlinux.org/current">current</a> directory.
+<em>Warning</em>: This installer repartitions <code class="docutils literal"><span class="pre">/dev/sda</span></code> and installs the OS to the new
+partition. Don&#8217;t use this image on a system where you care about existing data on
+<code class="docutils literal"><span class="pre">/dev/sda</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="other-installation-options">
+<h2>Other installation options</h2>
+<ul>
+<li><p class="first"><strong>Live Image</strong> &#8211; The live image can be used to boot the OS in a VM, or you can lay
+the image down on a USB drive with a tool like <code class="docutils literal"><span class="pre">dd</span></code> and boot from USB.</p>
+<p>This option is a great way to kick the tires with a minimal amount of effort.  Be
+aware, however, that if you do <strong>not</strong> manually configure the install and instead use
+the auto-install, it will repartition <code class="docutils literal"><span class="pre">/dev/sda</span></code>.  This image also enables telemetry
+by default; see the <a class="reference external" href="https://clearlinux.org/features/telemetry">telemetry</a> feature page for more details.</p>
+<p>To select this option, download the <code class="docutils literal"><span class="pre">clear-[version_number]-live.img.xz</span></code> image in
+the <a class="reference external" href="http://download.clearlinux.org/current">current</a> version&#8217;s download directory.</p>
+</li>
+</ul>
+<p>For older versions, see our <a class="reference external" href="https://download.clearlinux.org/releases">releases</a> page.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting started</a><ul>
+<li><a class="reference internal" href="#virtualized-images">Virtualized images</a></li>
+<li><a class="reference internal" href="#bare-metal-installer-images">Bare metal installer images</a></li>
+<li><a class="reference internal" href="#other-installation-options">Other installation options</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_gs.html">Getting started</a><ul>
+      <li>Previous: <a href="index_gs.html" title="previous chapter">Getting started</a></li>
+      <li>Next: <a href="gs_supported_hardware.html" title="next chapter">Supported hardware</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gs_getting_started.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/gs_getting_started.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

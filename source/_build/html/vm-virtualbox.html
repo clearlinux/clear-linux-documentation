@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using VirtualBox &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Running in a virtualized environment" href="index_vm.html" />
+    <link rel="next" title="Using VMware* ESXi guest" href="vm-vmware-esxi.html" />
+    <link rel="prev" title="Using KVM" href="vm-kvm.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-virtualbox">
+<span id="vm-virtualbox"></span><h1>Using VirtualBox</h1>
+<p>This section explains how to run Clear Linux OS for Intel® Architecture
+inside a <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a>* environment.</p>
+<div class="section" id="download-virtualbox">
+<h2>Download VirtualBox</h2>
+<p>VirtualBox is a hypervisor supported by Oracle. You can
+download it from the <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">official VirtualBox website</a> and select
+the operating system you are using.</p>
+<p>Download <strong>version 5.0 or greater</strong> to ensure support for
+the <abbr title="Advanced Vector Extensions">AVX</abbr> needed to run
+Clear Linux OS for Intel Architecture.</p>
+</div>
+<div class="section" id="create-a-virtual-machine-in-virtualbox">
+<h2>Create a virtual machine in VirtualBox</h2>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="https://download.clearlinux.org/image/">latest</a> live version (clear-XXXX-live.img.xz)
+from <a class="reference external" href="https://download.clearlinux.org/image/">https://download.clearlinux.org/image/</a>.</p>
+</li>
+<li><p class="first">Decompress the downloaded image. Uncompressed image size is ~ <strong>5GB</strong>.</p>
+<ul>
+<li><p class="first">On Linux</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ xz -d clear-XXXX-live.img.xz
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Windows you can use <a class="reference external" href="http://www.7-zip.org/">7zip</a>.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">To convert a raw image to <abbr title="VirtualBox Disk Image">VDI</abbr>
+format, you can use one of the following commands:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ VBoxManage convertfromraw clear-XXXX-live.img clear-XXXX-live.vdi --format VDI
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vdi --srcformat raw --dstformat vdi
+</pre></div>
+</div>
+<p>Note: Be sure you have Virtual box directory in your PATH (i.e.: on Windows
+<code class="file docutils literal"><span class="pre">C:\Program</span> <span class="pre">Files\Oracle\VirtualBox</span></code>).</p>
+</li>
+<li><p class="first">Create a virtual machine using the VirtualBox assistant:</p>
+<ul class="simple">
+<li>Type: <strong>Linux</strong></li>
+<li>Version: <strong>Linux 2.6 / 3.x / 4.x (64-bit)</strong></li>
+<li>Attach the virtual disk created in the step number 3 as virtual hard disk file</li>
+</ul>
+</li>
+<li><p class="first">After it is created, go to settings to enable <strong>EFI support</strong></p>
+<ul class="simple">
+<li>System -&gt; Enable EFI (special OSes only)</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="run-your-new-vm">
+<h2>Run your new VM</h2>
+<p>Clear Linux OS for Intel Architecture supports VirtualBox kernel modules used
+by the Linux kernel 4.4 <abbr title="Long Term Support">LTS</abbr> (<em>kernel-lts bundle</em>).
+This kernel was selected because Clear Linux OS&#8217;s main kernel
+(<code class="docutils literal"><span class="pre">kernel-native</span></code>) bundle keeps up-to-date with the upstream Linux kernel,
+and sometimes VirtualBox kernel modules aren&#8217;t compatible with pre-kernel
+releases.</p>
+<p>In the first boot, Clear Linux will ask for a login user, type <strong>root</strong> and
+then the system will ask you for a new password.</p>
+<p>To install the VirtualBox kernel modules, here are the steps:</p>
+<ol class="arabic">
+<li><p class="first">Install the bundle that supports VirtualBox modules:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add kernel-lts</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set a timeout in the bootmanager to shows a menu at boot time:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager set-timeout 10</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Update the bootloader entries with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager update</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot your system with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># reboot</span>
+</pre></div>
+</div>
+<p>and choose LTS kernel version.</p>
+</li>
+<li><p class="first">(<em>Optional</em>) Unset timeout to boot directly to LTS version:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager set-timeout 0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">(<em>Mandatory</em>) Update bootmanger to use always LTS version:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager update</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="section" id="install-guest-additions">
+<h3>Install Guest Additions</h3>
+<p>The kernel modules are shipped with the <code class="docutils literal"><span class="pre">kernel-lts</span></code> bundle; however,
+you&#8217;ll need to install the <em>user</em> Linux Guest Additions. To install the
+VirtualBox Guest Additions, follow these steps:</p>
+<ol class="arabic">
+<li><p class="first">Install the <strong>sysadmin-basic</strong> bundle:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add sysadmin-basic</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Insert Guest Additions CD image using <em>Devices</em> menu</p>
+</li>
+<li><p class="first">Install Linux users Guest Additions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># install-vbox-lga</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot your system:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># reboot</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">(<em>Optional</em>) To use Clear Linux graphical user interface, add the GUI bundle:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add os-utils-gui</span>
+</pre></div>
+</div>
+<p>once the <code class="docutils literal"><span class="pre">os-utils-gui</span></code> bundle is installed, start your graphical
+user interface with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># startxfce4</span>
+</pre></div>
+</div>
+<p>Clear Linux doesn&#8217;t provide a graphical display manager.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using VirtualBox</a><ul>
+<li><a class="reference internal" href="#download-virtualbox">Download VirtualBox</a></li>
+<li><a class="reference internal" href="#create-a-virtual-machine-in-virtualbox">Create a virtual machine in VirtualBox</a></li>
+<li><a class="reference internal" href="#run-your-new-vm">Run your new VM</a><ul>
+<li><a class="reference internal" href="#install-guest-additions">Install Guest Additions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_vm.html">Running in a virtualized environment</a><ul>
+      <li>Previous: <a href="vm-kvm.html" title="previous chapter">Using KVM</a></li>
+      <li>Next: <a href="vm-vmware-esxi.html" title="next chapter">Using <em>VMware*</em> ESXi guest</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vm-virtualbox.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/vm-virtualbox.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

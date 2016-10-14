@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using KVM &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Running in a virtualized environment" href="index_vm.html" />
+    <link rel="next" title="Using VirtualBox" href="vm-virtualbox.html" />
+    <link rel="prev" title="Running in a virtualized environment" href="index_vm.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-kvm">
+<span id="vm-kvm"></span><h1>Using KVM</h1>
+<p>The easiest way to get started in a virtualized environment is to download
+a recent KVM image from the <a class="reference external" href="http://download.clearlinux.org/image/">images</a> directory. Here you&#8217;ll find a kvm
+image file, the UEFI firmware helper, and the KVM start helper script.</p>
+<div class="section" id="starter-script">
+<h2>Starter script</h2>
+<p>To start the image, run the <a class="reference external" href="http://download.clearlinux.org/image/start_qemu.sh">qemu shell script</a> available in the
+<a class="reference external" href="http://download.clearlinux.org/image/">images</a> directory.</p>
+<p>SSH is needed for remote logins; however, SSH not enabled by default. To enable
+it, log in through serial console with the username <code class="docutils literal"><span class="pre">root</span></code>. After setting the
+password, enable root login via SSH by configuring <code class="file docutils literal"><span class="pre">/etc/ssh/sshd_config</span></code>
+with this line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PermitRootLogin</span> <span class="n">yes</span>
+</pre></div>
+</div>
+<p>Now you may connect from host via SSH through 2223:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ssh -p 10022 root@localhost
+</pre></div>
+</div>
+<p>Alternatively, there are a few other ways to approach this.</p>
+<ul>
+<li><p class="first">To run the script without modifying its permissions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ bash start_qemu.sh clr_image
+</pre></div>
+</div>
+</li>
+<li><p class="first">To run it as a background process:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ bash start_qemu.sh clr_image &amp;
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you&#8217;d like to run the script with execute permission:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ chmod +x start_qemu.sh
+$ ./start_qemu.sh clr_image
+</pre></div>
+</div>
+</li>
+<li><p class="first">And to run it as a background process:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./start_qemu.sh clr_image &amp;
+</pre></div>
+</div>
+</li>
+</ul>
+<p>If you run into any trouble with qemu getting locked up, try editing the <a class="reference external" href="http://download.clearlinux.org/image/start_qemu.sh">qemu shell script</a>
+and removing the <code class="docutils literal"><span class="pre">aio=threads</span></code></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using KVM</a><ul>
+<li><a class="reference internal" href="#starter-script">Starter script</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_vm.html">Running in a virtualized environment</a><ul>
+      <li>Previous: <a href="index_vm.html" title="previous chapter">Running in a virtualized environment</a></li>
+      <li>Next: <a href="vm-virtualbox.html" title="next chapter">Using VirtualBox</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vm-kvm.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/vm-kvm.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

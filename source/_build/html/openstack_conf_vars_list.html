@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Variables for OpenStack* Deployment &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="variables-for-openstack-deployment">
+<span id="openstack-conf-vars-list"></span><h1>Variables for OpenStack* Deployment</h1>
+<p>This installer provides a variety of configurations you can set through
+variables; below you will find a reference of the components supported
+with Clear Linux* OS for Intel® Architecture.</p>
+<div class="section" id="required-variables">
+<h2>Required Variables</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><em>(Component)</em> <cite>Variable</cite></th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>(Heat, Neutron, Nova, RabbitMQ)</em> <strong>rabbitmq_password</strong></td>
+<td>Password of RabbitMQ user</td>
+</tr>
+<tr class="row-odd"><td><em>(ALL)</em> <strong>database_root_password</strong></td>
+<td>Password for root database user</td>
+</tr>
+<tr class="row-even"><td><em>(Keystone)</em> <strong>keystone_database_password</strong></td>
+<td>Password for &#8216;keystone&#8217; database</td>
+</tr>
+<tr class="row-odd"><td><em>(ALL)</em> <strong>keystone_admin_password</strong></td>
+<td>Password for &#8216;admin&#8217; user</td>
+</tr>
+<tr class="row-even"><td><em>(Glance)</em> <strong>glance_user_password</strong></td>
+<td>Password for &#8216;glance&#8217; user</td>
+</tr>
+<tr class="row-odd"><td><em>(Glance)</em> <strong>glance_database_password</strong></td>
+<td>Password for &#8216;glance&#8217; database</td>
+</tr>
+<tr class="row-even"><td><em>(Neutron, Nova)</em> <strong>nova_user_password</strong></td>
+<td>Password for &#8216;nova&#8217; user</td>
+</tr>
+<tr class="row-odd"><td><em>(Nova)</em> <strong>nova_database_password</strong></td>
+<td>Password for &#8216;nova&#8217; database</td>
+</tr>
+<tr class="row-even"><td><em>(Neutron)</em> <strong>neutron_database_password</strong></td>
+<td>Password for &#8216;neutron&#8217; database</td>
+</tr>
+<tr class="row-odd"><td><em>(Neutron, Nova)</em> <strong>neutron_user_password</strong></td>
+<td>Password for &#8216;neutron&#8217; user</td>
+</tr>
+<tr class="row-even"><td><em>(Neutron, Nova)</em> <strong>metadata_proxy_shared_secret</strong></td>
+<td>Secret for the metadata proxy</td>
+</tr>
+<tr class="row-odd"><td><em>(Heat)</em> <strong>heat_domain_admin_password</strong></td>
+<td>Password for heat domain admin user</td>
+</tr>
+<tr class="row-even"><td><em>(Heat)</em> <strong>heat_user_password</strong></td>
+<td>Password for heat user</td>
+</tr>
+<tr class="row-odd"><td><em>(Heat)</em> <strong>heat_database_password</strong></td>
+<td>Password for heat database</td>
+</tr>
+<tr class="row-even"><td><em>(Heat)</em> <strong>heat_domain</strong></td>
+<td>The heat domain that contains projects and users for stacks</td>
+</tr>
+<tr class="row-odd"><td><em>(Swift)</em> <strong>swift_user_password</strong></td>
+<td>Password for &#8216;swift&#8217; user</td>
+</tr>
+<tr class="row-even"><td><em>(Swift)</em> <strong>swift_database_password</strong></td>
+<td>Password for &#8216;swift&#8217; database</td>
+</tr>
+<tr class="row-odd"><td><em>(Swift)</em> <strong>swift_replica_count</strong></td>
+<td>Replica number for each object. IMPORTANT: This number must be lower than the sum of all the storage devices among all storage nodes. It can be changed later.</td>
+</tr>
+<tr class="row-even"><td><em>(Swift)</em> <strong>swift_hash_path_suffix</strong></td>
+<td>Suffix for the object path name</td>
+</tr>
+<tr class="row-odd"><td><em>(Swift)</em> <strong>swift_hash_path_prefix</strong></td>
+<td>Prefix for the object path name</td>
+</tr>
+<tr class="row-even"><td><em>(Swift)</em> <strong>swift_storage_device_path</strong></td>
+<td>The path of the storage devices</td>
+</tr>
+<tr class="row-odd"><td><em>(Swift)</em> <strong>swift_storage_devices</strong></td>
+<td>A list of the storage devices dedicated to swift deployment. For more information, see <a class="reference internal" href="openstack_swift_deployment_scenarios.html#openstack-swift-deployment-scenarios"><span class="std std-ref">OpenStack* Swift* Deployment Scenarios</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="optional-variables">
+<h2>Optional Variables</h2>
+<div class="section" id="note">
+<h3>Note:</h3>
+<p>If you would like to override a default, you can define it in the
+<a class="reference internal" href="openstack_conf_vars_about.html#openstack-conf-vars-about"><span class="std std-ref">About &#8220;group_vars/all&#8221;</span></a>.</p>
+<p><strong>Back to Configuration Section</strong> <a class="reference internal" href="configure_openstack_environment.html#configure-openstack-environment"><span class="std std-ref">Configure environment</span></a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Variables for OpenStack* Deployment</a><ul>
+<li><a class="reference internal" href="#required-variables">Required Variables</a></li>
+<li><a class="reference internal" href="#optional-variables">Optional Variables</a><ul>
+<li><a class="reference internal" href="#note">Note:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/openstack_conf_vars_list.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/openstack_conf_vars_list.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Deploying ciao via automation – Ubuntu 16.04 &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="contents topic" id="contents">
+<span id="ciao-deploy"></span><p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#deploying-ciao-via-automation-ubuntu-16-04" id="id2">Deploying ciao via automation &#8211; Ubuntu 16.04</a><ul>
+<li><a class="reference internal" href="#environment" id="id3">Environment</a></li>
+<li><a class="reference internal" href="#prerequisites" id="id4">Prerequisites</a></li>
+<li><a class="reference internal" href="#proxy" id="id5">Proxy</a><ul>
+<li><a class="reference internal" href="#in-the-deployment-node" id="id6">In the deployment node</a></li>
+<li><a class="reference internal" href="#in-the-managed-nodes" id="id7">In the managed nodes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-the-software" id="id8">Install the software</a><ul>
+<li><a class="reference internal" href="#install-dependencies-in-the-deployment-machine" id="id9">Install Dependencies in the deployment machine</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-the-playbook" id="id10">Create the playbook</a></li>
+<li><a class="reference internal" href="#install-the-required-ansible-roles" id="id11">Install the required ansible-roles</a></li>
+<li><a class="reference internal" href="#run-the-playbook" id="id12">Run the playbook</a></li>
+<li><a class="reference internal" href="#verify" id="id13">Verify</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="deploying-ciao-via-automation-ubuntu-16-04">
+<h1><a class="toc-backref" href="#id2">Deploying ciao via automation &#8211; Ubuntu 16.04</a></h1>
+<p>Cloud Integrated Advanced Orchestrator (<code class="docutils literal"><span class="pre">ciao</span></code>) is a new workload
+scheduler designed to address limitations of current cloud OS projects.
+Ciao provides a lightweight, fully TLS-based minimal config, is
+workload-agnostic, easy to update, offers an optimized-for-speed
+scheduler, and is currently optimized for OpenStack*.</p>
+<p>For more information, see <a class="reference external" href="https://clearlinux.org/ciao">https://clearlinux.org/ciao</a>.</p>
+<div class="section" id="environment">
+<h2><a class="toc-backref" href="#id3">Environment</a></h2>
+<dl class="docutils">
+<dt>For this example, we&#8217;ll use a total of five nodes:</dt>
+<dd><ul class="first simple">
+<li>A deployment machine which will be used to run the playbooks.</li>
+<li>A <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-controller">controller</a> node which will be used to communicate with Keystone.</li>
+<li>Two <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-launcher">compute nodes</a>, which will spawn the VMs and containers.</li>
+<li>A <a class="reference external" href="https://github.com/01org/ciao/tree/master/ciao-launcher">network node</a> which will handle the networking for the workloads.</li>
+</ul>
+<p class="last">Note: The deployment machine is not a necessary part of the cluster; it could be
+the sysadmin&#8217;s computer or a CI/CD server.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="prerequisites">
+<span id="id1"></span><h2><a class="toc-backref" href="#id4">Prerequisites</a></h2>
+<p>Ansible* uses <strong class="command">ssh</strong> to run commands on the remote nodes. In
+order to do that, the nodes must be configured to allow passwordless SSH
+connections from the deployment machine to the cluster nodes. The user
+should also have sudo privileges on the cluster nodes.</p>
+<p>The deployment machine needs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">2.7</span>
+<span class="n">Ansible</span> <span class="o">&gt;=</span> <span class="mf">2.1</span>
+<span class="n">Golang</span> <span class="o">&gt;=</span> <span class="mf">1.7</span>
+<span class="n">qemu</span><span class="o">-</span><span class="n">utils</span>
+<span class="n">python</span><span class="o">-</span><span class="n">docker</span>
+<span class="n">python</span><span class="o">-</span><span class="n">openstackclient</span>
+<span class="n">Ansible</span> <span class="n">ciao</span> <span class="n">roles</span> <span class="kn">from</span> <span class="nn">ansible</span><span class="o">-</span><span class="n">galaxy</span>
+</pre></div>
+</div>
+<p>The managed nodes need:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="mf">2.6</span> <span class="o">&gt;=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proxy">
+<h2><a class="toc-backref" href="#id5">Proxy</a></h2>
+<p>If you are running behind a proxy, the following additional steps are needed:</p>
+<div class="section" id="in-the-deployment-node">
+<h3><a class="toc-backref" href="#id6">In the deployment node</a></h3>
+<p>Make sure apt can run. Edit <code class="docutils literal"><span class="pre">/etc/apt/apt.conf</span></code> (to install ansible and
+dependencies), appending it with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Acquire::http::Proxy &quot;http://yourproxyaddress:proxyport&quot;;
+Install the CIAO roles from ansible-galaxy:
+$ sudo -E ansible-galaxy -r requirements --ignore-certs
+</pre></div>
+</div>
+</div>
+<div class="section" id="in-the-managed-nodes">
+<h3><a class="toc-backref" href="#id7">In the managed nodes</a></h3>
+<p>Make sure apt can run. Edit <code class="docutils literal"><span class="pre">/etc/apt/apt.conf</span></code>, appending it with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Acquire</span><span class="p">::</span><span class="n">http</span><span class="p">::</span><span class="n">Proxy</span> <span class="s2">&quot;http://yourproxyaddress:proxyport&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Install Docker and make sure you can pull images. Edit
+<code class="docutils literal"><span class="pre">/etc/systemd/system/docker.service.d/http-proxy.conf</span></code>, appending it
+with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[Service]
+Environment=&quot;HTTP_PROXY=http://hostname:port/&quot;
+Environment=&quot;HTTPS_PROXY=http://hostname:port/&quot;
+Environment=”NO_PROXY=localhost,127.0.0.1,.example.com”
+</pre></div>
+</div>
+<p>Note: replace the hostname and port of your proxy server and append your local domain name.</p>
+<p>Reload and restart the docker daemon:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo systemctl daemon-reload &amp;&amp; sudo systemctl restart docker
+
+(OPTIONAL): You can download the docker images used in the CIAO deployment.
+$ sudo docker pull clearlinux/keystone
+$ sudo docker pull clearlinux/ciao-webui
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="install-the-software">
+<h2><a class="toc-backref" href="#id8">Install the software</a></h2>
+<p>Install ansible from ubuntu packages if the package version is &gt;= 2.1.0;
+otherwise, install it from pip (<code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ansible</span></code>).</p>
+<div class="section" id="install-dependencies-in-the-deployment-machine">
+<h3><a class="toc-backref" href="#id9">Install Dependencies in the deployment machine</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span><span class="o">-</span><span class="n">docker</span> <span class="p">(</span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="p">)</span> <span class="ow">or</span> <span class="n">docker</span><span class="o">-</span><span class="n">py</span> <span class="p">(</span><span class="n">pip</span><span class="p">)</span>
+<span class="n">python</span><span class="o">-</span><span class="n">openstackclient</span> <span class="p">(</span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="p">)</span>
+<span class="n">qemu</span><span class="o">-</span><span class="n">utils</span> <span class="p">(</span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Download the <code class="docutils literal"><span class="pre">clear-config-management</span></code> project from github:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://github.com/clearlinux/clear-config-management.git
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-playbook">
+<h2><a class="toc-backref" href="#id10">Create the playbook</a></h2>
+<p>The <code class="docutils literal"><span class="pre">clear-config-management</span></code> project includes some sample playbooks that
+you may use and customize for your own needs. Start by making a copy of the
+sample playbook into your home folder:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cp -r clear-config-management/examples/ciao ~/</span>
+</pre></div>
+</div>
+<p>Note: These files are also hosted in github</p>
+<p>The relevant files in the playbook are the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <a class="reference external" href="https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/ciao.yml">ciao.yml</a> file is the master playbook file and includes a playbook
+for each component of the cluster.</li>
+<li>The <a class="reference external" href="https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/hosts">hosts</a> file is the hosts inventory file and contains the IP
+addresses/FQDN of your nodes, grouped under the roles they will serve</li>
+<li>The <a class="reference external" href="https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/group_vars/all">groups_vars/all</a> file contains variables that will be applied
+to your ciao setup. The mandatory variables are already there; be
+sure to change the values accordingly to fit your environment</li>
+<li>The <code class="docutils literal"><span class="pre">ciao_guest_key</span></code> value in <code class="file docutils literal"><span class="pre">groups_var/all</span></code> is the key
+to be used to connect to the VMs created by ciao; you can use the
+<code class="docutils literal"><span class="pre">ssh-keygen</span></code> command to create one.</li>
+</ul>
+</div></blockquote>
+<p>A full list of available variables can be found in the <code class="file docutils literal"><span class="pre">defaults/main.yml</span></code>
+file of each role at <a class="reference external" href="https://github.com/clearlinux/clear-config-management/tree/master/roles">https://github.com/clearlinux/clear-config-management/tree/master/roles</a></p>
+</div>
+<div class="section" id="install-the-required-ansible-roles">
+<h2><a class="toc-backref" href="#id11">Install the required ansible-roles</a></h2>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> ansible-galaxy install -r requirements.yml
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-playbook">
+<h2><a class="toc-backref" href="#id12">Run the playbook</a></h2>
+<p>Once you have your variables and hosts file configured, the deployment can
+be started with the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> ansible-playbook -i hosts ciao.yml --private-key<span class="o">=</span>&lt;ssh_key&gt;
+</pre></div>
+</div>
+<p>Note: If you want the latest CIAO changes, change the  <code class="docutils literal"><span class="pre">ciao_dev</span></code>
+variable to <code class="docutils literal"><span class="pre">True</span></code> in the <code class="file docutils literal"><span class="pre">group_vars/all</span></code> file In the
+<code class="docutils literal"><span class="pre">clear-config-management</span></code> project.</p>
+</div>
+<div class="section" id="verify">
+<h2><a class="toc-backref" href="#id13">Verify</a></h2>
+<p>After ansible is done with the setup, you can verify the cluster is ready
+by running the following command on the controller node. Change the <strong>username</strong>,
+<strong>password</strong>, <strong>controller</strong>, and <strong>identity</strong> values to match your setup, as
+was specified in the <code class="docutils literal"><span class="pre">groups_var/all</span></code> file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> ciao-cli -identity<span class="o">=</span>https://ciao-controller.example.com:35357 <span class="se">\</span>
+<span class="go">-username admin \</span>
+<span class="go">-password secret \</span>
+<span class="go">-controller=ciao-controller.example.com</span>
+<span class="gp">#</span> node status
+<span class="go">Total Nodes 3</span>
+<span class="go"> Ready 0</span>
+<span class="go"> Full 3</span>
+<span class="go"> Offline 0</span>
+<span class="go"> Maintenance 0</span>
+</pre></div>
+</div>
+<p>You could also take a look at the <code class="file docutils literal"><span class="pre">./ciaorc</span></code> file created on your
+deployment node, which contains the following environment variables:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cat ciaorc
+<span class="go">export CIAO_CONTROLLER=ciao-controller.example.com</span>
+<span class="go">export CIAO_IDENTITY=https://ciao-controller.example.com:35357</span>
+<span class="go">export CIAO_USERNAME=csr</span>
+<span class="go">export CIAO_PASSWORD=secret</span>
+</pre></div>
+</div>
+<p>then you could verify with the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> <span class="nb">source</span> ciaorc
+<span class="gp">#</span> ciao-cli node status
+<span class="go">Total Nodes 3</span>
+<span class="go"> Ready 0</span>
+<span class="go"> Full 3</span>
+<span class="go"> Offline 0</span>
+<span class="go"> Maintenance 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Deploying ciao via automation &#8211; Ubuntu 16.04</a><ul>
+<li><a class="reference internal" href="#environment">Environment</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#proxy">Proxy</a><ul>
+<li><a class="reference internal" href="#in-the-deployment-node">In the deployment node</a></li>
+<li><a class="reference internal" href="#in-the-managed-nodes">In the managed nodes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-the-software">Install the software</a><ul>
+<li><a class="reference internal" href="#install-dependencies-in-the-deployment-machine">Install Dependencies in the deployment machine</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-the-playbook">Create the playbook</a></li>
+<li><a class="reference internal" href="#install-the-required-ansible-roles">Install the required ansible-roles</a></li>
+<li><a class="reference internal" href="#run-the-playbook">Run the playbook</a></li>
+<li><a class="reference internal" href="#verify">Verify</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ciao-deploy-ubuntu.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/ciao-deploy-ubuntu.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

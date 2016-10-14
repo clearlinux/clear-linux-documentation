@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing OpenStack* &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing-openstack">
+<span id="id1"></span><h1>Installing OpenStack*</h1>
+<p>This section details an OpenStack installation that uses
+bundles available for Clear Linux* OS for Intel® Architecture.</p>
+<p>The sample configuration files that are included will likely
+require modification for your specific environment.</p>
+<p>This Clear Config Management uses Ansible* as configuration management tool.</p>
+<div class="section" id="components-supported-by-clear-config-management">
+<h2>Components supported by Clear Config Management</h2>
+<p>At the moment, this installer can deploy any or all of the following
+components:</p>
+<blockquote>
+<div><ul class="simple">
+<li>MariaDB</li>
+<li>RabbitMQ</li>
+<li>Keystone</li>
+<li>Glance</li>
+<li>Nova</li>
+<li>Neutron</li>
+<li>Dashboard (In identity node)</li>
+<li>Heat</li>
+<li>Swift</li>
+</ul>
+</div></blockquote>
+<div class="section" id="note">
+<h3>Note:</h3>
+<p>Below you will find the reference to componets supported on Clear Linux OS for Intel Architecture, but
+its support in Clear Config Management is still pending development:</p>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">&#8220;Supported Components on ClearLinux*, but unsupported by Clear Config Management&#8221;</caption>
+<colgroup>
+<col width="11%" />
+<col width="37%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Component</th>
+<th class="head">Bundles</th>
+<th class="head">OpenStack* official documentation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Cinder</td>
+<td>openstack-block-storage and openstack-block-storage-controller</td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/cinder/">http://docs.openstack.org/developer/cinder/</a></td>
+</tr>
+<tr class="row-odd"><td>Ceilometer</td>
+<td>openstack-telemetry</td>
+<td><a class="reference external" href="http://docs.openstack.org/developer/ceilometer/">http://docs.openstack.org/developer/ceilometer/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>Before the installer can set up your cloud environment, these prerequisites
+should be completed (if they aren&#8217;t already):</p>
+<ol class="arabic">
+<li><p class="first">Create a pair of SSH keys.</p>
+</li>
+<li><p class="first">Copy your public key to each node.</p>
+</li>
+<li><p class="first">Create the <code class="file docutils literal"><span class="pre">sshd_config</span></code> in <code class="docutils literal"><span class="pre">/etc/ssh</span></code> if it doesn&#8217;t exist:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mkdir -p /etc/ssh &amp;&amp; touch /etc/ssh/sshd_config</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Allow ssh root access by adding &#8220;PermitRootLogin yes&#8221; to the ssh
+configuration.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># echo &quot;PermitRootLogin yes&quot; &gt;&gt; /etc/ssh/sshd_config</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="using-the-installer">
+<h2>Using the Installer</h2>
+<p>This step presumes a machine running Clear Linux OS for Intel Architecture as the ansible host.</p>
+<div class="section" id="install-the-bundle">
+<h3>Install the bundle</h3>
+<ol class="arabic">
+<li><p class="first">Install the <cite>sysadmin-hostmgmt</cite> bundle:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add sysadmin-hostmgmt</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Next</strong>:  <a class="reference internal" href="configure_openstack_environment.html#configure-openstack-environment"><span class="std std-ref">Configure environment</span></a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing OpenStack*</a><ul>
+<li><a class="reference internal" href="#components-supported-by-clear-config-management">Components supported by Clear Config Management</a><ul>
+<li><a class="reference internal" href="#note">Note:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#using-the-installer">Using the Installer</a><ul>
+<li><a class="reference internal" href="#install-the-bundle">Install the bundle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installing_openstack.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/installing_openstack.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

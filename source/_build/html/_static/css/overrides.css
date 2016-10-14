@@ -1,0 +1,162 @@
+// Put all css overrides below
+
+#clear-linux-project-for-intel-architecture-documentation li.toctree-l1{
+  list-style-type: none;
+}
+
+#clear-linux-project-for-intel-architecture-documentation li.toctree-l1 > a{
+  display: none;
+}
+
+#clear-linux-project-for-intel-architecture-documentation li.toctree-l2{
+  list-style-type: disc;
+  margin-left: -40px;
+}
+
+#searchbox {
+  margin-bottom: 45px;
+}
+  @media (min-width: 992px) {
+    #searchbox {
+      margin-bottom: 0; } }
+  #searchbox input[type=text] {
+    width: 100%;
+    padding-right: 80px; }
+  #searchbox input[type=submit] {
+    position: absolute;
+    right: 0;
+    top: 0; }
+  #searchbox form.search {
+    position: relative; }
+
+sidebar .custom-dropdown-menu {
+  margin-bottom: 5px;
+  padding: 0; }
+  sidebar .custom-dropdown-menu .no-childs .fa:before {
+    display: none; }
+  sidebar .custom-dropdown-menu li {
+    list-style-type: none;
+    margin: 0; }
+    sidebar .custom-dropdown-menu li a {
+      color: #2d3237 !important;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      padding: 10px 25px 10px 10px; }
+      sidebar .custom-dropdown-menu li a:focus, sidebar .custom-dropdown-menu li a:visited {
+        color: #2d3237 !important;
+        text-decoration: none; }
+        sidebar .custom-dropdown-menu li a:focus span, sidebar .custom-dropdown-menu li a:visited span {
+          color: #fff !important; }
+      sidebar .custom-dropdown-menu li a:hover {
+        color: #fff !important;
+        cursor: pointer;
+        text-decoration: none; }
+        sidebar .custom-dropdown-menu li a:hover span {
+          color: #fff !important;
+          cursor: pointer; }
+      sidebar .custom-dropdown-menu li a:hover, sidebar .custom-dropdown-menu li a.active {
+        background-color: #D1D3D5;
+        color: #2d3237 !important; }
+        sidebar .custom-dropdown-menu li a:hover span.fa, sidebar .custom-dropdown-menu li a.active span.fa {
+          color: #fff !important; }
+      sidebar .custom-dropdown-menu li a span.fa {
+        color: #2d3237 !important;
+        cursor: pointer; }
+    sidebar .custom-dropdown-menu li.parent-item a {
+      position: relative;
+      border: none !important;
+       }
+      sidebar .custom-dropdown-menu li.parent-item a .fa {
+        padding: 5px;
+        position: absolute;
+        right: 5px;
+        top: 10px; }
+    sidebar .custom-dropdown-menu li.parent-item a.active .fa {
+      color: #fff !important;
+    }
+    sidebar .custom-dropdown-menu li.parent-item > a {
+      background-color: #D1D3D5;
+      color: #2d3237 !important;
+      }
+      sidebar .custom-dropdown-menu li.parent-item > a.active, sidebar .custom-dropdown-menu li.parent-item > a:hover {
+        background-color: #00AEFF;
+        color: #fff !important; }
+    sidebar .custom-dropdown-menu li.parent-item a.active {
+      background-color: #00AEFF;
+      color: #fff; }
+    sidebar .custom-dropdown-menu li ul {
+      background-color: #F0F2F4;
+      margin-left: 0 !important;
+      height: 0;
+      visibility: hidden; }
+      sidebar .custom-dropdown-menu li ul ul {
+        margin-top: 0; }
+    sidebar .custom-dropdown-menu li.menu-item-closed ul {
+      height: 0 !important;
+      visibility: hidden !important; }
+    sidebar .custom-dropdown-menu li li.second-level {
+      margin: 0; }
+      sidebar .custom-dropdown-menu li li.second-level a {
+        padding-left: 20px; }
+    sidebar .custom-dropdown-menu li.menu-item-open.parent-item > a {
+      background-color: #D1D3D5;
+      color: #2d3237 !important;
+     border-bottom: none !important;
+     }
+      sidebar .custom-dropdown-menu li.menu-item-open.parent-item > a, sidebar .custom-dropdown-menu li.menu-item-open.parent-item > a:hover {
+        background-color: #00AEFF;
+        color: #fff !important; }
+    sidebar .custom-dropdown-menu li.menu-item-open > ul{
+      height: auto;
+      padding: 0;
+      visibility: visible; }
+    sidebar .custom-dropdown-menu li.active a > .fa:before {
+      position: relative;
+      float: right;
+      top: -3px; }
+
+    sidebar .custom-dropdown-menu li.menu-item-open a > .fa {
+      color: #fff !important;
+    }
+
+   sidebar .custom-dropdown-menu li.menu-item-open li.child-item a:active {
+      color: #000 !important;
+    }
+
+   li.child-item > a.active {
+     background-color: #D1D3D5 !important;
+     color: #000 !important;
+     border-bottom: none !important;
+     border-right: 2px solid #00AEFF !important;
+  }
+
+  .main-content{
+    padding-top: 110px !important;
+  }
+
+#site-breadcrumb {
+  margin-bottom: 0px !important;
+}
+
+.region-content {
+  padding-top: 25px;
+  padding-bottom: 200px;
+}
+
+input[type=text] {
+  min-height: 46px !important;
+}
+
+button, .button, .btn, input[type=button],
+input[type=submit], input[type=reset]{
+  margin: 0px;
+}
+
+footer .menu-name-menu-social-media {
+    text-align: left;
+    margin-right: 15px;
+    position: absolute;
+    right: 0;
+    top: 25px;
+}

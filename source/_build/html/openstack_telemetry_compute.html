@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenStack* Telemetry - Enable compute service meters &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="openstack-telemetry-enable-compute-service-meters">
+<h1>OpenStack* Telemetry - Enable compute service meters</h1>
+<p>Telemetry uses a combination of notifications and an agent to
+collect Compute meters. Perform these steps on each compute node.</p>
+<div class="section" id="configure-components">
+<h2>Configure components</h2>
+<p>Edit the <code class="docutils literal"><span class="pre">/etc/ceilometer/ceilometer.conf</span></code> file and complete the following actions:</p>
+<ol class="arabic">
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> and <code class="docutils literal"><span class="pre">[oslo_messaging_rabbit]</span></code> sections, configure RabbitMQ message queue access:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">rpc_backend</span> <span class="o">=</span> <span class="n">rabbit</span>
+
+<span class="p">[</span><span class="n">oslo_messaging_rabbit</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">rabbit_host</span> <span class="o">=</span> <span class="n">controller</span>
+<span class="n">rabbit_userid</span> <span class="o">=</span> <span class="n">openstack</span>
+<span class="n">rabbit_password</span> <span class="o">=</span> <span class="n">RABBIT_PASS</span>
+</pre></div>
+</div>
+<p>Replace the <code class="docutils literal"><span class="pre">RABBIT_PASS</span></code> with the password you chose for the openstack account in RabbitMQ.</p>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> and <code class="docutils literal"><span class="pre">[keystone_authtoken]</span></code> sections, configure Identity service access:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">auth_strategy</span> <span class="o">=</span> <span class="n">keystone</span>
+
+<span class="p">[</span><span class="n">keystone_authtoken</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">auth_uri</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">controller</span><span class="p">:</span><span class="mi">5000</span>
+<span class="n">auth_url</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">controller</span><span class="p">:</span><span class="mi">35357</span>
+<span class="n">auth_plugin</span> <span class="o">=</span> <span class="n">password</span>
+<span class="n">project_domain_id</span> <span class="o">=</span> <span class="n">default</span>
+<span class="n">user_domain_id</span> <span class="o">=</span> <span class="n">default</span>
+<span class="n">project_name</span> <span class="o">=</span> <span class="n">service</span>
+<span class="n">username</span> <span class="o">=</span> <span class="n">ceilometer</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">CEILOMETER_PASS</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal"><span class="pre">CEILOMETER_PASS</span></code> with the password you chose for the Telemetry service database.</p>
+</li>
+<li><p class="first">In the <code class="docutils literal"><span class="pre">[service_credentials]</span></code> section, configure service credentials:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">service_credentials</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">os_auth_url</span> <span class="o">=</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">controller</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">os_username</span> <span class="o">=</span> <span class="n">ceilometer</span>
+<span class="n">os_tenant_name</span> <span class="o">=</span> <span class="n">service</span>
+<span class="n">os_password</span> <span class="o">=</span> <span class="n">CEILOMETER_PASS</span>
+<span class="n">os_endpoint_type</span> <span class="o">=</span> <span class="n">internalURL</span>
+<span class="n">os_region_name</span> <span class="o">=</span> <span class="n">RegionOne</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal"><span class="pre">CEILOMETER_PASS</span></code> with the password you chose for the ceilometer user in the Identity service.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-compute-to-use-telemetry">
+<h2>Configure Compute to use Telemetry</h2>
+<ol class="arabic">
+<li><p class="first">Edit the <code class="docutils literal"><span class="pre">/etc/nova/nova.conf</span></code> file and configure notifications in the <code class="docutils literal"><span class="pre">[DEFAULT]</span></code> section:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">instance_usage_audit</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">instance_usage_audit_period</span> <span class="o">=</span> <span class="n">hour</span>
+<span class="n">notify_on_state_change</span> <span class="o">=</span> <span class="n">vm_and_task_state</span>
+<span class="n">notification_driver</span> <span class="o">=</span> <span class="n">messagingv2</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="finalize-the-installation">
+<h2>Finalize the installation</h2>
+<ol class="arabic">
+<li><p class="first">Restart the agent:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># systemctl enable ceilometer-agent-compute.service</span>
+<span class="c1"># systemctl restart ceilometer-agent-compute.service</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the compute service:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># systemctl restart nova-compute.service</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">OpenStack* Telemetry - Enable compute service meters</a><ul>
+<li><a class="reference internal" href="#configure-components">Configure components</a></li>
+<li><a class="reference internal" href="#configure-compute-to-use-telemetry">Configure Compute to use Telemetry</a></li>
+<li><a class="reference internal" href="#finalize-the-installation">Finalize the installation</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/openstack_telemetry_compute.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/openstack_telemetry_compute.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

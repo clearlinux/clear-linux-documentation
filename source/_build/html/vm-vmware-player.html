@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using VMware* Player &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Running in a virtualized environment" href="index_vm.html" />
+    <link rel="next" title="Using Hyper-V" href="vm-hyper-v.html" />
+    <link rel="prev" title="Using VMware* ESXi guest" href="vm-vmware-esxi.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-vmware-player">
+<span id="vm-vmware-player"></span><h1>Using VMware* Player</h1>
+<p>This section explains how to run Clear Linux OS for Intel® Architecture
+within a <a class="reference external" href="http://www.vmware.com/products/player/">VMware Player</a> environment.</p>
+<div class="section" id="install-vmware-player">
+<h2>Install VMware Player</h2>
+<p>VMware Workstation Player, formerly VMware Player, is a virtualization
+software package for x64 computers running Microsoft Windows or Linux. Download
+VMware player from the <a class="reference external" href="https://www.vmware.com/products/player/playerpro-evaluation.html">VMware website</a>.</p>
+<div class="section" id="player-on-linux">
+<h3>Player on Linux</h3>
+<p>For the Linux option, you should have a <code class="docutils literal"><span class="pre">VMware-Player-[version]_FILE.bundle</span></code> file. To
+install it, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo bash ./VMware-Player-[version].x86_64.bundle
+</pre></div>
+</div>
+</div>
+<div class="section" id="player-on-windows">
+<h3>Player on Windows</h3>
+<p>Follow the instructions from the Setup Assistant.</p>
+</div>
+</div>
+<div class="section" id="prepare-image">
+<h2>Prepare Image</h2>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="https://download.clearlinux.org/image/">latest</a> Clear Linux OS for Intel Architecture <strong>live</strong>
+disk image, named <code class="docutils literal"><span class="pre">[clear-[version_number]-live.img.xz]</span></code>.</p>
+</li>
+<li><p class="first">Decompress the image. Uncompressed image size ~ <strong>5GB</strong>.</p>
+<ul>
+<li><p class="first">On Linux</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ unxz clear-VERSION-live.img.xz
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Windows you can use <a class="reference external" href="http://www.7-zip.org/">7zip</a>.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Convert the installer to <abbr title="Virtual Machine Disk">VMDK</abbr> format.</p>
+<ul>
+<li><p class="first">On Linux, you can use <code class="docutils literal"><span class="pre">qemu-img</span> <span class="pre">convert</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ qemu-img convert -O vmdk clear-VERSION-live.img clear.vmdk
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Windows, you can convert the live image to vmdk format (from raw format to vmdk)</p>
+</li>
+</ul>
+<blockquote>
+<div><p>with a tool like VBoxManage from <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a>.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="run-using-vmware-player">
+<h2>Run using VMware* Player</h2>
+<ol class="arabic">
+<li><p class="first">Create a new virtual machine.</p>
+</li>
+<li><p class="first">Click on “Create a new Virtual Machine”.</p>
+<ul class="simple">
+<li>Select “<strong>I will install the operating system later</strong>”, and click on “Next”.</li>
+<li>Select “<strong>Linux</strong>” as “Guest operating system” and version <strong>Other Linux 3.x kernel 64-bit</strong>.</li>
+<li>Type a name for the new virtual machine.</li>
+<li>Perform the <em>remaining steps</em> using the default options.</li>
+</ul>
+</li>
+<li><p class="first">Change boot type to EFI.  You must change the VMware virtual machine <em>configuration</em>
+to <strong>Support EFI firmware</strong>; you can do this by editing the configuration <code class="docutils literal"><span class="pre">.vmx</span></code>
+file located in the virtual machine folder and adding the following line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">firmware</span> <span class="o">=</span> <span class="s2">&quot;efi&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Attach the prepared image as SATA disk.  And when you have a new virtual machine,
+edit its configuration as follows:</p>
+<ul>
+<li><p class="first">Click on “Edit virtual machine settings”.</p>
+</li>
+<li><p class="first">Remove any default attached hard disk.</p>
+</li>
+<li><p class="first">Click on “Add” option below devices list tab and choose Hard disk.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Choose <strong>SATA</strong> as the virtual disk type.</li>
+<li>Use the existing Clear Linux OS for Intel Architecture virtual disk</li>
+</ul>
+</div></blockquote>
+<p>The live disk must be set as <code class="docutils literal"><span class="pre">SATA</span> <span class="pre">0:1</span> <span class="pre">Hard</span> <span class="pre">Disk</span> <span class="pre">(SATA)</span></code>; you can verify
+this under the “Advanced&#8221; section of the disk settings.</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="start-the-virtual-machine">
+<h2>Start the virtual machine</h2>
+<p>After configuring the settings above, start the virtual machine.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using VMware* Player</a><ul>
+<li><a class="reference internal" href="#install-vmware-player">Install VMware Player</a><ul>
+<li><a class="reference internal" href="#player-on-linux">Player on Linux</a></li>
+<li><a class="reference internal" href="#player-on-windows">Player on Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prepare-image">Prepare Image</a></li>
+<li><a class="reference internal" href="#run-using-vmware-player">Run using VMware* Player</a></li>
+<li><a class="reference internal" href="#start-the-virtual-machine">Start the virtual machine</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_vm.html">Running in a virtualized environment</a><ul>
+      <li>Previous: <a href="vm-vmware-esxi.html" title="previous chapter">Using <em>VMware*</em> ESXi guest</a></li>
+      <li>Next: <a href="vm-hyper-v.html" title="next chapter">Using Hyper-V</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vm-vmware-player.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/vm-vmware-player.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

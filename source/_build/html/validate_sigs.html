@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Validating Signatures &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Advanced configuration" href="index_advanced_configuration.html" />
+    <link rel="next" title="Storage solutions" href="index-storage.html" />
+    <link rel="prev" title="OpenvSwitch and DPDK" href="ac-ovs-dpdk.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="validating-signatures">
+<span id="validate-sigs"></span><h1>Validating Signatures</h1>
+<p>Clear Linux* OS for Intel® Architecture offers a way to validate signatures
+to create verified build artifacts. Validations can be obtained by users and
+by code to confirm that we are indeed dealing with official outputs.</p>
+<p>Multiple types of artifacts have signing/verifying:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Image checksums files; for example,  <a class="reference external" href="https://download.clearlinux.org/releases/8890/clear/">release 8890</a> has</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">clear-*.img.xz</span></code> image files,</li>
+<li><code class="docutils literal"><span class="pre">clear-*.img.xz-SHA512SUMS</span></code> checksum files, and</li>
+<li><code class="docutils literal"><span class="pre">clear-*.img.xz-SHA512SUMS.sig</span></code> signature files.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">The <strong class="command">swupd</strong> Manifest of Manifests (aka <abbr title="Manifest of Manifests">MoM</abbr>)
+<code class="docutils literal"><span class="pre">https://download.clearlinux.org/update/8890/</span></code> has <code class="docutils literal"><span class="pre">Manifest.MoM</span></code>
+and <code class="docutils literal"><span class="pre">Manifest.MoM.sig</span></code> signature file.</p>
+</li>
+</ul>
+<div class="section" id="verifying-a-clear-linux-os-for-intel-architecture-image">
+<h2>Verifying a Clear Linux OS for Intel Architecture image</h2>
+<p>Verification of images is done by humans when they download an image via the following steps:</p>
+<ol class="arabic">
+<li><p class="first">Download the current <code class="docutils literal"><span class="pre">ClearLinuxRoot.pem</span></code> certificate; this is provided
+with the release being downloaded. For example, if you&#8217;re interested in verifying
+the <code class="docutils literal"><span class="pre">8970</span></code> release, obtain the certificate from <a class="reference external" href="https://download.clearlinux.org/releases/8970/clear/ClearLinuxRoot.pem">https://download.clearlinux.org/releases/8970/clear/ClearLinuxRoot.pem</a>.</p>
+</li>
+<li><p class="first">Download the desired OS image, as well as the <code class="docutils literal"><span class="pre">[image]-SHA512SUMS.sig</span></code> file.</p>
+</li>
+<li><p class="first">Download and validate the release&#8217;s OS <code class="docutils literal"><span class="pre">ClearLinuxRoot.pem</span></code> certificate:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Validate the certificate by comparing the downloaded certificate&#8217;s
+<code class="docutils literal"><span class="pre">sha256sum</span></code> hash with what is published here:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sha256sum ClearLinuxRoot.pem
+</pre></div>
+</div>
+<p>You should see this (accurate as of 2016-06-16 00:00 UTC):</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890  ClearLinuxRoot.pem</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Now we verify that the signature file is valid, which also proves
+the OS image tarball is as trusted as the <code class="docutils literal"><span class="pre">ClearLinuxRoot</span></code> certificate.
+To do this, create the <strong>SHA512SUMS</strong> file of the tarball. This is the
+content which is actually signed by the release team.</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sha512sum ./<span class="o">[</span>image-####<span class="o">]</span>.img.xz &gt; sha512sum.out
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Finally, we can use <strong class="command">openssl</strong> to validate the signed
+<code class="file docutils literal"><span class="pre">SHA512SUMS.sig</span></code> was signed by the <code class="docutils literal"><span class="pre">ClearLinuxRoot</span></code> certificate:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> openssl smime -verify -in <span class="o">[</span>image<span class="o">]</span>-SHA512SUMS.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem -out /dev/null
+</pre></div>
+</div>
+<p>After running this, you should see: <code class="code docutils literal"><span class="pre">Verification</span> <span class="pre">successful</span></code>.
+If you do not see this, you cannot be certain the OS you downloaded
+can be trusted.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="verification-of-the-signed-mom">
+<h2>Verification of the signed MoM</h2>
+<p>An overview of the mechanism used internal to <strong class="command">swupd</strong>
+(implemented in C calls to the openssl library API) is as follows:</p>
+<ol class="arabic">
+<li><p class="first">A trusted certificate is distributed with all Clear Linux
+OS for Intel Architecture releases in <code class="file docutils literal"><span class="pre">/usr/share/clear/update-ca/ClearLinuxRoot.pem</span></code>.</p>
+</li>
+<li><p class="first"><strong class="command">swupd</strong> downloads the top-level manifest (MoM), as
+well as the signed <code class="file docutils literal"><span class="pre">MoM.sig</span></code> for the currently-installed
+image, and for the release being updated to in the case of an update.</p>
+</li>
+<li><p class="first"><strong class="command">swupd</strong> generates a <code class="docutils literal"><span class="pre">sha256sum</span></code> of the MoM.</p>
+</li>
+<li><p class="first"><strong class="command">swupd</strong> uses the <code class="file docutils literal"><span class="pre">MoM.sig</span></code> downloaded in step 1,
+as well as the <code class="docutils literal"><span class="pre">sha256sum</span></code>; and, using the openssl API, it makes
+an equivalent call to the verification command:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="n">openssl</span> <span class="n">smime</span> <span class="o">-</span><span class="n">verify</span> <span class="o">-</span><span class="n">in</span> <span class="n">sha256sums</span><span class="p">.</span><span class="n">sig</span> <span class="o">-</span><span class="n">inform</span> <span class="n">der</span> <span class="o">-</span><span class="n">content</span> <span class="n">sha512sum</span><span class="p">.</span><span class="n">out</span> <span class="o">-</span><span class="n">CAfile</span> <span class="n">ClearLinuxRoot</span><span class="p">.</span><span class="n">pem</span>
+</pre></div>
+</div>
+<p>Note that the actual API call is to <code class="docutils literal"><span class="pre">PKCS7_verify())</span></code>.</p>
+</li>
+<li><p class="first">With a successful verification, we can proceed to trust this
+MoM and its contents, which consist of hashes of the contents
+of all bundle manifests.</p>
+<ul>
+<li><p class="first"><strong>Success</strong> When a successful signature verification occurs, you
+should see the following message as part of the <strong class="command">swupd</strong>
+output:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Signature check succeeded</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Fail</strong> Should verification fail, you will see:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">WARNING!!! FAILED TO VERIFY SIGNATURE OF Manifest.MoM</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">As <strong class="command">swupd</strong> then uses or installs bundle manifests, that
+bundle manifest hash is matched to the trusted MoM, extending the
+chain of trust from the MoM, to the bundle manifests, and out to
+every file installed.</p>
+</li>
+</ol>
+<div class="section" id="clear-linux-os-for-intel-architecture-public-key-as-of-06-16-2016-00-00-utc">
+<h3>Clear Linux* OS for Intel® Architecture Public Key as of 06/16/2016 00:00 UTC</h3>
+<div class="highlight-raw"><div class="highlight"><pre><span></span><span class="err">-----BEGIN PUBLIC KEY-----</span>
+<span class="err">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfnY2m665SwYxr4/R+8L</span>
+<span class="err">X1IMAkVYmvNiI5KmV815WvVQwUQDDCY1HUag+wb2BhTxkotKUdm6LGY1ck+Eb742</span>
+<span class="err">rdICMToX+32vFM3XvIK16TKM6ficPsGA4xmbE/9qp01bn0O4MCwKjPAmxJkW+UOO</span>
+<span class="err">L5u8p9VBZ1MYMnsRkECPZif/fULqIU73aYD3HYtcYEk1+N8n1AcNkpRY9p3Qd92M</span>
+<span class="err">9aRlCNl1sb2g5DwSx9G0dWTS+YPchpclV7fBGQUiTuxb72hpVRE66CfR8tTd14np</span>
+<span class="err">IbsKGq0S5PzkR9ubilDywFQ/6XPc1Rur/4g0rm6pPPx7DLQK3EqC8d4Z/C2nywje</span>
+<span class="err">PwIDAQAB</span>
+<span class="err">-----END PUBLIC KEY-----</span>
+</pre></div>
+</div>
+<p>You can re-create this when given a cert with the command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> openssl x509 -pubkey -noout -in ClearLinuxRoot.pem
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Validating Signatures</a><ul>
+<li><a class="reference internal" href="#verifying-a-clear-linux-os-for-intel-architecture-image">Verifying a Clear Linux OS for Intel Architecture image</a></li>
+<li><a class="reference internal" href="#verification-of-the-signed-mom">Verification of the signed MoM</a><ul>
+<li><a class="reference internal" href="#clear-linux-os-for-intel-architecture-public-key-as-of-06-16-2016-00-00-utc">Clear Linux* OS for Intel® Architecture Public Key as of 06/16/2016 00:00 UTC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_advanced_configuration.html">Advanced configuration</a><ul>
+      <li>Previous: <a href="ac-ovs-dpdk.html" title="previous chapter">OpenvSwitch and DPDK</a></li>
+      <li>Next: <a href="index-storage.html" title="next chapter">Storage solutions</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/validate_sigs.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/validate_sigs.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

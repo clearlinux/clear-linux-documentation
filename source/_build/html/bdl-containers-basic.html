@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>containers-basic &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Bundles" href="index_bundles.html" />
+    <link rel="next" title="openssh-server" href="bdl-openssh-server.html" />
+    <link rel="prev" title="Bundles overview" href="bundles_overview.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="containers-basic">
+<span id="bdl-containers-basic"></span><h1>containers-basic</h1>
+<p>This bundle provides container applications</p>
+<div class="section" id="multiple-runtime-support-for-docker">
+<h2>Multiple runtime support for Docker</h2>
+<p>Docker* 1.12+ provides a way to execute containers using different <strong>&#8220;oci
+runtimes&#8221;</strong>. An <strong>&#8220;oci runtime&#8221;</strong> is  software compatible with <abbr title="Open Containers Initiative">OCI</abbr> specification that is responsible to create
+a container.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Docker in Clear Linux is configured to use 2 runtimes:</p>
+</div>
+<p><strong>cc-oci-runtime</strong>: This is the default runtime used by docker in Clear Linux (if
+Vt-x support is enabled). This runtime provides the capability to create secure
+containers using Clear Containers (based VM containers).</p>
+<p><strong>runc</strong>: This runtime is used to spawn and run containers using namespaces and
+cgroups (this is the traditional way to create containers used by docker).</p>
+<p>In Clear Linux, each time a container is created it uses cc-oci-runtime (<em>A.K.A</em>
+<strong>cor</strong>).</p>
+<p>To start a secure container with cc-oci-runtime aka cor:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">ti</span> <span class="n">debian</span> <span class="n">sh</span>
+</pre></div>
+</div>
+<p>In the case you want to start a non secure container. You can
+use the option <strong>&#8211;runtime=runc</strong> in the docker command <strong>&#8220;run&#8221;</strong></p>
+<p>To start an non-secure container using runc runtime:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">runtime</span><span class="o">=</span><span class="n">runc</span> <span class="o">-</span><span class="n">ti</span> <span class="n">debian</span> <span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-default-runtime">
+<h2>Change default runtime</h2>
+<p>To modify the default runtime you can override
+the stateless docker daemon configuration
+creating the file <code class="file docutils literal"><span class="pre">/etc/systemd/system/docker-cor.service.d/docker.conf</span></code>
+and adding <strong>&#8211;default-runtinme=runc</strong>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">dockerd</span> <span class="o">-</span><span class="n">H</span> <span class="n">fd</span><span class="p">:</span><span class="o">//</span> <span class="o">--</span><span class="n">storage</span><span class="o">-</span><span class="n">driver</span><span class="o">=</span><span class="n">overlay</span> <span class="o">--</span><span class="n">add</span> <span class="n">runtime</span> <span class="n">cor</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">oci</span><span class="o">-</span><span class="n">runtime</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">runtime</span><span class="o">=</span><span class="n">runc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-proxy">
+<h2>HTTP proxy</h2>
+<p>If you are behind an HTTP proxy server, for example in corporate settings, you
+will need to add this configuration in the Docker systemd service file.</p>
+<p>First, create a systemd drop-in directory for the docker service:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">cor</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>Now create a file called <code class="file docutils literal"><span class="pre">/etc/systemd/system/docker-cor.service.d/http-proxy.conf</span></code>
+that adds the HTTP_PROXY environment variable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;HTTP_PROXY=http://proxy.example.com:80/&quot;</span>
+</pre></div>
+</div>
+<p>If you have internal Docker registries that you need to contact without proxying
+you can specify them via the NO_PROXY environment variable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;HTTP_PROXY=http://proxy.example.com:80/&quot;</span> <span class="s2">&quot;NO_PROXY=localhost,127.0.0.1,docker-registry.somecorporation.com&quot;</span>
+</pre></div>
+</div>
+<p>Flush changes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo systemctl daemon-reload
+</pre></div>
+</div>
+<p>Verify that the configuration has been loaded:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ systemctl show --property=Environment docker-cor
+Environment=HTTP_PROXY=http://proxy.example.com:80/
+</pre></div>
+</div>
+<p>Restart Docker:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo systemctl restart docker-cor
+</pre></div>
+</div>
+<p>To get more info you can view <a class="reference external" href="https://docs.docker.com/engine/admin/systemd/">https://docs.docker.com/engine/admin/systemd/</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">containers-basic</a><ul>
+<li><a class="reference internal" href="#multiple-runtime-support-for-docker">Multiple runtime support for Docker</a></li>
+<li><a class="reference internal" href="#change-default-runtime">Change default runtime</a></li>
+<li><a class="reference internal" href="#http-proxy">HTTP proxy</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_bundles.html">Bundles</a><ul>
+      <li>Previous: <a href="bundles_overview.html" title="previous chapter">Bundles overview</a></li>
+      <li>Next: <a href="bdl-openssh-server.html" title="next chapter">openssh-server</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bdl-containers-basic.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/bdl-containers-basic.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Hyper-V &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Running in a virtualized environment" href="index_vm.html" />
+    <link rel="next" title="Software update" href="index_sw_update.html" />
+    <link rel="prev" title="Using VMware* Player" href="vm-vmware-player.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-hyper-v">
+<span id="vm-hyper-v"></span><h1>Using Hyper-V</h1>
+<p>This section explains how to run Clear Linux OS for Intel® Architecture
+inside a <a class="reference external" href="https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx">Windows Server Virtualization</a>  <em>A.K.A.</em> <strong>Hyper-V</strong> environment.</p>
+<div class="section" id="install-hyper-v">
+<h2>Install Hyper-V*</h2>
+<p>Please refer to <a class="reference external" href="https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx">Microsoft documentation</a> to install and configure
+<em>Hyper-V</em> on your machine.</p>
+</div>
+<div class="section" id="create-a-virtual-machine">
+<h2>Create a virtual machine</h2>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="https://download.clearlinux.org/image/">latest</a> live version (clear-XXXX-live.img.xz) of Clear Linux OS
+for Intel Architecture.</p>
+</li>
+<li><p class="first">Decompress the downloaded image. Uncompressed image size is ~ <strong>5GB</strong>.</p>
+</li>
+<li><p class="first">To convert a raw image to <abbr title="Virtual Hard Disk">VHD</abbr>
+format, you can use <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a> or <a class="reference external" href="http://wiki.qemu.org/Links">QEMU</a>.</p>
+<ul>
+<li><p class="first">With <em>VirtualBox</em>, you can use one of the following commands:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">VBoxManage</span> <span class="n">convertfromraw</span> <span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">img</span> <span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">vhd</span> <span class="o">--</span><span class="nb">format</span> <span class="n">VHD</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">vbox</span><span class="o">-</span><span class="n">img</span> <span class="n">convert</span> <span class="o">--</span><span class="n">srcfilename</span> <span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">img</span> <span class="o">--</span><span class="n">dstfilename</span> <span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">vhd</span> <span class="o">--</span><span class="n">srcformat</span> <span class="n">raw</span> <span class="o">--</span><span class="n">dstformat</span> <span class="n">vhd</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">With <em>QEMU</em>, you can use the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">qemu</span><span class="o">-</span><span class="n">img</span> <span class="n">convert</span> <span class="o">-</span><span class="n">f</span> <span class="n">raw</span> <span class="o">-</span><span class="n">O</span> <span class="n">vpc</span> <span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">img</span> <span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">vhd</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>You can test your new <em>VHD image</em> using the <strong>PowerShell</strong> command line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PS</span> <span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span> <span class="n">Test</span><span class="o">-</span><span class="n">VHD</span> <span class="o">-</span><span class="n">Path</span> <span class="n">c</span><span class="p">:</span>\<span class="n">path</span>\<span class="n">to</span>\<span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">vhd</span>
+</pre></div>
+</div>
+<p>Clear Linux OS for Intel Architecture uses <em>EFI</em> to boot.  Since this feature
+is availible only in <a class="reference external" href="https://technet.microsoft.com/en-us/library/dn282285.aspx">Generation 2</a> or later virtual machines, you&#8217;ll need
+to convert from <strong>VHD</strong> to <strong>VHDX</strong>. To do this, you can use the following
+<em>PowerShell</em> command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PS</span> <span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span> <span class="n">Convert</span><span class="o">-</span><span class="n">VHD</span> <span class="o">-</span><span class="n">Path</span> <span class="n">c</span><span class="p">:</span>\<span class="n">path</span>\<span class="n">to</span>\<span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">vhd</span> <span class="o">-</span><span class="n">DestinationPath</span> <span class="n">c</span><span class="p">:</span>\<span class="n">path</span>\<span class="n">to</span>\<span class="n">clear</span><span class="o">-</span><span class="n">XXXX</span><span class="o">-</span><span class="n">live</span><span class="o">.</span><span class="n">vhdx</span>
+</pre></div>
+</div>
+<p>You can save the new <em>VHDX</em> virtual hard disk in <code class="file docutils literal"><span class="pre">C:\Users\Public\Documents\Hyper-V\Virtual</span> <span class="pre">Hard</span> <span class="pre">Disks</span></code>.</p>
+</li>
+<li><p class="first">Create a virtual machine using the <strong>Hyper-V Manager</strong>:</p>
+<ul class="simple">
+<li>Choose <strong>Generation 2</strong> when you need to <em>specify VM generation</em>.</li>
+<li>Choose <strong>Use an existing virtual hard disk</strong> and browse to find the <code class="file docutils literal"><span class="pre">clear-XXXX-live.vhdx</span></code> file.</li>
+<li>When finised, open VM settings, select Firmware Section and in Secure Boot
+config, <strong>uncheck</strong> Enable Secure Boot.<ul>
+<li>Currently Clear Linux does not boot with secure boot enabled.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Finally, connect to your new VM and start it. You should see a prompt asking for
+a user; use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">User</span><span class="p">:</span> <span class="n">root</span>
+</pre></div>
+</div>
+<p>and set a root user password.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Hyper-V</a><ul>
+<li><a class="reference internal" href="#install-hyper-v">Install Hyper-V*</a></li>
+<li><a class="reference internal" href="#create-a-virtual-machine">Create a virtual machine</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_vm.html">Running in a virtualized environment</a><ul>
+      <li>Previous: <a href="vm-vmware-player.html" title="previous chapter">Using VMware* Player</a></li>
+      <li>Next: <a href="index_sw_update.html" title="next chapter">Software update</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/vm-hyper-v.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/vm-hyper-v.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

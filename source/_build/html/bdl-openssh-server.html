@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>openssh-server &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Bundles" href="index_bundles.html" />
+    <link rel="next" title="os-core" href="bdl-os-core.html" />
+    <link rel="prev" title="containers-basic" href="bdl-containers-basic.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="openssh-server">
+<span id="bdl-openssh-server"></span><h1>openssh-server</h1>
+<p>This bundle provides an ssh server.</p>
+<div class="section" id="sftp">
+<h2>SFTP</h2>
+<p>Clear Linux <em>disables</em> sftp subsystem by default for security reasons.
+To enable sftp subsystem you will need to add this configuration in the sshd
+service file.</p>
+<p>First, create a systemd drop-in directory for the sshd service:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mkdir /etc/systemd/system/sshd@.service.d</span>
+</pre></div>
+</div>
+<p>Now create a file called <code class="file docutils literal"><span class="pre">/etc/systemd/system/sshd&#64;.service.d/sftp.conf</span></code>
+that adds the OPTIONS environment variable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">Environment</span><span class="o">=</span><span class="s2">&quot;OPTIONS=-o Subsystem=</span><span class="se">\&quot;</span><span class="s2">sftp /usr/libexec/sftp-server</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Now, sftp subsystem is enabled.</p>
+</div>
+<div class="section" id="root-login">
+<h2>Root login</h2>
+<p>To enable root login via ssh, you should do the following:</p>
+<ol class="arabic">
+<li><p class="first">Create a <em>ssh</em> directory in /etc (if not exist):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mkdir /etc/ssh</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set config variable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># echo &quot;PermitRootLogin yes&quot; &gt;&gt; /etc/ssh/sshd_config</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">openssh-server</a><ul>
+<li><a class="reference internal" href="#sftp">SFTP</a></li>
+<li><a class="reference internal" href="#root-login">Root login</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_bundles.html">Bundles</a><ul>
+      <li>Previous: <a href="bdl-containers-basic.html" title="previous chapter">containers-basic</a></li>
+      <li>Next: <a href="bdl-os-core.html" title="next chapter">os-core</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bdl-openssh-server.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/bdl-openssh-server.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

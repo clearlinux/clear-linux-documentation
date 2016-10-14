@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mixer Tool &#8212; Documentation for Clear Linux* Project for Intel(r) Architecture</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="index.html" />
+    <link rel="up" title="Advanced configuration" href="index_advanced_configuration.html" />
+    <link rel="next" title="DPDK" href="ac-dpdk.html" />
+    <link rel="prev" title="Bulk Provisioning" href="bulk_provisioning.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mixer-tool">
+<span id="id1"></span><h1>Mixer Tool</h1>
+<p><em>Mixing</em> refers to composing an operating system for specific use cases.
+While the default Clear Linux* OS for Intel® Architecture provides options to install
+bundles for various server capabilities, some developers may wish to 1) augment the
+operating system itself with functionality from their own packages or 2) modify the
+structure of current bundles to cater to their particular needs.</p>
+<div class="section" id="current-workflow">
+<h2>Current Workflow</h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites</h3>
+<p>To start working with the Mixer tools, you&#8217;ll need a recent image of Clear Linux OS for Intel Architecture
+with the following bundle installed. If you don&#8217;t have it already,
+you can add it with the <strong class="command">swupd bundle-add</strong> command like so:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add mixer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mixing">
+<h3>Mixing</h3>
+<ol class="arabic">
+<li><p class="first"><strong>Create a workspace</strong>. Create an empty directory in your Clear image to
+use as a &#8220;workspace&#8221; for mixing. For these steps, we assume your workspace
+location is <code class="file docutils literal"><span class="pre">/home/clr/mix</span></code>.</p>
+</li>
+<li><p class="first"><strong>Configure builder.conf</strong>. Copy the template conf file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cp /usr/share/defaults/bundle-chroot-builder/builder.conf /etc/bundle-chroot-builder/</span>
+</pre></div>
+</div>
+<p>The file <code class="docutils literal"><span class="pre">builder.conf</span></code> will be read automatically from <code class="docutils literal"><span class="pre">/etc/bundle-chroot-builder</span></code>,
+but all of the scripts accept a <code class="docutils literal"><span class="pre">-c/--config</span></code> option to specify where
+the file is if you want to store it elsewhere. If you wish to use one in your current workspace,
+you can copy the template and supply it to the scripts when you run them. The :file:<code class="docutils literal"><span class="pre">.yum-mix.conf</span></code>
+file will be auto-generated for you.</p>
+<p>Note there are different sections to the builder.conf. The <code class="docutils literal"><span class="pre">[Builder]</span></code> section
+provides the mixer tools with required configuration options, defining where
+generated bundles and update metadata should get published. The <code class="docutils literal"><span class="pre">[swupd]</span></code> section
+is used by swupd-server to create an update with the newly mixed content.</p>
+<p>Edit the template configuration file according to your needs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># vim /etc/bundle-chroot-builder/builder.conf:</span>
+
+<span class="p">[</span><span class="n">Builder</span><span class="p">]</span>
+<span class="n">SERVER_STATE_DIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">update</span>
+<span class="n">BUNDLE_DIR</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/</span><span class="n">mix</span><span class="o">-</span><span class="n">bundles</span>
+<span class="n">YUM_CONF</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/.</span><span class="n">yum</span><span class="o">-</span><span class="n">mix</span><span class="o">.</span><span class="n">conf</span>
+
+<span class="p">[</span><span class="n">swupd</span><span class="p">]</span>
+<span class="n">BUNDLE</span><span class="o">=</span><span class="n">os</span><span class="o">-</span><span class="n">core</span><span class="o">-</span><span class="n">update</span>
+<span class="n">CONTENTURL</span><span class="o">=&lt;</span><span class="n">URL</span> <span class="n">where</span> <span class="n">content</span> <span class="n">will</span> <span class="n">be</span> <span class="n">hosted</span><span class="o">&gt;</span>   <span class="c1">### URL where swupd content is</span>
+                                                  <span class="c1">#  published. Optional if not hosting updates</span>
+<span class="n">VERSIONURL</span><span class="o">=&lt;</span><span class="n">URL</span> <span class="n">where</span> <span class="n">version</span> <span class="n">will</span> <span class="n">be</span> <span class="n">hosted</span><span class="o">&gt;</span>   <span class="c1">### Should be the same as CONTENTURL.</span>
+                                                  <span class="c1">#  Optional if not hosting updates</span>
+<span class="n">FORMAT</span><span class="o">=</span><span class="mi">1</span>                                        <span class="c1">### Can be any number.</span>
+                                                  <span class="c1"># See &#39;OS Epoch&#39; discussion for details</span>
+</pre></div>
+</div>
+<p>You may include a <code class="docutils literal"><span class="pre">CERT=/path/to/cert</span></code> line which tells the chroot builder to insert the certificate
+specified for the mix in <code class="docutils literal"><span class="pre">/os-core-update/usr/share/clear/update-ca/</span></code>. This would be the certificate used
+by the software update client to verify the Manifest.MoM signature.</p>
+</li>
+<li><p class="first"><strong>Generate the starting point for your Mix</strong>. In your workspace, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mixer-init-mix.sh -c /etc/bundle-chroot-builder/builder.conf</span>
+</pre></div>
+</div>
+<p>Optionally, the <code class="docutils literal"><span class="pre">-b/--clear-version</span></code> option can be passed to tell the script which
+Clear version to build the initial mix against, and the <code class="docutils literal"><span class="pre">-m/--mix-version</span></code> can be used
+to specify what the starting mix version should be. This may be needed if the build
+you are currently on is newer than the latest clr-bundles release tag.</p>
+<p><em>If you wish to just build a mix that includes all Clear bundles with no modifications, run</em>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mixer-init-mix.sh -c /etc/bundle-chroots-builder/builder.conf --all-bundles</span>
+</pre></div>
+</div>
+<p>And skip to <code class="docutils literal"><span class="pre">Creating</span> <span class="pre">an</span> <span class="pre">image</span></code>. All the required content will be automatically built, and this mix
+will be identical to the version of Clear it is being composed from.</p>
+</li>
+<li><p class="first"><strong>Create/locate RPMs for mix.</strong>. (Steps 4-6 are necessary only if you
+want to add your own RPMs to the Mix. If you are simply working with Clear
+only bundles, then skip to Step 7.)</p>
+<p>If you are creating RPMs from scratch, you may use <code class="docutils literal"><span class="pre">autospec</span></code>,
+<code class="docutils literal"><span class="pre">mock</span></code>, <code class="docutils literal"><span class="pre">rpmbuild</span></code>, etc. to build them. If they are not
+built on Clear, make sure your configuration and toolchain builds them correctly for Clear.</p>
+</li>
+<li><p class="first"><strong>Import RPMs into workspace</strong>. The easiest way to do this is to create a
+<code class="docutils literal"><span class="pre">rpms</span></code> directory in your workspace (for example <code class="docutils literal"><span class="pre">/home/clr/mix/rpms</span></code>),
+and to copy the RPMs you want into that directory. The mixer script will
+look here for RPMs in order to build a local RPM repo for yum to use.</p>
+</li>
+<li><p class="first"><strong>Create a local RPM repo</strong>. Create an empty directory in your workspace
+named <code class="docutils literal"><span class="pre">local</span></code> and run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mixer-add-rpms.sh --rpmdir rpms --repodir local</span>
+</pre></div>
+</div>
+<p>After the script exits, you should see your RPMs and a repodata directory in
+<code class="docutils literal"><span class="pre">/home/clr/mix/local</span></code>. If the RPMs are not all in the local directory, check
+to make sure that they are indeed valid RPM files and not corrupt.</p>
+</li>
+<li><p class="first"><strong>Update bundle definitions</strong>. The mixer uses a local clone of the
+<code class="docutils literal"><span class="pre">clr-bundles</span></code> repo to define bundles for the mix.</p>
+<dl class="docutils">
+<dt>To define your bundles:</dt>
+<dd><ol class="first last arabic">
+<li><p class="first">Navigate to the <code class="docutils literal"><span class="pre">mix-bundles/</span></code> directory.</p>
+</li>
+<li><p class="first">Make any needed modifications to the bundle set.</p>
+</li>
+<li><p class="first">Commit the result:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git add .
+$ git commit -s -m &#39;Update bundles for mix #&lt;VER&gt;&#39;
+</pre></div>
+</div>
+</li>
+</ol>
+</dd>
+</dl>
+<p>You can easily copy bundles over from the <code class="docutils literal"><span class="pre">clr-bundles/bundles</span></code> directory in
+the case that you want to simply use existing bundle sets. Note that
+<code class="docutils literal"><span class="pre">mix-bundles</span></code> should not have any folders inside of it, only bundle definitions.
+Do <em>not</em> modify things in the clr-bundles dir, this is simply a mirror for you to
+use or refer to the Clear Linux OS bundle definitions.</p>
+<p>Why do this? With Git history, mixes are easy to revert to or refer
+to in the future if something were to go wrong with a new mix. If
+you&#8217;re just testing this out, or if you really do not want to mess with Git,
+you can ignore committing for now. The next feature will be to
+implement an interactive way to modify/add/delete bundles, so much of
+this work can be abstracted out so Git work will be more automated.</p>
+<p>To add your own bundle, create a bundle definition file in <code class="docutils literal"><span class="pre">mix-bundles/</span></code>
+and refer to <code class="file docutils literal"><span class="pre">os-core-update</span></code> for formatting, but be sure that
+the name does not conflict with another bundle. Add your package
+name(s) in that  bundle definition file to tell it what package(s)
+must be installed as part of that bundle.</p>
+</li>
+<li><p class="first"><strong>Build the bundle chroots</strong> To build all of the <code class="docutils literal"><span class="pre">chroots</span></code>
+that are based on the bundles you defined, in your workspace run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mixer-build-chroots.sh</span>
+</pre></div>
+</div>
+<p>If you have many bundles defined for your mix, this step may take some time.</p>
+</li>
+<li><p class="first"><strong>Create update</strong>. In the workspace, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mixer-create-update.sh</span>
+</pre></div>
+</div>
+<p>When the script completes, you&#8217;ll find your mix update content under
+<code class="docutils literal"><span class="pre">/var/lib/update/www/VER</span></code>, in this example, it will be located in
+<code class="docutils literal"><span class="pre">/var/lib/update/www/&lt;MIXVERSION&gt;</span></code>, where &lt;MIXVERSION&gt; is the mix version you
+defined, or 10 by default.</p>
+</li>
+<li><p class="first"><strong>Initialize next Mix version info</strong>. To update the versions and prep for your
+next mix, in the workspace run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mixer-init-versions.sh -m 20</span>
+</pre></div>
+</div>
+<p>This takes the Clear version from your image (or override it with
+<code class="docutils literal"><span class="pre">-c/--clear-version</span></code> to use another Clear build&#8217;s content), and sets
+&#8220;20&#8221; for the mix version. From this point you can iterate through starting again at step
+4 and doing modifications as needed.</p>
+</li>
+<li><p class="first"><strong>Update Bundles (Optional)</strong>.  Update <code class="docutils literal"><span class="pre">clr-bundles</span></code>.  In the workspace,
+run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mixer-update-bundles.sh</span>
+</pre></div>
+</div>
+<p>This step is optional because the script is already called by mixer-init-mix.sh,
+and only needs to be called again when you want to update the upstream clr-bundles
+folder in your workspace.</p>
+</li>
+</ol>
+<p><strong>Creating an image</strong>
+To create a bootable image from your update content, you will need the configuration file for
+ister to create images:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># curl -O https://raw.githubusercontent.com/clearlinux/ister/master/release-image-config.json</span>
+</pre></div>
+</div>
+<p>Edit this to include  all the bundles you want pre-installed into your image. For a minimal, base
+image this would be:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;Bundles&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;os-core&quot;</span><span class="p">,</span> <span class="s2">&quot;os-core-update&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel-native&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>And lastly, set the &#8220;Version:&#8221; to say which mix version content the image should be built from,
+i.e 10 for your first build. To build the image, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#  ister.py -t release-image-config.json -V file:///home/clr/mix/update/www/ -C file:///home/clr/mix/update/www/</span>
+</pre></div>
+</div>
+<p>The output from this should be an image that is bootable as a VM or installable to baremetal. <em>Note</em> that
+you may need to pass in -f/&#8211;format &lt;FORMAT_NUMBER&gt; if the format you are building is different than the
+format of Clear Linux OS you are currently building on. Format version can be found via:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cat /usr/share/defaults/swupd/format</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="os-epoch-or-format-version">
+<h3>OS Epoch or Format version</h3>
+<p>The &#8220;format&#8221; used in <code class="docutils literal"><span class="pre">builder.conf</span></code> might be more precisely referred to as an
+OS &#8220;compatibility epoch&#8221;. Versions of the OS within a given epoch are fully
+compatible with themselves and can update to any version in that epoch. Across
+the format boundary <em>something</em> has changed in the OS, such that updating from
+build M in format X, to build N in format Y will not work. Generally this occurs
+when the software updater or manifests changed in a way that is no longer
+compatible with the previous update scheme.</p>
+<p>A format increment is the way we insure pre- and co-requisite
+changes flow out with proper ordering. The update client will only ever update
+to the latest release in its respective format version (unless overridden by
+command line flags), thus we can guarantee all clients will update to the final
+version in their given format, which <em>must</em> contain all the changes needed
+to understand the content built in the following format. Only after reaching the
+final release in the old format will a client be able to continue to update to
+releases in the new format.</p>
+<p>For the creation of a custom mix, the format version should start at &#8216;1&#8217;,
+or some known number, and increment only when a compatibility breakage is
+introduced. Normal updates (updating a software package for example)
+do not require a format increment.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mixer Tool</a><ul>
+<li><a class="reference internal" href="#current-workflow">Current Workflow</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#mixing">Mixing</a></li>
+<li><a class="reference internal" href="#os-epoch-or-format-version">OS Epoch or Format version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="index_advanced_configuration.html">Advanced configuration</a><ul>
+      <li>Previous: <a href="bulk_provisioning.html" title="previous chapter">Bulk Provisioning</a></li>
+      <li>Next: <a href="ac-dpdk.html" title="next chapter">DPDK</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mixer.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, many.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/mixer.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
