@@ -1,3 +1,8 @@
+.. _license:
+
+License
+#######
+
 .. raw:: html
 
    <a rel="license"
