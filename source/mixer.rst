@@ -44,7 +44,7 @@ Mixing
    generated bundles and update metadata should get published. The ``[swupd]`` section
    is used by swupd-server to create an update with the newly mixed content.
 
-   Edit the template configuration file according to your needs, for example like so::
+   Edit the template configuration file according to your needs. For example::
 
       # vim /etc/bundle-chroot-builder/builder.conf:
 
@@ -63,17 +63,28 @@ Mixing
       FORMAT=1
 
 
-   You may change the ``CERT=/path/to/cert`` line which tells the chroot builder to insert the certificate
-   specified for the mix in ``/os-core-update/usr/share/clear/update-ca/``. This is the certificate used by the software update client to verify the Manifest.MoM signature. For now, it is HIGHLY recommended that you do not modify this line, as the certificate swupd expects needs a very specific configuration to sign and verify properly. The certificate will be automatically generated for you, and the Manifest.MoM will be signed automatically as well, providing security for the update content you create.
+   You may change the ``CERT=/path/to/cert`` line, which tells the chroot builder to insert the certificate
+   specified for the mix in ``/os-core-update/usr/share/clear/update-ca/``. This is the certificate used by 
+   the software update client to verify the Manifest.MoM signature. For now, it is HIGHLY recommended that 
+   you do not modify this line, as the certificate swupd expects a very specific configuration to sign 
+   and verify properly. The certificate will be automatically generated for you, and the Manifest.MoM will 
+   be signed automatically as well, providing security for the update content you create.
 
-   The CLEAR_VERSION is the upstream Clear Linux* OS for Intel® Architecture version the mix will be based off of, and all required content (RPMs) not provided by the mixer will be downloaded from that release.
+   The CLEAR_VERSION is the upstream Clear Linux* OS for Intel® Architecture version that the mix will be based 
+   off of, and all required content (RPMs) not provided by the mixer will be downloaded from that release.
    The MIX_VERSION is the version you want your mix to be.
 
-   For this example, set CLEAR_VERSION=11230 and MIX_VERSION=10. You can of course choose any numbers you like for the MIX_VERSION, but it is recommended to use the current latest version of upstream for the CLEAR_VERSION. The CLEAR_VERSION can be updated as new upstream versions are released if needed.
+   For this example, set CLEAR_VERSION=11230 and MIX_VERSION=10. You can of course choose any numbers you like 
+   for the MIX_VERSION, but it is recommended to use the current latest version of upstream for the CLEAR_VERSION. 
+   The CLEAR_VERSION can be updated as new upstream versions are released if needed.
 
-   The CONTENTURL and VERSIONURL may be an IP address, or a domain name, which hosts the /home/clr/mix/update/www directory. A client running the mix will look to that URL to figure out if there is a new version available, and where to download update content from.
+   The CONTENTURL and VERSIONURL may be an IP address, or a domain name, which hosts the /home/clr/mix/update/www 
+   directory. A client running the mix will look to that URL to figure out if there is a new version available, 
+   and where to download update content from.
 
-   To learn more about the FORMAT option, please refer to the bottom of this document "Format Version" and https://github.com/clearlinux/swupd-server/wiki/Format-Bumps for more information. For now leave the FORMAT value alone and do not increment it.
+   To learn more about the FORMAT option, please refer to the bottom of this document "Format Version" and 
+   https://github.com/clearlinux/swupd-server/wiki/Format-Bumps. For now leave the FORMAT 
+   value alone and do not increment it.
 
 #. **Generate the starting point for your Mix**. In your workspace, run::
    
@@ -156,16 +167,23 @@ Mixing
    ``/var/lib/update/www/<MIXVERSION>``, where <MIXVERSION> is the mix version you
    defined, or 10 by default.
 
-   All content to make a fully usable mix will be created by this step, but note that only zero packs are automatically generated. To create optional delta packs, run the pack-maker as follows::
+   All content to make a fully usable mix will be created by this step, but note that 
+   only zero packs are automatically generated. To create optional delta packs, run 
+   the pack-maker as follows::
 
     # sudo mixer-pack-maker.sh --to <MIX_VERSION> --from <PAST_VERSION> -S /home/clr/mix/update
 
-   The pack-maker will generate all delta packs for changed bundles from PAST_VERSION to MIX_VERSION. If your STATE_DIR is in a different location be sure to specify where with the -S option.
+   The pack-maker will generate all delta packs for changed bundles from PAST_VERSION 
+   to MIX_VERSION. If your STATE_DIR is in a different location be sure to specify where 
+   with the -S option.
 
 #. **Initialize next Mix version info**. To update the versions and prep for your
    next mix::
 
-   Update the MIX_VERSION in your builder.conf to the next version number you want to build. From this point you can iterate through, starting again at step 4 and doing modifications as needed, i.e.
+   Update the MIX_VERSION in your builder.conf to the next version number you want to build. 
+   From this point you can iterate through, starting again at step 4 and doing modifications 
+   as needed. For example:
+
    - Add/Remove/Modify Bundles
    - sudo mixer-build-chroots.sh
    - sudo mixer-create-update.sh
