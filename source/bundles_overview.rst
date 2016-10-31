@@ -19,13 +19,7 @@ approach. While we also use the concept of packages to manage compiling
 source code into binaries, we do not use the package concept to deploy
 software. Instead, we provide "bundles" that  provide a set of functionality
 to the system administrator, independent of how many and which pieces of
-the upstream open source projects are needed for this functionality. The
-diagram below gives an overall picture of it.
-
-.. image:: _static/images/bundles_overview.png
-     :align: center
-     :alt: bundles-overview
-
+the upstream open source projects are needed for this functionality.
 
 
 To see a list of currently-installed bundles
