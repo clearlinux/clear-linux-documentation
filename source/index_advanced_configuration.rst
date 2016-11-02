@@ -11,4 +11,5 @@ Advanced configuration
    ac-dpdk
    ac-ovs-dpdk
    validate_sigs
+   clear_linux_os_on_azure
 
