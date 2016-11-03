@@ -34,8 +34,8 @@ that, configure a user for passwordless SSH connections from the deployment
 container to the cluster nodes. This user must also have passwordless sudo
 privileges on the cluster nodes.
 
-This guide uses a docker container to provide all the needed deployment tools;
-in order to use it, you will need docker in the machine you're orchestating
+This guide uses a Docker* container to provide all the needed deployment tools;
+in order to use it, you will need Docker in the machine you're using to orchestrate
 your deployment.
 
 
@@ -69,9 +69,9 @@ Next, edit the configuration files for the cluster:
 
 A full list of available variables can be found in the
 :file:`defaults/main.yml` file of each role at
-https://github.com/clearlinux/clear-config-management/tree/master/roles
+https://github.com/clearlinux/clear-config-management/tree/master/roles.
 
-To start your cluster setup, we provide a ready-to-use docker container.
+To start your cluster setup, we provide a ready-to-use Docker container.
 Simply download it and run your setup:
 
 .. code-block:: console
@@ -87,8 +87,8 @@ You can later launch the container with:
                 -v $(pwd)/clear-config-management/examples/ciao:/root/ciao \
                 -it clearlinux/ciao-deploy
 
-Note: container is called in `privileged` mode in order to install your
-certificates in the CNCI image. to learn more about the docker options used,
+Note: Container is called in `privileged` mode in order to install your
+certificates in the CNCI image. to learn more about the Docker options used,
 please refer to the `Docker* documentation`_.
 
 
@@ -120,7 +120,7 @@ the machine running the playbooks.
 
 Verify
 ======
-After ansible is done with the setup, you can verify the cluster is ready
+After Ansible is done with the setup, you can verify the cluster is ready
 by running the following command on the controller node. Change the **username**,
 **password**, **controller**, and **identity** values to match your setup, as
 was specified in the ``groups_var/all`` file:
@@ -145,7 +145,7 @@ deployment node, which contains the following environment variables:
    export CIAO_USERNAME=ciao
    export CIAO_PASSWORD=ciaoUserPassword
 
-then you could verify with the following command:
+Then you could verify with the following command:
 
 .. code-block:: console
 
