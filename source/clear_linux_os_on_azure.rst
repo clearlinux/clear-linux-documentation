@@ -1,16 +1,16 @@
 .. _clear_linux_os_on_azure
 
-Clear Linux OS on Azure
-=======================
+Clear Linux* OS on Azure
+========================
 
-Clear Linux OS is now an offering in the Azure Marketplace.
+Clear Linux OS is now an offering in the Azure* Marketplace.
 
-Clear Linux OS is designed with cloud and data-center environments in mind
-and tuned to maximize the performance and value of Intel Architecture.
+Clear Linux OS is designed with cloud and data center environments in mind
+and is tuned to maximize the performance and value of Intel® architecture.
 In Azure our boot times are lightning-quick, with all on-boot services
 launched in less than a second on nodes with warm caches.
 
-There are three offering os Clear Linux within the Azure Marketplace. They can
+There are three offerings of Clear Linux OS within the Azure Marketplace. They can
 be created through the `Azure Portal <https://portal.azure.com>`_ or by
 using the `Azure Command Line tools <https://github.com/Azure/azure-cli>`_.
 Each offering can be further customized by using the swupd command to install
@@ -20,7 +20,7 @@ at https://clearlinux.org/documentation.
 Offerings
 ~~~~~~~~~
 
-The three offerings, and commands to launch vm instances from the command line for each, are:
+The three offerings, and the commands to launch VM instances from the command line for each, are:
 
 * **Basic** - This is a bare-bones generic offering, from which users may
   extend functionality by adding bundles of their choosing:
@@ -31,21 +31,21 @@ The three offerings, and commands to launch vm instances from the command line f
 
   * > (command line coming soon) 
 
-* **Machine Learning** - This offering comes with the containrs-basic bundle already installed.
+* **Machine Learning** - This offering comes with the containers-basic bundle already installed.
 
   * > (command line coming soon)
 
 
 SSH Sessions
 ~~~~~~~~~~~~
-To keep ssh sessions to Clear Linux Guests in Azure alive, you can give the
-following option to ssh via the command line:
 
-  .. code-block:: console
-  -o ServerAliveInterval=180
+To keep SSH sessions to Clear Linux Guests in Azure alive, you can give the
+following option to SSH via the command line::
 
-Alternatively, you can add this setting to your ssh config file as shotn below. 
-  .. code-block:: console
-  Host *:
-    ServerAliveInterval 180
+	-o ServerAliveInterval=180
+
+Alternatively, you can add this setting to your SSH config file as shown below::
+
+	Host *:
+		ServerAliveInterval 180
 
