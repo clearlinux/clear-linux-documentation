@@ -39,34 +39,22 @@ in order to use it, you will need docker in the machine you're orchestating
 your deployment.
 
 
-Setup your deployment machine
-=============================
-
-We provide a ready-to-use docker container. Simply download it and
-setup your cluster configurations:
+Configure your cluster setup
+============================
+You will need to download the ciao example deployment as follows:
 
 .. code-block:: console
 
-   $ docker pull clearlinux/ciao-deploy
+  $ git clone https://github.com/clearlinux/clear-config-management.git
 
-
-You can later launch the container with:
-
-.. code-block:: console
-
-   $ docker run --privileged -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
-                -it clearlinux/ciao-deploy
-
-Note: container is called in `privileged` mode in order to install your
-certificates in the CNCI image.
-
-Once you're inside the container, continue working in the `/root/` directory
+Once you're cloned the repo, continue working in the
+`clear-config-management/examples/ciao/` directory
 
 .. code-block:: console
 
-   # cd /root/
+   # cd $(pwd)/clear-config-management/examples/ciao/
 
-Next, set up the configuration files for the cluster:
+Next, edit the configuration files for the cluster:
 
   * The `hosts`_ file is the hosts inventory file which contains the IP
     addresses/FQDN of your nodes, grouped under the roles they will serve.
@@ -83,7 +71,25 @@ A full list of available variables can be found in the
 :file:`defaults/main.yml` file of each role at
 https://github.com/clearlinux/clear-config-management/tree/master/roles
 
-Note: All the files in :file:`/root/ciao/` are hosted in `github`_
+To start your cluster setup, we provide a ready-to-use docker container.
+Simply download it and run your setup:
+
+.. code-block:: console
+
+   $ docker pull clearlinux/ciao-deploy
+
+
+You can later launch the container with:
+
+.. code-block:: console
+
+   $ docker run --privileged -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
+                -v $(pwd)/clear-config-management/examples/ciao:/root/ciao \
+                -it clearlinux/ciao-deploy
+
+Note: container is called in `privileged` mode in order to install your
+certificates in the CNCI image. to learn more about the docker options used,
+please refer to the `Docker* documentation`_.
 
 
 Run the playbook
@@ -157,3 +163,4 @@ then you could verify with the following command:
 .. _hosts: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/hosts
 .. _groups_vars/all: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/group_vars/all
 .. _github: https://github.com/clearlinux/clear-config-management/tree/master/examples/ciao
+.. _Docker* documentation: https://docs.docker.com/engine/reference/commandline/run/
