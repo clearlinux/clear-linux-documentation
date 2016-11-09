@@ -37,20 +37,22 @@ Mixing
    but all of the scripts accept a ``-c/--config`` option to specify where
    the file is if you want to store it elsewhere. To use one in your current workspace,
    copy the template to /home/clr/mix.
-   The :file:``.yum-mix.conf`` file will be auto-generated for you.
+   The :file:`.yum-mix.conf` file will be auto-generated for you, as will the :file:`ClearLinuxRoot.pem`. A yum configuration is needed for the chroot-builder to know where the RPMs are hosted, and the certificate file is needed to sign the root Manifest to provide security for content verification.
 
    Note there are different sections to the builder.conf. The ``[Builder]`` section
    provides the mixer tools with required configuration options, defining where
    generated bundles and update metadata should get published. The ``[swupd]`` section
-   is used by swupd-server to create an update with the newly mixed content.
+   is used by swupd-server to create an update with specific update parameters.
 
-   Edit the template configuration file according to your needs. For example::
+   Edit the template configuration file according to your needs. For this example,
+   your ``builder.conf`` should look like this, with the ``VER`` replaced by valid build
+   numbers, and both *URL variables set to the domain or IP of the update server::
 
       # vim /etc/bundle-chroot-builder/builder.conf:
 
       [Builder]
       SERVER_STATE_DIR=/home/clr/mix/update
-      BUNDLE_DIR=/home/clr/mix/bundles
+      BUNDLE_DIR=/home/clr/mix/mix-bundles
       YUM_CONF=/home/clr/mix/.yum-mix.conf
       CERT=/home/clr/mix/ClearLinuxRoot.pem
       CLEAR_VERSION=VER
@@ -63,10 +65,12 @@ Mixing
       FORMAT=1
 
 
+   The SERVER_STATE_DIR is where the mix content will be outputted to, and it is automatically created for you by the mixer scripts. This can be set to any location, but for this example let us use the workspace directory. The same applies for BUNDLE_DIR; it will be generated for you in the location specified in the builder.conf, in this case - /home/clr/mix/mix-bundles. It is where the bundle definitions are stored for your mix, and where the chroot-builder looks in to know what bundles must be installed.
+
    You may change the ``CERT=/path/to/cert`` line, which tells the chroot builder to insert the certificate
    specified for the mix in ``/os-core-update/usr/share/clear/update-ca/``. This is the certificate used by 
-   the software update client to verify the Manifest.MoM signature. For now, it is HIGHLY recommended that 
-   you do not modify this line, as the certificate swupd expects a very specific configuration to sign 
+   the software update client to verify the Manifest.MoM signature. For now, it is `HIGHLY` recommended that 
+   you do not modify this line, as the certificate swupd expects needs a very specific configuration to sign 
    and verify properly. The certificate will be automatically generated for you, and the Manifest.MoM will 
    be signed automatically as well, providing security for the update content you create.
 
@@ -74,12 +78,11 @@ Mixing
    off of, and all required content (RPMs) not provided by the mixer will be downloaded from that release.
    The MIX_VERSION is the version you want your mix to be.
 
-   For this example, set CLEAR_VERSION=11230 and MIX_VERSION=10. You can of course choose any numbers you like 
+   For this example, set CLEAR_VERSION=11580 and MIX_VERSION=10. You can of course choose any numbers you like 
    for the MIX_VERSION, but it is recommended to use the current latest version of upstream for the CLEAR_VERSION. 
    The CLEAR_VERSION can be updated as new upstream versions are released if needed.
 
-   The CONTENTURL and VERSIONURL may be an IP address, or a domain name, which hosts the /home/clr/mix/update/www 
-   directory. A client running the mix will look to that URL to figure out if there is a new version available, 
+   The CONTENTURL and VERSIONURL may be an IP address, or a domain name, which hosts the /home/clr/mix/update/www (SERVER_STATE_DIR) directory. Creating a symlink to the directory in your server webdir is an easy way to host the content. A client running the mix will look to that URL to figure out if there is a new version available, 
    and where to download update content from.
 
    To learn more about the FORMAT option, please refer to the bottom of this document "Format Version" and 
@@ -163,8 +166,8 @@ Mixing
     # sudo mixer-create-update.sh
 
    When the script completes, you'll find your mix update content under
-   ``/var/lib/update/www/VER``, in this example, it will be located in
-   ``/var/lib/update/www/<MIXVERSION>``, where <MIXVERSION> is the mix version you
+   ``/home/clr/mix/update/www/VER``, in this example, it will be located in
+   ``/home/clr/mix/update//www/<MIXVERSION>``, where <MIXVERSION> is the mix version you
    defined, or 10 by default.
 
    All content to make a fully usable mix will be created by this step, but note that 
@@ -176,7 +179,30 @@ Mixing
    The pack-maker will generate all delta packs for changed bundles from PAST_VERSION 
    to MIX_VERSION. If your STATE_DIR is in a different location be sure to specify where 
    with the -S option.
+   For the first build, no delta packs can be created because the "update" is from version 0, which impicitly has no content, thus no deltas can be generated. For subsequent builds, mixer-pack-maker.sh can be run to generate delta content between them (i.e 10 to 20).
 
+#. **Creating an image**
+To create a bootable image from your update content, you will need the configuration file for
+ister to create images::
+
+    # curl -O https://raw.githubusercontent.com/clearlinux/ister/master/release-image-config.json
+
+Edit this to include  all the bundles you want pre-installed into your image. For a minimal, base
+image this would be::
+
+    "Bundles": ["os-core", "os-core-update", "kernel-native"]
+
+And lastly, set the "Version:" to say which mix version content the image should be built from,
+i.e. 10 for your first build. To build the image, run::
+
+    # sudo ister.py -t release-image-config.json -V file:///home/clr/mix/update/www/ -C file:///home/clr/mix/update/www/ -f 1
+
+The output from this should be an image that is bootable as a VM or installable to baremetal. *Note* that 
+you may need to pass in -f/--format <FORMAT_NUMBER> if the format you are building is different than the
+format of Clear Linux OS you are currently building on. Format version can be found via::
+    # cat /usr/share/defaults/swupd/format
+
+Creating your next Mix version
 #. **Initialize next Mix version info**. To update the versions and prep for your
    next mix::
 
@@ -200,26 +226,7 @@ Mixing
    folder in your workspace. It also does not need to be called unless you are updating
    the CLEAR_VERSION number as well to match the newest upstream release.
 
-**Creating an image**
-To create a bootable image from your update content, you will need the configuration file for
-ister to create images::
 
-    # curl -O https://raw.githubusercontent.com/clearlinux/ister/master/release-image-config.json
-
-Edit this to include  all the bundles you want pre-installed into your image. For a minimal, base
-image this would be::
-
-    "Bundles": ["os-core", "os-core-update", "kernel-native"]
-
-And lastly, set the "Version:" to say which mix version content the image should be built from,
-i.e. 10 for your first build. To build the image, run::
-
-    # sudo ister.py -t release-image-config.json -V file:///home/clr/mix/update/www/ -C file:///home/clr/mix/update/www/ -f 1
-
-The output from this should be an image that is bootable as a VM or installable to baremetal. *Note* that 
-you may need to pass in -f/--format <FORMAT_NUMBER> if the format you are building is different than the
-format of Clear Linux OS you are currently building on. Format version can be found via::
-    # cat /usr/share/defaults/swupd/format
 
 Format Version
 --------------------------
