@@ -45,14 +45,14 @@ You will need to download the ciao example deployment as follows:
 
 .. code-block:: console
 
-  $ git clone https://github.com/clearlinux/clear-config-management.git
+  $ git clone https://github.com/01org/ciao.git
 
 Once you're cloned the repo, continue working in the
-`clear-config-management/examples/ciao/` directory
+`ciao/_DeploymentAndDistroPackaging/ansible/` directory
 
 .. code-block:: console
 
-   # cd $(pwd)/clear-config-management/examples/ciao/
+   # cd $(pwd)/ciao/_DeploymentAndDistroPackaging/ansible/
 
 Next, edit the configuration files for the cluster:
 
@@ -69,7 +69,7 @@ Next, edit the configuration files for the cluster:
 
 A full list of available variables can be found in the
 :file:`defaults/main.yml` file of each role at
-https://github.com/clearlinux/clear-config-management/tree/master/roles.
+https://github.com/01org/ciao/tree/master/_DeploymentAndDistroPackaging/ansible/roles.
 
 To start your cluster setup, we provide a ready-to-use Docker container.
 Simply download it and run your setup:
@@ -83,21 +83,26 @@ You can later launch the container with:
 
 .. code-block:: console
 
-   $ docker run --privileged -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
-                -v $(pwd)/clear-config-management/examples/ciao:/root/ciao \
+   $ docker run --privileged -v /dev/:/dev/
+                -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
+                -v $(pwd)/ciao:/root/ciao \
                 -it clearlinux/ciao-deploy
 
-Note: Container is called in `privileged` mode in order to install your
-certificates in the CNCI image. to learn more about the Docker options used,
-please refer to the `Docker* documentation`_.
+Note: Container is called in `privileged` mode mounting /dev/ in order to
+install your certificates in the CNCI image, this is done by using loops.
+To learn more about the Docker options used, please refer to the
+`Docker* documentation`_.
 
 
 Run the playbook
 ================
-Once the variables and hosts file are configured, start deployment
-with the following command:
+Once the variables and hosts file are configured, continue in the
+`/root/ciao/_DeploymentAndDistroPackaging/ansible` directory and
+start the deployment:
 
 .. code-block:: console
+
+   # cd /root/ciao/_DeploymentAndDistroPackaging/ansible
 
    # ansible-playbook -i hosts ciao.yml \
        --private-key=~/.ssh/id_rsa \
