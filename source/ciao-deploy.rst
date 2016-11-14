@@ -22,8 +22,10 @@ For this example, we'll use a total of five nodes:
  - Two `compute nodes`_, which will spawn the VMs and containers.
  - A `network node`_ which will handle the networking for the workloads.
 
- Note: The deployment machine is not a necessary part of the cluster; it could be
- the sysadmin's computer or a CI/CD server.
+.. note::
+
+  The deployment machine is not a necessary part of the cluster; it could be
+  the sysadmin's computer or a CI/CD server.
 
 .. _prerequisites:
 
@@ -88,10 +90,12 @@ You can later launch the container with:
                 -v $(pwd)/ciao:/root/ciao \
                 -it clearlinux/ciao-deploy
 
-Note: Container is called in `privileged` mode mounting /dev/ in order to
-install your certificates in the CNCI image, this is done by using loops.
-To learn more about the Docker options used, please refer to the
-`Docker* documentation`_.
+.. note::
+
+  The cotainer needs `--privileged -v /dev/:/dev/` in order to
+  install your certificates in the `CNCI image`_.
+  To learn more about the Docker options used, please refer to the
+  `Docker* documentation`_.
 
 
 Run the playbook
@@ -108,20 +112,22 @@ start the deployment:
        --private-key=~/.ssh/id_rsa \
        --user=<REMOTE_USER>
 
-Note: The playbook will create the following files in the current folder of 
-the machine running the playbooks.
+.. note::
 
-  * ``./certificates``: This directory contains the certificates
-    that where created and copied to the cluster nodes.
+  Note: The playbook will create the following files in the current folder of
+  the machine running the playbooks.
 
-  * ``./images``: This directory contains the images used by the 
-    ciao cluster (fedora, clearlinux, cnci, ovmf.fd).
+    * ``./certificates``: This directory contains the certificates
+      that where created and copied to the cluster nodes.
 
-  * ``./ciaorc``: This file contains environment variables needed 
-    by ciao cli to authenticate to the ciao cluster.
+    * ``./images``: This directory contains the images used by the
+      ciao cluster (fedora, clearlinux, cnci, ovmf.fd).
 
-  * ``./openrc``: This file contains environment variables needed by 
-    openstack cli to authenticate with the ciao cluster.
+    * ``./ciaorc``: This file contains environment variables needed
+      by ciao cli to authenticate to the ciao cluster.
+
+    * ``./openrc``: This file contains environment variables needed by
+      openstack cli to authenticate with the ciao cluster.
 
 Verify
 ======
@@ -168,4 +174,5 @@ Then you could verify with the following command:
 .. _hosts: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/hosts
 .. _groups_vars/all: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/group_vars/all
 .. _github: https://github.com/clearlinux/clear-config-management/tree/master/examples/ciao
+.. _CNCI image: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent#cnci-agent
 .. _Docker* documentation: https://docs.docker.com/engine/reference/commandline/run/
