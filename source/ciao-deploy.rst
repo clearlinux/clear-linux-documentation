@@ -22,8 +22,10 @@ For this example, we'll use a total of five nodes:
  - Two `compute nodes`_, which will spawn the VMs and containers.
  - A `network node`_ which will handle the networking for the workloads.
 
- Note: The deployment machine is not a necessary part of the cluster; it could be
- the sysadmin's computer or a CI/CD server.
+.. note::
+
+  The deployment machine is not a necessary part of the cluster; it could be
+  the sysadmin's computer or a CI/CD server.
 
 .. _prerequisites:
 
@@ -45,14 +47,14 @@ You will need to download the ciao example deployment as follows:
 
 .. code-block:: console
 
-  $ git clone https://github.com/clearlinux/clear-config-management.git
+  $ git clone https://github.com/01org/ciao.git
 
 Once you're cloned the repo, continue working in the
-`clear-config-management/examples/ciao/` directory
+`ciao/_DeploymentAndDistroPackaging/ansible/` directory
 
 .. code-block:: console
 
-   # cd $(pwd)/clear-config-management/examples/ciao/
+   # cd $(pwd)/ciao/_DeploymentAndDistroPackaging/ansible/
 
 Next, edit the configuration files for the cluster:
 
@@ -69,7 +71,7 @@ Next, edit the configuration files for the cluster:
 
 A full list of available variables can be found in the
 :file:`defaults/main.yml` file of each role at
-https://github.com/clearlinux/clear-config-management/tree/master/roles.
+https://github.com/01org/ciao/tree/master/_DeploymentAndDistroPackaging/ansible/roles.
 
 To start your cluster setup, we provide a ready-to-use Docker container.
 Simply download it and run your setup:
@@ -83,40 +85,49 @@ You can later launch the container with:
 
 .. code-block:: console
 
-   $ docker run --privileged -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
-                -v $(pwd)/clear-config-management/examples/ciao:/root/ciao \
+   $ docker run --privileged -v /dev/:/dev/
+                -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
+                -v $(pwd)/ciao:/root/ciao \
                 -it clearlinux/ciao-deploy
 
-Note: Container is called in `privileged` mode in order to install your
-certificates in the CNCI image. to learn more about the Docker options used,
-please refer to the `Docker* documentation`_.
+.. note::
+
+  The cotainer needs `--privileged -v /dev/:/dev/` in order to
+  install your certificates in the `CNCI image`_.
+  To learn more about the Docker options used, please refer to the
+  `Docker* documentation`_.
 
 
 Run the playbook
 ================
-Once the variables and hosts file are configured, start deployment
-with the following command:
+Once the variables and hosts file are configured, continue in the
+`/root/ciao/_DeploymentAndDistroPackaging/ansible` directory and
+start the deployment:
 
 .. code-block:: console
+
+   # cd /root/ciao/_DeploymentAndDistroPackaging/ansible
 
    # ansible-playbook -i hosts ciao.yml \
        --private-key=~/.ssh/id_rsa \
        --user=<REMOTE_USER>
 
-Note: The playbook will create the following files in the current folder of 
-the machine running the playbooks.
+.. note::
 
-  * ``./certificates``: This directory contains the certificates
-    that where created and copied to the cluster nodes.
+  Note: The playbook will create the following files in the current folder of
+  the machine running the playbooks.
 
-  * ``./images``: This directory contains the images used by the 
-    ciao cluster (fedora, clearlinux, cnci, ovmf.fd).
+    * ``./certificates``: This directory contains the certificates
+      that where created and copied to the cluster nodes.
 
-  * ``./ciaorc``: This file contains environment variables needed 
-    by ciao cli to authenticate to the ciao cluster.
+    * ``./images``: This directory contains the images used by the
+      ciao cluster (fedora, clearlinux, cnci, ovmf.fd).
 
-  * ``./openrc``: This file contains environment variables needed by 
-    openstack cli to authenticate with the ciao cluster.
+    * ``./ciaorc``: This file contains environment variables needed
+      by ciao cli to authenticate to the ciao cluster.
+
+    * ``./openrc``: This file contains environment variables needed by
+      openstack cli to authenticate with the ciao cluster.
 
 Verify
 ======
@@ -163,4 +174,5 @@ Then you could verify with the following command:
 .. _hosts: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/hosts
 .. _groups_vars/all: https://github.com/clearlinux/clear-config-management/blob/master/examples/ciao/group_vars/all
 .. _github: https://github.com/clearlinux/clear-config-management/tree/master/examples/ciao
+.. _CNCI image: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent#cnci-agent
 .. _Docker* documentation: https://docs.docker.com/engine/reference/commandline/run/
