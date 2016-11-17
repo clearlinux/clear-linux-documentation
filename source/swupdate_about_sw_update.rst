@@ -90,6 +90,15 @@ about synchronizing versions and updates.  At the system admin level, it
 ensures security is tighter and makes it far easier to monitor and update
 patches.
 
+Clear Linux OS will automatically check for updates and apply them. This default
+can be disabled by running::
+
+    # systemctl mask swupd-update.timer
+
+And reenabled by running::
+
+    # systemctl unmask swupd-update.timer
+
 
 Update speed
 ------------
