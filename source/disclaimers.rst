@@ -1,8 +1,7 @@
 .. _disclaimers:
 
 
-Disclaimers
-###########
+.. rubric:: Disclaimer
 
 .. important::
    This documentation is a work in progress and is being provided for
