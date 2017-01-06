@@ -192,18 +192,32 @@ Using OpenvSwitch
 Using Linux OpenvSwitch-DPDK
 ============================
 
-#. Create a new environment and add **iommu=pt intel_iommu=on**  to the kernel
-   command line.
+#. If the system is running release 12489 or older, it must be updated with
+   this command.
+
+   .. code-block:: bash
+
+      # swupd update
+
+#. Install the ``network-basic`` bundle.
+
+   .. code-block:: bash
+
+      # swupd bundle-add network-basic
+
+#. Enable VT-d technology in the BIOS.
+
+#. Enable VT-d in the host kernel command line, to enable VT-d in the host kernel
+   command line, the ``clear-linux-native-<current-kernel-version>.conf``
+   file must be edited. Add ``iommu=pt intel_iommu=on`` to the end of the line.
+   The file is found within the UEFI boot partition.
 
    .. code-block:: bash
 
       # systemctl start boot.mount
       # cd /boot/loader/entries/
 
-#. Edit :file:`clear-linux-native-<kernel-version>.conf`, and add 
-   **iommu=pt intel_iommu=on** to the end of the line.  
-
-#. Then ``umount`` and reboot the machine.
+#. Unmount the UEFI partition and reboot the machine.
    
    .. code-block:: bash
 
@@ -215,60 +229,68 @@ Using Linux OpenvSwitch-DPDK
 
    .. code-block:: bash
 
-	  # echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+      # echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Allocate pages on NUMA machines.
 
    .. code-block:: bash
 
-	  # echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-	  # echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+      # echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+      # echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
-#. Making memory available for DPDK.
-
-   .. code-block:: bash
-
-	  # mkdir -p /mnt/huge
-	  # mount -t hugetlbfs nodev /mnt/huge
-
-#. Add cores and memory configuration to the OpenvSwitch example; the
-   :file:`/usr/share/openvswitch/scripts/ovs-ctl` file can be edited on line 256
-   and DPDK configuration can be added. 
-
-   It should look something like:  
-   ``set ovs-vswitchd --dpdk -c 0x2 -n 4 --socket-mem 2048 -- unix:"$DB_SOCK"``
-
-   The next regular expression could be helpful:
+#. Make memory available for the DPDK.
 
    .. code-block:: bash
 
-      # sed -i s/"set ovs-vswitchd unix:"/"set ovs-vswitchd --dpdk -c 0x2 -n 4 --socket-mem 2048 -- unix:"/g /usr/share/openvswitch/scripts/ovs-ctl
+      # mkdir -p /mnt/huge
+      # mount -t hugetlbfs nodev /mnt/huge
 
-#. Start the OpenvSwitch service:
+#. Download a clear linux image and OVMF.fd file, this image will be used as
+   the guest VMs in the `Clear Linux downloads`_.
+
+#. Start the OpenvSwitch service.
+
+   .. code-block:: bash
+
+      # systemctl start openvswitch
+
+#. OpenvSwitch must be configured to enable the DPDK functionality like core
+   mask, socket memory, and others. This example reproduces the environment
+   shown in figure 1.0. The `OpenvSwitch documentation`_ provides additional
+   information about DPDK configuration.
+
+   .. code-block:: bash
+
+      # ovs-vsctl --no-wait init
+      # ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-lcore-mask=0x2
+      # ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-socket-mem=2048
+      # ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init=true
+
+#. Restart the OpenvSwitch service in order to update the new DPDK configuration.
+
+   .. code-block:: bash
+
+      # systemctl restart openvswitch
+
+#. Create a virtual bridge using openvswitch.
    
    .. code-block:: bash
 
-      # systemctl start openvswitch.service
+      # ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
 
-#. Create a virtual bridge using openvswitch:
-   
-   .. code-block:: bash
-
-	  # ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
-
-#. Add dpdk ports to the bridge:
+#. Add the vhost-dpdk ports to the bridge.
    
    .. code-block:: bash
 
       # ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
-	  # ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
+      # ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
 
 #. Run guest virtual machine A using the next configuration as reference, where
    **$IMAGE** var is the name of the Clear Linux* OS for Intel Architecture image.
 
    .. code-block:: bash
- 
-      qemu-system-x86_64 \
+
+      $ qemu-system-x86_64 \
           -enable-kvm -m 1024 \
           -bios OVMF.fd \
           -smp 4 -cpu host \
@@ -325,3 +347,5 @@ Setting IP address
 
 .. _DPDK: http://dpdk.org/
 .. _kvm: https://download.clearlinux.org/releases/
+.. _Clear Linux downloads: https://download.clearlinux.org/image/
+.. _OpenvSwitch documentation: http://docs.openvswitch.org/en/latest/
