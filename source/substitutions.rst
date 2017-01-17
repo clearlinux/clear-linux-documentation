@@ -1,5 +1,5 @@
-.. |codename| replace:: Zephyr Kernel
+.. |CL| replace:: Clear Linux
 
-.. |PM| replace:: Hirally Rodriguez Santiago
+.. |CLOSIA| replace:: Clear Linux* OS for Intel® Architecture
 
-.. |project| replace:: Zephyr Project
+.. |CC| replace:: Clear Containers
