@@ -173,6 +173,5 @@ Then you could verify with the following command:
 .. _network node: https://github.com/01org/ciao/tree/master/ciao-launcher
 .. _hosts: https://github.com/01org/ciao/blob/master/_DeploymentAndDistroPackaging/ansible/hosts
 .. _groups_vars/all: https://github.com/01org/ciao/blob/master/_DeploymentAndDistroPackaging/ansible/group_vars/all
-.. _github: https://github.com/clearlinux/clear-config-management/tree/master/examples/ciao
 .. _CNCI image: https://github.com/01org/ciao/tree/master/networking/ciao-cnci-agent#cnci-agent
 .. _Docker* documentation: https://docs.docker.com/engine/reference/commandline/run/
