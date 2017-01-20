@@ -337,19 +337,20 @@ Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
 Use the `ciao-cli`_ command line tool to verify that your cluster is
-now up and running::
+now up and running (NOTE: see section below for required environment
+variables for `ciao-cli`_)::
 
-  $ ciao-cli -username admin -password <admin_password> -cluster-status
-  $ ciao-cli -username admin -password <admin_password> -list-cns
-  $ ciao-cli -username admin -password <admin_password> -list-cncis
+  $ ciao-cli node status
+  $ ciao-cli node list -compute
+  $ ciao-cli node list -cnci
 
-``-cluster-status`` shows the number of nodes in your cluster, and the
+``node status`` shows the number of nodes in your cluster, and the
 status of each.
 
-``-list-cns`` displays a more detailed view (number of instances per node,
+``node list -compute`` displays a more detailed view (number of instances per node,
 available resources per node, etc.).
 
-``-list-cncis`` provides information about the current CNCI VMs, and their statuses.
+``node list -cnci`` provides information about the current CNCI VMs, and their statuses.
 
 Interacting with your cluster
 =============================
