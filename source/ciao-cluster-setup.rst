@@ -184,14 +184,6 @@ to understand failed flows of actions/reactions across your cluster.
 Launching it first means this console output helps confirm your subsequent
 cluster configurations actions are indeed succeeding.
 
-ciao-controller
-~~~~~~~~~~~~~~~
-
-**Important: Do not start the ciao controller just yet!** It should only
-be started after a network node is connected to the scheduler; otherwise
-workloads may fail to start. This restriction will be addressed once
-`ciao issue #12`_ is closed.
-
 Compute node setup
 ------------------
 
@@ -287,8 +279,7 @@ Start the controller
 --------------------
 
 Starting the Controller on the controller node is what truly activates your
-cluster for use. **NOTE: Before starting the controller, you must have a scheduler
-and network node already up and running together.**
+cluster for use.
 
 #. Copy in the ciao-controller binary from your build/development machine to any
    location. Certificates are assumed to be in ``/etc/pki/ciao``, generated with
@@ -531,7 +522,6 @@ For general debugging, you can:
 Please contact our `mailing list`_ for more help with initial bringup and
 testing.
 
-.. _ciao issue #12: https://github.com/01org/ciao/issues/12
 .. _ciao-controller workload_resources.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv
 .. _ciao-controller workload_template.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv
 .. _downloadable installer images: https://download.clearlinux.org/image
