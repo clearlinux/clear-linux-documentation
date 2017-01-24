@@ -111,8 +111,8 @@ Your screen should look like figure 1:
 
     WordPress language selection screen.
 
-Select :guilabel:`English` for the language and click the :guilabel:`Continue`
-button.
+Select :guilabel:`English` for the language and click the
+:guilabel:`Continue` button.
 
 The WordPress installation continues until the welcome screen shown in figure
 2 appears:
@@ -129,12 +129,15 @@ Enter the database name, username, and password we used when creating the
 database:
 
    Database name:       WordPress
+
    Database username:   wordpressuser
+
    Database password:   wp-example
 
 Enter the following values for the database host and the table prefix:
 
    Database host:  localhost
+
    Table prefix:   wp\_
 
 Figure 3 shows the filled out fields.
@@ -175,6 +178,10 @@ Wordpress username and password, see figure 5.
 
     Provide WordPress the needed information to create a site and a user
     with the permissions to change it.
+
+.. tip::
+
+   You can copy the password to log in faster.
 
 Enter all the required information and click the
 :guilabel:`Install WordPress` button.

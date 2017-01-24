@@ -3,16 +3,17 @@
 Clear Linux host OS install on bare metal
 #########################################
 
-Verify your system hardware is supported by |CLOSIA|. |CL| can
-successfully run in the 4th Generation Intel® Core™ processor family and
-later generations. The following processors have been tested to work
-correctly:
+Verify your system hardware is supported by |CLOSIA|. |CL|can run on all
+Intel® 64bit processors which support UEFI\* and SSE\* v4.1 streaming SIMD\*
+instructions. The following processor families can run |CL|:
 
-* 4th Generation Intel® Core™ processor.
-* 5th Generation Intel® Core™ processor.
-* 6th Generation Intel® Core™ processor.
-* Intel® Xeon® Processor E5 v3 processor.
-* Intel® Xeon® Processor E3 v5 processor.
+* 2nd Generation, or later, Intel® Core™ processor family.
+* Intel® Xeon® Processor E3
+* Intel® Xeon® Processor E5
+* Intel® Xeon® Processor E7
+* Intel® Atom™ processor C2000 product family for servers -- Q3 2013 version
+  or later.
+* Intel® Atom™ processor E3800 series -- Q4 2013 version or later.
 
 Additionally, all the steps of this tutorial were tested using a NUC6i5SYH
 Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
@@ -51,12 +52,12 @@ Download the Latest Clear Linux Image
 Get the latest available |CL| installer image that you want to install
 to your system by using your web browser and downloading the latest
 :file:`clear-[release]-installer.img.xz` file from
-https://download.clearlinux.org/image/ where `[release]` is the release number
-of the current image that is available in this directory listing.
+https://download.clearlinux.org/image/ where `[release]` is the release
+number of the current image that is available in this directory listing.
 
 This example uses release 10980 so we will download the
-:file:`clear-10980-installer.img.zx` image file and, optionally, the
-:file:`clear-10980-installer.img.zx-SHA512SUMS` file needed to verify the
+:file:`clear-10980-installer.img.xz` image file and, optionally, the
+:file:`clear-10980-installer.img.xz-SHA512SUMS` file needed to verify the
 download.
 
 To verify the download, follow these steps:
@@ -66,8 +67,8 @@ To verify the download, follow these steps:
 
    .. code-block:: console
 
-      sha512sum ./clear-10980-installer.img.zx>sha.tmp
-      diff clear-10980-installer.img.zx-SHA512SUMS sha.tmp
+      sha512sum ./clear-10980-installer.img.xz>sha.tmp
+      diff clear-10980-installer.img.xz-SHA512SUMS sha.tmp
 
 If the files differ, the diff command outputs the difference to the console,
 otherwise, diff does not have any output to the console and returns you to
@@ -92,13 +93,20 @@ To ensure the device is not mounted, enter the following command:
 
    umount /dev/sdb
 
-
-To extract the downloaded image file and put it on the USB drive, enter the
-following commands:
+To log in as root, simply enter:
 
 .. code-block:: console
 
-   sudo su xzcat –v clear-10980-installer.img.zx | dd of=/dev/sdb
+   su
+
+Once prompted, enter your root password.
+
+To extract the downloaded image file and put it on the USB drive, enter the
+following command:
+
+.. code-block:: console
+
+   xzcat –v clear-10980-installer.img.xz | dd of=/dev/sdb
 
 .. note::
 
@@ -233,8 +241,8 @@ utils-dev`, and other useful packages.
 
 We provide the full list of bundles and packages installed with the
 `os-clr-on-clr`_ bundle. Additionally, we have listed
-`all Clear Linux bundles`_, active or deprecated. Click any bundle on the list
-to view the manifest of the bundle.
+`all Clear Linux bundles`_, active or deprecated. Click any bundle on the
+list to view the manifest of the bundle.
 
 Finish setting up your new user
 -------------------------------

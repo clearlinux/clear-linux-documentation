@@ -23,5 +23,5 @@ MySQL, PHP)` web server.
 .. important::
 
    This tutorial is for development and testing purposes only. Additional
-   steps are required to provide additional security for production systems.
-   These steps are beyond the scope of this tutorial.
+   steps are required to secure production systems.
+   Those steps are beyond the scope of this tutorial.

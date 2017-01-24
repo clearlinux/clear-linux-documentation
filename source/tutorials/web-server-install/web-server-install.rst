@@ -49,11 +49,13 @@ To install the bundle, enter the following command:
    sudo swupd bundle-add web-server-basic
 
 
-To start the Apache service, enter the following command:
+To start the Apache service, enter the following commands:
 
 .. code-block:: console
 
-   sudo apachectl start
+   sudo systemctl enable httpd.service
+   sudo systemctl start httpd.service
+
 
 To verify that the Apache server application is running, go to your web
 browser and navigate to: http://localhost
@@ -87,11 +89,10 @@ To enable PHP, enter the following commands:
 
 .. code-block:: console
 
-   sudo systemctl enable php-fpm (do I still need to do this?)
-   sudo systemctl start php-fpm (do I still need to do this?)
-   sudo apachectl restart
-   sudo php-fpm
-   sudo apachectl restart
+   sudo systemctl enable php-fpm.service
+   sudo systemctl start php-fpm.service
+   sudo systemctl restart httpd.service
+
 
 After restarting the Apache service, we can test our PHP installation.
 
@@ -134,10 +135,11 @@ To install the database-basic bundle, enter the following command:
 
 Once MariaDB is installed, we need to start the service and check its status.
 
-To start MariaDB, enter the following command:
+To start MariaDB, enter the following commands:
 
 .. code-block:: console
 
+   sudo systemctl enable mariadb
    sudo systemctl start mariadb
 
 To check the status of MariaDB, enter the following command:
@@ -146,7 +148,8 @@ To check the status of MariaDB, enter the following command:
 
    sudo systemctl status mariadb
 
-With the MariaDB service running, we can perform some basic security hardening.
+With the MariaDB service running, we can perform some basic security
+hardening.
 
 To add a basic layer of security, enter the following command and answer the
 questions presented:
@@ -220,7 +223,8 @@ To block any remote root login, type 'y'.
    Remove test database and access to it? [Y/n]
 
 By default, MariaDB comes with a database named 'test' which anyone can
-access. This database is also intended only for testing and should be removed.
+access. This database is also intended only for testing and should be
+removed.
 
 To remove the test database, type 'y'.
 
@@ -259,7 +263,8 @@ MariaDB databases. Visit https://www.phpmyadmin.net for the complete
 discussion regarding phpMyAdmin, its documentation, the latest downloads, and
 other useful information.
 
-This tutorial uses the latest English version of phpMyAdmin to install it on our |CL| host system.
+This tutorial uses the latest English version of phpMyAdmin to install it on
+our |CL| host system.
 
 1. Download the :file:`phpMyAdmin-<version>-english.tar.gz` file to your
    :file:`~/Downloads` directory. Here, <version> refers to the current
@@ -317,8 +322,8 @@ Once logged in the main phpMyAdmin page is displayed as shown on figure 4:
 Our next step is to set up our first database. For example, we can call
 our new database WordPress.
 
-1. Select the :guilabel`Databases` tab in the phpMyAdmin main screen to go to
-   the Databases page. Figure 5 shows the databases tab.
+1. Select the :guilabel:`Databases` tab in the phpMyAdmin main screen to go
+   to the Databases page. Figure 5 shows the databases tab.
 
    .. figure:: figures/web-server-install-5.png
        :alt: Databases tab
@@ -353,8 +358,8 @@ Once the database is created, we need to set up the user permissions.
        :alt: User accounts tab
        :width:     600
 
-       The `User accounts` tab showing all the required information entered in
-       the next steps.
+       The `User accounts` tab showing all the required information entered
+       in the next steps.
 
 4. Enter the following information in the corresponding fields:
 
