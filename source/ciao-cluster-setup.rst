@@ -184,14 +184,6 @@ to understand failed flows of actions/reactions across your cluster.
 Launching it first means this console output helps confirm your subsequent
 cluster configurations actions are indeed succeeding.
 
-ciao-controller
-~~~~~~~~~~~~~~~
-
-**Important: Do not start the ciao controller just yet!** It should only
-be started after a network node is connected to the scheduler; otherwise
-workloads may fail to start. This restriction will be addressed once
-`ciao issue #12`_ is closed.
-
 Compute node setup
 ------------------
 
@@ -287,8 +279,7 @@ Start the controller
 --------------------
 
 Starting the Controller on the controller node is what truly activates your
-cluster for use. **NOTE: Before starting the controller, you must have a scheduler
-and network node already up and running together.**
+cluster for use.
 
 #. Copy in the ciao-controller binary from your build/development machine to any
    location. Certificates are assumed to be in ``/etc/pki/ciao``, generated with
@@ -346,19 +337,20 @@ Optionally add ``-logtostderr`` (more verbose with also ``-v=2``) to get
 console logging output.
 
 Use the `ciao-cli`_ command line tool to verify that your cluster is
-now up and running::
+now up and running (NOTE: see section below for required environment
+variables for `ciao-cli`_)::
 
-  $ ciao-cli -username admin -password <admin_password> -cluster-status
-  $ ciao-cli -username admin -password <admin_password> -list-cns
-  $ ciao-cli -username admin -password <admin_password> -list-cncis
+  $ ciao-cli node status
+  $ ciao-cli node list -compute
+  $ ciao-cli node list -cnci
 
-``-cluster-status`` shows the number of nodes in your cluster, and the
+``node status`` shows the number of nodes in your cluster, and the
 status of each.
 
-``-list-cns`` displays a more detailed view (number of instances per node,
+``node list -compute`` displays a more detailed view (number of instances per node,
 available resources per node, etc.).
 
-``-list-cncis`` provides information about the current CNCI VMs, and their statuses.
+``node list -cnci`` provides information about the current CNCI VMs, and their statuses.
 
 Interacting with your cluster
 =============================
@@ -531,7 +523,6 @@ For general debugging, you can:
 Please contact our `mailing list`_ for more help with initial bringup and
 testing.
 
-.. _ciao issue #12: https://github.com/01org/ciao/issues/12
 .. _ciao-controller workload_resources.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_resources.csv
 .. _ciao-controller workload_template.csv: https://github.com/01org/ciao/blob/master/ciao-controller/workload_template.csv
 .. _downloadable installer images: https://download.clearlinux.org/image
