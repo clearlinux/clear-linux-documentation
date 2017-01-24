@@ -3,9 +3,9 @@
 Supported hardware
 ##################
 
-Clear Linux* OS for Intel® Architecture can be successfully run in 2nd
-Generation Intel® Core™ processor family and later generations.
-The following processors have been tested to work correctly:
+Clear Linux\* OS for Intel® Architecture can run on all Intel® 64bit
+processors which support UEFI\* and SSE\* v4.1 streaming SIMD\* instructions.
+The following processor families can run |CL|:
 
 * 2nd Generation, or later, Intel® Core™ processor family.
 * Intel® Xeon® Processor E3
