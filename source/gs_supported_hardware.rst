@@ -3,7 +3,7 @@
 Supported hardware
 ##################
 
-Clear Linux* OS for Intel® Architecture can be successfully run in 4th
+Clear Linux* OS for Intel® Architecture can be successfully run in 2nd
 Generation Intel® Core™ processor family and later generations.
 The following processors have been tested to work correctly:
 
