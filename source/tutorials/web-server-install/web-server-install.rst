@@ -270,10 +270,7 @@ our |CL| host system.
    :file:`~/Downloads` directory. Here, <version> refers to the current
    version available at https://www.phpmyadmin.net/downloads.
 
-.. note:: This example downloads and uses version 4.6.4 so we will be
-   downloading the file
-   https://www.phpmyadmin.net/downloads/phpMyAdmin-4.6.4-english.tar.gz into
-   our Downloads directory.
+.. note:: This example downloads and uses version 4.6.4.
 
 2. Once the file has been successfully downloaded and verified, uncompress
    the file and directories into the apache web server document root
