@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
   });
 
   $('header .mobile-menu').click(function(){
-    $(this).parent().toggleClass('menu-open');
+    $('header').toggleClass('menu-open');
     $('.o1-logo-container-mobile').toggleClass('menu-open');
     $('body').toggleClass('menu-opened');
   });
@@ -63,6 +63,13 @@ jQuery(document).ready(function($){
     }
   }
 
+  //Hidde mobile menu
+  $(window).resize(function(event) {
+    var w = $(window).width();
+    if(w > 1199) {
+      $('header').removeClass('menu-open');
+    }
+  });
   //Animates logo on scroll
   $('body, html').scroll(onScroll);
   $(window).scroll(onScroll);
