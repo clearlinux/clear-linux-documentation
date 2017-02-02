@@ -132,7 +132,13 @@ sidebar .custom-dropdown-menu {
   }
 
   .main-content{
-    padding-top: 110px !important;
+    padding-top: 60px !important;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .main-content {
+      padding-top: 115px !important;
+    }
   }
 
 #site-breadcrumb {
@@ -159,4 +165,33 @@ footer .menu-name-menu-social-media {
     position: absolute;
     right: 0;
     top: 25px;
+}
+
+.section-documentation table {
+  margin: 2em 0;
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.section-documentation table tr th{
+  padding: 0.33em 2em 0.33em 0.33em;
+}
+
+.section-documentation ul li {
+  word-break: break-word;
+}
+
+.row .container-fluid {
+  margin-bottom: 30px;
+}
+
+.section .section .highlight-console .highlight {
+  overflow-x: auto;
+}
+
+.section .section .highlight-console .highlight pre {
+  min-width: 560px;
+  width: 100%;
+  display: block;
 }
