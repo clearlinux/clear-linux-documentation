@@ -159,12 +159,27 @@ input[type=submit], input[type=reset]{
   margin: 0px;
 }
 
+footer .mobile-menu {
+  display: none;
+}
+
 footer .menu-name-menu-social-media {
+  position:  relative;
+  float: left;
+}
+
+@media only screen and (min-width: 990px) {
+  footer .menu-name-menu-social-media {
     text-align: left;
     margin-right: 15px;
     position: absolute;
     right: 0;
     top: 25px;
+  }
+}
+/* Menu mobile */
+.project-header .left {
+  margin-left: 40px;
 }
 
 .section-documentation table {
@@ -194,4 +209,60 @@ footer .menu-name-menu-social-media {
   min-width: 560px;
   width: 100%;
   display: block;
+}
+
+.project-header .right {
+    display: block;
+    float: left;
+}
+
+header .right .mobile-menu {
+  display: block;
+  margin-top: -40px;
+}
+
+header .region-header {
+  display: none
+}
+
+header.menu-open .right{
+  border-top: none;
+  background-color: transparent;
+  position: relative;
+}
+
+header.menu-open .right .mobile-menu {
+  display: block;
+  margin-top: -40px;
+}
+
+header.menu-open .region-header{
+  display: block;
+  position: relative;
+  left: 0px;
+  top: 20px;
+  border-top: 2px solid #000;
+  background-color: #2d3237;
+  display: block;
+  -webkit-box-shadow: 4px 4px 5px 0 rgba(45, 50, 55, 0.3);
+  -moz-box-shadow: 4px 4px 5px 0 rgba(45, 50, 55, 0.3);
+  box-shadow: 4px 4px 5px 0 rgba(45, 50, 55, 0.3);
+}
+
+@media only screen and (min-width: 1200px) {
+  .project-header .left {
+    margin-left: 0px;
+  }
+
+  .project-header .right {
+      float: right; 
+  }
+
+  header .right .mobile-menu, header.menu-open .right .mobile-menu {
+    display: none;
+  }
+
+  header .region-header {
+    display: block
+  }
 }
