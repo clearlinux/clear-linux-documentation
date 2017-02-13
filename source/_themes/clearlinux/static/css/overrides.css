@@ -266,3 +266,12 @@ header.menu-open .region-header{
     display: block
   }
 }
+
+
+p {
+  word-break: break-word;
+}
+
+p  .pre {
+  word-break: break-all;
+}
