@@ -26,7 +26,7 @@ To see a list of currently-installed bundles
 ============================================
 
 .. code-block:: console
- 
+
    # ls /usr/share/clear/bundles
 
 
@@ -35,7 +35,7 @@ To see the list of optional bundles you can install
 ===================================================
 
 .. code-block:: console
- 
+
    # swupd bundle-add --list
 
 
@@ -43,7 +43,7 @@ To add a bundle
 ===============
 
 .. code-block:: console
- 
+
    # swupd bundle-add [bundle name]
 
 
@@ -52,13 +52,13 @@ To add a bundle
 Current list of available bundles as of ``[[12 October 2016]]``.
 
 .. raw:: html
-   
+
   <head>
 	<title>Bundles in Clear Linux OS for Intel® Architecture</title>
 	  <style type="text/css">
   		table { margin: 2em; border: 1px solid #e0e0e0; border-collapse: collapse; width: auto; }
   		th { align: center; padding: 0.33em; border: #ccc solid 1px; background-color: #555; color: #fff; text-transform: uppercase; font-size: 1.21em }
-  		tbody tr:nth-child(odd) { background-color:#e0e0e0; } 			
+  		tbody tr:nth-child(odd) { background-color:#e0e0e0; }
   	    .bundlename { font-family: monospace; font-size: 1.13em; font-weight: bolder; padding-left: 0.42em;}
   	    .bundlestatus { font-family: sans; font-weight: lighter;  }
   	    .bundledesc { font-size: 0.93em; line-height: 0.88em; font-family: sans; }
@@ -67,11 +67,14 @@ Current list of available bundles as of ``[[12 October 2016]]``.
 	</head>
 
   <table>
+    <thead>
     <tr>
       <th align=left>Bundle Name</th>
       <th align=center>Status</th>
       <th align=left>Description</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
       <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/bat">bat</a></td>
       <td class="bundlestatus">Deprecated</td>
@@ -984,9 +987,10 @@ Current list of available bundles as of ``[[12 October 2016]]``.
       <td class="bundledesc"><p>Run GUI desktop environment
           <li>Includes (libX11client) bundle.</li></p></td>
     </tr>
+    </tbody>
   </table>
 
-  
 
-  
+
+
 
