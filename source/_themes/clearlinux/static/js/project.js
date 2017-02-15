@@ -72,11 +72,8 @@ jQuery(document).ready(function($){
   });
 
   //Add sortable class to table tag.
-  $('body').find('table').addClass('sortable')
-
   var tables = $('table');
   $.each(tables, function(index, val) {
-     console.log(val);
      sorttable.makeSortable(val);
   });
 
