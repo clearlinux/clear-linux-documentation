@@ -75,7 +75,6 @@ jQuery(document).ready(function($){
   var tables = $('table');
   $.each(tables, function(index, val) {
     $(val).addClass('sortable');
-     sorttable.makeSortable(val);
   });
 
   //Animates logo on scroll
