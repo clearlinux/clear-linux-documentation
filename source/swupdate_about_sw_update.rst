@@ -20,7 +20,7 @@ The Clear way
 =============
 
 Clear Linux OS for Intel® Architecture does things a little differently. 
-Following here are a few notable features that distinguish it from
+The following are a few notable features that distinguish it from
 standard OSes: bundles, versioning, updating, and update speed.
 
 Bundles
@@ -119,14 +119,15 @@ those bits that changed, yielding very small update content (deltas)
 that can be applied exceedingly fast.  As a result, major security patches
 and core update take merely seconds.
 
-We realize that while our definition of bundles makes sense to us, each
-data center operator may have special needs and ideas. For that reason
-we're hard at work on a "mixer" tool, which allows users of Clear Linux OS
-for Intel Architecture the ability to customize and add bundles and
-their own software while keeping the content of the operating
-system, and its updates, as the base. With this tool, system administrators
-can focus on the pieces of their OS deployment that are custom to their
-environment, while continuing to stay on a controlled update stream.
+While we realize our definition of bundles makes sense to us, data center
+operators may have special needs and ideas. Therefore, we provide a
+`Mixer`_ tool. This tool allows users to customize and add bundles
+or even add their own software, while keeping the operating
+system and its updates as the basis. Using this tool, system administrators
+can focus on the custom pieces their deployments require while staying on
+a controlled update stream.
+
 
 .. [1] The software update technology for Clear Linux* OS for Intel Architecture
   was first presented at the Linux Plumbers conference in 2012.
+.. _Mixer: https://clearlinux.org/documentation/mixer.html
