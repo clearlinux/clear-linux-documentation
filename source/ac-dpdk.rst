@@ -6,7 +6,8 @@ DPDK
 Introduction
 ============
 
-DPDK_ is a set of libraries and drivers for fast packet processing.
+DPDK_ (Data Plane Development Kit) is a set of libraries and drivers for fast
+packet processing.
 This document describes how to run a basic use case for **l3fwd
 DPDK example**. The objective is to *send packages between two platforms* using a
 traffic generator called :ref:`pktgen <sec_pktgen>`, where the l3fwd example
@@ -23,53 +24,22 @@ application will forward those packages. See (:ref:`f1`)
 
 **Requirements:**
 
-* Two platforms using Clear Linux* for Intel® Architecture (recommended release `7160`_ or higher).
+* Two platforms using Clear Linux* for Intel® Architecture (recommended release
+  `13330`_ or higher).
 * Both images have the **kernel-native bundle** added.
-* Installation of ``dpdk-dev``, ``os-core-dev`` and ``sysadmin-basic`` bundles:
+* Install of **network-basic-dev** bundle:
 
   .. code-block:: bash
 
-     # swupd bundle-add dpdk-dev os-core-dev sysadmin-basic
+     # swupd bundle-add network-basic-dev
 
-* The platforms must have two NICs, at least one each. It's very important to check network card 
-  compatibility with the DPDK project. You can do this on the `dpdk.org NICS`_ site.
+* The platforms must have two NICs, at least one each. It's very important to
+  check network card compatibility with the DPDK project. You can do this on
+  the `dpdk.org NICS`_ site.
 * Two network cables.
-
-
-Disabling iommu on Clear Linux OS for Intel Architecture (Platforms A and B)
-============================================================================
-
-#. Mount the :abbr:`ESP (EFI system partition)`.
-
-   .. code-block:: bash
-
-      # systemctl start boot.mount
-
-#. Move to entries directory.
-
-   .. code-block:: bash
-
-      # cd /boot/loader/entries/
-
-#. Edit ``clear-linux-native.conf`` by adding ``intel_iommu=off`` after the last line.
-
-#. Umount ESP and reboot.
-
-   .. code-block:: bash
-
-      # cd /
-      # systemctl stop boot.mount
-      # reboot
-
 
 Installing dpdk and build l3fwd example (Platform B)
 ====================================================
-
-#. Install ``dpdk`` bundle.
-
-   .. code-block:: bash
-
-      # swupd bundle-add dpdk-dev
 
 #. Move to ``l3fwd`` example.
 
@@ -89,7 +59,8 @@ Installing dpdk and build l3fwd example (Platform B)
 
       # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
-#. Build the ``l3fwd`` application, and add the configuration header to the ``CFLAGS`` var.
+#. Build the ``l3fwd`` application, and add the configuration header to
+   the ``CFLAGS`` var.
 
    .. code-block:: bash
 
@@ -102,16 +73,10 @@ Installing dpdk and build l3fwd example (Platform B)
 Building Pktgen (Platform A)
 ============================
 
-Since the ``pktgen`` project is currently not included in Clear Linux OS for Intel 
-Architecture, you must download it from upstream and build it:
+Since the **pktgen** project is currently not included in Clear Linux OS for
+Intel Architecture, you must download it from upstream and build it:
 
-#. Install ``dpdk`` bundle.
-
-   .. code-block:: bash
-
-      # swupd bundle-add dpdk-dev
-
-#. Download the `pktgen tar package 2.9.12`_.
+#. Download the `pktgen tar package`_ 3.1.2 or newer.
 
 #. Decompress packages and move to uncompressed source directory.
 
@@ -127,7 +92,8 @@ Architecture, you must download it from upstream and build it:
 
       # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
-#. Build pktgen project, and set the ``CONFIG_RTE_BUILD_SHARED_LIB`` variable with "n".
+#. Build pktgen project, and set the ``CONFIG_RTE_BUILD_SHARED_LIB`` variable
+   with "n".
 
    .. code-block:: bash
 
@@ -143,7 +109,7 @@ DPDK modules to run DPDK applications.
 
    .. code-block:: bash
 
-      # modprobe igb_uio
+      # modprobe vfio-pci
 
 #. Check the status of your NICs; this will show which network cards are not busy. When
    another application is using them, the status shows ``Active``, and those NICs cannot be
@@ -151,15 +117,15 @@ DPDK modules to run DPDK applications.
 
    .. code-block:: bash
 
-      # dpdk_nic_bind.py --status
+      # dpdk-devbind --status
 
 #. Bind two available NICs. The general syntax for binding is
-   **dpdk_nic_bind.py --bind=igb_uio <device-entry>**,
+   **dpdk-devbind --bind=vfio-pci <device-entry>**,
    and the following is a working example:
 
    .. code-block:: bash
 
-      # dpdk_nic_bind.py --bind=igb_uio 01:00.0
+      # dpdk-devbind --bind=vfio-pci 01:00.0
 
 #. Check that your NICs binded correctly by checking the status; ``drv`` should have ``igb_uio``
    value; at this point, the NICs are using the DPDK modules.
@@ -356,9 +322,9 @@ control the host's NICs.
 #. Finally, run the ``start_qemu.sh`` script.
 
 
-.. _7160: https://download.clearlinux.org/releases/7160/
+.. _13330: https://download.clearlinux.org/releases/13330/
 .. _DPDK: http://dpdk.org
 .. _dpdk.org NICS: http://dpdk.org/doc/nics
-.. _pktgen tar package 2.9.12: http://dpdk.org/browse/apps/pktgen-dpdk/refs
+.. _pktgen tar package: http://dpdk.org/browse/apps/pktgen-dpdk/refs
 .. _DPDK guide: http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html
 .. _Pktgen documentation: `Pktgen documentation`_ https://media.readthedocs.org/pdf/pktgen/latest/pktgen.pdf
