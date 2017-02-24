@@ -17,43 +17,13 @@ Please refer to `Microsoft documentation`_ to install and configure
 Create a virtual machine
 ========================
 
-#. Download the `latest`_ live version (clear-XXXX-live.img.xz) of Clear Linux OS
-   for Intel Architecture.
-
-#. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
-
-#. To convert a raw image to :abbr:`VHD (Virtual Hard Disk)`
-   format, you can use VirtualBox_ or QEMU_.
-
-   *  With *VirtualBox*, you can use one of the following commands::
-
-         > VBoxManage convertfromraw clear-XXXX-live.img clear-XXXX-live.vhd --format VHD
-
-      or::
-
-         > vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vhd --srcformat raw --dstformat vhd
-
-   *  With *QEMU*, you can use the following command::
-
-         > qemu-img convert -f raw -O vpc clear-XXXX-live.img clear-XXXX-live.vhd
-
-   You can test your new *VHD image* using the **PowerShell** command line::
-
-         PS C:\> Test-VHD -Path c:\path\to\clear-XXXX-live.vhd
-
-   Clear Linux OS for Intel Architecture uses *EFI* to boot.  Since this feature
-   is availible only in `Generation 2`_ or later virtual machines, you'll need
-   to convert from **VHD** to **VHDX**. To do this, you can use the following
-   *PowerShell* command::
-
-         PS C:\> Convert-VHD -Path c:\path\to\clear-XXXX-live.vhd -DestinationPath c:\path\to\clear-XXXX-live.vhdx
-
-   You can save the new *VHDX* virtual hard disk in :file:`C:\\Users\\Public\\Documents\\Hyper-V\\Virtual Hard Disks`.
+#. Download and uncompress the latest hyperv disk image (`clear-XXXX-hyperv.img.xz`) of Clear Linux OS
+   for Intel Architecture from https://download.clearlinux.org/image/.
 
 #. Create a virtual machine using the **Hyper-V Manager**:
 
    * Choose **Generation 2** when you need to *specify VM generation*.
-   * Choose **Use an existing virtual hard disk** and browse to find the :file:`clear-XXXX-live.vhdx` file.
+   * Choose **Use an existing virtual hard disk** and browse to find the :file:`clear-XXXX-hyperv.vhdx` file.
    * When finised, open VM settings, select Firmware Section and in Secure Boot
      config, **uncheck** Enable Secure Boot.
 
