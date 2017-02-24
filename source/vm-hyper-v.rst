@@ -1,44 +1,49 @@
 .. _vm-hyper-v:
 
-Using Hyper-V
-#############
+Using Hyper-V\*
+###############
 
-This section explains how to run Clear Linux OS for Intel® Architecture
-inside a `Windows Server Virtualization`_  *A.K.A.* **Hyper-V** environment.
+This section explains how to run |CLOSIA| inside a
+`Windows Server Virtualization`_\* or **Hyper-V** environment.
 
 
-Install Hyper-V*
+Install Hyper-V
 ================
 
-Please refer to `Microsoft documentation`_ to install and configure
+Please refer to the `Microsoft documentation`_ to install and configure
 *Hyper-V* on your machine.
 
 
 Create a virtual machine
 ========================
 
-#. Download and uncompress the latest hyperv disk image (`clear-XXXX-hyperv.img.xz`) of Clear Linux OS
-   for Intel Architecture from https://download.clearlinux.org/image/.
+#. Download and uncompress the latest hyperv disk image :file:`clear-XXXX-
+   hyperv.img.xz`) of |CLOSIA| from our `downloads`_ section.
 
 #. Create a virtual machine using the **Hyper-V Manager**:
 
-   * Choose **Generation 2** when you need to *specify VM generation*.
-   * Choose **Use an existing virtual hard disk** and browse to find the :file:`clear-XXXX-hyperv.vhdx` file.
-   * When finised, open VM settings, select Firmware Section and in Secure Boot
-     config, **uncheck** Enable Secure Boot.
+   #. Choose **Generation 2** when prompted to *specify VM generation*.
+   #. Choose **Use an existing virtual hard disk** and browse to find the
+      :file:`clear-XXXX-hyperv.vhdx` file.
+   #. When finished, open VM settings, select Firmware Section and in Secure
+      Boot config, **uncheck** Enable Secure Boot.
 
-     +  Currently Clear Linux does not boot with secure boot enabled.
+   .. note:: Currently, Clear Linux does not boot with :option:`secure boot`
+      enabled.
 
-#. Finally, connect to your new VM and start it. You should see a prompt asking for
-   a user; use::
+#. Connect to your new VM and start it. You should see a prompt:
+
+   .. code-block:: console
 
       > User: root
 
-   and set a root user password.
+#. Set a root user password.
+
+Your virtual machine running |CLOSIA| is ready!
 
 .. _Windows Server Virtualization: https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx
 .. _Microsoft documentation: https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx
-.. _latest: https://download.clearlinux.org/image/
+.. _downloads: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
 .. _VirtualBox: https://www.virtualbox.org/
 .. _QEMU: http://wiki.qemu.org/Links
