@@ -1,7 +1,7 @@
 .. _vm-virtualbox:
 
-Using VirtualBox
-################
+Using VirtualBox*
+#################
 
 This section explains how to run Clear Linux OS for Intel® Architecture
 inside a `VirtualBox`_\* environment.
@@ -32,7 +32,7 @@ Create a virtual machine in VirtualBox
 
    + On Windows you can use `7zip`_.
 
-     - Do a right click on the file to *extract in the same directory*.
+     - Right-click the file to *extract in the same directory*.
 
        .. image:: _static/images/7zipwin.png
           :alt: 7zip extract here command
@@ -47,7 +47,7 @@ Create a virtual machine in VirtualBox
       $ vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vdi --srcformat raw --dstformat vdi
 
 
-   .. note:: Be sure you have Virtual box directory in your PATH (i.e.: on
+   .. note:: Be sure you have VirtualBox directory in your PATH (i.e., on
       Windows :file:`C:\\Program Files\\Oracle\\VirtualBox`).
 
       + On windows: launch a **Command Prompt** program and type ::
@@ -60,20 +60,20 @@ Create a virtual machine in VirtualBox
 
 #. Create a virtual machine using the VirtualBox assistant:
 
-   * Type: **Linux**
-   * Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
+   a. Type: **Linux**
+   b. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
 
      .. image:: _static/images/vbox-create-vm.png
         :alt: Create a new image in VirtualBox
 
    |
-   * Select default memory size
+   c. Select default memory size.
 
      .. image:: _static/images/vbox-memory-size.png
 
    |
-   * Attach the virtual disk created in the step number 3 as virtual hard
-     disk file. Click on the right folder to browse to find the VDI file.
+   d. Attach the virtual disk created in step number 3 as a virtual hard
+     disk file. Click the folder icon (lower right) to browse to find the VDI file.
 
      .. image:: _static/images/vbox-hdisk.png
 
@@ -171,7 +171,7 @@ On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
 
   bcdedit /set {current} hypervisorlaunchtype off
 
-in a **Administrator: Command Prompt**, and reboot your system.
+in an **Administrator: Command Prompt**, then reboot your system.
 To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
