@@ -25,26 +25,68 @@ The three offerings, and the commands to launch VM instances from the command li
 * **Basic** - This is a bare-bones generic offering, from which users may
   extend functionality by adding bundles of their choosing:
 
-  * > (command line coming soon)
-
 * **Containers** - This offering comes with the containers-basic bundle already installed.
-
-  * > (command line coming soon) 
 
 * **Machine Learning** - This offering comes with the containers-basic bundle already installed.
 
-  * > (command line coming soon)
+Azure Command Line Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Azure Command Line Interface offers the ability to create and manage resources in Azure from the command line. The examples here are based on Version 1.0 of the Azure CLI, which is implemented in Javascript and distributed through the Node Package Manager. Version 2.0 of the Azure CLI is implemented in Python. This example will be updated when Azure CLI 2.0 is fully released.
+
+The following command will show the version number of the most recent images that have been uploaded into the Azure Marketplace.
+
+::
+
+  azure vm image list -p clear-linux-project -l westus -o clear-linux-os | grep -v "Getting" | cut -f5 -d: | sed -e 's/\s*//g'| sed -e 's/\..*//' | sort -u | tail -1
+
+The following scriplet can be used to create and start a virtual machine instance in Azure based on a marketplace offering. The resource group needs to already exist. This script tries to user a resource group of the form "<azure_username>-clr-vms". For example, for an Azure user named Rob trying to create an instance of version ``12920`` of the ``basic`` offering for Clear Linux OS, this script will ultimately create an instance with the public hostname of ``rob-12920-basic-1234``. 
+
+::
+
+  #!/bin/bash
+  clrversion=XXXXX
+  azuser='azure_username'
+  location="westus"
+  resourceGroup="${azuser}-clr-vms"
+  offering=basic
+  # offering=containers
+  # offering=machine-learning
+  uniquesuffix=$((1 + RANDOM % 1000)) # More like "probably unique suffix"...
+  
+  azure vm create --vm-size Standard_D1_v2 \
+          --admin-username ${azuser} \
+          --ssh-publickey-file ~/.ssh/id_rsa.pub \
+          --name=${azuser}-${clrversion}-${offering}-${uniquesuffix} \
+          --location=${location} \
+          --resource-group ${resourceGroup} \
+          --os-type Linux \
+          --image-urn clear-linux-project:clear-linux-os:${offering}:${clrversion}.0.0 \
+          --nic-name clr-nic1 \
+          --vnet-name ${clrversion}-${offering}-vnet \
+          --vnet-address-prefix 10.0.0.0/8 \
+          --vnet-subnet-name ${clrversion}-vnet-subnet \
+          --vnet-subnet-address-prefix 10.0.0.0/8 \
+          --plan-name ${offering} \
+          --plan-publisher clear-linux-project \
+          --plan-product clear-linux-os \
+          --public-ip-domain-name ${azuser}-${clrversion}-${offering}-${uniquesuffix} \
+          --public-ip-allocation-method "Dynamic" \
+          --public-ip-name "${clrversion}-${offering}-${uniquesuffix}"
+
 
 
 SSH Sessions
 ~~~~~~~~~~~~
 
-To keep SSH sessions to Clear Linux Guests in Azure alive, you can give the
-following option to SSH via the command line::
+To keep SSH sessions to Clear Linux Guests in Azure from being dropped 
+after periods of inactivity, you can give the following option to SSH via 
+the command line::
 
 	-o ServerAliveInterval=180
 
-Alternatively, you can add this setting to your SSH config file as shown below::
+Alternatively, you can add this setting to your SSH config file as shown 
+below::
 
 	Host *:
 		ServerAliveInterval 180
