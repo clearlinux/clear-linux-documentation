@@ -59,7 +59,7 @@ Installing dpdk and build l3fwd example (Platform B)
 
       # export RTE_TARGET=x86_64-native-linuxapp-gcc
 
-#. Build the ``l3fwd`` application, and add the configuration header to
+#. Build the ``l3fwd`` application, then add the configuration header to
    the ``CFLAGS`` var.
 
    .. code-block:: bash
