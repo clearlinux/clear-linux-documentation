@@ -3,7 +3,7 @@
 Clear Linux host OS install on bare metal
 #########################################
 
-Verify your system hardware is supported by |CLOSIA|. |CL|can run on all
+Verify your system hardware is supported by |CLOSIA|. |CL| can run on all
 Intel® 64bit processors which support UEFI\* and SSE\* v4.1 streaming SIMD\*
 instructions. The following processor families can run |CL|:
 
