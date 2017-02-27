@@ -32,15 +32,23 @@ The three offerings, and the commands to launch VM instances from the command li
 Azure Command Line Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Azure Command Line Interface offers the ability to create and manage resources in Azure from the command line. The examples here are based on Version 1.0 of the Azure CLI, which is implemented in Javascript and distributed through the Node Package Manager. Version 2.0 of the Azure CLI is implemented in Python. This example will be updated when Azure CLI 2.0 is fully released.
+The Azure Command Line Interface offers the ability to create and manage resources in Azure from the 
+command line. The examples here are based on Version 1.0 of the Azure CLI, which is implemented in 
+Javascript and distributed through the Node Package Manager. Version 2.0 of the Azure CLI is 
+implemented in Python. This example will be updated when Azure CLI 2.0 is fully released.
 
-The following command will show the version number of the most recent images that have been uploaded into the Azure Marketplace.
+The following command shows the version number of the most recent images that have been uploaded 
+into the Azure Marketplace.
 
 ::
 
   azure vm image list -p clear-linux-project -l westus -o clear-linux-os | grep -v "Getting" | cut -f5 -d: | sed -e 's/\s*//g'| sed -e 's/\..*//' | sort -u | tail -1
 
-The following scriplet can be used to create and start a virtual machine instance in Azure based on a marketplace offering. The resource group needs to already exist. This script tries to user a resource group of the form "<azure_username>-clr-vms". For example, for an Azure user named Rob trying to create an instance of version ``12920`` of the ``basic`` offering for Clear Linux OS, this script will ultimately create an instance with the public hostname of ``rob-12920-basic-1234``. 
+The following scriplet can be used to create and start a virtual machine instance in Azure based on 
+a marketplace offering. The resource group needs to already exist. This script tries to use a 
+resource group of the form "<azure_username>-clr-vms". For example, for an Azure user named Rob 
+trying to create an instance of version ``12920`` of the ``basic`` offering for Clear Linux OS, 
+this script creates an instance with the public hostname of ``rob-12920-basic-1234``. 
 
 ::
 
@@ -91,4 +99,12 @@ below::
 	Host *:
 		ServerAliveInterval 180
 
-.. [1] Software and workloads used in performance tests may have been optimized for performance only on Intel microprocessors. Performance tests are measured using specific computer systems, components, software, operations and functions. Any change to any of those factors may cause the results to vary. You should consult other information and performance tests to assist you in fully evaluating your contemplated purchases, including the performance of that product when combined with other products. For more complete information, visit http://www.intel.com/performance/datacenter. Configuration: Clear Linux OS release 11130 on SKU Standard_DS3_v2 in Microsoft* Azure*.
+.. [1] Software and workloads used in performance tests may have been optimized for 
+performance only on Intel microprocessors. Performance tests are measured using 
+specific computer systems, components, software, operations and functions. Any 
+change to any of those factors may cause the results to vary. You should consult 
+other information and performance tests to assist you in fully evaluating your 
+contemplated purchases, including the performance of that product when combined 
+with other products. For more complete information, visit 
+http://www.intel.com/performance/datacenter. Configuration: 
+Clear Linux OS release 11130 on SKU Standard_DS3_v2 in Microsoft* Azure*.
