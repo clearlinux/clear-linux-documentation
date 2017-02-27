@@ -1,7 +1,7 @@
 .. _vm-virtualbox:
 
-Using VirtualBox
-################
+Using VirtualBox*
+#################
 
 This section explains how to run Clear Linux OS for Intel® Architecture
 inside a `VirtualBox`_\* environment.
@@ -21,16 +21,21 @@ Clear Linux OS for Intel Architecture.
 Create a virtual machine in VirtualBox
 ======================================
 
-#. Download the `latest`_ live version (clear-XXXX-live.img.xz)
+#. Download the `latest`_ **live** version (clear-XXXX-live.img.xz)
    from https://download.clearlinux.org/image/.
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
-   - On Linux ::
+   + On Linux ::
 
        $ xz -d clear-XXXX-live.img.xz
 
-   - On Windows you can use `7zip`_.
+   + On Windows you can use `7zip`_.
+
+     - Right-click the file to *extract in the same directory*.
+
+       .. image:: _static/images/7zipwin.png
+          :alt: 7zip extract here command
 
 #. To convert a raw image to :abbr:`VDI (VirtualBox Disk Image)`
    format, you can use one of the following commands::
@@ -42,25 +47,49 @@ Create a virtual machine in VirtualBox
       $ vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vdi --srcformat raw --dstformat vdi
 
 
-   Note: Be sure you have Virtual box directory in your PATH (i.e.: on Windows
-   :file:`C:\\Program Files\\Oracle\\VirtualBox`).
+   .. note:: Be sure you have VirtualBox directory in your PATH (i.e., on
+      Windows :file:`C:\\Program Files\\Oracle\\VirtualBox`).
+
+      + On windows: launch a **Command Prompt** program and type ::
+
+
+        set PATH=%PATH%;"C:\Program Files\Oracle\VirtualBox"
+
+        .. image:: _static/images/vbox-convert-image.png
+           :alt: Convert image in Windows command propt
 
 #. Create a virtual machine using the VirtualBox assistant:
 
-   * Type: **Linux**
-   * Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
-   * Attach the virtual disk created in the step number 3 as virtual hard disk file
+   a. Type: **Linux**
+   b. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
+
+     .. image:: _static/images/vbox-create-vm.png
+        :alt: Create a new image in VirtualBox
+
+   |
+   c. Select default memory size.
+
+     .. image:: _static/images/vbox-memory-size.png
+
+   |
+   d. Attach the virtual disk created in step number 3 as a virtual hard
+     disk file. Click the folder icon (lower right) to browse to find the VDI file.
+
+     .. image:: _static/images/vbox-hdisk.png
 
 #. After it is created, go to settings to enable **EFI support**
 
    * System -> Enable EFI (special OSes only)
+
+     .. image:: _static/images/vbox-efi.png
+        :alt: Enable EFI on VirtualBox
 
 
 Run your new VM
 ===============
 
 Clear Linux OS for Intel Architecture supports VirtualBox kernel modules used
-by the Linux kernel 4.4 :abbr:`LTS (Long Term Support)` (*kernel-lts bundle*).
+by the Linux kernel 4.9 :abbr:`LTS (Long Term Support)` (*kernel-lts bundle*).
 This kernel was selected because Clear Linux OS's main kernel
 (``kernel-native``) bundle keeps up-to-date with the upstream Linux kernel, 
 and sometimes VirtualBox kernel modules aren't compatible with pre-kernel
@@ -87,7 +116,7 @@ To install the VirtualBox kernel modules, here are the steps:
 
      # reboot
 
-   and choose LTS kernel version.
+   and choose **clear-linux-lts-4.9.XX-YYY** kernel version.
 
 #. (*Optional*) Unset timeout to boot directly to LTS version::
 
@@ -105,11 +134,10 @@ The kernel modules are shipped with the ``kernel-lts`` bundle; however,
 you'll need to install the *user* Linux Guest Additions. To install the 
 VirtualBox Guest Additions, follow these steps:
 
-#. Install the **sysadmin-basic** bundle::
-
-     # swupd bundle-add sysadmin-basic
-
 #. Insert Guest Additions CD image using *Devices* menu
+
+   .. image:: _static/images/vbox-cd.png
+      :alt: VirtualBox CD
 
 #. Install Linux users Guest Additions::
 
@@ -119,16 +147,35 @@ VirtualBox Guest Additions, follow these steps:
 
      # reboot
 
-#. (*Optional*) To use Clear Linux graphical user interface, add the GUI bundle::
+#. (*Optional*) To use Clear Linux graphical user interface,
+   add the GUI bundle::
 
      # swupd bundle-add os-utils-gui
 
    once the ``os-utils-gui`` bundle is installed, start your graphical 
    user interface with::
 
-     # startxfce4
+     # startx
 
    Clear Linux doesn't provide a graphical display manager.
+
+   .. image:: _static/images/vbox-x.png
+      :alt: XFCE Clear Linux on Virtual Box
+
+
+Troubleshooting
+---------------
+
+On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
+*Hyper-V* is enabled. To disable *Hyper-V* you should execute::
+
+  bcdedit /set {current} hypervisorlaunchtype off
+
+in an **Administrator: Command Prompt**, then reboot your system.
+To enable Hyper-V again, you should execute::
+
+  bcdedit /set {current} hypervisorlaunchtype Auto
+
 
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
 .. _VirtualBox: https://www.virtualbox.org/
