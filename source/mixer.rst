@@ -9,18 +9,17 @@ bundles for various server capabilities, some developers may wish to 1) augment 
 operating system itself with functionality from their own packages or 2) modify the 
 structure of current bundles to cater to their particular needs.
 
-
-Current Workflow
-================
-
 Prerequisites
--------------
+=============
 
 To start working with the Mixer tools, you'll need a recent image of Clear Linux OS for Intel Architecture
 with the following bundle installed. If you don't have it already,
 you can add it with the :command:`swupd bundle-add` command like so::
 
   # swupd bundle-add mixer
+
+Current Workflow
+================
 
 Mixing
 ------
@@ -37,7 +36,9 @@ Mixing
    but the ``-config`` option exists to specify where
    the file is if you want to store it elsewhere. To use one in your current workspace,
    copy the template to /home/clr/mix.
-   The :file:`.yum-mix.conf` file will be auto-generated for you, as will the :file:`Swupd_Root.pem`. A yum configuration is needed for the chroot-builder to know where the RPMs are hosted, and the certificate file is needed to sign the root Manifest to provide security for content verification.
+   The :file:`.yum-mix.conf` file will be auto-generated for you, as will the :file:`Swupd_Root.pem`. 
+   A yum configuration is needed for the chroot-builder to know where the RPMs are hosted, and the certificate 
+   file is needed to sign the root Manifest to provide security for content verification.
 
    Note there are different sections to the builder.conf. The ``[Builder]`` section
    provides the mixer tools with required configuration options, defining where
@@ -62,8 +63,11 @@ Mixing
       VERSIONURL=<URL where the version of the mix will be hosted>
       FORMAT=1
 
-
-   The SERVER_STATE_DIR is where the mix content will be outputted to, and it is automatically created for you by the mixer. This can be set to any location, but for this example let us use the workspace directory. The same applies for BUNDLE_DIR; it will be generated for you in the location specified in the builder.conf, in this case - /home/clr/mix/mix-bundles. It is where the bundle definitions are stored for your mix, and where the chroot-builder looks in to know what bundles must be installed.
+   The SERVER_STATE_DIR is where the mix content will be outputted to, and it is automatically created for 
+   you by the mixer. This can be set to any location, but for this example let's use the workspace directory. 
+   The same applies for BUNDLE_DIR; it will be generated for you in the location specified in the builder.conf, 
+   in this case ``/home/clr/mix/mix-bundles``. This is where the bundle definitions are stored for your mix, and 
+   it's where the chroot-builder looks to know what bundles must be installed.
 
    You may change the ``CERT=/path/to/cert`` line, which tells the chroot builder to insert the certificate
    specified for the mix in ``/os-core-update/usr/share/clear/update-ca/``. This is the certificate used by 
@@ -72,14 +76,17 @@ Mixing
    and verify properly. The certificate will be automatically generated for you, and the Manifest.MoM will 
    be signed automatically as well, providing security for the update content you create.
 
-   The CONTENTURL and VERSIONURL may be an IP address, or a domain name, which hosts the /home/clr/mix/update/www (SERVER_STATE_DIR) directory. Creating a symlink to the directory in your server webdir is an easy way to host the content. A client running the mix will look to that URL to figure out if there is a new version available, 
-   and where to download update content from.
+   The CONTENTURL and VERSIONURL may be an IP address, or a domain name, which hosts the /home/clr/mix/update/www 
+   (SERVER_STATE_DIR) directory. Creating a symlink to the directory in your server webdir is an easy way to host 
+   the content. A client running the mix will look to that URL to figure out if there is a new version available 
+   and the location from which to download the update content.
 
    To learn more about the FORMAT option, please refer to the bottom of this document "Format Version" and 
    https://github.com/clearlinux/swupd-server/wiki/Format-Bumps. For now leave the FORMAT 
    value alone and do not increment it.
 
-   *The mix version and clear version will come from two state files: .mixversion and .clearversion, both of which will be created for you when you set-up the workspace and added to the VERSIONS_PATH defined.
+   *The mix version and Clear version will come from two state files: :file:`.mixversion` and :file:`.clearversion`, 
+   both of which will be created for you when you set-up the workspace and added to the VERSIONS_PATH defined.
 
 #. **Generate the starting point for your Mix**. In your workspace, run::
    
@@ -95,7 +102,8 @@ Mixing
 
    If you are creating RPMs from scratch, you may use ``autospec``,
    ``mock``, ``rpmbuild``, etc. to build them. If they are not
-   built on Clear, make sure your configuration and toolchain builds them correctly for Clear, or there is no guarantee they will be compatible.
+   built on Clear, make sure your configuration and toolchain builds them correctly for Clear, or there is no guarantee 
+   they will be compatible.
 
 #. **Import RPMs into workspace**. The way to do this is to create an
    ``rpms`` directory in your workspace (for example ``/home/clr/mix/rpms``),
@@ -169,29 +177,35 @@ Mixing
    The pack-maker will generate all delta packs for changed bundles from PAST_VERSION 
    to MIX_VERSION. If your STATE_DIR is in a different location be sure to specify where 
    with the -S option.
-   For the first build, no delta packs can be created because the "update" is from version 0, which impicitly has no content, thus no deltas can be generated. For subsequent builds, mixer-pack-maker.sh can be run to generate delta content between them (i.e 10 to 20).
+   For the first build, no delta packs can be created because the "update" is from version 0, which 
+   impicitly has no content, thus no deltas can be generated. For subsequent builds, mixer-pack-maker.sh 
+   can be run to generate delta content between them (i.e 10 to 20).
 
 #. **Creating an image**
-To create a bootable image from your update content, you will need the configuration file for
-ister to create images::
+   To create a bootable image from your update content, you will need the configuration file for
+   ister to create images::
 
     # curl -O https://raw.githubusercontent.com/clearlinux/ister/master/release-image-config.json
 
-Edit this to include  all the bundles you want pre-installed into your image. For a minimal, base
-image this would be::
+   Edit this to include  all the bundles you want pre-installed into your image. For a minimal, base
+   image this would be::
 
     "Bundles": ["os-core", "os-core-update", "kernel-native"]
 
-And lastly, set the "Version:" to say which mix version content the image should be built from,
-i.e. 10 for your first build. To build the image, run::
+   And lastly, set the "Version:" to say which mix version content the image should be built from,
+   i.e. 10 for your first build. To build the image, run::
 
     # sudo mixer build-image -format 1
 
-The output from this should be an image that is bootable as a VM or installable to baremetal. *Note* you need to pass in -format <FORMAT_NUMBER> if the format you are building is different than the
-format of Clear Linux OS you are currently building on. Format version can be found via::
+   The output from this should be an image that is bootable as a VM or installable to baremetal. *Note* you 
+   need to pass in -format <FORMAT_NUMBER> if the format you are building is different than the
+   format of Clear Linux OS you are currently building on. Format version can be found via::
+
     # cat /usr/share/defaults/swupd/format
 
 Creating your next Mix version
+------------------------------
+
 #. **Initialize next Mix version info**. To update the versions and prep for your
    next mix::
 
@@ -210,12 +224,11 @@ Creating your next Mix version
 
     # sudo mixer get-bundles
 
-   This step is optional because it is only needed to when you want to update the upstream clr-bundles in your workspace to a new version, which requires updating the .clearversion file.
-
-
+   This step is optional because it is only needed when you want to update the upstream clr-bundles in your 
+   workspace to a new version, which requires updating the .clearversion file.
 
 Format Version
---------------------------
+--------------
 
 The "format" used in ``builder.conf`` might be more precisely referred to as an
 OS "compatibility epoch". Versions of the OS within a given epoch are fully
