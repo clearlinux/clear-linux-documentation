@@ -3,8 +3,16 @@
 Using VirtualBox*
 #################
 
-This section explains how to run Clear Linux OS for Intel® Architecture
+This section explains how to run |CLOSIA|
 inside a `VirtualBox`_\* environment.
+
+Please ensure you have enabled
+`Intel® Virtualization Technology
+<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_ (Intel® VT) and
+`Intel® Virtualization Technology for Directed I/O
+<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_ (VT-d)
+in your BIOS/UEFI firmware configuration.
+
 
 Download VirtualBox
 ===================
@@ -15,7 +23,7 @@ the operating system you are using.
 
 Download **version 5.0 or greater** to ensure support for
 the :abbr:`AVX (Advanced Vector Extensions)` needed to run
-Clear Linux OS for Intel Architecture.
+|CLOSIA|
 
 
 Create a virtual machine in VirtualBox
@@ -63,19 +71,20 @@ Create a virtual machine in VirtualBox
    a. Type: **Linux**
    b. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
 
-     .. image:: _static/images/vbox-create-vm.png
-        :alt: Create a new image in VirtualBox
+      .. image:: _static/images/vbox-create-vm.png
+          :alt: Create a new image in VirtualBox
 
    |
    c. Select default memory size.
 
-     .. image:: _static/images/vbox-memory-size.png
+      .. image:: _static/images/vbox-memory-size.png
 
    |
    d. Attach the virtual disk created in step number 3 as a virtual hard
-     disk file. Click the folder icon (lower right) to browse to find the VDI file.
+      disk file. Click the folder icon (lower right) to browse to find the
+      VDI file.
 
-     .. image:: _static/images/vbox-hdisk.png
+      .. image:: _static/images/vbox-hdisk.png
 
 #. After it is created, go to settings to enable **EFI support**
 
@@ -88,14 +97,14 @@ Create a virtual machine in VirtualBox
 Run your new VM
 ===============
 
-Clear Linux OS for Intel Architecture supports VirtualBox kernel modules used
+|CLOSIA| supports VirtualBox kernel modules used
 by the Linux kernel 4.9 :abbr:`LTS (Long Term Support)` (*kernel-lts bundle*).
-This kernel was selected because Clear Linux OS's main kernel
+This kernel was selected because |CL| OS's main kernel
 (``kernel-native``) bundle keeps up-to-date with the upstream Linux kernel, 
 and sometimes VirtualBox kernel modules aren't compatible with pre-kernel
 releases.
 
-In the first boot, Clear Linux will ask for a login user, type **root** and
+In the first boot, |CL| will ask for a login user, type **root** and
 then the system will ask you for a new password.
 
 To install the VirtualBox kernel modules, here are the steps:
@@ -147,7 +156,7 @@ VirtualBox Guest Additions, follow these steps:
 
      # reboot
 
-#. (*Optional*) To use Clear Linux graphical user interface,
+#. (*Optional*) To use |CL| graphical user interface,
    add the GUI bundle::
 
      # swupd bundle-add os-utils-gui
@@ -157,21 +166,28 @@ VirtualBox Guest Additions, follow these steps:
 
      # startx
 
-   Clear Linux doesn't provide a graphical display manager.
+   |CL| doesn't provide a graphical display manager.
 
    .. image:: _static/images/vbox-x.png
-      :alt: XFCE Clear Linux on Virtual Box
+      :alt: XFCE |CL| on Virtual Box
 
 
 Troubleshooting
 ---------------
 
 On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
-*Hyper-V* is enabled. To disable *Hyper-V* you should execute::
+*Hyper-V* is enabled.
+
+.. image:: _static/images/vbox-no-vtx.png
+   :alt: VirtualBox hardware acceleration error
+
+|
+To disable *Hyper-V* you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype off
 
 in an **Administrator: Command Prompt**, then reboot your system.
+
 To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
