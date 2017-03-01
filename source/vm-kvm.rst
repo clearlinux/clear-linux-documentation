@@ -7,6 +7,12 @@ The easiest way to get started in a virtualized environment is to download
 a recent KVM image from the `images`_ directory. Here you'll find a kvm
 image file, the UEFI firmware helper, and the KVM start helper script.
 
+Please ensure you have enabled
+`Intel® Virtualization Technology
+<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_ (Intel® VT) and
+`Intel® Virtualization Technology for Directed I/O
+<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_ (VT-d)
+in your BIOS/firmware configuration.
 
 Starter script
 ==============

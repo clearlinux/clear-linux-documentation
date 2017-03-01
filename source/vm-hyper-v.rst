@@ -6,6 +6,12 @@ Using Hyper-V\*
 This section explains how to run |CLOSIA| inside a
 `Windows Server Virtualization`_\* or **Hyper-V** environment.
 
+Please ensure you have enabled
+`Intel® Virtualization Technology
+<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_ (Intel® VT) and
+`Intel® Virtualization Technology for Directed I/O
+<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_ (VT-d)
+in your BIOS/firmware configuration.
 
 Install Hyper-V
 ================
