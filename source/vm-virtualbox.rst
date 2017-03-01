@@ -63,19 +63,20 @@ Create a virtual machine in VirtualBox
    a. Type: **Linux**
    b. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
 
-     .. image:: _static/images/vbox-create-vm.png
-        :alt: Create a new image in VirtualBox
+      .. image:: _static/images/vbox-create-vm.png
+          :alt: Create a new image in VirtualBox
 
    |
    c. Select default memory size.
 
-     .. image:: _static/images/vbox-memory-size.png
+      .. image:: _static/images/vbox-memory-size.png
 
    |
    d. Attach the virtual disk created in step number 3 as a virtual hard
-     disk file. Click the folder icon (lower right) to browse to find the VDI file.
+      disk file. Click the folder icon (lower right) to browse to find the
+      VDI file.
 
-     .. image:: _static/images/vbox-hdisk.png
+      .. image:: _static/images/vbox-hdisk.png
 
 #. After it is created, go to settings to enable **EFI support**
 
@@ -167,11 +168,18 @@ Troubleshooting
 ---------------
 
 On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
-*Hyper-V* is enabled. To disable *Hyper-V* you should execute::
+*Hyper-V* is enabled.
+
+.. image:: _static/images/vbox-no-vtx.png
+   :alt: VirtualBox hardware acceleration error
+
+|
+To disable *Hyper-V* you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype off
 
 in an **Administrator: Command Prompt**, then reboot your system.
+
 To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
