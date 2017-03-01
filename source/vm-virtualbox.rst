@@ -3,8 +3,9 @@
 Using VirtualBox*
 #################
 
-This section explains how to run Clear Linux OS for Intel® Architecture
+This section explains how to run |CLOSIA|
 inside a `VirtualBox`_\* environment.
+
 
 Download VirtualBox
 ===================
@@ -15,7 +16,7 @@ the operating system you are using.
 
 Download **version 5.0 or greater** to ensure support for
 the :abbr:`AVX (Advanced Vector Extensions)` needed to run
-Clear Linux OS for Intel Architecture.
+|CLOSIA|
 
 
 Create a virtual machine in VirtualBox
@@ -89,14 +90,14 @@ Create a virtual machine in VirtualBox
 Run your new VM
 ===============
 
-Clear Linux OS for Intel Architecture supports VirtualBox kernel modules used
+|CLOSIA| supports VirtualBox kernel modules used
 by the Linux kernel 4.9 :abbr:`LTS (Long Term Support)` (*kernel-lts bundle*).
-This kernel was selected because Clear Linux OS's main kernel
+This kernel was selected because |CL| OS's main kernel
 (``kernel-native``) bundle keeps up-to-date with the upstream Linux kernel, 
 and sometimes VirtualBox kernel modules aren't compatible with pre-kernel
 releases.
 
-In the first boot, Clear Linux will ask for a login user, type **root** and
+In the first boot, |CL| will ask for a login user, type **root** and
 then the system will ask you for a new password.
 
 To install the VirtualBox kernel modules, here are the steps:
@@ -148,7 +149,7 @@ VirtualBox Guest Additions, follow these steps:
 
      # reboot
 
-#. (*Optional*) To use Clear Linux graphical user interface,
+#. (*Optional*) To use |CL| graphical user interface,
    add the GUI bundle::
 
      # swupd bundle-add os-utils-gui
@@ -158,10 +159,10 @@ VirtualBox Guest Additions, follow these steps:
 
      # startx
 
-   Clear Linux doesn't provide a graphical display manager.
+   |CL| doesn't provide a graphical display manager.
 
    .. image:: _static/images/vbox-x.png
-      :alt: XFCE Clear Linux on Virtual Box
+      :alt: XFCE |CL| on Virtual Box
 
 
 Troubleshooting
