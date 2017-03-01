@@ -6,13 +6,11 @@ Using VirtualBox*
 This section explains how to run |CLOSIA|
 inside a `VirtualBox`_\* environment.
 
-Please ensure you have enabled
-`Intel® Virtualization Technology
-<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_ (Intel® VT) and
-`Intel® Virtualization Technology for Directed I/O
-<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_ (VT-d)
-in your BIOS/UEFI firmware configuration.
-
+Please ensure you have enabled `Intel® Virtualization Technology
+<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_ 
+(Intel® VT) and `Intel® Virtualization Technology for Directed I/O
+<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_ 
+(Intel® VT-d) in your BIOS/UEFI firmware configuration.
 
 Download VirtualBox
 ===================
