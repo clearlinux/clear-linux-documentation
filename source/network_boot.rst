@@ -46,9 +46,9 @@ Configuration
 =============
 
 The below steps have been automated during the installation of the `Ister Cloud
-Init Service`_ to quickly enable a bulk provisioning setup.  Before running the
-installation scripts, modify ``parameters.conf`` with your specific
-configurations.
+Init Service`_ with ``configure-ipxe.sh`` to quickly enable a bulk provisioning
+setup.  Before running the installation scripts, modify ``parameters.conf`` with
+your specific configurations.
 
 Step 1
 ------
