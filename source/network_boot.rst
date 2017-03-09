@@ -3,53 +3,58 @@
 Network Booting
 ################
 
-Clear Linux* Project for Intel® Architecture is bootable from a pre-boot execution
-environment (PXE) using UEFI.  PXE is an industry standard for describing the
-client-server interaction to network boot software using DHCP and TFTP protocols.
-One use of this environment is to automatically install an operating system.
+Clear Linux* Project for Intel® Architecture is bootable from a pre-boot
+execution environment (PXE).  PXE is an industry standard for describing the
+client-server interaction to network boot software using DHCP and TFTP
+protocols. One use of this environment is to automatically install an operating
+system.
 
-Using an extension of PXE known as iPXE adds support for additional protocols such
-as HTTP, iSCIS, ATA over Ethernet (AoE), and Fiber Channel over Ethernet (FCoE).
-iPXE can also be used to enable network booting computers that lack built-in PXE
-support.  This guide covers how to perform an iPXE boot using: UEFI, a private network,
-and network address translation (NAT).  Figure 1 illustrates the assumed network topology.
+Using an extension of PXE known as `iPXE`_ adds support for additional protocols
+such as HTTP, iSCIS, ATA over Ethernet (AoE), and Fiber Channel over Ethernet
+(FCoE). iPXE can also be used to enable network booting computers that lack
+built-in PXE support.
 
-.. figure:: _static/images/pxe.png
-  :align: center
-  :alt: Figure 1: PXE network topology
-
-  Figure 1: PXE network topology
+This guide covers how to perform an iPXE boot using network address translation
+(NAT).
 
 Preparations
 ============
 
-Before performing an iPXE boot, verify the following:
+Before performing an iPXE boot, verify the following preparations have been
+made:
 
+* Your PXE server has an ethernet/LAN boot option
 * Your PXE server has at least two network adapters
-* Your PXE server and PXE clients are connected to a switch
-* Your PXE server is connected to a network
-* If applicable, your PXE server has secure boot disabled
+* Your PXE server is connected to a public network
+* Your PXE server and PXE clients are connected to a switch on a private network
+* Your PXE server has secure boot disabled
 
 .. note::
 
-  A switch sets up a private network. Using a private network allows for greater control of which
-  traffic is exposed to PXE clients by isolating them on their own network.
+  Secure boot needs disabled because the UEFI binaries for booting the Clear
+  Linux* Project for Intel® Architecture are not signed.
 
-.. note::
+Your computer and network setup should be the same as what is depicted in figure
+1.
 
-  Secure boot needs disabled because the UEFI binaries for booting the Clear Linux* Project for
-  Intel® Architecture are not signed.
+.. figure:: _static/images/pxe.png
+  :alt: Figure 1: NAT network topology
+
+  Figure 1: NAT network topology
 
 Configuration
 =============
 
-The below steps have been automated during the installation of the `Ister Cloud Init Service`_ to quickly enable a bulk
-provisioning setup.  Before running the installation scripts, modify ``parameters.conf`` with your specific configurations.
+The below steps have been automated during the installation of the `Ister Cloud
+Init Service`_ to quickly enable a bulk provisioning setup.  Before running the
+installation scripts, modify ``parameters.conf`` with your specific
+configurations.
 
 Step 1
 ------
 
-Define variables that are used to parameterize the rest of the configuration of an iPXE boot.
+Define variables that are used to parameterize the configuration of an iPXE
+boot.
 
 .. code-block:: console
 
@@ -64,23 +69,23 @@ Define variables that are used to parameterize the rest of the configuration of 
   pxe_subnet_mask_ip=255.255.255.0
   pxe_subnet_bitmask=24
 
-
 Step 2
 ------
 
-Add the ``pxe-server`` bundle to your system.  This has all of the software needed run a PXE
-server.
+Add the ``pxe-server`` bundle to your system.  This has all of the software
+needed run a PXE server.
 
 .. code-block:: console
 
    swupd bundle-add pxe-server
 
-
-
 Step 3
 ------
 
-Download the latest network-bootable release of the Clear Linux* Project for Intel® Architecture and create an iPXE boot script.  The iPXE boot script tells the PXE client which files to use for network booting the latest release.
+Create an iPXE hosting directory, download the latest network-bootable release
+of the Clear Linux* Project for Intel® Architecture, and extract the files.
+Ensure that the initial ramdisk file is named ``initrd`` and the kernel file is
+named ``linux``, which is a symbolic link to the actual kernel file.
 
 .. code-block:: console
 
@@ -89,18 +94,29 @@ Download the latest network-bootable release of the Clear Linux* Project for Int
     curl -o /tmp/clear-pxe.tar.xz https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-pxe.tar.xz
     tar -xJf /tmp/clear-pxe.tar.xz -C $ipxe_root
     ln -sf $(ls $ipxe_root | grep 'org.clearlinux.*') $ipxe_root/linux
+
+Step 4
+------
+
+Create an iPXE boot script.  The iPXE boot script is used during an iPXE boot
+to direct the PXE client to the files for network booting the latest
+release.  Use the same names you gave to the initial ramdisk and kernel files.
+
+.. code-block:: console
+
     cat > $ipxe_root/ipxe_boot_script.txt << EOF
     #!ipxe
     kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd
     initrd initrd
     boot
-    EOF   
+    EOF
 
-Step 4
+Step 5
 -------
 
-The ``pxe-server`` bundle comes with a lightweight nginx web server. Create a configuration file for
-the web server which will serve iPXE content to PXE clients.
+The ``pxe-server`` bundle comes with a lightweight web server known as
+``nginx``. Create a configuration file for ``nginx`` to serve the latest release
+to PXE clients.
 
 .. code-block:: console
 
@@ -116,24 +132,22 @@ the web server which will serve iPXE content to PXE clients.
   }
   EOF
 
-
-Step 5
+Step 6
 -------
 
-Start the nginx web server and enable startup on boot
+Start ``nginx`` and enable startup on boot.
 
 .. code-block:: console
 
   systemctl start nginx
   systemctl enable nginx
 
-
-
-Step 6
+Step 7
 ------
 
-Enable chainloading by placing a copy of iPXE firmware on a TFTP server.  Chainloading allows
-machines with both BIOS and UEFI implementations to boot using iPXE.
+The ``pxe-server`` bundle comes with iPXE firmware images which allow computers
+without an iPXE implementation to perform an iPXE boot.  Create a TFTP hosting
+directory and populate it with the iPXE firmware images.
 
 .. code-block:: console
 
@@ -141,26 +155,44 @@ machines with both BIOS and UEFI implementations to boot using iPXE.
   mkdir -p $tftp_root
   ln -sf /usr/share/ipxe/ipxe-x86_64.efi $tftp_root/ipxe-x86_64.efi
   ln -sf /usr/share/ipxe/undionly.kpxe $tftp_root/undionly.kpxe
+
+Step 8
+------
+
+The ``pxe-server`` bundle comes with a lightweight TFTP server known as
+``dnsmasq``.  Create a configuration file for ``dnsmasq`` to serve iPXE firmware
+images to PXE clients over TFTP.
+
+.. code-block:: console
+
   cat > /etc/dnsmasq.conf << EOF
   enable-tftp
   tftp-root=$tftp_root
   EOF
 
+Step 9
+------
+
+Enable ``dnsmasq`` to start automatically on boot.
+
+.. code-block:: console
+
   systemctl enable dnsmasq
 
 .. note::
 
-  ``dnsmasq`` is a lightweight implementation of a DNS server, a DHCP server, and a TFTP server.  It
-  is only being enabled now to start automatically on boot and not started because it's DNS server
-  conflicts with the DNS stub listener offered by systemd-resolved.
+  At this point in the configuration process, ``dnsmasq`` is only
+  being enabled to start automatically on boot and not started because its DNS
+  server conflicts with the DNS stub listener offered by ``systemd-resolved``.
 
-Step 7
+Step 10
 -------
 
-Configure a DNS server for PXE clients on the private network.  Set the DNS server to listen on a
-dedicated IP address.  PXE clients on the private network can then use this IP address for DNS resolution.  Disable the
-DNS stub listener included with systemd-resolved to avoid a conflict with the DNS server offered by
-``dnsmasq``.
+The ``pxe-server`` bundle comes with a lightweight DNS server known as
+``dnsmasq``.  Set ``dnsmasq`` to listen on a dedicated IP address.  PXE clients
+on the private network will then use this IP address for DNS resolution.
+Disable the DNS stub listener included with ``systemd-resolved`` to avoid a
+conflict with the DNS server offered by ``dnsmasq``.
 
 .. code-block:: console
 
@@ -174,21 +206,34 @@ DNS stub listener included with systemd-resolved to avoid a conflict with the DN
   listen-address=$pxe_internal_ip
   EOF
 
+.. note::
+
+  ``dnsmasq`` is a lightweight implementation of a DNS server, a DHCP server,
+  and a TFTP server.  For the purposes of this guide, the DHCP server included
+  with ``dnsmasq`` is not being used.
+
+.. note::
+
+  Using DNS server provided by ``dnsmasq`` allows ``systemd-resolved`` to
+  dynamically update the list of DNS servers for the private network from the
+  public network.  In effect, this creates a pass-through DNS server which
+  relies on DNS servers listed in ``/etc/resolv.conf``.
+
+Step 11
+-------
+
+Start ``dnsmasq`` and avoid conflicts with ``systemd-resolved``.
+
+.. code-block:: console
+
   systemctl stop systemd-resolved
   systemctl restart dnsmasq
   systemctl start systemd-resolved
 
-.. note::
-
-  Using the DNS server provided by ``dnsmasq`` so that the list of DNS servers identified by systemd-resolved
-  for the network connection can be dyanmically updated for the PXE clients on the private network.  In effect, this creates a proxy DNS server.
-
-Step 8
+Step 12
 ------
 
-Assign a static IP address to the network adapter for the private network.  systemd-networkd will try to always
-use DHCP for all network adapters, so this functionality nees disabled prior to assinging a static
-IP address.
+Assign a static IP address to the network adapter for the private network.
 
 .. code-block:: console
 
@@ -213,12 +258,33 @@ IP address.
 
   systemctl restart systemd-networkd
 
+.. note::
 
-Step 9
+  By default, ``systemd-networkd`` uses DHCP for all network adapters.  This
+  functionality needs disabled prior to assigning a static IP address.  As a
+  consequence, this also disables DHCP functionality for the network adapter
+  connected to the public network.  This network adapter needs to have this
+  functionality explicitly re-enabled.
+
+Step 13
 -------
 
-Configure a DHCP server to dyanmically allocate IP addresses to PXE clients on the private network.
-Create a file where the DHCP server can maintain the leased IP addresses.
+The ``pxe-server`` bundle comes with a full implementation of a DHCP server
+compliant to the specifications defined by the Internet Systems Consortium
+(ISC), known as ``dhcpd``.  Configure ``dhcpd`` to dynamically allocate IP
+addresses to PXE clients on the private network.  The following configuration
+provides the following important functions:
+
+* Enables ``dhcpd`` to be iPXE-aware with `iPXE-specific options`_
+* Directs PXE clients without an iPXE implementation to the TFTP server for
+  acquiring architecture-specific iPXE firmware images to allow them to perform
+  an iPXE boot
+* Is only active on the network adapter which has an IP address on the defined
+  subnet
+* Directs PXE clients to the DNS server
+* Directs PXE clients to the PXE server for routing via NAT
+* Divides the private network into two pools of IP addresses, one for network
+  booting and another for usage after boot; each with their own lease times
 
 .. code-block:: console
 
@@ -266,7 +332,7 @@ Create a file where the DHCP server can maintain the leased IP addresses.
 
   class "PXE-Chainload" {
     match if substring(option vendor-class-identifier, 0, 9) = "PXEClient";
-    
+
     next-server $pxe_internal_ip;
     if exists user-class and option user-class = "iPXE" {
       filename "http://$pxe_internal_ip/ipxe_boot_script.txt";
@@ -283,14 +349,14 @@ Create a file where the DHCP server can maintain the leased IP addresses.
     authoritative;
     option routers $pxe_internal_ip;
     option domain-name-servers $pxe_internal_ip;
-    
+
     pool {
       allow members of "PXE-Chainload";
       range $pxe_subnet.128 $pxe_subnet.253;
       default-lease-time 600;
       max-lease-time 3600;
     }
-    
+
     pool {
       deny members of "PXE-Chainload";
       range $pxe_subnet.2 $pxe_subnet.127;
@@ -300,37 +366,38 @@ Create a file where the DHCP server can maintain the leased IP addresses.
   }
   EOF
 
+.. note::
+
+  There are three providers of a DHCP server on the system at this point:
+  ``systemd-networkd``, ``dnsmasq``, and ``dhcpd``. ``dhcpd`` is used because it
+  is maintained by ISC and is more flexible for iPXE booting.
+
+Step 14
+-------
+
+Create a file where ``dhcpd`` can record the IP addresses that it hands out to
+PXE clients.
+
+.. code-block:: console
+
   mkdir -p /var/db
   touch /var/db/dhcpd.leases
+
+Step 15
+-------
+
+Start ``dhcpd`` and enable startup on boot.
+
+.. code-block:: console
 
   systemctl enable dhcp4
   systemctl restart dhcp4
 
-This ensures that either iPXE image (``undionly.kpxe`` for BIOS or ``ipxe.efi``
-for EFI) is handed out only when the DHCP request comes from a legacy PXE client
-or from a UEFI client, respectfully. Once iPXE loads, the DHCP server will direct it to
-boot from options configured in your ``http://my.web.server/real_boot_script.txt``
-file.
-
-.. note::
-
-  There are three places in which a DHCP server can be used: systemd-networkd, dnsmasq, and dhcpd.
-  Using dhcpd because it's part of ISC and is more flexible for iPXE booting.
-
-.. note::
-
-  Include iPXE-specific options from http://www.ipxe.org/howto/dhcpd in your DHCPD
-
-.. note::
-
-  By defining only one subnet with the correct range, the DHCP server will be bound only to the interface
-  and service requests for the private network.
-
-Step 10
+Step 16
 -------
 
-Configure NAT so that traffic from the private network can be routed externally.  This effectively
-turns the PXE server into a router.
+Configure NAT so that traffic from the private network can be routed to the
+public network. This effectively turns the PXE server into a router.
 
 .. code-block:: console
 
@@ -341,160 +408,31 @@ turns the PXE server into a router.
   systemctl enable iptables-restore.service
   systemctl restart iptables-restore.service
 
+.. note::
+
+  The firewall MASQUERADEs, or translates, packets to make them appear as if
+  they are coming from the PXE server.  This hides the PXE clients from the
+  public network.
+
+Step 17
+-------
+
+Tell the Linux kernel to forward network packets on to different interfaces.
+Otherwise, NAT will not work.
+
+.. code-block:: console
+
   mkdir -p /etc/sysctl.d
   echo net.ipv4.ip_forward=1 > /etc/sysctl.d/80-nat-forwarding.conf
   echo 1 > /proc/sys/net/ipv4/ip_forward
 
+Step 18
+-------
 
-.. note::
-
-  The firewall MASQUERADEs, or translates packets to make them appear as if they are coming
-  from the PXE server.  This hides the PXE clients from the network.
-
-.. note::
-
-  Tell the Linux kernel to forward network packets on to different interfaces.  Otherwise
-  NAT will not work.
-
-PXE + GRUB
-==========
-
-Another option for network booting Clear Linux* OS for Intel Architecture is to
-use the GRUB bootloader to boot in UEFI mode. The bootloader will get its files
-over TFTP; it does not require having another service to host the network boot
-artifacts. The following sets up up a PXE using the GRUB bootloader environment
-and Clear Linux OS for Intel Architecture, but the configuration options should
-apply elsewhere.
-
-First, add the ``pxe-server`` bundle to your system with:
-
-.. code-block:: console
-
-   # swupd bundle-add pxe-server
+Power on the PXE client and watch it boot the latest release of the Clear Linux*
+Project for Intel® Architecture.
 
 
-DHCP configuration
-------------------
-
-Add the following content to your :file:`/etc/dhcpd.conf` file:
-
-.. code-block:: console
-
-   allow booting;
-   allow bootp;
-
-   # Set up a class so you can give out an IP only for devices is attempting network boot.
-    {
-    match if substring(option vendor-class-identifier, 0, ;
-           next-server 192.168.1.1;
-    grubx64.
-   }
-
-   # private network, in case you are able to run your own network wide DHCP service.
-   # Works when the machine you are network booting has two network interfaces,
-   # one connected to the private PXE boot network and the other connected to an external
-   # network.
-   subnet 192.168.1.0 netmask 255.255.255.0 {
-           pool {
-           allow members
-                   range 192.168.1.100 192.168.1.200;
-           }
-   }
-
-
-Where ``192.168.1.1`` is set to the address your TFTP server is using, and ``grubx64.efi`` is set
-to the name of your grub bootloader file.
-
-The subnet being used in this example is private; if the DHCPD service you use applies to your
-entire network, modify the configuration as needed. Also, if multiple devices (including those
-not using UEFI) are being supported by this DHCPD service, adding the following logic will allow
-selection of the filename fetched from the client:
-
-.. code-block:: console
-
-   if exists client-arch and option client-arch = 9 {
-           # client-arch = 9 (64-bit EFI)
-           filename "grubx64.efi";
-   } elsif exists client-arch and option client-arch = 6 {
-           # client-arch = 6 (32-bit EFI)
-           filename "grubx32.efi";
-   } else {
-           # client-arch = 0 (Standard PC BIOS)
-           filename "pxelinux.0";
-   }
-
-Next, create an empty :file:`/var/db/dhcp.leases` file and start the dhcpd service with:
-
-.. code-block:: console
-
-   # mkdir -p /var/db
-   # touch /var/db/dhcp.leases
-   # systemctl start dhcp4.service
-
-
-GRUB configuration
-------------------
-
-Create the GRUB bootloader file (:file:`grubx64.efi`) with the following
-command; it will create the file in your current directory.
-
-
-.. code-block:: console
-
-   # grub-mkimage -O x86_64-efi -o grubx64.efi all_video boot btrfs cat
-   chain configfile echo efifwsetup efinet ext2 fat font gfxmenu gfxterm
-   gzio halt hfsplus iso9660 jpeg linuxefi loadenv loopback lvm mdraid09
-   mdraid1x minicmd multiboot multiboot2 normal part_apple part_msdos
-   part_gpt password_pbkdf2 png reboot search search_fs_uuid search_fs_file
-   search_label serial sleep syslinuxcfg test tftp usbserial_pl2303
-   usbserial_ftdi xfs
-
-
-Next, a GRUB configuration file (:file:`grub.cfg`) should contain the
-following content:
-
-.. code-block:: console
-
-    set pager=1
-
-    export menuentry_id_option
-
-    function load_video {
-      if [ x$feature_all_video_module = xy ]; then
-        insmod all_video
-      else
-        insmod efi_gop
-        insmod efi_uga
-        insmod ieee1275_fb
-        insmod vbe
-        insmod vga
-        insmod video_bochs
-        insmod video_cirrus
-      fi
-    }
-
-    terminal_output console
-    if [ x$feature_timeout_style = xy ] ; then
-      set timeout_style=menu
-      set timeout=5
-    else
-      set timeout=5
-    fi
-
-    menuentry 'Clear Linux Installation' --class gnu-linux --class gnu --class os {
-      load_video
-      set gfxpayload=keep
-      insmod gzio
-      insmod part_gpt
-      insmod ext2
-      linuxefi /linux
-      initrdefi /initrd
-    }
-
-Where the Linux kernel is named ``linux`` and the initrd ``initrd``.
-
-
-.. _TFTP: http://download.intel.com/design/archives/wfm/downloads/pxespec.pdf
-.. _iPXE website: http://boot.ipxe.org/
 .. _iPXE: http://ipxe.org/
 .. _Ister Cloud Init Service: https://github.com/gtkramer/ister-cloud-init-svc
+.. _iPXE-specific options: http://www.ipxe.org/howto/dhcpd#ipxe-specific_options
