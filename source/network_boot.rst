@@ -1,7 +1,7 @@
 .. _network_boot:
 
 Network Booting
-################
+***************
 
 Clear Linux* Project for Intel® Architecture is bootable from a pre-boot
 execution environment (PXE).  PXE is an industry standard for describing the
@@ -37,7 +37,7 @@ made:
 Your computer and network setup should be the same as what is depicted in figure
 1.
 
-.. figure:: _static/images/pxe.png
+.. figure:: _static/images/network-boot.png
   :alt: Figure 1: NAT network topology
 
   Figure 1: NAT network topology
@@ -434,5 +434,5 @@ Project for Intel® Architecture.
 
 
 .. _iPXE: http://ipxe.org/
-.. _Ister Cloud Init Service: https://github.com/gtkramer/ister-cloud-init-svc
+.. _Ister Cloud Init Service: https://github.com/clearlinux/ister-cloud-init-svc
 .. _iPXE-specific options: http://www.ipxe.org/howto/dhcpd#ipxe-specific_options
