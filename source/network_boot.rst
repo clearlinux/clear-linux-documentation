@@ -37,7 +37,7 @@ made:
 Your computer and network setup should be the same as what is depicted in figure
 1.
 
-.. figure:: _static/images/network-boot.png
+.. figure:: _static/images/network-boot-setup.png
   :alt: Figure 1: NAT network topology
 
   Figure 1: NAT network topology
@@ -45,10 +45,15 @@ Your computer and network setup should be the same as what is depicted in figure
 Configuration
 =============
 
-The below steps have been automated during the installation of the `Ister Cloud
-Init Service`_ with ``configure-ipxe.sh`` to quickly enable a bulk provisioning
-setup.  Before running the installation scripts, modify ``parameters.conf`` with
-your specific configurations.
+Configuration for performing an iPXE boot has been automated during the
+installation of the `Ister Cloud Init Service`_ with ``configure-ipxe.sh`` to
+quickly enable a bulk provisioning setup.  Before running the configuration script, modify ``parameters.conf`` with your specific configurations.
+Figure 2 depicts the information flow that the configuration script enables.
+
+.. figure:: _static/images/network-boot-flow.png
+  :alt: Figure 2: PXE information flow
+
+  Figure 2: PXE information flow
 
 Step 1
 ------
