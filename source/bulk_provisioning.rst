@@ -1,7 +1,7 @@
 .. _bulk_provisioning:
 
 Bulk Provisioning
-*****************
+#################
 
 Data centers have a need to install and configure new instances of operating
 systems in bulk. When managing new computers or hardware upgrades in bulk, data
@@ -44,9 +44,10 @@ server and a host booting into the installer via pxe. This diagram is intended
 to show the logical flow of information, and is not a literal depiction of the
 protocol-level exchanges.
 
-.. image:: _static/images/bulk-provision-flow.png
-    :align: center
-    :alt: pxe-icis-install-workflow
+.. figure:: _static/images/bulk-provision-flow.png
+  :alt: Bulk provisioning information flow
+
+  Figure 1: Bulk provisioning information flow
 
 Application server, web server, dhcp server, tftp server are hosted on a
 single machine, but can be hosted anywhere visible to PXE clients.
