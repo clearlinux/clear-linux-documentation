@@ -1,7 +1,7 @@
 .. _network_boot:
 
 Network Booting
-***************
+###############
 
 Clear Linux* Project for Intel® Architecture is bootable from a pre-boot
 execution environment (PXE).  PXE is an industry standard for describing the
@@ -38,7 +38,7 @@ Your computer and network setup should be the same as what is depicted in figure
 1.
 
 .. figure:: _static/images/network-boot-setup.png
-  :alt: Figure 1: NAT network topology
+  :alt: NAT network topology
 
   Figure 1: NAT network topology
 
@@ -51,7 +51,7 @@ quickly enable a bulk provisioning setup.  Before running the configuration scri
 Figure 2 depicts the information flow that the configuration script enables.
 
 .. figure:: _static/images/network-boot-flow.png
-  :alt: Figure 2: PXE information flow
+  :alt: PXE information flow
 
   Figure 2: PXE information flow
 
