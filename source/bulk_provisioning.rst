@@ -3,77 +3,39 @@
 Bulk Provisioning
 #################
 
-Data centers have a need to install and configure new instances of operating
-systems in bulk. When managing new computers or hardware upgrades in bulk, data
-center administrators need tooling for making changes with minimal effort.
+Clear Linux* Project for Intel® Architecture can be automatically provisioned in
+bulk using a combination of `Ister`_ and the `Ister Cloud Init Service`_ (ICIS).
 
-The bulk provisioning scenario is a continuation of the :ref:`network_boot`
-scenario.  After a network boot occurs, ``ister`` provides automation for this
-task using `cloud-init`_ files by performing the following steps:
+Configurations for a bulk provision are made by defining `cloud-init`_ files and
+Ister configuration files and hosting them with ``ICIS`` so that ``Ister`` can
+use them during the install process.  Ister configuration files provide a way to
+customize the install and cloud-init files provide a way to customize the
+instance of the install.
 
-#. Finding cloud-init files
-#. Creating a `micro-config-drive`_ (ucf) to store the cloud-init files
-#. Creating a systemd service which runs at first reboot to apply the
-   configurations defined by the cloud-init files
-#. Reboots the machine to run the systemd service
+The following diagram depics the flow of information between a PXE server and a
+PXE client that needs to be set up to perform a bulk provision.
 
-At this point, the machine has been rebooted twice, once to perform a network
-boot and once again to apply cloud-init configurations. Afte the second reboot,
-the machine can enter into a mode ready to be managed with Ansible.
+.. figure:: _static/images/bulk-provision-flow.png
+   :alt: Bulk provision information flow
 
-The ister cloud init service (`icis`_) is used by ister to host the cloud-init
-configurations.  Ister can be directed to look for cloud-init configurations
-hosted by icis.
+   Figure 1: Bulk provision information flow
 
-One nice attribute of this system is that once the iPXE bits are created, many
-installer behaviors can be configured without having to regenerate the iPXE
-bits.
+This guide covers how to perform a bulk provision with ``Ister`` and ``ICIS``.
 
 Prerequisites
 =============
 
-Stand up an iPXE server as described in the :ref:`network_boot`
-docs. Note that you will be generating your own artifacts to be served by
-PXE in a later step. 
+Before performing a bulk provision, verify that you have a PXE server capable of
+performing network boots of the latest release.  Reference :ref:`network_boot`
+for a guide on how to perform an iPXE boot using network address translation
+(NAT).
 
 Configuration
 =============
 
-The following diagram illustrates the flow of information between the pxe
-server and a host booting into the installer via pxe. This diagram is intended
-to show the logical flow of information, and is not a literal depiction of the
-protocol-level exchanges.
-
-.. figure:: _static/images/bulk-provision-flow.png
-  :alt: Bulk provisioning information flow
-
-  Figure 1: Bulk provisioning information flow
-
-Application server, web server, dhcp server, tftp server are hosted on a
-single machine, but can be hosted anywhere visible to PXE clients.
-
-#. Land `Ister Cloud Init Service <https://github.com/clearlinux/ister-cloud-
-   init- svc>`_ on the pxe server. The README in the ICIS github repo has
-   directions on how to install and configure.
-
-#. Generate the installer that will load and boot over PXE. Copy the relevant
-   files into the appropriate location on the iPXE server.
-
-   A pxe installer is generated for every release of Clear Linux OS. It can be
-   found alongside the published images in
-   https://download.clearlinux.org/releases/XXXXX/clear/clear-XXXXX-pxe.tar.xz
-  
-   Alternatively, use the `create_pxe.sh
-   <https://github.com/bryteise/ister/blob/master/create_pxe.sh>`_ script to
-   roll your own. Note this creates the pxe-installer from the "provisioning"
-   installer in Clear Linux.  This is a touchless installer that takes all
-   installation information from a config file. You can get this image from a
-   given Clear Linux release by looking in
-   https://download.clearlinux.org/releases/XXXX/clear/ where XXXX is a Clear
-   Linux release number. Just download the image alongside the
-   ``create_pxe.sh`` script and name it ``provision.img``.
+#. Install ``ICIS`` by following the getting started guide on GitHub.
    
-#. Stage config files for ``ister`` that will govern Ister's behavior. This
+#. Stage config files for ``Ister`` that will govern Ister's behavior. This
    includes modifying the script for ipxe boot, getting it to pass an
    additional parameter to the kernel.
 
@@ -151,6 +113,40 @@ single machine, but can be hosted anywhere visible to PXE clients.
 #. Boot an iPXE client and watch Clear Linux install.
 
 
-.. _icis: https://github.com/clearlinux/ister-cloud-init-svc
-.. _cloud-init: https://cloudinit.readthedocs.io
+
+Data centers have a need to install and configure new instances of operating
+systems in bulk. When managing new computers or hardware upgrades in bulk, data
+center administrators need tooling for making changes with minimal effort.
+
+The bulk provisioning scenario is a continuation of the :ref:`network_boot`
+scenario.  After a network boot occurs, ``ister`` provides automation for this
+task using `cloud-init`_ files by performing the following steps:
+
+#. Finding cloud-init files
+#. Creating a `micro-config-drive`_ (ucf) to store the cloud-init files
+#. Creating a systemd service which runs at first reboot to apply the
+   configurations defined by the cloud-init files
+#. Reboots the machine to run the systemd service
+
+At this point, the machine has been rebooted twice, once to perform a network
+boot and once again to apply cloud-init configurations. Afte the second reboot,
+the machine can enter into a mode ready to be managed with Ansible.
+
+The ister cloud init service (`icis`_) is used by ister to host the cloud-init
+configurations.  Ister can be directed to look for cloud-init configurations
+hosted by icis.
+
+One nice attribute of this system is that once the iPXE bits are created, many
+installer behaviors can be configured without having to regenerate the iPXE
+bits.
+
+.. _Ister:
+   https://github.com/bryteise/ister
+
+.. _Ister Cloud Init Service:
+   https://github.com/clearlinux/ister-cloud-init-svc
+
+.. _cloud-init:
+   https://cloud-init.io/
+
 .. _micro-config-drive: https://github.com/clearlinux/micro-config-drive
