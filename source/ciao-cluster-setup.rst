@@ -453,7 +453,7 @@ Reset your cluster
 First you should delete all instances with the `ciao-cli`_ command line
 tool::
 
-  $ ciao-cli -delete-instance -all-instances
+  $ ciao-cli instance delete -all
 
 On your scheduler node, run the following command::
 
