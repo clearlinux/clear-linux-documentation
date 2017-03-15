@@ -13,7 +13,14 @@ such as HTTP, iSCIS, :abbr:`AoE (ATA over Ethernet)`, and
 :abbr:`FCoE (Fiber Channel over Ethernet)`. iPXE can also be used to enable
 network-booting computers which lack built-in PXE support.
 
-This guide covers how to boot |CL| with iPXE using
+Figure 1 depicts the flow of information between a PXE server and a PXE client that needs to be set up to network boot |CL|.
+
+.. figure:: _static/images/network-boot-flow.png
+   :alt: PXE information flow
+
+   Figure 1: PXE information flow
+
+This guide covers how to network boot |CL| with iPXE using
 :abbr:`NAT (network address translation)`.
 
 Prerequisites
@@ -34,12 +41,12 @@ made:
    The secure boot option must be disabled because the UEFI binaries used to
    boot the |CLOSIA| are not signed.
 
-The required computer and network setup are depicted in figure 1.
+The required computer and network setup are depicted in figure 2.
 
 .. figure:: _static/images/network-boot-setup.png
    :alt: NAT network topology
 
-   Figure 1: NAT network topology
+   Figure 2: NAT network topology
 
 Configuration
 =============
@@ -49,13 +56,6 @@ The configuration to boot using iPXE has been automated with the
 `Ister Cloud Init Service`_, thus quickly enabling a bulk provisioning
 setup. Before running the configuration script, modify
 :file:`parameters.conf` with your specific configurations.
-
-Figure 2 depicts the information flow enabled by the configuration script.
-
-.. figure:: _static/images/network-boot-flow.png
-   :alt: PXE information flow
-
-   Figure 2: PXE information flow
 
 #. Define the variables used to parameterize the configuration of an iPXE
    boot.
