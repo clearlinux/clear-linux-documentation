@@ -3,31 +3,38 @@
 containers-basic
 ################
 
-Overview
-========
-
 The `containers-basic` bundle adds the necessary tools to enable running
-containers using Docker*. The bundle includes Intel® Clear Containers as an
+containers using Docker*. The bundle includes Intel® |CC| as an
 additional Docker runtime.
 
-Clear Containers enables a hardware backed Virtual Machine (VM) based container
-runtime, compared with the normal software namespace containers provided by
-standard Docker `runc` runtime.
+|CC| enable a hardware backed :abbr:`VM (Virtual Machine)` based
+container runtime, compared with the normal software namespace containers
+provided by standard Docker `runc` runtime.
 
 Default runtime
 ===============
-If your system has `VT-x` enabled then, under Clear Linux,  Clear Containers
-will be used as the default Docker runtime, otherwise the standard Docker
+If your system has `VT-x` enabled, then, under |CL|, |CC|
+will be used as the default Docker runtime, otherwise, the standard Docker
 `runc` runtime will be used.
 
+To identify which runtimes are available and which is being used as
+the default on your installed system, run the following command.
 
-To identify which runtimes are available, as well as which  is being used as
-the default on your installed system, you can run the following command. Clear
-Containers runtime will be listed as `cor`::
+.. code-block:: console
 
-    $ sudo docker info | grep Runtime
+   sudo docker info | grep Runtime
 
-For more information on Clear Containers please see the `Clear Containers runtime github`_.
+The |CC| runtime will be listed as `cor`.
+
+.. note::
+
+   If you are behind an HTTP proxy server, for example in a corporate
+   setting, please follow the `Docker proxy instructions`_.
+
+For more information on |CC| please see the
+`Clear Containers runtime Github`_.
 
 .. _Clear Containers runtime github: https://github.com/01org/cc-oci-runtime
 
+.. _Docker proxy instructions:
+   https://docs.docker.xom/engine/admin/systemd/#http-proxy
