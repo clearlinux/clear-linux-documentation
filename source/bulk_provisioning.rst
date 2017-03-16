@@ -3,13 +3,13 @@
 Bulk Provisioning
 #################
 
-Clear Linux* Project for Intel® Architecture can be automatically provisioned in
-bulk using a combination of `Ister`_ and the `Ister Cloud Init Service`_ (ICIS).
+|CLOSIA| can be automatically provisioned in bulk using a combination of
+Ister and :abbr:`ICIS (Ister Cloud Init Service)`.
 
-Configurations for a bulk provision are made by defining `cloud-init`_ files and
-Ister configuration files and hosting them with ``ICIS`` so that ``Ister`` can
-use them during the install process.  Ister configuration files provide a way to
-customize the install and cloud-init files provide a way to customize the
+Configurations for a bulk provision are made by defining Ister configuration
+files and cloud-init files.  By hosting them with ``ICIS``, ``Ister`` can
+use them during the install process.  Ister configuration files provide a way
+to customize the install and cloud-init files provide a way to customize the
 instance of the install.
 
 The following diagram depics the flow of information between a PXE server and a
@@ -20,133 +20,136 @@ PXE client that needs to be set up to perform a bulk provision.
 
    Figure 1: Bulk provision information flow
 
-This guide covers how to perform a bulk provision with ``Ister`` and ``ICIS``.
+This guide covers how to perform a bulk provision of |CL| with ``Ister`` and
+``ICIS``.
 
 Prerequisites
 =============
 
-Before performing a bulk provision, verify that you have a PXE server capable of
-performing network boots of the latest release.  Reference :ref:`network_boot`
-for a guide on how to perform an iPXE boot using network address translation
-(NAT).
+Before performing a bulk provision, verify that you have a PXE server capable
+of performing network boots of |CL|.  Reference
+:ref:`network_boot` for a guide on how to perform an iPXE boot using
+:abbr:`NAT (network address translation)`.
+
+Because a bulk provision relies on a reboot, some additional requirements must
+be met:
+
+* Any existing disks must not be bootable
+* The boot order for the computer performing an install must have the network
+  boot option come immediately after the disk boot option
 
 Configuration
 =============
 
-#. Install ``ICIS`` by following the getting started guide on GitHub.
+#. Install ``ICIS`` by following the getting started guide on the `ICIS GitHub
+   repository`_.
+
+#. Create an Ister install file and save it to the ``static/ister``
+   directory within the web hosting directory for ``ICIS``.  This
+   install file is a block of JSON and describes to ``Ister`` how to
+   perform an installation.  It outlines what partitions, file systems, and
+   mount points ``Ister`` should set up. It also outlines what bundles to
+   install.  Reference :ref:`bundles_overview` for a list of installable
+   bundles.  An Ister install file may look like the example below:
+
+   .. code-block:: json
+
+      {
+          "DestinationType":"physical",
+          "PartitionLayout":[
+              {"disk":"sda", "partition":1, "size":"512M", "type":"EFI"},
+              {"disk":"sda", "partition":2, "size":"512M", "type":"swap"},
+              {"disk":"sda", "partition":3, "size":"rest", "type":"linux"}
+          ],
+          "FilesystemTypes":[
+              {"disk":"sda", "partition":1, "type":"vfat"},
+              {"disk":"sda", "partition":2, "type":"swap"},
+              {"disk":"sda", "partition":3, "type":"ext4"}
+          ],
+          "PartitionMountPoints":[
+              {"disk":"sda", "partition":1, "mount":"/boot"},
+              {"disk":"sda", "partition":3, "mount":"/"}
+          ],
+          "Version":"latest",
+          "Bundles":[
+              "kernel-native",
+              "os-core",
+              "os-core-update",
+              "os-cloudguest"
+          ],
+          "IsterCloudInitSvc":"http://192.168.1.1:60000/icis/"
+      }
+
+   .. important::
+
+      Every Ister install file hosted by ``ICIS`` must contain the the
+      ``IsterCloudInitSvc`` parameter as well as the ``os-cloudguest`` bundle.
+      These allow ``Ister`` to customize an instance of of an install.
+
+#. Create an Ister configuration file that defines the location of the Ister
+   install file.  Save it to the ``static/ister`` directory within the web
+   hosting directory for ``ICIS``.  An Ister configuration file may look like
+   the example below:
+
+   .. code-block::
+
+      template=http://192.168.1.1:60000/icis/static/ister/ister.json
+
+#. Direct ``Ister`` to the location of the Ister configuration file as hosted
+   by ``ICIS`` by modifying the kernel command line of the iPXE boot script
+   and adding an ``isterconf`` parameter.  After the network image of |CL|
+   boots, ``Ister`` inspects the parameters used for network booting to find
+   the location of the Ister configuration file.  With the ``isterconf``
+   parameter an iPXE boot script may look like the example below:
+
+   .. code-block::
+
+      #!ipxe
+      kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1:60000/icis/static/ister/ister.conf
+      initrd initrd
+      boot
+
+#. Create a cloud-init file that will customize the instance of the install.
+   The `cloud-init Read the Docs`_ provides a guide on what may be configured
+   after an install.  Save it to the ``static/roles`` directory within the web
+   hosting directory for ``ICIS``.  Give the cloud-init file a name that
+   resembles a role.  For example, a role may be "compute" or "web" or "ciao".
+
+#. After creating roles (cloud-init files), define which roles to apply to
+   which PXE clients by mapping them to the corrpsoinding MAC addresses of the
+   PXE clients.  Define the mapping by modifying the :file:`config.txt` file
+   in the ``static`` directory within the web hosting directory for ``ICIS``.
+   A mapping may look like the example below:
+
+   .. code-block::
+
+      # MAC address,role
+      00:01:02:03:04:05,ciao
+
+   If the MAC address of a PXE client is not found within the
+   :file:`config.txt` file, a default role mapping may be defined for un-
+   mapped MAC addresses as follows:
+
+   .. code-block::
+
+      # MAC address,role
+      default,ciao
+
+#. Verify that the following URLs are accessible:
    
-#. Stage config files for ``Ister`` that will govern Ister's behavior. This
-   includes modifying the script for ipxe boot, getting it to pass an
-   additional parameter to the kernel.
-
-   The magic that ties all of this together is that the pxe script conveys to
-   ister the location of its configuration files via the kernel command line
-   of the installer it kicks off. The kernel preserves its command line
-   precisely, and ister inspects it via ``/proc/cmdline``.
-
-   Here is an example pxe script:
-
-   .. code-block:: console
-
-    #!ipxe
-    kernel linux quiet rdinit=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable 
-    no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1/icis/static/ister/ister.conf
-    initrd initrd
-    boot  
-
-   When the pxe installer kicks off ``ister``, it will make note of the
-   location of the ``conf`` file that was given on the kernel command line, and
-   fetch the file. This file then tells ``ister`` where to get the json
-   template file that describes partition schemes, and which version of Clear
-   Linux to install. This means that so long as the contents of a release are
-   compatible with the version of software update (``swupd``) in the installer,
-   this pxe installer can be told to install a newer version of Clear Linux
-   simply by tweaking the json on the web server, rather than rolling an
-   entirely new installer.
-
-   One other important piece of configuration data in the json configuration
-   file is the location of an ICIS configuration service. Ister will query
-   ICIS for a role using the MAC address of the network interface being used
-   to communicate with the ICIS service. Ister will then fetch that specific
-   :file:`cloud-init` file and ``configure ucd`` to run on first-boot against
-   that config file.
-
-   The `Ister Cloud Init Service <https://github.com/clearlinux/ister-cloud-init-svc>`_ github repo 
-   has example ister configuration files under ``static/ister``.
-
-   Here is an example ister-template.json file.
-
-   .. code-block:: console
-
-    {
-      "DestinationType" : "phyiscal",
-      "PartitionLayout" : [ { "disk" : "/dev/sda", "partition" : 1,
-                              "size" : "64M", "type" : "EFI" },
-                            { "disk" : "/dev/sda", "partition" : 2,
-                              "size" : "2G", "type" : "linux" } ],
-      "FilesystemTypes" : [ { "disk" : "/dev/sda", "partition" : 1, "type" : "vfat" },
-                            { "disk" : "/dev/sda", "partition" : 2, "type" : "ext4" } ],
-      "PartitionMountPoints" : [ { "disk" : "/dev/sda", "partition" : 1,
-                                   "mount" : "/boot" },
-                                 { "disk" : "/dev/sda", "partition" : 2,
-                                   "mount" : "/" } ],
-      "Version": 6580,
-      "Bundles": ["kernel-native", "os-core-update", "os-core",
-                  "bootloader", "sysadmin-hostmgmt", "openssh-server"],
-      "PostNonChroot": ["./installation-image-post-update-version.py"],
-      "IsterCloudInitSvc": ["http://192.168.1.1/icis/"]
-    }
-
-#. Configure ICIS to map MAC addresses to role files appropriately. Then create the role files, which 
-   are ``cloud-init`` configuration files. Note, it is possible to simply specify a "default" role for 
-   any unmatched MAC address; this may be handy when all install targets are to be configured identically.
-
-#. Final pre-flight check. Assuming your iPXE server is at 192.168.1.1, all of the
-   following urls need to be working:
-
    * http://192.168.1.1/icis/static/ister/ister.conf
-   * http://192.168.1.1/icis/static/ister/ister_config.json
-   * http://192.168.1.1/icis/get_config/<MAC ADDR>
-   * http://192.168.1.1/icis/get_role/<role returned from previous url>
-   * http://192.168.1.1/ipxe_boot_script.txt
+   * http://192.168.1.1/icis/static/ister/ister.json
+   * http://192.168.1.1/icis/get_config/<MAC address>
+   * http://192.168.1.1/icis/get_role/<role>
+   * http://192.168.1.1/ipxe/ipxe_boot_script.txt
 
-#. Boot an iPXE client and watch Clear Linux install.
+#. Power on the PXE client and watch it boot and install |CL|.
+   
+Congratulations! You have successfully performed a bulk provision of |CL|.
 
 
-
-Data centers have a need to install and configure new instances of operating
-systems in bulk. When managing new computers or hardware upgrades in bulk, data
-center administrators need tooling for making changes with minimal effort.
-
-The bulk provisioning scenario is a continuation of the :ref:`network_boot`
-scenario.  After a network boot occurs, ``ister`` provides automation for this
-task using `cloud-init`_ files by performing the following steps:
-
-#. Finding cloud-init files
-#. Creating a `micro-config-drive`_ (ucf) to store the cloud-init files
-#. Creating a systemd service which runs at first reboot to apply the
-   configurations defined by the cloud-init files
-#. Reboots the machine to run the systemd service
-
-At this point, the machine has been rebooted twice, once to perform a network
-boot and once again to apply cloud-init configurations. Afte the second reboot,
-the machine can enter into a mode ready to be managed with Ansible.
-
-The ister cloud init service (`icis`_) is used by ister to host the cloud-init
-configurations.  Ister can be directed to look for cloud-init configurations
-hosted by icis.
-
-One nice attribute of this system is that once the iPXE bits are created, many
-installer behaviors can be configured without having to regenerate the iPXE
-bits.
-
-.. _Ister:
-   https://github.com/bryteise/ister
-
-.. _Ister Cloud Init Service:
+.. _ICIS GitHub repository:
    https://github.com/clearlinux/ister-cloud-init-svc
 
-.. _cloud-init:
-   https://cloud-init.io/
-
-.. _micro-config-drive: https://github.com/clearlinux/micro-config-drive
+.. _cloud-init Read the Docs:
+   https://cloudinit.readthedocs.io
