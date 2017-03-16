@@ -144,7 +144,9 @@ Configuration
    * http://192.168.1.1/ipxe/ipxe_boot_script.txt
 
 #. Power on the PXE client and watch it boot and install |CL|.
-   
+
+#. Power-cycle the PXE client and watch it customize the install of |CL|.
+
 Congratulations! You have successfully performed a bulk provision of |CL|.
 
 
