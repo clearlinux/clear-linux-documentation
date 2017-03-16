@@ -39,19 +39,22 @@ privileges on the cluster nodes.
 
 Configure your cluster setup
 ============================
-The deployment node requires the following software to be installed:
-  * ansible>=2.2.1.0
+Ensure the following packages are installed before running the deployment
+node:
+
+  * ansible version 2.2.1.0 or higher
   * openstackclient
   * python-netaddr
   * gcc
-  * go>=1.7
+  * go version 1.7 or higher
   * git
 
-You can install all of them with the following command
+Install all of the needed packages with the following command:
 
 .. code-block:: console
 
-   # swupd bundle-add sysadmin-hostmgmt c-basic go-basic openstack-python-clients
+   # swupd bundle-add sysadmin-hostmgmt c-basic go-basic
+   openstack-python-clients
 
 
 You will need to download the ciao example deployment as follows:
@@ -87,7 +90,9 @@ https://github.com/01org/ciao/tree/master/_DeploymentAndDistroPackaging/ansible/
 
 Run the playbook
 ================
-Once the variables and hosts file are configured, start the deployment:
+
+After the variables and the :file:`hosts` file are configured, start the
+deployment with the following commands:
 
 .. code-block:: console
 
