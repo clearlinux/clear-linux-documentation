@@ -49,12 +49,12 @@ node:
   * go version 1.7 or higher
   * git
 
-Install all of the needed packages with the following command:
+Install all of the needed packages with the following commands:
 
 .. code-block:: console
 
    # swupd bundle-add sysadmin-hostmgmt c-basic go-basic
-   openstack-python-clients
+   # pip2 install python-keystoneclient
 
 
 You will need to download the ciao example deployment as follows:
