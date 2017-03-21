@@ -8,5 +8,6 @@ Getting started
    gs_supported_hardware
    gs_creating_bootable_usb
    gs_installing_clr_as_host
+   gs_clear-linux-kernels
 
 
