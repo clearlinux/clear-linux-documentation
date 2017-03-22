@@ -12,8 +12,8 @@ use them during the install process.  Ister configuration files provide a way
 to customize the install and cloud-init files provide a way to customize the
 instance of the install.
 
-The following diagram depics the flow of information between a PXE server and a
-PXE client that needs to be set up to perform a bulk provision.
+Figure 1 depics the flow of information between a PXE server and a PXE client
+that needs to be set up to perform a bulk provision.
 
 .. figure:: _static/images/bulk-provision-flow.png
    :alt: Bulk provision information flow
@@ -31,8 +31,8 @@ of performing network boots of |CL|.  Reference
 :ref:`network_boot` for a guide on how to perform an iPXE boot using
 :abbr:`NAT (network address translation)`.
 
-Because a bulk provision relies on a reboot, some additional requirements must
-be met:
+Because a bulk provision relies on a reboot, ensure the following preparations
+have been made:
 
 * Any existing disks must not be bootable
 * The boot order for the computer performing an install must have the network
@@ -44,13 +44,13 @@ Configuration
 #. Install ``ICIS`` by following the getting started guide on the `ICIS GitHub
    repository`_.
 
-#. Create an Ister install file and save it to the ``static/ister``
-   directory within the web hosting directory for ``ICIS``.  This
-   install file is a block of JSON and describes to ``Ister`` how to
-   perform an installation.  It outlines what partitions, file systems, and
-   mount points ``Ister`` should set up. It also outlines what bundles to
-   install.  Reference :ref:`bundles_overview` for a list of installable
-   bundles.  An Ister install file may look like the example below:
+#. Create an Ister install file and save it to the ``static/ister`` directory
+   within the web hosting directory for ``ICIS``.  This install file is a block
+   of JSON and describes how ``Ister`` needs to perform an installation.  It
+   outlines what partitions, file systems, and mount points ``Ister`` should
+   set up. It also outlines what bundles to install.  Reference
+   :ref:`bundles_overview` for a list of installable bundles.  An Ister install
+   file may look like the example below:
 
    .. code-block:: json
 
@@ -95,12 +95,12 @@ Configuration
 
       template=http://192.168.1.1:60000/icis/static/ister/ister.json
 
-#. Direct ``Ister`` to the location of the Ister configuration file as hosted
-   by ``ICIS`` by modifying the kernel command line of the iPXE boot script
-   and adding an ``isterconf`` parameter.  After the network image of |CL|
-   boots, ``Ister`` inspects the parameters used for network booting to find
-   the location of the Ister configuration file.  With the ``isterconf``
-   parameter an iPXE boot script may look like the example below:
+#. Direct ``Ister`` to the location of the Ister configuration file hosted by
+   ``ICIS`` by modifying the kernel command line of the iPXE boot script and
+   adding an ``isterconf`` parameter.  After the network image of |CL| boots,
+   ``Ister`` inspects the parameters used for network booting to find the
+   location of the Ister configuration file.  With the ``isterconf`` parameter
+   an iPXE boot script may look like the example below:
 
    .. code-block::
 
@@ -113,7 +113,7 @@ Configuration
    The `cloud-init Read the Docs`_ provides a guide on what may be configured
    after an install.  Save it to the ``static/roles`` directory within the web
    hosting directory for ``ICIS``.  Give the cloud-init file a name that
-   resembles a role.  For example, a role may be "compute" or "web" or "ciao".
+   resembles a role.  For example, a role may be "database" or "web" or "ciao".
 
 #. After creating roles (cloud-init files), define which roles to apply to
    which PXE clients by mapping them to the corrpsoinding MAC addresses of the
@@ -137,11 +137,11 @@ Configuration
 
 #. Verify that the following URLs are accessible:
    
-   * http://192.168.1.1/icis/static/ister/ister.conf
-   * http://192.168.1.1/icis/static/ister/ister.json
-   * http://192.168.1.1/icis/get_config/<MAC address>
-   * http://192.168.1.1/icis/get_role/<role>
-   * http://192.168.1.1/ipxe/ipxe_boot_script.txt
+   * http://192.168.1.1:60000/icis/static/ister/ister.conf
+   * http://192.168.1.1:60000/icis/static/ister/ister.json
+   * http://192.168.1.1:60000/icis/get_config/<MAC address>
+   * http://192.168.1.1:60000/icis/get_role/<role>
+   * http://192.168.1.1:60000/ipxe/ipxe_boot_script.txt
 
 #. Power on the PXE client and watch it boot and install |CL|.
 
