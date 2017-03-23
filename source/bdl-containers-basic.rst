@@ -27,7 +27,7 @@ the default on your installed system, run the following command.
 The |CC| runtime will be listed as `cor`.
 
 For more information on |CC| please see the
-`Clear Containers runtime Github`_.
+`Clear Containers runtime GitHub`_.
 
 Working with a proxy
 ====================
@@ -35,7 +35,7 @@ Working with a proxy
 If you are behind an HTTP proxy server, in a corporate
 setting for example, please follow the `Docker proxy instructions`_.
 
-.. _Clear Containers runtime github: https://github.com/01org/cc-oci-runtime
+.. _Clear Containers runtime GitHub: https://github.com/01org/cc-oci-runtime
 
 .. _Docker proxy instructions:
    https://docs.docker.xom/engine/admin/systemd/#http-proxy
