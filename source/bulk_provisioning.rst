@@ -136,7 +136,7 @@ Configuration
       default,ciao
 
 #. Verify that the following URLs are accessible:
-   
+
    * http://192.168.1.1:60000/icis/static/ister/ister.conf
    * http://192.168.1.1:60000/icis/static/ister/ister.json
    * http://192.168.1.1:60000/icis/get_config/<MAC address>
