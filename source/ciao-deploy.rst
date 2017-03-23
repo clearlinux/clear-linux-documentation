@@ -36,13 +36,27 @@ that, configure a user for passwordless SSH connections from the deployment
 container to the cluster nodes. This user must also have passwordless sudo
 privileges on the cluster nodes.
 
-This guide uses a Docker* container to provide all the needed deployment tools;
-in order to use it, you will need Docker in the machine you're using to orchestrate
-your deployment.
-
 
 Configure your cluster setup
 ============================
+Ensure the following packages are installed before running the deployment
+node:
+
+  * ansible version 2.2.1.0 or higher
+  * openstackclient
+  * python-netaddr
+  * gcc
+  * go version 1.7 or higher
+  * git
+
+Install all of the needed packages with the following commands:
+
+.. code-block:: console
+
+   # swupd bundle-add sysadmin-hostmgmt c-basic go-basic
+   # pip2 install python-keystoneclient
+
+
 You will need to download the ciao example deployment as follows:
 
 .. code-block:: console
@@ -73,40 +87,16 @@ A full list of available variables can be found in the
 :file:`defaults/main.yml` file of each role at
 https://github.com/01org/ciao/tree/master/_DeploymentAndDistroPackaging/ansible/roles.
 
-To start your cluster setup, we provide a ready-to-use Docker container.
-Simply download it and run your setup:
-
-.. code-block:: console
-
-   $ docker pull clearlinux/ciao-deploy
-
-
-You can later launch the container with:
-
-.. code-block:: console
-
-   $ docker run --privileged -v /dev/:/dev/
-                -v /path/to/your/.ssh/key:/root/.ssh/id_rsa \
-                -v $(pwd)/ciao:/root/ciao \
-                -it clearlinux/ciao-deploy
-
-.. note::
-
-  The cotainer needs `--privileged -v /dev/:/dev/` in order to
-  install your certificates in the `CNCI image`_.
-  To learn more about the Docker options used, please refer to the
-  `Docker* documentation`_.
-
 
 Run the playbook
 ================
-Once the variables and hosts file are configured, continue in the
-`/root/ciao/_DeploymentAndDistroPackaging/ansible` directory and
-start the deployment:
+
+After the variables and the :file:`hosts` file are configured, start the
+deployment with the following commands:
 
 .. code-block:: console
 
-   # cd /root/ciao/_DeploymentAndDistroPackaging/ansible
+   # cd ciao/_DeploymentAndDistroPackaging/ansible/
 
    # ansible-playbook -i hosts ciao.yml \
        --private-key=~/.ssh/id_rsa \
