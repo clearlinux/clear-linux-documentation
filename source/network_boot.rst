@@ -184,7 +184,7 @@ repository`_.
       Address=$pxe_internal_ip/$pxe_subnet_bitmask
       EOF
 
-      systemctl restart systemd-networkd    
+      systemctl restart systemd-networkd
 
 #. Configure NAT to route traffic from the private network to the public
    network, effectively turning the PXE server into a router.  Persist these
@@ -230,7 +230,7 @@ repository`_.
    network will use this IP address to access these functions.
 
    .. code-block:: console
-      
+
       cat > /etc/dnsmasq.conf << EOF
       listen-address=$pxe_internal_ip
       EOF
@@ -297,7 +297,7 @@ repository`_.
    .. note::
 
 #. Start ``systemd-resolved``.
-   
+
    .. code-block:: console
 
       systemctl start systemd-resolved
