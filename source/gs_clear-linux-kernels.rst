@@ -29,8 +29,8 @@ Kernel KVM
 
 This bundle is focuses on Linux :abbr:`KVM (Kernel-based Virtual Machine)`.
 It is optimized for fast boot, and best performance in Virtual Machines
-running on Intel architecture. It is used as the main Linux kernel from
-**Cloud Instances** in projects as `CIAO`_ and OpenStack*, and as a
+running on the :ref:`gs_supported_hardware`.It is used as the main Linux
+kernel from **Cloud Instances** in projects as `CIAO`_ and OpenStack*, and as a
 stand alone Linux VM (see :ref:`vm-kvm`). You can find the
 optimization patches in our `linux-kvm`_ GitHub* repo.
 
@@ -39,8 +39,8 @@ Kernel Hyper-V*
 
 This bundle is focuses on running Linux on Microsoft* Hyper-V*.
 It is optimized for fast boot, and best performance in Virtual Machines
-running on Intel architecture. It is used as the main Linux kernel from
-**Cloud Instances** in projects as Microsoft `Azure`_\*, and as a
+running on the :ref:`gs_supported_hardware`.It is used as the main Linux
+kernel from **Cloud Instances** in projects as Microsoft `Azure`_\*, and as a
 stand alone Linux VM (see :ref:`vm-hyper-v`). You can find the
 optimization patches in our `linux-hyperv`_ GitHub* repo.
 
@@ -50,8 +50,8 @@ Kernel Hyper-V* LTS
 This bundle is focuses on running Linux on Microsoft* Hyper-V* and use the
 lattes :abbr:`LTS (Long Term Support)` Linux kernel.
 It is optimized for fast boot, and best performance in Virtual Machines
-running on Intel architecture. It is used as the main Linux kernel from
-**Cloud Instances** in projects as Microsoft `Azure`_\*, and as a
+running on the :ref:`gs_supported_hardware`.It is used as the main Linux
+kernel from **Cloud Instances** in projects as Microsoft `Azure`_\*, and as a
 stand alone Linux VM (see :ref:`vm-hyper-v`). You can find the
 optimization patches in our `linux-hyperv-lts`_ GitHub* repo.
 
