@@ -26,13 +26,14 @@ the default on your installed system, run the following command.
 
 The |CC| runtime will be listed as `cor`.
 
-.. note::
-
-   If you are behind an HTTP proxy server, for example in a corporate
-   setting, please follow the `Docker proxy instructions`_.
-
 For more information on |CC| please see the
 `Clear Containers runtime Github`_.
+
+Working with a proxy
+====================
+
+If you are behind an HTTP proxy server, in a corporate
+setting for example, please follow the `Docker proxy instructions`_.
 
 .. _Clear Containers runtime github: https://github.com/01org/cc-oci-runtime
 
