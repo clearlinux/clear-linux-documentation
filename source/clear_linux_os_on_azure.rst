@@ -27,28 +27,29 @@ The three offerings, and the commands to launch VM instances from the command li
 
 * **Containers** - This offering comes with the containers-basic bundle already installed.
 
-* **Machine Learning** - This offering comes with the containers-basic bundle already installed.
+* **Machine Learning** - This offering comes pre-loaded with popular open
+  source tools for developing machine learning applications.
 
 Azure Command Line Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Azure Command Line Interface offers the ability to create and manage resources in Azure from the 
-command line. The examples here are based on Version 1.0 of the Azure CLI, which is implemented in 
-Javascript and distributed through the Node Package Manager. Version 2.0 of the Azure CLI is 
+The Azure Command Line Interface offers the ability to create and manage resources in Azure from the
+command line. The examples here are based on Version 1.0 of the Azure CLI, which is implemented in
+Javascript and distributed through the Node Package Manager. Version 2.0 of the Azure CLI is
 implemented in Python. This example will be updated when Azure CLI 2.0 is fully released.
 
-The following command shows the version number of the most recent images that have been uploaded 
+The following command shows the version number of the most recent images that have been uploaded
 into the Azure Marketplace.
 
 ::
 
   azure vm image list -p clear-linux-project -l westus -o clear-linux-os | grep -v "Getting" | cut -f5 -d: | sed -e 's/\s*//g'| sed -e 's/\..*//' | sort -u | tail -1
 
-The following scriplet can be used to create and start a virtual machine instance in Azure based on 
-a marketplace offering. The resource group needs to already exist. This script tries to use a 
-resource group of the form "<azure_username>-clr-vms". For example, for an Azure user named Rob 
-trying to create an instance of version ``12920`` of the ``basic`` offering for Clear Linux OS, 
-this script creates an instance with the public hostname of ``rob-12920-basic-1234``. 
+The following scriplet can be used to create and start a virtual machine instance in Azure based on
+a marketplace offering. The resource group needs to already exist. This script tries to use a
+resource group of the form "<azure_username>-clr-vms". For example, for an Azure user named Rob
+trying to create an instance of version ``12920`` of the ``basic`` offering for Clear Linux OS,
+this script creates an instance with the public hostname of ``rob-12920-basic-1234``.
 
 ::
 
@@ -61,7 +62,7 @@ this script creates an instance with the public hostname of ``rob-12920-basic-12
   # offering=containers
   # offering=machine-learning
   uniquesuffix=$((1 + RANDOM % 1000)) # More like "probably unique suffix"...
-  
+
   azure vm create --vm-size Standard_D1_v2 \
           --admin-username ${azuser} \
           --ssh-publickey-file ~/.ssh/id_rsa.pub \
@@ -87,24 +88,24 @@ this script creates an instance with the public hostname of ``rob-12920-basic-12
 SSH Sessions
 ~~~~~~~~~~~~
 
-To keep SSH sessions to Clear Linux Guests in Azure from being dropped 
-after periods of inactivity, you can give the following option to SSH via 
+To keep SSH sessions to Clear Linux Guests in Azure from being dropped
+after periods of inactivity, you can give the following option to SSH via
 the command line::
 
 	-o ServerAliveInterval=180
 
-Alternatively, you can add this setting to your SSH config file as shown 
+Alternatively, you can add this setting to your SSH config file as shown
 below::
 
 	Host *:
 		ServerAliveInterval 180
 
-.. [1] Software and workloads used in performance tests may have been optimized for 
-performance only on Intel microprocessors. Performance tests are measured using 
-specific computer systems, components, software, operations and functions. Any 
-change to any of those factors may cause the results to vary. You should consult 
-other information and performance tests to assist you in fully evaluating your 
-contemplated purchases, including the performance of that product when combined 
-with other products. For more complete information, visit 
-http://www.intel.com/performance/datacenter. Configuration: 
+.. [1] Software and workloads used in performance tests may have been optimized for
+performance only on Intel microprocessors. Performance tests are measured using
+specific computer systems, components, software, operations and functions. Any
+change to any of those factors may cause the results to vary. You should consult
+other information and performance tests to assist you in fully evaluating your
+contemplated purchases, including the performance of that product when combined
+with other products. For more complete information, visit
+http://www.intel.com/performance/datacenter. Configuration:
 Clear Linux OS release 11130 on SKU Standard_DS3_v2 in Microsoft* Azure*.
