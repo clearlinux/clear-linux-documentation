@@ -109,26 +109,28 @@ Configuration
       initrd initrd
       boot
 
-#. Create a cloud-init file that will customize the instance of the install.
-   The `cloud-init Read the Docs`_ provides a guide on what may be configured
-   after an install.  Save it to the ``static/roles`` directory within the web
-   hosting directory for ``ICIS``.  Give the cloud-init file a name that
-   resembles a role.  For example, a role may be "database" or "web" or "ciao".
+#. Write a cloud-init document that will customize the instance of the install
+   according to your requirements.  The `cloud-init Read the Docs`_ provides a
+   guide on how to write a cloud-init document.  The guide covers what cloud-init
+   is capable of customizing after an install.
 
-#. After creating roles (cloud-init files), define which roles to apply to
-   which PXE clients by mapping them to the corrpsoinding MAC addresses of the
-   PXE clients.  Define the mapping by modifying the :file:`config.txt` file
-   in the ``static`` directory within the web hosting directory for ``ICIS``.
-   A mapping may look like the example below:
+#. Save the cloud-init document to the ``static/roles`` directory within the
+   web hosting directory for ``ICIS`` with the name of a role you would like
+   to create. For example, a role may be "database" or "web" or "ciao".
+
+#. After creating roles, also known as cloud-init files, assign roles to MAC
+   addresses of PXE clients by modifying the :file:`config.txt` file in the
+   ``static`` directory within the web hosting directory for ``ICIS``. An
+   assignment may look like the example below:
 
    .. code-block::
 
       # MAC address,role
       00:01:02:03:04:05,ciao
 
-   If the MAC address of a PXE client is not found within the
-   :file:`config.txt` file, a default role mapping may be defined for un-
-   mapped MAC addresses as follows:
+   If MAC addresses of PXE clients are not listed within the
+   :file:`config.txt` file, a default role for those MAC address may be defined
+   as follows:
 
    .. code-block::
 
