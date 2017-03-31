@@ -95,12 +95,11 @@ Configuration
 
       template=http://192.168.1.1:60000/icis/static/ister/ister.json
 
-#. Direct ``Ister`` to the location of the Ister configuration file hosted by
-   ``ICIS`` by modifying the kernel command line of the iPXE boot script and
-   adding an ``isterconf`` parameter.  After the network image of |CL| boots,
-   ``Ister`` inspects the parameters used for network booting to find the
-   location of the Ister configuration file.  With the ``isterconf`` parameter
-   an iPXE boot script may look like the example below:
+#. Add a kernel parameter to the command line for booting the network image by
+   modifying the iPXE boot script.  The kernel parameter name to add is
+   isterconf and the karnel parameter value to assign is the location of the
+   Ister configuration file hosted by ``ICIS``.  With the ``isterconf``
+   parameter, an iPXE boot script may look like the example below:
 
    .. code-block::
 
@@ -108,6 +107,12 @@ Configuration
       kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1:60000/icis/static/ister/ister.conf
       initrd initrd
       boot
+
+   .. note::
+
+      After the network image of |CL| boots, ``Ister`` inspects the parameters
+      used during boot in :file:`/proc/cmdline` to find the location of the
+      Ister configuration file.
 
 #. Write a cloud-init document that will customize the instance of the install
    according to your requirements.  The `cloud-init Read the Docs`_ provides a
