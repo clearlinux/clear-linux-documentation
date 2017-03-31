@@ -145,9 +145,9 @@ repository`_.
 
    .. note::
 
-     The configuration file for nginx is written to not clobber any existing
-     nginx configurations by hosting network-bootable images on a different
-     port.
+      Creating a separate configuration file for ``nginx`` to serve network-
+      bootable images on a non-standard port number preserves existing nginx
+      configurations.
 
 #. Start ``nginx`` and enable startup on boot.
 
@@ -293,8 +293,6 @@ repository`_.
 
       systemctl enable dnsmasq
       systemctl restart dnsmasq
-
-   .. note::
 
 #. Start ``systemd-resolved``.
 
