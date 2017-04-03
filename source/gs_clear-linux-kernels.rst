@@ -26,7 +26,7 @@ kernel includes the VirtualBox\* kernel modules, see our
 The optimization patches are found in our `Linux-LTS`_ GitHub repo.
 
 Kernel KVM
-=============
+==========
 
 The ``kernel-kvm`` bundle focuses on the Linux
 :abbr:`KVM (Kernel-based Virtual Machine)`. It is optimized for fast booting
@@ -53,7 +53,7 @@ more information. The optimization patches are found in our `Linux-HyperV`_
 GitHub repo.
 
 Kernel Hyper-V LTS
-====================
+==================
 
 The ``kernel-hyperv-lts`` bundle focuses on running Linux on Microsoft
 Hyper-V but uses the latest :abbr:`LTS (Long Term Support)` Linux kernel. It
@@ -66,11 +66,22 @@ alone Linux VM, see our :ref:`instructions on using Hyper-V<vm-hyper-v>` for
 more information. The optimization patches are found in our
 `Linux-HyperV-LTS`_ GitHub repo.
 
+Kernel Container
+================
+
+The ``kernel-container`` bundle contains the kernel used by
+`Intel® Clear Containers <https://clearlinux.org/features/intel%C2%AE-clear-containers>`_
+project on |CL|. This kernel is optimized for fast booting
+and performs best on |CC| running on the Intel® architectures described on the
+:ref:`supported hardware list<gs_supported_hardware>`.
+The optimization patches are found in our `Linux-Container`_ GitHub repo.
+
 .. _Linux: https://github.com/clearlinux-pkgs/linux
 .. _Linux-LTS: https://github.com/clearlinux-pkgs/linux-lts
 .. _Linux-KVM: https://github.com/clearlinux-pkgs/linux-kvm
 .. _Linux-HyperV: https://github.com/clearlinux-pkgs/linux-hyperv
 .. _Linux-HyperV-LTS: https://github.com/clearlinux-pkgs/linux-hyperv-lts
+.. _Linux-Container: https://github.com/clearlinux-pkgs/linux-container
 .. _bundles: https://github.com/clearlinux/clr-bundles
 .. _CIAO: https://github.com/01org/ciao
 .. _Azure:
