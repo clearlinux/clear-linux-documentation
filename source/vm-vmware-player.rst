@@ -38,16 +38,20 @@ Follow the instructions from the Setup Assistant.
 Prepare Image
 =============
 
-#. Download the `latest`_ Clear Linux OS for Intel Architecture **live** 
-   disk image, named ``[clear-[version_number]-live.img.xz]``.
+#. Download the `latest`_ |CL| **live** version (clear-XXXX-live.img.xz)
 
-#. Decompress the image. Uncompressed image size ~ **5GB**.
+#. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
-   * On Linux ::
+   + On Linux ::
 
-        $ unxz clear-VERSION-live.img.xz
+       $ xz -d clear-XXXX-live.img.xz
 
-   * On Windows you can use `7zip`_.
+   + On Windows you can use `7zip`_.
+
+     - Right-click the file to *extract in the same directory*.
+
+       .. image:: _static/images/7zipwin.png
+          :alt: 7zip extract here command
 
 #. Convert the installer to :abbr:`VMDK (Virtual Machine Disk)` format.
 
@@ -55,8 +59,10 @@ Prepare Image
 
       $ qemu-img convert -O vmdk clear-VERSION-live.img clear.vmdk
 
-   * On Windows, you can convert the live image to vmdk format (from raw format to vmdk)
-    with a tool like VBoxManage from `VirtualBox`_.
+   * On Windows, you can convert the live image to VMDK format
+     (from RAW format to VMDK) with a tool like *VBoxManage* from
+     `VirtualBox`_. You can refer on
+     :ref:`how to create a VM on VirtualBox <create_vm_vbox>` as example.
 
 
 Run using VMware* Player
@@ -85,8 +91,8 @@ Run using VMware* Player
    * Remove any default attached hard disk.
    * Click on “Add” option below devices list tab and choose Hard disk.
 
-      * Choose **SATA** as the virtual disk type.
-      * Use the existing Clear Linux OS for Intel Architecture virtual disk
+     * Choose **SATA** as the virtual disk type.
+     * Use the existing Clear Linux OS for Intel Architecture virtual disk
 
      The live disk must be set as ``SATA 0:1 Hard Disk (SATA)``; you can verify
      this under the “Advanced" section of the disk settings.
