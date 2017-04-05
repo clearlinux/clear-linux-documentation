@@ -928,7 +928,7 @@ Current list of available bundles as of ``[[15 February 2017]]``.
             <li>Includes (os-dev-extras) bundle.</li></p></td>
       </tr>
       <tr>
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/stream">stream</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/stream-server">stream-server</a></td>
         <td class="bundlestatus">WIP</td>
         <td class="bundledesc"><p>Run an audio or visual streaming server</p></td>
       </tr>
