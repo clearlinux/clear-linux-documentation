@@ -24,6 +24,8 @@ the :abbr:`AVX (Advanced Vector Extensions)` needed to run
 |CLOSIA|
 
 
+.. _create_vm_vbox:
+
 Create a virtual machine in VirtualBox
 ======================================
 
