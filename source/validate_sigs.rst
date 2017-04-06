@@ -91,7 +91,7 @@ these steps manually when performing a ``swupd update``.
       integrity of the certificate does not require validation; it is already
       trusted.
 
-   .. note::
+   .. important::
 
       The certificate used by ``swupd`` and the certificate used for the
       distribution's image are different because these are different entities
