@@ -13,8 +13,8 @@ such as HTTP, iSCIS, :abbr:`AoE (ATA over Ethernet)`, and
 :abbr:`FCoE (Fiber Channel over Ethernet)`. iPXE can also be used to enable
 network booting computers which lack built-in PXE support.
 
-Figure 1 depicts the flow of information between a PXE server and a PXE client
-that needs to be created for network booting |CL|.
+Figure 1 depicts the flow of information between a PXE server and a PXE
+client that needs to be created for network booting |CL|.
 
 .. figure:: _static/images/network-boot-flow.png
    :alt: PXE information flow
@@ -55,10 +55,10 @@ Configuration
 =============
 
 The configuration process to boot using iPXE has been automated with the
-:file:`configure-ipxe.sh` script included with :abbr:`ICIS (Ister Cloud Init Service)`, thus
-quickly enabling a bulk provisioning setup.  For additional instructions on
-how to get started with the script, refer to the guide on the `ICIS GitHub
-repository`_.
+:file:`configure-ipxe.sh` script included with
+:abbr:`ICIS (Ister Cloud Init Service)`, thus quickly enabling a bulk
+provisioning setup. For additional instructions on how to get started with
+the script, refer to the guide on the `ICIS GitHub repository`_.
 
 #. Define the variables used to parameterize the configuration of an iPXE
    boot.
@@ -84,14 +84,14 @@ repository`_.
       pxe_internal_ip=$pxe_subnet.1
       pxe_subnet_mask_ip=255.255.255.0
 
-#. Add the ``pxe-server`` bundle to your system.  This bundle has all of the
+#. Add the ``pxe-server`` bundle to your system. This bundle has all of the
    files needed run a PXE server.
 
    .. code-block:: console
 
       swupd bundle-add pxe-server
 
-#. Download the latest network-bootable release of |CL|, and extract the
+#. Download the latest network-bootable release of |CL| and extract the
    files.
 
    .. code-block:: console
@@ -110,9 +110,9 @@ repository`_.
       the kernel file is named :file:`linux`, which is a symbolic link to the
       actual kernel file.
 
-#. Create an iPXE boot script. During an iPXE boot, the iPXE boot script directs
-   the PXE client to the files needed to network boot |CL|. Use the names given
-   to the initial ramdisk and kernel files.
+#. Create an iPXE boot script. During an iPXE boot, the iPXE boot script
+   directs the PXE client to the files needed to network boot |CL|. Use the
+   names previously given to the initial ramdisk and kernel files.
 
    .. code-block:: console
 
@@ -156,9 +156,9 @@ repository`_.
       systemctl start nginx
       systemctl enable nginx
 
-#. The ``pxe-server`` bundle contains a lightweight DNS server that conflicts
-   with the DNS stub listener provided by ``systemd-resolved``.  Disable the DNS
-   stub listener and temporarily stop ``systemd-resolved``.
+#. The ``pxe-server`` bundle contains a lightweight DNS server which
+   conflicts with the DNS stub listener provided by ``systemd-resolved``.
+   Disable the DNS stub listener and temporarily stop ``systemd-resolved``.
 
    .. code-block:: console
 
@@ -170,8 +170,8 @@ repository`_.
 
       systemctl stop systemd-resolved
 
-#. Assign a static IP address to the network adapter for the private network and
-   restart ``systemd-networkd``.
+#. Assign a static IP address to the network adapter for the private network
+   and restart ``systemd-networkd``.
 
    .. code-block:: console
 
@@ -187,8 +187,8 @@ repository`_.
       systemctl restart systemd-networkd
 
 #. Configure NAT to route traffic from the private network to the public
-   network, effectively turning the PXE server into a router.  Persist these
-   changes across reboots by saving the changes to the firewall.
+   network, effectively turning the PXE server into a router. To keep these
+   changes in spite of reboots, save the changes to the firewall.
 
    .. code-block:: console
 
@@ -224,10 +224,10 @@ repository`_.
       mkdir -p $tftp_root
       ln -sf /usr/share/ipxe/undionly.kpxe $tftp_root/undionly.kpxe
 
-#. The ``pxe-server`` bundle contains a lightweight TFTP, DNS, and DHCP server
-   known as ``dnsmasq``.  Create a configuration file for ``dnsmasq`` to listen
-   on a dedicated IP address for these functions.  PXE clients on the private
-   network will use this IP address to access these functions.
+#. The ``pxe-server`` bundle contains a lightweight TFTP, DNS, and DHCP
+   server known as ``dnsmasq``.  Create a configuration file for ``dnsmasq``
+   to listen on a dedicated IP address for those functions. PXE clients on
+   the private network will use this IP address to access those functions.
 
    .. code-block:: console
 
@@ -235,8 +235,8 @@ repository`_.
       listen-address=$pxe_internal_ip
       EOF
 
-#. Add to the configuration file for ``dnsmasq`` options to serve iPXE firmware
-   images to PXE clients over TFTP.
+#. Add the options to serve iPXE firmware images to PXE clients over TFTP to
+   the ``dnsmasq`` configuration file.
 
    .. code-block:: console
 
@@ -245,8 +245,8 @@ repository`_.
       tftp-root=$tftp_root
       EOF
 
-#. Add to the configuration file for ``dnsmasq`` options to host a DHCP server
-   for PXE clients.
+#. Add the options to host a DHCP server for PXE clients to the ``dnsmasq``
+   configuration file.
 
    .. code-block:: console
 
@@ -271,12 +271,12 @@ repository`_.
    * Directs PXE clients without an iPXE implementation to the TFTP server
      for acquiring architecture-specific iPXE firmware images to allow them
      to perform an iPXE boot.
-   * Is only active on the network adapter which has an IP address on the
+   * Activates only on the network adapter which has an IP address on the
      defined subnet.
    * Directs PXE clients to the DNS server.
    * Directs PXE clients to the PXE server for routing via NAT.
    * Divides the private network into two pools of IP addresses, one for
-     network booting and another for usage after boot; each with their own
+     network booting and another for usage after boot, each with their own
      lease times.
 
 #. Create a file where ``dnsmasq`` can record the IP addresses it hands
@@ -309,8 +309,8 @@ repository`_.
 
 #. Power on the PXE client and watch it boot |CL|.
 
-Congratulations!  You have successfully installed and configured a PXE server
-that can network boot PXE clients with |CL|.
+**Congratulations!** You have successfully installed and configured a PXE
+server that can network boot PXE clients with |CL|.
 
 
 .. _iPXE:
