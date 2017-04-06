@@ -1,137 +1,116 @@
 .. _validate_sigs:
 
-Validating Signatures
+Validating signatures
 #####################
 
-Clear Linux* OS for Intel® Architecture offers a way to validate signatures
-to create verified build artifacts. Validations can be obtained by users and
-by code to confirm that we are indeed dealing with official outputs.
+|CLOSIA| offers a way to validate the content of an image or an update. All
+validation of content works by creating and signing a hash. A valid signature
+creates a chain of trust.  A broken chain of trust, seen as an invalid
+signature, means the content is not valid.
 
-Multiple types of artifacts have signing/verifying:
+This guide covers how to validate the contents of an image, which is a manual
+process, and describes the automatic process ``swupd`` performs internally to
+validate an update.
 
-* Image checksums files; for example,  `release 8890`_ has 
-    * ``clear-*.img.xz`` image files, 
-    * ``clear-*.img.xz-SHA512SUMS`` checksum files, and
-    * ``clear-*.img.xz-SHA512SUMS.sig`` signature files.
-* The :command:`swupd` Manifest of Manifests (aka :abbr:`MoM (Manifest of Manifests)`)
-  ``https://download.clearlinux.org/update/8890/`` has ``Manifest.MoM``
-  and ``Manifest.MoM.sig`` signature file.
+Image content validation
+========================
 
-Verifying a Clear Linux OS for Intel Architecture image
-=======================================================
+For the outlined steps, the installer image of the latest release of |CL| is
+used for illustrative purposes. You may use any image of |CL| you choose.
 
-Verification of images is done by humans when they download an image via the following steps:
+#. Download the image, the signature of the SHA512 sum of the image, and the
+   certificate used for signing the SHA512 sum.
 
-#. Download the current ``ClearLinuxRoot.pem`` certificate; this is provided
-   with the release being downloaded. For example, if you're interested in verifying
-   the ``8970`` release, obtain the certificate from https://download.clearlinux.org/releases/8970/clear/ClearLinuxRoot.pem.
-#. Download the desired OS image, as well as the ``[image]-SHA512SUMS.sig`` file.
-#. Download and validate the release's OS ``ClearLinuxRoot.pem`` certificate:
+   .. code-block:: console
 
-     * Validate the certificate by comparing the downloaded certificate's
-       ``sha256sum`` hash with what is published here:
+      # Image
+      curl -O https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz
+      # Signature of SHA512 sum of image
+      curl -O https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig
+      # Certificate
+      curl -O https://download.clearlinux.org/releases/$(curl https://download.clearlinux.org/latest)/clear/ClearLinuxRoot.pem
 
-        .. code-block:: console
+#. Generate the SHA256 sum for the certificate.
 
-           $ sha256sum ClearLinuxRoot.pem
+   .. code-block:: console
 
-        You should see this (accurate as of 2016-06-16 00:00 UTC):
+      sha256sum ClearLinuxRoot.pem
 
-        .. code-block:: console
+#. Ensure the generated SHA256 sum of the certificate matches following
+   SHA256 sum to verify the integrity of the certificate.
 
-           4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890  ClearLinuxRoot.pem
+   .. code-block:: console
 
-     * Now we verify that the signature file is valid, which also proves
-       the OS image tarball is as trusted as the ``ClearLinuxRoot`` certificate. 
-       To do this, create the **SHA512SUMS** file of the tarball. This is the
-       content which is actually signed by the release team.
+      4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890 ClearLinuxRoot.pem
 
-        .. code-block:: console
+#. Generate the SHA512 sum of the image and save it to a file.
 
-           $ sha512sum ./[image-####].img.xz > sha512sum.out
+   .. code-block:: console
 
-     * Finally, we can use :command:`openssl` to validate the signed
-       :file:`SHA512SUMS.sig` was signed by the ``ClearLinuxRoot`` certificate:
+      sha512sum ./clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
 
-        .. code-block:: console
+   .. important::
 
-            $ openssl smime -verify -in [image]-SHA512SUMS.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem -out /dev/null
+      The ``./`` in the file name must be included because it is part of the
+      SHA512 sum of the image. Without it, the validation of the signature
+      of the image will fail.
 
-        After running this, you should see: :code:`Verification successful`.
-        If you do not see this, you cannot be certain the OS you downloaded
-        can be trusted.
+#. Ensure the signature of the SHA512 sum of the image was created using the
+   certificate. This validates the image is trusted and it has not been
+   modified.
 
+   .. code-block:: console
 
-Verification of the signed MoM
-==============================
+      openssl smime -verify -in clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem
 
-An overview of the mechanism used internal to :command:`swupd` 
-(implemented in C calls to the openssl library API) is as follows:
+#. The output should contain ``Verification successful``.  If the output
+   contains ``bad_signature`` anywhere, then the image is not trustworthy.
 
-#. A trusted certificate is distributed with all Clear Linux
-   OS for Intel Architecture releases in :file:`/usr/share/clear/update-ca/ClearLinuxRoot.pem`.
+Update content validation
+=========================
 
-#. :command:`swupd` downloads the top-level manifest (MoM), as
-   well as the signed :file:`MoM.sig` for the currently-installed
-   image, and for the release being updated to in the case of an update.
+``swupd`` validates all update content automatically before applying the
+update content. The process ``swupd`` follows internally is illustrated here
+with manual steps using the latest |CL| release. There is no need to perform
+these steps manually when performing a ``swupd update``.
 
-#. :command:`swupd` generates a ``sha256sum`` of the MoM.
+#. Download the :abbr:`MoM (top-level manifest)` and the signature of the
+   MoM.
 
-#. :command:`swupd` uses the :file:`MoM.sig` downloaded in step 1,
-   as well as the ``sha256sum``; and, using the openssl API, it makes
-   an equivalent call to the verification command:
+   .. code-block:: console
 
-   .. code-block:: c
+      # MoM
+      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.MoM
+      # Signature of MoM
+      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.sig
 
-      openssl smime -verify -in sha256sums.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem
+   .. note::
 
-   Note that the actual API call is to ``PKCS7_verify())``.
+      The certificate used for signing the MoM is distributed with |CL|
+      at :file:`/usr/share/clear/update-ca/Swupd_Root.pem`. As a result, the
+      integrity of the certificate does not require validation; it is already
+      trusted.
 
-#. With a successful verification, we can proceed to trust this
-   MoM and its contents, which consist of hashes of the contents
-   of all bundle manifests.
+   .. important::
 
-   * **Success** When a successful signature verification occurs, you
-     should see the following message as part of the :command:`swupd`
-     output:
+      The certificate used by ``swupd`` and the certificate used for the
+      distribution's image are different because these are different entities
+      requiring separate identities.
 
-     .. code-block:: console
+#. Ensure the signature of the MoM was created using the certificate. This
+   signature validates the update content is trustworthy and has not been
+   modified.
 
-        Signature check succeeded
+   .. code-block:: console
 
-   * **Fail** Should verification fail, you will see:
+      openssl smime -verify -in sha256sums.sig -inform der -content Manifest.MoM -CAfile ClearLinuxRoot.pem
 
-     .. code-block:: console
+   .. note::
 
-        WARNING!!! FAILED TO VERIFY SIGNATURE OF Manifest.MoM
+      The SHA512 sum of the MoM is not signed. Instead, the MoM is signed
+      directly because it is small in size compared to an image of |CL|.
 
-#. As :command:`swupd` then uses or installs bundle manifests, that
-   bundle manifest hash is matched to the trusted MoM, extending the
-   chain of trust from the MoM, to the bundle manifests, and out to
-   every file installed. 
-
-Clear Linux* OS for Intel® Architecture Public Key as of 06/16/2016 00:00 UTC
------------------------------------------------------------------------------
-
-.. code-block:: raw  
-
-  -----BEGIN PUBLIC KEY-----
-  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfnY2m665SwYxr4/R+8L
-  X1IMAkVYmvNiI5KmV815WvVQwUQDDCY1HUag+wb2BhTxkotKUdm6LGY1ck+Eb742
-  rdICMToX+32vFM3XvIK16TKM6ficPsGA4xmbE/9qp01bn0O4MCwKjPAmxJkW+UOO
-  L5u8p9VBZ1MYMnsRkECPZif/fULqIU73aYD3HYtcYEk1+N8n1AcNkpRY9p3Qd92M
-  9aRlCNl1sb2g5DwSx9G0dWTS+YPchpclV7fBGQUiTuxb72hpVRE66CfR8tTd14np
-  IbsKGq0S5PzkR9ubilDywFQ/6XPc1Rur/4g0rm6pPPx7DLQK3EqC8d4Z/C2nywje
-  PwIDAQAB
-  -----END PUBLIC KEY-----
-
-
-You can re-create this when given a cert with the command:
-
-.. code-block:: console
-
-   $ openssl x509 -pubkey -noout -in ClearLinuxRoot.pem
-
-
-
-.. _release 8890: https://download.clearlinux.org/releases/8890/clear/
+#. The output should contain ``Verification successful``.  If the output
+   contains ``bad_signature`` anywhere, then the MoM cannot be trusted.
+   Because the MoM contains a list of hashes for bundle manifests, if the MoM
+   cannot be trusted, then the bundle content cannot be trusted.
