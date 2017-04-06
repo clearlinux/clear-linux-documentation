@@ -69,11 +69,10 @@ more information. The optimization patches are found in our
 Kernel Container
 ================
 
-The ``kernel-container`` bundle contains the kernel used by
-`Intel® Clear Containers <https://clearlinux.org/features/intel%C2%AE-clear-containers>`_
-project on |CL|. This kernel is optimized for fast booting
-and performs best on |CC| running on the Intel® architectures described on the
-:ref:`supported hardware list<gs_supported_hardware>`.
+The ``kernel-container`` bundle contains the kernel used by the
+`Intel® Clear Containers`_ project on |CL|. This kernel is optimized for
+fast booting and performs best on |CC| running on the Intel® architectures
+described on the :ref:`supported hardware list<gs_supported_hardware>`.
 The optimization patches are found in our `Linux-Container`_ GitHub repo.
 
 .. _Linux: https://github.com/clearlinux-pkgs/linux
@@ -86,4 +85,5 @@ The optimization patches are found in our `Linux-Container`_ GitHub repo.
 .. _CIAO: https://github.com/01org/ciao
 .. _Azure:
    https://azuremarketplace.microsoft.com/en-us/marketplace/apps/clear-linux-project.clear-linux-os
-
+.. _Intel® Clear Containers:
+   https://clearlinux.org/features/intel®-clear-containers
