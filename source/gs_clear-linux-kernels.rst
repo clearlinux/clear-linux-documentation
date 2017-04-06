@@ -9,7 +9,7 @@ These `bundles`_ serve the following specific use cases.
 Kernel native
 =============
 
-The ``kernel-native`` bundle focuses on the bare metal platforms. It is
+The *kernel-native* bundle focuses on the bare metal platforms. It is
 optimized for fast booting and performs best on the Intel® architectures
 described on the :ref:`supported hardware list<gs_supported_hardware>`. The
 optimization patches are found in our `Linux`_ GitHub\* repo.
@@ -17,7 +17,7 @@ optimization patches are found in our `Linux`_ GitHub\* repo.
 Kernel LTS
 ==========
 
-The ``kernel-lts`` bundle focuses on the bare metal platforms but uses the
+The *kernel-lts* bundle focuses on the bare metal platforms but uses the
 latest :abbr:`LTS (Long Term Support)` Linux kernel. It is optimized for fast
 booting and performs best on the Intel® architectures described on the
 :ref:`supported hardware list<gs_supported_hardware>`. Additionally, this
@@ -28,7 +28,7 @@ The optimization patches are found in our `Linux-LTS`_ GitHub repo.
 Kernel KVM
 ==========
 
-The ``kernel-kvm`` bundle focuses on the Linux
+The *kernel-kvm* bundle focuses on the Linux
 :abbr:`KVM (Kernel-based Virtual Machine)`. It is optimized for fast booting
 and performs best on Virtual Machines running on the Intel® architectures
 described on the :ref:`supported hardware list<gs_supported_hardware>`.
@@ -42,7 +42,7 @@ optimization patches are found in our `Linux-KVM`_ GitHub repo.
 Kernel Hyper-V\*
 ================
 
-The ``kernel-hyperv`` bundle focuses on running Linux on Microsoft\*
+The *kernel-hyperv* bundle focuses on running Linux on Microsoft\*
 Hyper-V. It is optimized for fast booting and performs best on Virtual
 Machines running on the Intel® architectures described on the
 :ref:`supported hardware list<gs_supported_hardware>`.
@@ -55,7 +55,7 @@ GitHub repo.
 Kernel Hyper-V LTS
 ==================
 
-The ``kernel-hyperv-lts`` bundle focuses on running Linux on Microsoft
+The *kernel-hyperv-lts* bundle focuses on running Linux on Microsoft
 Hyper-V but uses the latest :abbr:`LTS (Long Term Support)` Linux kernel. It
 is optimized for fast booting and performs best on Virtual
 Machines running on the Intel® architectures described on the
@@ -69,7 +69,7 @@ more information. The optimization patches are found in our
 Kernel Container
 ================
 
-The ``kernel-container`` bundle contains the kernel used by the
+The *kernel-container* bundle contains the kernel used by the
 `Intel® Clear Containers`_ project on |CL|. This kernel is optimized for
 fast booting and performs best on |CC| running on the Intel® architectures
 described on the :ref:`supported hardware list<gs_supported_hardware>`.
