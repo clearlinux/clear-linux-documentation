@@ -157,6 +157,6 @@ LibreOffice starts normally.
 
 .. _list of applications: http://flatpak.org/apps.html
 
-.. _dowload it here:
+.. _download it here:
    http://download.documentfoundation.org/libreoffice/flatpak/latest/LibreOffice.flatpak
 
