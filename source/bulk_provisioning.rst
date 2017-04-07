@@ -4,15 +4,15 @@ Bulk Provisioning
 #################
 
 The |CLOSIA| can be automatically provisioned in bulk using a combination of
-the |CL| installer, **Ister**, and the
-:abbr:`ICIS (Ister Cloud Init Service)`. This guide covers how to perform a
-bulk provision of |CL| using **Ister** and **ICIS**.
+the |CL| installer, **Ister**, and :abbr:`ICIS (Ister Cloud Init Service)`.
+This guide covers how to perform a bulk provision of |CL| using **Ister**
+and **ICIS**.
 
-To configure a bulk provision, **Ister** configuration files and cloud-init
-files must be defined. Hosting the configuration files in **ICIS**, allows
-**Ister** to use them during the installation. The **Ister** configuration
-files allow us to customize the installation. The cloud-init\* files allow us
-to customize the instance of the installation.
+To configure a bulk provision, Ister configuration files and cloud-init
+files must be defined. Hosting the configuration files in **ICIS** allows
+**Ister** to use them during the installation. The Ister configuration
+files allow us to customize the installation process. The cloud-init\*
+files allow us to customize the instance of the installation.
 
 Figure 1 depicts the flow of information between a PXE server and a PXE
 client that needs to be set up to perform a bulk provision.
@@ -43,14 +43,14 @@ Configuration
 #. Install **ICIS** by following the getting started guide on the
    `ICIS GitHub repository`_.
 
-#. Create an **Ister** installation file and save it to the
+#. Create an Ister installation file and save it to the
    :file:`static/ister` directory within the web hosting directory for
    **ICIS**. The installation file is a JSON block and provides **Ister**
    with the steps it needs to perform an installation. The file outlines
    what partitions, file systems, and mount points **Ister** should set
    up. Lastly, the file outlines which bundles to install. See our
    :ref:`bundles_overview` for the list of available bundles. The
-   following example shows the contents of an **Ister** installation file:
+   following example shows the contents of an Ister installation file:
 
    .. code-block:: json
 
@@ -82,23 +82,23 @@ Configuration
 
    .. important::
 
-      Every **Ister** installation file hosted on **ICIS** must contain the
+      Every Ister installation file hosted on **ICIS** must contain the
       the ``IsterCloudInitSvc`` parameter as well as the ``os-cloudguest``
       bundle. These entries allow **Ister** to customize an instance of of an
       install.
 
-#. Create an **Ister** configuration file defining the location of the
-   **Ister** installation file. Save it to the :file:`static/ister` directory
+#. Create an Ister configuration file to define the location of the
+   Ister installation file. Save it to the :file:`static/ister` directory
    within the web hosting directory of **ICIS**. The following example shows
-   an **Ister** configuration file:
+   an Ister configuration file:
 
    .. code-block:: json
 
       template=http://192.168.1.1:60000/icis/static/ister/ister.json
 
-#. Modify the iPXE boot script to add a kernel parameter to the command line
-   to boot the network image. Add the kernel parameter ``isterconf`` with the
-   location of the **Ister**configuration file hosted on **ICIS** as the
+#. Modify the iPXE boot script by adding a kernel parameter to the command line
+   for booting the network image. Add the kernel parameter ``isterconf`` with
+   the location of the Ister configuration file hosted on **ICIS** as the
    kernel parameter value.  The following example shows an iPXE boot script
    with the ``isterconf`` parameter:
 
@@ -113,7 +113,7 @@ Configuration
 
       After the network image of |CL| boots, **Ister** inspects the
       parameters used during boot in :file:`/proc/cmdline` to find the
-      location of the **Ister** configuration file.
+      location of the Ister configuration file.
 
 #. Write a cloud-init document to customize the instance of the installation
    according to your requirements. The `cloud-init Read the Docs`_ provides a
@@ -155,7 +155,7 @@ Configuration
 
 #. Power-cycle the PXE client and watch it customize the |CL| installation.
 
-Congratulations! You have successfully performed a bulk provision of |CL|.
+**Congratulations!** You have successfully performed a bulk provision of |CL|.
 
 
 .. _ICIS GitHub repository:
