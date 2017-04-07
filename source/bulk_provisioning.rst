@@ -3,54 +3,54 @@
 Bulk Provisioning
 #################
 
-|CLOSIA| can be automatically provisioned in bulk using a combination of
-Ister and :abbr:`ICIS (Ister Cloud Init Service)`.
+The |CLOSIA| can be automatically provisioned in bulk using a combination of
+the |CL| installer, **Ister**, and the
+:abbr:`ICIS (Ister Cloud Init Service)`. This guide covers how to perform a
+bulk provision of |CL| using **Ister** and **ICIS**.
 
-Configurations for a bulk provision are made by defining Ister configuration
-files and cloud-init files.  By hosting them with ``ICIS``, ``Ister`` can
-use them during the install process.  Ister configuration files provide a way
-to customize the install and cloud-init files provide a way to customize the
-instance of the install.
+To configure a bulk provision, **Ister** configuration files and cloud-init
+files must be defined. Hosting the configuration files in **ICIS**, allows
+**Ister** to use them during the installation. The **Ister** configuration
+files allow us to customize the installation. The cloud-init\* files allow us
+to customize the instance of the installation.
 
-Figure 1 depics the flow of information between a PXE server and a PXE client
-that needs to be set up to perform a bulk provision.
+Figure 1 depicts the flow of information between a PXE server and a PXE
+client that needs to be set up to perform a bulk provision.
 
 .. figure:: _static/images/bulk-provision-flow.png
    :alt: Bulk provision information flow
 
    Figure 1: Bulk provision information flow
 
-This guide covers how to perform a bulk provision of |CL| with ``Ister`` and
-``ICIS``.
-
 Prerequisites
 =============
 
-Before performing a bulk provision, verify that you have a PXE server capable
-of performing network boots of |CL|.  Reference
-:ref:`network_boot` for a guide on how to perform an iPXE boot using
-:abbr:`NAT (network address translation)`.
+Before performing a bulk provision, verify you have a PXE server capable
+of performing network boots of |CL|. Please refer to our
+:ref:`guide on how to perform an iPXE boot<network_boot>` using
+:abbr:`NAT (network address translation)` for details.
 
-Because a bulk provision relies on a reboot, ensure the following preparations
-have been made:
+Because a bulk provision relies on a reboot, ensure the following
+preparations have been made:
 
-* Any existing disks must not be bootable
-* The boot order for the computer performing an install must have the network
-  boot option come immediately after the disk boot option
+* No existing disks are bootable.
+* The network boot option must come immediately after the disk boot option
+  on any computer performing the installation.
 
 Configuration
 =============
 
-#. Install ``ICIS`` by following the getting started guide on the `ICIS GitHub
-   repository`_.
+#. Install **ICIS** by following the getting started guide on the
+   `ICIS GitHub repository`_.
 
-#. Create an Ister install file and save it to the ``static/ister`` directory
-   within the web hosting directory for ``ICIS``.  This install file is a block
-   of JSON and describes how ``Ister`` needs to perform an installation.  It
-   outlines what partitions, file systems, and mount points ``Ister`` should
-   set up. It also outlines what bundles to install.  Reference
-   :ref:`bundles_overview` for a list of installable bundles.  An Ister install
-   file may look like the example below:
+#. Create an **Ister** installation file and save it to the
+   :file:`static/ister` directory within the web hosting directory for
+   **ICIS**. The installation file is a JSON block and provides **Ister**
+   with the steps it needs to perform an installation. The file outlines
+   what partitions, file systems, and mount points **Ister** should set
+   up. Lastly, the file outlines which bundles to install. See our
+   :ref:`bundles_overview` for the list of available bundles. The
+   following example shows the contents of an **Ister** installation file:
 
    .. code-block:: json
 
@@ -82,26 +82,27 @@ Configuration
 
    .. important::
 
-      Every Ister install file hosted by ``ICIS`` must contain the the
-      ``IsterCloudInitSvc`` parameter as well as the ``os-cloudguest`` bundle.
-      These allow ``Ister`` to customize an instance of of an install.
+      Every **Ister** installation file hosted on **ICIS** must contain the
+      the ``IsterCloudInitSvc`` parameter as well as the ``os-cloudguest``
+      bundle. These entries allow **Ister** to customize an instance of of an
+      install.
 
-#. Create an Ister configuration file that defines the location of the Ister
-   install file.  Save it to the ``static/ister`` directory within the web
-   hosting directory for ``ICIS``.  An Ister configuration file may look like
-   the example below:
+#. Create an **Ister** configuration file defining the location of the
+   **Ister** installation file. Save it to the :file:`static/ister` directory
+   within the web hosting directory of **ICIS**. The following example shows
+   an **Ister** configuration file:
 
-   .. code-block::
+   .. code-block:: json
 
       template=http://192.168.1.1:60000/icis/static/ister/ister.json
 
-#. Add a kernel parameter to the command line for booting the network image by
-   modifying the iPXE boot script.  The kernel parameter name to add is
-   isterconf and the karnel parameter value to assign is the location of the
-   Ister configuration file hosted by ``ICIS``.  With the ``isterconf``
-   parameter, an iPXE boot script may look like the example below:
+#. Modify the iPXE boot script to add a kernel parameter to the command line
+   to boot the network image. Add the kernel parameter ``isterconf`` with the
+   location of the **Ister**configuration file hosted on **ICIS** as the
+   kernel parameter value.  The following example shows an iPXE boot script
+   with the ``isterconf`` parameter:
 
-   .. code-block::
+   .. code-block:: json
 
       #!ipxe
       kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1:60000/icis/static/ister/ister.conf
@@ -110,39 +111,39 @@ Configuration
 
    .. note::
 
-      After the network image of |CL| boots, ``Ister`` inspects the parameters
-      used during boot in :file:`/proc/cmdline` to find the location of the
-      Ister configuration file.
+      After the network image of |CL| boots, **Ister** inspects the
+      parameters used during boot in :file:`/proc/cmdline` to find the
+      location of the **Ister** configuration file.
 
-#. Write a cloud-init document that will customize the instance of the install
-   according to your requirements.  The `cloud-init Read the Docs`_ provides a
-   guide on how to write a cloud-init document.  The guide covers what cloud-init
-   is capable of customizing after an install.
+#. Write a cloud-init document to customize the instance of the installation
+   according to your requirements. The `cloud-init Read the Docs`_ provides a
+   guide on how to write a cloud-init document. The guide covers the
+   customization options provided by cloud-init after an installation.
 
-#. Save the cloud-init document to the ``static/roles`` directory within the
-   web hosting directory for ``ICIS`` with the name of a role you would like
-   to create. For example, a role may be "database" or "web" or "ciao".
+#. Save the cloud-init document to the :file:`static/roles` directory within
+   the web hosting directory for **ICIS** with the name of a role you would
+   like to create. For example, a role may be "database", "web", or "ciao".
 
-#. After creating roles, also known as cloud-init files, assign roles to MAC
-   addresses of PXE clients by modifying the :file:`config.txt` file in the
-   ``static`` directory within the web hosting directory for ``ICIS``. An
-   assignment may look like the example below:
+#. After creating the roles, also known as cloud-init files, assign roles to
+   MAC addresses of PXE clients. To do so, modify the :file:`config.txt` file
+   in the ``static`` directory within the web hosting directory of **ICIS**.
+   The following example shows one such assignment:
 
-   .. code-block::
+   .. code-block:: json
 
       # MAC address,role
       00:01:02:03:04:05,ciao
 
    If MAC addresses of PXE clients are not listed within the
-   :file:`config.txt` file, a default role for those MAC address may be defined
-   as follows:
+   :file:`config.txt` file, a default role for those MAC address may be
+   defined as follows:
 
-   .. code-block::
+   .. code-block:: json
 
       # MAC address,role
       default,ciao
 
-#. Verify that the following URLs are accessible:
+#. Verify the following URLs are accessible:
 
    * http://192.168.1.1:60000/icis/static/ister/ister.conf
    * http://192.168.1.1:60000/icis/static/ister/ister.json
@@ -152,7 +153,7 @@ Configuration
 
 #. Power on the PXE client and watch it boot and install |CL|.
 
-#. Power-cycle the PXE client and watch it customize the install of |CL|.
+#. Power-cycle the PXE client and watch it customize the |CL| installation.
 
 Congratulations! You have successfully performed a bulk provision of |CL|.
 
