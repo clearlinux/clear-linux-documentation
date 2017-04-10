@@ -70,7 +70,7 @@ Kernel Container
 ================
 
 The *kernel-container* bundle contains the kernel used by the
-`Intel® Clear Containers`_ project on |CL|. This kernel is optimized for
+`Intel® Clear Containers`_ project. This kernel is optimized for
 fast booting and performs best on |CC| running on the Intel® architectures
 described on the :ref:`supported hardware list<gs_supported_hardware>`.
 The optimization patches are found in our `Linux-Container`_ GitHub repo.
