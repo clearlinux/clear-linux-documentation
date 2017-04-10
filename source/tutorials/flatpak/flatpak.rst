@@ -129,7 +129,7 @@ Enter the following data into each field:
    Working Directory: $HOME
 
    Icon:    Click on the :guilabel:`No icon` field to bring up a list of
-   available icons, see figure 2. In the :guilabel:`Search icon:` field, enter
+   available icons, see figure 3. In the :guilabel:`Search icon:` field, enter
    ``Libreoffice-main.`` Click the :guilabel:`libreoffice-main` icon in the
    window and select :guilabel:`OK`.
 
