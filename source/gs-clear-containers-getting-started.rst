@@ -7,15 +7,15 @@ Clear Containers getting started guide
 Introduction
 ============
 
-Intel® Clear Containers v2.0 beta release is now available for evaluation.
-This enables executing existing Docker applications in the secure
-and fast Intel Clear Containers environment under Docker* 1.12 and beyond
+The Intel® Clear Containers v2.1.5 release is now available.
+This release enables executing existing Docker applications in the secure
+and fast Intel Clear Containers environment under Docker\* 1.12 and beyond
 via an :abbr:`Open Container Initiative (OCI)` compatible `runtime`.
 
 Installation instructions
 =========================
 
-The primary host platform is Clear Linux* Project for Intel® 
+The primary host platform is Clear Linux* Project for Intel®
 Architecture. For instructions on installing Docker and Clear Containers under
 Clear Linux, please refer to instructions from the runtime source tree:
 
