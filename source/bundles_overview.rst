@@ -36,13 +36,6 @@ To see the list of all available bundles, enter:
 
    # swupd bundle-list --all
 
-To see the list of optional bundles to install, enter:
-
-.. code-block:: console
-
-   # swupd new bundle-add --list
-
-
 To add a bundle, enter:
 
 .. code-block:: console
