@@ -71,6 +71,8 @@ Run using VMware* Player
 
 Create a new virtual machine by following the next steps.
 
+#. Launch **VMWare Workstation Player**.
+
 #. On main window click on “Create a new Virtual Machine”.
 
    * Select “**I will install the operating system later**”, and click on “Next”.
