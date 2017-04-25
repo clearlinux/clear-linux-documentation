@@ -69,9 +69,9 @@ Run using VMware* Player
 ========================
 
 
-#. Create a new virtual machine.
+Create a new virtual machine by following the next steps.
 
-#. Click on “Create a new Virtual Machine”.
+#. On main window click on “Create a new Virtual Machine”.
 
    * Select “**I will install the operating system later**”, and click on “Next”.
    * Select “**Linux**” as “Guest operating system” and version **Other Linux 3.x kernel 64-bit**.
