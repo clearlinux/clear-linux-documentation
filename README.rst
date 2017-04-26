@@ -1,28 +1,27 @@
 Documentation Build Instructions
-================================
+################################
 
-The `website documentation`_ for Clear Linux* OS for Intel Architecture 
-should be written in :abbr:`ReStructuredText (ReST)` AKA ``.rst``, which 
-makes it easy to build parsable, command-line readable, indexed, and 
+The `website documentation`_ for Clear Linux\* OS for Intel Architecture
+should be written in :abbr:`ReStructuredText (ReST)` AKA ``.rst``, which
+makes it easy to build parsable, command-line readable, indexed, and
 search-friendly documentation and APIs with `Sphinx`_.
-
 
 .. _requirements:
 
 Requirements
-------------
+============
 
-To build documentation with Sphinx, ensure your system has these prerequisites:
+To build documentation with Sphinx, ensure your system has these
+prerequisites:
 
 * `GNU make`_
 * `Python`_
 * `PIP`_
+* `Sphinx`_
 
-The instructions for installing these varies according to OS. On a basic
-out-of-the-box Ubuntu-like OS (which usually has Python installed by default),
-check your python version
-
-you might need something like:
+The instructions for installing these varies according to OS. On a basic out-
+of-the-box Ubuntu-like OS (which usually has Python installed by default),
+check your python version you might need something like:
 
 .. code-block:: console
 
@@ -36,153 +35,23 @@ you might need something like:
    $ python -c 'print __import__("sphinx").__version__'
      1.3.1
 
+Cloning the documentation repository
+====================================
 
 We have confirmed Sphinx installed.  The next step is to clone Gitlab
-repo to our local machine.
+repository to our local machine.
 
 
 .. code-block:: console
 
-	$ git clone git@clrgitlab.intel.com:clr-documentation/project-docs.git
-	Cloning into 'project-docs'...
-
-
-
-**Note**:  If the first time you've cloned ``project-docs`` is following
-along with these instructions, you may skip this section; go straight 
-ahead to the :ref:`Run make` section. However, if you cloned an earlier 
-version and ran into trouble generating HTML documentation locally, try 
-the steps documented here.
-
-Before running Sphinx, we may need to correct some of the problems in the 
-legacy Gitlab repo. Running :command:`make` straightaway from the root of 
-our clone won't work.  We need to delete the existing :file:`conf.py` file 
-and also rename the existing index file so it can generate a new one with 
-the correct parameters. Some files in the Gitlab repo are remnant of a build 
-on a Windows box, and they don't quite work on Linux.
-
-.. code-block:: console
-
-	$ cd project-docs/
-	$ ls
-	make.bat  Makefile  source/
-	$ rm -rf Makefile make.bat
-	$ rm -rf source/conf.py
-	$ mv source/index.rst source/oldindex.rst
-
-In the cloned source directory, we have all the ``.rst`` files needed to 
-build the docs. We run a native instance of :command:`sphinx-quickstart`. 
-The program will run you through a series of questions. The main things to be
-conscious of here are:
-
-* Tell it to use the existing :file:`source/` directory as the Root path for
-  the documentation; this is where it looks to find what it needs to generate
-  the HTML.
-* It's better to tell it to **not** separate the source and build directories;
-  if you answer "y" here, Sphinx will generate *another* :file:`source/` directory,
-  which can be confusing.  
-* Running quickstart also creates a :file:`_static` directory where you
-  should put all images, screenshots, and other content that is linked as static
-  content. The builder has been known to complain about this directory if it exists
-  already, but it's easy to fix. 
-* It is only necessary to run the builder **once**.
-
-What follows here is a log from a successful :command:`sphinx-quickstart` build
-started from within an older clone of the :file:`project-docs/` directory.  Blank
-answers indicate default.
-
-.. code-block:: console
-
-   $ sphinx-quickstart
-   Welcome to the Sphinx 1.3.1 quickstart utility.
-
-   Please enter values for the following settings (just press Enter to
-   accept a default value, if one is given in brackets).
-
-   Enter the root path for documentation.
-   > Root path for the documentation [.]: source/
-
-   You have two options for placing the build directory for Sphinx output.
-   Either, you use a directory "_build" within the root path, or you separate
-   "source" and "build" directories within the root path.
-   > Separate source and build directories (y/n) [n]: n
-
-   Inside the root directory, two more directories will be created; "_templates"
-   for custom HTML templates and "_static" for custom stylesheets and other static
-   files. You can enter another prefix (such as ".") to replace the underscore.
-   > Name prefix for templates and static dir [_]:
-
-   The project name will occur in several places in the built documentation.
-   > Project name: ClearLinux Docs
-   > Author name(s): Intel OTC
-
-   Sphinx has the notion of a "version" and a "release" for the
-   software. Each version can have multiple releases. For example, for
-   Python the version is something like 2.5 or 3.0, while the release is
-   something like 2.5.1 or 3.0a1.  If you don't need this dual structure,
-   just set both to the same value.
-   > Project version: 1.0.0
-   > Project release [1.0.0]: 1.0.0
-
-   If the documents are to be written in a language other than English,
-   you can select a language here by its language code. Sphinx will then
-   translate text that it generates into that language.
-
-   For a list of supported codes, see
-   http://sphinx-doc.org/config.html#confval-language.
-   > Project language [en]: en
-
-   The file name suffix for source files. Commonly, this is either ".txt"
-   or ".rst".  Only files with this suffix are considered documents.
-   > Source file suffix [.rst]: .rst
-
-   One document is special in that it is considered the top node of the
-   "contents tree", that is, it is the root of the hierarchical structure
-   of the documents. Normally, this is "index", but if your "index"
-   document is a custom template, you can also set this to another filename.
-   > Name of your master document (without suffix) [index]:
-
-   Sphinx can also add configuration for epub output:
-   > Do you want to use the epub builder (y/n) [n]: n
-
-   Please indicate if you want to use one of the following Sphinx extensions:
-   > autodoc: automatically insert docstrings from modules (y/n) [n]: n
-   > doctest: automatically test code snippets in doctest blocks (y/n) [n]: n
-   > intersphinx: link between Sphinx documentation of different projects (y/n) [n]: n
-   > todo: write "todo" entries that can be shown or hidden on build (y/n) [n]: n
-   > coverage: checks for documentation coverage (y/n) [n]: n
-   > pngmath: include math, rendered as PNG images (y/n) [n]: n
-   > mathjax: include math, rendered in the browser by MathJax (y/n) [n]: y
-   > ifconfig: conditional inclusion of content based on config values (y/n) [n]: y
-   > viewcode: include links to the source code of documented Python objects (y/n) [n]: y
-
-   A Makefile and a Windows command file can be generated for you so that you
-   only have to run e.g. "make html" instead of invoking sphinx-build
-   directly.
-   > Create Makefile? (y/n) [y]: y
-   > Create Windows command file? (y/n) [n]: n
-
-   Creating file source/conf.py.
-   Creating file source/index.rst.
-   Creating file source/Makefile.
-
-   Finished: An initial directory structure has been created.
-
-   You should now populate your master file source/index.rst and create other
-   documentation source files. Use the Makefile to build the docs, like so:
-	    make builder
-   where "builder" is one of the supported builders, e.g. html, latex or
-   linkcheck.
-
-
-.. _run_make:
+   $ git clone git@clrgitlab.intel.com:clr-documentation/project-docs.git
 
 Run make
---------
+========
 
 Finally are we ready to run :command:`make`. Be sure to :command:`cd` to the
-:file:`source/` directory where your ``.rst`` files are (or will be), before 
-running :command:`make` ``html``, or the doc format of your choice.
+:file:`source/` directory where your ``.rst`` files are, before
+running :command:`make html`, or the doc format of your choice.
 
 .. code-block:: console
 
@@ -198,10 +67,8 @@ running :command:`make` ``html``, or the doc format of your choice.
 
    Build finished. The HTML pages are in _build/html.
 
-Open one of the .html pages in a web browser to view the rendered 
-documentation. If needed, you can copy the contents of the oldindex.rst
-into the generated index file, re-run :command:`make`, to generate the 
-new HTML, and your local Table of Contents should update accordingly.
+Open one of the .html pages in a web browser to view the rendered
+documentation.
 
 For tips on how to contribute documentation formatted in the .rst style
 needed to integrate beautifully on the clearlinux.org website, please see
