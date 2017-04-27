@@ -110,7 +110,7 @@ pygments_style = 'sphinx'
 todo_include_todos = False
 
 rst_epilog = """
-.. include:: /substitutions.rst
+.. include:: /substitutions.txt
 """
 
 # -- Options for HTML output ----------------------------------------------
