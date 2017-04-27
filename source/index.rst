@@ -43,3 +43,4 @@ License and disclaimers
 =======================
 
 .. include:: documentation_license.rst
+   :start-line: 2
