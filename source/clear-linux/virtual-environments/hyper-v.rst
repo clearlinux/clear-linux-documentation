@@ -33,7 +33,7 @@ Create a virtual machine
    c. When finished, open VM settings, select Firmware Section and in Secure
       Boot config, **uncheck** Enable Secure Boot.
 
-   .. note:: Currently, Clear Linux does not boot with :option:`secure boot`
+   .. note:: Currently, Clear Linux does not boot with `secure boot`
       enabled.
 
 #. Connect to your new VM and start it. You should see a prompt:
