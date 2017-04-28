@@ -3,77 +3,104 @@
 os-core
 #######
 
-This bundle contains the basic core OS components.
+This bundle contains the basic core components of the operating system.
+|CLOSIA| relies on `systemd` to provide the basic OS components. The
+`systemd` package contains solutions for:
+
+* Service management
+* Basic network management
+* Hostname management
+* Time synchronization management
+* Boot control management
+* Journal management
+
+Additionally, `os-core` includes the `util-linux` and `coreutils` packages to
+provide a set of basic Linux\* command line tools such as `ls`, `cp`, `rm`,
+etc.
+
 
 Static IP
 =========
 
-To configure a static IP you should follow the next steps:
+To configure a static IP, follow these steps:
 
-#. Create file :file:`/etc/systemd/network/50-static.network`. If a directory
-   does not exist, please create it.
+#. Create the file: :file:`/etc/systemd/network/50-static.network` If the
+   path does not exist, create it.
 
-#. The minimum lines the :file:`50-static.network` file should contain are::
+#. Add, at the very least, the following lines to the
+   :file:`50-static.network` file:
 
-     [Match]
-     Name=<device_name>
+   .. code-block:: console
 
-     [Network]
-     Address=<A static IPv4 or IPv6 address and its prefix length, separated by a "/" character>
-     Gateway=<The gateway address>
+      [Match]
+      Name=<device_name>
 
-   The *<device_name>* is your network device name (i.e. enp1s0 or enp0s25).
+      [Network]
+      Address=<Provide a static IPv4 or IPv6 address with its
+      prefix length. Separate them with the "/" character.>
+      Gateway=<The gateway's address>
 
-#. If you want to add more options you can consult the
-   `systemd network configuration`_ manual.
+   The `<device_name>` is your network device name, for example: enp1s0 or
+   enp0s25.
 
-#. Restart *systemd-networkd* service using::
+#. To add more options you can consult the `systemd network configuration`_
+   manual.
 
-     # systemctl restart systemd-networkd
-
-   or restart Clear Linux.
-
-#. Check new IP with::
-
-     # ip addr
+#. Restart the *systemd-networkd* service with the following command:
 
 
-Setting Time
+   .. code-block:: console
+
+      # systemctl restart systemd-networkd
+
+   Alternatively, restart |CL|.
+
+#. Check the new IP with the following command:
+
+   .. code-block:: console
+
+      # ip addr
+
+
+Setting time
 ============
 
-Clear Linux utilizes **systemd-timesyncd.service** to sync time.
-Default :abbr:`NTP (Network Time Protocol)` servers are
-configured as *time1.google.com, time2.google.com, time3.google.com, and
-time4.google.com*. It is not possible to set the time manually, via
-*timedatectl*
-or to use RTC mode. In the event that those servers cannot be reached and the
-time is incorrect on your system, try these steps:
+Clear Linux uses the `systemd-timesyncd.service` service to synchronize the
+system's time. Default :abbr:`NTP (Network Time Protocol)` servers are
+configured, for example: `time1.google.com`, `time2.google.com`,
+`time3.google.com`, and `time4.google.com`. Manually setting the time via
+`timedatectl` or using RTC mode is not possible. If those servers cannot be
+reached and the system time is incorrect, follow these steps:
 
-#. Make sure that you've set your timezone:
+#. Set the timezone, for example, Pacific time:
 
-   * If you at Pacific time::
+   .. code-block:: console
 
-       timedatectl set-timezone America/Los_Angeles
+      timedatectl set-timezone America/Los_Angeles
 
-     or you can choose a preferred timezone
+   To see a list of timezones, use the following command:
 
-   * To see a list of timezones, do::
+   .. code-block:: console
 
-       timedatectl list-timezones | grep <locale>
+      timedatectl list-timezones
 
-#. Create :file:`/etc/systemd/` directory
+#. Go to the :file:`/etc/systemd/` directory, if it does not exist, create
+   it.
 
-#. Open your chosen editor and type into the
-   :file:`/etc/systemd/timesyncd.conf` file::
+#. Create the :file:`/etc/systemd/timesyncd.conf` file and enter the
+   following lines:
 
-    [Time]
-    NTP=<Preferred Server>
-    FallbackNTP=<backup server 1> <backup server 2>
+   .. code-block:: console
 
-#. Restart timesync daemon::
+      [Time]
+      NTP=<Preferred Server>
+      FallbackNTP=<backup server 1> <backup server 2>
 
-    # systemctl  restart systemd-timesyncd
+#. Restart the timesync daemon with the following command:
 
-.. note:: Check to make sure your time is correctly set: date
+   .. code-block:: console
 
-.. _systemd network configuration: https://www.freedesktop.org/software/systemd/man/systemd.network.html
+      # systemctl  restart systemd-timesyncd
+
+.. _systemd network configuration:
+   https://www.freedesktop.org/software/systemd/man/systemd.network.html
