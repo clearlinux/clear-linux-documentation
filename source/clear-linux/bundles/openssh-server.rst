@@ -3,38 +3,49 @@
 openssh-server
 ##############
 
-This bundle provides an ssh server.
+This bundle provides the OpenSSH\* package needed to enable a SSH service.
+Remote users require a SSH service to be able to use an encrypted login
+shell. The first time OpenSSH starts, it generates the server SSH keys needed
+for the service.
 
 SFTP
 ====
 
-Clear Linux *disables* sftp subsystem by default for security reasons.
-To enable sftp subsystem you will need to add this configuration in the sshd
-service file.
+|CL| *disables* the :abbr:`SFTP (SSH File Transfer Protocol)` subsystem by
+default due to security considerations. To enable the SFTP subsystem, perform
+the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
 
-First, create a systemd drop-in directory for the sshd service::
+#. Create a systemd drop-in directory for the SSHD service:
 
-  # mkdir /etc/systemd/system/sshd@.service.d
+   .. code-block:: console
 
-Now create a file called :file:`/etc/systemd/system/sshd@.service.d/sftp.conf`
-that adds the OPTIONS environment variable::
+      # mkdir /etc/systemd/system/sshd@.service.d
 
-  [Service]
-  Environment="OPTIONS=-o Subsystem=\"sftp /usr/libexec/sftp-server\""
+#. Create the following file:
+   :file:`/etc/systemd/system/sshd@.service.d/sftp.conf`
 
-Now, sftp subsystem is enabled.
+#. Add the OPTIONS environment variable
+
+   .. code-block:: console
+
+      [Service]
+      Environment="OPTIONS=-o Subsystem=\"sftp /usr/libexec/sftp-server\""
+
+Congratulations! The SFTP subsystem is enabled.
 
 Root login
 ==========
 
-To enable root login via ssh, you should do the following:
+To enable root login via ssh, perform the following steps:
 
-#. Create a *ssh* directory in /etc (if not exist)::
+#. Create a *ssh* directory in :file:`/etc`, only if it does not exist)
 
-   # mkdir /etc/ssh
+   .. code-block:: console
 
-#. Set config variable::
+      # mkdir /etc/ssh
 
-   # echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+#. Set the configuration variable.
 
+   .. code-block:: console
 
+      # echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
