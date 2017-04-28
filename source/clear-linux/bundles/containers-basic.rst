@@ -38,4 +38,4 @@ setting for example, please follow the `Docker proxy instructions`_.
 .. _Clear Containers runtime GitHub: https://github.com/01org/cc-oci-runtime
 
 .. _Docker proxy instructions:
-   https://docs.docker.xom/engine/admin/systemd/#http-proxy
+   https://docs.docker.com/engine/admin/systemd/#http-proxy
