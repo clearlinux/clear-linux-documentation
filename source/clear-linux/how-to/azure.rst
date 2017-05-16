@@ -10,12 +10,15 @@ and is tuned to maximize the performance and value of Intel® architecture.
 In Azure our boot times are lightning-quick, with all on-boot services
 launched in less than a second on nodes with warm caches [1]_.
 
-There are three offerings of Clear Linux OS within the Azure Marketplace. They
-can be created through the `Azure Portal <https://portal.azure.com>`_ or by
-using the `Azure Command Line tools <https://github.com/Azure/azure-cli>`_.
-Each offering can be further customized by using the swupd command to install
-additional bundles. Learn more about Clear Linux OS and bundles in our
-:ref:`documentation<clear-linux>`.
+There are three offerings of Clear Linux OS within the Azure Marketplace.
+They can be created through the `Azure Portal <https://portal.azure.com>`_ or
+by using the `Azure Command Line tools <https://github.com/Azure/azure-cli>`_.
+Each offering can be further customized by using the swupd command to
+install additional bundles. Learn more about Clear Linux OS and bundles in
+our :ref:`documentation<clear-linux>`.
+
+For additional information visit the Clear Linux
+`Azure Partner Mini Case Study`_ and the `Azure Partner Datasheet`_
 
 Offerings
 =========
@@ -116,3 +119,10 @@ below::
    complete information, visit http://www.intel.com/performance/datacenter.
    Configuration: Clear Linux OS release 11130 on SKU Standard_DS3_v2 in
    Microsoft\* Azure\*.
+
+
+.. _Azure Partner Datasheet:
+   http://download.microsoft.com/download/D/9/E/D9E22342-96D9-4455-BB15-99A1AF514DDD/Microsoft%20Azure%20Partner%20Datasheet%20-%20Intel%20Clear%20Linux.pdf
+
+.. _Azure Partner Mini Case Study:
+   http://download.microsoft.com/download/D/9/E/D9E22342-96D9-4455-BB15-99A1AF514DDD/Microsoft%20Azure%20Partner%20Mini%20Case%20Study%20-%20Intel%20Clear%20Linux.pdf
