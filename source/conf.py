@@ -294,4 +294,4 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 # If true, generates permalinks on the HTML output.
-html_add_permalinks = False
+html_add_permalinks = ""
