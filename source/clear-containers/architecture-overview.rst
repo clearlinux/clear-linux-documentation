@@ -361,8 +361,8 @@ Customer Client images and workloads
 
 Customers may use their own client images by instructing
 the mini-OS to execute them using the mini-OS workload. Please
-refer to the `Intel Clear Containers integration guide`_ for
-further detail.
+refer to the :ref:`Intel Clear Containers integration
+guide<cc-getting-started>` for further detail.
 
 .. removed this section since it is in the GSG
 
@@ -400,4 +400,3 @@ FAQ
 .. _Intel ARK website: http://ark.intel.com
 .. _kvmtool: https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/
 .. _rkt: https://coreos.com/rkt/
-.. _Intel Clear Containers integration guide: https://clearlinux.org/documentation/cc-getting-started.html
