@@ -9,3 +9,4 @@ Clear Linux\* OS Network guides
     network-boot
     dpdk
     ovs-dpdk
+    network-bonding
