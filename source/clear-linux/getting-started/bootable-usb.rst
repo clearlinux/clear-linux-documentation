@@ -53,11 +53,9 @@ Make sure the drive isn't already mounted. The easiest way is with
 Flash the image to the USB
 ==========================
 
-Flash the image with the following command, adding the ``-v`` option
-for verbose mode (recommended), as the image file may be large, and the
-write can take a while. This may need to be done as root or with sudo::
+Flash the image with the following command. This may need to be done as root or with sudo::
 
-  $ xzcat -v clear-[release_number]-installer.img.xz | dd of=/dev/sdb
+  # xzcat clear-[release_number]-installer.img.xz | dd of=/dev/sdb
 
 
 Wait for the final confirmation
