@@ -3,3 +3,5 @@
 .. |CLOSIA| replace:: Clear Linux* OS for Intel® Architecture
 
 .. |CC| replace:: Clear Containers
+
+.. |CCR| replace:: Clear Containers OCI runtime
