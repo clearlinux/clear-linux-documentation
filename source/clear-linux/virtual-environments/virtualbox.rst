@@ -153,21 +153,6 @@ VirtualBox Guest Additions, follow these steps:
 
      # reboot
 
-#. (*Optional*) To use |CL| graphical user interface,
-   add the GUI bundle::
-
-     # swupd bundle-add os-utils-gui
-
-   once the ``os-utils-gui`` bundle is installed, start your graphical
-   user interface with::
-
-     # startx
-
-   |CL| doesn't provide a graphical display manager.
-
-   .. image:: ./figures/vbox-x.png
-      :alt: XFCE |CL| on Virtual Box
-
 
 Troubleshooting
 ---------------
