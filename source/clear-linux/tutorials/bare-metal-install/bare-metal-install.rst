@@ -299,23 +299,29 @@ Enter your new `<userid>` and the password you created earlier.
 You should now be in the home directory of `<userid>`. The bundle
 `os-clr-on-clr`_ contains the majority of applications that a developer or
 system administrator would want but it does not include a graphical user
-interface. The `os-utils-gui` bundle includes the XFCE graphical user
-interface.
+interface. The `desktop` bundle includes the Gnome DesktopManager and 
+additional supporting applications.
 
 To test the :command:`sudo` command and ensure we set it up correctly, we can
-install the XFCE :abbr:`GUI (graphical user interface)`.
+install the Gnome Desktop Manager (gdm) and start it.
 
-To install XFCE using swupd, enter the following command:
-
-.. code-block:: console
-
-   sudo swupd bundle-add os-utils-gui
-
-To start xfce, enter the following command:
+To install Gnome using swupd, enter the following command:
 
 .. code-block:: console
 
-   startx
+   sudo swupd bundle-add desktop
+
+To start Gnome, enter the following command:
+
+.. code-block:: console
+
+   sudo systemctl start gdm
+
+The Gnome Desktop should start as shown in figure 1:
+.. figure:: figures/gnomedt.png
+   :alt: Gnome Desktop
+
+   Figure 1: Select :guilabel:`Gnome Desktop`
 
 **Congratulations!**
 
