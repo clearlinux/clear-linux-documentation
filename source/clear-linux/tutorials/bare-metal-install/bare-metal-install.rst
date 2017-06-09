@@ -67,19 +67,11 @@ To verify the download, follow these steps:
 
    .. code-block:: console
 
-      sha512sum ./clear-10980-installer.img.xz>sha.tmp
-      diff clear-10980-installer.img.xz-SHA512SUMS sha.tmp
+      sha512sum ./clear-10980-installer.img.xz | diff ./clear-10980-installer.img.xz-SHA512SUMS -
 
 If the files differ, the diff command outputs the difference to the console,
 otherwise, diff does not have any output to the console and returns you to
 the command prompt.
-
-3. Once the downloaded file is verified, delete the :file:`sha.tmp` file with
-   the following command:
-
-.. code-block:: console
-
-    rm sha.tmp
 
 Copy the Clear Linux image to a USB drive
 -----------------------------------------
@@ -99,7 +91,13 @@ To log in as root, simply enter:
 
    su
 
-Once prompted, enter your root password.
+Once prompted, enter your root password.  Alternatively you can enter:
+
+.. code-block:: console
+
+   sudo -s
+
+In this case you would enter your user password when prompted.
 
 To extract the downloaded image file and put it on the USB drive, enter the
 following command:
@@ -299,7 +297,7 @@ Enter your new `<userid>` and the password you created earlier.
 You should now be in the home directory of `<userid>`. The bundle
 `os-clr-on-clr`_ contains the majority of applications that a developer or
 system administrator would want but it does not include a graphical user
-interface. The `desktop` bundle includes the Gnome DesktopManager and 
+interface. The `desktop` bundle includes the Gnome Desktop Manager and 
 additional supporting applications.
 
 To test the :command:`sudo` command and ensure we set it up correctly, we can
@@ -311,18 +309,26 @@ To install Gnome using swupd, enter the following command:
 
    sudo swupd bundle-add desktop
 
-To start Gnome, enter the following command:
+To start the Gnome Desktop Manager, enter the following command:
 
 .. code-block:: console
 
-   sudo systemctl start gdm
+   systemctl start gdm
 
-The Gnome Desktop should start as shown in figure 1:
+You will be prompted to authenticate your user.  Enter the password for 
+`<userid>` and the Gnome Desktop should start as shown in figure 1:
 
 .. figure:: figures/gnomedt.png
    :alt: Gnome Desktop
 
-   Figure 1: Select :guilabel:`Gnome Desktop`
+   Figure 1: :guilabel:`Gnome Desktop`
+
+If you want to start the Gnome Desktop each time you start your system, enter 
+the following command:
+
+.. code-block:: console
+
+   systemctl enable gdm
 
 **Congratulations!**
 
