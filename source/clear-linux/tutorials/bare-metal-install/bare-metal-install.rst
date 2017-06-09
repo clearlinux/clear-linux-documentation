@@ -30,6 +30,7 @@ follow these instructions to find out.
 
    Only a system running a Linux distribution can run the compatibility
    check. There are two options:
+
    * Install and run a Linux distribution directly on your system.
    * Run a live image from a USB stick.
 
