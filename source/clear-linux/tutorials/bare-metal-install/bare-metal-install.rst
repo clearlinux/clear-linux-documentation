@@ -318,6 +318,7 @@ To start Gnome, enter the following command:
    sudo systemctl start gdm
 
 The Gnome Desktop should start as shown in figure 1:
+
 .. figure:: figures/gnomedt.png
    :alt: Gnome Desktop
 
