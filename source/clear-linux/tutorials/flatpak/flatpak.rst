@@ -19,12 +19,12 @@ our :ref:`bare metal installation tutorial<bare-metal-install>`.
 Install Flatpak on your host system
 ===================================
 
-Flatpak is included as part of the bundle `os-utils-gui`. To install the
+Flatpak is included as part of the bundle `desktop`. To install the
 application, log in to your user account and enter the following command:
 
 .. code-block:: console
 
-   $ sudo swupd bundle-add os-utils-gui
+   $ sudo swupd bundle-add desktop
 
 
 Install and run the LibreOffice Flatpak image
@@ -43,7 +43,7 @@ To get the latest version of the LibreOffice Flatpak repository, either
 
 .. code-block:: console
 
-   $ curl –O http://download.documentfoundation.org/libreoffice/flatpak/latest/LibreOffice.flatpak
+   $ curl –O -L http://download.documentfoundation.org/libreoffice/flatpak/latest/LibreOffice.flatpak
 
 The command downloads the latest LibreOffice.flatpak and saves it in your
 current directory.
@@ -98,60 +98,16 @@ LibreOffice with the following command from the command line:
 
    $ flatpak run org.libreoffice.LibreOffice
 
-Add LibreOffice to your Xfce desktop
-====================================
+Add LibreOffice to your Gnome desktop
+=====================================
+A new icon will appear in your Gnome applications list titled :guilabel:`LibreOffice.` To
+execute the application, highlight the application and click on the :guilabel:`LibreOffice` icon.
+LibreOffice will start normally.
 
-To add a LibreOffice launcher to the XFCE desktop, right click your mouse
-anywhere on the XFCE desktop. The dialog box shown in figure 1 pops up.
-Several options are available, including creating a launcher. In the dialog
-box, select :guilabel:`Create Launcher`.
+.. figure:: figures/gnome1.png
+   :alt: Gnome desktop
 
-.. figure:: figures/flatpak1.png
-   :alt: XFCE desktop contextual menu
-
-   Figure 1: Select :guilabel:`Create Launcher`
-
-The :guilabel:`Create Launcher` dialog appears, see figure 2.
-
-.. figure:: figures/flatpak2.png
-    :alt: Create Launcher dialog box
-
-    Figure 2: The :guilabel:`Create Launcher` dialog box
-
-Enter the following data into each field:
-
-   Name:  LibreOffice
-
-   Comment:  LibreOffice
-
-   Command:  flatpak run org.libreoffice.LibreOffice
-
-   Working Directory: $HOME
-
-   Icon:    Click on the :guilabel:`No icon` field to bring up a list of
-   available icons, see figure 3. In the :guilabel:`Search icon:` field, enter
-   ``Libreoffice-main.`` Click the :guilabel:`libreoffice-main` icon in the
-   window and select :guilabel:`OK`.
-
-   .. figure:: figures/flatpak3.png
-      :alt: Select an icon
-
-      Figure 3: Select an icon dialog box.
-
-   Options:  Leave the :guilabel:`Use startup notification` and
-   :guilabel:`Run in terminal` unchecked.
-
-Once all the fields have been filled out, click on the :guilabel:`Create`
-button.
-
-A new icon appears on your XFCE desktop titled :guilabel:`LibreOffice.` To
-execute the application, double click on the :guilabel:`LibreOffice` icon. A
-dialog appears stating: The application is an untrusted application launcher,
-the application is in an insecure location, and not marked as executable.
-Select the :guilabel:`Mark Executable` to ensure this dialog box will no
-longer appear every time you launch the application.
-
-LibreOffice starts normally.
+   Figure 1: Select :guilabel:`Gnome applications list`
 
 .. _Flatpak website: http://flatpak.org
 
