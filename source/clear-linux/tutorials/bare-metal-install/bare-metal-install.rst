@@ -105,14 +105,13 @@ following command:
 
 .. code-block:: console
 
-   xzcat –v clear-10980-installer.img.xz | dd of=/dev/sdb
+   xzcat clear-10980-installer.img.xz | dd of=/dev/sdb
 
 .. note::
 
    These commands only work in the directory containing the downloaded file.
 
-The decompression and copy of the image file takes some time to complete and
-the –v option for xzcat displays the progress.
+The decompression and copy of the image file takes some time to complete.
 
 Once the image has been decompressed and copied to the USB drive, you can
 remove the USB drive from the system and move it to your target system.
