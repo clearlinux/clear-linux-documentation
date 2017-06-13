@@ -8,12 +8,18 @@ This section describes how to update |CLOSIA|.
 Prerequisites
 =============
 
-* The system is up and running the Clear Linux 15400 build or later.
+* The system is up and running the Clear Linux 15400 release or later.
 
-* Device is on a well-connected network.
+* The device is on a well-connected network.
 
-* Device is able to connect to the release infrastructure. For example:
-  http://update.clearlinux.org/update/300/
+* The device is able to connect to the release infrastructure
+  http://update.clearlinux.org
+
+To verify the current release running on the system, enter:
+
+.. code-block:: console
+
+   $ sudo swupd update -s
 
 How to update the system
 ========================
@@ -47,8 +53,9 @@ If you wish to force a manual update:
 
 .. note::
 
-   If the updater console output indicates a kernel update occurred, then at
-   your convenience reboot to begin using the new OS version.
+   When the swupd console output indicates a kernel update, then reboot
+   immediately for the enhancements to take effect.
+
 
 Additional information
 ======================
