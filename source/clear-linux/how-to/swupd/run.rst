@@ -1,59 +1,60 @@
 .. _swupd-run:
 
-How to run the updater
-######################
+How to update Clear Linux
+#########################
 
-This section describes how to manually trigger the software update code in
-Clear Linux\* OS for Intel® Architecture.
+This section describes how to update |CLOSIA|.
 
 Prerequisites
 =============
 
--  System is up and running a Clear Linux OS for Intel
-   Architecture official build, 7420 later.
+* The system is up and running the Clear Linux 15400 build or later.
 
--  Device is on a well-connected network.
+* Device is on a well-connected network.
 
--  Device is able to connect to release infrastructure. For example:
-   http://update.clearlinux.org/update/300/
+* Device is able to connect to the release infrastructure. For example:
+  http://update.clearlinux.org/update/300/
 
-Running the updater
-===================
+How to update the system
+========================
 
-#. Open a Terminal Emulator.
+Starting with version 15400, Clear Linux supports auto-update. By default, it
+is turned on.
 
-#. Become root and trigger an update with this command:
+To verify the current auto-update setting:
 
    .. code-block:: console
 
-      $ swupd update
+      $ swupd autoupdate
 
-#. If the updater console output indicates a kernel update occurred,
-   then at your convenience reboot to begin using the new OS version.
+To enable auto-update:
 
-Updater options
-===============
+   .. code-block:: console
 
-Help options:
+      $ sudo swupd autoupdate --enable
 
-.. code-block:: console
+To disable auto-update:
 
-   -h, --help Display help options.
+   .. code-block:: console
 
-Application options:
+      $ sudo swupd autoupdate --disable
 
-.. code-block:: console
+If you wish to force a manual update:
 
-   -d, --download          Download all content, but do not actually install the update
-   -u, --url=[URL]         RFC-3986 encoded url for version string and content file downloads
-   -P, --port=[port #]     Port number to connect to at the url for version string and content file downloads
-   -c, --contenturl=[URL]  RFC-3986 encoded url for content file downloads
-   -v, --versionurl=[URL]  RFC-3986 encoded url for version string download
-   -s, --status            Show current OS version and latest version available on server
-   -F, --format=[staging,1,2,etc.]  the format suffix for version file downloads
-   -p, --path=[PATH...]    Use [PATH...] as the path to verify (eg: a chroot or btrfs subvol
-   -x, --force             Attempt to proceed even if non-critical errors found
-   -n, --nosigcheck        Do not attempt to enforce certificate or signature checking
-   -S, --statedir          Specify alternate swupd state directory
-   -C, --certpath          Specify alternate path to swupd certificates
-   -t, --time         	   Show verbose time output for swupd operations
+   .. code-block:: console
+
+      $ sudo swupd update
+
+.. note::
+
+   If the updater console output indicates a kernel update occurred, then at
+   your convenience reboot to begin using the new OS version.
+
+Additional information
+======================
+
+To see the man page listing additional swupd options, enter:
+
+   .. code-block:: console
+
+      $ man swupd
