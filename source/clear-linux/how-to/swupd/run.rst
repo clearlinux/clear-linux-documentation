@@ -45,7 +45,7 @@ To disable auto-update:
 
       $ sudo swupd autoupdate --disable
 
-If you wish to force a manual update:
+To force a manual update:
 
    .. code-block:: console
 
@@ -53,7 +53,7 @@ If you wish to force a manual update:
 
 .. note::
 
-   When the swupd console output indicates a kernel update, then reboot
+   When the swupd console output indicates a kernel update, reboot
    immediately for the enhancements to take effect.
 
 
