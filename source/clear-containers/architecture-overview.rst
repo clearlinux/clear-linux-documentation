@@ -396,7 +396,9 @@ FAQ
 
 .. _SR-IOV: http://www.intel.com/content/www/us/en/pci-express/pci-sig-sr-iov-primer-sr-iov-technology-paper.html
 .. _QEMU: http://www.qemu.org
-.. _mmu.txt:  Documentation/virtual/kvm/mmu.txt
+.. _mmu.txt:
+   https://www.kernel.org/doc/Documentation/virtual/kvm/mmu.txt
+
 .. _Intel ARK website: http://ark.intel.com
 .. _kvmtool: https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/
 .. _rkt: https://coreos.com/rkt/
