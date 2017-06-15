@@ -147,7 +147,7 @@ html_title = "Documentation for Clear Linux* Project for Intel(r) Architecture"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -294,4 +294,4 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 # If true, generates permalinks on the HTML output.
-html_add_permalinks = False
+html_add_permalinks = ""
