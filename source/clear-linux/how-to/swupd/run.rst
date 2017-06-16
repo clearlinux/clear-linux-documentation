@@ -60,8 +60,11 @@ To force a manual update:
 Additional information
 ======================
 
-To see the man page listing additional swupd options, enter:
+To see the man page listing additional swupd options, install the
+`sysadmin-basic` bundle to access the `man` command and later access
+the man page:
 
    .. code-block:: console
 
+      $ sudo swupd bundle-add sysadmin-basic
       $ man swupd
