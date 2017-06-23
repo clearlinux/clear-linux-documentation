@@ -3,8 +3,7 @@
 Installation options
 ####################
 
-There are a number of options available for downloading and running Clear
-Linux\* OS for Intel® Architecture. You can check your system hardware
+You can check your system hardware
 capabilities against the list of
 :ref:`supported processors <supported-hardware>`; alternatively,
 download and run the `clear-linux-check-config`_ script to check the hardware
@@ -50,9 +49,9 @@ natively, download the `clear-linux-check-config`_ script and run::
 * **Installer Image** -- The installer image allows you to manipulate and
   target partitions, and to set other OS configuration features (hostname,
   administrative user) commonly found in Linux installers. Find the
-  ``clear-[version_number]-installer.img.xz`` in our `current`_ directory and
-  see :ref:`clear-host`. This `blog post`_ contains more detail
-  about the evolution of our installer.
+  ``clear-[version_number]-installer.img.xz`` in our `current`_ directory.
+  This `blog post`_ contains more detail about the evolution of our
+  installer.
 
 * **Provisioning Image** -- This image is intended to be used in a provioning
   environment. Find the ``clear-[version_number]-provision.img.xz`` image in
