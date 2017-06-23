@@ -3,8 +3,7 @@
 Installation options
 ####################
 
-There are a number of options available for downloading and running Clear
-Linux\* OS for Intel® Architecture. You can check your system hardware
+You can check your system hardware
 capabilities against the list of
 :ref:`supported processors <supported-hardware>`; alternatively,
 download and run the `clear-linux-check-config`_ script to check the hardware
