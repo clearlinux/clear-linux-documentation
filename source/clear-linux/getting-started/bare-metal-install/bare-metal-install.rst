@@ -3,36 +3,13 @@
 Clear Linux host OS install on bare metal
 #########################################
 
-Verify your system hardware is supported by |CLOSIA|. |CL| can run on all
-Intel® 64bit processors which support UEFI\* and SSE\* v4.1 streaming SIMD\*
-instructions. The following processor families can run |CL|:
-
-* 2nd Generation, or later, Intel® Core™ processor family.
-* Intel® Xeon® Processor E3
-* Intel® Xeon® Processor E5
-* Intel® Xeon® Processor E7
-* Intel® Atom™ processor C2000 product family for servers -- Q3 2013 version
-  or later.
-* Intel® Atom™ processor E3800 series -- Q4 2013 version or later.
-
-Additionally, all the steps of this tutorial were tested using a NUC6i5SYH
-Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
-
-If you are unsure whether or not your system is compatible with |CL|, you can
-follow these instructions to find out.
-
-.. toctree::
-    :maxdepth: 1
-
-    compatibility-check.rst
-
 .. note::
 
-   Only a system running a Linux distribution can run the compatibility
-   check. There are two options:
+   The steps of this installation guide were tested using a NUC6i5SYH
+   Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
 
-   * Install and run a Linux distribution directly on your system.
-   * Run a live image from a USB stick.
+Verify your system hardware is supported by |CLOSIA|. A list of supported
+hardware and instructions to run a compatibility check can be found `here`_.
 
 .. _create-usb:
 
@@ -116,6 +93,7 @@ The decompression and copy of the image file takes some time to complete.
 Once the image has been decompressed and copied to the USB drive, you can
 remove the USB drive from the system and move it to your target system.
 
+.. _install-on-target:
 
 Install Clear Linux on your target system
 =========================================
@@ -181,6 +159,8 @@ that you have successfully installed |CL| onto your system.
 
 10. Press enter, remove the USB drive from the system, and the system will
     reboot running |CL|.
+
+.. _initial-setup:
 
 Clear Linux initial setup after installation
 ============================================
@@ -349,15 +329,14 @@ Next steps
 
 With your system now running |CL| many paths are open for you.
 
-We have created a :ref:`tutorial <web-server-install>` for setting up your
-|CL| system as a :abbr:`LAMP (Linux, Apache MySQL, PHP)` web sever.
-
-Once you have setup your system as a web server, we recommend you try out our
-:ref:`tutorial on installing WordPress <wp-install>` to host your own
-CMS-based website on your |CL| system.
+We have created some `tutorials`_ which you can follow to begin utilizing your
+new |CL| system.
 
 .. _`NUC6i5SYH product page`:
    http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
+
+.. _`here`:
+   https://clearlinux.org/documentation/clear-linux/getting-started/supported-hardware.html
 
 .. _`information about swupd`:
    https://clearlinux.org/documentation/swupdate_about_sw_update.html
@@ -370,3 +349,7 @@ CMS-based website on your |CL| system.
 
 .. _`wheel group`:
    https://en.wikipedia.org/wiki/Wheel_(Unix_term)
+
+.. _`tutorials`:
+   https://clearlinux.org/documentation/clear-linux/tutorials/tutorials.html
+
