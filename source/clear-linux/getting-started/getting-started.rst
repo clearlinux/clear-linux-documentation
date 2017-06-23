@@ -1,3 +1,5 @@
+.. _getting-started:
+
 Getting started
 ###############
 
@@ -10,5 +12,5 @@ on bare metal, or by way of live image.
 
    kernels
    supported-hardware
-   installation-options
-   
+   bare-metal-install/bare-metal-install
+   live-image

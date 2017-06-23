@@ -1,7 +1,7 @@
 .. _kernels:
 
-|CL| kernels
-############
+Compatible |CL| kernels
+#######################
 
 The |CLOSIA| provides several Linux kernels distributed over several bundles.
 These `bundles`_ serve the following specific use cases.
