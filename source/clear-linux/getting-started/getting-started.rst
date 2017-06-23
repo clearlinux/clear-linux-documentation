@@ -2,8 +2,8 @@ Getting started
 ###############
 
 There are a number of options available for downloading and running Clear
-Linux\* OS for Intel® Architecture. You can install |CL| under Virtual
-Machines or containers, on Bare metal, or by way of Live image.
+Linux\* OS for Intel® Architecture. You can install |CL| under virtual
+machines or containers, on bare metal, or by way of live image.
 
 .. toctree::
    :maxdepth: 2
