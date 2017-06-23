@@ -23,6 +23,21 @@ script is available in the `current`_ download directory; it checks the
 hardware capabilities of your system to determine whether it will work with
 the latest release.
 
+Further instruction on running this compatibility check can be found here:
+
+.. toctree::
+    :maxdepth: 1
+
+    compatibility-check.rst
+
+.. note::
+
+   Only a system running a Linux distribution can run the compatibility
+   check. There are two alternative options:
+
+   * Install and run a Linux distribution directly on your system.
+   * Run a live image from a USB stick.
+
 Disclaimers
 ===========
 
