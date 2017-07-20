@@ -8,7 +8,8 @@ Prerequisites
 
 In order to create a web server using |CL| as the host OS your host
 system must be running |CL|. Therefore, this tutorial assumes you have
-already gone through the steps in :ref:`bare-metal-install`.
+already gone through the :ref:`bare metal installation<bare-metal-install>`
+instructions.
 
 Before installing any new packages, update the |CL| OS with the
 console command:

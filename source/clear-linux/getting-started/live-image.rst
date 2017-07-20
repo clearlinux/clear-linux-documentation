@@ -6,8 +6,8 @@ Live Image Installation
 This option is a great way to try a live |CL| environment without writing
 to your computer's hard disk.
 
-The live image can be used to boot the OS in a VM, or you
-can create a bootable USB drive and boot from USB. 
+Use the live image to boot the OS in a VM, or you can create a bootable
+USB drive and boot from USB.
 
 Be aware, however, that if you do **not** manually configure the install and
 instead use the auto-install, it will repartition ``/dev/sda``.

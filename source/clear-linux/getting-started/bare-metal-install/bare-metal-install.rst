@@ -3,14 +3,17 @@
 Clear Linux host OS install on bare metal
 #########################################
 
-.. note::
-
-   The steps of this installation guide were tested using a NUC6i5SYH
-   Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
+The following are instructions for installing |CL| on bare metal using a
+bootable USB drive.
 
 Verify your system hardware is supported by |CLOSIA|. Review the
 :ref:`list of supported processors <supported-hardware>` and
 :ref:`instructions to run a compatibility check <check-compatibility>`.
+
+.. note::
+
+   The steps of this installation guide were tested using a NUC6i5SYH
+   Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
 
 .. _create-usb:
 

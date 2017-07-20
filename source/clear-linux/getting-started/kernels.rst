@@ -3,8 +3,9 @@
 Compatible |CL| kernels
 #######################
 
-The |CLOSIA| provides several Linux kernels distributed over several bundles.
-These `bundles`_ serve the following specific use cases.
+The |CLOSIA| provides the following Linux kernels with a respective bundle.
+This document describes the specific use cases these `bundles`_ serve
+and provides links to their source code.
 
 Kernel native
 =============
