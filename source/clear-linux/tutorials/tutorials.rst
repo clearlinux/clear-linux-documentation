@@ -6,5 +6,6 @@ Tutorials
 
    wordpress.rst
    flatpak/flatpak.rst
+   autofdo.rst
 
 
