@@ -3,8 +3,8 @@
 Clear Linux host OS install on bare metal
 #########################################
 
-The following are instructions for installing |CL| on bare metal using a
-bootable USB drive.
+These instructions will guide you through the installation of |CL| on bare
+metal using a :ref:`bootable USB drive<create-usb>`.
 
 Verify your system hardware is supported by |CLOSIA|. Review the
 :ref:`list of supported processors <supported-hardware>` and
@@ -311,7 +311,7 @@ You will be prompted to authenticate your user.  Enter the password for
 
    Figure 1: :guilabel:`Gnome Desktop`
 
-If you want to start the Gnome Desktop each time you start your system, enter
+To start the Gnome Desktop each time you start your system, enter
 the following command:
 
 .. code-block:: console
@@ -354,6 +354,3 @@ system.
 
 .. _`wheel group`:
    https://en.wikipedia.org/wiki/Wheel_(Unix_term)
-
-.. _`tutorials`:
-   https://clearlinux.org/documentation/clear-linux/tutorials/tutorials.html
