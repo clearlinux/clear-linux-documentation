@@ -17,11 +17,21 @@ The following processor families can run |CL|:
 
 
 If you're unsure whether your system will be capable of running Clear Linux\*
-OS for Intel® Architecture, you can determine ahead of time by downloading
-and running the simple `clear-linux-check-config.sh`_ script locally. This
-script is available in the `current`_ download directory; it checks the
-hardware capabilities of your system to determine whether it will work with
-the latest release.
+OS for Intel® Architecture, you can check the hardware capabilities of your
+system to determine whether it will work with the latest release:
+
+.. toctree::
+    :maxdepth: 1
+
+    compatibility-check.rst
+
+.. note::
+
+   Only a system running a Linux distribution can run the compatibility
+   check. There are two alternative options:
+
+   * Install and run a Linux distribution directly on your system.
+   * Run a live image from a USB stick.
 
 Disclaimers
 ===========

@@ -3,36 +3,17 @@
 Clear Linux host OS install on bare metal
 #########################################
 
-Verify your system hardware is supported by |CLOSIA|. |CL| can run on all
-Intel® 64bit processors which support UEFI\* and SSE\* v4.1 streaming SIMD\*
-instructions. The following processor families can run |CL|:
+These instructions will guide you through the installation of |CL| on bare
+metal using a :ref:`bootable USB drive<create-usb>`.
 
-* 2nd Generation, or later, Intel® Core™ processor family.
-* Intel® Xeon® Processor E3
-* Intel® Xeon® Processor E5
-* Intel® Xeon® Processor E7
-* Intel® Atom™ processor C2000 product family for servers -- Q3 2013 version
-  or later.
-* Intel® Atom™ processor E3800 series -- Q4 2013 version or later.
-
-Additionally, all the steps of this tutorial were tested using a NUC6i5SYH
-Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
-
-If you are unsure whether or not your system is compatible with |CL|, you can
-follow these instructions to find out.
-
-.. toctree::
-    :maxdepth: 1
-
-    compatibility-check.rst
+Verify your system hardware is supported by |CLOSIA|. Review the
+:ref:`list of supported processors <supported-hardware>` and
+:ref:`instructions to run a compatibility check <check-compatibility>`.
 
 .. note::
 
-   Only a system running a Linux distribution can run the compatibility
-   check. There are two options:
-
-   * Install and run a Linux distribution directly on your system.
-   * Run a live image from a USB stick.
+   The steps of this installation guide were tested using a NUC6i5SYH
+   Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
 
 .. _create-usb:
 
@@ -46,6 +27,8 @@ Copying the |CL| image onto the USB drive formats the drive as a UEFI boot
 device. Therefore, the contents of the USB drive will be destroyed during the
 creation of the bootable USB drive. Make sure to save anything stored in the
 drive before proceeding.
+
+.. _download-clear-linux-image:
 
 Download the Latest Clear Linux Image
 -------------------------------------
@@ -73,6 +56,8 @@ To verify the download, follow these steps:
 If the files differ, the diff command outputs the difference to the console,
 otherwise, diff does not have any output to the console and returns you to
 the command prompt.
+
+.. _copy-image:
 
 Copy the Clear Linux image to a USB drive
 -----------------------------------------
@@ -116,6 +101,7 @@ The decompression and copy of the image file takes some time to complete.
 Once the image has been decompressed and copied to the USB drive, you can
 remove the USB drive from the system and move it to your target system.
 
+.. _install-on-target:
 
 Install Clear Linux on your target system
 =========================================
@@ -181,6 +167,8 @@ that you have successfully installed |CL| onto your system.
 
 10. Press enter, remove the USB drive from the system, and the system will
     reboot running |CL|.
+
+.. _initial-setup:
 
 Clear Linux initial setup after installation
 ============================================
@@ -297,7 +285,7 @@ Enter your new `<userid>` and the password you created earlier.
 You should now be in the home directory of `<userid>`. The bundle
 `os-clr-on-clr`_ contains the majority of applications that a developer or
 system administrator would want but it does not include a graphical user
-interface. The `desktop` bundle includes the Gnome Desktop Manager and 
+interface. The `desktop` bundle includes the Gnome Desktop Manager and
 additional supporting applications.
 
 To test the :command:`sudo` command and ensure we set it up correctly, we can
@@ -315,7 +303,7 @@ To start the Gnome Desktop Manager, enter the following command:
 
    systemctl start gdm
 
-You will be prompted to authenticate your user.  Enter the password for 
+You will be prompted to authenticate your user.  Enter the password for
 `<userid>` and the Gnome Desktop should start as shown in figure 1:
 
 .. figure:: figures/gnomedt.png
@@ -323,7 +311,7 @@ You will be prompted to authenticate your user.  Enter the password for
 
    Figure 1: :guilabel:`Gnome Desktop`
 
-If you want to start the Gnome Desktop each time you start your system, enter 
+To start the Gnome Desktop each time you start your system, enter
 the following command:
 
 .. code-block:: console
@@ -349,12 +337,8 @@ Next steps
 
 With your system now running |CL| many paths are open for you.
 
-We have created a :ref:`tutorial <web-server-install>` for setting up your
-|CL| system as a :abbr:`LAMP (Linux, Apache MySQL, PHP)` web sever.
-
-Once you have setup your system as a web server, we recommend you try out our
-:ref:`tutorial on installing WordPress <wp-install>` to host your own
-CMS-based website on your |CL| system.
+Visit our :ref:`tutorials <tutorials>` page for examples on using your |CL|
+system.
 
 .. _`NUC6i5SYH product page`:
    http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
