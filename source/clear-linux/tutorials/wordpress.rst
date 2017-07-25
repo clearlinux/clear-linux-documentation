@@ -20,7 +20,7 @@ to the WordPress tutorial.
     web-server-install/web-server-install.rst
     wp-install/wp-install.rst
 
-.. important::
+.. note::
 
    This tutorial is for development and testing purposes only. Additional
    steps are required to secure production systems.
