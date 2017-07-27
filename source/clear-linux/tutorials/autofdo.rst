@@ -3,13 +3,41 @@
 Automatic Feedback-Directed Optimizer
 #####################################
 
-This brief tutorial examines a simple `hello world` case and introduces you
-to some basic optimizations and the new AutoFDO feature of GCC version 5.0 or
-later.
+This brief tutorial walks you through
+:ref:`basic-optimization-options`, traditional
+:ref:`FDO <FDO>`, and the new :ref:`AutoFDO <Enter-AutoFDO>`
+feature of :abbr:`GCC (GNU Compiler Collection)` version 5.0 or later.
+
+With this example, you will learn how
+:abbr:`AutoFDO (Automatic Feedback-Directed Optimizer)` can help you to easily
+optimize your code and improve the performance of your applications using
+|CL|. The advantages of AutoFDO include but are not limited to the
+following:
+
+* Profile collection can occur on production systems. The profiles are,
+  therefore, readily available for :abbr:`FDO (Feedback-Directed Optimizer)`
+  builds without any special instrumentation built and run.
+
+* You can use the profile data collected during the testing and development
+  phase to build the optimized binary. Though similar to the instrumentation-
+  based FDO model, the profile collection overhead is much lower.
+
+* If the execution of the instrumented code changes the behavior of time-
+  critical code, such as operating system kernel code, then the traditional
+  FDO model using instrumented runs to collect profile data is not suitable.
+
+* The current instrumentation-based FDO model does not support obtaining
+  execution counts for kernel code.
+
+Prerequisites
+=============
 
 We assume you have followed all the steps in our :ref:`bare-metal-install`
-guide and are running a fully functional and configured instance of the Clear
-Linux OS for Intel® Architecture.
+guide and are running a fully functional and configured instance of the
+|CLOSIA|.
+
+Run a simple sorting algorithm
+------------------------------
 
 Let's start with a simple sorting algorithm as an example:
 
@@ -110,13 +138,14 @@ incoming improvements to control optimizations. For example:
 
    3720 ms
 
-Basic Optimization Options
+.. _basic-optimization-options:
+
+Basic optimization options
 ==========================
 
-These options control various sorts of optimizations: `-O1`, `-O2`, and
-`-O3`. The GCC Optimize-Options section provides an excellent explanation.
-For our example, we will use the `-O3` option. `-O3` turns on all
-optimizations specified by -O2 plus the following options:
+These options control various sorts of `GCC optimization-options`_: `-O1`,
+`-O2`, and `-O3`. For our example, we will use the `-O3` option. `-O3` turns
+on all optimizations specified by -O2 plus the following options:
 
 * finline-functions
 * funswitch-loops
@@ -141,24 +170,24 @@ We applying this flag to our example code and run it:
    1500 ms
 
 We see the execution reduced by 59.6 percent. An impressive performance
-increase for a single optimization flag. Now, let us take into consideration
-that this optimization is based on only the static analysis of the code. The
-execution time provides no input that can tell us how the code is behaving
-for the user: which parts are never executed or which ones are more
-worthwhile to optimize. What if we could have that feedback? Well we can; the
-:abbr:`FDO (Feedback-Directed Optimization)` technology makes this magic
-happen.
+increase for a single optimization flag based on only the static analysis of
+the code. However, the execution time provides no input that can tell us how
+the code is behaving for the user.
+
+The FDO technology allows us to gain feedback on which parts of the code are
+never executed or which parts are more worthwhile to optimize.
+
+.. _FDO:
 
 Feedback-Directed Optimization
 ==============================
 
-Traditional :abbr:`FDO (Feedback-Directed Optimization)` in GCC uses static
-instrumentation to collect edge and value profiles. GCC uses execution
-profiles consisting of basic block and edge frequency counts to guide the
-optimizations for things like instruction scheduling, basic block reordering,
-function splitting, and register allocation. According to Ramasamy, Yuan,
-Chen & Hundt, 2008, the current method of FDO in GCC involves the following
-steps:
+Traditional FDO in GCC uses static instrumentation to collect edge and value
+profiles. GCC uses execution profiles consisting of basic block and edge
+frequency counts to guide the optimizations for things like instruction
+scheduling, basic block reordering, function splitting, and register
+allocation. According to Ramasamy, Yuan, Chen & Hundt, 2008, the current
+method of FDO in GCC involves the following steps:
 
 #. Build an instrumented version of the program for edge and value profiling,
    the instrumentation build.
@@ -176,7 +205,7 @@ ensure that the :abbr:`CFG (Control-Flow Graph)` instrumented in the
 instrumentation build matches the CFG annotated with the profile data in the
 FDO build.
 
-Apply this method to our example:
+Applying FDO to our example:
 
 #. Create an instrumented binary with -fprofile-generate:
 
@@ -209,15 +238,17 @@ We can see an additional improvement from `-O3` to FDO: 1500 ms -> 1448 ms or
 3.46%. We performed 1500 experiments with much more complex code and they
 show a gain of almost 9%.
 
-This method shows good application performance gains but, in practice, it is
-not commonly used due to the high runtime overhead of profile collection, the
-tedious dual-compile usage model, and the difficulties of generating a
+Although this method shows good application performance gains, in practice,
+it is not commonly used. This is due to high runtime overhead of profile
+collection, tedious dual-compile usage model, and difficulties in generating a
 representative training data set.
+
+.. _Enter-AutoFDO:
 
 Enter AutoFDO
 =============
 
-To overcome the limitations of the current FDO model, we proposed the use of
+To overcome the limitations of the current FDO model, we propose the use of
 AutoFDO. The AutoFDO tool uses `perf`_ to collect sample profiles. A
 standalone tool converts the :file:`perf.data` file into the `gcov` format.
 See the `tool's source code`_ for details.
@@ -254,7 +285,7 @@ tool.
    [ perf record: Captured and wrote 1.580 MB perf.data (3902 samples) ]
 
 After this, we use a standalone tool `create_gcov` to convert the
-:file;`perf.data` file into the `gcov` format. The `create_gcov` tool is part
+:file:`perf.data` file into the `gcov` format. The `create_gcov` tool is part
 of the `autofdo` set of tools:
 
 .. code-block:: console
@@ -289,27 +320,14 @@ With the source rebuilt, we can run the :file:`sort_autofdo` binary to test:
 
    1447 ms
 
-As you can see, the results are similar to FDO, with the following
-advantages:
+**Congratulations!**
 
-* Profile collection can occur on production systems. The profiles are,
-  therefore, readily available for FDO builds without any special
-  instrumentation built and run.
+You have successfully run AutoFDO on your code on |CL|.
 
-* You can use the profile data collected during the testing and development
-  phase to build the optimized binary. Though similar to the instrumentation-
-  based FDO model, the profile collection overhead is much lower.
+Additionally, you compared optimization of simple GCC optimization-options,
+traditional FDO, and AutoFDO.
 
-* If the execution of the instrumented code changes the behavior of time-
-  critical code, such as operating system kernel code, then the traditional
-  FDO model using instrumented runs to collect profile data is not suitable.
-
-* The current instrumentation-based FDO model does not support obtaining
-  execution counts for kernel code.
-
-With this example, you have learned how AutoFDO can help you to easily
-optimize your code and improve the performance of your applications using
-Clear Linux.
+.. _GCC optimization-options: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
 
 .. _perf: https://perf.wiki.kernel.org/index.php/Main_Page
 
