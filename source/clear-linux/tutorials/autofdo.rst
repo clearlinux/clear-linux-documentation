@@ -5,7 +5,7 @@ Automatic Feedback-Directed Optimizer
 
 This brief tutorial walks you through
 :ref:`basic-optimization-options`, traditional
-:ref:`FDO <FDO>`, and the new :ref:`AutoFDO <Enter-AutoFDO>`
+:ref:`FDO <fdo>`, and the new :ref:`AutoFDO <enter-Autofdo>`
 feature of :abbr:`GCC (GNU Compiler Collection)` version 5.0 or later.
 
 With this example, you will learn how
@@ -177,7 +177,7 @@ the code is behaving for the user.
 The FDO technology allows us to gain feedback on which parts of the code are
 never executed or which parts are more worthwhile to optimize.
 
-.. _FDO:
+.. _fdo:
 
 Feedback-Directed Optimization
 ==============================
@@ -243,7 +243,7 @@ it is not commonly used. This is due to high runtime overhead of profile
 collection, tedious dual-compile usage model, and difficulties in generating a
 representative training data set.
 
-.. _Enter-AutoFDO:
+.. _enter-Autofdo:
 
 Enter AutoFDO
 =============
