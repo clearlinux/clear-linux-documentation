@@ -204,7 +204,7 @@ Mixing
 #. **Creating an image** To create a bootable image from your update content,
    you will need the configuration file for ister to create images::
 
-      # curl -O https://raw.githubusercontent.com/clearlinux/ister/master/release-image-config.json
+      # curl -O https://raw.githubusercontent.com/bryteise/ister/master/release-image-config.json
 
    Edit this to include  all the bundles you want pre-installed into your
    image. For a minimal, base image this would be::
