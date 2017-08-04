@@ -19,7 +19,7 @@ the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
 
    .. code-block:: console
 
-      # mkdir /etc/systemd/system/sshd@.service.d
+      # mkdir -p /etc/systemd/system/sshd@.service.d
 
 #. Create the following file:
    :file:`/etc/systemd/system/sshd@.service.d/sftp.conf`
@@ -30,6 +30,12 @@ the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
 
       [Service]
       Environment="OPTIONS=-o Subsystem=\"sftp /usr/libexec/sftp-server\""
+
+#. Reload systemd configuration:
+
+   .. code-block:: console
+
+      # systemctl daemon-reload
 
 Congratulations! The SFTP subsystem is enabled.
 
