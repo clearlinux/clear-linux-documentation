@@ -35,11 +35,11 @@ Virtual Machine)`, follow these steps.
 4. Download the latest pre-built Clear Linux _`KVM image` file from
    the _`image` directory.
 
-5. Uncompress the downloaded image
+5. Uncompress the downloaded image::
 
    .. code-block:: console
 
-      unxz clear-<version number>-kvm.img.xz
+      # unxz clear-<version number>-kvm.img.xz
 
 6. Download the :file:`OVMF.fd` file that provides UEFI support for
    virtual machines from the _`image` directory.
