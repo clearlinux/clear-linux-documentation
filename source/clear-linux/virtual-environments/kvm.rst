@@ -7,7 +7,7 @@ This section explains how to run |CLOSIA| in a virtualized environment using
 abbr:`KVM (Kernel-based Virtual Machine)`.
 
 Install QEMU-KVM
-===========
+================
 
 #. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
    `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
@@ -45,11 +45,12 @@ Install QEMU-KVM
 
         # dnf install qemu-kvm
 
-Download and Launch |CL| VM
-========================
+Download and launch virtual machine
+===================================
 
-#. Download the latest pre-built Clear Linux _`KVM image` file from
-   the _`image` directory.
+#. Download the latest pre-built Clear Linux :file:`KVM image` file from
+   the `image <https://download.clearlinux.org/image/>`_ directory. Look for
+   ``clear-<version>-kvm.img.xz``.
 
 #. Uncompress the downloaded image
 
@@ -58,9 +59,13 @@ Download and Launch |CL| VM
       unxz clear-<version number>-kvm.img.xz
 
 #. Download the :file:`OVMF.fd` file that provides UEFI support for
-   virtual machines from the _`images` directory.
+   virtual machines from the `image <https://download.clearlinux.org/image/>`_
+   directory.
 
-#. Download the sample _`QEMU-KVM launcher` script from the _`image` directory.
+#. Download the sample
+   `QEMU-KVM launcher <https://download.clearlinux.org/image/start_qemu.sh>`_
+   script from the `image <https://download.clearlinux.org/image/>`_
+   directory.
 
 #. Make the script executable
 
@@ -78,7 +83,7 @@ Download and Launch |CL| VM
 
 #. To SSH into the |CL| VM, follow these steps:
 
-    a. Enable SSH access in the |CL| VM
+    a. Enable SSH in the |CL| VM
 
        .. code-block:: console
 
@@ -144,32 +149,26 @@ To add the GNOME Display Manager (GDM) to the |CL| VM, follow these steps:
           -device virtio-net-pci,netdev=mynet0 \
           -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
 
-Reset UEFI NvVars information
-=============================
+#. Due to changes in :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
+   information for the previously-booted |CL| VM will need to be reset.
 
-Due to changes in :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
-information for the previously-booted |CL| VM will need to be reset.
+   #. Relaunch the |CL| VM.  The EFI shell will appear:
 
-#. Relaunch the |CL| VM.  The EFI shell will appear:
+      .. code-block:: console
 
-   .. code-block:: console
+         # ./start_qemu.sh clear-<version number>-kvm.img
 
-      # ./start_qemu.sh clear-<version number>-kvm.img
+   #. At the UEFI shell, delete the :file:`NvVars` file:
 
-#. At the UEFI shell, delete the :file:`NvVars` file:
+      .. code-block:: console
 
-   .. code-block:: console
+         Shell> del FS0:\NvVars
 
-      Shell> del FS0:\NvVars
+   #. Proceed with booting the |CL| VM:
 
-#. Proceed with booting the |CL| VM:
+      .. code-block:: console
 
-   .. code-block:: console
-
-      Shell> FS0:\EFI\Boot\BOOTX64.EFI
-
-Enable GNOME Display Manager
-============================
+         Shell> FS0:\EFI\Boot\BOOTX64.EFI
 
 #. From the host machine, VNC into the |CL| VM:
 
@@ -199,5 +198,3 @@ Enable GNOME Display Manager
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 .. _Intel®Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
-.. _image: https://download.clearlinux.org/image/
-.. _QEMU-KVM launcher: https://download.clearlinux.org/image/start_qemu.sh
