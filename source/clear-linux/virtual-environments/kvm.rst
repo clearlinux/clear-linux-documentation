@@ -21,25 +21,25 @@ Install QEMU-KVM
 
 #. Install `QEMU-KVM` on the host machine. Below are some example distros.
 
-   * |CL|:
+   * On |CL|:
 
      .. code-block:: console
 
         # swupd bundle-add desktop-autostart kvm-host
 
-   * Ubuntu 16.04 LTS Desktop:
+   * On Ubuntu 16.04 LTS Desktop:
 
      .. code-block:: console
 
         # apt-get install qemu-kvm
 
-   * Mint 18.1 “Serena” Desktop:
+   * On Mint 18.1 “Serena” Desktop:
 
      .. code-block:: console
 
         # apt-get install qemu-kvm
 
-   * Fedora 25 Workstation:
+   * On Fedora 25 Workstation:
 
      .. code-block:: console
 
