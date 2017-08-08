@@ -56,7 +56,7 @@ Download and launch virtual machine
 
    .. code-block:: console
 
-      unxz clear-<version number>-kvm.img.xz
+      # unxz clear-<version number>-kvm.img.xz
 
 #. Download the :file:`OVMF.fd` file that provides UEFI support for
    virtual machines from the `image <https://download.clearlinux.org/image/>`_
