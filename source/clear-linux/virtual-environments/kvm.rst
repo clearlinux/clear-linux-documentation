@@ -166,13 +166,7 @@ information for the previously-booted |CL| VM will need to be reset.
 
    .. code-block:: console
 
-      Shell> \EFI\BOOT\
-
-#. Relaunch the |CL| VM:
-
-   .. code-block:: console
-
-      # ./start_qemu.sh clear-<version number>-kvm.img
+      Shell> FS0:\EFI\Boot\BOOTX64.EFI
 
 Enable GNOME Display Manager
 ============================
