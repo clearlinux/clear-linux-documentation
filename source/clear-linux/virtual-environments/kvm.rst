@@ -3,60 +3,80 @@
 Running Clear Linux as a KVM guest OS
 #####################################
 
-To run |CL| in a virtualized environment using abbr:`KVM (Kernel-based
-Virtual Machine)`, follow these steps.
+This section explains how to run |CLOSIA| in a virtualized environment using
+abbr:`KVM (Kernel-based Virtual Machine)`.
 
-1. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
+Install KVM
+===========
+
+#. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
    `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
    host machine’s BIOS.
 
-2. Log in and get root privilege on the host machine::
-
-    $ sudo -s
-
-3. Install `QEMU-KVM` on the host machine. Below are some example distros.
-
-   * |CL|::
-
-     # swupd bundle-add desktop-autostart kvm-host
-
-   * Ubuntu 16.04 LTS Desktop::
-
-     # apt-get install qemu-kvm
-
-   * Mint 18.1 “Serena” Desktop::
-
-     # apt-get install qemu-kvm
-
-   * Fedora 25 Workstation::
-
-     # dnf install qemu-kvm
-
-4. Download the latest pre-built Clear Linux _`KVM image` file from
-   the _`image` directory.
-
-5. Uncompress the downloaded image::
+#. Log in and get root privilege on the host machine:
 
    .. code-block:: console
 
-      # unxz clear-<version number>-kvm.img.xz
+    $ sudo -s
 
-6. Download the :file:`OVMF.fd` file that provides UEFI support for
-   virtual machines from the _`image` directory.
+#. Install `QEMU-KVM` on the host machine. Below are some example distros.
 
-7. Download the sample _`QEMU-KVM launcher` script from the _`image` directory.
+   * |CL|:
 
-8. Make the script executable::
+     .. code-block:: console
 
-   # chmod +x start_qemu.sh
+        # swupd bundle-add desktop-autostart kvm-host
 
-9. Start the |CL| KVM virtual machine::
+   * Ubuntu 16.04 LTS Desktop:
 
-   # ./start_qemu.sh clear-<version number>-kvm.img
+     .. code-block:: console
+
+        # apt-get install qemu-kvm
+
+   * Mint 18.1 “Serena” Desktop:
+
+     .. code-block:: console
+
+        # apt-get install qemu-kvm
+
+   * Fedora 25 Workstation:
+
+     .. code-block:: console
+
+        # dnf install qemu-kvm
+
+Create a virtual machine
+========================
+
+#. Download the latest pre-built Clear Linux _`KVM image` file from
+   the _`image` directory.
+
+#. Uncompress the downloaded image
+
+   .. code-block:: console
+
+      unxz clear-<version number>-kvm.img.xz
+
+#. Download the :file:`OVMF.fd` file that provides UEFI support for
+   virtual machines from the _`images` directory.
+
+#. Download the sample _`QEMU-KVM launcher` script from the _`image` directory.
+
+#. Make the script executable
+
+   .. code-block:: console
+
+      # chmod +x start_qemu.sh
+
+#. Start the |CL| KVM virtual machine:
+
+     .. code-block:: console
+
+        # ./start_qemu.sh clear-<version number>-kvm.img
 
 #. Log in and set the root password.
 
-#. To SSH into the |CL| VM, follow these steps.
+#. To SSH into the |CL| VM, follow these steps:
 
     a. Enable SSH access
 
@@ -66,87 +86,120 @@ Virtual Machine)`, follow these steps.
             PermitRootLogin yes
             EOF
 
-    b. From the host, SSH into the Clear Linux VM::
+    b. From the host, SSH into the Clear Linux VM:
 
-       # ssh -p 10022 root@localhost
+       .. code-block:: console
 
-#. To add the GNOME Display Manager (GDM) to the |CL| VM, follow these steps:
+          # ssh -p 10022 root@localhost
 
-   a. Shutdown the active |CL| VM.
+Add GNOME Display Manager
+=========================
 
-   b. Install VNCViewer on the host machine.  Below are some example distros.
+To add the GNOME Display Manager (GDM) to the |CL| VM, follow these steps:
 
-      *  Clear Linux::
+#. Shutdown the active |CL| VM.
 
-         # swupd bundle-add desktop-apps 
+#. Install VNCViewer on the host machine.  Below are some example distros.
 
-      *  Ubuntu 16.04 LTS Desktop::
+   * On Clear Linux:
 
-         # apt-get vncviewer
+     .. code-block:: console
 
-      *  Mint 18.1 “Serena” Desktop::
+        # swupd bundle-add desktop-apps 
 
-         # apt-get vncviewer
+   * On Ubuntu 16.04 LTS Desktop:
 
-      *  Fedora 25 Workstation::
+     .. code-block:: console
 
-         # dnf install tigervnc
+        # apt-get vncviewer
 
-   c. Modify the start_qemu.sh script to increase memory (-m), add graphics
-      driver (-vga), and add VNC (-vnc and -usbdevice) support.
+   * On Mint 18.1 “Serena” Desktop:
 
-      .. code-block:: console
+     .. code-block:: console
 
-         qemu-system-x86_64 \
-             -enable-kvm \
-             -bios OVMF.fd \
-             -smp sockets=1,cpus=4,cores=2 -cpu host \
-             -m 4096 \
-             -vga qxl \
-             -vnc :0 -nographic \
-             -usbdevice tablet \
-             -drive file="$IMAGE",if=virtio,aio=threads,format=raw \
-             -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-
-             :22,hostfwd=tcp::${VMN}2375-:2375 \
-             -device virtio-net-pci,netdev=mynet0 \
-             -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
+        # apt-get vncviewer
 
-   d. Due to changes in `start_qemu.sh` script, the UEFI NvVars information for
-         the previously-booted |CL| VM will need to be reset.
+   * On Fedora 25 Workstation:
 
-      i. Relaunch the |CL| VM.  The EFI shell will appear::
+     .. code-block:: console
 
-         # ./start_qemu.sh clear-<version number>-kvm.img
+        # dnf install tigervnc
 
-      ii. At the UEFI shell, delete the NvVars file:
+#. Modify the :file:`start_qemu.sh` script to increase memory (-m), add
+   graphics driver (-vga), and add VNC (-vnc and -usbdevice) support.
 
-         .. code-block:: console
+   .. code-block:: console
 
-            Shell> del FS0:\NvVars
+      qemu-system-x86_64 \
+          -enable-kvm \
+          -bios OVMF.fd \
+          -smp sockets=1,cpus=4,cores=2 -cpu host \
+          -m 4096 \
+          -vga qxl \
+          -vnc :0 -nographic \
+          -usbdevice tablet \
+          -drive file="$IMAGE",if=virtio,aio=threads,format=raw \
+          -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-
+          :22,hostfwd=tcp::${VMN}2375-:2375 \
+          -device virtio-net-pci,netdev=mynet0 \
+          -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
 
-      iii. In another terminal window, kill all processes related to `qemu`::
+Reset UEFI NvVars information
+=============================
 
-           # pkill -f qemu
+Due to changes in :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
+information for the previously-booted |CL| VM will need to be reset.
 
-   e. Relaunch the |CL| VM::
+#. Relaunch the |CL| VM.  The EFI shell will appear:
+
+   .. code-block:: console
 
       # ./start_qemu.sh clear-<version number>-kvm.img
 
-   f. From the host machine, VNC into the |CL| VM::
+#. At the UEFI shell, delete the :file:`NvVars` file:
+
+   .. code-block:: console
+
+      Shell> del FS0:\NvVars
+
+#. In another terminal window, kill all processes related to :file:`qemu`:
+
+   .. code-block:: console
+
+      # pkill -f qemu
+
+#. Relaunch the |CL| VM:
+
+   .. code-block:: console
+
+      # ./start_qemu.sh clear-<version number>-kvm.img
+
+Enable GNOME Display Manager
+============================
+
+#. From the host machine, VNC into the |CL| VM:
+
+   .. code-block:: console
 
       # vncviewer 0.0.0.0
 
-   g. Log into the |CL| VM.
+#. Log into the |CL| VM.
 
-   h. Get root privilege::
+#. Get root privilege:
+
+   .. code-block:: console
 
       $ sudo -s
 
-   i. Add GDM to |CL| VM::
+#. Add GDM to |CL| VM:
+
+   .. code-block:: console
 
       # swupd bundle-add desktop-autostart
 
-   j. Reboot the |CL| VM to enable GDM::
+#. Reboot the |CL| VM to enable GDM:
+
+   .. code-block:: console
 
       # reboot
 
