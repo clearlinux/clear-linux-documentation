@@ -78,7 +78,7 @@ Download and Launch |CL| VM
 
 #. To SSH into the |CL| VM, follow these steps:
 
-    a. Enable SSH access
+    a. Enable SSH access in the |CL| VM
 
        .. code-block:: console
 
@@ -162,11 +162,11 @@ information for the previously-booted |CL| VM will need to be reset.
 
       Shell> del FS0:\NvVars
 
-#. In another terminal window, kill all processes related to :file:`qemu`:
+#. Proceed with booting the |CL| VM:
 
    .. code-block:: console
 
-      # pkill -f qemu
+      Shell> \EFI\BOOT\
 
 #. Relaunch the |CL| VM:
 
