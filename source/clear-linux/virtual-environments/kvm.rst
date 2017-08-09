@@ -19,7 +19,7 @@ Install QEMU-KVM
 
     $ sudo -s
 
-#. Install `QEMU-KVM` on the host machine. Below are some example distros.
+#. Install `QEMU*-KVM` on the host machine. Below are some example distros.
 
    * On |CL|:
 
@@ -27,7 +27,7 @@ Install QEMU-KVM
 
         # swupd bundle-add desktop-autostart kvm-host
 
-   * On Ubuntu 16.04 LTS Desktop:
+   * On Ubuntu\* 16.04 LTS Desktop:
 
      .. code-block:: console
 
@@ -39,7 +39,7 @@ Install QEMU-KVM
 
         # apt-get install qemu-kvm
 
-   * On Fedora 25 Workstation:
+   * On Fedora\* 25 Workstation:
 
      .. code-block:: console
 
@@ -62,10 +62,8 @@ Download and launch virtual machine
    virtual machines from the `image <https://download.clearlinux.org/image/>`_
    directory.
 
-#. Download the sample
-   `QEMU-KVM launcher <https://download.clearlinux.org/image/start_qemu.sh>`_
-   script from the `image <https://download.clearlinux.org/image/>`_
-   directory.
+#. Download the sample `QEMU-KVM launcher`_ script from the
+   `image <https://download.clearlinux.org/image/>`_ directory.
 
 #. Make the script executable
 
@@ -198,3 +196,4 @@ To add the GNOME Display Manager (GDM) to the |CL| VM, follow these steps:
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 .. _Intel®Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
+.. _QEMU-KVM launcher: https://download.clearlinux.org/image/start_qemu.sh
