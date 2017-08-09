@@ -182,7 +182,7 @@ To add the GNOME Display Manager (GDM) to the |CL| VM, follow these steps:
 
       $ sudo -s
 
-#. Add GDM to |CL| VM:
+#. Add GDM to the |CL| VM:
 
    .. code-block:: console
 
