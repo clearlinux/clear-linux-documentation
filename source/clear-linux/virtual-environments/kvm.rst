@@ -52,7 +52,7 @@ Download and launch virtual machine
    the `image <https://download.clearlinux.org/image/>`_ directory. Look for
    ``clear-<version>-kvm.img.xz``.
 
-#. Uncompress the downloaded image
+#. Uncompress the downloaded image:
 
    .. code-block:: console
 
@@ -65,7 +65,7 @@ Download and launch virtual machine
 #. Download the sample `QEMU-KVM launcher`_ script from the
    `image <https://download.clearlinux.org/image/>`_ directory.
 
-#. Make the script executable
+#. Make the script executable:
 
    .. code-block:: console
 
@@ -81,7 +81,7 @@ Download and launch virtual machine
 
 #. To SSH into the |CL| VM, follow these steps:
 
-    a. Enable SSH in the |CL| VM
+    a. Enable SSH in the |CL| VM:
 
        .. code-block:: console
 
