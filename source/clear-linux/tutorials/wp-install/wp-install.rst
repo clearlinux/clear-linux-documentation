@@ -54,7 +54,7 @@ We are setting up a WordPress blog which can be accessed at:
 http://<your_website>/blog
 
 To accomplish this setup, we must put the WordPress components in the
-:file:`/usr/share/httpd/htdocs/blog` directory.
+:file:`/var/www/html/blog` directory.
 
 Let us get started:
 
@@ -64,7 +64,7 @@ Let us get started:
 
    .. code-block:: console
 
-      cd /usr/share/httpd/htdocs
+      cd /var/www/html
 
 2. To download the latest version of WordPress, enter the following command:
 
@@ -72,7 +72,7 @@ Let us get started:
 
       sudo curl -O https://wordpress.org/latest.tar.gz
 
-3. To extract the all the files and directories from the downloaded file,
+3. To extract all the files and directories from the downloaded file,
    enter the following command:
 
    .. code-block:: console
@@ -96,7 +96,7 @@ Setting up WordPress
 --------------------
 
 With the WordPress components loaded into the
-:file:`/usr/share/httpd/htdocs/blog` directory, we can set everything up.
+:file:`/var/www/html/blog` directory, we can set everything up.
 
 Instead of editing the :file:`wp_config.php` file manually, we are using the
 web-based configuration tool to setup the database name and user. We created
