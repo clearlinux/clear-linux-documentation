@@ -9,7 +9,7 @@ abbr:`KVM (Kernel-based Virtual Machine)`.
 Install QEMU-KVM
 ================
 
-#. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
+#. Enable the `Intel® Virtualization Technology`_ (Intel® VT) and the
    `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
    host machine’s BIOS.
 
@@ -45,8 +45,8 @@ Install QEMU-KVM
 
         # dnf install qemu-kvm
 
-Download and launch virtual machine
-===================================
+Download and launch the virtual machine
+=======================================
 
 #. Download the latest pre-built Clear Linux :file:`KVM image` file from
    the `image <https://download.clearlinux.org/image/>`_ directory. Look for
@@ -95,10 +95,10 @@ Download and launch virtual machine
 
           # ssh -p 10022 root@localhost
 
-Add GNOME Display Manager
-=========================
+Add the GNOME Display Manager
+=============================
 
-To add the GNOME Display Manager (GDM) to the |CL| VM, follow these steps:
+To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 #. Shutdown the active |CL| VM.
 
