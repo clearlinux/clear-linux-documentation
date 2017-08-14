@@ -71,14 +71,83 @@ browser as shown in figure 1.
     Confirmation the Apache service is running.
 
 The :file:`index.html` file is located in the :file:`/usr/share/httpd/htdocs`
-directory of your host system.
+directory of your host system.  We will copy this file into a new location 
+after we modify the configuration.
+
+Change the Default Configuration and Data Directory
+===================================================
+
+|CL| is designed to be a stateless operating system which means that you will
+need to create an optional configuration file.  The default location of the
+Apache configuration file, :file:`httpd.conf`, is located in the
+:file:`/etc/share/defaults/httpd` directory, which can be overwritten as part of the
+stateless paradigm.  This default :file:`.conf` file includes the following directives
+that allow for additional locations of configuration definitions:
+
+.. code-block:: console
+
+   # Virtual hosts
+   IncludeOptional /usr/share/defaults/httpd/conf.d/*.conf
+   IncludeOptional /usr/share/defaults/httpd/conf.modules.d/*.conf
+   IncludeOptional /etc/httpd/conf.d/*.conf
+   IncludeOptional /etc/httpd/conf.modules.d/*.conf
+
+
+For this tutorial, we will create the directory structure for :file:`/etc/httpd/conf.d`
+and then create the :file:`httpd.conf` file within :file:`/etc/httpd/conf.d` directory and
+include the variable ``DocumentRoot``.
+
+Using your favorite editor, copy the content listed below into the new file
+:file:`/etc/httpd/conf.d/httpd.conf`.
+
+.. code-block:: console
+
+   #
+   # Set a new location for DocumentRoot
+   #
+   DocumentRoot “/var/www/html”
+   
+   #
+   # Relax access to content within /var/www/html for this tutorial
+   #
+   <Directory “/var/www/html”>
+      AllowOverride none
+      Require all granted
+   </Directory>
+
+
+Finally, let’s create the new ``DocumentRoot`` directory structure and copy the
+:file:`index.html` file from :file:`/usr/share/httpd/htdocs` directory to
+:file:`/var/www/html`.
+
+.. code-block:: console
+
+   sudo mkdir –p /var/www/html
+   cd /var/www/html
+   sudo cp /usr/share/httpd/htdocs/index.html .
+
+
+To make sure that we have everything set correctly, let’s edit the new
+:file:`index.html` file with your editor and change the text from
+``It works`` to ``It works in it’s new location``.
+
+With the new configuration files in place, you will need to stop and then
+restart the ``httpd.service``.
+
+.. code-block:: console
+
+   sudo systemctl stop httpd.service
+   sudo systemctl start httpd.service
+
+
+Now when you go to http://localhost you should see your new screen.
 
 Installing PHP
 ==============
 
 With Apache installed, you can display static web pages. However, enabling
 PHP allows dynamic webpages to be generated and displayed. To add this
-functionality to your web server we need to install PHP5 on your system.
+functionality to your web server we need to install PHP on your system.
 
 To get the php components, enter the following command:
 
@@ -98,7 +167,7 @@ To enable PHP, enter the following commands:
 After restarting the Apache service, we can test our PHP installation.
 
 1. Create a file named :file:`phpinfo.php` in the
-   :file:`/usr/share/httpd/htdocs/` directory using your favorite editor.
+   :file:`/var/www/html/` directory using your editor.
 
 2. Add the following line to the file:
 
@@ -279,7 +348,7 @@ our |CL| host system.
 
 .. code-block:: console
 
-   cd /usr/share/httpd/htdocs
+   cd /var/www/html
    sudo tar –xzvf ~/Downloads/phpMyAdmin-4.6.4-english.tar.gz
 
 3. To keep things simple, rename the newly created
@@ -329,7 +398,7 @@ our new database WordPress.
 
        The `Databases` tab of `phpMyAdmin`.
 
-2. Enter 'Wordpress'. in the text field below the :guilabel:`Create database`
+2. Enter 'WordPress'. in the text field below the :guilabel:`Create database`
    label.
 
 3. Pick the :guilabel:`utf8_unicode_ci` option from the collation drop-down
