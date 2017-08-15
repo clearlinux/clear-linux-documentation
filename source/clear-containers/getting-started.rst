@@ -3,14 +3,10 @@
 Clear Containers getting started guide
 ######################################
 
-
-Introduction
-============
-
-The Intel® Clear Containers v2.1.5 release is now available.
-This release enables executing existing Docker applications in the secure
-and fast Intel Clear Containers environment under Docker\* 1.12 and beyond
-via an :abbr:`Open Container Initiative (OCI)` compatible `runtime`.
+The Intel® Clear Containers enable executing existing Docker applications in
+the secure and fast Intel Clear Containers environment under Docker\*
+v17.05.0-ce and beyond via an :abbr:`Open Container Initiative (OCI)`
+compatible `runtime`.
 
 Visit our :ref:`architecture-overview` for detailed architectural
 information.
