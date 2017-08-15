@@ -62,13 +62,14 @@ for the Jupyter Notebook.
 
    .. note::
       After installing the `machine-learning basic` bundle, you can find the
-      example code under :file:`/usr/share/docs/MNIST_example.ipynb`.
+      example code under
+      :file:`/usr/share/doc/tensorflow/MNIST_example.ipynb`.
 
 
 The example code downloads and decompresses the MNIST data directly into the
 :file:`./mnist` directory. Alternatively, download the four files directly
 from the Yann LeCun’s `MNIST Database website`_ and save them into a
-:file:`mnist`directory within the :file:`Handwriting` directory.
+:file:`mnist` directory within the :file:`Handwriting` directory.
 
 The files needed are:
 
