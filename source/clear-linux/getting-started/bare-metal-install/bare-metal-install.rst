@@ -344,7 +344,7 @@ system.
    http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
 
 .. _`information about swupd`:
-   https://clearlinux.org/documentation/swupdate_about_sw_update.html
+   https://clearlinux.org/features/software-update
 
 .. _`os-clr-on-clr`:
    https://github.com/clearlinux/clr-bundles/blob/master/bundles/os-clr-on-clr
