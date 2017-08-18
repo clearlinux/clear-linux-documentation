@@ -1,7 +1,7 @@
 .. _swupd-about:
 
-About software update
-#####################
+Software update
+###############
 
 The traditional way
 ===================
@@ -129,6 +129,13 @@ system and its updates as the basis. Using this tool, system administrators
 can focus on the custom pieces their deployments require while staying on
 a controlled update stream.
 
+What's next?
+============
+
+To put this concept into practice, we have the following step-by-step
+instruction:
+
+* :ref:`Update |CL| <swupd-run>`
 
 .. [1] The software update technology for Clear Linux* OS for Intel
    Architecture was first presented at the Linux Plumbers conference in 2012.

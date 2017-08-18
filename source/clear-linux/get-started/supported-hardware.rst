@@ -23,7 +23,7 @@ system to determine whether it will work with the latest release:
 .. toctree::
     :maxdepth: 1
 
-    compatibility-check.rst
+    check-compatibility.rst
 
 .. note::
 
