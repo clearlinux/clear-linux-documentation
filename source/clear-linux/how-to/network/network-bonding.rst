@@ -1,7 +1,7 @@
 .. _network-bonding:
 
-Network Bonding
-###############
+Combine multiple interfaces
+###########################
 
 Network bonding is a technique for combining multiple network interfaces into
 a single, logical interface, providing some redundancy and bandwidth

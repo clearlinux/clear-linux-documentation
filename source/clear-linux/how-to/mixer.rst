@@ -1,7 +1,7 @@
 .. _mixer:
 
-Mixer tool
-##########
+Use mixer tool
+##############
 
 *Mixing* refers to composing an operating system for specific use cases. While
 the default Clear Linux\* OS for Intel® Architecture provides options to

@@ -1,7 +1,7 @@
 .. _validate-signatures:
 
-Validating signatures
-#####################
+Validate signatures
+###################
 
 |CLOSIA| offers a way to validate the content of an image or an update. All
 validation of content works by creating and signing a hash. A valid signature

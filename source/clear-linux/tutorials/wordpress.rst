@@ -9,7 +9,7 @@ to guide you to a fully realized WordPress website using |CLOSIA|.
 In this tutorial we assume your system is already running |CL|. For
 instructions on how to install |CL| on bare metal, see the
 :ref:`bare metal install<bare-metal-install>` page from our
-:ref:`getting started<getting-started>` guide. For your convenience, we have
+:ref:`get started<get-started>` guide. For your convenience, we have
 split this tutorial in two different sections.  If you already have a |CL|
 based :abbr:`LAMP (Linux, Apache, MySQL, PHP)` web server you can skip ahead
 to the WordPress tutorial.

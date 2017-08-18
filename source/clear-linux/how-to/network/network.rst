@@ -1,10 +1,10 @@
 .. _network:
 
-Clear Linux\* OS Network guides
-###############################
+Network guide
+#############
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     network-boot
     dpdk

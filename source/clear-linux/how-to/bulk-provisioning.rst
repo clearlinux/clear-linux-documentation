@@ -1,7 +1,7 @@
 .. _bulk-provisioning:
 
-Bulk Provisioning
-#################
+Bulk Provision
+##############
 
 The |CLOSIA| can be automatically provisioned in bulk using a combination of
 the |CL| installer, **Ister**, and :abbr:`ICIS (Ister Cloud Init Service)`.
