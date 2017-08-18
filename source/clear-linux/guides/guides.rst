@@ -1,7 +1,7 @@
-.. _how-to:
+.. _guides:
 
-Clear Linux\* OS How to guides
-##############################
+Guides
+######
 
 .. toctree::
    :maxdepth: 2
@@ -12,3 +12,5 @@ Clear Linux\* OS How to guides
    bulk-provisioning
    mixer
    validate-signatures
+   network/network
+   virtual-environments/virtual-environments
