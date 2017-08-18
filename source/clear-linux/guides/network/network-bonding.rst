@@ -1,7 +1,7 @@
 .. _network-bonding:
 
-Network Bonding
-###############
+Network bonding: Configure systemd to use the bonding driver
+############################################################
 
 Network bonding is a technique for combining multiple network interfaces into
 a single, logical interface, providing some redundancy and bandwidth

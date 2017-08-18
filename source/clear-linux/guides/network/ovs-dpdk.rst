@@ -1,7 +1,7 @@
 .. _ovs-dpdk:
 
-OpenvSwitch and DPDK
-####################
+DPDK: Enable DPDK support on OpenvSwitch
+########################################
 
 Enabling `DPDK`_ support on the `OpenvSwitch`_ project can yield significant
 network performance improvements. To illustrate one such example, we'll cover

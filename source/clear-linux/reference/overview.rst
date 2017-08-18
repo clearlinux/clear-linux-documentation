@@ -1,7 +1,7 @@
 .. _overview:
 
-Bundles overview
-################
+Bundles
+#######
 
 Linux-based operating systems contain the code of several hundred, if
 not thousands, of open source projects. To make this manageable,
@@ -17,9 +17,11 @@ individually or as a set, using tools such as "yum" and "apt-get."
 The Clear Linux\* OS for Intel® Architecture takes a slightly different
 approach. While we also use the concept of packages to manage compiling
 source code into binaries, we do not use the package concept to deploy
-software. Instead, we provide "bundles" that  provide a set of functionality
+software. Instead, we provide "bundles" that provide a set of functionality
 to the system administrator, independent of how many and which pieces of
 the upstream open source projects are needed for this functionality.
+
+.. _useful-bundle-commands:
 
 Useful bundle commands
 ======================

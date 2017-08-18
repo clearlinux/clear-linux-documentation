@@ -2,3 +2,9 @@
 
 Concepts
 ########
+
+.. toctree::
+   :maxdepth: 2
+
+   swupd-about
+   bundles
