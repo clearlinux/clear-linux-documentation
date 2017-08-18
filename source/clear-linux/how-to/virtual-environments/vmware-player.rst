@@ -1,7 +1,7 @@
 .. _vmware-player:
 
-Using VMware\* Player
-#####################
+Use VMware\* Player
+###################
 
 This section explains how to run Clear Linux OS for Intel® Architecture
 within a `VMware Player`_ environment.

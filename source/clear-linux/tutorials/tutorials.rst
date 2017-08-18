@@ -9,5 +9,4 @@ Tutorials
    wordpress.rst
    flatpak/flatpak.rst
    machine-learning/machine-learning
-
-
+   azure

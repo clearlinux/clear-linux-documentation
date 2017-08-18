@@ -1,7 +1,7 @@
 .. _vmware-esxi:
 
-Using VMware\* ESXi guest
-##########################
+Use VMware\* ESXi guest
+#######################
 
 
 This section is based on *VMware vSphere 6* and explains how to use |CLOSIA|
