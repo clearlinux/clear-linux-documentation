@@ -1,4 +1,4 @@
-.. _check-compatibility:
+.. _compatibility-check:
 
 Check system compatibility with Clear Linux OS for Intel® Architecture
 ######################################################################

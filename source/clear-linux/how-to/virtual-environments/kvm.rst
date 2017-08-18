@@ -1,7 +1,7 @@
 .. _kvm:
 
-Using KVM
-#########
+Use KVM
+#######
 
 The easiest way to get started in a virtualized environment is to download
 a recent KVM image from the `images`_ directory. Here you'll find a kvm

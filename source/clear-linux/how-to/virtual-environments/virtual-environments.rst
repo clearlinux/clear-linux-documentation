@@ -1,7 +1,7 @@
 .. _virtual-environments:
 
-Running in virtual environments
-###############################
+Run in virtual environments
+###########################
 
 .. toctree::
    :maxdepth: 2

@@ -1,5 +1,5 @@
-Bundles
-#######
+Reference
+#########
 
 .. toctree::
    :maxdepth: 2

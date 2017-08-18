@@ -1,7 +1,7 @@
 .. _virtualbox:
 
-Using VirtualBox\*
-##################
+Use VirtualBox\*
+################
 
 This section explains how to run |CLOSIA| inside a `VirtualBox environment`_.
 

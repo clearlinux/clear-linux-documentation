@@ -7,8 +7,7 @@ Clear Linux\* Project for Intel® Architecture
     :maxdepth: 2
 
     getting-started/getting-started
-    bundles/bundles
+    concepts/concepts
     how-to/how-to
-    network/network
-    virtual-environments/virtual-environments
     tutorials/tutorials
+    bundles/bundles

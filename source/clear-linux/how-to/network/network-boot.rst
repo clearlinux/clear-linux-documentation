@@ -1,7 +1,7 @@
 .. _network-boot:
 
-Network Booting
-###############
+Boot from PXE
+#############
 
 |CLOSIA| can boot from a :abbr:`PXE (pre-boot execution environment)`. PXE
 is an industry standard which describes the client-server interaction to

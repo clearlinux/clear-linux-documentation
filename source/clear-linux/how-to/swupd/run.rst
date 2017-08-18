@@ -1,7 +1,7 @@
 .. _swupd-run:
 
-How to update Clear Linux
-#########################
+Update Clear Linux
+##################
 
 This section describes how to update |CLOSIA|.
 

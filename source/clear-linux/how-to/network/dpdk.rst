@@ -1,7 +1,7 @@
 .. _dpdk:
 
-DPDK
-####
+Send packanges between platforms
+################################
 
 :abbr:`Data Plane Development Kit (DPDK)` is a set of libraries and drivers
 for fast packet processing. This document describes how to run a basic use

@@ -1,7 +1,7 @@
 .. _hyper-v:
 
-Using Hyper-V\*
-###############
+Use Hyper-V\*
+#############
 
 This section explains how to run |CLOSIA| inside a
 `Windows Server Virtualization`_\* or **Hyper-V** environment.
