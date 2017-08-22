@@ -9,5 +9,6 @@ Tutorials
    wordpress.rst
    flatpak/flatpak.rst
    machine-learning/machine-learning
+   multi-boot/multi-boot
 
 
