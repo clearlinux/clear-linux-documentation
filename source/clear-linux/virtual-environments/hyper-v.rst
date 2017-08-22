@@ -12,18 +12,26 @@ Please ensure you have enabled `Intel® Virtualization Technology
 <https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_
 (Intel® VT-d) in your BIOS/UEFI firmware configuration.
 
-Install Hyper-V
-================
+Enable Hyper-V
+==============
 
-Please refer to the `Microsoft documentation`_ to install and configure
+Please refer to the `Microsoft documentation`_ to enable and configure
 *Hyper-V* on your machine.
+
+Create a virtual network
+========================
+
+Once *Hyper-V* has been enabled on your Windows system you will need to 
+create a virtual network in the **Hyper-V Manager**.  Refer to the
+`Create a Virtual Network documentation`_ to create and configure
+a virtual network.
 
 Create a virtual machine
 ========================
 
 #. Download and uncompress the latest hyperv disk image
-   :file:`clear-XXXX-hyperv.img.gz`) of |CLOSIA| from our `downloads`_
-   section.
+   :file:`clear-XXXXX-hyperv.img.gz`, where XXXXX is the latest 
+   available version of |CLOSIA| from our `downloads`_ section.
 
 #. Create a virtual machine using the **Hyper-V Manager**:
 
@@ -46,7 +54,8 @@ Create a virtual machine
 
 Your virtual machine running |CLOSIA| is ready!
 
-.. _Windows Server Virtualization: https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx
-.. _Microsoft documentation: https://www.microsoft.com/en-us/server-cloud/solutions/virtualization.aspx
+.. _Windows Server Virtualization: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/
+.. _Microsoft documentation: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
+.. _Create A Virtual Network documentation: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network
 .. _downloads: https://download.clearlinux.org/image/
 
