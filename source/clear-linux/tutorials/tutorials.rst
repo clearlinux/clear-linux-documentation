@@ -6,8 +6,7 @@ Tutorials
 .. toctree::
    :maxdepth: 2
 
-   wordpress.rst
-   flatpak/flatpak.rst
+   wordpress
+   flatpak/flatpak
    machine-learning/machine-learning
-
-
+   autofdo
