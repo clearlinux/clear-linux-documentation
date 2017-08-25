@@ -883,6 +883,12 @@ longer the default boot loader. To restore it, follow the steps below.
 
       # bootctl install --path /mnt
 
+#. Unmount the EFI partition.
+
+   .. code-block:: console
+
+      # umount /mnt
+
 #. Reboot.
 
 
