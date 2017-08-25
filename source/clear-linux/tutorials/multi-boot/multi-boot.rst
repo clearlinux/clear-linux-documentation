@@ -52,7 +52,7 @@ installation of the tested operating systems.
 .. [#] Configure the partition size as desired.
 
 .. [#] To save disk space, a single swap partition can be shared among
-   multiple Linux installations. Swap size was determined using this
+   multiple Linux installations. Swap size was determined using these
    `recommended swap partition sizes`_.
 
 
@@ -104,7 +104,7 @@ Install the Clear Linux OS
 
    Figure 2: |CL|: Choose partitioning method
 
-#. Select the drive, in this case :file:`/dev/sda` and press :kbd`Enter` to
+#. Select the drive, in this case :file:`/dev/sda` and press :kbd:`Enter` to
    go into the `cgdisk` partitioning tool. See Figure 3.
 
    |multi-boot-03|
@@ -161,7 +161,7 @@ Install the Clear Linux OS
 
    #. Set the partition type to :guilabel:`8200 (Linux swap)`.
 
-   #. Name the partition :file`CL-swap`.
+   #. Name the partition :file:`CL-swap`.
 
 #. Create a new EFI partition. See Figure 9.
 
@@ -184,7 +184,7 @@ Install the Clear Linux OS
 
    #. Set the partition type to :guilabel:`ef00 (EFI partition)`.
 
-   #. Name the partition :file`CL-EFI`.
+   #. Name the partition :file:`CL-EFI`.
 
 #. Select :guilabel:`Write` to apply the new partition table.
 
@@ -265,9 +265,9 @@ Install Windows\* Server 2016
 
 #. Go through the Windows out-of-box-experience process.
 
-#. At this point, the ability to boot |CL| is lost because Windows is
-   the default boot loader. See :ref:`recover-cl-bl` to restore the Clear
-   Linux Systemd-Boot boot loader and add Windows to its boot menu.
+#. At this point, the ability to boot |CL| is lost because Windows is the
+   default boot loader. See :ref:`recover-cl-bl` to restore the |CL|
+   Systemd-Boot boot loader and add Windows to its boot menu.
 
 Install Red Hat\* Enterprise Linux 7.4 Beta
 *******************************************
@@ -314,7 +314,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
    #. Click :guilabel:`Add mount point`.
 
-#. Share the swap partition that was created by |CL|. (See Figure
+#. Share the swap partition that was created by |CL|. See Figure
    20.
 
    #. Expand :guilabel:`Unknown`.
@@ -549,8 +549,8 @@ Install SUSE\* Linux Enterprise 12 SP2
 
    .. note::
       If an older version of SUSE does not have the `bootctl` command,
-      skip this step and see :ref:`recover-cl-bl` to restore the Clear
-      Linux Systemd-Boot boot loader.
+      skip this step and see :ref:`recover-cl-bl` to restore the |CL|
+      Systemd-Boot boot loader.
 
 #. Reboot.
 
@@ -691,8 +691,8 @@ Install Ubuntu\* 16.04 LTS Desktop
 
    .. note::
       If an older version of Ubuntu does not have the `bootctl` command,
-      skip this step and see :ref:`recover-cl-bl` to restore the Clear
-      Linux Systemd-Boot boot loader.
+      skip this step and see :ref:`recover-cl-bl` to restore the |CL|
+      Systemd-Boot boot loader.
 
 #. Reboot.
 
@@ -846,7 +846,7 @@ longer the default boot loader. To restore it, follow the steps below.
 
 #. Boot the |CL| installer from a USB thumb drive. See :ref:`create-usb`.
 
-#. At the introduction screen, press :kbd:`Control-Alt-F2` to bring up the
+#. At the introduction screen, press :kbd:`Control+Alt+F2` to bring up the
    |CL| console. See Figure 37.
 
    |multi-boot-37|
@@ -860,7 +860,7 @@ longer the default boot loader. To restore it, follow the steps below.
       setting a new password.
 
 #. Find the location of the |CL| EFI partition, in this example it is
-   :file`/dev/sda3`. See Figure 38.
+   :file:`/dev/sda3`. See Figure 38.
 
    .. code-block:: console
 
