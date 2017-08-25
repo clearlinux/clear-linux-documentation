@@ -159,7 +159,7 @@ Install the Clear Linux OS
    #. Specify the desired size of the swap partition. For this example, we
       used 8GB. See the `recommended swap partition sizes`_ for guidance.
 
-   #. Set the partition type to :guilabel:`Linux swap`.
+   #. Set the partition type to :guilabel:`8200 (Linux swap)`.
 
    #. Name the partition :file`CL-swap`.
 
@@ -845,7 +845,7 @@ The installation of a new operating system or an upgrade of an existing
 operating system can result in making the Clear Linux Systemd-Boot no
 longer the default boot loader. To restore it, follow the steps below.
 
-#. Start the Clear Linux installer.
+#. Boot Clear Linux installer from a USB thumb drive.  
 
 #. At the introduction screen, press :kbd:`Control-Alt-F2` to bring up the
    Clear Linux console. See Figure 37.
