@@ -20,7 +20,7 @@ multi-booting computer is as follows:
 
 #. Boot into the newly installed operating system.
 
-#. For Linux distributions, copy its kernel and *initrd* to the Clear Linux EFI
+#. For Linux distributions, copy its kernel and `initrd` to the |CL| EFI
    partition. This step is not needed for Windows\*.
 
 #. Add an entry for the newly installed operating system in the
@@ -29,7 +29,7 @@ multi-booting computer is as follows:
 #. Make Systemd-Boot the default boot loader.
 
 #. Repeat the previous steps for each additional operating system. Always
-   install Clear Linux first. Install other operating systems in any order.
+   install |CL| first. Install other operating systems in any order.
 
 .. note::
    This process is not guaranteed to work with all Linux distributions and
@@ -56,7 +56,7 @@ installation of the tested operating systems.
    `recommended swap partition sizes`_.
 
 
-.. [#] This partition will hold the Clear Linux and other operating
+.. [#] This partition will hold the |CL| and other operating
    systems’ kernel and boot information. The partition size is dependent on
    the number of operating systems that will be installed. In general,
    allocate about 100MB per operating system. For this demonstration, we used
@@ -65,7 +65,7 @@ installation of the tested operating systems.
 .. note::
    Updating any installed operating systems will likely result
    in the |CL| Systemd-Boot no longer being the default
-   boot loader. To restore it, see Recover Clear Linux Bootloader.
+   boot loader. To restore it, see :ref:`recover-cl-bl`.
 
 .. note::
    Updating any Linux installation may result in changes of their kernels or
@@ -76,14 +76,14 @@ installation of the tested operating systems.
 Install the Clear Linux OS
 **************************
 
-#. Start the Clear Linux installer and follow the prompts.
+#. Start the |CL| installer and follow the prompts.
 
 #. On the *Choose Installation Type* screen, choose *Manual (Advanced)*,
    as shown in Figure 1.
 
    |multi-boot-01|
 
-   Figure 1: Clear Linux installer: Choose installation type screen
+   Figure 1: |CL| installer: Choose installation type screen
 
    .. note::
       If you are not familiar with text-based installation
@@ -102,14 +102,14 @@ Install the Clear Linux OS
 
    |multi-boot-02|
 
-   Figure 2: Clear Linux: Choose partitioning method
+   Figure 2: |CL|: Choose partitioning method
 
 #. Select the drive, in this case :file:`/dev/sda` and press :kbd`Enter` to
    go into the `cgdisk` partitioning tool. See Figure 3.
 
    |multi-boot-03|
 
-   Figure 3: Clear Linux: Choose drive to partition
+   Figure 3: |CL|: Choose drive to partition
 
 #. Create a new root partition.
 
@@ -119,7 +119,7 @@ Install the Clear Linux OS
 
       |multi-boot-04|
 
-      Figure 4: Clear Linux: Create new partition
+      Figure 4: |CL|: Create new partition
 
    #. Accept the default first sector.
 
@@ -128,27 +128,27 @@ Install the Clear Linux OS
 
       |multi-boot-05|
 
-      Figure 5: Clear Linux: New partition size
+      Figure 5: |CL|: New partition size
 
    #. Set the partition type to :guilabel:`8300 (Linux filesystem)`. See
       Figure 6.
 
       |multi-boot-06|
 
-      Figure 6: Clear Linux: Set partition type
+      Figure 6: |CL|: Set partition type
 
    #. Name the partition :file:`CL-root`. This name makes it easier to
       identify later. See Figure 7.
 
       |multi-boot-07|
 
-      Figure 7: Clear Linux: Name partition
+      Figure 7: |CL|: Name partition
 
 #. Create a new swap partition. See Figure 8.
 
    |multi-boot-08|
 
-   Figure 8: Clear Linux: Create swap partition
+   Figure 8: |CL|: Create swap partition
 
    #. Select the `free space` partition located at the bottom of the column.
 
@@ -167,7 +167,7 @@ Install the Clear Linux OS
 
    |multi-boot-09|
 
-   Figure 9: Clear Linux: Create EFI partition
+   Figure 9: |CL|: Create EFI partition
 
    #. In the Partition Type column, select :guilabel:`free space` located at
       the bottom of the column.
@@ -195,20 +195,20 @@ Install the Clear Linux OS
 
    |multi-boot-10|
 
-   Figure 10: Clear Linux: Set mount points
+   Figure 10: |CL|: Set mount points
 
 #. On the :guilabel:`User configuration` screen, select
    :guilabel:`Create an administrative user`. See Figure 11.
 
    |multi-boot-11|
 
-   Figure 11: Clear Linux: User configuration
+   Figure 11: |CL|: User configuration
 
 #. Select :guilabel:`Add user to sudoers?`. See Figure 12.
 
    |multi-boot-12|
 
-   Figure 12: Clear Linux: Add user as sudoer
+   Figure 12: |CL|: Add user as sudoer
 
 #. Follow the remaining prompts to complete the installation and go through
    the out-of-box-experience of |CL|.
@@ -222,7 +222,7 @@ Install the Clear Linux OS
       $ sudo -s
 
 #. Add a timeout period for Systemd-Boot to wait, otherwise it will not
-   present the boot menu and will always boot Clear Linux.
+   present the boot menu and will always boot |CL|.
 
    .. code-block:: console
 
@@ -253,11 +253,11 @@ Install Windows\* Server 2016
 
    .. note::
       Windows normally creates its own EFI partition (100MB) if none exists.
-      In this case, it sees the EFI partition created during the Clear Linux
+      In this case, it sees the EFI partition created during the |CL|
       installation and won't create its own.
 
 #. Select the newly created partition and follow the remaining prompts
-   to complete the installation of Windows. (See Figure 15.
+   to complete the installation of Windows. See Figure 15.
 
    |multi-boot-15|
 
@@ -265,7 +265,7 @@ Install Windows\* Server 2016
 
 #. Go through the Windows out-of-box-experience process.
 
-#. At this point, the ability to boot Clear Linux is lost because Windows is
+#. At this point, the ability to boot |CL| is lost because Windows is
    the default boot loader. See :ref:`recover-cl-bl` to restore the Clear
    Linux Systemd-Boot boot loader and add Windows to its boot menu.
 
@@ -314,7 +314,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
    #. Click :guilabel:`Add mount point`.
 
-#. Share the swap partition that was created by Clear Linux. (See Figure
+#. Share the swap partition that was created by |CL|. (See Figure
    20.
 
    #. Expand :guilabel:`Unknown`.
@@ -329,7 +329,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
       Figure 20: Red Hat: Configure swap partition
 
-#. Share the EFI partition that was created by Clear Linux. See Figure
+#. Share the EFI partition that was created by |CL|. See Figure
    21.
 
    #. Expand :guilabel:`Unknown.`
@@ -348,7 +348,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
 #. Follow the remaining prompts to complete the installation of Red Hat.
 
-#. At this point, the ability to boot Clear Linux is lost because `Grub`
+#. At this point, the ability to boot |CL| is lost because `Grub`
    was set as the default boot loader. Follow these steps to make the |CL|
    Systemd-Boot the default boot loader and add Red Hat as a boot option:
 
@@ -400,7 +400,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
       See the `systemd boot loader documentation`_ for additional
       details.
 
-      The options parameters must specify the root partition UUID and any
+      The *options* parameters must specify the root partition UUID and any
       additional parameters that Red Hat requires.
 
       .. note:: The root partition UUID used below is unique to this example.
@@ -445,9 +445,8 @@ Install SUSE\* Linux Enterprise 12 SP2
 
    Figure 23: SUSE: Suggested partitioning
 
-   **Optional:** Under :guilabel:`Available Storage on Linux` section, right-
-   click the SUSE :file:`/home` partition and delete it. In this example, it
-   is :file:`/dev/sda8`. See Figure 24.
+   **Optional:** Under :guilabel:`Available Storage on Linux` section,
+   right-click the SUSE :file:`/home` partition and delete it. In this example, it is :file:`/dev/sda8`. See Figure 24.
 
    |multi-boot-24|
 
@@ -465,8 +464,8 @@ Install SUSE\* Linux Enterprise 12 SP2
 
 #. Follow the remaining prompts to complete the installation of SUSE.
 
-#. At this point, Clear Linux cannot boot because `Grub`
-   is the default boot loader. Follow these steps to make the Clear Linux
+#. At this point, |CL| cannot boot because `Grub`
+   is the default boot loader. Follow these steps to make the |CL|
    Systemd-Boot the default boot loader and add SUSE as a boot option:
 
    #. Boot into SUSE.
@@ -549,7 +548,7 @@ Install SUSE\* Linux Enterprise 12 SP2
       # bootctl install --path /boot/efi
 
    .. note::
-      If an older version of SUSE does not have the *bootctl* command,
+      If an older version of SUSE does not have the `bootctl` command,
       skip this step and see :ref:`recover-cl-bl` to restore the Clear
       Linux Systemd-Boot boot loader.
 
@@ -594,7 +593,7 @@ Install Ubuntu\* 16.04 LTS Desktop
    #. Under the :guilabel:`Format?` column, select the new partition to be
       formatted, in this example :file:`/dev/sda8`.
 
-#. Share the same swap partition created by Clear Linux.
+#. Share the same swap partition created by |CL|.
 
    #. Under the :guilabel:`Device` column, select :file:`/dev/sda2`.
 
@@ -609,8 +608,8 @@ Install Ubuntu\* 16.04 LTS Desktop
 
 #. Follow the remaining prompts to complete the installation of Ubuntu.
 
-#. At this point, the ability to boot Clear Linux is lost because `Grub`
-   is the default boot loader. Follow these steps to make the Clear Linux
+#. At this point, the ability to boot |CL| is lost because `Grub`
+   is the default boot loader. Follow these steps to make the |CL|
    Systemd-Boot the default boot loader and add Ubuntu as a boot option.
 
    #. Boot into Ubuntu.
@@ -691,7 +690,7 @@ Install Ubuntu\* 16.04 LTS Desktop
       # bootctl install --path /boot/efi
 
    .. note::
-      If an older version of Ubuntu does not have the *bootctl* command,
+      If an older version of Ubuntu does not have the `bootctl` command,
       skip this step and see :ref:`recover-cl-bl` to restore the Clear
       Linux Systemd-Boot boot loader.
 
@@ -733,7 +732,7 @@ Install Mint\* 18.1 “Serena” MATE
 
    #. Click :guilabel:`OK`.
 
-#. Share the same swap partition created by Clear Linux with the following
+#. Share the same swap partition created by |CL| with the following
    steps.
 
    #. Under :guilabel:`Device` column, select :file:`/dev/sda2`.
@@ -749,8 +748,8 @@ Install Mint\* 18.1 “Serena” MATE
 
 #. Follow the remaining prompts to complete the installation of Mint.
 
-#. At this point, the ability to boot Clear Linux is lost because `Grub`
-   is the default boot loader. Follow these steps to make the Clear Linux
+#. At this point, the ability to boot |CL| is lost because `Grub`
+   is the default boot loader. Follow these steps to make the |CL|
    Systemd-Boot the default boot loader and add Mint as a boot option.
 
    #. Boot into Mint.
@@ -830,7 +829,7 @@ Install Mint\* 18.1 “Serena” MATE
       # bootctl install --path /boot/efi
 
    .. note::
-      If an older version of Mint does not have the *bootctl* command,
+      If an older version of Mint does not have the `bootctl` command,
       skip this step and see :ref:`recover-cl-bl` to restore the Clear
       Linux Systemd-Boot boot loader.
 
@@ -842,17 +841,17 @@ Recover the Clear Linux boot loader
 ***********************************
 
 The installation of a new operating system or an upgrade of an existing
-operating system can result in making the Clear Linux Systemd-Boot no
+operating system can result in making the |CL| Systemd-Boot no
 longer the default boot loader. To restore it, follow the steps below.
 
-#. Boot Clear Linux installer from a USB thumb drive.  
+#. Boot the |CL| installer from a USB thumb drive. See :ref:`create-usb`.
 
 #. At the introduction screen, press :kbd:`Control-Alt-F2` to bring up the
-   Clear Linux console. See Figure 37.
+   |CL| console. See Figure 37.
 
    |multi-boot-37|
 
-   Figure 37: Clear Linux: Console
+   Figure 37: |CL|: Console
 
 #. Log in as *root*.
 
@@ -860,7 +859,7 @@ longer the default boot loader. To restore it, follow the steps below.
       Logging in for the first time as *root* through the console requires
       setting a new password.
 
-#. Find the location of the Clear Linux EFI partition, in this example it is
+#. Find the location of the |CL| EFI partition, in this example it is
    :file`/dev/sda3`. See Figure 38.
 
    .. code-block:: console
@@ -869,7 +868,7 @@ longer the default boot loader. To restore it, follow the steps below.
 
    |multi-boot-38|
 
-   Figure 38: Clear Linux - fdisk -l
+   Figure 38: |CL| - fdisk -l
 
 #. Mount the EFI partition.
 
