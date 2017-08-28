@@ -1,57 +1,199 @@
 .. _kvm:
 
-Using KVM
-#########
+Running Clear Linux as a KVM guest OS
+#####################################
 
-The easiest way to get started in a virtualized environment is to download
-a recent KVM image from the `images`_ directory. Here you'll find a kvm
-image file, the UEFI firmware helper, and the KVM start helper script.
+This section explains how to run |CLOSIA| in a virtualized environment using
+abbr:`KVM (Kernel-based Virtual Machine)`.
 
-Please ensure you have enabled `Intel® Virtualization Technology
-<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_
-(Intel® VT) and `Intel® Virtualization Technology for Directed I/O
-<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_
-(Intel® VT-d) in your BIOS/UEFI firmware configuration.
+Install QEMU-KVM
+================
 
-Starter script
-==============
+#. Enable the `Intel® Virtualization Technology`_ (Intel® VT) and the
+   `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
+   host machine’s BIOS.
 
-To start the image, run the `qemu shell script`_ available in the
-`images`_ directory.
+#. Log in and get root privilege on the host machine:
 
-SSH is needed for remote logins; however, SSH not enabled by default. To
-enable it, log in through serial console with the username ``root``. After
-setting the password, enable root login via SSH by configuring
-:file:`/etc/ssh/sshd_config` with this line::
+   .. code-block:: console
 
-    PermitRootLogin yes
+    $ sudo -s
 
-Now you may connect from host via SSH through 2223::
+#. Install `QEMU*-KVM` on the host machine. Below are some example distros.
 
-    $ ssh -p 10022 root@localhost
+   * On |CL|:
 
-Alternatively, there are a few other ways to approach this.
+     .. code-block:: console
 
-*  To run the script without modifying its permissions::
+        # swupd bundle-add desktop-autostart kvm-host
 
-   $ bash start_qemu.sh clr_image
+   * On Ubuntu\* 16.04 LTS Desktop:
 
-*  To run it as a background process::
+     .. code-block:: console
 
-   $ bash start_qemu.sh clr_image &
+        # apt-get install qemu-kvm
 
-*  If you'd like to run the script with execute permission::
+   * On Mint 18.1 “Serena” Desktop:
 
-   $ chmod +x start_qemu.sh
-   $ ./start_qemu.sh clr_image
+     .. code-block:: console
 
-*  And to run it as a background process::
+        # apt-get install qemu-kvm
 
-   $ ./start_qemu.sh clr_image &
+   * On Fedora\* 25 Workstation:
 
-If you run into any trouble with qemu getting locked up, try editing the
-`qemu shell script`_ and removing the ``aio=threads``
+     .. code-block:: console
 
+        # dnf install qemu-kvm
 
-.. _qemu shell script: http://download.clearlinux.org/image/start_qemu.sh
-.. _images: http://download.clearlinux.org/image/
+Download and launch the virtual machine
+=======================================
+
+#. Download the latest pre-built Clear Linux :file:`KVM image` file from
+   the `image <https://download.clearlinux.org/image/>`_ directory. Look for
+   ``clear-<version>-kvm.img.xz``.
+
+#. Uncompress the downloaded image:
+
+   .. code-block:: console
+
+      # unxz clear-<version number>-kvm.img.xz
+
+#. Download the :file:`OVMF.fd` file that provides UEFI support for
+   virtual machines from the `image <https://download.clearlinux.org/image/>`_
+   directory.
+
+#. Download the sample `QEMU-KVM launcher`_ script from the
+   `image <https://download.clearlinux.org/image/>`_ directory.
+
+#. Make the script executable:
+
+   .. code-block:: console
+
+      # chmod +x start_qemu.sh
+
+#. Start the |CL| KVM virtual machine:
+
+     .. code-block:: console
+
+        # ./start_qemu.sh clear-<version number>-kvm.img
+
+#. Log in and set the root password.
+
+#. To SSH into the |CL| VM, follow these steps:
+
+    a. Enable SSH in the |CL| VM:
+
+       .. code-block:: console
+
+          # cat > /etc/ssh/sshd_config << EOF
+            PermitRootLogin yes
+            EOF
+
+    b. From the host, SSH into the Clear Linux VM:
+
+       .. code-block:: console
+
+          # ssh -p 10022 root@localhost
+
+Add the GNOME Display Manager
+=============================
+
+To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
+
+#. Shutdown the active |CL| VM.
+
+#. Install VNCViewer on the host machine.  Below are some example distros.
+
+   * On Clear Linux:
+
+     .. code-block:: console
+
+        # swupd bundle-add desktop-apps 
+
+   * On Ubuntu 16.04 LTS Desktop:
+
+     .. code-block:: console
+
+        # apt-get vncviewer
+
+   * On Mint 18.1 “Serena” Desktop:
+
+     .. code-block:: console
+
+        # apt-get vncviewer
+
+   * On Fedora 25 Workstation:
+
+     .. code-block:: console
+
+        # dnf install tigervnc
+
+#. Modify the :file:`start_qemu.sh` script to increase memory (-m), add
+   graphics driver (-vga), and add VNC (-vnc and -usbdevice) support.
+
+   .. code-block:: console
+
+      qemu-system-x86_64 \
+          -enable-kvm \
+          -bios OVMF.fd \
+          -smp sockets=1,cpus=4,cores=2 -cpu host \
+          -m 4096 \
+          -vga qxl \
+          -vnc :0 -nographic \
+          -usbdevice tablet \
+          -drive file="$IMAGE",if=virtio,aio=threads,format=raw \
+          -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-
+          :22,hostfwd=tcp::${VMN}2375-:2375 \
+          -device virtio-net-pci,netdev=mynet0 \
+          -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
+
+#. Due to changes in :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
+   information for the previously-booted |CL| VM will need to be reset.
+
+   #. Relaunch the |CL| VM.  The EFI shell will appear:
+
+      .. code-block:: console
+
+         # ./start_qemu.sh clear-<version number>-kvm.img
+
+   #. At the UEFI shell, delete the :file:`NvVars` file:
+
+      .. code-block:: console
+
+         Shell> del FS0:\NvVars
+
+   #. Proceed with booting the |CL| VM:
+
+      .. code-block:: console
+
+         Shell> FS0:\EFI\Boot\BOOTX64.EFI
+
+#. From the host machine, VNC into the |CL| VM:
+
+   .. code-block:: console
+
+      # vncviewer 0.0.0.0
+
+#. Log into the |CL| VM.
+
+#. Get root privilege:
+
+   .. code-block:: console
+
+      $ sudo -s
+
+#. Add GDM to the |CL| VM:
+
+   .. code-block:: console
+
+      # swupd bundle-add desktop-autostart
+
+#. Reboot the |CL| VM to enable GDM:
+
+   .. code-block:: console
+
+      # reboot
+
+.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+.. _Intel®Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
+.. _QEMU-KVM launcher: https://download.clearlinux.org/image/start_qemu.sh
