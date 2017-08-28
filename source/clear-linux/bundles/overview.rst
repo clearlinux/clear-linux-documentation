@@ -12,9 +12,9 @@ Many distributions then split the content of these compiled packages
 into so-called sub-packages, which are the granularity at which these
 distributions deploy their software. With those kinds of distributions,
 system administrators can then install and update sub-packages
-individually or as a set, using tools such as "yum" and "apt-get."
+individually or as a set, using tools such as ``yum`` and ``apt-get``.
 
-The Clear Linux\* OS for Intel® Architecture takes a slightly different
+The |CLOSIA| takes a slightly different
 approach. While we also use the concept of packages to manage compiling
 source code into binaries, we do not use the package concept to deploy
 software. Instead, we provide "bundles" that  provide a set of functionality
