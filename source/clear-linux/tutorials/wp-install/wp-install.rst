@@ -1,7 +1,7 @@
 .. _wp-install:
 
-Creating a Clear Linux WordPress* server
-########################################
+Creating a Clear Linux WordPress\* server
+#########################################
 
 Prerequisites
 =============
