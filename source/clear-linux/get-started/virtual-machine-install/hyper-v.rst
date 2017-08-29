@@ -22,7 +22,8 @@ Create a virtual machine
 ========================
 
 #. Download and uncompress the latest hyperv disk image
-   :file:`clear-XXXX-hyperv.img.gz`) of |CLOSIA| from our `downloads`_
+   :file:`clear-XXXX-hyperv.img.gz`, where XXXX is the latest 
+   available version of |CLOSIA| from our `downloads`_
    section.
 
 #. Create a virtual machine using the **Hyper-V Manager**:
