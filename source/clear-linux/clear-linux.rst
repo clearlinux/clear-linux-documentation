@@ -5,13 +5,13 @@ Clear Linux\* Project for Intel® Architecture
 
 Welcome to the |CLOSIA| documentation pages. Our documentation is split into
 five sections: Get started, Concepts, Guides, Tutorials, and Reference.
-Under :ref:`Get started`, you can find information about installing |CL| on
+Under :ref:`get-started`, you can find information about installing |CL| on
 bare metal, in a virtual environment, or as a live image on a USB stick. Under
-the :ref:`Concepts` section, you can find detailed technical information about
-the |CL| features. The :ref:`Guides` section contains step-by-step
-instructions to complete common tasks. The :ref:`Tutorials` section contains
+the :ref:`concepts` section, you can find detailed technical information about
+the |CL| features. The :ref:`guides` section contains step-by-step
+instructions to complete common tasks. The :ref:`tutorials` section contains
 step-by-step instructions to complete the installation and configuration of
-tools needed for a specific use case. Lastly, the :ref:`Reference` section
+tools needed for a specific use case. Lastly, the :ref:`reference` section
 contains information providing additional context or details.
 
 .. toctree::
