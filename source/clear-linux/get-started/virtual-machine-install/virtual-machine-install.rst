@@ -23,7 +23,7 @@ Next steps:
 ===========
 
 Now that you have read about the |CL| compatible kernels, choose the
-appropriate set of step by step instructions to proceed.
+appropriate set of step-by-step instructions to proceed.
 
 .. toctree::
    :maxdepth: 1

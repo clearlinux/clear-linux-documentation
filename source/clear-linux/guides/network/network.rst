@@ -4,7 +4,7 @@ Network guide
 #############
 
 This guide provides step-by-step instructions for common tasks associated with
-the configuration and administration of networking for |CLOSIA|.
+the configuration, administration, and use of networks in the |CLOSIA|.
 
 .. toctree::
     :maxdepth: 1
