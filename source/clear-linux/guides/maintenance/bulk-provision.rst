@@ -1,6 +1,6 @@
 .. _bulk-provision:
 
-Bulk Provision
+Bulk provision
 ##############
 
 The |CLOSIA| can be automatically provisioned in bulk using a combination of

@@ -1,7 +1,7 @@
 .. _live-image:
 
-Install Clear Linux from a live image
-#####################################
+Install Clear Linux as a live image
+###################################
 
 This option is a great way to try a live |CL| environment without writing
 to your computer's hard disk.

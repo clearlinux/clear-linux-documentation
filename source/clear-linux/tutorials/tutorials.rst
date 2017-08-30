@@ -3,8 +3,8 @@
 Tutorials
 #########
 
-This section provides instruction to walk you through completing |CL| use
-cases.
+This section provides detailed instructions to guide you through completing
+specific |CLOSIA| use cases.
 
 .. toctree::
    :maxdepth: 2

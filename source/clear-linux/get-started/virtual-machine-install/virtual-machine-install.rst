@@ -1,9 +1,9 @@
 .. _virtual-machine-install:
 
-Install Clear Linux under a Virtual Machine
-###########################################
+Install Clear Linux in a virtual machine
+########################################
 
-There are some considerations to make when installing |CL| under a VM.
+There are some considerations to make when installing |CL| in a VM.
 First, you need to decide which kernel to use. This document
 will walk you through the available kernel options to help this decision. At
 the end of this document, you will be able to select the set of installation

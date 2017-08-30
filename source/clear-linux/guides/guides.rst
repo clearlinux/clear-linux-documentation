@@ -3,8 +3,8 @@
 Guides
 ######
 
-The following guides provide step by step instruction for all tasks that come
-after |CL| :ref:`installation <get-started>`.
+The following guides provide step-by-step instructions for tasks that come
+after completing the |CL| :ref:`installation <get-started>`.
 
 .. toctree::
    :maxdepth: 2

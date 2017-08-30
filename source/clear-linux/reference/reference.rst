@@ -3,8 +3,8 @@
 Reference
 #########
 
-This section contains all content which provides additional information
-regarding the |CL| project and it's features.
+This section contains content which provides additional information
+regarding the |CL| project and the |CL| features.
 
 .. toctree::
    :maxdepth: 2

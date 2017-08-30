@@ -3,8 +3,9 @@
 Concepts
 ########
 
-Get a deep understanding of how |CLOSIA| works. Read through concepts that are
-unique to |CL|.
+The concepts section provides content for a deeper understanding of the
+features of |CLOSIA|. These concepts attempt to provide all the technical
+details relevant to the |CL| features.
 
 .. toctree::
    :maxdepth: 1
