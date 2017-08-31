@@ -3,12 +3,14 @@
 Tutorials
 #########
 
+This section provides detailed instructions to guide you through completing
+specific |CLOSIA| use cases.
+
 .. toctree::
    :maxdepth: 2
 
-   wordpress.rst
-   flatpak/flatpak.rst
+   wordpress
+   flatpak/flatpak
    machine-learning/machine-learning
+   azure
    multi-boot/multi-boot
-
-
