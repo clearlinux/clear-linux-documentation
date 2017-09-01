@@ -27,7 +27,7 @@ Prerequisites
 
 Before performing a bulk provision, verify you have a PXE server capable
 of performing network boots of |CL|. Please refer to our
-:ref:`guide on how to perform an iPXE boot<network-boot>` using
+:ref:`guide on how to perform an iPXE boot<ipxe-install>` using
 :abbr:`NAT (network address translation)` for details.
 
 Because a bulk provision relies on a reboot, ensure the following
