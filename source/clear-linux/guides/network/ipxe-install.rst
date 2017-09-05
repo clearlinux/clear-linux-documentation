@@ -10,7 +10,7 @@ the DHCP and TFTP protocols. This guide shows one possible use of this
 environment to automatically install |CL|.
 
 The PXE extension known as `iPXE`_\* adds support for additional protocols
-such as HTTP, iSCIS, :abbr:`AoE (ATA over Ethernet)`, and
+such as HTTP, iSCSI, :abbr:`AoE (ATA over Ethernet)`, and
 :abbr:`FCoE (Fiber Channel over Ethernet)`. iPXE can also be used to enable
 network booting on computers which lack built-in PXE support.
 
@@ -67,7 +67,7 @@ script, refer to the guide on the `ICIS GitHub repository`_. Otherwise, to
 setup manually, follow the steps below.
 
 #. Define the variables used to parameterize the configuration of an iPXE
-   boot with the following commands:
+   boot:
 
    .. code-block:: console
 
@@ -82,6 +82,12 @@ setup manually, follow the steps below.
       pxe_internal_ip=$pxe_subnet.1
       pxe_subnet_mask_ip=255.255.255.0
       pxe_subnet_bitmask=16
+
+#. Log in and get root privilege.
+
+   .. code-block:: console
+
+      $ sudo -s
 
 #. Add the `pxe-server` bundle to your |CL| system. This bundle has all the
    files needed to run a PXE server.
