@@ -844,7 +844,7 @@ The installation of a new operating system or an upgrade of an existing
 operating system can result in making the |CL| Systemd-Boot no
 longer the default boot loader. To restore it, follow the steps below.
 
-#. Boot the |CL| installer from a USB thumb drive. See :ref:`create-usb`.
+#. Boot the |CL| installer from a USB thumb drive. See :ref:`bootable-usb`.
 
 #. At the introduction screen, press :kbd:`Control+Alt+F2` to bring up the
    |CL| console. See Figure 37.

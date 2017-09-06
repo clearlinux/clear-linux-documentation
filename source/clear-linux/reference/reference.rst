@@ -12,4 +12,4 @@ regarding the |CL| project and the |CL| features.
    bundle-commands
    bundles/available-bundles
    compatible-kernels
-   supported-hardware
+   system-requirements

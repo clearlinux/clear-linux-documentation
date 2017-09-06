@@ -12,7 +12,7 @@ Kernel native
 
 The *kernel-native* bundle focuses on the bare metal platforms. It is
 optimized for fast booting and performs best on the Intel® architectures
-described on the :ref:`supported hardware list<supported-hardware>`. The
+described on the :ref:`supported hardware list<system-requirements>`. The
 optimization patches are found in our `Linux`_ GitHub\* repo.
 
 Kernel Container
@@ -21,7 +21,7 @@ Kernel Container
 The *kernel-container* bundle contains the kernel used by the
 `Intel® Clear Containers`_ project. This kernel is optimized for
 fast booting and performs best on |CC| running on the Intel® architectures
-described on the :ref:`supported hardware list<supported-hardware>`.
+described on the :ref:`supported hardware list<system-requirements>`.
 The optimization patches are found in our `Linux-Container`_ GitHub repo.
 
 .. _vm-kernels:
@@ -32,7 +32,7 @@ Kernel LTS
 The *kernel-lts* bundle focuses on the bare metal platforms but uses the
 latest :abbr:`LTS (Long Term Support)` Linux kernel. It is optimized for fast
 booting and performs best on the Intel® architectures described on the
-:ref:`supported hardware list<supported-hardware>`. Additionally, this
+:ref:`supported hardware list<system-requirements>`. Additionally, this
 kernel includes the VirtualBox\* kernel modules, see our
 :ref:`instructions on using Virtualbox<virtualbox>` for more information.
 The optimization patches are found in our `Linux-LTS`_ GitHub repo.
@@ -43,7 +43,7 @@ Kernel KVM
 The *kernel-kvm* bundle focuses on the Linux
 :abbr:`KVM (Kernel-based Virtual Machine)`. It is optimized for fast booting
 and performs best on Virtual Machines running on the Intel® architectures
-described on the :ref:`supported hardware list<supported-hardware>`.
+described on the :ref:`supported hardware list<system-requirements>`.
 Use this kernel when running |CL| as the guest OS
 on top of *qemu/kvm*. Use this kernel with **cloud orchestrators** using
 *qemu/kvm* internally as their **hypervisor**.
@@ -57,7 +57,7 @@ Kernel Hyper-V\*
 The *kernel-hyperv* bundle focuses on running Linux on Microsoft\*
 Hyper-V. It is optimized for fast booting and performs best on Virtual
 Machines running on the Intel® architectures described on the
-:ref:`supported hardware list<supported-hardware>`.
+:ref:`supported hardware list<system-requirements>`.
 Use this kernel when running |CL| as the guest OS of **Cloud Instances** in
 projects such as Microsoft `Azure`_\*. This kernel can be used as a stand
 alone Linux VM, see our :ref:`instructions on using Hyper-V<hyper-v>` for
@@ -71,7 +71,7 @@ The *kernel-hyperv-lts* bundle focuses on running Linux on Microsoft
 Hyper-V but uses the latest :abbr:`LTS (Long Term Support)` Linux kernel. It
 is optimized for fast booting and performs best on Virtual
 Machines running on the Intel® architectures described on the
-:ref:`supported hardware list<supported-hardware>`.
+:ref:`supported hardware list<system-requirements>`.
 Use this kernel when running |CL| as the guest OS of **Cloud Instances** in
 projects such as Microsoft `Azure`_. This kernel can be used as a stand
 alone Linux VM, see our :ref:`instructions on using Hyper-V<hyper-v>` for
