@@ -1,7 +1,7 @@
 .. _system-requirements:
 
-System Requirements
-###################
+Recommended minimum system requirements
+#######################################
 
 Clear Linux\* OS for Intel® Architecture can run on very minimal hardware.
 For example, it can run on a system with a single core CPU, 128MB of memory,
