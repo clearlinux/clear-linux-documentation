@@ -1,7 +1,7 @@
 .. _bootable-usb-mac:
 
 Create a bootable USB drive on macOS
-####################################
+====================================
 
 Follow these instructions to create a bootable |CL| USB drive. We recommend
 you use an **8GB** USB drive or larger.
@@ -11,7 +11,7 @@ you use an **8GB** USB drive or larger.
    :end-before: copy-usb-linux
 
 Copy the Clear Linux image to a USB drive
-=========================================
+-----------------------------------------
 
 Copying the |CL| image onto the USB drive formats the drive as a UEFI boot
 device. Therefore, the contents of the USB drive will be destroyed during the
@@ -61,7 +61,7 @@ drive before proceeding.
       $ diskutil eject /dev/disk2
 
 Next steps
-==========
+----------
 
 With a bootable |CL| USB drive, you can:
 
