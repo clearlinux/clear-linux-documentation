@@ -33,7 +33,7 @@ Install QEMU-KVM
 
         # apt-get install qemu-kvm
 
-   * On Mint 18.1 “Serena” Desktop:
+   * On Mint\* 18.1 “Serena” Desktop:
 
      .. code-block:: console
 
@@ -58,7 +58,7 @@ Download and launch the virtual machine
 
       # unxz clear-<version>-kvm.img.xz
 
-#. Download the :file:`OVMF.fd` file that provides UEFI support for
+#. Download the `OVMF file`_ file that provides UEFI support for
    virtual machines from the `image <https://download.clearlinux.org/image/>`_
    directory.
 
@@ -209,3 +209,4 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 .. _Intel®Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
 .. _QEMU-KVM launcher: https://download.clearlinux.org/image/start_qemu.sh
+.. _OVMF file: https://download.clearlinux.org/image/OVMF.fd
