@@ -63,7 +63,7 @@ Download and launch the virtual machine
    directory.
 
 #. Download the sample `QEMU-KVM launcher`_ script from the
-   `image <https://download.clearlinux.org/image/>`_ directory.
+   `image <https://download.clearlinux.org/image/>`_ directory.  This script will launch the |CL| VM and provide console interaction within the same terminal emulator window.  
 
 #. Make the script executable:
 
@@ -79,9 +79,11 @@ Download and launch the virtual machine
 
 #. Log in as `root` user and set a new password.
 
-#. To SSH into the |CL| VM, follow these steps:
+SSH access into the virtual machine
+===================================
+To interact with the |CL| VM through SSH instead of the console it was launch from, follow these steps.
 
-    a. Enable SSH in the |CL| VM:
+#. Enable SSH in the |CL| VM:
 
        .. code-block:: console
 
@@ -89,7 +91,7 @@ Download and launch the virtual machine
             PermitRootLogin yes
             EOF
 
-    b. From the host, SSH into the Clear Linux VM:
+#. From the host, SSH into the |CL| VM.  The port number 10022 is defined in the `start_qemu.sh` script.  
 
        .. code-block:: console
 
