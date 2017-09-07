@@ -77,7 +77,7 @@ Download and launch the virtual machine
 
       # ./start_qemu.sh clear-<version>-kvm.img
 
-#. Log in as `root` user and set a new password.
+#. Log in as ``root`` user and set a new password.
 
 SSH access into the virtual machine
 ===================================
@@ -91,16 +91,16 @@ To interact with the |CL| VM through SSH instead of the console it was launched 
         PermitRootLogin yes
         EOF
 
-#. From the host, SSH into the |CL| VM.  The port number 10022 is defined in the `start_qemu.sh` script.  
+#. From the host, SSH into the |CL| VM.  The port number 10022 is defined in the ``start_qemu.sh`` script.  
 
    .. code-block:: console
 
       # ssh -p 10022 root@localhost
 
-Add the GNOME Display Manager
-=============================
+Add the GNOME Display Manager (GDM)
+===================================
 
-To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
+To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 #. Shutdown the active |CL| VM.
 
@@ -116,26 +116,26 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
         # swupd bundle-add desktop-apps 
 
-   * On Ubuntu 16.04 LTS Desktop:
+   * On Ubuntu\* 16.04 LTS Desktop:
 
      .. code-block:: console
 
         # apt-get vncviewer
 
-   * On Mint 18.1 “Serena” Desktop:
+   * On Mint\* 18.1 “Serena” Desktop:
 
      .. code-block:: console
 
         # apt-get vncviewer
 
-   * On Fedora 25 Workstation:
+   * On Fedora\* 25 Workstation:
 
      .. code-block:: console
 
         # dnf install tigervnc
 
 #. Modify the :file:`start_qemu.sh` script to increase memory (`-m`), add
-   graphics driver (-vga), and add VNC (`-vnc`, `-usb`, and `-device`) support.
+   graphics driver (``-vga``), and add VNC (``-vnc``, ``-usb``, and ``-device``) support.
 
    .. code-block:: console
 
@@ -157,7 +157,7 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 #. Due to changes in the :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
    information for the previously-booted |CL| VM will need to be reset.
 
-   #. Relaunch the |CL| VM.  The UEFI shell will appear:
+   #. Relaunch the |CL| VM.  The UEFI shell will appear.
 
       .. code-block:: console
 
@@ -187,7 +187,7 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
       # vncviewer 0.0.0.0
 
-#. Log in as `root` user into the |CL| VM.
+#. Log in as ``root`` user into the |CL| VM.
 
 #. Add GDM to the |CL| VM:
 
@@ -201,9 +201,9 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
       # reboot
       
-#. Go through the GDM out-of-box-experience (OOBE).
+#. Go through the GDM out-of-box experience (OOBE).
 
-#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change it, use the GDM `Displays` setting (located top-right corner).
+#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change it, use the GDM ``Displays`` setting (located at the top-right corner).
 
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
