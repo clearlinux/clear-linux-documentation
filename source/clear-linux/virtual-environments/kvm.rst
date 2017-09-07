@@ -13,7 +13,7 @@ Install QEMU-KVM
    `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
    host machine’s BIOS.
 
-#. Log in and get root privilege on the host machine:
+#. Log in, open a terminal emulator, and get root privilege on the host machine:
 
    .. code-block:: console
 
@@ -77,7 +77,7 @@ Download and launch the virtual machine
 
         # ./start_qemu.sh clear-<version number>-kvm.img
 
-#. Log in and set the root password.
+#. Log in as `root` user and set a new password.
 
 #. To SSH into the |CL| VM, follow these steps:
 
@@ -102,7 +102,11 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
 #. Shutdown the active |CL| VM.
 
-#. Install VNCViewer on the host machine.  Below are some example distros.
+       .. code-block:: console
+
+          # shutdown now
+          
+#. Install a VNC viewer on the host machine.  Below are some example distros.
 
    * On Clear Linux:
 
@@ -140,7 +144,8 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
           -m 4096 \
           -vga qxl \
           -vnc :0 -nographic \
-          -usbdevice tablet \
+          -usb \
+          -device usb-tablet \
           -drive file="$IMAGE",if=virtio,aio=threads,format=raw \
           -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-
           :22,hostfwd=tcp::${VMN}2375-:2375 \
@@ -150,7 +155,7 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 #. Due to changes in :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
    information for the previously-booted |CL| VM will need to be reset.
 
-   #. Relaunch the |CL| VM.  The EFI shell will appear:
+   #. Relaunch the |CL| VM.  The UEFI shell will appear:
 
       .. code-block:: console
 
@@ -162,25 +167,25 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
          Shell> del FS0:\NvVars
 
-   #. Proceed with booting the |CL| VM:
+   #. Exit out of the UEFI shell:
 
       .. code-block:: console
 
-         Shell> FS0:\EFI\Boot\BOOTX64.EFI
+         Shell> reset -s
 
-#. From the host machine, VNC into the |CL| VM:
+   #. Relaunch the |CL| VM:
+
+      .. code-block:: console
+
+         # ./start_qemu.sh clear-<version number>-kvm.img
+
+#. From the host machine, open a new terminal emulator and VNC into the |CL| VM:
 
    .. code-block:: console
 
       # vncviewer 0.0.0.0
 
-#. Log into the |CL| VM.
-
-#. Get root privilege:
-
-   .. code-block:: console
-
-      $ sudo -s
+#. Log in as `root` user into the |CL| VM.
 
 #. Add GDM to the |CL| VM:
 
