@@ -48,7 +48,7 @@ Install QEMU-KVM
 Download and launch the virtual machine
 =======================================
 
-#. Download the latest pre-built Clear Linux :file:`KVM image` file from
+#. Download the latest pre-built |CL| KVM image file from
    the `image <https://download.clearlinux.org/image/>`_ directory. Look for
    ``clear-<version>-kvm.img.xz``.
 
@@ -56,7 +56,7 @@ Download and launch the virtual machine
 
    .. code-block:: console
 
-      # unxz clear-<version number>-kvm.img.xz
+      # unxz clear-<version>-kvm.img.xz
 
 #. Download the :file:`OVMF.fd` file that provides UEFI support for
    virtual machines from the `image <https://download.clearlinux.org/image/>`_
@@ -73,29 +73,29 @@ Download and launch the virtual machine
 
 #. Start the |CL| KVM virtual machine:
 
-     .. code-block:: console
+   .. code-block:: console
 
-        # ./start_qemu.sh clear-<version number>-kvm.img
+      # ./start_qemu.sh clear-<version>-kvm.img
 
 #. Log in as `root` user and set a new password.
 
 SSH access into the virtual machine
 ===================================
-To interact with the |CL| VM through SSH instead of the console it was launch from, follow these steps.
+To interact with the |CL| VM through SSH instead of the console it was launched from, follow these steps.
 
 #. Enable SSH in the |CL| VM:
 
-       .. code-block:: console
+   .. code-block:: console
 
-          # cat > /etc/ssh/sshd_config << EOF
-            PermitRootLogin yes
-            EOF
+      # cat > /etc/ssh/sshd_config << EOF
+        PermitRootLogin yes
+        EOF
 
 #. From the host, SSH into the |CL| VM.  The port number 10022 is defined in the `start_qemu.sh` script.  
 
-       .. code-block:: console
+   .. code-block:: console
 
-          # ssh -p 10022 root@localhost
+      # ssh -p 10022 root@localhost
 
 Add the GNOME Display Manager
 =============================
@@ -104,9 +104,9 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
 #. Shutdown the active |CL| VM.
 
-       .. code-block:: console
+   .. code-block:: console
 
-          # shutdown now
+      # shutdown now
           
 #. Install a VNC viewer on the host machine.  Below are some example distros.
 
@@ -134,8 +134,8 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
         # dnf install tigervnc
 
-#. Modify the :file:`start_qemu.sh` script to increase memory (-m), add
-   graphics driver (-vga), and add VNC (-vnc and -usbdevice) support.
+#. Modify the :file:`start_qemu.sh` script to increase memory (`-m`), add
+   graphics driver (-vga), and add VNC (`-vnc`, `-usb`, and `-device`) support.
 
    .. code-block:: console
 
@@ -154,14 +154,14 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
           -device virtio-net-pci,netdev=mynet0 \
           -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
 
-#. Due to changes in :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
+#. Due to changes in the :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
    information for the previously-booted |CL| VM will need to be reset.
 
    #. Relaunch the |CL| VM.  The UEFI shell will appear:
 
       .. code-block:: console
 
-         # ./start_qemu.sh clear-<version number>-kvm.img
+         # ./start_qemu.sh clear-<version>-kvm.img
 
    #. At the UEFI shell, delete the :file:`NvVars` file:
 
@@ -179,7 +179,7 @@ To add the :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these step
 
       .. code-block:: console
 
-         # ./start_qemu.sh clear-<version number>-kvm.img
+         # ./start_qemu.sh clear-<version>-kvm.img
 
 #. From the host machine, open a new terminal emulator and VNC into the |CL| VM:
 
