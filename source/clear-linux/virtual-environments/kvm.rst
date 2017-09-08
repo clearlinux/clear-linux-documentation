@@ -1,7 +1,7 @@
 .. _kvm:
 
-Running Clear Linux as a KVM guest OS
-#####################################
+Run Clear Linux as a KVM guest OS
+#################################
 
 This section explains how to run |CLOSIA| in a virtualized environment using
 :abbr:`KVM (Kernel-based Virtual Machine)`.
