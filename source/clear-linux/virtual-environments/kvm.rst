@@ -91,7 +91,7 @@ To interact with the |CL| VM through SSH instead of the console it was launched 
         PermitRootLogin yes
         EOF
 
-#. From the host, SSH into the |CL| VM.  The port number 10022 is defined in the ``start_qemu.sh`` script.  
+#. From the host, SSH into the |CL| VM.  The port number ``10022`` is defined in the ``start_qemu.sh`` script.  
 
    .. code-block:: console
 
@@ -134,7 +134,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
         # dnf install tigervnc
 
-#. Modify the :file:`start_qemu.sh` script to increase memory (`-m`), add
+#. Modify the :file:`start_qemu.sh` script to increase memory (``-m``), add
    graphics driver (``-vga``), and add VNC (``-vnc``, ``-usb``, and ``-device``) support.
 
    .. code-block:: console
@@ -149,12 +149,11 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
           -usb \
           -device usb-tablet \
           -drive file="$IMAGE",if=virtio,aio=threads,format=raw \
-          -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-
-          :22,hostfwd=tcp::${VMN}2375-:2375 \
+          -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-:22,hostfwd=tcp::${VMN}2375-:2375 \
           -device virtio-net-pci,netdev=mynet0 \
           -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
 
-#. Due to changes in the :file:`start_qemu.sh` script, the UEFI :file:`NvVars`
+#. Due to changes in the :file:`start_qemu.sh` script from the previous step, the UEFI :file:`NvVars`
    information for the previously-booted |CL| VM will need to be reset.
 
    #. Relaunch the |CL| VM.  The UEFI shell will appear.
@@ -181,7 +180,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
          # ./start_qemu.sh clear-<version>-kvm.img
 
-#. From the host machine, open a new terminal emulator and VNC into the |CL| VM:
+#. From the host machine, open a new terminal emulator window and VNC into the |CL| VM:
 
    .. code-block:: console
 
@@ -201,9 +200,9 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
       # reboot
       
-#. Go through the GDM out-of-box experience (OOBE).
+#. Go through GDM's out-of-box experience (OOBE).
 
-#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change it, use the GDM ``Displays`` setting (located at the top-right corner).
+#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change it, use GDM's ``Displays`` setting (located at the top-right corner).
 
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
