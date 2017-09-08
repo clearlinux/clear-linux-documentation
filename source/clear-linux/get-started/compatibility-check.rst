@@ -5,8 +5,8 @@ Check processor and EFI firmware compatibility with Clear Linux OS for Intel® A
 
 On a system that is currently running a Linux operating system, follow the instructions below to determine if your system's processor and EFI firmware is capable of running |CL|.  Otherwise, run |CL| as a `live image`_ and perform the steps below.  
 
-.. note::
-This does not check other system components (for example, storage and graphics) for compatibility with |CL|.  
+.. Note::
+This does not check other system components (for example: storage and graphics) for compatibility with |CL|.  
 
 
 #. Download the `clear-linux-check-config.sh file`_ script.
