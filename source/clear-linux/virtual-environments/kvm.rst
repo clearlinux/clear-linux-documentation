@@ -202,7 +202,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
       
 #. Go through GDM's out-of-box experience (OOBE).
 
-#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change it, use GDM's ``Displays`` setting (located at the top-right corner).
+#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change it, use GDM's ``Displays`` setting tool (located at the top-right corner).
 
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
