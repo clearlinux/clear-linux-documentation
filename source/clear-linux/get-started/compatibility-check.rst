@@ -1,6 +1,6 @@
 .. _compatibility-check:
 
-Check system compatibility with Clear Linux OS for Intel® Architecture
+Check processor and EFI firmware compatibility with Clear Linux OS for Intel® Architecture
 ======================================================================
 
 Follow the instructions below to determine if your target system is capable of
@@ -60,3 +60,6 @@ running |CL|\*.
    * Install and run a Linux distribution directly on your system.
    * Run a :ref:`live-image` from a USB drive (success does not guarantee your
      system is 100% compatible).
+     
+ 
+     
