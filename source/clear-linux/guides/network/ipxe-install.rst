@@ -3,7 +3,7 @@
 Install Clear Linux over the network with iPXE
 ##############################################
 
-This guide shows how to install |CL| through :abbr:`PXE (Pre-boot Execution Environment)`. 
+This guide shows how to install |CL| through :abbr:`PXE (Pre-boot Execution Environment)`.
 
 PXE is an industry standard describing the client-server interaction with network-boot software using
 the DHCP and TFTP protocols. This guide shows one possible use of this
@@ -271,8 +271,8 @@ setup manually, follow the steps below.
       dhcp-boot=tag:!ipxeboot,undionly.kpxe,$pxe_internal_ip
       EOF
 
-    .. note::
-  This configuration provides the following important functions:
+
+   This configuration provides the following important functions:
 
    * Directs PXE clients without an iPXE implementation to the TFTP server
      to acquire architecture-specific iPXE firmware images that allow them
