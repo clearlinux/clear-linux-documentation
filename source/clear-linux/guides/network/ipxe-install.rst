@@ -3,9 +3,9 @@
 Install Clear Linux over the network with iPXE
 ##############################################
 
-This guide shows how to install |CLOSIA| through a
-:abbr:`PXE (Pre-boot Execution Environment)`. PXE is an industry standard
-describing the client-server interaction with network-boot software using
+This guide shows how to install |CL| through :abbr:`PXE (Pre-boot Execution Environment)`. 
+
+PXE is an industry standard describing the client-server interaction with network-boot software using
 the DHCP and TFTP protocols. This guide shows one possible use of this
 environment to automatically install |CL|.
 
@@ -21,8 +21,6 @@ client we must create to install |CL| through iPXE.
    :alt: PXE information flow
 
    Figure 1: PXE information flow
-
-This guide covers how to install |CL| through iPXE.
 
 .. caution::
 
@@ -45,7 +43,7 @@ Before booting with iPXE, the following preparations must be made:
 
 .. note::
 
-   The Secure Boot option in the BIOS must be disabled because the UEFI binaries used to
+   The ``Secure Boot`` option in the BIOS must be disabled because the UEFI binaries used to
    boot |CL| are not signed.
 
 The required computer and network setup is shown in figure 2.
@@ -232,7 +230,7 @@ setup manually, follow the steps below.
       # ln -sf /usr/share/ipxe/undionly.kpxe $tftp_root/undionly.kpxe
 
 #. The ``pxe-server`` bundle contains a lightweight TFTP, DNS, and DHCP
-   server known as ``dnsmasq``.  Create a configuration file for `dnsmasq`
+   server known as ``dnsmasq``.  Create a configuration file for ``dnsmasq``
    to listen on a dedicated IP address for those functions. PXE clients on
    the private network will use this IP address to access those functions.
 
@@ -273,7 +271,8 @@ setup manually, follow the steps below.
       dhcp-boot=tag:!ipxeboot,undionly.kpxe,$pxe_internal_ip
       EOF
 
-   This configuration provides the following important functions:
+    .. note::
+  This configuration provides the following important functions:
 
    * Directs PXE clients without an iPXE implementation to the TFTP server
      to acquire architecture-specific iPXE firmware images that allow them
@@ -309,7 +308,7 @@ setup manually, follow the steps below.
 
    .. note::
 
-      Using the `dnsmasq` DNS server allows `systemd-resolved` to dynamically
+      Using the ``dnsmasq`` DNS server allows ``systemd-resolved`` to dynamically
       update the list of DNS servers for the private network from the public
       network. This setup effectively creates a pass-through DNS server which
       relies on the DNS servers listed in :file:`/etc/resolv.conf`.
