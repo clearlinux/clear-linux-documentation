@@ -3,7 +3,11 @@
 Check processor and EFI firmware compatibility with Clear Linux OS for Intel® Architecture
 ======================================================================
 
-On a system that is currently running a Linux operating system, follow the instructions below to determine if your target system is capable of running |CL|.  Otherwise, run |CL| as a `live image`_ and perform the steps below.  
+On a system that is currently running a Linux operating system, follow the instructions below to determine if your system's processor and EFI firmware is capable of running |CL|.  Otherwise, run |CL| as a `live image`_ and perform the steps below.  
+
+.. note::
+This does not check other system components (for example, storage and graphics) for compatibility with |CL|.  
+
 
 #. Download the `clear-linux-check-config.sh file`_ script.
 
@@ -34,8 +38,8 @@ On a system that is currently running a Linux operating system, follow the instr
          $ ./clear-linux-check-config.sh container
 
    The script will print a list of test results similar to the output below.  
-   All items should return a `SUCCESS` status.  This example indicates the host's processor and EFI firmware supports running |CL|.  However, note that all `SUCCESS` status is not a guarantee that other system components are guaranteed to 100% compatible with |CL|.  
-
+   All items should return a `SUCCESS` status.  This example indicates the host's processor and EFI firmware support running |CL|.  
+   
    .. code-block:: console
 
       Checking if host is capable of running Clear Liunx* OS for Intel®
