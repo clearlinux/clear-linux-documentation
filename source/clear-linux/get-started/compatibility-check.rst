@@ -42,8 +42,7 @@ This does not check other system components (for example: storage and graphics) 
    
    .. code-block:: console
 
-      Checking if host is capable of running Clear Liunx* OS for Intel®
-      Architecture
+      Checking if host is capable of running Clear Liunx* OS for Intel® Architecture
 
       SUCCESS: Intel CPU
 
