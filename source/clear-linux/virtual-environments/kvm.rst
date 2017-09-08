@@ -4,7 +4,7 @@ Running Clear Linux as a KVM guest OS
 #####################################
 
 This section explains how to run |CLOSIA| in a virtualized environment using
-abbr:`KVM (Kernel-based Virtual Machine)`.
+:abbr:`KVM (Kernel-based Virtual Machine)`.
 
 Install QEMU-KVM
 ================
