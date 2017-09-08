@@ -3,10 +3,9 @@
 Check processor and EFI firmware compatibility with Clear Linux OS for Intel® Architecture
 ======================================================================
 
-Follow the instructions below to determine if your target system is capable of
-running |CL|\*.
+On a system that is currently running a Linux operating system, follow the instructions below to determine if your target system is capable of running |CL|\*.  Otherwise, see the Note section below for other options.  
 
-#. Download the _`clear-linux-check-config.sh` script.
+#. Download the _`clear-linux-check-config.sh`_ script.
 
    If a browser is not available, use:
 
@@ -61,5 +60,5 @@ running |CL|\*.
    * Run a :ref:`live-image` from a USB drive (success does not guarantee your
      system is 100% compatible).
      
- 
+ .. _clear-linux-check-config.sh file: https://download.clearlinux.org/current/clear-linux-check-config.sh
      
