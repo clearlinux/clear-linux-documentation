@@ -9,7 +9,7 @@ the configuration, administration, and use of networks in the |CLOSIA|.
 .. toctree::
     :maxdepth: 1
 
-    network-boot
+    ipxe-install
     dpdk
     ovs-dpdk
     network-bonding
