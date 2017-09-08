@@ -4,13 +4,13 @@ Install Clear Linux over the network with iPXE
 ##############################################
 
 This guide shows how to install |CLOSIA| through a
-:abbr:`PXE (pre-boot execution environment)`. PXE is an industry standard
+:abbr:`PXE (Pre-boot Execution Environment)`. PXE is an industry standard
 describing the client-server interaction with network-boot software using
 the DHCP and TFTP protocols. This guide shows one possible use of this
 environment to automatically install |CL|.
 
 The PXE extension known as `iPXE`_\* adds support for additional protocols
-such as HTTP, iSCSI, :abbr:`AoE (ATA over Ethernet)`, and
+such as HTTP, :abbr:`iSCSI (Internet Small Computer Systems Interface)`, :abbr:`AoE (ATA over Ethernet)`, and
 :abbr:`FCoE (Fiber Channel over Ethernet)`. iPXE can also be used to enable
 network booting on computers which lack built-in PXE support.
 
@@ -26,8 +26,7 @@ This guide covers how to install |CL| through iPXE.
 
 .. caution::
 
-   This process erases existing data and partitions on the PXE client
-   system. |CL| automatically erases all data on the PXE client and
+   The |CL| image that boots through the PXE process automatically erases all data and partitions on the PXE client system and
    creates 3 new partitions to install onto.
 
 Prerequisites
@@ -46,7 +45,7 @@ Before booting with iPXE, the following preparations must be made:
 
 .. note::
 
-   The secure boot option must be disabled because the UEFI binaries used to
+   The Secure Boot option in the BIOS must be disabled because the UEFI binaries used to
    boot |CL| are not signed.
 
 The required computer and network setup is shown in figure 2.
@@ -67,7 +66,7 @@ script, refer to the guide on the `ICIS GitHub repository`_. Otherwise, to
 setup manually, follow the steps below.
 
 #. Define the variables used to parameterize the configuration of an iPXE
-   boot:
+   boot.
 
    .. code-block:: console
 
@@ -89,7 +88,7 @@ setup manually, follow the steps below.
 
       $ sudo -s
 
-#. Add the `pxe-server` bundle to your |CL| system. This bundle has all the
+#. Add the ``pxe-server`` bundle to your |CL| system. This bundle has all the
    files needed to run a PXE server.
 
    .. code-block:: console
@@ -102,9 +101,9 @@ setup manually, follow the steps below.
    .. code-block:: console
 
       # mkdir -p $ipxe_root
-      # curl -o /tmp/clear-pxe.tar.xz
-      # https://download.clearlinux.org/current/clear-$(curl \
-      https://download.clearlinux.org/latest)-pxe.tar.xz
+      # curl -o /tmp/clear-pxe.tar.xz \
+        https://download.clearlinux.org/current/clear-$(curl \
+        https://download.clearlinux.org/latest)-pxe.tar.xz
       # tar -xJf /tmp/clear-pxe.tar.xz -C $ipxe_root
       # ln -sf $(ls $ipxe_root | grep 'org.clearlinux.*') $ipxe_root/linux
 
@@ -130,8 +129,8 @@ setup manually, follow the steps below.
       boot
       EOF
 
-#. The `pxe-server` bundle contains a lightweight web-server known as
-   `nginx`. Create a configuration file for `nginx` to serve |CL| to PXE
+#. The ``pxe-server`` bundle contains a lightweight web-server known as
+   ``nginx``. Create a configuration file for ``nginx`` to serve |CL| to PXE
    clients with the following contents:
 
    .. code-block:: console
@@ -152,20 +151,20 @@ setup manually, follow the steps below.
 
    .. note::
 
-      Creating a separate configuration file for `nginx` to serve
+      Creating a separate configuration file for ``nginx`` to serve
       network-bootable images on a non-standard port number preserves
       existing `nginx` configurations.
 
-#. Start `nginx` and enable the startup on boot option:
+#. Start ``nginx`` and enable the startup on boot option.
 
    .. code-block:: console
 
       # systemctl start nginx
       # systemctl enable nginx
 
-#. The `pxe-server` bundle contains a lightweight DNS server which
-   conflicts with the DNS stub listener provided by `systemd-resolved`.
-   Disable the DNS stub listener and temporarily stop `systemd-resolved`.
+#. The ``pxe-server`` bundle contains a lightweight DNS server which
+   conflicts with the DNS stub listener provided by ``systemd-resolved``.
+   Disable the DNS stub listener and temporarily stop ``systemd-resolved``.
 
    .. code-block:: console
 
@@ -178,7 +177,7 @@ setup manually, follow the steps below.
       # systemctl stop systemd-resolved
 
 #. Assign a static IP address to the network adapter for the private network
-   and restart `systemd-networkd` with the following commands:
+   and restart ``systemd-networkd`` with the following commands:
 
    .. code-block:: console
 
@@ -222,7 +221,7 @@ setup manually, follow the steps below.
       # echo net.ipv4.ip_forward=1 > /etc/sysctl.d/80-nat-forwarding.conf
       # echo 1 > /proc/sys/net/ipv4/ip_forward
 
-#. The `pxe-server` bundle contains iPXE firmware images that allow computers
+#. The ``pxe-server`` bundle contains iPXE firmware images that allow computers
    without an iPXE implementation to perform an iPXE boot. Create a TFTP
    hosting directory and populate it with the iPXE firmware images with the
    following commands:
@@ -232,8 +231,8 @@ setup manually, follow the steps below.
       # mkdir -p $tftp_root
       # ln -sf /usr/share/ipxe/undionly.kpxe $tftp_root/undionly.kpxe
 
-#. The `pxe-server` bundle contains a lightweight TFTP, DNS, and DHCP
-   server known as `dnsmasq`.  Create a configuration file for `dnsmasq`
+#. The ``pxe-server`` bundle contains a lightweight TFTP, DNS, and DHCP
+   server known as ``dnsmasq``.  Create a configuration file for `dnsmasq`
    to listen on a dedicated IP address for those functions. PXE clients on
    the private network will use this IP address to access those functions.
 
@@ -244,7 +243,7 @@ setup manually, follow the steps below.
       EOF
 
 #. Add the options to serve iPXE firmware images to PXE clients over TFTP to
-   the `dnsmasq` configuration file.
+   the ``dnsmasq`` configuration file.
 
    .. code-block:: console
 
@@ -253,7 +252,7 @@ setup manually, follow the steps below.
       tftp-root=$tftp_root
       EOF
 
-#. Add the options to host a DHCP server for PXE clients to the `dnsmasq`
+#. Add the options to host a DHCP server for PXE clients to the ``dnsmasq``
    configuration file.
 
    .. code-block:: console
@@ -287,7 +286,7 @@ setup manually, follow the steps below.
      network booting and another for usage after boot, each with their own
      lease times.
 
-#. Create a file where `dnsmasq` can record the IP addresses it provides
+#. Create a file where ``dnsmasq`` can record the IP addresses it provides
    to PXE clients.
 
    .. code-block:: console
@@ -295,14 +294,14 @@ setup manually, follow the steps below.
       # mkdir -p /var/db
       # touch /var/db/dnsmasq.leases
 
-#. Start `dnsmasq` and enable startup on boot.
+#. Start ``dnsmasq`` and enable startup on boot.
 
    .. code-block:: console
 
       # systemctl enable dnsmasq
       # systemctl restart dnsmasq
 
-#. Start `systemd-resolved`.
+#. Start ``systemd-resolved``.
 
    .. code-block:: console
 
