@@ -34,11 +34,11 @@ On a system that is currently running a Linux operating system, follow the instr
          $ ./clear-linux-check-config.sh container
 
    The script will print a list of test results similar to the output below.  
-   All items should return a *SUCCESS* status.  This example indicates the host's prcessor and EFI firmware supports running |CL|.
+   All items should return a `SUCCESS` status.  This example indicates the host's processor and EFI firmware supports running |CL|.  However, note that all `SUCCESS` status is not a guarantee that other system components are guaranteed to 100% compatible with |CL|.  
 
    .. code-block:: console
 
-      Checking if host is capable of running |CL|\* OS for Intel®
+      Checking if host is capable of running Clear Liunx* OS for Intel®
       Architecture
 
       SUCCESS: Intel CPU
@@ -48,9 +48,6 @@ On a system that is currently running a Linux operating system, follow the instr
       SUCCESS: Streaming SIMD Extension v4.1 (sse4_1)
 
       SUCCESS: EFI Firmware
-
-   * Run a :ref:`live-image` from a USB drive (success does not guarantee your
-     system is 100% compatible).
      
  .. _clear-linux-check-config.sh file: https://download.clearlinux.org/current/clear-linux-check-config.sh
  .. _live image: https://clearlinux.org/documentation/clear-linux/get-started/live-image.html    
