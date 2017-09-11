@@ -13,7 +13,8 @@ See in depth descriptions of the following bundles:
 
    containers-basic
    openssh-server
-   os-core.rst
+   os-core
+   kvm-host
 
 Bundle list
 ===========
