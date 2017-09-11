@@ -14,7 +14,7 @@ Follow these instructions to create a bootable USB drive and boot from USB.  To 
 Download the latest Clear Linux Live Image
 ------------------------------------------
 
-Download the ``clear-[version_number]-live.img.xz``
+xxDownload the ``clear-[version_number]-live.img.xz``
 image in the `current`_ version's download directory.
 
 For older versions, see our `releases`_ page.
