@@ -3,11 +3,9 @@
 Install Clear Linux as a live image
 ###################################
 
-This option is a great way to try a live |CL| environment without writing
-to your computer's hard disk.
+A live image contains the complete Clear Linux operating system that resides on a bootable media such as a USB drive or in a virtual machine.  This is a great way to use |CL| without modifying your computer's existing hard disk.
 
-Follow these instructions to create a bootable USB drive and boot from USB.
-You can also use the live image to boot the OS in a VM.
+Follow these instructions to create a bootable USB drive and boot from USB.  To boot |CL| in a virtual environment, see `Install Clear Linux in a virtual machine`_.
 
 .. include:: bootable-usb/bootable-usb-linux.rst
    :Start-after: bootable-usb-linux:
@@ -34,3 +32,4 @@ Boot your Clear Linux live image
 
 .. _releases: https://download.clearlinux.org/releases
 .. _current: http://download.clearlinux.org/current
+.. _Install Clear Linux in a virtual machine: https://clearlinux.org/documentation/clear-linux/get-started/virtual-machine-install/virtual-machine-install.html
