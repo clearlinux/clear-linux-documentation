@@ -76,6 +76,12 @@ installation of the tested operating systems.
 Install the Clear Linux OS
 **************************
 
+#. Create a bootable USB drive of the |CL| installer using one of the methods below.
+
+   * :ref:`bootable-usb-linux`
+   * :ref:`bootable-usb-mac`
+   * :ref:`bootable-usb-windows`
+
 #. Start the |CL| installer and follow the prompts.
 
 #. On the *Choose Installation Type* screen, choose *Manual (Advanced)*,

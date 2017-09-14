@@ -1,35 +1,56 @@
 .. _live-image:
 
-Install Clear Linux as a live image
+Install Clear Linux as a Live image
 ###################################
 
-A live image contains the complete Clear Linux operating system that resides on a bootable media such as a USB drive or in a virtual machine.  This is a great way to use |CL| without modifying your computer's existing hard disk.
-
-Follow these instructions to create a bootable USB drive and boot from USB.  To boot |CL| in a virtual environment, see `Install Clear Linux in a virtual machine`_.
+A live image contains the complete Clear Linux operating system that resides 
+on a bootable media such as a USB drive or in a virtual machine 
+(see :ref:`virtual-machine-install`).  This is a 
+great way to use |CL| without modifying your computer's hard disk.
 
 .. include:: bootable-usb/bootable-usb-linux.rst
    :Start-after: bootable-usb-linux:
-   :end-before: download-cl-image
+   :end-before: download-cl-image:
 
-Download the latest Clear Linux Live Image
-------------------------------------------
+Download the latest Clear Linux Live image
+------------------------------------------ 
 
-xxDownload the ``clear-[version_number]-live.img.xz``
-image in the `current`_ version's download directory.
+#. Get the latest |CL| Live image from the `image`_ page.  Look for 
+   `clear-<version>-live.img.xz`. 
 
-For older versions, see our `releases`_ page.
+   For older versions, see the `releases`_ page.
+
+#. Although not required, it is recommended to download the corresponding 
+   checksum file (designated with `-SHA512SUMS` at the end of the filename) for 
+   the image in order to verify its integrity.
+
+.. Download the ``clear-<version>-live.img.xz``
+.. image in the `current`_ version's download directory.
+
+.. include:: bootable-usb/bootable-usb-linux.rst
+			:Start-after: verify-checksum:
+			:end-before: verify-checksum-on-macos:
 
 .. include:: bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:
    :end-before: usb-next
 
-Boot your Clear Linux live image
+.. _boot-live-image:
+
+Boot the Clear Linux Live image 
 ================================
 
-#. Plug the imaged USB drive into the target system and boot it up.
+#. Configure the BIOS/UEFI firmware settings of the target system as follows:
+			* Enable `Intel® Virtualization Technology (Intel® VT)`_ 
+			* Enable `Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`_
+			* Disable `Secure Boot`
+
+#.	Plug the imaged USB drive in and boot it up.
 
 #. Log in as `root` and set a password.
 
-.. _releases: https://download.clearlinux.org/releases
-.. _current: http://download.clearlinux.org/current
-.. _Install Clear Linux in a virtual machine: https://clearlinux.org/documentation/clear-linux/get-started/virtual-machine-install/virtual-machine-install.html
+.. _`releases`: https://download.clearlinux.org/releases
+.. _`image`: https://download.clearlinux.org/image
+.. _`Intel® Virtualization Technology (Intel® VT)`: http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+.. _`Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`
+

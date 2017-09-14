@@ -3,22 +3,42 @@
 Create a bootable USB drive on Windows
 ======================================
 
-Follow these instructions to create a bootable |CL| USB drive. We recommend
-you use an **8GB** USB drive or larger.
+Follow these instructions to create a bootable |CL| USB drive.
+Use an **8GB** or larger USB drive.
+
+Alternative instructions for other operatings are available:
+
+* :ref:`bootable-usb-mac`
+* :ref:`bootable-usb-linux`
 
 .. include:: bootable-usb-linux.rst
    :Start-after: download-cl-image:
-   :end-before: copy-usb-linux
+   :end-before: verify-checksum:
 
-.. _copy-usb-windows:
+.. copy-usb-windows
 
-Copy the Clear Linux image to a USB drive
+Verify the integrity of the download (recommended)
+--------------------------------------------------
+
+.. _verify-checksum-on-windows:
+#. Start Command-Prompt.
+#. Go to the directory with the downloaded files.
+#. To verify the integrity of the image, enter the following commands:
+
+	.. code-block:: console
+
+		C:\> CertUtil -hashfile ./clear-<version>-live.img.xz | findstr -v file
+
+   Compare the output with the original checksum to make sure they match.
+
+Burn the Clear Linux image onto a USB drive
 -----------------------------------------
 
-Copying the |CL| image onto the USB drive formats the drive as a UEFI boot
-device. Therefore, the contents of the USB drive will be destroyed during the
-creation of the bootable USB drive. Make sure to save anything stored in the
-drive before proceeding.
+.. caution::
+
+   The process of burning an image onto the USB drive completely formats it. 
+   Thus, any existing contents on it will be destroyed.  Backup important data 
+   before proceeding.
 
 #. Download the `Rufus`_ tool to burn the image onto a USB drive.
 
@@ -38,6 +58,9 @@ Next steps
 With a bootable |CL| USB drive, you can:
 
 * :ref:`bare-metal-install`
-* :ref:`live-image`
+* :ref:`boot-live-image`
+* :ref:`multi-boot`
 
 .. _Rufus: http://rufus.akeo.ie/
+.. _releases: https://download.clearlinux.org/releases
+.. _image: https://download.clearlinux.org/image
