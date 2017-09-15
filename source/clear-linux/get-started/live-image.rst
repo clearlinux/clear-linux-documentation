@@ -1,6 +1,6 @@
 .. _live-image:
 
-Install Clear Linux as a Live image
+Install Clear Linux as a live image
 ###################################
 
 A live image contains the complete |CL| operating system and resides
