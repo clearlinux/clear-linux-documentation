@@ -15,6 +15,10 @@ on bare metal using a bootable USB drive.
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: download-cl-image:
+   :end-before: verify-checksum
+
+.. include:: ../bootable-usb/bootable-usb-linux.rst
+   :Start-after: verify-checksum:
    :end-before: copy-usb-linux
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
@@ -24,7 +28,7 @@ on bare metal using a bootable USB drive.
 .. _install-on-target:
 
 Install Clear Linux on your target system
-=========================================
+*****************************************
 
 The USB drive that was created in the previous step has been formatted as a
 UEFI boot device. Our target system has a hard drive installed containing a
@@ -91,7 +95,7 @@ Follow these steps to install |CL| on the target system:
 .. _initial-setup:
 
 Clear Linux initial setup after installation
-============================================
+********************************************
 
 Your newly installed |CL| boots on your target system and presents a full
 screen console requesting `Login:`. |CL| is designed to install with minimal
@@ -99,7 +103,7 @@ software overhead. Therefore, some housekeeping and package installations
 must occur before you have a full-featured |CL| operating system.
 
 Set up your root and user accounts
-----------------------------------
+==================================
 
 #. At the initial login prompt, enter: root
 
@@ -123,7 +127,7 @@ Remain logged in as the root user because there are some other things to do
 before we can fully enable your new user space.
 
 Software installation and updates
----------------------------------
+=================================
 
 |CL| has a unique application and architecture to add and update applications
 and to perform system updates called software update utility or `swupd`.
@@ -153,7 +157,7 @@ We provide the full list of bundles and packages installed with the
 list to view the manifest of the bundle.
 
 Finish setting up your new user
--------------------------------
+===============================
 
 Before logging off as root and logging into your new user account, we must
 enable the :command:`sudo` command for your new `<userid>`.
@@ -211,7 +215,7 @@ To be able to execute all applications with root privileges, we must add the
    additional supporting applications.
 
 Install a GUI
--------------
+=============
 
 #. To test the :command:`sudo` command and ensure we set it up correctly, we
    can install the Gnome Desktop Manager (gdm) and start it.
@@ -258,7 +262,7 @@ Additionally, you performed the following basic setup for your system:
 * Installed a GUI using those `sudo` privileges.
 
 Next steps
-==========
+**********
 
 With your system now running |CL| many paths are open for you.
 
@@ -276,3 +280,7 @@ system.
 
 .. _`wheel group`:
    https://en.wikipedia.org/wiki/Wheel_(Unix_term)
+
+.. _image: https://download.clearlinux.org/image
+
+.. _releases: https://download.clearlinux.org/releases

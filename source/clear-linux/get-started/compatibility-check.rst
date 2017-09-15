@@ -1,7 +1,7 @@
 .. _compatibility-check:
 
 Check processor and EFI firmware compatibility with Clear Linux\*
-=================================================================
+*****************************************************************
 
 On a system that is currently running a Linux operating system, follow the
 instructions below to determine if your system's processor and EFI firmware is

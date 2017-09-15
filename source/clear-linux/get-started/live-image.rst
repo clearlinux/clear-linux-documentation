@@ -3,33 +3,30 @@
 Install Clear Linux as a Live image
 ###################################
 
-A live image contains the complete Clear Linux operating system that resides 
-on a bootable media such as a USB drive or in a virtual machine 
-(see :ref:`virtual-machine-install`).  This is a 
+A live image contains the complete |CL| operating system and resides
+on a bootable media such as a USB drive or in a virtual machine
+(see :ref:`virtual-machine-install`). This is a
 great way to use |CL| without modifying your computer's hard disk.
 
 .. include:: bootable-usb/bootable-usb-linux.rst
    :Start-after: bootable-usb-linux:
-   :end-before: download-cl-image:
+   :end-before: download-cl-image
 
 Download the latest Clear Linux Live image
------------------------------------------- 
+******************************************
 
-#. Get the latest |CL| Live image from the `image`_ page.  Look for 
-   `clear-<version>-live.img.xz`. 
+#. Get the latest |CL| Live image from the `image`_ page.  Look for
+   `clear-<version>-live.img.xz`.
 
    For older versions, see the `releases`_ page.
 
-#. Although not required, it is recommended to download the corresponding 
-   checksum file (designated with `-SHA512SUMS` at the end of the filename) for 
+#. Although not required, it is recommended to download the corresponding
+   checksum file (designated with `-SHA512SUMS` at the end of the filename) for
    the image in order to verify its integrity.
 
-.. Download the ``clear-<version>-live.img.xz``
-.. image in the `current`_ version's download directory.
-
 .. include:: bootable-usb/bootable-usb-linux.rst
-			:Start-after: verify-checksum:
-			:end-before: verify-checksum-on-macos:
+   :Start-after: verify-checksum:
+   :end-before: verify-checksum-on-macos
 
 .. include:: bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:
@@ -37,13 +34,13 @@ Download the latest Clear Linux Live image
 
 .. _boot-live-image:
 
-Boot the Clear Linux Live image 
-================================
+Boot the Clear Linux Live image
+*******************************
 
-#. Configure the BIOS/UEFI firmware settings of the target system as follows:
-			* Enable `Intel® Virtualization Technology (Intel® VT)`_ 
-			* Enable `Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`_
-			* Disable `Secure Boot`
+#. Configure the BIOS/UEFI firmware settings of the target system:
+   * Enable `Intel® Virtualization Technology (Intel® VT)`_
+   * Enable `Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`_
+   * Disable `Secure Boot`
 
 #.	Plug the imaged USB drive in and boot it up.
 

@@ -1,22 +1,22 @@
 .. _bootable-usb-mac:
 
 Create a bootable USB drive on macOS
-====================================
+************************************
 
 Follow these instructions to create a bootable |CL| USB drive.
 Use an **8GB** or larger USB drive.
 
-Alternative instructions for other operatings are available:
+Alternative instructions for other operating systems are available:
 
 * :ref:`bootable-usb-linux`
 * :ref:`bootable-usb-windows`
 
 .. include:: bootable-usb-linux.rst
    :Start-after: download-cl-image:
-   :end-before: verify-checksum:
+   :end-before: verify-checksum
 
 Verify the integrity of the download (recommended)
---------------------------------------------------
+==================================================
 
 #. Start the Terminal app.
 #. Go to the directory with the downloaded files.
@@ -26,28 +26,17 @@ Verify the integrity of the download (recommended)
 
       $ shasum -a512 ./clear-<version>-live.img.xz | diff ./clear-<version>-live.img.xz-SHA512SUMS -
 
-   If the checksum of the downloaded image is different than the original's, 
+   If the checksum of the downloaded image is different than the original's,
    the differences will displayed.  Otherwise, an empty output indicates a match.
 
 Burn the Clear Linux image onto a USB drive
------------------------------------------
-.. This example was created on an Ubuntu 16.04-based system where the USB
-.. drive is identified as :file:`/dev/sdb`. Make sure you map the correct USB
-.. device for this process.
+===========================================
 
 .. caution::
 
-   The process of burning an image onto the USB drive completely formats it. 
-   Thus, any existing contents on it will be destroyed.  Backup important data 
-   before proceeding.
-
-.. Copy the Clear Linux image to a USB drive
-.. -----------------------------------------
-
-.. Copying the |CL| image onto the USB drive formats the drive as a UEFI boot
-.. device. Therefore, the contents of the USB drive will be destroyed during the
-.. creation of the bootable USB drive. Make sure to save anything stored in the
-.. drive before proceeding.
+   Backup important data before proceeding. The process of burning an image
+   onto the USB drive completely formats the
+   USB drive and any existing content will be destroyed.
 
 #. Launch the Terminal application.
 
@@ -66,8 +55,8 @@ Burn the Clear Linux image onto a USB drive
    .. figure:: figures/bootable-usb-mac-1.png
       :alt: Get USB drive identifier
 
-#. Unmount the USB drive identified in the previous step (using `/dev/disk2` as 
-   the example)
+#. Unmount the USB drive identified in the previous step (using `/dev/disk2`
+   as the example)
 
    .. code-block:: console
 
@@ -79,8 +68,9 @@ Burn the Clear Linux image onto a USB drive
 
       $ sudo dd if=/path/to/clear-<version>-live.img of=/dev/rdisk2 bs=4m
 
-   * Adding an ‘r’ in front of the disk identifier should help speed up the imaging process.
-   * Use `<CTL>-T` to check imaging progress. 
+   * Adding an ‘r’ in front of the disk identifier should help speed up the
+     imaging process.
+   * Use `<CTL>-T` to check imaging progress.
 
 #. Eject the USB drive.
 

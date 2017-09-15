@@ -1,26 +1,23 @@
 .. _bootable-usb-windows:
 
 Create a bootable USB drive on Windows
-======================================
+**************************************
 
 Follow these instructions to create a bootable |CL| USB drive.
 Use an **8GB** or larger USB drive.
 
-Alternative instructions for other operatings are available:
+Alternative instructions for other operating systems are available:
 
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-linux`
 
 .. include:: bootable-usb-linux.rst
    :Start-after: download-cl-image:
-   :end-before: verify-checksum:
-
-.. copy-usb-windows
+   :end-before: verify-checksum
 
 Verify the integrity of the download (recommended)
---------------------------------------------------
+==================================================
 
-.. _verify-checksum-on-windows:
 #. Start Command-Prompt.
 #. Go to the directory with the downloaded files.
 #. To verify the integrity of the image, enter the following commands:
@@ -32,13 +29,13 @@ Verify the integrity of the download (recommended)
    Compare the output with the original checksum to make sure they match.
 
 Burn the Clear Linux image onto a USB drive
------------------------------------------
+===========================================
 
 .. caution::
 
-   The process of burning an image onto the USB drive completely formats it. 
-   Thus, any existing contents on it will be destroyed.  Backup important data 
-   before proceeding.
+   Backup important data before proceeding. The process of burning an image
+   onto the USB drive completely formats the
+   USB drive and any existing content will be destroyed.
 
 #. Download the `Rufus`_ tool to burn the image onto a USB drive.
 
