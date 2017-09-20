@@ -14,8 +14,9 @@ information and instructions on how to complete pre-install tasks.
 .. toctree::
    :maxdepth: 1
 
+   ../reference/system-requirements
    bare-metal-install/bare-metal-install
    virtual-machine-install/virtual-machine-install
    live-image
    compatibility-check
-   ../reference/supported-hardware
+   bootable-usb/bootable-usb

@@ -76,6 +76,12 @@ installation of the tested operating systems.
 Install the Clear Linux OS
 **************************
 
+#. Create a bootable USB drive of the |CL| installer using one of the methods below.
+
+   * :ref:`bootable-usb-linux`
+   * :ref:`bootable-usb-mac`
+   * :ref:`bootable-usb-windows`
+
 #. Start the |CL| installer and follow the prompts.
 
 #. On the *Choose Installation Type* screen, choose *Manual (Advanced)*,
@@ -844,7 +850,7 @@ The installation of a new operating system or an upgrade of an existing
 operating system can result in making the |CL| Systemd-Boot no
 longer the default boot loader. To restore it, follow the steps below.
 
-#. Boot the |CL| installer from a USB thumb drive. See :ref:`create-usb`.
+#. Boot the |CL| installer from a USB thumb drive. See :ref:`bootable-usb`.
 
 #. At the introduction screen, press :kbd:`Control+Alt+F2` to bring up the
    |CL| console. See Figure 37.

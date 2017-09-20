@@ -1,37 +1,61 @@
 .. _compatibility-check:
 
-Check system compatibility with Clear Linux OS for Intel® Architecture
-######################################################################
+Check processor and EFI firmware compatibility with Clear Linux\*
+=================================================================
 
-If you’re unsure whether your system will be capable of running
-|CL|\* OS for Intel® Architecture, you can determine ahead of time by
-downloading and running the simple clear-linux-check-config.sh script locally
-on your target system if it is already running a Linux distribution.
+On a system that is currently running a Linux operating system, follow the
+instructions below to determine if your system's processor and EFI firmware is
+capable of running |CL|. Otherwise, 
+:ref:`run Clear Linux as a Live image <live-image>` and then perform the steps
+below.
 
-This script is available in the current download directory at clearlinux.org
-and checks the hardware capabilities of your system to determine whether it
-will work with the latest release of |CL|. To run the clear-linux-
-check- config.sh script, enter the following commands on your target system:
+.. note::
+   This does not check other system components (for example: storage and
+   graphics) for compatibility with |CL|.
 
-.. code-block:: console
+#. Download the `clear-linux-check-config.sh`_ file.
 
-   curl -O https://download.clearlinux.org/current/clear-linux-check-config.sh
-   chmod +x clear-linux-check-config.sh
-   ./clear-linux-check-config.sh host
+   If a browser is not available, use:
 
-The script will print a list of test results similar to the output below. All
-items should return a 'SUCCESS' status and if it does, your target system
-fully supports installing and running |CL|.
+   .. code-block:: console
 
-.. code-block:: console
+      $ curl -O https://download.clearlinux.org/current/clear-linux-check-config.sh
 
-   Checking if host is capable of running |CL|\* OS for Intel®
-   Architecture
+#. Make the script executable.
 
-   SUCCESS:  Intel CPU
+   .. code-block:: console
 
-   SUCCESS: 64-bit CPU (lm)
+      $ chmod +x clear-linux-check-config.sh
 
-   SUCCESS:  Streaming SIMD Extension v4.1 (sse4_1)
+#. Run the script.
 
-   SUCCESS: EFI Firmware
+   #. Check to see if the host's processor and EFI firmware is capable of
+      running |CL|.
+
+      .. code-block:: console
+
+         $ ./clear-linux-check-config.sh host
+
+   #. Check to see if the host is capable of running |CL| in a container.
+
+      .. code-block:: console
+
+         $ ./clear-linux-check-config.sh container
+
+   The script will print a list of test results similar to the output below.
+   All items should return a `SUCCESS` status. This example indicates the
+   host's processor and EFI firmware support running |CL|.
+
+   .. code-block:: console
+
+      Checking if host is capable of running Clear Liunx* OS for Intel® Architecture
+
+      SUCCESS: Intel CPU
+
+      SUCCESS: 64-bit CPU (lm)
+
+      SUCCESS: Streaming SIMD Extension v4.1 (sse4_1)
+
+      SUCCESS: EFI Firmware
+
+.. _clear-linux-check-config.sh: https://download.clearlinux.org/current/clear-linux-check-config.sh
