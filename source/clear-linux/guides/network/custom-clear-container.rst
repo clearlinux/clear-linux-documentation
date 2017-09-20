@@ -1,9 +1,9 @@
 .. _custom-clear-container:
 
-Build a Custom |CLOSIA|-based Docker Container Image
+Build a Custom |CL|-based Docker Container Image
 =======================================================
 
-The official base |CL| container image is published on Docker Hub and 
+The official base |CLOSIA| container image is published on Docker Hub and 
 is updated on a regular basis.  If a custom image is desired, follow these 
 steps to build one.  
 
