@@ -5,7 +5,7 @@ Check processor and EFI firmware compatibility with Clear Linux\*
 
 On a system that is currently running a Linux operating system, follow the
 instructions below to determine if your system's processor and EFI firmware is
-capable of running |CL|. Otherwise, 
+capable of running |CLOSIA|. Otherwise, 
 :ref:`run Clear Linux as a Live image <live-image>` and then perform the steps
 below.
 
