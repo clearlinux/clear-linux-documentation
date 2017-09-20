@@ -3,7 +3,7 @@
 Create a bootable Clear Linux USB drive
 #######################################
 
-Instructions to create a |CL| USB drive vary depending on the system you are
+Instructions to create a |CLOSIA| USB drive vary depending on the system you are
 using. See below for step-by-step instructions catered to your system:
 
 .. toctree::
