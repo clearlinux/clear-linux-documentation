@@ -34,18 +34,10 @@ minimum requirements include:
    * Instruction Set = 64-bit
    * Instruction Set Extensions = SSE 4.1
 
-*  Memory:
+*  Memory: 4GB RAM
 
-   4GB RAM
+*  Hard Disk: 20GB HDD
 
-*  Hard Disk:
+*  Network: Active Internet connection
 
-   20GB HDD
-
-*  Network:
-
-   Required for installation
-
-*  Graphics:
-
-   Intel HD Graphics (required if running a GUI desktop)
+*  Graphics: Intel HD Graphics (required if running a GUI desktop)
