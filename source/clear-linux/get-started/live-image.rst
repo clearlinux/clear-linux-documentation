@@ -3,7 +3,7 @@
 Install Clear Linux as a live image
 ###################################
 
-A live image contains the complete |CL| operating system and resides
+A live image contains the complete |CLOSIA| operating system and resides
 on a bootable media such as a USB drive or in a virtual machine
 (see :ref:`virtual-machine-install`). This is a
 great way to use |CL| without modifying your computer's hard disk.
