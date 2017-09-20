@@ -3,7 +3,7 @@
 Create a bootable USB drive on Windows
 **************************************
 
-Follow these instructions to create a bootable |CL| USB drive.
+Follow these instructions to create a bootable |CLOSIA| USB drive.
 Use an **8GB** or larger USB drive.
 
 Alternative instructions for other operating systems are available:
