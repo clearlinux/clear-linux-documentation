@@ -10,6 +10,9 @@ gets improved and overhead gets reduced by optimizing existing code,
 removing redundant components, and implementing new techniques for
 containers with :abbr:`KVM (Kernel Virtual Machine)`.
 
+The latest release of Intel® Clear Containers is release 3.0. You can find
+detailed technical information on our `architecture overview`_ on GitHub.
+
 Version 1.0 of Clear Containers was designed as a lightweight container
 system based around `kvmtool`_'s ``lkvm``,
 :abbr:`KVM (Kernel Virtual Machine)` and Intel VT-x features; the
@@ -402,3 +405,5 @@ FAQ
 .. _Intel ARK website: http://ark.intel.com
 .. _kvmtool: https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/
 .. _rkt: https://coreos.com/rkt/
+.. _architecture overview:
+   https://github.com/clearcontainers/runtime/blob/master/docs/architecture/architecture.md
