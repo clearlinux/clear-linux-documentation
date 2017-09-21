@@ -3,108 +3,32 @@
 Install Clear Linux host OS on bare metal
 #########################################
 
-These instructions will guide you through the installation of |CL| on bare
-metal using a :ref:`bootable USB drive<create-usb>`.
+This instruction set will guide you through the automatic installation of |CL|
+on bare metal using a bootable USB drive.
 
-Verify your system hardware is supported by |CLOSIA|. Review the
-:ref:`list of supported processors <supported-hardware>` and
-:ref:`instructions to run a compatibility check <compatibility-check>`.
+.. include:: ../compatibility-check.rst
+   :Start-after: compatibility-check:
 
-.. note::
+.. include:: ../bootable-usb/bootable-usb-linux.rst
+   :Start-after: bootable-usb-linux:
+   :end-before: download-cl-image
 
-   The steps of this installation guide were tested using a NUC6i5SYH
-   Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
+.. include:: ../bootable-usb/bootable-usb-linux.rst
+   :Start-after: download-cl-image:
+   :end-before: verify-checksum
 
-.. _create-usb:
+.. include:: ../bootable-usb/bootable-usb-linux.rst
+   :Start-after: verify-checksum:
+   :end-before: copy-usb-linux
 
-Create a Clear Linux bootable USB drive
-=======================================
-
-This procedure was created on an Ubuntu 16.04-based system where the USB
-drive is identified as :file:`/dev/sdb`. Make sure to map your correct USB
-device for this process. We recommend you use an 8GB USB drive or larger.
-Copying the |CL| image onto the USB drive formats the drive as a UEFI boot
-device. Therefore, the contents of the USB drive will be destroyed during the
-creation of the bootable USB drive. Make sure to save anything stored in the
-drive before proceeding.
-
-.. _download-clear-linux-image:
-
-Download the Latest Clear Linux Image
--------------------------------------
-
-Get the latest available |CL| installer image that you want to install
-to your system by using your web browser and downloading the latest
-:file:`clear-[release]-installer.img.xz` file from
-https://download.clearlinux.org/image/ where `[release]` is the release
-number of the current image that is available in this directory listing.
-
-This example uses release 10980 so we will download the
-:file:`clear-10980-installer.img.xz` image file and, optionally, the
-:file:`clear-10980-installer.img.xz-SHA512SUMS` file needed to verify the
-download.
-
-To verify the download, follow these steps:
-
-1. Go to the directory with the downloaded files.
-2. To verify the integrity of the file, enter the following commands:
-
-   .. code-block:: console
-
-      sha512sum ./clear-10980-installer.img.xz | diff ./clear-10980-installer.img.xz-SHA512SUMS -
-
-If the files differ, the diff command outputs the difference to the console,
-otherwise, diff does not have any output to the console and returns you to
-the command prompt.
-
-.. _copy-image:
-
-Copy the Clear Linux image to a USB drive
------------------------------------------
-
-This example assumes that the USB drive is connected to your system as
-:file:`/dev/sdb` and is not mounted.
-
-To ensure the device is not mounted, enter the following command:
-
-.. code-block:: console
-
-   umount /dev/sdb
-
-To log in as root, simply enter:
-
-.. code-block:: console
-
-   su
-
-Once prompted, enter your root password.  Alternatively you can enter:
-
-.. code-block:: console
-
-   sudo -s
-
-In this case you would enter your user password when prompted.
-
-To extract the downloaded image file and put it on the USB drive, enter the
-following command:
-
-.. code-block:: console
-
-   xzcat clear-10980-installer.img.xz | dd of=/dev/sdb
-
-.. note::
-
-   These commands only work in the directory containing the downloaded file.
-
-The decompression and copy of the image file takes some time to complete.
-
-Once the image has been decompressed and copied to the USB drive, you can
-remove the USB drive from the system and move it to your target system.
+.. include:: ../bootable-usb/bootable-usb-linux.rst
+   :Start-after: copy-usb-linux:
+   :end-before: usb-next
 
 .. _install-on-target:
 
 Install Clear Linux on your target system
-=========================================
+*****************************************
 
 The USB drive that was created in the previous step has been formatted as a
 UEFI boot device. Our target system has a hard drive installed containing a
@@ -113,65 +37,65 @@ with DHCP.
 
 Follow these steps to install |CL| on the target system:
 
-1. Insert the USB drive into an available USB slot.
+#. Insert the USB drive into an available USB slot.
 
-2. Power on the system.
+#. Power on the system.
 
-3. Open the system BIOS setup menu, normally by pressing the F2 key. Your
+#. Open the system BIOS setup menu, normally by pressing the F2 key. Your
    BIOS setup menu entry point may vary.
 
-4. In the setup menu, enable the UEFI boot and set the USB drive as the first
+#. In the setup menu, enable the UEFI boot and set the USB drive as the first
    option in the device boot order.
 
-5. Save these settings and exit.
+#. Save these settings and exit.
 
-6. Reboot the target system and the |CL| Installer menu will start.
+#. Reboot the target system and the |CL| Installer menu will start.
 
-.. note::
+   .. note::
 
-   Use the arrow keys, space bar, and enter key to navigate the menu of the
-   |CL| Installer.
+      Use the arrow keys, space bar, and enter key to navigate the menu of the
+      |CL| Installer.
 
-7. In this tutorial, we will enable telemetrics and select the `Automatic`
+#. In this tutorial, we will enable telemetrics and select the `Automatic`
    installation type.
 
-The primary drive to install |CL| onto is :file:`/dev/sdb` since the
-target system identifies the USB drive as :file:`/dev/sda`.
+   The primary drive to install |CL| onto is :file:`/dev/sdb` since the
+   target system identifies the USB drive as :file:`/dev/sda`.
 
-8. Follow the instructions to begin the installation.
+#. Follow the instructions to begin the installation.
 
-The installation is completed in the following stages:
+   The installation is completed in the following stages:
 
-.. code-block:: console
+   .. code-block:: console
 
-   Reading configuration
-   Validating configuration
-   Creating partitions
-   Creating file systems
-   Setting up mount points
-   Starting swupd.  May take several minutes
-   Cleaning up
-   Successful installation
+      Reading configuration
+      Validating configuration
+      Creating partitions
+      Creating file systems
+      Setting up mount points
+      Starting swupd.  May take several minutes
+      Cleaning up
+      Successful installation
 
-Once complete, an `<OK>` prompt appears in the dialog box, letting you know
-that you have successfully installed |CL| onto your system.
+   Once complete, an `<OK>` prompt appears in the dialog box, letting you know
+   that you have successfully installed |CL| onto your system.
 
-9. Press enter once the <OK> prompt appears. The following dialog box takes
+#. Press enter once the <OK> prompt appears. The following dialog box takes
    its place:
 
-.. code-block:: console
+   .. code-block:: console
 
-   Successful installation, the system will be rebooted
+      Successful installation, the system will be rebooted
 
-   <OK>
+      <OK>
 
-10. Press enter, remove the USB drive from the system, and the system will
+#. Press enter, remove the USB drive from the system, and the system will
     reboot running |CL|.
 
 .. _initial-setup:
 
 Clear Linux initial setup after installation
-============================================
+********************************************
 
 Your newly installed |CL| boots on your target system and presents a full
 screen console requesting `Login:`. |CL| is designed to install with minimal
@@ -179,11 +103,13 @@ software overhead. Therefore, some housekeeping and package installations
 must occur before you have a full-featured |CL| operating system.
 
 Set up your root and user accounts
-----------------------------------
+==================================
 
-1. At the initial login prompt, enter: root
-2. Once you are prompted, enter a new password
-3. Re-enter the password to verify it.
+#. At the initial login prompt, enter: root
+
+#. Once you are prompted, enter a new password
+
+#. Re-enter the password to verify it.
 
 You have set your root password and are logged in with root privileges.
 
@@ -201,7 +127,7 @@ Remain logged in as the root user because there are some other things to do
 before we can fully enable your new user space.
 
 Software installation and updates
----------------------------------
+=================================
 
 |CL| has a unique application and architecture to add and update applications
 and to perform system updates called software update utility or `swupd`.
@@ -231,7 +157,7 @@ We provide the full list of bundles and packages installed with the
 list to view the manifest of the bundle.
 
 Finish setting up your new user
--------------------------------
+===============================
 
 Before logging off as root and logging into your new user account, we must
 enable the :command:`sudo` command for your new `<userid>`.
@@ -240,83 +166,86 @@ To be able to execute all applications with root privileges, we must add the
 `<userid>` to the `wheel group`_ and enable the wheel group in the
 :file:`/etc/sudoers` file.
 
-1. To add `<userid>` to the wheel group, enter the following command:
+#. To add `<userid>` to the wheel group, enter the following command:
 
    .. code-block:: console
 
       usermod -G wheel -a <userid>
 
-2. To open the :file:`/etc/sudoers` file, enter the following command:
+#. To open the :file:`/etc/sudoers` file, enter the following command:
 
    .. code-block:: console
 
       vi /etc/sudoers
 
-.. note::
+   .. note::
 
-   Normally, we would use the visudo script to edit the :file:`/etc/sudoers`
-   file to safely modify the contents of the file. In this instance, the file
-   does not exist yet. Therefore, we create the initial instance of the file.
+      Normally, we would use the visudo script to edit the :file:`/etc/sudoers`
+      file to safely modify the contents of the file. In this instance, the file
+      does not exist yet. Therefore, we create the initial instance of the file.
 
-3. In the vi\* editor window, press the :kbd:`o` to open a new line.
+#. In the vi\* editor window, press the :kbd:`o` to open a new line.
 
-4. Add the following line to the file:
+#. Add the following line to the file:
 
    .. code-block:: console
 
       %wheel ALL=(ALL) ALL
 
-5. To save the changes to the file and exit vi, press the :kbd:`ESC` key
+#. To save the changes to the file and exit vi, press the :kbd:`ESC` key
    followed by the :kbd:`:` and :kbd:`x` keys.
 
-.. important::
+   .. important::
 
-   Creating the file logged as the root user keeps the permissions of the
-   file with the root user.
+      Creating the file logged as the root user keeps the permissions of the
+      file with the root user.
 
-Now, we can log out of root and into our new <userid>.
+   Now, we can log out of root and into our new <userid>.
 
-To log off as root, enter :command:`exit`.
+#. To log off as root, enter :command:`exit`.
 
-The command should bring you back to the `Login:` prompt.
+   The command should bring you back to the `Login:` prompt.
 
-Enter your new `<userid>` and the password you created earlier.
+#. Enter your new `<userid>` and the password you created earlier.
 
-You should now be in the home directory of `<userid>`. The bundle
-`os-clr-on-clr`_ contains the majority of applications that a developer or
-system administrator would want but it does not include a graphical user
-interface. The `desktop` bundle includes the Gnome Desktop Manager and
-additional supporting applications.
+   You should now be in the home directory of `<userid>`. The bundle
+   `os-clr-on-clr`_ contains the majority of applications that a developer or
+   system administrator would want but it does not include a graphical user
+   interface. The `desktop` bundle includes the Gnome Desktop Manager and
+   additional supporting applications.
 
-To test the :command:`sudo` command and ensure we set it up correctly, we can
-install the Gnome Desktop Manager (gdm) and start it.
+Install a GUI
+=============
 
-To install Gnome using swupd, enter the following command:
+#. To test the :command:`sudo` command and ensure we set it up correctly, we
+   can install the Gnome Desktop Manager (gdm) and start it.
 
-.. code-block:: console
+#. To install Gnome using swupd, enter the following command:
 
-   sudo swupd bundle-add desktop
+   .. code-block:: console
 
-To start the Gnome Desktop Manager, enter the following command:
+      sudo swupd bundle-add desktop
 
-.. code-block:: console
+#. To start the Gnome Desktop Manager, enter the following command:
 
-   systemctl start gdm
+   .. code-block:: console
 
-You will be prompted to authenticate your user.  Enter the password for
-`<userid>` and the Gnome Desktop should start as shown in figure 1:
+      systemctl start gdm
 
-.. figure:: figures/gnomedt.png
-   :alt: Gnome Desktop
+   You will be prompted to authenticate your user.  Enter the password for
+   `<userid>` and the Gnome Desktop should start as shown in figure 1:
 
-   Figure 1: :guilabel:`Gnome Desktop`
+   .. figure:: figures/gnomedt.png
+      :alt: Gnome Desktop
 
-To start the Gnome Desktop each time you start your system, enter
-the following command:
+      Figure 1: :guilabel:`Gnome Desktop`
 
-.. code-block:: console
+#. To start the Gnome Desktop each time you start your system, enter
+   the following command:
 
-   systemctl enable gdm
+   .. code-block:: console
+
+      systemctl enable gdm
 
 **Congratulations!**
 
@@ -333,15 +262,12 @@ Additionally, you performed the following basic setup for your system:
 * Installed a GUI using those `sudo` privileges.
 
 Next steps
-==========
+**********
 
 With your system now running |CL| many paths are open for you.
 
 Visit our :ref:`tutorials` page for examples on using your |CL|
 system.
-
-.. _`NUC6i5SYH product page`:
-   http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
 
 .. _`information about swupd`:
    https://clearlinux.org/features/software-update
@@ -354,3 +280,7 @@ system.
 
 .. _`wheel group`:
    https://en.wikipedia.org/wiki/Wheel_(Unix_term)
+
+.. _image: https://download.clearlinux.org/image
+
+.. _releases: https://download.clearlinux.org/releases
