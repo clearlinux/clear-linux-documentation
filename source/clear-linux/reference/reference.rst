@@ -9,6 +9,7 @@ regarding the |CL| project and the |CL| features.
 .. toctree::
    :maxdepth: 2
 
+   collaboration/collaboration
    bundle-commands
    bundles/available-bundles
    compatible-kernels
