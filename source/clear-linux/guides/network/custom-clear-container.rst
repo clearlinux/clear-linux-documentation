@@ -263,9 +263,10 @@ Build the base Clear Linux container image
 Manage bundles in a Clear Linux based container
 ***********************************************
 
-#. To add a bundle to an existing |CL|-based container, use the `swupd
-   bundle-add` command.  Here is an example Dockerfile that shows adding the
-   `pxe-server` bundle to the previously created |CL| Docker image:
+#. To add a bundle to an existing |CL|-based container, use the
+   `swupd bundle-add` command.  Here is an example Dockerfile that
+   shows adding the `pxe-server` bundle to the previously created
+   |CL| Docker image:
 
    .. code-block:: console
 
