@@ -51,12 +51,13 @@ Configure Apache Hadoop
 
       $ sudo cp /usr/share/defaults/hadoop/* /etc/hadoop
 
-   .. note:: Remember, you should never modify the files under the
-      :file:`/usr/share/defaults` directory since swupd will overwrite them.
+   .. note:: Since |CL| is a stateless system, you should never modify the
+      files under the :file:`/usr/share/defaults` directory. The software
+      updater will overwrite those files.
 
 Once all configuration files are in :file:`/etc/hadoop`, we must edit them
 according to our needs. The first file, :file:`/etc/hadoop/core-site.xml`, is
-responsible to inform the Hadoop daemon of where `NameNode` running. The
+responsible to inform the Hadoop daemon of where `NameNode` is running. The
 `NameNode` server is the master server managing the files system namespace
 and regulating the clients' access to files.
 
@@ -78,9 +79,9 @@ to set it up correctly:
       </configuration>
 
 #. Edit :file:`/etc/hadoop/hdfs-site.xml`. This file configures the
-   :abbr:`HDFS (Hadoop Distributed File System)` daemons. This includes
-   things like the list of permitted and excluded data nodes or the size of
-   the blocks. In this example, we are setting the number of block
+   :abbr:`HDFS (Hadoop Distributed File System)` daemons. This configuration
+   includes the list of permitted and excluded data nodes and the size of
+   said blocks. In this example, we are setting the number of block
    replication to 1 from the default of 3 as follows:
 
    .. code-block:: xml
@@ -157,6 +158,18 @@ reused for new data.
    .. code-block:: bash
 
       start-dfs.sh
+
+#. The console outputs:
+
+   .. code-block:: console
+
+      Starting namenodes on [localhost]
+      The authenticity of host 'localhost (::1)' can't be established.
+      ECDSA key fingerprint is
+      SHA256:97e+7TnomsS9W7GjFPjzY75HGBp+f1y6sA+ZFcOPIPU.
+      Are you sure you want to continue connecting (yes/no)?
+
+   Enter `yes` to continue.
 
 #. Start the YARN daemons `ResourceManager` and `NodeManager` with the
    following command:
