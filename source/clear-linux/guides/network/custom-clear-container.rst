@@ -1,37 +1,39 @@
 .. _custom-clear-container:
 
-Build a Custom |CL|-based Docker Container Image
-=======================================================
+Build a custom Clear Linux based Docker container image
+#######################################################
 
-The official base |CLOSIA| container image is published on Docker Hub and 
-is updated on a regular basis.  If a custom image is desired, follow these 
-steps to build one.  
+The official base |CLOSIA| container image is published on Docker\* Hub and
+is updated on a regular basis. This section contains the steps to build a
+custom image.
 
 Prerequisites
--------------
+*************
 
-* These steps must be performed on a |CL| system because the `swupd` command is 
-  needed to manage bundles in the container. 
-* The `containers-basic` bundle must be installed on the |CL| system for Docker to work.
+* These steps must be performed on a |CL| system because the `swupd` command
+  is needed to manage bundles in the container.
+* The `containers-basic` bundle must be installed on the |CL| system for
+  Docker to work.
 * Basic knowledge of Docker is required.
 
-Build the Base |CL| container image
-------------------------------------------
+Build the base Clear Linux container image
+******************************************
 
-#. Log in and get root privilege.
+#. Log in and get root privileges.
 
    .. code-block:: console
-      
+
       $ sudo -s
 
-#. Verify Docker is installed and running.  
+#. Verify Docker is installed and running.
 
    .. code-block:: console
 
       # docker info
 
-   If Docker is installed and running, the expected output should be similar to this:
-   
+   If Docker is installed and running, the expected output will be similar to
+   this:
+
    .. code-block:: console
 
       # docker info
@@ -47,7 +49,7 @@ Build the Base |CL| container image
        Supports d_type: true
       Logging Driver: json-file
       Cgroup Driver: cgroupfs
-      Plugins: 
+      Plugins:
        Volume: local
        Network: bridge host macvlan null overlay
       Swarm: inactive
@@ -81,8 +83,8 @@ Build the Base |CL| container image
       # swupd bundle-add containers-basic
       # systemctl start docker
 
-#. Create the directory structure where the names of the bundles for making 
-   a |CL| container will reside. 
+#. Create the directory structure where the names of the bundles for making
+   a |CL| container will reside.
 
    .. code-block:: console
 
@@ -91,12 +93,12 @@ Build the Base |CL| container image
 
    .. note::
 
-      * The directories `customer-clear-linux-container` and `base` are for 
-        stagging purpose and can be named something else, if preferred. 
+      * The directories `customer-clear-linux-container` and `base` are for
+        the purpose of staging can be named something else, if preferred.
       * The remaining directories (`/usr/share/clear/bundles`) are mandatory.
 
-#. Add the names of the minimum required |CL| bundles (`os-core` and 
-   `os-core-update`).     
+#. Add the names of the minimum required |CL| bundles (`os-core` and
+   `os-core-update`).
 
    .. code-block:: console
 
@@ -106,15 +108,15 @@ Build the Base |CL| container image
    .. note::
 
       * `os-core` provides the minimal Linux namespace.
-      * `os-core-update` provides basic suite for running the |CL| 
+      * `os-core-update` provides basic suite for running the |CL|
         for iA Updater
 
-#. To add optional bundles to the image, identify them by using "`swupd 
-   bundle-list -a`" to list available bundles or go to the |CL| website's 
-   `bundles`_ page.
-   
-   Add desired bundle names to the `bundles` directory.  
-   For example, to add the `editors` and `network-basic` bundles: 
+#. To add optional bundles to the image, identify them by using the
+   `swupd bundle-list -a` command to list available bundles. Alternatively,
+   go to the :ref:`available-bundles` page.
+
+   Add desired bundle names to the `bundles` directory.
+   For example, to add the `editors` and `network-basic` bundles:
 
    .. code-block:: console
 
@@ -122,8 +124,8 @@ Build the Base |CL| container image
       # touch ./base/usr/share/clear/bundles/network-basic
 
 
-#. Use `swupd` to download and install the bundles into the directory structure 
-   created.  
+#. Use `swupd` to download and install the bundles into the directory
+   structure created.
 
    .. code-block:: console
 
@@ -134,15 +136,18 @@ Build the Base |CL| container image
    .. note::
 
       * `verify –-install` tells `swupd` to download and install
-      * `–-path` specifies the root path of where the bundles are to be installed
+      * `–-path` specifies the root path of where the bundles are to be
+        installed
       * `--manifest` specifies the version of the |CL| bundles to use
       * `--url` specifies the URL of the bundles repository
-      * `--statedir` specifies the state directory where downloaded bundles and any 
+      * `--statedir` specifies the state directory where downloaded bundles
+        and any
         state information are stored
-      * `--no-boot-update` tells `swupd` to skip updating boot files since 
+      * `--no-boot-update` tells `swupd` to skip updating boot files since
         it's not needed for a container
 
-   For more information on the `swupd` flags, enter “`swupd verify -h`”.
+   For more information on the `swupd` flags, enter the `swupd verify -h`
+   command.
 
    Example output:
 
@@ -151,7 +156,7 @@ Build the Base |CL| container image
          # swupd verify --install --path="base" --manifest 17870 \
          --url https://cdn.download.clearlinux.org/update \
          --statedir "$PWD/swupd-state" --no-boot-update
-         
+
          swupd-client software verify 3.12.2
             Copyright (C) 2012-2017 Intel Corporation
 
@@ -187,14 +192,14 @@ Build the Base |CL| container image
 
       The `WARNING` message is expected and can be ignored.
 
-#. Tar up the files and compress it.  
+#. Tar up the files and compress it.
 
    .. code-block:: console
 
       # tar -C base -cf base.tar .
       # xz -v -T0 base.tar
 
-#. Create the Dockerfile to build the image. 
+#. Create the Dockerfile to build the image.
 
    .. code-block:: console
 
@@ -219,7 +224,7 @@ Build the Base |CL| container image
 
          Sending build context to Docker daemon  806.5MB
          Step 1/4 : FROM scratch
-          ---> 
+          --->
          Step 2/4 : MAINTAINER First Last <first.last@example.com>
           ---> Running in 7238f35abcd0
           ---> ec5064287c60
@@ -245,7 +250,7 @@ Build the Base |CL| container image
       .. code-block:: console
 
          # docker images
-         
+
          REPOSITORY                        TAG                 IMAGE ID            CREATED              SIZE
          my-custom-clear-linux-container   latest              5414c3a12993        About a minute ago   616MB
 
@@ -255,10 +260,11 @@ Build the Base |CL| container image
 
       # docker run -it my-custom-clear-linux-container
 
-Manage bundles in a |CL|-based container
-----------------------------------------
-#. To add a bundle to an existing |CL|-based container, use the "`swupd 
-   bundle-add`" command.  Here’s an example Dockerfile that shows adding the 
+Manage bundles in a Clear Linux based container
+***********************************************
+
+#. To add a bundle to an existing |CL|-based container, use the `swupd
+   bundle-add` command.  Here is an example Dockerfile that shows adding the
    `pxe-server` bundle to the previously created |CL| Docker image:
 
    .. code-block:: console
@@ -266,7 +272,7 @@ Manage bundles in a |CL|-based container
       # cat > Dockerfile << EOF
       FROM my-customer-clear-linux-container
       MAINTAINER First Last <first.last@example.com>
-      RUN swupd bundle-add pxe-server 
+      RUN swupd bundle-add pxe-server
       CMD ["/bin/bash/bash"]
       EOF
 
@@ -275,7 +281,7 @@ Manage bundles in a |CL|-based container
       .. code-block:: console
 
          # docker build -t my-clearlinux-with-pxe-server-bundle .
-         
+
          Sending build context to Docker daemon  806.5MB
          Step 1/4 : FROM my-custom-clear-linux-container
           ---> 5414c3a12993
@@ -315,9 +321,9 @@ Manage bundles in a |CL|-based container
    .. note::
 
       This `WARNING` message is expected and can be ignored because `systemd`
-      doesn't run inside a container.  
+      doesn't run inside a container.
 
-#. To remove a bundle from an existing |CL|-based container, use the 
+#. To remove a bundle from an existing |CL|-based container, use the
    "`swupd bundle-remove`" command.  Here’s an example Dockerfile:
 
    .. code-block:: console
@@ -325,7 +331,7 @@ Manage bundles in a |CL|-based container
       # cat > Dockerfile << EOF
       FROM my-clearlinux-with-pxe-server-bundle
       MAINTAINER First Last <first.last@example.com>
-      RUN swupd bundle-remove pxe-server 
+      RUN swupd bundle-remove pxe-server
       CMD ["/bin/bash/bash"]
       EOF
 
@@ -365,5 +371,3 @@ Manage bundles in a |CL|-based container
 Also see:
 
    * :ref:`cc-getting-started`
-
-.. _bundles: https://clearlinux.org/documentation/clear-linux/reference/bundles/available-bundles.html#bundle-list
