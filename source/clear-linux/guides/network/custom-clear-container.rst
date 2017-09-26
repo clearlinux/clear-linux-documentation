@@ -325,7 +325,7 @@ Manage bundles in a Clear Linux based container
       doesn't run inside a container.
 
 #. To remove a bundle from an existing |CL|-based container, use the
-   "`swupd bundle-remove`" command.  Here’s an example Dockerfile:
+   `swupd bundle-remove` command.  Here’s an example Dockerfile:
 
    .. code-block:: console
 
