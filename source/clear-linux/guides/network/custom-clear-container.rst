@@ -83,8 +83,7 @@ Build the base Clear Linux container image
       # swupd bundle-add containers-basic
       # systemctl start docker
 
-#. Create the directory structure where the names of the bundles for making
-   a |CL| container will reside.
+#. Create the directory structure needed for building the |CL| container.
 
    .. code-block:: console
 
@@ -94,11 +93,12 @@ Build the base Clear Linux container image
    .. note::
 
       * The directories `customer-clear-linux-container` and `base` are for
-        the purpose of staging can be named something else, if preferred.
+        the purpose of staging and can be named something else, if preferred.
       * The remaining directories (`/usr/share/clear/bundles`) are mandatory.
 
-#. Add the names of the minimum required |CL| bundles (`os-core` and
-   `os-core-update`).
+#. Create the reference files of the minimum required |CL| bundles (`os-core` and
+   `os-core-update`).  `swupd` determines which bundles to download and install
+   by using the reference filenames. 
 
    .. code-block:: console
 
@@ -111,18 +111,18 @@ Build the base Clear Linux container image
       * `os-core-update` provides basic suite for running the |CL|
         for iA Updater
 
-#. To add optional bundles to the image, identify them by using the
-   `swupd bundle-list -a` command to list available bundles. Alternatively,
-   go to the :ref:`available-bundles` page.
+#. Optionally, additional bundles can be included with the base image.   
 
-   Add desired bundle names to the `bundles` directory.
-   For example, to add the `editors` and `network-basic` bundles:
+  Identify the desired bundles by going to the |CL| website's 
+  :ref:`available-bundles` page or by executing the `swupd bundle-list -a` command
+
+  Then create the reference files for them.  For example, to include the `editors`
+  and `network-basic` bundles:
 
    .. code-block:: console
 
       # touch ./base/usr/share/clear/bundles/editors
       # touch ./base/usr/share/clear/bundles/network-basic
-
 
 #. Use `swupd` to download and install the bundles into the directory
    structure created.
@@ -262,11 +262,13 @@ Build the base Clear Linux container image
 
 Manage bundles in a Clear Linux based container
 ***********************************************
+Bundles can be added to and removed from an existing |CL| container by using 
+the `swupd` command in the Dockerfile.  
 
-#. To add a bundle to an existing |CL|-based container, use the
-   `swupd bundle-add` command.  Here is an example Dockerfile that
-   shows adding the `pxe-server` bundle to the previously created
-   |CL| Docker image:
+Add a bundle (`swupd bundle-add`)
+---------------------------------
+Here is an example Dockerfile that shows adding the `pxe-server` bundle to the 
+previously created |CL| Docker image:
 
    .. code-block:: console
 
@@ -321,11 +323,13 @@ Manage bundles in a Clear Linux based container
 
    .. note::
 
-      This `WARNING` message is expected and can be ignored because `systemd`
+      This `WARNING` message is expected and can be ignored because Systemd
       doesn't run inside a container.
 
-#. To remove a bundle from an existing |CL|-based container, use the
-   `swupd bundle-remove` command.  Here’s an example Dockerfile:
+Remove a bundle (`swupd bundle-remove`)
+---------------------------------------
+Here’s an example Dockerfile that shows removing the `pxe-server` bundle from the 
+previously created |CL| Docker image:
 
    .. code-block:: console
 
