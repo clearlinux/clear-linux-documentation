@@ -12,7 +12,7 @@ work.
   list to:
 
    + Submit :abbr:`RFCs(Requests for Comments)` on planned contributions.
-   + Submit bugs for the team to address.
+   + Submit bugs for the team to address. See :ref:`bug-report`.
    + Ask questions about the |CLOSIA|.
    + Collaborate with developers on new features.
 
@@ -21,7 +21,7 @@ work.
 * Ask your questions directly to the subject matter experts and
   add the mailing list in CC.
 
-* Before doing large amounts of work, send a message detailing your planed
+* Before doing large amounts of work, send a message detailing your planned
   changes to the mailing list as a RFC. Thus, you will save time by only
   working on solutions the community will find useful.
 
@@ -44,6 +44,7 @@ work.
 
 * When submitting bugs, include the steps needed to recreate the issue and
   any relevant information about the system. Use our bug reporting template.
+  See :ref:`bug-report`.
 
 * Do not use capital letters to emphasize a point.
 

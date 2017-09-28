@@ -19,7 +19,7 @@ manages. In addition, violations of this code of conduct outside of these
 venues may affect a person's ability to participate within them after
 appropriate investigation.
 
-**Be friendly, patient and welcoming.** We strive to be a community that
+**Be friendly, patient, and welcoming.** We strive to be a community that
 welcomes and supports people of all backgrounds and identities. This
 includes, but is not limited to, members of any race, ethnicity, culture,
 national origin, color, immigration status, social and economic class,
@@ -66,7 +66,7 @@ viewpoint does not mean they are wrong. Focus on helping resolve issues and
 learning from mistakes. Resolve disagreements and differing views
 constructively and with the help of the community and community processes.
 
-**When we are unsure, we ask for help.** Nobody knows everything and nobody
+**When unsure, ask for help.** Nobody knows everything and nobody
 is expected to be perfect in the |CL| community. Asking questions avoids many
 problems down the road. So, questions are encouraged. If you are asked
 questions, be responsive and helpful. However, when asking a question, take
@@ -82,7 +82,7 @@ acceptable and should be reported. This includes but is not limited to:
 * Discriminatory jokes and language.
 * Posting sexually suggestive, explicit, or violent material.
 * Posting, or threatening to post, other people's personally identifying
-  information, AKA "doxing".
+  information, AKA "`doxing`_".
 * Personal insults, especially those using racist or sexist terms.
 * Unwelcome sexual attention.
 * Advocating for, or encouraging, any of the above behavior.
@@ -96,3 +96,5 @@ acceptable and should be reported. This includes but is not limited to:
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/dev
 
 .. _IRC channel: https://webchat.freenode.net/
+
+.. _doxing: https://en.wikipedia.org/wiki/Doxing

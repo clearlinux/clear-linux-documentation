@@ -22,10 +22,12 @@ so-called showstoppers.
 For documentation bugs, provide the URL of the page where you
 encountered the problem.
 
-**Description:** Provide the steps needed to replicate the issue. Specify any
-input accurately and in the correct order. In the case of documentation,
-specify the paragraph with the problem and, if applicable, suggestions on how
-to fix it.
+**Description:** Provide a description of the problem and how the actual
+behaviour differs from the expected behavior. Also provide the version of
+|CL| exhibiting the behavior. Lastly, provide the detailed steps to replicate
+the issue. Specify any input accurately and in the correct order. In the case
+of documentation, specify the paragraph with the problem and, if applicable,
+suggestions on how to fix it.
 
 **GitHub username:** Provide your GitHub username for any possible follow up
 on the pull requests addressing the issue.
