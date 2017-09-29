@@ -1,0 +1,159 @@
+.. _enable-user-space:
+
+Enable your new user space
+##########################
+
+This section provides steps to complete the following basic setup tasks for
+a newly installed |CL| system:
+
+* Update the OS to its most current version using `swupd`.
+* Install the most common applications for system administrators and
+  developers using bundles.
+* Setup a new user.
+* Setup `sudo` privileges for that new user.
+* Install a GUI using those `sudo` privileges.
+
+Install and update software
+===========================
+
+|CL| has a unique application and architecture to add and update applications
+and to perform system updates called software update utility or
+:command:`swupd`. Software applications are installed as bundles using the
+sub-command :command:`bundle-add`.
+
+The `os-clr-on-clr` bundle installs the vast majority of
+applications useful to a system administrator or a developer. The bundle
+contains other bundles such as `sysadmin-basic`, `editors`, `c-basic`,
+`dev-utils-dev`, and other useful packages.
+
+Install the `os-clr-on-clr` bundle using the software update
+utility:
+
+.. code-block:: console
+
+   swupd bundle-add os-clr-on-clr
+
+.. note::
+
+   The image we installed may not be the latest version of |CL| available on
+   the server. However, whenever the command
+   :command:`swupd bundle-add <bundle>` runs, the OS is updated to the latest
+   available version. Our website provides more `information about swupd`_.
+
+We provide the full list of bundles and packages installed with the
+`os-clr-on-clr`_ bundle. Additionally, we have listed
+`all Clear Linux bundles`_, active or deprecated. Click any bundle on the
+list to view the manifest of the bundle.
+
+Finish setting up your new user
+===============================
+
+Before logging off as root and logging into your new user account, we must
+enable the :command:`sudo` command for your new `<userid>`.
+
+To be able to execute all applications with root privileges, we must add the
+`<userid>` to the `wheel group`_ and enable the wheel group in the
+:file:`/etc/sudoers` file.
+
+#. Add `<userid>` to the wheel group:
+
+   .. code-block:: console
+
+      usermod -G wheel -a <userid>
+
+#. Open the :file:`/etc/sudoers` file:
+
+   .. code-block:: console
+
+      vi /etc/sudoers
+
+   .. note::
+
+      Normally, we would use the visudo script to edit the :file:`/etc/sudoers`
+      file to safely modify the contents of the file. In this instance, the
+      file does not exist yet. Therefore, we create the initial instance of
+      the file.
+
+#. In the vi\* editor window, press the :kbd:`o` key to open a new line.
+
+#. Add the following line to the file:
+
+   .. code-block:: console
+
+      %wheel ALL=(ALL) ALL
+
+#. To save the changes to the file and exit vi, press the :kbd:`ESC` key
+   followed by the :kbd:`:` and :kbd:`x` keys.
+
+   .. important::
+
+      Creating the file logged as the root user keeps the permissions of the
+      file with the root user.
+
+#. Now, we can log out of root and into our new `<userid>`.
+
+   To log off as root, enter :command:`exit`.
+
+   The command will bring you back to the `login:` prompt.
+
+#. Enter your new `<userid>` and the password you created earlier.
+
+   You will now be in the home directory of `<userid>`. The bundle
+   `os-clr-on-clr`_ contains the majority of applications that a developer or
+   system administrator would want but it does not include a graphical user
+   interface. The `desktop` bundle includes the Gnome Desktop Manager and
+   additional supporting applications.
+
+Install a GUI to test sudo
+--------------------------
+
+To test the :command:`sudo` command and ensure it is set up correctly,
+install the Gnome Desktop Manager (gdm) and start it.
+
+#. To install Gnome using :command:`swupd`, enter the following command:
+
+   .. code-block:: console
+
+      sudo swupd bundle-add desktop
+
+#. To start the Gnome Desktop Manager, enter the following command:
+
+   .. code-block:: console
+
+      systemctl start gdm
+
+#. You will be prompted to authenticate your user. Enter the password for
+   `<userid>` and the Gnome Desktop should start as shown in figure 13:
+
+   .. figure:: figures/gnomedt.png
+      :scale: 50 %
+      :alt: Gnome Desktop
+
+      Figure 13: :guilabel:`Gnome Desktop`
+
+#. To start the Gnome Desktop each time you start your system, enter
+   the following command:
+
+   .. code-block:: console
+
+      systemctl enable gdm
+
+Next steps
+==========
+
+With your system now running |CL| many paths are open for you.
+
+Visit our :ref:`tutorials <tutorials>` page for examples on using your |CL|
+system.
+
+.. _`information about swupd`:
+   https://clearlinux.org/features/software-update
+
+.. _`os-clr-on-clr`:
+   https://github.com/clearlinux/clr-bundles/blob/master/bundles/os-clr-on-clr
+
+.. _`all Clear Linux bundles`:
+   https://github.com/clearlinux/clr-bundles/tree/master/bundles
+
+.. _`wheel group`:
+   https://en.wikipedia.org/wiki/Wheel_(Unix_term)

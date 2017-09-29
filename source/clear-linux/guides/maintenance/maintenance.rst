@@ -9,6 +9,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
 .. toctree::
    :maxdepth: 2
 
+   enable-user-space
    update
    bulk-provision
    mixer
