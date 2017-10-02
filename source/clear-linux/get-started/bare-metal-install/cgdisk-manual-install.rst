@@ -1,6 +1,6 @@
 .. _cgdisk-manual-install:
 
-Clear Linux Partitioning Using CGDISK
+Clear Linux partitioning using CGDISK
 #####################################
 
 These instructions will guide you through the initial setup of your hard drive
@@ -105,7 +105,7 @@ Create EFI boot partition
       Figure 5: :guilabel:`cgdisk - New partition`
 
 #. The next step in creating the new partition is to define the type of
-   partition it is. The :command:`cgdisk` utility has pre-defined partition
+   partition. The :command:`cgdisk` utility has pre-defined partition
    types that can be displayed by pressing the :kbd:`L` key at this prompt to
    show the hex codes you can use. These codes are used to set the correct
    :abbr:`GUID (Globally unique identifier)`for *GPT partition types*. This is

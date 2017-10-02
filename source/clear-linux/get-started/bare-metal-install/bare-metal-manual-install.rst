@@ -44,9 +44,9 @@ Begin the manual installation process
    menu item and follow the instructions for :ref:`using CGDISK to set up your Clear Linux hard drive<cgdisk-manual-install>`.
 
    .. toctree::
-   :maxdepth: 1
+      :maxdepth: 1
 
-   cgdisk-manual-install
+      cgdisk-manual-install
 
    If you have already set up your hard drive for a Linux system
    then you can select the :guilabel:`< Use default partition and mount scheme on target device >`
