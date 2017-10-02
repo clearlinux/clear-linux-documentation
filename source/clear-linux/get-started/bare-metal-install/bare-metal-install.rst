@@ -92,8 +92,8 @@ Network requirements
 
 This will bring you to the ``Network Requirements`` menu, the first step of the
 installer setup process, and will attempt to connect to the |CL| update
-server. Once the connection to the update server is established you will see
-a screen similar to the one shown in figure 4:
+server where the installer image is located. Once the connection to the update
+server is established you will see a screen similar to the one shown in figure 4:
 
 .. figure:: figures/cmi4.png
    :scale: 50 %
@@ -107,11 +107,11 @@ server, enter the appropriate address and port of your proxy server in the
 :guilabel:`< Set proxy configuration >` field and press :kbd:`Enter`. You will
 then see the connection to the update server established.
 
-Optionally, set up a ``static IP configuration`` to your update server.
+Optionally, set up a ``static IP configuration`` to your installer image.
 Enter the required information in the :guilabel:`Interface`,
 :guilabel:`IP address`, :guilabel:`Subnet mask`, :guilabel:`Gateway` and
 :guilabel:`DNS` fields and then select the
-:guilabel:`<Set static IP configuration>` field and press the :kbd:`Enter`
+:guilabel:`< Set static IP configuration >` field and press the :kbd:`Enter`
 key.
 
 The information displayed in the lower right quadrant of the screen
@@ -149,16 +149,11 @@ a shell, or exit the installer.
    By choosing :guilabel:`Install`, the installer setup process will continue
    to the next menu screen.
 
-   The :guilabel:`Repair` menu option reinstalls all software
-   packages that have been installed on the existing |CL| system using the
-   :command:`swupd` command. The :guilabel:`Repair` menu option also updates
-   all installed software bundles (including the core OS) to the latest bundle
-   release. Since |CL| is a
-   stateless system, the default configuration files in the :file:`/usr` and
-   :file:`/etc` directories will be restored and the system will be returned
-   to a factory default state. See our website for more
-   `information about stateless`_. Once the repair process has completed you
-   will be returned to the ``Choose Action`` menu.
+   The :guilabel:`Repair` menu option will run the :command:`swupd --fix` command
+   to correct any issues found with the system software that has been installed
+   and correct any issues found by overwriting the incorrect file content, adding
+   missing files, fixing permissions and any additional changes required to 
+   return the file to it's original content and permissions.
 
    The :guilabel:`Shell` menu item opens a terminal session on your
    system as the root user and you will be able to manage your system from
@@ -312,19 +307,10 @@ shown in figure 12:
 
    You have now set your root password and are logged in with root privileges.
 
-#. Create a new user and set a password for that user:
-
-   .. code-block:: console
-
-      useradd <userid>
-      passwd <userid>
-
-   Replace <userid> with the name of the user account you want to create.
-
 **Congratulations!**
 
 You have successfully installed |CL| on a bare metal system using the
-automatic installation method.
+automatic installation method and set the password for the ``root`` user.
 
 The automatic installation of |CL| is designed to install with minimal
 software overhead. Therefore, some housekeeping and package installations
