@@ -98,7 +98,7 @@ Build the base Clear Linux container image
 
 #. Create the reference files of the minimum required |CL| bundles (`os-core` and
    `os-core-update`).  `swupd` determines which bundles to download and install
-   by using the reference filenames. 
+   by using the reference filenames.
 
    .. code-block:: console
 
@@ -111,18 +111,19 @@ Build the base Clear Linux container image
       * `os-core-update` provides basic suite for running the |CL|
         for iA Updater
 
-#. Optionally, additional bundles can be included with the base image.   
+   #. Optionally, additional bundles can be included with the base image.
 
-  Identify the desired bundles by going to the |CL| website's 
-  :ref:`available-bundles` page or by executing the `swupd bundle-list -a` command
+      #. Identify the desired bundles by going to the |CL| website's
+         :ref:`available-bundles` page or by executing the
+         `swupd bundle-list -a` command
 
-  Then create the reference files for them.  For example, to include the `editors`
-  and `network-basic` bundles:
+      #. Create the reference files for the identified bundles. For example,
+         to include the `editors` and `network-basic` bundles:
 
-   .. code-block:: console
+         .. code-block:: console
 
-      # touch ./base/usr/share/clear/bundles/editors
-      # touch ./base/usr/share/clear/bundles/network-basic
+            # touch ./base/usr/share/clear/bundles/editors
+            # touch ./base/usr/share/clear/bundles/network-basic
 
 #. Use `swupd` to download and install the bundles into the directory
    structure created.
@@ -262,12 +263,14 @@ Build the base Clear Linux container image
 
 Manage bundles in a Clear Linux based container
 ***********************************************
-Bundles can be added to and removed from an existing |CL| container by using 
-the `swupd` command in the Dockerfile.  
+
+Bundles can be added and removed from an existing |CL| container by using
+the `swupd` command in the Dockerfile.
 
 Add a bundle (`swupd bundle-add`)
 ---------------------------------
-Here is an example Dockerfile that shows adding the `pxe-server` bundle to the 
+
+This example Dockerfile shows how to add the `pxe-server` bundle to the
 previously created |CL| Docker image:
 
    .. code-block:: console
@@ -328,7 +331,7 @@ previously created |CL| Docker image:
 
 Remove a bundle (`swupd bundle-remove`)
 ---------------------------------------
-Here’s an example Dockerfile that shows removing the `pxe-server` bundle from the 
+This example Dockerfile shows how to remove the `pxe-server` bundle from the
 previously created |CL| Docker image:
 
    .. code-block:: console
