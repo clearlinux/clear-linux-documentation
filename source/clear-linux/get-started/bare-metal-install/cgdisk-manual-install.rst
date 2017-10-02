@@ -108,8 +108,8 @@ Create EFI boot partition
    partition. The :command:`cgdisk` utility has pre-defined partition
    types that can be displayed by pressing the :kbd:`L` key at this prompt to
    show the hex codes you can use. These codes are used to set the correct
-   :abbr:`GUID (Globally unique identifier)`for *GPT partition types*. This is
-   shown in figure 6:
+   :abbr:`GUID (Globally unique identifier)` for *GPT partition types*. This
+   is shown in figure 6:
 
    .. figure:: figures/cgd-3.png
       :scale: 50 %
