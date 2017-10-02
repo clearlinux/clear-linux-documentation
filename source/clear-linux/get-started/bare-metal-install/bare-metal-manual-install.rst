@@ -10,7 +10,7 @@ By following this guide and selecting the :guilabel:`< Manual(Advanced) >`
 menu option as seen in figure 1, you can do the following
 additional tasks during the |CL| Installer setup:
 
-* modify the disk layout using the cgdisk utility
+* :ref:`modify the disk layout using the cgdisk utility<cgdisk-manual-install>`
 * add additional command-line parameters to the kernel
 * create a hostname for your system
 * create an administrative user
@@ -31,10 +31,7 @@ Begin the manual installation process
    Figure 7: :guilabel:`Choose installation Type`
 
 #. This will bring you to the ``Choose partitioning method`` screen as shown
-   in figure 8. If you have already set up your hard drive for a Linux system
-   then you can select the :guilabel:`< Use default partition and mount scheme on target device >`
-   menu item and press :kbd:`Enter` to move to the next step of the installer
-   setup process. This is the option that we will take for this guide.
+   in figure 8.
 
    .. figure:: figures/cmi5of13.png
       :scale: 50 %
@@ -42,9 +39,21 @@ Begin the manual installation process
 
       Figure 8: :guilabel:`Choose partitioning method`
 
-   If you want to set up your hard drive partitions before moving to
-   the next step, select the :guilabel:`< Manually configure mounts and partitions >`
-   menu.
+   If you want to set up your hard drive partitions before moving to the next
+   step, select the :guilabel:`< Manually configure mounts and partitions >`
+   menu item and follow the instructions for :ref:`using CGDISK to set up your Clear Linux hard drive<cgdisk-manual-install>`.
+
+   .. toctree::
+   :maxdepth: 1
+
+   cgdisk-manual-install
+
+   If you have already set up your hard drive for a Linux system
+   then you can select the :guilabel:`< Use default partition and mount scheme on target device >`
+   menu item and press :kbd:`Enter` to move to the next step of the installer
+   setup process. This is the option that we will take for this guide.
+
+.. _choose-target-device:
 
 Choose target device for installation
 =====================================
@@ -255,16 +264,16 @@ Visit our :ref:`tutorials <tutorials>` page for examples on using your |CL|
 system.
 
 .. _`information about stateless`:
-   https://clearlinux.org/features/stateless
+   https://clearLinux.org/features/stateless
 
 .. _`wiki page about Hostnames`:
    https://en.wikipedia.org/wiki/Hostname
 
 .. _`software bundle list`:
-   https://clearlinux.org/documentation/clear-linux/reference/bundles/available-bundles.html#available-bundles
+   https://clearLinux.org/documentation/clear-Linux/reference/bundles/available-bundles.html#available-bundles
 
 .. _`learn more about telemetry.`:
-   https://clearlinux.org/features/telemetry
+   https://clearLinux.org/features/telemetry
 
 .. _`latest kernel's command-line parameters`:
    https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html
