@@ -1,4 +1,4 @@
-.. _telemtry-enable-disable:
+.. _telemetry-enable-disable:
 
 Enable and Disable Telemetry in Clear Linux
 ###########################################
