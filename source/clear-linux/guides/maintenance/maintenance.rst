@@ -13,3 +13,4 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    bulk-provision
    mixer
    validate-signatures
+   telemtry-enable-disable
