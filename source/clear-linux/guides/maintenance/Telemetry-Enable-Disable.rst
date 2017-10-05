@@ -66,7 +66,7 @@ telemetry service:
 
 .. code-block:: console
 
-	sudo telemctl stop
+	sudo telemctl opt-out
 
 This will create the file :file:`/etc/telemetrics/opt-out` and stop the
 telemetry services.
