@@ -61,13 +61,12 @@ To disable the telemetry daemon run the following command:
 Opt-out of telemetry
 ********************
 
-If you no longer want to send telemetrics data from your system, you can
-opt-out of the service by running the command:
+To stop sending telemetrics data from your system, opt out of the
+telemetry service:
 
 .. code-block:: console
 
 	sudo telemctl stop
-	sudo telemctl opt-out
 
 This will create the file :file:`/etc/telemetrics/opt-out` and stop the
 telemetry services.
@@ -75,15 +74,15 @@ telemetry services.
 Opt-in to telemetry
 *******************
 
-Conversely, to opt-in to the telemetry services, simple enter the opt-in
+Conversely, to opt-in to the telemetry services, simply enter the opt-in
 command and start the service:
 
 .. code-block:: console
 
 	sudo telemctl opt-in
-	sudo telemctl start
-
-This will remove the file :file:`/etc/telemetrics/opt-out` file if it exists.
+	
+This will remove the file :file:`/etc/telemetrics/opt-out` file if it exists
+and start the telemetry services.
 
 Remove the telemetry software bundle
 ************************************
