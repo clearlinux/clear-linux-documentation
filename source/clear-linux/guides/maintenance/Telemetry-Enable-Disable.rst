@@ -84,6 +84,12 @@ command and start the service:
 This will remove the file :file:`/etc/telemetrics/opt-out` file if it exists
 and start the telemetry services.
 
+.. Note::
+	To opt-in but not immediately start telemetry services, you will need to
+	run the command :command:`sudo telemctl stop` after the :command:`opt-in`
+	command is entered.  Once you are ready to start the service, enter the
+	command	:command:`sudo telemctl start`.
+
 Remove the telemetry software bundle
 ************************************
 
