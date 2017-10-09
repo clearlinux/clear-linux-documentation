@@ -3,7 +3,7 @@
 Install Clear Linux OS on bare metal
 ####################################
 
-This instruction set will guide you through the installation of |CLOSIA|
+These instructions guide you through the installation of |CLOSIA|
 on bare metal using a bootable USB drive.
 
 .. include:: ../compatibility-check.rst
@@ -30,10 +30,9 @@ on bare metal using a bootable USB drive.
 Install Clear Linux on your target system
 *****************************************
 
-The USB drive that was created in the previous step has been formatted as a
-UEFI boot device. Our target system has a hard drive installed containing a
-single primary partition. The target system needs a wired Internet connection
-with DHCP.
+We formatted the previously created USB drive as a UEFI boot device. Our target
+system has a hard drive installed containing a single primary partition. The
+target system needs a wired Internet connection with DHCP.
 
 Follow these steps to install |CL| on the target system:
 
@@ -61,7 +60,7 @@ Follow these steps to install |CL| on the target system:
 
       Figure 1: :guilabel:`Clear Linux boot menu`
 
-#. This will take you into the ``Clear Linux OS for Intel Architecture Installer``
+#. This will take you into the :guilabel:`Clear Linux OS for Intel Architecture Installer`
    menu as shown in figure 2 and explains how to navigate through the |CL|
    installer setup menus.
 
@@ -73,7 +72,7 @@ Follow these steps to install |CL| on the target system:
 
    Press the :kbd:`Enter` key.
 
-#. The ``Keyboard selection`` menu shown in figure 3 allows you to set up the
+#. The :guilabel:`Keyboard selection` menu shown in figure 3 allows you to set up the
    keyboard layout that you will be using to navigate within the |CL|
    installer setup menus.
 
@@ -83,17 +82,17 @@ Follow these steps to install |CL| on the target system:
 
       Figure 3: :guilabel:`Keyboard Selection`
 
-   For this guide we will select :guilabel:`< * us >`
+   For this guide we will select :menuselection:`Keyboard Selection --> < * us >`
    for the keyboard mapping, which should already be highlighted. Press the
    :kbd:`Enter` key to continue to the next menu.
 
 Network requirements
 ====================
 
-This will bring you to the ``Network Requirements`` menu, the first step of the
-installer setup process, and will attempt to connect to the |CL| update
-server where the installer image is located. Once the connection to the update
-server is established you will see a screen similar to the one shown in figure 4:
+The :guilabel:`Network Requirements` menu, the first step of the |CL|
+installer setup process, will attempt to connect to the |CL| update
+server where the installer image is located. Once the connection to the |CL| update
+server is established, you will see a screen similar to the one shown in figure 4:
 
 .. figure:: figures/cmi4.png
    :scale: 50 %
@@ -101,13 +100,13 @@ server is established you will see a screen similar to the one shown in figure 4
 
    Figure 4: :guilabel:`Network Requirements`
 
-If you need to configure ``Proxy Settings`` to gain access to the update
+If you need to configure any :guilabel:`Proxy Settings` to gain access to the update
 server, enter the appropriate address and port of your proxy server in the
-:guilabel:`HTTPS proxy:` field, select the
+:guilabel:`HTTPS proxy:` field.  Select the
 :guilabel:`< Set proxy configuration >` field and press :kbd:`Enter`. You will
 then see the connection to the update server established.
 
-Optionally, set up a ``static IP configuration`` to your installer image.
+Optionally, set up a :guilabel:`static IP configuration` to your |CL| installer image.
 Enter the required information in the :guilabel:`Interface`,
 :guilabel:`IP address`, :guilabel:`Subnet mask`, :guilabel:`Gateway` and
 :guilabel:`DNS` fields and then select the
@@ -115,30 +114,27 @@ Enter the required information in the :guilabel:`Interface`,
 key.
 
 The information displayed in the lower right quadrant of the screen
-shows the current IP configuration for the update server where the installer
+shows the current IP configuration for the |CL| update server where the installer
 image is located.
 
 .. note::
 
    If you are having difficulty establishing a connection to the update server
-   and you see the message ``none detected, install will fail``, you can
-   :kbd:`Tab` to the :guilabel:`< Refresh >` field and press :kbd:`Enter` to
-   attempt to reconnect to the update server. If this fails to establish a
-   connection after multiple attempts, reboot your system and return to this
-   step.
+   and you see the message :guilabel:`none detected, install will fail`, you can
+   press the :kbd:`Tab` key to highlight the :guilabel:`< Refresh >` button
+   and press :kbd:`Enter` to attempt to reconnect to the |CL| update server. If this
+   fails to establish a connection after multiple attempts, reboot your system and
+   return to this step.
 
 Once the connection to the |CL| udpate server is established, use the
-:kbd:`Tab` key to advance to the :guilabel:`< Next >` field and press
-:kbd:`Enter` to advance to the next installer setup menu.
+:kbd:`Tab` key to advance to the :guilabel:`< Next >` button and press
+:kbd:`Enter` to advance to the next |CL| installer setup menu.
 
-Choose action
-=============
+Choose Clear Linux installer action
+===================================
 
-The ``Choose Action`` menu is where you can choose to install, repair, open
-a shell, or exit the installer.
-
-#. Select the :guilabel:`Install` menu item in the ``Choose action`` menu.
-   This menu is shown in figure 5:
+The :guilabel:`Choose Action` menu is where you can choose to install, repair, open
+a shell, or exit the |CL| installer.  This menu is shown in figure 5:
 
    .. figure:: figures/cmi5.png
       :scale: 50 %
@@ -146,28 +142,28 @@ a shell, or exit the installer.
 
    Figure 5: :guilabel:`Choose Action`
 
-   By choosing :guilabel:`Install`, the installer setup process will continue
-   to the next menu screen.
+#. Select the :menuselection:`Choose action --> Install` menu item to continue
+   the installation process.
 
-   The :guilabel:`Repair` menu option will run the :command:`swupd --fix` command
-   to correct any issues found with the system software that has been installed
-   and correct any issues found by overwriting the incorrect file content, adding
-   missing files, fixing permissions and any additional changes required to 
-   return the file to it's original content and permissions.
+   The :menuselection:`Choose action --> Repair` menu option will run the
+   :command:`swupd --fix` command to correct any issues found with the system software
+   that has already been installed on your system and correct any issues found by
+   overwriting the incorrect file content, adding missing files, fixing permissions
+   and any additional changes required to return the file to it's original content
+   and permissions.
 
-   The :guilabel:`Shell` menu item opens a terminal session on your
-   system as the root user and you will be able to manage your system from
-   this
-   console. When you are finished, type :command:`exit` to return to the
-   ``Choose Action`` menu.
+   The :menuselection:`Choose action --> Shell` menu item opens a terminal session on
+   your system as the root user and you will be able to manage your system from this
+   console.  When you are finished, type :command:`exit` to return to the
+   :guilabel:`Choose Action` menu.
 
-   The :guilabel:`Exit` menu option terminates the installation process
-   and the system will shut down.
+   The :menuselection:`Choose action --> Exit` menu option terminates the |CL|
+   installation process and the system will shut down.
 
-#. You will be prompted to join the ``Stability Enhancement Program`` as shown
+#. You will be prompted to join the :guilabel:`Stability Enhancement Program` as shown
    in figure 6. Press the :kbd:`Spacebar` or :kbd:`Enter` key while the cursor
    is in the :guilabel:`[ ]  Yes.` field to enable this functionality and then
-   select the :guilabel:`< Next >` field to advance to the next menu item.
+   select the :guilabel:`< Next >` button to advance to the next menu item.
 
    .. figure:: figures/cmi3of6.png
       :scale: 50 %
@@ -177,19 +173,17 @@ a shell, or exit the installer.
 
    If you choose not to enable this functionality during this step, you can
    install the ``telemetrics`` software bundle at a later time. As stated in
-   the menu,
-   this feature only collects anonymous information about your system to help
-   improve system stability and no personally identifiable information is
+   the menu, this feature only collects anonymous information about your system
+   to help improve system stability and no personally identifiable information is
    collected. Please visit our website to `learn more about telemetry.`_
 
-Choose installation type
-************************
+Choose Clear Linux installation type
+************************************
 
-The next menu of the |CL| installer setup is ``Choose installation Type`` and
-is shown in figure 7. This menu will allow you to install |CL|
-**automatically** or **manually**. You can also terminate the |CL| Installer
-to stop the |CL| installer setup process by selecting :guilabel:`< Exit >` and
-shutting down the system.
+Figure 7 shows the next step of the |CL| installer: 
+:guilabel:`Choose installation Type`. Chose whether to install |CL|
+**automatically** or **manually**.  To end the installer process and shut down the
+system, select the :guilabel:`< Exit >` button.
 
 .. figure:: figures/cai4of6.png
    :scale: 50 %
