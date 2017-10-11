@@ -43,17 +43,13 @@ Begin the manual installation process
    device >` menu item and press :kbd:`Enter` to move to the next step of the
    installer setup process.
 
+   .. _cgdisk-manual-setup:
+
    Otherwise, to set up your hard drive partitions manually before moving to
    the next step, select the :guilabel:`< Manually configure mounts and
    partitions >` menu item and follow the instructions for :ref:`using CGDISK
    to set up your Clear Linux hard drive<cgdisk-manual-install>`.
 
-   .. toctree::
-      :maxdepth: 1
-
-      cgdisk-manual-install
-
-   
 .. _choose-target-device:
 
 Choose target device for installation
@@ -82,7 +78,7 @@ to install |CL| onto.
 
 #. After selecting the :guilabel:`< Partition /dev/sda >` button you will be
    presented with a warning screen as shown in figure 4 with the
-   :guilabel:`< No >` button highlighted.  If you are satisfied this is the
+   :guilabel:`< No >` button highlighted. If you are satisfied this is the
    device that you want to install |CL| onto, use the :kbd:`Tab` key to
    highlight the :guilabel:`< Yes >` button and press :kbd:`Enter` to proceed
    to the next step.
@@ -150,9 +146,9 @@ bundles and optionally create a static IP address for your system.
 #. To create a user you will be presented with the second :guilabel:`User
    configuration` menu shown in figure 8. You are only required to fill in the
    :guilabel:`Username`, :guilabel:`Password` and :guilabel:`Confirm password`
-   fields.  To give this user administrative privileges, select the
+   fields. To give this user administrative privileges, select the
    :guilabel:`Add user to the sudoers?` field to add this user to the
-   ``wheel`` group.  This will enable using the :command:`sudo` command for
+   ``wheel`` group. This will enable using the :command:`sudo` command for
    this new user.
 
    Once you have entered all the data for this menu, press the :kbd:`Tab` key
@@ -187,7 +183,7 @@ Target system network configuration
 
 The final step of the installer setup process before the actual installation
 of |CL| begins, is to set up the :guilabel:`Network configuration`. This menu
-is shown in figure 10.  For this guide installation we will select
+is shown in figure 10. For this guide installation we will select
 :guilabel:`< Use DHCP >` to have an IP address automatically assigned when the
 system boots up.
 

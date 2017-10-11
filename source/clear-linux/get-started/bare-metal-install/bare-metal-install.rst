@@ -211,8 +211,8 @@ additional tasks during |CL| Installer setup:
 
 If you want to perform any of these additional tasks, select the
 :guilabel:`< Manual(Advanced) >` menu item and follow the steps in our
-:ref:`bare-metal-manual-install` to complete the |CL| installation process.
-Otherwise you can follow the automatic installation steps outlined below.
+:ref:`bare-metal-manual-install` to complete the |CL| manual installation
+process. Otherwise you can follow the |CL| automatic installation steps.
 
 Clear Linux automatic installation
 **********************************
@@ -249,9 +249,9 @@ When you are satisfied with the information you have entered, select the
 |CL| Installation begins and each step shows its status as it progresses
 through the automated installation process.
 
-Once all steps have completed, you will see the ``Successful installation``
-status message and the :guilabel:`< Ok >` button is highlighted as shown in
-figure 10. Press the :kbd:`Enter` key to continue.
+Once all steps have completed, you will see the `:guilabel:`Successful
+installation` status message and the :guilabel:`< Ok >` button is highlighted
+as shown in figure 10. Press the :kbd:`Enter` key to continue.
 
 .. figure:: figures/caisuccess.png
    :scale: 50 %

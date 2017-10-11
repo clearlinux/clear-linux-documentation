@@ -3,9 +3,11 @@
 Clear Linux partitioning using CGDISK
 #####################################
 
-These instructions will guide you through the initial setup of your hard drive
+These instructions guide you through the initial setup of your hard drive
 partitions using the :command:`cgdisk` utility as part of the |CL| manual
-installation process.
+installation process. If you do not wish to continue creating your own
+partitions, :ref:`return to the bare metal manual installation
+<cgdisk-manual-setup>`.
 
 Prerequisites
 *************
@@ -242,7 +244,7 @@ In this menu you will need to set the mount points for the boot and root
 partitions and select to format them.
 
 #. Highlight the EFI System partition type menu entry and press the
-   :kbd:`Enter` key to edit this item.  The :guilabel:`Set mount point of
+   :kbd:`Enter` key to edit this item. The :guilabel:`Set mount point of
    sda1` menu will be shown and you will need to enter the following
    information to set the mount to the :file:`/boot` directory entry and
    enable formatting the partition by checking the :guilabel:`[ ] Format`
