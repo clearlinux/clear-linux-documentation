@@ -31,6 +31,7 @@ appropriate set of step-by-step instructions to proceed.
    kvm
    virtualbox
    vmware-esxi
+   vmware-esxi-2
    vmware-player
    hyper-v
 
