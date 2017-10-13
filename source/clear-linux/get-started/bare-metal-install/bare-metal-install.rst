@@ -299,6 +299,7 @@ software overhead. Therefore, some housekeeping and package installations
 could be needed before you can take full advantage of the |CL| operating
 system. These instructions are captured in the :ref:`enable-user-space`.
 
+* Create a new user
 * Update the OS to its most current version using `swupd`.
 * Install the most common applications for system administrators and
   developers using bundles.

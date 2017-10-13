@@ -1,17 +1,35 @@
 .. _enable-user-space:
 
-Enable your new user space
-##########################
+Create and enable a new user space
+##################################
 
 This section provides steps to complete the following basic setup tasks for
 a newly installed |CL| system:
 
+* Create a new user
 * Update the OS to its most current version using `swupd`.
 * Install the most common applications for system administrators and
   developers using bundles.
 * Setup a new user.
 * Setup `sudo` privileges for that new user.
 * Install a GUI using those `sudo` privileges.
+
+.. Note::
+   You must be logged in as the root user to complete the tasks in this
+   section.
+
+Create a new user
+=================
+
+To create a new user and set a password for that user, enter the following
+command as a root user:
+
+.. code-block:: console
+
+   useradd <userid>
+   passwd <userid>
+
+Replace <userid> with the name of the user account you want to create.
 
 Install and update software
 ===========================
