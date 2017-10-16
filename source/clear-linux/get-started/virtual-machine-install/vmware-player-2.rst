@@ -152,7 +152,7 @@ Create and configure a new VM
 
     * Click `Next`.
 
-#.  On the `Specify Disk Capacity` step, set the desired size.
+#.  On the `Specify Disk Capacity` step, set the desired disk size.
 
     |vmware-player-05|
 
@@ -194,31 +194,44 @@ Install |CL| into the new VM
 Reconfigure the VM settings to boot the newly installed |CL|
 ************************************************************
 
-#.  Click `Actions` (top-right corner) and go to `Power` and select `Power off`.  
+#.  Enable the mouse pointer:
 
-    |vmware-09|
+    * For Windows.
+      - Press <CTRL> + <ALT> keys to enable the mouse pointer.
+    * For Linux:
+      - sklcjdjcdslj
 
-    Figure 9: VMWare ESXi - Actions > Power off
+#.  Disconnect the CD/DVD to stop it from booting the installer ISO again.
+    
+    * Click `Player`
+    * Go to `Removable Devices` > `CD/DVD (IDE)` > `Settings`
+    * Under `Device status`, uncheck `Connected` and `Connect at power on` 
+    * Click `OK`
 
-#.  Click `Actions` again and select `Edit settings`.  
+    |vmware-player-09|
 
-    |vmware-10|
+    Figure 9: VMware Workstation 14 Player - Edit CD/DVD settings
 
-    Figure 10: VMWare ESXi - Actions > Edit settings
+    |vmware-player-10|
 
-#.  Under `Virtual Hardware` > `CD/DVD Drive 1`, uncheck `Connect`. 
+    Figure 10: VMware Workstation 14 Player - Disconnect CD/DVD
 
-    |vmware-11|
+#.  Turn off the VM.
 
-    Figure 11: VMWare ESXi - Disconnect CD/DVD drive
+    * Click `Player`
+    * Go to `Power` and select `Shut Down Guest`
 
-#.  Under `VM Options` > `Boot Options` > `Firmware`, select `EFI`.
+    |vmware-player-11|
 
-    |vmware-12|
+    Figure 11: VMware Workstation 14 Player - Power off virtual machine
 
-    Figure 12: VMWare ESXi - Set boot firmware to EFI
+#.  Enable EFI boot support.  Edit the `.vmx` for the VM and add the following 
+    (after the first line):
+    
+    .. code-block:: console
 
-#.  Click `Save`.
+      firmware = "efi"
+
 #.  Power up the VM again.   
 
 
@@ -308,8 +321,8 @@ After configuring the settings above, start the virtual machine.
 .. |vmware-player-04| image:: figures/vmware-player/vmware-player-4.png
 .. |vmware-player-05| image:: figures/vmware-player/vmware-player-5.png
 .. |vmware-player-06| image:: figures/vmware-player/vmware-player-6.png
-
 .. |vmware-player-07| image:: figures/vmware-player/vmware-player-7.png
 .. |vmware-player-08| image:: figures/vmware-player/vmware-player-8.png
 .. |vmware-player-09| image:: figures/vmware-player/vmware-player-9.png
 .. |vmware-player-10| image:: figures/vmware-player/vmware-player-10.png
+.. |vmware-player-11| image:: figures/vmware-player/vmware-player-11.png
