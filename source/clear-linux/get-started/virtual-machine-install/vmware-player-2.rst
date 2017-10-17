@@ -12,8 +12,13 @@ There are 2 ways to create a |CL| VM to run in VMware:
     in configuring the VM size, partitions, and initial |CL| bundles selection.
 #.  Use a ready-made VMWare |CL| image.  
 
-Both methods are discussed below.
+Both methods are discussed below.  
 
+.. note::
+
+  The figures shown throughout this document are from the Windows version of 
+  VMware Workstation 14 Player.  They are applicable for the Linux version as
+  well (with very minor differences).
 
 
 Install VMware Workstation Player
@@ -28,15 +33,20 @@ Enable `Intel® Virtualization Technology
 <https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_
 (Intel® VT-d) on the host system's BIOS/UEFI firmware configuration.
 
-* For Linux distros: 
+* For Linux distros (GUI desktop required): 
 
-  .. code-block:: console
+  #.  Start a terminal emulator.
+  #.  Start the installer and follow the installation GUI.
 
-    $ sudo bash ./VMware-Player-<version>.x86_64.bundle
+    .. code-block:: console
 
-* Player on Windows:
+      $ sudo sh ./VMware-Player-<version>.x86_64.bundle
 
-  - Start the installer and follow the Setup Wizard.
+* For Windows:
+
+  #.  Start the installer and follow the Setup Wizard.
+
+For additional help, see the `VMware Workstation Player guide`_.
 
 Download the latest |CL| image
 ==============================
@@ -48,9 +58,9 @@ Download the latest |CL| image
 
   For older versions, see the `releases`_ page.
 
-#.  Although not required, it is recommended to download the corresponding 
-    checksum file (designated with `-SHA512SUMS` at the end of the filename) 
-    for the image in order to verify its integrity.
+  Although not required, it is recommended to download the corresponding 
+  checksum file (designated with `-SHA512SUMS` at the end of the filename) 
+  for the image in order to verify its integrity.
 
 Verify the integrity of the download (recommended)
 ==================================================
@@ -106,7 +116,7 @@ Method 1: Fresh installation of |CL| into a new VM
 The general process for performing a fresh installation of Clear into a new VM 
 is as follows (with expanded details below):
 
-* Create a new VM and configure it
+* Create a new VM and configure its settings
 * Attach the installer ISO to it
 * Install |CL|
 * Detach the installer ISO
@@ -116,7 +126,7 @@ is as follows (with expanded details below):
 Create and configure a new VM 
 *****************************
 
-#.  Start the VMware Workstation Player app.
+#.  Start the `VMware Player` app.
 #.  On the home screen, click `Create a New Virtual Machine`.
 
     |vmware-player-01|
@@ -160,14 +170,15 @@ Create and configure a new VM
 
     * Click `Next`.
 
-#.  On the `Ready to Create Virtual Machine` step, review the settings.
+#.  On the `Ready to Create Virtual Machine` step, select the virtualization 
+    engine type.
 
     |vmware-player-06|
 
     Figure 6: VMware Workstation 14 Player - Review settings
 
-#.  Click `Customize Hardware...` > `Processors` > `Virtualization engine` and 
-    check `Virtualize Intel VT-x/EPT or AMD-V/RVI`
+    * Click `Customize Hardware...` > `Processors` > `Virtualization engine` and 
+      check `Virtualize Intel VT-x/EPT or AMD-V/RVI`
 
     |vmware-player-07|
 
@@ -186,8 +197,10 @@ Install |CL| into the new VM
 
     Figure 8: VMware Workstation 14 Player - Power on virtual machine
 
-#.  Follow the :ref:`bare-metal-install` guide to complete the installation of 
+#.  Follow the :ref:`bare-metal-install` (starting at the `Install Clear Linux 
+    on your target system` section) guide to complete the installation of 
     |CL|.
+
 #.  After the installation is complete, reboot it.  This will restart the 
     installer again.  
 
@@ -196,10 +209,7 @@ Reconfigure the VM settings to boot the newly installed |CL|
 
 #.  Enable the mouse pointer:
 
-    * For Windows.
-      - Press <CTRL> + <ALT> keys to enable the mouse pointer.
-    * For Linux:
-      - sklcjdjcdslj
+    - Press <CTRL> + <ALT> keys to enable the mouse pointer.
 
 #.  Disconnect the CD/DVD to stop it from booting the installer ISO again.
     
@@ -225,8 +235,8 @@ Reconfigure the VM settings to boot the newly installed |CL|
 
     Figure 11: VMware Workstation 14 Player - Power off virtual machine
 
-#.  Enable EFI boot support.  Edit the `.vmx` for the VM and add the following 
-    (after the first line):
+#.  |CL| needs UEFI support in order to boot.  Enable it by edit the `.vmx` 
+    file for the VM and append the following to the end of the file:
     
     .. code-block:: console
 
@@ -309,6 +319,7 @@ After configuring the settings above, start the virtual machine.
 
 
 .. _VMware Workstation 14 Player: https://www.vmware.com/products/workstation-player.html
+.. _VMware Workstation Player guide: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
 .. _VirtualBox: https://www.virtualbox.org/
