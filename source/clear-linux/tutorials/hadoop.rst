@@ -137,6 +137,29 @@ to set it up correctly:
       </property>
       </configuration>
 
+Configure your SSH key
+**********************
+
+#. Create a SSH key. If you already have one, just skip this step.
+
+   .. code-block:: bash
+
+      sudo ssh-keygen -t rsa
+
+
+#. Copy the key to your authorized keys.
+
+   .. code-block:: bash
+
+      sudo cat /root/.ssh/id_rsa.pub | sudo tee -a /root/.ssh/authorized_keys
+
+#. Log into the localhost. If no password prompt appears, you are ready to
+   run the Hadoop daemons.
+
+   .. code-block:: bash
+
+      sudo ssh localhost
+
 Run the Hadoop daemons
 **********************
 
@@ -151,13 +174,13 @@ reused for new data.
 
    .. code-block:: bash
 
-      hdfs namenode -format
+      sudo hdfs namenode -format
 
 #. Start the DFS daemons `NameNode` and `DataNodes` with the following command:
 
    .. code-block:: bash
 
-      start-dfs.sh
+      sudo start-dfs.sh
 
 #. The console outputs:
 
@@ -176,15 +199,57 @@ reused for new data.
 
    .. code-block:: bash
 
-      start-yarn.sh
+      sudo start-yarn.sh
 
 #. Ensure everything is running as expected with the following command:
 
    .. code-block:: bash
 
-      jps
+      sudo jps
+
+#. The console output should be similar to:
+
+   .. code-block:: console
+
+      22674 DataNode
+      26228 Jps
+      22533 NameNode
+      23046 ResourceManager
+      22854 SecondaryNameNode
+      23150 NodeManager
+
+Run the MapReduce wordcount example
+***********************************
+
+#. Create the input directory.
+
+   .. code-block:: bash
+
+      sudo hdfs dfs -mkdir -p /user/root/input
+
+#. Copy a file from the local file system to the HDFS.
+
+   .. code-block:: bash
+
+      sudo hdfs dfs -copyFromLocal local-file /user/root/input
+
+#. Run the wordcount example.
+
+   .. code-block:: bash
+
+      sudo hadoop jar /usr/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.8.0.jar wordcount input output
+
+#. Read output file "part-r-00000". This file contains the number of times
+   each word appears in the file.
+
+   .. code-block:: bash
+
+      sudo hdfs dfs -cat /user/root/output/part-r-00000
 
 **Congratulations!**
+
+You successfully installed and setup a single node Hadoop cluster.
+Additionally, you ran a simple wordcount example.
 
 Your single node Hadoop cluster is up and running!
 
