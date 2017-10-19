@@ -54,7 +54,7 @@ Follow these steps to install |CL| on the target system:
    Select :guilabel:`Clear Linux OS for Intel Architecture` and press the
    :kbd:`Enter` key or wait five seconds to automatically select it.
 
-   .. figure:: figures/cmi1.png
+   .. figure:: figures/bare-metal-install-1.png
       :scale: 50 %
       :alt: Clear Linux boot menu
 
@@ -64,7 +64,7 @@ Follow these steps to install |CL| on the target system:
    Architecture Installer` menu as shown in figure 2 and explains how to
    navigate through the |CL| installer setup menus.
 
-   .. figure:: figures/cmi2.png
+   .. figure:: figures/bare-metal-install-2.png
       :scale: 50 %
       :alt: Clear Linux OS for Intel Architecture Installer
 
@@ -76,7 +76,7 @@ Follow these steps to install |CL| on the target system:
    up the keyboard layout that you will be using to navigate within the |CL|
    installer setup menus.
 
-   .. figure:: figures/cmi3.png
+   .. figure:: figures/bare-metal-install-3.png
       :scale: 50 %
       :alt: Keyboard Selection
 
@@ -95,7 +95,7 @@ where the installer image is located. Once the connection to the |CL| update
 server is established, you will see a screen similar to the one shown in
 figure 4:
 
-.. figure:: figures/cmi4.png
+.. figure:: figures/bare-metal-install-4.png
    :scale: 50 %
    :alt: Network Requirements
 
@@ -136,7 +136,7 @@ Choose Clear Linux installer action
 The :guilabel:`Choose Action` menu is where you can choose to install, repair,
 open a shell, or exit the |CL| installer.  This menu is shown in figure 5:
 
-.. figure:: figures/cmi5.png
+.. figure:: figures/bare-metal-install-5.png
    :scale: 50 %
    :alt: Choose Action
 
@@ -166,7 +166,7 @@ open a shell, or exit the |CL| installer.  This menu is shown in figure 5:
    functionality and then select the :guilabel:`< Next >` button to advance to
    the next menu item.
 
-   .. figure:: figures/cmi3of6.png
+   .. figure:: figures/bare-metal-install-6.png
       :scale: 50 %
       :alt: Stability Enhancement Program
 
@@ -187,7 +187,7 @@ Figure 7 shows the next step of the |CL| installer:
 **automatically** or **manually**.  To end the installer process and shut down
 the system, select the :guilabel:`< Exit >` button.
 
-.. figure:: figures/cai4of6.png
+.. figure:: figures/bare-metal-install-7.png
    :scale: 50 %
    :alt: Choose installation type
 
@@ -225,7 +225,7 @@ The :guilabel:`Choose target device for installation` screen shown in figure 8
 appears.  Move the cursor to the desired target and press the :kbd:`Enter`
 key.
 
-.. figure:: figures/cai5of6.png
+.. figure:: figures/bare-metal-install-8.png
    :scale: 50 %
    :alt: Choose target device for installation
 
@@ -237,7 +237,7 @@ With all the |CL| installer setup information gathered for the automatic
 installation option, the |CL| Installer prompts you to begin the actual
 installation as shown in figure 9.
 
-.. figure:: figures/cai6of6.png
+.. figure:: figures/bare-metal-install-9.png
    :scale: 50 %
    :alt: Begin installation
 
@@ -253,7 +253,7 @@ Once all steps have completed, you will see the `:guilabel:`Successful
 installation` status message and the :guilabel:`< Ok >` button is highlighted
 as shown in figure 10. Press the :kbd:`Enter` key to continue.
 
-.. figure:: figures/caisuccess.png
+.. figure:: figures/bare-metal-install-10.png
    :scale: 50 %
    :alt: Installation complete
 
@@ -263,7 +263,7 @@ Figure 11 shows the installer's final screen prompting you that the
 installation completed successfully and the system will reboot. Press the
 :kbd:`Enter` key and remove the USB media while the system restarts.
 
-.. figure:: figures/cairestart.png
+.. figure:: figures/bare-metal-install-11.png
    :scale: 50 %
    :alt: Successful installation
 
@@ -275,7 +275,7 @@ Set up your root account
 Once the |CL| installation is complete and the system boots, a full screen
 console requests your login: as shown in figure 12:
 
-.. figure:: figures/cairoot.png
+.. figure:: figures/bare-metal-install-12.png
    :scale: 50 %
    :alt: Login screen
 
