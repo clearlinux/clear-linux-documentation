@@ -14,7 +14,7 @@ a newly installed |CL| system:
 * Setup `sudo` privileges for that new user.
 * Install a GUI using those `sudo` privileges.
 
-.. Note::
+.. note::
    You must be logged in as the root user to complete the tasks in this
    section.
 
