@@ -5,14 +5,14 @@ Enable and disable telemetry in Clear Linux
 
 |CLOSIA| includes a telemetry solution as part of the OS that records events
 of interest and reports them back to the development team via the telemetrics
-daemon, :command:`telemd`.  This functionality is maintained in the
+daemon, :command:`telemd`. This functionality is maintained in the
 ``telemetrics`` software bundle.
 
 .. note::
 	The telemetry functionality adheres to `Intel’s privacy policies`_
 	regarding the collection and use of :abbr:`PII (Personally Identifiable
-	Information)` and is open source. Specifically, no intentionally identifiable
-	information about the user or system owner is collected.
+	Information)` and is open source. Specifically, no intentionally
+	identifiable information about the user or system owner is collected.
 
 End users may enable or disable the telemetry component of |CL| or even
 redirect where the records go if they wish to collect records for themselves.
@@ -22,8 +22,8 @@ Install the telemetry software bundle
 
 During the initial installation of |CL| you are requested to join the
 stability enhancement program and allow |CLOSIA| to collect anonymous reports
-to improve system stability.  If you chose not to join this program at that
-time then the telemetry software bundle was not added to your system.
+to improve system stability. If you chose not to join this program at that
+time then the telemetry software bundle is not added to your system.
 
 To install the telemetry bundle, enter the following command as either the
 root user or with :command:`sudo` priveleges:
@@ -32,8 +32,8 @@ root user or with :command:`sudo` priveleges:
 
 	sudo swupd bundle-add telemetrics
 
-This will add the telemetrics-client to your system and you will automatically
-be opted-in for the service.
+This adds the telemetrics-client to your system and you will automatically
+opt-in for the service.
 
 Enable Telemetry
 ****************
@@ -44,10 +44,11 @@ To start telemetry on your system run the following command:
 
 	sudo telemctl start
 
-This will enable and start the :command:`telemd` daemon and your system will
+This enables and starts the :command:`telemd` daemon and your system will
 begin to send telemetry data to the server defined in the file
-:file:`/etc/telemetrics/telemetrics.conf`.  If this file does not exist it
-will use the file :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
+:file:`/etc/telemetrics/telemetrics.conf`. If this file does not exist, the
+:command:`telemd` daemon will use the file
+:file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
 
 Disable Telemetry
 *****************
@@ -68,7 +69,7 @@ telemetry service:
 
 	sudo telemctl opt-out
 
-This will create the file :file:`/etc/telemetrics/opt-out` and stop the
+This creates the file :file:`/etc/telemetrics/opt-out` and stops the
 telemetry services.
 
 Opt-in to telemetry
@@ -81,13 +82,13 @@ command and start the service:
 
 	sudo telemctl opt-in
 	
-This will remove the file :file:`/etc/telemetrics/opt-out` file, if it exists,
-and start the telemetry services.
+This removes the file :file:`/etc/telemetrics/opt-out` file, if it exists,
+and starts the telemetry services.
 
 .. note::
 	To opt-in but not immediately start telemetry services, you will need to
 	run the command :command:`sudo telemctl stop` after the :command:`opt-in`
-	command is entered.  Once you are ready to start the service, enter the
+	command is entered. Once you are ready to start the service, enter the
 	command	:command:`sudo telemctl start`.
 
 Remove the telemetry software bundle
