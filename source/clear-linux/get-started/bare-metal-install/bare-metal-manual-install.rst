@@ -3,11 +3,11 @@
 Bare metal manual installation guide
 ####################################
 
-This section is a continuation of steps from the :ref:`bare-metal-install`
-page.
+This section contains the steps for a |CL| manual installation.  It picks up
+where the :ref:`bare-metal-install` left off:
 
-Selecting the :guilabel:`< Manual(Advanced) >` menu option as seen in figure
-1, you can do the following additional tasks during the |CL| Installer setup:
+Select the :guilabel:`< Manual(Advanced) >` menu option as seen in figure
+1, to do the following additional tasks during the |CL| Installer setup:
 
 * :ref:`Modify the disk layout using the cgdisk utility<cgdisk-manual-install>`
 * Add additional command-line parameters to the kernel
