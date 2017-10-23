@@ -198,7 +198,7 @@ Installer will add the minimum amount of functionality required for a fully
 functional |CL| system. You will not be able to modify the disk layout, add
 a user or any other tasks that the manual installation process will allow.
 
-With the :guilabel:`< Manual(Advanced) >` option you can do the following
+With the :guilabel:`< Manual(Advanced) >` option, you can do the following
 additional tasks during |CL| Installer setup:
 
 * Modify the disk layout using the cgdisk utility.
@@ -212,7 +212,7 @@ additional tasks during |CL| Installer setup:
 If you want to perform any of these additional tasks, select the
 :guilabel:`< Manual(Advanced) >` menu item and follow the steps in our
 :ref:`bare-metal-manual-install` to complete the |CL| manual installation
-process. Otherwise you can follow the |CL| automatic installation steps.
+process. Otherwise, you can follow the |CL| automatic installation steps.
 
 Clear Linux automatic installation
 **********************************
