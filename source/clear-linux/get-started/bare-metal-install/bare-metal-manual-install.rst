@@ -29,7 +29,7 @@ Begin the manual installation process
 
    Figure 1: :guilabel:`Choose installation Type`
 
-#. This will bring you to the :guilabel:`Choose partitioning method` screen as
+#. The :guilabel:`Choose partitioning method` screen appears as
    shown in figure 2.
 
    .. figure:: figures/bare-metal-manual-install-2.png
@@ -56,9 +56,9 @@ Choose target device for installation
 =====================================
 
 The :guilabel:`Choose target device for installation` menu, shown in figure 3,
-will appear with the current device and partition information displayed. In
+appears displaying the current device and partition information. In
 this example, ``/dev/sda`` is the only drive on the system with three
-partitions defined and assigned. The menu cursor is highlighting the partition
+partitions defined and assigned. The menu cursor highlights the partition
 to install |CL| onto.
 
 #. Select the :guilabel:`< Partition /dev/sda >` button and press the
@@ -70,11 +70,11 @@ to install |CL| onto.
       to highlight the :guilabel:`< Previous >` button and press :kbd:`Enter`
       to return to the previous menu.
 
-.. figure:: figures/bare-metal-manual-install-3.png
-   :scale: 50 %
-   :alt: Choose target device for installation
+   .. figure:: figures/bare-metal-manual-install-3.png
+      :scale: 50 %
+      :alt: Choose target device for installation
 
-   Figure 3: :guilabel:`Choose target device for installation`
+      Figure 3: :guilabel:`Choose target device for installation`
 
 #. After selecting the :guilabel:`< Partition /dev/sda >` button you will be
    presented with a warning screen as shown in figure 4 with the
@@ -92,14 +92,17 @@ to install |CL| onto.
 Additional manual installer settings
 ====================================
 
-The next steps of the manual installer setup process will allow you to set up
-any additional command-line parameters to the kernel, create a hostname for
-your system, set up an administrative user, install additional software
-bundles and optionally create a static IP address for your system.
+The next steps of the manual installer setup process allows you to:
 
-#. On the menu :guilabel:`Append to kernel cmdline`, you can add additional
-   options to the kernel command-line to further customize your installation
-   as shown in figure 5. Normally this is not required but if there are
+* Set up any additional command-line parameters to the kernel.
+* Create a hostname for your system.
+* Set up an administrative user.
+* Install additional software bundles.
+* Optionally create a static IP address for your system.
+
+#. The :guilabel:`Append to kernel cmdline` menu shown in figure 5 allows you
+   to add additional options to the kernel command-line to further customize
+   your installation.  Normally this is not required but if there are
    specific options that need to be set in the Linux kernel you can enter them
    here. For a complete list of command-line parameters for the Linux kernel
    you can visit the official documentation of the `latest kernel's
@@ -115,11 +118,10 @@ bundles and optionally create a static IP address for your system.
 
       Figure 5: :guilabel:`Append to kernel cmdline`
 
-#. The next menu, :guilabel:`Configuring Hostname`, will start off suggesting
-   a hostname string prefaced with "clr" as shown in figure 6. You can make
-   your hostname anything meaningful and unique. Once complete, press the
-   :kbd:`Tab` key to move to the :guilabel:`< Next >` button and press
-   :kbd:`Enter`.
+#. The :guilabel:`Configuring Hostname` menu shown in figure 6 suggests
+   a hostname string prefaced with "clr". You can make your hostname anything
+   meaningful and unique. Once complete, press the :kbd:`Tab` key to move to
+   the :guilabel:`< Next >` button and press :kbd:`Enter`.
 
    .. figure:: figures/bare-metal-manual-install-6.png
       :scale: 50 %
@@ -130,36 +132,37 @@ bundles and optionally create a static IP address for your system.
    To learn more about hostname naming conventions and restrictions, you can
    check this `wiki page about hostnames`_.
 
-#. The :guilabel:`User configuration` menu shown in figure 7 gives you the
-   option to create a userid with administrative privileges. Select the field
-   :guilabel:`< Create an administrative user >` and press :kbd:`Enter` to go
-   to the second page of this menu item. If you do not want to create a user
-   at this time, select :guilabel:`< No user creation (login as root) >` to
+#. The :guilabel:`User configuration` menu shown in figure 7 allows you to
+   create a userid with administrative privileges. If you do not want to create a
+   user at this time, select :guilabel:`< No user creation (login as root) >` to
    skip this step and proceed to the :guilabel:`Bundle selector` menu.
 
    .. figure:: figures/bare-metal-manual-install-7.png
       :scale: 50 %
       :alt: User configuration
 
-      Figure 7: :guilabel:`User configuration`
+   Figure 7: :guilabel:`User configuration`
 
-#. To create a user you will be presented with the second :guilabel:`User
-   configuration` menu shown in figure 8. You are only required to fill in the
-   :guilabel:`Username`, :guilabel:`Password` and :guilabel:`Confirm password`
-   fields. To give the user administrative privileges, select the
-   :guilabel:`Add user to the sudoers?` field to add the user to the ``wheel``
-   group. This enables using the :command:`sudo` command for the new user.
+   #. To create a userid, select the :guilabel:`< Create an administrative user >`
+      field and press :kbd:`Enter` to go to the the next screen.
+   #. You will be presented with the second :guilabel:`User configuration` menu
+      shown in figure 8. You are only required to fill in the
+      :guilabel:`Username`, :guilabel:`Password`, and :guilabel:`Confirm password`
+      fields.
+   #. To give the user administrative privileges, select the
+      :guilabel:`Add user to the sudoers?` field to add the user to the ``wheel``
+      group. This enables using the :command:`sudo` command for the new user.
 
-   Once you have entered all the data for this menu, press the :kbd:`Tab` key
-   to highlight the :guilabel:`< Next >` button and press :kbd:`Enter`.
+      Once you have entered all the data for this menu, press the :kbd:`Tab` key
+      to highlight the :guilabel:`< Next >` button and press :kbd:`Enter`.
 
-   .. figure:: figures/bare-metal-manual-install-8.png
-      :scale: 50 %
-      :alt: User configuration - create user
+      .. figure:: figures/bare-metal-manual-install-8.png
+         :scale: 50 %
+         :alt: User configuration - create user
 
-   Figure 8: :guilabel:`User configuration - create user`
+      Figure 8: :guilabel:`User configuration - create user`
 
-#. The :guilabel:`Bundle selector` menu shown in figure 9 will allow you to
+#. The :guilabel:`Bundle selector` menu shown in figure 9 allows you to
    add additional software bundles to your initial |CL| installation. In this
    example we select all additional bundles offered by pressing the
    :kbd:`Tab` key to go to each field and pressing the :kbd:`Spacebar` or the
@@ -174,16 +177,16 @@ bundles and optionally create a static IP address for your system.
       Figure 9: :guilabel:`Bundle selector`
 
 For a complete description of the content of these additional bundles, go to
-the `software bundle list`_ and select the name for a specific bundle to show
-the contents within the bundle.
+the :ref:`software bundle list<available-bundles>` and select the name for a
+specific bundle to show the contents within the bundle.
 
 Target system network configuration
 ===================================
 
-The final step of the installer setup process before the actual installation
-of |CL| begins, is to set up the :guilabel:`Network configuration`. This menu
-is shown in figure 10. We will select :guilabel:`< Use DHCP >` to have an IP
-address automatically assigned when the system boots up.
+Before the actual |CL| installation begins, we must set up the
+:guilabel:`Network configuration` shown in figure 10. Select
+:guilabel:`< Use DHCP >` to have an IP address automatically assigned when
+the system boots up.
 
 .. figure:: figures/bare-metal-manual-install-10.png
    :scale: 50 %
@@ -191,16 +194,16 @@ address automatically assigned when the system boots up.
 
    Figure 10: :guilabel:`Network configuration`
 
-You can optionally set up a static IP address for your system by selecting the
-:guilabel:`< Use static IP configuration >` menu item and filling in the
+You can optionally set up a static IP address for your system.  Select the
+:guilabel:`< Use static IP configuration >` menu item and fill in the
 required fields.
 
 Begin installation
 ******************
 
-With all the |CL| installer setup information gathered for the manual
-installation option, the |CL| Installer prompts you to begin the actual
-installation as shown in figure 11.
+The |CL| installer is now ready to use the information you provided on the
+previous sections to begin the actual installation. Figure 11 shows the
+installer's prompt to begin the installation.
 
 .. figure:: figures/bare-metal-manual-install-11.png
    :scale: 50 %
@@ -208,10 +211,10 @@ installation as shown in figure 11.
 
    Figure 11: :guilabel:`Begin installation`
 
-When you are satisfied with the information you have entered, select the
+When you are satisfied with the information entered, select the
 :guilabel:`< Yes >` button and press :kbd:`Enter` to begin installing |CL|.
 
-|CL| Installation begins and each step shows its status as it progresses
+The |CL| Installation begins and each step shows its status as it progresses
 through the manual installation process as shown in figure 12.
 
 .. figure:: figures/bare-metal-manual-install-12.png
@@ -230,9 +233,9 @@ figure 13. Press the :kbd:`Enter` key to continue.
 
    Figure 13: :guilabel:`Installation complete`
 
-Figure 14 shows the installer's final screen prompting you that the
-installation completed successfully and the system will reboot. Press the
-:kbd:`Enter` key and remove the USB media while the system restarts.
+Congratulations! The installation completed successfully and the system will
+reboot. Figure 14 shows the installer's final prompt. Press the :kbd:`Enter`
+key and remove the USB media while the system restarts.
 
 .. figure:: figures/bare-metal-manual-install-14.png
    :scale: 50 %
@@ -240,9 +243,8 @@ installation completed successfully and the system will reboot. Press the
 
    Figure 14: :guilabel:`Successful Installation`
 
-Once the |CL| installation is complete and the system boots, you will be
-presented with the Gnome Desktop sign-in screen to begin using your system as
-shown in figure 15:
+Once the system boots, the Gnome Desktop sign-in screen shown in figure 15
+appears:
 
    .. figure:: figures/bare-metal-manual-install-15.png
       :scale: 50 %
@@ -250,8 +252,8 @@ shown in figure 15:
 
       Figure 15: :guilabel:`Gnome sign-in screen`
 
-Click on the :guilabel:`username` that you created, enter the password and you
-will be logged into the system. The Gnome 3 desktop will appear as shown in
+Click on the :guilabel:`username` you created, enter the password, and you
+will be logged into the system. The Gnome 3 desktop appears as shown in
 figure 16:
 
 .. figure:: figures/bare-metal-manual-install-16.png
@@ -265,17 +267,14 @@ figure 16:
 You have successfully installed |CL| on a bare metal system using the
 manual installation method.
 
-Visit our :ref:`tutorials <tutorials>` page for examples on using your |CL|
-system.
+Visit our :ref:`tutorials <tutorials>` section for examples on using your
+|CL| system.
 
 .. _`information about stateless`:
    https://clearLinux.org/features/stateless
 
 .. _`wiki page about Hostnames`:
    https://en.wikipedia.org/wiki/Hostname
-
-.. _`software bundle list`:
-   https://clearLinux.org/documentation/clear-Linux/reference/bundles/available-bundles.html#available-bundles
 
 .. _`learn more about telemetry.`:
    https://clearLinux.org/features/telemetry
