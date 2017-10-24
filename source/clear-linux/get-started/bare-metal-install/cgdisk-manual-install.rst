@@ -27,13 +27,14 @@ menu as shown in figure 1:
 Partition using CGDISK
 **********************
 
-We will create a :abbr:`GPT (GUID Partition Table)` since |CL| only supports
-the :abbr:`UEFI (Unified Extensible Firmware Interface)` specification. For a
+We use the :command:`cgdisk` application to create a
+:abbr:`GPT (GUID Partition Table)` since |CL| only supports the
+:abbr:`UEFI (Unified Extensible Firmware Interface)` specification. For a
 complete description of the :command:`cgdisk` utility and how to use it, visit
 Rod Smith's website for a `GPT fdisk tutorial`_.
 
-For this guide we will start with a hard drive that has not been partitioned
-and we will use the entire drive for this |CL| installation.
+In this guide, we intend to use an unpartitioned hard drive for the |CL|
+installation.
 
 #. On the :guilabel:`Choose partitioning method` menu, shown in figure 2,
    select the :guilabel:`< Manually configure mounts and partitions >` menu
@@ -45,8 +46,8 @@ and we will use the entire drive for this |CL| installation.
 
       Figure 2: :guilabel:`Choose partitioning method`
 
-   This will show the current device on your system that you can partition. In
-   this example, shown in figure 3, :file:`/dev/sda` is available but
+   The screen then shows the current device on your system you can partition.
+   In this example, shown in figure 3, :file:`/dev/sda` is available but
    does not have any partitions defined.
 
 #. Select the :guilabel:`< Partition /dev/sda >` menu item and press
@@ -58,8 +59,8 @@ and we will use the entire drive for this |CL| installation.
 
       Figure 3: :guilabel:`Choose a drive to partition using cgdisk tool`
 
-   The :command:`cgdisk` application will start and display the
-   settings for :file:`/dev/sda` as shown in figure 4.
+   The :command:`cgdisk` application starts and displays the settings for
+   :file:`/dev/sda` as shown in figure 4.
 
    .. figure:: figures/cgdisk-manual-install-4.png
       :scale: 50 %
@@ -70,35 +71,33 @@ and we will use the entire drive for this |CL| installation.
 Linux Partition setup
 *********************
 
-In order to properly set up the |CL| partitioning scheme, we will create
-three partitions using the :command:`cgdisk` utility in the following order:
+In order to properly set up the |CL| partitioning scheme, we create three
+partitions using the :command:`cgdisk` utility in the following order:
 
   #. EFI boot partition
   #. Linux swap partition
   #. Linux root partition
 
 For a complete understanding of these partitions, you can review the
-`Linux partitioning scheme`_ information found on https://wiki.archilinux.org.
+`Linux partitioning scheme`_ information.
 
-Create EFI boot partition
-=========================
+Create the EFI boot partition
+=============================
 
 #. With the free space highlighted in the :command:`cgdisk` utility,
    you can either select the :guilabel:`[ New ]` button and press :kbd:`Enter`
-   or press the :kbd:`N` key to begin the process of defining a new
-   partition.
+   or press the :kbd:`N` key to define a new partition.
 
-   You will be prompted to enter the first sector. Press the :kbd:`Enter` key
-   to accept the default value that is shown in the application.
+   The utility prompts you to enter the first sector. Press the :kbd:`Enter`
+   key to accept the default value shown.
 
    .. note::
       In this example, the first sector starts at 2048. For more information
       about alignment using the cgdisk tool, see
       `Rod Smith's Partitioning Advice about alignment`_.
 
-#. The program will then ask for the size of the partition. For this example,
-   enter ``512M`` and press :kbd:`Enter` to create a partition that is 512MB
-   in size. This is shown in figure 5:
+#. The program then prompts you for the size of the partition. To create a
+   512MB partition, enter 512M and press :kbd:`Enter` as shown in figure 5:
 
    .. figure:: figures/cgdisk-manual-install-5.png
       :scale: 50 %
@@ -106,12 +105,11 @@ Create EFI boot partition
 
       Figure 5: :guilabel:`cgdisk - New partition`
 
-#. The next step in creating the new partition is to define the type of
-   partition. The :command:`cgdisk` utility has pre-defined partition
-   types that can be displayed by pressing the :kbd:`L` key at this prompt to
-   show the hex codes you can use. These codes are used to set the correct
-   :abbr:`GUID (Globally unique identifier)` for *GPT partition types*. This
-   is shown in figure 6:
+#. To define the type of partition, the :command:`cgdisk` utility has
+   pre-defined partition types. Press the :kbd:`L` key to show the hex codes
+   you can use. Use these codes to set the correct
+   :abbr:`GUID (Globally unique identifier)` for *GPT partition types* as
+   shown in figure 6:
 
    .. figure:: figures/cgdisk-manual-install-6.png
       :scale: 50 %
@@ -119,19 +117,18 @@ Create EFI boot partition
 
       Figure 6: :guilabel:`cgdisk - hex codes for partition types`
 
-   The codes that you are interested in using for your three partitions are:
+   We need to use the following three codes for our partitions:
 
    * ef00 - EFI System
    * 8200 - Linux swap
    * 8300 - Linux filesystem
 
-#. Since we are creating the EFI boot partition, enter ``ef00`` as
-   the hexcode for this partition and press :kbd:`Enter`.
+#. To create the EFI boot partition, enter ``ef00`` as the hexcode for this
+   partition and press :kbd:`Enter`.
 
-#. The final field to enter is the partition name. enter ``boot`` and press
-   :kbd:`Enter` to finish setting up the EFI boot partition. You will see that
-   the first partition will be displayed as a 512MiB partition type of
-   ``EFI System`` and a partition name of ``boot`` as shown in figure 7:
+#. To name the partition, enter ``boot`` and press :kbd:`Enter` to finish
+   setting up the EFI boot partition. The utility shows the first partition as
+   an ``EFI System`` 512MiB partition named ``boot`` as shown in figure 7:
 
    .. figure:: figures/cgdisk-manual-install-7.png
       :scale: 50 %
@@ -139,18 +136,17 @@ Create EFI boot partition
 
       Figure 7: :guilabel:`cgdisk - boot partition defined`
 
-Create Linux swap partition
-***************************
+Create the Linux swap partition
+===============================
 
-You are now ready to create the Linux swap partition. You will notice in
-figure 7 that there are 2 areas defined as free space. The first area at the
-top of the list, the 1007.0 KiB free space, is due to starting the previously
-defined EFI boot partition at sector 2048. This is discussed
-in `Rod Smith's Partitioning advice about alignment`_.
+Next, we must create the Linux swap partition. In figure 7, notice the two
+areas defined as free space. We created the first 1007.0 KiB free space area
+when we started the EFI boot partition at sector 2048. For more information
+about it, review `Rod Smith's Partitioning advice about alignment`_.
 
 #. Move your cursor to highlight the larger free space of 334.8 GiB at the
    bottom of the partition list before you begin to create the Linux swap
-   partition. This is shown in figure 8:
+   partition as shown in figure 8:
 
    .. figure:: figures/cgdisk-manual-install-8.png
       :scale: 50 %
@@ -177,11 +173,11 @@ in `Rod Smith's Partitioning advice about alignment`_.
 
       Figure 9: :guilabel:`cgdisk - swap partition defined`
 
-Create Linux filesystem partition
-*********************************
+Create the Linux filesystem partition
+*************************************
 
-The final partition that you will create is the Linux filesystem partition to
-be used as the root mount point for you |CL| installation.
+Lastly, we must create the the Linux filesystem partition to use it as the
+root mount point for you |CL| installation.
 
 #. Highlight the largest free space entry at the bottom of the list and select
    the :guilabel:`[ New ]` button or press the :kbd:`N` key and enter the
@@ -191,7 +187,7 @@ be used as the root mount point for you |CL| installation.
 
       First sector:  press :kbd:`Enter` to select the default value
       Size in sectors:  press :kbd:`Enter` to select the default value, which
-                        will be the remainder of available space on the disk
+                        is the remainder of available space on the disk
       Hex code or GUID:  8300
       Enter new partition name:  root
 
@@ -204,9 +200,9 @@ be used as the root mount point for you |CL| installation.
 
       Figure 10: :guilabel:`cgdisk - defined partitions`
 
-#. If you are satisfied that the partition scheme is correct, you will need to
+#. If you are satisfied that the partition scheme is correct, you need to
    write this GPT to the hard drive. Select the :guilabel:`[ Write ]` button
-   or press the :kbd:`W` key and you will be prompted with:
+   or press the :kbd:`W` key and the :command:`cgdisk` program prompts with:
 
    .. code-block:: console
 
@@ -214,13 +210,10 @@ be used as the root mount point for you |CL| installation.
 
 #. Enter ``yes`` and press :kbd:`Enter` to write this data to the hard drive
    and then select the :guilabel:`[ Quit ]` button or press :kbd:`Q` to exit
-   the :command:`cgdisk` utility and return to the |CL| manual installation
-   process.
+   the :command:`cgdisk` utility.
 
-   You will see the partitions that you just created as shown in figure 11 and
-   ready for the next step in the |CL| installer setup process.
-
-#. Move your cursor to the :guilabel:`< Next >` button and press :kbd:`Enter`.
+#. You see the partitions that were created as shown in figure 11. Move your
+   cursor to the :guilabel:`< Next >` button and press :kbd:`Enter`.
 
    .. figure:: figures/cgdisk-manual-install-11.png
       :scale: 50 %
@@ -228,11 +221,11 @@ be used as the root mount point for you |CL| installation.
 
       Figure 11: :guilabel:`defined partitions`
 
-Set mount points
-****************
+Set the mount points
+********************
 
-The :guilabel:`Set mount points` menu will set the mount points that the |CL|
-installer will use for your |CL| installation and is shown in figure 12.
+The :guilabel:`Set mount points` menu sets the mount points that the |CL|
+installer uses for your |CL| installation and is shown in figure 12.
 
 .. figure:: figures/cgdisk-manual-install-12.png
    :scale: 50 %
@@ -240,15 +233,21 @@ installer will use for your |CL| installation and is shown in figure 12.
 
    Figure 12: :guilabel:`Set mount points`
 
-In this menu you will need to set the mount points for the boot and root
-partitions and select to format them.
+In this menu you need to set the mount points for the boot and root partitions
+and select to format them.
 
 #. Highlight the EFI System partition type menu entry and press the
    :kbd:`Enter` key to edit this item. The :guilabel:`Set mount point of
-   sda1` menu will be shown and you will need to enter the following
-   information to set the mount to the :file:`/boot` directory entry and
-   enable formatting the partition by checking the :guilabel:`[ ] Format`
-   toggle field as shown in figure 13:
+   sda1` menu is be shown.
+
+   #. For the :guilabel:`Enter mount point:` type `/boot` and press
+      :kbd:`Enter`.
+   
+   #. Enable formatting the partition by checking the :guilabel:`[ ] Format`
+      toggle field.
+
+   Figure 13 shows the entered information.  Select the :guilabel:`< Yes >`
+   button and press :kbd:`Enter`.
 
    .. figure:: figures/cgdisk-manual-install-13.png
       :scale: 50 %
@@ -256,9 +255,10 @@ partitions and select to format them.
 
       Figure 13: :guilabel:`Set mount point of sda1`
 
-#. Do the same for the Linux filesystem partition type by highlighting the
-   :guilabel:`sda3` menu entry and entering the information shown in figure 14
-   to set the :file:`/` root directory and enable formatting:
+#. Do the same for the Linux filesystem partition by highlighting the
+   :guilabel:`Linux filesystem` menu entry and entering the information shown
+   in figure 14 to set the :guilabel:`Enter mount point:` to :file:`/` and
+   enable formatting:
 
    .. figure:: figures/cgdisk-manual-install-14.png
       :scale: 50 %
@@ -266,25 +266,26 @@ partitions and select to format them.
 
       Figure 14: :guilabel:`Set mount point of sda3`
 
-   The final :guilabel:`Set mount points` menu item will look like figure 15:
+   The final :guilabel:`Set mount points` menu item looks like figure 15:
 
    .. figure:: figures/cgdisk-manual-install-15.png
       :scale: 50 %
       :alt: Set mount point completed
 
-      Figure 15: :guilabel:`Set mount point completed`
+      Figure 15: :guilabel:`Set mount points completed`
 
-#. Move your cursor to the :guilabel:`< Next >` button and press :kbd:`Enter`
-   to proceed to the :guilabel:`Warning!` menu to accept your changes as shown
-   in figure 16. highlight the :guilabel:`< Yes >` button and press
-   :kbd:`Enter` to accept these changes and move on to the next step of the
-   |CL| manual install process.
-
+#. Select the :guilabel:`< Next >` button and press :kbd:`Enter` to proceed to
+   the :guilabel:`Warning!` menu to accept your changes as shown in figure 16.
+   
    .. figure:: figures/cgdisk-manual-install-16.png
       :scale: 50 %
       :alt: Warning
 
       Figure 16: :guilabel:`Warning`
+
+   Highlight the :guilabel:`< Yes >` button and press :kbd:`Enter` to accept
+   these changes and move on to the next step of the |CL| manual install
+   process.
 
    This completes the process of manually setting up your hard drive
    partitions and you can now :ref:`continue with the Clear Linux manual
