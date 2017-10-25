@@ -29,7 +29,8 @@ command as a root user:
    useradd <userid>
    passwd <userid>
 
-Replace <userid> with the name of the user account you want to create.
+Replace <userid> with the name of the user account you want to create and
+with the password for said user.
 
 Install and update software
 ===========================
@@ -114,7 +115,7 @@ To be able to execute all applications with root privileges, we must add the
 
    The command will bring you back to the `login:` prompt.
 
-#. Enter your new `<userid>` and the password you created earlier.
+#. Enter the new `<userid>` and the password you created earlier.
 
    You will now be in the home directory of `<userid>`. The bundle
    `os-clr-on-clr`_ contains the majority of applications that a developer or
@@ -140,7 +141,7 @@ install the Gnome Desktop Manager (gdm) and start it.
 
       systemctl start gdm
 
-#. You will be prompted to authenticate your user. Enter the password for
+#. The system prompts you to authenticate the user. Enter the password for
    `<userid>` and the Gnome Desktop should start as shown in figure 13:
 
    .. figure:: figures/gnomedt.png
