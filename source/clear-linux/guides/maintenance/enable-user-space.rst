@@ -22,7 +22,7 @@ Create a new user
 =================
 
 To create a new user and set a password for that user, enter the following
-command as a root user:
+commands as a root user:
 
 .. code-block:: console
 
@@ -30,7 +30,9 @@ command as a root user:
    passwd <userid>
 
 Replace <userid> with the name of the user account you want to create and
-with the password for said user.
+with the password for said user.  The :command:`passwd` command prompts you
+to enter a new password and then retype the new password for the new user
+account you just created.
 
 Install and update software
 ===========================
