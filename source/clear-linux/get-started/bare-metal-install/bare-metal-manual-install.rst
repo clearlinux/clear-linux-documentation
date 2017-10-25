@@ -29,8 +29,7 @@ Begin the manual installation process
 
    Figure 1: :guilabel:`Choose installation Type`
 
-#. The :guilabel:`Choose partitioning method` screen appears as
-   shown in figure 2.
+#. The :guilabel:`Choose partitioning method` screen is shown in figure 2.
 
    .. figure:: figures/bare-metal-manual-install-2.png
       :scale: 50 %
@@ -56,7 +55,7 @@ Choose target device for installation
 =====================================
 
 The :guilabel:`Choose target device for installation` menu, shown in figure 3,
-appears displaying the current device and partition information. In
+displays the current device and partition information. In
 this example, ``/dev/sda`` is the only drive on the system with three
 partitions defined and assigned. The menu cursor highlights the partition
 to install |CL| onto.
