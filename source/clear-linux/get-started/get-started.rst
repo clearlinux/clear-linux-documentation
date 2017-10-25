@@ -16,6 +16,8 @@ information and instructions on how to complete pre-install tasks.
 
    ../reference/system-requirements
    bare-metal-install/bare-metal-install
+   bare-metal-install/bare-metal-manual-install
+   bare-metal-install/cgdisk-manual-install
    virtual-machine-install/virtual-machine-install
    live-image
    compatibility-check
