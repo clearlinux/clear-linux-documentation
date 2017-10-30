@@ -1,22 +1,22 @@
 .. _fmv:
 
-Use the Function Multi Version patch generator
+Use the function multi-version patch generator
 ##############################################
 
 CPU architectures often gain interesting new instructions as they evolve but
 application developers find it difficult to take advantage of those
 instructions. The reluctance to lose backward-compatibility is one of the
 main roadblocks slowing developers from using advancements in newer computing
-architectures. :abbr:`FMV (Function multi-versioning)`, which first appeared
-in GCC 4.8, is a way to have multiple implementations of a function, each
-using a different architecture's specialized instruction-set extensions. GCC
+architectures. :abbr:`FMV (Function Multi-Versioning)`, which first appeared
+in `GCC`_ 4.8, is a way to have multiple implementations of a function, each
+using a different architecture specialized instruction-set extensions. GCC
 6 introduces changes to FMV to make it even easier to bring architecture-
 based optimizations to the application code.
 
-In this tutorial we will use FMV on general code and on :abbr:`FFT Fast
-Fourier Transform` library code. Upon completing the tutorial, you will be
-able to use this technology on your code and use the libraries to deploy
-architecture-based optimizations to your application code.
+In this tutorial we will use FMV on general code and on
+:abbr:`FFT (Fast Fourier Transform)` library code. Upon completing the
+tutorial, you will be able to use this technology on your code and use the
+libraries to deploy architecture-based optimizations to your application code.
 
 Install and configure a Clear Linux host on bare metal
 ******************************************************
@@ -26,7 +26,7 @@ First, follow our guide to :ref:`bare-metal-install`.
 Once the bare metal installation and initial configuration are complete,
 add the `desktop-dev` bundle to the system.
 
-desktop-dev: contains the necessary development tools like GCC\* and Perl\*.
+`desktop-dev`: contains the necessary development tools like GCC and Perl\*.
 
 To install the bundles, run the following command in the :file:`$HOME`
 directory:
@@ -67,8 +67,8 @@ simple C code:
         return 0;
     }
 
-Save the example code as :file:`example.c` and build with the
-following flags:
+Save the example code as :file:`example.c` in the current directory and build
+with the following flags:
 
 .. code-block:: bash
 
@@ -106,7 +106,9 @@ To generate the patch files, execute:
 
         perl ./make-fmv-patch/make-fmv-patch.pl log .
 
-The make-fmv-patch.pl take two arguments: <buildlog> and <sourcecode>. Replace with the proper values and execute:
+The :file:`make-fmv-patch.pl` script takes two arguments: `<buildlog>` and
+`<sourcecode>`. Replace `<buildlog>` and `<sourcecode>` with the proper
+values and execute:
 
 .. code-block:: bash
 
@@ -127,8 +129,9 @@ The command generates the following :file:`example.c.patch` patch:
          int i,x;
          for (x=0; x<MAX; x++){
 
-The `make-fmv-patch` is recommended to add the attribute generating the
-target clones on the function foo. Thus, we can have the following code:
+We recommend you use the :file:`make-fmv-patch` script to add the attribute
+generating the target clones on the function `foo`. Thus, we can have the
+following code:
 
 .. code-block:: c
 
@@ -155,20 +158,22 @@ target clones on the function foo. Thus, we can have the following code:
         return 0;
     }
 
-By changing the value of the `$avx2` variable, we can change the target clones when adding the patches or in the make-fmv-patch.pl script:
+Changing the value of the `$avx2` variable, we can change the target
+clones when adding the patches or in the :file:`make-fmv-patch.pl` script:
 
 .. code-block:: perl
 
     my $avx2 = '__attribute__((target_clones("avx2","arch=atom","default")))'."\n";
 
-Compile the code again with FMV and add the option to analyze the `objdump`:
+Compile the code again with FMV and add the option to analyze the `objdump`
+log:
 
 .. code-block:: bash
 
     gcc -O3 example.c -o example -g
     objdump -S example | less
 
-You can see the multiple clones of the foo function:
+You can see the multiple clones of the `foo` function:
 
 .. code-block:: console
 
@@ -176,7 +181,8 @@ You can see the multiple clones of the foo function:
     foo.avx2.0
     foo.arch_atom.1
 
-The cloned functions use AVX2 registers and vectorized instructions. You can verify this with:
+The cloned functions use AVX2 registers and vectorized instructions. To
+verify, enter the following commands:
 
 .. code-block:: assembly
 
@@ -186,9 +192,10 @@ The cloned functions use AVX2 registers and vectorized instructions. You can ver
 FTT project example
 *******************
 
-To follow the same approach with a package like FFT, we must get the build log file with the `-fopt-info-vec` flag:
+To follow the same approach with a package like FFT, we must use the
+`-fopt-info-vec` flag to get a build log file similar to:
 
-::
+.. code-block:: bash
 
     ~/make-fmv-patch/make-fmv-patch.pl results/build.log fftw-3.3.6-pl2/
 
@@ -204,7 +211,7 @@ To follow the same approach with a package like FFT, we must get the build log f
     patching fftw-3.3.6-pl2/libbench2/verify-r2r.c @ lines (44 187 197 207 316 333 723)
 
 Thus, files like :file:`fftw-3.3.6-pl2/tools/fftw-wisdom.c.patch` generate
-patches like:
+patches like this:
 
 .. code-block:: git
 
@@ -257,12 +264,12 @@ patches like:
 With these patches, we can select where to apply the FMV technology making
 bringing architecture-based optimizations to application code even easier.
 
-**Congratulations! **
+**Congratulations!**
 
 You have successfully installed an FMV development environment on Clear
 Linux. Furthermore, you used cutting edge compiler technology to improve the
 performance of your application based on Intel Architecture technology and
 profiling of the specific execution of your application.
 
-
+.. _GCC:  https://gcc.gnu.org
 .. _make-fmv-patch: https://github.com/clearlinux/make-fmv-patch
