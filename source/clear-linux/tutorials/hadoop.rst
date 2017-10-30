@@ -55,16 +55,16 @@ Configure Apache Hadoop
       files under the :file:`/usr/share/defaults` directory. The software
       updater will overwrite those files.
 
-Once all configuration files are in :file:`/etc/hadoop`, we must edit them
-according to our needs. The first file, :file:`/etc/hadoop/core-site.xml`, is
-responsible to inform the Hadoop daemon of where `NameNode` is running. The
-`NameNode` server is the master server managing the files system namespace
-and regulating the clients' access to files.
+Once all the configuration files are in :file:`/etc/hadoop`, we must edit
+them to fit our needs. The `NameNode` server is the master server. It manages
+the namespace of the files system and regulates the clients' access to files.
+The first file we edit, :file:`/etc/hadoop/core-site.xml`, informs the Hadoop
+daemon where `NameNode` is running.
 
 In this tutorial, our `NameNode` runs in our `localhost`. Follow these steps
 to set it up correctly:
 
-#. Open the :file:`/etc/hadoop/core-site.xml` using the editor of your
+#. Open the :file:`/etc/hadoop/core-site.xml` file using the editor of your
    choice and modify the file as follows:
 
    .. code-block:: xml
@@ -78,7 +78,7 @@ to set it up correctly:
       </property>
       </configuration>
 
-#. Edit :file:`/etc/hadoop/hdfs-site.xml`. This file configures the
+#. Edit the :file:`/etc/hadoop/hdfs-site.xml` file. This file configures the
    :abbr:`HDFS (Hadoop Distributed File System)` daemons. This configuration
    includes the list of permitted and excluded data nodes and the size of
    said blocks. In this example, we are setting the number of block
@@ -100,11 +100,11 @@ to set it up correctly:
       </property>
       </configuration>
 
-#. Edit :file:`/etc/hadoop/mapred-site.xml`. This file configures all daemons
-   related to MapReduce: `JobTracker` and `TaskTrackers`. With MapReduce,
-   Hadoop can process big amounts of data in multiple systems. In our
-   example, we set :abbr:`YARN (Yet Another Resource Manager)` as our runtime
-   framework for executing MapReduce jobs as follows:
+#. Edit the :file:`/etc/hadoop/mapred-site.xml` file. This file configures
+   all daemons related to `MapReduce`: `JobTracker` and `TaskTrackers`. With
+   `MapReduce`, Hadoop can process big amounts of data in multiple systems. In
+   our example, we set :abbr:`YARN (Yet Another Resource Manager)` as our
+   runtime framework for executing `MapReduce` jobs as follows:
 
    .. code-block:: xml
       :emphasize-lines: 5,6
@@ -118,9 +118,10 @@ to set it up correctly:
       </property>
       </configuration>
 
-#. Edit :file:`/etc/hadoop/yarn-site.xml`. This file configures all daemons
-   related to YARN: `ResourceManager` and `NodeManager`. In our example, we
-   implement the `mapreduce_shuffle` service, which is the default as follows:
+#. Edit the :file:`/etc/hadoop/yarn-site.xml` file. This file configures all
+   daemons related to `YARN`: `ResourceManager` and `NodeManager`. In our
+   example, we implement the `mapreduce_shuffle` service, which is the
+   default as follows:
 
    .. code-block:: xml
       :emphasize-lines: 4,5,8,9
@@ -140,7 +141,7 @@ to set it up correctly:
 Configure your SSH key
 **********************
 
-#. Create a SSH key. If you already have one, just skip this step.
+#. Create a SSH key. If you already have one, skip this step.
 
    .. code-block:: bash
 
@@ -166,23 +167,23 @@ Run the Hadoop daemons
 With all the configuration files properly edited, we are ready to start the
 daemons.
 
-When we format `NameNode`, it formats the meta-data related to data-nodes.
-Thus, all the information on the data nodes is lost and the nodes can be
-reused for new data.
+When we format the `NameNode` server, it formats the meta-data related to
+data nodes. Thus, all the information on the data nodes is lost and the nodes
+can be reused for new data.
 
-#. Format `NameNode` with the following command:
+#. Format the `NameNode` server with the following command:
 
    .. code-block:: bash
 
       sudo hdfs namenode -format
 
-#. Start the DFS daemons `NameNode` and `DataNodes` with the following command:
+#. Start the DFS in `NameNode` and `DataNodes` with the following command:
 
    .. code-block:: bash
 
       sudo start-dfs.sh
 
-#. The console outputs:
+#. The console output should be similar to:
 
    .. code-block:: console
 
@@ -194,7 +195,7 @@ reused for new data.
 
    Enter `yes` to continue.
 
-#. Start the YARN daemons `ResourceManager` and `NodeManager` with the
+#. Start the `YARN` daemons `ResourceManager` and `NodeManager` with the
    following command:
 
    .. code-block:: bash
@@ -233,7 +234,7 @@ Run the MapReduce wordcount example
 
       sudo hdfs dfs -copyFromLocal local-file /user/root/input
 
-#. Run the wordcount example.
+#. Run the `wordcount` example.
 
    .. code-block:: bash
 
