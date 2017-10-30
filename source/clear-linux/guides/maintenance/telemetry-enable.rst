@@ -9,10 +9,10 @@ daemon, :command:`telemd`. This functionality is maintained in the
 ``telemetrics`` software bundle.
 
 .. note::
-	The telemetry functionality adheres to `Intel’s privacy policies`_
-	regarding the collection and use of :abbr:`PII (Personally Identifiable
-	Information)` and is open source. Specifically, no intentionally
-	identifiable information about the user or system owner is collected.
+   The telemetry functionality adheres to `Intel's privacy policies`_
+   regarding the collection and use of :abbr:`PII (Personally Identifiable
+   Information)` and is open source. Specifically, no intentionally
+   identifiable information about the user or system owner is collected.
 
 End users may enable or disable the telemetry component of |CL| or even
 redirect where the records go if they wish to collect records for themselves.
@@ -81,7 +81,7 @@ command and start the service:
 .. code-block:: console
 
 	sudo telemctl opt-in
-	
+
 This removes the file :file:`/etc/telemetrics/opt-out` file, if it exists,
 and starts the telemetry services.
 
@@ -94,7 +94,7 @@ and starts the telemetry services.
 Remove the telemetry software bundle
 ************************************
 
-To completely remove telemetrics from your system, use the command 
+To completely remove telemetrics from your system, use the command
 :command:`swupd` to remove the telemetry software bundle:
 
 .. code-block:: console
