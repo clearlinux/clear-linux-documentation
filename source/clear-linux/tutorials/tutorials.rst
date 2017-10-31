@@ -15,3 +15,4 @@ specific |CLOSIA| use cases.
    azure
    multi-boot/multi-boot
    hadoop
+   fmv
