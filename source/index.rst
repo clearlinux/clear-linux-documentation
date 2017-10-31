@@ -8,7 +8,6 @@ Clear technologies - Documentation
 
    clear-linux/clear-linux
    clear-containers/clear-containers
-   ciao/ciao
 
 License and disclaimers
 =======================
