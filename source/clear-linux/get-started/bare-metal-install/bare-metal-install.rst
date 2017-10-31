@@ -249,7 +249,7 @@ When you are satisfied with the information you have entered, select the
 |CL| Installation begins and each step shows its status as it progresses
 through the automated installation process.
 
-Once all steps have completed, you will see the `:guilabel:`Successful
+Once all steps have completed, you will see the :guilabel:`Successful
 installation` status message and the :guilabel:`< Ok >` button is highlighted
 as shown in figure 10. Press the :kbd:`Enter` key to continue.
 
