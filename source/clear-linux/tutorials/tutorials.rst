@@ -14,4 +14,5 @@ specific |CLOSIA| use cases.
    machine-learning/machine-learning
    azure
    multi-boot/multi-boot
+   hadoop
    fmv

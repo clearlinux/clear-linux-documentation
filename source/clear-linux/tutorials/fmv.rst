@@ -210,8 +210,8 @@ To follow the same approach with a package like FFT, we must use the
     patching fftw-3.3.6-pl2/libbench2/caset.c @ lines (5)
     patching fftw-3.3.6-pl2/libbench2/verify-r2r.c @ lines (44 187 197 207 316 333 723)
 
-Thus, files like :file:`fftw-3.3.6-pl2/tools/fftw-wisdom.c.patch` generate
-patches like this:
+For example, the :file:`fftw-3.3.6-pl2/tools/fftw-wisdom.c.patch` file
+generates the following patches:
 
 .. code-block:: git
 
