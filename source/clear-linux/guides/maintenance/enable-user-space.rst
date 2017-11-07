@@ -11,7 +11,7 @@ a newly installed |CL| system:
 * Install the most common applications for system administrators and
   developers using bundles.
 * Setup a new user.
-* Setup `sudo` privileges for that new user.
+* Add the new user to the `wheel` group.
 * Install a GUI using those `sudo` privileges.
 
 .. note::
@@ -73,43 +73,13 @@ Before logging off as root and logging into your new user account, we must
 enable the :command:`sudo` command for your new `<userid>`.
 
 To be able to execute all applications with root privileges, we must add the
-`<userid>` to the `wheel group`_ and enable the wheel group in the
-:file:`/etc/sudoers` file.
+`<userid>` to the `wheel group`_.
 
-#. Add `<userid>` to the wheel group:
+#. Add `<userid>` to the `wheel` group:
 
    .. code-block:: console
 
       usermod -G wheel -a <userid>
-
-#. Open the :file:`/etc/sudoers` file:
-
-   .. code-block:: console
-
-      vi /etc/sudoers
-
-   .. note::
-
-      Normally, we would use the visudo script to edit the :file:`/etc/sudoers`
-      file to safely modify the contents of the file. In this instance, the
-      file does not exist yet. Therefore, we create the initial instance of
-      the file.
-
-#. In the vi\* editor window, press the :kbd:`o` key to open a new line.
-
-#. Add the following line to the file:
-
-   .. code-block:: console
-
-      %wheel ALL=(ALL) ALL
-
-#. To save the changes to the file and exit vi, press the :kbd:`ESC` key
-   followed by the :kbd:`:` and :kbd:`x` keys.
-
-   .. important::
-
-      Creating the file logged as the root user keeps the permissions of the
-      file with the root user.
 
 #. Now, we can log out of root and into our new `<userid>`.
 
