@@ -175,7 +175,7 @@ Create and configure a new VM
     
       |vmware-player-06|
 
-      Figure 6: VMware Workstation 14 Player - Review settings
+      Figure 6: VMware Workstation 14 Player - Customize hardware
 
     * Select `Processors` > `Virtualization engine` and 
       check `Virtualize Intel VT-x/EPT or AMD-V/RVI`.
@@ -313,7 +313,8 @@ Create a new VM and configure its base settings
 
 #.  On the `Specify Disk Capacity` step:
 
-    * Click `Next`.
+    * Click `Next`.  The default disk size does not matter because it 
+      will be removed when the ready-made VMware |CL| image is attached later.
 
       |vmware-player-16|
 
@@ -321,12 +322,22 @@ Create a new VM and configure its base settings
 
 #.  On the `Ready to Create Virtual Machine` step:
 
+    * Click `Customize Hardware...`
+    
+      |vmware-player-06|
+
+      Figure 17: VMware Workstation 14 Player - Customize hardware
+
+    * Select `Processors` > `Virtualization engine` and 
+      check `Virtualize Intel VT-x/EPT or AMD-V/RVI`.
+
+      |vmware-player-07|
+
+      Figure 18: VMware Workstation 14 Player - Set virtualization engine option
+
+    * Click `Close`.
     * Click `Finish`.
     
-      |vmware-player-17|
-
-      Figure 17: VMware Workstation 14 Player - Review settings
-
 Attach the ready-made VMware |CL| image
 ***************************************
 
@@ -345,55 +356,55 @@ Attach the ready-made VMware |CL| image
     * Select the newly created VM.
     * Click `Edit virtual machine settings`.  
 
-      |vmware-player-18|
+      |vmware-player-19|
 
-      Figure 18: VMware Workstation 14 Player - Edit virtual machine settings
+      Figure 19: VMware Workstation 14 Player - Edit virtual machine settings
 
 #.  Disconnect the CD/DVD (IDE):
 
     * Select `CD/DVD (IDE)` and under `Device status`, uncheck `Connect at 
       power on`. 
 
-      |vmware-player-19|
+      |vmware-player-20|
 
-      Figure 19: VMware Workstation 14 Player - Disconnect CD/DVD (IDE)
+      Figure 20: VMware Workstation 14 Player - Disconnect CD/DVD (IDE)
 
-#.  Remove the default hard drive:
+#.  Remove the default hard disk:
 
     * Under `Device status`, select `Hard Disk (SCSI)`.
     * Click `Remove`.
 
-      |vmware-player-20|
+      |vmware-player-21|
 
-      Figure 20: VMware Workstation 14 Player - Remove hard drive
+      Figure 21: VMware Workstation 14 Player - Remove hard drive
 
-#.  Add a new hard drive and attach the ready-made VMware |CL| image:
+#.  Add a new hard disk and attach the ready-made VMware |CL| image:
 
     * Click `Add`.
     * Under `Hardware types`, select `Hard Disk`.
     * Click `Next`.
 
-      |vmware-player-21|
+      |vmware-player-22|
 
-      Figure 21: VMware Workstation 14 Player - Add new hard drive
+      Figure 22: VMware Workstation 14 Player - Add new hard drive
 
     * Select the preferred `Virtual disk type`.
 
-      |vmware-player-22|
+      |vmware-player-23|
 
-      Figure 22: VMware Workstation 14 Player - Select virtual disk type
+      Figure 23: VMware Workstation 14 Player - Select virtual disk type
 
     * Select `Use an existing virtual disk`.
  
-      |vmware-player-23|
+      |vmware-player-24|
 
-      Figure 23: VMware Workstation 14 Player - Use existing virtual disk
+      Figure 24: VMware Workstation 14 Player - Use existing virtual disk
    
     * Click `Browse` and select the ready-made VMware |CL| image file.
 
-      |vmware-player-24|
+      |vmware-player-25|
 
-      Figure 24: VMware Workstation 14 Player - Select ready-made VMware |CL| 
+      Figure 25: VMware Workstation 14 Player - Select ready-made VMware |CL| 
       image file
 
     * Click `Finish`.
@@ -449,11 +460,10 @@ Also see:
 .. |vmware-player-11| image:: figures/vmware-player/vmware-player-11.png
 .. |vmware-player-13| image:: figures/vmware-player/vmware-player-13.png
 .. |vmware-player-16| image:: figures/vmware-player/vmware-player-16.png
-.. |vmware-player-17| image:: figures/vmware-player/vmware-player-17.png
-.. |vmware-player-18| image:: figures/vmware-player/vmware-player-18.png
 .. |vmware-player-19| image:: figures/vmware-player/vmware-player-19.png
 .. |vmware-player-20| image:: figures/vmware-player/vmware-player-20.png
 .. |vmware-player-21| image:: figures/vmware-player/vmware-player-21.png
 .. |vmware-player-22| image:: figures/vmware-player/vmware-player-22.png
 .. |vmware-player-23| image:: figures/vmware-player/vmware-player-23.png
 .. |vmware-player-24| image:: figures/vmware-player/vmware-player-24.png
+.. |vmware-player-25| image:: figures/vmware-player/vmware-player-25.png
