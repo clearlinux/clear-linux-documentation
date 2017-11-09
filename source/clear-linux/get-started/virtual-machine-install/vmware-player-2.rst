@@ -55,7 +55,7 @@ Download the latest |CL| image
 Go to the |CL| `image`_ repository and download the desired type:
 
 * ISO installer image: `clear-<version>-installer.iso.xz` (for Method 1)
-* VMware image: `clear-<version>-vmware.vmdk.xz` (for Method 2)
+* VMware image: `clear-<version>-basic.vmdk.xz` (for Method 2)
 
 For older versions, see the `releases`_ page.
 
@@ -341,7 +341,7 @@ Create a new VM and configure its base settings
 Attach the ready-made VMware |CL| image
 ***************************************
 
-#.  Move or copy the ready-made VMware |CL| image file (i.e. `clear-<version>-vmware.vmdk`)
+#.  Move or copy the ready-made VMware |CL| image file (i.e. `clear-<version>-basic.vmdk`)
     to the directory where the newly created VM resides.
 
     .. note::
