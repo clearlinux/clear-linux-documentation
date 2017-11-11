@@ -91,9 +91,9 @@ Network requirements
 
 The :guilabel:`Network Requirements` menu, the first step of the |CL|
 installer setup process, will attempt to connect to the |CL| update server
-where the installer image is located. Once the connection to the |CL| update
-server is established, you will see a screen similar to the one shown in
-figure 4:
+where the installer image is located. A wired connection is required for this.
+Once the connection to the |CL| update server is established, you will see a
+screen similar to the one shown in figure 4:
 
 .. figure:: figures/bare-metal-install-4.png
    :scale: 50 %
