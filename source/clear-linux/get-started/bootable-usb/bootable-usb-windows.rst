@@ -24,7 +24,7 @@ Verify the integrity of the download (recommended)
 
 	.. code-block:: console
 
-		C:\> CertUtil -hashfile ./clear-<version>-live.img.xz | findstr -v file
+		C:\> CertUtil -hashfile ./clear-<version>-live.img.xz sha512
 
    Compare the output with the original checksum to make sure they match.
 
