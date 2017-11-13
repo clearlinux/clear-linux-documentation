@@ -24,8 +24,8 @@ Verify the integrity of the download (recommended)
 
 	.. code-block:: console
 
-		C:\> CertUtil -hashfile ./clear-<version>-live.img.xz sha512 
-      
+		C:\> CertUtil -hashfile ./clear-<version>-live.img.xz sha512
+
    Compare the output with the original checksum to make sure they match.
 
 Burn the Clear Linux image onto a USB drive
