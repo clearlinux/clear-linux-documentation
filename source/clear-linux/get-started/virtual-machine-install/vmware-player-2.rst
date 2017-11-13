@@ -6,17 +6,17 @@ Use VMware\* Workstation Player
 This section explains how to run |CLOSIA| as a virtual machine using the 
 `VMware Workstation 14 Player`_ hypervisor.
 
-There are 2 ways to create a |CL| VM to run in VMware:
+There are 2 ways to create a |CL| :abbr:`VM (Virtual Machine)` to run in VMware:
 
-* `Method #1`: Fresh installation of |CL| into new VM.  This provides flexibility 
+* `Method #1`: Install |CL| into a new VM.  This provides flexibility 
   in configuring the VM size, partitions, initial |CL| bundles selection, etc.
-* `Method #2`: Use a ready-made VMware |CL| image with minimally required bundles.  
+* `Method #2`: Use a ready-made VMware |CL| image.  
 
 Both are discussed below.  
 
 .. note::
 
-  The figures shown throughout this document are from the Windows version of 
+  The figures shown throughout this document are from the Windows\* version of 
   VMware Workstation 14 Player.  They are applicable for the Linux version as
   well (with minor differences).
 
@@ -105,8 +105,8 @@ Uncompress the image
 
   Use `7zip`_ to uncompress it.
 
-Method 1: Fresh installation of |CL| into a new VM 
-==================================================
+Method 1: Install |CL| into a new VM 
+====================================
 
 The general process for performing a fresh installation of |CL| into a new VM 
 is as follows (with expanded details below):
@@ -197,8 +197,9 @@ Install |CL| into the new VM
 
     Figure 8: VMware Workstation 14 Player - Power on virtual machine
 
-#.  Follow the :ref:`bare-metal-install` (starting at the `Install Clear Linux 
-    on your target system` section) guide to complete the installation of 
+.. include:: ../bare-metal-install/bare-metal-install.rst
+
+#.  Follow the :ref:`install-on-target` guide to complete the installation of 
     |CL|.
 
 #.  After the installation is complete, follow the |CL| instruction to reboot it.  
