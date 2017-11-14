@@ -3,9 +3,10 @@
 Bug report template
 ###################
 
-Use this simple template to provide us all the information needed to address
-the issue as quickly as possible. Submit your bugs to the |CLOSIA|
-`mailing list`_ at: dev@lists.clearlinux.org.
+This simple template helps you provide all the information needed to address
+an issue. Use the template to ensure the issue is resolved as quickly as
+possible. Submit your bugs to the |CLOSIA| `mailing list`_ at:
+dev@lists.clearlinux.org.
 
 **Title:** Be descriptive and brief, 78 characters in length.
 

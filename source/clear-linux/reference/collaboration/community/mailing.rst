@@ -4,9 +4,13 @@ Mailing list guidelines
 =======================
 
 These guidelines apply for all emails written to dev@lists.clearlinux.org.
-They ensure communication remains civil, productive, and brief. Use the
-`mailing list`_ effectively and get as much feedback as possible on your
-work.
+They ensure communication remains civil, productive, and brief. Our goal is
+to use the `mailing list`_ effectively and get as much feedback as possible
+on our work.
+
+In the spirit of open source development, do not send private feedback
+through email. Instead, send feedback to the mailing list by hitting 'Reply-
+to-all' and by keeping the CC list intact.
 
 * Use the mailing list as much as possible. Specifically, use the mailing
   list to:

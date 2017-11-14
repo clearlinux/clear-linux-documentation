@@ -7,17 +7,16 @@ The |CLOSIA| community is made up of a mixture of professionals and
 volunteers from all over the world. We strongly believe diversity is our
 strength and want to promote an inclusive and safe environment.
 
-To that end, we have a few ground rules for engaging in the community. The
-following code of conduct applies equally to all community participants,
-including project team leads, core contributors, mentors, users,
-participants, and those seeking help and guidance.
+To that end, the community follows a a few ground rules. The following code
+of conduct applies equally to all community participants: project team leads,
+core contributors, mentors, users, participants, and those seeking help and
+guidance.
 
-This code of conduct also applies to all spaces the project manages or
-authorizes, including IRC channels, the mailing lists, issue trackers,
-sponsored events, and any other forums the community uses and the project
-manages. In addition, violations of this code of conduct outside of these
-venues may affect a person's ability to participate within them after
-appropriate investigation.
+This code of conduct applies to all spaces the project manages or authorizes,
+including IRC channels, the mailing lists, issue trackers, sponsored events,
+and any other forums the community uses and the project manages. In addition,
+violations of this code of conduct outside of these venues may affect a
+person's ability to participate within them after appropriate investigation.
 
 **Be friendly, patient, and welcoming.** We strive to be a community that
 welcomes and supports people of all backgrounds and identities. This
@@ -36,7 +35,7 @@ contributions to the |CL| project will impact the work of others.
 
 **Be respectful.** Not all of us will agree all the time but disagreement is
 no excuse for poor behavior and poor manners. We might all experience some
-frustration now and then but we cannot allow frustration to turn into a
+frustration occasionally but we cannot allow frustration to turn into a
 personal attack. Remember, a community where people feel uncomfortable or
 threatened is not productive. Members of the |CL| community should be
 respectful when dealing with other contributors, people outside of the
@@ -88,6 +87,10 @@ acceptable and should be reported. This includes but is not limited to:
 * Advocating for, or encouraging, any of the above behavior.
 * Repeated harassment of others. In general, if someone asks you to stop,
   then stop.
+
+Violations to any of the points above will lead to a thorough investigation
+and review by the project leadership, who will determine the appropriate
+sanction.
 
 .. note::
    Portions of the |CL| code of conduct are derived from the code of conduct
