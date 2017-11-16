@@ -3,74 +3,62 @@
 Create a telemetry backend server in Clear Linux
 ################################################
 
-|CLOSIA| includes a telemetrics (telemetry + analytics) solution as part of
-the OS that records events of interest and reports them back to the
-development team via the telemetrics daemon, :command:`telemd`.
+|CLOSIA| includes a telemetry and analytics solution, also known as
+telemetrics, as part of the OS that records events of interest and reports
+them back to the development team using the :command:`telemd` telemetrics
+daemon.
 
 End users can enable or disable the telemetry client component of |CL| and
 also redirect where records go if they wish to collect records for themselves
 by setting up and using their own telemetry backend server.
 
-A telemetry backend server consists of two Flask applications: an ingestion
-app, :guilabel:`collector`, for records received from telemetrics-client
-probes; and a web app, :guilabel:`telemetryui`, that exposes several views to
-visualize the telemetry data. The :guilabel:`telemetryui` app also provides a
-REST API to perform queries on the data.
+A telemetry backend server consists of two Flask applications:
+* The :guilabel:`collector` is an ingestion app for records received from the
+  :guilabel:`telemetrics-client` probes.
+* The :guilabel:`telemetryui` web app exposes several visualizations of the
+  telemetry data. The :guilabel:`telemetryui` app also provides a
+  REST API to perform queries on the data.
 
 The applications run within a web stack, using the :guilabel:`nginx` web
 server, the :guilabel:`uWSGI` application server, and
 :guilabel:`PostgreSQL` as the underlying database server. For a detailed
 description, visit the `Clear Linux telemetry backend server overview`_.
 
-This tutorial will walk you through creating a telemetrics backend server on
-your local |CL| machine using the :command:`deploy.sh` bash shell script that
-is maintained in a GitHub repository at
+This tutorial walks you through creating a telemetrics backend server on
+your local |CL| machine. The tutorial uses the :command:`deploy.sh` bash
+shell script that is maintained in a GitHub repository at
 https://github.com/clearlinux/telemetrics-backend. Once the backend server is
-up and running we show you how to redirect telemetry records from the system
+up and running, we show you how to redirect telemetry records from the system
 you set up to this new server location.
 
 .. note::
    The telemetrics functionality adheres to `Intel’s privacy policies`_
-   regarding the collection and use of Personally Identifiable Information
-   (PII) and is Open Source. Specifically, no intentionally identifiable
-   information about the user or system owner is collected.
+   regarding the collection and use of :abbr:`PII (Personally Identifiable
+   Information)` and is open Source. Specifically, no intentionally
+   identifiable information about the user or system owner is collected.
 
 Prerequisites
-=============
+*************
 
 For this tutorial, start with a clean installation of |CL| on a new system
 using the :ref:`bare-metal-install` getting started guide:
 
-#. Choose to install |CL|
+#. Choose to install |CL|.
 #. Join the :guilabel:`Stability Enhancement Program` to install and
-   enable the telemetrics components
+   enable the telemetrics components.
 #. Select the manual installation method with the following settings:
 
    * Set the hostname to :guilabel:`clr-telem-server`,
    * Create an administrative user named :guilabel:`clear` and add this user
      to sudoers,
-   * Add all additional software bundles
+   * Add all additional software bundles.
 
-Optionally, if you already have a |CL| system set up that you want to install
-the telemetry backend server components to, or to a virtual |CL| machine, you
-need to have a user account that has sudo privileges and the following
-software bundles already installed:
-
-* dev-utils - has the :command:`git` command
-* telemetrics - has the required telemetry applications, see the 
-  :ref:`telemetry-enable` guide for installing and enabling telemetrics.
-
-To determine the software bundles already installed, enter the
-:command:`sudo swupd bundle-list` command to list the current bundles
-installed and then run :command:`sudo swupd bundle-add dev-utils telemetrics`
-if either one is not installed.
-
-Download the clearlinux/telemetrics-backend git repository
-==========================================================
+Download the clearlinux/telemetrics-backend Git repository
+**********************************************************
 
 With all prerequisite software bundles installed and logged in with your
-administrative user, from your $HOME directory, run :command:`git` to clone
-the :guilabel:`telemetrics-backend` repository into the
+administrative user, from your :file:`$HOME` directory, run :command:`git`
+to clone the :guilabel:`telemetrics-backend` repository into the
 :file:`$HOME/telemetrics-backend` directory:
 
 .. code-block:: console
@@ -78,15 +66,15 @@ the :guilabel:`telemetrics-backend` repository into the
    git clone https://github.com/clearlinux/telemetrics-backend
 
 .. note::
-   You may need to set up the :guilabel:`https_proxy` environment variable
+   You may need to set up the :envvar:`https_proxy` environment variable
    if you have issues reaching github.com.
 
 Run the deploy.sh script to install the backend server
-======================================================
+******************************************************
 
-Change your current working directory to :file:`telemetrics-backend/scripts`
-and then run the :command:`./deploy.sh -h` to see the list of options for the
-:command:`deploy.sh` script:
+#. Change your current working directory to :file:`telemetrics-backend/scripts`.
+#. Run the :command:`./deploy.sh -h` to see the list of options for the
+   :command:`deploy.sh` script:
 
 .. code-block:: console
 
@@ -110,61 +98,69 @@ and then run the :command:`./deploy.sh -h` to see the list of options for the
 The :command:`deploy.sh` is a bash shell script that allows you to perform the
 following actions:
 
-* deploy - install a complete instance of the telemetrics backend
+* :option:`deploy` - install a complete instance of the telemetrics backend
   server and all required components. This is the default action if no
-  :command:`-a` argument is given on the command line.
-* install - installs and enables all required components for the telemetrics
-  backend server.
-* migrate - migrate database to new schema.
-* resetdb - reset the database.
-* restart - restart the nginx and uWSGI services.
-* uninstall - uninstall all Ubuntu packages if the distribution is Ubuntu.
+  :option:`-a` argument is given on the command line.
+* :option:`install` - installs and enables all required components for the
+  telemetrics backend server.
+* :option:`migrate` - migrate database to new schema.
+* :option:`resetdb` - reset the database.
+* :option:`restart` - restart the nginx and uWSGI services.
+* :option:`uninstall` - uninstall all packages.
 
-For this tutorial, we will be installing the telemetrics backend server with
-the following options:
+  ..note::
+  
+  The :option:`uninstall` option does not perform any actions if the distro is
+  set to |CL| and will only uninstall packages if the distro is Ubuntu
 
-* :guilabel:`-a install` to perform an install
-* :guilabel:`-d clr` to install to a |CL| distro
-* :guilabel:`-H localhost` to set the domain to localhost
+Next, we install the telemetrics backend server with the following options:
+
+* :option:`-a install` to perform an install
+* :option:`-d clr` to install to a |CL| distro
+* :option:`-H localhost` to set the domain to localhost
 
 We do not need to set the following options since the values are set to the
 correct values we want by default:
 
-* :guilabel:`-r https://github.com/clearlinux/telemetrics-backend` sets the
+* :option:`-r https://github.com/clearlinux/telemetrics-backend` sets the
   repo location for :command:`git` to clone from.
-* :guilabel:`-s master` to set the location, or branch.
-* :guilabel:`-t git` to set the source type to git.
+* :option:`-s master` to set the location, or branch.
+* :option:`-t git` to set the source type to git.
 
 .. caution::
-   The :command:`deploy.sh` shell script has minimal error checking and makes
+   The :file:`deploy.sh` shell script has minimal error checking and makes
    several changes to your system.  Be sure that the options you define on the
    cmdline are correct before proceeding.
 
-To begin the installation with the options defined, run the shell script from
-the :file:`$HOME/telemetrics-backend/scripts` directory:
+To begin the installation with the options defined:
 
-.. code-block:: console
+#. Run the shell script from the :file:`$HOME/telemetrics-backend/scripts`
+   directory:
 
-   ./deploy.sh -H localhost -a install -d clr
+   .. code-block:: console
 
-The script will start and list all the defined options and prompt you for the
-:guilabel:`PostgreSQL` database password as shown below:
+      ./deploy.sh -H localhost -a install -d clr
 
-.. code-block:: console
+   The script will start and list all the defined options and prompt you for the
+   :guilabel:`PostgreSQL` database password as shown below:
 
-   Options:
-     host: localhost
-     distro: clr
-     action: install
-     repo: https://github.com/clearlinux/telemetrics-backend
-     source: master
-     type: git
-   DB password: (default: postgres):
+   .. code-block:: console
 
-For the :guilabel:`DB password:`, press the :kbd:`Enter` key to accept the
-default password `postgres`. The :command:`swupd` begins installing the
-required software bundles to set up the telemetrics backend server. The output
-will look similar to what is shown below:
+      Options:
+        host: localhost
+        distro: clr
+        action: install
+        repo: https://github.com/clearlinux/telemetrics-backend
+        source: master
+        type: git
+      DB password: (default: postgres):
+
+#. For the :guilabel:`DB password:`, press the :kbd:`Enter` key to accept the
+   default password `postgres`.
+   
+The :command:`swupd` begins installing the required software bundles to set
+up the telemetrics backend server. The output will look similar to what is
+shown below:
 
 .. code-block:: console
 
@@ -228,11 +224,11 @@ will look similar to what is shown below:
       Password:
 
    You may also see an informational message about setting the
-   :guilabel:`https_proxy` environment variable if this variable isn't set.
+   :envvar:`https_proxy` environment variable if this variable isn't set.
 
 Once the :command:`swupd` command is complete, the script begins processing
-the requirements to install and implement the telemetrics server and enable
-it. The script output will look similar to this:
+the requirements to install and implement the telemetrics server. Finally,
+the script enables the server and provides output similar to:
 
 .. code-block:: console
    
@@ -395,7 +391,7 @@ web page similar to the one shown in figure 1:
 
 
 Redirect telemetry records
-==========================
+**************************
 
 Telemetry records from your system are sent to the server location defined in
 the :file:`/usr/share/defaults/telemetrics/telemetrics.conf` configuration
@@ -438,7 +434,7 @@ setting to your new server location.
       systemctl restart telemd
 
 Test the new telemetry backend server
-=====================================
+*************************************
 
 |CL| includes a telemetry test probe called :command:`hprobe` that will send a
 ``hello`` record to the telemetry backend server.  To test that the telemetry
@@ -463,24 +459,7 @@ tested it using the :command:`hprobe` command to send a ``hello`` record to
 it.
 
 Additional resources
-====================
-
-deploy.sh usage:
-
-.. code-block:: console
-
-   Usage: deploy.sh -H DOMAIN [OPTIONS]
-
-   Deploy snapshot of the telemetrics-backend
-
-     -a  Perform specified action (deploy, install, migrate, resetdb, restart, uninstall; default: deploy)
-     -d  Distro to deploy to (ubuntu, centos or clr; default: ubuntu)
-     -h  Print these options
-     -H  Set domain for deployment (only accepted value is \"localhost\" for now)
-     -r  Set repo location to deploy from (default: https://github.com/clearlinux/telemetrics-backend)
-     -s  Set source location (default: \"master\" branch from git repo)
-     -t  Set source type (tarball, or git; default: git)
-     -u  Perform complete uninstallation
+********************
 
 https://clearlinux.org/features/telemetry
 
