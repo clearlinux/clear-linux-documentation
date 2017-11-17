@@ -16,3 +16,4 @@ specific |CLOSIA| use cases.
    multi-boot/multi-boot
    hadoop
    fmv
+   aws-web/aws-web
