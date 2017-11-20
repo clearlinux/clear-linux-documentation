@@ -5,8 +5,7 @@ Create and launch Clear Linux from Amazon Web Services
 
 This tutorial walks you through creating and launching a |CL|
 :abbr:`AMI (Amazon Machine Image)` instance from the
-:abbr:`AWS (Amazon Web Services)` console.  You will complete the following
-tasks:
+:abbr:`AWS (Amazon Web Services)` console and complete the following tasks:
 
 #. Locate and select the |CL| OS Basic AMI in the AWS Marketplace.
 #. Create a new public and private key pair to allow you to connect to your
@@ -30,8 +29,8 @@ This tutorial assumes the following:
    AWS free tier. To learn more about AWS and setting up an account, visit the
    AWS website at http://aws.amazon.com.
 
-Locate, select and launch the Clear Linux OS Basic AMI
-******************************************************
+Locate, select, and launch the Clear Linux OS Basic AMI
+*******************************************************
 
 #. Start from your main AWS console, select :guilabel:`EC2` as shown in
    figure 1:
@@ -95,8 +94,8 @@ Locate, select and launch the Clear Linux OS Basic AMI
 
    .. note::
 
-      You can configure the instance details, add additional storage, add tags
-      and configure the security group before selecting the
+      You can configure the instance details, add additional storage, add
+      tags, and configure the security group before selecting the
       :guilabel:`Review and Launch` button if you want to further customize
       this |CL| instance.
 
@@ -116,8 +115,8 @@ Locate, select and launch the Clear Linux OS Basic AMI
 
       Figure 6: :guilabel:`Step 7: Review the Instance Launch`
 
-   #. Select the :guilabel:`Launch` button. A dialog box pops appears, as
-      shown in figure 7, asking you to
+   #. Select the :guilabel:`Launch` button. A dialog box appears, as shown in
+      figure 7, asking you to
       :guilabel:`Select an existing key pair or create a new pair`.
 
       .. figure:: figures/aws-web-7.png
@@ -132,8 +131,8 @@ Locate, select and launch the Clear Linux OS Basic AMI
          :file:`AWSClearTestKey.pem` to your browser's defined
          :file:`Downloads` directory.
       #. When the file finishes downloading, select the
-         :guilabel:`Launch Instances` to proceed to the :guilabel:`Launch
-         Status` menu shown in figure 8.
+         :guilabel:`Launch Instances` button to proceed to the
+         :guilabel:`Launch Status` menu shown in figure 8.
 
          .. figure:: figures/aws-web-8.png
             :scale: 50 %
@@ -156,8 +155,7 @@ Connect to your Clear Linux OS Basic instance
 
 Your :guilabel:`Instances` Dashboard is shown in figure 10 with the new |CL|
 OS basic instance already selected and in the running state. If there are
-other instances available, they will also be listed but not selected.
-   
+other instances available, they are also listed but not selected.
 
 .. figure:: figures/aws-web-10.png
    :scale: 50 %
@@ -165,9 +163,9 @@ other instances available, they will also be listed but not selected.
 
    figure 10: :guilabel:`Instance Dashboard`
 
-To connect to your running instance, click the :guilabel:`Connect` button
-located at the top of your dashboard.  This will bring up the pop-up dialog
-box shown in figure 11 describing how to connect to your running instance. 
+#. To connect to your running instance, click the :guilabel:`Connect` button
+   located at the top of your dashboard. This brings up the pop-up dialog
+   box shown in figure 11 describing how to connect to your running instance. 
 
 .. figure:: figures/aws-web-11.png
    :scale: 50 %
@@ -175,32 +173,34 @@ box shown in figure 11 describing how to connect to your running instance.
 
    figure 11: :guilabel:`Connect to Your Instance`
 
-#. Open a terminal on your system.  You should be in your :file:`$HOME`
+#. Open a terminal on your system. You should be in your :file:`$HOME`
    directory.
-#. Copy the previously downloaded keyfile you created earlier from the
-   :file:`Downloads` directory to the current directory.
+
+#. Copy the previously downloaded keyfile from the :file:`Downloads`
+   directory.
 
    .. code-block:: console
 
       cp Downloads/AWSClearTestKey.pem .
 
 #. Change the attributes of the :file:`AWSClearTestKey.pem` using the
-   :command:`chmod` as instructed in the dialog box shown in figure 11.
+   :command:`chmod` command as instructed in the dialog box shown in figure
+   11.
 
    .. code-block:: console
 
       chmod 400 AWSClearTestKey.pem
 
-#. Select the entire text highlighted in the :guilabel:`Example:` that is
-   shown in figure 11 and paste it into your terminal and add the following
-   text to the end of the command string: `-l clear`.  Press the :kbd:`Enter`
+#. Copy the text highlighted in the :guilabel:`Example:` section that is
+   shown in figure 11. Paste the copied text into your terminal and add
+   `-l clear` text to the end of the command string. Press the :kbd:`Enter`
    key to execute the command.
 
    .. code-block:: console
 
       ssh -i "AWSClearTestKey.pem" root@ec2-34-209-39-184.us-west-2.compute.amazonaws.com -l clear
 
-#. A message will appear on the terminal the the authenticty of the host can't
+#. A message appears on the terminal stating the authenticty of the host can't
    be established and prompts you with the message:
 
    .. code-block:: console
@@ -209,8 +209,8 @@ box shown in figure 11 describing how to connect to your running instance.
       ECDSA key fingerprint is SHA256:LrziT5Ar66iBTfia8qmiIsrfBUm/UGam76U8bDR6yJc.
       Are you sure you want to continue connecting (yes/no)?
 
-#. type `yes` and hit the :kbd:`Enter` key.  A warning will be printed to the
-   terminal and you will be at the command prompt of your new instance.
+#. Type `yes` and hit the :kbd:`Enter` key. Another warning is printed to the
+   terminal and you are now at the command prompt of your new |CL| instance.
 
    .. code-block:: console
 
@@ -220,8 +220,7 @@ box shown in figure 11 describing how to connect to your running instance.
 Update the Clear Linux OS instance
 **********************************
 
-With the command prompt sitting in the :file:`$HOME` directory of your new
-|CL| instance, run the :command:`sudo swupd update` to update the operating
+Run the :command:`sudo swupd update` command to update the operating
 system as shown in figure 12:
 
 .. figure:: figures/aws-web-12.png
@@ -235,13 +234,16 @@ In this example we updated from version 18940 to 19100.
 Stop the Clear Linux OS instance
 ********************************
 
-When you are finished using your AWS |CL| instance you need to stop it from
-the :guilabel:`Instances` dashboard to stop accruing charges while it is
-running.  With the current running instance highlighted:
+When you are finished using your AWS |CL| instance you need to stop it using
+the :guilabel:`Instances` dashboard to stop accruing charges. Complete the
+following steps from the :guilabel:`Instances` dashboard to stop your AWS |CL|
+instance from running.
 
 #. Select the :guilabel:`Actions` button to bring up a pull-down menu.
-#. Select the :guilabel:`Instance State` to expand the options
-#. Select :guilabel:`Stop` to shut down the running instance
+
+#. Select the :guilabel:`Instance State` to expand the options.
+
+#. Select :guilabel:`Stop` to shut down the running instance.
 
 These steps are illustrated in figure 13.
 
@@ -251,8 +253,8 @@ These steps are illustrated in figure 13.
 
    figure 13: :guilabel:`Stop Instance`
 
-#. A pop-up dialog box will appear warning you that an ephemeral storage of
-   your instance will be lost.  Select :guilabel:`Yes, Stop` to stop your |CL|
+#. A pop-up dialog box appears warning you that any ephemeral storage of
+   your instance will be lost. Select :guilabel:`Yes, Stop` to stop your |CL|
    instance.
 
 .. figure:: figures/aws-web-14.png
@@ -261,4 +263,4 @@ These steps are illustrated in figure 13.
 
    figure 14: :guilabel:`Stop Instances`
 
-   That's it.  You are up and running with |CL| on AWS!
+   Congratulations! You are up and running with |CL| on AWS.
