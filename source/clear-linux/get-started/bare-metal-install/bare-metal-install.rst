@@ -13,13 +13,33 @@ on bare metal using a bootable USB drive.
    :Start-after: bootable-usb-linux:
    :end-before: download-cl-image
 
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: download-cl-image:
-   :end-before: verify-checksum
+.. include:: ../../guides/maintenance/download-image.rst
+   :Start-after: types-of-cl-images:
+   :end-before: download-usb-suitable-images
 
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: verify-checksum:
-   :end-before: copy-usb-linux
+.. include ../bootable-usb/bootable-usb-linux.rst
+..   :Start-after: download-cl-image:
+..   :end-before: verify-checksum
+
+Download the latest Clear Linux installer image
+===============================================
+
+Get the latest |CL| installer image from the `image`_ directory.  
+Look for **clear-<version number>-installer.img.xz**.
+
+.. _image: https://download.clearlinux.org/image
+
+.. include:: ../../guides/maintenance/download-image.rst
+   :Start-after: verify-image-checksum:
+   :end-before: verify-image-checksum-on-macos
+
+.. include:: ../../guides/maintenance/download-image.rst
+   :Start-after: uncompress-image:
+   :end-before: uncompress-gz-on-linux
+
+.. include ../bootable-usb/bootable-usb-linux.rst
+..   :Start-after: verify-checksum:
+..   :end-before: copy-usb-linux
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:
