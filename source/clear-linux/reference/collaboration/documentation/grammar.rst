@@ -9,6 +9,7 @@ hyphenation, possessives, and contractions.
 
 Capitalization
 **************
+
 The preferred capitalization style for all documentation is sentence
 case.
 
@@ -16,52 +17,13 @@ Words should only be capitalized when:
 
 * They are proper nouns or adjectives.
 * They refer to trademarked product names.
-* When they are part of a heading using title case.
 
 .. important::
-   Do not capitalize a word to indicate it has a greater status than
-    other words. Never change the case of variable, function or file
-    names; always keep the original case.
+   Do not capitalize a word to indicate it has a greater status than other
+    words. Never change the case of variable, function or file names; always
+    keep the original case.
 
-Capitalization styles
-=====================
-
-We refer to several capitalization styles in this document: uppercase,
-title case, sentence case, and lowercase.
-
-Do not use uppercase capitalization for any passages, not even extreme
-warnings. Some legal disclaimers are written in all caps for emphasis;
-this is the only exception.
-
-The only paragraphs that shall use title case are the headings of the
-document.
-
-All items associated with tables and figures shall use sentence
-case capitalization: Only the first word and proper names are
-capitalized.
-
-The following list provides sample paragraph types with the correct
-capitalization style:
-
-
-* Headings: Title case
-   - Widget Pro User Manual
-   - Installing Widget Pro in a Distributed Environment
-
-* Table titles: Sentence case
-   - MPEG profile/level matrix
-* Table column headings: Sentence case
-   - First level of values; Second level of values, etc.
-
-* Figure titles, callouts and legends: Sentence case
-   - Widget backplane connections
-   - Edit icon
-   - Date/time spinbox
-   - Rate of acceleration
-   - Color code explanation
-   - Legend
-
-Menu Capitalization
+Menu capitalization
 ===================
 
 When referring to software menu items by name, replicate the
@@ -72,7 +34,8 @@ not a specific name of a window or field on a menu, for example:
 
 Click :guilabel:`Edit` to display the :guilabel:`Widget Configuration` window.
 
-The widget configuration window has several advanced widget configuration options.
+The widget configuration window has several advanced widget configuration
+options.
 
 The second sentence could have capitalized the term "Widget
 Configuration window"; but there are times when you might want to
@@ -87,13 +50,14 @@ A few other menu capitalization rules to keep in mind:
   :menuselection:`View --> Side Bar --> Hide Side Bar`"
 
 * Do not include more than 3 navigation steps in a menu selection. If
-  more than three steps are needed devide the steps using
+  more than three steps are needed divide the steps using
   ``:guilabel:`` or ``:menuselection:``. For example: "Go to
   :guilabel:`File` and select
   :menuselection:`Print --> Print Preview --> Set Up`."
 
-Software Version Capitalization
+Software version capitalization
 ===============================
+
 Do not capitalize the word version or letter v when listing software
 or hardware version numbers. The v is lowercase and closed with the
 number (no period). For example:
@@ -101,21 +65,22 @@ number (no period). For example:
 * Widget Pro v5.0
 * Widget Master v2.1.12
 
-Hyphenated or Slashed-concatenated Terms
+Hyphenated or slashed-concatenated terms
 ========================================
+
 For hyphenated or slash-concatenated terms, capitalize only the first
 letter, even if they are headings. For example:
 
 * Day/night Menu
 * Follow-up Action Items
 
-Plurals and Possessives
+Plurals and possessives
 ***********************
 Because English plurals and possessives use the same /s/ and /z/
 phonemes, they can create problems for even experienced writers. This
 section deals with these issues.
 
-Singular vs. Plural Possessives
+Singular vs. plural possessives
 ===============================
 Here are some guidelines for singular and plural possessives:
 
@@ -167,7 +132,7 @@ incorrect cases and the notes that accompanies them.
 |                   |                  | the apostrophe-s.         |
 +-------------------+------------------+---------------------------+
 
-Apostrophe-s Anomalies
+Apostrophe-s anomalies
 ======================
 
 If a company name ends in s, x, c, or a sibilant sound, use the
@@ -198,8 +163,8 @@ Plural modifiers
 
 Avoid plural modifiers. For example, it should be a system
 administrator, not a systems administrator. It doesn't matter how many
-systems this person manage, we don't typically use the plural of a word
-to modify a noun. Here a list of exceptions:
+systems this person manages, we don't typically use the plural of a word
+to modify a noun. Here is a list of exceptions:
 
 * operations manager
 * sales department
@@ -232,7 +197,7 @@ A m(e)n, wom(a)n, a child(ren), college alumn(i), (moose), and
 even a desert plant(s) such as a cact(i) should not use a
 parenthes(e)s around a plural(s).
 
-Internal Plural Acronyms
+Internal plural acronyms
 ========================
 
 Some abbreviated terms can cause trouble, particularly when the
@@ -244,7 +209,7 @@ rules when abbreviated: The plural goes at the end of the term.
 * Attorneys-general: AG, AGs.
 * Regions of interest: ROI, ROIs.
 
-Plurals of Acronyms and Capitalized Product Names
+Plurals of acronyms and capitalized product names
 =================================================
 
 Pluralize acronyms, initialisms, and capitalized product names by
@@ -279,8 +244,8 @@ Pluralize Latin terms in body text as shown:
 Contractions
 ************
 
-Avoid the use contractions since some of them might be ambiguous and confusing
-to non-native English-speaking audiences.
+Avoid the use of contractions since some of them might be ambiguous and
+confusing to non-native English-speaking audiences.
 
 Some contractions can cause confusion for nonnative English-speakers
 because these contractions stand for more than one construction. For
@@ -304,7 +269,7 @@ Compound nouns often go through this progressions:
 The English language is trending away from hyphenated compounds to
 closed compounds.
 
-Prefix Hyphenation
+Prefix hyphenation
 ==================
 
 Do not hyphenate the prefixes listed below. Join the prefix to the
@@ -347,7 +312,7 @@ Some prefixes, such as self-, half-, quasi-, and ex-, when meaning
 
 * Self-control, half-truth, quasi-corporation, ex-governor
 
-Suffix Hyphenation
+Suffix hyphenation
 ==================
 
 In general, do not hyphenate suffixes. Here are some examples.

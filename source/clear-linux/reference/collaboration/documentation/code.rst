@@ -4,15 +4,15 @@ Code blocks
 ###########
 
 Collaborating to the |CLOSIA| is all about code. Therefore, your
-documentation must include code examples. The code examples can be written
-directly in the documentation or included from a source file. Use these
-guidelines to insert code blocks to your documentation:
+documentation must include as many code examples as possible. You can write
+code examples directly in the documentation or include them from a source
+file. Use these guidelines to insert code blocks to your documentation:
 
 * Include code examples from a source file. Only write the code example
   directly into the documentation if the example is less than 10 lines long.
 
-* Use the ``:lineos:`` option of the directives to add line numbers to
-  your example if it is larger than 12 lines.
+* Use the ``:linenos:`` option of the `literalinclude` directive to add line
+  numbers to your example.
 
 * Specify the programing language of your example. Not only will it
   add syntax highlighting but it also allows the reader to identify code
@@ -27,14 +27,7 @@ Examples
 This is a code example included from a file. Note how only certain lines of
 the source file are included and how the lines are renumbered.
 
-Renders as:
-
-.. literalinclude:: ./hello.c
-   :language: c
-   :lines: 97-110
-   :linenos:
-
-From the source:
+This source:
 
 .. code-block:: rst
 
@@ -43,22 +36,19 @@ From the source:
       :lines: 97-110
       :linenos:
 
+Renders as:
+
+.. literalinclude:: ./hello.c
+   :language: c
+   :lines: 97-110
+   :linenos:
+
 
 This example shows a series of console commands. Line numbering is not
 required. Specify that these are commands using `bash` as the programing
 language.
 
-Renders as:
-
-.. code-block:: bash
-
-   $ mkdir ${HOME}/x86-build
-
-   $ mkdir ${HOME}/arm-build
-
-   $ mkdir ${HOME}/cross-src
-
-From the source:
+This source:
 
 .. code-block:: rst
 
@@ -70,6 +60,16 @@ From the source:
 
       $ mkdir ${HOME}/cross-src
 
+Renders as:
+
+.. code-block:: bash
+
+   $ mkdir ${HOME}/x86-build
+
+   $ mkdir ${HOME}/arm-build
+
+   $ mkdir ${HOME}/cross-src
+
 .. note::
    You will find instances which use `console` instead of `bash`. We are
    currently in the process of implementing a distinction between the two.
@@ -79,30 +79,7 @@ From the source:
 Finally, this is a code example that is not part of the |CL| code base. It is
 not even valid code but it can illustrate the concept.
 
-Renders as:
-
-.. code-block:: c
-
-   static NANO_CPU_INT_STUB_DECL (deviceStub);
-
-   void deviceDriver (void)
-
-   {
-
-   .
-   .
-   .
-
-   nanoCpuIntConnect (deviceIRQ, devicePrio, deviceIntHandler,
-   deviceStub);
-
-   .
-   .
-   .
-
-   }
-
-From the source:
+This source:
 
 .. code-block:: rest
 
@@ -126,6 +103,29 @@ From the source:
       .
 
       }
+
+Renders as:
+
+.. code-block:: c
+
+   static NANO_CPU_INT_STUB_DECL (deviceStub);
+
+   void deviceDriver (void)
+
+   {
+
+   .
+   .
+   .
+
+   nanoCpuIntConnect (deviceIRQ, devicePrio, deviceIntHandler,
+   deviceStub);
+
+   .
+   .
+   .
+
+   }
 
 Templates
 *********
@@ -156,6 +156,6 @@ specific lines.
 
 .. caution::
    The ``:emphasize-lines:`` option uses the line numbering provided
-   by ``:lineos:``. The emphasized line in the template will be the
+   by ``:linenos:``. The emphasized line in the template will be the
    third one of the example but the eighth one of the source file.
 

@@ -15,7 +15,7 @@ when in doubt.
 Serial Commas
 =============
 
-When writing a series or items, use the serial comma before the
+When writing a series of items, use the serial comma before the
 coordinating conjunctions *and* and *or* to avoid confusion and ambiguity.
 For example:
 

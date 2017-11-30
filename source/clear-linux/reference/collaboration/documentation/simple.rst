@@ -74,10 +74,13 @@ Keep these basic guidelines in mind as you check your verbs:
 * Avoid linking verbs; is, seems, becomes.
 * Convert weak verbs and nominalizations to strong verbs.
 * Be concise.
-* Avoid "there are" and "it is" constructions. .. note:: The following
-  examples offer two versions of the same information. The incorrect
-  version always comes first and is formatted *in italics*. The correct
-  version is comes always second and is formatted **in bold**.
+* Avoid "there are" and "it is" constructions.
+
+.. note::
+  The examples in the following sections offer two versions of the same
+  information. The incorrect version always comes first and is formatted *in
+  italics*. The correct version always comes second and is formatted **in
+  bold**.
 
 Imperatives
 ===========

@@ -49,9 +49,10 @@ the roles.
 
    ``:option:`Option```
 
-* Use the `:file:` role to emphasize a filename or directory. Do not
-  use the role inside a code-block but use it inside all notices that
-  contain files or directories. Place variable parts of the path or filename in brackets `{}`.
+* Use the `:file:` role to emphasize a filename or directory. Do not use the
+  role inside a code-block but use it inside all notices that contain files
+  or directories. Place variable parts of the path or filename in brackets
+  `{}`.
 
    :file:`collaboration.rst` :file:`doc/{user}/collaboration/figures`
 
@@ -102,7 +103,7 @@ the roles.
    ``:makevar:`VARIABLE```
 
 * Use the `:envvar:` role to emphasize the name of environment
-  variables. Just as with `:makevar:`, the markup can include only for the
+  variables. Just as with `:makevar:`, the markup can include only the
   name of the variable or the variable plus its value.
 
    :envvar:`ZEPHYR_BASE`

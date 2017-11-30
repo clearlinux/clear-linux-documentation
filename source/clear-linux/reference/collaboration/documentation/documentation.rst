@@ -41,7 +41,7 @@ This guide includes the following sections:
 Scope
 *****
 
-The |CL| documentation is dived in five sections:
+The |CL| documentation is divided in five sections:
 
 * **Get started:** Information about installing Clear Linux.
 * **Concepts:** Detailed technical information about our features.
