@@ -86,17 +86,16 @@ This creates a link to the :ref:`target <label-of-target>` using the word
 .. note::
 
    This type of internal cross reference works across multiple files, is
-   independent of changes in the text of the headings and works on all
+   independent of changes in the text of the headings, and works on all
    Sphinx builders.
 
 External References
-===================
+*******************
 
 External references or hyperlinks can be added easily with ReST. Only
 hyperlinks with a separated target definition are allowed.
 
-Explicit hyperlinks consisting entire URLs, for example,
-http://sphinx-doc.org/rest.html#hyperlinks must be avoided.
+Do not use explicit hyperlinks consisting entire URLs. For example, links like this one, https://clearlinux.org/ must be avoided.
 
 Hyperlinks with a separated target definition allow us to place the URL after label. They are easier to update and independent of the text, for
 example:
