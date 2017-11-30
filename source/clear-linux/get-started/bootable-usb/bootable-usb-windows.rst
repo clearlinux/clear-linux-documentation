@@ -11,43 +11,39 @@ Alternative instructions for other operating systems are available:
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-linux`
 
+.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: types-of-cl-images:
+   :end-before: verify-image-checksum-on-linux
+
 .. include:: bootable-usb-linux.rst
-   :Start-after: download-cl-image:
-   :end-before: verify-checksum
+   :Start-after: download-usb-suitable-images:
+   :end-before: end-download-usb-suitable-images
 
-Verify the integrity of the download (recommended)
-==================================================
+.. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
+   :Start-after: verify-image-checksum-on-windows:
+   :end-before: uncompress-image-on-windows
 
-#. Start Command-Prompt.
-#. Go to the directory with the downloaded files.
-#. To verify the integrity of the image, enter the following commands:
-
-	.. code-block:: console
-
-		C:\> CertUtil -hashfile ./clear-<version>-live.img.xz sha512
-
-   Compare the output with the original checksum to make sure they match.
+.. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
+   :Start-after: uncompress-image-on-windows:
 
 Burn the Clear Linux image onto a USB drive
 ===========================================
 
 .. caution::
 
-   Backup important data before proceeding. The process of burning an image
-   onto the USB drive completely formats the
-   USB drive and any existing content will be destroyed.
+   |CAUTION-BACKUP-USB|
 
 #. Download the `Rufus`_ tool to burn the image onto a USB drive.
-
 #. Plug in the USB drive.
-
-#. Select the |CL| image file and ensure that “Create a bootable disk using DD
-   Image” is checked. See Figure 1.
+#. Click the CD-ROM icon button and select the |CL| image file.  See Figure 1.
+#. Ensure that :guilabel:`Create a bootable disk using DD
+   Image` is checked. 
 
    .. figure:: figures/bootable-usb-windows-1.png
+      :scale: 100 %
       :alt: Burn image onto USB drive
 
-#. Click Start.
+#. Click :guilabel:`Start`.
 
 Next steps
 ----------
