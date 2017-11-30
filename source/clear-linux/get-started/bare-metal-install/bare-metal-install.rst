@@ -11,15 +11,24 @@ on bare metal using a bootable USB drive.
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: bootable-usb-linux:
-   :end-before: download-cl-image
+   :end-before: end-bootable-usb-linux-intro
 
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: download-cl-image:
-   :end-before: verify-checksum
+.. include:: ../../guides/maintenance/types-of-cl-images.rst
+  :start-after: types-of-cl-images
+  
+Download the latest Clear Linux installer image
+===============================================
 
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: verify-checksum:
-   :end-before: copy-usb-linux
+Get the latest |CL| installer image from the `image`_ directory.  
+Look for the :file:`clear-[version number]-installer.img.xz` file.
+
+.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: verify-image-checksum-on-linux:
+   :end-before: uncompress-image-on-linux
+
+.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: uncompress-image-on-linux:
+   :end-before: uncompress-gz-on-linux
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:
@@ -317,3 +326,4 @@ system. These instructions are captured in the :ref:`enable-user-space`.
 .. _`NUC6i5SYH product page`:
    http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
 
+.. _image: https://download.clearlinux.org/image

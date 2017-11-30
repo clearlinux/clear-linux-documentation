@@ -16,3 +16,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    validate-signatures
    telemetry-enable
    time
+   types-of-cl-images
+   download-verify-uncompress-linux
+   download-verify-uncompress-mac
+   download-verify-uncompress-windows

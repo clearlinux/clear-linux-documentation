@@ -11,38 +11,35 @@ Alternative instructions for other operating systems are available:
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-windows`
 
-.. _download-cl-image:
+.. _end-bootable-usb-linux-intro:
+
+.. include:: ../../guides/maintenance/types-of-cl-images.rst
+  :start-after: types-of-cl-images
+  
+.. _download-usb-suitable-images:
 
 Download the latest Clear Linux image
 =====================================
 
-#. Go to the Clear Linux `image`_ repository and download the desired type:
+There are 2 types of |CL| images that are suitable for burning onto and running 
+off a USB drive:
 
-   * Live image: `clear-<version>-live.img.xz`
-   * Installer image: `clear-<version>-installer.img.xz`
+   * Live image: :file:`clear-[version number]-live.img.xz`
+   * Installer image: :file:`clear-[version number]-installer.img.xz`
 
-   For older versions, see the `releases`_ page.
+Go to the Clear Linux `image`_ repository and download the desired type.
 
-#. Although not required, it is recommended to download the corresponding
-   checksum file (designated with `-SHA512SUMS` at the end of the filename) for
-   the image in order to verify its integrity.
+.. _image: https://download.clearlinux.org/image
 
-.. _verify-checksum:
+.. _end-download-usb-suitable-images:
 
-Verify the integrity of the download (recommended)
-==================================================
+.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: verify-image-checksum-on-linux:
+   :end-before: uncompress-image-on-linux
 
-#. Start a terminal emulator.
-#. Go to the directory with the downloaded files.
-#. To verify the integrity of the image, enter the following (a live image
-   is used as example):
-
-   .. code-block:: console
-
-      $ sha512sum ./clear-<version>-live.img.xz | diff ./clear-<version>-live.img.xz-SHA512SUMS -
-
-   If the checksum of the downloaded image is different than the original
-   checksum, the differences will displayed. An empty output indicates a match.
+.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: uncompress-image-on-linux:
+   :end-before: uncompress-gz-on-linux
 
 .. _copy-usb-linux:
 
@@ -51,9 +48,7 @@ Burn the Clear Linux image onto a USB drive
 
 .. caution::
 
-   Backup important data before proceeding. The process of burning an image
-   onto the USB drive completely formats the
-   USB drive and any existing content will be destroyed.
+   |CAUTION-BACKUP-USB|
 
 #. Open a terminal emulator and get root privilege.
 
@@ -61,8 +56,8 @@ Burn the Clear Linux image onto a USB drive
 
       $ sudo -s
 
+#. Go to the directory with the uncompressed image.
 #. Plug in the USB drive.
-
 #. Identify the USB drive using the `lsblk` command.  This shows all drives
    attached to the system, including the primary hard disk. In the example
    output below, there are 4 drives (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and
@@ -101,24 +96,24 @@ Burn the Clear Linux image onto a USB drive
    Some Linux distros may automatically mount a USB drive when it is plugged
    in. To unmount, use the `umount` command followed by the device
    identifier/partition. For example: From the above `lsblk` output,
-   `/dev/sdd` has 2 mounted partitions.
+   `/dev/sdd` has 2 mounted partitions.  To unmount them, enter:
 
    .. code-block:: console
 
       # umount /dev/sdd2
       # umount /dev/sdd3
 
-#. Extract the downloaded image file and burn it onto the USB drive (`/dev/sdd`
-   is used as an example).
+#. Burn the image onto the USB drive.  The command-line example below burns an 
+   uncompressed image onto `/dev/sdd`: 
 
    .. code-block:: console
 
-      # xzcat clear-<version>-live.img.xz | dd of=/dev/sdd bs=4M status=progress
+      # dd if=./clear-[version number]-[image type] of=/dev/sdd bs=4M status=progress
 
 .. _usb-next:
 
 Next steps
-----------
+==========
 
 With a bootable |CL| USB drive, you can:
 

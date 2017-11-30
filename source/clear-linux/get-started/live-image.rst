@@ -10,23 +10,24 @@ great way to use |CL| without modifying your computer's hard disk.
 
 .. include:: bootable-usb/bootable-usb-linux.rst
    :Start-after: bootable-usb-linux:
-   :end-before: download-cl-image
+   :end-before: end-bootable-usb-linux-intro
 
-Download the latest Clear Linux Live image
-******************************************
+.. include:: ../guides/maintenance/types-of-cl-images.rst
+  :start-after: types-of-cl-images
+  
+Download the latest Clear Linux live image
+==========================================
 
-#. Get the latest |CL| Live image from the `image`_ page.  Look for
-   `clear-<version>-live.img.xz`.
+Get the latest |CL| live image from the `image`_ directory.  
+Look for :file:`clear-[version number]-live.img.xz`.
 
-   For older versions, see the `releases`_ page.
+.. include:: ../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: verify-image-checksum-on-linux:
+   :end-before: uncompress-image-on-linux
 
-#. Although not required, it is recommended to download the corresponding
-   checksum file (designated with `-SHA512SUMS` at the end of the filename) for
-   the image in order to verify its integrity.
-
-.. include:: bootable-usb/bootable-usb-linux.rst
-   :Start-after: verify-checksum:
-   :end-before: verify-checksum-on-macos
+.. include:: ../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: uncompress-image-on-linux:
+   :end-before: uncompress-gz-on-linux
 
 .. include:: bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:
@@ -34,16 +35,16 @@ Download the latest Clear Linux Live image
 
 .. _boot-live-image:
 
-Boot the Clear Linux Live image
+Boot the Clear Linux live image
 *******************************
 
 #. Configure the BIOS/UEFI firmware settings of the target system:
-   * Enable `Intel® Virtualization Technology (Intel® VT)`_
-   * Enable `Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`_
-   * Disable `Secure Boot`
-
+   
+   * Enable `Intel® Virtualization Technology (Intel® VT)`_.
+   * Enable `Intel® Virtualization Technology for Directed I/O (Intel® VT-d)`_.
+   * Disable `Secure Boot`.
+   
 #.	Plug the imaged USB drive in and boot it up.
-
 #. Log in as `root` and set a password.
 
 .. _`releases`: https://download.clearlinux.org/releases

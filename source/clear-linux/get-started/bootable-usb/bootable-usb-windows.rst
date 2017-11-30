@@ -11,46 +11,57 @@ Alternative instructions for other operating systems are available:
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-linux`
 
+.. include:: ../../guides/maintenance/types-of-cl-images.rst
+  :start-after: types-of-cl-images
+  
 .. include:: bootable-usb-linux.rst
-   :Start-after: download-cl-image:
-   :end-before: verify-checksum
+   :Start-after: download-usb-suitable-images:
+   :end-before: end-download-usb-suitable-images
 
-Verify the integrity of the download (recommended)
-==================================================
-
-#. Start Command-Prompt.
-#. Go to the directory with the downloaded files.
-#. To verify the integrity of the image, enter the following commands:
-
-	.. code-block:: console
-
-		C:\> CertUtil -hashfile ./clear-<version>-live.img.xz sha512
-
-   Compare the output with the original checksum to make sure they match.
+.. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
+   :Start-after: verify-image-checksum-on-windows:
+   :end-before: uncompress-image-on-windows
 
 Burn the Clear Linux image onto a USB drive
 ===========================================
 
 .. caution::
 
-   Backup important data before proceeding. The process of burning an image
-   onto the USB drive completely formats the
-   USB drive and any existing content will be destroyed.
+   |CAUTION-BACKUP-USB|
 
 #. Download the `Rufus`_ tool to burn the image onto a USB drive.
-
 #. Plug in the USB drive.
+#. Click the :guilabel:`CD-ROM` icon button. See Figure 1.
 
-#. Select the |CL| image file and ensure that “Create a bootable disk using DD
-   Image” is checked. See Figure 1.
+   .. figure:: figures/Rufus-figure-1.png
+      :scale: 80 %
+      :alt: Rufus utility - Click CD-ROM button
 
-   .. figure:: figures/bootable-usb-windows-1.png
-      :alt: Burn image onto USB drive
+   Figure 1: Rufus utility - Click CD-ROM button
 
-#. Click Start.
+#. By default, Rufus only shows ISO files.  To find and select a compressed 
+   |CL| image file, you must click the file-type dropdown and select 
+   :guilabel:`All files`.  See Figure 2.
+
+   .. figure:: figures/Rufus-figure-2.png
+      :scale: 80 %
+      :alt: Rufus utility - Show and select |CL| image file
+
+   Figure 2: Rufus utility - Show and select |CL| image file
+
+#. Verify that :guilabel:`Create a bootable disk using DD Image` checkbox is checked. 
+   See Figure 3.
+
+   .. figure:: figures/Rufus-figure-3.png
+      :scale: 80 %
+      :alt: BRufus utility - Create a bootable disk using DD Image
+
+   Figure 3: Rufus utility - Create a bootable disk using DD Image
+
+#. Click the :guilabel:`Start` button.
 
 Next steps
-----------
+==========
 
 With a bootable |CL| USB drive, you can:
 
