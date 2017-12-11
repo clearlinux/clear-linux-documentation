@@ -95,10 +95,11 @@ External References
 External references or hyperlinks can be added easily with ReST. Only
 hyperlinks with a separated target definition are allowed.
 
-Do not use explicit hyperlinks consisting entire URLs. For example, links like this one, https://clearlinux.org/ must be avoided.
+Do not use explicit hyperlinks consisting entire URLs. For example, links
+like this one, https://clearlinux.org/ must be avoided.
 
-Hyperlinks with a separated target definition allow us to place the URL after label. They are easier to update and independent of the text, for
-example:
+Hyperlinks with a separated target definition allow us to place the URL after
+label. They are easier to update and independent of the text, for example:
 
 `Gitg`_ is a great tool to visualize a GIT tree.
 

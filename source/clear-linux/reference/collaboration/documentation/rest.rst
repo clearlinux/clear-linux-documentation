@@ -5,14 +5,15 @@ RestructuredText guide
 
 The |CLOSIA| uses Sphinx and RestructuredText as authoring tools for its
 documentation. This section contains the preferred methods for using the
-:abbr:`ReST (RestructuredText)` markup on your documents. Please refer to
-the `Sphinx documentation`_ for the complete list of available markup and use as much markup as possible.
+:abbr:`ReST (RestructuredText)` markup on your documents. Please refer to the
+`Sphinx documentation`_ for the complete list of available markup and use
+as much markup as possible.
 
 Remember: **Changing incorrect markup is easier than adding markup from
 scratch.**
 
 We provide templates, examples, and use scenarios to help you write and edit
-documents easily. Use only the templates provided to ensure  your content is
+documents easily. Use only the templates provided to ensure your content is
 consistent with the rest of the documentation.
 
 Contributions with incorrect use of markup will not be merged until the

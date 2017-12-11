@@ -16,11 +16,17 @@ documentation is written using ReStructuredText and we provide
 To contribute, follow the standard `GitHub flow`_:
 
 #. Clone the `Clear Linux documentation repository`_.
+
 #. Create your own fork of the repository.
+
 #. Create a branch for your contribution.
+
 #. Add your commits.
+
 #. Open a pull request.
+
 #. Discuss, review, and update your contributions.
+
 #. Once the maintainer approves, your contribution is merged and published as
    part of the `documentation section`_.
 
@@ -90,8 +96,8 @@ All contributions must follow our :ref:`code-of-conduct`.
 Methodology
 ***********
 
-This guide contains differs from other style guides. It also
-contains additional material not found in those sources.
+This guide differs from other style guides and contains additional material
+not found in those sources.
 
 To research a style question, look for the answer in this guide
 first. If the question is not answered here, send your question to the

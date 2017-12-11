@@ -21,8 +21,10 @@ Follow these general guidelines:
   at least 2x3 or 3x2.
 
 ReST supports several types of tables. |CL| uses grid and
-:abbr:`CSV-tables (Comma Separated Values tables)`. Grid tables are
-only suited for very short content since they must be fully drawn. CSV-tables support multi-lined cells, are easy to update and allow more layout options.
+:abbr:`CSV-tables (Comma Separated Values tables)`. Grid tables are only
+suited for very short content since they must be fully drawn. CSV-tables
+support multi-lined cells, are easy to update and allow more layout
+options.
 
 Use grid tables for small tables where the layout needs to be determined
 manually. For example:
@@ -57,7 +59,8 @@ This template can help you create grid tables:
    | body row 2             | ...        | ...      |          |
    +------------------------+------------+----------+----------+
 
-CSV-tables are more flexible than grid tables. They can be updated easily and support several layout options. For example:
+CSV-tables are more flexible than grid tables. They can be updated easily and
+support several layout options. For example:
 
 .. csv-table:: Frozen Delights!
    :header: "Treat", "Quantity", "Description"
@@ -68,7 +71,10 @@ CSV-tables are more flexible than grid tables. They can be updated easily and su
    crunchy, now would it?"
    "Gannet Ripple", 1.99, "On a stick!"
 
-CSV-tables can have a title, the header row is optional and separate from the rest of the table, each column's width is customizable among others. See the Sphinx `CSV-tables documentation`_ to learn all the possible options available.
+CSV-tables can have a title, the header row is optional and separate from the
+rest of the table, each column's width is customizable among others. See the
+Sphinx `CSV-tables documentation`_ to learn all the possible options
+available.
 
 This template can help you create CSV-tables:
 

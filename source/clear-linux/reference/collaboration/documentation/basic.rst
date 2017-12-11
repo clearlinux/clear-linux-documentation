@@ -60,7 +60,7 @@ Structure
 * Use descriptive headings.
 
 * Follow all headings with at least one paragraph of content. There should
-  never be to consecutive headings.
+  never be two consecutive headings.
 
 * Separate the link and the target definition. All target definitions must be
   included at the end of the file. See :ref:`cross` for details.

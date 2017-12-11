@@ -18,10 +18,10 @@ Words should only be capitalized when:
 * They are proper nouns or adjectives.
 * They refer to trademarked product names.
 
-.. important::
+.. note::
    Do not capitalize a word to indicate it has a greater status than other
-    words. Never change the case of variable, function or file names; always
-    keep the original case.
+   words. Never change the case of variable, function or file names; always
+   keep the original case.
 
 Menu capitalization
 ===================
@@ -76,12 +76,14 @@ letter, even if they are headings. For example:
 
 Plurals and possessives
 ***********************
+
 Because English plurals and possessives use the same /s/ and /z/
 phonemes, they can create problems for even experienced writers. This
 section deals with these issues.
 
 Singular vs. plural possessives
 ===============================
+
 Here are some guidelines for singular and plural possessives:
 
 * Use only the apostrophe to show possession for a plural that ends in
@@ -239,7 +241,7 @@ Pluralize Latin terms in body text as shown:
 
 .. note::
    Some Latin plurals, such as parentheses, phenomena, alumni, and
-    crises, are widely used and accepted in English.
+   crises, are widely used and accepted in English.
 
 Contractions
 ************
@@ -247,7 +249,7 @@ Contractions
 Avoid the use of contractions since some of them might be ambiguous and
 confusing to non-native English-speaking audiences.
 
-Some contractions can cause confusion for nonnative English-speakers
+Some contractions can cause confusion for non-native English-speakers
 because these contractions stand for more than one construction. For
 example, there's can be a contraction of there is or there has. The
 same applies to where's, it's, that's, and others.
@@ -292,7 +294,7 @@ reinvent, submarine.
 
 .. note::
    Question whether the pre- prefix is needed at all and consider
-    leaving it off the word entirely if the meaning is the same.
+   leaving it off the word entirely if the meaning is the same.
 
 Exceptions
 ----------
