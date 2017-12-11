@@ -12,7 +12,7 @@ a :ref:`virtual machine <virtual-machine-install>`, or by way of a
 information and instructions on how to complete pre-install tasks.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    ../reference/system-requirements
    bare-metal-install/bare-metal-install
