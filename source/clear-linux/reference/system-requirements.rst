@@ -32,7 +32,11 @@ minimum requirements include:
    http://ark.intel.com and check for these features:
 
    * Instruction Set = 64-bit
+   * Instruction Set Extensions = SSSE3
    * Instruction Set Extensions = SSE 4.1
+   * Instruction Set Extensions = SSE 4.2
+   * Instruction Set Extensions = AES
+   * Instruction Set Extensions = PCLMUL
 
 *  Memory: 4GB RAM
 
