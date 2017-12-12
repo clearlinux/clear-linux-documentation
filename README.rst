@@ -44,7 +44,7 @@ repository to our local machine.
 
 .. code-block:: console
 
-   $ git clone git@clrgitlab.intel.com:clr-documentation/project-docs.git
+   $ git clone https://github.com/clearlinux/clear-linux-documentation
 
 Run make
 ========
