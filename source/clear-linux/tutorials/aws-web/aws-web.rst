@@ -171,7 +171,8 @@ other instances available, they are also listed but not selected.
    located at the top of your dashboard. AWS brings up the pop-up dialog
    box shown in figure 11 describing how to connect to your running instance. 
    
-.. _aws-web-figure-11:
+.. _fig-aws-web-11:
+
 .. figure:: figures/aws-web-11.png
    :scale: 50 %
    :alt: Connect to Your Instance
@@ -197,7 +198,7 @@ other instances available, they are also listed but not selected.
       chmod 400 AWSClearTestKey.pem
 
 #. Copy the text highlighted in the :guilabel:`Example:` section that is
-   shown in :ref:`aws-web-figure-11`. Paste the copied text into your terminal and add
+   shown in :ref:`figure 11<fig-aws-web-11>`. Paste the copied text into your terminal and add
    `-l clear` text to the end of the command string. Press the :kbd:`Enter`
    key to execute the command.
 
