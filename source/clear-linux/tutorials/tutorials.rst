@@ -17,3 +17,5 @@ specific |CLOSIA| use cases.
    hadoop
    fmv
    aws-web/aws-web
+   telemetry-backend/telemetry-backend
+

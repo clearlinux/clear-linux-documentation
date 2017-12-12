@@ -105,6 +105,8 @@ go to: http://<your_website>/blog/wp-admin/install.php.
 
 Your screen should look like figure 1:
 
+.. _fig-wp-install-1:
+
 .. figure:: figures/wp-install-1.png
     :alt: WordPress language selection
     :width:     600
@@ -112,7 +114,9 @@ Your screen should look like figure 1:
     WordPress language selection screen.
 
 Select :guilabel:`English` for the language and click the
-:guilabel:`Continue` button.
+:guilabel:`Continue` button. :ref:`As shown on figure 1<fig-wp-install-1>`
+
+
 
 The WordPress installation continues until the welcome screen shown in figure
 2 appears:
