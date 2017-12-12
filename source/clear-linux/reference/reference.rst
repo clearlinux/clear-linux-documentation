@@ -11,5 +11,6 @@ regarding the |CL| project and the |CL| features.
 
    bundle-commands
    bundles/available-bundles
+   collaboration/collaboration
    compatible-kernels
    system-requirements
