@@ -88,9 +88,9 @@ Install the Clear Linux OS
 #. On the *Choose Installation Type* screen, choose *Manual (Advanced)*,
    as shown in Figure 1.
 
-   |multi-boot-01|
+   .. figure:: figures/multi-boot-01.png
 
-   Figure 1: |CL| installer: Choose installation type screen
+      Figure 1: |CL| installer: Choose installation type screen
 
    .. note::
       If you are not familiar with text-based installation
@@ -107,14 +107,14 @@ Install the Clear Linux OS
    :guilabel:`Manually configure mounts and partitions`, as shown in
    Figure 2.
 
-   |multi-boot-02|
+   .. figure:: figures/multi-boot-02.png
 
-   Figure 2: |CL|: Choose partitioning method
+      Figure 2: |CL|: Choose partitioning method
 
 #. Select the drive, in this case :file:`/dev/sda` and press :kbd:`Enter` to
    go into the `cgdisk` partitioning tool. See Figure 3.
 
-   |multi-boot-03|
+   .. figure:: figures/multi-boot-03.png
 
    Figure 3: |CL|: Choose drive to partition
 
@@ -124,38 +124,38 @@ Install the Clear Linux OS
 
       .. _multi-boot-04:
 
-      |multi-boot-04|
+      .. figure:: figures/multi-boot-04.png
 
-      Figure 4: |CL|: Create new partition
+         Figure 4: |CL|: Create new partition
 
    #. Accept the default first sector.
 
    #. Specify the desired size of the partition. For this example, we
       specified *50GB*. See Figure 5.
 
-      |multi-boot-05|
+      .. figure:: figures/multi-boot-05.png
 
-      Figure 5: |CL|: New partition size
+         Figure 5: |CL|: New partition size
 
    #. Set the partition type to :guilabel:`8300 (Linux filesystem)`. See
       Figure 6.
 
-      |multi-boot-06|
+      .. figure:: figures/multi-boot-06.png
 
-      Figure 6: |CL|: Set partition type
+         Figure 6: |CL|: Set partition type
 
    #. Name the partition :file:`CL-root`. This name makes it easier to
       identify later. See Figure 7.
 
-      |multi-boot-07|
+      .. figure:: figures/multi-boot-07.png
 
-      Figure 7: |CL|: Name partition
+         Figure 7: |CL|: Name partition
 
 #. Create a new swap partition. See Figure 8.
 
-   |multi-boot-08|
+   .. figure:: figures/multi-boot-08.png
 
-   Figure 8: |CL|: Create swap partition
+      Figure 8: |CL|: Create swap partition
 
    #. Select the `free space` partition located at the bottom of the column.
 
@@ -172,9 +172,9 @@ Install the Clear Linux OS
 
 #. Create a new EFI partition. See Figure 9.
 
-   |multi-boot-09|
+   .. figure:: figures/multi-boot-09.png
 
-   Figure 9: |CL|: Create EFI partition
+      Figure 9: |CL|: Create EFI partition
 
    #. In the Partition Type column, select :guilabel:`free space` located at
       the bottom of the column.
@@ -200,22 +200,22 @@ Install the Clear Linux OS
 #. On the :guilabel:`Set mount points` screen, specify the mount points and
    format settings as shown in Figure 10.
 
-   |multi-boot-10|
+   .. figure:: figures/multi-boot-10.png
 
-   Figure 10: |CL|: Set mount points
+      Figure 10: |CL|: Set mount points
 
 #. On the :guilabel:`User configuration` screen, select
    :guilabel:`Create an administrative user`. See Figure 11.
 
-   |multi-boot-11|
+   .. figure:: figures/multi-boot-11.png
 
-   Figure 11: |CL|: User configuration
+      Figure 11: |CL|: User configuration
 
 #. Select :guilabel:`Add user to sudoers?`. See Figure 12.
 
-   |multi-boot-12|
+   .. figure:: figures/multi-boot-12.png
 
-   Figure 12: |CL|: Add user as sudoer
+      Figure 12: |CL|: Add user as sudoer
 
 #. Follow the remaining prompts to complete the installation and go through
    the out-of-box-experience of |CL|.
@@ -247,16 +247,16 @@ Install Windows\* Server 2016
 #. At the :guilabel:`Type of installation` screen, choose
    :guilabel:`Custom: Install Windows only (advanced)`. See Figure 13.
 
-   |multi-boot-13|
+   .. figure:: figures/multi-boot-13.png
 
-   Figure 13: Windows: Choose installation type
+      Figure 13: Windows: Choose installation type
 
 #. Select :guilabel:`Unallocated Space` and create a new partition of the
    desired size. In this example, we specified 50000 MB. See Figure 14.
 
-   |multi-boot-14|
+   .. figure:: figures/multi-boot-14.png
 
-   Figure 14: Windows: Create new partition
+      Figure 14: Windows: Create new partition
 
    .. note::
       Windows normally creates its own EFI partition (100MB) if none exists.
@@ -266,9 +266,9 @@ Install Windows\* Server 2016
 #. Select the newly created partition and follow the remaining prompts
    to complete the installation of Windows. See Figure 15.
 
-   |multi-boot-15|
+   .. figure:: figures/multi-boot-15.png
 
-   Figure 15: Windows: Install on newly created partition
+      Figure 15: Windows: Install on newly created partition
 
 #. Go through the Windows out-of-box-experience process.
 
@@ -284,16 +284,16 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 #. At the :guilabel:`INSTALLATION SUMMARY` screen, choose
    :guilabel:`INSTALLATION DESTINATION`. See Figure 16.
 
-   |multi-boot-16|
+   .. figure:: figures/multi-boot-16.png
 
-   Figure 16: Red Hat: Installation summary
+      Figure 16: Red Hat: Installation summary
 
 #. In the :guilabel:`Device Selection` section, select a drive on which to
    install the OS. See Figure 17.
 
-    |multi-boot-17|
+   .. figure:: figures/multi-boot-17.png
 
-    Figure 17: Red Hat: Installation destination
+      Figure 17: Red Hat: Installation destination
 
 #. Under the :guilabel:`Other Storage Options` section, choose
    :guilabel:`I will configure partitioning`. See Figure 17.
@@ -304,9 +304,9 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
    select :menuselection:`Standard Partition` from the drop down list. See
    Figure 18.
 
-    |multi-boot-18|
+   .. figure:: figures/multi-boot-18.png
 
-    Figure 18: Red Hat: New partition scheme
+      Figure 18: Red Hat: New partition scheme
 
 #. Create a new root partition.
 
@@ -315,9 +315,9 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
    #. Enter `/` and the new partition size. For this example, we specified 45
       GB. See Figure 19.
 
-      |multi-boot-19|
+      .. figure:: figures/multi-boot-19.png
 
-      Figure 19: Red Hat: Create new root partition
+         Figure 19: Red Hat: Create new root partition
 
    #. Click :guilabel:`Add mount point`.
 
@@ -332,9 +332,9 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
    #. Click :guilabel:`Update Settings`.
 
-      |multi-boot-20|
+      .. figure:: figures/multi-boot-20.png
 
-      Figure 20: Red Hat: Configure swap partition
+         Figure 20: Red Hat: Configure swap partition
 
 #. Share the EFI partition that was created by |CL|. See Figure
    21.
@@ -347,9 +347,9 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
    #. Click :guilabel:`Update Settings`.
 
-      |multi-boot-21|
+      .. figure:: figures/multi-boot-21.png
 
-      Figure 21: Red Hat: Configure EFI partition
+         Figure 21: Red Hat: Configure EFI partition
 
 #. Click :guilabel:`Done`.
 
@@ -376,9 +376,9 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
       additional parameters used. This information is used to create a
       new Systemd-Boot entry for Red Hat. See Figure 22.
 
-      |multi-boot-22|
+      .. figure:: figures/multi-boot-22.png
 
-      Figure 22: Red Hat: grub.cfg
+         Figure 22: Red Hat: grub.cfg
 
    #. Copy the kernel and `initrd` to the EFI partition.
 
@@ -448,24 +448,24 @@ Install SUSE\* Linux Enterprise 12 SP2
 #. At the :guilabel:`Suggested Partitioning` screen, choose
    :guilabel:`Expert Partitioner`. See Figure 23.
 
-   |multi-boot-23|
+   .. figure:: figures/multi-boot-23.png
 
-   Figure 23: SUSE: Suggested partitioning
+      Figure 23: SUSE: Suggested partitioning
 
    **Optional:** Under :guilabel:`Available Storage on Linux` section,
    right-click the SUSE :file:`/home` partition and delete it. In this example, it is :file:`/dev/sda8`. See Figure 24.
 
-   |multi-boot-24|
+   .. figure:: figures/multi-boot-24.png
 
-   Figure 24: SUSE: Delete /home partition
+      Figure 24: SUSE: Delete /home partition
 
 #. Under :guilabel:`Available Storage on Linux` section, right-click the SUSE
    root partition and resize it. In this example, :file:`/dev/sda7` is
    resized to 45 GB. See Figure 25.
 
-   |multi-boot-25|
+   .. figure:: figures/multi-boot-25.png
 
-   Figure 25: SUSE: Resize root partition
+      Figure 25: SUSE: Resize root partition
 
 #. Click :guilabel:`Accept`.
 
@@ -491,9 +491,9 @@ Install SUSE\* Linux Enterprise 12 SP2
       the root partition UUID, and the additional parameters used. Use this
       information to create a new Systemd-Boot entry. See Figure 26.
 
-      |multi-boot-26|
+      .. figure:: figures/multi-boot-26.png
 
-      Figure 26: SUSE: grub.cfg
+         Figure 26: SUSE: grub.cfg
 
    #. Copy the kernel and the :file:`initrd` file to the EFI partition.
 
@@ -569,27 +569,27 @@ Install Ubuntu\* 16.04 LTS Desktop
 #. At the :guilabel:`Installation type` screen, choose
    :guilabel:`Something else`. See Figure 27.
 
-   |multi-boot-27|
+   .. figure:: figures/multi-boot-27.png
 
-   Figure 27: Ubuntu: Installation type
+      Figure 27: Ubuntu: Installation type
 
 #. Create a new root partition.
 
    #. Under the :guilabel:`Device` column, select :guilabel:`free space`. See
       Figure 28.
 
-      |multi-boot-28|
+      .. figure:: figures/multi-boot-28.png
 
-      Figure 28: Ubuntu: Add partition
+         Figure 28: Ubuntu: Add partition
 
    #. Click the :guilabel:`+` button on the lower left corner.
 
    #. Enter the new partition size. For this example, we used *40000 MB*, as
       shown in Figure 29.
 
-      |multi-boot-29|
+      .. figure:: figures/multi-boot-29.png
 
-      Figure 29: Ubuntu: Configure new root partition
+         Figure 29: Ubuntu: Configure new root partition
 
    #. Set :guilabel:`Use as` to :guilabel:`Ext4 journaling file system`.
 
@@ -609,9 +609,9 @@ Install Ubuntu\* 16.04 LTS Desktop
    #. Confirm :guilabel:`Use as` is set to :guilabel:`Swap area`. See Figure
       30.
 
-      |multi-boot-30|
+      .. figure:: figures/multi-boot-30.png
 
-      Figure 30: Ubuntu - Set swap partition
+         Figure 30: Ubuntu - Set swap partition
 
 #. Follow the remaining prompts to complete the installation of Ubuntu.
 
@@ -636,9 +636,9 @@ Install Ubuntu\* 16.04 LTS Desktop
       information to create a new Systemd-Boot entry for Ubuntu. See Figure
       31.
 
-      |multi-boot-31|
+      .. figure:: figures/multi-boot-31.png
 
-      Figure 31: Ubuntu: grub.cfg
+         Figure 31: Ubuntu: grub.cfg
 
    #. Copy the kernel and :file:`initrd` to the EFI partition.
 
@@ -711,27 +711,27 @@ Install Mint\* 18.1 “Serena” MATE
 #. At the :guilabel:`Installation type` screen, choose
    :guilabel:`Something else`. See Figure 32.
 
-   |multi-boot-32|
+   .. figure:: figures/multi-boot-32.png
 
-   Figure 32: Mint: Installation type
+      Figure 32: Mint: Installation type
 
 #. Create a new root partition.
 
    #. Under the :guilabel:`Device` column, select :guilabel:`free space`. See
       Figure 33.
 
-      |multi-boot-33|
+      .. figure:: figures/multi-boot-33.png
 
-      Figure 33: Mint: Add partition
+         Figure 33: Mint: Add partition
 
    #. Click the :guilabel:`+` button.
 
    #. In the :guilabel:`Size` field, enter a value for the new partition
       size. For this example, we used *40000 MB*, as shown in Figure 34.
 
-      |multi-boot-34|
+      .. figure:: figures/multi-boot-34.png
 
-      Figure 34: Mint: Configure new partition settings
+         Figure 34: Mint: Configure new partition settings
 
    #. Set :guilabel:`Use as` to :guilabel:`Ext4 journaling file system`.
 
@@ -749,9 +749,9 @@ Install Mint\* 18.1 “Serena” MATE
    #. Confirm :guilabel:`Use as` is set to :guilabel:`Swap area`. See Figure
       35.
 
-      |multi-boot-35|
+      .. figure:: figures/multi-boot-35.png
 
-      Figure 35: Mint: Set swap partition
+         Figure 35: Mint: Set swap partition
 
 #. Follow the remaining prompts to complete the installation of Mint.
 
@@ -775,9 +775,9 @@ Install Mint\* 18.1 “Serena” MATE
       and the additional parameters used. Use this information to create a
       new Systemd-Boot entry for Mint. See Figure 36.
 
-      |multi-boot-36|
+      .. figure:: figures/multi-boot-36.png
 
-      Figure 36: Mint: grub.cfg
+         Figure 36: Mint: grub.cfg
 
    #. Copy the kernel and :file:`initrd` to the EFI partition.
 
@@ -856,9 +856,9 @@ longer the default boot loader. To restore it, follow the steps below.
 #. At the introduction screen, press :kbd:`Control+Alt+F2` to bring up the
    |CL| console. See Figure 37.
 
-   |multi-boot-37|
+   .. figure:: figures/multi-boot-37.png
 
-   Figure 37: |CL|: Console
+      Figure 37: |CL|: Console
 
 #. Log in as *root*.
 
@@ -873,9 +873,9 @@ longer the default boot loader. To restore it, follow the steps below.
 
       # fdisk –l
 
-   |multi-boot-38|
+   .. figure:: figures/multi-boot-38.png
 
-   Figure 38: |CL| - fdisk -l
+      Figure 38: |CL| - fdisk -l
 
 #. Mount the EFI partition.
 
@@ -904,79 +904,3 @@ longer the default boot loader. To restore it, follow the steps below.
 .. _systemd boot loader documentation:
    https://wiki.archlinux.org/index.php/Systemd-boot
 
-
-.. |multi-boot-01| image:: figures/multi-boot-01.png
-
-.. |multi-boot-02| image:: figures/multi-boot-02.png
-
-.. |multi-boot-03| image:: figures/multi-boot-03.png
-
-.. |multi-boot-04| image:: figures/multi-boot-04.png
-
-.. |multi-boot-05| image:: figures/multi-boot-05.png
-
-.. |multi-boot-06| image:: figures/multi-boot-06.png
-
-.. |multi-boot-07| image:: figures/multi-boot-07.png
-
-.. |multi-boot-08| image:: figures/multi-boot-08.png
-
-.. |multi-boot-09| image:: figures/multi-boot-09.png
-
-.. |multi-boot-10| image:: figures/multi-boot-10.png
-
-.. |multi-boot-11| image:: figures/multi-boot-11.png
-
-.. |multi-boot-12| image:: figures/multi-boot-12.png
-
-.. |multi-boot-13| image:: figures/multi-boot-13.png
-
-.. |multi-boot-14| image:: figures/multi-boot-14.png
-
-.. |multi-boot-15| image:: figures/multi-boot-15.png
-
-.. |multi-boot-16| image:: figures/multi-boot-16.png
-
-.. |multi-boot-17| image:: figures/multi-boot-17.png
-
-.. |multi-boot-18| image:: figures/multi-boot-18.png
-
-.. |multi-boot-19| image:: figures/multi-boot-19.png
-
-.. |multi-boot-20| image:: figures/multi-boot-20.png
-
-.. |multi-boot-21| image:: figures/multi-boot-21.png
-
-.. |multi-boot-22| image:: figures/multi-boot-22.png
-
-.. |multi-boot-23| image:: figures/multi-boot-23.png
-
-.. |multi-boot-24| image:: figures/multi-boot-24.png
-
-.. |multi-boot-25| image:: figures/multi-boot-25.png
-
-.. |multi-boot-26| image:: figures/multi-boot-26.png
-
-.. |multi-boot-27| image:: figures/multi-boot-27.png
-
-.. |multi-boot-28| image:: figures/multi-boot-28.png
-
-.. |multi-boot-29| image:: figures/multi-boot-29.png
-
-.. |multi-boot-30| image:: figures/multi-boot-30.png
-
-.. |multi-boot-31| image:: figures/multi-boot-31.png
-
-.. |multi-boot-32| image:: figures/multi-boot-32.png
-
-.. |multi-boot-33| image:: figures/multi-boot-33.png
-
-.. |multi-boot-34| image:: figures/multi-boot-34.png
-
-.. |multi-boot-35| image:: figures/multi-boot-35.png
-
-.. |multi-boot-36| image:: figures/multi-boot-36.png
-
-.. |multi-boot-37| image:: figures/multi-boot-37.png
-
-.. |multi-boot-38| image:: figures/multi-boot-38.png
