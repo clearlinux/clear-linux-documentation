@@ -125,13 +125,13 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
      .. code-block:: console
 
-        # apt-get vncviewer
+        # apt-get install vncviewer
 
    * On Mint\* 18.1 “Serena” Desktop:
 
      .. code-block:: console
 
-        # apt-get vncviewer
+        # apt-get install vncviewer
 
    * On Fedora\* 25 Workstation:
 
