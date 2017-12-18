@@ -5,8 +5,6 @@ Clear Linux\* OS on Microsoft\* Azure\*
 
 Clear Linux OS is now an offering in the Azure Marketplace.
 
-:ref:`fig-wp-install-1`
-
 Clear Linux OS is designed with cloud and data center environments in mind
 and is tuned to maximize the performance and value of Intel® architecture.
 In Azure our boot times are lightning-quick, with all on-boot services
