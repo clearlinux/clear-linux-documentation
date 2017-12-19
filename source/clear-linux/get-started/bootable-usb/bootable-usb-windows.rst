@@ -13,7 +13,7 @@ Alternative instructions for other operating systems are available:
 
 .. include:: ../../guides/maintenance/types-of-cl-images.rst
   :start-after: types-of-cl-images
-  
+
 .. include:: bootable-usb-linux.rst
    :Start-after: download-usb-suitable-images:
    :end-before: end-download-usb-suitable-images
@@ -37,7 +37,7 @@ Burn the Clear Linux image onto a USB drive
       :scale: 80 %
       :alt: Rufus utility - Click CD-ROM button
 
-   Figure 1: Rufus utility - Click CD-ROM button
+      Figure 1: Rufus utility - Click CD-ROM button
 
 #. By default, Rufus only shows ISO files.  To find and select a compressed 
    |CL| image file, you must click the file-type dropdown and select 
@@ -47,16 +47,16 @@ Burn the Clear Linux image onto a USB drive
       :scale: 80 %
       :alt: Rufus utility - Show and select |CL| image file
 
-   Figure 2: Rufus utility - Show and select |CL| image file
+      Figure 2: Rufus utility - Show and select |CL| image file
 
 #. Verify that :guilabel:`Create a bootable disk using DD Image` checkbox is checked. 
    See Figure 3.
 
    .. figure:: figures/Rufus-figure-3.png
       :scale: 80 %
-      :alt: BRufus utility - Create a bootable disk using DD Image
+      :alt: Rufus utility - Create a bootable disk using DD Image
 
-   Figure 3: Rufus utility - Create a bootable disk using DD Image
+      Figure 3: Rufus utility - Create a bootable disk using DD Image
 
 #. Click the :guilabel:`Start` button.
 

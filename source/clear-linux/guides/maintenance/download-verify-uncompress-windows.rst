@@ -13,7 +13,7 @@ Alternative instructions for other operating systems are available:
 
 .. include:: types-of-cl-images.rst
   :start-after: types-of-cl-images
-  
+
 Download the latest Clear Linux image
 =====================================
 
@@ -57,9 +57,9 @@ these steps:
 
   .. figure:: figures/7zipwin.png
     :scale: 80 %
-    :alt: 7-Zip extract file
+    :alt: Windows - 7-Zip extract file
 
-  Figure 1: Windows - 7-Zip extract file
+    Figure 1: Windows - 7-Zip extract file
 
 .. _7zip: http://www.7-zip.org/
 

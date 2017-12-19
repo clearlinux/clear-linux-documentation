@@ -1,7 +1,7 @@
 .. _types-of-cl-images:
 
 Types of Clear Linux images
-===========================
+***************************
 
 |CL| offers many types of `images`_ for different platforms and environments.
 
@@ -11,9 +11,9 @@ The naming convention of a |CL| image filename is:
    
     clear-[version number]-[image type].[compression type]
 
-The *[version number]* field specifies the version number.
+The `[version number]` field specifies the version number.
 
-The *[image type]* field specifies the type of image and its corresponding file 
+The `[image type]` field specifies the type of image and its corresponding file 
 format.  The current list of images available are:
 
 .. list-table:: Table 1: Types of Clear Linux images
@@ -47,7 +47,7 @@ format.  The current list of images available are:
    * - vmware.vmdk
      - Image for VMware
 
-The *[compression type]* field specifies the compression type. Two types of 
-compressions are used, namely GNU zip (*.gz*) and XZ (*.xz*).
+The `[compression type]` field specifies the compression type. Two types of 
+compressions are used, namely GNU zip (`.gz`) and XZ (`.xz`).
 
 .. _images: https://download.clearlinux.org/image

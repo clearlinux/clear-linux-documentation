@@ -13,7 +13,7 @@ Alternative instructions for other operating systems are available:
 
 .. include:: ../../guides/maintenance/types-of-cl-images.rst
   :start-after: types-of-cl-images
-  
+
 .. include:: bootable-usb-linux.rst
    :Start-after: download-usb-suitable-images:
    :end-before: end-download-usb-suitable-images
@@ -45,7 +45,7 @@ Burn the Clear Linux image onto a USB drive
       :scale: 100 %
       :alt: macOS - Get USB drive identifier
 
-   Figure 1: macOS - Get USB drive identifier
+      Figure 1: macOS - Get USB drive identifier
 
 #. Unmount the USB drive identified in the previous step.  The command-line 
    example below umounts `/dev/disk2`:
