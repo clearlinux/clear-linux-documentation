@@ -30,6 +30,8 @@ appropriate set of step-by-step instructions to proceed.
 
    kvm
    virtualbox
+   vmware-esxi-install-cl
+   vmware-esxi-preconfigured-cl-image
    vmware-player
    hyper-v
 
