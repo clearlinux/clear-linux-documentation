@@ -1,7 +1,7 @@
 .. _bootable-usb-linux:
 
 Create a bootable USB drive on Linux
-************************************
+####################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
 Use an **8GB** or larger USB drive.
@@ -14,12 +14,12 @@ Alternative instructions for other operating systems are available:
 .. _end-bootable-usb-linux-intro:
 
 .. include:: ../../guides/maintenance/types-of-cl-images.rst
-  :start-after: types-of-cl-images
+  :start-after: types-of-cl-images:
   
 .. _download-usb-suitable-images:
 
 Download the latest Clear Linux image
-=====================================
+*************************************
 
 There are 2 types of |CL| images that are suitable for burning onto and running 
 off a USB drive:
@@ -27,7 +27,7 @@ off a USB drive:
    * Live image: :file:`clear-[version number]-live.img.xz`
    * Installer image: :file:`clear-[version number]-installer.img.xz`
 
-Go to the Clear Linux `image`_ repository and download the desired type.
+Go to the Clear Linux `image`_ repository and download the image you want to use.  
 
 .. _image: https://download.clearlinux.org/image
 
@@ -44,7 +44,7 @@ Go to the Clear Linux `image`_ repository and download the desired type.
 .. _copy-usb-linux:
 
 Burn the Clear Linux image onto a USB drive
-===========================================
+*******************************************
 
 .. caution::
 
@@ -113,7 +113,7 @@ Burn the Clear Linux image onto a USB drive
 .. _usb-next:
 
 Next steps
-==========
+**********
 
 With a bootable |CL| USB drive, you can:
 

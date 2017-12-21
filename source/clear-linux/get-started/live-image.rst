@@ -13,10 +13,10 @@ great way to use |CL| without modifying your computer's hard disk.
    :end-before: end-bootable-usb-linux-intro
 
 .. include:: ../guides/maintenance/types-of-cl-images.rst
-  :start-after: types-of-cl-images
+  :start-after: types-of-cl-images:
   
 Download the latest Clear Linux live image
-==========================================
+******************************************
 
 Get the latest |CL| live image from the `image`_ directory.  
 Look for :file:`clear-[version number]-live.img.xz`.

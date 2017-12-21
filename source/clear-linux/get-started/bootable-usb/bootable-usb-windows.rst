@@ -1,7 +1,7 @@
 .. _bootable-usb-windows:
 
 Create a bootable USB drive on Windows
-**************************************
+######################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
 Use an **8GB** or larger USB drive.
@@ -12,7 +12,7 @@ Alternative instructions for other operating systems are available:
 * :ref:`bootable-usb-linux`
 
 .. include:: ../../guides/maintenance/types-of-cl-images.rst
-  :start-after: types-of-cl-images
+  :start-after: types-of-cl-images:
 
 .. include:: bootable-usb-linux.rst
    :Start-after: download-usb-suitable-images:
@@ -23,7 +23,7 @@ Alternative instructions for other operating systems are available:
    :end-before: uncompress-image-on-windows
 
 Burn the Clear Linux image onto a USB drive
-===========================================
+*******************************************
 
 .. caution::
 
@@ -33,7 +33,7 @@ Burn the Clear Linux image onto a USB drive
 #. Plug in the USB drive.
 #. Click the :guilabel:`CD-ROM` icon button. See Figure 1.
 
-   .. figure:: figures/Rufus-figure-1.png
+   .. figure:: figures/bootable-usb-windows-1.png
       :scale: 80 %
       :alt: Rufus utility - Click CD-ROM button
 
@@ -43,7 +43,7 @@ Burn the Clear Linux image onto a USB drive
    |CL| image file, you must click the file-type dropdown and select 
    :guilabel:`All files`.  See Figure 2.
 
-   .. figure:: figures/Rufus-figure-2.png
+   .. figure:: figures/bootable-usb-windows-2.png
       :scale: 80 %
       :alt: Rufus utility - Show and select |CL| image file
 
@@ -52,7 +52,7 @@ Burn the Clear Linux image onto a USB drive
 #. Verify that :guilabel:`Create a bootable disk using DD Image` checkbox is checked. 
    See Figure 3.
 
-   .. figure:: figures/Rufus-figure-3.png
+   .. figure:: figures/bootable-usb-windows-3.png
       :scale: 80 %
       :alt: Rufus utility - Create a bootable disk using DD Image
 
@@ -61,7 +61,7 @@ Burn the Clear Linux image onto a USB drive
 #. Click the :guilabel:`Start` button.
 
 Next steps
-==========
+**********
 
 With a bootable |CL| USB drive, you can:
 

@@ -14,10 +14,10 @@ on bare metal using a bootable USB drive.
    :end-before: end-bootable-usb-linux-intro
 
 .. include:: ../../guides/maintenance/types-of-cl-images.rst
-  :start-after: types-of-cl-images
+  :start-after: types-of-cl-images:
   
 Download the latest Clear Linux installer image
-===============================================
+***********************************************
 
 Get the latest |CL| installer image from the `image`_ directory.  
 Look for the :file:`clear-[version number]-installer.img.xz` file.

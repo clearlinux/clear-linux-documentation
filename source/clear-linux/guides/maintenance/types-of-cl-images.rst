@@ -1,7 +1,7 @@
 .. _types-of-cl-images:
 
 Types of Clear Linux images
-***************************
+###########################
 
 |CL| offers many types of `images`_ for different platforms and environments.
 

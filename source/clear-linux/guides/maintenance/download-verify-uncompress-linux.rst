@@ -12,22 +12,22 @@ Alternative instructions for other operating systems are available:
 * :ref:`download-verify-uncompress-windows`
 
 .. include:: types-of-cl-images.rst
-  :start-after: types-of-cl-images
+  :start-after: types-of-cl-images:
 
 Download the latest Clear Linux image
-=====================================
+*************************************
 
-Go to the Clear Linux `image`_ repository and download the desired type of image.
+Go to the Clear Linux `image`_ repository and download the image you want to use.  
 
 .. _verify-image-checksum-on-linux:
 
-Verify the integrity of the Clear Linux image
-=============================================
+Verify the integrity of the Clear Linux image on Linux
+******************************************************
 
-Before you use a downloaded |CL| image, it is recommended that you verify its 
-integrity to eliminate the chance, albeit small, that it might be corrupted due 
-to any download issues.  To support this, each released |CL| image is accompanied 
-by an official SHA512 checksum file, which is designated with the suffix `-SHA512SUMS`.  
+Before you use a downloaded |CL| image, verify its integrity. Thus, you 
+eliminate the small chance of a corrupted image due to download issues.
+To support verification, we accompany each released |CL| image with an official 
+SHA512 checksum file, which is designated with the suffix `-SHA512SUMS`.  
 
 #.  Download the official corresponding SHA512 checksum file of your downloaded |CL| image.  
 #.  Start a terminal emulator.
@@ -44,13 +44,12 @@ a match and your downloaded image is good.
 
 .. _uncompress-image-on-linux:
 
-Uncompress the Clear Linux image
-================================
+Uncompress the Clear Linux image on Linux
+*****************************************
 
-All released |CL| images are compressed by default using either GNU zip 
-(`.gz`) or XZ (`.xz`).  The compression typed used is dependent on which 
-platform/enviroment the image is targeted for.  Uncompress your image using 
-these steps:
+We compress all released |CL| images by default with either GNU zip 
+(`.gz`) or XZ (`.xz`). The compression type we use depends on the target 
+platform or environment of the image. To uncompress the image, follow these steps:
 
 #.  Start a terminal emulator.
 #.  Go to the directory with the downloaded image.
