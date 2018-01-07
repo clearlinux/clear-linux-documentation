@@ -3,8 +3,7 @@
 Available bundles
 #################
 
-This document provides a current list of available `bundles`_ as of
-``[[8 September 2017]]``.
+This document provides a current list of available `bundles`.
 
 See in depth descriptions of the following bundles:
 
