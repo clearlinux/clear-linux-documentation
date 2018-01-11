@@ -31,7 +31,7 @@ Burn the Clear Linux image onto a USB drive
 #. Launch the Terminal app.
 #. Go to the directory with the uncompressed image.
 #. Plug in a USB drive and get its identifier by entering the command
-   `diskutil list`.  See Figure 1.
+   :command:`diskutil list`.  See Figure 1.
 
    .. code-block:: console
 
@@ -41,6 +41,8 @@ Burn the Clear Linux image onto a USB drive
       :scale: 100 %
       :alt: Get USB drive identifier
 
+      Figure 1: macOS - Get USB drive identifier
+
 #. Unmount the USB drive identified in the previous step.  The command-line
    example below umounts `/dev/disk2`:
 
@@ -48,18 +50,18 @@ Burn the Clear Linux image onto a USB drive
 
       $ diskutil umountDisk /dev/disk2
 
-#. Burn the image onto the drive.  The command-line example below burns an
-   uncompressed image onto `/dev/disk2`:
+#. Burn the image onto the drive using the :command:`dd` command.  The 
+   command-line example below burns an uncompressed image onto `/dev/disk2`:
 
    .. code-block:: console
 
       $ sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
 
-   .. note::
 
-      * Adding an ‘r’ in front of the disk identifier should help speed up the
-        imaging process.
-      * Press :kbd:`<CTL>-T` to check imaging progress.
+   Adding an ‘r’ in front of the disk identifier should help speed up the 
+   imaging process.
+   
+   You can press :kbd:`<CTL>-T` to check imaging progress.
 
 #. Eject the USB drive.
 

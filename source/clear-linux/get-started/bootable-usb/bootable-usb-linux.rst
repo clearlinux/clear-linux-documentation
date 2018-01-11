@@ -37,7 +37,7 @@ Burn the Clear Linux image onto a USB drive
 
 #. Go to the directory with the uncompressed image.
 #. Plug in the USB drive.
-#. Identify the USB drive using the `lsblk` command.  This shows all drives
+#. Identify the USB drive using the :command:`lsblk` command.  This shows all drives
    attached to the system, including the primary hard disk. In the example
    output below, there are 4 drives (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and
    `/dev/sdd`) attached, where `/dev/sda` is primary drive in this case. The
@@ -73,8 +73,8 @@ Burn the Clear Linux image onto a USB drive
 
 #. Before an image can be burned onto a USB drive, it should be un-mounted.
    Some Linux distros may automatically mount a USB drive when it is plugged
-   in. To unmount, use the `umount` command followed by the device
-   identifier/partition. For example: From the above `lsblk` output,
+   in. To unmount, use the :command:`umount` command followed by the device
+   identifier/partition. For example: From the above :command:`lsblk` output,
    `/dev/sdd` has 2 mounted partitions.  To unmount them, enter:
 
    .. code-block:: console
