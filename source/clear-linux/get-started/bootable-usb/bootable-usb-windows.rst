@@ -1,13 +1,13 @@
 .. _bootable-usb-windows:
 
 Create a bootable USB drive on Windows
-**************************************
+######################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
 Use an **8GB** or larger USB drive.
 
 These instructions assume you have
-:ref:`downloaded and appropriate image<download-usb-image>`.
+:ref:`downloaded an appropriate image<download-usb-image>`.
 
 Alternative instructions for other operating systems are available:
 
