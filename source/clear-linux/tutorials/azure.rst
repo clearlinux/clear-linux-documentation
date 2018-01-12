@@ -45,13 +45,26 @@ Install MS Azure CLI 2.0 on Clear Linux
 ***************************************
 
 Prerequisites for using the MS Azure CLI 2.0 on your |CL| system require you
-to have Python 2.7 or later, libffi, and OpenSSL 1.0.2 installed. If you need
-to install these packages on your |CL| machine, install the sysadmin-basic
-software bundle using the :command:`swupd` command:
+to have Python 2.7 or later, libffi, and OpenSSL 1.0.2 installed. You can
+check to see what versions you have installed on your system by running the
+individual commands as follows:
 
 .. code-block:: console
 
-   sudo swupd bundle-add sysadmin-basic
+   $ python --version
+   python 2.7.12
+   $ openssl version
+   OpenSSL 1.0.2n 7 Dec 2017
+   $ls -l /usr/lib64/libffi*
+   lrwxrwxrwx 1 root root    15 Jan 12  2017 /usr/lib64/libffi.so.6 -> libffi.so.6.0.4
+   -rwxr-xr-x 1 root root 38792 Jan 12  2017 /usr/lib64/libffi.so.6.0.4
+
+If you do not have these packages installed on your |CL| system, install the
+sysadmin-basic software bundle using the :command:`swupd` command:
+
+.. code-block:: console
+
+   $ sudo swupd bundle-add sysadmin-basic
 
 .. note::
 
@@ -65,7 +78,7 @@ shown:
 
 .. code-block:: console
 
-   curl -L https://aka.ms/InstallAzureCli | bash
+   $ curl -L https://aka.ms/InstallAzureCli | bash
 
 If you get an error message from :command:`curl` related to the -L parameter,
 or an error message is generated that includes the text "Object Moved", use
@@ -73,7 +86,7 @@ the full URL instead of the aka.ms redirect address:
 
 .. code-block:: console
 
-   curl https://azurecliprod.blob.core.windows.net/install | bash
+   $ curl https://azurecliprod.blob.core.windows.net/install | bash
 
 The installation script begins and prompts you several times during execution
 for information.
@@ -130,14 +143,14 @@ command to restart your shell.
 
 .. code-block:: console
 
-   exec -l $SHELL
+   $ exec -l $SHELL
 
 With the MS Azure CLI 2.0 executable successfully built and installed, run the
 :command:`az` command.
 
 .. code-block:: console
 
-   az
+   $ az
 
 The output from the :command:`az` command is shown below:
 
@@ -228,7 +241,7 @@ session.
 
 .. code-block:: console
 
-   az login
+   $ az login
 
 The output from this command is:
 
@@ -236,7 +249,7 @@ The output from this command is:
 
    To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code XXXXXXXXX to authenticate.
 
-Following the instructions, the website takes you too a MS Azure device login
+Following the instructions, the website takes you to a MS Azure device login
 page and asks you to enter the generated code. Enter the code and the
 website changes to a browser screen to enter your existing Microsoft Azure
 credentials. Log in with your Azure account credentials. Once complete, the
@@ -253,7 +266,7 @@ running the following :command:`az` command:
 
 .. code-block:: console
 
-   az vm image list --offer clear-linux --all --output table
+   $ az vm image list --offer clear-linux --all --output table
 
 This command may take some time to finish and the output lists all available
 |CL| images available in the Microsoft Azure marketplace and is shown below:
@@ -307,12 +320,12 @@ resource groups, visit the `Azure Resource Manager overview`_ for an overview
 and detailed description of resources within MS Azure.
 
 To create our new resource group, run the :command:`az` command shown below to
-create a resource group named `ClearResourceGroup` and locate it in the
-`westus` region.
+create a resource group named `ClearResourceGroup` using the `-n` parameter
+and locate it in the `westus` region using the `-l` parameter.
 
 .. code-block:: console
 
-   az group create -n ClearResourceGroup -l westus
+   $ az group create -n ClearResourceGroup -l westus
 
 When the command has completed, the output from this command is similar to
 the following:
@@ -339,7 +352,7 @@ in our search for the |CL| images available in the MS Azure marketplace:
 
 .. code-block:: console
 
-   az vm create --resource-group ClearResourceGroup --name ClearVM --image clear-linux-project:clear-linux-os:basic:latest --generate-ssh-keys
+   $ az vm create --resource-group ClearResourceGroup --name ClearVM --image clear-linux-project:clear-linux-os:basic:latest --generate-ssh-keys
 
 .. note::
 
@@ -374,7 +387,7 @@ shown:
 
 .. code-block:: console
 
-   ssh 13.91.4.245
+   $ ssh 13.91.4.245
    
 You may see the following message about the authenticity of the host. If this
 appears, type `yes` to proceed connecting to your new |CL| VM.
@@ -426,7 +439,7 @@ your command prompt, enter the :command:`az vm stop...` command as follows:
 
 .. code-block:: console
 
-   az vm stop --resource-group ClearResourceGroup --name ClearVM
+   $ az vm stop --resource-group ClearResourceGroup --name ClearVM
 
 This will stop the VM and then output text similar to what is shown below:
 
@@ -446,7 +459,7 @@ for the |CL| instance. Enter the following command:
 
 .. code-block:: console
 
-   az vm deallocate --resource-group ClearResourceGroup --name ClearVM
+   $ az vm deallocate --resource-group ClearResourceGroup --name ClearVM
 
 Next steps
 **********
