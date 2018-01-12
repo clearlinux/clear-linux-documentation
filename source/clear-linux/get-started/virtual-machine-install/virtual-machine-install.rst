@@ -30,7 +30,6 @@ appropriate set of step-by-step instructions to proceed.
 
    kvm
    virtualbox
-   vmware-esxi
    vmware-player
    hyper-v
 

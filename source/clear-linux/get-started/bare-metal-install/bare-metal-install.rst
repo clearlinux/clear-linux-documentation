@@ -6,20 +6,19 @@ Install Clear Linux OS on bare metal
 These instructions guide you through the installation of |CLOSIA|
 on bare metal using a bootable USB drive.
 
-.. include:: ../compatibility-check.rst
-   :Start-after: compatibility-check:
+Before you begin, run our :ref:`compatibility-check`.
 
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: bootable-usb-linux:
-   :end-before: download-cl-image
 
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: download-cl-image:
-   :end-before: verify-checksum
+Download the latest Clear Linux installer image
+***********************************************
 
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: verify-checksum:
-   :end-before: copy-usb-linux
+Get the latest |CL| installer image from the `image`_ directory.
+Look for the :file:`clear-[version number]-installer.img.xz` file.
+Once you have downloaded the image, verify and uncompress the file.
+
+.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: verify-linux:
+   :end-before: To uncompress a GZ
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:
@@ -182,7 +181,7 @@ open a shell, or exit the |CL| installer.  This menu is shown in figure 5:
 Choose Clear Linux installation type
 ************************************
 
-Figure 7 shows the next step of the |CL| installer: 
+Figure 7 shows the next step of the |CL| installer:
 :guilabel:`Choose installation Type`. Chose whether to install |CL|
 **automatically** or **manually**.  To end the installer process and shut down
 the system, select the :guilabel:`< Exit >` button.
@@ -317,3 +316,4 @@ system. These instructions are captured in the :ref:`enable-user-space`.
 .. _`NUC6i5SYH product page`:
    http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
 
+.. _image: https://download.clearlinux.org/image

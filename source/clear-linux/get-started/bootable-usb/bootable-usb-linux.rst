@@ -1,59 +1,33 @@
 .. _bootable-usb-linux:
 
 Create a bootable USB drive on Linux
-************************************
+####################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
 Use an **8GB** or larger USB drive.
 
-Alternative instructions for other operating systems are available:
+These instructions assume you have
+:ref:`downloaded an appropriate image<download-usb-image>`.
+
+We also provide instructions for other operating systems:
 
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-windows`
 
-.. _download-cl-image:
+.. include:: ../../guides/maintenance/image-types.rst
+   :start-after: image-types-content:
 
-Download the latest Clear Linux image
-=====================================
-
-#. Go to the Clear Linux `image`_ repository and download the desired type:
-
-   * Live image: `clear-<version>-live.img.xz`
-   * Installer image: `clear-<version>-installer.img.xz`
-
-   For older versions, see the `releases`_ page.
-
-#. Although not required, it is recommended to download the corresponding
-   checksum file (designated with `-SHA512SUMS` at the end of the filename) for
-   the image in order to verify its integrity.
-
-.. _verify-checksum:
-
-Verify the integrity of the download (recommended)
-==================================================
-
-#. Start a terminal emulator.
-#. Go to the directory with the downloaded files.
-#. To verify the integrity of the image, enter the following (a live image
-   is used as example):
-
-   .. code-block:: console
-
-      $ sha512sum ./clear-<version>-live.img.xz | diff ./clear-<version>-live.img.xz-SHA512SUMS -
-
-   If the checksum of the downloaded image is different than the original
-   checksum, the differences will displayed. An empty output indicates a match.
+.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+   :Start-after: verify-linux:
 
 .. _copy-usb-linux:
 
 Burn the Clear Linux image onto a USB drive
-===========================================
+*******************************************
 
 .. caution::
 
-   Backup important data before proceeding. The process of burning an image
-   onto the USB drive completely formats the
-   USB drive and any existing content will be destroyed.
+   |CAUTION-BACKUP-USB|
 
 #. Open a terminal emulator and get root privilege.
 
@@ -61,9 +35,9 @@ Burn the Clear Linux image onto a USB drive
 
       $ sudo -s
 
+#. Go to the directory with the uncompressed image.
 #. Plug in the USB drive.
-
-#. Identify the USB drive using the `lsblk` command.  This shows all drives
+#. Identify the USB drive using the :command:`lsblk` command.  This shows all drives
    attached to the system, including the primary hard disk. In the example
    output below, there are 4 drives (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and
    `/dev/sdd`) attached, where `/dev/sda` is primary drive in this case. The
@@ -99,26 +73,26 @@ Burn the Clear Linux image onto a USB drive
 
 #. Before an image can be burned onto a USB drive, it should be un-mounted.
    Some Linux distros may automatically mount a USB drive when it is plugged
-   in. To unmount, use the `umount` command followed by the device
-   identifier/partition. For example: From the above `lsblk` output,
-   `/dev/sdd` has 2 mounted partitions.
+   in. To unmount, use the :command:`umount` command followed by the device
+   identifier/partition. For example: From the above :command:`lsblk` output,
+   `/dev/sdd` has 2 mounted partitions.  To unmount them, enter:
 
    .. code-block:: console
 
       # umount /dev/sdd2
       # umount /dev/sdd3
 
-#. Extract the downloaded image file and burn it onto the USB drive (`/dev/sdd`
-   is used as an example).
+#. Burn the image onto the USB drive.  The command-line example below burns an
+   uncompressed image onto `/dev/sdd`:
 
    .. code-block:: console
 
-      # xzcat clear-<version>-live.img.xz | dd of=/dev/sdd bs=4M status=progress
+      # dd if=./clear-[version number]-[image type] of=/dev/sdd bs=4M status=progress
 
 .. _usb-next:
 
 Next steps
-----------
+**********
 
 With a bootable |CL| USB drive, you can:
 
@@ -128,5 +102,3 @@ With a bootable |CL| USB drive, you can:
 
 .. _image: https://download.clearlinux.org/image
 .. _releases: https://download.clearlinux.org/releases
-
-
