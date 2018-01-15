@@ -119,7 +119,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
      .. code-block:: console
 
-        # swupd bundle-add desktop-apps 
+        # swupd bundle-add desktop-apps-extras 
 
    * On Ubuntu\* 16.04 LTS Desktop:
 
