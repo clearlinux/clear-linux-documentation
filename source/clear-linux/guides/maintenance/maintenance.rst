@@ -16,3 +16,4 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    validate-signatures
    telemetry-enable
    time
+   increase-virtual-disk-size
