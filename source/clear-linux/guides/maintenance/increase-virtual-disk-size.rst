@@ -54,14 +54,14 @@ execute the :command:`lsblk` command.  Here's a sample output:
 
 As you can see, both methods show the pre-built Hyper-V image is about 8.5GB. 
 
-Increase the root partition size
-********************************
+Increase virtual disk size
+**************************
 
-To increase the image size of a pre-built image, follow these steps:
+To increase the size of a pre-built image, follow these steps:
 
 #.	Shutdown your VM, if it's running.  
-#.	Use the appropriate hypervisor tool to increase the virtual disk size of 
-	your VM.
+#.	Use an appropriate hypervisor tool to increase the virtual disk size of 
+	your VM.  
 #.	Power up the VM.
 #. 	Log into an account with root privileges.  
 #.	Open a terminal emulator.
@@ -72,7 +72,7 @@ To increase the image size of a pre-built image, follow these steps:
 
 		# swupd bundle-add storage-utils
 
-#.	Launch the :command:`parted` command.
+#.	Launch the :command:`parted` tool.
 
 	.. code-block:: console
 
@@ -81,18 +81,37 @@ To increase the image size of a pre-built image, follow these steps:
 #.	In the `parted` tool, perform these steps:
 
 	#.	Press :kbd:`p` to print the partitions table.
-	#.	Enter :command:`fix` when prompted.
+	#.	If you get the warning message:
+
+		.. code-block:: console
+
+			Warning: Not all of the space available to /dev/sda appears to be 
+			used, you can fix the GPT to use all of the space (an extra ... blocks) 
+			or continue with the current setting?
+
+			Fix/Ignore? 
+
+		Enter :command:`fix`.
 	#.	Enter :command:`resizepart [partition number]` where [partition number] 
 		is the partition number you wish to modify.
 	#.	Enter :command:`yes` when prompted.
-	#.	Ener the new `End` size.  The `End` size is the total size of the disk.
-	#.	Enter :kbd:`q` to exit `parted`.
+	#.	Enter the new `End` size.  
+
+		.. note::
+
+			If you want a partition to take up the remaining disk space, just 
+			enter the total size of the disk.  The total disk size is shown 
+			after the `Disk` label when you print the partitions table with 
+			the :command:`p` command.  
+
+	#.	Enter :kbd:`q` to exit `parted` when you're done resizing.
 	#.	Enter :command:`resize2fs -p /dev/[modified partition name]` where 
 		[modified partition name] is the partition that was changed in `parted`.
 
-	Figure 1 below shows an example of increasing the size of a |CL| Hyper-V image 
-	from 8.5GB to 20GB.  Hyper-V Manager was used prior to increase the virtual disk
-	size from 8.5GB to 20GB before performing the steps show in Figure 1.  
+	Figure 1 below shows an example of increasing the size of a |CL| Hyper-V 
+	image from 8.5GB to 20GB.  The Hyper-V Manager was used prior to increase 
+	the virtual disk size from 8.5GB to 20GB before performing the steps show 
+	in Figure 1.  
 
 	.. figure:: figures/increase-virtual-disk-size-1.png
 		:scale: 100 %
