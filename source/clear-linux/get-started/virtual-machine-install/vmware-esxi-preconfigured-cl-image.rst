@@ -3,11 +3,11 @@
 Run pre-configured Clear Linux image as a VMware\* ESXi guest OS
 ################################################################
 
-`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top of 
-server hardware.  With VMware ESXi, you can create, configure, manage, and run 
-|CLOSIA| virtual machines in the cloud.  
+`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top of
+server hardware.  With VMware ESXi, you can create, configure, manage, and run a
+|CLOSIA| virtual machines in the cloud.
 
-This section shows you how to deploy a pre-configured |CL| VMware image on 
+This section shows you how to deploy a pre-configured |CL| VMware image on
 VMware ESXi 6.5 Update 1 using these steps:
 
 #.  Download the latest Clear Linux VMware image
@@ -18,67 +18,56 @@ VMware ESXi 6.5 Update 1 using these steps:
 #.  Create and configure a new VM
 #.  Power on the VM and boot |CL|
 
-If you would prefer to perform a fresh installation of |CL| into a new VMware 
-ESXi :abbr:`VM (Virtual Machine)` instead, see :ref:`vmware-esxi-install-cl`. 
+If you would prefer to perform a fresh installation of |CL| into a new VMware
+ESXi :abbr:`VM (Virtual Machine)` instead, see :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
-  VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ which 
-  is designed for the desktop environment.  For information on how on run a 
-  pre-configured |CL| image it, see :ref:`vmware-player-preconfigured-cl-image`.
+  VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ which
+  is designed for the desktop environment.
 
-.. include:: ../../guides/maintenance/types-of-cl-images.rst
-  :start-after: types-of-cl-images
+Visit :ref:`image-types` to learn more about the available images.
 
 Download the latest Clear Linux VMware image
-============================================
+********************************************
 
 Get the latest |CL| VMware image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
-   :Start-after: verify-image-checksum-on-linux:
-   :end-before: uncompress-image-on-linux
+   :Start-after: verify-linux:
+   :end-before: To uncompress a GZ
 
-For alternative instructions on other operating systems, see: 
+For alternative instructions on other operating systems, see:
 
-* :ref:`verify-image-checksum-on-mac`
-* :ref:`verify-image-checksum-on-windows`
-
-.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
-   :Start-after: uncompress-image-on-linux:
-   :end-before: uncompress-gz-on-linux
-
-For alternative instructions on other operating systems, see: 
-
-* :ref:`uncompress-image-on-mac`
-* :ref:`uncompress-image-on-windows`
+* :ref:`download-verify-uncompress-mac`
+* :ref:`download-verify-uncompress-windows`
 
 Upload the Clear Linux image to the VMware server
-=================================================
+*************************************************
 
-#.  Connect to the VMware server and log into an account with sufficient 
-    permission to create and manage VMs.   
+#.  Connect to the VMware server and log into an account with sufficient
+    permission to create and manage VMs.
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Storage`.
     See Figure 1.
-#.  Under the :guilabel:`Datastores` tab, click the :guilabel:`Datastore browser` 
+#.  Under the :guilabel:`Datastores` tab, click the :guilabel:`Datastore browser`
     button.
-    
+
     .. figure:: figures/vmware-esxi/vmware-esxi-1.png
       :scale: 100 %
-      :alt: VMware ESXi - Navigator > Storage 
+      :alt: VMware ESXi - Navigator > Storage
 
-      Figure 1: VMware ESXi - Navigator > Storage 
+      Figure 1: VMware ESXi - Navigator > Storage
 
-#.  Click the :guilabel:`Create directory` button and name the directory 
+#.  Click the :guilabel:`Create directory` button and name the directory
     as `Clear Linux VM`. See Figure 2.
 
     .. figure:: figures/vmware-esxi/vmware-esxi-2.png
       :scale: 100 %
-      :alt: VMware ESXi - Datastore > Create directory 
+      :alt: VMware ESXi - Datastore > Create directory
 
-      Figure 2: VMware ESXi - Datastore > Create directory 
-   
+      Figure 2: VMware ESXi - Datastore > Create directory
+
 #.  Select the newly-created directory and click the :guilabel:`Upload` button.
     See Figure 3.
 
@@ -86,13 +75,13 @@ Upload the Clear Linux image to the VMware server
       :scale: 100 %
       :alt: VMware ESXi - Datastore > Upload VMware image
 
-      Figure 3: VMware ESXi - Datastore > Upload VMware image 
+      Figure 3: VMware ESXi - Datastore > Upload VMware image
 
-#.  Select the uncompressed |CL| VMware image file :file:`clear-[version number]-vmware.vmdk` 
+#.  Select the uncompressed |CL| VMware image file :file:`clear-[version number]-vmware.vmdk`
     and upload it.
 
 Convert the Clear Linux image to an ESXi-supported format
-=========================================================
+*********************************************************
 
 #.  SSH into the VMware server and log into an account with root privilege.
 #.  Locate the uploaded image, which is typically found in `/vmfs/volumes/datastore1`.
@@ -107,14 +96,14 @@ Convert the Clear Linux image to an ESXi-supported format
     * :file:`clear-[version number]-esxi-flat.vmdk`
     * :file:`clear-[version number]-esxi.vmdk`
 
-    The :file:`clear-[version number]-esxi.vmdk` file will be used in the next 
+    The :file:`clear-[version number]-esxi.vmdk` file will be used in the next
     section when you create a new VM.
 
 Create and configure a new VM
-=============================
+*****************************
 
-In this section, you will create a new VM, configure its basic parameters such 
-number of CPUs, memory size, and attach the converted |CL| VMware image. 
+In this section, you will create a new VM, configure its basic parameters such
+number of CPUs, memory size, and attach the converted |CL| VMware image.
 
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
     See Figure 4.
@@ -136,10 +125,10 @@ number of CPUs, memory size, and attach the converted |CL| VMware image.
           :alt: VMware ESXi - Create a new virtual machine
 
           Figure 5: VMware ESXi - Create a new virtual machine
-   
+
 #.  On the :guilabel:`Select a name and guest OS` step:
 
-    #.  Give the new VM a name in the :guilabel:`Name` field. See Figure 6. 
+    #.  Give the new VM a name in the :guilabel:`Name` field. See Figure 6.
     #.  Set the :guilabel:`Compatability` option to :guilabel:`ESXi 6.5 virtual machine`.
     #.  Set the :guilabel:`Guest OS family` option to :guilabel:`Linux`.
     #.  Set the :guilabel:`Guest OS version` option to :guilabel:`Other 3.x or later Linux (64-bit)`.
@@ -159,18 +148,18 @@ number of CPUs, memory size, and attach the converted |CL| VMware image.
 #.  On the :guilabel:`Customize settings` step:
 
     #.  Click the :guilabel:`Virtual Hardware` button. See Figure 7.
-    #.  Expand the :guilabel:`CPU` setting and enable :guilabel:`Hardware virtualization` by 
+    #.  Expand the :guilabel:`CPU` setting and enable :guilabel:`Hardware virtualization` by
         checking :guilabel:`Expose hardware assisted virtualization to the guest OS`.
 
         .. figure:: figures/vmware-esxi/vmware-esxi-7.png
           :scale: 100 %
           :alt: VMware ESXi - Enable hardware virtualization
-      
+
           Figure 7: VMware ESXi - Enable hardware virtualization
 
-    #.  Remove the default :guilabel:`Hard drive 1` setting by the clicking 
+    #.  Remove the default :guilabel:`Hard drive 1` setting by the clicking
         the `X` icon on the right side. See Figure 8.
-      
+
         .. figure:: figures/vmware-esxi/vmware-esxi-23.png
           :scale: 100 %
           :alt: VMware ESXi - Remove hard drive
@@ -178,19 +167,19 @@ number of CPUs, memory size, and attach the converted |CL| VMware image.
           Figure 8: VMware ESXi - Remove hard drive
 
     #.  Since a pre-configured image will be used, the :guilabel:`CD/DVD Drive 1`
-        setting will not be needed.  Disable it by unchecking the 
+        setting will not be needed.  Disable it by unchecking the
         :guilabel:`Connect` checkbox. See Figure 9.
-      
+
         .. figure:: figures/vmware-esxi/vmware-esxi-24.png
           :scale: 100 %
           :alt: VMware ESXi - Disconnect the CD/DVD drive
 
           Figure 9: VMware ESXi - Disconnect the CD/DVD drive
 
-    #.  Attach the :file:`clear-[version number]-esxi.vmdk` file that was 
-        converted from the pre-configured |CL| VMware image. 
- 
-        #.  Click the :guilabel:`Add hard disk` button and select the 
+    #.  Attach the :file:`clear-[version number]-esxi.vmdk` file that was
+        converted from the pre-configured |CL| VMware image.
+
+        #.  Click the :guilabel:`Add hard disk` button and select the
             :guilabel:`Existing hard drive` option. See Figure 10.
 
             .. figure:: figures/vmware-esxi/vmware-esxi-25.png
@@ -199,8 +188,8 @@ number of CPUs, memory size, and attach the converted |CL| VMware image.
 
               Figure 10: VMware ESXi - Add an existing hard drive
 
-        #.  Select the converted :file:`clear-[version number]-esxi.vmdk` file.  
-            Do not use the original unconverted :file:`clear-[version number]-vmware.vmdk` 
+        #.  Select the converted :file:`clear-[version number]-esxi.vmdk` file.
+            Do not use the original unconverted :file:`clear-[version number]-vmware.vmdk`
             file. See Figure 11.
 
             .. figure:: figures/vmware-esxi/vmware-esxi-26.png
@@ -213,7 +202,7 @@ number of CPUs, memory size, and attach the converted |CL| VMware image.
 
     #.  Click the :guilabel:`VM Options` button. See Figure 12.
     #.  Expand the :guilabel:`Boot Options` setting.
-    #.  For the :guilabel:`Firmware` setting, click the drop-down list to the right 
+    #.  For the :guilabel:`Firmware` setting, click the drop-down list to the right
         of it and select the :guilabel:`EFI` option.
 
         .. figure:: figures/vmware-esxi/vmware-esxi-15.png
@@ -227,16 +216,16 @@ number of CPUs, memory size, and attach the converted |CL| VMware image.
 #.  Click the :guilabel:`Finish` button.
 
 Power on the VM and boot Clear Linux
-====================================
+************************************
 
 After configuring the settings above, power on the VM.
-   
+
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
     See Figure 13.
 #.  On the right window, select the newly-created VM.
-#.  Click the :guilabel:`Power on` button.  
+#.  Click the :guilabel:`Power on` button.
 #.  Click on the icon representing the VM to bring it into view and maximize
-    its window. 
+    its window.
 
     .. figure:: figures/vmware-esxi/vmware-esxi-11.png
       :scale: 100 %
@@ -248,8 +237,6 @@ Also see:
 *********
 
 * :ref:`vmware-esxi-install-cl`
-* :ref:`vmware-player-install-cl`
-* :ref:`vmware-player-preconfigure-cl-image`
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html

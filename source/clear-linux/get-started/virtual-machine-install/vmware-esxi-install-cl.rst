@@ -28,38 +28,27 @@ see :ref:`vmware-esxi-preconfigured-cl-image`.
 .. note::
 
   VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ 
-  which is designed for the dsesktop environment.  For information on how to 
-  install |CL| as guest OS on it, see :ref:`vmware-player-install-cl`.
+  which is designed for the desktop environment. 
 
-.. include:: ../../guides/maintenance/types-of-cl-images.rst
-  :start-after: types-of-cl-images
+Visit :ref:`image-types` to learn more about the available images.
 
 Download the latest Clear Linux installer ISO
-=============================================
+*********************************************
 
 Get the latest |CL| installer ISO image from the `image`_ repository.
 Look for :file:`clear-[version number]-installer.iso.xz`.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
-   :Start-after: verify-image-checksum-on-linux:
-   :end-before: uncompress-image-on-linux
+   :Start-after: verify-linux:
+   :end-before: To uncompress a GZ
 
 For alternative instructions on other operating systems, see: 
 
-* :ref:`verify-image-checksum-on-mac`
-* :ref:`verify-image-checksum-on-windows`
-
-.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
-   :Start-after: uncompress-image-on-linux:
-   :end-before: uncompress-gz-on-linux
-
-For alternative instructions on other operating systems, see: 
-
-* :ref:`uncompress-image-on-mac`
-* :ref:`uncompress-image-on-windows`
+* :ref:`download-verify-uncompress-mac`
+* :ref:`download-verify-uncompress-windows`
 
 Upload the Clear Linux installer ISO to the VMware server
-=========================================================
+*********************************************************
 
 #.  Connect to the VMware server and log into an account with sufficient 
     permission to create and manage VMs.  
@@ -96,7 +85,7 @@ Upload the Clear Linux installer ISO to the VMware server
     and upload it.
 
 Create and configure a new VM
-=============================
+*****************************
 
 In this section, you will create a new VM, configure its basic parameters such 
 drive size, number of CPUs, memory size, and attach the |CL| installer ISO. 
@@ -197,7 +186,7 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
 #.  Click the :guilabel:`Finish` button.
 
 Install Clear Linux into the new VM
-===================================
+***********************************
 
 #.  Power on the VM.
     
@@ -220,7 +209,7 @@ Install Clear Linux into the new VM
     This will restart the installer again. 
 
 Reconfigure the VM's settings to boot the newly-installed Clear Linux
-=====================================================================
+*********************************************************************
 
 After |CL| has been installed using the installer ISO, it must be dettached so
 it will not run again.  Also, in order to boot the newly-installed |CL|, you must
@@ -277,7 +266,7 @@ enable UEFI support.
 #.  Click the :guilabel:`Save` button.
 
 Power on the VM and boot Clear Linux
-====================================
+************************************
 
 After configuring the settings above, power on the VM.  
 
@@ -298,8 +287,6 @@ Also see:
 *********
 
 * :ref:`vmware-esxi-preconfigured-cl-image`
-* :ref:`vmware-player-install-cl`
-* :ref:`vmware-player-preconfigure-cl-image`
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
