@@ -57,7 +57,7 @@ Upload the Clear Linux installer ISO to the VMware server
 #.  Under the :guilabel:`Datastores` tab, click the :guilabel:`Datastore browser` 
     button.   
     
-    .. figure:: figures/vmware-esxi/vmware-esxi-1.png
+    .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-1.png
       :scale: 100 %
       :alt: VMware ESXi - Navigator > Storage 
 
@@ -66,7 +66,7 @@ Upload the Clear Linux installer ISO to the VMware server
 #.  Click the :guilabel:`Create directory` button and name the directory as `ISOs`.
     See Figure 2.
 
-    .. figure:: figures/vmware-esxi/vmware-esxi-2.png
+    .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-2.png
       :scale: 100 %
       :alt: VMware ESXi - Datastore > Create directory 
 
@@ -75,7 +75,7 @@ Upload the Clear Linux installer ISO to the VMware server
 #.  Select the newly-created directory and click the :guilabel:`Upload` button.
     See Figure 3.
 
-    .. figure:: figures/vmware-esxi/vmware-esxi-3.png
+    .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-3.png
       :scale: 100 %
       :alt: VMware ESXi - Datastore > Upload ISO 
 
@@ -94,7 +94,7 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
     See Figure 4.
 #.  On the right window, click the :guilabel:`Create / Register VM` button.
 
-    .. figure:: figures/vmware-esxi/vmware-esxi-4.png
+    .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-4.png
       :scale: 100 %
       :alt: VMware ESXi - Navigator > Virtual Machines
 
@@ -106,7 +106,7 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
         See Figure 5.
     #.  Click the :guilabel:`Next` button.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-5.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-5.png
           :scale: 100 %
           :alt: VMware ESXi - Create a new virtual machine
 
@@ -120,7 +120,7 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
     #.  Set the :guilabel:`Guest OS version` option to :guilabel:`Other 3.x or later Linux (64-bit)`.
     #.  Click the :guilabel:`Next` button.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-6.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-6.png
           :scale: 100 %
           :alt: VMware ESXi - Give a name and select guest OS type
 
@@ -137,7 +137,7 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
     #.  Expand the :guilabel:`CPU` setting and enable :guilabel:`Hardware virtualization` by 
         checking :guilabel:`Expose hardware assisted virtualization to the guest OS`.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-7.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-7.png
           :scale: 100 %
           :alt: VMware ESXi - Enable hardware virtualization
       
@@ -145,7 +145,7 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
 
     #.  Set :guilabel:`Memory` size to 2048MB (2GB). See Figure 8.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-8.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-8.png
           :scale: 100 %
           :alt: VMware ESXi - Set memory size
 
@@ -154,13 +154,13 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
         .. note:: 
 
           The |CL| installer ISO needs a minimum of 2GB of RAM to work properly.
-          After the installation is complete, the memory size can be reduced, if 
+          The memory size can be reduced after installation is completed, if 
           desired, because a minimum |CL| installation can function on as little as 
           128MB of RAM. See :ref:`system-requirements` for more details.  
 
     #.  Set :guilabel:`Hard disk 1` to the desired capacity. See Figure 9.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-9.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-9.png
           :scale: 100 %
           :alt: VMware ESXi - Set hard disk size
 
@@ -176,7 +176,7 @@ drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
         option.  Then select the |CL| installer ISO :file:`clear-[version number]-installer.iso` 
         that was previously uploaded to the VMware server. See Figure 10.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-10.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-10.png
           :scale: 100 %
           :alt: VMware ESXi - Set CD/DVD to boot installer ISO
 
@@ -197,7 +197,7 @@ Install Clear Linux into the new VM
     #.  Click on the icon representing the VM to bring it into view and maximize
         its window.  
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-11.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-11.png
           :scale: 100 %
           :alt: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
@@ -221,7 +221,7 @@ enable UEFI support.
         of the VM's windows - and go to the :guilabel:`Power` setting and  
         select the :guilabel:`Power off` option. See Figure 12. 
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-12.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-12.png
           :scale: 100 %
           :alt: VMware ESXi - Actions > Power off
 
@@ -232,7 +232,7 @@ enable UEFI support.
     #.  Click the :guilabel:`Actions` button again and select :guilabel:`Edit settings`.  
         See Figure 13.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-13.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-13.png
           :scale: 100 %
           :alt: VMware ESXi - Actions > Edit settings
 
@@ -244,7 +244,7 @@ enable UEFI support.
     #.  For the :guilabel:`CD/DVD Drive 1` setting, uncheck the 
         :guilabel:`Connect` checkbox.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-14.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-14.png
           :scale: 100 %
           :alt: VMware ESXi - Disconnect the CD/DVD drive
 
@@ -257,7 +257,7 @@ enable UEFI support.
     #.  For the :guilabel:`Firmware` setting, click the drop-down list to the right 
         of it and select the :guilabel:`EFI` option.
 
-        .. figure:: figures/vmware-esxi/vmware-esxi-15.png
+        .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-15.png
           :scale: 100 %
           :alt: VMware ESXi - Set boot firmware to EFI
 
@@ -277,7 +277,7 @@ After configuring the settings above, power on the VM.
 #.  Click on the icon representing the VM to bring it into view and maximize
     its window.  
 
-    .. figure:: figures/vmware-esxi/vmware-esxi-11.png
+    .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-16.png
       :scale: 100 %
       :alt: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
@@ -287,6 +287,7 @@ Also see:
 *********
 
 * :ref:`vmware-esxi-preconfigured-cl-image`
+
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
