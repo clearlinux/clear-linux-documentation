@@ -13,16 +13,16 @@ installing |CL| into a new VM is that it provides you flexibility in configuring
 for example: its size, the number of partitions, bundles, etc. 
 We will perform these steps: 
 
-#.  Download the latest |CL| installer ISO
-#.  Verify the integrity of the |CL| image
-#.  Uncompress the |CL| image
-#.  Upload the |CL| installer ISO to the VMware server
-#.  Create and configure a new VM
-#.  Install |CL| into the new VM
-#.  Reconfigure the VM's settings to boot the newly-installed |CL|
-#.  Power on the VM and boot |CL|
+#.  Download the latest |CL| installer ISO.
+#.  Verify the integrity of the |CL| image.
+#.  Uncompress the |CL| image.
+#.  Upload the |CL| installer ISO to the VMware server.
+#.  Create and configure a new VM.
+#.  Install |CL| into the new VM.
+#.  Reconfigure the VM's settings to boot the newly-installed |CL|.
+#.  Power on the VM and boot |CL|.
 
-If you would prefer to use a pre-configured |CL| VMware image instead, 
+If you would prefer to use a preconfigured |CL| VMware image instead, 
 see :ref:`vmware-esxi-preconfigured-cl-image`. 
 
 .. note::
@@ -63,7 +63,7 @@ Upload the Clear Linux installer ISO to the VMware server
 
       Figure 1: VMware ESXi - Navigator > Storage 
 
-#.  Click the :guilabel:`Create directory` button and name the directory as `ISOs`.
+#.  Click the :guilabel:`Create directory` button and name the directory `ISOs`.
     See Figure 2.
 
     .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-2.png
@@ -88,7 +88,7 @@ Create and configure a new VM
 *****************************
 
 In this section, you will create a new VM, configure its basic parameters such 
-as drive size, number of CPUs, memory size, and attach the |CL| installer ISO. 
+as drive size, number of CPUs, memory size, and then attach the |CL| installer ISO. 
 
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
     See Figure 4.
@@ -154,9 +154,9 @@ as drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
         .. note:: 
 
           The |CL| installer ISO needs a minimum of 2GB of RAM to work properly.
-          The memory size can be reduced after installation is completed, if 
-          desired, because a minimum |CL| installation can function on as little as 
-          128MB of RAM. See :ref:`system-requirements` for more details.  
+          You can reduce the memory size after the installation completes if you want, 
+          because a minimum |CL| installation can function on as little as 128MB of RAM.
+          See :ref:`system-requirements` for more details.  
 
     #.  Set :guilabel:`Hard disk 1` to the desired capacity. See Figure 9.
 
@@ -174,7 +174,7 @@ as drive size, number of CPUs, memory size, and attach the |CL| installer ISO.
     #.  Attach the |CL| installer ISO.  For the :guilabel:`CD/DVD Drive 1` setting, 
         click the drop-down list to the right of it and select the :guilabel:`Datastore ISO file`
         option.  Then select the |CL| installer ISO :file:`clear-[version number]-installer.iso` 
-        that was previously uploaded to the VMware server. See Figure 10.
+        that you previously uploaded to the VMware server. See Figure 10.
 
         .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-10.png
           :scale: 100 %
@@ -211,7 +211,7 @@ Install Clear Linux into the new VM
 Reconfigure the VM's settings to boot the newly-installed Clear Linux
 *********************************************************************
 
-After |CL| has been installed using the installer ISO, it must be dettached so
+After |CL| has been installed using the installer ISO, it must be detached so
 it will not run again.  Also, in order to boot the newly-installed |CL|, you must
 enable UEFI support. 
 
