@@ -10,7 +10,7 @@ server hardware.  With VMware ESXi, you can create, configure, manage, and run
 This section shows you how to create a new :abbr:`VM (Virtual Machine)` and 
 install |CL| into it with VMware ESXi 6.5 Update 1.  Some of the advantages of 
 installing |CL| into a new VM is that it provides you flexibility in configuring, 
-for example: its size, the nummber of partitions, the initial of bundles, etc. 
+for example: its size, the number of partitions, bundles, etc. 
 We will perform these steps: 
 
 #.  Download the latest |CL| installer ISO
@@ -88,11 +88,11 @@ Create and configure a new VM
 *****************************
 
 In this section, you will create a new VM, configure its basic parameters such 
-drive size, number of CPUs, memory size, and attach the |CL| installer ISO. 
+as drive size, number of CPUs, memory size, and attach the |CL| installer ISO. 
 
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
     See Figure 4.
-#.  On the right window, click the :guilabel:`Create / Register VM` button.
+#.  In the right window, click the :guilabel:`Create / Register VM` button.
 
     .. figure:: figures/vmware-esxi/vmware-esxi-install-cl-4.png
       :scale: 100 %
@@ -192,7 +192,7 @@ Install Clear Linux into the new VM
     
     #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
         See Figure 11.
-    #.  On the right window, select the newly-created VM.
+    #.  In the right window, select the newly-created VM.
     #.  Click the :guilabel:`Power on` button.  
     #.  Click on the icon representing the VM to bring it into view and maximize
         its window.  
@@ -272,7 +272,7 @@ After configuring the settings above, power on the VM.
 
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
     See Figure 16.
-#.  On the right window, select the VM.
+#.  In the right window, select the VM.
 #.  Click the :guilabel:`Power on` button.  
 #.  Click on the icon representing the VM to bring it into view and maximize
     its window.  
