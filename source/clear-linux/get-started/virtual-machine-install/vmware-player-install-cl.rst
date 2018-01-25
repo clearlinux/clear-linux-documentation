@@ -11,7 +11,7 @@ your local system.
 This section shows you how to create a new VM and install |CL| into it with 
 the VMware Workstation 14 Player hypervisor.  Some of the advantages of 
 installing |CL| into a new VM is that it provides you flexibility in configuring, 
-for example: its size, the nummber of partitions, the initial of bundles, etc. 
+for example: its size, the number of partitions, bundles, etc. 
 We will perform these steps: 
 
 #.  Install the VMware Workstation Player hypervisor
