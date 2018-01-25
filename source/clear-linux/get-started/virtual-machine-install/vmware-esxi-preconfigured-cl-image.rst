@@ -103,12 +103,12 @@ Create and configure a new VM
 *****************************
 
 In this section, you will create a new VM, configure its basic parameters such
-number of CPUs, memory size, and attach the converted |CL| VMware image.  
+as number of CPUs, memory size, and attach the converted |CL| VMware image.  
 Also, in order to boot |CL|, you must enable UEFI support. 
 
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
     See Figure 4.
-#.  On the right window, click the :guilabel:`Create / Register VM` button.
+#.  In the right window, click the :guilabel:`Create / Register VM` button.
 
     .. figure:: figures/vmware-esxi/vmware-esxi-preconfigured-cl-image-4.png
       :scale: 100 %
@@ -223,7 +223,7 @@ After configuring the settings above, power on the VM.
 
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
     See Figure 13.
-#.  On the right window, select the newly-created VM.
+#.  In the right window, select the newly-created VM.
 #.  Click the :guilabel:`Power on` button.
 #.  Click on the icon representing the VM to bring it into view and maximize
     its window.
