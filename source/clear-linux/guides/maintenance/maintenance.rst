@@ -16,6 +16,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    validate-signatures
    telemetry-enable
    time
+   increase-virtual-disk-size
    download-verify-uncompress-linux
    download-verify-uncompress-mac
    download-verify-uncompress-windows
