@@ -1,22 +1,22 @@
 .. _vmware-esxi-preconfigured-cl-image:
 
-Run pre-configured Clear Linux image as a VMware\* ESXi guest OS
-################################################################
+Run preconfigured Clear Linux image as a VMware\* ESXi guest OS
+###############################################################
 
 `VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top of
-server hardware.  With VMware ESXi, you can create, configure, manage, and run a
+server hardware.  With VMware ESXi, you can create, configure, manage, and run
 |CLOSIA| virtual machines in the cloud.
 
-This section shows you how to deploy a pre-configured |CL| VMware image on
+This section shows you how to deploy a preconfigured |CL| VMware image on
 VMware ESXi 6.5 Update 1 using these steps:
 
-#.  Download the latest Clear Linux VMware image
-#.  Verify the integrity of the |CL| image
-#.  Uncompress the |CL| image
-#.  Upload the Clear Linux image to the VMware server
-#.  Convert the Clear Linux image to an ESXi-supported format
-#.  Create and configure a new VM
-#.  Power on the VM and boot |CL|
+#.  Download the latest Clear Linux VMware image.
+#.  Verify the integrity of the |CL| image.
+#.  Uncompress the |CL| image.
+#.  Upload the Clear Linux image to the VMware server.
+#.  Convert the Clear Linux image to an ESXi-supported format.
+#.  Create and configure a new VM.
+#.  Power on the VM and boot |CL|.
 
 If you would prefer to perform a fresh installation of |CL| into a new VMware
 ESXi :abbr:`VM (Virtual Machine)` instead, see :ref:`vmware-esxi-install-cl`.
@@ -46,7 +46,7 @@ For alternative instructions on other operating systems, see:
 Upload the Clear Linux image to the VMware server
 *************************************************
 
-#.  Connect to the VMware server and log into an account with sufficient
+#.  Connect to the VMware server and login to an account with sufficient
     permission to create and manage VMs.
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Storage`.
     See Figure 1.
@@ -60,7 +60,7 @@ Upload the Clear Linux image to the VMware server
       Figure 1: VMware ESXi - Navigator > Storage
 
 #.  Click the :guilabel:`Create directory` button and name the directory
-    as `Clear Linux VM`. See Figure 2.
+    `Clear Linux VM`. See Figure 2.
 
     .. figure:: figures/vmware-esxi/vmware-esxi-preconfigured-cl-image-2.png
       :scale: 100 %
@@ -83,7 +83,7 @@ Upload the Clear Linux image to the VMware server
 Convert the Clear Linux image to an ESXi-supported format
 *********************************************************
 
-#.  SSH into the VMware server and log into an account with root privilege.
+#.  SSH into the VMware server and login to an account with root privileges.
 #.  Locate the uploaded image, which is typically found in `/vmfs/volumes/datastore1`.
 #.  Use the :command:`vmkfstools` command to perform the conversion, as shown below:
 
@@ -103,7 +103,7 @@ Create and configure a new VM
 *****************************
 
 In this section, you will create a new VM, configure its basic parameters such
-as number of CPUs, memory size, and attach the converted |CL| VMware image.  
+as number of CPUs, memory size, and then attach the converted |CL| VMware image.  
 Also, in order to boot |CL|, you must enable UEFI support. 
 
 #.  Under the :guilabel:`Navigator` window, select :guilabel:`Virtual Machines`.
@@ -158,7 +158,7 @@ Also, in order to boot |CL|, you must enable UEFI support.
 
           Figure 7: VMware ESXi - Enable hardware virtualization
 
-    #.  Remove the default :guilabel:`Hard drive 1` setting by the clicking
+    #.  Remove the default :guilabel:`Hard drive 1` setting by clicking
         the `X` icon on the right side. See Figure 8.
 
         .. figure:: figures/vmware-esxi/vmware-esxi-preconfigured-cl-image-8.png
@@ -167,7 +167,7 @@ Also, in order to boot |CL|, you must enable UEFI support.
 
           Figure 8: VMware ESXi - Remove hard drive
 
-    #.  Since a pre-configured image will be used, the :guilabel:`CD/DVD Drive 1`
+    #.  Since a preconfigured image will be used, the :guilabel:`CD/DVD Drive 1`
         setting will not be needed.  Disable it by unchecking the
         :guilabel:`Connect` checkbox. See Figure 9.
 
@@ -178,7 +178,7 @@ Also, in order to boot |CL|, you must enable UEFI support.
           Figure 9: VMware ESXi - Disconnect the CD/DVD drive
 
     #.  Attach the :file:`clear-[version number]-esxi.vmdk` file that was
-        converted from the pre-configured |CL| VMware image.
+        converted from the preconfigured |CL| VMware image.
 
         #.  Click the :guilabel:`Add hard disk` button and select the
             :guilabel:`Existing hard drive` option. See Figure 10.
