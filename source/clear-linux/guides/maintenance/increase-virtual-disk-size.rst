@@ -61,7 +61,7 @@ Increase virtual disk size
 
 Follow these steps to increase the size of a prebuilt image:
 
-#.	Shutdown your VM, if it's running.
+#.	Shutdown your VM if it's running.
 #.	Use an appropriate hypervisor tool to increase the virtual disk size of
 	your VM.
 #.	Power up the VM.
