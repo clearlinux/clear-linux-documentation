@@ -61,11 +61,11 @@ To start the Apache service, enter the following commands:
 To verify that the Apache server application is running, go to your web
 browser and navigate to: http://localhost
 
-If the service is running you will see the message “It works!” on your
-browser as shown in figure 1.
+If the service is running you will see the message "This web server is
+operational from host." on your browser as shown in figure 1.
 
 .. figure:: figures/web-server-install-1.png
-    :alt: It works!
+    :alt: This web server is operational from host.
     :scale: 50%
 
     Confirmation the Apache service is running.
@@ -129,7 +129,8 @@ Finally, let’s create the new ``DocumentRoot`` directory structure and copy th
 
 To make sure that we have everything set correctly, let’s edit the new
 :file:`index.html` file with your editor and change the text from
-``It works`` to ``It works in it’s new location``.
+"This web server is operational from host." to
+"This web server is operational from its new location.".
 
 With the new configuration files in place, you will need to stop and then
 restart the ``httpd.service``.
