@@ -70,19 +70,19 @@ operational from host." on your browser as shown in figure 1.
 
     Confirmation the Apache service is running.
 
-The :file:`index.html` file is located in the :file:`/usr/share/httpd/htdocs`
-directory of your host system.  We will copy this file into a new location 
+The :file:`index.html` file is located in the :file:`/var/www/html`
+directory of your host system. We will copy this file into a new location
 after we modify the configuration.
 
 Change the Default Configuration and Data Directory
 ===================================================
 
 |CL| is designed to be a stateless operating system which means that you will
-need to create an optional configuration file.  The default location of the
-Apache configuration file, :file:`httpd.conf`, is located in the
-:file:`/usr/share/defaults/httpd` directory, which can be overwritten as part of the
-stateless paradigm.  This default :file:`.conf` file includes the following directives
-that allow for additional locations of configuration definitions:
+need to create an optional configuration file to make changes over the default values.
+The default location of the Apache configuration file, :file:`httpd.conf`, is located
+in the :file:`/usr/share/defaults/httpd` directory, which can be overwritten as part
+of the stateless paradigm.  This default :file:`.conf` file includes the following
+directives that allow for additional locations of configuration definitions:
 
 .. code-block:: console
 
@@ -105,26 +105,26 @@ Using your favorite editor, copy the content listed below into the new file
    #
    # Set a new location for DocumentRoot
    #
-   DocumentRoot "/var/www/html"
+   DocumentRoot "/var/www/tutorial"
    
    #
-   # Relax access to content within /var/www/html for this tutorial
+   # Relax access to content within /var/www/tutorial for this example
    #
-   <Directory "/var/www/html">
+   <Directory "/var/www/tutorial">
       AllowOverride none
       Require all granted
    </Directory>
 
 
 Finally, let’s create the new ``DocumentRoot`` directory structure and copy the
-:file:`index.html` file from :file:`/usr/share/httpd/htdocs` directory to
-:file:`/var/www/html`.
+:file:`index.html` file from :file:`/var/www/html` directory to
+:file:`/var/www/tutorial`.
 
 .. code-block:: console
 
-   sudo mkdir –p /var/www/html
-   cd /var/www/html
-   sudo cp /usr/share/httpd/htdocs/index.html .
+   sudo mkdir –p /var/www/tutorial
+   cd /var/www/tutorial
+   sudo cp /var/www/html/index.html .
 
 
 To make sure that we have everything set correctly, let’s edit the new
@@ -142,6 +142,28 @@ restart the ``httpd.service``.
 
 
 Now when you go to http://localhost you should see your new screen.
+
+To continue with the rest of the tutorial, it's necessary to return back to
+the default location configuration. To do this, edit the file
+:file:`/etc/httpd/conf.d/httpd.conf` again and replace any instance of
+/var/www/tutorial with /var/www/html.
+
+Then, stop and then restart the ``httpd.service``.
+
+.. code-block:: console
+
+   sudo systemctl stop httpd.service
+   sudo systemctl start httpd.service
+
+Now on http://localhost you should see the default screen again.
+
+Optionally, remove the /var/www/tutorial directory previously created.
+
+.. code-block:: console
+
+   sudo rm /var/www/tutorial/index.html
+   sudo rmdir /var/www/tutorial
+
 
 Installing PHP
 ==============
