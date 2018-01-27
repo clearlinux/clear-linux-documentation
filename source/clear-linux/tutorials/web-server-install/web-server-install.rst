@@ -105,12 +105,12 @@ Using your favorite editor, copy the content listed below into the new file
    #
    # Set a new location for DocumentRoot
    #
-   DocumentRoot “/var/www/html”
+   DocumentRoot "/var/www/html"
    
    #
    # Relax access to content within /var/www/html for this tutorial
    #
-   <Directory “/var/www/html”>
+   <Directory "/var/www/html">
       AllowOverride none
       Require all granted
    </Directory>
