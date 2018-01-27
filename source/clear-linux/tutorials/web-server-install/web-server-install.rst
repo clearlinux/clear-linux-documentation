@@ -80,7 +80,7 @@ Change the Default Configuration and Data Directory
 |CL| is designed to be a stateless operating system which means that you will
 need to create an optional configuration file.  The default location of the
 Apache configuration file, :file:`httpd.conf`, is located in the
-:file:`/etc/share/defaults/httpd` directory, which can be overwritten as part of the
+:file:`/usr/share/defaults/httpd` directory, which can be overwritten as part of the
 stateless paradigm.  This default :file:`.conf` file includes the following directives
 that allow for additional locations of configuration definitions:
 
