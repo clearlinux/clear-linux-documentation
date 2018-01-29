@@ -14,3 +14,4 @@ the configuration, administration, and use of networks in the |CLOSIA|.
     ovs-dpdk
     network-bonding
     custom-clear-container
+    vnc
