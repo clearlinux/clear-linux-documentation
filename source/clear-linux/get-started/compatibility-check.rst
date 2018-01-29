@@ -50,20 +50,12 @@ below.
 
       Checking if host is capable of running Clear Liunx* OS for Intel® Architecture
 
-      SUCCESS: Intel CPU
-
       SUCCESS: 64-bit CPU (lm)
-
       SUCCESS: Supplemental Streaming SIMD Extensions 3 (ssse3)
-
       SUCCESS: Streaming SIMD Extension v4.1 (sse4_1)
-
       SUCCESS: Streaming SIMD Extensions v4.2 (sse4_2)
-
       SUCCESS: Advanced Encryption Standard instruction set (aes)
-
       SUCCESS: Carry-less Multiplication extensions (pclmulqdq)
-
       SUCCESS: EFI Firmware
 
 .. _clear-linux-check-config.sh: https://download.clearlinux.org/current/clear-linux-check-config.sh
