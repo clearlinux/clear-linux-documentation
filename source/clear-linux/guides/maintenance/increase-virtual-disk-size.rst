@@ -65,7 +65,7 @@ Follow these steps to increase the size of a prebuilt image:
 #.	Use an appropriate hypervisor tool to increase the virtual disk size of
 	your VM.
 #.	Power up the VM.
-#. Login to an account with root privileges.
+#. 	Login to an account with root privileges.
 #.	Open a terminal emulator.
 #.	Add the |CL| `storage-utils` bundle to install the `parted` and
 	`resize2fs` tools.
@@ -88,12 +88,13 @@ Follow these steps to increase the size of a prebuilt image:
 		.. code-block:: console
 
 			Warning: Not all of the space available to /dev/sda appears to be
-			used, you can fix the GPT to use all of the space
-         (an extra ... blocks) or continue with the current setting?
+			used, you can fix the GPT to use all of the space (an extra ... 
+			blocks) or continue with the current setting?
 
 			Fix/Ignore?
 
 		Enter :command:`fix`.
+
 	#.	Enter :command:`resizepart [partition number]` where [partition number]
 		is the partition number you wish to modify.
 	#.	Enter :command:`yes` when prompted.
@@ -102,8 +103,8 @@ Follow these steps to increase the size of a prebuilt image:
 		.. note::
 
 			If you want a partition to take up the remaining disk space, just
-			enter the total size of the disk. When you print the partitions table
-         with the :command:`p` command, the total disk size is shown
+			enter the total size of the disk. When you print the partitions 
+			tablewith the :command:`p` command, the total disk size is shown
 			after the `Disk` label.
 
 	#.	Enter :kbd:`q` to exit `parted` when you are finished resizing the
@@ -112,9 +113,9 @@ Follow these steps to increase the size of a prebuilt image:
 		[modified partition name] is the partition that was changed in `parted`.
 
 	Figure 1 below shows an example of how to increase the size of a |CL|
-   Hyper-V image from 8.5GB to 20GB. Prior to the performing the steps shown
-   in Figure 1, we used the Hyper-V Manager to increase the virtual disk size
-   from 8.5GB to 20GB.
+	Hyper-V image from 8.5GB to 20GB. Prior to the performing the steps shown
+	in Figure 1, we used the Hyper-V Manager to increase the virtual disk size
+	from 8.5GB to 20GB.
 
 	.. figure:: figures/increase-virtual-disk-size-1.png
 		:scale: 100 %
