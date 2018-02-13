@@ -20,10 +20,10 @@ Install the VNC server and misc. components on your Clear Linux host
 
 To make VNC work on your |CL| host, you need to install these bundles:
 
-*	`desktop-autostart`: installs :abbr:`GDM (Gnome Desktop Manager)` and set 
-	it to start automatically on boot.  This also installs TigerVNC Viewer.  
-*	`vnc-server`: installs the TigerVNC server.
-*	`openssh-server`: installs an SSH server.
+*	`desktop-autostart`: Installs :abbr:`GDM (Gnome Desktop Manager)`, sets 
+	it to start automatically on boot, and installs TigerVNC Viewer.  
+*	`vnc-server`: Installs the TigerVNC server.
+*	`openssh-server`: Installs an SSH server.
 
 Follow these steps:
 
@@ -52,19 +52,19 @@ your host:
    :header-rows: 1
 
    * - Attribute
-     - `Method 1`: Manually start VNC session
+     - `Method 1`: Manually start a VNC session
      - `Method 2`: Automatically start a VNC session via a systemd service script
      - `Method 3`: Multi-user logins with authentication through GDM
    * - Description
      - This is the traditional method where you SSH into the |CL| host, manually 
-       start a VNC session to get a display ID, and then you connect to it by 
+       start a VNC session to get a display ID, and connect to it by 
        supplying the display ID.
      - The system administrator sets up a systemd service script for you with 
-       a pre-assigned display ID.  You just make a VNC connection and supply 
+       a pre-assigned display ID.  You make a VNC connection and supply 
        your pre-assigned display ID.
      - The system adminstrator configures GDM to accept connection requests.
-       When you make a VNC connection to the |CL| host, you'll be presented with 
-       the GDM login screen and you authenticate as if you're local.
+       When you make a VNC connection to the |CL| host, you see  
+       the GDM login screen and authenticate as if you are local.
    * - Who configures VNC settings?
      - You
      - System adminstrator
@@ -83,7 +83,7 @@ your host:
      - No.  Use |CL| account username and password through GDM
 
 
-Although all three methods can co-exist on the same |CL| host, we recommend 
+Although all three methods can coexist on the same |CL| host, we recommend 
 you pick a method that suits your needs. 
 
 For simplicity, the rest of this guide refers to these methods as 
@@ -92,7 +92,7 @@ For simplicity, the rest of this guide refers to these methods as
 Method 1: Manually start a VNC session
 ======================================
 
-You (and each user) must perform these steps to initialize you VNC settings.
+You (and each user) must perform these steps to initialize your VNC settings.
 
 #.	Log in.
 #.	Open a terminal emulator. 
@@ -127,10 +127,10 @@ You (and each user) must perform these steps to initialize you VNC settings.
 	Upon completion, you can find the default configuration files and the 
 	password file hidden in the `.vnc` directory in your home directory.    
 
-	Also, a VNC session will start and show a unique display ID, which is the 
+	Also, a VNC session starts and shows a unique display ID, which is the 
 	number following the hostname and the colon `:`.  In the above example, the 
-	display ID is 2.  In a later step, you will supply the display ID is to 
-	your VNC viewer app so it knows which session to connect to.  
+	display ID is 2.  In a later step, you will supply the display ID to 
+	your VNC viewer app for connection.  
 
 #.	Kill the active VNC session for the time being with the 
 	:command:`vncserver -kill :[display ID]` command.  Substitute [display ID] 
@@ -142,7 +142,7 @@ You (and each user) must perform these steps to initialize you VNC settings.
 
 	.. note::
 
-		If you don't recall the active session display ID, you can use the 
+		If you do not recall the active session display ID, use the 
 		:command:`vncserver -list` command to find it.  
 
 #.	Optional configurations:
@@ -156,8 +156,8 @@ Method 2: Automatically start a VNC session via a systemd service script
 ========================================================================
 
 To configure VNC for this method, you must have root privileges.  You will set
-up a systemd service file for each intended VNC users with his or her own 
-pre-assigned unique display ID.  
+up a systemd service file for all intended VNC users with their own 
+preassigned unique display ID.  
 
 #.	Log in and get root privileges.
 
@@ -165,7 +165,7 @@ pre-assigned unique display ID.
 
 		$ sudo -s
 
-#.	Make sure the user accounts already exit.  Use the following command to 
+#.	Make sure the user accounts already exist.  Use the following command to 
 	list all users.
 
 
@@ -182,7 +182,7 @@ pre-assigned unique display ID.
 #.	Create a systemd service script file :file:`vncserver@:[X].service`, where 
 	[X] is the display ID, for each user in `/etc/systemd/system`.  Each user  
 	must be assigned a unique display ID.  Be sure the correct username is entered 
-	in the `User` field. Below is an example shows user `vnc-user-b` who is 
+	in the `User` field. The example below shows user `vnc-user-b` who is 
 	assigned the display ID `5`.  
 
 	.. code-block:: console
@@ -207,10 +207,10 @@ pre-assigned unique display ID.
 
 		EOF 
 
-#.	Have each user log into his or her account and set a VNC password with 
+#.	Have each user log into their account and set a VNC password with 
 	the :command:`vncpasswd` command before proceeding to the next step.
 
-#.	Start the VNC service script and also set it to start automatically on 
+#.	Start the VNC service script and set it to start automatically on 
 	boot for each user.  Substitute the [X] with the display ID.
 
 	.. code-block:: console
@@ -225,7 +225,7 @@ pre-assigned unique display ID.
 
 		# systemctl | grep vnc
 
-	Below is an example of 2 VNC sessions that were successfully started for 
+	The example below shows 2 VNC sessions that were successfully started for 
 	users `vnc-user-b` with display ID 5 and `vnc-user-c` with display ID 6.
 
 	.. code-block:: console
@@ -241,8 +241,8 @@ Method 3: Multi-user logins with authentication through GDM
 
 For this method, VNC is configured as a systemd service that listens on port 
 5900 and GDM is configured to accept access requests from VNC. When you 
-make a VNC connection to your |CL| host, you'll be presented with the GDM login 
-screen and you authenticate as if you're local.  You must have root privileges
+make a VNC connection to your |CL| host, you are presented with the GDM login 
+screen and you authenticate as if you are local.  You must have root privileges
 to perform this configuration.   
 
 #.	Log in and get root privileges.
@@ -311,7 +311,7 @@ to perform this configuration.
 
 		EOF
 
-#.	Start the VNC socket script and also set it to start automatically on boot.  
+#.	Start the VNC socket script and set it to start automatically on boot.  
 
 	.. code-block:: console
 
@@ -325,7 +325,7 @@ to perform this configuration.
 
 		# systemctl | grep vnc
 
-	Below is an example that shows the xvnc.socket is running.  
+	The example below shows the xvnc.socket is running.  
 
 	.. code-block:: console
 
@@ -343,7 +343,7 @@ You need a VNC viewer app on your client system to connect to your |CL| host.
 An SSH client is only needed if you chose to use `Method 1` or you plan to encrypt
 your VNC traffic, which is discussed later in this guide. 
 
-Follow these steps to add these apps to your client system.   
+Perform the steps below to add these apps to your client system.   
 
 Install a VNC viewer app
 ========================
@@ -390,13 +390,13 @@ Steps to establishing a VNC connection depends on which VNC-server-configuration
 method you chose.  
 
 If you chose `Method 1`, you must take a few extra steps by 
-SSH'ing into your |CL| host and then manually launching VNC. 
+using SSH to connect to your |CL| host and then manually launching VNC. 
 
-If you chose `Method 2`, get your pre-assigned VNC display ID from your system 
+If you chose `Method 2`, get your preassigned VNC display ID from your system 
 administrator first and then proceed to the :ref:`connect-to-vnc-session` 
 section below.
 
-If you chose `Method 3`, simply proceed to the 
+If you chose `Method 3`, proceed to the 
 :ref:`connect-to-vnc-session` below.  
 
 
@@ -428,7 +428,7 @@ SSH into your Clear Linux host and launch VNC
 
 		#.	Click the :guilabel:`Open` button.
 
-#.	Log in with your |CL| username and password (not with your VNC password).  
+#.	Log in with your |CL| username and password. Do not use your VNC password.  
 #.	Start a VNC session.
 
 	.. code-block:: console
@@ -447,21 +447,21 @@ SSH into your Clear Linux host and launch VNC
 		Starting applications specified in /home/vnc-user-c/.vnc/xstartup
 		Log file is /home/vnc-user-c/.vnc/clr-linux:3.log
 
-#.	Take note of the generated display ID.  You will input it into the VNC viewer
-	viewer app to establish the connection later.  The above example shows 
+#.	Take note of the generated display ID, because you will input it into the VNC viewer
+	viewer app to establish the connection.  The above example shows 
 	the display ID is 3.  
 
 	.. note::
 
 		VNC automatically picks a unique display ID unless you specify one.  
-		To do that, you simply enter a unique number that is not already 
+		To specify a display ID, enter a unique number that is not already 
 		in use after the colon.  For example: 
 
 		.. code-block:: console
 
 			$ vncserver :8
 
-#.	You can now end the SSH connection by logging out if you'd like.  This will 
+#.	You can now end the SSH connection by logging out.  This does 
 	not terminate your active VNC session.   
 
 .. _connect-to-vnc-session:
@@ -469,16 +469,15 @@ SSH into your Clear Linux host and launch VNC
 Connect to your VNC session
 ===========================
 
-For `Method 1` and `Method 2`, you have to connect to a specific active session 
-(or display ID).  There are two ways you can specify it.  You can use a 
+For `Method 1` and `Method 2`, you must connect to a specific active session 
+or display ID using one of two options.  You can use a 
 fully-qualified VNC port number, which consists of the default VNC server port 
-(5900) plus the display ID or just simply the display ID.  
-For example: if the display ID is 3, it can be specified as `5903` or just as `3`. 
+(5900) plus the display ID or you can use the display ID.  
+For example, if the display ID is 3, it can be specified as `5903` or just as `3`. 
 
-For `Method 3`, VNC does not expect a display ID.  Just use `5900`.
+For `Method 3`, VNC does not expect a display ID.  Use `5900`.
 
-For simplicity, and to avoid confusions, the instructions below will only use 
-the fully-qualified VNC port number.
+For simplicity, the instructions below use the fully-qualified VNC port number.
 
 #.	Initiate the VNC connection:
 	
@@ -496,7 +495,7 @@ the fully-qualified VNC port number.
 		#.	Enter the IP address of the Clear Linux host and the fully-qualified 
 			VNC port number.  
 			
-			Here's a screenshot example which shows connecting to |CL| host 
+			The following screenshot shows connecting to |CL| host 
 			192.168.25.54 with a fully-qualified VNC port number 5902.
 	 
 	 		.. figure:: figures/vnc/vnc-2.png
@@ -510,9 +509,8 @@ the fully-qualified VNC port number.
 			.. note::
 
 				By default, the image quality setting in RealVNC viewer is low.  
-				You can increase it by changing the `ColorLevel` value.  
-				Follow these 
-				steps:
+				You can increase it by changing the `ColorLevel` value as described
+				in the following steps:
 
 				#.	Right-click a connection node and select :guilabel:`Properties...`.
 					See Figure 3.
@@ -538,9 +536,9 @@ the fully-qualified VNC port number.
 
 		.. note::
 
-			*	Don't use the macOS `Screen Sharing` app for `Method 3`
-				because it only allows you to enter a VNC password.  It doesn't
-				present the GDM login screen which gives you the ability to 
+			*	If you chose `Method 3`, you cannot use the macOS `Screen Sharing` app  
+				because it only allows you to enter a VNC password.  The app does not 
+				present the GDM login screen, which gives you the ability to 
 				select your username and enter a password as required for `Method 3` 
 				to work.
 			*	The built-in `Screen Sharing` app requires you to always use the 
@@ -551,7 +549,7 @@ the fully-qualified VNC port number.
 		#.	Enter `vnc://[clear-linux-host-ip-address]:[fully-qualified VNC port number]` 
 			in the :guilabel:`Server Address` field.  See Figure 5.
 	 		
-	 		Here's a screenshot example which shows connecting to |CL| host 
+	 		The following screenshot shows connecting to |CL| host 
 			192.168.25.54 with a fully-qualified VNC port number 5902.
 
 	 		.. figure:: figures/vnc/vnc-5.png
@@ -572,12 +570,12 @@ the fully-qualified VNC port number.
 .. note::
 
 	With `Method 3`, you cannot remotely log into your |CL| host through VNC 
-	if you're logged in locally and vice-versa.
+	if you are logged in locally and vice versa.
 
 Terminate a VNC connection to your Clear Linux host
 ***************************************************
 
-*	For `Method 1` and `Method 2`, once started, a VNC session will remain active 
+*	For `Method 1` and `Method 2`, once started, a VNC session remains active 
 	on your |CL| host even if you close your VNC viewer app. If you want to truly 
 	terminate an active VNC session, follow these steps:
 
@@ -591,14 +589,14 @@ Terminate a VNC connection to your Clear Linux host
 			$ vncserver -list
 
 	#.	Terminate it with the :command:`vncserver -kill` command followed by a colon
-		and then the display ID.
+		and the display ID.
 
 		.. code-block:: console
 
 			$ vncserver -kill :[display ID]
 
 *	For `Method 3`, only the system administrator can stop and disable the VNC 
-	service with these commands:
+	service by using these commands:
 
 		.. code-block:: console
 
@@ -620,7 +618,7 @@ from RealVNC Viewer.
 
 To add security, VNC traffic can be routed through an SSH tunnel.  
 
-This is accomplished by following these three steps:
+This is accomplished by following these steps:
 
 #.	Configure the VNC server to only accept connection from localhost by 
 	adding the `-localhost` option.
@@ -656,7 +654,7 @@ Configure VNC to only accept connection from localhost
 
 	#.	Edit the systemd service script :file:`vncserver@:[X].service` located in 
 		`/etc/systemd/system` and add `-localhost` to the `ExecStart` line.  
-		Here's an example for vncserver@:5.service:
+		The example below uses vncserver@:5.service:
 
 		.. code-block:: console
 
@@ -687,8 +685,8 @@ Configure VNC to only accept connection from localhost
 
 	#.	No change is needed to the :file:`xvnc@service` script.  
 
-After you have restarted your VNC session, you can verify that it's only accepting 
-connection from localhost by using the :command:`netstat` command like this: 
+After you have restarted your VNC session, you can verify that it only accepts 
+connections from localhost by using the :command:`netstat` command like this: 
 
 	.. code-block:: console
 
@@ -698,7 +696,7 @@ connection from localhost by using the :command:`netstat` command like this:
 
 		Add the |CL| `network-basic` bundle to get the :command:`netstat` command.
 
-Figure 7 is an example which shows two VNC sessions (5901 and 5905) accepting 
+Figure 7 shows two VNC sessions (5901 and 5905) accepting 
 connections from any host as specified by the `0.0.0.0`'s.  This is before the 
 `-localhost` option was used.  
  
@@ -708,9 +706,9 @@ connections from any host as specified by the `0.0.0.0`'s.  This is before the
 
 	Figure 7: VNC sessions (5901 and 5905) accepting connections from any host
 
-Figure 8 is an example which shows two VNC sessions (5901 and 5905) only 
+Figure 8 shows two VNC sessions (5901 and 5905) only 
 accepting connections from localhost as specified by `127.0.0.1`'s. 
-This is after the `-localhost` option was added.  
+This is after the `-localhost` option was used.  
  
 .. figure:: figures/vnc/vnc-7.png
 	:scale: 100 %
@@ -808,15 +806,15 @@ your VNC session.
 
 			RealVNC will still warn that the connection is not encrypted even 
 			though its traffic is going through the SSH tunnel.  You can ignore 
-			this.
+			this warning.
 
 *	On macOS (using built-in `Screen Sharing` app):
 
 	.. note::
 
-		*	Don't use the macOS `Screen Sharing` app for `Method 3`
-			because it only allows you to enter a VNC password.  It doesn't
-			present the GDM login screen which gives you the ability to 
+		*	If you chose `Method 3`, you cannot use the macOS `Screen Sharing` app
+			because it only allows you to enter a VNC password.  The app does not
+			present the GDM login screen, which gives you the ability to 
 			select your username and enter a password as required for `Method 3` 
 			to work.
 
