@@ -4,7 +4,7 @@ Creating a Clear Linux based web server
 #######################################
 
 Prerequisites
-=============
+*************
 
 In order to create a web server using |CL| as the host OS your host
 system must be running |CL|. Therefore, this tutorial assumes you have
@@ -19,7 +19,7 @@ console command:
    sudo swupd update
 
 Creating a LAMP Server
-======================
+**********************
 
 A server with Linux\*, Apache\*, MySQL\*, and PHP\* installed is known as a
 LAMP server, allows you to set up a fully functional web server, and enables
@@ -30,7 +30,7 @@ MySQL. Once the LAMP server component installations are complete, we add
 phpMyAdmin to manage your MariaDB databases.
 
 Installing Apache
-=================
+*****************
 
 Apache is an open source HTTP web server application. It can run on several
 operating systems, including |CL|. Alternatively, you could install
@@ -38,7 +38,7 @@ NGINX but this tutorial focuses on implementing an Apache server.
 Go to https://httpd.apache.org/ to learn more about it.
 
 Install the web-server-basic bundle
------------------------------------
+===================================
 
 The web-server-basic bundle contains the packages needed to install the
 Apache software bundle on |CL|.
@@ -61,27 +61,28 @@ To start the Apache service, enter the following commands:
 To verify that the Apache server application is running, go to your web
 browser and navigate to: http://localhost
 
-If the service is running you will see the message “It works!” on your
-browser as shown in figure 1.
+If the service is running you will see the message "This web server is
+operational from host." on your browser as shown in figure 1.
 
 .. figure:: figures/web-server-install-1.png
-    :alt: It works!
+    :alt: This web server is operational from host.
     :scale: 50%
 
     Confirmation the Apache service is running.
 
-The :file:`index.html` file is located in the :file:`/usr/share/httpd/htdocs`
-directory of your host system.  We will copy this file into a new location 
+The :file:`index.html` file is located in the :file:`/var/www/html`
+directory of your host system. We will copy this file into a new location
 after we modify the configuration.
 
-Change the Default Configuration and Data Directory
-===================================================
+Change the default configuration and data directory
+***************************************************
 
 |CL| is designed to be a stateless operating system which means that you will
-need to create an optional configuration file.  The default location of the
-Apache configuration file, :file:`httpd.conf`, is located in the
-:file:`/etc/share/defaults/httpd` directory, which can be overwritten as part of the
-stateless paradigm.  This default :file:`.conf` file includes the following directives
+need to create an optional configuration file to make changes over the default
+values. The default location of the Apache configuration file,
+:file:`httpd.conf`, is located in the :file:`/usr/share/defaults/httpd`
+directory. |CL| can overwritte this directory as part of the stateless
+paradigm. This default :file:`.conf` file includes the following directives
 that allow for additional locations of configuration definitions:
 
 .. code-block:: console
@@ -91,7 +92,6 @@ that allow for additional locations of configuration definitions:
    IncludeOptional /usr/share/defaults/httpd/conf.modules.d/*.conf
    IncludeOptional /etc/httpd/conf.d/*.conf
    IncludeOptional /etc/httpd/conf.modules.d/*.conf
-
 
 For this tutorial, we will create the directory structure for :file:`/etc/httpd/conf.d`
 and then create the :file:`httpd.conf` file within :file:`/etc/httpd/conf.d` directory and
@@ -105,31 +105,32 @@ Using your favorite editor, copy the content listed below into the new file
    #
    # Set a new location for DocumentRoot
    #
-   DocumentRoot “/var/www/html”
+   DocumentRoot "/var/www/tutorial"
    
    #
-   # Relax access to content within /var/www/html for this tutorial
+   # Relax access to content within /var/www/tutorial for this example
    #
-   <Directory “/var/www/html”>
+   <Directory "/var/www/tutorial">
       AllowOverride none
       Require all granted
    </Directory>
 
 
 Finally, let’s create the new ``DocumentRoot`` directory structure and copy the
-:file:`index.html` file from :file:`/usr/share/httpd/htdocs` directory to
-:file:`/var/www/html`.
+:file:`index.html` file from :file:`/var/www/html` directory to
+:file:`/var/www/tutorial`.
 
 .. code-block:: console
 
-   sudo mkdir –p /var/www/html
-   cd /var/www/html
-   sudo cp /usr/share/httpd/htdocs/index.html .
+   sudo mkdir –p /var/www/tutorial
+   cd /var/www/tutorial
+   sudo cp /var/www/html/index.html .
 
 
 To make sure that we have everything set correctly, let’s edit the new
 :file:`index.html` file with your editor and change the text from
-``It works`` to ``It works in it’s new location``.
+"This web server is operational from host." to
+"This web server is operational from its new location.".
 
 With the new configuration files in place, you will need to stop and then
 restart the ``httpd.service``.
@@ -142,8 +143,29 @@ restart the ``httpd.service``.
 
 Now when you go to http://localhost you should see your new screen.
 
+To continue, we must change the configuration back to the default
+:file:`/var/www/html` location. To do this, edit the 
+:file:`/etc/httpd/conf.d/httpd.conf` file again and replace any instance of
+/var/www/tutorial with /var/www/html.
+
+Then, stop and then restart the ``httpd.service``.
+
+.. code-block:: console
+
+   sudo systemctl stop httpd.service
+   sudo systemctl start httpd.service
+
+On http://localhost, you should see the default screen again.
+
+Optionally, remove the /var/www/tutorial directory previously created.
+
+.. code-block:: console
+
+   sudo rm /var/www/tutorial/index.html
+   sudo rmdir /var/www/tutorial
+
 Installing PHP
-==============
+**************
 
 With Apache installed, you can display static web pages. However, enabling
 PHP allows dynamic webpages to be generated and displayed. To add this
@@ -162,7 +184,6 @@ To enable PHP, enter the following commands:
    sudo systemctl enable php-fpm.service
    sudo systemctl start php-fpm.service
    sudo systemctl restart httpd.service
-
 
 After restarting the Apache service, we can test our PHP installation.
 
@@ -190,7 +211,7 @@ the PHP components and are now ready to add your database application to
 complete your LAMP server implementation.
 
 Installing MariaDB
-==================
+******************
 
 Most web applications require a database to store their content. Therefore,
 we must install MariaDB to fulfill this need. MariaDB is a drop-in
@@ -326,7 +347,7 @@ The MariaDB installation is complete and we can now install phpMyAdmin to
 manage the databases.
 
 Installing phpMyAdmin
-=====================
+*********************
 
 The web-based tool phpMyAdmin is a straight-forward way to manage MySQL or
 MariaDB databases. Visit https://www.phpmyadmin.net for the complete
@@ -360,7 +381,7 @@ our |CL| host system.
    sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
 
 Using phpMyAdmin to Manage Databases
-------------------------------------
+====================================
 
 If you have successfully installed all of the components for your LAMP
 server, you should be able to point your browser to
