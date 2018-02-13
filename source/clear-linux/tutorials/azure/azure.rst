@@ -38,19 +38,19 @@ from the command line. In this tutorial you learn to:
 
 #. Stop and deallocate the |CL| VM and resources.
 
-Prerequisites for using the MS Azure CLI 2.0 on your |CL| system require you
-to have the following installed on your system:
+To use the MS Azure CLI 2.0 on your |CL| system, your system must have the
+following packages installed:
 
 * Python 2.7 or later
 
 * libffi
 
 * OpenSSL 1.0.2
-  
+
 You can check to see what versions you have installed on your system by
 running the individual commands as follows:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ python --version
    python 2.7.12
@@ -63,7 +63,7 @@ running the individual commands as follows:
 If you do not have these packages installed on your |CL| system, install the
 sysadmin-basic software bundle using the :command:`swupd` command:
 
-.. code-block:: console
+.. code-block:: bash
 
    $ sudo swupd bundle-add sysadmin-basic
 
@@ -78,14 +78,14 @@ Install MS Azure CLI 2.0 on Clear Linux
 ***************************************
 
 #. To install the MS Azure CLI 2.0 on |CL|, use the :command:`curl` command as
-   shown:
+   follows:
 
    .. code-block:: console
 
       $ curl -L https://aka.ms/InstallAzureCli | bash
 
    If you get an error message from :command:`curl` related to the -L
-   parameter, or an error message is generated that includes the text "Object
+   parameter or an error message is generated that includes the text "Object
    Moved", use the full URL instead of the aka.ms redirect address:
 
    .. code-block:: console
@@ -97,8 +97,8 @@ Install MS Azure CLI 2.0 on Clear Linux
 
    .. note::
 
-      Your current username will be substituted for the [user] variable in the
-      installation script prompts and output text to the console.
+      The installation script prompts and the console output text substitute
+      your current username with the [user] variable.
 
    .. code-block:: console
 
@@ -142,18 +142,18 @@ Install MS Azure CLI 2.0 on Clear Linux
       -- Installation successful.
       -- Run the CLI with /home/[user]/bin/az --help
 
-#. The installation program finishes and you need to restart your shell for
-   the changes to take effect. If the installation is successful, run the
+#. The installation program finishes and you must restart your shell for
+   the changes to take effect. When the installation is successful, run the
    following command to restart your shell.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ exec -l $SHELL
 
 With the MS Azure CLI 2.0 executable successfully built and installed, run
 the :command:`az` command.
 
-.. code-block:: console
+.. code-block:: bash
 
    $ az
 
@@ -241,7 +241,7 @@ Log into your Microsoft Azure account
 #. With the :command:`az` command properly installed and functional, login to
    your MS Azure account using the :command:`az login` command shown below:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ az login
 
@@ -272,18 +272,18 @@ Log into your Microsoft Azure account
       Figure 2: :guilabel:`Microsoft Device Login - Azure CLI`
 
 #. Once you enter the authentication code, the website changes to a screen to
-   enter your existing Microsoft Azure credentials. 
+   enter your existing Microsoft Azure credentials.
 
 #. Log in with your existing MS Azure account credentials. Once complete, the
-   browser screen changes again as shown in figure 3, telling you that you
-   have signed in to the Microsoft Cross-platform Command Line Interface
+   browser screen changes again as shown in figure 3. The screen shows you
+   have signed into the Microsoft Cross-platform Command Line Interface
    application on your device and you can close the window.
 
    .. figure:: figures/azure-3.png
       :scale: 50 %
       :alt: Microsoft Azure Cross-platform CLI
 
-      Figure 3: :guilabel:`Microsoft Azure Cross-platform CLI` 
+      Figure 3: :guilabel:`Microsoft Azure Cross-platform CLI`
 
 The MS Azure CLI 2.0 interface is now active using your existing MS Azure
 account credentials.
@@ -300,7 +300,7 @@ of resources within MS Azure.
    using the `-n` parameter and locate it in the `westus` region using the
    `-l` parameter.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ az group create -n ClearResourceGroup -l westus
 
@@ -325,10 +325,10 @@ Create and log into the Clear Linux virtual machine
 
 For this tutorial, we are using the |CL| Basic SKU for our VM.
 
-#. To locate the available clear linux Basic VM SKU images in the MS Azure
+#. To locate the available |CL| Basic VM SKU images in the MS Azure
    marketplace, run the :command:`az vm image ...` command:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ az vm image list --offer clear-linux --sku basic --all --output table
 
@@ -351,23 +351,23 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
       clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:18860.0.0             18860.0.0
 
    .. note::
-      The output list shows current offerings and new versions are being
-      added to the MS Azure marketplace all the time. To reference the latest
-      version of an image you can use the version label `latest` when
-      specifying an image.
+
+      The output list shows current offerings. New versions are added to the
+      MS Azure marketplace all the time. To reference the latest version of an
+      image, you can use the version label `latest` when specifying an image.
 
 #. The information shown in the `Urn` column lists the
    `Publisher:Offer:Sku:Version` for each image available and this is the
    information we want to create the |CL| Basic VM. Since we are creating a
    |CL| Basic VM, highlight the `clear-linux-project:clear-linux-os:basic:`
-   string and copy it to your clipboard. For the version, use the label
+   string and copy it to your clipboard. Use the label
    `latest` instead of referencing a specific version.
 
-#. Create the new |CL| Basic VM by running the :command:`az vm create ...`
+#. Create the new |CL| Basic VM. Run the :command:`az vm create ...`
    command using the URN `:clear-linux-project:clear-linux-os:basic:latest`
-   that we located earlier.
+   that we copied to the clipboard on the previous step.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ az vm create --resource-group ClearResourceGroup --name ClearVM --image clear-linux-project:clear-linux-os:basic:latest --generate-ssh-keys
 
@@ -398,15 +398,15 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
         "zones": ""
       }
 
-   Take note of the public IP address from your output.
+   Take note of the public IP address from the output.
 
 #. Login into the new |CL| Basic VM, run the :command:`ssh` command with the
-   public IP address listed as shown:
+   public IP address obtained from the previous step as shown:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ ssh [user]@13.91.4.245
-   
+
    You may see the following message about the authenticity of the host. If
    this appears, type `yes` to proceed connecting to your new |CL| VM.
 
@@ -420,12 +420,17 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
       [user]@ClearVM ~ $
 
    You are now logged into your new |CL| VM as [user], where [user] is your
-   user name. To check to see which software bundles have been included with
+   user name. To check which software bundles are included with
    this image, run the :command:`swupd bundle-list` command:
+
+   .. code-block:: bash
+
+      [user]@ClearVM ~ $ sudo swupd bundle-list
+
+   The output shown should be similar to:
 
    .. code-block:: console
 
-      [user]@ClearVM ~ $ sudo swupd bundle-list
       swupd-client bundle list 3.14.1
          Copyright (C) 2012-2017 Intel Corporation
 
@@ -443,7 +448,6 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
       storage-utils
       sysadmin-basic
       Current OS version: 19600
-      [user]@ClearVM ~ $ 
 
    When you are finished using your new |CL| VM, type :command:`exit` to close
    the :command:`SSH` terminal and logout.
@@ -451,24 +455,23 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 Stop and deallocate the Clear Linux VM and resources
 ****************************************************
 
-When you are finished using your new |CL| instance, you need to stop the VM
-and deallocate the resources in your resource group. If you only stop a VM,
-the OS image will shut down but the resources associated with it in your
-resource group will still be allocated and incurring charges. For instance, if
-you stop and then later start the VM using the :command:`az vm start...`
-without deallocating the resources, the IP address will be retained and you
-will be able to access the VM using that same IP address. To release the
-resources associated with the VM and stop incurring charges for them, you will
-need to deallocate the resources as well.
+When you finish using your new |CL| instance, you must stop the VM and
+deallocate the resources in your resource group. If you only stop a VM, the OS
+image shuts down but the resources associated with it in your resource group
+remain allocated and incurring charges. For instance, if you stop and then
+later start the VM using the :command:`az vm start...` without deallocating
+the resources, the IP address is retained and you can access the VM using that
+same IP address. To release the resources associated with the VM and stop
+incurring charges for them, you must deallocate the resources as well.
 
 #. At the command prompt, enter the :command:`az vm stop...` command as
    follows:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ az vm stop --resource-group ClearResourceGroup --name ClearVM
 
-   This will stop the VM and then output text similar to what is shown below:
+   This will stop the VM and then output text similar to:
 
    .. code-block:: console
 
@@ -480,20 +483,23 @@ need to deallocate the resources as well.
         "status": "Succeeded"
       }
 
-#. Once the VM has stopped, deallocate the VM resources to stop incurring
+#. Once the VM stops, deallocate the VM resources to stop incurring
    charges for the |CL| instance. Enter the following command:
 
    .. code-block:: console
 
       $ az vm deallocate --resource-group ClearResourceGroup --name ClearVM
 
+**Congratulations!**
+
+You are up and running with |CL| on MS Azure using the Azure
+CLI 2.0 command line tools.
+
 Next steps
 **********
 
-Congratulations! You are up and running with |CL| on MS Azure using the Azure
-CLI 2.0 command line tools. To see what you can do with your |CL| instance,
-visit our :ref:`tutorials <tutorials>` section for examples on using your |CL|
-system.
+To see use cases you can fulfill with your |CL| instance, visit our
+:ref:`tutorials <tutorials>` section.
 
 For additional information visit the Clear Linux
 `Azure Partner Mini Case Study`_ and the `Azure Partner Datasheet`_.
