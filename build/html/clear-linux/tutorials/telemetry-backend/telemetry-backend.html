@@ -1,0 +1,703 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Create a telemetry backend server in Clear Linux</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Tutorials" href="../tutorials.html"/>
+        <link rel="next" title="Reference" href="../../reference/reference.html"/>
+        <link rel="prev" title="Create and launch Clear Linux from Amazon Web Services" href="../aws-web/aws-web.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Create a telemetry backend server in Clear Linux
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="create-a-telemetry-backend-server-in-clear-linux">
+<span id="telemtry-backend"></span><h1>Create a telemetry backend server in Clear Linux</h1>
+<p>Clear Linux* OS for Intel® Architecture includes a telemetry and analytics solution, also known as
+telemetrics, as part of the OS that records events of interest and reports
+them back to the development team using the <strong class="command">telemd</strong> telemetrics
+daemon.</p>
+<p>End users can enable or disable the telemetry client component of Clear Linux and
+also redirect where records go if they wish to collect records for themselves
+by setting up and using their own telemetry backend server.</p>
+<p>A telemetry backend server consists of two Flask applications:
+* The <span class="guilabel">collector</span> is an ingestion app for records received from the</p>
+<blockquote>
+<div><span class="guilabel">telemetrics-client</span> probes.</div></blockquote>
+<ul class="simple">
+<li>The <span class="guilabel">telemetryui</span> web app exposes several visualizations of the
+telemetry data. The <span class="guilabel">telemetryui</span> app also provides a
+REST API to perform queries on the data.</li>
+</ul>
+<p>The applications run within a web stack, using the <span class="guilabel">nginx</span> web
+server, the <span class="guilabel">uWSGI</span> application server, and
+<span class="guilabel">PostgreSQL</span> as the underlying database server. For a detailed
+description, visit the <a class="reference external" href="https://github.com/clearlinux/telemetrics-backend">Clear Linux telemetry backend server overview</a>.</p>
+<p>This tutorial walks you through creating a telemetrics backend server on
+your local Clear Linux machine. The tutorial uses the <strong class="command">deploy.sh</strong> bash
+shell script that is maintained in a GitHub repository at
+<a class="reference external" href="https://github.com/clearlinux/telemetrics-backend">https://github.com/clearlinux/telemetrics-backend</a>. Once the backend server is
+up and running, we show you how to redirect telemetry records from the system
+you set up to this new server location.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The telemetrics functionality adheres to <a href="#id3"><span class="problematic" id="id4">`Intel’s privacy policies`_</span></a>
+regarding the collection and use of <abbr title="Personally Identifiable Information">PII</abbr> and is open Source. Specifically, no intentionally
+identifiable information about the user or system owner is collected.</p>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>For this tutorial, start with a clean installation of Clear Linux on a new system
+using the <a class="reference internal" href="../../get-started/bare-metal-install/bare-metal-install.html#bare-metal-install"><span class="std std-ref">Install Clear Linux OS on bare metal</span></a> getting started guide:</p>
+<ol class="arabic simple">
+<li>Choose to install Clear Linux.</li>
+<li>Join the <span class="guilabel">Stability Enhancement Program</span> to install and
+enable the telemetrics components.</li>
+<li>Select the manual installation method with the following settings:<ul>
+<li>Set the hostname to <span class="guilabel">clr-telem-server</span>,</li>
+<li>Create an administrative user named <span class="guilabel">clear</span> and add this user
+to sudoers,</li>
+<li>Add all additional software bundles.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="download-the-clearlinux-telemetrics-backend-git-repository">
+<h2>Download the clearlinux/telemetrics-backend Git repository</h2>
+<p>With all prerequisite software bundles installed and logged in with your
+administrative user, from your <code class="file docutils literal"><span class="pre">$HOME</span></code> directory, run <strong class="command">git</strong>
+to clone the <span class="guilabel">telemetrics-backend</span> repository into the
+<code class="file docutils literal"><span class="pre">$HOME/telemetrics-backend</span></code> directory:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/clearlinux/telemetrics-backend</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may need to set up the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal"><span class="pre">https_proxy</span></code> environment variable
+if you have issues reaching github.com.</p>
+</div>
+</div>
+<div class="section" id="run-the-deploy-sh-script-to-install-the-backend-server">
+<h2>Run the deploy.sh script to install the backend server</h2>
+<ol class="arabic simple">
+<li>Change your current working directory to <code class="file docutils literal"><span class="pre">telemetrics-backend/scripts</span></code>.</li>
+<li>Run the <strong class="command">./deploy.sh -h</strong> to see the list of options for the
+<strong class="command">deploy.sh</strong> script:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">cd telemetrics-backend/scripts</span>
+<span class="go">./deploy.sh -h</span>
+
+<span class="go">Deploy snapshot of the telemetrics-backend</span>
+
+<span class="go">  -a    Perform specified action (deploy, install, migrate, resetdb,</span>
+<span class="go">        restart, uninstall; default: deploy)</span>
+<span class="go">  -d    Distro to deploy to (ubuntu, centos or clr; default: ubuntu)</span>
+<span class="go">  -h    Print these options</span>
+<span class="go">  -H    Set domain for deployment (only accepted value is &quot;localhost&quot; for</span>
+<span class="go">        now)</span>
+<span class="go">  -r    Set repo location to deploy from</span>
+<span class="go">        (default: https://github.com/clearlinux/telemetrics-backend)</span>
+<span class="go">  -s    Set source location (default: &quot;master&quot; branch from git repo)</span>
+<span class="go">  -t    Set source type (tarball, or git; default: git)</span>
+<span class="go">  -u    Perform complete uninstallation</span>
+</pre></div>
+</div>
+<p>The <strong class="command">deploy.sh</strong> is a bash shell script that allows you to perform the
+following actions:</p>
+<ul>
+<li><p class="first"><code class="xref std std-option docutils literal"><span class="pre">deploy</span></code> - install a complete instance of the telemetrics backend
+server and all required components. This is the default action if no
+<code class="xref std std-option docutils literal"><span class="pre">-a</span></code> argument is given on the command line.</p>
+</li>
+<li><p class="first"><code class="xref std std-option docutils literal"><span class="pre">install</span></code> - installs and enables all required components for the
+telemetrics backend server.</p>
+</li>
+<li><p class="first"><code class="xref std std-option docutils literal"><span class="pre">migrate</span></code> - migrate database to new schema.</p>
+</li>
+<li><p class="first"><code class="xref std std-option docutils literal"><span class="pre">resetdb</span></code> - reset the database.</p>
+</li>
+<li><p class="first"><code class="xref std std-option docutils literal"><span class="pre">restart</span></code> - restart the nginx and uWSGI services.</p>
+</li>
+<li><p class="first"><code class="xref std std-option docutils literal"><span class="pre">uninstall</span></code> - uninstall all packages.</p>
+<p>..note:</p>
+<p>The <code class="xref std std-option docutils literal"><span class="pre">uninstall</span></code> option does not perform any actions if the distro is
+set to Clear Linux and will only uninstall packages if the distro is Ubuntu</p>
+</li>
+</ul>
+<p>Next, we install the telemetrics backend server with the following options:</p>
+<ul class="simple">
+<li><code class="xref std std-option docutils literal"><span class="pre">-a</span> <span class="pre">install</span></code> to perform an install</li>
+<li><code class="xref std std-option docutils literal"><span class="pre">-d</span> <span class="pre">clr</span></code> to install to a Clear Linux distro</li>
+<li><code class="xref std std-option docutils literal"><span class="pre">-H</span> <span class="pre">localhost</span></code> to set the domain to localhost</li>
+</ul>
+<p>We do not need to set the following options since the values are set to the
+correct values we want by default:</p>
+<ul class="simple">
+<li><code class="xref std std-option docutils literal"><span class="pre">-r</span> <span class="pre">https://github.com/clearlinux/telemetrics-backend</span></code> sets the
+repo location for <strong class="command">git</strong> to clone from.</li>
+<li><code class="xref std std-option docutils literal"><span class="pre">-s</span> <span class="pre">master</span></code> to set the location, or branch.</li>
+<li><code class="xref std std-option docutils literal"><span class="pre">-t</span> <span class="pre">git</span></code> to set the source type to git.</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">The <code class="file docutils literal"><span class="pre">deploy.sh</span></code> shell script has minimal error checking and makes
+several changes to your system.  Be sure that the options you define on the
+cmdline are correct before proceeding.</p>
+</div>
+<p>To begin the installation with the options defined:</p>
+<ol class="arabic">
+<li><p class="first">Run the shell script from the <code class="file docutils literal"><span class="pre">$HOME/telemetrics-backend/scripts</span></code>
+directory:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">./deploy.sh -H localhost -a install -d clr</span>
+</pre></div>
+</div>
+<p>The script will start and list all the defined options and prompt you for the
+<span class="guilabel">PostgreSQL</span> database password as shown below:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Options:</span>
+<span class="go">  host: localhost</span>
+<span class="go">  distro: clr</span>
+<span class="go">  action: install</span>
+<span class="go">  repo: https://github.com/clearlinux/telemetrics-backend</span>
+<span class="go">  source: master</span>
+<span class="go">  type: git</span>
+<span class="go">DB password: (default: postgres):</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">For the <span class="guilabel">DB password:</span>, press the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key to accept the
+default password <cite>postgres</cite>.</p>
+</li>
+</ol>
+<p>The <strong class="command">swupd</strong> begins installing the required software bundles to set
+up the telemetrics backend server. The output will look similar to what is
+shown below:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">swupd-client bundle adder 3.12.7</span>
+<span class="go">   Copyright (C) 2012-2017 Intel Corporation</span>
+
+<span class="go">Downloading packs...</span>
+
+<span class="go">Extracting application-server pack for version 18740</span>
+<span class="go">     ...5%</span>
+<span class="go">Extracting database-basic-dev pack for version 18670</span>
+<span class="go">     ...10%</span>
+<span class="go">Extracting database-basic pack for version 18670</span>
+<span class="go">     ...15%</span>
+<span class="go">Extracting os-clr-on-clr pack for version 18740</span>
+<span class="go">     ...21%</span>
+<span class="go">Extracting sysadmin-basic-dev pack for version 18740</span>
+<span class="go">     ...26%</span>
+<span class="go">Extracting storage-utils-dev pack for version 18770</span>
+<span class="go">     ...31%</span>
+<span class="go">Extracting os-core-update-dev pack for version 18760</span>
+<span class="go">     ...36%</span>
+<span class="go">Extracting network-basic-dev pack for version 18760</span>
+<span class="go">     ...42%</span>
+<span class="go">Extracting mixer pack for version 18790</span>
+<span class="go">     ...47%</span>
+<span class="go">Extracting os-installer pack for version 18800</span>
+<span class="go">     ...52%</span>
+<span class="go">Extracting mail-utils-dev pack for version 18760</span>
+<span class="go">     ...57%</span>
+<span class="go">Extracting koji pack for version 18800</span>
+<span class="go">     ...63%</span>
+<span class="go">Extracting go-basic pack for version 18800</span>
+<span class="go">     ...68%</span>
+<span class="go">Extracting dev-utils-dev pack for version 18820</span>
+<span class="go">     ...73%</span>
+<span class="go">Extracting python-basic-dev pack for version 18750</span>
+<span class="go">     ...78%</span>
+<span class="go">Extracting perl-basic-dev pack for version 18610</span>
+<span class="go">     ...84%</span>
+<span class="go">Extracting c-basic pack for version 18800</span>
+<span class="go">     ...89%</span>
+<span class="go">Extracting os-core-dev pack for version 18800</span>
+<span class="go">     ...94%</span>
+<span class="go">Extracting web-server-basic pack for version 18680</span>
+<span class="go">     ...100%</span>
+<span class="go">Installing bundle(s) files...</span>
+<span class="go">     ...100%</span>
+<span class="go">Calling post-update helper scripts.</span>
+<span class="go">Possible filedescriptor leak : 8 (socket:[30833])</span>
+<span class="go">Bundle(s) installation done.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>This script uses <strong class="command">sudo</strong> to run commands and you may be prompted to
+enter your user password at any time while the script is executing. If this
+occurs, enter your user password to execute the <strong class="command">sudo</strong> command.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Password:</span>
+</pre></div>
+</div>
+<p class="last">You may also see an informational message about setting the
+<span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal"><span class="pre">https_proxy</span></code> environment variable if this variable isn&#8217;t set.</p>
+</div>
+<p>Once the <strong class="command">swupd</strong> command is complete, the script begins processing
+the requirements to install and implement the telemetrics server. Finally,
+the script enables the server and provides output similar to:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Collecting uwsgitop</span>
+<span class="go">  Downloading uwsgitop-0.10.tar.gz</span>
+<span class="go">Requirement already satisfied: simplejson in /usr/lib/python3.6/site-packages (from uwsgitop)</span>
+<span class="go">Collecting argparse (from uwsgitop)</span>
+<span class="go">  Downloading argparse-1.4.0-py2.py3-none-any.whl</span>
+<span class="go">Building wheels for collected packages: uwsgitop</span>
+<span class="go">  Running setup.py bdist_wheel for uwsgitop ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/8a/99/e9/accc80bcaa989218da65daaae4205dc4f6288d3551655aa638</span>
+<span class="go">Successfully built uwsgitop</span>
+<span class="go">Installing collected packages: argparse, uwsgitop</span>
+<span class="go">Successfully installed argparse-1.4.0 uwsgitop-0.10</span>
+<span class="go">mkdir: created directory &#39;/var/www&#39;</span>
+<span class="go">mkdir: created directory &#39;/var/www/telemetry&#39;</span>
+<span class="go">Already using interpreter /usr/bin/python3</span>
+<span class="go">Using base prefix &#39;/usr&#39;</span>
+<span class="go">New python executable in /var/www/telemetry/venv/bin/python3</span>
+<span class="go">Also creating executable in /var/www/telemetry/venv/bin/python</span>
+<span class="go">Installing setuptools, pip, wheel...done.</span>
+<span class="go">Collecting alembic==0.9.5 (from -r /tmp/requirements.txt.KDI3uU (line 1))</span>
+<span class="go">  Downloading alembic-0.9.5.tar.gz (990kB)</span>
+<span class="go">    100% |████████████████████████████████| 993kB 2.1MB/s</span>
+<span class="go">Collecting click==6.7 (from -r /tmp/requirements.txt.KDI3uU (line 2))</span>
+<span class="go">  Downloading click-6.7-py2.py3-none-any.whl (71kB)</span>
+<span class="go">    100% |████████████████████████████████| 71kB 8.3MB/s</span>
+<span class="go">Collecting Flask==0.12.2 (from -r /tmp/requirements.txt.KDI3uU (line 3))</span>
+<span class="go">  Downloading Flask-0.12.2-py2.py3-none-any.whl (83kB)</span>
+<span class="go">    100% |████████████████████████████████| 92kB 10.2MB/s</span>
+<span class="go">Collecting Flask-Migrate==2.1.0 (from -r /tmp/requirements.txt.KDI3uU (line 4))</span>
+<span class="go">  Downloading Flask-Migrate-2.1.0.tar.gz</span>
+<span class="go">Collecting Flask-SQLAlchemy==2.2 (from -r /tmp/requirements.txt.KDI3uU (line 5))</span>
+<span class="go">  Downloading Flask_SQLAlchemy-2.2-py2.py3-none-any.whl</span>
+<span class="go">Collecting Flask-WTF==0.14.2 (from -r /tmp/requirements.txt.KDI3uU (line 6))</span>
+<span class="go">  Downloading Flask_WTF-0.14.2-py2.py3-none-any.whl</span>
+<span class="go">Collecting itsdangerous==0.24 (from -r /tmp/requirements.txt.KDI3uU (line 7))</span>
+<span class="go">  Downloading itsdangerous-0.24.tar.gz (46kB)</span>
+<span class="go">    100% |████████████████████████████████| 51kB 12.4MB/s</span>
+<span class="go">Collecting Jinja2==2.9.6 (from -r /tmp/requirements.txt.KDI3uU (line 8))</span>
+<span class="go">  Downloading Jinja2-2.9.6-py2.py3-none-any.whl (340kB)</span>
+<span class="go">    100% |████████████████████████████████| 348kB 3.5MB/s</span>
+<span class="go">Collecting Mako==1.0.7 (from -r /tmp/requirements.txt.KDI3uU (line 9))</span>
+<span class="go">  Downloading Mako-1.0.7.tar.gz (564kB)</span>
+<span class="go">    100% |████████████████████████████████| 573kB 1.9MB/s</span>
+<span class="go">Collecting MarkupSafe==1.0 (from -r /tmp/requirements.txt.KDI3uU (line 10))</span>
+<span class="go">  Downloading MarkupSafe-1.0.tar.gz</span>
+<span class="go">Collecting psycopg2==2.7.3 (from -r /tmp/requirements.txt.KDI3uU (line 11))</span>
+<span class="go">  Downloading psycopg2-2.7.3.tar.gz (425kB)</span>
+<span class="go">    100% |████████████████████████████████| 430kB 4.0MB/s</span>
+<span class="go">Collecting python-dateutil==2.6.1 (from -r /tmp/requirements.txt.KDI3uU (line 12))</span>
+<span class="go">  Downloading python_dateutil-2.6.1-py2.py3-none-any.whl (194kB)</span>
+<span class="go">    100% |████████████████████████████████| 194kB 6.8MB/s</span>
+<span class="go">Collecting python-editor==1.0.3 (from -r /tmp/requirements.txt.KDI3uU (line 13))</span>
+<span class="go">  Downloading python-editor-1.0.3.tar.gz</span>
+<span class="go">Collecting six==1.10.0 (from -r /tmp/requirements.txt.KDI3uU (line 14))</span>
+<span class="go">  Downloading six-1.10.0-py2.py3-none-any.whl</span>
+<span class="go">Collecting SQLAlchemy==1.1.13 (from -r /tmp/requirements.txt.KDI3uU (line 15))</span>
+<span class="go">  Downloading SQLAlchemy-1.1.13.tar.gz (5.2MB)</span>
+<span class="go">    100% |████████████████████████████████| 5.2MB 394kB/s</span>
+<span class="go">Collecting uWSGI==2.0.15 (from -r /tmp/requirements.txt.KDI3uU (line 16))</span>
+<span class="go">  Downloading uwsgi-2.0.15.tar.gz (795kB)</span>
+<span class="go">    100% |████████████████████████████████| 798kB 1.5MB/s</span>
+<span class="go">Collecting Werkzeug==0.12.2 (from -r /tmp/requirements.txt.KDI3uU (line 17))</span>
+<span class="go">  Downloading Werkzeug-0.12.2-py2.py3-none-any.whl (312kB)</span>
+<span class="go">    100% |████████████████████████████████| 317kB 2.2MB/s</span>
+<span class="go">Collecting WTForms==2.1 (from -r /tmp/requirements.txt.KDI3uU (line 18))</span>
+<span class="go">  Downloading WTForms-2.1.zip (553kB)</span>
+<span class="go">    100% |████████████████████████████████| 563kB 1.7MB/s</span>
+<span class="go">Skipping bdist_wheel for psycopg2, due to binaries being disabled for it.</span>
+<span class="go">Building wheels for collected packages: alembic, Flask-Migrate, itsdangerous, Mako, MarkupSafe, python-editor, SQLAlchemy, uWSGI, WTForms</span>
+<span class="go">  Running setup.py bdist_wheel for alembic ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/d1/0e/b9/fb570150b350298e1d8f1ff38a400ae709580b36e43bc3ac91</span>
+<span class="go">  Running setup.py bdist_wheel for Flask-Migrate ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/3d/29/d4/66747eca8b8a28973aa639f39e96a402b3dcab335e608048dd</span>
+<span class="go">  Running setup.py bdist_wheel for itsdangerous ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/fc/a8/66/24d655233c757e178d45dea2de22a04c6d92766abfb741129a</span>
+<span class="go">  Running setup.py bdist_wheel for Mako ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/33/bf/8f/036f36c35e0e3c63a4685e306bce6b00b6349fec5b0947586e</span>
+<span class="go">  Running setup.py bdist_wheel for MarkupSafe ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/88/a7/30/e39a54a87bcbe25308fa3ca64e8ddc75d9b3e5afa21ee32d57</span>
+<span class="go">  Running setup.py bdist_wheel for python-editor ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/84/d6/b8/082dc3b5cd7763f17f5500a193b6b248102217cbaa3f0a24ca</span>
+<span class="go">  Running setup.py bdist_wheel for SQLAlchemy ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/f0/50/ca/3cb6e78527eb05e180d19632343ee14d2e5c164da2e61fbd2d</span>
+<span class="go">  Running setup.py bdist_wheel for uWSGI ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/26/d0/48/e7b0eed63b5d191e89d94e72196aafae93b2b6505a9feafdd9</span>
+<span class="go">  Running setup.py bdist_wheel for WTForms ... done</span>
+<span class="go">  Stored in directory: /root/.cache/pip/wheels/36/35/f3/7452cd24daeeaa5ec5b2ea13755316abc94e4e7702de29ba94</span>
+<span class="go">Successfully built alembic Flask-Migrate itsdangerous Mako MarkupSafe python-editor SQLAlchemy uWSGI WTForms</span>
+<span class="go">Installing collected packages: SQLAlchemy, MarkupSafe, Mako, python-editor, six, python-dateutil, alembic, click, Werkzeug, Jinja2, itsdangerous, Flask, Flask-SQLAlchemy, Flask-Migrate, WTForms, Flask-WTF, psycopg2, uWSGI</span>
+<span class="go">  Running setup.py install for psycopg2 ... done</span>
+<span class="go">Successfully installed Flask-0.12.2 Flask-Migrate-2.1.0 Flask-SQLAlchemy-2.2 Flask-WTF-0.14.2 Jinja2-2.9.6 Mako-1.0.7 MarkupSafe-1.0 SQLAlchemy-1.1.13 WTForms-2.1 Werkzeug-0.12.2 alembic-0.9.5 click-6.7 itsdangerous-0.24 psycopg2-2.7.3 python-dateutil-2.6.1 python-editor-1.0.3 six-1.10.0 uWSGI-2.0.15</span>
+<span class="go">mkdir: created directory &#39;/var/log/uwsgi&#39;</span>
+</pre></div>
+</div>
+<p>Once all the server components have been installed you are prompted to enter
+the <span class="guilabel">PostgreSQL</span> database password to change it as illustrated below:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Enter password for &#39;postgres&#39; user:</span>
+<span class="go">New password:</span>
+<span class="go">Retype new password:</span>
+<span class="go">passwd: password updated successfully</span>
+</pre></div>
+</div>
+<p>Enter <cite>postgres</cite> for the current value of the password and then enter a new
+password, retype it to verify the new password and the <span class="guilabel">PostgreSQL</span>
+database password will be updated.</p>
+<p>The script finalizes installation and finishes.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.</span>
+<span class="go">Cloning into &#39;telemetrics-backend&#39;...</span>
+<span class="go">remote: Counting objects: 344, done.</span>
+<span class="go">remote: Compressing objects: 100% (53/53), done.</span>
+<span class="go">remote: Total 344 (delta 30), reused 50 (delta 20), pack-reused 268</span>
+<span class="go">Receiving objects: 100% (344/344), 130.20 KiB | 1.40 MiB/s, done.</span>
+<span class="go">Resolving deltas: 100% (177/177), done.</span>
+<span class="go">&#39;/tmp/telemetrics-backend/scripts/collector_uwsgi.ini&#39; -&gt; &#39;/tmp/telemetrics-backend/collector/collector_uwsgi.ini&#39;</span>
+<span class="go">&#39;/tmp/telemetrics-backend/scripts/telemetryui_uwsgi.ini&#39; -&gt; &#39;/tmp/telemetrics-backend/telemetryui/telemetryui_uwsgi.ini&#39;</span>
+<span class="go">mkdir: created directory &#39;/var/www/telemetry/collector/uwsgi-spool&#39;</span>
+<span class="go">mkdir: created directory &#39;/var/www/telemetry/telemetryui/uwsgi-spool&#39;</span>
+<span class="go">&#39;/tmp/telemetrics-backend/scripts/uwsgi.service&#39; -&gt; &#39;/etc/systemd/system/uwsgi.service&#39;</span>
+<span class="go">mkdir: created directory &#39;/etc/nginx&#39;</span>
+<span class="go">mkdir: created directory &#39;/etc/nginx/conf.d&#39;</span>
+<span class="go">&#39;/usr/share/nginx/conf/nginx.conf.example&#39; -&gt; &#39;/etc/nginx/nginx.conf&#39;</span>
+<span class="go">Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.</span>
+<span class="go">mkdir: created directory &#39;/etc/uwsgi&#39;</span>
+<span class="go">mkdir: created directory &#39;/etc/uwsgi/vassals&#39;</span>
+<span class="go">Created symlink /etc/systemd/system/multi-user.target.wants/uwsgi.service → /etc/systemd/system/uwsgi.service.</span>
+<span class="go">ALTER ROLE</span>
+<span class="go">sed: can&#39;t read /tmp/telemetrics-backend/collector/config.py: No such file or directory</span>
+<span class="go">cp: cannot stat &#39;/tmp/telemetrics-backend/collector/config.py&#39;: No such file or directory</span>
+<span class="go">sed: can&#39;t read /tmp/telemetrics-backend/telemetryui/config.py: No such file or directory</span>
+<span class="go">cp: cannot stat &#39;/tmp/telemetrics-backend/telemetryui/config.py&#39;: No such file or directory</span>
+<span class="go">Already using interpreter /usr/bin/python3</span>
+<span class="go">Using base prefix &#39;/usr&#39;</span>
+<span class="go">New python executable in /var/www/telemetry/venv/bin/python3</span>
+<span class="go">Not overwriting existing python script /var/www/telemetry/venv/bin/python (you must use /var/www/telemetry/venv/bin/python3)</span>
+<span class="go">Installing setuptools, pip, wheel...done.</span>
+<span class="go">INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.</span>
+<span class="go">INFO  [alembic.runtime.migration] Will assume transactional DDL.</span>
+<span class="go">INFO  [alembic.runtime.migration] Running upgrade  -&gt; 3230c615d6e0, empty message</span>
+<span class="go">INFO  [alembic.runtime.migration] Running upgrade 3230c615d6e0 -&gt; 466cf2f35d67, empty message</span>
+
+<span class="go">Install complete (installation folder: /var/www/telemetry)</span>
+</pre></div>
+</div>
+<p>Once the installation is complete you can use your web browser and view the
+new server by opening the web browser on the system you installed the backend
+server onto and type in <code class="docutils literal"><span class="pre">localhost</span></code> in the address bar.  You should see a
+web page similar to the one shown in figure 1:</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/telemetry-backend-1.png"><img alt="Telemetry UI" src="../../../_images/telemetry-backend-1.png" style="width: 632.5px; height: 454.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 1: <span class="guilabel">Telemetry UI</span></span></p>
+</div>
+</div>
+<div class="section" id="redirect-telemetry-records">
+<h2>Redirect telemetry records</h2>
+<p>Telemetry records from your system are sent to the server location defined in
+the <code class="file docutils literal"><span class="pre">/usr/share/defaults/telemetrics/telemetrics.conf</span></code> configuration
+file. You can customize this by copying this file to
+<code class="file docutils literal"><span class="pre">/etc/telemetrics/telemetrics.conf</span></code> and changing the <code class="docutils literal"><span class="pre">server=</span></code>
+setting to your new server location.</p>
+<ol class="arabic">
+<li><p class="first">Create the <code class="file docutils literal"><span class="pre">/etc/telemetrics</span></code> directory and make it your current
+working directory.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo mkdir -p /etc/telemetrics</span>
+<span class="go">cd /etc/telemetrics</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the default <code class="file docutils literal"><span class="pre">telemetrics.conf</span></code> file to the new
+<code class="file docutils literal"><span class="pre">/etc/telemetrics</span></code> directory.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo cp /usr/share/defaults/telemetrics/telemetrics.conf .</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Edit the new <code class="file docutils literal"><span class="pre">/etc/telemetrics/telemetrics.conf</span></code> file with your
+editor using the <strong class="command">sudo</strong> directive and change the
+<span class="guilabel">server=</span> setting to <code class="docutils literal"><span class="pre">http://localhost/v2/collector</span></code> and save
+this change in the new file.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">server=http://localhost/v2/collector</span>
+</pre></div>
+</div>
+<p>You can also use the fully qualified domain name for your server instead of
+<span class="guilabel">localhost</span>.</p>
+</li>
+<li><p class="first">Restart the <strong class="command">telemd</strong> daemon to reload the configuration file.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">systemctl restart telemd</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="test-the-new-telemetry-backend-server">
+<h2>Test the new telemetry backend server</h2>
+<p>Clear Linux includes a telemetry test probe called <strong class="command">hprobe</strong> that will send a
+<code class="docutils literal"><span class="pre">hello</span></code> record to the telemetry backend server.  To test that the telemetry
+records are now going to your new destination, run the <strong class="command">hprobe</strong>
+command to send a <code class="docutils literal"><span class="pre">hello</span></code> record to the server as follows:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">hprobe</span>
+</pre></div>
+</div>
+<p>The record should show up on your new server console as shown in figure 2:</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/telemetry-backend-2.png"><img alt="Telemetry UI" src="../../../_images/telemetry-backend-2.png" style="width: 632.5px; height: 504.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: <span class="guilabel">Telemetry UI</span></span></p>
+</div>
+<p>Congratulations!  You&#8217;ve just set up and enabled a new telemetrics backend
+server, redirected the records from your local machine to this new server and
+tested it using the <strong class="command">hprobe</strong> command to send a <code class="docutils literal"><span class="pre">hello</span></code> record to
+it.</p>
+</div>
+<div class="section" id="additional-resources">
+<h2>Additional resources</h2>
+<p><a class="reference external" href="https://clearlinux.org/features/telemetry">https://clearlinux.org/features/telemetry</a></p>
+<p><a class="reference external" href="https://github.com/clearlinux/telemetrics-client">https://github.com/clearlinux/telemetrics-client</a></p>
+<p><a class="reference external" href="https://github.com/clearlinux/telemetrics-backend">https://github.com/clearlinux/telemetrics-backend</a></p>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

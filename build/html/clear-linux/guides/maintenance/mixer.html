@@ -1,0 +1,535 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Use mixer tool</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Maintenance guide" href="maintenance.html"/>
+        <link rel="next" title="Validate signatures" href="validate-signatures.html"/>
+        <link rel="prev" title="Bulk provision" href="bulk-provision.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Use mixer tool
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="use-mixer-tool">
+<span id="mixer"></span><h1>Use mixer tool</h1>
+<p><em>Mixing</em> refers to composing an operating system for specific use cases. While
+the default Clear Linux* OS for Intel® Architecture provides options to
+install bundles for various server capabilities, some developers may wish to 1)
+augment the operating system itself with functionality from their own packages
+or 2) modify the structure of current bundles to cater to their particular
+needs.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>To start working with the Mixer tools, you&#8217;ll need a recent image of Clear
+Linux OS for Intel Architecture with the following bundle installed. If you
+don&#8217;t have it already, you can add it with the <strong class="command">swupd bundle-add</strong>
+command like so:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add mixer</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="current-workflow">
+<h2>Current Workflow</h2>
+<div class="section" id="mixing">
+<h3>Mixing</h3>
+<ol class="arabic">
+<li><p class="first"><strong>Create a workspace</strong>. Create an empty directory in your Clear image to
+use as a &#8220;workspace&#8221; for mixing. For these steps, we assume your workspace
+location is <code class="file docutils literal"><span class="pre">/home/clr/mix</span></code>.</p>
+</li>
+<li><p class="first"><strong>Configure builder.conf</strong>. Copy the template conf file</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cp /usr/share/defaults/bundle-chroot-builder/builder.conf /home/clr/mix/
+</pre></div>
+</div>
+<p>The file <code class="docutils literal"><span class="pre">builder.conf</span></code> will be read automatically from the current
+workspace directory, but the <code class="docutils literal"><span class="pre">-config</span></code> option exists to specify where the
+file is if you want to store it elsewhere. To use one in your current
+workspace, copy the template to /home/clr/mix. The <code class="file docutils literal"><span class="pre">.yum-mix.conf</span></code>
+file will be auto-generated for you, as will the <code class="file docutils literal"><span class="pre">Swupd_Root.pem</span></code>. A
+yum configuration is needed for the chroot-builder to know where the RPMs
+are hosted, and the certificate file is needed to sign the root Manifest to
+provide security for content verification.</p>
+<p>Note there are different sections to the builder.conf. The <code class="docutils literal"><span class="pre">[Builder]</span></code>
+section provides the mixer tools with required configuration options,
+defining where generated bundles and update metadata should get published.
+The <code class="docutils literal"><span class="pre">[swupd]</span></code> section is used by swupd-server to create an update with
+specific update parameters.</p>
+<p>Edit the template configuration file according to your needs. For this
+example, your <code class="docutils literal"><span class="pre">builder.conf</span></code> should look like this, with both URL
+variables set to the domain or IP of the update server:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># vim /etc/bundle-chroot-builder/builder.conf:</span>
+
+<span class="p">[</span><span class="n">Builder</span><span class="p">]</span>
+<span class="n">SERVER_STATE_DIR</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/</span><span class="n">update</span>
+<span class="n">BUNDLE_DIR</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/</span><span class="n">mix</span><span class="o">-</span><span class="n">bundles</span>
+<span class="n">YUM_CONF</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/.</span><span class="n">yum</span><span class="o">-</span><span class="n">mix</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">CERT</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/</span><span class="n">Swupd_Root</span><span class="o">.</span><span class="n">pem</span>
+<span class="n">VERSIONS_PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/</span>
+
+<span class="p">[</span><span class="n">swupd</span><span class="p">]</span>
+<span class="n">BUNDLE</span><span class="o">=</span><span class="n">os</span><span class="o">-</span><span class="n">core</span><span class="o">-</span><span class="n">update</span>
+<span class="n">CONTENTURL</span><span class="o">=&lt;</span><span class="n">URL</span> <span class="n">where</span> <span class="n">the</span> <span class="n">content</span> <span class="n">will</span> <span class="n">be</span> <span class="n">hosted</span><span class="o">&gt;</span>
+<span class="n">VERSIONURL</span><span class="o">=&lt;</span><span class="n">URL</span> <span class="n">where</span> <span class="n">the</span> <span class="n">version</span> <span class="n">of</span> <span class="n">the</span> <span class="n">mix</span> <span class="n">will</span> <span class="n">be</span> <span class="n">hosted</span><span class="o">&gt;</span>
+<span class="n">FORMAT</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>The SERVER_STATE_DIR is where the mix content will be outputted to, and it
+is automatically created for you by the mixer. This can be set to any
+location, but for this example let&#8217;s use the workspace directory. The same
+applies for BUNDLE_DIR; it will be generated for you in the location
+specified in the builder.conf, in this case <code class="docutils literal"><span class="pre">/home/clr/mix/mix-bundles</span></code>.
+This is where the bundle definitions are stored for your mix, and it&#8217;s where
+the chroot-builder looks to know what bundles must be installed.</p>
+<p>You may change the <code class="docutils literal"><span class="pre">CERT=/path/to/cert</span></code> line, which tells the chroot
+builder to insert the certificate specified for the mix in <code class="docutils literal"><span class="pre">/os-core-</span>
+<span class="pre">update/usr/share/clear/update-ca/</span></code>. This is the certificate used by the
+software update client to verify the Manifest.MoM signature. For now, it is
+<cite>HIGHLY</cite> recommended that you do not modify this line, as the certificate
+swupd expects needs a very specific configuration to sign and verify
+properly. The certificate will be automatically generated for you, and the
+Manifest.MoM will be signed automatically as well, providing security for
+the update content you create.</p>
+<p>The CONTENTURL and VERSIONURL may be an IP address, or a domain name, which
+hosts the /home/clr/mix/update/www (SERVER_STATE_DIR) directory. Creating a
+symlink to the directory in your server webdir is an easy way to host the
+content. A client running the mix will look to that URL to figure out if
+there is a new version available and the location from which to download the
+update content.</p>
+<p>To learn more about the FORMAT option, please refer to the bottom of this
+document &#8220;Format Version&#8221; and <a class="reference external" href="https://github.com/clearlinux/swupd-server/wiki/Format-Bumps">https://github.com/clearlinux/swupd-server/wiki/Format-Bumps</a>.
+For now leave the FORMAT value alone and do not increment it.</p>
+<p>The mix version and Clear version will come from two state files:
+<code class="file docutils literal"><span class="pre">.mixversion</span></code> and <code class="file docutils literal"><span class="pre">.clearversion</span></code>, both of which will be created
+for you when you set-up the workspace and added to the VERSIONS_PATH
+defined.</p>
+</li>
+<li><p class="first"><strong>Generate the starting point for your Mix</strong>. In your workspace, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo mixer init-mix -clearver 13180 -mixver 10</span>
+</pre></div>
+</div>
+<p><em>If you wish to just build a mix that includes all Clear bundles with no modifications, run</em>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo mixer init-mix -all -clearver 13180 -mixver 10</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Create/locate RPMs for mix.</strong>. (Steps 4-6 are necessary only if you
+want to add your own RPMs to the Mix. If you are working only with Clear
+bundles, then skip to Step 7.)</p>
+<p>If you are creating RPMs from scratch, you may use <code class="docutils literal"><span class="pre">autospec</span></code>,
+<code class="docutils literal"><span class="pre">mock</span></code>, <code class="docutils literal"><span class="pre">rpmbuild</span></code>, etc. to build them. If they are not
+built on Clear, make sure your configuration and toolchain builds them correctly for Clear, or there is no guarantee
+they will be compatible.</p>
+</li>
+<li><p class="first"><strong>Import RPMs into workspace</strong>. The way to do this is to create an
+<code class="docutils literal"><span class="pre">rpms</span></code> directory in your workspace (for example <code class="docutils literal"><span class="pre">/home/clr/mix/rpms</span></code>),
+and to copy the RPMs you want into that directory. The mixer script will
+look here for RPMs in order to build a local RPM repo for yum to use.</p>
+</li>
+<li><p class="first"><strong>Create a local RPM repo</strong>. Create an empty directory in your workspace
+named <code class="docutils literal"><span class="pre">local</span></code> and add the paths in your builder.conf:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">RPMDIR</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/</span><span class="n">rpms</span>
+<span class="n">REPODIR</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">clr</span><span class="o">/</span><span class="n">mix</span><span class="o">/</span><span class="n">local</span>
+
+<span class="n">These</span> <span class="n">variables</span> <span class="n">are</span> <span class="n">automatically</span> <span class="n">read</span><span class="p">;</span> <span class="n">you</span> <span class="n">simply</span> <span class="n">need</span> <span class="n">to</span> <span class="n">run</span><span class="p">::</span>
+
+  <span class="c1"># sudo mixer add-rpms</span>
+</pre></div>
+</div>
+<p>After the script exits, you should see your RPMs and a repodata directory in
+<code class="docutils literal"><span class="pre">/home/clr/mix/local</span></code>. If the RPMs are not all in the local directory, check
+to make sure that they are indeed valid RPM files and not corrupt.</p>
+</li>
+<li><p class="first"><strong>Update/Add bundle definitions</strong>. The mixer uses a local clone of the
+<code class="docutils literal"><span class="pre">clr-bundles</span></code> repo to define bundles for the mix.</p>
+<p>To define your bundles:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Navigate to the <code class="docutils literal"><span class="pre">mix-bundles/</span></code> directory.</p>
+</li>
+<li><p class="first">Make any needed modifications to the bundle set.</p>
+</li>
+<li><p class="first">Commit the result:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git add .
+$ git commit -s -m &#39;Update bundles for mix #&lt;VER&gt;&#39;
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+<p>You can easily copy bundles over from the
+<code class="docutils literal"><span class="pre">clr-bundles/clr-bundles-VER/bundles/</span></code> directory in the case that you
+want to simply use existing bundle sets. Note that <code class="docutils literal"><span class="pre">mix-bundles</span></code> should
+not have any folders inside of it, only bundle definitions.</p>
+<p>Do <em>not</em> modify things in the clr-bundles dir, this is simply a mirror for
+you to use or refer to the Clear Linux OS bundle definitions.</p>
+<p>Why do this? With Git history, mixes are easy to revert to or refer
+to in the future if something were to go wrong with a new mix. If
+you&#8217;re just testing this out, or if you really do not want to mess with Git,
+you can ignore committing for now.</p>
+<p>To add your own bundle, create a bundle definition file in <code class="docutils literal"><span class="pre">mix-bundles/</span></code>
+and refer to <code class="file docutils literal"><span class="pre">mix-bundles/os-core-update</span></code> for formatting, but be sure
+that the name does not conflict with another bundle. Add your package
+name(s) in that  bundle definition file to tell it what package(s) must be
+installed as part of that bundle.</p>
+</li>
+<li><p class="first"><strong>Build the bundle chroots</strong> To build all of the <code class="docutils literal"><span class="pre">chroots</span></code>
+that are based on the bundles you defined, in your workspace run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo mixer build-chroots</span>
+</pre></div>
+</div>
+<p>If you have many bundles defined for your mix, this step may take some time.</p>
+</li>
+<li><p class="first"><strong>Create update</strong>. In the workspace, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo mixer build-update</span>
+</pre></div>
+</div>
+<p>When the build completes, you&#8217;ll find your mix update content under
+<code class="docutils literal"><span class="pre">/home/clr/mix/update/www/VER</span></code>. In this example, it will be located in
+<code class="docutils literal"><span class="pre">/home/clr/mix/update/www/&lt;MIXVERSION&gt;</span></code>, where &lt;MIXVERSION&gt; is the mix
+version you defined, or 10 by default.</p>
+<p>All content to make a fully usable mix will be created by this step, but
+note that only zero packs are automatically generated. To create optional
+delta packs, run the pack-maker as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo mixer-pack-maker.sh --to &lt;MIX_VERSION&gt; --from &lt;PAST_VERSION&gt; -S /home/clr/mix/update</span>
+</pre></div>
+</div>
+<p>The pack-maker will generate all delta packs for changed bundles from
+PAST_VERSION to MIX_VERSION. If your STATE_DIR is in a different location be
+sure to specify where with the -S option. For the first build, no delta
+packs can be created because the &#8220;update&#8221; is from version 0, which impicitly
+has no content, thus no deltas can be generated. For subsequent builds,
+mixer-pack-maker.sh can be run to generate delta content between them (i.e
+10 to 20).</p>
+</li>
+<li><p class="first"><strong>Creating an image</strong> To create a bootable image from your update content,
+you will need the configuration file for ister to create images:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># curl -O https://raw.githubusercontent.com/bryteise/ister/master/release-image-config.json</span>
+</pre></div>
+</div>
+<p>Edit this to include  all the bundles you want pre-installed into your
+image. For a minimal, base image this would be:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;Bundles&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;os-core&quot;</span><span class="p">,</span> <span class="s2">&quot;os-core-update&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel-native&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>And lastly, set the &#8220;Version:&#8221; to say which mix version content the image
+should be built from, i.e. 10 for your first build. To build the image,
+run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo mixer build-image -format 1</span>
+</pre></div>
+</div>
+<p>The output from this should be an image that is bootable as a VM or
+installable to baremetal.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need to pass in -format &lt;FORMAT_NUMBER&gt; if the format you are
+building is different than the format of Clear Linux OS you are currently
+building on. Format version can be found via</p>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cat /usr/share/defaults/swupd/format
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="creating-your-next-mix-version">
+<h3>Creating your next Mix version</h3>
+<ol class="arabic">
+<li><p class="first"><strong>Initialize next Mix version info</strong>. To update the versions and prep for
+your next mix:</p>
+<p>Update the .mixversion file to the next version number you want to build.
+From this point you can iterate through, starting again at step 4 and doing
+modifications as needed. For example:</p>
+<ul class="simple">
+<li>Add/Remove/Modify Bundles</li>
+<li>sudo mixer build-chroots</li>
+<li>sudo mixer build-update</li>
+<li>(Optionally) sudo mixer-pack-maker.sh &#8211;to &lt;NEWVERSION&gt; &#8211;from &lt;PREV_VERSION&gt; -S /home/clr/mix/update</li>
+</ul>
+</li>
+<li><p class="first"><strong>Update Bundles (Optional)</strong>.  Update <code class="docutils literal"><span class="pre">clr-bundles</span></code>.  In the workspace,
+run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo mixer get-bundles</span>
+</pre></div>
+</div>
+<p>This step is optional because it is only needed when you want to update the
+upstream clr-bundles in your workspace to a new version, which requires
+updating the .clearversion file.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="format-version">
+<h3>Format Version</h3>
+<p>The &#8220;format&#8221; used in <code class="docutils literal"><span class="pre">builder.conf</span></code> might be more precisely referred to as an
+OS &#8220;compatibility epoch&#8221;. Versions of the OS within a given epoch are fully
+compatible with themselves and can update to any version in that epoch. Across
+the format boundary <em>something</em> has changed in the OS, such that updating from
+build M in format X, to build N in format Y will not work. Generally this
+occurs when the software updater or manifests changed in a way that is no
+longer compatible with the previous update scheme.</p>
+<p>A format increment is the way we insure pre- and co-requisite changes flow out
+with proper ordering. The update client will only ever update to the latest
+release in its respective format version (unless overridden by command line
+flags), thus we can guarantee all clients will update to the final version in
+their given format, which <em>must</em> contain all the changes needed to understand
+the content built in the following format. Only after reaching the final
+release in the old format will a client be able to continue to update to
+releases in the new format.</p>
+<p>For the creation of a custom mix, the format version should start at &#8216;1&#8217;, or
+some known number, and increment only when a compatibility breakage is
+introduced. Normal updates (updating a software package for example) do not
+require a format increment.</p>
+</div>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

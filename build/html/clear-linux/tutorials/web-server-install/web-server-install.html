@@ -1,0 +1,642 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Creating a Clear Linux based web server</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="WordPress* use case tutorial" href="../wordpress.html"/>
+        <link rel="next" title="Create a Clear Linux WordPress* server" href="../wp-install/wp-install.html"/>
+        <link rel="prev" title="WordPress* use case tutorial" href="../wordpress.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Creating a Clear Linux based web server
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="creating-a-clear-linux-based-web-server">
+<span id="web-server-install"></span><h1>Creating a Clear Linux based web server</h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>In order to create a web server using Clear Linux as the host OS your host
+system must be running Clear Linux. Therefore, this tutorial assumes you have
+already gone through the <a class="reference internal" href="../../get-started/bare-metal-install/bare-metal-install.html#bare-metal-install"><span class="std std-ref">bare metal installation</span></a>
+instructions.</p>
+<p>Before installing any new packages, update the Clear Linux OS with the
+console command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo swupd update</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-lamp-server">
+<h2>Creating a LAMP Server</h2>
+<p>A server with Linux*, Apache*, MySQL*, and PHP* installed is known as a
+LAMP server, allows you to set up a fully functional web server, and enables
+you to host your own website. This tutorial walks you through the process of
+creating a LAMP server by installing and configuring each component. In place
+of MySQL, we will be installing MariaDB which is a drop- in replacement for
+MySQL. Once the LAMP server component installations are complete, we add
+phpMyAdmin to manage your MariaDB databases.</p>
+</div>
+<div class="section" id="installing-apache">
+<h2>Installing Apache</h2>
+<p>Apache is an open source HTTP web server application. It can run on several
+operating systems, including Clear Linux. Alternatively, you could install
+NGINX but this tutorial focuses on implementing an Apache server.
+Go to <a class="reference external" href="https://httpd.apache.org/">https://httpd.apache.org/</a> to learn more about it.</p>
+<div class="section" id="install-the-web-server-basic-bundle">
+<h3>Install the web-server-basic bundle</h3>
+<p>The web-server-basic bundle contains the packages needed to install the
+Apache software bundle on Clear Linux.</p>
+<p>To install the bundle, enter the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo swupd bundle-add web-server-basic</span>
+</pre></div>
+</div>
+<p>To start the Apache service, enter the following commands:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo systemctl enable httpd.service</span>
+<span class="go">sudo systemctl start httpd.service</span>
+</pre></div>
+</div>
+<p>To verify that the Apache server application is running, go to your web
+browser and navigate to: <a class="reference external" href="http://localhost">http://localhost</a></p>
+<p>If the service is running you will see the message &#8220;This web server is
+operational from host.&#8221; on your browser as shown in figure 1.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-1.png"><img alt="This web server is operational from host." src="../../../_images/web-server-install-1.png" style="width: 720.0px; height: 450.0px;" /></a>
+<p class="caption"><span class="caption-text">Confirmation the Apache service is running.</span></p>
+</div>
+<p>The <code class="file docutils literal"><span class="pre">index.html</span></code> file is located in the <code class="file docutils literal"><span class="pre">/var/www/html</span></code>
+directory of your host system. We will copy this file into a new location
+after we modify the configuration.</p>
+</div>
+</div>
+<div class="section" id="change-the-default-configuration-and-data-directory">
+<h2>Change the default configuration and data directory</h2>
+<p>Clear Linux is designed to be a stateless operating system which means that you will
+need to create an optional configuration file to make changes over the default
+values. The default location of the Apache configuration file,
+<code class="file docutils literal"><span class="pre">httpd.conf</span></code>, is located in the <code class="file docutils literal"><span class="pre">/usr/share/defaults/httpd</span></code>
+directory. Clear Linux can overwritte this directory as part of the stateless
+paradigm. This default <code class="file docutils literal"><span class="pre">.conf</span></code> file includes the following directives
+that allow for additional locations of configuration definitions:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> Virtual hosts
+<span class="go">IncludeOptional /usr/share/defaults/httpd/conf.d/*.conf</span>
+<span class="go">IncludeOptional /usr/share/defaults/httpd/conf.modules.d/*.conf</span>
+<span class="go">IncludeOptional /etc/httpd/conf.d/*.conf</span>
+<span class="go">IncludeOptional /etc/httpd/conf.modules.d/*.conf</span>
+</pre></div>
+</div>
+<p>For this tutorial, we will create the directory structure for <code class="file docutils literal"><span class="pre">/etc/httpd/conf.d</span></code>
+and then create the <code class="file docutils literal"><span class="pre">httpd.conf</span></code> file within <code class="file docutils literal"><span class="pre">/etc/httpd/conf.d</span></code> directory and
+include the variable <code class="docutils literal"><span class="pre">DocumentRoot</span></code>.</p>
+<p>Using your favorite editor, copy the content listed below into the new file
+<code class="file docutils literal"><span class="pre">/etc/httpd/conf.d/httpd.conf</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span>
+<span class="gp">#</span> Set a new location <span class="k">for</span> DocumentRoot
+<span class="gp">#</span>
+<span class="go">DocumentRoot &quot;/var/www/tutorial&quot;</span>
+
+<span class="gp">#</span>
+<span class="gp">#</span> Relax access to content within /var/www/tutorial <span class="k">for</span> this example
+<span class="gp">#</span>
+<span class="go">&lt;Directory &quot;/var/www/tutorial&quot;&gt;</span>
+<span class="go">   AllowOverride none</span>
+<span class="go">   Require all granted</span>
+<span class="go">&lt;/Directory&gt;</span>
+</pre></div>
+</div>
+<p>Finally, let’s create the new <code class="docutils literal"><span class="pre">DocumentRoot</span></code> directory structure and copy the
+<code class="file docutils literal"><span class="pre">index.html</span></code> file from <code class="file docutils literal"><span class="pre">/var/www/html</span></code> directory to
+<code class="file docutils literal"><span class="pre">/var/www/tutorial</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo mkdir –p /var/www/tutorial</span>
+<span class="go">cd /var/www/tutorial</span>
+<span class="go">sudo cp /var/www/html/index.html .</span>
+</pre></div>
+</div>
+<p>To make sure that we have everything set correctly, let’s edit the new
+<code class="file docutils literal"><span class="pre">index.html</span></code> file with your editor and change the text from
+&#8220;This web server is operational from host.&#8221; to
+&#8220;This web server is operational from its new location.&#8221;.</p>
+<p>With the new configuration files in place, you will need to stop and then
+restart the <code class="docutils literal"><span class="pre">httpd.service</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo systemctl stop httpd.service</span>
+<span class="go">sudo systemctl start httpd.service</span>
+</pre></div>
+</div>
+<p>Now when you go to <a class="reference external" href="http://localhost">http://localhost</a> you should see your new screen.</p>
+<p>To continue, we must change the configuration back to the default
+<code class="file docutils literal"><span class="pre">/var/www/html</span></code> location. To do this, edit the
+<code class="file docutils literal"><span class="pre">/etc/httpd/conf.d/httpd.conf</span></code> file again and replace any instance of
+/var/www/tutorial with /var/www/html.</p>
+<p>Then, stop and then restart the <code class="docutils literal"><span class="pre">httpd.service</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo systemctl stop httpd.service</span>
+<span class="go">sudo systemctl start httpd.service</span>
+</pre></div>
+</div>
+<p>On <a class="reference external" href="http://localhost">http://localhost</a>, you should see the default screen again.</p>
+<p>Optionally, remove the /var/www/tutorial directory previously created.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo rm /var/www/tutorial/index.html</span>
+<span class="go">sudo rmdir /var/www/tutorial</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-php">
+<h2>Installing PHP</h2>
+<p>With Apache installed, you can display static web pages. However, enabling
+PHP allows dynamic webpages to be generated and displayed. To add this
+functionality to your web server we need to install PHP on your system.</p>
+<p>To get the php components, enter the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo swupd bundle-add php-basic</span>
+</pre></div>
+</div>
+<p>To enable PHP, enter the following commands:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo systemctl enable php-fpm.service</span>
+<span class="go">sudo systemctl start php-fpm.service</span>
+<span class="go">sudo systemctl restart httpd.service</span>
+</pre></div>
+</div>
+<p>After restarting the Apache service, we can test our PHP installation.</p>
+<ol class="arabic">
+<li><p class="first">Create a file named <code class="file docutils literal"><span class="pre">phpinfo.php</span></code> in the
+<code class="file docutils literal"><span class="pre">/var/www/html/</span></code> directory using your editor.</p>
+</li>
+<li><p class="first">Add the following line to the file:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?PHP</span> <span class="nb">phpinfo</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Go to <a class="reference external" href="http://localhost/phpinfo.php">http://localhost/phpinfo.php</a> using your browser.</p>
+<p>The PHP information screen should appear, see figure 2:</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-2.png"><img alt="PHP information screen" src="../../../_images/web-server-install-2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The PHP information screen.</span></p>
+</div>
+</li>
+</ol>
+<p>If the PHP information screen is displayed, you have successfully installed
+the PHP components and are now ready to add your database application to
+complete your LAMP server implementation.</p>
+</div>
+<div class="section" id="installing-mariadb">
+<h2>Installing MariaDB</h2>
+<p>Most web applications require a database to store their content. Therefore,
+we must install MariaDB to fulfill this need. MariaDB is a drop-in
+replacement for MySQL and is available in the database-basic Clear Linux
+bundle.</p>
+<p>To install the database-basic bundle, enter the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo swupd bundle-add database-basic</span>
+</pre></div>
+</div>
+<p>Once MariaDB is installed, we need to start the service and check its status.</p>
+<p>To start MariaDB, enter the following commands:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo systemctl enable mariadb</span>
+<span class="go">sudo systemctl start mariadb</span>
+</pre></div>
+</div>
+<p>To check the status of MariaDB, enter the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo systemctl status mariadb</span>
+</pre></div>
+</div>
+<p>With the MariaDB service running, we can perform some basic security
+hardening.</p>
+<p>To add a basic layer of security, enter the following command and answer the
+questions presented:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">mysql_secure_installation</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We have included the answers after each question.</p>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Enter current password for root (enter for none):</span>
+</pre></div>
+</div>
+<p>In order to secure the MariaDB, we need the current password for the root
+user. For a newly installed MariaDB without a set root password, the
+password is blank. Just press enter to continue.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">OK, successfully used password, moving on...</span>
+
+<span class="go">Set root password? [Y/n]</span>
+</pre></div>
+</div>
+<p id="set-password">Setting the root password ensures nobody can log into the MariaDB
+as a root user without the proper authorization.</p>
+<p>To set a root password, type &#8216;y&#8217;.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">New password:</span>
+</pre></div>
+</div>
+<p>Type the desired password for the root user.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Re-enter new password:</span>
+</pre></div>
+</div>
+<p>Re-type the desired password for the root user.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Password updated successfully!</span>
+<span class="go">Reloading privilege tables..</span>
+<span class="go"> ... Success!</span>
+
+<span class="go">Remove anonymous users? [Y/n]</span>
+</pre></div>
+</div>
+<p>By default, a MariaDB installation has an anonymous user allowing anyone to
+log into MariaDB without a user account. This anonymous user is intended only
+for testing and for a smoother the installation.</p>
+<p>To remove the anonymous user and make your database more secure, type &#8216;y&#8217;.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go"> ... Success!</span>
+<span class="go">Disallow root login remotely? [Y/n]</span>
+</pre></div>
+</div>
+<p>Normally, root should only be allowed to connect from the &#8216;localhost&#8217;.
+This ensures that someone cannot guess at the root password from the network.</p>
+<p>To block any remote root login, type &#8216;y&#8217;.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go"> ... Success!</span>
+<span class="go">Remove test database and access to it? [Y/n]</span>
+</pre></div>
+</div>
+<p>By default, MariaDB comes with a database named &#8216;test&#8217; which anyone can
+access. This database is also intended only for testing and should be
+removed.</p>
+<p>To remove the test database, type &#8216;y&#8217;.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go"> - Dropping test database...</span>
+<span class="go"> ... Success!</span>
+<span class="go"> - Removing privileges on test database...</span>
+<span class="go"> ... Success!</span>
+<span class="go">Reload privilege tables now? [Y/n]</span>
+</pre></div>
+</div>
+<p>Reloading the privilege tables ensures all changes made so far take effect
+immediately.</p>
+<p>To reload the privilege tables, type &#8216;y&#8217;.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go"> ... Success!</span>
+
+<span class="go">Cleaning up...</span>
+
+<span class="go">All done!  If you&#39;ve completed all of the above steps, your MariaDB</span>
+<span class="go">installation should now be secure.</span>
+
+<span class="go">Thanks for using MariaDB!</span>
+</pre></div>
+</div>
+<p>The MariaDB installation is complete and we can now install phpMyAdmin to
+manage the databases.</p>
+</div>
+<div class="section" id="installing-phpmyadmin">
+<h2>Installing phpMyAdmin</h2>
+<p>The web-based tool phpMyAdmin is a straight-forward way to manage MySQL or
+MariaDB databases. Visit <a class="reference external" href="https://www.phpmyadmin.net">https://www.phpmyadmin.net</a> for the complete
+discussion regarding phpMyAdmin, its documentation, the latest downloads, and
+other useful information.</p>
+<p>This tutorial uses the latest English version of phpMyAdmin to install it on
+our Clear Linux host system.</p>
+<ol class="arabic simple">
+<li>Download the <code class="file docutils literal"><span class="pre">phpMyAdmin-&lt;version&gt;-english.tar.gz</span></code> file to your
+<code class="file docutils literal"><span class="pre">~/Downloads</span></code> directory. Here, &lt;version&gt; refers to the current
+version available at <a class="reference external" href="https://www.phpmyadmin.net/downloads">https://www.phpmyadmin.net/downloads</a>.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This example downloads and uses version 4.6.4.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Once the file has been successfully downloaded and verified, uncompress
+the file and directories into the apache web server document root
+directory. Use the following commands:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">cd /var/www/html</span>
+<span class="go">sudo tar –xzvf ~/Downloads/phpMyAdmin-4.6.4-english.tar.gz</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>To keep things simple, rename the newly created
+<code class="file docutils literal"><span class="pre">phpMyAdmin-4.6.4-english</span></code> directory to <code class="file docutils literal"><span class="pre">phpMyAdmin</span></code> with the
+following command:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo mv phpMyAdmin-4.6.4-english phpMyAdmin</span>
+</pre></div>
+</div>
+<div class="section" id="using-phpmyadmin-to-manage-databases">
+<h3>Using phpMyAdmin to Manage Databases</h3>
+<p>If you have successfully installed all of the components for your LAMP
+server, you should be able to point your browser to
+<a class="reference external" href="http://localhost/phpMyAdmin">http://localhost/phpMyAdmin</a> and see the screen shown in figure 3 in your
+browser window.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-3.png"><img alt="phpMyAdmin login page" src="../../../_images/web-server-install-3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The <cite>phpMyAdmin</cite> login page after successful installation.</span></p>
+</div>
+<p>Log in with your root userid and the password you set up when you ran the
+<a class="reference internal" href="#set-password"><span class="std std-ref">mysql_secure_installation command</span></a>. Enter your
+credentials and select <span class="guilabel">Go</span> to log in:</p>
+<p>Once logged in the main phpMyAdmin page is displayed as shown on figure 4:</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-4.png"><img alt="phpMyAdmin dashboard" src="../../../_images/web-server-install-4.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The <cite>phpMyAdmin</cite> dashboard after successful login.</span></p>
+</div>
+<p>Our next step is to set up our first database. For example, we can call
+our new database WordPress.</p>
+<ol class="arabic">
+<li><p class="first">Select the <span class="guilabel">Databases</span> tab in the phpMyAdmin main screen to go
+to the Databases page. Figure 5 shows the databases tab.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-5.png"><img alt="Databases tab" src="../../../_images/web-server-install-5.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The <cite>Databases</cite> tab of <cite>phpMyAdmin</cite>.</span></p>
+</div>
+</li>
+<li><p class="first">Enter &#8216;WordPress&#8217;. in the text field below the <span class="guilabel">Create database</span>
+label.</p>
+</li>
+<li><p class="first">Pick the <span class="guilabel">utf8_unicode_ci</span> option from the collation drop-down
+menu beside the text field.</p>
+</li>
+<li><p class="first">Press the <span class="guilabel">Create</span> button.</p>
+</li>
+</ol>
+<p>Once the database is created, we need to set up the user permissions.</p>
+<ol class="arabic">
+<li><p class="first">Select the WordPress database in the left panel.</p>
+</li>
+<li><p class="first">Select the <span class="guilabel">Privileges</span> tab. Figure 6 shows the contents of the
+tab.</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-6.png"><img alt="Privileges tab" src="../../../_images/web-server-install-6.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The <cite>Privileges</cite> tab of <cite>phpMyAdmin</cite></span></p>
+</div>
+</li>
+<li><p class="first">Click on <span class="guilabel">Add user account</span></p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-7.png"><img alt="User accounts tab" src="../../../_images/web-server-install-7.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The <cite>User accounts</cite> tab showing all the required information entered
+in the next steps.</span></p>
+</div>
+</li>
+<li><p class="first">Enter the following information in the corresponding fields:</p>
+<p>User name: wordpressuser</p>
+<p>Password: wp-example</p>
+<p>Re-type: wp-example</p>
+</li>
+<li><p class="first">In the Database for user account section, select the option
+<span class="guilabel">Grant all privileges on database “WordPress”.</span></p>
+</li>
+<li><p class="first">At the bottom of the page and select <span class="guilabel">Go</span>.</p>
+</li>
+</ol>
+<p>If successful, you should see the screen shown in figure 8:</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/web-server-install-8.png"><img alt="User added successfully" src="../../../_images/web-server-install-8.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The user <strong>wordpressuser</strong> was added successfully.</span></p>
+</div>
+<p>Congratulations!</p>
+<p>You have now created a fully functional LAMP server along with a WordPress-
+ready database using Clear Linux.</p>
+<p>As a next step, you could <a class="reference internal" href="../wp-install/wp-install.html#wp-install"><span class="std std-ref">create a WordPress server</span></a>
+and present it to the world.</p>
+</div>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

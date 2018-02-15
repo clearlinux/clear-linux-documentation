@@ -1,0 +1,431 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Use VirtualBox*</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Install Clear Linux in a virtual machine" href="virtual-machine-install.html"/>
+        <link rel="next" title="Install Clear Linux as a VMware* ESXi guest OS" href="vmware-esxi-install-cl.html"/>
+        <link rel="prev" title="Run Clear Linux as a KVM guest OS" href="kvm.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Use VirtualBox*
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="use-virtualbox">
+<span id="virtualbox"></span><h1>Use VirtualBox*</h1>
+<p>This section explains how to run Clear Linux* OS for Intel® Architecture inside a <a class="reference external" href="https://www.virtualbox.org/">VirtualBox environment</a>.</p>
+<p>Please ensure you have enabled <a class="reference external" href="http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html">Intel® Virtualization Technology</a>
+(Intel® VT) and <a class="reference external" href="https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices">Intel® Virtualization Technology for Directed I/O</a>
+(Intel® VT-d) in your BIOS/UEFI firmware configuration.</p>
+<div class="section" id="download-virtualbox">
+<h2>Download VirtualBox</h2>
+<p>VirtualBox is a hypervisor supported by Oracle. You can download it from the
+<a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">official VirtualBox website</a> and select the operating system you are using.</p>
+<p>Download <strong>version 5.0 or greater</strong> to ensure support for
+the <abbr title="Advanced Vector Extensions">AVX</abbr> needed to run
+Clear Linux* OS for Intel® Architecture</p>
+</div>
+<div class="section" id="create-a-virtual-machine-in-virtualbox">
+<span id="create-vm-vbox"></span><h2>Create a virtual machine in VirtualBox</h2>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="https://download.clearlinux.org/image/">latest</a> <strong>live</strong> version (clear-XXXX-live.img.xz)
+from <a class="reference external" href="https://download.clearlinux.org/image/">https://download.clearlinux.org/image/</a>.</p>
+</li>
+<li><p class="first">Decompress the downloaded image. Uncompressed image size is ~ <strong>5GB</strong>.</p>
+<ul>
+<li><p class="first">On Linux</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ xz -d clear-XXXX-live.img.xz
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Windows you can use <a class="reference external" href="http://www.7-zip.org/">7zip</a>.</p>
+<ul>
+<li><p class="first">Right-click the file to <em>extract in the same directory</em>.</p>
+<img alt="7zip extract here command" src="../../../_images/7zipwin.png" />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">To convert a raw image to <abbr title="VirtualBox Disk Image">VDI</abbr>
+format, you can use one of the following commands:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ VBoxManage convertfromraw clear-XXXX-live.img clear-XXXX-live.vdi --format VDI
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vdi --srcformat raw --dstformat vdi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Be sure you have VirtualBox directory in your PATH (i.e., on
+Windows <code class="file docutils literal"><span class="pre">C:\Program</span> <span class="pre">Files\Oracle\VirtualBox</span></code>).</p>
+<ul class="last">
+<li><p class="first">On windows: launch a <strong>Command Prompt</strong> program and type</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">set PATH=%PATH%;&quot;C:\Program Files\Oracle\VirtualBox&quot;</span>
+</pre></div>
+</div>
+<img alt="Convert image in Windows command propt" src="../../../_images/vbox-convert-image.png" />
+</li>
+</ul>
+</div>
+</li>
+<li><p class="first">Create a virtual machine using the VirtualBox assistant:</p>
+<ol class="loweralpha">
+<li><p class="first">Type: <strong>Linux</strong></p>
+</li>
+<li><p class="first">Version: <strong>Linux 2.6 / 3.x / 4.x (64-bit)</strong></p>
+<img alt="Create a new image in VirtualBox" src="../../../_images/vbox-create-vm.png" />
+</li>
+<li><p class="first">Select default memory size.</p>
+<img alt="../../../_images/vbox-memory-size.png" src="../../../_images/vbox-memory-size.png" />
+</li>
+<li><p class="first">Attach the virtual disk created in step number 3 as a virtual hard
+disk file. Click the folder icon (lower right) to browse to find the
+VDI file.</p>
+<img alt="../../../_images/vbox-hdisk.png" src="../../../_images/vbox-hdisk.png" />
+</li>
+</ol>
+</li>
+<li><p class="first">After it is created, go to settings to enable <strong>EFI support</strong></p>
+<ul>
+<li><p class="first">System -&gt; Enable EFI (special OSes only)</p>
+<img alt="Enable EFI on VirtualBox" src="../../../_images/vbox-efi.png" />
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="run-your-new-vm">
+<h2>Run your new VM</h2>
+<p>Clear Linux* OS for Intel® Architecture supports VirtualBox kernel modules used
+by the Linux kernel 4.9 <abbr title="Long Term Support">LTS</abbr> (<em>kernel-lts bundle</em>).
+This kernel was selected because Clear Linux OS&#8217;s main kernel
+(<code class="docutils literal"><span class="pre">kernel-native</span></code>) bundle keeps up-to-date with the upstream Linux kernel,
+and sometimes VirtualBox kernel modules aren&#8217;t compatible with pre-kernel
+releases.</p>
+<p>In the first boot, Clear Linux will ask for a login user, type <strong>root</strong> and
+then the system will ask you for a new password.</p>
+<p>To install the VirtualBox kernel modules, here are the steps:</p>
+<ol class="arabic">
+<li><p class="first">Install the bundle that supports VirtualBox modules:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add kernel-lts</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set a timeout in the bootmanager to shows a menu at boot time:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager set-timeout 10</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Update the bootloader entries with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager update</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot your system with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># reboot</span>
+</pre></div>
+</div>
+<p>and choose <strong>clear-linux-lts-4.9.XX-YYY</strong> kernel version.</p>
+</li>
+<li><p class="first">(<em>Optional</em>) Unset timeout to boot directly to LTS version:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager set-timeout 0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">(<em>Mandatory</em>) Update bootmanger to use always LTS version:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># clr-boot-manager update</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="section" id="install-guest-additions">
+<h3>Install Guest Additions</h3>
+<p>The kernel modules are shipped with the <code class="docutils literal"><span class="pre">kernel-lts</span></code> bundle; however,
+you&#8217;ll need to install the <em>user</em> Linux Guest Additions. To install the
+VirtualBox Guest Additions, follow these steps:</p>
+<ol class="arabic">
+<li><p class="first">Insert Guest Additions CD image using <em>Devices</em> menu</p>
+<img alt="VirtualBox CD" src="../../../_images/vbox-cd.png" />
+</li>
+<li><p class="first">Install Linux users Guest Additions:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># install-vbox-lga</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot your system:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># reboot</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="troubleshooting">
+<h3>Troubleshooting</h3>
+<p>On Windows OS, <em>VirtualBox</em> cannot do a <strong>Hardware Virtualization</strong> when
+<em>Hyper-V</em> is enabled.</p>
+<img alt="VirtualBox hardware acceleration error" src="../../../_images/vbox-no-vtx.png" />
+<p>To disable <em>Hyper-V</em> you should execute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bcdedit</span> <span class="o">/</span><span class="nb">set</span> <span class="p">{</span><span class="n">current</span><span class="p">}</span> <span class="n">hypervisorlaunchtype</span> <span class="n">off</span>
+</pre></div>
+</div>
+<p>in an <strong>Administrator: Command Prompt</strong>, then reboot your system.</p>
+<p>To enable Hyper-V again, you should execute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">bcdedit</span> <span class="o">/</span><span class="nb">set</span> <span class="p">{</span><span class="n">current</span><span class="p">}</span> <span class="n">hypervisorlaunchtype</span> <span class="n">Auto</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

@@ -1,0 +1,513 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Clear Linux partitioning using CGDISK</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Get started" href="../get-started.html"/>
+        <link rel="next" title="Install Clear Linux in a virtual machine" href="../virtual-machine-install/virtual-machine-install.html"/>
+        <link rel="prev" title="Bare metal manual installation guide" href="bare-metal-manual-install.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Clear Linux partitioning using CGDISK
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="clear-linux-partitioning-using-cgdisk">
+<span id="cgdisk-manual-install"></span><h1>Clear Linux partitioning using CGDISK</h1>
+<p>These instructions guide you through the initial setup of your hard drive
+partitions using the <strong class="command">cgdisk</strong> utility as part of the Clear Linux manual
+installation process. If you do not wish to continue creating your own
+partitions, <a class="reference internal" href="bare-metal-manual-install.html#cgdisk-manual-setup"><span class="std std-ref">return to the bare metal manual installation</span></a>.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>This guide assumes that you have followed the <a class="reference internal" href="bare-metal-install.html#bare-metal-install"><span class="std std-ref">Install Clear Linux OS on bare metal</span></a>
+guide and intend to <a class="reference internal" href="bare-metal-manual-install.html#bare-metal-manual-install"><span class="std std-ref">install Clear Linux manually</span></a> by choosing the <span class="guilabel">&lt; Manual(Advanced) &gt;</span>
+menu item on the <span class="guilabel">Choose Installation Type</span> Clear Linux Installer setup
+menu as shown in figure 1:</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-1.png"><img alt="Choose installation Type" src="../../../_images/cgdisk-manual-install-1.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 1: <span class="guilabel">Choose installation Type</span></span></p>
+</div>
+</div>
+<div class="section" id="partition-using-cgdisk">
+<h2>Partition using CGDISK</h2>
+<p>We use the <strong class="command">cgdisk</strong> application to create a
+<abbr title="GUID Partition Table">GPT</abbr> since Clear Linux only supports the
+<abbr title="Unified Extensible Firmware Interface">UEFI</abbr> specification. For a
+complete description of the <strong class="command">cgdisk</strong> utility and how to use it, visit
+Rod Smith&#8217;s website for a <a class="reference external" href="http://www.rodsbooks.com/gdisk/">GPT fdisk tutorial</a>.</p>
+<p>In this guide, we intend to use an unpartitioned hard drive for the Clear Linux
+installation.</p>
+<ol class="arabic">
+<li><p class="first">On the <span class="guilabel">Choose partitioning method</span> menu, shown in figure 2,
+select the <span class="guilabel">&lt; Manually configure mounts and partitions &gt;</span> menu
+item to manually partition your hard drive.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-2.png"><img alt="Choose partitioning method" src="../../../_images/cgdisk-manual-install-2.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: <span class="guilabel">Choose partitioning method</span></span></p>
+</div>
+<p>The screen then shows the current device on your system you can partition.
+In this example, shown in figure 3, <code class="file docutils literal"><span class="pre">/dev/sda</span></code> is available but
+does not have any partitions defined.</p>
+</li>
+<li><p class="first">Select the <span class="guilabel">&lt; Partition /dev/sda &gt;</span> menu item and press
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> to begin the process of modifying this disk.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-3.png"><img alt="Choose a drive to partition using cgdisk tool" src="../../../_images/cgdisk-manual-install-3.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 3: <span class="guilabel">Choose a drive to partition using cgdisk tool</span></span></p>
+</div>
+<p>The <strong class="command">cgdisk</strong> application starts and displays the settings for
+<code class="file docutils literal"><span class="pre">/dev/sda</span></code> as shown in figure 4.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-4.png"><img alt="cgdisk" src="../../../_images/cgdisk-manual-install-4.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 4: <span class="guilabel">cgdisk</span></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="linux-partition-setup">
+<h2>Linux Partition setup</h2>
+<p>In order to properly set up the Clear Linux partitioning scheme, we create three
+partitions using the <strong class="command">cgdisk</strong> utility in the following order:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>EFI boot partition</li>
+<li>Linux swap partition</li>
+<li>Linux root partition</li>
+</ol>
+</div></blockquote>
+<p>For a complete understanding of these partitions, you can review the
+<a class="reference external" href="https://wiki.archlinux.org/index.php/partitioning#Partition_scheme">Linux partitioning scheme</a> information.</p>
+<div class="section" id="create-the-efi-boot-partition">
+<h3>Create the EFI boot partition</h3>
+<ol class="arabic">
+<li><p class="first">With the free space highlighted in the <strong class="command">cgdisk</strong> utility,
+you can either select the <span class="guilabel">[ New ]</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>
+or press the <code class="kbd docutils literal"><span class="pre">N</span></code> key to define a new partition.</p>
+<p>The utility prompts you to enter the first sector. Press the <code class="kbd docutils literal"><span class="pre">Enter</span></code>
+key to accept the default value shown.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In this example, the first sector starts at 2048. For more information
+about alignment using the cgdisk tool, see
+<a class="reference external" href="http://www.rodsbooks.com/gdisk/advice.html#alignment">Rod Smith&#8217;s Partitioning Advice about alignment</a>.</p>
+</div>
+</li>
+<li><p class="first">The program then prompts you for the size of the partition. To create a
+512MB partition, enter 512M and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> as shown in figure 5:</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-5.png"><img alt="cgdisk - New" src="../../../_images/cgdisk-manual-install-5.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 5: <span class="guilabel">cgdisk - New partition</span></span></p>
+</div>
+</li>
+<li><p class="first">To define the type of partition, the <strong class="command">cgdisk</strong> utility has
+pre-defined partition types. Press the <code class="kbd docutils literal"><span class="pre">L</span></code> key to show the hex codes
+you can use. Use these codes to set the correct
+<abbr title="Globally unique identifier">GUID</abbr> for <em>GPT partition types</em> as
+shown in figure 6:</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-6.png"><img alt="cgdisk - hex codes for partition types" src="../../../_images/cgdisk-manual-install-6.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 6: <span class="guilabel">cgdisk - hex codes for partition types</span></span></p>
+</div>
+<p>We need to use the following three codes for our partitions:</p>
+<ul class="simple">
+<li>ef00 - EFI System</li>
+<li>8200 - Linux swap</li>
+<li>8300 - Linux filesystem</li>
+</ul>
+</li>
+<li><p class="first">To create the EFI boot partition, enter <code class="docutils literal"><span class="pre">ef00</span></code> as the hexcode for this
+partition and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+</li>
+<li><p class="first">To name the partition, enter <code class="docutils literal"><span class="pre">boot</span></code> and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to finish
+setting up the EFI boot partition. The utility shows the first partition as
+an <code class="docutils literal"><span class="pre">EFI</span> <span class="pre">System</span></code> 512MiB partition named <code class="docutils literal"><span class="pre">boot</span></code> as shown in figure 7:</p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-7.png"><img alt="cgdisk - boot partition defined" src="../../../_images/cgdisk-manual-install-7.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 7: <span class="guilabel">cgdisk - boot partition defined</span></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="create-the-linux-swap-partition">
+<h3>Create the Linux swap partition</h3>
+<p>Next, we must create the Linux swap partition. In figure 7, notice the two
+areas defined as free space. We created the first 1007.0 KiB free space area
+when we started the EFI boot partition at sector 2048. For more information
+about it, review <a class="reference external" href="http://www.rodsbooks.com/gdisk/advice.html#alignment">Rod Smith&#8217;s Partitioning advice about alignment</a>.</p>
+<ol class="arabic">
+<li><p class="first">Move your cursor to highlight the larger free space of 334.8 GiB at the
+bottom of the partition list before you begin to create the Linux swap
+partition as shown in figure 8:</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-8.png"><img alt="cgdisk - free space selection" src="../../../_images/cgdisk-manual-install-8.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 8: <span class="guilabel">cgdisk - free space selection</span></span></p>
+</div>
+</li>
+<li><p class="first">To create the Linux swap partition, with the largest free space
+highlighted, select the <span class="guilabel">[ New ]</span> button or press the <code class="kbd docutils literal"><span class="pre">N</span></code>
+key and enter the following values for the Linux swap partition:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">First sector:  press :kbd:`Enter` to select the default value</span>
+<span class="go">Size in sectors:  4G</span>
+<span class="go">Hex code or GUID:  8200</span>
+<span class="go">Enter new partition name:  swap</span>
+</pre></div>
+</div>
+<p>Your <strong class="command">cgdisk</strong> partition list should now look like figure 9.</p>
+<div class="figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-9.png"><img alt="cgdisk - swap partition defined" src="../../../_images/cgdisk-manual-install-9.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 9: <span class="guilabel">cgdisk - swap partition defined</span></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="create-the-linux-filesystem-partition">
+<h2>Create the Linux filesystem partition</h2>
+<p>Lastly, we must create the the Linux filesystem partition to use it as the
+root mount point for you Clear Linux installation.</p>
+<ol class="arabic">
+<li><p class="first">Highlight the largest free space entry at the bottom of the list and select
+the <span class="guilabel">[ New ]</span> button or press the <code class="kbd docutils literal"><span class="pre">N</span></code> key and enter the
+following values to create the Linux filesystem partition:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">First sector:  press :kbd:`Enter` to select the default value</span>
+<span class="go">Size in sectors:  press :kbd:`Enter` to select the default value, which</span>
+<span class="go">                  is the remainder of available space on the disk</span>
+<span class="go">Hex code or GUID:  8300</span>
+<span class="go">Enter new partition name:  root</span>
+</pre></div>
+</div>
+<p>With all the partitions now defined, you should see a list similar to what
+is shown in figure 10:</p>
+<div class="figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-10.png"><img alt="cgdisk - defined partitions" src="../../../_images/cgdisk-manual-install-10.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 10: <span class="guilabel">cgdisk - defined partitions</span></span></p>
+</div>
+</li>
+<li><p class="first">If you are satisfied that the partition scheme is correct, you need to
+write this GPT to the hard drive. Select the <span class="guilabel">[ Write ]</span> button
+or press the <code class="kbd docutils literal"><span class="pre">W</span></code> key and the <strong class="command">cgdisk</strong> program prompts with:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Are you sure you want to write the partition table to disk? (yes or no)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enter <code class="docutils literal"><span class="pre">yes</span></code> and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to write this data to the hard drive
+and then select the <span class="guilabel">[ Quit ]</span> button or press <code class="kbd docutils literal"><span class="pre">Q</span></code> to exit
+the <strong class="command">cgdisk</strong> utility.</p>
+</li>
+<li><p class="first">You see the partitions that were created as shown in figure 11. Move your
+cursor to the <span class="guilabel">&lt; Next &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-11.png"><img alt="defined partitions" src="../../../_images/cgdisk-manual-install-11.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 11: <span class="guilabel">defined partitions</span></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="set-the-mount-points">
+<h2>Set the mount points</h2>
+<p>The <span class="guilabel">Set mount points</span> menu sets the mount points that the Clear Linux
+installer uses for your Clear Linux installation and is shown in figure 12.</p>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-12.png"><img alt="Set mount points" src="../../../_images/cgdisk-manual-install-12.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 12: <span class="guilabel">Set mount points</span></span></p>
+</div>
+<p>In this menu you need to set the mount points for the boot and root partitions
+and select to format them.</p>
+<ol class="arabic">
+<li><p class="first">Highlight the EFI System partition type menu entry and press the
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> key to edit this item. The <span class="guilabel">Set mount point of
+sda1</span> menu is be shown.</p>
+<ol class="arabic simple">
+<li>For the <span class="guilabel">Enter mount point:</span> type <cite>/boot</cite> and press
+<code class="kbd docutils literal"><span class="pre">Enter</span></code>.</li>
+<li>Enable formatting the partition by checking the <span class="guilabel">[ ] Format</span>
+toggle field.</li>
+</ol>
+<p>Figure 13 shows the entered information.  Select the <span class="guilabel">&lt; Yes &gt;</span>
+button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+<div class="figure" id="id13">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-13.png"><img alt="Set mount point of sda1" src="../../../_images/cgdisk-manual-install-13.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 13: <span class="guilabel">Set mount point of sda1</span></span></p>
+</div>
+</li>
+<li><p class="first">Do the same for the Linux filesystem partition by highlighting the
+<span class="guilabel">Linux filesystem</span> menu entry and entering the information shown
+in figure 14 to set the <span class="guilabel">Enter mount point:</span> to <code class="file docutils literal"><span class="pre">/</span></code> and
+enable formatting:</p>
+<div class="figure" id="id14">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-14.png"><img alt="Set mount point of sda3" src="../../../_images/cgdisk-manual-install-14.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 14: <span class="guilabel">Set mount point of sda3</span></span></p>
+</div>
+<p>The final <span class="guilabel">Set mount points</span> menu item looks like figure 15:</p>
+<div class="figure" id="id15">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-15.png"><img alt="Set mount point completed" src="../../../_images/cgdisk-manual-install-15.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 15: <span class="guilabel">Set mount points completed</span></span></p>
+</div>
+</li>
+<li><p class="first">Select the <span class="guilabel">&lt; Next &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to proceed to
+the <span class="guilabel">Warning!</span> menu to accept your changes as shown in figure 16.</p>
+<div class="figure" id="id16">
+<a class="reference internal image-reference" href="../../../_images/cgdisk-manual-install-16.png"><img alt="Warning" src="../../../_images/cgdisk-manual-install-16.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 16: <span class="guilabel">Warning</span></span></p>
+</div>
+<p>Highlight the <span class="guilabel">&lt; Yes &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to accept
+these changes and move on to the next step of the Clear Linux manual install
+process.</p>
+<p>This completes the process of manually setting up your hard drive
+partitions and you can now <a class="reference internal" href="bare-metal-manual-install.html#choose-target-device"><span class="std std-ref">continue with the Clear Linux manual
+install</span></a>.</p>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

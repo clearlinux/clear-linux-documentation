@@ -1,0 +1,612 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Install Clear Linux OS on bare metal</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Get started" href="../get-started.html"/>
+        <link rel="next" title="Bare metal manual installation guide" href="bare-metal-manual-install.html"/>
+        <link rel="prev" title="Recommended minimum system requirements" href="../../reference/system-requirements.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Install Clear Linux OS on bare metal
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="install-clear-linux-os-on-bare-metal">
+<span id="bare-metal-install"></span><h1>Install Clear Linux OS on bare metal</h1>
+<p>These instructions guide you through the installation of Clear Linux* OS for Intel® Architecture
+on bare metal using a bootable USB drive.</p>
+<p>Before you begin, run our <a class="reference internal" href="../compatibility-check.html#compatibility-check"><span class="std std-ref">Check processor and EFI firmware compatibility with Clear Linux*</span></a>.</p>
+<div class="section" id="download-the-latest-clear-linux-installer-image">
+<h2>Download the latest Clear Linux installer image</h2>
+<p>Get the latest Clear Linux installer image from the <a class="reference external" href="https://download.clearlinux.org/image">image</a> directory.
+Look for the <code class="file docutils literal"><span class="pre">clear-[version</span> <span class="pre">number]-installer.img.xz</span></code> file.
+Once you have downloaded the image, verify and uncompress the file.</p>
+</div>
+<div class="section" id="verify-the-integrity-of-the-clear-linux-image">
+<h2>Verify the integrity of the Clear Linux image</h2>
+<p>Before you use a downloaded Clear Linux image, verify its integrity. Thus, you
+eliminate the small chance of a corrupted image due to download issues.
+To support verification, we accompany each released Clear Linux image with an official
+SHA512 checksum file, which is designated with the suffix <cite>-SHA512SUMS</cite>.</p>
+<ol class="arabic simple">
+<li>Download the official corresponding SHA512 checksum file of your
+downloaded Clear Linux image.</li>
+<li>Start a terminal emulator.</li>
+<li>Go to the directory with the downloaded image and checksum files.</li>
+<li>Verify the integrity of the image and compare it to its original checksum
+by entering:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sha512sum ./clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span>.<span class="o">[</span>compression type<span class="o">]</span> <span class="p">|</span> diff ./clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span>.<span class="o">[</span>compression type<span class="o">]</span>-SHA512SUMS -
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the checksum of the downloaded image is different than the original
+checksum, the differences will displayed. Otherwise, an empty output indicates
+a match and your downloaded image is good.</p>
+</div>
+<div class="section" id="uncompress-the-clear-linux-image">
+<h2>Uncompress the Clear Linux image</h2>
+<p>We compress all released Clear Linux images by default with either GNU zip
+(<cite>.gz</cite>) or XZ (<cite>.xz</cite>). The compression type we use depends on the target
+platform or environment of the image. To uncompress the image, follow these steps:</p>
+<ol class="arabic simple">
+<li>Start a terminal emulator.</li>
+<li>Go to the directory with the downloaded image.</li>
+</ol>
+<blockquote>
+<div><p>To uncompress an XZ image, enter:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> unxz clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span>.xz
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="burn-the-clear-linux-image-onto-a-usb-drive">
+<h2>Burn the Clear Linux image onto a USB drive</h2>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Burning an image formats the USB drive, thus destroying all existing content.  Backup your data before proceeding.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Open a terminal emulator and get root privilege.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Go to the directory with the uncompressed image.</p>
+</li>
+<li><p class="first">Plug in the USB drive.</p>
+</li>
+<li><p class="first">Identify the USB drive using the <strong class="command">lsblk</strong> command.  This shows all drives
+attached to the system, including the primary hard disk. In the example
+output below, there are 4 drives (<cite>/dev/sda</cite>, <cite>/dev/sdb</cite>, <cite>/dev/sdc</cite>, and
+<cite>/dev/sdd</cite>) attached, where <cite>/dev/sda</cite> is primary drive in this case. The
+remaining are 3 USB drives. The output also shows the mounted partitions
+(under the <cite>MOUNTPOINT</cite> column) for each drive.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> lsblk
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span>
+<span class="go">sdd      8:48   1    15G  0 disk</span>
+<span class="go">├─sdd2   8:50   1     5G  0 part /run/media/user1/960c184f-3bb7-42b7-bcaf-0c1282</span>
+<span class="go">├─sdd3   8:51   1     8G  0 part /run/media/user1/704f3382-b26d-4f34-af1b-cb9aab</span>
+<span class="go">└─sdd1   8:49   1     2G  0 part</span>
+<span class="go">sdb      8:16   1  14.8G  0 disk</span>
+<span class="go">└─sdb1   8:17   1  14.8G  0 part /run/media/user1/PATRIOT_USB</span>
+<span class="go">sdc      8:32   1   7.3G  0 disk</span>
+<span class="go">└─sdc1   8:33   1   7.3G  0 part /run/media/user1/LINUX MINT</span>
+<span class="go">sda      8:0    0 335.4G  0 disk</span>
+<span class="go">├─sda4   8:4    0    28G  0 part</span>
+<span class="go">├─sda2   8:2    0   3.7G  0 part [SWAP]</span>
+<span class="go">├─sda7   8:7    0     6G  0 part /home</span>
+<span class="go">├─sda5   8:5    0     1G  0 part /boot</span>
+<span class="go">├─sda3   8:3    0   954M  0 part /boot/efi</span>
+<span class="go">├─sda1   8:1    0    28G  0 part</span>
+<span class="go">├─sda8   8:8    0    30G  0 part /</span>
+<span class="go">└─sda6   8:6    0   7.9G  0 part [SWAP]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Before an image can be burned onto a USB drive, it should be un-mounted.
+Some Linux distros may automatically mount a USB drive when it is plugged
+in. To unmount, use the <strong class="command">umount</strong> command followed by the device
+identifier/partition. For example: From the above <strong class="command">lsblk</strong> output,
+<cite>/dev/sdd</cite> has 2 mounted partitions.  To unmount them, enter:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> umount /dev/sdd2
+<span class="gp">#</span> umount /dev/sdd3
+</pre></div>
+</div>
+</li>
+<li><p class="first">Burn the image onto the USB drive.  The command-line example below burns an
+uncompressed image onto <cite>/dev/sdd</cite>:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> dd <span class="k">if</span><span class="o">=</span>./clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span> <span class="nv">of</span><span class="o">=</span>/dev/sdd <span class="nv">bs</span><span class="o">=</span>4M <span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="install-clear-linux-on-your-target-system">
+<span id="install-on-target"></span><h2>Install Clear Linux on your target system</h2>
+<p>We formatted the previously created USB drive as a UEFI boot device. Our
+target system has a hard drive installed containing a single primary
+partition. The target system needs a wired Internet connection with DHCP.</p>
+<p>Follow these steps to install Clear Linux on the target system:</p>
+<ol class="arabic">
+<li><p class="first">Insert the USB drive into an available USB slot.</p>
+</li>
+<li><p class="first">Power on the system.</p>
+</li>
+<li><p class="first">Open the system BIOS setup menu, normally by pressing the <code class="kbd docutils literal"><span class="pre">F2</span></code> key.
+Your BIOS setup menu entry point may vary.</p>
+</li>
+<li><p class="first">In the setup menu, enable the UEFI boot and set the USB drive as the first
+option in the device boot order.</p>
+</li>
+<li><p class="first">Save these settings and exit.</p>
+</li>
+<li><p class="first">Reboot the target system.</p>
+</li>
+<li><p class="first">The Clear Linux Installer menu will start as shown in Figure 1.
+Select <span class="guilabel">Clear Linux OS for Intel Architecture</span> and press the
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> key or wait five seconds to automatically select it.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-1.png"><img alt="Clear Linux boot menu" src="../../../_images/bare-metal-install-1.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 1: <span class="guilabel">Clear Linux boot menu</span></span></p>
+</div>
+</li>
+<li><p class="first">This will take you into the <span class="guilabel">Clear Linux OS for Intel
+Architecture Installer</span> menu as shown in figure 2 and explains how to
+navigate through the Clear Linux installer setup menus.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-2.png"><img alt="Clear Linux OS for Intel Architecture Installer" src="../../../_images/bare-metal-install-2.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: <span class="guilabel">Clear Linux OS for Intel Architecture Installer</span></span></p>
+</div>
+<p>Press the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key.</p>
+</li>
+<li><p class="first">The <span class="guilabel">Keyboard selection</span> menu shown in figure 3 allows you to set
+up the keyboard layout that you will be using to navigate within the Clear Linux
+installer setup menus.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-3.png"><img alt="Keyboard Selection" src="../../../_images/bare-metal-install-3.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 3: <span class="guilabel">Keyboard Selection</span></span></p>
+</div>
+<p>For this guide we will select <span class="menuselection">Keyboard Selection ‣
+&lt; * us &gt;</span> for the keyboard mapping, which should already be highlighted.
+Press the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key to continue to the next menu.</p>
+</li>
+</ol>
+<div class="section" id="network-requirements">
+<h3>Network requirements</h3>
+<p>The <span class="guilabel">Network Requirements</span> menu, the first step of the Clear Linux
+installer setup process, will attempt to connect to the Clear Linux update server
+where the installer image is located. Once the connection to the Clear Linux update
+server is established, you will see a screen similar to the one shown in
+figure 4:</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-4.png"><img alt="Network Requirements" src="../../../_images/bare-metal-install-4.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 4: <span class="guilabel">Network Requirements</span></span></p>
+</div>
+<p>If you need to configure any <span class="guilabel">Proxy Settings</span> to gain access to the
+update server, enter the appropriate address and port of your proxy server in
+the <span class="guilabel">HTTPS proxy:</span> field.  Select the <span class="guilabel">&lt; Set proxy
+configuration &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>. You will then see the
+connection to the update server established.</p>
+<p>Optionally, set up a <span class="guilabel">static IP configuration</span> to your Clear Linux
+installer image.  Enter the required information in the <span class="guilabel">Interface</span>,
+<span class="guilabel">IP address</span>, <span class="guilabel">Subnet mask</span>, <span class="guilabel">Gateway</span> and
+<span class="guilabel">DNS</span> fields and then select the <span class="guilabel">&lt; Set static IP
+configuration &gt;</span> button and press the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key.</p>
+<p>The information displayed in the lower right quadrant of the screen shows the
+current IP configuration for the Clear Linux update server where the installer image
+is located.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are having difficulty establishing a connection to the update server
+and you see the message <span class="guilabel">none detected, install will fail</span>, you
+can press the <code class="kbd docutils literal"><span class="pre">Tab</span></code> key to highlight the <span class="guilabel">&lt; Refresh &gt;</span>
+button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to attempt to reconnect to the Clear Linux update
+server. If this fails to establish a connection after multiple attempts,
+reboot your system and return to this step.</p>
+</div>
+<p>Once the connection to the Clear Linux udpate server is established, use the
+<code class="kbd docutils literal"><span class="pre">Tab</span></code> key to advance to the <span class="guilabel">&lt; Next &gt;</span> button and press
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> to advance to the next Clear Linux installer setup menu.</p>
+</div>
+<div class="section" id="choose-clear-linux-installer-action">
+<h3>Choose Clear Linux installer action</h3>
+<p>The <span class="guilabel">Choose Action</span> menu is where you can choose to install, repair,
+open a shell, or exit the Clear Linux installer.  This menu is shown in figure 5:</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-5.png"><img alt="Choose Action" src="../../../_images/bare-metal-install-5.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 5: <span class="guilabel">Choose Action</span></span></p>
+</div>
+<ol class="arabic">
+<li><p class="first">Select the <span class="menuselection">Choose action ‣ Install</span> menu item to continue
+the installation process.</p>
+<p>The <span class="menuselection">Choose action ‣ Repair</span> menu option will run the
+<strong class="command">swupd --fix</strong> command to correct any issues found with the system
+software that has already been installed on your system and correct any
+issues found by overwriting the incorrect file content, adding missing
+files, fixing permissions and any additional changes required to return the
+file to it&#8217;s original content and permissions.</p>
+<p>The <span class="menuselection">Choose action ‣ Shell</span> menu item opens a terminal
+session on your system as the root user and you will be able to manage your
+system from this console.  When you are finished, type <strong class="command">exit</strong> to
+return to the <span class="guilabel">Choose Action</span> menu.</p>
+<p>The <span class="menuselection">Choose action ‣ Exit</span> menu option terminates the Clear Linux
+installation process and the system will shut down.</p>
+</li>
+<li><p class="first">You will be prompted to join the <span class="guilabel">Stability Enhancement Program</span>
+as shown in figure 6. Press the <code class="kbd docutils literal"><span class="pre">Spacebar</span></code> or <code class="kbd docutils literal"><span class="pre">Enter</span></code> key while
+the cursor is in the <span class="guilabel">[ ]  Yes.</span> button to enable this
+functionality and then select the <span class="guilabel">&lt; Next &gt;</span> button to advance to
+the next menu item.</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-6.png"><img alt="Stability Enhancement Program" src="../../../_images/bare-metal-install-6.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 6: <span class="guilabel">Stability Enhancement Program</span></span></p>
+</div>
+<p>If you choose not to enable this functionality during this step, you can
+install the <code class="docutils literal"><span class="pre">telemetrics</span></code> software bundle at a later time. As stated in
+the menu, this feature only collects anonymous information about your
+system to help improve system stability and no personally identifiable
+information is collected. Please visit our website to
+<a class="reference external" href="https://clearlinux.org/features/telemetry">learn more about telemetry.</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="choose-clear-linux-installation-type">
+<h2>Choose Clear Linux installation type</h2>
+<p>Figure 7 shows the next step of the Clear Linux installer:
+<span class="guilabel">Choose installation Type</span>. Chose whether to install Clear Linux
+<strong>automatically</strong> or <strong>manually</strong>.  To end the installer process and shut down
+the system, select the <span class="guilabel">&lt; Exit &gt;</span> button.</p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-7.png"><img alt="Choose installation type" src="../../../_images/bare-metal-install-7.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 7: <span class="guilabel">Choose installation Type</span></span></p>
+</div>
+<p>If you select <span class="guilabel">&lt; Automatic &gt;</span> as the installation type, the Clear Linux
+Installer will add the minimum amount of functionality required for a fully
+functional Clear Linux system. You will not be able to modify the disk layout, add
+a user or any other tasks that the manual installation process will allow.</p>
+<p>With the <span class="guilabel">&lt; Manual(Advanced) &gt;</span> option, you can do the following
+additional tasks during Clear Linux Installer setup:</p>
+<ul class="simple">
+<li>Modify the disk layout using the cgdisk utility.</li>
+<li>Add additional command-line parameters to the kernel.</li>
+<li>Create a hostname for your system.</li>
+<li>Create an administrative user.</li>
+<li>Add additional software bundles to enhance the functionality of your initial
+Clear Linux installation.</li>
+<li>Optionally, set up a static IP address for your system.</li>
+</ul>
+<p>If you want to perform any of these additional tasks, select the
+<span class="guilabel">&lt; Manual(Advanced) &gt;</span> menu item and follow the steps in our
+<a class="reference internal" href="bare-metal-manual-install.html#bare-metal-manual-install"><span class="std std-ref">Bare metal manual installation guide</span></a> to complete the Clear Linux manual installation
+process. Otherwise, you can follow the Clear Linux automatic installation steps.</p>
+</div>
+<div class="section" id="clear-linux-automatic-installation">
+<h2>Clear Linux automatic installation</h2>
+<p>To install the minimum components for your Clear Linux implementation, select the
+<span class="guilabel">&lt; Automatic &gt;</span> menu item shown in figure 7 and press the
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> key.</p>
+<p>The <span class="guilabel">Choose target device for installation</span> screen shown in figure 8
+appears.  Move the cursor to the desired target and press the <code class="kbd docutils literal"><span class="pre">Enter</span></code>
+key.</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-8.png"><img alt="Choose target device for installation" src="../../../_images/bare-metal-install-8.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 8: <span class="guilabel">Choose target device for installation</span></span></p>
+</div>
+<p>In this example we selected the single primary partition from our hard drive.</p>
+<p>With all the Clear Linux installer setup information gathered for the automatic
+installation option, the Clear Linux Installer prompts you to begin the actual
+installation as shown in figure 9.</p>
+<div class="figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-9.png"><img alt="Begin installation" src="../../../_images/bare-metal-install-9.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 9: <span class="guilabel">Begin installation</span></span></p>
+</div>
+<p>When you are satisfied with the information you have entered, select the
+<span class="guilabel">&lt; Yes &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to begin installing Clear Linux.</p>
+<p>Clear Linux Installation begins and each step shows its status as it progresses
+through the automated installation process.</p>
+<p>Once all steps have completed, you will see the <span class="guilabel">Successful
+installation</span> status message and the <span class="guilabel">&lt; Ok &gt;</span> button is highlighted
+as shown in figure 10. Press the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key to continue.</p>
+<div class="figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-10.png"><img alt="Installation complete" src="../../../_images/bare-metal-install-10.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 10: <span class="guilabel">Installation complete</span></span></p>
+</div>
+<p>Figure 11 shows the installer&#8217;s final screen prompting you that the
+installation completed successfully and the system will reboot. Press the
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> key and remove the USB media while the system restarts.</p>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-11.png"><img alt="Successful installation" src="../../../_images/bare-metal-install-11.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 11: <span class="guilabel">Successful Installation</span></span></p>
+</div>
+<div class="section" id="set-up-your-root-account">
+<h3>Set up your root account</h3>
+<p>Once the Clear Linux installation is complete and the system boots, a full screen
+console requests your login: as shown in figure 12:</p>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-install-12.png"><img alt="Login screen" src="../../../_images/bare-metal-install-12.png" style="width: 422.5px; height: 237.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 12: <span class="guilabel">Login screen</span></span></p>
+</div>
+<ol class="arabic simple">
+<li>At the initial login prompt, enter: <code class="docutils literal"><span class="pre">root</span></code></li>
+<li>Once prompted, enter a new password.</li>
+<li>Re-enter the password to verify it.</li>
+</ol>
+<p>You have now set your root password and are logged in with root privileges.</p>
+<p><strong>Congratulations!</strong></p>
+<p>You have successfully installed Clear Linux on a bare metal system using the
+automatic installation method and set the password for the <code class="docutils literal"><span class="pre">root</span></code> user.</p>
+<p>The automatic installation of Clear Linux is designed to install with minimal
+software overhead. Therefore, some housekeeping and package installations
+could be needed before you can take full advantage of the Clear Linux operating
+system. These instructions are captured in the <a class="reference internal" href="../../guides/maintenance/enable-user-space.html#enable-user-space"><span class="std std-ref">Create and enable a new user space</span></a>.</p>
+<ul class="simple">
+<li>Create a new user</li>
+<li>Update the OS to its most current version using <cite>swupd</cite>.</li>
+<li>Install the most common applications for system administrators and
+developers using bundles.</li>
+<li>Setup a new user.</li>
+<li>Setup <cite>sudo</cite> privileges for that new user.</li>
+<li>Install a GUI using those <cite>sudo</cite> privileges.</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

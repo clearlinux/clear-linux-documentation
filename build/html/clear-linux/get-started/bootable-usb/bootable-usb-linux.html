@@ -1,0 +1,461 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Create a bootable USB drive on Linux</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Create a bootable Clear Linux USB drive" href="bootable-usb.html"/>
+        <link rel="next" title="Create a bootable USB drive on Windows" href="bootable-usb-windows.html"/>
+        <link rel="prev" title="Create a bootable Clear Linux USB drive" href="bootable-usb.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Create a bootable USB drive on Linux
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="create-a-bootable-usb-drive-on-linux">
+<span id="bootable-usb-linux"></span><h1>Create a bootable USB drive on Linux</h1>
+<p>Follow these instructions to create a bootable Clear Linux* OS for Intel® Architecture USB drive.
+Use an <strong>8GB</strong> or larger USB drive.</p>
+<p>These instructions assume you have
+<a class="reference internal" href="bootable-usb.html#download-usb-image"><span class="std std-ref">downloaded an appropriate image</span></a>.</p>
+<p>We also provide instructions for other operating systems:</p>
+<ul class="simple">
+<li><a class="reference internal" href="bootable-usb-mac.html#bootable-usb-mac"><span class="std std-ref">Create a bootable USB drive on macOS</span></a></li>
+<li><a class="reference internal" href="bootable-usb-windows.html#bootable-usb-windows"><span class="std std-ref">Create a bootable USB drive on Windows</span></a></li>
+</ul>
+<p>Clear Linux offers many types of <a class="reference external" href="https://download.clearlinux.org/image">images</a> for different platforms and environments.</p>
+<p>The naming convention of a Clear Linux image filename is:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">clear-[version number]-[image type].[compression type]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The <em>[version number]</em> field specifies the version number.</p>
+<p>The <em>[image type]</em> field specifies the type of image and its corresponding
+file format.</p>
+<p>The <em>[compression type]</em> field specifies the compression type. Two types of
+compressions are used, namely GNU zip (<em>.gz</em>) and XZ (<em>.xz</em>).</p>
+<p>The current list of available images:</p>
+<table border="1" class="colwidths-given docutils" id="id1">
+<caption><span class="caption-text">Table 1: Types of Clear Linux images</caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Image Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>azure.vhd</td>
+<td>Image for Microsoft Azure</td>
+</tr>
+<tr class="row-odd"><td>azure-docker.vhd</td>
+<td>Image with the Docker installed for Microsoft Azure</td>
+</tr>
+<tr class="row-even"><td>azure-machine-learning.vhd</td>
+<td>Image with the <cite>machine-learning-basic</cite> bundle installed for Microsoft
+Azure</td>
+</tr>
+<tr class="row-odd"><td>cloud.img</td>
+<td>Image for cloud deployment such as OpenStack, etc.</td>
+</tr>
+<tr class="row-even"><td>containers.img</td>
+<td>An optimized image utilized by Clear Containers runtime</td>
+</tr>
+<tr class="row-odd"><td>hyperv.vhdx</td>
+<td>Image for Microsoft HyperV</td>
+</tr>
+<tr class="row-even"><td>hyperv-mini.vhdx</td>
+<td>A minimal image with fewer bundles for Microsoft HyperV</td>
+</tr>
+<tr class="row-odd"><td>installer.img</td>
+<td>An interactive installer image for installing Clear Linux</td>
+</tr>
+<tr class="row-even"><td>installer.iso</td>
+<td>An ISO of the interactive installer image for installing Clear Linux</td>
+</tr>
+<tr class="row-odd"><td>kvm.img</td>
+<td>Image for booting in a simple VM with start_qemu.sh</td>
+</tr>
+<tr class="row-even"><td>live.img</td>
+<td>A live boot image of Clear Linux</td>
+</tr>
+<tr class="row-odd"><td>vmware.vmdk</td>
+<td>Image for VMware</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="verify-the-integrity-of-the-clear-linux-image">
+<h2>Verify the integrity of the Clear Linux image</h2>
+<p>Before you use a downloaded Clear Linux image, verify its integrity. Thus, you
+eliminate the small chance of a corrupted image due to download issues.
+To support verification, we accompany each released Clear Linux image with an official
+SHA512 checksum file, which is designated with the suffix <cite>-SHA512SUMS</cite>.</p>
+<ol class="arabic simple">
+<li>Download the official corresponding SHA512 checksum file of your
+downloaded Clear Linux image.</li>
+<li>Start a terminal emulator.</li>
+<li>Go to the directory with the downloaded image and checksum files.</li>
+<li>Verify the integrity of the image and compare it to its original checksum
+by entering:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sha512sum ./clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span>.<span class="o">[</span>compression type<span class="o">]</span> <span class="p">|</span> diff ./clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span>.<span class="o">[</span>compression type<span class="o">]</span>-SHA512SUMS -
+</pre></div>
+</div>
+</div></blockquote>
+<p>If the checksum of the downloaded image is different than the original
+checksum, the differences will displayed. Otherwise, an empty output indicates
+a match and your downloaded image is good.</p>
+</div>
+<div class="section" id="uncompress-the-clear-linux-image">
+<h2>Uncompress the Clear Linux image</h2>
+<p>We compress all released Clear Linux images by default with either GNU zip
+(<cite>.gz</cite>) or XZ (<cite>.xz</cite>). The compression type we use depends on the target
+platform or environment of the image. To uncompress the image, follow these steps:</p>
+<ol class="arabic simple">
+<li>Start a terminal emulator.</li>
+<li>Go to the directory with the downloaded image.</li>
+</ol>
+<blockquote>
+<div><p>To uncompress an XZ image, enter:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> unxz clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span>.xz
+</pre></div>
+</div>
+</div></blockquote>
+<p>To uncompress a GZ image, enter:</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> gunzip clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span>.gz
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="burn-the-clear-linux-image-onto-a-usb-drive">
+<span id="copy-usb-linux"></span><h2>Burn the Clear Linux image onto a USB drive</h2>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Burning an image formats the USB drive, thus destroying all existing content.  Backup your data before proceeding.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Open a terminal emulator and get root privilege.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Go to the directory with the uncompressed image.</p>
+</li>
+<li><p class="first">Plug in the USB drive.</p>
+</li>
+<li><p class="first">Identify the USB drive using the <strong class="command">lsblk</strong> command.  This shows all drives
+attached to the system, including the primary hard disk. In the example
+output below, there are 4 drives (<cite>/dev/sda</cite>, <cite>/dev/sdb</cite>, <cite>/dev/sdc</cite>, and
+<cite>/dev/sdd</cite>) attached, where <cite>/dev/sda</cite> is primary drive in this case. The
+remaining are 3 USB drives. The output also shows the mounted partitions
+(under the <cite>MOUNTPOINT</cite> column) for each drive.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> lsblk
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span>
+<span class="go">sdd      8:48   1    15G  0 disk</span>
+<span class="go">├─sdd2   8:50   1     5G  0 part /run/media/user1/960c184f-3bb7-42b7-bcaf-0c1282</span>
+<span class="go">├─sdd3   8:51   1     8G  0 part /run/media/user1/704f3382-b26d-4f34-af1b-cb9aab</span>
+<span class="go">└─sdd1   8:49   1     2G  0 part</span>
+<span class="go">sdb      8:16   1  14.8G  0 disk</span>
+<span class="go">└─sdb1   8:17   1  14.8G  0 part /run/media/user1/PATRIOT_USB</span>
+<span class="go">sdc      8:32   1   7.3G  0 disk</span>
+<span class="go">└─sdc1   8:33   1   7.3G  0 part /run/media/user1/LINUX MINT</span>
+<span class="go">sda      8:0    0 335.4G  0 disk</span>
+<span class="go">├─sda4   8:4    0    28G  0 part</span>
+<span class="go">├─sda2   8:2    0   3.7G  0 part [SWAP]</span>
+<span class="go">├─sda7   8:7    0     6G  0 part /home</span>
+<span class="go">├─sda5   8:5    0     1G  0 part /boot</span>
+<span class="go">├─sda3   8:3    0   954M  0 part /boot/efi</span>
+<span class="go">├─sda1   8:1    0    28G  0 part</span>
+<span class="go">├─sda8   8:8    0    30G  0 part /</span>
+<span class="go">└─sda6   8:6    0   7.9G  0 part [SWAP]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Before an image can be burned onto a USB drive, it should be un-mounted.
+Some Linux distros may automatically mount a USB drive when it is plugged
+in. To unmount, use the <strong class="command">umount</strong> command followed by the device
+identifier/partition. For example: From the above <strong class="command">lsblk</strong> output,
+<cite>/dev/sdd</cite> has 2 mounted partitions.  To unmount them, enter:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> umount /dev/sdd2
+<span class="gp">#</span> umount /dev/sdd3
+</pre></div>
+</div>
+</li>
+<li><p class="first">Burn the image onto the USB drive.  The command-line example below burns an
+uncompressed image onto <cite>/dev/sdd</cite>:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> dd <span class="k">if</span><span class="o">=</span>./clear-<span class="o">[</span>version number<span class="o">]</span>-<span class="o">[</span>image type<span class="o">]</span> <span class="nv">of</span><span class="o">=</span>/dev/sdd <span class="nv">bs</span><span class="o">=</span>4M <span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="next-steps">
+<span id="usb-next"></span><h2>Next steps</h2>
+<p>With a bootable Clear Linux USB drive, you can:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../bare-metal-install/bare-metal-install.html#bare-metal-install"><span class="std std-ref">Install Clear Linux OS on bare metal</span></a></li>
+<li><a class="reference internal" href="../live-image.html#boot-live-image"><span class="std std-ref">Boot the Clear Linux live image</span></a></li>
+<li><a class="reference internal" href="../../tutorials/multi-boot/multi-boot.html#multi-boot"><span class="std std-ref">Multi-boot Clear Linux with other operating systems</span></a></li>
+</ul>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

@@ -1,0 +1,562 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Send packages between platforms</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Network guide" href="network.html"/>
+        <link rel="next" title="Enable DPDK support on OpenvSwitch" href="ovs-dpdk.html"/>
+        <link rel="prev" title="Install Clear Linux over the network with iPXE" href="ipxe-install.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Send packages between platforms
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="send-packages-between-platforms">
+<span id="dpdk"></span><h1>Send packages between platforms</h1>
+<p><abbr title="DPDK">Data Plane Development Kit</abbr> is a set of libraries and drivers
+for fast packet processing. This document describes how to run a basic use
+case for <strong>l3fwd DPDK example</strong>. The objective is to <em>send packages between
+two platforms</em> using a traffic generator called <a class="reference internal" href="#sec-pktgen"><span class="std std-ref">pktgen</span></a>,
+where the l3fwd example application will forward those packages, see
+<a class="reference internal" href="#f1"><span class="std std-ref">figure 1</span></a>.</p>
+<div class="figure align-center" id="id2">
+<span id="f1"></span><img alt="platform A and B" src="../../../_images/pktgen_lw3fd.png" />
+<p class="caption"><span class="caption-text">Figure 1: Environment for l3fwd DPDK application.</span></p>
+</div>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><p class="first">Two platforms using Clear Linux* for Intel® Architecture (recommended
+release <a class="reference external" href="https://download.clearlinux.org/releases/13330/">13330</a> or higher).</p>
+</li>
+<li><p class="first">Both images have the <strong>kernel-native bundle</strong> added.</p>
+</li>
+<li><p class="first">Install of <strong>network-basic-dev</strong> bundle:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add network-basic-dev</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The platforms must have two NICs, at least one each. It&#8217;s very important to
+check network card compatibility with the <a class="reference external" href="http://dpdk.org">DPDK project</a>. You can do this
+on the <a class="reference external" href="http://dpdk.org/doc/nics">dpdk.org NICS</a> site.</p>
+</li>
+<li><p class="first">Two network cables.</p>
+</li>
+</ul>
+<div class="section" id="installing-dpdk-and-build-l3fwd-example-platform-b">
+<h2>Installing dpdk and build l3fwd example (Platform B)</h2>
+<ol class="arabic">
+<li><p class="first">Move to <code class="docutils literal"><span class="pre">l3fwd</span></code> example.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># cd /usr/share/dpdk/examples/l3fwd</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_SDK</span> <span class="pre">var</span></code> to the makefiles path.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># export RTE_SDK=/usr/share/dpdk/</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_TARGET</span> <span class="pre">var</span></code> the value where the gcc config file is located.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># export RTE_TARGET=x86_64-native-linuxapp-gcc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build the <code class="docutils literal"><span class="pre">l3fwd</span></code> application, then add the configuration header to
+the <code class="docutils literal"><span class="pre">CFLAGS</span></code> var.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># make CFLAGS+=&quot;-include /usr/include/rte_config.h&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="building-pktgen-platform-a">
+<span id="sec-pktgen"></span><h2>Building Pktgen (Platform A)</h2>
+<p>Since the <strong>pktgen</strong> project is currently not included in Clear Linux OS for
+Intel Architecture, you must download it from upstream and build it:</p>
+<ol class="arabic">
+<li><p class="first">Download the <a class="reference external" href="http://dpdk.org/browse/apps/pktgen-dpdk/refs">pktgen tar package</a> 3.1.2 or newer.</p>
+</li>
+<li><p class="first">Decompress packages and move to uncompressed source directory.</p>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_SDK</span> <span class="pre">var</span></code> the path where makefiles are located.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># export RTE_SDK=/usr/share/dpdk/</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign <code class="docutils literal"><span class="pre">RTE_TARGET</span> <span class="pre">var</span></code> the value where the gcc config file is located.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># export RTE_TARGET=x86_64-native-linuxapp-gcc</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build pktgen project, and set the <code class="docutils literal"><span class="pre">CONFIG_RTE_BUILD_SHARED_LIB</span></code> variable
+with &#8220;n&#8221;.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># make CONFIG_RTE_BUILD_SHARED_LIB=n</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="binding-nics-to-dpdk-kernel-drivers-platforms-a-and-b">
+<h2>Binding NICs to DPDK kernel drivers (Platforms A and B)</h2>
+<p>The <code class="docutils literal"><span class="pre">l3fwd</span></code> application uses two NICs. DPDK has useful tools for binding
+NICs to DPDK modules to run DPDK applications.</p>
+<ol class="arabic">
+<li><p class="first">Load the dpdk I/O kernel module</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># modprobe vfio-pci</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Check the status of your NICs; this will show which network cards are not
+busy. When another application is using them, the status shows <code class="docutils literal"><span class="pre">Active</span></code>,
+and those NICs cannot be bound.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># dpdk-devbind --status</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Bind two available NICs. The general syntax for binding is
+<strong>dpdk-devbind &#8211;bind=vfio-pci &lt;device-entry&gt;</strong>,
+and the following is a working example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># dpdk-devbind --bind=vfio-pci 01:00.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Check that your NICs binded correctly by checking the status; <code class="docutils literal"><span class="pre">drv</span></code> should
+have <code class="docutils literal"><span class="pre">igb_uio</span></code> value; at this point, the NICs are using the DPDK modules.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-hugepages-platforms-a-and-b">
+<h2>Setting hugepages (platforms A and B)</h2>
+<p>Clear Linux OS for Intel Architecture supports <code class="docutils literal"><span class="pre">hugepages</span></code> for the large
+memory pool allocation used for packet buffers.</p>
+<ol class="arabic">
+<li><p class="first">Set number of hugepages.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># echo 1024 &gt; /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Allocate pages on NUMA machines.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># echo 1024 &gt; /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages</span>
+<span class="c1"># echo 1024 &gt; /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Make memory available for DPDK.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># mkdir -p /mnt/huge $ mount -t hugetlbfs nodev /mnt/huge</span>
+</pre></div>
+</div>
+<p>If you would like to know more about this, refer to the <a class="reference external" href="http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html">DPDK guide</a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-a-physical-environment-platforms-a-and-b">
+<h2>Setting a physical environment (Platforms A and B)</h2>
+<p>To achieve the model proposed in the introduction of this topic, (<a class="reference internal" href="#f1"><span class="std std-ref">Figure 1: Environment for l3fwd DPDK application.</span></a>),
+we need to connect the first Grantley’s NICs to the second Grantley’s NICs
+using the network cables, see <a class="reference internal" href="#f2"><span class="std std-ref">figure 2</span></a>.</p>
+<div class="figure" id="id3">
+<span id="f2"></span><img alt="../../../_images/pyshical_net.png" src="../../../_images/pyshical_net.png" />
+<p class="caption"><span class="caption-text">Figure 2: Physical network environment.</span></p>
+</div>
+</div>
+<div class="section" id="running-l3fwd-application-platform-b">
+<h2>Running l3fwd application (Platform B)</h2>
+<p>The <code class="docutils literal"><span class="pre">l3fwd</span></code> application is one of the DPDK examples available when you
+install the <code class="docutils literal"><span class="pre">dpdk-dev</span></code> bundle; this application forwards packages from one
+NIC to another.</p>
+<ol class="arabic">
+<li><p class="first">Open the l3fwd example directory.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># cd  /usr/share/dpdk/examples/l3fwd</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>This step is very important.</strong> DPDK needs poll drivers for work; these
+poll drivers are shared objects in <code class="file docutils literal"><span class="pre">/usr/lib64</span></code>. DPDK supports some
+NICs. The full list available at the <a class="reference external" href="http://dpdk.org/doc/nics">dpdk.org NICS</a> docs. You should know
+which kernel module the NIC is using and choose a poll driver according to
+your NICs.</p>
+</li>
+<li><p class="first">At this point the system must have <code class="docutils literal"><span class="pre">hugepages</span></code> requirements. The NICs
+bound and the configuration for running <code class="docutils literal"><span class="pre">pktgen</span></code> depends upon network use
+cases and available system resources. Use the <code class="docutils literal"><span class="pre">-d</span></code> flag for setting the
+pull driver. For example, if the NICs are using <code class="docutils literal"><span class="pre">e1000</span></code> network driver,
+they are going to use <code class="docutils literal"><span class="pre">e1000</span></code> poll driver (<code class="docutils literal"><span class="pre">librte_pmd_e1000.so</span></code>); it
+should be in <code class="file docutils literal"><span class="pre">/usr/lib64</span></code> in Clear Linux OS for Intel Architecture,
+and it should be enough to add the name. For example</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ./build/l3fwd -c 0x3 -n 2 -d librte_pmd_e1000.so -- -p 0x3 --config=&quot;(0,0,0),(1,0,1)&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">When the application starts to run, it will show information about the
+<code class="docutils literal"><span class="pre">l3fwd</span></code> running, so pay attention when the application is Initializing
+ports. After port 0 initialization, you&#8217;ll see a MAC address and the same
+for port 1. Save this information for setting configuration to <cite>Pktgen</cite>
+project.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="running-pktgen-application-platform-a">
+<h2>Running Pktgen application (Platform A)</h2>
+<p>The <cite>Pktgen</cite> is network traffic generator. It measures the network packaging
+performance in a forwarding use case.</p>
+<ol class="arabic">
+<li><p class="first">At this point the system must have <code class="docutils literal"><span class="pre">hugepages</span></code> requirements and the NICs
+bound. The configuration for running <code class="docutils literal"><span class="pre">pktgen</span></code> depends upon the network use
+case and the available system resources. The following is a basic
+configuration.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0xf -n 4 -- -p 0xf -P -m &quot;1.0, 2.1&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enable active colorful output (optional).</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Pktgen&gt; theme enable</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">l3fwd</span></code> application showed a MAC address per-port initialized; this
+MAC addresses should have been set in the pktgen environment:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nb">set</span> <span class="n">mac</span> <span class="o">&lt;</span><span class="n">port</span> <span class="n">number</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">mac</span> <span class="n">address</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>And a working example:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Pktgen&gt; set mac 0 00:1E:67:CB:E8:C9</span>
+<span class="go">Pktgen&gt; set mac 1 00:1E:67:CB:E8:C9</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start to send packages using the next command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Pktgen&gt; start 0-1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you followed these steps correctly, you&#8217;ll see that <code class="docutils literal"><span class="pre">pktgen</span></code> is sending
+and receiving packages. For more information, see the <a class="reference external" href="`Pktgendocumentation`_https://media.readthedocs.org/pdf/pktgen/latest/pktgen.pdf">Pktgen
+documentation</a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="annex-a-using-pass-through-for-running-on-virtual-machines">
+<h2>Annex A: Using pass-through for running on virtual machines</h2>
+<p>This section explains how to set up a virtual environment where virtual
+machines control the host&#8217;s NICs.</p>
+<ol class="arabic">
+<li><p class="first">Create a new directory and move to it.</p>
+</li>
+<li><p class="first">Download or create a <code class="docutils literal"><span class="pre">start_qemu.sh</span></code> script for running a kvm virtual
+machine:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ curl -O https://download.clearlinux.org/image/start_qemu.sh
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download a bare-metal image of Clear Linux OS for Intel Architecture and
+rename it as <code class="docutils literal"><span class="pre">clear.img</span></code>.</p>
+</li>
+<li><p class="first">Look for an entry for device and vendor &amp; device ID:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ lspci -nn <span class="p">|</span> grep Ethernet
+</pre></div>
+</div>
+<p>An output example from the last step:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">03</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Ethernet</span> <span class="n">controller</span> <span class="p">[</span><span class="mi">0200</span><span class="p">]:</span> <span class="n">Intel</span> <span class="n">Corporation</span> <span class="n">I350</span> <span class="n">Gigabit</span> <span class="n">Network</span> <span class="n">Connection</span> <span class="p">[</span><span class="mi">8086</span><span class="p">:</span><span class="mi">1521</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">8086:1521</span></code> is <code class="docutils literal"><span class="pre">vendor:device</span> <span class="pre">ID</span></code> and <code class="docutils literal"><span class="pre">03:00.0</span></code> is the entry for
+device.  Make note of this information; it is necessary for unbinding a
+host&#8217;s NICs.</p>
+</li>
+<li><p class="first">Unbind NICs from host to do passthrough with virtual machines. Clear Linux
+OS for Intel Architecture currently supports this action. You can use the
+following commands:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;vendor device_ID&quot;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">bus</span><span class="o">/</span><span class="n">pci</span><span class="o">/</span><span class="n">drivers</span><span class="o">/</span><span class="n">pci</span><span class="o">-</span><span class="n">stub</span><span class="o">/</span><span class="n">new_id</span>
+<span class="n">echo</span> <span class="s2">&quot;entry for device&quot;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">bus</span><span class="o">/</span><span class="n">pci</span><span class="o">/</span><span class="n">drivers</span><span class="o">/</span><span class="n">igb</span><span class="o">/</span><span class="n">unbind</span>
+<span class="n">echo</span> <span class="s2">&quot;entry for device&quot;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">bus</span><span class="o">/</span><span class="n">pci</span><span class="o">/</span><span class="n">drivers</span><span class="o">/</span><span class="n">pci</span><span class="o">-</span><span class="n">stub</span><span class="o">/</span><span class="n">bind</span>
+<span class="n">echo</span> <span class="s2">&quot;vendor device_ID&quot;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">bus</span><span class="o">/</span><span class="n">pci</span><span class="o">/</span><span class="n">drivers</span><span class="o">/</span><span class="n">pci</span><span class="o">-</span><span class="n">stub</span><span class="o">/</span><span class="n">remove_id</span>
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;8086 1521&quot;</span> &gt; /sys/bus/pci/drivers/pci-stub/new_id
+$ <span class="nb">echo</span> <span class="s2">&quot;0000:03:00.0&quot;</span> &gt; /sys/bus/pci/drivers/igb/unbind
+$ <span class="nb">echo</span> <span class="s2">&quot;0000:03:00.0&quot;</span> &gt; /sys/bus/pci/drivers/pci-stub/bind
+$ <span class="nb">echo</span> <span class="s2">&quot;8086 1521&quot;</span> &gt; /sys/bus/pci/drivers/pci-stub/remove_id
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assign to the KVM virtual machine (guest) the unbound NICs previously noted.
+Modify the <code class="docutils literal"><span class="pre">start_qemu.sh</span></code> script in <code class="docutils literal"><span class="pre">qemu-system-x86_64</span></code> arguments, and
+add the lines with the host&#8217;s NICs information:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">device</span> <span class="n">pci</span><span class="o">-</span><span class="n">assign</span><span class="p">,</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;&lt;entry for device&gt;&quot;</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="n">passnic0</span><span class="p">,</span><span class="n">addr</span><span class="o">=</span><span class="mf">03.0</span>
+<span class="o">-</span><span class="n">device</span> <span class="n">pci</span><span class="o">-</span><span class="n">assign</span><span class="p">,</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;&lt;entry for device&gt;&quot;</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="n">passnic1</span><span class="p">,</span><span class="n">addr</span><span class="o">=</span><span class="mf">04.0</span>
+</pre></div>
+</div>
+<p>A working example:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-device pci-assign,host<span class="o">=</span>03:00.0,id<span class="o">=</span>passnic0,addr<span class="o">=</span>03.0 <span class="se">\</span>
+-device pci-assign,host<span class="o">=</span>03:00.3,id<span class="o">=</span>passnic1,addr<span class="o">=</span>04.0 <span class="se">\</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you would like to add more NUMA machines to the virtual machine, you can
+add the next line in the Makefile boot target:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">numa</span> <span class="n">node</span><span class="p">,</span><span class="n">mem</span><span class="o">=&lt;</span><span class="n">memory</span><span class="o">&gt;</span><span class="p">,</span><span class="n">cpus</span><span class="o">=&lt;</span><span class="n">number</span> <span class="n">of</span> <span class="n">cpus</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>As a working example for a virtual machine with 4096 of memory and four CPUs, the configuration
+would look like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">numa</span> <span class="n">node</span><span class="p">,</span><span class="n">mem</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span><span class="n">cpus</span><span class="o">=</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span> \
+<span class="o">-</span><span class="n">numa</span> <span class="n">node</span><span class="p">,</span><span class="n">mem</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span><span class="n">cpus</span><span class="o">=</span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span> \
+</pre></div>
+</div>
+<p>This means that each NUMA machine has to use the same quantity of memory.</p>
+</li>
+<li><p class="first">Finally, run the <code class="docutils literal"><span class="pre">start_qemu.sh</span></code> script.</p>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

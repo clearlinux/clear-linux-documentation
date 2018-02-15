@@ -1,0 +1,489 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Bare metal manual installation guide</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Get started" href="../get-started.html"/>
+        <link rel="next" title="Clear Linux partitioning using CGDISK" href="cgdisk-manual-install.html"/>
+        <link rel="prev" title="Install Clear Linux OS on bare metal" href="bare-metal-install.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Bare metal manual installation guide
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="bare-metal-manual-installation-guide">
+<span id="bare-metal-manual-install"></span><h1>Bare metal manual installation guide</h1>
+<p>This section contains the steps for a Clear Linux manual installation.  It picks up
+where the <a class="reference internal" href="bare-metal-install.html#bare-metal-install"><span class="std std-ref">Install Clear Linux OS on bare metal</span></a> left off:</p>
+<p>Select the <span class="guilabel">&lt; Manual(Advanced) &gt;</span> menu option as seen in figure
+1, to do the following additional tasks during the Clear Linux Installer setup:</p>
+<ul class="simple">
+<li><a class="reference internal" href="cgdisk-manual-install.html#cgdisk-manual-install"><span class="std std-ref">Modify the disk layout using the cgdisk utility</span></a></li>
+<li>Add additional command-line parameters to the kernel</li>
+<li>Create a hostname for your system</li>
+<li>Create an administrative user</li>
+<li>Add additional software bundles to enhance the functionality of your initial
+Clear Linux installation</li>
+<li>Optionally set up a static IP address for your system</li>
+</ul>
+<div class="section" id="begin-the-manual-installation-process">
+<h2>Begin the manual installation process</h2>
+<ol class="arabic">
+<li><p class="first">Move the cursor to the <span class="guilabel">&lt; Manual(Advanced) &gt;</span> menu item
+and press the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-1.png"><img alt="Choose installation Type" src="../../../_images/bare-metal-manual-install-1.png" style="width: 960.0px; height: 540.0px;" /></a>
+</div>
+<p>Figure 1: <span class="guilabel">Choose installation Type</span></p>
+</li>
+<li><p class="first">The <span class="guilabel">Choose partitioning method</span> screen is shown in figure 2.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-2.png"><img alt="Choose partitioning method" src="../../../_images/bare-metal-manual-install-2.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: <span class="guilabel">Choose partitioning method</span></span></p>
+</div>
+<p>If your hard drive has already been partitioned for a Linux system, you can
+select the <span class="guilabel">&lt; Use default partition and mount scheme on target
+device &gt;</span> menu item and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to move to the next step of the
+installer setup process.</p>
+<p id="cgdisk-manual-setup">Otherwise, to set up your hard drive partitions manually before moving to
+the next step, select the <span class="guilabel">&lt; Manually configure mounts and
+partitions &gt;</span> menu item and follow the instructions for <a class="reference internal" href="cgdisk-manual-install.html#cgdisk-manual-install"><span class="std std-ref">using CGDISK
+to set up your Clear Linux hard drive</span></a>.</p>
+</li>
+</ol>
+<div class="section" id="choose-target-device-for-installation">
+<span id="choose-target-device"></span><h3>Choose target device for installation</h3>
+<p>The <span class="guilabel">Choose target device for installation</span> menu, shown in figure 3,
+displays the current device and partition information. In
+this example, <code class="docutils literal"><span class="pre">/dev/sda</span></code> is the only drive on the system with three
+partitions defined and assigned. The menu cursor highlights the partition
+to install Clear Linux onto.</p>
+<ol class="arabic">
+<li><p class="first">Select the <span class="guilabel">&lt; Partition /dev/sda &gt;</span> button and press the
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> key.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To return to the previous menu, press the <code class="kbd docutils literal"><span class="pre">Tab</span></code> key
+to highlight the <span class="guilabel">&lt; Previous &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>
+to return to the previous menu.</p>
+</div>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-3.png"><img alt="Choose target device for installation" src="../../../_images/bare-metal-manual-install-3.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 3: <span class="guilabel">Choose target device for installation</span></span></p>
+</div>
+</li>
+<li><p class="first">After selecting the <span class="guilabel">&lt; Partition /dev/sda &gt;</span> button you will be
+presented with a warning screen as shown in figure 4 with the
+<span class="guilabel">&lt; No &gt;</span> button highlighted. If you are satisfied this is the
+device that you want to install Clear Linux onto, use the <code class="kbd docutils literal"><span class="pre">Tab</span></code> key to
+highlight the <span class="guilabel">&lt; Yes &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to proceed
+to the next step.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-4.png"><img alt="Device installation warning" src="../../../_images/bare-metal-manual-install-4.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 4: <span class="guilabel">Device installation warning</span></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="additional-manual-installer-settings">
+<h3>Additional manual installer settings</h3>
+<p>The next steps of the manual installer setup process allows you to:</p>
+<ul class="simple">
+<li>Set up any additional command-line parameters to the kernel.</li>
+<li>Create a hostname for your system.</li>
+<li>Set up an administrative user.</li>
+<li>Install additional software bundles.</li>
+<li>Optionally create a static IP address for your system.</li>
+</ul>
+<ol class="arabic">
+<li><p class="first">The <span class="guilabel">Append to kernel cmdline</span> menu shown in figure 5 allows you
+to add additional options to the kernel command-line to further customize
+your installation.  Normally this is not required but if there are
+specific options that need to be set in the Linux kernel you can enter them
+here. For a complete list of command-line parameters for the Linux kernel
+you can visit the official documentation of the <a class="reference external" href="https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html">latest kernel&#8217;s
+command-line parameters</a>.</p>
+<p>Add any additional command-line parameters in the <span class="guilabel">Append to
+cmdline:</span> field and then press the <code class="kbd docutils literal"><span class="pre">Tab</span></code> key to move to the
+<span class="guilabel">&lt; Next &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-5.png"><img alt="Append to kernel cmdline" src="../../../_images/bare-metal-manual-install-5.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 5: <span class="guilabel">Append to kernel cmdline</span></span></p>
+</div>
+</li>
+<li><p class="first">The <span class="guilabel">Configuring Hostname</span> menu shown in figure 6 suggests
+a hostname string prefaced with &#8220;clr&#8221;. You can make your hostname anything
+meaningful and unique. Once complete, press the <code class="kbd docutils literal"><span class="pre">Tab</span></code> key to move to
+the <span class="guilabel">&lt; Next &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-6.png"><img alt="Configure Hostname" src="../../../_images/bare-metal-manual-install-6.png" style="width: 960.0px; height: 540.0px;" /></a>
+</div>
+<p>Figure 6: <span class="guilabel">Configure Hostname</span></p>
+<p>To learn more about hostname naming conventions and restrictions, you can
+check this <a class="reference external" href="https://en.wikipedia.org/wiki/Hostname">wiki page about hostnames</a>.</p>
+</li>
+<li><p class="first">The <span class="guilabel">User configuration</span> menu shown in figure 7 allows you to
+create a userid with administrative privileges. If you do not want to create a
+user at this time, select <span class="guilabel">&lt; No user creation (login as root) &gt;</span> to
+skip this step and proceed to the <span class="guilabel">Bundle selector</span> menu.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-7.png"><img alt="User configuration" src="../../../_images/bare-metal-manual-install-7.png" style="width: 960.0px; height: 540.0px;" /></a>
+</div>
+<p>Figure 7: <span class="guilabel">User configuration</span></p>
+<ol class="arabic">
+<li><p class="first">To create a userid, select the <span class="guilabel">&lt; Create an administrative user &gt;</span>
+field and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to go to the the next screen.</p>
+</li>
+<li><p class="first">You will be presented with the second <span class="guilabel">User configuration</span> menu
+shown in figure 8. You are only required to fill in the
+<span class="guilabel">Username</span>, <span class="guilabel">Password</span>, and <span class="guilabel">Confirm password</span>
+fields.</p>
+</li>
+<li><p class="first">To give the user administrative privileges, select the
+<span class="guilabel">Add user to the sudoers?</span> field to add the user to the <code class="docutils literal"><span class="pre">wheel</span></code>
+group. This enables using the <strong class="command">sudo</strong> command for the new user.</p>
+<p>Once you have entered all the data for this menu, press the <code class="kbd docutils literal"><span class="pre">Tab</span></code> key
+to highlight the <span class="guilabel">&lt; Next &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code>.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-8.png"><img alt="User configuration - create user" src="../../../_images/bare-metal-manual-install-8.png" style="width: 960.0px; height: 540.0px;" /></a>
+</div>
+<p>Figure 8: <span class="guilabel">User configuration - create user</span></p>
+</li>
+</ol>
+</li>
+<li><p class="first">The <span class="guilabel">Bundle selector</span> menu shown in figure 9 allows you to
+add additional software bundles to your initial Clear Linux installation. In this
+example we select all additional bundles offered by pressing the
+<code class="kbd docutils literal"><span class="pre">Tab</span></code> key to go to each field and pressing the <code class="kbd docutils literal"><span class="pre">Spacebar</span></code> or the
+<code class="kbd docutils literal"><span class="pre">Enter</span></code> key to select each bundle. This menu will also list the
+additional :guilabel:` &#8212; required &#8212;` software bundles that will be
+installed during the Clear Linux installation.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-9.png"><img alt="Bundle selector" src="../../../_images/bare-metal-manual-install-9.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 9: <span class="guilabel">Bundle selector</span></span></p>
+</div>
+</li>
+</ol>
+<p>For a complete description of the content of these additional bundles, go to
+the <a class="reference internal" href="../../reference/bundles/available-bundles.html#available-bundles"><span class="std std-ref">software bundle list</span></a> and select the name for a
+specific bundle to show the contents within the bundle.</p>
+</div>
+<div class="section" id="target-system-network-configuration">
+<h3>Target system network configuration</h3>
+<p>Before the actual Clear Linux installation begins, we must set up the
+<span class="guilabel">Network configuration</span> shown in figure 10. Select
+<span class="guilabel">&lt; Use DHCP &gt;</span> to have an IP address automatically assigned when
+the system boots up.</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-10.png"><img alt="Network configuration" src="../../../_images/bare-metal-manual-install-10.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 10: <span class="guilabel">Network configuration</span></span></p>
+</div>
+<p>You can optionally set up a static IP address for your system.  Select the
+<span class="guilabel">&lt; Use static IP configuration &gt;</span> menu item and fill in the
+required fields.</p>
+</div>
+</div>
+<div class="section" id="begin-installation">
+<h2>Begin installation</h2>
+<p>The Clear Linux installer is now ready to use the information you provided on the
+previous sections to begin the actual installation. Figure 11 shows the
+installer&#8217;s prompt to begin the installation.</p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-11.png"><img alt="Begin installation" src="../../../_images/bare-metal-manual-install-11.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 11: <span class="guilabel">Begin installation</span></span></p>
+</div>
+<p>When you are satisfied with the information entered, select the
+<span class="guilabel">&lt; Yes &gt;</span> button and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to begin installing Clear Linux.</p>
+<p>The Clear Linux Installation begins and each step shows its status as it progresses
+through the manual installation process as shown in figure 12.</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-12.png"><img alt="Installation status" src="../../../_images/bare-metal-manual-install-12.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 12: <span class="guilabel">Installation status</span></span></p>
+</div>
+<p>Once all steps have completed, you will see the <code class="docutils literal"><span class="pre">Successful</span> <span class="pre">installation</span></code>
+status message and the <span class="guilabel">&lt; Ok &gt;</span> button is highlighted as shown in
+figure 13. Press the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key to continue.</p>
+<div class="figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-13.png"><img alt="Installation complete" src="../../../_images/bare-metal-manual-install-13.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 13: <span class="guilabel">Installation complete</span></span></p>
+</div>
+<p>Congratulations! The installation completed successfully and the system will
+reboot. Figure 14 shows the installer&#8217;s final prompt. Press the <code class="kbd docutils literal"><span class="pre">Enter</span></code>
+key and remove the USB media while the system restarts.</p>
+<div class="figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-14.png"><img alt="Successful Installation" src="../../../_images/bare-metal-manual-install-14.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 14: <span class="guilabel">Successful Installation</span></span></p>
+</div>
+<p>Once the system boots, the Gnome Desktop sign-in screen shown in figure 15
+appears:</p>
+<blockquote>
+<div><div class="figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-15.png"><img alt="Gnome sign-in screen" src="../../../_images/bare-metal-manual-install-15.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 15: <span class="guilabel">Gnome sign-in screen</span></span></p>
+</div>
+</div></blockquote>
+<p>Click on the <span class="guilabel">username</span> you created, enter the password, and you
+will be logged into the system. The Gnome 3 desktop appears as shown in
+figure 16:</p>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/bare-metal-manual-install-16.png"><img alt="Gnome Desktop Manager" src="../../../_images/bare-metal-manual-install-16.png" style="width: 960.0px; height: 540.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 16: <span class="guilabel">Gnome Desktop Manager</span></span></p>
+</div>
+<p><strong>Congratulations!</strong></p>
+<p>You have successfully installed Clear Linux on a bare metal system using the
+manual installation method.</p>
+<p>Visit our <a class="reference internal" href="../../tutorials/tutorials.html#tutorials"><span class="std std-ref">tutorials</span></a> section for examples on using your
+Clear Linux system.</p>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

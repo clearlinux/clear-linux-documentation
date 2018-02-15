@@ -1,0 +1,1283 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Multi-boot Clear Linux with other operating systems</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Tutorials" href="../tutorials.html"/>
+        <link rel="next" title="Set up a single node cluster with Hadoop*" href="../hadoop.html"/>
+        <link rel="prev" title="Clear Linux* OS on Microsoft* Azure*" href="../azure.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Multi-boot Clear Linux with other operating systems
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="multi-boot-clear-linux-with-other-operating-systems">
+<span id="multi-boot"></span><h1>Multi-boot Clear Linux with other operating systems</h1>
+<p>Starting with version 16140, Clear Linux* OS for Intel® Architecture uses the Systemd-Boot boot loader,
+which does not support multi-booting without manual manipulation. This
+document shows how to modify the boot loader for Clear Linux to work with other
+operating systems.</p>
+<p>The general process to install other operating systems for a
+multi-booting computer is as follows:</p>
+<ol class="arabic simple">
+<li>Install Clear Linux first with a EFI partition large enough to store the kernels
+of other operating systems and their initrds in the case of Linux*
+distributions.</li>
+<li>Install the next operating system without creating its own EFI
+partition.</li>
+<li>Boot into the newly installed operating system.</li>
+<li>For Linux distributions, copy its kernel and <cite>initrd</cite> to the Clear Linux EFI
+partition. This step is not needed for Windows*.</li>
+<li>Add an entry for the newly installed operating system in the
+Systemd-Boot menu.</li>
+<li>Make Systemd-Boot the default boot loader.</li>
+<li>Repeat the previous steps for each additional operating system. Always
+install Clear Linux first. Install other operating systems in any order.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This process is not guaranteed to work with all Linux distributions and
+all their versions.</p>
+</div>
+<p>The following operating systems were tested on an Intel® NUC6i7KYK with 32GB
+RAM and a 360GB SSD. Table 1 lists the information specific to the
+installation of the tested operating systems.</p>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Table 1: OS specific installation information</caption>
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">#</th>
+<th class="head">OS</th>
+<th class="head">Version</th>
+<th class="head">Partition Size [1]</th>
+<th class="head">Swap Size [2]</th>
+<th class="head">EFI Partition Size [3]</th>
+<th class="head">Download Link</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>Clear Linux</td>
+<td>16140</td>
+<td>50GB</td>
+<td>8GB</td>
+<td>1GB</td>
+<td><a class="reference external" href="https://download.clearlinux.org/image/clear-15870-installer.img.xz">https://download.clearlinux.org/image/clear-15870-installer.img.xz</a></td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Windows</td>
+<td>Server 2016</td>
+<td>50GB</td>
+<td>N/A</td>
+<td>Shared with #1</td>
+<td>From Microsoft</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>RedHat</td>
+<td>Server 7.4 Beta</td>
+<td>45GB</td>
+<td>Shared with #1</td>
+<td>Shared with #1</td>
+<td>From RedHat</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>SUSE</td>
+<td>Server 12 SP2</td>
+<td>45GB</td>
+<td>Shared with #1</td>
+<td>Shared with #1</td>
+<td>From SUSE</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>Ubuntu</td>
+<td>16.04.02 LTS Desktop</td>
+<td>40GB</td>
+<td>Shared with #1</td>
+<td>Shared with #1</td>
+<td><a class="reference external" href="https://www.ubuntu.com/download/desktop">https://www.ubuntu.com/download/desktop</a></td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>Mint</td>
+<td>18.1 ?Serena? MATE</td>
+<td>40GB</td>
+<td>Shared with #1</td>
+<td>Shared with #1</td>
+<td><a class="reference external" href="https://linuxmint.com/edition.php?id=228">https://linuxmint.com/edition.php?id=228</a></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Configure the partition size as desired.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>To save disk space, a single swap partition can be shared among
+multiple Linux installations. Swap size was determined using these
+<a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-swapspace.html">recommended swap partition sizes</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>This partition will hold the Clear Linux and other operating
+systems’ kernel and boot information. The partition size is dependent on
+the number of operating systems that will be installed. In general,
+allocate about 100MB per operating system. For this demonstration, we used
+1GB.</td></tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Updating any installed operating systems will likely result
+in the Clear Linux Systemd-Boot no longer being the default
+boot loader. To restore it, see <a class="reference internal" href="#recover-cl-bl"><span class="std std-ref">Recover the Clear Linux boot loader</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Updating any Linux installation may result in changes of their kernels or
+initrds. Keep their corresponding Systemd-Boot
+<code class="file docutils literal"><span class="pre">/boot/efi/loader/entries/*.conf</span></code> files up-to-update.</p>
+</div>
+<div class="section" id="install-the-clear-linux-os">
+<h2>Install the Clear Linux OS</h2>
+<ol class="arabic">
+<li><p class="first">Create a bootable USB drive of the Clear Linux installer using one of the methods
+below.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb-linux.html#bootable-usb-linux"><span class="std std-ref">Create a bootable USB drive on Linux</span></a></li>
+<li><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb-mac.html#bootable-usb-mac"><span class="std std-ref">Create a bootable USB drive on macOS</span></a></li>
+<li><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb-windows.html#bootable-usb-windows"><span class="std std-ref">Create a bootable USB drive on Windows</span></a></li>
+</ul>
+</li>
+<li><p class="first">Start the Clear Linux installer and follow the prompts.</p>
+</li>
+<li><p class="first">On the <em>Choose Installation Type</em> screen, choose <em>Manual (Advanced)</em>,
+as shown in Figure 1.</p>
+<div class="figure" id="id5">
+<img alt="../../../_images/multi-boot-01.png" src="../../../_images/multi-boot-01.png" />
+<p class="caption"><span class="caption-text">Figure 1: Clear Linux installer: Choose installation type screen</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you are not familiar with text-based installation
+interfaces, here are some navigation tips:</p>
+<ul class="last simple">
+<li>Use the <code class="kbd docutils literal"><span class="pre">Up</span> <span class="pre">Arrow</span></code> and <code class="kbd docutils literal"><span class="pre">Down</span> <span class="pre">Arrow</span></code> keys to move between
+the options on the screen.</li>
+<li>Use the <code class="kbd docutils literal"><span class="pre">Space</span></code> to select or highlight an option.</li>
+<li>Press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to activate the selected option and to move ahead.</li>
+</ul>
+</div>
+</li>
+<li><p class="first">On the <span class="guilabel">Choose partitioning method</span> screen, choose
+<span class="guilabel">Manually configure mounts and partitions</span>, as shown in
+Figure 2.</p>
+<div class="figure" id="id6">
+<img alt="../../../_images/multi-boot-02.png" src="../../../_images/multi-boot-02.png" />
+<p class="caption"><span class="caption-text">Figure 2: Clear Linux: Choose partitioning method</span></p>
+</div>
+</li>
+<li><p class="first">Select the drive, in this case <code class="file docutils literal"><span class="pre">/dev/sda</span></code> and press <code class="kbd docutils literal"><span class="pre">Enter</span></code> to
+go into the <cite>cgdisk</cite> partitioning tool. See Figure 3.</p>
+<div class="figure">
+<img alt="../../../_images/multi-boot-03.png" src="../../../_images/multi-boot-03.png" />
+</div>
+<p>Figure 3: Clear Linux: Choose drive to partition</p>
+</li>
+<li><p class="first">Create a new root partition.</p>
+<ol class="arabic">
+<li><p class="first">Select <span class="guilabel">New</span>. See Figure 4.</p>
+<div class="figure" id="id7">
+<span id="multi-boot-04"></span><img alt="../../../_images/multi-boot-04.png" src="../../../_images/multi-boot-04.png" />
+<p class="caption"><span class="caption-text">Figure 4: Clear Linux: Create new partition</span></p>
+</div>
+</li>
+<li><p class="first">Accept the default first sector.</p>
+</li>
+<li><p class="first">Specify the desired size of the partition. For this example, we
+specified <em>50GB</em>. See Figure 5.</p>
+<div class="figure" id="id8">
+<img alt="../../../_images/multi-boot-05.png" src="../../../_images/multi-boot-05.png" />
+<p class="caption"><span class="caption-text">Figure 5: Clear Linux: New partition size</span></p>
+</div>
+</li>
+<li><p class="first">Set the partition type to <span class="guilabel">8300 (Linux filesystem)</span>. See
+Figure 6.</p>
+<div class="figure" id="id9">
+<img alt="../../../_images/multi-boot-06.png" src="../../../_images/multi-boot-06.png" />
+<p class="caption"><span class="caption-text">Figure 6: Clear Linux: Set partition type</span></p>
+</div>
+</li>
+<li><p class="first">Name the partition <code class="file docutils literal"><span class="pre">CL-root</span></code>. This name makes it easier to
+identify later. See Figure 7.</p>
+<div class="figure" id="id10">
+<img alt="../../../_images/multi-boot-07.png" src="../../../_images/multi-boot-07.png" />
+<p class="caption"><span class="caption-text">Figure 7: Clear Linux: Name partition</span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Create a new swap partition. See Figure 8.</p>
+<div class="figure" id="id11">
+<img alt="../../../_images/multi-boot-08.png" src="../../../_images/multi-boot-08.png" />
+<p class="caption"><span class="caption-text">Figure 8: Clear Linux: Create swap partition</span></p>
+</div>
+<ol class="arabic simple">
+<li>Select the <cite>free space</cite> partition located at the bottom of the column.</li>
+<li>Select <span class="guilabel">New</span>. See <a class="reference internal" href="#multi-boot-04"><span class="std std-ref">Figure 4</span></a>.</li>
+<li>Accept the default first sector.</li>
+<li>Specify the desired size of the swap partition. For this example, we
+used 8GB. See the <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-swapspace.html">recommended swap partition sizes</a> for guidance.</li>
+<li>Set the partition type to <span class="guilabel">8200 (Linux swap)</span>.</li>
+<li>Name the partition <code class="file docutils literal"><span class="pre">CL-swap</span></code>.</li>
+</ol>
+</li>
+<li><p class="first">Create a new EFI partition. See Figure 9.</p>
+<div class="figure" id="id12">
+<img alt="../../../_images/multi-boot-09.png" src="../../../_images/multi-boot-09.png" />
+<p class="caption"><span class="caption-text">Figure 9: Clear Linux: Create EFI partition</span></p>
+</div>
+<ol class="arabic simple">
+<li>In the Partition Type column, select <span class="guilabel">free space</span> located at
+the bottom of the column.</li>
+<li>Select <span class="guilabel">New</span>. See <a class="reference internal" href="#multi-boot-04"><span class="std std-ref">Figure 4</span></a>.</li>
+<li>Accept the default first sector.</li>
+<li>Specify the desired size of the partition. For this example, we used
+1024 MB. This partition will hold Clear Linux, the kernels of the other
+operating systems, and their boot information. Its size depends on the
+number of installed operating systems. In general, allocate about 100MB
+per operating system. For this example, we used 1024 MB.</li>
+<li>Set the partition type to <span class="guilabel">ef00 (EFI partition)</span>.</li>
+<li>Name the partition <code class="file docutils literal"><span class="pre">CL-EFI</span></code>.</li>
+</ol>
+</li>
+<li><p class="first">Select <span class="guilabel">Write</span> to apply the new partition table.</p>
+</li>
+<li><p class="first">Select <span class="guilabel">Quit</span> to exit the <cite>cgdisk</cite> tool.</p>
+</li>
+<li><p class="first">On the <span class="guilabel">Set mount points</span> screen, specify the mount points and
+format settings as shown in Figure 10.</p>
+<div class="figure" id="id13">
+<img alt="../../../_images/multi-boot-10.png" src="../../../_images/multi-boot-10.png" />
+<p class="caption"><span class="caption-text">Figure 10: Clear Linux: Set mount points</span></p>
+</div>
+</li>
+<li><p class="first">On the <span class="guilabel">User configuration</span> screen, select
+<span class="guilabel">Create an administrative user</span>. See Figure 11.</p>
+<div class="figure" id="id14">
+<img alt="../../../_images/multi-boot-11.png" src="../../../_images/multi-boot-11.png" />
+<p class="caption"><span class="caption-text">Figure 11: Clear Linux: User configuration</span></p>
+</div>
+</li>
+<li><p class="first">Select <span class="guilabel">Add user to sudoers?</span>. See Figure 12.</p>
+<div class="figure" id="id15">
+<img alt="../../../_images/multi-boot-12.png" src="../../../_images/multi-boot-12.png" />
+<p class="caption"><span class="caption-text">Figure 12: Clear Linux: Add user as sudoer</span></p>
+</div>
+</li>
+<li><p class="first">Follow the remaining prompts to complete the installation and go through
+the out-of-box-experience of Clear Linux.</p>
+</li>
+<li><p class="first">Log in.</p>
+</li>
+<li><p class="first">Get root privileges.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add a timeout period for Systemd-Boot to wait, otherwise it will not
+present the boot menu and will always boot Clear Linux.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> clr-boot-manager set-timeout 20
+
+<span class="gp">#</span> clr-boot-manager update
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="install-windows-server-2016">
+<h2>Install Windows* Server 2016</h2>
+<ol class="arabic">
+<li><p class="first">Start the Windows installer and follow the prompts.</p>
+</li>
+<li><p class="first">At the <span class="guilabel">Type of installation</span> screen, choose
+<span class="guilabel">Custom: Install Windows only (advanced)</span>. See Figure 13.</p>
+<div class="figure" id="id16">
+<img alt="../../../_images/multi-boot-13.png" src="../../../_images/multi-boot-13.png" />
+<p class="caption"><span class="caption-text">Figure 13: Windows: Choose installation type</span></p>
+</div>
+</li>
+<li><p class="first">Select <span class="guilabel">Unallocated Space</span> and create a new partition of the
+desired size. In this example, we specified 50000 MB. See Figure 14.</p>
+<div class="figure" id="id17">
+<img alt="../../../_images/multi-boot-14.png" src="../../../_images/multi-boot-14.png" />
+<p class="caption"><span class="caption-text">Figure 14: Windows: Create new partition</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Windows normally creates its own EFI partition (100MB) if none exists.
+In this case, it sees the EFI partition created during the Clear Linux
+installation and won&#8217;t create its own.</p>
+</div>
+</li>
+<li><p class="first">Select the newly created partition and follow the remaining prompts
+to complete the installation of Windows. See Figure 15.</p>
+<div class="figure" id="id18">
+<img alt="../../../_images/multi-boot-15.png" src="../../../_images/multi-boot-15.png" />
+<p class="caption"><span class="caption-text">Figure 15: Windows: Install on newly created partition</span></p>
+</div>
+</li>
+<li><p class="first">Go through the Windows out-of-box-experience process.</p>
+</li>
+<li><p class="first">At this point, the ability to boot Clear Linux is lost because Windows is the
+default boot loader. See <a class="reference internal" href="#recover-cl-bl"><span class="std std-ref">Recover the Clear Linux boot loader</span></a> to restore the Clear Linux
+Systemd-Boot boot loader and add Windows to its boot menu.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="install-red-hat-enterprise-linux-7-4-beta">
+<h2>Install Red Hat* Enterprise Linux 7.4 Beta</h2>
+<ol class="arabic">
+<li><p class="first">Start the Red Hat installer and follow the prompts.</p>
+</li>
+<li><p class="first">At the <span class="guilabel">INSTALLATION SUMMARY</span> screen, choose
+<span class="guilabel">INSTALLATION DESTINATION</span>. See Figure 16.</p>
+<div class="figure" id="id19">
+<img alt="../../../_images/multi-boot-16.png" src="../../../_images/multi-boot-16.png" />
+<p class="caption"><span class="caption-text">Figure 16: Red Hat: Installation summary</span></p>
+</div>
+</li>
+<li><p class="first">In the <span class="guilabel">Device Selection</span> section, select a drive on which to
+install the OS. See Figure 17.</p>
+<div class="figure" id="id20">
+<img alt="../../../_images/multi-boot-17.png" src="../../../_images/multi-boot-17.png" />
+<p class="caption"><span class="caption-text">Figure 17: Red Hat: Installation destination</span></p>
+</div>
+</li>
+<li><p class="first">Under the <span class="guilabel">Other Storage Options</span> section, choose
+<span class="guilabel">I will configure partitioning</span>. See Figure 17.</p>
+</li>
+<li><p class="first">Click <span class="guilabel">Done</span>.</p>
+</li>
+<li><p class="first">Under <span class="menuselection">New Red Hat Enterprise Linux 7.4 Installation ‣ New mount points will use the following partitioning scheme</span> section,
+select <span class="menuselection">Standard Partition</span> from the drop down list. See
+Figure 18.</p>
+<div class="figure" id="id21">
+<img alt="../../../_images/multi-boot-18.png" src="../../../_images/multi-boot-18.png" />
+<p class="caption"><span class="caption-text">Figure 18: Red Hat: New partition scheme</span></p>
+</div>
+</li>
+<li><p class="first">Create a new root partition.</p>
+<ol class="arabic">
+<li><p class="first">Click the <span class="menuselection">+</span> button on the lower left corner.</p>
+</li>
+<li><p class="first">Enter <cite>/</cite> and the new partition size. For this example, we specified 45
+GB. See Figure 19.</p>
+<div class="figure" id="id22">
+<img alt="../../../_images/multi-boot-19.png" src="../../../_images/multi-boot-19.png" />
+<p class="caption"><span class="caption-text">Figure 19: Red Hat: Create new root partition</span></p>
+</div>
+</li>
+<li><p class="first">Click <span class="guilabel">Add mount point</span>.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Share the swap partition that was created by Clear Linux. See Figure
+20.</p>
+<ol class="arabic">
+<li><p class="first">Expand <span class="guilabel">Unknown</span>.</p>
+</li>
+<li><p class="first">Select <span class="guilabel">swap / sda2</span>.</p>
+</li>
+<li><p class="first">Select <span class="guilabel">Reformat</span>.</p>
+</li>
+<li><p class="first">Click <span class="guilabel">Update Settings</span>.</p>
+<div class="figure" id="id23">
+<img alt="../../../_images/multi-boot-20.png" src="../../../_images/multi-boot-20.png" />
+<p class="caption"><span class="caption-text">Figure 20: Red Hat: Configure swap partition</span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Share the EFI partition that was created by Clear Linux. See Figure
+21.</p>
+<ol class="arabic">
+<li><p class="first">Expand <span class="guilabel">Unknown.</span></p>
+</li>
+<li><p class="first">Select <span class="guilabel">EFI System Partition / sda3</span>.</p>
+</li>
+<li><p class="first">Under <span class="guilabel">Mount Point</span>, enter <cite>/boot/efi</cite>.</p>
+</li>
+<li><p class="first">Click <span class="guilabel">Update Settings</span>.</p>
+<div class="figure" id="id24">
+<img alt="../../../_images/multi-boot-21.png" src="../../../_images/multi-boot-21.png" />
+<p class="caption"><span class="caption-text">Figure 21: Red Hat: Configure EFI partition</span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Click <span class="guilabel">Done</span>.</p>
+</li>
+<li><p class="first">Follow the remaining prompts to complete the installation of Red Hat.</p>
+</li>
+<li><p class="first">At this point, the ability to boot Clear Linux is lost because <cite>Grub</cite>
+was set as the default boot loader. Follow these steps to make the Clear Linux
+Systemd-Boot the default boot loader and add Red Hat as a boot option:</p>
+<ol class="arabic">
+<li><p class="first">Boot into Red Hat.</p>
+</li>
+<li><p class="first">Log in.</p>
+</li>
+<li><p class="first">Get root privilege with the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Locate Fedora’s <code class="file docutils literal"><span class="pre">grub.cfg</span></code> file at the
+<code class="file docutils literal"><span class="pre">/boot/efi/EFI/redhat/</span></code> directory and look for the primary Red
+Hat <span class="guilabel">menuentry</span> section. The highlighted lines identify
+the kernel and <cite>initrd</cite> filenames, root partition UUID, and
+additional parameters used. This information is used to create a
+new Systemd-Boot entry for Red Hat. See Figure 22.</p>
+<div class="figure" id="id25">
+<img alt="../../../_images/multi-boot-22.png" src="../../../_images/multi-boot-22.png" />
+<p class="caption"><span class="caption-text">Figure 22: Red Hat: grub.cfg</span></p>
+</div>
+</li>
+<li><p class="first">Copy the kernel and <cite>initrd</cite> to the EFI partition.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cp /boot/vmlinuz-3.10.0-663.el7.x86_64 /boot/efi
+
+<span class="gp">#</span> cp /boot/initramfs-3.10.0-663.el7.x86_64.img /boot/efi
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a boot entry for Red Hat. The file must, at a minimum, contain
+these settings:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>title</td>
+<td>Text to show in the boot menu</td>
+</tr>
+<tr class="row-odd"><td>linux</td>
+<td>Linux kernel image</td>
+</tr>
+<tr class="row-even"><td>initrd</td>
+<td>initramfs image</td>
+</tr>
+<tr class="row-odd"><td>options</td>
+<td>Options to pass to the EFI program or kernel boot
+parameters</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a class="reference external" href="https://wiki.archlinux.org/index.php/Systemd-boot">systemd boot loader documentation</a> for additional
+details.</p>
+<p>The <em>options</em> parameters must specify the root partition UUID and any
+additional parameters that Red Hat requires.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The root partition UUID used below is unique to this example.</p>
+<div class="last highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> /boot/efi/loader/entries
+
+<span class="gp">#</span> vi redhat.conf
+</pre></div>
+</div>
+</div>
+<p>Add the following lines to <code class="file docutils literal"><span class="pre">redhat.conf</span></code></p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">title Red Hat Enterprise Linux 7.4 Beta</span>
+
+<span class="go">linux /vmlinuz-3.10.0-663.el7.x86\_64</span>
+
+<span class="go">initrd /initramfs-3.10.0-663.el7.x86\_64.img</span>
+
+<span class="go">options root=UUID=30655c74-6cc1-4c55-8fcc-ac8bddcea4db ro</span>
+<span class="go">crashkernel=auto rhgb LANG=en\_US.UTF-8</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Re-install Systemd-Boot to make it the default boot loader.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This version of Red Hat does not support <cite>bootctl install</cite>. Perform
+the steps in <a class="reference internal" href="#recover-cl-bl"><span class="std std-ref">Recover the Clear Linux boot loader</span></a> instead.</p>
+</div>
+</li>
+<li><p class="first">Reboot.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="install-suse-linux-enterprise-12-sp2">
+<h2>Install SUSE* Linux Enterprise 12 SP2</h2>
+<ol class="arabic">
+<li><p class="first">Start the SUSE installer and follow the prompts.</p>
+</li>
+<li><p class="first">At the <span class="guilabel">Suggested Partitioning</span> screen, choose
+<span class="guilabel">Expert Partitioner</span>. See Figure 23.</p>
+<div class="figure" id="id26">
+<img alt="../../../_images/multi-boot-23.png" src="../../../_images/multi-boot-23.png" />
+<p class="caption"><span class="caption-text">Figure 23: SUSE: Suggested partitioning</span></p>
+</div>
+<p><strong>Optional:</strong> Under <span class="guilabel">Available Storage on Linux</span> section,
+right-click the SUSE <code class="file docutils literal"><span class="pre">/home</span></code> partition and delete it. In this example, it is <code class="file docutils literal"><span class="pre">/dev/sda8</span></code>. See Figure 24.</p>
+<div class="figure" id="id27">
+<img alt="../../../_images/multi-boot-24.png" src="../../../_images/multi-boot-24.png" />
+<p class="caption"><span class="caption-text">Figure 24: SUSE: Delete /home partition</span></p>
+</div>
+</li>
+<li><p class="first">Under <span class="guilabel">Available Storage on Linux</span> section, right-click the SUSE
+root partition and resize it. In this example, <code class="file docutils literal"><span class="pre">/dev/sda7</span></code> is
+resized to 45 GB. See Figure 25.</p>
+<div class="figure" id="id28">
+<img alt="../../../_images/multi-boot-25.png" src="../../../_images/multi-boot-25.png" />
+<p class="caption"><span class="caption-text">Figure 25: SUSE: Resize root partition</span></p>
+</div>
+</li>
+<li><p class="first">Click <span class="guilabel">Accept</span>.</p>
+</li>
+<li><p class="first">Follow the remaining prompts to complete the installation of SUSE.</p>
+</li>
+<li><p class="first">At this point, Clear Linux cannot boot because <cite>Grub</cite>
+is the default boot loader. Follow these steps to make the Clear Linux
+Systemd-Boot the default boot loader and add SUSE as a boot option:</p>
+<ol class="arabic">
+<li><p class="first">Boot into SUSE.</p>
+</li>
+<li><p class="first">Log in.</p>
+</li>
+<li><p class="first">Get root privileges with the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Locate SUSE’s <code class="file docutils literal"><span class="pre">grub.cfg</span></code> in the <code class="file docutils literal"><span class="pre">/boot/grub2/</span></code> directory
+and look for the primary SUSE <span class="guilabel">menuentry</span> section. The
+highlighted lines identify the kernel, the <code class="file docutils literal"><span class="pre">initrd</span></code> filenames,
+the root partition UUID, and the additional parameters used. Use this
+information to create a new Systemd-Boot entry. See Figure 26.</p>
+<div class="figure" id="id29">
+<img alt="../../../_images/multi-boot-26.png" src="../../../_images/multi-boot-26.png" />
+<p class="caption"><span class="caption-text">Figure 26: SUSE: grub.cfg</span></p>
+</div>
+</li>
+<li><p class="first">Copy the kernel and the <code class="file docutils literal"><span class="pre">initrd</span></code> file to the EFI partition.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cp /boot/vmlinuz-4.4.21-69-default /boot/efi
+
+<span class="gp">#</span> cp /boot/initrd-4.4.21-69-default /boot/efi
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a boot entry for SUSE. The file must at least contain these
+settings:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>title</td>
+<td>Text to show in the boot menu</td>
+</tr>
+<tr class="row-odd"><td>linux</td>
+<td>Linux kernel image</td>
+</tr>
+<tr class="row-even"><td>initrd</td>
+<td>initramfs image</td>
+</tr>
+<tr class="row-odd"><td>options</td>
+<td>Options to pass to the EFI program or
+kernel boot parameters</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a class="reference external" href="https://wiki.archlinux.org/index.php/Systemd-boot">systemd boot loader documentation</a> for additional
+details.</p>
+<p>The <em>options</em> parameter must specify the root partition UUID and
+any additional parameters SUSE requires.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The root partition UUID used below is unique to this example.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> /boot/efi/loader/entries
+
+<span class="gp">#</span> vi suse.conf
+</pre></div>
+</div>
+<p>Add the following lines to the <code class="file docutils literal"><span class="pre">suse.conf</span></code> file:</p>
+<blockquote class="last">
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">title SUSE Linux Enterprise 12 SP2</span>
+
+<span class="go">linux /vmlinuz-4.4.21-69-default</span>
+
+<span class="go">initrd /initrd-4.4.21-69-default</span>
+
+<span class="go">options root=UUID=b9e25e98-a644-4ac3-b955-ae32800ee350 ro</span>
+<span class="go">resume=/dev/disk/by-uuid/6a50c032-1c1e-4b4a-b799-ca365bb10dc7</span>
+<span class="go">splash=silent showopts crashkernel=109M,high</span>
+<span class="go">crashkernel=72M,low</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Re-install Systemd-Boot to make it the default boot loader.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> bootctl install --path /boot/efi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If an older version of SUSE does not have the <cite>bootctl</cite> command,
+skip this step and see <a class="reference internal" href="#recover-cl-bl"><span class="std std-ref">Recover the Clear Linux boot loader</span></a> to restore the Clear Linux
+Systemd-Boot boot loader.</p>
+</div>
+</li>
+<li><p class="first">Reboot.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="install-ubuntu-16-04-lts-desktop">
+<h2>Install Ubuntu* 16.04 LTS Desktop</h2>
+<ol class="arabic">
+<li><p class="first">Start the Ubuntu installer and follow the prompts.</p>
+</li>
+<li><p class="first">At the <span class="guilabel">Installation type</span> screen, choose
+<span class="guilabel">Something else</span>. See Figure 27.</p>
+<div class="figure" id="id30">
+<img alt="../../../_images/multi-boot-27.png" src="../../../_images/multi-boot-27.png" />
+<p class="caption"><span class="caption-text">Figure 27: Ubuntu: Installation type</span></p>
+</div>
+</li>
+<li><p class="first">Create a new root partition.</p>
+<ol class="arabic">
+<li><p class="first">Under the <span class="guilabel">Device</span> column, select <span class="guilabel">free space</span>. See
+Figure 28.</p>
+<div class="figure" id="id31">
+<img alt="../../../_images/multi-boot-28.png" src="../../../_images/multi-boot-28.png" />
+<p class="caption"><span class="caption-text">Figure 28: Ubuntu: Add partition</span></p>
+</div>
+</li>
+<li><p class="first">Click the <span class="guilabel">+</span> button on the lower left corner.</p>
+</li>
+<li><p class="first">Enter the new partition size. For this example, we used <em>40000 MB</em>, as
+shown in Figure 29.</p>
+<div class="figure" id="id32">
+<img alt="../../../_images/multi-boot-29.png" src="../../../_images/multi-boot-29.png" />
+<p class="caption"><span class="caption-text">Figure 29: Ubuntu: Configure new root partition</span></p>
+</div>
+</li>
+<li><p class="first">Set <span class="guilabel">Use as</span> to <span class="guilabel">Ext4 journaling file system</span>.</p>
+</li>
+<li><p class="first">Set the <span class="guilabel">Mount point</span> to <cite>/</cite>.</p>
+</li>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
+</li>
+<li><p class="first">Under the <span class="guilabel">Format?</span> column, select the new partition to be
+formatted, in this example <code class="file docutils literal"><span class="pre">/dev/sda8</span></code>.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Share the same swap partition created by Clear Linux.</p>
+<ol class="arabic">
+<li><p class="first">Under the <span class="guilabel">Device</span> column, select <code class="file docutils literal"><span class="pre">/dev/sda2</span></code>.</p>
+</li>
+<li><p class="first">Click <span class="guilabel">Change</span>.</p>
+</li>
+<li><p class="first">Confirm <span class="guilabel">Use as</span> is set to <span class="guilabel">Swap area</span>. See Figure
+30.</p>
+<div class="figure" id="id33">
+<img alt="../../../_images/multi-boot-30.png" src="../../../_images/multi-boot-30.png" />
+<p class="caption"><span class="caption-text">Figure 30: Ubuntu - Set swap partition</span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Follow the remaining prompts to complete the installation of Ubuntu.</p>
+</li>
+<li><p class="first">At this point, the ability to boot Clear Linux is lost because <cite>Grub</cite>
+is the default boot loader. Follow these steps to make the Clear Linux
+Systemd-Boot the default boot loader and add Ubuntu as a boot option.</p>
+<ol class="arabic">
+<li><p class="first">Boot into Ubuntu.</p>
+</li>
+<li><p class="first">Log in.</p>
+</li>
+<li><p class="first">Get root permissions.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Locate the Ubuntu <code class="file docutils literal"><span class="pre">grub.cfg</span></code> file in the <code class="file docutils literal"><span class="pre">/boot/grub/</span></code>
+directory and look for the <span class="guilabel">menuentry</span> section. The
+highlighted lines identify the kernel, the <code class="file docutils literal"><span class="pre">initrd</span></code> files, the
+root partition UUID, and the additional parameters used. Use this
+information to create a new Systemd-Boot entry for Ubuntu. See Figure
+31.</p>
+<div class="figure" id="id34">
+<img alt="../../../_images/multi-boot-31.png" src="../../../_images/multi-boot-31.png" />
+<p class="caption"><span class="caption-text">Figure 31: Ubuntu: grub.cfg</span></p>
+</div>
+</li>
+<li><p class="first">Copy the kernel and <code class="file docutils literal"><span class="pre">initrd</span></code> to the EFI partition.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cp /boot/vmlinuz-4.8.0-36-generic.efi.signed /boot/efi
+
+<span class="gp">#</span> cp /boot/initrd.img-4.8.0-36-generic /boot/efi
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a boot entry for Ubuntu. The file must contain at least these
+settings:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>title</td>
+<td>Text to show in the boot menu</td>
+</tr>
+<tr class="row-odd"><td>linux</td>
+<td>Linux kernel image</td>
+</tr>
+<tr class="row-even"><td>initrd</td>
+<td>initramfs image</td>
+</tr>
+<tr class="row-odd"><td>options</td>
+<td>Options to pass to the EFI program
+or kernel boot parameters</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a class="reference external" href="https://wiki.archlinux.org/index.php/Systemd-boot">systemd boot loader documentation</a> for additional
+details.</p>
+<p>The <em>options</em> parameters must specify the root partition UUID and
+any additional parameters that Ubuntu requires.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The root partition UUID used below is unique to this example.</p>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> /boot/efi/loader/entries
+
+<span class="gp">#</span> vi ubuntu.conf
+</pre></div>
+</div>
+<p>Add the following lines to the <code class="file docutils literal"><span class="pre">ubuntu.conf</span></code> file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">title Ubuntu 16.04 LTS Desktop</span>
+
+<span class="go">linux /vmlinuz-4.8.0-36-generic.efi.signed</span>
+
+<span class="go">initrd /initrd.img-4.8.0-36-generic</span>
+
+<span class="go">options root=UUID=17f0aa66-3467-4f99-b92c-8b2cea1045aa ro</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Re-install Systemd-Boot to make it the default boot loader.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> bootctl install --path /boot/efi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If an older version of Ubuntu does not have the <cite>bootctl</cite> command,
+skip this step and see <a class="reference internal" href="#recover-cl-bl"><span class="std std-ref">Recover the Clear Linux boot loader</span></a> to restore the Clear Linux
+Systemd-Boot boot loader.</p>
+</div>
+</li>
+<li><p class="first">Reboot.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="install-mint-18-1-serena-mate">
+<h2>Install Mint* 18.1 “Serena” MATE</h2>
+<ol class="arabic">
+<li><p class="first">Start the Mint installer and follow the prompts.</p>
+</li>
+<li><p class="first">At the <span class="guilabel">Installation type</span> screen, choose
+<span class="guilabel">Something else</span>. See Figure 32.</p>
+<div class="figure" id="id35">
+<img alt="../../../_images/multi-boot-32.png" src="../../../_images/multi-boot-32.png" />
+<p class="caption"><span class="caption-text">Figure 32: Mint: Installation type</span></p>
+</div>
+</li>
+<li><p class="first">Create a new root partition.</p>
+<ol class="arabic">
+<li><p class="first">Under the <span class="guilabel">Device</span> column, select <span class="guilabel">free space</span>. See
+Figure 33.</p>
+<div class="figure" id="id36">
+<img alt="../../../_images/multi-boot-33.png" src="../../../_images/multi-boot-33.png" />
+<p class="caption"><span class="caption-text">Figure 33: Mint: Add partition</span></p>
+</div>
+</li>
+<li><p class="first">Click the <span class="guilabel">+</span> button.</p>
+</li>
+<li><p class="first">In the <span class="guilabel">Size</span> field, enter a value for the new partition
+size. For this example, we used <em>40000 MB</em>, as shown in Figure 34.</p>
+<div class="figure" id="id37">
+<img alt="../../../_images/multi-boot-34.png" src="../../../_images/multi-boot-34.png" />
+<p class="caption"><span class="caption-text">Figure 34: Mint: Configure new partition settings</span></p>
+</div>
+</li>
+<li><p class="first">Set <span class="guilabel">Use as</span> to <span class="guilabel">Ext4 journaling file system</span>.</p>
+</li>
+<li><p class="first">Set the <span class="guilabel">Mount point</span> to <span class="guilabel">/</span>.</p>
+</li>
+<li><p class="first">Click <span class="guilabel">OK</span>.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Share the same swap partition created by Clear Linux with the following
+steps.</p>
+<ol class="arabic">
+<li><p class="first">Under <span class="guilabel">Device</span> column, select <code class="file docutils literal"><span class="pre">/dev/sda2</span></code>.</p>
+</li>
+<li><p class="first">Click <span class="guilabel">Change</span>.</p>
+</li>
+<li><p class="first">Confirm <span class="guilabel">Use as</span> is set to <span class="guilabel">Swap area</span>. See Figure
+35.</p>
+<div class="figure" id="id38">
+<img alt="../../../_images/multi-boot-35.png" src="../../../_images/multi-boot-35.png" />
+<p class="caption"><span class="caption-text">Figure 35: Mint: Set swap partition</span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Follow the remaining prompts to complete the installation of Mint.</p>
+</li>
+<li><p class="first">At this point, the ability to boot Clear Linux is lost because <cite>Grub</cite>
+is the default boot loader. Follow these steps to make the Clear Linux
+Systemd-Boot the default boot loader and add Mint as a boot option.</p>
+<ol class="arabic">
+<li><p class="first">Boot into Mint.</p>
+</li>
+<li><p class="first">Log in.</p>
+</li>
+<li><p class="first">Get root permissions.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Locate the Mint <code class="file docutils literal"><span class="pre">grub.cfg</span></code> file in the <code class="file docutils literal"><span class="pre">/boot/grub/</span></code> and
+look for the <span class="guilabel">menuentry</span> section. The highlighted lines
+identify the kernel, the <code class="file docutils literal"><span class="pre">initrd</span></code> files, the root partition UUID,
+and the additional parameters used. Use this information to create a
+new Systemd-Boot entry for Mint. See Figure 36.</p>
+<div class="figure" id="id39">
+<img alt="../../../_images/multi-boot-36.png" src="../../../_images/multi-boot-36.png" />
+<p class="caption"><span class="caption-text">Figure 36: Mint: grub.cfg</span></p>
+</div>
+</li>
+<li><p class="first">Copy the kernel and <code class="file docutils literal"><span class="pre">initrd</span></code> to the EFI partition.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cp /boot/vmlinuz-4.4.0-53-generic /boot/efi
+
+<span class="gp">#</span> cp /boot/initrd.img-4.4.0-53-generic /boot/efi
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a boot entry for Mint. The file must contain at least these
+settings:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>title</td>
+<td>Text to show in the boot menu</td>
+</tr>
+<tr class="row-odd"><td>linux</td>
+<td>Linux kernel image</td>
+</tr>
+<tr class="row-even"><td>initrd</td>
+<td>initramfs image</td>
+</tr>
+<tr class="row-odd"><td>options</td>
+<td>Options to pass to the EFI program
+or kernel boot parameters</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a class="reference external" href="https://wiki.archlinux.org/index.php/Systemd-boot">systemd boot loader documentation</a> for additional
+details.</p>
+<p>The <em>options</em> parameters must specify the root partition UUID and
+any additional parameters that Mint requires.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The root partition UUID used below is unique to this example.</p>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> <span class="nb">cd</span> /boot/efi/loader/entries
+
+<span class="gp">#</span> vi mint.conf
+</pre></div>
+</div>
+<p>Add the following lines to the <code class="file docutils literal"><span class="pre">mint.conf</span></code> file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">title Mint 18.1 Serena MATE</span>
+
+<span class="go">linux /vmlinuz-4.4.0-53-generic</span>
+
+<span class="go">initrd /initrd.img-4.4.0-53-generic</span>
+
+<span class="go">options root=UUID=af4901e1-6238-470a-8c14-bc0f0f7715ec ro</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Re-install Systemd-Boot to make it the default boot loader.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> bootctl install --path /boot/efi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If an older version of Mint does not have the <cite>bootctl</cite> command,
+skip this step and see <a class="reference internal" href="#recover-cl-bl"><span class="std std-ref">Recover the Clear Linux boot loader</span></a> to restore the Clear
+Linux Systemd-Boot boot loader.</p>
+</div>
+</li>
+<li><p class="first">Reboot.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="recover-the-clear-linux-boot-loader">
+<span id="recover-cl-bl"></span><h2>Recover the Clear Linux boot loader</h2>
+<p>The installation of a new operating system or an upgrade of an existing
+operating system can result in making the Clear Linux Systemd-Boot no
+longer the default boot loader. To restore it, follow the steps below.</p>
+<ol class="arabic">
+<li><p class="first">Boot the Clear Linux installer from a USB thumb drive. See <a class="reference internal" href="../../get-started/bootable-usb/bootable-usb.html#bootable-usb"><span class="std std-ref">Create a bootable Clear Linux USB drive</span></a>.</p>
+</li>
+<li><p class="first">At the introduction screen, press <code class="kbd docutils literal"><span class="pre">Control+Alt+F2</span></code> to bring up the
+Clear Linux console. See Figure 37.</p>
+<div class="figure" id="id40">
+<img alt="../../../_images/multi-boot-37.png" src="../../../_images/multi-boot-37.png" />
+<p class="caption"><span class="caption-text">Figure 37: Clear Linux: Console</span></p>
+</div>
+</li>
+<li><p class="first">Log in as <em>root</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Logging in for the first time as <em>root</em> through the console requires
+setting a new password.</p>
+</div>
+</li>
+<li><p class="first">Find the location of the Clear Linux EFI partition, in this example it is
+<code class="file docutils literal"><span class="pre">/dev/sda3</span></code>. See Figure 38.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> fdisk –l
+</pre></div>
+</div>
+<div class="figure" id="id41">
+<img alt="../../../_images/multi-boot-38.png" src="../../../_images/multi-boot-38.png" />
+<p class="caption"><span class="caption-text">Figure 38: Clear Linux - fdisk -l</span></p>
+</div>
+</li>
+<li><p class="first">Mount the EFI partition.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> mount /dev/sda3 /mnt
+</pre></div>
+</div>
+</li>
+<li><p class="first">Re-install Systemd-Boot to make it the default boot loader.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> bootctl install --path /mnt
+</pre></div>
+</div>
+</li>
+<li><p class="first">Unmount the EFI partition.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> umount /mnt
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot.</p>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

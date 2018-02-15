@@ -1,0 +1,509 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Create and launch Clear Linux from Amazon Web Services</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Tutorials" href="../tutorials.html"/>
+        <link rel="next" title="Create a telemetry backend server in Clear Linux" href="../telemetry-backend/telemetry-backend.html"/>
+        <link rel="prev" title="Use the function multi-version patch generator" href="../fmv.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Create and launch Clear Linux from Amazon Web Services
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="create-and-launch-clear-linux-from-amazon-web-services">
+<span id="aws-web"></span><h1>Create and launch Clear Linux from Amazon Web Services</h1>
+<p>This tutorial walks you through creating and launching a Clear Linux
+<abbr title="Amazon Machine Image">AMI</abbr> instance from the
+<abbr title="Amazon Web Services">AWS</abbr> console and complete the following tasks:</p>
+<ol class="arabic simple">
+<li>Locate and select the Clear Linux OS Basic AMI in the AWS Marketplace.</li>
+<li>Create a new public and private key pair to allow you to connect to your
+Clear Linux instance securely.</li>
+<li>Launch the new Clear Linux instance and connect to it.</li>
+<li>Update your instance of Clear Linux using the <strong class="command">swupd</strong> command.</li>
+<li>Stop the Clear Linux instance.</li>
+</ol>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>This tutorial assumes the following statements are true:
+* You are using a linux-based system to access AWS and can run <strong class="command">SSH</strong></p>
+<blockquote>
+<div>to access the remote Clear Linux AWS image.</div></blockquote>
+<ul class="simple">
+<li>Your browser puts downloaded files in the <code class="file docutils literal"><span class="pre">$HOME/Downloads</span></code> directory.</li>
+<li>You have already set up an AWS user account and logged into the AWS
+console.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This tutorial uses a Clear Linux AMI t2.micro instance that is eligible for the
+AWS free tier. To learn more about AWS and setting up an account, visit the
+AWS website at <a class="reference external" href="http://aws.amazon.com">http://aws.amazon.com</a>.</p>
+</div>
+</div>
+<div class="section" id="locate-select-and-launch-the-clear-linux-os-basic-ami">
+<h2>Locate, select, and launch the Clear Linux OS Basic AMI</h2>
+<ol class="arabic">
+<li><p class="first">Start from your main AWS services console menu in your browser and select the
+<span class="guilabel">EC2</span> text as shown in figure 1:</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/aws-web-1.png"><img alt="AWS Console" src="../../../_images/aws-web-1.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 1: <span class="guilabel">AWS Console</span></span></p>
+</div>
+<p>This selection brings up your <span class="guilabel">EC2 Dashboard</span> menu.</p>
+</li>
+<li><p class="first">To create a new Clear Linux instance from the <span class="guilabel">EC2 Dashboard</span> menu,
+select the <span class="guilabel">Launch Instance</span> button as shown in figure 2:</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/aws-web-2.png"><img alt="EC2 Dashboard" src="../../../_images/aws-web-2.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: <span class="guilabel">EC2 Dashboard</span></span></p>
+</div>
+<p>This selection takes you to the
+<span class="guilabel">Step 1: Choose an Amazon Machine Image (AMI)</span> menu.</p>
+</li>
+<li><p class="first">To find the <span class="guilabel">|CL| OS Basic</span> AMI in the
+<span class="guilabel">Step 1: Choose an Amazon Machine Image (AMI)</span> menu, do the
+following:</p>
+<ol class="arabic">
+<li><p class="first">In the lefthand navigation window, select the
+<span class="guilabel">AWS Marketplace</span> menu item to bring up the search bar to
+<span class="guilabel">Search AWS Marketplace Products</span>.</p>
+</li>
+<li><p class="first">In the search bar, type <cite>clear linux os</cite> and hit the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key to
+search for and locate the <span class="guilabel">|CL| OS Basic</span> AMI.</p>
+</li>
+<li><p class="first">Select the <span class="guilabel">|CL| OS Basic</span> AMI by clicking on the
+<span class="guilabel">Select</span> button as shown in figure 3:</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/aws-web-3.png"><img alt="Step 1: Choose AMI" src="../../../_images/aws-web-3.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 3: <span class="guilabel">Step 1: Choose AMI</span></span></p>
+</div>
+</li>
+<li><p class="first">A pop-up dialog box appears showing you more information about the
+<span class="guilabel">|CL| OS Basic</span> AMI along with the pricing details for running
+Clear Linux on different platform configurations as shown in figure 4. Select
+the <span class="guilabel">Continue</span> button.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/aws-web-4.png"><img alt="Clear Linux OS Basic" src="../../../_images/aws-web-4.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 4: <span class="guilabel">Clear Linux OS Basic</span></span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">The <span class="guilabel">Choose Instance Type</span> menu appears as shown in figure 5.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/aws-web-5.png"><img alt="Choose an Instance Type" src="../../../_images/aws-web-5.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 5: <span class="guilabel">Choose an Instance Type</span></span></p>
+</div>
+<p>Select the <span class="guilabel">t2.micro</span> type by clicking the box on the left side
+of the instance and then select the <span class="guilabel">Review and Launch</span> button to
+move to the <span class="guilabel">Step 7: Review the Instance Launch</span> menu.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can configure the instance details, add additional storage, add
+tags, and configure the security group before selecting the
+<span class="guilabel">Review and Launch</span> button if you want to further customize
+this Clear Linux instance.</p>
+</div>
+</li>
+<li><p class="first">The <span class="guilabel">Step 7: Review the Instance Launch</span> menu, shown in figure 6,
+allows you to
+<span class="guilabel">Cancel</span> the process, return to the <span class="guilabel">Previous</span> screen
+to change the configuration or <span class="guilabel">Launch</span> the instance defined.</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/aws-web-6.png"><img alt="Step 7: Review the Instance Launch" src="../../../_images/aws-web-6.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 6: <span class="guilabel">Step 7: Review the Instance Launch</span></span></p>
+</div>
+<ol class="arabic">
+<li><p class="first">Select the <span class="guilabel">Launch</span> button. A dialog box appears, as shown in
+figure 7, asking you to
+<span class="guilabel">Select an existing key pair or create a new pair</span>.</p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/aws-web-7.png"><img alt="Select an existing key pair or create a new pair" src="../../../_images/aws-web-7.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 7: <span class="guilabel">Select an existing key pair or create a new pair</span></span></p>
+</div>
+<ol class="arabic">
+<li><p class="first">Select the <span class="guilabel">Create a new key pair</span> option.</p>
+</li>
+<li><p class="first">For the <span class="guilabel">Key pair name</span> field, enter <cite>AWSClearTestKey</cite>.</p>
+</li>
+<li><p class="first">Select the <span class="guilabel">Download Key Pair</span> button to download the
+<code class="file docutils literal"><span class="pre">AWSClearTestKey.pem</span></code> to your browser&#8217;s defined
+<code class="file docutils literal"><span class="pre">Downloads</span></code> directory.</p>
+</li>
+<li><p class="first">When the file finishes downloading, select the
+<span class="guilabel">Launch Instances</span> button to proceed to the
+<span class="guilabel">Launch Status</span> menu shown in figure 8.</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/aws-web-8.png"><img alt="Launch Status" src="../../../_images/aws-web-8.png" style="width: 737.5px; height: 596.5px;" /></a>
+<p class="caption"><span class="caption-text">Figure 8: <span class="guilabel">Launch Status</span></span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Once the <span class="guilabel">Launch Status</span> page changes to what is shown in
+figure 9, select the <span class="guilabel">View Instances</span> button to view your
+<span class="guilabel">Instances</span> dashboard.</p>
+<div class="figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/aws-web-9.png"><img alt="View Instance" src="../../../_images/aws-web-9.png" style="width: 737.5px; height: 660.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 9: <span class="guilabel">View Instance</span></span></p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="connect-to-your-clear-linux-os-basic-instance">
+<h2>Connect to your Clear Linux OS Basic instance</h2>
+<p>Your <span class="guilabel">Instances</span> Dashboard is shown in figure 10 with the new Clear Linux
+OS basic instance already selected and in the running state. If there are
+other instances available, they are also listed but not selected.</p>
+<div class="figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/aws-web-10.png"><img alt="Instance Dashboard" src="../../../_images/aws-web-10.png" style="width: 737.5px; height: 660.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 10: <span class="guilabel">Instance Dashboard</span></span></p>
+</div>
+<ol class="arabic simple">
+<li>To connect to your running instance, click the <span class="guilabel">Connect</span> button
+located at the top of your dashboard. AWS brings up the pop-up dialog
+box shown in figure 11 describing how to connect to your running instance.</li>
+</ol>
+<div class="figure" id="id11">
+<span id="fig-aws-web-11"></span><a class="reference internal image-reference" href="../../../_images/aws-web-11.png"><img alt="Connect to Your Instance" src="../../../_images/aws-web-11.png" style="width: 737.5px; height: 660.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 11: <span class="guilabel">Connect to Your Instance</span></span></p>
+</div>
+<ol class="arabic">
+<li><p class="first">Open a terminal on your system. You should be in your <code class="file docutils literal"><span class="pre">$HOME</span></code>
+directory.</p>
+</li>
+<li><p class="first">Copy the previously downloaded keyfile from the <code class="file docutils literal"><span class="pre">Downloads</span></code>
+directory to the current directory.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">cp Downloads/AWSClearTestKey.pem .</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change the attributes of the <code class="file docutils literal"><span class="pre">AWSClearTestKey.pem</span></code> using the
+<strong class="command">chmod</strong> command as instructed in the dialog box shown in figure
+11.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">chmod 400 AWSClearTestKey.pem</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the text highlighted in the <span class="guilabel">Example:</span> section that is
+shown in <a class="reference internal" href="#fig-aws-web-11"><span class="std std-ref">figure 11</span></a>. Paste the copied text into your terminal and add
+<cite>-l clear</cite> text to the end of the command string. Press the <code class="kbd docutils literal"><span class="pre">Enter</span></code>
+key to execute the command.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">ssh -i &quot;AWSClearTestKey.pem&quot; root@ec2-34-209-39-184.us-west-2.compute.amazonaws.com -l clear</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A message appears on the terminal stating the authenticty of the host can&#8217;t
+be established and prompts you with the message:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">The authenticity of host &#39;ec2-34-209-39-184.us-west-2.compute.amazonaws.com (34.209.39.184)&#39; can&#39;t be established.</span>
+<span class="go">ECDSA key fingerprint is SHA256:LrziT5Ar66iBTfia8qmiIsrfBUm/UGam76U8bDR6yJc.</span>
+<span class="go">Are you sure you want to continue connecting (yes/no)?</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Type <cite>yes</cite> and hit the <code class="kbd docutils literal"><span class="pre">Enter</span></code> key. Another warning is printed to the
+terminal and you are now at the command prompt of your new Clear Linux instance.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Warning: Permanently added &#39;ec2-34-209-39-184.us-west-2.compute.amazonaws.com,34.209.39.184&#39; (ECDSA) to the list of known hosts.</span>
+<span class="gp">clear@clr-96a8565d0ca54b0c80364a1e5e7b0f88 ~ $</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="update-the-clear-linux-os-instance">
+<h2>Update the Clear Linux OS instance</h2>
+<p>Run the <strong class="command">sudo swupd update</strong> command to update the operating
+system as shown in figure 12:</p>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/aws-web-12.png"><img alt="sudo swupd update" src="../../../_images/aws-web-12.png" style="width: 661.5px; height: 432.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 12: <span class="guilabel">sudo swupd update</span></span></p>
+</div>
+<p>In this example we updated from version 18940 to 19100.</p>
+</div>
+<div class="section" id="stop-the-clear-linux-os-instance">
+<h2>Stop the Clear Linux OS instance</h2>
+<p>When you are finished using your AWS Clear Linux instance you need to stop it using
+the <span class="guilabel">Instances</span> dashboard to stop accruing charges. Complete the
+following steps from the <span class="guilabel">Instances</span> dashboard to stop your AWS Clear Linux
+instance from running.</p>
+<ol class="arabic">
+<li><p class="first">Select the <span class="guilabel">Actions</span> button to bring up a pull-down menu.</p>
+</li>
+<li><p class="first">Select the <span class="guilabel">Instance State</span> menu item to expand the options.</p>
+</li>
+<li><p class="first">Select <span class="guilabel">Stop</span> menu item to shut down the running instance.</p>
+<p>Figure 13 illustrates these steps.</p>
+<div class="figure" id="id13">
+<a class="reference internal image-reference" href="../../../_images/aws-web-13.png"><img alt="Stop Instance" src="../../../_images/aws-web-13.png" style="width: 737.5px; height: 660.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 13: <span class="guilabel">Stop Instance</span></span></p>
+</div>
+</li>
+<li><p class="first">A pop-up dialog box appears warning you that any ephemeral storage of
+your instance will be lost. Select the <span class="guilabel">Yes, Stop</span> button to stop
+your Clear Linux instance.</p>
+</li>
+</ol>
+<div class="figure" id="id14">
+<a class="reference internal image-reference" href="../../../_images/aws-web-14.png"><img alt="Stop Instances" src="../../../_images/aws-web-14.png" style="width: 737.5px; height: 660.0px;" /></a>
+<p class="caption"><span class="caption-text">Figure 14: <span class="guilabel">Stop Instances</span></span></p>
+</div>
+<p>Congratulations! You are up and running with Clear Linux on AWS. To see what you
+can do with your Clear Linux instance, visit our <a class="reference internal" href="../tutorials.html#tutorials"><span class="std std-ref">tutorials</span></a>
+section for examples on using your Clear Linux system.</p>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>
