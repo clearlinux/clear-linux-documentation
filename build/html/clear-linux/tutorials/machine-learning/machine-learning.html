@@ -1,0 +1,444 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Machine learning tutorial</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Tutorials" href="../tutorials.html"/>
+        <link rel="next" title="Clear Linux* OS on Microsoft* Azure*" href="../azure.html"/>
+        <link rel="prev" title="Use Flatpak* to install applications on Clear Linux* OS for Intel® Architecture" href="../flatpak/flatpak.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Machine learning tutorial
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="machine-learning-tutorial">
+<span id="machine-learning"></span><h1>Machine learning tutorial</h1>
+<p>This tutorial guides you through installing and using a Jupyter* notebook to
+set up and execute a TensorFlow* machine learning example using the MNIST
+data for handwriting recognition using the Clear Linux* OS for Intel® Architecture.&nbsp;The initial steps will
+have you set up a Jupyter kernel and run a notebook on a bare-metal Clear Linux
+system.</p>
+<div class="section" id="install-and-configure-a-clear-linux-host-os-on-bare-metal">
+<h2>Install and configure a Clear Linux Host OS on bare metal</h2>
+<p>First, follow our instructions to install
+<a class="reference internal" href="../../get-started/bare-metal-install/bare-metal-install.html#bare-metal-install"><span class="std std-ref">Clear Linux on bare metal</span></a>.</p>
+<p>Once the bare metal installation and initial configuration are complete, add
+the following two bundles to your system:</p>
+<ul class="simple">
+<li><cite>machine-learning-web-ui</cite>: This bundle contains the Jupyter application.</li>
+<li><cite>machine-learning-basic</cite>: This bundle contains TensorFlow and other useful
+tools.</li>
+</ul>
+<p>To install the bundles, run the following commands in your <code class="file docutils literal"><span class="pre">$HOME</span></code>
+directory:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo swupd bundle-add machine-learning-web-ui</span>
+
+<span class="go">sudo swupd bundle-add machine-learning-basic</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-up-a-jupyter-notebook">
+<h2>Set up a Jupyter notebook</h2>
+<p>With all required packages and libraries installed, set up the file structure
+for the Jupyter Notebook.</p>
+<ol class="arabic">
+<li><p class="first">In the <code class="file docutils literal"><span class="pre">$HOME</span></code> directory, create a directory for the Jupyter
+Notebooks named <code class="file docutils literal"><span class="pre">Notebooks</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">mkdir Notebooks</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Within <code class="file docutils literal"><span class="pre">Notebooks</span></code>, create a directory named <code class="file docutils literal"><span class="pre">Handwriting</span></code>.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">mkdir Notebooks/Handwriting</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change to the new directory.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">cd Notebooks/Handwriting</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the <code class="file docutils literal"><span class="pre">MNIST_example.ipynb</span></code> file into the <code class="file docutils literal"><span class="pre">Handwriting</span></code>
+directory.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">After installing the <cite>machine-learning basic</cite> bundle, you can find the
+example code under
+<code class="file docutils literal"><span class="pre">/usr/share/doc/tensorflow/MNIST_example.ipynb</span></code>.</p>
+</div>
+</li>
+</ol>
+<p>The example code downloads and decompresses the MNIST data directly into the
+<code class="file docutils literal"><span class="pre">./mnist</span></code> directory. Alternatively, download the four files directly
+from the Yann LeCun’s <a class="reference external" href="http://yann.lecun.com/exdb/mnist/">MNIST Database website</a> and save them into a
+<code class="file docutils literal"><span class="pre">mnist</span></code> directory within the <code class="file docutils literal"><span class="pre">Handwriting</span></code> directory.</p>
+<p>The files needed are:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz">train-images-idx3-ubyte.gz</a>: Training set images (9912422 bytes)</li>
+<li><a class="reference external" href="http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz">train-labels-idx1-ubyte.gz</a>: Training set labels (28881 bytes)</li>
+<li><a class="reference external" href="http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz">t10k-images-idx3-ubyte.gz</a>: Test set images (1648877 bytes)</li>
+<li><a class="reference external" href="http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz">t10k-labels-idx1-ubyte.gz</a>: Test set labels (4542 bytes)</li>
+</ul>
+</div>
+<div class="section" id="run-the-jupyter-machine-learning-example-code">
+<h2>Run the Jupyter machine learning example code</h2>
+<p>With Clear Linux, Jupyter, and TensorFlow installed and configured, we can
+run the example code.</p>
+<ol class="arabic">
+<li><p class="first">Go to the <code class="file docutils literal"><span class="pre">($HOME)/Notebooks</span></code> directory and start Jupyter with the
+following commands:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">cd ~/Notebooks</span>
+
+<span class="go">jupyter notebook</span>
+</pre></div>
+</div>
+<p>The Jupyter server starts and opens a web browser showing the Jupyter file
+manager with a list of files in the current directory, see figure 1.</p>
+<div class="figure" id="id1">
+<img alt="Jupyter file manager" src="../../../_images/machine-learning-1.png" />
+<p class="caption"><span class="caption-text">Figure 1: The Jupyter file manager shows the list of available files.</span></p>
+</div>
+</li>
+<li><p class="first">Click on the <code class="file docutils literal"><span class="pre">Handwriting</span></code> directory.&nbsp;The <code class="file docutils literal"><span class="pre">MNIST_example.ipynb</span></code>
+file created earlier should be listed there, see figure 2.</p>
+<div class="figure" id="id2">
+<img alt="Example file within the Jupyter file manager" src="../../../_images/machine-learning-2.png" />
+<p class="caption"><span class="caption-text">Figure 2: The example file within the Jupyter file manager.</span></p>
+</div>
+</li>
+<li><p class="first">To run the hand writing example, click on the <code class="file docutils literal"><span class="pre">MNIST_example.ipynb</span></code>
+file to load the notebook, see figure 3.</p>
+<div class="figure" id="id3">
+<img alt="The loaded MNIST_example notebook" src="../../../_images/machine-learning-3.png" />
+<p class="caption"><span class="caption-text">Figure 3: The loaded MNIST_example notebook within the Jupyter file
+manager.</span></p>
+</div>
+</li>
+<li><p class="first">Click the <img alt="run-cell" src="../../../_images/run-cell-button.png" /> button to execute the code in the current cell and
+move to the next.</p>
+</li>
+<li><p class="first">Select the <span class="guilabel">In [2]</span> cell and click the <img alt="run-cell" src="../../../_images/run-cell-button.png" /> button to load
+the MNIST data. The successful output is shown on figure 4.</p>
+<div class="figure" id="id4">
+<img alt="Successful import of MNIST data" src="../../../_images/machine-learning-4.png" />
+<p class="caption"><span class="caption-text">Figure 4: Output after successfully importing the MNIST data.</span></p>
+</div>
+<p>After the MNIST data was successfully downloaded and extracted into the
+<code class="file docutils literal"><span class="pre">mnist</span></code> directory within the <code class="file docutils literal"><span class="pre">($HOME)/Notebooks/Handwriting</span></code>
+directory, four .gz files are present and the four data sets were created:
+<cite>trainX</cite>, <cite>trainY</cite>, <cite>testX</cite> and <cite>testY</cite>.</p>
+</li>
+<li><p class="first">To inspect the imported data, the function in <span class="guilabel">In [3]</span> first
+instructs Jupyter to reshape the data into an array of 28 x 28 images and to
+plot the area in a 28 x 28 grid. Click the <img alt="run-cell" src="../../../_images/run-cell-button.png" /> button twice to show
+the first two digits in the <cite>trainX</cite> dataset, see figure 5.</p>
+<div class="figure" id="id5">
+<img alt="Function to reshape data." src="../../../_images/machine-learning-5.png" />
+<p class="caption"><span class="caption-text">Figure 5: A function reshapes the data and displays the first two
+digits in the <cite>trainX</cite> dataset.</span></p>
+</div>
+</li>
+<li><p class="first">The <span class="guilabel">In [4]</span> cell defines the neural network. It provides the
+inputs, defines the hidden layers, runs the training model, and sets up
+the output layer, see figure 6. Click the <img alt="run-cell" src="../../../_images/run-cell-button.png" /> button four times to
+perform these operations.</p>
+<div class="figure" id="id6">
+<img alt="Defining, building and training the neural network model" src="../../../_images/machine-learning-6.png" />
+<p class="caption"><span class="caption-text">Figure 6: Defining, building and training the neural network model.</span></p>
+</div>
+</li>
+<li><p class="first">To test the accuracy of the prediction the system makes, select the
+<span class="guilabel">In [8]</span> cell and click the <img alt="run-cell" src="../../../_images/run-cell-button.png" /> button. In this example,
+the number 6 was predicted with a 99% accuracy, see figure 7.</p>
+<div class="figure" id="id7">
+<img alt="Prediction example" src="../../../_images/machine-learning-7.png" />
+<p class="caption"><span class="caption-text">Figure 7: The system predicts a number providing the accuracy of the
+prediction.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To retest the accuracy of a random data point&#8217;s prediction, run the
+cell <span class="guilabel">In [8]</span> again. It will take another random data point
+and predict its value.</p>
+</div>
+</li>
+<li><p class="first">To check the accuracy for the whole dataset, select the <span class="guilabel">In [10]</span>
+cell and click the <img alt="run-cell" src="../../../_images/run-cell-button.png" /> button. Our example&#8217;s accuracy is
+calculated as 97.17%, see figure 8.</p>
+<div class="figure" id="id8">
+<img alt="System's accuracy" src="../../../_images/machine-learning-8.png" />
+<p class="caption"><span class="caption-text">Figure 8: The system&#8217;s accuracy for the entire data set.</span></p>
+</div>
+</li>
+</ol>
+<p>For more in-depth and detailed information on the model used and the
+mathematics it entails, visit the TensorFlow tutorials
+<a class="reference external" href="https://www.tensorflow.org/get_started/mnist/beginners">TensorFlow MNIST beginners demo</a> and <a class="reference external" href="https://www.tensorflow.org/get_started/mnist/pros">TensorFlow MNIST pros demo</a>.</p>
+<p><strong>Congratulations!</strong></p>
+<p>You have successfully installed a Jupyter kernel on Clear Linux. Furthermore, you
+trained a neural network to successfully predict the values contained in a
+data set of hand-written number images.</p>
+</div>
+<div class="section" id="additional-resources">
+<h2>Additional resources</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://yann.lecun.com/exdb/mnist/">MNIST Database website</a></li>
+<li><a class="reference external" href="https://www.tensorflow.org/get_started/mnist/beginners">TensorFlow MNIST beginners demo</a></li>
+<li><a class="reference external" href="https://www.tensorflow.org/get_started/mnist/pros">TensorFlow MNIST pros demo</a></li>
+<li><a class="reference external" href="http://jupyter.org/">Jupyter main website</a></li>
+<li><a class="reference external" href="https://jupyter.readthedocs.io/en/latest/index.html">Jupyter documentation</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST at Wikipedia</a></li>
+</ul>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

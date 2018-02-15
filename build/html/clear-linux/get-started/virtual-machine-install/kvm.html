@@ -1,0 +1,466 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Run Clear Linux as a KVM guest OS</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Install Clear Linux in a virtual machine" href="virtual-machine-install.html"/>
+        <link rel="next" title="Use VirtualBox*" href="virtualbox.html"/>
+        <link rel="prev" title="Install Clear Linux in a virtual machine" href="virtual-machine-install.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Run Clear Linux as a KVM guest OS
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="run-clear-linux-as-a-kvm-guest-os">
+<span id="kvm"></span><h1>Run Clear Linux as a KVM guest OS</h1>
+<p>This section explains how to run Clear Linux* OS for Intel® Architecture in a virtualized environment using
+<abbr title="Kernel-based Virtual Machine">KVM</abbr>.</p>
+<div class="section" id="install-qemu-kvm">
+<h2>Install QEMU-KVM</h2>
+<ol class="arabic">
+<li><p class="first">Enable the <a class="reference external" href="https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html">Intel® Virtualization Technology</a> (Intel® VT) and the
+<a class="reference external" href="https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices">Intel®Virtualization Technology for Directed I/O</a> (Intel® VT-d) in the
+host machine’s BIOS.</p>
+</li>
+<li><p class="first">Log in, open a terminal emulator, and get root privilege on the host
+machine:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install <cite>QEMU*-KVM</cite> on the host machine. Below are some example distros.</p>
+<ul>
+<li><p class="first">On Clear Linux:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> swupd bundle-add desktop-autostart kvm-host
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Ubuntu* 16.04 LTS Desktop:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> apt-get install qemu-kvm
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Mint* 18.1 “Serena” Desktop:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> apt-get install qemu-kvm
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Fedora* 25 Workstation:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> dnf install qemu-kvm
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="download-and-launch-the-virtual-machine">
+<h2>Download and launch the virtual machine</h2>
+<ol class="arabic">
+<li><p class="first">Download the latest pre-built Clear Linux KVM image file from
+the <a class="reference external" href="https://download.clearlinux.org/image/">image</a> directory. Look for
+<code class="docutils literal"><span class="pre">clear-&lt;version&gt;-kvm.img.xz</span></code>.</p>
+</li>
+<li><p class="first">Uncompress the downloaded image:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> unxz clear-&lt;version&gt;-kvm.img.xz
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download the <a class="reference external" href="https://download.clearlinux.org/image/OVMF.fd">OVMF file</a> file that provides UEFI support for
+virtual machines from the <a class="reference external" href="https://download.clearlinux.org/image/">image</a>
+directory.</p>
+</li>
+<li><p class="first">Download the sample <a class="reference external" href="https://download.clearlinux.org/image/start_qemu.sh">QEMU-KVM launcher</a> script from the
+<a class="reference external" href="https://download.clearlinux.org/image/">image</a> directory.  This script
+will launch the Clear Linux VM and provide console interaction within the same
+terminal emulator window.</p>
+</li>
+<li><p class="first">Make the script executable:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> chmod +x start_qemu.sh
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start the Clear Linux KVM virtual machine:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> ./start_qemu.sh clear-&lt;version&gt;-kvm.img
+</pre></div>
+</div>
+</li>
+<li><p class="first">Log in as <code class="docutils literal"><span class="pre">root</span></code> user and set a new password.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ssh-access-into-the-virtual-machine">
+<h2>SSH access into the virtual machine</h2>
+<p>To interact with the Clear Linux VM through SSH instead of the console it was
+launched from, follow these steps.</p>
+<ol class="arabic">
+<li><p class="first">Enable SSH in the Clear Linux VM:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> cat &gt; /etc/ssh/sshd_config &lt;&lt; EOF
+<span class="go">  PermitRootLogin yes</span>
+<span class="go">  EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">From the host, SSH into the Clear Linux VM.  The port number <code class="docutils literal"><span class="pre">10022</span></code> is defined
+in the <code class="docutils literal"><span class="pre">start_qemu.sh</span></code> script.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> ssh -p <span class="m">10022</span> root@localhost
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="add-the-gnome-display-manager-gdm">
+<h2>Add the GNOME Display Manager (GDM)</h2>
+<p>To add <abbr title="GNOME Display Manager">GDM</abbr> to the Clear Linux VM, follow these steps:</p>
+<ol class="arabic">
+<li><p class="first">Shutdown the active Clear Linux VM.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> shutdown now
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install a VNC viewer on the host machine.  Below are some example distros.</p>
+<ul>
+<li><p class="first">On Clear Linux:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> swupd bundle-add desktop-apps-extras
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Ubuntu* 16.04 LTS Desktop:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> apt-get install vncviewer
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Mint* 18.1 “Serena” Desktop:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> apt-get install vncviewer
+</pre></div>
+</div>
+</li>
+<li><p class="first">On Fedora* 25 Workstation:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> dnf install tigervnc
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Modify the <code class="file docutils literal"><span class="pre">start_qemu.sh</span></code> script to increase memory (<code class="docutils literal"><span class="pre">-m</span></code>), add
+graphics driver (<code class="docutils literal"><span class="pre">-vga</span></code>), and add VNC (<code class="docutils literal"><span class="pre">-vnc</span></code>, <code class="docutils literal"><span class="pre">-usb</span></code>, and
+<code class="docutils literal"><span class="pre">-device</span></code>) support.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">qemu-system-x86_64 \</span>
+<span class="go">    -enable-kvm \</span>
+<span class="go">    -bios OVMF.fd \</span>
+<span class="go">    -smp sockets=1,cpus=4,cores=2 -cpu host \</span>
+<span class="go">    -m 4096 \</span>
+<span class="go">    -vga qxl \</span>
+<span class="go">    -vnc :0 -nographic \</span>
+<span class="go">    -usb \</span>
+<span class="go">    -device usb-tablet \</span>
+<span class="go">    -drive file=&quot;$IMAGE&quot;,if=virtio,aio=threads,format=raw \</span>
+<span class="go">    -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-:22,hostfwd=tcp::${VMN}2375-:2375 \</span>
+<span class="go">    -device virtio-net-pci,netdev=mynet0 \</span>
+<span class="go">    -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Due to changes in the <code class="file docutils literal"><span class="pre">start_qemu.sh</span></code> script from the previous step,
+the UEFI <code class="file docutils literal"><span class="pre">NvVars</span></code>
+information for the previously-booted Clear Linux VM will need to be reset.</p>
+<ol class="arabic">
+<li><p class="first">Relaunch the Clear Linux VM.  The UEFI shell will appear.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> ./start_qemu.sh clear-&lt;version&gt;-kvm.img
+</pre></div>
+</div>
+</li>
+<li><p class="first">At the UEFI shell, delete the <code class="file docutils literal"><span class="pre">NvVars</span></code> file:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Shell&gt; del FS0:\NvVars</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Exit out of the UEFI shell:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Shell&gt; reset -s</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Relaunch the Clear Linux VM:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> ./start_qemu.sh clear-&lt;version&gt;-kvm.img
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">From the host machine, open a new terminal emulator window and VNC into the
+Clear Linux VM:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> vncviewer 0.0.0.0
+</pre></div>
+</div>
+</li>
+<li><p class="first">Log in as <code class="docutils literal"><span class="pre">root</span></code> user into the Clear Linux VM.</p>
+</li>
+<li><p class="first">Add GDM to the Clear Linux VM:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> swupd bundle-add desktop-autostart
+</pre></div>
+</div>
+</li>
+<li><p class="first">Reboot the Clear Linux VM to enable GDM:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">#</span> reboot
+</pre></div>
+</div>
+</li>
+<li><p class="first">Go through GDM&#8217;s out-of-box experience (OOBE).</p>
+</li>
+<li><p class="first">The default aspect ratio of the GDM GUI for the Clear Linux VM is 4:3.  To change
+it, use GDM&#8217;s <code class="docutils literal"><span class="pre">Displays</span></code> setting tool (located at the top-right corner).</p>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

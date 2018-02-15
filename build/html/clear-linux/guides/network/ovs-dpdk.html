@@ -1,0 +1,579 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Enable DPDK support on OpenvSwitch</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="Network guide" href="network.html"/>
+        <link rel="next" title="Combine multiple interfaces" href="network-bonding.html"/>
+        <link rel="prev" title="Send packages between platforms" href="dpdk.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Enable DPDK support on OpenvSwitch
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="enable-dpdk-support-on-openvswitch">
+<span id="ovs-dpdk"></span><h1>Enable DPDK support on OpenvSwitch</h1>
+<p>Enabling <a class="reference external" href="http://dpdk.org/">DPDK</a> support on the <a class="reference external" href="http://openvswitch.org/">OpenvSwitch</a> project can yield significant
+network performance improvements. To illustrate one such example, we&#8217;ll cover
+the simple use case shown on <a class="reference internal" href="#f1ovs"><span class="std std-ref">figure 1</span></a>, where one virtual
+machine sends 1,000,000 HTTP requests to another virtual machine. The
+connection between both VMs will be through a virtual bridge created by
+different tools:</p>
+<ul class="simple">
+<li>Linux bridges.</li>
+<li>OpenvSwitch bridges.</li>
+<li>Custom-built of OpenvSwitch-DPDK bridges.</li>
+</ul>
+<div class="figure" id="id2">
+<span id="f1ovs"></span><img alt="../../../_images/use-case.png" src="../../../_images/use-case.png" />
+<p class="caption"><span class="caption-text">Figure 1: Basic virtual network environment.</span></p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<ol class="arabic">
+<li><p class="first">The recommended release for this example is greater or equal to 13360,
+it is possible to update the system with this command.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># swupd update</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install the following bundles: network-basic, kvm-host.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># swupd bundle-add network-basic</span>
+<span class="c1"># swupd bundle-add kvm-host</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download a clear linux image and OVMF.fd file, this image will be used as
+the guest VMs in the <a class="reference external" href="https://download.clearlinux.org/image/">Clear Linux downloads</a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="using-linux-bridges">
+<h2>Using Linux Bridges</h2>
+<ol class="arabic">
+<li><p class="first">Create a script named <code class="file docutils literal"><span class="pre">qemu-ifup</span></code> for a Linux bridge in a virtual
+machine.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -x
+
+<span class="nv">switch</span><span class="o">=</span>br0
+
+<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+    <span class="c1"># tunctl -u `whoami` -t $1 (use ip tuntap instead!)</span>
+    ip tuntap add <span class="nv">$1</span> mode tap user <span class="sb">`</span>whoami<span class="sb">`</span>
+    ip link <span class="nb">set</span> <span class="nv">$1</span> up
+    sleep 0.5s
+    brctl addif <span class="nv">$switch</span> <span class="nv">$1</span>
+    <span class="nb">exit</span> 0<span class="p">;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Error: no interface specified&quot;</span>
+    <span class="nb">exit</span> 1
+<span class="k">fi</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enable execute permission on the script, preserving its group permissions
+with respect to other files.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># chmod a+x qemu-ifup</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a bridge using the <strong class="command">brctl</strong> tool; you can verify whether
+the bridge was successfully created by using ip tool.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># brctl addbr br0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">At this point, it is possible to add a NIC with
+<code class="docutils literal"><span class="pre">brctl</span> <span class="pre">addif</span> <span class="pre">br0</span> <span class="pre">&lt;network</span> <span class="pre">interface&gt;</span></code>, example:</p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># brctl addif br0 enp3s0f0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set up the Linux bridge.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ip link set dev br0 up</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run guest virtual machine A using the next configuration as reference,
+where the <strong>$IMAGE</strong> var is the Clear Linux image name.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ qemu-system-x86_64 <span class="se">\</span>
+      -enable-kvm -m <span class="m">1024</span> <span class="se">\</span>
+      -bios OVMF.fd <span class="se">\</span>
+      -smp <span class="nv">cpus</span><span class="o">=</span>2,cores<span class="o">=</span><span class="m">1</span> -cpu host <span class="se">\</span>
+      -vga none -nographic <span class="se">\</span>
+      -drive <span class="nv">file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$IMAGE</span><span class="s2">&quot;</span>,if<span class="o">=</span>virtio,aio<span class="o">=</span>threads <span class="se">\</span>
+      -net nic,macaddr<span class="o">=</span>00:11:22:33:44:55,model<span class="o">=</span>virtio -net tap,script<span class="o">=</span>qemu-ifup <span class="se">\</span>
+      -debugcon file:debug.log -global isa-debugcon.iobase<span class="o">=</span>0x402
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run guest virtual machine B using the configuration from the previous
+step; take care to update the MAC address.</p>
+</li>
+<li><p class="first">Follow the instructions from the <a class="reference internal" href="#setting-ip-address">Setting IP Address</a> section.</p>
+</li>
+<li><p class="first">Alternatively, clean the previous environment, turn off the virtual
+machines, and delete the bridge.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ip link set dev br0 down</span>
+<span class="c1"># brctl delbr br0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="using-openvswitch">
+<h2>Using OpenvSwitch</h2>
+<ol class="arabic">
+<li><p class="first">Start the OpenvSwitch service.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># systemctl start openvswitch.service</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a bridge using the OpenvSwitch tool; you can verify whether or not
+the bridge was successfully created by running ip tool.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ovs-vsctl add-br br0</span>
+<span class="c1"># ip a</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create an <code class="docutils literal"><span class="pre">UP</span></code> script named <code class="file docutils literal"><span class="pre">ovs-ifup</span></code> which can bring up the tap
+devices.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">switch</span><span class="o">=</span><span class="s2">&quot;br0&quot;</span>
+/usr/bin/ifconfig <span class="nv">$1</span> 0.0.0.0 up
+ovs-vsctl add-port <span class="si">${</span><span class="nv">switch</span><span class="si">}</span> <span class="nv">$1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a <code class="docutils literal"><span class="pre">DOWN</span></code> script named <code class="file docutils literal"><span class="pre">ovs-ifdown</span></code> which can bring up the
+tap devices.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">switch</span><span class="o">=</span><span class="s2">&quot;br0&quot;</span>
+/usr/bin/ifconfig <span class="nv">$1</span> 0.0.0.0 down
+ovs-vsctl del-port <span class="si">${</span><span class="nv">switch</span><span class="si">}</span> <span class="nv">$1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Enable execute permission on the scripts, preserving their group
+permissions with respect to other files.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># chmod a+x ovs-ifdown</span>
+<span class="c1"># chmod a+x ovs-ifup</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run guest virtual machine A using the next configuration as reference,
+where <strong>$IMAGE</strong> var is the name of the Clear Linux* OS for Intel
+Architecture image. Notice the network configuration uses the up-down
+scripts.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ qemu-system-x86_64 <span class="se">\</span>
+      -enable-kvm -m <span class="m">1024</span> <span class="se">\</span>
+      -bios OVMF.fd <span class="se">\</span>
+      -smp <span class="nv">cpus</span><span class="o">=</span>2,cores<span class="o">=</span><span class="m">1</span> -cpu host <span class="se">\</span>
+      -vga none -nographic <span class="se">\</span>
+      -drive <span class="nv">file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$IMAGE</span><span class="s2">&quot;</span>,if<span class="o">=</span>virtio,aio<span class="o">=</span>threads <span class="se">\</span>
+      -net nic,model<span class="o">=</span>virtio,macaddr<span class="o">=</span>00:11:22:33:44:55 -net tap,script<span class="o">=</span>ovs-ifup,downscript<span class="o">=</span>ovs-ifdown <span class="se">\</span>
+      -debugcon file:debug.log -global isa-debugcon.iobase<span class="o">=</span>0x402
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run guest virtual machine B using the configuration from step 5, only
+it&#8217;s necessary to change the MAC address to something like <em>00:11:22:33:44:56</em></p>
+</li>
+<li><p class="first">Follow the instructions in the <a class="reference internal" href="#setting-ip-address">Setting IP address</a> section.</p>
+</li>
+<li><p class="first">Alternatively, clean the previous environment, turn off the virtual
+machines, and delete the bridge.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ovs-vsctl del-br br0</span>
+<span class="c1"># ovs-vsctl show</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="using-linux-openvswitch-dpdk">
+<h2>Using Linux OpenvSwitch-DPDK</h2>
+<ol class="arabic">
+<li><p class="first">Enable VT-d technology in the BIOS.</p>
+</li>
+<li><p class="first">Enable VT-d in the host kernel command line, to enable VT-d in the host
+kernel command line, the
+<code class="file docutils literal"><span class="pre">clear-linux-native-</span><em><span class="pre">current-kernel-version</span></em><span class="pre">.conf</span></code>
+file must be edited. Add <code class="docutils literal"><span class="pre">iommu=pt</span> <span class="pre">intel_iommu=on</span></code> to
+the end of the line. The file is found within the UEFI boot partition.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># systemctl start boot.mount</span>
+<span class="c1"># cd /boot/loader/entries/</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Unmount the UEFI partition and reboot the machine.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># cd /</span>
+<span class="c1"># systemctl stop boot.mount</span>
+<span class="c1"># reboot</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set number of hugepages.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># echo 1024 &gt; /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Allocate pages on NUMA machines.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># echo 1024 &gt; /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages</span>
+<span class="c1"># echo 1024 &gt; /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Make memory available for the DPDK.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># mkdir -p /mnt/huge</span>
+<span class="c1"># mount -t hugetlbfs nodev /mnt/huge</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Download a clear linux image and OVMF.fd file, this image will be used as
+the guest VMs in the <a class="reference external" href="https://download.clearlinux.org/image/">Clear Linux downloads</a>.</p>
+</li>
+<li><p class="first">Start the OpenvSwitch service.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># systemctl start openvswitch</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">OpenvSwitch must be configured to enable the DPDK functionality like core
+mask, socket memory, and others. This example reproduces the environment
+shown in figure 1.0. The <a class="reference external" href="http://docs.openvswitch.org/en/latest/">OpenvSwitch documentation</a> provides additional
+information about DPDK configuration.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ovs-vsctl --no-wait init</span>
+<span class="c1"># ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-lcore-mask=0x2</span>
+<span class="c1"># ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-socket-mem=2048</span>
+<span class="c1"># ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init=true</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Restart the OpenvSwitch service in order to update the new DPDK
+configuration.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># systemctl restart openvswitch</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a virtual bridge using openvswitch.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the vhost-dpdk ports to the bridge.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser</span>
+<span class="c1"># ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run guest virtual machine A using the next configuration as reference,
+where <strong>$IMAGE</strong> var is the name of the Clear Linux* OS for Intel
+Architecture image.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ qemu-system-x86_64 <span class="se">\</span>
+    -enable-kvm -m <span class="m">1024</span> <span class="se">\</span>
+    -bios OVMF.fd <span class="se">\</span>
+    -smp <span class="m">4</span> -cpu host <span class="se">\</span>
+    -vga none -nographic <span class="se">\</span>
+    -drive <span class="nv">file</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$IMAGE</span><span class="s2">&quot;</span>,if<span class="o">=</span>virtio,aio<span class="o">=</span>threads <span class="se">\</span>
+    -chardev socket,id<span class="o">=</span>char1,path<span class="o">=</span>/run/openvswitch/vhost-user1 <span class="se">\</span>
+    -netdev <span class="nv">type</span><span class="o">=</span>vhost-user,id<span class="o">=</span>mynet1,chardev<span class="o">=</span>char1,vhostforce <span class="se">\</span>
+    -device virtio-net-pci,mac<span class="o">=</span>00:00:00:00:00:01,netdev<span class="o">=</span>mynet1 <span class="se">\</span>
+    -object memory-backend-file,id<span class="o">=</span>mem,size<span class="o">=</span>1024M,mem-path<span class="o">=</span>/dev/ hugepages,share<span class="o">=</span>on <span class="se">\</span>
+    -numa node,memdev<span class="o">=</span>mem -mem-prealloc <span class="se">\</span>
+    -debugcon file:debug.log -global isa-debugcon.iobase<span class="o">=</span>0x402
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run guest virtual machine B, use the configuration from the previous step;
+simply change the MAC address and the port socket. You can use
+00:00:00:00:00:02 as a MAC address and vhost-user2 as a socket.</p>
+</li>
+<li><p class="first">Follow the instructions from the <a class="reference internal" href="#setting-ip-address">Setting IP address</a> section.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-ip-address">
+<span id="id1"></span><h2>Setting IP address</h2>
+<ol class="arabic">
+<li><p class="first">Set an IP address to virtual machine for virtual machine A:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ip addr add dev enp0s2 10.0.0.5/24</span>
+</pre></div>
+</div>
+<p>for virtual machine B:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ip addr add dev enp0s2 10.0.0.6/24</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Check if there is communication between both virtual machines using ping
+tool.</p>
+</li>
+<li><p class="first">Verify that Apache service is running:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># systemctl status httpd.service</span>
+<span class="c1"># systemctl start httpd.service</span>
+</pre></div>
+</div>
+<p>Start httpd service only if it is inactive. Use apache benchmark to get
+information about the network performance between both virtual machines.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ab -n 1000000 -c 100 http://10.0.0.6/</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

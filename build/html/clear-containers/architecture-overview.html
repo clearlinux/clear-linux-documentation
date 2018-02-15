@@ -1,0 +1,606 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Architecture Overview</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../index.html"/>
+        <link rel="up" title="Intel® Clear Containers" href="clear-containers.html"/>
+        <link rel="prev" title="Clear Containers getting started guide" href="getting-started.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../index.html">Documentation</a> » Architecture Overview
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../clear-linux/clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../clear-linux/get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../clear-linux/concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../clear-linux/guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../clear-linux/tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../clear-linux/reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-open parent-item"><a class="reference internal" href="clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="current reference internal" href="#">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="architecture-overview">
+<span id="id1"></span><h1>Architecture Overview</h1>
+<p>Intel Clear Containers are architected around the Linux
+<abbr title="KVM">Kernel Virtual Machine</abbr> virtualization infrastructure to
+make best use of Intel Architecture VT features. Operational speed
+gets improved and overhead gets reduced by optimizing existing code,
+removing redundant components, and implementing new techniques for
+containers with <abbr title="Kernel Virtual Machine">KVM</abbr>.</p>
+<p>The latest release of Intel® Clear Containers is release 3.0. You can find
+detailed technical information on our <a class="reference external" href="https://github.com/clearcontainers/runtime/blob/master/docs/architecture/architecture.md">architecture overview</a> on GitHub.</p>
+<p>Version 1.0 of Clear Containers was designed as a lightweight container
+system based around <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/">kvmtool</a>&#8216;s <code class="docutils literal"><span class="pre">lkvm</span></code>,
+<abbr title="Kernel Virtual Machine">KVM</abbr> and Intel VT-x features; the
+initial version was aimed primarily at Docker* integration.  Version
+2.0 replaces <code class="docutils literal"><span class="pre">lkvm</span></code> with a lightweight version of
+<abbr title="Quick EMUlator">QEMU</abbr> <a class="reference external" href="http:www.qemu.org">(link)</a>.</p>
+<p>Version 2.0 also expands the feature set to include key technologies, such
+as <a class="reference external" href="http://www.intel.com/content/www/us/en/pci-express/pci-sig-sr-iov-primer-sr-iov-technology-paper.html">SR-IOV</a>, and the <abbr title="OCI">Open Container Initiative</abbr> runtime API.</p>
+<div class="section" id="v2-0">
+<h2>V2.0</h2>
+<p>Intel Clear Containers V2.0 adopts an optimized version of the established
+<a class="reference external" href="http://www.qemu.org">QEMU</a> host virtualization engine, in order to support extra features not
+found in Clear Containers V1.0. Clear Containers. V2.0 is also compatible with
+the <abbr title="Open Container Initiative">OCI</abbr> runtime-specification standard,
+introducing a host-side abstraction tool to ease host-side integration and to
+isolate integration instances from future changes to the underlying Clear
+Containers architecture.</p>
+<div class="figure align-center">
+<img alt="Clear Containers V2.0" src="../_images/clear-containers-v2.png" />
+</div>
+<div class="section" id="host-kernel-optimizations">
+<h3>Host kernel optimizations</h3>
+<p>V2.0 host kernel optimizations are currently the same as
+the V1.0 optimizations.</p>
+</div>
+<div class="section" id="host-user-space">
+<h3>Host user space</h3>
+<p>Host user space is based around an optimized version of <a class="reference external" href="http://www.qemu.org">QEMU</a> called
+<code class="docutils literal"><span class="pre">qemu-lite</span></code>, with an <abbr title="Open Container Initiative">OCI</abbr>
+runtime-compliant wrapper called <code class="docutils literal"><span class="pre">cor</span></code>.</p>
+<p>Our version of <code class="docutils literal"><span class="pre">qemu-lite</span></code> has the following modifications:</p>
+<ul class="simple">
+<li><abbr title="Direct Access">DAX</abbr> support, <strong>enabling fast and space efficient</strong>
+file access through zero-copy mapping and multi-container sharing of raw
+client filesystem images from the host filesystem.</li>
+<li><strong>Reduced &#8220;slimline&#8221; PC model</strong> to reduce startup costs in both <a class="reference external" href="http://www.qemu.org">QEMU</a>
+and the client kernel.</li>
+<li><strong>Removed need for BIOS</strong>, saving boot time.</li>
+<li><strong>No bootloader requirement</strong>, to speed up boot.</li>
+<li><strong>Reduced memory footprint</strong> by disabling memory-hungry features that
+are not required by the client system.</li>
+<li><strong>Direct kernel boot</strong>, allowing fast booting by loading the kernel as
+an uncompressed ELF binary. Although the kernel image is slightly larger
+than a compressed one, it is faster to read and boot the larger
+file than it is to uncompress and boot the slightly smaller file.</li>
+<li><strong>Added an</strong> <abbr title="Open Container Initiative">OCI</abbr> <strong>runtime-compliant
+wrapper</strong>, AKA <code class="docutils literal"><span class="pre">cor</span></code>, for easier integration with
+<abbr title="Open Container Initiative">OCI</abbr>-compliant host orchestration systems.</li>
+</ul>
+</div>
+<div class="section" id="client-mini-os">
+<h3>Client mini-OS</h3>
+<p>The Client mini-OS is based on the same Clear Linux OS-based system as
+used in Intel Clear Containers V1.0; however, it may be built from more
+recent versions and with more current components, such as the kernel version.</p>
+</div>
+<div class="section" id="client-customer-images">
+<h3>Client customer images</h3>
+<p>Client customer images are supported in the same manner as they are
+in V1.0.</p>
+</div>
+</div>
+<div class="section" id="legacy-v1-0">
+<h2>Legacy V1.0</h2>
+<p>V1.0 (also known as <strong>Intel® Clear Containers for Docker Engine</strong>) is based
+around <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/">kvmtool</a>, with example host integrations for Docker and <a class="reference external" href="https://coreos.com/rkt/">rkt</a>.</p>
+<div class="figure align-center">
+<img alt="Intel Clear Containers V1.0" src="../_images/clear-containers-v1.png" />
+</div>
+<div class="section" id="id2">
+<h3>Host kernel optimizations</h3>
+<p>Intel Clear Containers operate better when a number of host kernel features and
+optimizations are applied:</p>
+<ul>
+<li><p class="first">Enabling <abbr title="KSM">Kernel Samepage Merging</abbr> in the host kernel
+is recommended for efficient page sharing of VM pages. Kernel documentation
+can be found in Documentation/vm/ksm.txt  Config symbol: <code class="docutils literal"><span class="pre">CONFIG_KSM</span></code></p>
+</li>
+<li><p class="first">Using a kernel version &gt;= v4.0 (or backporting appropriate
+patches if your kernel version is less than v4.0), to get the best
+<abbr title="Kernel Virtual Machine">KVM</abbr> VM startup times</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Intel <abbr title="EPT">Extended Page Table</abbr> acceleration will be
+automatically detected and used by your host kernel if supported
+by your hardware. You can check whether this feature is present by
+looking for the <code class="docutils literal"><span class="pre">ept</span></code> string in the <code class="file docutils literal"><span class="pre">/proc/cpuinfo</span></code> of your
+system. See <a class="reference external" href="https://www.kernel.org/doc/Documentation/virtual/kvm/mmu.txt">mmu.txt</a> for more details.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Host user space</h3>
+<p>Intel Clear Containers V1.0 host user space is based around <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/">kvmtool</a> as a
+fast and lightweight hypervisor. Optimizations to <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/">kvmtool</a> include:</p>
+<ul class="simple">
+<li><strong>File access</strong>, enabling efficient <em>shmem</em> / <em>pci-bar</em> / <abbr title="DAX">Direct
+Access</abbr> file access to client.</li>
+<li><strong>Less verbosity</strong>.</li>
+<li><strong>Minimal UART scanning</strong> to improve speed.</li>
+<li><strong>TSC timer functionality changes</strong> passing the client apic timer
+calibration step speeds up container creation time.</li>
+<li>Adding ability to <strong>skip unused features</strong>, (such as creation of a
+custom rootfs).</li>
+<li><strong>Removing need for BIOS</strong> saves boot time.</li>
+<li><strong>No bootloader required</strong> speeds up initial booting of a machine.</li>
+<li><strong>Direct kernel boot</strong> &#8211; The hypervisor can boot the kernel directly as
+an uncompressed ELF binary. Although the kernel image is slightly larger
+than a compressed one, it is faster to read and boot the larger
+file than it is to uncompress and boot the slightly smaller file.</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Client mini-OS</h3>
+<p>Intel Clear Containers V1.0 uses an optimized client user space (mini-OS) as
+its primary launch vehicle to execute workload commands. The mini-OS is built
+with a Clear Linux distribution that has an optimized configuration for time
+and space efficiency. The mini-OS includes:</p>
+<ul class="simple">
+<li>Minimized <code class="docutils literal"><span class="pre">systemd</span></code> configuration</li>
+<li>Optimized <code class="docutils literal"><span class="pre">libc</span></code></li>
+<li>Custom AutoFDO settings</li>
+<li>Optimized multi-lib runtime support</li>
+<li>Optimized kernel config (speed and size)</li>
+</ul>
+<p>The mini-OS configuration can be modified and rebuilt by customers for their
+own use cases, which may preclude the need to load further client images.</p>
+</div>
+<div class="section" id="id5">
+<h3>Client customer images</h3>
+<p>Intel Clear Containers V1.0 mini-OS workloads can be used to bootstrap further
+customer images. These customer images would generally be mapped into the
+client via the host filesystem using <abbr title="Plan 9 9p remote filesystem protocol">9p</abbr>, <abbr title="Direct Access">DAX</abbr> or other filesystem and virtual
+device interfaces. These customer images could, for example:</p>
+<ul class="simple">
+<li>Mount a new subtree containing a payload and execute it.</li>
+<li>Mount a new subsystem and chroot to it for contained execution.</li>
+</ul>
+<p>The mini-OS image has been optimized for size and speed. It may be replaced
+or superseded &#8211; in whole or in part &#8211; by customer-created images.  Keep
+in mind, of course, that any benefits the mini-OS provides may be lost
+unless equivalent optimizations exist in the customer-created image, or have
+been migrated into the image they create.</p>
+</div>
+</div>
+<div class="section" id="architectural-component-details">
+<h2>Architectural component details</h2>
+<div class="section" id="host-kernel-components">
+<h3>Host kernel components</h3>
+<div class="section" id="kernel-samepage-merging">
+<h4><abbr title="KSM">Kernel SamePage Merging</abbr></h4>
+<p>Linux Kernel Documentation: Documentation/vm/ksm.txt</p>
+<p><abbr title="Kernel Samepage Merging">KSM</abbr> allows the kernel to locate
+and merge (share) identical memory pages within the system, even
+when they are not sourced from the same binary. When sourced from
+the same binary, the kernel will naturally share through the
+<abbr title="COW">copy-on-write</abbr> method.</p>
+<p><abbr title="Kernel Samepage Merging">KSM</abbr> also allows the kernel to
+localize and to coalesce pages from within virtual machine memory
+spaces that would not normally be shared, thus saving memory space.</p>
+<p>To enable <abbr title="Kernel Samepage Merging">KSM</abbr>, check that your host kernel
+config includes <code class="docutils literal"><span class="pre">CONFIG_KSM</span></code>, and that your host system is running the
+<code class="docutils literal"><span class="pre">ksmd</span></code> daemon.</p>
+</div>
+<div class="section" id="ept">
+<h4><abbr title="Extended Page Tables">EPT</abbr></h4>
+<p>Linux Kernel Documentation: Documentation/virtual/kvm/mmu.txt</p>
+<p><abbr title="Extended Page Tables">EPT</abbr> is an acceleration technology for virtual
+machine memory mappings. It reduces the number of Virtual Machine Manager
+entry/exits from the host system, thus improving system performance. If your
+hardware system supports <abbr title="Extended Page Tables">EPT</abbr>, you&#8217;ll see the
+<code class="docutils literal"><span class="pre">ept</span></code> feature listed in the <code class="docutils literal"><span class="pre">/proc/cpuinfo</span></code> information from your system.
+The kernel, <abbr title="Kernel Virtual Machine">KVM</abbr> and <a class="reference external" href="http://www.qemu.org">QEMU</a> will
+automatically use and benefit from <abbr title="Extended Page Tables">EPT</abbr>
+when supported by your system hardware.</p>
+<p>You can also check on the <a class="reference external" href="http://ark.intel.com">Intel ARK website</a> to see if your Intel CPU
+supports <strong>Intel VT-x with Extended Page Tables</strong>; check under the
+<em>Advanced Technologies</em> table on the specific page for your CPU.</p>
+</div>
+<div class="section" id="kvm-startup-optimizations">
+<h4><abbr title="Kernel Virtual Machine">KVM</abbr> startup optimizations</h4>
+<p>Host kernel startup was optimized before the Linux kernel v4.0
+release by removing some unnecessary <code class="docutils literal"><span class="pre">synchronize_rcu()</span></code> calls. You
+should ensure your kernel is at least v4.0, or that you have backported
+any appropriate patches to your host kernel:  the <code class="docutils literal"><span class="pre">synchronize_rcu()</span> <span class="pre">opt</span></code>,
+at the very least.</p>
+</div>
+</div>
+<div class="section" id="host-tooling">
+<h3>Host tooling</h3>
+<div class="section" id="kvmtool">
+<h4>Kvmtool</h4>
+<p>Kvmtool is used in Intel Clear Containers V1.0 for virtual machine
+configuration and management. It was chosen because it is lighter
+and faster than the alternatives, and it&#8217;s also easy to modify.</p>
+<p>Modifications to <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/">kvmtool</a> include:</p>
+<ul class="simple">
+<li>Implementation of <strong>copy-free</strong> <abbr title="Direct Access">DAX</abbr> <strong>file-system
+access</strong>.</li>
+<li><strong>Less verbosity</strong>.</li>
+<li><strong>Minimal UART scanning</strong> to improve speed.</li>
+<li><strong>TSC timer functionality changes</strong> passing the client apic timer
+calibration step speeds up container creation time.</li>
+<li>Adding ability to <strong>skip unused features</strong>, (such as creation of a
+custom rootfs).</li>
+<li><strong>Removing need for BIOS</strong> saves boot time.</li>
+<li><strong>No bootloader required</strong> speeds up initial booting of a machine.</li>
+<li><strong>Direct kernel boot</strong> &#8211; The hypervisor can boot the kernel directly as
+an uncompressed ELF binary. Although the kernel image is slightly larger
+than a compressed one, it ends up being faster to read and boot the larger
+file than it is to uncompress and boot the slightly smaller file.</li>
+</ul>
+</div>
+<div class="section" id="qemu-lite">
+<span id="id6"></span><h4>qemu-lite</h4>
+<p><code class="docutils literal"><span class="pre">qemu-lite</span></code> is a modified version of <a class="reference external" href="http://www.qemu.org">QEMU</a> used for the virtual
+machine configuration and management in Intel Clear Containers 2.0.</p>
+<p>The modifications made beyond generic <a class="reference external" href="http://www.qemu.org">QEMU</a> are described in the
+following sections:</p>
+<div class="section" id="dax-enablement">
+<h5><abbr title="Direct Access">DAX</abbr> enablement</h5>
+<p><abbr title="Direct Access">DAX</abbr> enablement under <code class="docutils literal"><span class="pre">qemu-lite</span></code> utilizes
+existing <a class="reference external" href="http://www.qemu.org">QEMU</a> <code class="docutils literal"><span class="pre">nvdimm</span> <span class="pre">memdev</span></code> functionality.</p>
+</div>
+<div class="section" id="pc-lite">
+<h5>PC-lite</h5>
+<p>A new <a class="reference external" href="http://www.qemu.org">QEMU</a> PC model, called ‘pc-lite’, has been added that removes
+all unused or unnecessary PC style elements from the machine emulation
+that are not required for the client VM. This improves both speed of
+execution and memory footprint.</p>
+</div>
+<div class="section" id="cor">
+<h5>Cor</h5>
+<p>Cor (the Clear <abbr title="Open Container Initiative">OCI</abbr> runtime manager)
+implements the <abbr title="Open Container Initiative">OCI</abbr> runtime specification
+atop of the V2.0 infrastructure (such as <code class="docutils literal"><span class="pre">qemu-lite</span></code>). By
+utilizing Cor, your <abbr title="Open Container Initiative">OCI</abbr>-compliant system
+can be implemented with Clear Containers whilst also insulating
+the user against any future underlying changes in Clear Containers,
+thus allowing easier future integration of upgrades. Cor currently
+supports <abbr title="Open Container Initiative">OCI</abbr> runtime version 0.6.0.</p>
+</div>
+</div>
+<div class="section" id="client-components">
+<h4>Client components</h4>
+<p>The client-side components consist of the mini-OS kernel and root
+filesystem, and optionally further customer specific items, such as
+a further fuller distribution or system to load. The intention is
+that customers may either extend and expand the mini-OS as required,
+or they can use the mini-OS to further load a complete self-contained
+image of their choice.</p>
+<div class="section" id="id7">
+<h5>Client mini-OS</h5>
+<p>The mini-OS is an optimized version of Clear Linux OS for Intel Architecture
+which has been designed for the fastest and smallest container boot. The
+mini-OS consists of a Linux kernel image and root filesystem image.</p>
+<ul>
+<li><p class="first"><strong>Kernel</strong> &#8211; The mini-OS&#8217;s kernel is a Clear Linux kernel containing
+the minimum feature set required to boot the client container. The kernel
+has optimized for space and speed. This kernel can be modified and
+re-built as desired, for specific requirements.</p>
+</li>
+<li><p class="first"><strong>DAX</strong> &#8211; The <abbr title="DAX">Direct Access</abbr> filesystem.
+(Linux Kernel Documentation: <code class="docutils literal"><span class="pre">Documentation/filesystems/dax.txt</span></code>).
+Mapping host-side files into the memory map of the client allows the use of
+<abbr title="Direct Access">DAX</abbr> to directly mount those files, bypassing the
+client side page cache and the virtual device mechanisms between host and
+client. This allows efficient zero-copy mapping and replaces costly virtual
+device manipulations with efficient page fault handling, thus being faster
+and more space-efficient than other filesystem mount methods. <abbr title="Direct Access">DAX</abbr> is enabled in Intel Clear Containers V1.0 using a shmem
+PCI-BAR mechanism configured by <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/will/kvmtool.git/">kvmtool</a>.</p>
+<div class="figure align-center">
+<img alt="../_images/dax-v1.png" src="../_images/dax-v1.png" />
+</div>
+<p><abbr title="Direct Access">DAX</abbr> is enabled in Intel Clear Containers
+V2.0 using an   NVDIMM <a class="reference external" href="http://www.qemu.org">QEMU</a> memdev mechanism:</p>
+<blockquote>
+<div><div class="figure align-center">
+<img alt="../_images/dax-v2.png" src="../_images/dax-v2.png" />
+</div>
+</div></blockquote>
+<p><abbr title="Direct Access">DAX</abbr> can only be used to mount single flat files
+from the host side (such as uncompressed filesystems), and not trees of
+files in the host filesystem. More than one <abbr title="Direct Access">DAX</abbr>
+mount can be utilized though. <abbr title="Direct Access">DAX</abbr> is limited only
+by the virtual address space available, so it can easily accommodate large
+file mappings.</p>
+<p><abbr title="Direct Access">DAX</abbr> support was introduced in v4.0 of the kernel.
+Also see the <a class="reference internal" href="#qemu-lite">qemu-lite</a> section.</p>
+</li>
+<li><p class="first"><strong>Rootfs image</strong> &#8211; The mini-OS rootfs image is a Clear Linux
+rootfs. It can execute the client workload and be modified and
+extended using the bundle method to enable further features as
+necessary. It can also be used to further execute another client
+container image, such as a different Linux distribution.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="customer-client-images-and-workloads">
+<h4>Customer Client images and workloads</h4>
+<p>Customers may use their own client images by instructing
+the mini-OS to execute them using the mini-OS workload. Please
+refer to the <a class="reference internal" href="getting-started.html#cc-getting-started"><span class="std std-ref">Intel Clear Containers integration
+guide</span></a> for further detail.</p>
+</div>
+</div>
+</div>
+<div class="section" id="faq">
+<h2>FAQ</h2>
+<p><strong>Q.</strong> &#8220;Can I run Clear Containers on any host Linux?&#8221;</p>
+<dl class="docutils">
+<dt><strong>A.</strong> Yes, any up-to-date or recent Linux host should be able to run Clear</dt>
+<dd>Containers, as long as the host system kernel contains the necessary
+features and is configured with the necessary support enabled.</dd>
+</dl>
+<p><strong>Q.</strong> &#8220;Do I need to use all of Clear Containers, or can I cherry pick parts?&#8221;</p>
+<dl class="docutils">
+<dt><strong>A.</strong> You can cherry pick the parts of Clear Containers you need. Some parts</dt>
+<dd>will make your life generally easier (such as the <a class="reference external" href="http://www.qemu.org">QEMU</a> wrapper tool
+<code class="docutils literal"><span class="pre">cor</span></code>) and will help insulate you from future development changes, so you
+should consider which parts you need for which features. The client
+side obviously can be quite flexible in its configuration depending
+on the deployment environment.</dd>
+<dt><strong>Q.</strong> &#8220;Can I use Clear Containers technology to run other VMs, not just</dt>
+<dd>container style ones?&#8221;</dd>
+<dt><strong>A.</strong> Yes, the underlying mechanisms and accelerations used for Clear</dt>
+<dd>Containers can be applied to any Virtual Machine setup, not just
+those that are based around a container style workflow.</dd>
+</dl>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

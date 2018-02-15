@@ -1,0 +1,514 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Use the function multi-version patch generator</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../index.html"/>
+        <link rel="up" title="Tutorials" href="tutorials.html"/>
+        <link rel="next" title="Create and launch Clear Linux from Amazon Web Services" href="aws-web/aws-web.html"/>
+        <link rel="prev" title="Set up a single node cluster with Hadoop*" href="hadoop.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../index.html">Documentation</a> » Use the function multi-version patch generator
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="use-the-function-multi-version-patch-generator">
+<span id="fmv"></span><h1>Use the function multi-version patch generator</h1>
+<p>CPU architectures often gain interesting new instructions as they evolve but
+application developers find it difficult to take advantage of those
+instructions. The reluctance to lose backward-compatibility is one of the
+main roadblocks slowing developers from using advancements in newer computing
+architectures. <abbr title="Function Multi-Versioning">FMV</abbr>, which first appeared
+in <a class="reference external" href="https://gcc.gnu.org">GCC</a> 4.8, is a way to have multiple implementations of a function, each
+using a different architecture specialized instruction-set extensions. GCC
+6 introduces changes to FMV to make it even easier to bring architecture-
+based optimizations to the application code.</p>
+<p>In this tutorial we will use FMV on general code and on
+<abbr title="Fast Fourier Transform">FFT</abbr> library code. Upon completing the
+tutorial, you will be able to use this technology on your code and use the
+libraries to deploy architecture-based optimizations to your application code.</p>
+<div class="section" id="install-and-configure-a-clear-linux-host-on-bare-metal">
+<h2>Install and configure a Clear Linux host on bare metal</h2>
+<p>First, follow our guide to <a class="reference internal" href="../get-started/bare-metal-install/bare-metal-install.html#bare-metal-install"><span class="std std-ref">Install Clear Linux OS on bare metal</span></a>.</p>
+<p>Once the bare metal installation and initial configuration are complete,
+add the <cite>desktop-dev</cite> bundle to the system.</p>
+<p><cite>desktop-dev</cite>: contains the necessary development tools like GCC and Perl*.</p>
+<p>To install the bundles, run the following command in the <code class="file docutils literal"><span class="pre">$HOME</span></code>
+directory:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo swupd bundle-add desktop-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="detect-loop-vectorization-candidates">
+<h2>Detect loop vectorization candidates</h2>
+<p>Now, we need to detect the loop vectorization candidates to be cloned for
+multiple platforms with FMV. As an example, we will use the following
+simple C code:</p>
+<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+ <span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+ <span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt;</span><span class="cp"></span>
+ <span class="cp">#define MAX 1000000</span>
+
+ <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+
+ <span class="kt">void</span> <span class="nf">foo</span><span class="p">(){</span>
+     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">;</span>
+     <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">MAX</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">){</span>
+         <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+             <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+
+
+ <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+     <span class="n">foo</span><span class="p">();</span>
+     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Save the example code as <code class="file docutils literal"><span class="pre">example.c</span></code> in the current directory and build
+with the following flags:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gcc -O3  -fopt-info-vec  example.c -o example
+</pre></div>
+</div>
+<p>The build generates the following output:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">example.c:11:9: note: loop vectorized</span>
+<span class="go">example.c:11:9: note: loop vectorized</span>
+</pre></div>
+</div>
+<p>The output shows that line 11 is a good candidate for vectorization:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-the-fmv-patch">
+<h2>Generate the FMV patch</h2>
+<p>To generate the FMV patch with the <a class="reference external" href="https://github.com/clearlinux/make-fmv-patch">make-fmv-patch</a> project, we
+must clone the project and generate a log file with the loop vectorized
+information:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/clearlinux/make-fmv-patch.git
+gcc -O3  -fopt-info-vec  example.c -o example <span class="p">&amp;</span>&gt; log
+</pre></div>
+</div>
+<p>To generate the patch files, execute:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>perl ./make-fmv-patch/make-fmv-patch.pl log .
+</pre></div>
+</div>
+<p>The <code class="file docutils literal"><span class="pre">make-fmv-patch.pl</span></code> script takes two arguments: <cite>&lt;buildlog&gt;</cite> and
+<cite>&lt;sourcecode&gt;</cite>. Replace <cite>&lt;buildlog&gt;</cite> and <cite>&lt;sourcecode&gt;</cite> with the proper
+values and execute:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>perl make-fmv-patch.pl &lt;buildlog&gt; &lt;sourcecode&gt;
+</pre></div>
+</div>
+<p>The command generates the following <code class="file docutils literal"><span class="pre">example.c.patch</span></code> patch:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">--- ./example.c 2017-09-27 16:05:42.279505430 +0000</span>
+<span class="go">+++ ./example.c~    2017-09-27 16:19:11.691544026 +0000</span>
+<span class="go">@@ -5,6 +5,7 @@</span>
+
+<span class="go"> int a[256], b[256], c[256];</span>
+
+<span class="go">+__attribute__((target_clones(&quot;avx2&quot;,&quot;arch=atom&quot;,&quot;default&quot;)))</span>
+<span class="go"> void foo(){</span>
+<span class="go">     int i,x;</span>
+<span class="go">     for (x=0; x&lt;MAX; x++){</span>
+</pre></div>
+</div>
+<p>We recommend you use the <code class="file docutils literal"><span class="pre">make-fmv-patch</span></code> script to add the attribute
+generating the target clones on the function <cite>foo</cite>. Thus, we can have the
+following code:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt;</span><span class="cp"></span>
+<span class="cp">#define MAX 1000000</span>
+
+<span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+
+<span class="n">__attribute__</span><span class="p">((</span><span class="n">target_clones</span><span class="p">(</span><span class="s">&quot;avx2&quot;</span><span class="p">,</span><span class="s">&quot;arch=atom&quot;</span><span class="p">,</span><span class="s">&quot;default&quot;</span><span class="p">)))</span>
+<span class="kt">void</span> <span class="n">foo</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">MAX</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="n">foo</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Changing the value of the <cite>$avx2</cite> variable, we can change the target
+clones when adding the patches or in the <code class="file docutils literal"><span class="pre">make-fmv-patch.pl</span></code> script:</p>
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="k">my</span> <span class="nv">$avx2</span> <span class="o">=</span> <span class="s">&#39;__attribute__((target_clones(&quot;avx2&quot;,&quot;arch=atom&quot;,&quot;default&quot;)))&#39;</span><span class="o">.</span><span class="s">&quot;\n&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Compile the code again with FMV and add the option to analyze the <cite>objdump</cite>
+log:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gcc -O3 example.c -o example -g
+objdump -S example <span class="p">|</span> less
+</pre></div>
+</div>
+<p>You can see the multiple clones of the <cite>foo</cite> function:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">foo</span>
+<span class="go">foo.avx2.0</span>
+<span class="go">foo.arch_atom.1</span>
+</pre></div>
+</div>
+<p>The cloned functions use AVX2 registers and vectorized instructions. To
+verify, enter the following commands:</p>
+<div class="highlight-assembly"><div class="highlight"><pre><span></span>vpaddd (%r8,%rax,1),%ymm0,%ymm0
+vmovdqu %ymm0,(%rcx,%rax,1)
+</pre></div>
+</div>
+</div>
+<div class="section" id="ftt-project-example">
+<h2>FTT project example</h2>
+<p>To follow the same approach with a package like FFT, we must use the
+<cite>-fopt-info-vec</cite> flag to get a build log file similar to:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>~/make-fmv-patch/make-fmv-patch.pl results/build.log fftw-3.3.6-pl2/
+
+patching fftw-3.3.6-pl2/libbench2/verify-lib.c @ lines <span class="o">(</span><span class="m">36</span> <span class="m">114</span> <span class="m">151</span> <span class="m">162</span> <span class="m">173</span> <span class="m">195</span> <span class="m">215</span> 284<span class="o">)</span>
+patching fftw-3.3.6-pl2/tools/fftw-wisdom.c @ lines <span class="o">(</span>150<span class="o">)</span>
+patching fftw-3.3.6-pl2/libbench2/speed.c @ lines <span class="o">(</span>26<span class="o">)</span>
+patching fftw-3.3.6-pl2/tests/bench.c @ lines <span class="o">(</span>27<span class="o">)</span>
+patching fftw-3.3.6-pl2/libbench2/util.c @ lines <span class="o">(</span>181<span class="o">)</span>
+patching fftw-3.3.6-pl2/libbench2/problem.c @ lines <span class="o">(</span>229<span class="o">)</span>
+patching fftw-3.3.6-pl2/tests/fftw-bench.c @ lines <span class="o">(</span><span class="m">101</span> <span class="m">147</span> <span class="m">162</span> 249<span class="o">)</span>
+patching fftw-3.3.6-pl2/libbench2/mp.c @ lines <span class="o">(</span><span class="m">79</span> <span class="m">190</span> 215<span class="o">)</span>
+patching fftw-3.3.6-pl2/libbench2/caset.c @ lines <span class="o">(</span>5<span class="o">)</span>
+patching fftw-3.3.6-pl2/libbench2/verify-r2r.c @ lines <span class="o">(</span><span class="m">44</span> <span class="m">187</span> <span class="m">197</span> <span class="m">207</span> <span class="m">316</span> <span class="m">333</span> 723<span class="o">)</span>
+</pre></div>
+</div>
+<p>For example, the <code class="file docutils literal"><span class="pre">fftw-3.3.6-pl2/tools/fftw-wisdom.c.patch</span></code> file
+generates the following patches:</p>
+<div class="highlight-git"><div class="highlight"><pre><span></span> 1 --- fftw-3.3.6-pl2/libbench2/verify-lib.c   2017-01-27 21:08:13.000000000 +0000
+ 2 +++ fftw-3.3.6-pl2/libbench2/verify-lib.c~  2017-09-27 17:49:21.913802006 +0000
+ 3 @@ -33,6 +33,7 @@
+ 4
+ 5  double dmax(double x, double y) { return (x &gt; y) ? x : y; }
+ 6
+ 7 +__attribute__((target_clones(&quot;avx2&quot;,&quot;arch=atom&quot;,&quot;default&quot;)))
+ 8  static double aerror(C *a, C *b, int n)
+ 9  {
+10       if (n &gt; 0) {
+11 @@ -111,6 +112,7 @@
+12  }
+13
+14  /* make array hermitian */
+15 +__attribute__((target_clones(&quot;avx2&quot;,&quot;arch=atom&quot;,&quot;default&quot;)))
+16  void mkhermitian(C *A, int rank, const bench_iodim *dim, int stride)
+17  {
+18       if (rank == 0)
+19 @@ -148,6 +150,7 @@
+20  }
+21
+22  /* C = A + B */
+23 +__attribute__((target_clones(&quot;avx2&quot;,&quot;arch=atom&quot;,&quot;default&quot;)))
+24  void aadd(C *c, C *a, C *b, int n)
+25  {
+26       int i;
+27 @@ -159,6 +162,7 @@
+28  }
+29
+30  /* C = A - B */
+31 +__attribute__((target_clones(&quot;avx2&quot;,&quot;arch=atom&quot;,&quot;default&quot;)))
+32  void asub(C *c, C *a, C *b, int n)
+33  {
+34       int i;
+35 @@ -170,6 +174,7 @@
+36  }
+37
+38  /* B = rotate left A (complex) */
+39 +__attribute__((target_clones(&quot;avx2&quot;,&quot;arch=atom&quot;,&quot;default&quot;)))
+40  void arol(C *b, C *a, int n, int nb, int na)
+41  {
+42       int i, ib, ia;
+43 @@ -192,6 +197,7 @@
+44       }
+45  }
+</pre></div>
+</div>
+<p>With these patches, we can select where to apply the FMV technology making
+bringing architecture-based optimizations to application code even easier.</p>
+<p><strong>Congratulations!</strong></p>
+<p>You have successfully installed an FMV development environment on Clear
+Linux. Furthermore, you used cutting edge compiler technology to improve the
+performance of your application based on Intel Architecture technology and
+profiling of the specific execution of your application.</p>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

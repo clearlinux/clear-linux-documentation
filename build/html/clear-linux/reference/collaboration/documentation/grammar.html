@@ -1,0 +1,594 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Grammar guide</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../../index.html"/>
+        <link rel="up" title="Language reference guide" href="language.html"/>
+        <link rel="next" title="Punctuation guide" href="punctuation.html"/>
+        <link rel="prev" title="Simple English" href="simple.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../../index.html">Documentation</a> » Grammar guide
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="grammar-guide">
+<span id="grammar"></span><h1>Grammar guide</h1>
+<p>This guide provides valuable insight into the correct grammar for the
+Clear Linux* OS for Intel® Architecture documentation. It covers subjects such as capitalization, verbs,
+hyphenation, possessives, and contractions.</p>
+<div class="section" id="capitalization">
+<h2>Capitalization</h2>
+<p>The preferred capitalization style for all documentation is sentence
+case.</p>
+<p>Words should only be capitalized when:</p>
+<ul class="simple">
+<li>They are proper nouns or adjectives.</li>
+<li>They refer to trademarked product names.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not capitalize a word to indicate it has a greater status than other
+words. Never change the case of variable, function or file names; always
+keep the original case.</p>
+</div>
+<div class="section" id="menu-capitalization">
+<h3>Menu capitalization</h3>
+<p>When referring to software menu items by name, replicate the
+capitalization as it appears in the software menus the user will see.
+It is acceptable to refer to these items generically by using
+lowercase letters if it is clear that your reference is generic and
+not a specific name of a window or field on a menu, for example:</p>
+<p>Click <span class="guilabel">Edit</span> to display the <span class="guilabel">Widget Configuration</span> window.</p>
+<p>The widget configuration window has several advanced widget configuration
+options.</p>
+<p>The second sentence could have capitalized the term &#8220;Widget
+Configuration window&#8221;; but there are times when you might want to
+refer to something with a generic descriptor and not its name. Observe
+the use of the ReST markup <code class="docutils literal"><span class="pre">:guilabel:</span></code> on the first sentence.</p>
+<p>A few other menu capitalization rules to keep in mind:</p>
+<ul class="simple">
+<li>Use &#8220;Select <span class="menuselection">File ‣ New</span>.&#8221;</li>
+<li>Put the option to be selected last. &#8220;Select
+<span class="menuselection">View ‣ Side Bar ‣ Hide Side Bar</span>&#8220;</li>
+<li>Do not include more than 3 navigation steps in a menu selection. If
+more than three steps are needed divide the steps using
+<code class="docutils literal"><span class="pre">:guilabel:</span></code> or <code class="docutils literal"><span class="pre">:menuselection:</span></code>. For example: &#8220;Go to
+<span class="guilabel">File</span> and select
+<span class="menuselection">Print ‣ Print Preview ‣ Set Up</span>.&#8221;</li>
+</ul>
+</div>
+<div class="section" id="software-version-capitalization">
+<h3>Software version capitalization</h3>
+<p>Do not capitalize the word version or letter v when listing software
+or hardware version numbers. The v is lowercase and closed with the
+number (no period). For example:</p>
+<ul class="simple">
+<li>Widget Pro v5.0</li>
+<li>Widget Master v2.1.12</li>
+</ul>
+</div>
+<div class="section" id="hyphenated-or-slashed-concatenated-terms">
+<h3>Hyphenated or slashed-concatenated terms</h3>
+<p>For hyphenated or slash-concatenated terms, capitalize only the first
+letter, even if they are headings. For example:</p>
+<ul class="simple">
+<li>Day/night Menu</li>
+<li>Follow-up Action Items</li>
+</ul>
+</div>
+</div>
+<div class="section" id="plurals-and-possessives">
+<h2>Plurals and possessives</h2>
+<p>Because English plurals and possessives use the same /s/ and /z/
+phonemes, they can create problems for even experienced writers. This
+section deals with these issues.</p>
+<div class="section" id="singular-vs-plural-possessives">
+<h3>Singular vs. plural possessives</h3>
+<p>Here are some guidelines for singular and plural possessives:</p>
+<ul class="simple">
+<li>Use only the apostrophe to show possession for a plural that ends in
+s: The boys&#8217; books.</li>
+<li>Use apostrophe + s to show possession for a plural that does not end
+in s: The men&#8217;s books.</li>
+<li>Use apostrophe + s to show possession for a singular that ends in a
+silent sibilant: Illinois&#8217;s capital.</li>
+<li>Use apostrophe + s to show
+possession for a singular that ends in a sibilant; s, x, c, z, or
+others.</li>
+</ul>
+<p>The following table provides some examples with the correct and
+incorrect cases and the notes that accompanies them.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="28%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Correct</th>
+<th class="head">Incorrect</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>the boys&#8217; books</td>
+<td>the boy&#8217;s books</td>
+<td>The books that belong to
+several boys.</td>
+</tr>
+<tr class="row-odd"><td>the men&#8217;s books</td>
+<td>the mens&#8217; books</td>
+<td>The books that belong to
+several men.</td>
+</tr>
+<tr class="row-even"><td>Arkansas&#8217;s code</td>
+<td>Arkansas&#8217; code</td>
+<td>The s at the end of
+Arkansas is silent and
+Arkansas is not a plural.</td>
+</tr>
+<tr class="row-odd"><td>the boss&#8217;s office</td>
+<td>the boss&#8217; office</td>
+<td>We say: &#8220;the /BOSS-iz/
+office&#8221; not &#8220;the/BOSS/
+office.&#8221;</td>
+</tr>
+<tr class="row-even"><td>the box&#8217;s lid</td>
+<td>the boxe&#8217;s lid
+the box&#8217; lid</td>
+<td>One could say &#8220;the box
+lid,&#8221; avoiding the
+possessive.</td>
+</tr>
+<tr class="row-odd"><td>Lopez&#8217;s average</td>
+<td>Lopez&#8217; average</td>
+<td>We say &#8220;/LO-pez-iz/
+average,&#8221; not &#8220;/LO-pez/
+average.&#8221;</td>
+</tr>
+<tr class="row-even"><td>business&#8217;s sales</td>
+<td>business&#8217; sales</td>
+<td>If you pronounce another
+syllable to show
+possession, it must have
+the apostrophe-s.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="apostrophe-s-anomalies">
+<h3>Apostrophe-s anomalies</h3>
+<p>If a company name ends in s, x, c, or a sibilant sound, use the
+apostrophe-s ending for
+possessives:</p>
+<p>Traktronix&#8217;s oscilloscopes</p>
+<p>Exception: If the company name is intended as a plural, we allow the
+apostrophe-only ending:</p>
+<p>Tejada Instruments&#8217; calculators</p>
+<p>In many cases, it is actually best to avoid the possessive form
+altogether for s-ending singular possessives, such as for company
+names and use the company name as a nonpossessive modifier instead:</p>
+<p>Traktronix oscilloscopes
+Tejada Instruments calculators</p>
+<p>We say &#8220;Intel equipment&#8221; when discussing Intel-branded products, not
+&#8220;Intel&#8217;s equipment&#8221;, which implies that we own it, not that we produce
+it. &#8220;Intel&#8217;s equipment&#8221; sounds like the equipment that Intel employees
+use.</p>
+</div>
+<div class="section" id="plural-modifiers">
+<h3>Plural modifiers</h3>
+<p>Avoid plural modifiers. For example, it should be a system
+administrator, not a systems administrator. It doesn&#8217;t matter how many
+systems this person manages, we don&#8217;t typically use the plural of a word
+to modify a noun. Here is a list of exceptions:</p>
+<ul class="simple">
+<li>operations manager</li>
+<li>sales department</li>
+<li>graphics team</li>
+</ul>
+<p>There are always exceptions, especially when the plural form is
+generally considered to be singular: sales, physics, operations. It is
+best to adhere to this rule and ask if you are unsure.</p>
+</div>
+<div class="section" id="parenthetical-plurals">
+<h3>Parenthetical plurals</h3>
+<p>Do not parenthesize optional plurals, whether added to the end of a
+word, typically with the letter s, or internally. In general, think in
+plurals when you write, assume that the user understands that a plural
+could mean a singular as well. A typical user who has only one unit
+will not be confused if you say &#8220;connect the units.&#8221; On the contrary,
+using parenthetical plurals often creates more confusion.</p>
+<p>Correct</p>
+<p>Men, women, children, college alumni, moose,
+and even desert plants such as cacti should not
+use parentheses around plurals.</p>
+<p>Incorrect</p>
+<p>A m(e)n, wom(a)n, a child(ren), college alumn(i), (moose), and
+even a desert plant(s) such as a cact(i) should not use a
+parenthes(e)s around a plural(s).</p>
+</div>
+<div class="section" id="internal-plural-acronyms">
+<h3>Internal plural acronyms</h3>
+<p>Some abbreviated terms can cause trouble, particularly when the
+pluralized portion does not fall at the end of the phrase. These
+internal-plural words should follow standard English pluralization
+rules when abbreviated: The plural goes at the end of the term.</p>
+<ul class="simple">
+<li>Alarms acknowledged and logged: AAL, AALs.</li>
+<li>Attorneys-general: AG, AGs.</li>
+<li>Regions of interest: ROI, ROIs.</li>
+</ul>
+</div>
+<div class="section" id="plurals-of-acronyms-and-capitalized-product-names">
+<h3>Plurals of acronyms and capitalized product names</h3>
+<p>Pluralize acronyms, initialisms, and capitalized product names by
+adding a lowercase s; do not use an apostrophe. If the term ends in a
+sibilant (s, x, z, sometimes c and others), pluralize it by adding a
+lowercase es. Examples:</p>
+<p>Use TVs, DVDs, CDs, DVMRs not TV&#8217;s, DVD&#8217;s, CD&#8217;s, DVMR&#8217;s.
+Use OSes not OSs, OS&#8217;s.
+Use TRAXes, iBOXes not TRAXs, TRAX&#8217;s, iBOX&#8217;s, iBOXs.
+Use FAACes not FAAC&#8217;s, assuming it is pronounced &#8220;face&#8221;.
+Use FAACs not FAAC&#8217;s Assuming it is pronounced &#8220;fake&#8221;.</p>
+<p>Whenever you hear the extra syllable in the plural, add the -es suffix
+for the plural; if you do not hear the extra syllable, add the -s
+suffix for the plural.</p>
+</div>
+<div class="section" id="latin-plurals">
+<h3>Latin plurals</h3>
+<p>Pluralize Latin terms in body text as shown:</p>
+<ul class="simple">
+<li>Use appendixes not appendices.</li>
+<li>Use matrixes not matrices.</li>
+<li>Use indexes not indices.</li>
+<li>Use vertexes not vertices.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some Latin plurals, such as parentheses, phenomena, alumni, and
+crises, are widely used and accepted in English.</p>
+</div>
+</div>
+</div>
+<div class="section" id="contractions">
+<h2>Contractions</h2>
+<p>Avoid the use of contractions since some of them might be ambiguous and
+confusing to non-native English-speaking audiences.</p>
+<p>Some contractions can cause confusion for non-native English-speakers
+because these contractions stand for more than one construction. For
+example, there&#8217;s can be a contraction of there is or there has. The
+same applies to where&#8217;s, it&#8217;s, that&#8217;s, and others.</p>
+<p>Also, avoid contractions of the word is, especially when combined with
+company or product names: Say, WidgetPro is an awesome product; not
+WidgetPro&#8217;s an awesome product.</p>
+</div>
+<div class="section" id="hyphenation">
+<h2>Hyphenation</h2>
+<p>The hyphen is often used to join words together to form a compound noun.
+Compound nouns often go through this progressions:</p>
+<ul class="simple">
+<li>open compound: health care</li>
+<li>hyphenated compound: health-care</li>
+<li>closed compound: healthcare</li>
+</ul>
+<p>The English language is trending away from hyphenated compounds to
+closed compounds.</p>
+<div class="section" id="prefix-hyphenation">
+<h3>Prefix hyphenation</h3>
+<p>Do not hyphenate the prefixes listed below. Join the prefix to the
+term being modified, even if this results in a double vowel or double
+consonant:</p>
+<p>ante, counter, intra, mini, pro, super, anti, extra, meta, non,
+pseudo, trans, bi, by, infra, micro, post, re, ultra, bio, inter, mid,
+pre, sub, un.</p>
+<p>Here are some words that are often inappropriately hyphenated; do not
+hyphenate these words either:</p>
+<p>antitheft device, multicamera, multiscreen, prepackaged, reuse,
+submenu, autofocus, multifamily, multiuser, pseudoscience, semiannual,
+subtotal, autoiris, multimedia, nonprofit, reengineered, semicircle,
+superuser, microarchitecture, multiposition, predefined, reevaluate,
+subfolder, superscript, microorganism, multiprotocol, predrilled,
+reinvent, submarine.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Question whether the pre- prefix is needed at all and consider
+leaving it off the word entirely if the meaning is the same.</p>
+</div>
+<div class="section" id="exceptions">
+<h4>Exceptions</h4>
+<p>One overriding exception to the prefix rule is when the prefix is
+prepended to a proper and capitalized noun:</p>
+<ul class="simple">
+<li>Non-European</li>
+<li>Mid-April (but: midweek)</li>
+</ul>
+<p>Another exception is when the second word of a compound is a numeral:</p>
+<ul class="simple">
+<li>Pre-1914</li>
+</ul>
+<p>Some prefixes, such as self-, half-, quasi-, and ex-, when meaning
+&#8220;formerly&#8221;, usually need a hyphen:</p>
+<ul class="simple">
+<li>Self-control, half-truth, quasi-corporation, ex-governor</li>
+</ul>
+</div>
+</div>
+<div class="section" id="suffix-hyphenation">
+<h3>Suffix hyphenation</h3>
+<p>In general, do not hyphenate suffixes. Here are some examples.
+The suffix -wide is usually not hyphenated:</p>
+<ul class="simple">
+<li>Nationwide, worldwide, systemwide, campuswide, statewide,
+companywide, etc.</li>
+</ul>
+<p>The suffix -wise is usually not hyphenated:</p>
+<ul class="simple">
+<li>Otherwise, businesswise, revenuewise, clockwise, counterclockwise</li>
+</ul>
+</div>
+</div>
+<div class="section" id="quotation-marks">
+<h2>Quotation marks</h2>
+<p>Follow these guidelines for quotation marks:</p>
+<ul class="simple">
+<li>Restrict use of quotation marks to terms as terms.</li>
+<li>Do not use quotation marks for emphasis; use <em>italics</em> for emphasis.</li>
+<li>Avoid using single-quote marks.</li>
+<li>In terms of punctuation: commas and periods typically go inside the
+end-quote; semicolons, colons, question marks, and exclamation points
+typically go outside quotation marks. Unless they are part of the
+actual quotation.</li>
+</ul>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>

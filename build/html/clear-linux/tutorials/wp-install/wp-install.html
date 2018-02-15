@@ -1,0 +1,431 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Create a Clear Linux WordPress* server</title>
+  
+
+<link rel="icon" type="image/png" sizes="192x192" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_android_192x192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_152x152.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_96x96.png" />
+<meta name="google-site-verification" content="xDIK6ZRF9BKNIeBUstAHF3zS6bpi2eCjBHemCQAEH8o" />
+<meta name="msapplication-TileImage" href="sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_microsoft_144x144.png" />
+<meta name="theme-color" content="#7DD2F7" />
+<link rel="icon" type="image/png" sizes="16x16" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_web_16x16.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_144x144.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_120x120.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="/sites/all/themes/custom/clearlinux_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_57x57.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_76x76.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_72x72.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_60x60.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/custom/clearlinux_theme/images/favicons/favicon_apple_114x114.png" />
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/main.css" type="text/css" />
+  
+
+  
+
+  
+
+    <link rel="stylesheet" href="/sites/all/themes/custom/clearlinux_theme/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/overrides.css" type="text/css" />
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Documentation for Clear Linux* Project for Intel(r) Architecture" href="../../../index.html"/>
+        <link rel="up" title="WordPress* use case tutorial" href="../wordpress.html"/>
+        <link rel="next" title="Use Flatpak* to install applications on Clear Linux* OS for Intel® Architecture" href="../flatpak/flatpak.html"/>
+        <link rel="prev" title="Creating a Clear Linux based web server" href="../web-server-install/web-server-install.html"/>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+
+  
+  <script src="/sites/all/themes/custom/clearlinux_theme/js/modernizr.custom.19994.js"></script>
+
+</head>
+
+<body role="document" class="section-documentation">
+  <div id="wrapper">
+  <header>
+    <div id="o1-header">
+      <div class="o1-logo-container hidden-xs">
+        <div class="container"><a href="http://01.org" class="o1-logo ext" target="_blank"></a></div>
+      </div>
+      <div class="project-header container clearfix">
+        <div class="left inline">
+          <a href="/" id="project-name">
+            <span id="project-name-left">Clear Linux&nbsp; <sup>*</sup></span>
+            <span id="project-name-right">Project</span>
+            <span id="project-name-bottom">for Intel* Architecture</span>
+          </a>
+        </div>
+        <div class="right">
+          <div class="mobile-menu"></div>
+            <div class="region region-header">
+              <div id="block-system-main-menu" class="block block-system block-menu">
+                <ul class="menu">
+                  <li class="first leaf"><a href="https://download.clearlinux.org" title="Downloads" target="_blank">Downloads</a></li>
+                  <li class="collapsed"><a href="/features" title="Features">Features</a></li>
+                  <li class="collapsed"><a href="/documentation" title="Documentation" class="active">Documentation</a></li>
+                </ul>
+              </div>
+              <div id="block-menu-menu-get-involved" class="block block-menu">
+                <h4>Get Involved</h4>
+                <ul class="menu">
+                  <li class="first leaf"><a href="http://freenode.net/" target="_blank">IRC #clearlinux</a></li>
+                  <li class="leaf"><a href="https://lists.clearlinux.org/mailman/listinfo/dev">Mailing list</a></li>
+                  <li class="last leaf"><a href="/blogs">Blogs</a></li>
+                </ul>
+              </div>
+            </div>
+                    <ul class="nav-tools">
+            <li><a href="/search"><i class="fa fa-search"></i></a></li>
+            <!--<li><i class="fa fa-mail-forward"></i></li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+      
+      <div class="main-content">
+        <div id="site-breadcrumb">
+            <div class="container">
+
+
+
+
+
+<div id="site-breadcrumb">
+  <h2 class="element-invisible"></h2>
+  <div class="breadcrumb">
+    <a href="/">Home</a> » <a href="../../../index.html">Documentation</a> » Create a Clear Linux WordPress* server
+  </div>
+</div></div>
+          </div>
+        <div class="container clearfix">
+          <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="region region-content">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><sidebar>
+  <h2>Content Map</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      <ul class="custom-dropdown-menu">
+<li class="menu-item-open parent-item"><a class="reference internal" href="../../clear-linux.html">Clear Linux* Project for Intel® Architecture</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../get-started/get-started.html">Get started</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../concepts/concepts.html">Concepts</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../guides/guides.html">Guides</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../reference/reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="menu-item-closed parent-item"><a class="reference internal" href="../../../clear-containers/clear-containers.html">Intel® Clear Containers</a><ul class="custom-dropdown-menu">
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/getting-started.html">Clear Containers getting started guide</a></li>
+<li class="child-item first-level no-childs"><a class="reference internal" href="../../../clear-containers/architecture-overview.html">Architecture Overview</a></li>
+</ul>
+</li>
+</ul>
+
+</sidebar></div></div>
+                      <div class="row"><div class="col-md-12 col-sm-12 col-xs-12">
+<br />
+<div id="searchbox" role="search">
+  <h2>Quick Search</h2>
+  <form class="search" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <input type="submit" value="Go" class="pull-right">
+  </form>
+</div></div></div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+  <div class="section" id="create-a-clear-linux-wordpress-server">
+<span id="wp-install"></span><h1>Create a Clear Linux WordPress* server</h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>This tutorial assumes you have already
+<a class="reference internal" href="../../get-started/bare-metal-install/bare-metal-install.html#bare-metal-install"><span class="std std-ref">installed Clear Linux on a bare metal system</span></a>
+and that you have <a class="reference internal" href="../web-server-install/web-server-install.html#web-server-install"><span class="std std-ref">set up a LAMP web server</span></a>.</p>
+<p>Additionally, all the steps on this tutorial were tested using a NUC6i5SYH
+Intel® NUC. Visit the <a class="reference external" href="http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html">NUC6i5SYH product page</a> for detailed information.</p>
+<p>Before installing any new packages, update the Clear Linux OS with the
+console command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo swupd update</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-wordpress-server">
+<h2>Creating a WordPress server</h2>
+<p>This tutorial walks you through the process of installing the WordPress
+components on your Clear Linux LAMP server. At the end of the
+<a class="reference internal" href="../web-server-install/web-server-install.html#web-server-install"><span class="std std-ref">web server tutorial</span></a>, we created the initial
+WordPress MySQL database <cite>WordPress</cite> using phpMyAdmin* and MariaDB*.
+With the LAMP server up and running, we can add the WordPress components
+needed to host a WordPress website on your host system.</p>
+<p>Throughout this tutorial we will reference your website name as
+&lt;your_website&gt;. There are numerous articles available on-line regarding how
+to name your website and acquire the necessary certificates. Those tasks are
+beyond the scope of this tutorial.</p>
+<p>There are also several actions you can take to harden your website from
+attacks. The security of your website and the data it contains are complex
+and ever-evolving tasks. They should be at the top of your to do list if you
+plan to expose your website to the outside world. This tutorial does not
+address security measures that you can take to harden your site but we
+strongly encourage you to look into it.</p>
+<div class="section" id="installing-wordpress">
+<h3>Installing WordPress</h3>
+<p>The folks at WordPress have created a <a class="reference external" href="https://codex.wordpress.org/Installing_WordPress#Famous_5-Minute_Install">step-by-step guide</a> to install
+WordPress quickly and easily. We are following this procedure very closely.</p>
+<p>We are setting up a WordPress blog which can be accessed at:</p>
+<p><a class="reference external" href="http:/">http:/</a>/&lt;your_website&gt;/blog</p>
+<p>To accomplish this setup, we must put the WordPress components in the
+<code class="file docutils literal"><span class="pre">/var/www/html/blog</span></code> directory.</p>
+<p>Let us get started:</p>
+<ol class="arabic">
+<li><p class="first">To move to the top-level of the website’s root directory, enter the
+following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">cd /var/www/html</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To download the latest version of WordPress, enter the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo curl -O https://wordpress.org/latest.tar.gz</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To extract all the files and directories from the downloaded file,
+enter the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo tar –xzvf latest.tar.gz</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To rename the top-level WordPress directory to “blog”, enter the following
+command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo mv wordpress blog</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To remove the downloaded tar file, enter the following command:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">sudo rm latest.tar.gz</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-up-wordpress">
+<h3>Setting up WordPress</h3>
+<p>With the WordPress components loaded into the
+<code class="file docutils literal"><span class="pre">/var/www/html/blog</span></code> directory, we can set everything up.</p>
+<p>Instead of editing the <code class="file docutils literal"><span class="pre">wp_config.php</span></code> file manually, we are using the
+web-based configuration tool to setup the database name and user. We created
+both in the <a class="reference internal" href="../web-server-install/web-server-install.html#web-server-install"><span class="std std-ref">web server tutorial</span></a>. In your browser,
+go to: <a class="reference external" href="http:/">http:/</a>/&lt;your_website&gt;/blog/wp-admin/install.php.</p>
+<p>Your screen should look like figure 1:</p>
+<div class="figure" id="id1">
+<span id="fig-wp-install-1"></span><a class="reference internal image-reference" href="../../../_images/wp-install-1.png"><img alt="WordPress language selection" src="../../../_images/wp-install-1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">WordPress language selection screen.</span></p>
+</div>
+<p>Select <span class="guilabel">English</span> for the language and click the
+<span class="guilabel">Continue</span> button. <a class="reference internal" href="#fig-wp-install-1"><span class="std std-ref">As shown on figure 1</span></a></p>
+<p>The WordPress installation continues until the welcome screen shown in figure
+2 appears:</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/wp-install-2.png"><img alt="WordPress welcome screen" src="../../../_images/wp-install-2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">WordPress welcome screen.</span></p>
+</div>
+<p>Click the <span class="guilabel">Let’s go!</span> button to enter the information.</p>
+<p>Enter the database name, username, and password we used when creating the
+database:</p>
+<blockquote>
+<div><p>Database name:       WordPress</p>
+<p>Database username:   wordpressuser</p>
+<p>Database password:   wp-example</p>
+</div></blockquote>
+<p>Enter the following values for the database host and the table prefix:</p>
+<blockquote>
+<div><p>Database host:  localhost</p>
+<p>Table prefix:   wp_</p>
+</div></blockquote>
+<p>Figure 3 shows the filled out fields.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/wp-install-3.png"><img alt="Database connection details" src="../../../_images/wp-install-3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">These details are needed for WordPress to connect to the database.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When you enter your password into the password field, it will be in clear
+text and not asterisks.</p>
+</div>
+<p>After entering all the data for accessing your database, click the
+<span class="guilabel">Submit</span> button.</p>
+<p>Figure 4 shows the following screen letting you know the communication
+between WordPress and your database has been successfully set up.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/wp-install-4.png"><img alt="Successful database connection." src="../../../_images/wp-install-4.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">This screen shows WordPress was able to connect to the MySQL database.</span></p>
+</div>
+<p>Click the <span class="guilabel">Run the install</span> button.</p>
+<p>Let the installer run until WordPress is fully installed on your system.</p>
+<p>Once the installation is completed, you can name your blog and create a
+Wordpress username and password, see figure 5.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/wp-install-5.png"><img alt="WordPress user creation" src="../../../_images/wp-install-5.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Provide WordPress the needed information to create a site and a user
+with the permissions to change it.</span></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can copy the password to log in faster.</p>
+</div>
+<p>Enter all the required information and click the
+<span class="guilabel">Install WordPress</span> button.</p>
+<p>Once the installation is complete, the initial login screen appears, see
+figure 6:</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/wp-install-6.png"><img alt="WordPress login" src="../../../_images/wp-install-6.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The WordPress login screen.</span></p>
+</div>
+<p>Enter your WordPress username and password.
+Check the <span class="guilabel">Remember me</span> checkbox, to save your credentials.
+Click <span class="guilabel">Log in</span>.</p>
+<p>Figure 7 shows the WordPress dashboard after a successful login:</p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/wp-install-7.png"><img alt="WordPress Dashboard" src="../../../_images/wp-install-7.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The WordPress dashboard appears after you log in successfully.</span></p>
+</div>
+<p>You are ready to go!</p>
+<p>To check out your blog as it is seen by the outside world, enter:
+<a class="reference external" href="http:/">http:/</a>/&lt;your_website&gt;/blog on your browser. Figure 8 shows the result:</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/wp-install-8.png"><img alt="WordPress blog" src="../../../_images/wp-install-8.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The final result is the fully realized WordPress blog.</span></p>
+</div>
+<p><strong>Congratulations, your WordPress blog is up and running!</strong></p>
+<p>You have successfully installed WordPress on a host system.</p>
+<p>Add new entries to your blog and share them with the world using Clear Linux* OS for Intel® Architecture!</p>
+</div>
+</div>
+</div>
+
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+    <div class="project-footer container clearfix">
+      <span class="intel-sw-logo"></span>
+      <div class="mobile-menu"></div>
+                <div class="region region-footer">
+    <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+
+  <ul class="menu"><li class="first leaf"><a href="/about/privacy-policy">Privacy Policy</a></li>
+<li class="leaf"><a href="mailto:dev@lists.clearlinux.org" class="mailto">Contact us</a></li>
+<li class="leaf"><a href="/about/terms-service">Terms of Service</a></li>
+<li class="leaf"><a href="http://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank" class="ext">* Trademarks</a></li>
+<li class="last leaf"><a href="http://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="_blank" class="ext">Cookies</a></li>
+</ul>
+</div>
+<div id="block-menu-block-1" class="block block-menu-block">
+
+
+  <div class="menu-block-wrapper menu-block-1 menu-name-menu-social-media parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-8277"><a href="https://twitter.com/clearlinux" class="social-media icon twitter">Twitter</a></li>
+<li class="leaf menu-mlid-8286"><a href="https://plus.google.com/u/2/b/110130641055512104222/110130641055512104222/posts/p/pub?_ga=1.28912252.1365239857.1461340816" class="social-media icon googleplus">Google +</a></li>
+<li class="last leaf menu-mlid-8279"><a href="https://github.com/clearlinux" class="social-media icon github">Github</a></li>
+</ul></div>
+
+</div>
+  </div>
+    </div>
+    <div class="footer-copyright">
+      <small>Copyright © 2016 Intel Corporation. All rights reserved</small> <br>
+      <small>*Other names and brands may be claimed as the property of others</small>
+    </div>
+</footer>
+    </div>
+    
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../',
+              VERSION:'0.1',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true
+          };
+      </script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/js/affix.js"></script>
+        <script type="text/javascript" src="../../../_static/js/sorttable.js"></script>
+        <script type="text/javascript" src="../../../_static/js/project.js"></script>
+
+    
+
+    
+    
+      <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    
+
+    
+    
+
+     <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../../../searchindex.js"); });
+    </script>
+    
+    <script type="text/javascript" id="searchindexloader"></script>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61272224-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+   
+</body>
+</html>
