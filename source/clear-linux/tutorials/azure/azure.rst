@@ -5,7 +5,7 @@ Run Clear Linux using Microsoft Azure CLI 2.0
 
 |CLOSIA| is available for you to use in the Microsoft* Azure* marketplace and
 is offered with three different images, also known as a
-:abbr:`SKU (Stock Keeping Unit)`
+:abbr:`SKU (Stock Keeping Unit)`.
 
 * |CL| Basic - This SKU consists of a bare-bones system which can be used as a
   starting point for those wanting to explore and build out a system with
@@ -53,10 +53,25 @@ running the individual commands as follows:
 .. code-block:: bash
 
    $ python --version
+
+.. code-block:: console
+
    python 2.7.12
+
+.. code-block:: bash
+
    $ openssl version
+
+.. code-block:: console
+
    OpenSSL 1.0.2n 7 Dec 2017
-   $ls -l /usr/lib64/libffi*
+
+.. code-block:: bash
+
+   $ ls -l /usr/lib64/libffi*
+
+.. code-block:: console
+
    lrwxrwxrwx 1 root root    15 Jan 12  2017 /usr/lib64/libffi.so.6 -> libffi.so.6.0.4
    -rwxr-xr-x 1 root root 38792 Jan 12  2017 /usr/lib64/libffi.so.6.0.4
 
@@ -80,7 +95,7 @@ Install MS Azure CLI 2.0 on Clear Linux
 #. To install the MS Azure CLI 2.0 on |CL|, use the :command:`curl` command as
    follows:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ curl -L https://aka.ms/InstallAzureCli | bash
 
@@ -88,7 +103,7 @@ Install MS Azure CLI 2.0 on Clear Linux
    parameter or an error message is generated that includes the text "Object
    Moved", use the full URL instead of the aka.ms redirect address:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ curl https://azurecliprod.blob.core.windows.net/install | bash
 
@@ -97,8 +112,8 @@ Install MS Azure CLI 2.0 on Clear Linux
 
    .. note::
 
-      The installation script prompts and the console output text substitute
-      your current username with the [user] variable.
+      The console output from the script displays your username instead of the
+      **[user]** variable shown on this tutorial.
 
    .. code-block:: console
 
@@ -375,7 +390,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
       If you have already defined your public/private SSH key pair and they
       are stored in your :file:`$HOME/.ssh` directory, you do not need to
-      include the :parameter:`--generate-ssh-keys` parameter.
+      include the :option:`--generate-ssh-keys` option.
 
    Your output from this command will look similar to this output, where
    [user] is your user name:
