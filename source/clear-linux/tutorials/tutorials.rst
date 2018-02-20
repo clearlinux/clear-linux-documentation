@@ -12,7 +12,7 @@ specific |CLOSIA| use cases.
    wordpress
    flatpak/flatpak
    machine-learning/machine-learning
-   azure
+   azure/azure
    multi-boot/multi-boot
    hadoop
    fmv
