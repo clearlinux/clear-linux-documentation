@@ -88,7 +88,7 @@ Create and configure a new VM
 #. On the home screen, click :guilabel:`Create a New Virtual Machine`. See
    figure 1.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-01.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-01.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Create a new virtual machine
 
@@ -98,7 +98,7 @@ Create and configure a new VM
    the :guilabel:`I will install the operating system later` option.
    See figure 2.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-02.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-02.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Select install operating system
 
@@ -111,7 +111,7 @@ Create and configure a new VM
    :guilabel:`Guest operating system` setting to :guilabel:`Linux`.
    See figure 3.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-03.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-03.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Select guest operating system type
 
@@ -126,7 +126,7 @@ Create and configure a new VM
 #. On the :guilabel:`Name the Virtual Machine` screen, give your new VM a name.
    See figure 4.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-04.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-04.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Name virtual machine
 
@@ -138,7 +138,7 @@ Create and configure a new VM
    button. When you attach the pre-configured |CL| VMware image, VMWare removes
    the default virtual disk making this setting irrelevant. See figure 5.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-05.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-05.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Set disk capacity
 
@@ -147,7 +147,7 @@ Create and configure a new VM
 #. On the :guilabel:`Ready to Create Virtual Machine` screen, click the
    :guilabel:`Customize Hardware...` button. See figure 6.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-06.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-06.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Customize hardware
 
@@ -156,7 +156,7 @@ Create and configure a new VM
 #. Under the :guilabel:`Device` list, select :guilabel:`Processors`. See
    figure 7.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-07.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-07.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Set virtualization engine option
 
@@ -168,7 +168,7 @@ Create and configure a new VM
 #. To disconnect the virtual CD/DVD (IDE) since it is not needed, under the
    :guilabel:`Device` list, select :guilabel:`New CD/DVD (IDE)`. See figure 8.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-08.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-08.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Disconnect CD/DVD (IDE)
 
@@ -198,7 +198,7 @@ Attach the pre-configured Clear Linux VMware image
 #. On the :guilabel:`VMware Workstation Player` home screen, select your newly-
    created VM. See figure 9.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-09.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-09.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Edit virtual machine settings
 
@@ -209,7 +209,7 @@ Attach the pre-configured Clear Linux VMware image
 #. To remove the default hard disk, under the :guilabel:`Device` list, select
    :guilabel:`Hard Disk (SCSI)`. See figure 10.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-10.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-10.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Remove hard drive
 
@@ -220,7 +220,7 @@ Attach the pre-configured Clear Linux VMware image
 #. To add a new hard disk and attach the pre-configured |CL| VMware image,
    click the :guilabel:`Add...` button. See Figure 11.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-11.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-11.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Add new hard drive
 
@@ -232,7 +232,7 @@ Attach the pre-configured Clear Linux VMware image
 
 #. Select your preferred :guilabel:`Virtual disk type`. See figure 12.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-12.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-12.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Select virtual disk type
 
@@ -240,7 +240,7 @@ Attach the pre-configured Clear Linux VMware image
 
 #. Select the :guilabel:`Use an existing virtual disk` option. See figure 13.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-13.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-13.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Use existing virtual disk
 
@@ -249,7 +249,7 @@ Attach the pre-configured Clear Linux VMware image
 #. Click the :guilabel:`Browse` button and select the pre-configured |CL|
 VMware image file. See figure 14.
 
-   .. figure:: figures/vmware-player/vmw-player-preconf-14.png
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-14.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Select ready-made VMware |CL|
 

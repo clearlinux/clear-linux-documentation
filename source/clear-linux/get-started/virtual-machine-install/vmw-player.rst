@@ -100,7 +100,7 @@ Create and configure a new VM
 #. On the home screen, click :guilabel:`Create a New Virtual Machine`. See
    Figure 1.
 
-   .. figure:: figures/vmware-player/vmw-player-01.png
+   .. figure:: figures/vmw-player/vmw-player-01.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Create a new virtual machine
 
@@ -111,7 +111,7 @@ Create and configure a new VM
    select the :guilabel:`Installer disc image file (iso)` option.
    See Figure 2.
 
-   .. figure:: figures/vmware-player/vmw-player-02.png
+   .. figure:: figures/vmw-player/vmw-player-02.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Select |CL| installer ISO
 
@@ -126,7 +126,7 @@ Create and configure a new VM
    :guilabel:`Guest operating system` setting to :guilabel:`Linux`. See
    Figure 3.
 
-   .. figure:: figures/vmware-player/vmw-player-03.png
+   .. figure:: figures/vmw-player/vmw-player-03.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Select guest operating system type
 
@@ -141,7 +141,7 @@ Create and configure a new VM
 #. On the :guilabel:`Name the Virtual Machine` screen, name the new VM. See
    Figure 4.
 
-   .. figure:: figures/vmware-player/vmw-player-04.png
+   .. figure:: figures/vmw-player/vmw-player-04.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Name virtual machine
 
@@ -152,7 +152,7 @@ Create and configure a new VM
 #. On the :guilabel:`Specify Disk Capacity` screen, set the VM's maximum disk
    size. See Figure 5.
 
-   .. figure:: figures/vmware-player/vmw-player-05.png
+   .. figure:: figures/vmw-player/vmw-player-05.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Set disk capacity
 
@@ -167,7 +167,7 @@ Create and configure a new VM
 #. On the :guilabel:`Ready to Create Virtual Machine` screen, click the
    :guilabel:`Customize Hardware...` button. See Figure 6.
 
-   .. figure:: figures/vmware-player/vmw-player-06.png
+   .. figure:: figures/vmw-player/vmw-player-06.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Customize hardware
 
@@ -175,7 +175,7 @@ Create and configure a new VM
 
 #. Select :guilabel:`Memory` and set the size to 2GB. See Figure 7.
 
-   .. figure:: figures/vmware-player/vmw-player-07.png
+   .. figure:: figures/vmw-player/vmw-player-07.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Set memory size
 
@@ -190,7 +190,7 @@ Create and configure a new VM
 #. Under the :guilabel:`Device` list, select :guilabel:`Processors`. See
    Figure 8.
 
-   .. figure:: figures/vmware-player/vmw-player-08.png
+   .. figure:: figures/vmw-player/vmw-player-08.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Set virtualization engine option
 
@@ -210,7 +210,7 @@ Install Clear Linux into the new VM
 #. Select the newly-created VM and click the :guilabel:`Play virtual machine`
    button. See Figure 9.
 
-   .. figure:: figures/vmware-player/vmw-player-09.png
+   .. figure:: figures/vmw-player/vmw-player-09.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Power on virtual machine
 
@@ -231,7 +231,7 @@ Detach the |CL| installer ISO from the VM
 #. To disconnect the CD/DVD to stop it from booting the |CL| installer ISO
    again, click the :guilabel:`Player` menu. See Figure 10.
 
-   .. figure:: figures/vmware-player/vmw-player-10.png
+   .. figure:: figures/vmw-player/vmw-player-10.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Edit CD/DVD settings
 
@@ -243,7 +243,7 @@ Detach the |CL| installer ISO from the VM
    :guilabel:`Connected` and the :guilabel:`Connect at power on` settings.
    See Figure 11.
 
-   .. figure:: figures/vmware-player/vmw-player-11.png
+   .. figure:: figures/vmw-player/vmw-player-11.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Disconnect CD/DVD
 
@@ -253,7 +253,7 @@ Detach the |CL| installer ISO from the VM
 
 #. To power off the VM, click the :guilabel:`Player` menu. See Figure 12.
 
-   .. figure:: figures/vmware-player/vmw-player-12.png
+   .. figure:: figures/vmw-player/vmw-player-12.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Power off virtual machine
 
