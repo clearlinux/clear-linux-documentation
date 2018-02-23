@@ -135,8 +135,9 @@ Create and configure a new VM
 #. Click the :guilabel:`Next` button.
 
 #. On the :guilabel:`Specify Disk Capacity` screen, click the :guilabel:`Next`
-   button. When you attach the pre-configured |CL| VMware image, VMWare removes
-   the default virtual disk making this setting irrelevant. See figure 5.
+   button. The disk settings do not matter at this stage because you will remove
+   the default virtual disk and attach a pre-configured |CL| VMware image at a
+   later step. See figure 5.
 
    .. figure:: figures/vmw-player-preconf/vmw-player-preconf-05.png
       :scale: 100%
@@ -195,8 +196,8 @@ Attach the pre-configured Clear Linux VMware image
       * On Linux distros: :file:`/home/username/vmware`
       * On Windows: :file:`C:\Users\username\Documents\Virtual Machines`
 
-#. On the :guilabel:`VMware Workstation Player` home screen, select your newly-
-   created VM. See figure 9.
+#. On the :guilabel:`VMware Workstation Player` home screen, select your 
+   newly-created VM. See figure 9.
 
    .. figure:: figures/vmw-player-preconf/vmw-player-preconf-09.png
       :scale: 100%
@@ -278,12 +279,23 @@ following line to the end of your VM's :file:`.vmx` file:
    Depending on the OS, you can typically find the VMware VM files under:
 
    * On Linux distros: :file:`/home/username/vmware`
-   * On Windows: :file:`C:\Users\username\Documents\Virtual Machines`
+   * On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`
 
 Power on the VM
 ***************
 
 After configuring the settings above, power on your |CL| virtual machine.
+
+#. On the :guilabel:`VMware Workstation Player` home screen, select your 
+   VM. See figure 15.
+
+   .. figure:: figures/vmw-player-preconf/vmw-player-preconf-15.png
+      :scale: 100%
+      :alt: VMware Workstation 14 Player - Power on virtual machine
+
+      Figure 15: VMware Workstation 14 Player - Power on virtual machine
+
+#. Click :guilabel:`Play virtual machine`.
 
 For other guides on using the VMWare player, see:
 

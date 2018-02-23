@@ -271,17 +271,28 @@ following line to the end of your VM's :file:`.vmx` file:
 
    firmware = "efi"
 
-VMware typically saves VM files on the following locations:
+.. note::
 
-* On Linux distros: :file:`/home/username/vmware`
-* On Windows: :file:`C:\Users\username\Documents\Virtual Machines`
+   Depending on the OS, you can typically find the VMware VM files under:
 
-The file type is `VMware virtual machine configuration`.
+   * On Linux distros: :file:`/home/username/vmware`
+   * On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`
 
 Power on the VM
 ***************
 
 After configuring the settings above, power on your |CL| virtual machine.
+
+#. On the :guilabel:`VMware Workstation Player` home screen, select your 
+   VM. See Figure 13.
+
+   .. figure:: figures/vmw-player/vmw-player-13.png
+      :scale: 100%
+      :alt: VMware Workstation 14 Player - Power on virtual machine
+
+      Figure 13: VMware Workstation 14 Player - Power on virtual machine
+
+#. Click :guilabel:`Play virtual machine`.
 
 Also see:
 
