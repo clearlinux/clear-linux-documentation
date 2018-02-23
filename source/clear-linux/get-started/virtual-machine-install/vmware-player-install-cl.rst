@@ -1,4 +1,4 @@
-.. _vmware-player-install-cl:
+.. _vmw-player:
 
 Install Clear Linux as a VMware\* Workstation Player guest OS
 #############################################################
@@ -64,9 +64,10 @@ Install the VMware Workstation Player hypervisor
 
             $ sudo sh ./VMware-Player-[version number].x86_64.bundle
 
-    * On Windows:
+   * On Windows:
 
-      #. Start the installer and follow the Setup Wizard.
+      #. Start the installer.
+      #. Follow the setup wizard.
 
 For additional help, see the `VMware Workstation Player guide`_.
 
@@ -117,7 +118,7 @@ Create and configure a new VM
       Figure 2: VMware Workstation 14 Player - Select |CL| installer ISO
 
 #. Click the :guilabel:`Browse` button and select the uncompressed |CL|
-  installer ISO.
+   installer ISO.
 
 #. Click the :guilabel:`Next` button.
 
@@ -266,14 +267,14 @@ Enable UEFI boot support
 |CL| needs UEFI support to boot. To enable UEFI, add the
 following line to the end of your VM's :file:`.vmx` file:
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    firmware = "efi"
+   firmware = "efi"
 
 VMware typically saves VM files on the following locations:
 
 * On Linux distros: :file:`/home/username/vmware`
-* On Windows: :file:`C:/\Users/\username/\Documents/\Virtual Machines`
+* On Windows: :file:`C:\Users\username\Documents\Virtual Machines`
 
 The file type is `VMware virtual machine configuration`.
 
