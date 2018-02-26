@@ -32,6 +32,7 @@ appropriate set of step-by-step instructions to proceed.
    virtualbox
    vmware-esxi-install-cl
    vmware-esxi-preconfigured-cl-image
-   vmware-player
+   vmw-player
+   vmw-player-preconf
    hyper-v
 
