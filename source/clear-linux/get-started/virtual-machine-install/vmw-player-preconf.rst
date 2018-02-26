@@ -136,7 +136,8 @@ Create and configure a new VM
 
 #. On the :guilabel:`Specify Disk Capacity` screen, click the :guilabel:`Next`
    button. Keep the default disk settings unchanged. When we attach the pre-configured |CL| 
-   VMware image at a later step, we will remove the default virtual disk. See figure 5.
+   VMware image, we will remove the default virtual disk and replace it with the 
+   pre-configured one. See figure 5.
 
    .. figure:: figures/vmw-player-preconf/vmw-player-preconf-05.png
       :scale: 100%
