@@ -296,7 +296,7 @@ After configuring the settings above, power on your |CL| virtual machine.
 
 #. Click :guilabel:`Play virtual machine`.
 
-For other guides on using the VMWare player, see:
+For other guides on using the VMWare Player and ESXi, see:
 
 * :ref:`vmw-player`
 * :ref:`vmware-esxi-install-cl`
