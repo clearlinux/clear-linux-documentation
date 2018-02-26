@@ -37,7 +37,7 @@ SHA512 checksum file, which is designated with the suffix `-SHA512SUMS`.
 
 If the checksum of the downloaded image is different than the original
 checksum, a warning will be displayed with a message indicating the computed
-checksum does NOT match. Otherwise, the name of the image will be printed on
+checksum does **not** match. Otherwise, the name of the image will be printed on
 the screen followed by `OK`.
 
 Uncompress the Clear Linux image
