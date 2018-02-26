@@ -204,7 +204,7 @@ other instances available, they are also listed but not selected.
 
    .. code-block:: console
 
-      ssh -i "AWSClearTestKey.pem" root@ec2-34-209-39-184.us-west-2.compute.amazonaws.com -l clear
+      ssh -i "AWSClearTestKey.pem" clear@ec2-34-209-39-184.us-west-2.compute.amazonaws.com
 
 #. A message appears on the terminal stating the authenticty of the host can't
    be established and prompts you with the message:
