@@ -198,9 +198,9 @@ other instances available, they are also listed but not selected.
       chmod 400 AWSClearTestKey.pem
 
 #. Copy the text highlighted in the :guilabel:`Example:` section that is
-   shown in :ref:`figure 11<fig-aws-web-11>`. Paste the copied text into your terminal and add
-   `-l clear` text to the end of the command string. Press the :kbd:`Enter`
-   key to execute the command.
+   shown in :ref:`figure 11<fig-aws-web-11>`. Paste the copied text into your
+   terminal, change the text before the `@` sign to the username `clear`, and
+   press the :kbd:`Enter` key to execute the command.
 
    .. code-block:: console
 
