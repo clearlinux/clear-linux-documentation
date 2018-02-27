@@ -33,11 +33,12 @@ SHA512 checksum file, which is designated with the suffix `-SHA512SUMS`.
 
    .. code-block:: console
 
-      $ sha512sum ./clear-[version number]-[image type].[compression type] | diff ./clear-[version number]-[image type].[compression type]-SHA512SUMS -
+      $ sha512sum -c ./clear-[version number]-[image type].[compression type]-SHA512SUMS
 
 If the checksum of the downloaded image is different than the original
-checksum, the differences will displayed. Otherwise, an empty output indicates
-a match and your downloaded image is good.
+checksum, a warning will be displayed with a message indicating the computed
+checksum does **not** match. Otherwise, the name of the image will be printed on
+the screen followed by `OK`.
 
 Uncompress the Clear Linux image
 ********************************
