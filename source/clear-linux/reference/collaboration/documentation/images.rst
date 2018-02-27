@@ -45,8 +45,8 @@ Follow these guidelines when creating graphics for the |CLOSIA|:
 
 * Use only approved image formats. Use either PNG or JPEG bitmap files for
   screenshots and SVG files for vector graphics. If a figure is not a
-  photograph or screenshot, please provide figure as a vector graphic to
-  ensure it can be changed later on.
+  photograph or screenshot, use the vector graphic file format to ensure
+  the figure can be changed later.
 
 
 Examples
