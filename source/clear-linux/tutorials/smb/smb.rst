@@ -21,7 +21,7 @@ from |CLOSIA| to Windows. For more advanced sharing, please refer to the
         the second example demonstrates sharing a folder to anyone. The examples
 	assume that a user account named "clearlinuxuser" already exists.
 	If "valid users" is not specified as shown, then anyone with a user account
-	on this machine and with their Samba password set can access the files.
+	on this machine and with their Samba password already set can access the files.
         However, that account is only able to access files and folders that the
         account has permission to on the system. Use :command:`chown`
 	or :command:`chmod` to change either the owner of the file or the
