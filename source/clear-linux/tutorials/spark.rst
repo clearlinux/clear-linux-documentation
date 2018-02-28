@@ -68,9 +68,9 @@ Configure Apache Spark
       $ sudo cp /etc/spark/log4j.properties.template /etc/spark/log4j.properties
 
 #. Edit the :file:`/etc/spark/spark-env.sh` file and add the
-   :option:`SPARK_MASTER_HOST` variable. Replace the example
-   address below with your localhost IP address. (View your IP address with
-   the :command:`hostname -I` command.)
+   :option:`SPARK_MASTER_HOST` variable. Replace the example address below
+   with your localhost IP address. (View your IP address using the
+   :command:`hostname -I` command.)
 
    .. code-block:: xml
 
