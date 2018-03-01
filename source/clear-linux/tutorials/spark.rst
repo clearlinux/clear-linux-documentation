@@ -26,7 +26,7 @@ Before you install any new packages, update |CL| with the following command:
 
 .. code-block:: bash
 
-   $ sudo swupd update
+   sudo swupd update
 
 Install Apache Spark
 ********************
@@ -36,7 +36,7 @@ framework, enter:
 
 .. code-block:: bash
 
-   $ sudo swupd bundle-add big-data-basic
+   sudo swupd bundle-add big-data-basic
 
 Configure Apache Spark
 **********************
@@ -45,14 +45,14 @@ Configure Apache Spark
 
    .. code-block:: bash
 
-      $ sudo mkdir /etc/spark
+      sudo mkdir /etc/spark
 
 #. Copy the default templates from :file:`/usr/share/defaults/spark` to
    :file:`/etc/spark` with the command:
 
    .. code-block:: bash
 
-      $ sudo cp /usr/share/defaults/spark/* /etc/spark
+      sudo cp /usr/share/defaults/spark/* /etc/spark
 
    .. note:: Since |CL| is a stateless system, you should never modify the
       files under the :file:`/usr/share/defaults` directory. The software
@@ -63,9 +63,9 @@ Configure Apache Spark
 
    .. code-block:: bash
 
-      $ sudo cp /etc/spark/spark-defaults.conf.template /etc/spark/spark-defaults.conf
-      $ sudo cp /etc/spark/spark-env.sh.template /etc/spark/spark-env.sh
-      $ sudo cp /etc/spark/log4j.properties.template /etc/spark/log4j.properties
+      sudo cp /etc/spark/spark-defaults.conf.template /etc/spark/spark-defaults.conf
+      sudo cp /etc/spark/spark-env.sh.template /etc/spark/spark-env.sh
+      sudo cp /etc/spark/log4j.properties.template /etc/spark/log4j.properties
 
 #. Edit the :file:`/etc/spark/spark-env.sh` file and add the
    :option:`SPARK_MASTER_HOST` variable. Replace the example address below
@@ -94,14 +94,14 @@ Start the master server and a worker daemon
 
    .. code-block:: bash
 
-      $ sudo /usr/share/apache-spark/sbin/./start-master.sh
+      sudo /usr/share/apache-spark/sbin/./start-master.sh
 
 #. Start one worker daemon and connect it to the master using the
    :option:`spark.master` variable defined earlier:
 
    .. code-block:: bash
 
-      $ sudo /usr/share/apache-spark/sbin/./start-slave.sh spark://10.300.200.100:7077
+      sudo /usr/share/apache-spark/sbin/./start-slave.sh spark://10.300.200.100:7077
 
 #. Open an internet browser and view the worker daemon information using
    the master's IP address and port :option:`8080`:
@@ -118,7 +118,7 @@ Run the Spark wordcount example
 
    .. code-block:: bash
 
-      $ sudo spark-submit /usr/share/apache-spark/examples/src/main/python/wordcount.py ~/Documents/example_file > ~/Documents/results
+      sudo spark-submit /usr/share/apache-spark/examples/src/main/python/wordcount.py ~/Documents/example_file > ~/Documents/results
 
 #. Open an internet browser and view the application information using
    the master's IP address and port :option:`8080`:
