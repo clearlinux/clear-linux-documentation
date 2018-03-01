@@ -69,7 +69,7 @@ daemons need a restart, as shown below:
 
     .. code-block:: bash
 
-      $ sudo clr-service-restart -a -n
+      sudo clr-service-restart -a -n
 
     .. code-block:: console
 
@@ -99,7 +99,7 @@ OS software update.
 
   .. code-block:: bash
 
-  $ sudo clr-service-restart allow tallow.service
+    sudo clr-service-restart allow tallow.service
 
 The :option:`disallow` option tells :command:`clr-service-restart` not to
 restart the specified daemon even if the OS defaults permit the daemon to be
@@ -110,7 +110,7 @@ The example below tells :command:`clr-service-restart` not to restart the
 
   .. code-block:: bash
 
-  $ sudo clr-service-restart disallow rngd
+    sudo clr-service-restart disallow rngd
 
 The :option:`default` option makes :command:`clr-service-restart` revert back
 to the OS defaults and delete any symlink in :file:`/etc/clr-service-restart`.
@@ -120,7 +120,7 @@ automatic service restarts by default in |CL|.
 
   .. code-block:: bash
 
-  $ sudo clr-service-restart default rngd
+    sudo clr-service-restart default rngd
 
 Monitoring options for :command:`clr-service-restart`
 =====================================================
