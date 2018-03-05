@@ -55,24 +55,24 @@ Using the enhanced swupd mixer
 Perform the following steps:
 
 #. Create a folder :file:`/usr/share/mix/rpms` for the local update content
-   and copy the desired RPMs into the folder:
+   and copy the desired RPM into the folder:
 
    .. note::
 
-     The RPMs must be formatted and built for |CL|.
+     The RPM must be formatted and built for |CL|.
 
    .. code-block:: bash
 
-      sudo cp <RPM1 RPMn> /usr/share/mix/rpms/
+      sudo cp RPM /usr/share/mix/rpms/
 
-#. Add RPMs and create content.
+#. Add RPM and create content.
 
    .. code-block:: bash
 
-      sudo swupd-add-pkg <RPM1 RPMn> <bundle_name>
+      sudo swupd-add-pkg RPM <bundle_name>
 
    The :file:`swupd-add-pkg` script creates the :command:`<bundle_name>`
-   bundle if it does not exist, adds the RPMs to it, and generates the
+   bundle if it does not exist, adds the RPM to it, and generates the
    required mixer content and manifests.
 
 #. Use the new :command:`--migrate` flag to let :command:`swupd` know that
@@ -105,7 +105,7 @@ content using the following command:
 
    .. note::
 
-      The options used in the example delete the :file:`/usr/share/mix` folder.
+      The options used in the example delete the :file:`/usr/share/mix` folder, and all other extraneous data on your system that is not part of <upstreamversion>.
 
 
 swupd operational details
