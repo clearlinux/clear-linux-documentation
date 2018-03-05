@@ -4,8 +4,8 @@ Set up a standalone cluster system using Apache\* Spark\*
 #########################################################
 
 This tutorial describes how to install, configure, and run Apache Spark on
-Clear Linux OS for Intel(r) Architecture. Apache Spark is a fast
-general-purpose cluster computing system with the following features:
+|CLOSIA|. Apache Spark is a fast general-purpose cluster computing system with
+the following features:
 
 *  Provides high-level APIs in Java\*, Scala\*, Python\*, and R\*.
 *  Includes an optimized engine that supports general execution graphs.
@@ -68,11 +68,11 @@ Configure Apache Spark
       sudo cp /etc/spark/log4j.properties.template /etc/spark/log4j.properties
 
 #. Edit the :file:`/etc/spark/spark-env.sh` file and add the
-   :option:`SPARK_MASTER_HOST` variable. Replace the example address below
-   with your localhost IP address. (View your IP address using the
-   :command:`hostname -I` command.)
+   :envvar:`SPARK_MASTER_HOST` variable. Replace the example address below
+   with your localhost IP address. View your IP address using the
+   :command:`hostname -I` command.
 
-   .. code-block:: xml
+   .. code-block::
 
       SPARK_MASTER_HOST="10.300.200.100"
 
@@ -80,10 +80,9 @@ Configure Apache Spark
       view information needed later in this tutorial.
 
 #. Edit the :file:`/etc/spark/spark-defaults.conf` file and update the
-   :option:`spark.master` variable with the :option:`SPARK_MASTER_HOST` address
-   from the previous step and port :option:`7077`.
+   `spark.master` variable with the `SPARK_MASTER_HOST` address and port `7077`.
 
-   .. code-block:: xml
+   .. code-block::
 
       spark.master    spark://10.300.200.100:7077
 
@@ -97,16 +96,16 @@ Start the master server and a worker daemon
       sudo /usr/share/apache-spark/sbin/./start-master.sh
 
 #. Start one worker daemon and connect it to the master using the
-   :option:`spark.master` variable defined earlier:
+   `spark.master` variable defined earlier:
 
    .. code-block:: bash
 
       sudo /usr/share/apache-spark/sbin/./start-slave.sh spark://10.300.200.100:7077
 
 #. Open an internet browser and view the worker daemon information using
-   the master's IP address and port :option:`8080`:
+   the master's IP address and port `8080`:
 
-   .. code-block:: xml
+   .. code-block::
 
       http://10.300.200.100:8080
 
@@ -121,14 +120,13 @@ Run the Spark wordcount example
       sudo spark-submit /usr/share/apache-spark/examples/src/main/python/wordcount.py ~/Documents/example_file > ~/Documents/results
 
 #. Open an internet browser and view the application information using
-   the master's IP address and port :option:`8080`:
+   the master's IP address and port `8080`:
 
-   .. code-block:: xml
+   .. code-block::
 
       http://10.300.200.100:8080
 
-#. View the results of the wordcount application in the results file specified
-   in step 1.
+#. View the results of the wordcount application in the :file:`~/Documents/results` file.
 
 **Congratulations!**
 
