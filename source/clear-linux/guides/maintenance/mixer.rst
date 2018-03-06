@@ -765,7 +765,7 @@ needed to understand the content built in the subsequent format. Only after
 reaching the final release in the old format can a client continue to update
 to releases in the new format.
 
-When creating a custom mix, the format version should start at `1` or some
+When creating a custom mix, the format version should start at "1" or some
 known number. The format version should increment only when a compatibility
 breakage is introduced. Normal updates, like updating a software package for
 example, do not require a format increment.
