@@ -222,7 +222,7 @@ The following variables require further explanation:
   how to install and configure web server using |CL|, visit
   :ref:`web-server-install`. For our example, the web update content within
   the `SERVER_STATE_DIR` directory is located here:
-  :file:`/home/clr/mix/update/www`. If the web server is on same machine as
+  :file:`/home/clr/mix/update/www`. If the web server is on the same machine as
   this directory, you can create a symlink to the directory in your web
   server's document root to easily host the content. These URLs are
   embedded in images created for your mix. The `swupd-client` looks at
@@ -279,7 +279,7 @@ Create a local RPM repo
       LOCAL_REPO_DIR=/home/clr/mix/local-yum
 
 #. With these values configured, generate the yum repo with the following
- command:
+   command:
 
    .. code-block:: bash
 
