@@ -1,55 +1,60 @@
 .. _ovs-dpdk:
 
-Enable DPDK support on OpenvSwitch
-##################################
+Enable DPDK support on Open vSwitch
+###################################
 
-Enabling `DPDK`_ support on the `OpenvSwitch`_ project can yield significant
-network performance improvements. To illustrate one such example, we'll cover
-the simple use case shown on :ref:`figure 1<f1ovs>`, where one virtual
-machine sends 1,000,000 HTTP requests to another virtual machine. The
-connection between both VMs will be through a virtual bridge created by
-different tools:
+To significantly improve network performance, enable `DPDK`_ support on the
+`OpenvSwitch`_ project. This guide describes a simple use case shown in
+:ref:`Figure 1 <f1ovs>`, where one :abbr:`VM (virtual machine)` sends 1,000,000 HTTP
+requests to another VM.
 
-- Linux bridges.
-- OpenvSwitch bridges.
-- Custom-built of OpenvSwitch-DPDK bridges.
+This guide describes how to connect VMs using each of the following methods:
+
+* Linux\* bridge.
+* Open vSwitch\* bridge.
+* Custom-built Open vSwitch-DPDK bridge.
+
+After setup is complete, measure network performance to see which bridge has
+the best results.
 
 .. _f1ovs:
 
 .. figure:: ./figures/use-case.png
 
-   Figure 1: Basic virtual network environment.
+   Figure 1: Basic virtual network environment
 
-Requirements
-============
+Prerequisites
+*************
 
-#. The recommended release for this example is greater or equal to 13360,
-   it is possible to update the system with this command.
+Perform the steps below before you run the example.
 
-   .. code-block:: bash
+#.  Download |CLOSIA| release 13360 or higher from `Clear Linux releases`_.
+    Update your system with the command:
 
-      # swupd update
+    .. code-block:: bash
 
-#. Install the following bundles: network-basic, kvm-host.
+       sudo swupd update
 
-   .. code-block:: bash
+#.  Install the `network-basic` and `kvm-host` bundles.
 
-      # swupd bundle-add network-basic
-      # swupd bundle-add kvm-host
+    .. code-block:: bash
 
-#. Download a clear linux image and OVMF.fd file, this image will be used as
-   the guest VMs in the `Clear Linux downloads`_.
+       sudo swupd bundle-add network-basic
+       sudo swupd bundle-add kvm-host
+
+#.  Download a |CL| image and :file:`OVMF.fd` file from
+    `Clear Linux images`_. The images will be used as guest VMs.
 
 
-Using Linux Bridges
-===================
+Use Linux bridge
+****************
 
 #. Create a script named :file:`qemu-ifup` for a Linux bridge in a virtual
    machine.
 
    .. code-block:: bash
 
-      #!/bin/bash
+      sudo!/bin/bash
 
       set -x
 
@@ -67,41 +72,39 @@ Using Linux Bridges
           exit 1
       fi
 
-#. Enable execute permission on the script, preserving its group permissions
-   with respect to other files.
+#. Enable execute permission on the script. Preserve the group
+   permissions with respect to other files using the options below.
 
    .. code-block:: bash
 
-      # chmod a+x qemu-ifup
+      sudo chmod a+x qemu-ifup
 
-#. Create a bridge using the :command:`brctl` tool; you can verify whether
-   the bridge was successfully created by using ip tool.
-
-   .. code-block:: bash
-
-      # brctl addbr br0
-
-   .. note::
-
-      At this point, it is possible to add a NIC with
-      ``brctl addif br0 <network interface>``, example:
+#. Create a bridge using the :command:`brctl` tool. Use the ip tool to verify whether
+   or not the bridge was successfully created.
 
    .. code-block:: bash
 
-      # brctl addif br0 enp3s0f0
+      sudo brctl addbr br0
+      sudo ip a
+
+#. Add a NIC using the syntax `brctl addif br0 <network interface>`.
+
+   .. code-block:: bash
+
+      sudo brctl addif br0 enp3s0f0
 
 #. Set up the Linux bridge.
 
    .. code-block:: bash
 
-      # ip link set dev br0 up
+      sudo ip link set dev br0 up
 
-#. Run guest virtual machine A using the next configuration as reference,
-   where the **$IMAGE** var is the Clear Linux image name.
+#. Run guest virtual machine A using the following reference configuration,
+   where the :envvar:`$IMAGE` variable is the |CL| image name.
 
    .. code-block:: bash
 
-      $ qemu-system-x86_64 \
+        qemu-system-x86_64 \
             -enable-kvm -m 1024 \
             -bios OVMF.fd \
             -smp cpus=2,cores=1 -cpu host \
@@ -110,75 +113,73 @@ Using Linux Bridges
             -net nic,macaddr=00:11:22:33:44:55,model=virtio -net tap,script=qemu-ifup \
             -debugcon file:debug.log -global isa-debugcon.iobase=0x402
 
-#. Run guest virtual machine B using the configuration from the previous
-   step; take care to update the MAC address.
+#. Run guest virtual machine B using a similar reference configuration. Be
+   sure to change the MAC address to a different value.
 
-#. Follow the instructions from the `Setting IP Address`_ section.
+#. Follow the instructions in the :ref:`set-ip-address` section.
 
-#. Alternatively, clean the previous environment, turn off the virtual
+#. When testing is complete, clean the previous environment, turn off the virtual
    machines, and delete the bridge.
 
    .. code-block:: bash
 
-      # ip link set dev br0 down
-      # brctl delbr br0
+      sudo ip link set dev br0 down
+      sudo brctl delbr br0
 
-Using OpenvSwitch
-=================
+Use Open vSwitch bridge
+***********************
 
-#. Start the OpenvSwitch service.
-
-   .. code-block:: bash
-
-      # systemctl start openvswitch.service
-
-#. Create a bridge using the OpenvSwitch tool; you can verify whether or not
-   the bridge was successfully created by running ip tool.
+#. Start the Open vSwitch service.
 
    .. code-block:: bash
 
-      # ovs-vsctl add-br br0
-      # ip a
+      sudo systemctl start openvswitch.service
 
-#. Create an ``UP`` script named :file:`ovs-ifup` which can bring up the tap
-   devices.
+#. Create a bridge using the Open vSwitch tool. Use the ip tool to verify whether
+   or not the bridge was successfully created.
 
    .. code-block:: bash
 
-      #!/bin/sh
+      sudo ovs-vsctl add-br br0
+      sudo ip a
+
+#. Create an `UP` script named :file:`ovs-ifup` to bring up the tap devices.
+
+   .. code-block:: bash
+
+      sudo!/bin/sh
 
       switch="br0"
       /usr/bin/ifconfig $1 0.0.0.0 up
       ovs-vsctl add-port ${switch} $1
 
-#. Create a ``DOWN`` script named :file:`ovs-ifdown` which can bring up the
-   tap devices.
+#. Create a `DOWN` script named :file:`ovs-ifdown` to bring down the tap
+   devices.
 
    .. code-block:: bash
 
-      #!/bin/sh
+      sudo!/bin/sh
 
       switch="br0"
       /usr/bin/ifconfig $1 0.0.0.0 down
       ovs-vsctl del-port ${switch} $1
 
-
-#. Enable execute permission on the scripts, preserving their group
-   permissions with respect to other files.
-
-   .. code-block:: bash
-
-      # chmod a+x ovs-ifdown
-      # chmod a+x ovs-ifup
-
-#. Run guest virtual machine A using the next configuration as reference,
-   where **$IMAGE** var is the name of the Clear Linux\* OS for Intel
-   Architecture image. Notice the network configuration uses the up-down
-   scripts.
+#. Enable execute permission on the scripts. Preserve the group
+   permissions with respect to other files using the options below.
 
    .. code-block:: bash
 
-      $ qemu-system-x86_64 \
+      sudo chmod a+x ovs-ifdown
+      sudo chmod a+x ovs-ifup
+
+#. Run guest virtual machine A using the following reference configuration,
+   where the :envvar:`$IMAGE` variable is the |CL| image name. Note that
+   the network configuration uses the :file:`ovs-ifup` and
+   :file:`ovs-ifdown` scripts.
+
+   .. code-block:: bash
+
+        qemu-system-x86_64 \
             -enable-kvm -m 1024 \
             -bios OVMF.fd \
             -smp cpus=2,cores=1 -cpu host \
@@ -187,111 +188,109 @@ Using OpenvSwitch
             -net nic,model=virtio,macaddr=00:11:22:33:44:55 -net tap,script=ovs-ifup,downscript=ovs-ifdown \
             -debugcon file:debug.log -global isa-debugcon.iobase=0x402
 
-#. Run guest virtual machine B using the configuration from step 5, only
-   it's necessary to change the MAC address to something like *00:11:22:33:44:56*
+#. Run guest virtual machine B using a similar reference configuration. Be
+   sure to change the MAC address to a different value.
 
-#. Follow the instructions in the `Setting IP address`_ section.
+#. Follow the instructions in the :ref:`set-ip-address` section.
 
-#. Alternatively, clean the previous environment, turn off the virtual
+#. When testing is complete, clean the previous environment, turn off the virtual
    machines, and delete the bridge.
 
    .. code-block:: bash
 
-      # ovs-vsctl del-br br0
-      # ovs-vsctl show
+      sudo ovs-vsctl del-br br0
+      sudo ovs-vsctl show
 
-Using Linux OpenvSwitch-DPDK
-============================
+
+Use custom-built Open vSwitch-DPDK bridge
+*****************************************
 
 #. Enable VT-d technology in the BIOS.
 
-#. Enable VT-d in the host kernel command line, to enable VT-d in the host
-   kernel command line, the
-   :file:`clear-linux-native-{current-kernel-version}.conf`
-   file must be edited. Add ``iommu=pt intel_iommu=on`` to
-   the end of the line. The file is found within the UEFI boot partition.
+#. Enable VT-d in the host kernel command line. You must edit the
+   :file:`clear-linux-native-{current-kernel-version}.conf` file in the
+   UEFI boot partition. Add `iommu=pt intel_iommu=on` to the end of the
+   line.
 
    .. code-block:: bash
 
-      # systemctl start boot.mount
-      # cd /boot/loader/entries/
+      sudo systemctl start boot.mount
+      sudo cd /boot/loader/entries/
 
 #. Unmount the UEFI partition and reboot the machine.
 
    .. code-block:: bash
 
-      # cd /
-      # systemctl stop boot.mount
-      # reboot
+      sudo cd /
+      sudo systemctl stop boot.mount
+      sudo reboot
 
 #. Set number of hugepages.
 
    .. code-block:: bash
 
-      # echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+      sudo echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Allocate pages on NUMA machines.
 
    .. code-block:: bash
 
-      # echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-      # echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+      sudo echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+      sudo echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Make memory available for the DPDK.
 
    .. code-block:: bash
 
-      # mkdir -p /mnt/huge
-      # mount -t hugetlbfs nodev /mnt/huge
+      sudo mkdir -p /mnt/huge
+      sudo mount -t hugetlbfs nodev /mnt/huge
 
-#. Download a clear linux image and OVMF.fd file, this image will be used as
-   the guest VMs in the `Clear Linux downloads`_.
+#. Download a |CL| image and :file:`OVMF.fd` file from
+   `Clear Linux images`_. The images will be used as guest VMs.
 
-#. Start the OpenvSwitch service.
+#. Start the Open vSwitch service.
 
    .. code-block:: bash
 
-      # systemctl start openvswitch
+      sudo systemctl start openvswitch
 
-#. OpenvSwitch must be configured to enable the DPDK functionality like core
+#. Configure Open vSwitch to enable DPDK functionality such as core
    mask, socket memory, and others. This example reproduces the environment
-   shown in figure 1.0. The `OpenvSwitch documentation`_ provides additional
+   shown in :ref:`Figure 1`. See the `OpenvSwitch documentation`_ for more
    information about DPDK configuration.
 
    .. code-block:: bash
 
-      # ovs-vsctl --no-wait init
-      # ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-lcore-mask=0x2
-      # ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-socket-mem=2048
-      # ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init=true
+      sudo ovs-vsctl --no-wait init
+      sudo ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-lcore-mask=0x2
+      sudo ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-socket-mem=2048
+      sudo ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init=true
 
-#. Restart the OpenvSwitch service in order to update the new DPDK
-   configuration.
-
-   .. code-block:: bash
-
-      # systemctl restart openvswitch
-
-#. Create a virtual bridge using openvswitch.
+#. Restart the Open vSwitch service to update the new DPDK configuration.
 
    .. code-block:: bash
 
-      # ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
+      sudo systemctl restart openvswitch
+
+#. Create a virtual bridge using Open vSwitch.
+
+   .. code-block:: bash
+
+      sudo ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
 
 #. Add the vhost-dpdk ports to the bridge.
 
    .. code-block:: bash
 
-      # ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
-      # ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
+      sudo ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
+      sudo ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
 
-#. Run guest virtual machine A using the next configuration as reference,
-   where **$IMAGE** var is the name of the Clear Linux\* OS for Intel
-   Architecture image.
+#. Run guest virtual machine A using the following reference configuration,
+   where the :envvar:`$IMAGE` variable is the |CL| image name.
 
    .. code-block:: bash
 
-      $ qemu-system-x86_64 \
+        qemu-system-x86_64 \
           -enable-kvm -m 1024 \
           -bios OVMF.fd \
           -smp 4 -cpu host \
@@ -304,51 +303,52 @@ Using Linux OpenvSwitch-DPDK
           -numa node,memdev=mem -mem-prealloc \
           -debugcon file:debug.log -global isa-debugcon.iobase=0x402
 
-#. Run guest virtual machine B, use the configuration from the previous step;
-   simply change the MAC address and the port socket. You can use
-   00:00:00:00:00:02 as a MAC address and vhost-user2 as a socket.
+#. Run guest virtual machine B using a similar reference configuration. Be
+   sure to change the MAC address and port socket to different values.
+   For example, use `vhost-user2` as a socket.
 
-#. Follow the instructions from the `Setting IP address`_ section.
+#. Follow the instructions in the :ref:`set-ip-address` section.
 
 
 
-.. _Setting IP address:
+.. _set-ip-address:
 
-Setting IP address
-==================
+Set IP address
+**************
 
-#. Set an IP address to virtual machine for virtual machine A:
-
-   .. code-block:: bash
-
-      # ip addr add dev enp0s2 10.0.0.5/24
-
-   for virtual machine B:
+#. Set an IP address for virtual machine A.
 
    .. code-block:: bash
 
-      # ip addr add dev enp0s2 10.0.0.6/24
+      sudo ip addr add dev enp0s2 10.0.0.5/24
 
-#. Check if there is communication between both virtual machines using ping
-   tool.
-
-#. Verify that Apache service is running:
+#. Set an IP address for virtual machine B.
 
    .. code-block:: bash
 
-      # systemctl status httpd.service
-      # systemctl start httpd.service
+      sudo ip addr add dev enp0s2 10.0.0.6/24
 
-   Start httpd service only if it is inactive. Use apache benchmark to get
-   information about the network performance between both virtual machines.
+#. Check if there is communication between both virtual machines using the
+   ping tool.
+
+#. Verify the Apache\* service is running. If the httpd service is inactive,
+   use the `start` command.
 
    .. code-block:: bash
 
-      # ab -n 1000000 -c 100 http://10.0.0.6/
+      sudo systemctl status httpd.service
+      sudo systemctl start httpd.service
+
+#. Use Apache benchmarks to get information about the network performance
+   between both virtual machines.
+
+   .. code-block:: bash
+
+      sudo ab -n 1000000 -c 100 http://10.0.0.6/
 
 
 .. _DPDK: http://dpdk.org/
-.. _kvm: https://download.clearlinux.org/releases/
-.. _Clear Linux downloads: https://download.clearlinux.org/image/
+.. _Clear Linux releases: https://download.clearlinux.org/releases/
+.. _Clear Linux images: https://download.clearlinux.org/image/
 .. _OpenvSwitch: http://openvswitch.org/
 .. _OpenvSwitch documentation: http://docs.openvswitch.org/en/latest/
