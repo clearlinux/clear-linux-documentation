@@ -15,8 +15,9 @@ The example demonstrates how to:
 
 *  Enable jumbo frames to optimize large data transfers on the local network.
 
-You may need to configure your NICs and network switch to support `802.3ad`
-mode and jumbo frames.
+Your NICs and network switch must support `802.3ad` mode and jumbo frames. The
+example explains how to configure your NICs for both features. Your switch may
+require additional configuration. See your switch documentation for details.
 
 .. note::
 
@@ -74,8 +75,8 @@ mode and jumbo frames.
    For best results, do not assign addresses or DHCP support to the individual
    NICs.
 
-   The `[Link]` setting enables jumbo frames of up to 9000 bytes. Your switch
-   may require additional configuration to support this setting.
+   The `MTUBytes` setting enables jumbo frames of up to 9000 bytes. Your
+   switch may require additional configuration to support this setting.
 
 #. Configure the bonded interface in a file named :file:`30-bond1.network`.
 
@@ -99,8 +100,9 @@ mode and jumbo frames.
    `Address` contains an IP address that you assign to the logical interface.
    DHCP bonded interfaces are complex and outside the scope of this example.
 
-   `MTUBytes` must be the same on all slave interfaces and on the bonded
-   interface for successful operation.
+   `MTUBytes` must be set to 9000 on all slave interfaces and on the bonded
+   interface for successful jumbo frames operation. If `MTUBytes` is not the
+   same on all interfaces, then the lowest value is used.
 
 #. Apply the new network configuration with the command:
 
@@ -108,7 +110,7 @@ mode and jumbo frames.
 
       sudo systemctl restart systemd-networkd
 
-   The `MTUBytes` settings do not take effect until you reboot or you explicitly
+   The `MTUBytes` settings do not take effect until you reboot or manually
    apply the settings with a utility such as `ifconfig`.
 
 .. _bonding:
