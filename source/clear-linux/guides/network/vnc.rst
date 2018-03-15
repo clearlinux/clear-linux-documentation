@@ -292,7 +292,7 @@ to perform this configuration.
 
 		EOF
 
-#.	Create the path `/etc/gdm`.
+#.	Create the path :file:`/etc/gdm`.
 
 	.. code-block:: console
 
