@@ -148,9 +148,9 @@ You (and each user) must perform these steps to initialize your VNC settings.
 #.	Optional configurations:
 	
 	*	To customize settings such as screen size, security type, etc., 
-		modify the `%HOME/.vnc/config` file.  
+		modify the :file:`%HOME/.vnc/config` file.  
 	*	To customize the applications to run at startup, 
-		modify the `%HOME/.vnc/xstartup` file.  
+		modify the :file:`%HOME/.vnc/xstartup` file.  
 
 Method 2: Automatically start a VNC session via a systemd service script
 ========================================================================
@@ -173,14 +173,14 @@ preassigned unique display ID.
 
 		# cut -d: -f1 /etc/passwd
 
-#.	Create the path `/etc/systemd/system`.
+#.	Create the path :file:`/etc/systemd/system`.
 
 	.. code-block:: console
 
 		# mkdir -p /etc/systemd/system
 
 #.	Create a systemd service script file :file:`vncserver@:[X].service`, where 
-	[X] is the display ID, for each user in `/etc/systemd/system`.  Each user  
+	[X] is the display ID, for each user in :file:`/etc/systemd/system`.  Each user  
 	must be assigned a unique display ID.  Be sure the correct username is entered 
 	in the `User` field. The example below shows user `vnc-user-b` who is 
 	assigned the display ID `5`.  
@@ -633,7 +633,7 @@ Configure VNC to only accept connection from localhost
 ======================================================
 *	For `Method 1`:
 
-	#.	Edit the :file:`config` file located in `%HOME/.vnc` and uncomment the 
+	#.	Edit the :file:`config` file located in :file:`%HOME/.vnc` and uncomment the 
 		`# localhost` line.  It should look like this:
 
 		.. code-block:: console
@@ -653,7 +653,7 @@ Configure VNC to only accept connection from localhost
 *	For `Method 2`:
 
 	#.	Edit the systemd service script :file:`vncserver@:[X].service` located in 
-		`/etc/systemd/system` and add `-localhost` to the `ExecStart` line.  
+		:file:`/etc/systemd/system` and add `-localhost` to the `ExecStart` line.  
 		The example below uses vncserver@:5.service:
 
 		.. code-block:: console
@@ -710,7 +710,7 @@ Figure 8 shows two VNC sessions (5901 and 5905) only
 accepting connections from localhost as specified by `127.0.0.1`'s. 
 This is after the `-localhost` option was used.  
  
-.. figure:: figures/vnc/vnc-7.png
+.. figure:: figures/vnc/vnc-8.png
 	:scale: 100 %
 	:alt: VNC session only accepting connection from localhost
 
