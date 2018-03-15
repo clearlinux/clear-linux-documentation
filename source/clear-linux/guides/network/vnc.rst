@@ -251,7 +251,7 @@ to perform this configuration.
 
 		$ sudo -s
 
-#.	Create the path `/etc/systemd/system`.
+#.	Create the path :file:`/etc/systemd/system`.
 
 	.. code-block:: console
 
