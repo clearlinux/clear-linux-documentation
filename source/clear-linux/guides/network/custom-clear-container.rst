@@ -1,10 +1,10 @@
 .. _custom-clear-container:
 
-Build a custom Clear Linux\* based Docker\* container image
-###########################################################
+Build a custom Clear Linux based Docker container image
+#######################################################
 
 The official base |CLOSIA| container image is published on Docker\* Hub and is
-updated on a regular basis. This section contains the steps to build a custom
+updated on a regular basis. This guide contains the steps to build a custom
 container image.
 
 Prerequisites
