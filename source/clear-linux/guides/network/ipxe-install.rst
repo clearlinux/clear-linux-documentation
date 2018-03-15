@@ -21,7 +21,7 @@ the flow of information between a PXE server and a PXE client.
 .. figure:: ./figures/network-boot-flow.png
    :alt: PXE information flow
 
-   Figure 1: PXE information flow
+   Figure 1: PXE information flow.
 
 .. caution::
 
@@ -40,7 +40,7 @@ shown in Figure 2.
 .. figure:: ./figures/network-boot-setup.png
    :alt: Network topology
 
-   Figure 2: Network topology
+   Figure 2: Network topology.
 
 Your PXE client must have a boot order where the network boot option is
 prioritized before the disk boot option.
