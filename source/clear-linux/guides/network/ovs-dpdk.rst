@@ -4,7 +4,7 @@ Enable DPDK support on Open vSwitch
 ###################################
 
 To significantly improve network performance, enable `DPDK`_ support on the
-`OpenvSwitch`_ project. This guide describes a simple use case shown in
+`Open vSwitch`_ project. This guide describes a simple use case shown in
 :ref:`Figure 1 <f1ovs>`, where one :abbr:`VM (virtual machine)` sends 1,000,000 HTTP
 requests to another VM.
 
@@ -21,7 +21,7 @@ the best results.
 
 .. figure:: ./figures/use-case.png
 
-   Figure 1: Basic virtual network environment
+   Figure 1: Basic virtual network environment.
 
 Prerequisites
 *************
@@ -116,7 +116,7 @@ Use Linux bridge
 #. Run guest virtual machine B using a similar reference configuration. Be
    sure to change the MAC address to a different value.
 
-#. Follow the instructions in the :ref:`set-ip-address` section.
+#. Follow the instructions in the :ref:`set-ip-addr-ovs-dpdk` section.
 
 #. When testing is complete, clean the previous environment, turn off the virtual
    machines, and delete the bridge.
@@ -191,7 +191,7 @@ Use Open vSwitch bridge
 #. Run guest virtual machine B using a similar reference configuration. Be
    sure to change the MAC address to a different value.
 
-#. Follow the instructions in the :ref:`set-ip-address` section.
+#. Follow the instructions in the :ref:`set-ip-addr-ovs-dpdk` section.
 
 #. When testing is complete, clean the previous environment, turn off the virtual
    machines, and delete the bridge.
@@ -256,7 +256,7 @@ Use custom-built Open vSwitch-DPDK bridge
 
 #. Configure Open vSwitch to enable DPDK functionality such as core
    mask, socket memory, and others. This example reproduces the environment
-   shown in :ref:`Figure 1`. See the `OpenvSwitch documentation`_ for more
+   shown in :ref:`Figure 1`. See the `Open vSwitch documentation`_ for more
    information about DPDK configuration.
 
    .. code-block:: bash
@@ -307,11 +307,11 @@ Use custom-built Open vSwitch-DPDK bridge
    sure to change the MAC address and port socket to different values.
    For example, use `vhost-user2` as a socket.
 
-#. Follow the instructions in the :ref:`set-ip-address` section.
+#. Follow the instructions in the :ref:`set-ip-addr-ovs-dpdk` section.
 
 
 
-.. _set-ip-address:
+.. _set-ip-addr-ovs-dpdk:
 
 Set IP address
 **************
@@ -350,5 +350,5 @@ Set IP address
 .. _DPDK: http://dpdk.org/
 .. _Clear Linux releases: https://download.clearlinux.org/releases/
 .. _Clear Linux images: https://download.clearlinux.org/image/
-.. _OpenvSwitch: http://openvswitch.org/
-.. _OpenvSwitch documentation: http://docs.openvswitch.org/en/latest/
+.. _Open vSwitch: http://openvswitch.org/
+.. _Open vSwitch documentation: http://docs.openvswitch.org/en/latest/
