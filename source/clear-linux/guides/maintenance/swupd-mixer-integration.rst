@@ -24,7 +24,7 @@ To add a package that does not exist in the current |CL| bundle, perform the fol
    .. code-block:: bash
 
       sudo swupd update
-      sudo swupd bundle add <new_bundle>
+      sudo swupd bundle-add <new_bundle>
 
 The upstream content is pulled from the normal URL and local content is added
 from a local update store.
