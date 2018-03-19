@@ -79,8 +79,8 @@ Use Linux bridge
 
       sudo chmod a+x qemu-ifup
 
-#. Create a bridge using the :command:`brctl` tool. Use the ip tool to verify whether
-   or not the bridge was successfully created.
+#. Create a bridge using the :command:`brctl` tool. Use the `ip` tool to
+   verify whether or not the bridge was successfully created.
 
    .. code-block:: bash
 
@@ -118,8 +118,8 @@ Use Linux bridge
 
 #. Follow the instructions in the :ref:`set-ip-addr-ovs-dpdk` section.
 
-#. When testing is complete, clean the previous environment, turn off the virtual
-   machines, and delete the bridge.
+#. When testing is complete, clean the previous environment, turn off the
+   virtual machines, and delete the bridge.
 
    .. code-block:: bash
 
@@ -135,7 +135,7 @@ Use Open vSwitch bridge
 
       sudo systemctl start openvswitch.service
 
-#. Create a bridge using the Open vSwitch tool. Use the ip tool to verify whether
+#. Create a bridge using the Open vSwitch tool. Use the `ip` tool to verify whether
    or not the bridge was successfully created.
 
    .. code-block:: bash
