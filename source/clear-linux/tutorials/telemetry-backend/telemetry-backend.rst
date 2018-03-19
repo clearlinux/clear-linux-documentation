@@ -13,6 +13,7 @@ also redirect where records go if they wish to collect records for themselves
 by setting up and using their own telemetry backend server.
 
 A telemetry backend server consists of two Flask applications:
+
 * The :guilabel:`collector` is an ingestion app for records received from the
   :guilabel:`telemetrics-client` probes.
 * The :guilabel:`telemetryui` web app exposes several visualizations of the
