@@ -1,7 +1,7 @@
 .. _cl-restart:
 
-Restarting system services after an OS update
-#############################################
+Restart system services after an OS update
+##########################################
 
 The software life cycle describes how software is created, developed, and
 deployed, and includes how to replace or update software. A good OS
@@ -16,7 +16,7 @@ until now.
 User challenges
 ***************
 
-It can be difficult to determine which services to restart. You can either
+It is difficult to determine which services to restart. You can either
 evaluate each system and reboot manually, or figure out which services to
 restart based on documentation like the |CL| release notes. Since neither
 option solves the issue completely, the |CL| team created a solution.
@@ -46,7 +46,7 @@ requirements:
 :command:`clr-service-restart` functionality
 ********************************************
 
-The most typical reasons to restart a service daemon include:
+Typical reasons to restart a service daemon include:
 
 * A new version replaces the executable file itself.
 * A new version replaces a library component used by a service daemon.
@@ -55,21 +55,21 @@ Our method restarts daemons for both cases by reading various files in the
 :file:`procfs` filesystem provided by the kernel.
 
 The second part of the problem is to determine whether or not running
-processes are part of a system service. (The tool focuses on system services
+processes are part of a system service. The tool focuses on system services
 because most system services are background tasks with no direct user
-interaction.) Fortunately, :command:`systemd` provides a simple way to:
+interaction. Fortunately, :command:`systemd` provides a simple way to:
 
 * Determine which active tasks are within the system domain.
 * Determine which service daemon maps to the task.
 
 We combined both solutions into a low-overhead tool that shows which system
-daemons need a restart, as shown below:
+daemons require a restart, as shown below:
 
-    Figure 1: Invoking :command:`clr-service-restart`
+    Figure 1: Invoke :command:`clr-service-restart`.
 
     .. code-block:: bash
 
-      sudo clr-service-restart -a -n
+       sudo clr-service-restart -a -n
 
     .. code-block:: console
 
@@ -99,7 +99,7 @@ OS software update.
 
   .. code-block:: bash
 
-    sudo clr-service-restart allow tallow.service
+     sudo clr-service-restart allow tallow.service
 
 The :option:`disallow` option tells :command:`clr-service-restart` not to
 restart the specified daemon even if the OS defaults permit the daemon to be
@@ -110,7 +110,7 @@ The example below tells :command:`clr-service-restart` not to restart the
 
   .. code-block:: bash
 
-    sudo clr-service-restart disallow rngd
+     sudo clr-service-restart disallow rngd
 
 The :option:`default` option makes :command:`clr-service-restart` revert back
 to the OS defaults and delete any symlink in :file:`/etc/clr-service-restart`.
@@ -120,16 +120,16 @@ automatic service restarts by default in |CL|.
 
   .. code-block:: bash
 
-    sudo clr-service-restart default rngd
+     sudo clr-service-restart default rngd
 
-Monitoring options for :command:`clr-service-restart`
-=====================================================
+Monitor options for :command:`clr-service-restart`
+==================================================
 
 :command:`clr-service-restart` works in the background and is invoked with
-:command:`swupd` automatically. You can review the journal output to verify
-that services are restarted after an OS software update.
+:command:`swupd` automatically. Review the journal output to verify that
+services are restarted after an OS software update.
 
-To monitor :command:`clr-service-restart` use one or both options described
+To monitor :command:`clr-service-restart`, use one or both options described
 below.
 
   :option:`-n`
@@ -141,7 +141,7 @@ it displays the services that could potentially be restarted. When used,
 * Which service needs a restart.
 * What unit it is.
 * Why it needs a restart.
-* Which command is required to restart this unit.
+* Which command is required to restart the unit.
 
   :option:`-a`
 
@@ -150,10 +150,10 @@ not only the ones that are whitelisted. Because the default whitelist in |CL|
 is relatively short, you can use this option to restart all impacted services
 when you log in on the system.
 
-If you pass both options (:option:`-a` and :option:`-n`), :command:`clr-
-service-restart` displays a complete list of system services that need a
-restart. Use both options to verify that all desired daemons have been
-restarted.
+If you pass both options (:option:`-a` and :option:`-n`),
+:command:`clr-service-restart` displays a complete list of system services
+that require a restart. Use both options to verify that all desired daemons
+are restarted.
 
 
 Telemetry
