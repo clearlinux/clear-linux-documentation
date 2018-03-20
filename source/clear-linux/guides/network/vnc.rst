@@ -4,7 +4,7 @@ Remote-desktop to a Clear Linux host using VNC
 ##############################################
 
 :abbr:`VNC (Virtual Network Computing)` is a client-server GUI-based tool that 
-you use to remote-desktop to your |CLOSIA| host.    
+allows you to connect via remote-desktop to your |CLOSIA| host.    
 
 This guide shows you how to:
 
@@ -18,7 +18,7 @@ This guide shows you how to:
 Install the VNC server and misc. components on your Clear Linux host
 ********************************************************************
 
-To make VNC work on your |CL| host, you need to install these bundles:
+To configure VNC to work on your |CL| host, install these bundles:
 
 *	`desktop-autostart`: Installs :abbr:`GDM (Gnome Desktop Manager)`, sets 
 	it to start automatically on boot, and installs TigerVNC Viewer.  
@@ -54,7 +54,7 @@ your host:
    * - Attribute
      - `Method 1`: Manually start a VNC session
      - `Method 2`: Automatically start a VNC session via a systemd service script
-     - `Method 3`: Multi-user logins with authentication through GDM
+     - `Method 3`: Create multi-user logins with authentication through GDM
    * - Description
      - This is the traditional method where you SSH into the |CL| host, manually 
        start a VNC session to get a display ID, and connect to it by 
@@ -211,7 +211,7 @@ preassigned unique display ID.
 	the :command:`vncpasswd` command before proceeding to the next step.
 
 #.	Start the VNC service script and set it to start automatically on 
-	boot for each user.  Substitute the [X] with the display ID.
+	boot for each user.  Replace the [X] with the display ID.
 
 	.. code-block:: console
 
@@ -386,8 +386,7 @@ Install an SSH client
 Establish a VNC connection to your Clear Linux host
 ***************************************************
 
-Steps to establishing a VNC connection depends on which VNC-server-configuration
-method you chose.  
+Depending on the VNC-server-configuration method chosen, use the appropriate VNC connection:  
 
 If you chose `Method 1`, you must take a few extra steps by 
 using SSH to connect to your |CL| host and then manually launching VNC. 
