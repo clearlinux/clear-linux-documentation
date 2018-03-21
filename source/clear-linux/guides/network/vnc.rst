@@ -348,33 +348,34 @@ Perform the steps below to add these apps to your client system.
 Install a VNC viewer app
 ========================
 
-*	On Linux distros (some examples):
-	
-	*	|CL|: 
+* On Linux distros (some examples):
+
+  * |CL|: 
 		
-		.. code-block:: console
+    .. code-block:: console
 		
-			# swupd bundle-add desktop-autostart
+       # swupd bundle-add desktop-autostart
 
-	*	Ubuntu, Mint:
+  * Ubuntu, Mint:
 
-		.. code-block:: console
+    .. code-block:: console
 
-			# apt-get install xtightvncviewer 
+       # apt-get install xtightvncviewer 
 
-	*	Fedora: 
+  * Fedora: 
 
-		.. code-block:: console
+    .. code-block:: console
 
-			# dnf install tigervnc
-*	On Windows:
+       # dnf install tigervnc
 
-	*	Install `RealVNC for Windows`_
+* On Windows:
 
-*	On macOS:
+  * Install `RealVNC for Windows`_
 
-	*	Install `RealVNC for macOS`_ or 
-	*	Use the built-in `Screen Sharing` app 
+* On macOS:
+
+  * Install `RealVNC for macOS`_ or 
+  * Use the built-in `Screen Sharing` app 
 
 Install an SSH client
 =====================
