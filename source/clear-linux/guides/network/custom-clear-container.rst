@@ -30,7 +30,7 @@ Build the base container image
 
    .. code-block:: bash
 
-      sudo docker info
+      docker info
 
    If Docker is installed and running, the output is similar to
    this example:
@@ -79,15 +79,15 @@ Build the base container image
 
    .. code-block:: bash
 
-      sudo swupd bundle-add containers-basic
-      sudo systemctl start docker
+      swupd bundle-add containers-basic
+      systemctl start docker
 
 #. Create the directory structure to build the |CL| container.
 
    .. code-block:: bash
 
-      sudo mkdir -p ./custom-clear-linux-container/base/usr/share/clear/bundles
-      sudo cd custom-clear-linux-container
+      mkdir -p ./custom-clear-linux-container/base/usr/share/clear/bundles
+      cd custom-clear-linux-container
 
    .. note::
 
@@ -105,8 +105,8 @@ Build the base container image
 
     ..  code-block:: bash
 
-        sudo touch ./base/usr/share/clear/bundles/os-core
-        sudo touch ./base/usr/share/clear/bundles/os-core-update
+        touch ./base/usr/share/clear/bundles/os-core
+        touch ./base/usr/share/clear/bundles/os-core-update
 
     ..  note::
 
@@ -126,14 +126,14 @@ Build the base container image
 
       .. code-block:: bash
 
-         sudo touch ./base/usr/share/clear/bundles/editors
-         sudo touch ./base/usr/share/clear/bundles/network-basic
+         touch ./base/usr/share/clear/bundles/editors
+         touch ./base/usr/share/clear/bundles/network-basic
 
 #. Use `swupd` to download and install the bundles.
 
    .. code-block:: bash
 
-      sudo swupd verify --install --path="base" --manifest 17870 \
+      swupd verify --install --path="base" --manifest 17870 \
       --url https://cdn.download.clearlinux.org/update \
       --statedir "$PWD/swupd-state" --no-boot-update
 
@@ -196,14 +196,14 @@ Build the base container image
 
    .. code-block:: bash
 
-      sudo tar -C base -cf base.tar .
-      sudo xz -v -T0 base.tar
+      tar -C base -cf base.tar .
+      xz -v -T0 base.tar
 
 #. Create the Dockerfile to build the image.
 
    .. code-block:: bash
 
-      sudo cat > Dockerfile << EOF
+      cat > Dockerfile << EOF
       FROM scratch
       MAINTAINER First Last <first.last@example.com>
       ADD base.tar.xz /
@@ -214,7 +214,7 @@ Build the base container image
 
    .. code-block:: bash
 
-      sudo docker build -t my-custom-clear-linux-container .
+      docker build -t my-custom-clear-linux-container .
 
    Example output:
 
@@ -241,7 +241,7 @@ Build the base container image
 
    .. code-block:: bash
 
-      sudo docker images
+      docker images
 
    Example output:
 
@@ -254,7 +254,7 @@ Build the base container image
 
    .. code-block:: bash
 
-      sudo docker run -it my-custom-clear-linux-container
+      docker run -it my-custom-clear-linux-container
 
 Manage bundles in a container
 *****************************
@@ -270,7 +270,7 @@ Docker image:
 
 .. code-block:: bash
 
-   sudo cat > Dockerfile << EOF
+   cat > Dockerfile << EOF
    FROM my-customer-clear-linux-container
    MAINTAINER First Last <first.last@example.com>
    RUN swupd bundle-add pxe-server
@@ -281,7 +281,7 @@ Example output:
 
 .. code-block:: console
 
-   sudo docker build -t my-clearlinux-with-pxe-server-bundle .
+   docker build -t my-clearlinux-with-pxe-server-bundle .
 
    Sending build context to Docker daemon  806.5MB
    Step 1/4 : FROM my-custom-clear-linux-container
@@ -332,7 +332,7 @@ This example Dockerfile removes the :file:`pxe-server` bundle from an existing
 
 .. code-block:: bash
 
-   sudo cat > Dockerfile << EOF
+   cat > Dockerfile << EOF
    FROM my-clearlinux-with-pxe-server-bundle
    MAINTAINER First Last <first.last@example.com>
    RUN swupd bundle-remove pxe-server
@@ -343,7 +343,7 @@ Example output:
 
 .. code-block:: console
 
-   sudo docker build -t my-clearlinux-remove-pxe-server-bundle .
+   docker build -t my-clearlinux-remove-pxe-server-bundle .
 
    Sending build context to Docker daemon  806.5MB
    Step 1/4 : FROM my-clearlinux-with-pxe-server-bundle
