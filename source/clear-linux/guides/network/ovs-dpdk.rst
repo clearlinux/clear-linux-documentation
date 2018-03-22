@@ -28,19 +28,25 @@ Prerequisites
 
 Perform the steps below before you run the example.
 
+#.  Log in and get root privileges.
+
+    .. code-block:: bash
+
+       sudo -s
+
 #.  Download |CLOSIA| release 13360 or higher from `Clear Linux releases`_.
     Update your system with the command:
 
     .. code-block:: bash
 
-       sudo swupd update
+       swupd update
 
 #.  Install the `network-basic` and `kvm-host` bundles.
 
     .. code-block:: bash
 
-       sudo swupd bundle-add network-basic
-       sudo swupd bundle-add kvm-host
+       swupd bundle-add network-basic
+       swupd bundle-add kvm-host
 
 #.  Download a |CL| image and :file:`OVMF.fd` file from
     `Clear Linux images`_. The images will be used as guest VMs.
@@ -54,7 +60,7 @@ Use Linux bridge
 
    .. code-block:: bash
 
-      sudo!/bin/bash
+      !/bin/bash
 
       set -x
 
@@ -77,27 +83,27 @@ Use Linux bridge
 
    .. code-block:: bash
 
-      sudo chmod a+x qemu-ifup
+      chmod a+x qemu-ifup
 
 #. Create a bridge using the :command:`brctl` tool. Use the `ip` tool to
    verify whether or not the bridge was successfully created.
 
    .. code-block:: bash
 
-      sudo brctl addbr br0
-      sudo ip a
+      brctl addbr br0
+      ip a
 
 #. Add a NIC using the syntax `brctl addif br0 <network interface>`.
 
    .. code-block:: bash
 
-      sudo brctl addif br0 enp3s0f0
+      brctl addif br0 enp3s0f0
 
 #. Set up the Linux bridge.
 
    .. code-block:: bash
 
-      sudo ip link set dev br0 up
+      ip link set dev br0 up
 
 #. Run guest virtual machine A using the following reference configuration,
    where the :envvar:`$IMAGE` variable is the |CL| image name.
@@ -123,8 +129,8 @@ Use Linux bridge
 
    .. code-block:: bash
 
-      sudo ip link set dev br0 down
-      sudo brctl delbr br0
+      ip link set dev br0 down
+      brctl delbr br0
 
 Use Open vSwitch bridge
 ***********************
@@ -133,21 +139,21 @@ Use Open vSwitch bridge
 
    .. code-block:: bash
 
-      sudo systemctl start openvswitch.service
+      systemctl start openvswitch.service
 
 #. Create a bridge using the Open vSwitch tool. Use the `ip` tool to verify whether
    or not the bridge was successfully created.
 
    .. code-block:: bash
 
-      sudo ovs-vsctl add-br br0
-      sudo ip a
+      ovs-vsctl add-br br0
+      ip a
 
 #. Create an `UP` script named :file:`ovs-ifup` to bring up the tap devices.
 
    .. code-block:: bash
 
-      sudo!/bin/sh
+      !/bin/sh
 
       switch="br0"
       /usr/bin/ifconfig $1 0.0.0.0 up
@@ -158,7 +164,7 @@ Use Open vSwitch bridge
 
    .. code-block:: bash
 
-      sudo!/bin/sh
+      !/bin/sh
 
       switch="br0"
       /usr/bin/ifconfig $1 0.0.0.0 down
@@ -169,8 +175,8 @@ Use Open vSwitch bridge
 
    .. code-block:: bash
 
-      sudo chmod a+x ovs-ifdown
-      sudo chmod a+x ovs-ifup
+      chmod a+x ovs-ifdown
+      chmod a+x ovs-ifup
 
 #. Run guest virtual machine A using the following reference configuration,
    where the :envvar:`$IMAGE` variable is the |CL| image name. Note that
@@ -198,8 +204,8 @@ Use Open vSwitch bridge
 
    .. code-block:: bash
 
-      sudo ovs-vsctl del-br br0
-      sudo ovs-vsctl show
+      ovs-vsctl del-br br0
+      ovs-vsctl show
 
 
 Use custom-built Open vSwitch-DPDK bridge
@@ -214,36 +220,36 @@ Use custom-built Open vSwitch-DPDK bridge
 
    .. code-block:: bash
 
-      sudo systemctl start boot.mount
-      sudo cd /boot/loader/entries/
+      systemctl start boot.mount
+      cd /boot/loader/entries/
 
 #. Unmount the UEFI partition and reboot the machine.
 
    .. code-block:: bash
 
-      sudo cd /
-      sudo systemctl stop boot.mount
-      sudo reboot
+      cd /
+      systemctl stop boot.mount
+      reboot
 
 #. Set number of hugepages.
 
    .. code-block:: bash
 
-      sudo echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Allocate pages on NUMA machines.
 
    .. code-block:: bash
 
-      sudo echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-      sudo echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Make memory available for the DPDK.
 
    .. code-block:: bash
 
-      sudo mkdir -p /mnt/huge
-      sudo mount -t hugetlbfs nodev /mnt/huge
+      mkdir -p /mnt/huge
+      mount -t hugetlbfs nodev /mnt/huge
 
 #. Download a |CL| image and :file:`OVMF.fd` file from
    `Clear Linux images`_. The images will be used as guest VMs.
@@ -252,7 +258,7 @@ Use custom-built Open vSwitch-DPDK bridge
 
    .. code-block:: bash
 
-      sudo systemctl start openvswitch
+      systemctl start openvswitch
 
 #. Configure Open vSwitch to enable DPDK functionality such as core
    mask, socket memory, and others. This example reproduces the environment
@@ -261,29 +267,29 @@ Use custom-built Open vSwitch-DPDK bridge
 
    .. code-block:: bash
 
-      sudo ovs-vsctl --no-wait init
-      sudo ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-lcore-mask=0x2
-      sudo ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-socket-mem=2048
-      sudo ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init=true
+      ovs-vsctl --no-wait init
+      ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-lcore-mask=0x2
+      ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-socket-mem=2048
+      ovs-vsctl --no-wait set Open_vSwitch . other_config:dpdk-init=true
 
 #. Restart the Open vSwitch service to update the new DPDK configuration.
 
    .. code-block:: bash
 
-      sudo systemctl restart openvswitch
+      systemctl restart openvswitch
 
 #. Create a virtual bridge using Open vSwitch.
 
    .. code-block:: bash
 
-      sudo ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
+      ovs-vsctl add-br br0 -- set bridge br0 datapath_type=netdev
 
 #. Add the vhost-dpdk ports to the bridge.
 
    .. code-block:: bash
 
-      sudo ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
-      sudo ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
+      ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
+      ovs-vsctl add-port br0 vhost-user2 -- set Interface vhost-user2 type=dpdkvhostuser
 
 #. Run guest virtual machine A using the following reference configuration,
    where the :envvar:`$IMAGE` variable is the |CL| image name.
@@ -320,13 +326,13 @@ Set IP address
 
    .. code-block:: bash
 
-      sudo ip addr add dev enp0s2 10.0.0.5/24
+      ip addr add dev enp0s2 10.0.0.5/24
 
 #. Set an IP address for virtual machine B.
 
    .. code-block:: bash
 
-      sudo ip addr add dev enp0s2 10.0.0.6/24
+      ip addr add dev enp0s2 10.0.0.6/24
 
 #. Check if there is communication between both virtual machines using the
    ping tool.
@@ -336,15 +342,15 @@ Set IP address
 
    .. code-block:: bash
 
-      sudo systemctl status httpd.service
-      sudo systemctl start httpd.service
+      systemctl status httpd.service
+      systemctl start httpd.service
 
 #. Use Apache benchmarks to get information about the network performance
    between both virtual machines.
 
    .. code-block:: bash
 
-      sudo ab -n 1000000 -c 100 http://10.0.0.6/
+      ab -n 1000000 -c 100 http://10.0.0.6/
 
 
 .. _DPDK: http://dpdk.org/
