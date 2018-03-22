@@ -1,13 +1,12 @@
 .. _cgdisk-manual-install:
 
-Clear Linux partitioning using CGDISK
-#####################################
+Create partitions for Clear Linux\* using CGDISK
+###############################################
 
-These instructions guide you through the initial setup of your hard drive
-partitions using the :command:`cgdisk` utility as part of the |CL| manual
-installation process. If you do not wish to continue creating your own
+As part of the |CL| manual installation processThese instructions guide you through the initial setup of your hard drive
+partitions using the :command:`cgdisk` utility . If you do not wish to continue creating your own
 partitions, :ref:`return to the bare metal manual installation
-<cgdisk-manual-setup>`.
+<bare-metal-manual-install>`.
 
 Prerequisites
 *************
@@ -30,24 +29,24 @@ Partition using CGDISK
 We use the :command:`cgdisk` application to create a
 :abbr:`GPT (GUID Partition Table)` since |CL| only supports the
 :abbr:`UEFI (Unified Extensible Firmware Interface)` specification. For a
-complete description of the :command:`cgdisk` utility and how to use it, visit
-Rod Smith's website for a `GPT fdisk tutorial`_.
+complete description of the :command:`cgdisk` utility and how to use it,
+visit Rod Smith's website for a `GPT fdisk tutorial`_.
 
 In this guide, we intend to use an unpartitioned hard drive for the |CL|
 installation.
 
-#. On the :guilabel:`Choose partitioning method` menu, shown in figure 2,
-   select the :guilabel:`< Manually configure mounts and partitions >` menu
-   item to manually partition your hard drive.
-
+#. To manually partition your hard drive, select 
+   :guilabel:`< Manually configure mounts and partitions >` in the menu
+   :guilabel:`Choose partitioning method`, shown in figure 2. 
+   
    .. figure:: figures/cgdisk-manual-install-2.png
       :scale: 50 %
       :alt: Choose partitioning method
 
       Figure 2: :guilabel:`Choose partitioning method`
 
-   The screen then shows the current device on your system you can partition.
-   In this example, shown in figure 3, :file:`/dev/sda` is available but
+   Next, the current device available to partition is shown. In this
+   example, shown in figure 3, :file:`/dev/sda` is available but
    does not have any partitions defined.
 
 #. Select the :guilabel:`< Partition /dev/sda >` menu item and press
@@ -74,9 +73,9 @@ Linux Partition setup
 In order to properly set up the |CL| partitioning scheme, we create three
 partitions using the :command:`cgdisk` utility in the following order:
 
-  #. EFI boot partition
-  #. Linux swap partition
-  #. Linux root partition
+#. EFI boot partition
+#. Linux swap partition
+#. Linux root partition
 
 For a complete understanding of these partitions, you can review the
 `Linux partitioning scheme`_ information.
@@ -225,7 +224,7 @@ Set the mount points
 ********************
 
 The :guilabel:`Set mount points` menu sets the mount points that the |CL|
-installer uses for your |CL| installation and is shown in figure 12.
+installer uses for your |CL| installation, shown in figure 12.
 
 .. figure:: figures/cgdisk-manual-install-12.png
    :scale: 50 %
@@ -233,21 +232,21 @@ installer uses for your |CL| installation and is shown in figure 12.
 
    Figure 12: :guilabel:`Set mount points`
 
-In this menu you need to set the mount points for the boot and root partitions
-and select to format them.
+In this menu you need to set the mount points for the boot and root
+partitions and select to format them.
 
 #. Highlight the EFI System partition type menu entry and press the
    :kbd:`Enter` key to edit this item. The :guilabel:`Set mount point of
-   sda1` menu is be shown.
+   sda1` menu is shown.
 
-   #. For the :guilabel:`Enter mount point:` type `/boot` and press
+   #. For :guilabel:`Enter mount point:` type `/boot` and press
       :kbd:`Enter`.
-   
-   #. Enable formatting the partition by checking the :guilabel:`[ ] Format`
-      toggle field.
-
-   Figure 13 shows the entered information.  Select the :guilabel:`< Yes >`
-   button and press :kbd:`Enter`.
+   #. Press Tab to enter the :guilabel:`[ ] Format` field. 
+   #. Press Enter/Spacebar to select :guilabel:`[ ] Format`, which allows
+      formatting of the partition. 
+      
+   Figure 13 shows the information entered.  Select :guilabel:`< Next >`
+   and press :kbd:`Enter`.
 
    .. figure:: figures/cgdisk-manual-install-13.png
       :scale: 50 %
@@ -266,7 +265,8 @@ and select to format them.
 
       Figure 14: :guilabel:`Set mount point of sda3`
 
-   The final :guilabel:`Set mount points` menu item looks like figure 15:
+   Upon completion, the :guilabel:`Set mount points` appear as shown
+   in figure 15:
 
    .. figure:: figures/cgdisk-manual-install-15.png
       :scale: 50 %
@@ -274,22 +274,12 @@ and select to format them.
 
       Figure 15: :guilabel:`Set mount points completed`
 
-#. Select the :guilabel:`< Next >` button and press :kbd:`Enter` to proceed to
-   the :guilabel:`Warning!` menu to accept your changes as shown in figure 16.
+#. Select the :guilabel:`< Next >` button and press :kbd:`Enter`. 
    
-   .. figure:: figures/cgdisk-manual-install-16.png
-      :scale: 50 %
-      :alt: Warning
-
-      Figure 16: :guilabel:`Warning`
-
-   Highlight the :guilabel:`< Yes >` button and press :kbd:`Enter` to accept
-   these changes and move on to the next step of the |CL| manual install
-   process.
-
-   This completes the process of manually setting up your hard drive
-   partitions and you can now :ref:`continue with the Clear Linux manual
-   install<choose-target-device>`.
+   You have completed the process of manually partitioning your target
+   system. Now, :ref:`return to the bare metal manual installation 
+   <bare-metal-manual-install>` to complete installation of Clear Linux.
+   Continue at the section *Additional manual installer settings*.
 
 .. _`GPT fdisk tutorial`:
    http://www.rodsbooks.com/gdisk/

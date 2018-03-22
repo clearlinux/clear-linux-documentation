@@ -26,6 +26,8 @@ Boot the Clear Linux live image
 
 #. Plug the imaged USB drive in and boot it up.
 #. Log in as `root` and set a password.
+   
+.. _create and enable user space: https://clearlinux.org/documentation/clear-linux/guides/maintenance/enable-user-space 
 
 .. _`image`: https://download.clearlinux.org/image
 

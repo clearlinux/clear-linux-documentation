@@ -165,10 +165,8 @@ open a shell, or exit the |CL| installer.  This menu is shown in figure 5:
    installation process and the system will shut down.
 
 #. You will be prompted to join the :guilabel:`Stability Enhancement Program`
-   as shown in figure 6. Press the :kbd:`Spacebar` or :kbd:`Enter` key while
-   the cursor is in the :guilabel:`[ ]  Yes.` button to enable this
-   functionality and then select the :guilabel:`< Next >` button to advance to
-   the next menu item.
+   as shown in figure 6. Press the :kbd:`Spacebar` or :kbd:`Enter` key until
+   the cursor appears in the :guilabel:`[ ] Yes.` button. Press tab to highlight :guilabel:`< Next >`, and select Enter to advance.
 
    .. figure:: figures/bare-metal-install-6.png
       :scale: 50 %
@@ -221,57 +219,61 @@ process. Otherwise, you can follow the |CL| automatic installation steps.
 Clear Linux automatic installation
 **********************************
 
-To install the minimum components for your |CL| implementation, select the
-:guilabel:`< Automatic >` menu item shown in figure 7 and press the
-:kbd:`Enter` key.
+#. To install the minimum components for your |CL| implementation, select the
+   :guilabel:`< Automatic >` menu item shown in figure 7 and press the
+   :kbd:`Enter` key.
 
-The :guilabel:`Choose target device for installation` screen shown in figure 8
-appears.  Move the cursor to the desired target and press the :kbd:`Enter`
-key.
+   The :guilabel:`Choose target device for installation` screen shown in figure 8 appears.  
 
-.. figure:: figures/bare-metal-install-8.png
-   :scale: 50 %
-   :alt: Choose target device for installation
+#. Move the cursor to the desired target and press the :kbd:`Enter`
+   key.
+
+   .. figure:: figures/bare-metal-install-8.png
+      :scale: 50 %
+      :alt: Choose target device for installation
 
    Figure 8: :guilabel:`Choose target device for installation`
 
-In this example we selected the single primary partition from our hard drive.
+   In this example, we selected the single primary partition from our hard drive.
 
-With all the |CL| installer setup information gathered for the automatic
-installation option, the |CL| Installer prompts you to begin the actual
-installation as shown in figure 9.
+   With all the |CL| installer setup information gathered for the automatic
+   installation option, the |CL| Installer prompts you to begin the actual
+   installation as shown in figure 9.
 
-.. figure:: figures/bare-metal-install-9.png
-   :scale: 50 %
-   :alt: Begin installation
+   .. figure:: figures/bare-metal-install-9.png
+      :scale: 50 %
+      :alt: Begin installation
 
    Figure 9: :guilabel:`Begin installation`
 
-When you are satisfied with the information you have entered, select the
-:guilabel:`< Yes >` button and press :kbd:`Enter` to begin installing |CL|.
+#. When you are satisfied with the information you have entered, select the
+   :guilabel:`< Yes >` button and press :kbd:`Enter` to begin installing |CL|.
 
-|CL| Installation begins and each step shows its status as it progresses
-through the automated installation process.
+   |CL| Installation begins and each step shows its status as it progresses
+   through the automated installation process.
 
-Once all steps have completed, you will see the :guilabel:`Successful
-installation` status message and the :guilabel:`< Ok >` button is highlighted
-as shown in figure 10. Press the :kbd:`Enter` key to continue.
+   Once all steps have completed, you will see the :guilabel:`Successful
+   installation` status message and the :guilabel:`< Ok >` button is highlighted as shown in figure 10. 
 
-.. figure:: figures/bare-metal-install-10.png
-   :scale: 50 %
-   :alt: Installation complete
+#. Press the :kbd:`Enter` key to continue.
 
-   Figure 10: :guilabel:`Installation complete`
+   .. figure:: figures/bare-metal-install-10.png
+      :scale: 50 %
+      :alt: Installation complete
 
-Figure 11 shows the installer's final screen prompting you that the
-installation completed successfully and the system will reboot. Press the
-:kbd:`Enter` key and remove the USB media while the system restarts.
+      Figure 10: :guilabel:`Installation complete`
 
-.. figure:: figures/bare-metal-install-11.png
-   :scale: 50 %
-   :alt: Successful installation
+   Figure 11 shows the final installer screen, showing that the
+   installation completed successfully and the system will reboot. 
 
-   Figure 11: :guilabel:`Successful Installation`
+#. Press the :kbd:`Enter` key and remove the USB media while the system 
+   restarts. 
+
+   .. figure:: figures/bare-metal-install-11.png
+      :scale: 50 %
+      :alt: Successful installation
+
+      Figure 11: :guilabel:`Successful Installation`
 
 Set up your root account
 ========================

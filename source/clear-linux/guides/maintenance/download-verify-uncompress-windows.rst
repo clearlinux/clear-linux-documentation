@@ -43,7 +43,7 @@ Uncompress the Clear Linux image
 ********************************
 
 Released |CL| images are compressed with either GNU zip (*.gz*) or XZ
-(*.xz*). The compression type depends on the target platform or image
+(*.xz*). The compression type depends on the target platform or
 environment. To uncompress the image, follow these steps:
 
 #. Download and install `7-Zip`_.
