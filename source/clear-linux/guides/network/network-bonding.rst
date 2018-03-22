@@ -23,11 +23,17 @@ require additional configuration. See your switch documentation for details.
 
    You must run all commands in this guide as root.
 
+#. Log in and get root privileges.
+
+   .. code-block:: console
+
+      sudo -s
+
 #. Create the :file:`/etc/systemd/network` directory.
 
    .. code-block:: bash
 
-      sudo mkdir -p /etc/systemd/network
+      mkdir -p /etc/systemd/network
 
    The :file:`/etc/systemd/network` directory contains configuration files and
    network settings for the virtual device and its underlying physical
@@ -108,7 +114,7 @@ require additional configuration. See your switch documentation for details.
 
    .. code-block:: bash
 
-      sudo systemctl restart systemd-networkd
+      systemctl restart systemd-networkd
 
    The `MTUBytes` settings do not take effect until you reboot or manually
    apply the settings with a utility such as `ifconfig`.
