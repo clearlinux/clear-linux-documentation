@@ -3,8 +3,8 @@
 Remote-desktop to a Clear Linux host using VNC
 ##############################################
 
-:abbr:`VNC (Virtual Network Computing)` is a client-server GUI-based tool that 
-allows you to connect via remote-desktop to your |CLOSIA| host.    
+:abbr:`VNC (Virtual Network Computing)` is a client-server GUI-based tool
+that allows you to connect via remote-desktop to your |CLOSIA| host.    
 
 This guide shows you how to:
 
@@ -345,32 +345,31 @@ Perform the steps below to add these apps to your client system.
 Install a VNC viewer app
 ========================
 
-#. On |CL|: 
+On |CL|: 
 
-   .. code-block:: console
+.. code-block:: console
 
-      # swupd bundle-add desktop-autostart
+   # swupd bundle-add desktop-autostart
 
-#. On Ubuntu, Mint:
+On Ubuntu, Mint:
 
-   .. code-block:: console
+.. code-block:: console
 
-      # apt-get install xtightvncviewer 
+   # apt-get install xtightvncviewer 
 
-#. On Fedora: 
+On Fedora: 
 
-   .. code-block:: console
+.. code-block:: console
 
-      # dnf install tigervnc
+   # dnf install tigervnc
 
-#. On Windows:
+On Windows:
 
-   * Install `RealVNC for Windows`_
+* Install `RealVNC for Windows`_
   
-#. On macOS:
+On macOS:
 
-   * Install `RealVNC for macOS`_ or 
-   * Use the built-in `Screen Sharing` app 
+* Install `RealVNC for macOS`_ 
 
 Install an SSH client
 =====================
@@ -398,31 +397,29 @@ If you chose `Method 3`, proceed to the
 SSH into your Clear Linux host and launch VNC
 =============================================
 
-SSH into your Clear Linux host
-------------------------------
-#. On Linux distros and macOS:
+#. SSH into your Clear Linux host
 
-   .. code-block:: console
+   #. On Linux distros and macOS:
 
-      $ ssh [username]@[clear-linux-host-ip-address]
+      .. code-block:: console
 
-#. On Windows:
+         $ ssh [username]@[clear-linux-host-ip-address]
 
-   * Launch Putty.
-   * Under the :guilabel:`Category` section, select :guilabel:`Session`.
-     See Figure 1.
-   * Enter the IP address of your Clear Linux host in the 
-     :guilabel:`Host Name (or IP address)` field. 
-   * Set the :guilabel:`Connection type` option to :guilabel:`SSH`.
-   * Click the :guilabel:`Open` button.
+   #. On Windows:
 
-     .. figure:: figures/vnc/vnc-1.png
-        :scale: 90 %
-        :alt: Putty - configure SSH session settings
+      #. Launch Putty.
+      #. Under the :guilabel:`Category` section, select :guilabel:`Session`.
+         See Figure 1.
+      #. Enter the IP address of your Clear Linux host in the 
+         :guilabel:`Host Name (or IP address)` field. 
+      #. Set the :guilabel:`Connection type` option to :guilabel:`SSH`.
+      #. Click the :guilabel:`Open` button.
 
-        Figure 1: Putty - configure SSH session settings
+         .. figure:: figures/vnc/vnc-1.png
+            :scale: 90 %
+            :alt: Putty - configure SSH session settings
 
-
+            Figure 1: Putty - configure SSH session settings
 
 #. Log in with your |CL| username and password. Do not use your VNC 
    password.  
@@ -476,90 +473,47 @@ For example, if the display ID is 3, it can be specified as `5903` or just
 as `3`. For `Method 3`, VNC does not expect a display ID.  Use `5900`. For simplicity, the instructions below use the fully-qualified VNC port
 number.
 
-#. Initiate the VNC connection:
+Initiate VNC and Make a Connection
+----------------------------------
 
-   On Linux distros:
+**On Linux distros:**
 
-   * Open a terminal emulator and enter:
+#. Open a terminal emulator and enter:
 
-     .. code-block:: console
+   .. code-block:: console
 
-        $ vncviewer [clear-linux-host-ip-address]:[fully-qualified VNC port  number]
+      $ vncviewer [clear-linux-host-ip-address]:[fully-qualified VNC port  number]
 
-   On Windows and macOS using `RealVNC` app:
+#. Enter your credentials.
 
-   * Start the RealVNC viewer app. See Figure 2.
-   * Enter the IP address of the Clear Linux host and the fully-qualified 
-     VNC port number.
-
-     The following screenshot shows connecting to |CL| host 
-     192.168.25.54 with a fully-qualified VNC port number 5902.
-
-     .. figure:: figures/vnc/vnc-2.png
-        :scale: 90 %
-        :alt: RealVNC Viewer
-
-        Figure 2: RealVNC Viewer
-
-   * Press the :kbd:`Enter` key.
+   * For `Method 1` and `Method 2`, enter your VNC password.  No username is
+     required.  
+   * For `Method 3`, enter your |CL| account username and password through
+     GDM.
 
      .. note::
 
-        By default, the image quality setting in RealVNC viewer is low.  
-        You can increase it by changing the `ColorLevel` value as described
-        in the following steps:
+        With `Method 3`, you cannot remotely log into your |CL| host through
+        VNC if you are logged in locally and vice versa.      
 
-        Right-click a connection node and select :guilabel:`Properties...`.
-        See Figure 3.
+**On Windows and macOS using `RealVNC` app:**
 
-        .. figure:: figures/vnc/vnc-3.png
-           :scale: 90 %
-           :alt: RealVNC Viewer - change connection node properties
+#. Start the RealVNC viewer app. See Figure 2.
+#. Enter the IP address of the Clear Linux host and the fully-qualified 
+   VNC port number.
 
-           Figure 3: RealVNC Viewer - change connection node properties
+   The following screenshot shows connecting to |CL| host 
+   192.168.25.54 with a fully-qualified VNC port number 5902.
 
-        Select the :guilabel:`Expert` tab. See Figure 4.
+   .. figure:: figures/vnc/vnc-2.png
+      :scale: 90 %
+      :alt: RealVNC Viewer
 
-        .. figure:: figures/vnc/vnc-4.png
-           :scale: 90 %
-           :alt: RealVNC Viewer - change ColorLevel
+      Figure 2: RealVNC Viewer
 
-           Figure 4: RealVNC Viewer - change :guilabel:`ColorLevel`
+#. Press the :kbd:`Enter` key.
 
-        Select the :guilabel:`ColorLevel` setting and change it to your
-        preferred setting.  
-
-   On macOS using the built-in `Screen Sharing` app:
-
-   .. note::
-
-      If you chose `Method 3`, you cannot use the macOS `Screen Sharing`
-      app because it only allows you to enter a VNC password.  The app
-      does not present the GDM login screen, which gives you the ability
-      to select your username and enter a password as required for 
-      `Method 3` to work.
-      
-      The built-in `Screen Sharing` app requires you to always use the 
-      complete VNC port number when making a connection
-      (for example: `vnc://clear-linux-host-ip-address:5902` instead of 
-      `vnc://clear-linux-host-ip-address:2`). 
-
-   * Go to :guilabel:`Finder` > :guilabel:`Go` > 
-     :guilabel:`Connect to  Server`.
-   * Enter `vnc://[clear-linux-host-ip-address]:[fully-qualified VNC port 
-     number]` in the :guilabel:`Server Address` field. See Figure 5.
-
-     The following screenshot shows connecting to |CL| host 192.168.25.54 with a fully-qualified VNC port number 5902.
-
-     .. figure:: figures/vnc/vnc-5.png
-        :scale: 90 %
-        :alt: macOS Screen Sharing app 
-
-        Figure 5: macOS `Screen Sharing` app 
-
-   * Click Connect.
-
-#. When connected, enter your credentials.
+#. Enter your credentials.
 
    * For `Method 1` and `Method 2`, enter your VNC password.  No username is
      required.  
@@ -570,6 +524,31 @@ number.
 
         With `Method 3`, you cannot remotely log into your |CL| host through
         VNC if you are logged in locally and vice versa.
+  
+`Optional: Configure RealVNC Image Quality` 
+-------------------------------------------
+
+To increase the RealVNC viewer image quality, manually change the `ColorLevel` value. (Default image quality setting is low.) Follow these steps:
+
+#. Right-click a connection node and select :guilabel:`Properties...`.
+   See Figure 3.
+
+   .. figure:: figures/vnc/vnc-3.png
+      :scale: 90 %
+      :alt: RealVNC Viewer - change connection node properties
+
+      Figure 3: RealVNC Viewer - change connection node properties
+
+#. Select the :guilabel:`Expert` tab. See Figure 4.
+
+#. Select the :guilabel:`ColorLevel` setting and change it to your
+   preferred setting.
+
+   .. figure:: figures/vnc/vnc-4.png
+      :scale: 90 %
+      :alt: RealVNC Viewer - change ColorLevel
+
+      Figure 4: RealVNC Viewer - change :guilabel:`ColorLevel`
 
 Terminate a VNC connection to your Clear Linux host
 ***************************************************
@@ -717,7 +696,7 @@ Figure 8 shows two VNC sessions (5901 and 5905) only accepting connections from 
 Set up an SSH tunnel from your client system to your |CL| host
 ==============================================================
 
-On Linux distros and macOS:
+**On Linux distros and macOS:**
 
 #. Open terminal emulator and enter:
 
@@ -744,38 +723,39 @@ On Linux distros and macOS:
       *	`-f` tells SSH to go into the background before command execution.
       *	`-l` specifies the username to log in as.
 
-On Windows:
+**On Windows:**
 
 #. Launch Putty.
 #. Specify the |CL| VNC host to connect to. 
 	
-   * Under the :guilabel:`Category` section, select :guilabel:`Session`. 
-     See Figure 1.
-   * Enter the IP address of your Clear Linux host in the 
-     :guilabel:`Host Name (or IP address)` field. 
-   * Set the :guilabel:`Connection type` option to :guilabel:`SSH`.
+   #. Under the :guilabel:`Category` section, select :guilabel:`Session`. 
+      See Figure 1.
+   #. Enter the IP address of your Clear Linux host in the 
+      :guilabel:`Host Name (or IP address)` field. 
+   #. Set the :guilabel:`Connection type` option to :guilabel:`SSH`.
 
-   * Configure the SSH tunnel.  See Figure 9 for an example.
+#. Configure the SSH tunnel.  See Figure 9 for an example.
 
-     - Under the :guilabel:`Category` section, go to 
-       :guilabel:`Connection` > :guilabel:`SSH` > :guilabel:`Tunnels`.
+   #. Under the :guilabel:`Category` section, go to 
+      :guilabel:`Connection` > :guilabel:`SSH` > :guilabel:`Tunnels`.
 		
-     - In the :guilabel:`Source port` field, enter an available client 
-       port number (for example: 1234). For simplicity, you can make the 
-       `Source port` the same as the fully-qualified VNC port number.
+   #. In the :guilabel:`Source port` field, enter an available client 
+      port number (for example: 1234). For simplicity, you can make the
+      `Source port` the same as the fully-qualified VNC port number.
     
-     - In the :guilabel:`Destination` field, enter 
-       `localhost:` plus the fully-qualified VNC port number.
-     - Click the :guilabel:`Add` button.
+   #. In the :guilabel:`Destination` field, enter 
+      `localhost:` plus the fully-qualified VNC port number.
+
+   #. Click the :guilabel:`Add` button.
  
-       .. figure:: figures/vnc/vnc-9.png
-          :scale: 100 %
-          :alt: Putty - configure SSH tunnel
+      .. figure:: figures/vnc/vnc-9.png
+         :scale: 100 %
+         :alt: Putty - configure SSH tunnel
 
-          Figure 9: Putty - configure SSH tunnel
+         Figure 9: Putty - configure SSH tunnel
 
-   * Click the :guilabel:`Open` button.
-   * Enter your |CL| account password (not your VNC password).
+#. Click the :guilabel:`Open` button.
+#. Enter your |CL| account password (not your VNC password).
 
 Connect to a VNC session through an SSH tunnel
 ==============================================
@@ -783,7 +763,7 @@ Connect to a VNC session through an SSH tunnel
 After you have set up an SSH tunnel, follow these instructions to connect to 
 your VNC session.
 
-On Linux distros:
+**On Linux distros:**
 
 #. Open terminal emulator and enter:
 
@@ -791,7 +771,7 @@ On Linux distros:
 
       $ vncviewer localhost:[client port number]
 
-On Windows and macOS using `RealVNC`:
+**On Windows and macOS using `RealVNC`:**
 
 #. Start the RealVNC viewer app.
 #. Enter `localhost` and the fully-qualified VNC port number.  See Figure 10
@@ -809,30 +789,6 @@ On Windows and macOS using `RealVNC`:
          though its traffic is going through the SSH tunnel.  You can ignore 
          this warning.
 
-On macOS using built-in `Screen Sharing` app:
-
-.. note::
-
-   If you chose `Method 3`, you cannot use the macOS `Screen Sharing` app
-   because it only allows you to enter a VNC password.  The app does not
-   present the GDM login screen, which gives you the ability to select
-   your username and enter a password as required for `Method 3` to work.
-
-#. Go to :guilabel:`Finder` > :guilabel:`Go` > :guilabel:`Connect to Server`.
-#. Enter `vnc://localhost:[client port number]` in the 
-   :guilabel:`Server Address` field.  See Figure 11.
- 
-   .. figure:: figures/vnc/vnc-11.png
-      :scale: 100 %
-      :alt: macOS Screen Sharing app connecting to localhost:1234
-
-      Figure 11: macOS `Screen Sharing` app connecting to `localhost:1234`
-
-#. Click the :guilabel:`Connect` button.
-#. Enter your VNC password.
-
-
 .. _RealVNC for Windows: https://www.realvnc.com/en/connect/download/viewer/windows/
 .. _RealVNC for macOS: https://www.realvnc.com/en/connect/download/viewer/macos/
 .. _Putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
-
