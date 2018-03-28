@@ -23,7 +23,6 @@ To configure VNC to work on your |CL| host, install these bundles:
 * `desktop-autostart`: Installs :abbr:`GDM (Gnome Desktop Manager)`, sets 
   it to start automatically on boot, and installs TigerVNC Viewer.  
 * `vnc-server`: Installs the TigerVNC server.
-* `openssh-server`: Installs an SSH server.
 
 Follow these steps:
 
@@ -37,7 +36,7 @@ Follow these steps:
 
    .. code-block:: console
       
-      # swupd bundle-add desktop-autostart vnc-server openssh-server
+      # swupd bundle-add desktop-autostart vnc-server
 
 #. Reboot your |CL| host.
 
@@ -147,9 +146,9 @@ You (and each user) must perform these steps to initialize your VNC settings.
 #. Optional configurations:
 
    * To customize settings such as screen size, security type, etc., 
-     modify the :file:`%HOME/.vnc/config` file.  
+     modify the :file:`$HOME/.vnc/config` file.  
    * To customize the applications to run at startup, modify the 
-     :file:`%HOME/.vnc/xstartup` file.  
+     :file:`$HOME/.vnc/xstartup` file.  
 
 Method 2: Automatically start a VNC session via a systemd service script
 ========================================================================
@@ -473,9 +472,6 @@ For example, if the display ID is 3, it can be specified as `5903` or just
 as `3`. For `Method 3`, VNC does not expect a display ID.  Use `5900`. For simplicity, the instructions below use the fully-qualified VNC port
 number.
 
-Initiate VNC and Make a Connection
-----------------------------------
-
 **On Linux distros:**
 
 #. Open a terminal emulator and enter:
@@ -528,7 +524,7 @@ Initiate VNC and Make a Connection
 `Optional: Configure RealVNC Image Quality` 
 -------------------------------------------
 
-To increase the RealVNC viewer image quality, manually change the `ColorLevel` value. (Default image quality setting is low.) Follow these steps:
+To increase the RealVNC viewer image quality, manually change the `ColorLevel` value. Follow these steps:
 
 #. Right-click a connection node and select :guilabel:`Properties...`.
    See Figure 3.
@@ -610,7 +606,7 @@ Configure VNC to only accept connection from localhost
 
 For `Method 1`:
 
-#. Edit the :file:`config` file located in :file:`%HOME/.vnc` and uncomment
+#. Edit the :file:`config` file located in :file:`$HOME/.vnc` and uncomment
    the `# localhost` line.  It should look like this:
 
    .. code-block:: console
