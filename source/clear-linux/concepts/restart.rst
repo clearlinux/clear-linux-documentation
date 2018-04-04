@@ -8,10 +8,10 @@ deployed, and includes how to replace or update software. A good OS
 provides tools for the entire software life cycle. These tools must include
 ways to remove software components properly when replaced with something else.
 
-Most of the work on software update code in |CL| has primarily focused on
-adding new software to the system. We recommend that users reboot their system
-once in a while, but we did not provide any tools to restart services easily,
-until now.
+Most of the work on software update code in |CL| was focused on adding new
+software to the system. We recommended that users reboot their system once in
+a while, but we did not provide any tools to restart services easily, until
+now.
 
 User challenges
 ***************
@@ -29,13 +29,11 @@ solutions such as the following:
 
   * Mark updates requiring a reboot, such as kernel updates.
   * Inform the user of those updates.
-  * Ask the user to restart.
+  * Ask the user to restart the OS.
 
 Both solutions are acceptable for many OSes. However, |CL| updates software
 automatically and users do not see notices from the updater unless they review
-the journal.
-
-|CL| requires a completely different solution, with the following
+the journal. |CL| requires a completely different solution, with the following
 requirements:
 
 * Eliminate the guesswork about what to restart and under what circumstances.
@@ -43,16 +41,17 @@ requirements:
   background restart.
 * Fit into the |CL| architectural perspective: be small, quick, and lean.
 
-:command:`clr-service-restart` functionality
-********************************************
+clr-service-restart functionality
+*********************************
 
 Typical reasons to restart a service daemon include:
 
 * A new version replaces the executable file itself.
 * A new version replaces a library component used by a service daemon.
 
-Our method restarts daemons for both cases by reading various files in the
-:file:`procfs` filesystem provided by the kernel.
+Our method restarts daemons when it is really needed, especially
+in the case of security updates. The tool restarts daemons by reading
+various files in the :file:`procfs` filesystem provided by the kernel.
 
 The second part of the problem is to determine whether or not running
 processes are part of a system service. The tool focuses on system services
@@ -60,36 +59,37 @@ because most system services are background tasks with no direct user
 interaction. Fortunately, :command:`systemd` provides a simple way to:
 
 * Determine which active tasks are within the system domain.
-* Determine which service daemon maps to the task.
+* Determine which tasks map to which service.
 
 We combined both solutions into a low-overhead tool that shows which system
 daemons require a restart, as shown below:
 
-    Figure 1: Invoke :command:`clr-service-restart`.
+Figure 1: Invoke :command:`clr-service-restart`.
 
-    .. code-block:: bash
+.. code-block:: bash
 
-       sudo clr-service-restart -a -n
+     sudo clr-service-restart -a -n
 
-    .. code-block:: console
+.. code-block:: console
 
-      upower.service: needs a restart (a library dependency was updated)
-      /usr/bin/systemctl --no-ask-password try-restart upower.service
-      NetworkManager.service: needs a restart (a library dependency was
-      updated)
-      /usr/bin/systemctl --no-ask-password try-restart NetworkManager.service
-      ....
+     upower.service: needs a restart (a library dependency was updated)
+     /usr/bin/systemctl --no-ask-password try-restart upower.service
+     NetworkManager.service: needs a restart (a library dependency was
+     updated)
+     /usr/bin/systemctl --no-ask-password try-restart NetworkManager.service
+     ....
 
 :command:`clr-service-restart` implements a whitelist to identify which
-daemons can be restarted. The system administrator maintains a customized
-overlay of the default |CL| OS whitelist. When a software update occurs,
+daemons can be restarted. The system administrator can customize the default
+|CL| OS whitelist using :option:`allow` or :option:`disallow` options for
+restarting system services. When a software update occurs,
 :command:`clr-service-restart` consults the whitelist to see if a service
-daemon is allowed to be restarted or not. See the options section below for
+daemon is allowed to be restarted or not. See the options section for
 details.
 
 
-Options for :command:`clr-service-restart`
-******************************************
+Options for clr-service-restart
+*******************************
 
 The :option:`allow` option identifies a daemon to restart after an OS software
 update. The :command:`clr-service-restart` daemon creates a symlink in
@@ -97,9 +97,9 @@ update. The :command:`clr-service-restart` daemon creates a symlink in
 :command:`clr-service-restart` to restart the :option:`tallow` daemon after an
 OS software update.
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     sudo clr-service-restart allow tallow.service
+   sudo clr-service-restart allow tallow.service
 
 The :option:`disallow` option tells :command:`clr-service-restart` not to
 restart the specified daemon even if the OS defaults permit the daemon to be
@@ -108,9 +108,9 @@ restarted. The :command:`clr-service-restart` daemon creates a symlink in
 The example below tells :command:`clr-service-restart` not to restart the
 :option:`rngd` daemon after an OS software update.
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     sudo clr-service-restart disallow rngd
+   sudo clr-service-restart disallow rngd
 
 The :option:`default` option makes :command:`clr-service-restart` revert back
 to the OS defaults and delete any symlink in :file:`/etc/clr-service-restart`.
@@ -118,12 +118,12 @@ The example below tells :command:`clr-service-restart` to restart
 :option:`rngd` automatically again, because :option:`rngd` is whitelisted for
 automatic service restarts by default in |CL|.
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     sudo clr-service-restart default rngd
+   sudo clr-service-restart default rngd
 
-Monitor options for :command:`clr-service-restart`
-==================================================
+Monitor options for clr-service-restart
+=======================================
 
 :command:`clr-service-restart` works in the background and is invoked with
 :command:`swupd` automatically. Review the journal output to verify that
@@ -132,7 +132,7 @@ services are restarted after an OS software update.
 To monitor :command:`clr-service-restart`, use one or both options described
 below.
 
-  :option:`-n`
+:option:`-n`
 
 This option makes :command:`clr-service-restart` perform no restarts. Instead
 it displays the services that could potentially be restarted. When used,
@@ -143,7 +143,7 @@ it displays the services that could potentially be restarted. When used,
 * Why it needs a restart.
 * Which command is required to restart the unit.
 
-  :option:`-a`
+:option:`-a`
 
 This option makes :command:`clr-service-restart` consider all system services,
 not only the ones that are whitelisted. Because the default whitelist in |CL|
@@ -181,4 +181,4 @@ your work easier. We made a github project of :command:`clr-service-restart`
 and we invite you to look at the code, share your thoughts, and work with us
 on improving the project. You can find the project at:
 
-  https://github.com/clearlinux/clr-service-restart
+https://github.com/clearlinux/clr-service-restart
