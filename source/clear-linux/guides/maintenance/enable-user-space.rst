@@ -97,9 +97,10 @@ To be able to execute all applications with root privileges, we must add the
 
 Install a GUI to test sudo
 --------------------------
-If you are following this sequence after just setting up the preconfigured
-VMware virtual machine from the repo, you must [increase](./increase-virtual-disk-size#id1) 
-the virtual disk size or the following step will fail. 
+.. note::
+If you are following this sequence after just setting up the pre-configured VMware virtual machine from
+the repo, you must :ref:increase virtual disk size<increase-virtual-disk-size> or the following step
+will fail.
 
 To test the :command:`sudo` command and ensure it is set up correctly,
 install the Gnome Desktop Manager (gdm) and start it.
