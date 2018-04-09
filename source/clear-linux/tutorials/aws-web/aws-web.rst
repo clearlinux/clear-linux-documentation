@@ -198,13 +198,13 @@ other instances available, they are also listed but not selected.
       chmod 400 AWSClearTestKey.pem
 
 #. Copy the text highlighted in the :guilabel:`Example:` section that is
-   shown in :ref:`figure 11<fig-aws-web-11>`. Paste the copied text into your terminal and add
-   `-l clear` text to the end of the command string. Press the :kbd:`Enter`
-   key to execute the command.
+   shown in :ref:`figure 11<fig-aws-web-11>`. Paste the copied text into your
+   terminal, change the text before the `@` sign to the username `clear`, and
+   press the :kbd:`Enter` key to execute the command.
 
    .. code-block:: console
 
-      ssh -i "AWSClearTestKey.pem" root@ec2-34-209-39-184.us-west-2.compute.amazonaws.com -l clear
+      ssh -i "AWSClearTestKey.pem" clear@ec2-34-209-39-184.us-west-2.compute.amazonaws.com
 
 #. A message appears on the terminal stating the authenticty of the host can't
    be established and prompts you with the message:

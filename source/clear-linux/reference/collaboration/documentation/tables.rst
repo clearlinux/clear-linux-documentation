@@ -17,8 +17,8 @@ Follow these general guidelines:
 * Indent the contents correctly. This allows the content to be read even if
   it is not rendered.
 
-* Only create a table if the body of the table is larger than 6, that means
-  at least 2x3 or 3x2.
+* Only create a table if the body of the table contains six or more cells,
+which is a minimum table size of at least 2x3 or 3x2.
 
 ReST supports several types of tables. |CL| uses grid and
 :abbr:`CSV-tables (Comma Separated Values tables)`. Grid tables are only
@@ -71,9 +71,9 @@ support several layout options. For example:
    crunchy, now would it?"
    "Gannet Ripple", 1.99, "On a stick!"
 
-CSV-tables can have a title, the header row is optional and separate from the
-rest of the table, each column's width is customizable among others. See the
-Sphinx `CSV-tables documentation`_ to learn all the possible options
+Some of the options available with CSV-tables are table titles, an optional
+header row separate from the rest of the table, and customizable column width.
+See the Sphinx `CSV-tables documentation`_ to learn all the possible options
 available.
 
 This template can help you create CSV-tables:

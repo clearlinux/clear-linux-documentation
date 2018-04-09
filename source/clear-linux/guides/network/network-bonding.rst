@@ -1,31 +1,48 @@
 .. _network-bonding:
 
-Combine multiple interfaces
-###########################
+Combine multiple interfaces with network bonding
+################################################
 
-Network bonding is a technique for combining multiple network interfaces into
-a single, logical interface, providing some redundancy and bandwidth
-aggregation.
+Network bonding combines multiple network interfaces into a single logical
+interface to provide redundancy and bandwidth aggregation.
 
-|CLOSIA| includes the bonding_ and team_ drivers. The guide example provided
-below shows how to configure systemd to use the ``bonding`` driver.
+|CLOSIA| includes Linux bonding_ and team_ drivers. This guide describes how
+to configure systemd to use the `bonding` driver.
+
+The example demonstrates how to:
+
+*  Bond all four ports of a quad-port NIC in `802.3ad` mode.
+
+*  Enable jumbo frames to optimize large data transfers on the local network.
+
+Your NICs and network switch must support `802.3ad` mode and jumbo frames. The
+example explains how to configure your NICs for both features. Your switch may
+require additional configuration. See your switch documentation for details.
 
 .. note::
-   All commands in this guide must be run as root.
 
-1. Create the ``/etc/systemd/network`` directory (if it doesn't already exist):
+   You must run all commands in this guide as root.
+
+#. Log in and get root privileges.
 
    .. code-block:: console
 
-      # mkdir -p /etc/systemd/network
+      sudo -s
 
-   This directory contains the configuration files and network settings
-   for the virtual device and its underlying physical interfaces.
+#. Create the :file:`/etc/systemd/network` directory.
 
-2. Configure systemd to create a virtual network device, ``bond1``. Use a text
-   editor to create a file named ``30-bond1.netdev`` as shown here:
+   .. code-block:: bash
 
-   .. code-block:: ini
+      mkdir -p /etc/systemd/network
+
+   The :file:`/etc/systemd/network` directory contains configuration files and
+   network settings for the virtual device and its underlying physical
+   interfaces.
+
+#. Configure systemd to create a virtual network device called `bond1`. Use a
+   text editor to create a file named :file:`30-bond1.netdev`.
+
+   .. code-block:: console
 
       [NetDev]
       Name=bond1
@@ -37,19 +54,15 @@ below shows how to configure systemd to use the ``bonding`` driver.
       MIIMonitorSec=1s
       LACPTransmitRate=fast
 
-   The syntax for this file is defined in the systemd.netdev_ manpage.
-   `This example`__ may be used verbatim, or tuned to your particular
-   requirements.  Note that ``802.3ad`` mode requires explicit support from
-   your NICs and network switch. This and other modes may also require
-   additional configuration of your network switch.
+   Refer to the systemd.netdev_ manpage for :file:`30-bond1.netdev` file
+   syntax. This example is based on Example 9 on the manpage. Modify the
+   example for your configuration.
 
-__ https://www.freedesktop.org/software/systemd/man/systemd.netdev.html#id-1.20.10
+#. Configure the slave interfaces. Create a text file named
+   :file:`30-bond1-enp1s0.network`. Assign the slave interfaces to the virtual
+   `bond1` device and use the syntax shown in systemd.network_.
 
-3. Configure the slave interfaces, assigning them to the new ``bond1`` device,
-   using the syntax in systemd.network_, and in a text file named
-   ``30-bond1-enp1s0.network`` as shown here:
-
-   .. code-block:: ini
+   .. code-block:: console
 
       [Match]
       Name=enp1s0f*
@@ -60,21 +73,20 @@ __ https://www.freedesktop.org/software/systemd/man/systemd.netdev.html#id-1.20.
       [Link]
       MTUBytes=9000
 
-   This example demonstrates bonding all four ports of a quad-port NIC, with
-   names in the range ``enp1s0f0-enp1s0f3``, allowing the use of a single file
-   with a wildcard match. You may also create a separate file for each NIC,
-   particularly if they have names that are not wildcard-friendly. This
-   configuration assigns each NIC as a slave of ``bond1``. For best results,
-   do not assign addresses or DHCP support to the individual NICs.
+   The example bonds all four ports of a quad-port NIC as a slave of `bond1`.
+   The example uses a wildcard match because the NIC names are in the range
+   `enp1s0f0-enp1s0f3`. If your NIC names are not wildcard-compatible, create
+   a separate :file:`.network` file for each NIC.
 
-   This example also enables jumbo frames of up to 9000 bytes to optimize large
-   data transfers on the local network. Again, your NICs and switch must
-   support jumbo frames, and your switch may require additional configuration.
+   For best results, do not assign addresses or DHCP support to the individual
+   NICs.
 
-4. Define the network configuration for the bonded interface in a file named
-   ``30-bond1.network`` as shown here:
+   The `MTUBytes` setting enables jumbo frames of up to 9000 bytes. Your
+   switch may require additional configuration to support this setting.
 
-   .. code-block:: ini
+#. Configure the bonded interface in a file named :file:`30-bond1.network`.
+
+   .. code-block:: console
 
       [Match]
       Name=bond1
@@ -86,25 +98,26 @@ __ https://www.freedesktop.org/software/systemd/man/systemd.netdev.html#id-1.20.
       [Link]
       MTUBytes=9000
 
-   Since ``bond1`` is a virtual interface, it has no concept of physical link
-   status. The ``BindCarrier`` directive indicates that the link status of this
-   interface is determined by the status of the listed slave devices.
+   `bond1` is a virtual interface with no physical link status.
 
-   This is the logical interface, so assign it an IP address. DHCP is more
-   complicated with bonded interfaces, and is not covered in this example.
+   `BindCarrier` indicates that the `bond1` link status is determined by the
+   status of the listed slave devices.
 
-   This file also enables jumbo frames of up to 9000 bytes. This option must be
-   enabled for all slave interfaces *and* the bonded interface, in order to take
-   effect.
+   `Address` contains an IP address that you assign to the logical interface.
+   DHCP bonded interfaces are complex and outside the scope of this example.
 
-5. Apply the new network configuration:
+   `MTUBytes` must be set to 9000 on all slave interfaces and on the bonded
+   interface for successful jumbo frames operation. If `MTUBytes` is not the
+   same on all interfaces, then the lowest value is used.
 
-   .. code-block:: console
+#. Apply the new network configuration with the command:
 
-      # systemctl restart systemd-networkd
+   .. code-block:: bash
 
-   The MTU settings will not take effect until a reboot, or if you explicitly
-   apply them via ``ifconfig``, for example.
+      systemctl restart systemd-networkd
+
+   The `MTUBytes` settings do not take effect until you reboot or manually
+   apply the settings with a utility such as `ifconfig`.
 
 .. _bonding:
    https://www.kernel.org/doc/Documentation/networking/bonding.txt

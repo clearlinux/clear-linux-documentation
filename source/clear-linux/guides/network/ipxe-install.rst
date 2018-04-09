@@ -1,70 +1,73 @@
 .. _ipxe-install:
 
 Install Clear Linux over the network with iPXE
-##############################################
+################################################
 
-This guide shows how to install |CL| through :abbr:`PXE (Pre-boot Execution Environment)`.
+This guide describes how to install Clear Linux\* using :abbr:`PXE (Pre-boot
+Execution Environment)`.
 
-PXE is an industry standard describing the client-server interaction with network-boot software using
-the DHCP and TFTP protocols. This guide shows one possible use of this
-environment to automatically install |CL|.
+PXE is an industry standard that describes client-server interaction with
+network-boot software and uses the DHCP and TFTP protocols. This guide shows one
+method of using the PXE environment to install |CL|.
 
-The PXE extension known as `iPXE`_\* adds support for additional protocols
-such as HTTP, :abbr:`iSCSI (Internet Small Computer Systems Interface)`, :abbr:`AoE (ATA over Ethernet)`, and
-:abbr:`FCoE (Fiber Channel over Ethernet)`. iPXE can also be used to enable
-network booting on computers which lack built-in PXE support.
+The PXE extension called `iPXE`_ adds support for additional protocols such as
+HTTP, :abbr:`iSCSI (Internet Small Computer Systems Interface)`, :abbr:`AoE
+(ATA over Ethernet\*)`, and :abbr:`FCoE (Fiber Channel over Ethernet\*)`. iPXE
+enables network booting on computers with no built-in PXE support.
 
-Figure 1 depicts the flow of information between a PXE server and a PXE
-client we must create to install |CL| through iPXE.
+To install |CL| through iPXE, you must create a PXE client. Figure 1 depicts
+the flow of information between a PXE server and a PXE client.
 
 .. figure:: ./figures/network-boot-flow.png
    :alt: PXE information flow
 
-   Figure 1: PXE information flow
+   Figure 1: PXE information flow.
 
 .. caution::
 
-   The |CL| image that boots through the PXE process automatically erases all data and partitions on the PXE client system and
-   creates 3 new partitions to install onto.
+   The |CL| image that boots through the PXE process automatically erases all
+   data and partitions on the PXE client system and creates 3 new partitions
+   to install onto.
 
 Prerequisites
 *************
 
-Before booting with iPXE, the following preparations must be made:
+Before booting with iPXE, make the following preparations.
 
-* Your PXE server has an Ethernet/LAN boot option.
-* Your PXE server has at least two network adapters.
-* Your PXE server is connected to a public network.
-* Your PXE server and PXE clients are connected to a switch on a private
-  network.
-* Your PXE server has the secure boot option disabled.
-* Your PXE clients have a boot order where the network boot option is
-  prioritized before the disk boot option.
+Connect the PXE server and PXE clients to a switch on a private network, as
+shown in Figure 2.
+
+.. figure:: ./figures/network-boot-setup.png
+   :alt: Network topology
+
+   Figure 2: Network topology.
+
+Your PXE client must have a boot order where the network boot option is
+prioritized before the disk boot option.
+
+Your PXE server must have:
+
+* Ethernet/LAN boot option.
+* At least two network adapters.
+* Connection to a public network.
+* Secure boot option disabled.
 
 .. note::
 
-   The ``Secure Boot`` option in the BIOS must be disabled because the UEFI binaries used to
-   boot |CL| are not signed.
+   You must disable the secure boot option in the BIOS because the UEFI
+   binaries used to boot |CL| are not signed.
 
-The required computer and network setup is shown in figure 2.
-
-.. figure:: ./figures/network-boot-setup.png
-   :alt: NAT network topology
-
-   Figure 2: NAT network topology
 
 Configuration
 *************
 
-The configuration process to install |CL| using iPXE has been automated with
-the :file:`configure-ipxe.sh` script included with
-:abbr:`ICIS (Ister Cloud Init Service)`, thus quickly enabling a bulk
-provisioning setup. For additional instructions on how to get started with the
-script, refer to the guide on the `ICIS GitHub repository`_. Otherwise, to
-setup manually, follow the steps below.
+To set up |CL| using iPXE automatically, use the :file:`configure-ipxe.sh`
+script included with :abbr:`ICIS (Ister Cloud Init Service)`. For additional
+instructions on the script, refer to the guide on the `ICIS GitHub repository`_.
 
-#. Define the variables used to parameterize the configuration of an iPXE
-   boot.
+To set up |CL| manually, perform the steps below.
+
+#. Define the variables used for iPXE boot configuration.
 
    .. code-block:: console
 
@@ -82,28 +85,28 @@ setup manually, follow the steps below.
 
 #. Log in and get root privilege.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      $ sudo -s
+      sudo -s
 
-#. Add the ``pxe-server`` bundle to your |CL| system. This bundle has all the
+#. Add the `pxe-server` bundle to your |CL| system. The bundle contains all
    files needed to run a PXE server.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # swupd bundle-add pxe-server
+      sudo swupd bundle-add pxe-server
 
 #. Download the latest network-bootable release of |CL| and extract the
    files.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # mkdir -p $ipxe_root
-      # curl -o /tmp/clear-pxe.tar.xz \
+      sudo mkdir -p $ipxe_root
+      sudo curl -o /tmp/clear-pxe.tar.xz \
         https://download.clearlinux.org/current/clear-$(curl \
         https://download.clearlinux.org/latest)-pxe.tar.xz
-      # tar -xJf /tmp/clear-pxe.tar.xz -C $ipxe_root
-      # ln -sf $(ls $ipxe_root | grep 'org.clearlinux.*') $ipxe_root/linux
+      sudo tar -xJf /tmp/clear-pxe.tar.xz -C $ipxe_root
+      sudo ln -sf $(ls $ipxe_root | grep 'org.clearlinux.*') $ipxe_root/linux
 
    .. note::
 
@@ -118,8 +121,8 @@ setup manually, follow the steps below.
 
    .. code-block:: console
 
-      # cat > $ipxe_root/ipxe_boot_script.ipxe << EOF
-      #!ipxe
+      sudo cat > $ipxe_root/ipxe_boot_script.ipxe << EOF
+      sudo!ipxe
       kernel linux quiet init=/usr/lib/systemd/systemd-bootchart \
       initcall_debug tsc=reliable no_timer_check noreplace-smp rw \
       initrd=initrd
@@ -127,14 +130,14 @@ setup manually, follow the steps below.
       boot
       EOF
 
-#. The ``pxe-server`` bundle contains a lightweight web-server known as
-   ``nginx``. Create a configuration file for ``nginx`` to serve |CL| to PXE
+#. The `pxe-server` bundle contains a lightweight web-server known as
+   `nginx`. Create a configuration file for `nginx` to serve |CL| to PXE
    clients with the following contents:
 
    .. code-block:: console
 
-      # mkdir -p /etc/nginx/conf.d
-      # cat > /etc/nginx/conf.d/$ipxe_app_name.conf << EOF
+      sudo mkdir -p /etc/nginx/conf.d
+      sudo cat > /etc/nginx/conf.d/$ipxe_app_name.conf << EOF
       server {
         listen $ipxe_port;
         server_name localhost;
@@ -145,42 +148,42 @@ setup manually, follow the steps below.
       }
       EOF
 
-      # cp /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
+      sudo cp /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
 
    .. note::
 
-      Creating a separate configuration file for ``nginx`` to serve
-      network-bootable images on a non-standard port number preserves
-      existing `nginx` configurations.
+      Create a separate `nginx` configuration file to serve network-bootable
+      images on a non-standard port number. This action saves existing `nginx`
+      configurations.
 
-#. Start ``nginx`` and enable the startup on boot option.
+#. Start `nginx` and enable the startup on boot option.
+
+   .. code-block:: bash
+
+      sudo systemctl start nginx
+      sudo systemctl enable nginx
+
+#. The `pxe-server` bundle contains a lightweight DNS server which
+   conflicts with the DNS stub listener provided in `systemd-resolved`.
+   Disable the DNS stub listener and temporarily stop `systemd-resolved`.
 
    .. code-block:: console
 
-      # systemctl start nginx
-      # systemctl enable nginx
-
-#. The ``pxe-server`` bundle contains a lightweight DNS server which
-   conflicts with the DNS stub listener provided by ``systemd-resolved``.
-   Disable the DNS stub listener and temporarily stop ``systemd-resolved``.
-
-   .. code-block:: console
-
-      # mkdir -p /etc/systemd
-      # cat > /etc/systemd/resolved.conf << EOF
+      sudo mkdir -p /etc/systemd
+      sudo cat > /etc/systemd/resolved.conf << EOF
       [Resolve]
       DNSStubListener=no
       EOF
 
-      # systemctl stop systemd-resolved
+      sudo systemctl stop systemd-resolved
 
 #. Assign a static IP address to the network adapter for the private network
-   and restart ``systemd-networkd`` with the following commands:
+   and restart `systemd-networkd` with the following commands:
 
    .. code-block:: console
 
-      # mkdir -p /etc/systemd/network
-      # cat > /etc/systemd/network/70-internal-static.network << EOF
+      sudo mkdir -p /etc/systemd/network
+      sudo cat > /etc/systemd/network/70-internal-static.network << EOF
       [Match]
       Name=$internal_iface
       [Network]
@@ -188,74 +191,73 @@ setup manually, follow the steps below.
       Address=$pxe_internal_ip/$pxe_subnet_bitmask
       EOF
 
-      # systemctl restart systemd-networkd
+      sudo systemctl restart systemd-networkd
 
-#. Configure NAT to route traffic from the private network to the public
-   network, effectively turning the PXE server into a router. To keep these
-   changes in spite of reboots, save the changes to the firewall with the
-   following commands:
+#. Configure :abbr:`NAT (Network Address Translation)` to route traffic from
+   the private network to the public network. This action makes the PXE
+   server act as a router. To make these changes persistent during reboots, save the
+   changes to the firewall with the following commands:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # iptables -t nat -F POSTROUTING
-      # iptables -t nat -A POSTROUTING -o $external_iface -j MASQUERADE
-      # systemctl enable iptables-save.service
-      # systemctl restart iptables-save.service
-      # systemctl enable iptables-restore.service
-      # systemctl restart iptables-restore.service
+      sudo iptables -t nat -F POSTROUTING
+      sudo iptables -t nat -A POSTROUTING -o $external_iface -j MASQUERADE
+      sudo systemctl enable iptables-save.service
+      sudo systemctl restart iptables-save.service
+      sudo systemctl enable iptables-restore.service
+      sudo systemctl restart iptables-restore.service
 
    .. note::
 
-      The firewall masks or translates packets to make them appear as
-      coming from the PXE server. Thus, it hides the PXE clients from the
-      public network.
+      The firewall masks packets to make them appear as coming from the PXE
+      server and hides PXE clients from the public network.
 
 #. Configure the kernel to forward network packets to different
    interfaces. Otherwise, NAT will not work.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # mkdir -p /etc/sysctl.d
-      # echo net.ipv4.ip_forward=1 > /etc/sysctl.d/80-nat-forwarding.conf
-      # echo 1 > /proc/sys/net/ipv4/ip_forward
+      sudo mkdir -p /etc/sysctl.d
+      sudo echo net.ipv4.ip_forward=1 > /etc/sysctl.d/80-nat-forwarding.conf
+      sudo echo 1 > /proc/sys/net/ipv4/ip_forward
 
-#. The ``pxe-server`` bundle contains iPXE firmware images that allow computers
+#. The `pxe-server` bundle contains iPXE firmware images that allow computers
    without an iPXE implementation to perform an iPXE boot. Create a TFTP
-   hosting directory and populate it with the iPXE firmware images with the
-   following commands:
+   hosting directory and populate the directory with the iPXE firmware images
+   with the following commands:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # mkdir -p $tftp_root
-      # ln -sf /usr/share/ipxe/undionly.kpxe $tftp_root/undionly.kpxe
+      sudo mkdir -p $tftp_root
+      sudo ln -sf /usr/share/ipxe/undionly.kpxe $tftp_root/undionly.kpxe
 
-#. The ``pxe-server`` bundle contains a lightweight TFTP, DNS, and DHCP
-   server known as ``dnsmasq``.  Create a configuration file for ``dnsmasq``
+#. The `pxe-server` bundle contains a lightweight TFTP, DNS, and DHCP
+   server known as `dnsmasq`. Create a configuration file for `dnsmasq`
    to listen on a dedicated IP address for those functions. PXE clients on
-   the private network will use this IP address to access those functions.
+   the private network will use this IP address.
 
    .. code-block:: console
 
-      # cat > /etc/dnsmasq.conf << EOF
+      sudo cat > /etc/dnsmasq.conf << EOF
       listen-address=$pxe_internal_ip
       EOF
 
 #. Add the options to serve iPXE firmware images to PXE clients over TFTP to
-   the ``dnsmasq`` configuration file.
+   the `dnsmasq` configuration file.
 
    .. code-block:: console
 
-      # cat >> /etc/dnsmasq.conf << EOF
+      sudo cat >> /etc/dnsmasq.conf << EOF
       enable-tftp
       tftp-root=$tftp_root
       EOF
 
-#. Add the options to host a DHCP server for PXE clients to the ``dnsmasq``
+#. Add the options to host a DHCP server for PXE clients to the `dnsmasq`
    configuration file.
 
    .. code-block:: console
 
-      # cat >> /etc/dnsmasq.conf << EOF
+      sudo cat >> /etc/dnsmasq.conf << EOF
       dhcp-leasefile=/var/db/dnsmasq.leases
 
       dhcp-authoritative
@@ -272,7 +274,7 @@ setup manually, follow the steps below.
       EOF
 
 
-   This configuration provides the following important functions:
+   The configuration provides the following important functions:
 
    * Directs PXE clients without an iPXE implementation to the TFTP server
      to acquire architecture-specific iPXE firmware images that allow them
@@ -281,44 +283,42 @@ setup manually, follow the steps below.
      defined subnet.
    * Directs PXE clients to the DNS server.
    * Directs PXE clients to the PXE server for routing via NAT.
-   * Divides the private network into two pools of IP addresses, one for
-     network booting and another for usage after boot, each with their own
-     lease times.
+   * Divides the private network into two pools of IP addresses. One pool
+     is for network boot and one pool is used after boot. Each pool has
+     their own lease times.
 
-#. Create a file where ``dnsmasq`` can record the IP addresses it provides
+#. Create a file for `dnsmasq` to record the IP addresses it provides
    to PXE clients.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # mkdir -p /var/db
-      # touch /var/db/dnsmasq.leases
+      sudo mkdir -p /var/db
+      sudo touch /var/db/dnsmasq.leases
 
-#. Start ``dnsmasq`` and enable startup on boot.
+#. Start `dnsmasq` and enable startup on boot.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # systemctl enable dnsmasq
-      # systemctl restart dnsmasq
+      sudo systemctl enable dnsmasq
+      sudo systemctl restart dnsmasq
 
-#. Start ``systemd-resolved``.
+#. Start `systemd-resolved`.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # systemctl start systemd-resolved
-
-   .. note::
-
-      Using the ``dnsmasq`` DNS server allows ``systemd-resolved`` to dynamically
-      update the list of DNS servers for the private network from the public
-      network. This setup effectively creates a pass-through DNS server which
-      relies on the DNS servers listed in :file:`/etc/resolv.conf`.
-
-#. Power on the PXE client and watch it boot and install |CL|.
+      sudo systemctl start systemd-resolved
 
    .. note::
 
-      After booting, |CL| will automatically partition the hard drive,
-      install itself, update to the latest version, and reboot.
+      `systemd-resolved` dynamically updates the list of DNS servers for the
+      private network if you use the `dnsmasq` DNS server. The setup creates a
+      pass-through DNS server that relies on the DNS servers listed in
+      :file:`/etc/resolv.conf`.
+
+#. Power on the PXE client and watch the client boot and install |CL|.
+
+   After booting, |CL| automatically partitions the hard drive,
+   installs itself, updates to the latest version, and reboots.
 
 
 **Congratulations!** You have successfully installed and configured a PXE

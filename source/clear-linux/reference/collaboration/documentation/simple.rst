@@ -13,8 +13,8 @@ makes translation easier, and improves comprehension for people whose
 first language is not English.
 
 |CLOSIA| does not use controlled language, which restricts the writer's
-vocabulary to a list of approved words. Some preferences are evidently in
-place.
+vocabulary to a list of approved words. However, we do strongly recommend
+using the language principles described below.
 
 Short sentences and paragraphs
 ******************************
@@ -26,7 +26,7 @@ principle of one main idea in a sentence, plus one additional point if
 needed.
 
 Similarly, restrict your paragraph length to about six sentences.
-Remember the basic structure of a paragraph: Introduction, body and
+Remember the basic structure of a paragraph: Introduction, body, and
 conclusion. Both the introduction and the conclusion should be one
 sentence long. The body of a paragraph should never exceed four
 sentences. Here less is more.

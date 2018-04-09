@@ -18,4 +18,5 @@ specific |CLOSIA| use cases.
    fmv
    aws-web/aws-web
    telemetry-backend/telemetry-backend
-   smb-file-sharing/smb-file-sharing
+   smb/smb
+   spark
