@@ -1,4 +1,4 @@
-.. _cl-restart:
+.. _restart:
 
 Restart system services after an OS update
 ##########################################

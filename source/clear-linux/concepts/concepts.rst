@@ -12,3 +12,4 @@ details relevant to the |CL| features.
 
    swupd-about
    bundles-about
+   restart
