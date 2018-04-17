@@ -109,4 +109,4 @@ https://clearlinux.org/features/telemetry
 https://github.com/clearlinux/telemetrics-client
 
 .. _`Intel's privacy policies`:
-   http://www.intel.com/content/www/us/en/privacy/intel-privacy.html
+   https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
