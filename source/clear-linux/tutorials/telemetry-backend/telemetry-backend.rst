@@ -472,4 +472,4 @@ https://github.com/clearlinux/telemetrics-backend
    https://github.com/clearlinux/telemetrics-backend
 
 .. _`Intel's privacy policies`:
-   http://www.intel.com/content/www/us/en/privacy/intel-privacy.html
+   https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
