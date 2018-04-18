@@ -51,7 +51,11 @@ Download and launch the virtual machine
 
 #. Download the latest pre-built |CL| KVM image file from
    the `image <https://download.clearlinux.org/image/>`_ directory. Look for
-   ``clear-<version>-kvm.img.xz``.
+   ``clear-<version>-kvm.img.xz``.  You can also use this command: 
+
+   .. code-block:: bash
+
+      curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-kvm.img.xz
 
 #. Uncompress the downloaded image:
 
