@@ -28,7 +28,11 @@ Create a virtual machine in VirtualBox
 ======================================
 
 #. Download the `latest`_ **live** version (clear-XXXX-live.img.xz)
-   from https://download.clearlinux.org/image/.
+   from https://download.clearlinux.org/image/. You can also use this command: 
+
+   .. code-block:: bash
+
+      curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-live.img.xz
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
