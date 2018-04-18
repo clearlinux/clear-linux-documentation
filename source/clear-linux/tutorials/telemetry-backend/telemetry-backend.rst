@@ -33,7 +33,7 @@ up and running, we show you how to redirect telemetry records from the system
 you set up to this new server location.
 
 .. note::
-   The telemetrics functionality adheres to `Intel’s privacy policies`_
+   The telemetrics functionality adheres to `Intel privacy policies`_
    regarding the collection and use of :abbr:`PII (Personally Identifiable
    Information)` and is open Source. Specifically, no intentionally
    identifiable information about the user or system owner is collected.
@@ -471,5 +471,5 @@ https://github.com/clearlinux/telemetrics-backend
 .. _`Clear Linux telemetry backend server overview`:
    https://github.com/clearlinux/telemetrics-backend
 
-.. _`Intel's privacy policies`:
+.. _`Intel privacy policies`:
    https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
