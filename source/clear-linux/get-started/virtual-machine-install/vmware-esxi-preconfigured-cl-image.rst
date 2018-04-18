@@ -32,7 +32,12 @@ Download the latest Clear Linux VMware image
 ********************************************
 
 Get the latest |CL| VMware image from the `image`_ repository.
-Look for :file:`clear-[version number]-vmware.vmdk.xz`.
+Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
+this command: 
+
+.. code-block:: bash
+
+   curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-vmware-vmdk.xz
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
    :Start-after: verify-linux:
