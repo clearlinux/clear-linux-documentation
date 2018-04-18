@@ -13,7 +13,12 @@ Download the latest Clear Linux installer image
 ***********************************************
 
 Get the latest |CL| installer image from the `image`_ directory.
-Look for the :file:`clear-[version number]-installer.img.xz` file.
+Look for the :file:`clear-[version number]-installer.img.xz` file. You can also use this command:
+
+.. code-block:: bash
+   
+   curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz
+
 Once you have downloaded the image, verify and uncompress the file.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
