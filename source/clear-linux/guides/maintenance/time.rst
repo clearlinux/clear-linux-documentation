@@ -12,7 +12,7 @@ the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
 
    .. code-block:: bash
 
-      swupd bundle-add sysadmin-basic
+      sudo swupd bundle-add sysadmin-basic
 
 #. Set your time zone. This example uses Los Angeles.
 
@@ -34,7 +34,7 @@ the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
 #. Create a new file named :file:`/etc/systemd/timesyncd.conf` and enter the
    following text.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       [Time]
       NTP=<Preferred Server>
@@ -55,8 +55,4 @@ the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
 
 **Congratulations!** You successfully set up the time in your |CL| system.
 
-
-You can change the time and time zone from your |CL| desktop. Under the
-:guilabel:`Details` tab, select the :guilabel:`Settings` application, then
-select :guilabel:`Date & Time` options.
 
