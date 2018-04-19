@@ -39,25 +39,25 @@ Install the VMware Workstation Player hypervisor
    Download your preferred version.
 
 #. Depending on which OS you're running, install it by following one of these
-    instructions:
+   instructions:
 
    * On supported Linux distros:
 
-      #. Enable a GUI desktop.
+     #. Enable a GUI desktop.
 
-      #. Start a terminal emulator.
+     #. Start a terminal emulator.
 
-      #. Start the installer by issuing the command below and follow the guided
-         steps.
+     #. Start the installer by issuing the command below and following the
+        guided steps.
 
-         .. code-block:: console
+        .. code-block:: bash
 
-            sudo sh ./VMware-Player-[version number].x86_64.bundle
+           sudo sh ./VMware-Player-[version number].x86_64.bundle
 
    * On Windows:
 
-      #. Start the installer.
-      #. Follow the setup wizard.
+     #. Start the installer.
+     #. Follow the setup wizard.
 
 For additional help, see the `VMware Workstation Player guide`_.
 
@@ -71,7 +71,12 @@ Download the latest Clear Linux VMware image
 ********************************************
 
 Get the latest |CL| VMware image from the `image`_ repository.
-Look for :file:`clear-[version number]-vmware.vmdk.xz`.
+Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
+this command: 
+
+.. code-block:: bash
+
+   curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-vmware.vmdk.xz
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
    :Start-after: verify-windows:
@@ -94,16 +99,16 @@ Create and configure a new VM
 
       Figure 1: VMware Workstation 14 Player - Create a new virtual machine
 
-#. On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen, select
-   the :guilabel:`I will install the operating system later` option.
+#. On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen,
+   select the :guilabel:`I will install the operating system later` option.
    See figure 2.
 
    .. figure:: figures/vmw-player-preconf/vmw-player-preconf-02.png
       :scale: 100%
       :alt: VMware Workstation 14 Player - Select install operating system
 
-      Figure 2: VMware Workstation 14 Player - Select install operating system
-      later.
+      Figure 2: VMware Workstation 14 Player - Select install operating
+      system later.
 
 #. Click the :guilabel:`Next` button.
 
@@ -123,8 +128,8 @@ Create and configure a new VM
 
 #. Click the :guilabel:`Next` button.
 
-#. On the :guilabel:`Name the Virtual Machine` screen, give your new VM a name.
-   See figure 4.
+#. On the :guilabel:`Name the Virtual Machine` screen, give your new VM a
+   name. See figure 4.
 
    .. figure:: figures/vmw-player-preconf/vmw-player-preconf-04.png
       :scale: 100%
@@ -134,10 +139,11 @@ Create and configure a new VM
 
 #. Click the :guilabel:`Next` button.
 
-#. On the :guilabel:`Specify Disk Capacity` screen, click the :guilabel:`Next`
-   button. Keep the default disk settings unchanged. When we attach the pre-configured |CL| 
-   VMware image, we will remove the default virtual disk and replace it with the 
-   pre-configured one. See figure 5.
+#. On the :guilabel:`Specify Disk Capacity` screen, click 
+   the :guilabel:`Next` button. Keep the default disk settings unchanged.
+   When we attach the pre-configured |CL| VMware image, we will remove the
+   default virtual disk and replace it with the pre-configured one. See
+   figure 5.
 
    .. figure:: figures/vmw-player-preconf/vmw-player-preconf-05.png
       :scale: 100%
@@ -161,7 +167,8 @@ Create and configure a new VM
       :scale: 100%
       :alt: VMware Workstation 14 Player - Set virtualization engine option
 
-      Figure 7: VMware Workstation 14 Player - Set virtualization engine option
+      Figure 7: VMware Workstation 14 Player - Set virtualization engine
+      option
 
 #. Under the :guilabel:`Virtualization engine` section,
    check :guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`.
@@ -248,7 +255,7 @@ Attach the pre-configured Clear Linux VMware image
       Figure 13: VMware Workstation 14 Player - Use existing virtual disk
 
 #. Click the :guilabel:`Browse` button and select the pre-configured |CL|
-VMware image file. See figure 14.
+   VMware image file. See figure 14.
 
    .. figure:: figures/vmw-player-preconf/vmw-player-preconf-14.png
       :scale: 100%
