@@ -50,7 +50,7 @@ Install the VMware Workstation Player hypervisor
      #. Start the installer by issuing the command below and following the
         guided steps.
 
-        .. code-block:: console
+        .. code-block:: bash
 
            sudo sh ./VMware-Player-[version number].x86_64.bundle
 
