@@ -29,7 +29,7 @@ the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
 
    .. code-block:: bash
 
-      mkdir -p /etc/systemd/
+      sudo mkdir -p /etc/systemd/
 
 #. Create a new file named :file:`/etc/systemd/timesyncd.conf` and enter the
    following text.
