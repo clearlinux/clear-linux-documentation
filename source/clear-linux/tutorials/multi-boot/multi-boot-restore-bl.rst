@@ -1,6 +1,6 @@
-.. _multi-boot-reset-bl:
+.. _multi-boot-restore-bl:
 
-Recover the Clear Linux boot loader
+Restore the Clear Linux boot loader
 ***********************************
 
 The installation of a new operating system or an upgrade of an existing
@@ -12,7 +12,7 @@ longer the default boot loader. To restore it, follow the steps below.
 #. At the introduction screen, press :kbd:`Control+Alt+F2` to bring up the
    |CL| console. See Figure 1.
 
-   .. figure:: figures/multi-boot-reset-bl-1.png
+   .. figure:: figures/multi-boot-restore-bl-1.png
 
       Figure 1: |CL|: Console
 
@@ -29,7 +29,7 @@ longer the default boot loader. To restore it, follow the steps below.
 
       # fdisk –l
 
-   .. figure:: figures/multi-boot-reset-bl-2.png
+   .. figure:: figures/multi-boot-restore-bl-2.png
 
       Figure 2: |CL| - fdisk -l
 

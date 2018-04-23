@@ -133,7 +133,7 @@ Install Mint\* 18.1 “Serena” MATE
 
    .. note::
       If an older version of Mint does not have the `bootctl` command,
-      skip this step and see :ref:`multi-boot-reset-bl` to restore the Clear
+      skip this step and see :ref:`multi-boot-restore-bl` to restore the Clear
       Linux Systemd-Boot boot loader.
 
 #. Reboot.

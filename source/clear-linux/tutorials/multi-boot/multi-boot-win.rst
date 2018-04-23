@@ -34,7 +34,7 @@ Install Windows\* Server 2016
 #. Go through the Windows out-of-box-experience process.
 
 #. At this point, the ability to boot |CL| is lost because Windows is the
-   default boot loader. See :ref:`multi-boot-reset-bl` to restore the |CL|
+   default boot loader. See :ref:`multi-boot-restore-bl` to restore the |CL|
    Systemd-Boot boot loader and add Windows to its boot menu.
 
 

@@ -157,7 +157,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
       .. note::
          This version of Red Hat does not support `bootctl install`. Perform
-         the steps in :ref:`multi-boot-reset-bl` instead.
+         the steps in :ref:`multi-boot-restore-bl` instead.
 
    #. Reboot.
 

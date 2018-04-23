@@ -135,7 +135,7 @@ Install Ubuntu\* 16.04 LTS Desktop
 
    .. note::
       If an older version of Ubuntu does not have the `bootctl` command,
-      skip this step and see :ref:`multi-boot-reset-bl` to restore the |CL|
+      skip this step and see :ref:`multi-boot-restore-bl` to restore the |CL|
       Systemd-Boot boot loader.
 
 #. Reboot.
