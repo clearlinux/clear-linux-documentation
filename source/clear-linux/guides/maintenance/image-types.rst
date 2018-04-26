@@ -5,13 +5,13 @@ Clear Linux image types
 
 .. _image-types-content:
 
-|CL| offers many types of `images`_ for different platforms and environments.
+|CLOSIA| offers many types of `images`_ for different platforms and environments.
 
 The naming convention of a |CL| image filename is:
 
   .. code-block:: console
 
-    clear-[version number]-[image type].[compression type]
+      clear-[version number]-[image type].[compression type]
 
 The *[version number]* field specifies the version number.
 
@@ -19,9 +19,9 @@ The *[image type]* field specifies the type of image and its corresponding
 file format.
 
 The *[compression type]* field specifies the compression type. Two types of
-compressions are used, namely GNU zip (*.gz*) and XZ (*.xz*).
+compressions are used: GNU\* zip (*.gz*) and XZ (*.xz*).
 
-The current list of available images:
+Table 1 lists the currently available images.
 
 .. list-table:: Table 1: Types of Clear Linux images
    :widths: 20, 60
@@ -30,29 +30,29 @@ The current list of available images:
    * - Image Type
      - Description
    * - azure.vhd
-     - Image for Microsoft Azure
+     - Image for Microsoft\* Azure\*
    * - azure-docker.vhd
-     - Image with the Docker installed for Microsoft Azure
+     - Image with Docker\* installed for Microsoft Azure
    * - azure-machine-learning.vhd
      - Image with the `machine-learning-basic` bundle installed for Microsoft
        Azure
    * - cloud.img
-     - Image for cloud deployment such as OpenStack, etc.
+     - Image for cloud deployment such as OpenStack\*
    * - containers.img
-     - An optimized image utilized by Clear Containers runtime
+     - Optimized image used by Clear Containers runtime
    * - hyperv.vhdx
-     - Image for Microsoft HyperV
+     - Image for Microsoft Hyper-V\*
    * - hyperv-mini.vhdx
-     - A minimal image with fewer bundles for Microsoft HyperV
+     - Minimal image with fewer bundles for Microsoft Hyper-V
    * - installer.img
-     - An interactive installer image for installing Clear Linux
+     - Interactive installer image
    * - installer.iso
-     - An ISO of the interactive installer image for installing Clear Linux
+     - ISO of the interactive installer image
    * - kvm.img
      - Image for booting in a simple VM with start_qemu.sh
    * - live.img
-     - A live boot image of Clear Linux
+     - Live boot image
    * - vmware.vmdk
-     - Image for VMware
+     - Image for VMware\*
 
 .. _images: https://download.clearlinux.org/image
