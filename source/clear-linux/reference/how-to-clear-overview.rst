@@ -3,10 +3,10 @@
 How to Clear training overview
 ##############################
 
-The existing Linux\* ecosystem causes user challenges due to long intervals
-between :abbr:`OS (operating system)` updates, which leads to large update
-downloads. Users are also frustrated when managing complicated component
-dependencies. |CLOSIA| solves these problems by:
+The existing Linux\* ecosystem can be challenging to users because of long
+intervals between :abbr:`OS (operating system)` updates, which leads to large
+update downloads. Users can also be frustrated when managing complicated
+component dependencies. |CLOSIA| solves these problems by:
 
 *	Allowing you to update frequently, even multiple times per day
 *	Preventing you from combining incompatible components
