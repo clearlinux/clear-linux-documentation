@@ -3,13 +3,16 @@
 Download, verify, and uncompress a Clear Linux image on Linux
 #############################################################
 
-This section explains the types of |CLOSIA| images available, where to download
+This guide describes the types of |CLOSIA| images available, where to download
 them, how to verify the integrity of an image, and how to uncompress it.
 
-We also provide instructions for other operating systems:
+Instructions for other operating systems are available:
 
 * :ref:`download-verify-uncompress-mac`
 * :ref:`download-verify-uncompress-windows`
+
+Image types
+***********
 
 .. include:: image-types.rst
    :start-after: image-types-content:
@@ -19,45 +22,44 @@ We also provide instructions for other operating systems:
 Verify the integrity of the Clear Linux image
 *********************************************
 
-Before you use a downloaded |CL| image, verify its integrity. Thus, you 
-eliminate the small chance of a corrupted image due to download issues.
-To support verification, we accompany each released |CL| image with an official 
-SHA512 checksum file, which is designated with the suffix `-SHA512SUMS`.  
+Before you use a downloaded |CL| image, verify its integrity. This action
+eliminates the small chance of a corrupted image due to download issues. To
+support verification, each released |CL| image has a corresponding SHA512
+checksum file designated with the suffix `-SHA512SUMS`.
 
-#.  Download the official corresponding SHA512 checksum file of your
-    downloaded |CL| image.
+#.  Download the corresponding SHA512 checksum file of your |CL| image.
 #.  Start a terminal emulator.
 #.  Go to the directory with the downloaded image and checksum files.
 #.  Verify the integrity of the image and compare it to its original checksum
-    by entering:
+    with the command:
 
-   .. code-block:: console
+    .. code-block:: bash
 
-      $ sha512sum -c ./clear-[version number]-[image type].[compression type]-SHA512SUMS
+        sha512sum -c ./clear-[version number]-[image type].[compression type]-SHA512SUMS
 
 If the checksum of the downloaded image is different than the original
-checksum, a warning will be displayed with a message indicating the computed
-checksum does **not** match. Otherwise, the name of the image will be printed on
+checksum, a warning is displayed with a message indicating the computed
+checksum does **not** match. Otherwise, the name of the image is printed on
 the screen followed by `OK`.
 
 Uncompress the Clear Linux image
 ********************************
 
-We compress all released |CL| images by default with either GNU zip 
-(`.gz`) or XZ (`.xz`). The compression type we use depends on the target 
-platform or environment of the image. To uncompress the image, follow these steps:
+Released |CL| images are compressed with either GNU zip (*.gz*) or XZ
+(*.xz*). The compression type depends on the target platform or image
+environment. To uncompress the image, follow these steps:
 
 #.  Start a terminal emulator.
 #.  Go to the directory with the downloaded image.
 
-   To uncompress an XZ image, enter:
+    To uncompress an XZ image, enter:
 
-      .. code-block:: console
+    .. code-block:: bash
 
-         $ unxz clear-[version number]-[image type].xz
+        unxz clear-[version number]-[image type].xz
 
-   To uncompress a GZ image, enter:
+    To uncompress a GZ image, enter:
 
-       .. code-block:: console
+    .. code-block:: bash
 
-         $ gunzip clear-[version number]-[image type].gz
+        gunzip clear-[version number]-[image type].gz
