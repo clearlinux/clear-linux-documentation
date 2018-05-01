@@ -26,9 +26,9 @@ to improve system stability. If you chose not to join this program at that
 time then the telemetry software bundle is not added to your system.
 
 To install the telemetry bundle, enter the following command as either the
-root user or with :command:`sudo` priveleges:
+root user or with :command:`sudo` privileges:
 
-.. code-block:: console
+.. code-block:: bash
 
 	sudo swupd bundle-add telemetrics
 
@@ -38,9 +38,9 @@ opt-in for the service.
 Enable Telemetry
 ****************
 
-To start telemetry on your system run the following command:
+To start telemetry on your system, run the following command:
 
-.. code-block:: console
+.. code-block:: bash
 
 	sudo telemctl start
 
@@ -53,9 +53,9 @@ begin to send telemetry data to the server defined in the file
 Disable Telemetry
 *****************
 
-To disable the telemetry daemon run the following command:
+To disable the telemetry daemon, run the following command:
 
-.. code-block:: console
+.. code-block:: bash
 
 	sudo telemctl stop
 
@@ -65,7 +65,7 @@ Opt-out of telemetry
 To stop sending telemetrics data from your system, opt out of the
 telemetry service:
 
-.. code-block:: console
+.. code-block:: bash
 
 	sudo telemctl opt-out
 
@@ -78,7 +78,7 @@ Opt-in to telemetry
 Conversely, to opt-in to the telemetry services, simply enter the opt-in
 command and start the service:
 
-.. code-block:: console
+.. code-block:: bash
 
 	sudo telemctl opt-in
 
@@ -97,7 +97,7 @@ Remove the telemetry software bundle
 To completely remove telemetrics from your system, use the command
 :command:`swupd` to remove the telemetry software bundle:
 
-.. code-block:: console
+.. code-block:: bash
 
 	sudo swupd bundle-remove telemetrics
 
