@@ -31,7 +31,7 @@ Replace the <userid> with the name of the user account you want to create includ
 to enter a new password. Retype the new password for the new user
 account just created.
 
-Install and update software
+Install and update the OS software to its current version
 *********************************************************
 
 |CL| has a unique application and architecture to add and update applications
@@ -50,13 +50,6 @@ utility:
 .. code-block:: console
 
    swupd bundle-add os-clr-on-clr
-
-.. note::
-
-   The image we installed may not be the latest version of |CL| available on
-   the server. However, whenever the command
-   :command:`swupd bundle-add <bundle>` runs, the OS is updated to the latest
-   available version. Our website provides more `information about swupd`_.
 
 We provide the full list of bundles and packages installed with the
 `os-clr-on-clr`_ bundle. Additionally, we have listed
