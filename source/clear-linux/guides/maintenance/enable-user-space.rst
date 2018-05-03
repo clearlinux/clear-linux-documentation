@@ -7,10 +7,10 @@ This section provides steps to complete the following basic setup tasks for
 a newly installed |CLOSIA| system:
 
 * Create a new user.
-* Install and update the OS software to its current version.
+* Update the OS to its most current version using `swupd`.
+* Install the most common applications for system administrators and developers using bundles.
 * Set up a new user and add the new user to the `wheel` group.
-
-  *  Install a GUI to test `sudo` privileges.
+* Install a GUI to test `sudo` privileges.
 
 .. note::
    Log in as the root user to complete the tasks in this
@@ -31,7 +31,7 @@ Replace the <userid> with the name of the user account you want to create includ
 to enter a new password. Retype the new password for the new user
 account just created.
 
-Install and update the OS software to its current version
+Install and update software
 *********************************************************
 
 |CL| has a unique application and architecture to add and update applications
@@ -53,14 +53,14 @@ utility:
 
 .. note::
 
-   The image installed may not be the latest version of |CL| available on
+   The image we installed may not be the latest version of |CL| available on
    the server. However, whenever the command
    :command:`swupd bundle-add <bundle>` runs, the OS is updated to the latest
-   available version. The website provides more `information about swupd`_.
+   available version. Our website provides more `information about swupd`_.
 
-A full list of bundles and packages installed with the
-`os-clr-on-clr`_ bundle is provided. Additionally,
-`all Clear Linux bundles`_ is listed, active or deprecated. Click any bundle on the
+We provide the full list of bundles and packages installed with the
+`os-clr-on-clr`_ bundle. Additionally, we have listed
+`all Clear Linux bundles`_, active or deprecated. Click any bundle on the
 list to view the manifest of the bundle.
 
 Set up a new user and add the new user to the `wheel` group
