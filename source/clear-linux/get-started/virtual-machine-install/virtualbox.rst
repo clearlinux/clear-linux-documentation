@@ -16,7 +16,7 @@ Install VirtualBox
 ===================
 
 #. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
-   `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
+   `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
    host machine’s BIOS.
 
 #. Log in and open a terminal emulator.
@@ -181,6 +181,9 @@ To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
 
+.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/
+   intel-virtualization-technology.html
+.. _Intel® Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
