@@ -8,7 +8,8 @@ a newly installed |CLOSIA| system:
 
 * Create a new user.
 * Update the OS to its most current version using `swupd`.
-* Install the most common applications for system administrators and developers using bundles.
+* Install the most common applications for system administrators and
+  developers using bundles.
 * Set up a new user and add the new user to the `wheel` group.
 * Install a GUI to test `sudo` privileges.
 
@@ -27,8 +28,9 @@ commands as a root user:
    useradd <userid>
    passwd <userid>
 
-Replace the <userid> with the name of the user account you want to create including the password for that user. The :command:`passwd` command prompts you
-to enter a new password. Retype the new password for the new user
+Replace the <userid> with the name of the user account you want to create
+including the password for that user. The :command:`passwd` command prompts
+you to enter a new password. Retype the new password for the new user
 account just created.
 
 Install and update the OS software to its current version
@@ -44,10 +46,9 @@ applications useful to a system administrator or a developer. The bundle
 contains other bundles such as `sysadmin-basic`, `editors`, `c-basic`,
 `dev-utils-dev`, and other useful packages.
 
-Install the `os-clr-on-clr` bundle using the software update
-utility:
+Install the `os-clr-on-clr` bundle:
 
-.. code-block:: console
+.. code-block:: bash
 
    swupd bundle-add os-clr-on-clr
 
@@ -67,7 +68,7 @@ To be able to execute all applications with root privileges, add the
 
 #. Add `<userid>` to the `wheel` group:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       usermod -G wheel -a <userid>
 
@@ -88,12 +89,17 @@ To be able to execute all applications with root privileges, add the
 Install a GUI to test `sudo` privileges
 ========================================
 .. note::
-If you are following this sequence after just setting up the pre-configured VMware\* virtual machine from the repo, you must :ref:`increase virtual disk size<increase-virtual-disk-size>` or the following step will fail.
+
+   If you are following this sequence after just setting up the
+   pre-configured VMware\* virtual machine from the repo, you must 
+   :ref:`increase virtual disk size<increase-virtual-disk-size>` or the
+   following step will fail.
 
 To test the :command:`sudo` command and ensure it is set up correctly,
 install the GNOME Display Manager (gdm) and start it.
 
-#. To install the the GNOME Display Manager using :command:`swupd`, enter the following command:
+#. To install the the GNOME Display Manager using :command:`swupd`, enter
+   the following command:
 
    .. code-block:: bash
 
@@ -105,8 +111,9 @@ install the GNOME Display Manager (gdm) and start it.
 
       systemctl start gdm
 
-#. The system prompts to authenticate the user. Enter the password for
-   `<userid>`, and the GNOME Display Manager should start as shown in Figure 1:
+#. The system prompts you to authenticate the user. Enter the password for
+   `<userid>`, and the GNOME Display Manager starts as shown in Figure
+   1:
 
    .. figure:: figures/gnomedt.png
       :scale: 50 %
@@ -128,9 +135,6 @@ With your system now running |CL|, many opportunities exist.
 
 Visit the :ref:`tutorials <tutorials>` page for examples on using your |CL|
 system.
-
-.. _`information about swupd`:
-   https://clearlinux.org/features/software-update
 
 .. _`os-clr-on-clr`:
    https://github.com/clearlinux/clr-bundles/blob/master/bundles/os-clr-on-clr
