@@ -4,17 +4,17 @@ Bare metal manual installation guide
 ####################################
 
 This section contains the steps for a |CL| manual installation.  It picks up
-where the :ref:`bare-metal-install` left off:
+where the :ref:`bare-metal-install` left off.
 
-Select the :guilabel:`< Manual(Advanced) >` menu option as seen in figure
-1, to do the following additional tasks during the |CL| Installer setup:
+To perform additional tasks during the |CL| Installer setup, select the 
+:guilabel:`< Manual(Advanced) >` menu option (figure 1).  
 
 * :ref:`Modify the disk layout using the cgdisk utility<cgdisk-manual-install>`
 * Add additional command-line parameters to the kernel
 * Create a hostname for your system
 * Create an administrative user
-* Add additional software bundles to enhance the functionality of your initial
-  |CL| installation
+* Add additional software bundles to enhance the functionality of your
+  initial |CL| installation
 * Optionally set up a static IP address for your system
 
 Begin the manual installation process
@@ -29,7 +29,8 @@ Begin the manual installation process
 
    Figure 1: :guilabel:`Choose installation Type`
 
-#. The :guilabel:`Choose partitioning method` screen is shown in figure 2.
+#. The screen :guilabel:`Choose partitioning method` will
+   appear (figure 2).
 
    .. figure:: figures/bare-metal-manual-install-2.png
       :scale: 50 %
@@ -37,10 +38,10 @@ Begin the manual installation process
 
       Figure 2: :guilabel:`Choose partitioning method`
 
-   If your hard drive has already been partitioned for a Linux system, you can
-   select the :guilabel:`< Use default partition and mount scheme on target
-   device >` menu item and press :kbd:`Enter` to move to the next step of the
-   installer setup process.
+   If your hard drive has already been partitioned for a Linux system, you 
+   can select the :guilabel:`< Use default partition and mount scheme on 
+   target device >` menu item and press :kbd:`Enter` to move to the next
+   step of the installer setup process.
 
    .. _cgdisk-manual-setup:
 
@@ -54,8 +55,8 @@ Begin the manual installation process
 Choose target device for installation
 =====================================
 
-The :guilabel:`Choose target device for installation` menu, shown in figure 3,
-displays the current device and partition information. In
+The :guilabel:`Choose target device for installation` menu, shown in figure 
+3, displays the current device and partition information. In
 this example, ``/dev/sda`` is the only drive on the system with three
 partitions defined and assigned. The menu cursor highlights the partition
 to install |CL| onto.
@@ -75,18 +76,20 @@ to install |CL| onto.
 
       Figure 3: :guilabel:`Choose target device for installation`
 
-#. After selecting the :guilabel:`< Partition /dev/sda >` button you will be
-   presented with a warning screen as shown in figure 4 with the
-   :guilabel:`< No >` button highlighted. If you are satisfied this is the
-   device that you want to install |CL| onto, use the :kbd:`Tab` key to
-   highlight the :guilabel:`< Yes >` button and press :kbd:`Enter` to proceed
-   to the next step.
+#. Next, you will be presented with a warning screen (figure 4) with
+   :guilabel:`< No >` highlighted by default. If this is the device onto
+   which you wish to install |CL|, press :kbd:`Tab` to highlight
+   the :guilabel:`< Yes >` button. 
+
+#. Press :kbd:`Enter` to proceed.
 
    .. figure:: figures/bare-metal-manual-install-4.png
       :scale: 50 %
       :alt: Device installation warning
 
       Figure 4: :guilabel:`Device installation warning`
+
+.. _Additional_manual_installer_settings:
 
 Additional manual installer settings
 ====================================
@@ -100,11 +103,11 @@ The next steps of the manual installer setup process allows you to:
 * Optionally create a static IP address for your system.
 
 #. The :guilabel:`Append to kernel cmdline` menu shown in figure 5 allows you
-   to add additional options to the kernel command-line to further customize
-   your installation.  Normally this is not required but if there are
-   specific options that need to be set in the Linux kernel you can enter them
-   here. For a complete list of command-line parameters for the Linux kernel
-   you can visit the official documentation of the `latest kernel's
+   to add more options to the kernel command-line to further customize
+   your installation.  Normally this is not required; however, if there are
+   specific options that need to be set in the Linux kernel, you can enter
+   them here. For a complete list of command-line parameters for the Linux
+   kernel you can visit the official documentation of the `latest kernel's
    command-line parameters`_.
 
    Add any additional command-line parameters in the :guilabel:`Append to
@@ -132,9 +135,10 @@ The next steps of the manual installer setup process allows you to:
    check this `wiki page about hostnames`_.
 
 #. The :guilabel:`User configuration` menu shown in figure 7 allows you to
-   create a userid with administrative privileges. If you do not want to create a
-   user at this time, select :guilabel:`< No user creation (login as root) >` to
-   skip this step and proceed to the :guilabel:`Bundle selector` menu.
+   create a userid with administrative privileges. If you do not want to 
+   create a user at this time, select 
+   :guilabel:`< No user creation (login as root) >` to skip this step and
+   proceed to the :guilabel:`Bundle selector` menu.
 
    .. figure:: figures/bare-metal-manual-install-7.png
       :scale: 50 %
@@ -142,18 +146,19 @@ The next steps of the manual installer setup process allows you to:
 
    Figure 7: :guilabel:`User configuration`
 
-   #. To create a userid, select the :guilabel:`< Create an administrative user >`
-      field and press :kbd:`Enter` to go to the the next screen.
-   #. You will be presented with the second :guilabel:`User configuration` menu
-      shown in figure 8. You are only required to fill in the
-      :guilabel:`Username`, :guilabel:`Password`, and :guilabel:`Confirm password`
-      fields.
-   #. To give the user administrative privileges, select the
-      :guilabel:`Add user to the sudoers?` field to add the user to the ``wheel``
-      group. This enables using the :command:`sudo` command for the new user.
+   #. To create a userid, select the :guilabel:`< Create an administrative 
+      user >` field and press :kbd:`Enter` to go to the the next screen.
+   #. You will be presented with the second :guilabel:`User configuration` 
+      menu shown in figure 8. You are only required to fill in the
+      :guilabel:`Username`, :guilabel:`Password`, and :guilabel:`Confirm 
+      password` fields.
+   #. To give a user administrative privileges, press :kbd:`Tab` until
+      cursor appears in the field :guilabel:`Add user to the sudoers?` and
+      select. This adds the user to the ``wheel`` group and allows entry of 
+      the :command:`sudo` command.
 
-      Once you have entered all the data for this menu, press the :kbd:`Tab` key
-      to highlight the :guilabel:`< Next >` button and press :kbd:`Enter`.
+      After entering all data, press :kbd:`Tab` until :guilabel:`< Next >`
+      is highlighted. Then press :kbd:`Enter`.
 
       .. figure:: figures/bare-metal-manual-install-8.png
          :scale: 50 %
@@ -161,12 +166,11 @@ The next steps of the manual installer setup process allows you to:
 
       Figure 8: :guilabel:`User configuration - create user`
 
-#. The :guilabel:`Bundle selector` menu shown in figure 9 allows you to
-   add additional software bundles to your initial |CL| installation. In this
-   example we select all additional bundles offered by pressing the
-   :kbd:`Tab` key to go to each field and pressing the :kbd:`Spacebar` or the
-   :kbd:`Enter` key to select each bundle. This menu will also list the
-   additional :guilabel:` --- required ---` software bundles that will be
+#. In the menu :guilabel:`Bundle selector` (figure 9), you can add
+   software bundles to your initial |CL| installation. Press the :kbd:`Tab`
+   key to highlight additional bundles, and then press :kbd:`Spacebar` or 
+   :kbd:`Enter` to select each bundle. This menu will also list the
+   additional :guilabel:`--- required ---` software bundles that will be
    installed during the |CL| installation.
 
    .. figure:: figures/bare-metal-manual-install-9.png
@@ -245,11 +249,11 @@ key and remove the USB media while the system restarts.
 Once the system boots, the Gnome Desktop sign-in screen shown in figure 15
 appears:
 
-   .. figure:: figures/bare-metal-manual-install-15.png
-      :scale: 50 %
-      :alt: Gnome sign-in screen
+.. figure:: figures/bare-metal-manual-install-15.png
+   :scale: 50 %
+   :alt: Gnome sign-in screen
 
-      Figure 15: :guilabel:`Gnome sign-in screen`
+   Figure 15: :guilabel:`Gnome sign-in screen`
 
 Click on the :guilabel:`username` you created, enter the password, and you
 will be logged into the system. The Gnome 3 desktop appears as shown in

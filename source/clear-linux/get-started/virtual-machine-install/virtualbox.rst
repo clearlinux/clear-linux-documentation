@@ -1,34 +1,34 @@
 .. _virtualbox:
 
-Use VirtualBox\*
-################
+Run pre-configured Clear Linux\* as a VirtualBox\* guest OS
+###########################################################
 
-This section explains how to run |CLOSIA| inside a `VirtualBox environment`_.
-
-Please ensure you have enabled `Intel® Virtualization Technology
-<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_
-(Intel® VT) and `Intel® Virtualization Technology for Directed I/O
-<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_
-(Intel® VT-d) in your BIOS/UEFI firmware configuration.
+This section shows how to deploy a pre-configured Clear Linux\* image as a guest on the `VirtualBox hypervisor`_ .
 
 Download VirtualBox
 ===================
 
-VirtualBox is a hypervisor supported by Oracle. You can download it from the
-`official VirtualBox website`_ and select the operating system you are using.
-
-Download **version 5.0 or greater** to ensure support for
-the :abbr:`AVX (Advanced Vector Extensions)` needed to run
-|CLOSIA|
-
+VirtualBox\* is a type 2 hypervisor from Oracle. Download and use **version 5.0 or greater** from the `official VirtualBox website`_.
 
 .. _create_vm_vbox:
+
+Install VirtualBox
+===================
+
+#. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
+   `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
+   host machine’s BIOS.
+
+#. Log in and open a terminal emulator.
+
+#. Install VirtualBox on your host machine per the
+   `appropriate instructions`_.
 
 Create a virtual machine in VirtualBox
 ======================================
 
-#. Download the `latest`_ **live** version (clear-XXXX-live.img.xz)
-   from https://download.clearlinux.org/image/. You can also use this command: 
+#. Download the `latest`_ **live** version (clear-XXXX-live.img.xz) of
+   Clear Linux. You can also use this command: 
 
    .. code-block:: bash
 
@@ -38,7 +38,7 @@ Create a virtual machine in VirtualBox
 
    + On Linux ::
 
-       $ xz -d clear-XXXX-live.img.xz
+       xz -d clear-XXXX-live.img.xz
 
    + On Windows you can use `7zip`_.
 
@@ -50,11 +50,11 @@ Create a virtual machine in VirtualBox
 #. To convert a raw image to :abbr:`VDI (VirtualBox Disk Image)`
    format, you can use one of the following commands::
 
-      $ VBoxManage convertfromraw clear-XXXX-live.img clear-XXXX-live.vdi --format VDI
+      VBoxManage convertfromraw clear-XXXX-live.img clear-XXXX-live.vdi --format VDI
 
    or::
 
-      $ vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vdi --srcformat raw --dstformat vdi
+      vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vdi --srcformat raw --dstformat vdi
 
 
    .. note:: Be sure you have VirtualBox directory in your PATH (i.e., on
@@ -64,7 +64,7 @@ Create a virtual machine in VirtualBox
 
         .. code-block:: console
 
-          set PATH=%PATH%;"C:\Program Files\Oracle\VirtualBox"
+           set PATH=%PATH%;"C:\Program Files\Oracle\VirtualBox"
 
         .. image:: ./figures/vbox-convert-image.png
            :alt: Convert image in Windows command propt
@@ -72,7 +72,8 @@ Create a virtual machine in VirtualBox
 #. Create a virtual machine using the VirtualBox assistant:
 
    a. Type: **Linux**
-   b. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
+   
+   c. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
 
       .. image:: ./figures/vbox-create-vm.png
           :alt: Create a new image in VirtualBox
@@ -98,43 +99,46 @@ Create a virtual machine in VirtualBox
 Run your new VM
 ===============
 
-|CLOSIA| supports VirtualBox kernel modules used
-by the Linux kernel 4.9 :abbr:`LTS (Long Term Support)` (*kernel-lts bundle*).
-This kernel was selected because |CL| OS's main kernel
+|CL| supports VirtualBox kernel modules used
+by the Linux kernel 4.9 :abbr:`LTS (Long Term Support)` 
+(*kernel-lts bundle*).This kernel was selected because |CL| OS's main kernel
 (``kernel-native``) bundle keeps up-to-date with the upstream Linux kernel,
 and sometimes VirtualBox kernel modules aren't compatible with pre-kernel
 releases.
 
-In the first boot, |CL| will ask for a login user, type **root** and
-then the system will ask you for a new password.
+On the first boot, |CL| requests a user login.
+
+#. Type **root**. 
+
+#. Enter a new password when prompted. 
 
 To install the VirtualBox kernel modules, here are the steps:
 
 #. Install the bundle that supports VirtualBox modules::
 
-     # swupd bundle-add kernel-lts
+     swupd bundle-add kernel-lts
 
 #. Set a timeout in the bootmanager to shows a menu at boot time::
 
-     # clr-boot-manager set-timeout 10
+     clr-boot-manager set-timeout 10
 
 #. Update the bootloader entries with::
 
-     # clr-boot-manager update
+     clr-boot-manager update
 
 #. Reboot your system with::
 
-     # reboot
+     reboot
 
    and choose **clear-linux-lts-4.9.XX-YYY** kernel version.
 
 #. (*Optional*) Unset timeout to boot directly to LTS version::
 
-     # clr-boot-manager set-timeout 0
+     clr-boot-manager set-timeout 0
 
 #. (*Mandatory*) Update bootmanger to use always LTS version::
 
-     # clr-boot-manager update
+     clr-boot-manager update
 
 
 Install Guest Additions
@@ -151,11 +155,11 @@ VirtualBox Guest Additions, follow these steps:
 
 #. Install Linux users Guest Additions::
 
-     # install-vbox-lga
+     install-vbox-lga
 
 #. Reboot your system::
 
-     # reboot
+     reboot
 
 
 Troubleshooting
@@ -167,7 +171,6 @@ On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
 .. image:: ./figures/vbox-no-vtx.png
    :alt: VirtualBox hardware acceleration error
 
-
 To disable *Hyper-V* you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype off
@@ -178,8 +181,8 @@ To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
 
-
+.. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
-.. _VirtualBox environment: https://www.virtualbox.org/
+.. _VirtualBox hypervisor: https://www.virtualbox.org/
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
