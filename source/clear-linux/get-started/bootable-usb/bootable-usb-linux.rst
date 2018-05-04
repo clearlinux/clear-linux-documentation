@@ -31,9 +31,9 @@ Burn the Clear Linux image onto a USB drive
 
 #. Open a terminal emulator and get root privilege.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      $ sudo -s
+      sudo -s
 
 #. Go to the directory with the uncompressed image.
 #. Plug in the USB drive.
@@ -44,9 +44,9 @@ Burn the Clear Linux image onto a USB drive
    remaining are 3 USB drives. The output also shows the mounted partitions
    (under the `MOUNTPOINT` column) for each drive.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # lsblk
+      lsblk
 
    Example output:
 
@@ -77,17 +77,17 @@ Burn the Clear Linux image onto a USB drive
    identifier/partition. For example: From the above :command:`lsblk` output,
    `/dev/sdd` has 2 mounted partitions.  To unmount them, enter:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # umount /dev/sdd2
-      # umount /dev/sdd3
+      umount /dev/sdd2
+      umount /dev/sdd3
 
 #. Burn the image onto the USB drive.  The command-line example below burns an
    uncompressed image onto `/dev/sdd`:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # dd if=./clear-[version number]-[image type] of=/dev/sdd bs=4M status=progress
+      dd if=./clear-[version number]-[image type] of=/dev/sdd bs=4M status=progress
 
 .. _usb-next:
 
