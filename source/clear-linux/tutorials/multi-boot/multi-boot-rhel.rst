@@ -1,7 +1,10 @@
 .. _multi-boot-rhel:
 
 Install Red Hat\* Enterprise Linux 7.4 Beta
-*******************************************
+###########################################
+
+This guide describes Red Hat-specific details of the :ref:`multi-boot`
+tutorial.
 
 #. Start the Red Hat installer and follow the prompts.
 
@@ -10,27 +13,28 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
    .. figure:: figures/multi-boot-rhel-1.png
 
-      Figure 1: Red Hat: Installation summary
+      Figure 1: Red Hat: Installation summary.
 
 #. In the :guilabel:`Device Selection` section, select a drive on which to
    install the OS. See Figure 2.
 
    .. figure:: figures/multi-boot-rhel-2.png
 
-      Figure 2: Red Hat: Installation destination
+      Figure 2: Red Hat: Installation destination.
 
 #. Under the :guilabel:`Other Storage Options` section, choose
    :guilabel:`I will configure partitioning`. See Figure 2.
 
 #. Click :guilabel:`Done`.
 
-#. Under :menuselection:`New Red Hat Enterprise Linux 7.4 Installation --> New mount points will use the following partitioning scheme` section,
+#. Under the :menuselection:`New Red Hat Enterprise Linux 7.4 Installation
+   --> New mount points will use the following partitioning scheme` section,
    select :menuselection:`Standard Partition` from the drop down list. See
    Figure 3.
 
    .. figure:: figures/multi-boot-rhel-3.png
 
-      Figure 3: Red Hat: New partition scheme
+      Figure 3: Red Hat: New partition scheme.
 
 #. Create a new root partition.
 
@@ -41,7 +45,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
       .. figure:: figures/multi-boot-rhel-4.png
 
-         Figure 4: Red Hat: Create new root partition
+         Figure 4: Red Hat: Create new root partition.
 
    #. Click :guilabel:`Add mount point`.
 
@@ -57,7 +61,7 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
       .. figure:: figures/multi-boot-rhel-5.png
 
-         Figure 5: Red Hat: Configure swap partition
+         Figure 5: Red Hat: Configure swap partition.
 
 #. Share the EFI partition that was created by |CL|. See Figure 6.
 
@@ -71,46 +75,40 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
       .. figure:: figures/multi-boot-rhel-6.png
 
-         Figure 6: Red Hat: Configure EFI partition
+         Figure 6: Red Hat: Configure EFI partition.
 
 #. Click :guilabel:`Done`.
 
-#. Follow the remaining prompts to complete the installation of Red Hat.
+#. Follow the remaining prompts to complete the Red Hat installation.
 
-#. At this point, the ability to boot |CL| is lost because `Grub`
-   was set as the default boot loader. Follow these steps to make the |CL|
-   Systemd-Boot the default boot loader and add Red Hat as a boot option:
+#. At this point, you cannot boot |CL| because `Grub` is the default boot
+   loader. Follow these steps to make the |CL| Systemd-Boot the default boot
+   loader and add Red Hat as a boot option:
 
    #. Boot into Red Hat.
 
    #. Log in.
 
-   #. Get root privilege with the following command:
-
-      .. code-block:: console
-
-         $ sudo -s
-
-   #. Locate Fedora’s :file:`grub.cfg` file at the
+   #. Locate the Red Hat :file:`grub.cfg` file in the
       :file:`/boot/efi/EFI/redhat/` directory and look for the primary Red
-      Hat :guilabel:`menuentry` section. The highlighted lines identify
-      the kernel and `initrd` filenames, root partition UUID, and
-      additional parameters used. This information is used to create a
-      new Systemd-Boot entry for Red Hat. See Figure 7.
+      Hat :guilabel:`menuentry` section. In Figure 7, the highlighted lines
+      identify the kernel and `initrd` filenames, root partition UUID, and
+      additional parameters used. Use this information to create a
+      new Systemd-Boot entry for Red Hat.
 
       .. figure:: figures/multi-boot-rhel-7.png
 
-         Figure 7: Red Hat: grub.cfg
+         Figure 7: Red Hat: grub.cfg file.
 
-   #. Copy the kernel and `initrd` to the EFI partition.
+   #. Copy the kernel and :file:`initrd` file to the EFI partition.
 
-      .. code-block:: console
+      .. code-block:: bash
 
-         # cp /boot/vmlinuz-3.10.0-663.el7.x86_64 /boot/efi
+         sudo cp /boot/vmlinuz-3.10.0-663.el7.x86_64 /boot/efi
 
-         # cp /boot/initramfs-3.10.0-663.el7.x86_64.img /boot/efi
+         sudo cp /boot/initramfs-3.10.0-663.el7.x86_64.img /boot/efi
 
-   #. Create a boot entry for Red Hat. The file must, at a minimum, contain
+   #. Create a boot entry for Red Hat. At a minimum, the file must contain
       these settings:
 
       +---------+---------------------------------------------------+
@@ -134,15 +132,15 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
       .. note:: The root partition UUID used below is unique to this example.
 
-         .. code-block:: console
+         .. code-block:: bash
 
-            # cd /boot/efi/loader/entries
+            sudo cd /boot/efi/loader/entries
 
-            # vi redhat.conf
+            sudo vi redhat.conf
 
-      Add the following lines to :file:`redhat.conf`
+      Add the following lines to the :file:`redhat.conf` file:
 
-      .. code-block:: console
+      .. code-block:: bash
 
          title Red Hat Enterprise Linux 7.4 Beta
 
@@ -161,7 +159,8 @@ Install Red Hat\* Enterprise Linux 7.4 Beta
 
    #. Reboot.
 
-If you want to install other OSes, refer to :ref:`multi-boot` for details. 
+If you want to install other :abbr:`OSes (operating systems)`, refer to
+:ref:`multi-boot` for details.
 
 
 .. _systemd boot loader documentation:
