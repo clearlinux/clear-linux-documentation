@@ -18,7 +18,7 @@ Before you install new packages, update the |CL| OS with the following console c
 Create a LAMP Server
 **********************
 
-A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop- in replacement for MySQL. 
+A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop-in replacement for MySQL. 
 
 This tutorial follows these steps:
 
