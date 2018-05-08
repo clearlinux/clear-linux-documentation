@@ -1,7 +1,10 @@
 .. _multi-boot-mint:
 
-Install Mint\* 18.1 “Serena” MATE
-*********************************
+Install Linux Mint\* 18.1 *Serena* MATE
+#######################################
+
+This guide describes Linux Mint-specific details of the :ref:`multi-boot`
+tutorial.
 
 #. Start the Mint installer and follow the prompts.
 
@@ -10,7 +13,7 @@ Install Mint\* 18.1 “Serena” MATE
 
    .. figure:: figures/multi-boot-mint-1.png
 
-      Figure 1: Mint: Installation type
+      Figure 1: Mint: Installation type.
 
 #. Create a new root partition.
 
@@ -19,7 +22,7 @@ Install Mint\* 18.1 “Serena” MATE
 
       .. figure:: figures/multi-boot-mint-2.png
 
-         Figure 2: Mint: Add partition
+         Figure 2: Mint: Add partition.
 
    #. Click the :guilabel:`+` button.
 
@@ -28,7 +31,7 @@ Install Mint\* 18.1 “Serena” MATE
 
       .. figure:: figures/multi-boot-mint-3.png
 
-         Figure 3: Mint: Configure new partition settings
+         Figure 3: Mint: Configure new partition settings.
 
    #. Set :guilabel:`Use as` to :guilabel:`Ext4 journaling file system`.
 
@@ -36,10 +39,9 @@ Install Mint\* 18.1 “Serena” MATE
 
    #. Click :guilabel:`OK`.
 
-#. Share the same swap partition created by |CL| with the following
-   steps.
+#. Share the swap partition created by |CL|.
 
-   #. Under :guilabel:`Device` column, select :file:`/dev/sda2`.
+   #. Under the :guilabel:`Device` column, select :file:`/dev/sda2`.
 
    #. Click :guilabel:`Change`.
 
@@ -47,11 +49,11 @@ Install Mint\* 18.1 “Serena” MATE
 
       .. figure:: figures/multi-boot-mint-4.png
 
-         Figure 4: Mint: Set swap partition
+         Figure 4: Mint: Set swap partition.
 
-#. Follow the remaining prompts to complete the installation of Mint.
+#. Follow the remaining prompts to complete the Mint installation.
 
-#. At this point, the ability to boot |CL| is lost because `Grub`
+#. At this point, you cannot boot |CL| because `Grub`
    is the default boot loader. Follow these steps to make the |CL|
    Systemd-Boot the default boot loader and add Mint as a boot option.
 
@@ -59,32 +61,26 @@ Install Mint\* 18.1 “Serena” MATE
 
    #. Log in.
 
-   #. Get root permissions.
-
-      .. code-block:: console
-
-         $ sudo -s
-
-   #. Locate the Mint :file:`grub.cfg` file in the :file:`/boot/grub/` and
-      look for the :guilabel:`menuentry` section. The highlighted lines
-      identify the kernel, the :file:`initrd` files, the root partition UUID,
-      and the additional parameters used. Use this information to create a
-      new Systemd-Boot entry for Mint. See Figure 5.
+   #. Locate the Mint :file:`grub.cfg` file in the :file:`/boot/grub/`
+      directory and look for the :guilabel:`menuentry` section. In Figure 5, the
+      highlighted lines identify the kernel, the :file:`initrd` files, the root
+      partition UUID, and the additional parameters used. Use this information
+      to create a new Systemd-Boot entry for Mint.
 
       .. figure:: figures/multi-boot-mint-5.png
 
-         Figure 5: Mint: grub.cfg
+         Figure 5: Mint: grub.cfg file.
 
-   #. Copy the kernel and :file:`initrd` to the EFI partition.
+   #. Copy the kernel and :file:`initrd` file to the EFI partition.
 
-      .. code-block:: console
+      .. code-block:: bash
 
-         # cp /boot/vmlinuz-4.4.0-53-generic /boot/efi
+         sudo cp /boot/vmlinuz-4.4.0-53-generic /boot/efi
 
-         # cp /boot/initrd.img-4.4.0-53-generic /boot/efi
+         sudo cp /boot/initrd.img-4.4.0-53-generic /boot/efi
 
-   #. Create a boot entry for Mint. The file must contain at least these
-      settings:
+   #. Create a boot entry for Mint. At a minimum, the file must contain
+      these settings:
 
       +---------+------------------------------------+
       | Setting | Description                        |
@@ -107,15 +103,15 @@ Install Mint\* 18.1 “Serena” MATE
 
       .. note:: The root partition UUID used below is unique to this example.
 
-      .. code-block:: console
+      .. code-block:: bash
 
-         # cd /boot/efi/loader/entries
+         sudo cd /boot/efi/loader/entries
 
-         # vi mint.conf
+         sudo vi mint.conf
 
       Add the following lines to the :file:`mint.conf` file:
 
-      .. code-block:: console
+      .. code-block:: bash
 
          title Mint 18.1 Serena MATE
 
@@ -127,18 +123,19 @@ Install Mint\* 18.1 “Serena” MATE
 
 #. Re-install Systemd-Boot to make it the default boot loader.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # bootctl install --path /boot/efi
+      sudo bootctl install --path /boot/efi
 
    .. note::
       If an older version of Mint does not have the `bootctl` command,
-      skip this step and see :ref:`multi-boot-restore-bl` to restore the Clear
-      Linux Systemd-Boot boot loader.
+      skip this step and see :ref:`multi-boot-restore-bl` to restore
+      Systemd-Boot.
 
 #. Reboot.
 
-If you want to install other OSes, refer to :ref:`multi-boot` for details. 
+If you want to install other :abbr:`OSes (operating systems)`, refer to
+:ref:`multi-boot` for details.
 
 
 .. _systemd boot loader documentation:
