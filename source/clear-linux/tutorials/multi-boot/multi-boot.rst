@@ -4,8 +4,8 @@ Multi-boot Clear Linux with other operating systems
 ###################################################
 
 |CLOSIA| uses the Systemd-Boot boot loader, which does not support multi-
-booting without manual manipulation. This tutorial shows how to modify the
-boot loader for |CL| to work with other :abbr:`OSes (operating systems)`.
+booting without manual manipulation. This tutorial shows how to configure the
+|CL| boot loader to work with other :abbr:`OSes (operating systems)`.
 
 Process overview
 ****************
