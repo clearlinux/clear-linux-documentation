@@ -17,7 +17,7 @@ Systemd-Boot.
 
       Figure 1: |CL|: Console.
 
-#. Log in and get root privileges.
+#. Log in as *root*.
 
    .. code-block:: bash
 
@@ -32,7 +32,7 @@ Systemd-Boot.
 
    .. code-block:: bash
 
-      # fdisk -l
+      fdisk -l
 
    .. figure:: figures/multi-boot-restore-bl-2.png
 
@@ -42,19 +42,19 @@ Systemd-Boot.
 
    .. code-block:: bash
 
-      # mount /dev/sda3 /mnt
+      mount /dev/sda3 /mnt
 
 #. Re-install Systemd-Boot to make it the default boot loader.
 
    .. code-block:: bash
 
-      # bootctl install --path /mnt
+      bootctl install --path /mnt
 
 #. Unmount the EFI partition.
 
    .. code-block:: bash
 
-      # umount /mnt
+      umount /mnt
 
 #. Reboot.
 
