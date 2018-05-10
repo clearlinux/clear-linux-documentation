@@ -19,10 +19,6 @@ Systemd-Boot.
 
 #. Log in as *root*.
 
-   .. code-block:: bash
-
-      sudo -s
-
    .. note::
       When you log in for the first time as *root* through the console, you must
       set a new password.
