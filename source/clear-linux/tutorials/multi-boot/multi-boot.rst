@@ -3,10 +3,9 @@
 Multi-boot Clear Linux with other operating systems
 ###################################################
 
-Starting with version 16140, |CLOSIA| uses the Systemd-Boot boot loader,
-which does not support multi-booting without manual manipulation. This
-tutorial shows how to modify the boot loader for |CL| to work with other
-:abbr:`OSes (operating systems)`.
+|CLOSIA| uses the Systemd-Boot boot loader, which does not support multi-
+booting without manual manipulation. This tutorial shows how to modify the
+boot loader for |CL| to work with other :abbr:`OSes (operating systems)`.
 
 Process overview
 ****************
@@ -16,7 +15,7 @@ described below. Install |CL| first, then install other operating systems in
 any order.
 
 #. Install |CL| first with a EFI partition large enough to store the kernels
-   of other operating systems and their initrds in the case of Linux
+   of other operating systems and their initrds, in the case of Linux
    distributions.
 
 #. Install the next operating system without creating its own EFI
@@ -250,8 +249,8 @@ Installation details
 
 #. Log in.
 
-#. Add a Systemd-Boot timeout period or Systemd-Boot will not
-   present the boot menu and will boot |CL|.
+#. Add a Systemd-Boot timeout period or Systemd-Boot will not present the
+   boot menu of available OSes to choose from and will always boot |CL|.
 
    .. code-block:: bash
 
