@@ -142,12 +142,12 @@ tutorial.
 
          title Red Hat Enterprise Linux 7.4 Beta
 
-         linux /vmlinuz-3.10.0-663.el7.x86\_64
+         linux /vmlinuz-3.10.0-663.el7.x86_64
 
-         initrd /initramfs-3.10.0-663.el7.x86\_64.img
+         initrd /initramfs-3.10.0-663.el7.x86_64.img
 
          options root=UUID=30655c74-6cc1-4c55-8fcc-ac8bddcea4db ro
-         crashkernel=auto rhgb LANG=en\_US.UTF-8
+         crashkernel=auto rhgb LANG=en_US.UTF-8
 
    #. Re-install Systemd-Boot to make it the default boot loader.
 
