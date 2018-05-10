@@ -108,13 +108,11 @@ tutorial.
 
       .. code-block:: bash
 
-         sudo cd /boot/efi/loader/entries
-
-         sudo vi ubuntu.conf
+         sudoedit /boot/efi/loader/entries/ubuntu.conf
 
       Add the following lines to the :file:`ubuntu.conf` file:
 
-      .. code-block:: bash
+      .. code-block:: console
 
          title Ubuntu 16.04 LTS Desktop
 
