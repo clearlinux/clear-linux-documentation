@@ -105,13 +105,11 @@ tutorial.
 
       .. code-block:: bash
 
-         sudo cd /boot/efi/loader/entries
-
-         sudo vi mint.conf
+         sudoedit /boot/efi/loader/entries/mint.conf
 
       Add the following lines to the :file:`mint.conf` file:
 
-      .. code-block:: bash
+      .. code-block:: console
 
          title Mint 18.1 Serena MATE
 
