@@ -134,13 +134,11 @@ tutorial.
 
          .. code-block:: bash
 
-            sudo cd /boot/efi/loader/entries
-
-            sudo vi redhat.conf
+            sudoedit /boot/efi/loader/entries/redhat.conf
 
       Add the following lines to the :file:`redhat.conf` file:
 
-      .. code-block:: bash
+      .. code-block:: console
 
          title Red Hat Enterprise Linux 7.4 Beta
 
