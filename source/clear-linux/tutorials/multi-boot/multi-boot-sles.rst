@@ -86,13 +86,11 @@ tutorial.
 
          .. code-block:: bash
 
-            sudo cd /boot/efi/loader/entries
-
-            sudo vi suse.conf
+            sudoedit /boot/efi/loader/entries/suse.conf
 
          Add the following lines to the :file:`suse.conf` file:
 
-            .. code-block:: bash
+            .. code-block:: console
 
                title SUSE Linux Enterprise 12 SP2
 
