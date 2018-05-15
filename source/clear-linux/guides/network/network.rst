@@ -11,7 +11,6 @@ the configuration, administration, and use of networks in the |CLOSIA|.
 
    ipxe-install
    dpdk
-   ovs-dpdk
    network-bonding
    custom-clear-container
    vnc
