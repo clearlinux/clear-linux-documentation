@@ -1,15 +1,15 @@
 .. _bootable-usb-linux:
 
-Create a bootable USB drive on Linux
+Create a bootable USB drive on Linux\*
 ####################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
 Use an **8GB** or larger USB drive.
 
-These instructions assume you have
-:ref:`downloaded an appropriate image<download-usb-image>`.
+These instructions assume that you have downloaded an image. 
+Download either a live image, ``clear-<version>-live.img.xz`` or an installer image, ``clear-<version>-installer.img.xz``, from our `image downloads`_ page. 
 
-We also provide instructions for other operating systems:
+Instructions are also available for other operating systems:
 
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-windows`
@@ -100,5 +100,5 @@ With a bootable |CL| USB drive, you can:
 * :ref:`boot-live-image`
 * :ref:`multi-boot`
 
-.. _image: https://download.clearlinux.org/image
+.. _image downloads: https://download.clearlinux.org/image
 .. _releases: https://download.clearlinux.org/releases
