@@ -16,21 +16,20 @@ Before you install new packages, update the |CL| OS with the following console c
 Create a LAMP Server
 **********************
 
-A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop-in replacement for MySQL. 
+A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop-in replacement for MySQL.
 
 This tutorial follows these steps:
 
-1. Install Apache.
-2. Change the default configuration and data directory.
-3. Install PHP.
-4. Install MariaDB.
-5. Install phpMyAdmin.
-6. Set up a WordPress database.
+#. Install Apache.
+#. Change the default configuration and data directory.
+#. Install PHP.
+#. Install MariaDB.
+#. Install phpMyAdmin and create a database.
 
 Install Apache
 *****************
 
-Apache is an open source HTTP web server application that can run on several operating systems, including |CL|. Go to https://httpd.apache.org/ for more information.
+Apache is an open source HTTP web server application that can run on several operating systems, including |CL|. Go to the `Apache HTTP Server Project <https://httpd.apache.org/>`_ for more information.
 
 Install the web-server-basic bundle
 ===================================
@@ -57,10 +56,10 @@ To verify that the Apache server application is running, open a web browser and 
 If the service is running, a confirmation message appears, as shown in figure 1.
 
 .. figure:: figures/web-server-install-1.png
-    :alt: This web server is operational from host.
-    :scale: 50%
+   :alt: This web server is operational from host.
+   :scale: 50%
 
-    Figure 1: Confirmation that the Apache service is running.
+   Figure 1: Confirmation that the Apache service is running.
 
 Note that the :file:`index.html` file is located in the :file:`/var/www/html` directory of your host system. We will copy this file into a new location after we modify the configuration in the next step.
 
@@ -79,9 +78,9 @@ Change the default configuration and data directory
 
 For this tutorial, we will perform the following:
 
-1. Create the directory structure for :file:`/etc/httpd/conf.d`
-2. Create the :file:`httpd.conf` file within :file:`/etc/httpd/conf.d` directory 
-3. Add the ``DocumentRoot`` variable to :file:`httpd.conf`.
+#. Create the directory structure for :file:`/etc/httpd/conf.d`
+#. Create the :file:`httpd.conf` file within :file:`/etc/httpd/conf.d` directory
+#. Add the ``DocumentRoot`` variable to :file:`httpd.conf`.
 
 From a text editor, copy the content listed below into the new file
 :file:`/etc/httpd/conf.d/httpd.conf`.
@@ -92,7 +91,7 @@ From a text editor, copy the content listed below into the new file
    # Set a new location for DocumentRoot
    #
    DocumentRoot "/var/www/tutorial"
-   
+
    #
    # Relax access to content within /var/www/tutorial for this example
    #
@@ -163,16 +162,16 @@ To enable PHP, enter the following commands:
 
 After restarting the Apache service, test your PHP installation.
 
-1. Create a file named :file:`phpinfo.php` in the
+#. Create a file named :file:`phpinfo.php` in the
    :file:`/var/www/html/` directory using a text editor.
 
-2. Add the following line to the file:
+#. Add the following line to the file:
 
    .. code-block:: php
 
       <?PHP phpinfo() ?>
 
-3. Go to http://localhost/phpinfo.php.
+#. Go to http://localhost/phpinfo.php.
 
    Verify that the PHP information screen appears, as shown in figure 2:
 
@@ -182,7 +181,7 @@ After restarting the Apache service, test your PHP installation.
 
       Figure 2: The PHP information screen.
 
-The PHP components are successfully installed. 
+The PHP components are successfully installed.
 
 Install MariaDB
 ******************
@@ -314,28 +313,28 @@ The web-based tool phpMyAdmin is a straightforward way to manage MySQL or MariaD
 
 This tutorial uses the latest English version of phpMyAdmin to install it on our |CL| host system.
 
-1. Download the :file:`phpMyAdmin-<version>-english.tar.gz` file to your
+#. Download the :file:`phpMyAdmin-<version>-english.tar.gz` file to your
    :file:`~/Downloads` directory. Here, <version> refers to the current
    version available at https://www.phpmyadmin.net/downloads.
 
-.. note:: This example downloads and uses version 4.6.4.
+   .. note:: This example downloads and uses version 4.6.4.
 
-2. Once the file has been successfully downloaded and verified, uncompress
+#. Once the file has been successfully downloaded and verified, uncompress
    the file and directories into the Apache web server document root
    directory. Use the following commands:
 
-.. code-block:: console
+   .. code-block:: console
 
-   cd /var/www/html
-   sudo tar –xzvf ~/Downloads/phpMyAdmin-4.6.4-english.tar.gz
+      cd /var/www/html
+      sudo tar –xzvf ~/Downloads/phpMyAdmin-4.6.4-english.tar.gz
 
-3. To keep things simple, rename the newly created
+#. To keep things simple, rename the newly created
    :file:`phpMyAdmin-4.6.4-english` directory to :file:`phpMyAdmin` with the
    following command:
 
-.. code-block:: console
+   .. code-block:: console
 
-   sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
+      sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
 
 Use phpMyAdmin to Manage Databases
 ====================================
@@ -361,7 +360,7 @@ Once logged in the main phpMyAdmin page displays, as shown in figure 4:
 
 Set up your first database called WordPress. Follow these steps:
 
-1. Select the :guilabel:`Databases` tab in the phpMyAdmin main screen to go
+#. Select the :guilabel:`Databases` tab in the phpMyAdmin main screen to go
    to the Databases page. Figure 5 shows the databases tab.
 
    .. figure:: figures/web-server-install-5.png
@@ -370,19 +369,19 @@ Set up your first database called WordPress. Follow these steps:
 
        Figure 5: The `Databases` tab of `phpMyAdmin`.
 
-2. Enter 'WordPress' in the text field below the :guilabel:`Create database`
+#. Enter 'WordPress' in the text field below the :guilabel:`Create database`
    label.
 
-3. Select the :guilabel:`utf8_unicode_ci` option from the Collation drop-down
+#. Select the :guilabel:`utf8_unicode_ci` option from the Collation drop-down
    menu beside the text field.
 
-4. Click :guilabel:`Create`.
+#. Click :guilabel:`Create`.
 
 Once the database is created, set up the user permissions.
 
-1. Select the WordPress database in the left panel.
+#. Select the WordPress database in the left panel.
 
-2. Select the :guilabel:`Privileges` tab. Figure 6 shows the contents of the
+#. Select the :guilabel:`Privileges` tab. Figure 6 shows the contents of the
    tab.
 
    .. figure:: figures/web-server-install-6.png
@@ -391,15 +390,15 @@ Once the database is created, set up the user permissions.
 
        Figure 6: The `Privileges` tab of `phpMyAdmin`
 
-3. Click :guilabel:`Add user account` as shown in figure 7.
+#. Click :guilabel:`Add user account` as shown in figure 7.
 
    .. figure:: figures/web-server-install-7.png
        :alt: User accounts tab
        :width:     600
 
-       Figure 7: The `User accounts` tab. 
+       Figure 7: The `User accounts` tab.
 
-4. Enter the following information in the corresponding fields that appear in Figure 7 above:
+#. Enter the following information in the corresponding fields that appear in Figure 7 above:
 
    User name: wordpressuser
 
@@ -407,9 +406,9 @@ Once the database is created, set up the user permissions.
 
    Re-type: wp-example
 
-5. In the 'Database for user account' section, select :guilabel:`Grant all privileges on database “WordPress”.`
+#. In the 'Database for user account' section, select :guilabel:`Grant all privileges on database “WordPress”.`
 
-6. At the bottom of the page, click :guilabel:`Go`.
+#. At the bottom of the page, click :guilabel:`Go`.
 
 If successful, you should see the screen shown in figure 8:
 
