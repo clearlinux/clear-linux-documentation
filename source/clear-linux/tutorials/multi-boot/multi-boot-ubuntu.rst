@@ -1,7 +1,10 @@
 .. _multi-boot-ubuntu:
 
 Install Ubuntu\* 16.04 LTS Desktop
-**********************************
+##################################
+
+This guide describes Ubuntu-specific details of the :ref:`multi-boot`
+tutorial.
 
 #. Start the Ubuntu installer and follow the prompts.
 
@@ -10,7 +13,7 @@ Install Ubuntu\* 16.04 LTS Desktop
 
    .. figure:: figures/multi-boot-ubuntu-1.png
 
-      Figure 1: Ubuntu: Installation type
+      Figure 1: Ubuntu: Installation type.
 
 #. Create a new root partition.
 
@@ -19,7 +22,7 @@ Install Ubuntu\* 16.04 LTS Desktop
 
       .. figure:: figures/multi-boot-ubuntu-2.png
 
-         Figure 2: Ubuntu: Add partition
+         Figure 2: Ubuntu: Add partition.
 
    #. Click the :guilabel:`+` button on the lower left corner.
 
@@ -28,7 +31,7 @@ Install Ubuntu\* 16.04 LTS Desktop
 
       .. figure:: figures/multi-boot-ubuntu-3.png
 
-         Figure 3: Ubuntu: Configure new root partition
+         Figure 3: Ubuntu: Configure new root partition.
 
    #. Set :guilabel:`Use as` to :guilabel:`Ext4 journaling file system`.
 
@@ -39,54 +42,48 @@ Install Ubuntu\* 16.04 LTS Desktop
    #. Under the :guilabel:`Format?` column, select the new partition to be
       formatted, in this example :file:`/dev/sda8`.
 
-#. Share the same swap partition created by |CL|.
+#. Share the swap partition that was created by |CL|.
 
    #. Under the :guilabel:`Device` column, select :file:`/dev/sda2`.
 
    #. Click :guilabel:`Change`.
 
-   #. Confirm :guilabel:`Use as` is set to :guilabel:`Swap area`. See Figure 4.
+   #. Confirm :guilabel:`Use as` is set to :guilabel:`swap area`. See Figure 4.
 
       .. figure:: figures/multi-boot-ubuntu-4.png
 
-         Figure 4: Ubuntu - Set swap partition
+         Figure 4: Ubuntu: Set swap partition.
 
-#. Follow the remaining prompts to complete the installation of Ubuntu.
+#. Follow the remaining prompts to complete the Ubuntu installation.
 
-#. At this point, the ability to boot |CL| is lost because `Grub`
+#. At this point, you cannot boot |CL| because `Grub`
    is the default boot loader. Follow these steps to make the |CL|
-   Systemd-Boot the default boot loader and add Ubuntu as a boot option.
+   Systemd-Boot the default boot loader and add Ubuntu as a boot option:
 
    #. Boot into Ubuntu.
 
    #. Log in.
 
-   #. Get root permissions.
-
-      .. code-block:: console
-
-        $ sudo -s
-
    #. Locate the Ubuntu :file:`grub.cfg` file in the :file:`/boot/grub/`
-      directory and look for the :guilabel:`menuentry` section. The
+      directory and look for the :guilabel:`menuentry` section. In Figure 5, the
       highlighted lines identify the kernel, the :file:`initrd` files, the
       root partition UUID, and the additional parameters used. Use this
-      information to create a new Systemd-Boot entry for Ubuntu. See Figure 5.
+      information to create a new Systemd-Boot entry for Ubuntu.
 
       .. figure:: figures/multi-boot-ubuntu-5.png
 
-         Figure 5: Ubuntu: grub.cfg
+         Figure 5: Ubuntu: grub.cfg file.
 
-   #. Copy the kernel and :file:`initrd` to the EFI partition.
+   #. Copy the kernel and the :file:`initrd` file to the EFI partition.
 
-      .. code-block:: console
+      .. code-block:: bash
 
-         # cp /boot/vmlinuz-4.8.0-36-generic.efi.signed /boot/efi
+         sudo cp /boot/vmlinuz-4.8.0-36-generic.efi.signed /boot/efi
 
-         # cp /boot/initrd.img-4.8.0-36-generic /boot/efi
+         sudo cp /boot/initrd.img-4.8.0-36-generic /boot/efi
 
-   #. Create a boot entry for Ubuntu. The file must contain at least these
-      settings:
+   #. Create a boot entry for Ubuntu. At a minimum, the file must contain
+      these settings:
 
       +---------+------------------------------------+
       | Setting | Description                        |
@@ -109,11 +106,9 @@ Install Ubuntu\* 16.04 LTS Desktop
 
       .. note:: The root partition UUID used below is unique to this example.
 
-      .. code-block:: console
+      .. code-block:: bash
 
-         # cd /boot/efi/loader/entries
-
-         # vi ubuntu.conf
+         sudoedit /boot/efi/loader/entries/ubuntu.conf
 
       Add the following lines to the :file:`ubuntu.conf` file:
 
@@ -129,19 +124,19 @@ Install Ubuntu\* 16.04 LTS Desktop
 
 #. Re-install Systemd-Boot to make it the default boot loader.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # bootctl install --path /boot/efi
+      sudo bootctl install --path /boot/efi
 
    .. note::
       If an older version of Ubuntu does not have the `bootctl` command,
-      skip this step and see :ref:`multi-boot-restore-bl` to restore the |CL|
-      Systemd-Boot boot loader.
+      skip this step and see :ref:`multi-boot-restore-bl` to restore
+      Systemd-Boot.
 
 #. Reboot.
 
-If you want to install other OSes, refer to :ref:`multi-boot` for details. 
-
+If you want to install other :abbr:`OSes (operating systems)`, refer to
+:ref:`multi-boot` for details.
 
 .. _systemd boot loader documentation:
    https://wiki.archlinux.org/index.php/Systemd-boot
