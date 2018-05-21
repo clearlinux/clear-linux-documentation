@@ -130,7 +130,7 @@ To install the VirtualBox kernel modules, here are the steps:
 
      reboot
 
-   and choose **clear-linux-lts-4.9.XX-YYY** kernel version.
+   and choose **clear-linux-lts-4.14.XX-YYY** kernel version.
 
 #. (*Optional*) Unset timeout to boot directly to LTS version::
 
