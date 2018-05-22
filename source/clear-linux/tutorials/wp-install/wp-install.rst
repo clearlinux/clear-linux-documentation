@@ -101,15 +101,15 @@ To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.p
 #. Click :guilabel:`Let’s go!`.
 #. Enter database connection specifics in the screen that appears as shown in Figure 3 below.
 
-   - Database name:       WordPress
+   * Database name:       WordPress
 
-   - Database username:   wordpressuser
+   * Database username:   wordpressuser
 
-   - Database password:   wp-example  (asterisks will not appear in the text box)
+   * Database password:   wp-example  (asterisks will not appear in the text box)
 
-   - Database host:  localhost
+   * Database host:  localhost
 
-   - Table prefix:   wp\_
+   * Table prefix:   wp\_
 
    Figure 3 shows the completed fields:
 
