@@ -1,13 +1,12 @@
 .. _wp-install:
 
-Create a Clear Linux\* WordPress\* server
+Create a Clear Linux WordPress server
 #######################################
 
-This tutorial shows you how to install the WordPress components on your |CL| LAMP server. At the end of :ref:`Creating a Clear Linux based web server <web-server-install>`, you created a
-WordPress\*-ready database using using phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you can add the WordPress components needed to host a WordPress website on your system.
+This tutorial shows you how to install the WordPress components on your |CL| LAMP server. At the end of :ref:`web-server-install`, you created a WordPress\*-ready database using phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you can add the WordPress components needed to host a WordPress website on your system.
 
 Before you begin
-===========================
+=================
 
 This tutorial assumes you have successfully installed :ref:`Clear Linux on bare metal<bare-metal-install>` and that you have :ref:`set up a LAMP web server <web-server-install>`.
 
@@ -22,8 +21,7 @@ Before you install new packages, update the |CL| OS with the following command:
 Create a WordPress server
 ===========================
 
-WordPress can be installed in a variety of ways. These instructions are written for users who have followed our instructions for installing phpMyAdmin when they :ref:`set up a LAMP web server <web-server-install>`. Note that all steps in this tutorial have been tested using a NUC6i5SYH
-Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
+WordPress can be installed in a variety of ways. These instructions are written for users who have followed our instructions for installing phpMyAdmin when they :ref:`set up a LAMP web server <web-server-install>`. Note that all steps in this tutorial have been tested using a NUC6i5SYH Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
 
 Numerous online articles are available to help you name your website and acquire the necessary certificates. Those tasks are beyond the scope of this tutorial.
 
