@@ -73,7 +73,7 @@ Create a virtual machine in VirtualBox
 
    a. Type: **Linux**
    
-   c. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
+   b. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
 
       .. image:: ./figures/vbox-create-vm.png
           :alt: Create a new image in VirtualBox
@@ -100,7 +100,7 @@ Run your new VM
 ===============
 
 |CL| supports VirtualBox kernel modules used
-by the Linux kernel 4.9 :abbr:`LTS (Long Term Support)` 
+by the Linux kernel 4.14 :abbr:`LTS (Long Term Support)` 
 (*kernel-lts bundle*).This kernel was selected because |CL| OS's main kernel
 (``kernel-native``) bundle keeps up-to-date with the upstream Linux kernel,
 and sometimes VirtualBox kernel modules aren't compatible with pre-kernel
@@ -136,7 +136,7 @@ To install the VirtualBox kernel modules, here are the steps:
 
      clr-boot-manager set-timeout 0
 
-#. (*Mandatory*) Update bootmanger to use always LTS version::
+#. (*Mandatory*) Update bootmanger to always use LTS version::
 
      clr-boot-manager update
 
