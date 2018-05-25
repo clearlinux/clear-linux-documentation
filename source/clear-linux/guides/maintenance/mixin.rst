@@ -1,4 +1,4 @@
-.. _swupdaddpkg:
+.. _mixin:
 
 Create and add custom bundles to your upstream Clear Linux system
 #################################################################
@@ -13,13 +13,13 @@ The first method is to use the :ref:`mixer tool<mixer>` to create your own
 |CL| image and add your bundles to it.  Mixing your own |CL| image can
 give you great control and flexibility; however, you must act as an
 :abbr:`OSV (Operating System Vendor)` and maintain your releases and
-updates because you have forked from upstream.  
+updates because you have forked from upstream.
 
-The second method is to use the :command:`swupd-add-pkg` tool, which also
+The second method is to use the :command:`mixin` tool, which also
 makes use of mixer to create custom bundles that you can add to your
 upstream |CL| system.  This  simpler method provides a “light” forking from
 upstream, which means you can continue to get upstream bundles and updates.
-If needed, you can easily revert your system back to the upstream version. 
+If needed, you can easily revert your system back to the upstream version.
 
 This guide shows you how to accomplish the second method by following these
 steps:
@@ -35,8 +35,8 @@ Set up the workspace
 ********************
 
 #. Install the mixer bundle to enable mixer.
-   
-   .. code-block:: console 
+
+   .. code-block:: console
 
       $ sudo swupd bundle-add mixer
 
@@ -56,35 +56,52 @@ Copy your custom RPM package to the workspace
    Follow the instructions on how to build RPMs found at the
    `Developer tooling framework for Clear Linux`_.  
 
-Copy your RPM package to the workspace.
+If you have a local RPM you want to add to your mix you can do so by copying
+your RPM package to the workspace.
 
 .. code-block:: console
 
    $ sudo cp [RPM] /usr/share/mix/rpms
 
+Alternatively, you can add a remote RPM repository by running the following
+command.
+
+.. code-block:: console
+
+   $ sudo mixin repo add [repo-name] [repo-url]
+
 Create a bundle with your custom RPM package
 ********************************************
 
-Use the :command:`swupd-add-pkg` command to create a bundle with the RPM
+Use the :command:`mixin` command to create a bundle with the RPM
 package.
 
 .. code-block:: console
 
-   $ sudo swupd-add-pkg [RPM] [bundle-name]
+   $ sudo mixin package add [package-name] [--build]
+
+This command will add package-name to a bundle that is named after its parent
+repository. For example, if the RPM was provided locally, it will be added to
+the 'local' bundle. If it came from a repo that was added with :command:`mixin
+repo add` it will be added to a bundle named after the repo-name. The `--build`
+flag tells :command:`mixin` to run a `mixer` build after adding the package.
 
 To add more than one RPM to your previously-created bundle, repeat
-the :command:`swupd-add-pkg` command and change the RPM name.
+the :command:`mixin package add` command and change the package name. Do not add
+the `--build` flag until all packages have been added. Once done adding packages
+run the following to create your local mix.
 
-.. note:: 
-   
-   * If you add the same RPM package more than once, it will simply build a
-     new mix each time without appending it again to the bundle definition.
+.. code-block:: console
 
-   * The first time you run the :command:`swupd-add-pkg` command, mixer
+   $ sudo mixin build
+
+.. note::
+
+   * The first time you run the :command:`mixin build` command, mixer
      creates a new OS version by taking your current upstream |CL| version
      and multiplying it by 1000.  For example, if your upstream version is
      21530, your custom version will be 21530000.  For each subsequent call
-     to swupd-add-pkg, mixer will increment the version by 10.  For example,
+     to mixin, mixer will increment the version by 10.  For example,
      21530010, 21530020, etc. 
 
 Migrate your Clear Linux system to your custom mix
@@ -94,13 +111,13 @@ Before you can use your custom bundle, you must migrate your |CL| system
 to your custom mix to make the bundle accessible.
 
 .. code-block:: console
-   
+
    $ sudo swupd update --migrate
 
 After you migrate, the version of your |CL| system switches over to your
 last custom version number as noted in the previous section. 
 
-You can continue to create new bundles with :command:`swupd-add-pkg` 
+You can continue to create new bundles with :command:`mixin` 
 while you are in your custom version of |CL|.  You do not need to migrate
 again. However, you must run :command:`swupd update` again to update your
 system in order to make those bundles visible. 
