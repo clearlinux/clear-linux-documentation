@@ -1,13 +1,12 @@
 .. _bootable-usb-linux:
 
-Create a bootable USB drive on Linux\*
+Create a bootable USB drive on Linux
 ####################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
-Use an **8GB** or larger USB drive.
-
-These instructions assume that you have downloaded an image. 
-Download either a live image, ``clear-<version>-live.img.xz`` or an installer image, ``clear-<version>-installer.img.xz``, from our `image downloads`_ page. 
+Use an **8GB** or larger USB drive. Download either a live image, 
+``clear-<version>-live.img.xz`` or an installer image, 
+``clear-<version>-installer.img.xz``, from our `image`_ download page. 
 
 Instructions are also available for other operating systems:
 
@@ -15,7 +14,8 @@ Instructions are also available for other operating systems:
 * :ref:`bootable-usb-windows`
 
 .. include:: ../../guides/maintenance/image-types.rst
-   :start-after: image-types-content:
+   :start-after: for different platforms and environments. 
+   :end-before: Table 1 lists the currently available images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
    :Start-after: verify-linux:
@@ -37,12 +37,13 @@ Burn the Clear Linux image onto a USB drive
 
 #. Go to the directory with the uncompressed image.
 #. Plug in the USB drive.
-#. Identify the USB drive using the :command:`lsblk` command.  This shows all drives
-   attached to the system, including the primary hard disk. In the example
-   output below, there are 4 drives (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and
-   `/dev/sdd`) attached, where `/dev/sda` is primary drive in this case. The
-   remaining are 3 USB drives. The output also shows the mounted partitions
-   (under the `MOUNTPOINT` column) for each drive.
+#. Identify the USB drive using the :command:`lsblk` command. This shows all
+   drives attached to the system, including the primary hard disk. In the
+   example output below, there are 4 drives 
+   (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and `/dev/sdd`) attached, where 
+   `/dev/sda` is primary drive in this case. The remaining are 3 USB drives.
+   The output also shows the mounted partitions (under the `MOUNTPOINT`
+   column) for each drive.
 
    .. code-block:: bash
 
@@ -82,7 +83,7 @@ Burn the Clear Linux image onto a USB drive
       umount /dev/sdd2
       umount /dev/sdd3
 
-#. Burn the image onto the USB drive.  The command-line example below burns an
+#. Burn the image onto the USB drive. The command-line example below burns an
    uncompressed image onto `/dev/sdd`:
 
    .. code-block:: bash
@@ -100,5 +101,5 @@ With a bootable |CL| USB drive, you can:
 * :ref:`boot-live-image`
 * :ref:`multi-boot`
 
-.. _image downloads: https://download.clearlinux.org/image
+.. _image: https://download.clearlinux.org/image
 .. _releases: https://download.clearlinux.org/releases
