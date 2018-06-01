@@ -3,7 +3,8 @@
 Create a Clear Linux based web server
 #######################################
 
-This tutorial shows you how to create a LAMP server on |CL| and how to use phpMyAdmin to manage an associated database.
+This tutorial shows you how to create a LAMP server on |CL| and how to use
+phpMyAdmin to manage an associated database.
 
 In order to create a web server using |CL| as the host OS, your host system must be running |CL|. This tutorial assumes you have successfully installed :ref:`Clear Linux on bare metal<bare-metal-install>`.
 
@@ -189,7 +190,7 @@ After restarting the Apache service, test your PHP installation.
 
       `Figure 2: The PHP information screen.`
 
-The PHP components are successfully installed.
+If the PHP information screen is displayed, you have successfully installed the PHP components and are now ready to add your database application to complete your LAMP server implementation.
 
 Install MariaDB
 ******************
@@ -217,84 +218,81 @@ Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL and
 
 With the MariaDB service running, we can perform some basic security hardening.
 
-To add a basic layer of security, enter the following command and answer the
-questions that appear:
+#. To add a basic layer of security, enter the following command:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   mysql_secure_installation
+      mysql_secure_installation
 
-.. note::
+#. Respond to the questions that appear in the script below. Note that our suggested responses follow each question.
 
-   Answers appear after each question.
+   .. code-block:: bash
 
-.. code-block:: bash
+      Enter current password for root (enter for none):
 
-   Enter current password for root (enter for none):
+   In order to secure MariaDB, we need the current password for the root user. For a newly installed MariaDB without a set root password, the password is blank. Thus, press enter to continue.
 
-In order to secure MariaDB, we need the current password for the root user. For a newly installed MariaDB without a set root password, the password is blank. Thus, press enter to continue.
+   .. code-block:: bash
 
-.. code-block:: bash
+      OK, successfully used password, moving on...
 
-   OK, successfully used password, moving on...
+      Set root password? [Y/n]
 
-   Set root password? [Y/n]
+   .. _set-password:
 
-.. _set-password:
+   Set the root password to prevent unauthorized MariaDB root user logins. To set a root password, type 'y'.
 
-Set the root password to prevent unauthorized MariaDB root user logins. To set a root password, type 'y'.
-
-.. code-block:: bash
+   .. code-block:: bash
 
    New password:
 
-Type the desired password for the root user.
+   Type the desired password for the root user.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   Re-enter new password:
+      Re-enter new password:
 
-Re-type the desired password for the root user.
+   Re-type the desired password for the root user.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   Password updated successfully!
-   Reloading privilege tables..
-    ... Success!
+      Password updated successfully!
+      Reloading privilege tables..
+       ... Success!
 
-   Remove anonymous users? [Y/n]
+      Remove anonymous users? [Y/n]
 
-By default, a MariaDB installation includes an anonymous user that allows anyone to log in to MariaDB without a user account. This anonymous user is intended only for testing and for a smoother installation. To remove the anonymous user and make your database more secure, type 'y'.
+   By default, a MariaDB installation includes an anonymous user that allows anyone to log in to MariaDB without a user account. This anonymous user is intended only for testing and for a smoother installation. To remove the anonymous user and make your database more secure, type 'y'.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-    ... Success!
-   Disallow root login remotely? [Y/n]
+       ... Success!
+      Disallow root login remotely? [Y/n]
 
-Normally, root should only be allowed to connect from the 'localhost'. This ensures that someone cannot guess the root password from the network. To block any remote root login, type 'y'.
+   Normally, root should only be allowed to connect from the 'localhost'. This ensures that someone cannot guess the root password from the network. To block any remote root login, type 'y'.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-    ... Success!
-   Remove test database and access to it? [Y/n]
+       ... Success!
+      Remove test database and access to it? [Y/n]
 
-By default, MariaDB includes a database named 'test' which anyone can access. This database is also intended only for testing and should be removed. To remove the test database, type 'y'.
+   By default, MariaDB includes a database named 'test' which anyone can access. This database is also intended only for testing and should be removed. To remove the test database, type 'y'.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-    - Dropping test database...
-    ... Success!
-    - Removing privileges on test database...
-    ... Success!
-   Reload privilege tables now? [Y/n]
+       - Dropping test database...
+       ... Success!
+       - Removing privileges on test database...
+       ... Success!
+      Reload privilege tables now? [Y/n]
 
-Reloading the privilege tables ensures all changes made so far take effect immediately. To reload the privilege tables, type 'y'.
+   Reloading the privilege tables ensures all changes made so far take effect immediately. To reload the privilege tables, type 'y'.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-    ... Success!
+       ... Success!
 
-   Cleaning up...
+      Cleaning up...
 
    All done!  If you've completed all of the above steps, your MariaDB
    installation should now be secure.
@@ -419,7 +417,7 @@ Congratulations!
 
 You have now created a fully functional LAMP server along with a WordPress-ready database using |CL|.
 
-Go to :ref:`Create a Clear Linux WordPress server <wp-install>` to complete the setup.
+As a next step, you could :ref:`create a WordPress server <wp-install>` and present it to the world.
 
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
