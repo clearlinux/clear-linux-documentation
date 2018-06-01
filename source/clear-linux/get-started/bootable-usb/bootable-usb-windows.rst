@@ -4,18 +4,18 @@ Create a bootable USB drive on Windows
 ######################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
-Use an **8GB** or larger USB drive.
+Use an **8GB** or larger USB drive.Download either a live image, 
+``clear-<version>-live.img.xz`` or an installer image, 
+``clear-<version>-installer.img.xz``, from our `image`_ download page.
 
-These instructions assume you have
-:ref:`downloaded an appropriate image<download-usb-image>`.
-
-Alternative instructions for other operating systems are available:
+Instructions are also available for other operating systems:
 
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-linux`
 
 .. include:: ../../guides/maintenance/image-types.rst
-   :start-after: image-types-content:
+   :start-after: for different platforms and environments. 
+   :end-before: Table 1 lists the currently available images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
    :Start-after: verify-windows:
@@ -68,5 +68,4 @@ With a bootable |CL| USB drive, you can:
 * :ref:`multi-boot`
 
 .. _Rufus: http://rufus.akeo.ie/
-.. _releases: https://download.clearlinux.org/releases
 .. _image: https://download.clearlinux.org/image
