@@ -4,7 +4,7 @@ Create a bootable USB drive on Windows
 ######################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
-Use an **8GB** or larger USB drive.Download either a live image, 
+Use an **8GB** or larger USB drive. Download either a live image, 
 ``clear-<version>-live.img.xz`` or an installer image, 
 ``clear-<version>-installer.img.xz``, from our `image`_ download page.
 
