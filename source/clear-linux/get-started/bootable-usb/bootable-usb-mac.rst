@@ -4,18 +4,18 @@ Create a bootable USB drive on macOS
 ####################################
 
 Follow these instructions to create a bootable |CLOSIA| USB drive.
-Use an **8GB** or larger USB drive.
+Use an **8GB** or larger USB drive. Download either a live image, 
+``clear-<version>-live.img.xz`` or an installer image, 
+``clear-<version>-installer.img.xz``, from our `image`_ download page. 
 
-These instructions assume you have
-:ref:`downloaded an appropriate image<download-usb-image>`.
-
-Alternative instructions for other operating systems are available:
+Instructions are also available for other operating systems:
 
 * :ref:`bootable-usb-linux`
 * :ref:`bootable-usb-windows`
 
 .. include:: ../../guides/maintenance/image-types.rst
-   :start-after: image-types-content:
+   :start-after: for different platforms and environments. 
+   :end-before: Table 1 lists the currently available images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-mac.rst
    :start-after: verify-mac:
@@ -78,5 +78,4 @@ With a bootable |CL| USB drive, you can:
 * :ref:`boot-live-image`
 * :ref:`multi-boot`
 
-.. _releases: https://download.clearlinux.org/releases
 .. _image: https://download.clearlinux.org/image
