@@ -320,7 +320,7 @@ This tutorial uses the latest English version of phpMyAdmin to install it on our
    the file and directories into the Apache web server document root
    directory. Use the following commands:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       cd /var/www/html
       sudo tar –xzvf ~/Downloads/phpMyAdmin-4.6.4-english.tar.gz
@@ -329,69 +329,68 @@ This tutorial uses the latest English version of phpMyAdmin to install it on our
    :file:`phpMyAdmin-4.6.4-english` directory to :file:`phpMyAdmin` with the
    following command:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
 
 Use phpMyAdmin to Manage Databases
 ====================================
 
-To verify a successful installation of all LAMP server components, go to http://localhost/phpMyAdmin. Confirm that the phpMyAdmin welcome screen appears, as shown in figure 3.
+You can use the phpMyAdmin web-based tool to manage your databases. Follow the steps below for setting up a database called Wordpress.
 
-.. figure:: figures/web-server-install-3.png
-   :alt: phpMyAdmin login page
-   :width:     600
+#. Verify that a successful installation of all LAMP server components by going to http://localhost/phpMyAdmin. See figure 3.
 
-   `Figure 3: The phpMyAdmin login page.`
+#. Log in with your root userid and the password you set up when you ran the :ref:`mysql_secure_installation command <set-password>`. Enter your credentials and select :guilabel:`Go` to log in:
+
+   .. figure:: figures/web-server-install-3.png
+      :alt: phpMyAdmin login page
+      :width:     600
+
+      `Figure 3: The phpMyAdmin login page.`
 
 
-Log in with your root userid and the password you set up when you ran the :ref:`mysql_secure_installation command <set-password>`. Enter your credentials and select :guilabel:`Go` to log in:
+#. Verify a successful login by confirming that the main phpMyAdmin page displays, as shown in figure 4:
 
-Once you are logged in, the main phpMyAdmin page displays, as shown in figure 4:
+   .. figure:: figures/web-server-install-4.png
+      :alt: phpMyAdmin dashboard
+      :width:     600
 
-.. figure:: figures/web-server-install-4.png
-    :alt: phpMyAdmin dashboard
-    :width:     600
+      `Figure 4: The phpMyAdmin dashboard.`
 
-    `Figure 4: The phpMyAdmin dashboard.`
 
-Set up your first database called `WordPress`. Follow these steps:
-
-#. Select the :guilabel:`Databases` tab, as shown in figure 5.
-
-   .. figure:: figures/web-server-install-5.png
-       :alt: Databases tab
-       :width:     600
-
-       `Figure 5: The Databases tab.`
+#. Set up a database by selecting the :guilabel:`Databases` tab, as shown in figure 5.
 
 #. Enter `WordPress` in the text field below the :guilabel:`Create database`
    label.
 
-#. Select the :guilabel:`utf8_unicode_ci` option from the Collation drop-down
-   menu beside the text field.
+#. Select the :guilabel:`utf8_unicode_ci` option from the :guilabel:`Collation` drop-down menu beside the text field.
 
 #. Click :guilabel:`Create`.
 
-Once the database is created, set up the user permissions.
+   .. figure:: figures/web-server-install-5.png
+      :alt: Databases tab
+      :width:     600
 
-#. Select the WordPress database located in the left panel.
+      `Figure 5: The Databases tab.`
+
+
+#. Set up user permissions by selecting the :guilabel:`WordPress` database located in the left panel. See figure 6.
 
 #. Select the :guilabel:`Privileges` tab. Figure 6 shows its contents.
 
    .. figure:: figures/web-server-install-6.png
-       :alt: Privileges tab
-       :width:     600
+      :alt: Privileges tab
+      :width:     600
 
-       `Figure 6: The Privileges tab.`
+      `Figure 6: The Privileges tab.`
 
-#. Click :guilabel:`Add user account` located at the bottom of the Privileges tab. The `Add user account` page appears, as shown in figure 7.
+#. Click :guilabel:`Add user account` located at the bottom of the :guilabel:`Privileges` tab. The `Add user account` page appears, as shown in figure 7.
 
    .. figure:: figures/web-server-install-7.png
-       :alt: User accounts tab
-       :width:     600
+      :alt: User accounts tab
+      :width:     600
 
-       `Figure 7: The User accounts tab.`
+      `Figure 7: The User accounts tab.`
 
 #. Enter the following information in the corresponding fields that appear in figure 7 above:
 
@@ -408,12 +407,12 @@ Once the database is created, set up the user permissions.
 If successful, you should see the screen shown in figure 8:
 
 .. figure:: figures/web-server-install-8.png
-    :alt: User added successfully
-    :width:     600
+   :alt: User added successfully
+   :width:     600
 
-    `Figure 8: The user wordpressuser is successfully added.`
+   `Figure 8: The user wordpressuser is successfully added.`
 
-Congratulations!
+**Congratulations!**
 
 You have now created a fully functional LAMP server along with a WordPress-ready database using |CL|.
 
