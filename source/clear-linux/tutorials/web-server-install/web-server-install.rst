@@ -169,7 +169,7 @@ An Apache installation allows you to display static web pages. Enabling PHP allo
       sudo systemctl start php-fpm.service
       sudo systemctl restart httpd.service
 
-After restarting the Apache service, test your PHP installation.
+   After restarting the Apache service, test your PHP installation.
 
 #. Create a file named :file:`phpinfo.php` in the
    :file:`/var/www/html/` directory using a text editor.
@@ -215,6 +215,9 @@ Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL and
    .. code-block:: bash
 
       sudo systemctl status mariadb
+
+Security Hardening
+------------------
 
 With the MariaDB service running, we can perform some basic security hardening.
 
