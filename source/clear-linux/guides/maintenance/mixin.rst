@@ -44,7 +44,7 @@ Set up the workspace
 
    .. code-block:: console
 
-      $ sudo mkdir -p /usr/share/mix/rpms
+      $ sudo mkdir -p /usr/share/mix/local-rpms
 
 Copy your custom RPM package to the workspace
 *********************************************
@@ -61,7 +61,7 @@ your RPM package to the workspace.
 
 .. code-block:: console
 
-   $ sudo cp [RPM] /usr/share/mix/rpms
+   $ sudo cp [RPM] /usr/share/mix/local-rpms
 
 Alternatively, you can add a remote RPM repository by running the following
 command.
