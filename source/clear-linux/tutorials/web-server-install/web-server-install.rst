@@ -1,12 +1,14 @@
 .. _web-server-install:
 
 Create a Clear Linux based web server
-#######################################
+#####################################
 
 This tutorial shows you how to create a LAMP server on |CL| and how to use
 phpMyAdmin to manage an associated database.
 
-In order to create a web server using |CL| as the host OS, your host system must be running |CL|. This tutorial assumes you have successfully installed :ref:`Clear Linux on bare metal<bare-metal-install>`.
+In order to create a web server using |CL| as the host OS, your host system 
+must be running |CL|. This tutorial assumes you have successfully installed 
+:ref:`Clear Linux on bare metal<bare-metal-install>`.
 
 Before you install new packages, update the |CL| OS with the following console command:
 
@@ -15,7 +17,7 @@ Before you install new packages, update the |CL| OS with the following console c
    sudo swupd update
 
 Create a LAMP Server
-**********************
+********************
 
 A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop-in replacement for MySQL.
 
@@ -30,12 +32,15 @@ This tutorial follows these steps:
 Install Apache
 *****************
 
-Apache is an open source HTTP web server application that can run on several operating systems, including |CL|. Go to the `Apache HTTP Server Project`_ for more information.
+Apache is an open source HTTP web server application that can run on several 
+operating systems, including |CL|. Go to the `Apache HTTP Server Project`_ 
+for more information.
 
 Install the web-server-basic bundle
 ===================================
 
-The web-server-basic bundle contains the packages needed to install the Apache software bundle on |CL|.
+The web-server-basic bundle contains the packages needed to install the 
+Apache software bundle on |CL|.
 
 #. To install the bundle, enter the following command:
 
@@ -52,24 +57,31 @@ The web-server-basic bundle contains the packages needed to install the Apache s
       sudo systemctl start httpd.service
 
 
-#. To verify that the Apache server application is running, open a web browser and navigate to: http://localhost.
+#. To verify that the Apache server application is running, open a web
+   browser and navigate to: http://localhost.
 
    If the service is running, a confirmation message appears, as shown in figure 1.
 
-.. figure:: figures/web-server-install-1.png
-   :alt: This web server is operational from host.
-   :scale: 50%
+   .. figure:: figures/web-server-install-1.png
+      :alt: This web server is operational from host.
+      :scale: 50%
 
-   `Figure 1: Confirmation that the Apache service is running.`
+      `Figure 1: Confirmation that the Apache service is running.`
 
-.. note::
+   .. note::
 
-   The :file:`index.html` file is located in the :file:`/var/www/html` directory of your host system. You will copy this file into a new location after you modify the configuration in the next step.
+      The :file:`index.html` file is located in the :file:`/var/www/html` directory of your host system. You will copy this file into a new location after you modify the configuration in the next step.
 
 Change the default configuration and data directory
 ***************************************************
 
-|CL| is designed to be a stateless operating system which means that you must create an optional configuration file to make changes over the default values. The default location of the Apache configuration file, :file:`httpd.conf`, is located in the :file:`/usr/share/defaults/httpd` directory. |CL| can overwrite this directory as part of the stateless paradigm. This default :file:`.conf` file includes the following directives that allow for additional locations of configuration definitions:
+|CL| is designed to be a stateless operating system which means that you 
+must create an optional configuration file to make changes over the default 
+values. The default location of the Apache configuration file, 
+:file:`httpd.conf`, is located in the :file:`/usr/share/defaults/httpd` 
+directory. |CL| can overwrite this directory as part of the stateless 
+paradigm. This default :file:`.conf` file includes the following directives 
+that allow for additional locations of configuration definitions:
 
 .. code-block:: bash
 
@@ -81,13 +93,16 @@ Change the default configuration and data directory
 
 This tutorial follows these steps:
 
-* Create the directory structure for :file:`/etc/httpd/conf.d`.
-* Create the :file:`httpd.conf` file within :file:`/etc/httpd/conf.d` directory.
+* Create the directory structure for :file:`/etc/httpd/conf.d`. 
+
+* Create the :file:`httpd.conf` file in directory :file:`/etc/httpd/conf.d`.
+  
 * Add the ``DocumentRoot`` variable to :file:`httpd.conf`.
 
 Open a text editor and perform the following:
 
-#. Copy the content listed below into the new file :file:`/etc/httpd/conf.d/httpd.conf`.
+#. Copy the content listed below into the new file 
+   :file:`/etc/httpd/conf.d/httpd.conf`.
 
    .. code-block:: bash
 
@@ -105,7 +120,9 @@ Open a text editor and perform the following:
       </Directory>
 
 
-#. Create a new ``DocumentRoot`` directory structure and copy the :file:`index.html` file from :file:`/var/www/html` directory to :file:`/var/www/tutorial`.
+#. Create a new ``DocumentRoot`` directory structure and copy the 
+   :file:`index.html` file from :file:`/var/www/html` directory to 
+   :file:`/var/www/tutorial`.
 
    .. code-block:: bash
 
@@ -114,7 +131,8 @@ Open a text editor and perform the following:
       sudo cp /var/www/html/index.html .
 
 
-#. To ensure a successful setup, edit the new :file:`index.html` file. Change the original text from
+#. To ensure a successful setup, edit the new :file:`index.html` file.
+   Change the original text from
 
    "This web server is operational from host."
 
@@ -129,10 +147,11 @@ Open a text editor and perform the following:
       sudo systemctl stop httpd.service
       sudo systemctl start httpd.service
 
-
 #. Go to http://localhost to view the new screen.
 
-#. Change the configuration back to the default :file:`/var/www/html` location. To do this, edit the :file:`/etc/httpd/conf.d/httpd.conf` file again and replace any instance of /var/www/tutorial with /var/www/html.
+#. Change the configuration back to the default :file:`/var/www/html` 
+   location. To do this, edit the :file:`/etc/httpd/conf.d/httpd.conf` file 
+   again and replace any instance of /var/www/tutorial with /var/www/html.
 
 #. Stop and then restart ``httpd.service``.
 
@@ -141,7 +160,8 @@ Open a text editor and perform the following:
       sudo systemctl stop httpd.service
       sudo systemctl start httpd.service
 
-#. Go to http://localhost and verify that you can see the default screen again.
+#. Go to http://localhost and verify that you can see the default screen
+   again.
 
    Optionally, remove the /var/www/tutorial directory you previously created.
 
@@ -151,9 +171,11 @@ Open a text editor and perform the following:
       sudo rmdir /var/www/tutorial
 
 Install PHP
-**************
+***********
 
-An Apache installation allows you to display static web pages. Enabling PHP allows you to generate and display dynamic web pages. To add this functionality to your web server, install PHP on your system.
+An Apache installation allows you to display static web pages. Enabling PHP 
+allows you to generate and display dynamic web pages. To add this 
+functionality to your web server, install PHP on your system.
 
 #. To get the php components, enter the following command:
 
@@ -186,16 +208,19 @@ An Apache installation allows you to display static web pages. Enabling PHP allo
 
    .. figure:: figures/web-server-install-2.png
       :alt: PHP information screen
-      :width:     600
+      :width: 600
 
       `Figure 2: The PHP information screen.`
 
-If the PHP information screen is displayed, you have successfully installed the PHP components and are now ready to add your database application to complete your LAMP server implementation.
+If the PHP information screen is displayed, you have successfully installed 
+the PHP components and are now ready to add your database application to 
+complete your LAMP server implementation.
 
 Install MariaDB
 ******************
 
-Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL and is available in the database-basic |CL| bundle.
+Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL 
+and is available in the database-basic |CL| bundle.
 
 #. To install the database-basic bundle, enter the following command:
 
@@ -217,9 +242,10 @@ Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL and
       sudo systemctl status mariadb
 
 Security Hardening
-------------------
+==================
 
-With the MariaDB service running, we can perform some basic security hardening.
+With the MariaDB service running, we can perform some basic security 
+hardening.
 
 #. To add a basic layer of security, enter the following command:
 
@@ -227,13 +253,19 @@ With the MariaDB service running, we can perform some basic security hardening.
 
       mysql_secure_installation
 
-#. Respond to the questions that appear in the script below. Note that our suggested responses follow each question.
+#. Respond to the questions that appear in the script below. 
+   
+   .. note::  
+
+      Our suggested responses follow each question.
 
    .. code-block:: bash
 
       Enter current password for root (enter for none):
 
-   In order to secure MariaDB, we need the current password for the root user. For a newly installed MariaDB without a set root password, the password is blank. Thus, press enter to continue.
+   In order to secure MariaDB, we need the current password for the root 
+   user. For a newly installed MariaDB without a set root password, the 
+   password is blank. Thus, press enter to continue.
 
    .. code-block:: bash
 
@@ -243,11 +275,12 @@ With the MariaDB service running, we can perform some basic security hardening.
 
    .. _set-password:
 
-   Set the root password to prevent unauthorized MariaDB root user logins. To set a root password, type 'y'.
+   Set the root password to prevent unauthorized MariaDB root user logins. 
+   To set a root password, type 'y'.
 
    .. code-block:: bash
 
-   New password:
+      New password:
 
    Type the desired password for the root user.
 
@@ -261,39 +294,43 @@ With the MariaDB service running, we can perform some basic security hardening.
 
       Password updated successfully!
       Reloading privilege tables..
-       ... Success!
+      ... Success!
 
       Remove anonymous users? [Y/n]
 
-   By default, a MariaDB installation includes an anonymous user that allows anyone to log in to MariaDB without a user account. This anonymous user is intended only for testing and for a smoother installation. To remove the anonymous user and make your database more secure, type 'y'.
+   By default, a MariaDB installation includes an anonymous user that allows
+   anyone to log in to MariaDB without a user account. This anonymous user 
+   is intended only for testing and for a smoother installation. To remove 
+   the anonymous user and make your database more secure, type 'y'.
 
    .. code-block:: bash
 
-       ... Success!
+      ... Success!
       Disallow root login remotely? [Y/n]
 
    Normally, root should only be allowed to connect from the 'localhost'. This ensures that someone cannot guess the root password from the network. To block any remote root login, type 'y'.
 
    .. code-block:: bash
 
-       ... Success!
+      ... Success!
       Remove test database and access to it? [Y/n]
 
    By default, MariaDB includes a database named 'test' which anyone can access. This database is also intended only for testing and should be removed. To remove the test database, type 'y'.
 
    .. code-block:: bash
 
-       - Dropping test database...
-       ... Success!
-       - Removing privileges on test database...
-       ... Success!
+      - Dropping test database...
+      ... Success!
+      - Removing privileges on test database...
+      ... Success!
       Reload privilege tables now? [Y/n]
 
-   Reloading the privilege tables ensures all changes made so far take effect immediately. To reload the privilege tables, type 'y'.
+   Reloading the privilege tables ensures all changes made so far take 
+   effect immediately. To reload the privilege tables, type 'y'.
 
    .. code-block:: bash
 
-       ... Success!
+      ... Success!
 
       Cleaning up...
 
@@ -302,14 +339,19 @@ With the MariaDB service running, we can perform some basic security hardening.
 
    Thanks for using MariaDB!
 
-The MariaDB installation is complete and we can now install phpMyAdmin to manage the databases.
+The MariaDB installation is complete, and we can now install phpMyAdmin to 
+manage the databases.
 
 Install phpMyAdmin
-*********************
+******************
 
-The web-based tool phpMyAdmin is a straightforward way to manage MySQL or MariaDB databases. Visit the `phpMyAdmin`_ website for the complete discussion regarding phpMyAdmin, its documentation, the latest downloads, and other useful information.
+The web-based tool phpMyAdmin is a straightforward way to manage MySQL or 
+MariaDB databases. Visit the `phpMyAdmin`_ website for the complete 
+discussion regarding phpMyAdmin, its documentation, the latest downloads, 
+and other useful information.
 
-This tutorial uses the latest English version of phpMyAdmin to install it on our |CL| host system.
+This tutorial uses the latest English version of phpMyAdmin to install it on 
+our |CL| host system.
 
 #. Download the :file:`phpMyAdmin-<version>-english.tar.gz` file to your
    :file:`~/Downloads` directory. Here, <version> refers to the current
@@ -341,9 +383,12 @@ Use phpMyAdmin to Manage Databases
 
 You can use the phpMyAdmin web-based tool to manage your databases. Follow the steps below for setting up a database called Wordpress.
 
-#. Verify that a successful installation of all LAMP server components by going to http://localhost/phpMyAdmin. See figure 3.
+#. Verify that a successful installation of all LAMP server components by
+   going to http://localhost/phpMyAdmin. See figure 3.
 
-#. Log in with your root userid and the password you set up when you ran the :ref:`mysql_secure_installation command <set-password>`. Enter your credentials and select :guilabel:`Go` to log in:
+#. Log in with your root userid and the password you set up when you ran the
+   :ref:`mysql_secure_installation command <set-password>`. Enter your 
+   credentials and select :guilabel:`Go` to log in:
 
    .. figure:: figures/web-server-install-3.png
       :alt: phpMyAdmin login page
@@ -352,7 +397,8 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
       `Figure 3: The phpMyAdmin login page.`
 
 
-#. Verify a successful login by confirming that the main phpMyAdmin page displays, as shown in figure 4:
+#. Verify a successful login by confirming that the main phpMyAdmin page
+   displays, as shown in figure 4:
 
    .. figure:: figures/web-server-install-4.png
       :alt: phpMyAdmin dashboard
@@ -361,12 +407,14 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
       `Figure 4: The phpMyAdmin dashboard.`
 
 
-#. Set up a database by selecting the :guilabel:`Databases` tab, as shown in figure 5.
+#. Set up a database by selecting the :guilabel:`Databases` tab, as shown in
+   figure 5.
 
 #. Enter `WordPress` in the text field below the :guilabel:`Create database`
    label.
 
-#. Select the :guilabel:`utf8_unicode_ci` option from the :guilabel:`Collation` drop-down menu beside the text field.
+#. Select the :guilabel:`utf8_unicode_ci` option from the
+   :guilabel:`Collation` drop-down menu beside the text field.
 
 #. Click :guilabel:`Create`.
 
@@ -377,7 +425,8 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
       `Figure 5: The Databases tab.`
 
 
-#. Set up user permissions by selecting the :guilabel:`WordPress` database located in the left panel. See figure 6.
+#. Set up user permissions by selecting the :guilabel:`WordPress` database
+   located in the left panel. See figure 6.
 
 #. Select the :guilabel:`Privileges` tab. Figure 6 shows its contents.
 
@@ -387,7 +436,9 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
 
       `Figure 6: The Privileges tab.`
 
-#. Click :guilabel:`Add user account` located at the bottom of the :guilabel:`Privileges` tab. The `Add user account` page appears, as shown in figure 7.
+#. Click :guilabel:`Add user account` located at the bottom of the 
+   :guilabel:`Privileges` tab. The `Add user account` page appears, as shown 
+   in figure 7.
 
    .. figure:: figures/web-server-install-7.png
       :alt: User accounts tab
@@ -395,7 +446,8 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
 
       `Figure 7: The User accounts tab.`
 
-#. Enter the following information in the corresponding fields that appear in figure 7 above:
+#. Enter the following information in the corresponding fields that appear
+   in figure 7 above:
 
    * User name: wordpressuser
 
@@ -403,7 +455,8 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
 
    * Re-type: wp-example
 
-#. In the `Database for user account` section, select :guilabel:`Grant all privileges on database “WordPress”.`
+#. In the `Database for user account` section, select 
+   :guilabel:`Grant all privileges on database “WordPress”.`
 
 #. At the bottom of the page, click :guilabel:`Go`.
 
@@ -417,10 +470,11 @@ If successful, you should see the screen shown in figure 8:
 
 **Congratulations!**
 
-You have now created a fully functional LAMP server along with a WordPress-ready database using |CL|.
+You have now created a fully functional LAMP server along with a 
+WordPress-ready database using |CL|.
 
-As a next step, you could :ref:`create a WordPress server <wp-install>` and present it to the world.
-
+As a next step, you could :ref:`create a WordPress server <wp-install>` and
+present it to the world.
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
 .. _phpMyAdmin: https://www.phpmyadmin.net/
