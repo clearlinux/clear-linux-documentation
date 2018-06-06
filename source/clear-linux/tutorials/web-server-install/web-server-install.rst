@@ -1,10 +1,9 @@
 .. _web-server-install:
 
-Create a Clear Linux based web server
+Create a Clear Linux\* based web server
 #####################################
 
-This tutorial shows you how to create a LAMP server on |CL| and how to use
-phpMyAdmin to manage an associated database.
+This tutorial shows you how to create a LAMP server using |CLOSIA| and how to use phpMyAdmin\* to manage an associated database.
 
 In order to create a web server using |CL| as the host OS, your host system 
 must be running |CL|. This tutorial assumes you have successfully installed 
