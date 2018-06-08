@@ -65,7 +65,7 @@ Restart the Docker* systemd services
 .. code-block:: bash
 
    $ sudo systemctl daemon-reload
-   $ sudo systemctl restar docker
+   $ sudo systemctl restart docker
 
 Verify Docker* is in fact using Kata Containers
 
