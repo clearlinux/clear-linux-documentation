@@ -10,7 +10,7 @@ Mixing is a multi-step process that starts with installing the mixer bundle usin
 Related Concepts
 ================
 
-# :ref:`swupd_about`
-# :ref:`bundles_about`
+* :ref:`swupd_about`
+* :ref:`bundles_about`
 
 
