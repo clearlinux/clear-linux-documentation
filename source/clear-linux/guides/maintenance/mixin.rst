@@ -82,16 +82,16 @@ package.
 
 This command will add package-name to a bundle that is named after its parent
 repository. For example, if the RPM was provided locally, it will be added to
-the 'local' bundle. If it came from a repo that was added with :command:`mixin
-repo add` it will be added to a bundle named after the repo-name. If the
-`--bundle bundle-name` flag is provided the package will be added to
-`bundle-name` instead. The `--build` flag tells :command:`mixin` to run a
-`mixer` build after adding the package.
+the 'local' bundle. If it came from a repo that was added with 
+:command:`mixin repo add`, it will be added to a bundle named after the
+repo-name. If the `--bundle bundle-name` flag is provided, the package will 
+be added to `bundle-name` instead. The `--build` flag tells :command:`mixin` 
+to run a `mixer` build after adding the package.
 
 To add more than one RPM to your previously-created bundle, repeat
-the :command:`mixin package add` command and change the package name. Do not add
-the `--build` flag until all packages have been added. Once done adding packages
-run the following to create your local mix.
+the :command:`mixin package add` command and change the package name. Do not
+add the `--build` flag until all packages have been added. Once done adding 
+packages, run the following to create your local mix.
 
 .. code-block:: console
 
