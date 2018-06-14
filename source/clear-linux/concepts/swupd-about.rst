@@ -107,7 +107,7 @@ Update speed
 
 Software updates with Clear Linux OS for Intel Architecture are also
 efficient. Bundles simply describe a set of files, and the update
-technology updates *only* files that actually changed by using so-called
+technology updates *only* files that actually changed by using
 binary-delta technology for efficiency [1]_. Operating systems that use
 packages as the unit of deployment require full package updates (thus
 hogging resources), even when one small file in that package has changed.
