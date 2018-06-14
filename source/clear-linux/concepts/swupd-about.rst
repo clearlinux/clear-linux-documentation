@@ -95,11 +95,11 @@ patches.
 Clear Linux OS will automatically check for updates and apply them. This default
 can be disabled by running::
 
-    # systemctl mask swupd-update.timer
+    # swupd autoupdate --disable
 
 And reenabled by running::
 
-    # systemctl unmask swupd-update.timer
+    # swupd autoupdate --enable
 
 
 Update speed
