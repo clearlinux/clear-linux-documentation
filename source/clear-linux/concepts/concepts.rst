@@ -11,5 +11,6 @@ details relevant to the |CL| features.
    :maxdepth: 2
 
    swupd-about
+   mixer-about
    bundles-about
    restart
