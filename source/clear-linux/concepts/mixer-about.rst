@@ -12,5 +12,3 @@ Related Concepts
 
 * :ref:`swupd-about`
 * :ref:`bundles-about`
-
-
