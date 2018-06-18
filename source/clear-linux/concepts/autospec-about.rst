@@ -2,13 +2,13 @@
 
 .. _autospec-overview: 
 
-Autospec overview
-#################
+Autospec
+########
 
 Whereas a standard RPM build process using ``rpmbuild`` requires a tarball 
-and ``spec`` file to start, ``autospec`` only requires a tarball. 
-``autospec`` analyzes the source code and :file:`Makefile` information in 
-order to generate a ``spec`` file for you. Although not required, you can 
+and ``spec`` file to start, ``autospec`` only requires a tarball and package
+name. ``autospec`` analyzes the source code and :file:`Makefile` information 
+in order to generate a ``spec`` file for you. Although not required, you can 
 influence ``autospec`` by providing control files. 
 
 .. code-block:: console 
@@ -88,20 +88,20 @@ the ``spec`` file generation.
 #. The :command:`make autospec` command generates a ``spec`` file from the 
    control files.  
 
-#. ``autospec`` creates a ``chroot`` with ``mock`` config. 
+#. ``autospec`` creates a ``build root`` with ``mock`` config. 
    
 #. ``autospec`` attempts to build an RPM from the generated ``spec`` file.
    
-#. ``autospec`` detects any missed definitions in the ``spec`` file. 
+#. ``autospec`` detects any missed declarations in the ``spec`` file. 
 
 .. note:: 
 
-   * If there are missed definitions, ``autospec`` creates another ``mock``
+   * If there are missed declarations, ``autospec`` creates another ``mock``
      ``chroot`` and starts building again at Step 1. 
    * If a build error occurs, ``autospec`` stops for user inspection. 
    * If no build errors occur, RPM packages are successfully built.       
 
-``autospec`` continuously runs updated builds, based on new information 
+``autospec`` continues to rebuild the package, based on new information 
 discovered from build failures until it has a valid ``spec`` file. 
 
 .. _autospec readme: https://github.com/clearlinux/autospec

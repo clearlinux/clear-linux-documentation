@@ -72,8 +72,9 @@ Create a RPM with autospec
    :end-before: For a comprehensive list of control files
 
 For a detailed explanation of how ``autospec`` works on |CL|, visit our 
-:ref:`autospec-about`.  For a general understanding of how RPMs work, we 
-recommend visiting the `rpm website`_ or the `RPM Packaging Guide`_ . 
+:ref:`autospec-about` about page.  For a general understanding of how RPMs 
+work, we recommend visiting the `rpm website`_ or the 
+`RPM Packaging Guide`_ . 
 
 Building RPMs 
 =============
@@ -104,7 +105,7 @@ Build a new RPM
 
    .. code-block:: bash
 
-      make autospecnew URL="https://github.com/bktan/helloclear/archive/helloclear-4.tar.gz" NAME="helloclear"
+      make autospecnew URL="https://github.com/bktan8/helloclear/archive/helloclear-4.tar.gz" NAME="helloclear"
 
    .. note:: 
 
