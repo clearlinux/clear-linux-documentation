@@ -27,36 +27,35 @@ Burn the Clear Linux image onto a USB drive
 
    |CAUTION-BACKUP-USB|
 
-#. 	Download the `Rufus`_ tool to burn the image onto a USB drive.
-#. 	Plug in the USB drive.
-#. 	Click the :guilabel:`CD-ROM` icon button. See Figure 1.
+#. 	Download the `Rufus`_ utility to burn the image onto a USB drive.
+#. 	Plug in the USB drive and open Rufus.
+#. 	Click the :guilabel:`SELECT` button. See Figure 1.
 
-	.. figure:: figures/bootable-usb-windows-1.png
-		:scale: 80 %
-		:alt: Rufus utility - Click CD-ROM button
+		.. figure:: figures/bootable-usb-windows-1.png
+			:scale: 80 %
+			:alt: Rufus utility - Click the SELECT button
 
-		Figure 1: Rufus utility - Click CD-ROM button
+			Figure 1: Rufus utility - Click the SELECT button
 
-#.	By default, Rufus only shows ISO files.  To find and select a compressed |CL| 
-	image file, you must click the file-type dropdown and select :guilabel:`All files`. 
-	See Figure 2.
 
-	.. figure:: figures/bootable-usb-windows-2.png
-		:scale:	80 %
-		:alt: Rufus utility - Show and select |CL| image file
+#.	Find and select the previously extracted |CL| image file. 
+	Then, click the  :guilabel:`Open` button. See Figure 2.
 
-	Figure 2: Rufus utility - Show and select |CL| image file
+		.. figure:: figures/bootable-usb-windows-2.png
+			:scale:	80 %
+			:alt: Rufus utility - Show and select |CL| image file
+
+			Figure 2: Rufus utility - Show and select |CL| image file
     
-#.	Verify that :guilabel:`Create a bootable disk using DD Image` checkbox is
-	checked. See Figure 3.
 
-	.. figure:: figures/bootable-usb-windows-3.png
-		:scale: 80 %
-		:alt: Rufus utility - Create a bootable disk using DD Image
+#. Click the :guilabel:`START` button. See Figure 3.
 
-		Figure 3: Rufus utility - Create a bootable disk using DD Image
+		.. figure:: figures/bootable-usb-windows-3.png
+			:scale: 80 %
+			:alt: Rufus utility - Click the START button
+			
+			Figure 3: Rufus utility - Click START button
 
-#. Click :guilabel:`Start`.
 
 Next steps
 **********
