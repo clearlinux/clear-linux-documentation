@@ -11,6 +11,7 @@ This tutorial will go over:
 
 #. Installing the required bundle for Docker 
 #. Additional Docker* configuration on |CL|
+#. Pulling and Running an image from Docker* Hub
 #. Integration with Kata Containers 
 
 
@@ -40,7 +41,7 @@ Installing the required bundle
 Software in Clear Linux is offered in the form of `bundles`_ to provide a complete function. 
 The *containers-basic* provides all the required software packages to run Docker images as containers.  
 
-#. Install the *containers-basic* bundle by running this :command:`swupd` command:
+#. First, install the *containers-basic* bundle by running this :command:`swupd` command:
 
     .. code-block:: bash
 
@@ -54,14 +55,14 @@ The *containers-basic* provides all the required software packages to run Docker
         sudo systemctl start docker
 
 
-    If you want Docker* to start automatically on boot, enable the systemd service by running this command:
+    If you want Docker* to start automatically on boot, also enable the systemd service by running this command:
 
     .. code-block:: bash
 
         sudo systemctl enable docker
 
 
-#. Verify :command:`docker` has been installed by running this command and checking the version output for both *client* and *server*:
+#. Finally, verify :command:`docker` has been installed by running this command and checking the version output for both *client* and *server*:
 
     .. code-block:: bash
 
@@ -84,14 +85,15 @@ Additional Docker* daemon configuration done can be via a configuration file typ
 |CL| features a `stateless system`_  so the configuration file :file:`daemon.json` will *NOT* exist by default. 
 
 
-Create the :file:`daemon.json` by running this command:
+#. Create the :file:`daemon.json` by running this command:
+
     .. code-block:: bash
 
         touch /etc/docker/daemon.json
 
 Refer to the `Docker daemon configuration documentation`_ for the full list of available configuration options and examples.
 
-Once you've made any required changes, be sure to restart the Docker* daemon through systemd manager by running this command:
+#. Once you've made any required changes, be sure to restart the Docker* daemon through systemd manager by running this command:
 
     .. code-block:: bash
 
@@ -99,19 +101,52 @@ Once you've made any required changes, be sure to restart the Docker* daemon thr
 
 
 
-Example run of a container
+Pulling and Running an image from Docker* Hub
 ==========================
 
 
+#. First, Pull a container image from DockerHub using the :command:`docker pull` command. Download the latest nginx Docker container image by running this command:
+
+    .. code-block:: bash
+
+        sudo docker pull nginx
+
+#. Create and launch a new container using the :command:`docker run` command. Launch a nginx container by running this command:
+
+    .. code-block:: bash
+
+        sudo docker run --name test-nginx -d -p 8080:80 nginx
+
+    .. note::
+    
+        Below is an explaination of switches used in the command above. For detailed :command:`docker run` switches and syntax, refer to the `Docker Documentation`_ .
+
+        The :option:`--name` switch lets you provide a friendly name to target the container for future operations
+
+        The :option:`-d` switch launches the container in the background
+        
+        The :option:`-p` switch allows the container's HTTP port (80) to be accessible from the Clear Linux host on port 8080
 
 
+#. You can access the Welcome to Nginx! splash page running in the container by browsing to http://127.0.0.1:8080 or by running this :command:`curl` command from your Clear Linux machine:
+
+    .. code-block:: bash
+
+        curl 127.0.0.1:8080
 
 
+# Finally, stop and delete the nginx container by running the :command:`docker stop` and :command:`docker rm` commands.
 
+    .. code-block:: bash
+
+        sudo docker stop test-nginx 
+        sudo docker rm test-nginx
+
+Congratulations! At this point, you have successfully pulled a nginx container image from `DockerHub`_ and ran an example container. 
 
 Integration with Kata Containers
 ================================
-`Kata Containers`_, formerly known and Intel Clear Containers, is an open source project aiming to increase security of containers by using lightweight virtual machine technology. 
+`Kata Containers`_, formerly known as Intel Clear Containers, is an open source project aiming to increase security of containers by using lightweight virtual machine technology. 
 You can take advantage of Kata Containers in |CL| by simply installing the *containers-virt* bundle by running the command below:
 
     .. code-block:: bash
@@ -131,13 +166,15 @@ You can see the runtime has changed to :command:`cc-runtime` by running this com
 
         sudo docker info | grep Runtime
 
-You should see the following output:
+You should see the following output indicating the *cc-runtime* is the Default Runtime:
 
     .. code-block:: bash
 
         Runtimes: cc-runtime runc
         Default Runtime: cc-runtime
 
+Congratulations! At this point, you have successfully replaced the default container runtime with Kata. 
+You can repeat the steps from :ref:`Pulling and Running an image from Docker* Hub` without changing anything special.
 
 
 Also see:
