@@ -171,7 +171,7 @@ Pulling and Running an image from Docker* Hub
 =============================================
 `Docker* Hub`_ is a publically available container image repository
 which comes preconfigured with Docker*. 
-In the example below we will pull and run nginx, an open source reverse proxy server. 
+In the example below we will pull and run an the official Docker image for nginx, an open source reverse proxy server. 
 
 
 #. First, Pull a container image from Docker* Hub using the :command:`docker pull` command. Download the latest nginx Docker container image by running this command:
