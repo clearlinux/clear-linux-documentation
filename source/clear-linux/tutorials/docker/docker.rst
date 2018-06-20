@@ -3,7 +3,7 @@
 Docker* on |CL|
 ######################################################
 
-|CLOSIA| supports many containerization platforms, including Docker*.  
+|CLOSIA| supports multiple containerization platforms, including Docker*.  
 |CL| has many `unique features`_ including a minimal default installation
 which makes it compelling to use as a host for container workloads, management, and orchestration. 
 
@@ -149,7 +149,7 @@ configuration file typically located at :file:`/etc/docker/daemon.json` .
 
         touch /etc/docker/daemon.json
 
-    Refer to the `Docker* daemon configuration documentation`_ for the 
+    Refer to the `Docker* documentation on daemon configuration `_ for the 
     full list of available configuration options and examples.
 
 #. Once you've made any required changes, be sure to restart the 
@@ -234,7 +234,7 @@ Also see:
 .. _`Docker* proxy instructions`: https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
 .. _`bundles`: https://clearlinux.org/documentation/clear-linux/concepts/bundles-about#related-concepts 
 .. _`stateless system`: https://clearlinux.org/features/stateless 
-.. _`Docker* daemon configuration documentation`: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
+.. _`Docker* documentation on daemon configuration`: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
 .. _`Kata Containers`: https://katacontainers.io/
 .. _`Docker* Home`: https://www.docker.com/
 .. _`Docker* Documentation`: https://docs.docker.com/
