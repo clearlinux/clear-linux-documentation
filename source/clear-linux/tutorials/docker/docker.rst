@@ -221,7 +221,16 @@ Congratulations! At this point, you have successfully pulled a nginx container i
  |
  |
 
+Creating a Docker* swarm cluster
+=========================================
+Clusters of Docker* hosts are referred to as swarms.
 
+The process in this tutorial can be repeated to install Docker* 
+on multiple Clear Linux hosts with the intent to form a Docker* swarm cluster.
+
+The `Docker* documentation on swarm key concepts`_ and 
+`Docker* documentation on creating a swarm`_ can be referenced 
+for further instructions on setting up a swarm.
 
 
 Also see:
@@ -245,4 +254,6 @@ Also see:
 .. _`Docker* Home`: https://www.docker.com/
 .. _`Docker* Documentation`: https://docs.docker.com/
 .. _`Docker* Hub`: https://hub.docker.com/
+.. _`Docker* documentation on swarm key concepts`: https://docs.docker.com/engine/swarm/key-concepts/
+.. _`Docker* documentation on creating a swarm`: https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
 
