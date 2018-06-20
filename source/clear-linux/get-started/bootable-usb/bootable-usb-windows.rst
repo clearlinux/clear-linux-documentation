@@ -27,35 +27,34 @@ Burn the Clear Linux image onto a USB drive
 
    |CAUTION-BACKUP-USB|
 
-#. 	Download the `Rufus`_ utility to burn the image onto a USB drive.
-#. 	Plug in the USB drive and open Rufus.
-#. 	Click the :guilabel:`SELECT` button. See Figure 1.
+#. Download the `Rufus`_ utility to burn the image onto a USB drive.
 
-		.. figure:: figures/bootable-usb-windows-1.png
-			:scale: 80 %
-			:alt: Rufus utility - Click the SELECT button
+#. Plug in the USB drive and open Rufus.
 
-			Figure 1: Rufus utility - Click the SELECT button
+#. Click the :guilabel:`SELECT` button. See Figure 1.
 
+   .. figure:: figures/bootable-usb-windows-1.png
+      :scale: 80 %
+      :alt: Rufus utility - Click the SELECT button
 
-#.	Find and select the previously extracted |CL| image file. 
-	Then, click the  :guilabel:`Open` button. See Figure 2.
+      Figure 1: Rufus utility - Click the SELECT button
 
-		.. figure:: figures/bootable-usb-windows-2.png
-			:scale:	80 %
-			:alt: Rufus utility - Show and select |CL| image file
+#. Find and select the previously extracted |CL| image file. 
+   Then, click the  :guilabel:`Open` button. See Figure 2.
 
-			Figure 2: Rufus utility - Show and select |CL| image file
+   .. figure:: figures/bootable-usb-windows-2.png
+      :scale:	80 %
+      :alt: Rufus utility - Show and select |CL| image file
+
+      Figure 2: Rufus utility - Show and select |CL| image file
     
-
 #. Click the :guilabel:`START` button. See Figure 3.
 
-		.. figure:: figures/bootable-usb-windows-3.png
-			:scale: 80 %
-			:alt: Rufus utility - Click the START button
+   .. figure:: figures/bootable-usb-windows-3.png
+      :scale: 80 %
+      :alt: Rufus utility - Click the START button
 			
-			Figure 3: Rufus utility - Click START button
-
+      Figure 3: Rufus utility - Click START button
 
 Next steps
 **********
