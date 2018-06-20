@@ -11,7 +11,7 @@ which makes it compelling to use as a host for container workloads, management, 
 This tutorial will go over:
 
 #. Installing the required bundle for Docker 
-#. Integration with Kata Containers (optional)
+#. Integration with Clear Containers (optional)
 #. Additional Docker* configuration on |CL|
 #. Pulling and Running an image from Docker* Hub
 
@@ -84,16 +84,19 @@ Congratulations! At this point, you have a working installation of Docker* on |C
  |
 
 
-Integration with Kata Containers (optional)
-===========================================
+Integration with Clear Containers (optional)
+============================================
 
-`Kata Containers`_, 
-formerly known as Intel Clear Containers, is an open source
-project aiming to increase security of containers by using lightweight virtual machine technology. 
+`Clear Containers`_, 
+is an open source project
+aiming to increase security of containers by using a 
+hardware-backed virtual machine container runtime, 
+instead of software namespace containers 
+that are provided by the standard Docker *runc* runtime.
 
-The Docker* package from |CL| will automatically use the runtime required for Kata Containers if it is available on your Clear Linux system. 
+The Docker* package from |CL| will automatically use the *cc-runtime* required for Clear Containers if it is available on your Clear Linux system. 
 
-#. You can take advantage of Kata Containers in |CL| by simply installing the *containers-virt* bundle by running the command below:
+#. You can take advantage of Clear Containers in |CL| by simply installing the *containers-virt* bundle by running the command below:
 
     .. code-block:: bash
 
@@ -106,8 +109,7 @@ The Docker* package from |CL| will automatically use the runtime required for Ka
         sudo systemctl restart docker
 
 #. After restarting, the Docker* daemon
-   will seamlessly use katacontainers to launch containers. 
-   The default runtime for Docker containers is *runc*. 
+   will seamlessly use Clear Containers to launch containers.  
    You can see the runtime has changed to :command:`cc-runtime`
    by running this command:
 
@@ -123,7 +125,7 @@ The Docker* package from |CL| will automatically use the runtime required for Ka
         Runtimes: cc-runtime runc
         Default Runtime: cc-runtime
 
-Congratulations! At this point, you have successfully replaced the default container runtime with Kata. 
+Congratulations! At this point, you have successfully replaced the default container runtime with Clear Containers. 
 
 |
 |
@@ -167,6 +169,9 @@ configuration file typically located at :file:`/etc/docker/daemon.json` .
 
 Pulling and Running an image from Docker* Hub
 =============================================
+`Docker Hub`_ is a publically available container image repository which comes preconfigured with Docker*. 
+In the example below we will pull and run nginx, an open source reverse proxy server. 
+
 
 #. First, Pull a container image from Docker* Hub using the :command:`docker pull` command. Download the latest nginx Docker container image by running this command:
 
@@ -223,7 +228,7 @@ Also see:
 * `Docker* Home`_
 * `Docker* Documentation`_
 * `Docker* Hub`_
-* `Kata Containers`_ 
+* `Clear Containers`_ 
 
 
 
@@ -235,7 +240,8 @@ Also see:
 .. _`bundles`: https://clearlinux.org/documentation/clear-linux/concepts/bundles-about#related-concepts 
 .. _`stateless system`: https://clearlinux.org/features/stateless 
 .. _`Docker* documentation on daemon configuration`: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
-.. _`Kata Containers`: https://katacontainers.io/
+.. _`Clear Containers`: https://github.com/clearcontainers
 .. _`Docker* Home`: https://www.docker.com/
 .. _`Docker* Documentation`: https://docs.docker.com/
 .. _`Docker* Hub`: https://hub.docker.com/
+
