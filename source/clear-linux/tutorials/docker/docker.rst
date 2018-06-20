@@ -151,7 +151,7 @@ configuration file typically located at :file:`/etc/docker/daemon.json` .
 
         touch /etc/docker/daemon.json
 
-    Refer to the `Docker* documentation on daemon configuration `_ for the 
+    Refer to the `Docker* documentation on daemon configuration`_ for the 
     full list of available configuration options and examples.
 
 #. Once you've made any required changes, be sure to restart the 
@@ -169,7 +169,8 @@ configuration file typically located at :file:`/etc/docker/daemon.json` .
 
 Pulling and Running an image from Docker* Hub
 =============================================
-`Docker Hub`_ is a publically available container image repository which comes preconfigured with Docker*. 
+`Docker* Hub`_ is a publically available container image repository
+which comes preconfigured with Docker*. 
 In the example below we will pull and run nginx, an open source reverse proxy server. 
 
 
