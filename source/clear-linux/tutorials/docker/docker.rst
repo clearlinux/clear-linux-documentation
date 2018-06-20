@@ -14,6 +14,7 @@ This tutorial will go over:
 #. Integration with Clear Containers (optional)
 #. Additional Docker* configuration on |CL|
 #. Pulling and Running an image from Docker* Hub
+#. Creating a Docker* swarm cluster
 
 
 
@@ -222,7 +223,7 @@ Congratulations! At this point, you have successfully pulled a nginx container i
  |
 
 Creating a Docker* swarm cluster
-=========================================
+================================
 Clusters of Docker* hosts are referred to as swarms.
 
 The process in this tutorial can be repeated to install Docker* 
