@@ -1,40 +1,51 @@
 .. _increase-virtual-disk-size:
 
-Increase Clear Linux image virtual disk size
-############################################
+Increase virtual disk size of a Clear Linux image 
+#################################################
 
 Prebuilt |CLOSIA| images come in different sizes, ranging from 300 MB to 20
 GB. This guide describes how to increase the size of your prebuilt |CL| image
 if you need more capacity.
 
-Determine the prebuilt image size
-*********************************
+.. contents:: This guide will cover:
+
+
+Determine the partition sizes of the prebuilt image 
+***************************************************
 
 There are two methods to find the virtual disk size of your prebuilt |CL|
 image.
 
+In both examples, the prebuilt Hyper-V image used starting off at about 8.5 GB 
+with /dev/sdd3 being the partition
+
+
+Checking :command:`lsblk` on the VM
+-----------------------------------
+
 The first method is to boot up your :abbr:`VM (Virtual Machine)` and
 execute the :command:`lsblk` command as shown below:
 
-.. code-block:: bash
+	.. code-block:: bash
 
-	sudo lsblk
+		sudo lsblk
 
 An example output of the :command:`lsblk` command: 
 
-.. code-block:: console
+	.. code-block:: console
 
-	NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-	sda      8:0   0    8.5G  0 disk
-	├─sdd1   8:1   0    512M  0 part
-	├─sdd2   8:2   0     32M  0 part [SWAP]
-	└─sdd3   8:3   0      8G  0 part /
-
-In this example, both methods show the prebuilt Hyper-V image is about 8.5 GB.
+		NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+		sda      8:0   0    8.5G  0 disk
+		├─sdd1   8:1   0    512M  0 part
+		├─sdd2   8:2   0     32M  0 part [SWAP]
+		└─sdd3   8:3   0      8G  0 part /
 
 
 
-The second  method is to check the config.JSON file of the image, located in the
+
+Checking :file:`config.json` used to build the image  
+----------------------------------------------------
+The second  method is to check the :file:`config.json` file used to create prebuilt image, located in the
 `releases`_ repository. For example, to find the size of the Hyper-V\* image
 version number 20450, follow these steps:
 
@@ -65,12 +76,20 @@ version number 20450, follow these steps:
 Increase virtual disk size
 **************************
 
+Power off VM and increase virtual disk size:
+--------------------------------------------
+
 To increase the virtual disk size for a prebuilt image, perform the steps below:
 
 #.	Shut down your VM if it is running.
 #.	Use an appropriate hypervisor tool to increase the virtual disk size of
 	your VM.
 #.	Power up the VM.
+
+
+Resize the partition of the virtual disk:
+-----------------------------------------
+
 #. 	Log in to an account with root privileges.
 #.	Open a terminal emulator.
 #.	Add the |CL| `storage-utils` bundle to install the `parted` and
@@ -113,6 +132,10 @@ To increase the virtual disk size for a prebuilt image, perform the steps below:
 
 	#.	Enter :command:`q` to exit `parted` when you are finished resizing the
 		image.
+
+
+Resize the filesytem 
+--------------------
 
 #.	Enter :command:`sudo resize2fs -p /dev/[modified partition name]` where
 	*[modified partition name]* is the partition that was changed in `parted`.
