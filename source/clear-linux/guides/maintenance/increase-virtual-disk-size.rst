@@ -13,7 +13,28 @@ Determine the prebuilt image size
 There are two methods to find the virtual disk size of your prebuilt |CL|
 image.
 
-The first method is to check the config.JSON file of the image, located in the
+The first method is to boot up your :abbr:`VM (Virtual Machine)` and
+execute the :command:`lsblk` command as shown below:
+
+.. code-block:: bash
+
+	sudo lsblk
+
+An example output of the :command:`lsblk` command: 
+
+.. code-block:: console
+
+	NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+	sda      8:0   0    8.5G  0 disk
+	├─sdd1   8:1   0    512M  0 part
+	├─sdd2   8:2   0     32M  0 part [SWAP]
+	└─sdd3   8:3   0      8G  0 part /
+
+In this example, both methods show the prebuilt Hyper-V image is about 8.5 GB.
+
+
+
+The second  method is to check the config.JSON file of the image, located in the
 `releases`_ repository. For example, to find the size of the Hyper-V\* image
 version number 20450, follow these steps:
 
@@ -39,24 +60,7 @@ version number 20450, follow these steps:
 	                            "size" : "8G",
 	                            "type" : "linux" } ],
 
-The second method is to boot up your :abbr:`VM (Virtual Machine)` and
-execute the :command:`lsblk` command as shown below:
 
-.. code-block:: bash
-
-	sudo lsblk
-
-An example output: 
-
-.. code-block:: console
-
-	NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-	sda      8:0   0    8.5G  0 disk
-	├─sdd1   8:1   0    512M  0 part
-	├─sdd2   8:2   0     32M  0 part [SWAP]
-	└─sdd3   8:3   0      8G  0 part /
-
-In this example, both methods show the prebuilt Hyper-V image is about 8.5 GB.
 
 Increase virtual disk size
 **************************
