@@ -3,51 +3,45 @@
 Useful bundle commands
 ######################
 
-
-
 To see a list of currently installed bundles, enter:
 
-    :command:`swupd` :option:`bundle-list`
+.. code-block:: bash
 
+   sudo swupd bundle-list
 
 To see the list of all available bundles, enter:
 
-    :command:`swupd` :option:`bundle-list --all`
+.. code-block:: bash
 
+   sudo swupd bundle-list --all
 
-    Alternatively, you may reference the `available bundle list`_ webpage.
-
+Alternatively, you may reference the `available bundle list`_ webpage.
 
 To search for bundles and their contents, enter:
 
-    .. code-block:: console
+.. code-block:: bash
 
-        # swupd search [bundle name]
-
+   sudo swupd search [bundle name]  
 
 To add a bundle, enter:
 
-    .. code-block:: console
+.. code-block:: bash
 
-        # swupd bundle-add [bundle name]
-
-
-
+   sudo swupd bundle-add [bundle name]
 
 Additional information 
 ======================
 
 For additional :command:`swupd` commands, enter:
 
-    .. code-block:: console
+.. code-block:: bash
 
-        # swupd --help 
+   swupd --help 
 
-or reference the :command:`swupd` man page, enter:
+To reference the :command:`swupd` man page, enter:
 
-    .. code-block:: console
+.. code-block:: bash
 
-        # man swupd
+   man swupd
 
-
-.. _available bundle list: https://clearlinux.org/documentation/clear-linux/reference/bundles/available-bundles#bundle-list
+.. _available bundle list: https://clearlinux.org/documentation/clear-linux/reference/bundles/available-bundles
