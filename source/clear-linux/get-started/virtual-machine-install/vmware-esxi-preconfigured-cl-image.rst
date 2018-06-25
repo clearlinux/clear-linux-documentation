@@ -28,7 +28,7 @@ Visit :ref:`image-types` to learn more about the available images.
 Download the latest Clear Linux VMware image
 ********************************************
 
-Get the latest |CL| VMware image from the `image`_ repository.
+Get the latest |CL| VMware prebuilt image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
 this command: 
 
@@ -48,10 +48,17 @@ For alternative instructions on other operating systems, see:
 Upload the Clear Linux image to the VMware server
 *************************************************
 
-#.  Connect to the VMware server and login to an account with sufficient
+Once the |CL| VMware prebuilt image has been downloaded and uncompressed on your local system, 
+it must be uploaded to a datastore on the VMware ESXi server.
+
+The steps in this section can also be referenced from the `VMware documentation on Using the Datastore File Browser`_ 
+
+#.  Connect to the VMware ESXi server and login to an account with sufficient
     permission to create and manage VMs.
-#.  Under the :guilabel:`Navigator` window, select :guilabel:`Storage`.
-    See Figure 1.
+
+#.  Under the :guilabel:`Navigator` window on the left side, select :guilabel:`Storage`.
+    See Figure 1
+
 #.  Under the :guilabel:`Datastores` tab, click 
     the :guilabel:`Datastore browser` button.
 
@@ -85,14 +92,28 @@ Upload the Clear Linux image to the VMware server
 Convert the Clear Linux image to an ESXi-supported format
 *********************************************************
 
-#.  SSH into the VMware server and login to an account with root privileges.
-#.  Locate the uploaded image, which is typically found in `/vmfs/volumes/datastore1`.
+Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi datastore, 
+it must be converted to a format for usable with VMware's ESXi hypervisor. 
+
+The steps in this section can also be referenced from the `VMware documentation on Cloning and converting virtual machine disks with vmkfstools`_
+
+#.  SSH into the `vSphere Management Assistant`_  appliance that is managing the ESXi host. 
+    
+    .. note::
+        If there is no :abbr:`vMA (vSphere Management Assistant)` appliance configured and available, you can temporarily enable SSH directly on the ESXi host by referencing
+        the `VMware documentation on Enable the Secure Shell (SSH)`_ .
+
+        As a security best practice, remember to disable SSH access after following the steps in this section. 
+
+
+#.  Locate the uploaded image, which is typically found in :file:`/vmfs/volumes/datastore1`.
+
 #.  Use the :command:`vmkfstools` command to perform the conversion, as
     shown below:
 
     .. code-block:: console
 
-       # vmkfstools -i clear-[version number]-vmware.vmdk -d zeroedthick clear-[version number]-esxi.vmdk
+       vmkfstools -i clear-[version number]-vmware.vmdk -d zeroedthick clear-[version number]-esxi.vmdk
 
     Two files should result from this:
 
@@ -101,6 +122,8 @@ Convert the Clear Linux image to an ESXi-supported format
 
     The :file:`clear-[version number]-esxi.vmdk` file will be used in the
     next section when you create a new VM.
+
+
 
 Create and configure a new VM
 *****************************
@@ -242,5 +265,10 @@ Also see:
 * :ref:`vmware-esxi-install-cl`
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
+.. _`VMware documentation on Using the Datastore File Browser`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-7533A767-8396-4844-A3F2-206047D254EA.html
+.. _`vSphere Management Assistant appliance`: https://www.vmware.com/support/developer/vima/
+.. _`VMware documentation on Cloning and converting virtual machine disks with vmkfstools`: https://kb.vmware.com/kb/1028042 
+.. _`VMware documentation on Enable the Secure Shell (SSH)`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-B649CB74-832F-467B-B6A4-8BA67AD5C1F0.html
+.. _`VMware documentation on General ESXi Security Recommendations`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-B39474AF-6778-499A-B8AB-E973BE6D4899.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
 .. _image: https://download.clearlinux.org/image
