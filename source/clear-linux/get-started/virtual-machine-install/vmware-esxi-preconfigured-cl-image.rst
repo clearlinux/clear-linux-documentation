@@ -5,32 +5,30 @@ Run preconfigured Clear Linux image as a VMware\* ESXi guest OS
 
 `VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
 of server hardware.  With VMware ESXi, you can create, configure, manage,
-and run |CLOSIA| virtual machines in the cloud.
+and run |CLOSIA| virtual machines at scale.
 
 This section shows you how to deploy a preconfigured |CL| VMware image on
-VMware ESXi 6.5 Update 1 using these steps:
+VMware ESXi 6.5.
 
-#.  Download the latest Clear Linux VMware image.
-#.  Verify the integrity of the |CL| image.
-#.  Uncompress the |CL| image.
-#.  Upload the Clear Linux image to the VMware server.
-#.  Convert the Clear Linux image to an ESXi-supported format.
-#.  Create and configure a new VM.
-#.  Power on the VM and boot |CL|.
-
-If you would prefer to perform a fresh installation of |CL| into a new VMware
+If you would prefer to perform a manual installation of |CL| into a new VMware
 ESXi :abbr:`VM (Virtual Machine)` instead, see :ref:`vmware-esxi-install-cl`.
+Visit :ref:`image-types` to learn more about the available images.
+
 
 .. note::
 
    VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ which is designed for the desktop environment.
+   See :ref:`vmw-player-preconf` or see :ref:`vmw-player`.
 
-Visit :ref:`image-types` to learn more about the available images.
+
+.. contents:: 
+    :depth: 2
+
 
 Download the latest Clear Linux VMware image
 ********************************************
 
-Get the latest |CL| VMware image from the `image`_ repository.
+Get the latest |CL| VMware prebuilt image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
 this command: 
 
@@ -50,10 +48,17 @@ For alternative instructions on other operating systems, see:
 Upload the Clear Linux image to the VMware server
 *************************************************
 
-#.  Connect to the VMware server and login to an account with sufficient
+Once the |CL| VMware prebuilt image has been downloaded and uncompressed on your local system, 
+it must be uploaded to a datastore on the VMware ESXi server.
+
+The steps in this section can also be referenced from the `VMware documentation on Using the Datastore File Browser`_ 
+
+#.  Connect to the VMware ESXi server and login to an account with sufficient
     permission to create and manage VMs.
-#.  Under the :guilabel:`Navigator` window, select :guilabel:`Storage`.
-    See Figure 1.
+
+#.  Under the :guilabel:`Navigator` window on the left side, select :guilabel:`Storage`.
+    See Figure 1
+
 #.  Under the :guilabel:`Datastores` tab, click 
     the :guilabel:`Datastore browser` button.
 
@@ -87,14 +92,28 @@ Upload the Clear Linux image to the VMware server
 Convert the Clear Linux image to an ESXi-supported format
 *********************************************************
 
-#.  SSH into the VMware server and login to an account with root privileges.
-#.  Locate the uploaded image, which is typically found in `/vmfs/volumes/datastore1`.
+Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi datastore, 
+it must be converted to a format for usable with VMware's ESXi hypervisor. 
+
+The steps in this section can also be referenced from the `VMware documentation on Cloning and converting virtual machine disks with vmkfstools`_
+
+#.  SSH into the `vSphere Management Assistant`_  appliance that is managing the ESXi host. 
+    
+    .. note::
+        If there is no :abbr:`vMA (vSphere Management Assistant)` appliance configured and available, you can temporarily enable SSH directly on the ESXi host by referencing
+        the `VMware documentation on Enable the Secure Shell (SSH)`_ .
+
+        As a security best practice, remember to disable SSH access after following the steps in this section. 
+
+
+#.  Locate the uploaded image, which is typically found in :file:`/vmfs/volumes/datastore1`.
+
 #.  Use the :command:`vmkfstools` command to perform the conversion, as
     shown below:
 
     .. code-block:: console
 
-       # vmkfstools -i clear-[version number]-vmware.vmdk -d zeroedthick clear-[version number]-esxi.vmdk
+       vmkfstools -i clear-[version number]-vmware.vmdk -d zeroedthick clear-[version number]-esxi.vmdk
 
     Two files should result from this:
 
@@ -103,6 +122,8 @@ Convert the Clear Linux image to an ESXi-supported format
 
     The :file:`clear-[version number]-esxi.vmdk` file will be used in the
     next section when you create a new VM.
+
+
 
 Create and configure a new VM
 *****************************
@@ -239,10 +260,15 @@ After configuring the settings above, power on the VM.
       Figure 13: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
 Also see:
-*********
+---------
 
 * :ref:`vmware-esxi-install-cl`
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
+.. _`VMware documentation on Using the Datastore File Browser`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-7533A767-8396-4844-A3F2-206047D254EA.html
+.. _`vSphere Management Assistant`: https://www.vmware.com/support/developer/vima/
+.. _`VMware documentation on Cloning and converting virtual machine disks with vmkfstools`: https://kb.vmware.com/kb/1028042 
+.. _`VMware documentation on Enable the Secure Shell (SSH)`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-B649CB74-832F-467B-B6A4-8BA67AD5C1F0.html
+.. _`VMware documentation on General ESXi Security Recommendations`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-B39474AF-6778-499A-B8AB-E973BE6D4899.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
 .. _image: https://download.clearlinux.org/image
