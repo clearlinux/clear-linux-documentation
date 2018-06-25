@@ -266,7 +266,7 @@ Also see:
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _`VMware documentation on Using the Datastore File Browser`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-7533A767-8396-4844-A3F2-206047D254EA.html
-.. _`vSphere Management Assistant appliance`: https://www.vmware.com/support/developer/vima/
+.. _`vSphere Management Assistant`: https://www.vmware.com/support/developer/vima/
 .. _`VMware documentation on Cloning and converting virtual machine disks with vmkfstools`: https://kb.vmware.com/kb/1028042 
 .. _`VMware documentation on Enable the Secure Shell (SSH)`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-B649CB74-832F-467B-B6A4-8BA67AD5C1F0.html
 .. _`VMware documentation on General ESXi Security Recommendations`: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-B39474AF-6778-499A-B8AB-E973BE6D4899.html
