@@ -5,7 +5,7 @@ Run preconfigured Clear Linux image as a VMware\* ESXi guest OS
 
 `VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
 of server hardware.  With VMware ESXi, you can create, configure, manage,
-and run |CLOSIA| virtual machines in the cloud.
+and run |CLOSIA| virtual machines at scale.
 
 This section shows you how to deploy a preconfigured |CL| VMware image on
 VMware ESXi 6.5 Update 1 using these steps:
@@ -18,14 +18,18 @@ VMware ESXi 6.5 Update 1 using these steps:
 #.  Create and configure a new VM.
 #.  Power on the VM and boot |CL|.
 
-If you would prefer to perform a fresh installation of |CL| into a new VMware
+If you would prefer to perform a manual installation of |CL| into a new VMware
 ESXi :abbr:`VM (Virtual Machine)` instead, see :ref:`vmware-esxi-install-cl`.
+
+Visit :ref:`image-types` to learn more about the available images.
+
 
 .. note::
 
    VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ which is designed for the desktop environment.
+   See :ref:`vmw-player-preconf` or see :ref:`vmw-player`.
 
-Visit :ref:`image-types` to learn more about the available images.
+
 
 Download the latest Clear Linux VMware image
 ********************************************
