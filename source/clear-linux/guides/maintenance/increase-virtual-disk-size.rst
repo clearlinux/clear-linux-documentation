@@ -3,7 +3,7 @@
 Increase virtual disk size of a Clear Linux image 
 #################################################
 
-Prebuilt |CLOSIA| images come in different sizes, ranging from 300 MB to 20
+|CLOSIA| prebuilt images come in different sizes, ranging from 300 MB to 20
 GB. This guide describes how to increase the size of your prebuilt |CL| image
 if you need more capacity.
 
@@ -47,7 +47,7 @@ An example of this can also be seen in Figure 1.
 Checking :file:`config.json` used to build the image  
 ----------------------------------------------------
 
-The second  method to determine partition  to check the :file:`config.json` 
+The second method to determine partition to check the :file:`config.json` 
 file used to create prebuilt image, located in the
 `releases`_ repository. For example, to find the size of the Hyper-V\* image
 version number 20450, follow these steps:
@@ -80,7 +80,7 @@ version number 20450, follow these steps:
 
 Increase virtual disk size
 **************************
-Once you have determined the disk and partition to be increased, you are ready to perform the actual increase.
+Once you have determined the disk and partition to be increased, you are ready to perform the actual increase of the disk, partition, and filesystem.
 
 
 Power off VM and increase virtual disk size:
@@ -89,8 +89,9 @@ Power off VM and increase virtual disk size:
 To increase the virtual disk size for a prebuilt image, perform the steps below:
 
 #. Shut down your VM if it is running.
-#. Use the process defined by your hypervisor to 
-   increase the virtual disk size of your |CL| VM.
+#. Use the process defined by your hypervisor 
+   or cloud provider to increase
+   the virtual disk size of your |CL| VM.
 #. Power up the VM.
 
 
@@ -144,29 +145,32 @@ Resize the partition of the virtual disk:
         image.
 
 
-Figure 1 depicts the described steps  to resize the partition of the virtual disk from 8.5GB to 20GB.
+    Figure 1 depicts the described steps  to resize the partition of the virtual disk from 8.5GB to 20GB.
 
-.. figure:: figures/increase-virtual-disk-size-1.png
-    :scale: 100 %
-    :alt: Increase root partition size 
+    .. figure:: figures/increase-virtual-disk-size-1.png
+        :scale: 100 %
+        :alt: Increase root partition size 
 
-    Figure 1: Increase root partition size.
+        Figure 1: Increase root partition size.
 
 
 Resize the filesytem 
 --------------------
 
-#.  Enter :command:`sudo resize2fs -p /dev/[modified partition name]` where
-    *[modified partition name]* is the partition that was changed in `parted`.
+    #.  Enter :command:`sudo resize2fs -p /dev/[modified partition name]` where
+        *[modified partition name]* is the partition that was changed in `parted`.
 
-#. Run the :command:`df -h` to verify that the filesystem size has increased. 
+    #. Run the :command:`df -h` to verify that the filesystem size has increased. 
 
-Figure 2 depicts the described steps to resize the partition of the virtual disk from 8.5GB to 20GB.
+    Figure 2 depicts the described steps to resize the partition of the virtual disk from 8.5GB to 20GB.
 
-.. figure:: figures/increase-virtual-disk-size-2.png
-    :scale: 100 %
-    :alt: Increase root filesystem with resize2fs
+    .. figure:: figures/increase-virtual-disk-size-2.png
+        :scale: 100 %
+        :alt: Increase root filesystem with resize2fs
 
-    Figure 2: Increase root filesystem size after partition has been expanded.
+        Figure 2: Increase root filesystem size after partition has been expanded.
 
-.. _releases: https://download.clearlinux.org/releases/
+    .. _releases: https://download.clearlinux.org/releases/
+
+
+Congratulations! You have resized the disk, partition, and filesystem. At this point, the increase in disk capacity is usable. 
