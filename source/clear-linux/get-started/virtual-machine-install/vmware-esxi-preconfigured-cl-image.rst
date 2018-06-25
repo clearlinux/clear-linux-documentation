@@ -8,19 +8,10 @@ of server hardware.  With VMware ESXi, you can create, configure, manage,
 and run |CLOSIA| virtual machines at scale.
 
 This section shows you how to deploy a preconfigured |CL| VMware image on
-VMware ESXi 6.5 Update 1 using these steps:
-
-#.  Download the latest Clear Linux VMware image.
-#.  Verify the integrity of the |CL| image.
-#.  Uncompress the |CL| image.
-#.  Upload the Clear Linux image to the VMware server.
-#.  Convert the Clear Linux image to an ESXi-supported format.
-#.  Create and configure a new VM.
-#.  Power on the VM and boot |CL|.
+VMware ESXi 6.5.
 
 If you would prefer to perform a manual installation of |CL| into a new VMware
 ESXi :abbr:`VM (Virtual Machine)` instead, see :ref:`vmware-esxi-install-cl`.
-
 Visit :ref:`image-types` to learn more about the available images.
 
 
@@ -29,6 +20,9 @@ Visit :ref:`image-types` to learn more about the available images.
    VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ which is designed for the desktop environment.
    See :ref:`vmw-player-preconf` or see :ref:`vmw-player`.
 
+
+.. contents:: 
+    :depth: 2
 
 
 Download the latest Clear Linux VMware image
@@ -243,7 +237,7 @@ After configuring the settings above, power on the VM.
       Figure 13: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
 Also see:
-*********
+---------
 
 * :ref:`vmware-esxi-install-cl`
 
