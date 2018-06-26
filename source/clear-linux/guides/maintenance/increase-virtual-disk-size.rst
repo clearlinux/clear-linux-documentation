@@ -17,7 +17,7 @@ There are two methods to find the order and sizes of partitions virtual disk of 
 image.
 
 In both examples, the prebuilt Hyper-V image 
-has a disk size of 8.5 GB with /dev/sdd3 being the partition
+has a disk size of 8.5 GB with /dev/sda3 being the partition
 for the root filesystem (/)
 
 
@@ -37,9 +37,9 @@ An example output of the :command:`lsblk` command:
 
         NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
         sda      8:0   0    8.5G  0 disk
-        ├─sdd1   8:1   0    512M  0 part
-        ├─sdd2   8:2   0     32M  0 part [SWAP]
-        └─sdd3   8:3   0      8G  0 part /
+        ├─sda1   8:1   0    512M  0 part
+        ├─sda2   8:2   0     32M  0 part [SWAP]
+        └─sda3   8:3   0      8G  0 part /
 
 An example of this can also be seen in Figure 1.
 
