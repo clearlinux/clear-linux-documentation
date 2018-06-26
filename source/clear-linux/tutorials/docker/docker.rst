@@ -4,7 +4,7 @@ Run Docker\* on Clear Linux\*
 #############################
 
 |CLOSIA| supports multiple containerization platforms, including a Docker\* 
-solution.|CL| has many `unique features`_ including a minimal default 
+solution. |CL| has many `unique features`_ including a minimal default 
 installation which makes it compelling to use as a host for container 
 workloads, management, and orchestration. 
 
