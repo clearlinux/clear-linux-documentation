@@ -1,7 +1,7 @@
 .. _validate-signatures:
 
-Validate signatures
-###################
+Validating signatures
+#####################
 
 |CLOSIA| offers a way to validate the content of an image or an update. All
 validation of content works by creating and signing a hash. A valid signature
@@ -9,8 +9,10 @@ creates a chain of trust. A broken chain of trust, seen as an invalid
 signature, means the content is not valid.
 
 This guide covers how to validate the contents of an image, which is a manual
-process, and describes the automatic process ``swupd`` performs internally to
+process and is the same process ``swupd`` performs internally to
 validate an update.
+
+.. _image-content-validation:
 
 Image content validation
 ========================
