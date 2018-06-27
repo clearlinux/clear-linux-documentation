@@ -19,7 +19,7 @@ Kernel Container
 ================
 
 The *kernel-container* bundle contains the kernel used by the
-`Intel® Clear Containers`_ project. This kernel is optimized for
+Intel® Clear Containers project. This kernel is optimized for
 fast booting and performs best on |CC| running on the Intel® architectures
 described on the :ref:`supported hardware list<system-requirements>`.
 The optimization patches are found in our `Linux-Container`_ GitHub repo.
@@ -88,5 +88,4 @@ more information. The optimization patches are found in our
 .. _CIAO: https://github.com/01org/ciao
 .. _Azure:
    https://azuremarketplace.microsoft.com/en-us/marketplace/apps/clear-linux-project.clear-linux-os
-.. _Intel® Clear Containers:
-   https://clearlinux.org/features/intel®-clear-containers
+
