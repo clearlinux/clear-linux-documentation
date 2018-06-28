@@ -42,10 +42,10 @@ Table 1 lists the currently available images.
      - Optimized image used by Clear Containers runtime
    * - hyperv.vhdx
      - Image for Microsoft Hyper-V\*
-   * - installer.img
-     - Interactive installer image
+   * - installer.img 
+     - Preferred interactive installer image
    * - installer.iso
-     - ISO of the interactive installer image
+     - ISO of the interactive installer image. Only on special cases where ISO image format is required (not for use with a USB key)
    * - kvm.img
      - Image for booting in a simple VM with start_qemu.sh
    * - live.img
