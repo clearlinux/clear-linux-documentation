@@ -42,8 +42,6 @@ Table 1 lists the currently available images.
      - Optimized image used by Clear Containers runtime
    * - hyperv.vhdx
      - Image for Microsoft Hyper-V\*
-   * - hyperv-mini.vhdx
-     - Minimal image with fewer bundles for Microsoft Hyper-V
    * - installer.img
      - Interactive installer image
    * - installer.iso
