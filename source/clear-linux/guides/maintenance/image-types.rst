@@ -29,28 +29,40 @@ Table 1 lists the currently available images.
 
    * - Image Type
      - Description
+
    * - azure.vhd
-     - Image for Microsoft\* Azure\*
+     - Virtual Hard Disk for use on Microsoft\* Azure\* cloud platform
+
    * - azure-docker.vhd
-     - Image with Docker\* installed for Microsoft Azure
+     - Virtual Hard Disk for use on Microsoft\* Azure\* cloud platform with Docker\* pre-installed
+
    * - azure-machine-learning.vhd
-     - Image with the `machine-learning-basic` bundle installed for Microsoft
-       Azure
+     - Virtual Hard Disk for use on Microsoft\* Azure\* cloud platform with the `machine-learning-basic` bundle installed
+
    * - cloud.img
-     - Image for cloud deployment such as OpenStack\*
+     - Image for use by cloud deployments such as OpenStack\*
+
    * - containers.img
-     - Optimized image used by Clear Containers runtime
+     - Image for use by Clear Containers runtime. Includes `optimized kernel`_ for Clear Containers.
+
    * - hyperv.vhdx
-     - Image for Microsoft Hyper-V\*
+     - Virtual Hard Disk for use with Microsoft Hyper-V\* hypervisor. Includes `optimized kernel`_ for Hyper-V.
+
    * - installer.img 
-     - Preferred interactive installer image
+     - Preferred image of Clear Linux with interactive installer. 
+
    * - installer.iso
-     - ISO of the interactive installer image. Only on special cases where ISO image format is required (not for use with a USB key)
+     - ISO of Clear Linux with interactive installer. Only for special cases where ISO image format is required (not for use with a USB key)
+
    * - kvm.img
-     - Image for booting in a simple VM with start_qemu.sh
+     - Image for booting in a simple VM with start_qemu.sh. Includes `optimized kernel`_ for KVM.
+
    * - live.img
-     - Live boot image
+     - image for live booting into memory, without requiring installaton. 
+
    * - vmware.vmdk
-     - Image for VMware\*
+     - Virtual Machine Disk for VMware\* platforms inclduing Player, Workstation, and ESXi.
 
 .. _images: https://download.clearlinux.org/image
+.. _`optimized kernel`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
+
