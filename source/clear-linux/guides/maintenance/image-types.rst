@@ -21,10 +21,29 @@ file format.
 The *[compression type]* field specifies the compression type. Two types of
 compressions are used: GNU\* zip (*.gz*) and XZ (*.xz*).
 
-Table 1 lists the currently available images.
+Table 1 lists the currently available images which are platform independant.
+Table 2 lists the currently available images which are platform specific.
 
-.. list-table:: Table 1: Types of Clear Linux images
-   :widths: 20, 60
+.. list-table:: Table 1: Types of platform independant Clear Linux images
+   :widths: 15, 85
+   :header-rows: 1
+
+   * - Image Type
+     - Description
+
+   * - installer.img 
+     - Preferred image of Clear Linux with interactive installer. 
+
+   * - installer.iso
+     - ISO of Clear Linux with interactive installer. Only for special cases where ISO image format is required (not for use with a USB key)
+
+   * - live.img
+     - image for live booting into memory, without requiring installaton. 
+
+
+
+.. list-table:: Table 2: Types of platform specific Clear Linux images
+   :widths: 15, 85
    :header-rows: 1
 
    * - Image Type
@@ -48,17 +67,8 @@ Table 1 lists the currently available images.
    * - hyperv.vhdx
      - Virtual Hard Disk for use with Microsoft Hyper-V\* hypervisor. Includes `optimized kernel`_ for Hyper-V.
 
-   * - installer.img 
-     - Preferred image of Clear Linux with interactive installer. 
-
-   * - installer.iso
-     - ISO of Clear Linux with interactive installer. Only for special cases where ISO image format is required (not for use with a USB key)
-
    * - kvm.img
      - Image for booting in a simple VM with start_qemu.sh. Includes `optimized kernel`_ for KVM.
-
-   * - live.img
-     - image for live booting into memory, without requiring installaton. 
 
    * - vmware.vmdk
      - Virtual Machine Disk for VMware\* platforms inclduing Player, Workstation, and ESXi.
