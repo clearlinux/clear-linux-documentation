@@ -14,6 +14,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    bulk-provision
    mixer
    mixin
+   swupd
    validate-signatures
    telemetry-enable
    time
