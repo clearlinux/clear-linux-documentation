@@ -7,7 +7,7 @@ This tutorial describes how to install, configure and run Kata Containers\* on
 |CLOSIA|. Kata Containers\* is an open source project and community working to
 build a standard implementation of lightweight Virtual Machines (VMs) that feel
 and perform like containers, but provide the workload isolation and security
-advantages of VMs. Kata Containers\* is available in Clear Linux versions above 22860.
+advantages of VMs. Kata Containers\* is available in Clear Linux versions above 23380.
 
 Prerequisites
 *************
