@@ -16,35 +16,26 @@ To start working with the mixer tools, you need a recent image of |CL| with
 the `mixer` bundle installed. If the bundle is not yet installed, you can
 add it with the :command:`swupd bundle-add` command as follows:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      sudo swupd bundle-add mixer
+   sudo swupd bundle-add mixer
 
 Current mixing workflow
 ***********************
 
 There are two different workflows to create your own mix.
+First, if your mix only uses |CL| content, *skip step 5* below. 
+Second, if your mix includes your own 
+:abbr:`RPMs (RPM Package Manager files)`, follow all these steps. 
 
-The following workflow applies if the mix includes your own
-:abbr:`RPMs (RPM Package Manager files)`:
-
+#. `Create ngninx web server to host mixer updates`_
 #. `Create a workspace`_
 #. `Generate the starting point for your mix`_
 #. `Edit builder.conf`_
-#. `Create or locate RPMs for the mix`_
-#. `Import RPMs into workspace`_
-#. `Create a local RPM repo`_
-#. `List, edit, create, add, remove, or validate bundles`_
-#. `Build the bundle chroots`_
-#. `Create an update`_
-#. `Create an image`_
-
-Alternatively, the following workflow applies if the mix only uses |CL|
-content.
-
-#. `Create a workspace`_
-#. `Generate the starting point for your mix`_
-#. `Edit builder.conf`_
+#. `Create custom RPMs`_
+    #. `Create or locate RPMs for the mix`_
+    #. `Import RPMs into workspace`_
+    #. `Create a local RPM repo`_
 #. `List, edit, create, add, remove, or validate bundles`_
 #. `Build the bundle chroots`_
 #. `Create an update`_
@@ -52,6 +43,114 @@ content.
 
 The following sections contain detailed information on every step of
 these workflows.
+
+.. _create-nginx-web-server:
+
+Create ngninx web server to host mixer updates
+**********************************************
+
+Follow these steps to set up a HTTP service with ``nginx`` web 
+server, where you can host custom |CL| mixes.  
+
+#. Install ``web-server-basic``: 
+   
+   .. code-block:: bash
+
+      sudo swupd bundle-add web-server-basic
+
+#. Make the directory where mixer updates will reside.  
+
+   .. code-block:: bash
+
+      sudo mkdir -p /var/www
+
+#. Create a symbolic link.
+
+   .. code-block:: bash
+
+      sudo ln -sf $HOME/mixer/update/www /var/www/mixer
+
+#. To assure ``nginx`` starts by default, add and configure it. 
+
+   .. code-block:: bash
+
+      sudo mkdir -p  /etc/nginx/conf.d
+
+#. Copy the default example configuration file to `/etc` to load on boot. 
+
+   .. code-block:: bash
+
+      sudo cp -f /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
+
+#. Open ``mixer.conf`` with an editor.
+
+   .. code-block:: bash
+ 
+      sudo nano /etc/nginx/conf.d/mixer.conf 
+
+#. Add the server configuration content below to ``mixer.conf``. 
+
+   .. code-block:: console
+
+      server {
+           server_name localhost;
+           location / {
+                     root /var/www/mixer;
+                     autoindex on; 
+           }
+      }
+
+#. Restart the daemon, enable nginx on boot, and start the service.
+
+   .. code-block:: bash
+
+      sudo systemctl daemon-reload 
+
+      sudo systemctl enable nginx 
+
+      sudo systemctl start nginx 
+
+#. To verify the web server is running, enter in an Internet browser:
+
+   .. code-block:: bash
+
+      http://localhost
+
+#. Alternatively, verify the server is running by entering:
+
+   .. code-block:: bash
+
+      ps aux | grep nginx 
+
+   .. note:: 
+
+      If `nginx` is active, a list should appear showing one master process 
+      and a few worker processes.
+
+Connect the URL to mixer
+========================
+
+Add the URL of the `nginx` server to builder.conf. Your |CL| clients connect 
+to this URL to find the update content.    
+
+#. Get the IP address of your nginx server: 
+
+   .. code-block:: bash
+
+      networkctl status
+
+#. In the mixer workspace, edit `builder.conf` to set the value for
+   CONTENTURL and VERSIONURL to the IP `Address` of your `nginx` server.    
+
+   .. code-block:: bash
+
+      nano builder.conf
+
+      .. note:: 
+            
+         For example: 
+         CONTNENTURL=http://192.168.25.52
+         VERSIONURL=http://192.168.25.52
 
 Create a workspace
 ******************
@@ -103,9 +202,8 @@ directories in your mix workspace and adds their paths to the generated
 the paths manually. For more information on using these directories or
 setting them up manually, see `Create or locate RPMs for the mix`_.
 
-If all upstream |CL| bundles will be part of the mix, you can easily add them all
-during initialization with the optional :option:`--all-upstream` flag. For
-example:
+If all upstream |CL| bundles will be part of the mix, you can easily add 
+them all during initialization with the optional :option:`--all-upstream` flag. For example:
 
 .. code-block:: bash
 
@@ -197,8 +295,8 @@ The following variables require further explanation:
   the folder at all.
 
 * The `YUM_CONF` variable sets the path where mixer automatically generates
-  the :file:`.yum-mix.conf` yum configuration file. The yum configuration file
-  points the chroot-builder to the path where the RPMs are stored.
+  the :file:`.yum-mix.conf` yum configuration file. The yum configuration 
+  file points the chroot-builder to the path where the RPMs are stored.
 
 * The `CERT` variable sets the path where mixer stores the
   :file:`Swupd_Root.pem` certificate file. The chroot-builder needs the
@@ -206,9 +304,9 @@ The following variables require further explanation:
   security for content verification. The value of the `CERT` variable can
   point to a different certificate. The chroot-builder inserts the
   certificate specified in this value into the
-  :file:`/os-core-update/usr/share/clear/update-ca/` path. The software update
-  client uses this certificate to verify the :file:`Manifest.MoM` file's
-  signature. For now, we **strongly** recommend that you do not modify
+  :file:`/os-core-update/usr/share/clear/update-ca/` path. The software 
+  update client uses this certificate to verify the :file:`Manifest.MoM` 
+  file's signature. For now, we **strongly** recommend that you do not modify
   this line, as the certificate that :abbr:`swupd (Software Updater)`
   expects needs to have a very specific configuration to sign and verify
   properly. Mixer automatically generates the certificate, if you do not
@@ -216,14 +314,14 @@ The following variables require further explanation:
   file to provide security for the updated content you create.
 
 * The `CONTENTURL` and `VERSIONURL` variables set the domain or IP address
-  where swupd looks for your update content and the corresponding version. You
-  must set these variables to the domain or IP-address of the server hosting the
-  update content. You can use any web server to host your update content. To learn
-  how to install and configure web server using |CL|, visit
-  :ref:`web-server-install`. For our example, the web update content within
-  the `SERVER_STATE_DIR` directory is located here:
-  :file:`/home/clr/mix/update/www`. If the web server is on the same machine as
-  this directory, you can create a symlink to the directory in your web
+  where swupd looks for your update content and the corresponding version. 
+  You must set these variables to the domain or IP-address of the server 
+  hosting the update content. You can use any web server to host your update 
+  content. To learn how to install and configure web server using |CL|, see 
+  :ref:`create-nginx-web-server`. For our example, the web update content 
+  within the `SERVER_STATE_DIR` directory is located here:
+  :file:`/home/clr/mix/update/www`. If the web server is on the same machine 
+  as this directory, you can create a symlink to the directory in your web
   server's document root to easily host the content. These URLs are
   embedded in images created for your mix. The `swupd-client` looks at
   these URLs to determine if a new version is available and the location
@@ -242,8 +340,12 @@ The following variables require further explanation:
 .. note:: If you are working only with |CL| bundles, then
    skip to `List, edit, create, add, remove, or validate bundles`_.
 
+
+Create custom RPMs
+******************
+
 Create or locate RPMs for the mix
-*********************************
+=================================
 
 If you create RPMs from scratch, you can use `autospec`, `mock`, `rpmbuild`,
 or similar tools to build them. If the RPMs are not built on |CL|, ensure
@@ -252,7 +354,7 @@ there is no guarantee they will be compatible. For more information on
 building the RPMs properly, refer to our `build RPMs instructions`_.
 
 Import RPMs into workspace
-**************************
+==========================
 
 #. Create a :file:`local-rpms` directory in your workspace, for example,
    :file:`/home/clr/mix/local-rpms`.
@@ -269,7 +371,7 @@ Mixer uses this directory to find the RPMs to build a local RPM repo for
 yum to use.
 
 Create a local RPM repo
-***********************
+=======================
 
 #. Create an empty directory in your workspace named :file:`local-yum`.
 #. Add the path to your :file:`builder.conf` file:
@@ -416,7 +518,8 @@ as part of the bundle.
 .. note::
 
    The :command:`mixer bundle edit` command accepts multiple bundles at once.
-   Thus, you can create multiple new bundles in a single command, for example:
+   Thus, you can create multiple new bundles in a single command, for 
+   example:
 
    .. code-block:: bash
 
@@ -486,8 +589,8 @@ Validate the bundles in the mix
 Mixer performs basic validation on all bundles when used throughout the
 system.
 
-Mixer checks the validity of the bundle's syntax and name. Optionally, you can
-run this validation manually on `bundle1` with the following command:
+Mixer checks the validity of the bundle's syntax and name. Optionally, you 
+can run this validation manually on `bundle1` with the following command:
 
 .. code-block:: bash
 
@@ -746,7 +849,8 @@ modifications as needed, for example:
 
    .. code-block:: bash
 
-      sudo mixer-pack-maker.sh --to <NEWVERSION> --from <PREV_VERSION> -S /home/clr/mix/update
+      sudo mixer-pack-maker.sh --to <NEWVERSION> --from <PREV_VERSION> -S /
+      home/clr/mix/update
 
 .. _mixer-format:
 
