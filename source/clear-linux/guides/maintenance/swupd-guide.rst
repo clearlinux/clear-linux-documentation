@@ -1,7 +1,7 @@
 .. _swupd-guide:
 
-swupd guide
-###########
+Use swupd
+#########
 
 *swupd* manages the software update capability of |CLOSIA|. It can check for
 valid system updates and, if found, download and install them. It can also
@@ -65,10 +65,8 @@ Check for Updates
 Perform a Manual Update
 =======================
 
-You can update to a specific verion or accept the
-latest as the default with no arguments.
-
-Initiate a manual update:
+You can update to a specific version or accept the latest as the default with
+no arguments. Initiate a manual update:
 
 .. code-block:: bash
 
@@ -86,7 +84,7 @@ System Software Verification
 ============================
 
 `swupd` can determine whether system directories and files have been added
-to, overwritten, removed, or modified (eg., permissions).
+to, overwritten, removed, or modified (e.g., permissions).
 
 .. code-block:: bash
 
@@ -113,14 +111,15 @@ In this case, python packages that were installed on top of the default
 install were flagged as mismatched. `swupd` can be directed to ignore
 or fix issues based on :ref:`command line options <man_swupd>`. 
 
-Fixing Hash Mixmatches
+Fixing Hash Mismatches
 ======================
 
 `swupd` can correct any issues it detects. Additional directives can be
 added including a white list of directories that will be ignored, if
 desired.
 
-The following command will repair issues, remove unknown items, and ignore files or directories matching `/usr/lib/python`:
+The following command will repair issues, remove unknown items, and
+ignore files or directories matching `/usr/lib/python`:
 
 .. code-block:: bash
 
