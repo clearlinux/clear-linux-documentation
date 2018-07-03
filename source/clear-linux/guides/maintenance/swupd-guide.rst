@@ -53,7 +53,7 @@ Current OS version and update server info:
 Enable or disable automatic updates
 ===================================
 
-|CL| updates are automatic by default but can be set to occur only 
+|CL| updates are automatic by default starting with version 15400 but can be set to occur only 
 on demand. To verify your current auto-update setting:
 
 .. code-block:: bash
