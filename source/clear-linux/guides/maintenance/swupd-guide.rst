@@ -89,20 +89,12 @@ no arguments. Initiate a manual update:
 
    sudo swupd update -m 23330
 
-Output from a successful update:
-
-.. code-block:: console
-
-   Update started.
-   Version on server (23330) is not newer than system version (23330)
-   Update complete. System already up-to-date at version 23330
-
 .. note::
 
    After a kernel update, reboot immediately for the enhancements to
    take effect.
 
-System software verification
+System Software Verification
 ============================
 
 `swupd` can determine whether system directories and files have been added
