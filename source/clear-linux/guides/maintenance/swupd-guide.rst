@@ -11,6 +11,13 @@ perform verification of the system software.
 installing functionality on top of the core operating system. Use the `swupd`
 tool to install and remove bundles.
 
+This guide assumes:
+
+* The device is on a well-connected network.
+
+* The device is able to connect to the release infrastructure
+  http://update.clearlinux.org
+
 .. contents:: 
    :local:
    :depth: 2
@@ -23,14 +30,14 @@ For a full listing of commands and options please see the man page in |CL|
 
    man swupd
 
-OS Update and Verification
+OS update and verification
 **************************
 
 |CL| is designed to promote a regular update cadence. `swupd` helps to
 make sure that process is simple and secure.
 
-OS Info
-=======
+View OS info
+============
 
 Current OS version and update server info:
 
@@ -43,26 +50,36 @@ Current OS version and update server info:
    Version URL:       https://download.clearlinux.org/update/
    Content URL:       https://cdn.download.clearlinux.org/update/
 
-Disable Automatic Updates
-=========================
+Enable or disable automatic updates
+===================================
 
-|CL| updates are automatic by default but can be toggled to occur only 
-on demand. Disable automatic updates:
+|CL| updates are automatic by default but can be set to occur only 
+on demand. To verify your current auto-update setting:
+
+.. code-block:: bash
+
+   sudo swupd autoupdate
+
+Disable automatic updates:
 
 .. code-block:: bash
 
    sudo swupd autoupdate --disable
 
-To re-enable automatic updates use the `--enable` flag.
+To re-enable automatic:
 
-Check for Updates
+.. code-block:: bash
+
+   sudo swupd autoupdate --enable
+
+Check for updates
 =================
 
 .. code-block:: bash
 
    sudo swupd check-update
 
-Perform a Manual Update
+Perform a manual update
 =======================
 
 You can update to a specific version or accept the latest as the default with
@@ -80,7 +97,12 @@ Output from a successful update:
    Version on server (23330) is not newer than system version (23330)
    Update complete. System already up-to-date at version 23330
 
-System Software Verification
+.. note::
+
+   After a kernel update, reboot immediately for the enhancements to
+   take effect.
+
+System software verification
 ============================
 
 `swupd` can determine whether system directories and files have been added
@@ -111,7 +133,7 @@ In this case, python packages that were installed on top of the default
 install were flagged as mismatched. `swupd` can be directed to ignore
 or fix issues based on :ref:`command line options <man_swupd>`. 
 
-Fixing Hash Mismatches
+Fixing hash mismatches
 ======================
 
 `swupd` can correct any issues it detects. Additional directives can be

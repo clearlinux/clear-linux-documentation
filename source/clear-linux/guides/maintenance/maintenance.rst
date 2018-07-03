@@ -10,11 +10,10 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    :maxdepth: 2
 
    enable-user-space
-   update
+   swupd-guide
    bulk-provision
    mixer
    mixin
-   swupd-guide
    validate-signatures
    telemetry-enable
    time
