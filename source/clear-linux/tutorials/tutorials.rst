@@ -21,3 +21,4 @@ specific |CLOSIA| use cases.
    telemetry-backend/telemetry-backend
    smb/smb
    spark
+   kata
