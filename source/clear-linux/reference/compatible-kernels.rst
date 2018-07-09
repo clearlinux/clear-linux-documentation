@@ -1,6 +1,6 @@
 .. _compatible-kernels:
 
-Compatible Clear Linux kernels
+Compatible Clear Linux\* kernels
 ##############################
 
 The |CLOSIA| provides the following Linux kernels with a respective bundle.
@@ -19,7 +19,7 @@ Kernel Container
 ================
 
 The *kernel-container* bundle contains the kernel used by the
-`Intel® Clear Containers`_ project. This kernel is optimized for
+Intel® Clear Containers project. This kernel is optimized for
 fast booting and performs best on |CC| running on the Intel® architectures
 described on the :ref:`supported hardware list<system-requirements>`.
 The optimization patches are found in our `Linux-Container`_ GitHub repo.
@@ -44,11 +44,10 @@ The *kernel-kvm* bundle focuses on the Linux
 :abbr:`KVM (Kernel-based Virtual Machine)`. It is optimized for fast booting
 and performs best on Virtual Machines running on the Intel® architectures
 described on the :ref:`supported hardware list<system-requirements>`.
-Use this kernel when running |CL| as the guest OS
-on top of *qemu/kvm*. Use this kernel with **cloud orchestrators** using
-*qemu/kvm* internally as their **hypervisor**.
-This kernel can be used as a stand alone Linux VM, see our
-:ref:`instructions on using KVM<kvm>` for more information. The
+Use this kernel when running |CL| as the guest OS on top of *qemu/kvm*. Use 
+this kernel with **cloud orchestrators** using *qemu/kvm* internally as 
+their **hypervisor**. This kernel can be used as a standalone |CL| VM, see 
+our :ref:`instructions on using KVM<kvm>` for more information. The 
 optimization patches are found in our `Linux-KVM`_ GitHub repo.
 
 Kernel Hyper-V\*
@@ -59,8 +58,8 @@ Hyper-V. It is optimized for fast booting and performs best on Virtual
 Machines running on the Intel® architectures described on the
 :ref:`supported hardware list<system-requirements>`.
 Use this kernel when running |CL| as the guest OS of **Cloud Instances** in
-projects such as Microsoft `Azure`_\*. This kernel can be used as a stand
-alone Linux VM, see our :ref:`instructions on using Hyper-V<hyper-v>` for
+projects such as Microsoft `Azure`_\*. This kernel can be used in a 
+standalone |CL| VM, see our :ref:`instructions on using Hyper-V<hyper-v>` for
 more information. The optimization patches are found in our `Linux-HyperV`_
 GitHub repo.
 
@@ -73,8 +72,8 @@ is optimized for fast booting and performs best on Virtual
 Machines running on the Intel® architectures described on the
 :ref:`supported hardware list<system-requirements>`.
 Use this kernel when running |CL| as the guest OS of **Cloud Instances** in
-projects such as Microsoft `Azure`_. This kernel can be used as a stand
-alone Linux VM, see our :ref:`instructions on using Hyper-V<hyper-v>` for
+projects such as Microsoft `Azure`_. This kernel can be used in a standalone
+|CL| VM, see our :ref:`instructions on using Hyper-V<hyper-v>` for
 more information. The optimization patches are found in our
 `Linux-HyperV-LTS`_ GitHub repo.
 
@@ -89,5 +88,4 @@ more information. The optimization patches are found in our
 .. _CIAO: https://github.com/01org/ciao
 .. _Azure:
    https://azuremarketplace.microsoft.com/en-us/marketplace/apps/clear-linux-project.clear-linux-os
-.. _Intel® Clear Containers:
-   https://clearlinux.org/features/intel®-clear-containers
+

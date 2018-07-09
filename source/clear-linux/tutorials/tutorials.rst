@@ -12,6 +12,7 @@ specific |CLOSIA| use cases.
    wordpress
    flatpak/flatpak
    machine-learning/machine-learning
+   docker/docker
    azure/azure
    multi-boot/multi-boot
    hadoop
@@ -20,4 +21,6 @@ specific |CLOSIA| use cases.
    telemetry-backend/telemetry-backend
    smb/smb
    spark
+   kata
    kata_migration
+

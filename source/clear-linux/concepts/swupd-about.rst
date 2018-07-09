@@ -95,11 +95,11 @@ patches.
 Clear Linux OS will automatically check for updates and apply them. This default
 can be disabled by running::
 
-    # systemctl mask swupd-update.timer
+    # swupd autoupdate --disable
 
 And reenabled by running::
 
-    # systemctl unmask swupd-update.timer
+    # swupd autoupdate --enable
 
 
 Update speed
@@ -107,7 +107,7 @@ Update speed
 
 Software updates with Clear Linux OS for Intel Architecture are also
 efficient. Bundles simply describe a set of files, and the update
-technology updates *only* files that actually changed by using so-called
+technology updates *only* files that actually changed by using
 binary-delta technology for efficiency [1]_. Operating systems that use
 packages as the unit of deployment require full package updates (thus
 hogging resources), even when one small file in that package has changed.

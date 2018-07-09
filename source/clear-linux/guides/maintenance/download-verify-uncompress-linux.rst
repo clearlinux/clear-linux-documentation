@@ -42,6 +42,9 @@ checksum, a warning is displayed with a message indicating the computed
 checksum does **not** match. Otherwise, the name of the image is printed on
 the screen followed by `OK`.
 
+For a more in-depth discussion of image verification including checking the
+certificate see :ref:`image-content-validation`.
+
 Uncompress the Clear Linux image
 ********************************
 
