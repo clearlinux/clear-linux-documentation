@@ -22,3 +22,5 @@ specific |CLOSIA| use cases.
    smb/smb
    spark
    kata
+   kata_migration
+
