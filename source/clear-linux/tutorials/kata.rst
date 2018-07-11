@@ -84,14 +84,15 @@ More information about Docker in |CLOSIA|.
 #############################################
 
 Docker on |CLOSIA| provides a docker.service service file to start the Docker
-daemon. The daemon will use runc or cc-runtime depending on the environment:
+daemon. The daemon will use runc or s/cc-runtime/kata-runtime depending on 
+the environment:
 
-If you are running |CL| on baremetal or on a VM with Nested
-Virtualization activated, Docker will use cc-runtime as the default runtime.
-If you are running |CL| on a VM without Nested Virtualization, Docker
-will use runc as the default runtime. It is not necessary to configure Docker
-to use cc-runtime manually since Docker itself will automatically use this
-runtime on systems that support it.
+If you are running |CL| on bare metal or on a VM with Nested
+Virtualization activated, Docker will use s/cc-runtime/kata-runtime as the
+default runtime. If you are running |CL| on a VM without Nested
+Virtualization, Docker will use runc as the default runtime. It is not
+necessary to manually configure the runtime for Docker, since Docker itself
+will automatically use the one supported by the system.
 
 To check which runtime your system is using, run:
 
