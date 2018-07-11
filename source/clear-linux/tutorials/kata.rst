@@ -15,6 +15,8 @@ This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, visit
 the :ref:`bare metal installation tutorial<bare-metal-install>`.
 
+If you have Clear Containers installed on your |CL| system, then follow the :ref:`Migrate Clear Containers to Kata Containers\* tutorial<kata_migration>`.
+
 Before you install any new packages, update |CL| with the following command:
 
 .. code-block:: bash
