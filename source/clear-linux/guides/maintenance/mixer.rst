@@ -70,13 +70,13 @@ server, where you can host custom |CL| mixes.
 
       sudo ln -sf $HOME/mixer/update/www /var/www/mixer
 
-#. To assure ``nginx`` starts by default, add and configure it. 
+#. Set up ``nginx`` configuration. 
 
    .. code-block:: bash
 
       sudo mkdir -p  /etc/nginx/conf.d
 
-#. Copy the default example configuration file to `/etc` to load on boot. 
+#. Copy the default example configuration file. 
 
    .. code-block:: bash
 
