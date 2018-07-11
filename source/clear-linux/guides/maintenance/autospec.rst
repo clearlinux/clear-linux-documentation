@@ -105,7 +105,8 @@ Build a new RPM
 
    .. code-block:: bash
 
-      make autospecnew URL="https://github.com/bktan8/helloclear/archive/helloclear-4.tar.gz" NAME="helloclear"
+      make autospecnew URL="https://github.com/clearlinux/helloclear/archive/helloclear-v1.0.tar.gz" 
+      NAME="helloclear"
 
    .. note:: 
 
