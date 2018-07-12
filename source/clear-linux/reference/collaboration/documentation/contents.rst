@@ -9,12 +9,12 @@ directive as shown in the example below. This directive automatically captures t
 subheadings if used) as specified in the value given after `:depth:`. Adding this directive to 
 longer documents allows users to quickly navigate to the desired section.
 
-.. contents: :local: 
+.. contents:: :local: 
    :depth: 2
 
 .. code-block:: bash
 
-   .. contents: :local: 
+   .. contents:: :local: 
    	  :depth: 2
 
 .. note:: 
