@@ -68,48 +68,17 @@ packages to run Docker images as containers.
 Congratulations! At this point, you have a working installation of Docker 
 on |CL|. You are ready to start using container images on your system.
 
-Integration with Clear Containers (optional)
+Integration with Kata Containers (optional)
 ********************************************
 
-`Clear Containers`_, is an open source project aiming to increase security
+`Kata Containers`_, is an open source project aiming to increase security
 of containers by using a hardware-backed virtual machine container runtime, 
-instead of software namespace containers that are provided by the standard 
+rather than software namespace containers which are provided by the standard 
 Docker *runc* runtime.
 
-The Docker package from |CL| will automatically use the *cc-runtime* 
-required for Clear Containers if it is available on your Clear Linux system. 
+Clear Linux provides easy integration of the *kata-runtime* with Docker.
+More information on installing and using  the *kata-runtime*  can be found at :ref:`kata`
 
-#. To take advantage of Clear Containers in |CL|, install the 
-   *containers-virt* bundle by running this command:
-
-   .. code-block:: bash
-
-      sudo swupd bundle-add containers-virt
-
-#. Restart the Docker daemon through systemd manager by running this command:
-
-   .. code-block:: bash
-
-      sudo systemctl restart docker
-
-#. After restarting, the Docker daemon will seamlessly use Clear Containers
-   to launch containers. You can see the runtime has changed to 
-   :command:`cc-runtime` by running this command:
-
-   .. code-block:: bash
-
-      sudo docker info | grep Runtime
-
-#. You should see the following output indicating the *cc-runtime* is the
-   Default Runtime: 
-
-   .. code-block:: console
-
-      Runtimes: cc-runtime runc
-      Default Runtime: cc-runtime
-
-Congratulations! At this point, you have successfully replaced the default 
-container runtime with Clear Containers. 
 
 .. note:: 
 
@@ -216,7 +185,7 @@ Also see:
 * `Docker Home`_
 * `Docker Documentation`_
 * `Docker Hub`_
-* `Clear Containers`_ 
+* `Kata Containers`_ 
 
 .. _`unique features`: https://clearlinux.org/features
 .. _`Clear Linux image on Docker Hub`: https://hub.docker.com/_/clearlinux/ 
@@ -225,7 +194,7 @@ Also see:
 .. _`bundles`: https://clearlinux.org/documentation/clear-linux/concepts/bundles-about#related-concepts 
 .. _`stateless system`: https://clearlinux.org/features/stateless 
 .. _`Docker documentation on daemon configuration`: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
-.. _`Clear Containers`: https://github.com/clearcontainers
+.. _`Kata Containers`: https://katacontainers.io/
 .. _`Docker Home`: https://www.docker.com/
 .. _`Docker Documentation`: https://docs.docker.com/
 .. _`Docker Hub`: https://hub.docker.com/
