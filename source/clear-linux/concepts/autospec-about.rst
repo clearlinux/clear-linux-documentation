@@ -1,7 +1,5 @@
 .. _autospec-about: 
 
-.. _autospec-overview: 
-
 Autospec
 ########
 
