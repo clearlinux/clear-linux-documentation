@@ -80,7 +80,7 @@ How autospec works
 
 Autospec attempts to infer the requirements of the ``spec`` file. If 
 autospec infers correctly, the control files (Table 1) will automatically 
-correct the build requirements. These control files are used to influence
+correct the build requirements. The control files are used to influence
 the ``spec`` file generation. 
 
 #. The :command:`make autospec` command generates a ``spec`` file from the 
