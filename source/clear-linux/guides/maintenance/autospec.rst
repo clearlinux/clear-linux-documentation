@@ -5,8 +5,8 @@ Build RPMs with autospec
 
 This guide shows you how to create RPMs with :ref:`autospec <autospec-about>`
 , a tool that assists in automated creation and maintenance of RPM packaging 
-on |CLOSIA|. Additionally, you will use the RPMs to create bundles using 
-:ref:`mixer <mixer>`. 
+on |CLOSIA|.  Additionally, you learn how to use these RPMs to create bundles
+with :ref:`mixer <mixer>`. 
 
 Prerequisites
 *************
@@ -148,13 +148,13 @@ method assumes that a spec file already exists. In this example, we run a
 
 #. Navigate to the ``dmidecode`` package in clearlinux:  
 
-   .. code-block::
+   .. code-block:: bash
 
       cd ~/clearlinux/packages/dmidecode/   
 
 #. To download the tarball and build, run the command: 
 
-   .. code-block::
+   .. code-block:: bash 
 
       make build
 
