@@ -13,7 +13,7 @@ specific |CLOSIA| use cases.
    flatpak/flatpak
    machine-learning/machine-learning
    docker/docker
-   azure/azure
+   azure
    multi-boot/multi-boot
    hadoop
    fmv
