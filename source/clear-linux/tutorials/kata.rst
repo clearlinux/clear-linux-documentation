@@ -83,8 +83,8 @@ Run Kata Containers
 
 You have successfully installed and set up Kata Containers on |CLOSIA|.
 
-More information about Docker in |CLOSIA|.
-#############################################
+More information about Docker in |CLOSIA|
+*****************************************
 
 Docker on |CLOSIA| provides a docker.service service file to start the Docker
 daemon. The daemon will use runc or kata-runtime depending on 
