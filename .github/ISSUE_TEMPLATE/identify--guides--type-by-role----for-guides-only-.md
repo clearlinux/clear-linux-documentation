@@ -1,6 +1,6 @@
 ---
 name: Identify 'Guides' Type by Role -- For Guides only.
-about: For new content in 'Guides', select 1 category to which it belongs.
+about: For new content in 'Guides', select 1 of 3 categories to which it belongs.
 
 ---
 
