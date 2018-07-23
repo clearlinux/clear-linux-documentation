@@ -72,7 +72,7 @@ Configure Apache Spark
    with your localhost IP address. View your IP address using the
    :command:`hostname -I` command.
 
-   .. code-block::
+   .. code-block:: bash
 
       SPARK_MASTER_HOST="10.300.200.100"
 
@@ -82,7 +82,7 @@ Configure Apache Spark
 #. Edit the :file:`/etc/spark/spark-defaults.conf` file and update the
    `spark.master` variable with the `SPARK_MASTER_HOST` address and port `7077`.
 
-   .. code-block::
+   .. code-block:: bash
 
       spark.master    spark://10.300.200.100:7077
 
@@ -105,7 +105,7 @@ Start the master server and a worker daemon
 #. Open an internet browser and view the worker daemon information using
    the master's IP address and port `8080`:
 
-   .. code-block::
+   .. code-block:: bash
 
       http://10.300.200.100:8080
 
@@ -122,7 +122,7 @@ Run the Spark wordcount example
 #. Open an internet browser and view the application information using
    the master's IP address and port `8080`:
 
-   .. code-block::
+   .. code-block:: bash
 
       http://10.300.200.100:8080
 
