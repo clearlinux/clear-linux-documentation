@@ -1,7 +1,7 @@
 .. _image-types:
 
 Clear Linux\* image types
-#######################
+#########################
 
 .. _image-types-content:
 

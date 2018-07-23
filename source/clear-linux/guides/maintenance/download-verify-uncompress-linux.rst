@@ -14,7 +14,7 @@ Instructions for other operating systems are available:
 Image types
 ***********
 
-.. include:: image-types.rst
+.. include:: ../../reference/image-types.rst
    :start-after: image-types-content:
 
 .. _verify-linux:

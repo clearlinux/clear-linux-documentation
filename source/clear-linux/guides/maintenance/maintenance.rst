@@ -21,5 +21,4 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    download-verify-uncompress-linux
    download-verify-uncompress-mac
    download-verify-uncompress-windows
-   image-types
    autospec
