@@ -7,11 +7,12 @@ about: For new content proposed to 'Guides', select the category to which it bel
 
 New pages will appear here: https://clearlinux.org/documentation/clear-linux/guides
 
-[ ] Basics
-[ ] Developer
-[ ] Administrator
+1. Enter an 'x' in the category for the new "guide": 
+* [ ] Basics
+* [ ] Developer
+* [ ] Administrator
 
-Complete the field below, after the colon, that matches the option selected above:
+Complete the field below, following the colon, that matches option selected above:
 
 I am a Clear Linux Beginner (Basics). I want to learn how to:  
 
