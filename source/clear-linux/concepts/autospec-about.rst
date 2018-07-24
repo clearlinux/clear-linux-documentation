@@ -3,6 +3,11 @@
 Autospec
 ########
 
+.. _incl-autospec-overview
+
+Overview
+--------
+
 Whereas a standard RPM build process using ``rpmbuild`` requires a tarball 
 and ``spec`` file to start, ``autospec`` only requires a tarball and package
 name. ``autospec`` analyzes the source code and :file:`Makefile` information 
@@ -26,6 +31,8 @@ file.
 .. note:: 
 
    For a comprehensive list of control files, view the `autospec readme`_.  
+
+.. _incl-autospec-overview-end
 
 Control files are explained in Table 1.
 
