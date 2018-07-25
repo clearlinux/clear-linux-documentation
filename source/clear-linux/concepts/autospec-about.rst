@@ -3,7 +3,7 @@
 Autospec
 ########
 
-.. _incl-autospec-overview
+.. _incl-autospec-overview:
 
 Overview
 --------
