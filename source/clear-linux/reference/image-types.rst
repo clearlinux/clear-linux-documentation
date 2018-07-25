@@ -7,6 +7,8 @@ Clear Linux\* image types
 
 |CLOSIA| offers many types of `images`_ for different platforms and environments.
 
+.. _incl-image-filename:
+
 The naming convention of a |CL| image filename is:
 
 .. code-block:: console
@@ -20,6 +22,8 @@ The naming convention of a |CL| image filename is:
 
 * The *[compression type]* field specifies the compression type. Two types of
   compressions are used: GNU\* zip (*.gz*) and XZ (*.xz*).
+
+.. _incl-image-filename-end:
 
 Table 1 lists the currently available images that are platform independent.
 Table 2 lists the currently available images that are platform specific.
