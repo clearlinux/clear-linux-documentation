@@ -1,7 +1,7 @@
 .. _vmware-esxi-preconfigured-cl-image:
 
 Run preconfigured Clear Linux\* image as a VMware\* ESXi guest OS
-###############################################################
+#################################################################
 
 `VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
 of server hardware.  With VMware ESXi, you can create, configure, manage,

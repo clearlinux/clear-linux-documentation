@@ -1,7 +1,7 @@
 .. _compatible-kernels:
 
 Compatible Clear Linux\* kernels
-##############################
+################################
 
 The |CLOSIA| provides the following Linux kernels with a respective bundle.
 This document describes the specific use cases these `bundles`_ serve

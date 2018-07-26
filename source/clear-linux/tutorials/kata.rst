@@ -1,7 +1,7 @@
   .. _kata:
 
 Install Kata Containers\*
-#######################
+#########################
 
 This tutorial describes how to install, configure and run Kata Containers\* on
 |CLOSIA|. Kata Containers is an open source project dedicated to the

@@ -13,9 +13,9 @@ Instructions are also available for other operating systems:
 * :ref:`bootable-usb-mac`
 * :ref:`bootable-usb-linux`
 
-.. include:: ../../guides/maintenance/image-types.rst
-   :start-after: for different platforms and environments. 
-   :end-before: Table 1 lists the currently available images.
+.. include:: ../../reference/image-types.rst
+   :start-after: incl-image-filename: 
+   :end-before: incl-image-filename-end:
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
    :Start-after: verify-windows:

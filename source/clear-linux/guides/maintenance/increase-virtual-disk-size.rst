@@ -1,7 +1,7 @@
 .. _increase-virtual-disk-size:
 
 Increase virtual disk size of a Clear Linux\* image 
-#################################################
+###################################################
 
 |CLOSIA| prebuilt images come in different sizes, ranging from 300 MB to 20
 GB. This guide describes how to increase the size of your prebuilt |CL| image
@@ -10,7 +10,7 @@ if you need more capacity.
 .. contents:: This guide will cover:
 
 Determine the partition order and sizes of the prebuilt image 
-***************************************************
+*************************************************************
 
 There are two methods to find the order and sizes of partitions virtual disk 
 of your prebuilt |CL| image.

@@ -67,6 +67,7 @@ to clone the :guilabel:`telemetrics-backend` repository into the
    git clone https://github.com/clearlinux/telemetrics-backend
 
 .. note::
+
    You may need to set up the :envvar:`https_proxy` environment variable
    if you have issues reaching github.com.
 
@@ -109,10 +110,11 @@ following actions:
 * :option:`restart` - restart the nginx and uWSGI services.
 * :option:`uninstall` - uninstall all packages.
 
-  ..note::
+  .. note::
   
-  The :option:`uninstall` option does not perform any actions if the distro is
-  set to |CL| and will only uninstall packages if the distro is Ubuntu
+     The :option:`uninstall` option does not perform any actions if the 
+     distro is set to |CL| and will only uninstall packages if the distro is
+     Ubuntu
 
 Next, we install the telemetrics backend server with the following options:
 

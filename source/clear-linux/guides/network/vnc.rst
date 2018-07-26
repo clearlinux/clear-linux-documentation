@@ -674,12 +674,12 @@ For `Method 3`:
 
 Figure 7 shows two VNC sessions (5901 and 5905) accepting connections from
 any host as specified by the `0.0.0.0`'s.  This is before the `-localhost` option was used.  
- 
+
 .. figure:: figures/vnc/vnc-7.png
    :scale: 100 %
    :alt: VNC session accepting connection from any host
 
-	Figure 7: VNC sessions (5901 and 5905) accepting connections from any host
+   Figure 7: VNC sessions (5901 and 5905) accepting connections from any host
 
 Figure 8 shows two VNC sessions (5901 and 5905) only accepting connections from localhost as specified by `127.0.0.1`'s. This is after the `-localhost` option was used.  
  

@@ -1,7 +1,7 @@
 .. _web-server-install:
 
 Create a Clear Linux\* based web server
-#####################################
+#######################################
 
 This tutorial shows you how to create a LAMP server using |CLOSIA| and how to use phpMyAdmin\* to manage an associated database.
 

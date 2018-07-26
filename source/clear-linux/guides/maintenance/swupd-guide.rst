@@ -46,6 +46,7 @@ Current OS version and update server info:
    swupd info
 
 .. code-block:: console
+
    Installed version: 23330
    Version URL:       https://download.clearlinux.org/update/
    Content URL:       https://cdn.download.clearlinux.org/update/

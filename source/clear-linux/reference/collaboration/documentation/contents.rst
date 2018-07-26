@@ -28,7 +28,7 @@ Clear Linux Guide Example
 *************************
 
 Introduction
-=========
+============
 
 Step-by-Step
 ============
