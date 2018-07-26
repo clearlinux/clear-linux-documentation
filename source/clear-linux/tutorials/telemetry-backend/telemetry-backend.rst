@@ -463,8 +463,8 @@ Additional resources
 ********************
 
 * `Telemetry feature description`_
-* :ref:`Telemetry architecture<telemetry-about>`
-* :ref:`Enable and disable telemetry in Clear Linux<telemetry-enable>`
+* :ref:`Telemetry architecture`<telemetry-about>
+* :ref:`Enable and disable telemetry in Clear Linux`<telemetry-enable>
 * https://github.com/clearlinux/telemetrics-client
 * https://github.com/clearlinux/telemetrics-backend
 
@@ -474,5 +474,5 @@ Additional resources
 .. _`Intel privacy policies`:
    https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
 
-.. _`Telemetry feature description:
-  `https://clearlinux.org/features/telemetry
+.. _`Telemetry feature description`:
+  https://clearlinux.org/features/telemetry
