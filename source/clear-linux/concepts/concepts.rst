@@ -15,3 +15,4 @@ details relevant to the |CL| features.
    bundles-about
    autospec-about
    restart
+   telemetry-about

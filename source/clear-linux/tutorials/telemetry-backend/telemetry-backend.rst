@@ -1,4 +1,4 @@
-.. _telemtry-backend:
+.. _telemetry-backend:
 
 Create a telemetry backend server in Clear Linux
 ################################################
@@ -464,14 +464,17 @@ it.
 Additional resources
 ********************
 
-https://clearlinux.org/features/telemetry
-
-https://github.com/clearlinux/telemetrics-client
-
-https://github.com/clearlinux/telemetrics-backend
+* `Telemetry feature description`_
+* :ref:`Telemetry architecture<telemetry-about>`
+* :ref:`telemetry-enable`
+* https://github.com/clearlinux/telemetrics-client
+* https://github.com/clearlinux/telemetrics-backend
 
 .. _`Clear Linux telemetry backend server overview`:
    https://github.com/clearlinux/telemetrics-backend
 
 .. _`Intel privacy policies`:
    https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
+
+.. _`Telemetry feature description`:
+  https://clearlinux.org/features/telemetry

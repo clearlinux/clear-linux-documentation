@@ -5,11 +5,11 @@ Enable and disable telemetry in Clear Linux
 
 |CLOSIA| includes a telemetry solution as part of the OS that records events
 of interest and reports them back to the development team via the telemetrics
-daemon, :command:`telemd`. This functionality is maintained in the
-``telemetrics`` software bundle.
+daemon, **telemd**. This functionality is maintained in the
+**telemetrics** software bundle.
 
 .. note::
-   The telemetry functionality adheres to `Intel's privacy policies`_
+   The telemetry functionality adheres to `Intel privacy policies`_
    regarding the collection and use of :abbr:`PII (Personally Identifiable
    Information)` and is open source. Specifically, no intentionally
    identifiable information about the user or system owner is collected.
@@ -20,10 +20,10 @@ redirect where the records go if they wish to collect records for themselves.
 Install the telemetry software bundle
 *************************************
 
-During the initial installation of |CL| you are requested to join the
+During the initial installation of |CL|, you are requested to join the
 stability enhancement program and allow |CLOSIA| to collect anonymous reports
-to improve system stability. If you chose not to join this program at that
-time then the telemetry software bundle is not added to your system.
+to improve system stability. If you choose not to join this program, then the
+telemetry software bundle is not added to your system.
 
 To install the telemetry bundle, enter the following command as either the
 root user or with :command:`sudo` privileges:
@@ -104,9 +104,13 @@ To completely remove telemetrics from your system, use the command
 Additional resources
 ********************
 
-https://clearlinux.org/features/telemetry
+*	`Telemetry feature description`_
+*	:ref:`Telemetry architecture<telemetry-about>`
+*	:ref:`telemetry-backend`
+*	https://github.com/clearlinux/telemetrics-client
 
-https://github.com/clearlinux/telemetrics-client
-
-.. _`Intel's privacy policies`:
+.. _`Intel privacy policies`:
    https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
+
+.. _`Telemetry feature description`:
+	https://clearlinux.org/features/telemetry
