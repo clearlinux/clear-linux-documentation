@@ -105,8 +105,8 @@ Additional resources
 ********************
 
 *	`Telemetry feature description`_
-*	:ref:`Telemetry architecture`<telemetry-about>
-*	:ref:`Create a telemetry backend server in Clear Linux`<telemetry-backend>
+*	:ref:`Telemetry architecture<telemetry-about>`
+*	:ref:`telemetry-backend`
 *	https://github.com/clearlinux/telemetrics-client
 
 .. _`Intel privacy policies`:

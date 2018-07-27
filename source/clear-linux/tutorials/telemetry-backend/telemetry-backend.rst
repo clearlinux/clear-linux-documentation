@@ -1,4 +1,4 @@
-.. _telemtry-backend:
+.. _telemetry-backend:
 
 Create a telemetry backend server in Clear Linux
 ################################################
@@ -463,8 +463,8 @@ Additional resources
 ********************
 
 * `Telemetry feature description`_
-* :ref:`Telemetry architecture`<telemetry-about>
-* :ref:`Enable and disable telemetry in Clear Linux`<telemetry-enable>
+* :ref:`Telemetry architecture<telemetry-about>`
+* :ref:`telemetry-enable`
 * https://github.com/clearlinux/telemetrics-client
 * https://github.com/clearlinux/telemetrics-backend
 

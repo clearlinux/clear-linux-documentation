@@ -74,8 +74,8 @@ Next steps
 
 To put this concept into practice, see the following resources:
 
-*	:ref:`Enable and disable telemetry in Clear Linux`<telemetry-enable>
-*	:ref:`Create a telemetry backend server in Clear Linux`<telemetry-backend>
+*	:ref:`telemetry-enable`
+*	:ref:`telemetry-backend`
 *	`Telemetry feature description`_
 
 .. _`Telemetry feature description`:
