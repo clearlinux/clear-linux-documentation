@@ -35,7 +35,8 @@ the roles.
    ``:command:`command```
 
 * In most cases, use asterisks "*" to emphasize the name of a command
-  option. However, if you have defined an ``.. option::`` directive, you may use the `:option:` role. For example:
+  option. However, if you have defined an ``.. option::`` directive, you may
+  use the `:option:` role. For example:
 
    Pandoc Options:
 
