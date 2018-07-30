@@ -6,7 +6,8 @@ Restart system services after an OS update
 The software life cycle describes how software is created, developed, and
 deployed, and includes how to replace or update software. A good OS
 provides tools for the entire software life cycle. These tools must include
-ways to remove software components properly when replaced with something else.
+ways to remove software components properly when replaced with something
+else.
 
 Most of the work on software update code in |CL| was focused on adding new
 software to the system. We recommended that users reboot their system once in
@@ -32,9 +33,9 @@ solutions such as the following:
   * Ask the user to restart the OS.
 
 Both solutions are acceptable for many OSes. However, |CL| updates software
-automatically and users do not see notices from the updater unless they review
-the journal. |CL| requires a completely different solution, with the following
-requirements:
+automatically and users do not see notices from the updater unless they
+review the journal. |CL| requires a completely different solution, with the
+following requirements:
 
 * Eliminate the guesswork about what to restart and under what circumstances.
 * Cannot restart everything. Many service daemons do not support an automatic
@@ -105,17 +106,19 @@ The *disallow* option tells :command:`clr-service-restart` not to
 restart the specified daemon even if the OS defaults permit the daemon to be
 restarted. The :command:`clr-service-restart` daemon creates a symlink in
 :file:`/etc/clr-service-restart` that points to :file:`/dev/null` as a
-record. The example below tells :command:`clr-service-restart` not to restart the *rngd* daemon after an OS software update.
+record. The example below tells :command:`clr-service-restart` not to
+restart the *rngd* daemon after an OS software update.
 
 .. code-block:: bash
 
    sudo clr-service-restart disallow rngd
 
 The *default* option makes :command:`clr-service-restart` revert back
-to the OS defaults and delete any symlink in :file:`/etc/clr-service-restart`.
-The example below tells :command:`clr-service-restart` to restart
-*rngd* automatically again, because *rngd* is whitelisted for
-automatic service restarts by default in |CL|.
+to the OS defaults and delete any symlink 
+in :file:`/etc/clr-service-restart`. The example below 
+tells :command:`clr-service-restart` to restart *rngd* automatically again,
+because *rngd* is whitelisted for automatic service restarts by default
+in |CL|.
 
 .. code-block:: bash
 
@@ -166,12 +169,14 @@ telemetry record and sends it to the optional |CL| telemetry service if both
 conditions below are met:
 
 * If a unit fails to automatically restart after an OS update.
-* If that unit resides in the system location :file:`/usr/lib/systemd/system`.
+* If that unit resides in the system 
+  location :file:`/usr/lib/systemd/system`.
 
 If you do not install the |CL| telemetrics bundle, the data is discarded. If
 you install the telemetrics bundle and you opt to send telemetry, then the
-system unit name is sent to the |CL| telemetry service. We evaluate the report
-and update the whitelist to remove services that are not safe to restart.
+system unit name is sent to the |CL| telemetry service. We evaluate the
+report and update the whitelist to remove services that are not safe to
+restart.
 
 Conclusion
 **********
