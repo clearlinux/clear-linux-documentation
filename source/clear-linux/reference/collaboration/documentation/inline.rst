@@ -34,20 +34,28 @@ the roles.
 
    ``:command:`command```
 
-* Use the `:option:` role to emphasize the name of a command option
-  with or without its value. This markup is usually employed in
-  combination with the `:command:` role. For example:
+* In most cases, use asterisks "*" to emphasize the name of a command
+  option. However, if you have defined an ``.. option::`` directive, you may use the `:option:` role. For example:
 
-   :option:`-f`
-   :option:`--all`
-   :option:`-o output.xsl`
+   Pandoc Options:
+
+   .. option:: -f
+   .. option:: --all
+   .. option:: -o <output.xsl>
+
    The :command:`pandoc` command can be used without the :option:`-o`
    option, creating an output file with the same name as the source
    but a different extension.
 
    Template:
+   
+   .. code-block:: rest
 
-   ``:option:`Option```
+      .. option: option
+
+         description of option 
+
+   ``:option:`option```
 
 * Use the `:file:` role to emphasize a filename or directory. Do not use the
   role inside a code-block but use it inside all notices that contain files

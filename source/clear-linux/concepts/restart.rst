@@ -81,7 +81,7 @@ Figure 1: Invoke :command:`clr-service-restart`.
 
 :command:`clr-service-restart` implements a whitelist to identify which
 daemons can be restarted. The system administrator can customize the default
-|CL| OS whitelist using :option:`allow` or :option:`disallow` options for
+|CL| OS whitelist using *allow* or *disallow* options for
 restarting system services. When a software update occurs,
 :command:`clr-service-restart` consults the whitelist to see if a service
 daemon is allowed to be restarted or not. See the options section for
@@ -91,31 +91,30 @@ details.
 Options for clr-service-restart
 *******************************
 
-The :option:`allow` option identifies a daemon to restart after an OS software
+The *allow* option identifies a daemon to restart after an OS software
 update. The :command:`clr-service-restart` daemon creates a symlink in
 :file:`/etc/clr-service-restart` as a record. The example below tells
-:command:`clr-service-restart` to restart the :option:`tallow` daemon after an
+:command:`clr-service-restart` to restart the *tallow* daemon after an
 OS software update.
 
 .. code-block:: bash
 
    sudo clr-service-restart allow tallow.service
 
-The :option:`disallow` option tells :command:`clr-service-restart` not to
+The *disallow* option tells :command:`clr-service-restart` not to
 restart the specified daemon even if the OS defaults permit the daemon to be
 restarted. The :command:`clr-service-restart` daemon creates a symlink in
-:file:`/etc/clr-service-restart` that points to :file:`/dev/null` as a record.
-The example below tells :command:`clr-service-restart` not to restart the
-:option:`rngd` daemon after an OS software update.
+:file:`/etc/clr-service-restart` that points to :file:`/dev/null` as a
+record. The example below tells :command:`clr-service-restart` not to restart the *rngd* daemon after an OS software update.
 
 .. code-block:: bash
 
    sudo clr-service-restart disallow rngd
 
-The :option:`default` option makes :command:`clr-service-restart` revert back
+The *default* option makes :command:`clr-service-restart` revert back
 to the OS defaults and delete any symlink in :file:`/etc/clr-service-restart`.
 The example below tells :command:`clr-service-restart` to restart
-:option:`rngd` automatically again, because :option:`rngd` is whitelisted for
+*rngd* automatically again, because *rngd* is whitelisted for
 automatic service restarts by default in |CL|.
 
 .. code-block:: bash
@@ -132,23 +131,24 @@ services are restarted after an OS software update.
 To monitor :command:`clr-service-restart`, use one or both options described
 below.
 
-:option:`-n`
+.. option:: -n
 
-This option makes :command:`clr-service-restart` perform no restarts. Instead
-it displays the services that could potentially be restarted. When used,
-:command:`clr-service-restart` outputs a list of messages showing:
+   This option makes :command:`clr-service-restart` perform no restarts.
+   Instead it displays the services that could potentially be restarted.
+   When used, :command:`clr-service-restart` outputs a list of messages
+   showing:
 
-* Which service needs a restart.
-* What unit it is.
-* Why it needs a restart.
-* Which command is required to restart the unit.
+   * Which service needs a restart.
+   * What unit it is.
+   * Why it needs a restart.
+   * Which command is required to restart the unit.
 
-:option:`-a`
+.. option:: -a
 
-This option makes :command:`clr-service-restart` consider all system services,
-not only the ones that are whitelisted. Because the default whitelist in |CL|
-is relatively short, you can use this option to restart all impacted services
-when you log in on the system.
+   This option makes :command:`clr-service-restart` consider all system
+   services, not only the ones that are whitelisted. Because the default
+   whitelist in |CL| is relatively short, you can use this option to
+   restart all impacted services when you log in on the system.
 
 If you pass both options (:option:`-a` and :option:`-n`),
 :command:`clr-service-restart` displays a complete list of system services

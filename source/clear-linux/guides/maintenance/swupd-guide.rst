@@ -7,7 +7,7 @@ Use swupd
 valid system updates and, if found, download and install them. It can also
 perform verification of the system software. 
 
-|CL| uses :ref:`bundles-about<bundles>` as the base abstraction for
+|CL| uses :ref:`bundles <bundles-about>` as the base abstraction for
 installing functionality on top of the core operating system. Use the `swupd`
 tool to install and remove bundles.
 

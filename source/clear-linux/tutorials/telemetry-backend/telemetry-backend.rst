@@ -100,35 +100,35 @@ Run the deploy.sh script to install the backend server
 The :command:`deploy.sh` is a bash shell script that allows you to perform the
 following actions:
 
-* :option:`deploy` - install a complete instance of the telemetrics backend
+* *deploy* - install a complete instance of the telemetrics backend
   server and all required components. This is the default action if no
-  :option:`-a` argument is given on the command line.
-* :option:`install` - installs and enables all required components for the
+  *-a* argument is given on the command line.
+* *install* - installs and enables all required components for the
   telemetrics backend server.
-* :option:`migrate` - migrate database to new schema.
-* :option:`resetdb` - reset the database.
-* :option:`restart` - restart the nginx and uWSGI services.
-* :option:`uninstall` - uninstall all packages.
+* *migrate* - migrate database to new schema.
+* *resetdb* - reset the database.
+* *restart* - restart the nginx and uWSGI services.
+* *uninstall* - uninstall all packages.
 
   .. note::
   
-     The :option:`uninstall` option does not perform any actions if the 
+     The *uninstall* option does not perform any actions if the 
      distro is set to |CL| and will only uninstall packages if the distro is
      Ubuntu
 
 Next, we install the telemetrics backend server with the following options:
 
-* :option:`-a install` to perform an install
-* :option:`-d clr` to install to a |CL| distro
-* :option:`-H localhost` to set the domain to localhost
+* *-a install* to perform an install
+* *-d clr* to install to a |CL| distro
+* *-H localhost* to set the domain to localhost
 
 We do not need to set the following options since the values are set to the
 correct values we want by default:
 
-* :option:`-r https://github.com/clearlinux/telemetrics-backend` sets the
+* *-r https://github.com/clearlinux/telemetrics-backend* sets the
   repo location for :command:`git` to clone from.
-* :option:`-s master` to set the location, or branch.
-* :option:`-t git` to set the source type to git.
+* *-s master* to set the location, or branch.
+* *-t git* to set the source type to git.
 
 .. caution::
    The :file:`deploy.sh` shell script has minimal error checking and makes
