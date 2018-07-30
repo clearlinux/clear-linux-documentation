@@ -36,6 +36,7 @@ templates supplied.
    cross
    images
    code
+   contents
 
 
 .. _Sphinx documentation:

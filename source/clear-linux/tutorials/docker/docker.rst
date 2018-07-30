@@ -4,8 +4,8 @@ Run Docker\* on Clear Linux\*
 #############################
 
 |CLOSIA| supports multiple containerization platforms, including a Docker\* 
-solution.|CL| has many `unique features`_ including a minimal default 
-installation which makes it compelling to use as a host for container 
+solution. |CL| has many `unique features`_ including a minimal default 
+installation, which makes it compelling to use as a host for container 
 workloads, management, and orchestration. 
 
 This tutorial covers:
@@ -68,48 +68,17 @@ packages to run Docker images as containers.
 Congratulations! At this point, you have a working installation of Docker 
 on |CL|. You are ready to start using container images on your system.
 
-Integration with Clear Containers (optional)
+Integration with Kata Containers (optional)
 ********************************************
 
-`Clear Containers`_, is an open source project aiming to increase security
-of containers by using a hardware-backed virtual machine container runtime, 
-instead of software namespace containers that are provided by the standard 
+`Kata Containers`_, is an open source project aiming to increase security
+of containers by using a hardware-backed virtual machine container runtime 
+rather than software namespace containers that are provided by the standard 
 Docker *runc* runtime.
 
-The Docker package from |CL| will automatically use the *cc-runtime* 
-required for Clear Containers if it is available on your Clear Linux system. 
+Clear Linux provides easy integration of the *kata-runtime* with Docker.
+More information on installing and using  the *kata-runtime* may be found at :ref:`kata`.
 
-#. To take advantage of Clear Containers in |CL|, install the 
-   *containers-virt* bundle by running this command:
-
-   .. code-block:: bash
-
-      sudo swupd bundle-add containers-virt
-
-#. Restart the Docker daemon through systemd manager by running this command:
-
-   .. code-block:: bash
-
-      sudo systemctl restart docker
-
-#. After restarting, the Docker daemon will seamlessly use Clear Containers
-   to launch containers. You can see the runtime has changed to 
-   :command:`cc-runtime` by running this command:
-
-   .. code-block:: bash
-
-      sudo docker info | grep Runtime
-
-#. You should see the following output indicating the *cc-runtime* is the
-   Default Runtime: 
-
-   .. code-block:: console
-
-      Runtimes: cc-runtime runc
-      Default Runtime: cc-runtime
-
-Congratulations! At this point, you have successfully replaced the default 
-container runtime with Clear Containers. 
 
 .. note:: 
 
@@ -168,7 +137,7 @@ an the official Docker image for nginx, an open source reverse proxy server.
 
    .. note::
     
-      Below is an explaination of switches used in the command above. For
+      Below is an explanation of switches used in the command above. For
       detailed :command:`docker run` switches and syntax, refer to the 
       `Docker Documentation`_ .
 
@@ -197,12 +166,12 @@ an the official Docker image for nginx, an open source reverse proxy server.
       sudo docker rm test-nginx
 
 Congratulations! At this point, you have successfully pulled a nginx 
-container image from `Docker Hub`_ and ran an example container. 
+container image from `Docker Hub`_ and have run an example container. 
 
 Creating a Docker swarm cluster
 *******************************
 
-Clusters of Docker hosts are referred to as swarms.
+Clusters of Docker hosts are referred to as *swarms*.
 
 The process in this tutorial can be repeated to install Docker on multiple
 Clear Linux hosts with the intent to form a Docker swarm cluster.
@@ -216,18 +185,30 @@ Also see:
 * `Docker Home`_
 * `Docker Documentation`_
 * `Docker Hub`_
-* `Clear Containers`_ 
+* `Kata Containers`_ 
 
-.. _`unique features`: https://clearlinux.org/features
-.. _`Clear Linux image on Docker Hub`: https://hub.docker.com/_/clearlinux/ 
-.. _`building a custom Clear Linux docker image`: https://clearlinux.org/documentation/clear-linux/guides/network/custom-clear-container
-.. _`Docker proxy instructions`: https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
-.. _`bundles`: https://clearlinux.org/documentation/clear-linux/concepts/bundles-about#related-concepts 
-.. _`stateless system`: https://clearlinux.org/features/stateless 
-.. _`Docker documentation on daemon configuration`: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
-.. _`Clear Containers`: https://github.com/clearcontainers
-.. _`Docker Home`: https://www.docker.com/
-.. _`Docker Documentation`: https://docs.docker.com/
-.. _`Docker Hub`: https://hub.docker.com/
-.. _`Docker documentation on swarm key concepts`: https://docs.docker.com/engine/swarm/key-concepts/
-.. _`Docker documentation on creating a swarm`: https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
+.. _unique features: https://clearlinux.org/features
+
+.. _Clear Linux image on Docker Hub: https://hub.docker.com/_/clearlinux/
+
+.. _building a custom Clear Linux docker image: https://clearlinux.org/documentation/clear-linux/guides/network/custom-clear-container
+
+.. _Docker proxy instructions: https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
+
+.. _bundles: https://clearlinux.org/documentation/clear-linux/concepts/bundles-about#related-concepts
+
+.. _stateless system: https://clearlinux.org/features/stateless 
+
+.. _Docker documentation on daemon configuration: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
+
+.. _Kata Containers: https://katacontainers.io/
+
+.. _Docker Home: https://www.docker.com/
+
+.. _Docker Documentation: https://docs.docker.com/
+
+.. _Docker Hub: https://hub.docker.com/
+
+.. _Docker documentation on swarm key concepts: https://docs.docker.com/engine/swarm/key-concepts/
+
+.. _Docker documentation on creating a swarm: https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/

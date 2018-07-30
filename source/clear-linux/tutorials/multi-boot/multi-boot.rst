@@ -73,9 +73,9 @@ Table notes:
 
 
 .. [#] The EFI partition holds the kernel and boot information for |CL| and
-   other operating systems. The partition size is dependent on    the number
-   of operating systems to be installed. In general, allocate about 100 MB per
-   operating system. For this tutorial, we used 1 GB.
+   other operating systems. The partition size is dependent on the number
+   of operating systems to be installed. In general, allocate about 100 MB
+   per operating system. For this tutorial, we used 1 GB.
 
 
 

@@ -10,7 +10,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    :maxdepth: 2
 
    enable-user-space
-   update
+   swupd-guide
    bulk-provision
    mixer
    mixin
@@ -21,4 +21,4 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    download-verify-uncompress-linux
    download-verify-uncompress-mac
    download-verify-uncompress-windows
-   image-types
+   autospec

@@ -1,4 +1,4 @@
-.. _telemtry-backend:
+.. _telemetry-backend:
 
 Create a telemetry backend server in Clear Linux
 ################################################
@@ -67,6 +67,7 @@ to clone the :guilabel:`telemetrics-backend` repository into the
    git clone https://github.com/clearlinux/telemetrics-backend
 
 .. note::
+
    You may need to set up the :envvar:`https_proxy` environment variable
    if you have issues reaching github.com.
 
@@ -109,10 +110,11 @@ following actions:
 * :option:`restart` - restart the nginx and uWSGI services.
 * :option:`uninstall` - uninstall all packages.
 
-  ..note::
+  .. note::
   
-  The :option:`uninstall` option does not perform any actions if the distro is
-  set to |CL| and will only uninstall packages if the distro is Ubuntu
+     The :option:`uninstall` option does not perform any actions if the 
+     distro is set to |CL| and will only uninstall packages if the distro is
+     Ubuntu
 
 Next, we install the telemetrics backend server with the following options:
 
@@ -462,14 +464,17 @@ it.
 Additional resources
 ********************
 
-https://clearlinux.org/features/telemetry
-
-https://github.com/clearlinux/telemetrics-client
-
-https://github.com/clearlinux/telemetrics-backend
+* `Telemetry feature description`_
+* :ref:`Telemetry architecture<telemetry-about>`
+* :ref:`telemetry-enable`
+* https://github.com/clearlinux/telemetrics-client
+* https://github.com/clearlinux/telemetrics-backend
 
 .. _`Clear Linux telemetry backend server overview`:
    https://github.com/clearlinux/telemetrics-backend
 
 .. _`Intel privacy policies`:
    https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
+
+.. _`Telemetry feature description`:
+  https://clearlinux.org/features/telemetry

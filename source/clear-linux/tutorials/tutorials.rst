@@ -13,7 +13,7 @@ specific |CLOSIA| use cases.
    flatpak/flatpak
    machine-learning/machine-learning
    docker/docker
-   azure/azure
+   azure
    multi-boot/multi-boot
    hadoop
    fmv
@@ -21,3 +21,6 @@ specific |CLOSIA| use cases.
    telemetry-backend/telemetry-backend
    smb/smb
    spark
+   kata
+   kata_migration
+
