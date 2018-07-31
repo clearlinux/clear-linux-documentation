@@ -68,9 +68,9 @@ Create a RPM with autospec
 **************************
 
 .. include:: ../../concepts/autospec-about.rst
-   :Start-after: incl-autospec-overview:
+   :start-after: incl-autospec-overview:
    :end-before: incl-autospec-overview-end:
-
+ 
 For a detailed explanation of how ``autospec`` works on |CL|, visit our 
 :ref:`autospec-about` about page.  For a general understanding of how RPMs 
 work, we recommend visiting the `rpm website`_ or the 
