@@ -6,7 +6,7 @@ Inline Markup
 Sphinx supports a large number of inline markup elements called roles. The
 |CLOSIA| documentation encourages the use of as many roles as
 possible. Thus, you can use any additional roles supported by Sphinx
-not listed here. Please refer to the `Sphinx Inline Markup`_
+not listed here. Please refer to the `Sphinx reStructuredText Markup`_
 documentation for the full list of supported roles.
 
 The following markup is required in every instance unless otherwise
@@ -158,5 +158,5 @@ Environment Variables
    
      :envvar:`QEMU_BIN_PATH=/usr/local/bin`
 
-.. _Sphinx Inline Markup:
-   http://sphinx-doc.org/markup/inline.html#inline-markup
+.. _Sphinx reStructuredText Markup:
+   http://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
