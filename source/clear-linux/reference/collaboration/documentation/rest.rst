@@ -3,6 +3,11 @@
 RestructuredText guide
 ######################
 
+.. incl-restructured-text-overview: 
+
+Overview
+********
+
 The |CLOSIA| uses Sphinx and RestructuredText as authoring tools for its
 documentation. This section contains the preferred methods for using the
 :abbr:`ReST (RestructuredText)` markup on your documents. Please refer to the
@@ -26,6 +31,8 @@ templates, or the code-block directive, for multi-lined templates.
 
 Every use case is explained, examples provided and, lastly,
 templates supplied.
+
+.. incl-restructured-text-overview-end: 
 
 .. toctree::
    :maxdepth: 3

@@ -15,16 +15,18 @@ Internal cross-references
 An internal cross-reference is a reference to a location within the |CLOSIA|
 documentation. Use explicit markup labels and the ``:ref:`` role to create
 cross references to headings, figures, and code examples as needed. Every
-file must have a label before the title identical to the file's name in order
-to be able to add cross-references without having to open the file.
+file must have a label before the title, which is identical to the file's 
+name, in order to be be cross-referenced within the entire documentation.
 
-The labels' naming conventions are:
+Labels' naming conventions:
+
+* Ensure the label is unique throughout the documentation
 
 * Use only full words.
 
 * Use \- to link multiple words.
 
-* Use only as many words as necessary to ensure the label is unique.
+* Use only as many words as necessary.
 
 These are some examples of proper labels:
 
@@ -119,6 +121,33 @@ Use this template to add a hyperlink with a separated definition:
 
 .. code-block:: rst
 
-   The state of `Oregon`_ offers a wide range of recreational activities.
+The state of `Oregon`_ offers a wide range of recreational activities.
 
-   .. _Oregon: http://traveloregon.com/
+The include directive 
+*********************
+
+Clear Linux documentation also uses the ``.. include::`` 
+directive to include a portion of another reST file. 
+
+Use the ``.. include::` directive to show a select portion of :ref:`rest`, as shown below. 
+
+.. code-block:: 
+
+   .. include:: rest.rst
+      :start-after: incl-restructured-text-overview-end:
+      :end-before: incl-restructured-text-overview-end:
+
+In this example, note that you must: 
+
+* Create a `target` that appears directly above a header (ease of inclusion)
+* Ensure that the target is unique, as explained in :ref:`target <internal-cross>`
+* Use a `:` at the end of the value of `start-after` and `end-before`. 
+
+Following is the actual inclusion of the rest.rst file: 
+
+.. include:: rest.rst
+   :start-after: incl-restructured-text-overview:
+   :end-before: incl-restructured-text-overview-end:
+
+
+.. _Oregon: http://traveloregon.com/
