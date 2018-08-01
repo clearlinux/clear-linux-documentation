@@ -83,7 +83,8 @@ This creates a link to the :ref:`label-of-target` using the text of the
 heading.
 
 This creates a link to the :ref:`target <label-of-target>` using the word
-'target' instead of the heading.
+'target' instead of the heading. We use the term 'target' here similar to 
+the way'anchor' is used in HTML. 
 
 .. note::
 
@@ -94,7 +95,7 @@ This creates a link to the :ref:`target <label-of-target>` using the word
 External References
 *******************
 
-External references or hyperlinks can be added easily with ReST. Only
+External references or hyperlinks can be added easily with reST. Only
 hyperlinks with a separated target definition are allowed.
 
 Do not use explicit hyperlinks consisting entire URLs. For example, links
