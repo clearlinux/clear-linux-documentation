@@ -15,3 +15,4 @@ features.
    collaboration/collaboration
    compatible-kernels
    system-requirements
+   image-types

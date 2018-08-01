@@ -190,7 +190,7 @@ For example:
 
 
 Additionally, to build a mix with your own custom RPMs, use the optional
-:option:`--local-rpms` flag, for example:
+*--local-rpms* flag, for example:
 
 .. code-block:: bash
 
@@ -203,7 +203,7 @@ the paths manually. For more information on using these directories or
 setting them up manually, see `Create or locate RPMs for the mix`_.
 
 If all upstream |CL| bundles will be part of the mix, you can easily add 
-them all during initialization with the optional :option:`--all-upstream` flag. For example:
+them all during initialization with the optional *--all-upstream* flag. For example:
 
 .. code-block:: bash
 
@@ -212,7 +212,7 @@ them all during initialization with the optional :option:`--all-upstream` flag. 
 Finally, you may want to track the contents of your mixer workspace with a
 git repository. This is a great way to track changes to your mix's content
 or to revert to earlier versions if something goes wrong. Mixer can set this
-up automatically with the optional :option:`--git` flag, for example:
+up automatically with the optional *--git* flag, for example:
 
 .. code-block:: bash
 
@@ -231,7 +231,7 @@ Edit builder.conf
 To configure the mixer tool, edit the :file:`builder.conf` as needed.
 
 The file :file:`builder.conf` is read automatically from the current
-workspace directory. Use the :option:`--config` flag during initialization
+workspace directory. Use the *--config* flag during initialization
 to specify an alternate path to the file as needed.
 
 The :file:`builder.conf` file has different sections, for example:
@@ -417,7 +417,7 @@ bundles. When listing bundles with this command, mixer automatically
 recurses through the includes to show every single bundle in the mix.
 
 If you see an unexpected bundle in the list, that bundle is probably included
-in another bundle. Use the :option:`--tree` flag to get a better view of how
+in another bundle. Use the *--tree* flag to get a better view of how
 a bundle ended up in the mix, for example:
 
 .. code-block:: bash
@@ -459,7 +459,7 @@ with the following command:
    mixer bundle list local
 
 Both the local and upstream :command:`bundle list` commands accept the
-:option:`--tree` flag to show a visual representation of the inclusion relationships
+*--tree* flag to show a visual representation of the inclusion relationships
 between the bundles in the mix.
 
 Edit the bundles in the mix
@@ -561,7 +561,7 @@ This command removes `bundle1` from the mix bundle list stored in your
 :file:`mixbundles` file. By default, this command does not remove the bundle
 definition file from your local bundles. To completely remove a bundle,
 including its local bundle definition file, use the following command with
-the :option:`--local` flag:
+the *--local* flag:
 
 .. code-block:: bash
 
@@ -569,7 +569,7 @@ the :option:`--local` flag:
 
 By default, removing a local bundle file with this command removes the bundle
 from the mix as well. To only remove the local bundle definition file, use
-the following command with the :option:`--mix=false` flag:
+the following command with the *--mix=false* flag:
 
 .. code-block:: bash
 
@@ -599,7 +599,7 @@ can run this validation manually on `bundle1` with the following command:
 .. note:: This command can be useful in many circumstances. One example is
    when importing already-existing local bundles from other projects.
 
-If you use the optional :option:`--strict` flag, the command additionally
+If you use the optional *--strict* flag, the command additionally
 checks if the rest of the bundle header fields can be parsed, if the bundle
 header fields are non-empty, and if the bundle header ``Title`` field and
 the bundle filename match. Perform a strict validation of `bundle1` with the
@@ -624,7 +624,7 @@ git commit after you modify the mix bundle list or edit a bundle definition
 file.
 
 All the :command:`mixer bundle` commands in the previous sections support an
-optional :option:`--git` flag. This flag automatically applies a git commit
+optional *--git* flag. This flag automatically applies a git commit
 when the command completes, for example:
 
 .. code-block:: bash
@@ -654,7 +654,7 @@ chroots.
 We have added a new chroot-builder to the mixer tool itself. While this is
 currently an experimental feature, you should use the new chroot-builder. To
 use the new chroot-builder, use the following command with the
-:option:`--new-chroots` flag:
+*--new-chroots* flag:
 
 .. code-block:: bash
 
@@ -681,7 +681,7 @@ By default, mixer uses the legacy `swupd-server` to generate the update
 content. However, we have built a new implementation into the mixer tool
 itself. While this is currently an experimental feature, you should use the
 new `swupd-server`. To use the the new `swupd-server`, use the following
-command with the :option:`--new-swupd` flag:
+command with the *--new-swupd* flag:
 
 .. code-block:: bash
 
@@ -704,7 +704,7 @@ mix version to another, with the following command:
 
 The pack-maker generates all delta packs for the bundles changed from
 `PAST_VERSION` to `MIX_VERSION`. If your `STATE_DIR` is in a different
-location, specify the location with the :option:`-S` flag. Mixer cannot
+location, specify the location with the *-S* flag. Mixer cannot
 create delta packs for the first build because the update is from version 0.
 Version 0 implicitly has no content. Thus, mixer can generate no deltas.
 
@@ -754,7 +754,7 @@ With the `ister` tool configured, build the image with the following command:
 
 Mixer automatically looks for the :file:`release-image-config.json` file, but
 you can freely choose the filename. To use a different name, simply pass the
-:option:`--template` flag when creating your image, for example:
+*--template* flag when creating your image, for example:
 
 .. code-block:: bash
 
@@ -762,7 +762,7 @@ you can freely choose the filename. To use a different name, simply pass the
 
 By default, `ister` uses the format version of the build machine it runs on.
 Therefore, if the format you are building differs from the format of the |CL|
-OS you are building on, you must use the :option:`--format <FORMAT_NUMBER>`
+OS you are building on, you must use the *--format <FORMAT_NUMBER>*
 flag. Find the current format version of your OS with the following command:
 
 .. code-block:: bash
@@ -780,14 +780,14 @@ Increment the mix version number for the next mix with the following command:
 
 This command automatically updates the mix version stored in the
 :file:`mixversion` file, incrementing it by 10. To increment by a different
-amount, use the :option:`--increment` flag, for example:
+amount, use the *--increment* flag, for example:
 
 .. code-block:: bash
 
    mixer versions update --increment 100
 
 Alternatively, to set the mix version to a specific value, use the
-:option:`--mix-version` flag, for example:
+*--mix-version* flag, for example:
 
 .. code-block:: bash
 
@@ -802,7 +802,7 @@ If you have been tracking your workspace with git, you can restore the mix to
 an earlier state. However, be careful when "rewriting history" if you have
 published the mix content to users already.
 
-Use the following command with the the :option:`--upstream-version` flag to
+Use the following command with the the *--upstream-version* flag to
 update the upstream version of |CL| used as a base for the mix:
 
 .. code-block:: bash
