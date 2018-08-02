@@ -46,5 +46,4 @@ templates supplied.
    contents
 
 
-.. _Sphinx documentation:
-   http://sphinx-doc.org/contents.html
+.. _Sphinx documentation: http://sphinx-doc.org/contents.html
