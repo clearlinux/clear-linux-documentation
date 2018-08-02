@@ -130,7 +130,7 @@ The include directive
 Clear Linux documentation also uses the ``.. include::`` 
 directive to include a portion of another reST file. 
 
-Use the ``.. include::`` directive to show a select portion of :ref:`rest`, as shown below. 
+Use the ``.. include::`` directive to show a select portion of a file.  
 
 .. code-block:: console
 
@@ -144,7 +144,7 @@ In this example, note that you must:
 * Ensure that the target is unique, as explained in :ref:`target <internal-cross>`
 * Use a `:` at the end of the value of `start-after` and `end-before`. 
 
-Following is the actual inclusion of the rest.rst file: 
+Use of the ``.. inclusion::`` for :ref:`rest` is shown below. 
 
 .. include:: rest.rst
    :start-after: incl-restructured-text-overview:
