@@ -146,7 +146,7 @@ In this example, note that you must:
 
 Use of the ``.. inclusion::`` for :ref:`rest` is shown below. 
 
-.. include:: rest.rst
+.. include:: ./rest.rst
    :start-after: incl-restructured-text-overview:
    :end-before: incl-restructured-text-overview-end:
 
