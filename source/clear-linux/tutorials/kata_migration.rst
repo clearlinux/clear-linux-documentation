@@ -37,14 +37,6 @@ Make any required changes before continuing this process.
 
   You do not need to manually remove any Clear Containers packages.
 
-Disable Clear Containers manager configuration
-**********************************************
-
-Remove the Clear Containers configuration file: 
-
-.. code-block:: bash
-
-    sudo rm /etc/systemd/system/docker.service.d/clear-containers.conf
 
 Enable Kata Containers as default
 *********************************
@@ -54,10 +46,9 @@ Enable Kata Containers as default
    .. code-block:: bash
 
       sudo mkdir -p /etc/systemd/system/docker.service.d/
-      cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/kata-containers.conf
+      cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/51-runtime.conf
       [Service]
-      ExecStart=
-      ExecStart=/usr/bin/dockerd -D --add-runtime kata-runtime=/usr/bin/kata-runtime --default-runtime=kata-runtime
+      Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime kata-runtime"
       EOF
 
 #. Restart the Docker systemd services.
