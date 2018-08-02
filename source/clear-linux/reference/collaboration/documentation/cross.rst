@@ -130,7 +130,7 @@ The include directive
 Clear Linux documentation also uses the ``.. include::`` 
 directive to include a portion of another reST file. 
 
-Use the ``.. include::` directive to show a select portion of :ref:`rest`, as shown below. 
+Use the ``.. include::`` directive to show a select portion of :ref:`rest`, as shown below. 
 
 .. code-block:: console
 
