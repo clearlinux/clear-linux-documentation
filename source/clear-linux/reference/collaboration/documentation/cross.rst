@@ -132,10 +132,10 @@ directive to include a portion of another reST file.
 
 Use the ``.. include::` directive to show a select portion of :ref:`rest`, as shown below. 
 
-.. code-block:: 
+.. code-block:: console
 
    .. include:: rest.rst
-      :start-after: incl-restructured-text-overview-end:
+      :start-after: incl-restructured-text-overview:
       :end-before: incl-restructured-text-overview-end:
 
 In this example, note that you must: 
