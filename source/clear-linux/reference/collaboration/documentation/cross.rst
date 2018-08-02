@@ -150,5 +150,4 @@ Use of the ``.. inclusion::`` for :ref:`rest` is shown below.
    :start-after: incl-restructured-text-overview:
    :end-before: incl-restructured-text-overview-end:
 
-
 .. _Oregon: http://traveloregon.com/
