@@ -122,7 +122,7 @@ Use this template to add a hyperlink with a separated definition:
 
 .. code-block:: rst
 
-The state of `Oregon`_ offers a wide range of recreational activities.
+   The state of `Oregon`_ offers a wide range of recreational activities.
 
 The include directive 
 *********************
