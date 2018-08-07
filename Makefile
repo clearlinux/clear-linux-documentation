@@ -1,4 +1,5 @@
 # Makefile for Sphinx documentation
+# Use only 'stable' branch for final website build.  
 #
 
 all:
