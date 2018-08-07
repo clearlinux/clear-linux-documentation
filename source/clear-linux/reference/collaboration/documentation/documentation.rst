@@ -36,7 +36,7 @@ The |CL| technical content is written in simple American English and our
 This guide includes the following sections:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    basic
    structures
