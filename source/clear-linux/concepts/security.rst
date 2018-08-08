@@ -1,0 +1,212 @@
+
+.. _security:
+
+|CL| Security 
+*********************
+
+|CL|, as it is distributed and maintained upstream, aims to make 
+systemic and layered security conscious decisions, which are rooted 
+within the project's codebase and philosophy.
+
+Below are just some examples of how:
+
+
+.. contents:: :local:
+   :depth: 2
+
+
+
+Security in Updates
+===================
+
+The |CL| team believes in the potential benefits of 
+open-source software security, incremental updates, and 
+rapidly resolving known security advisories.
+ 
+
+
+The latest Linux codebase
+--------------------------------
+
+The |CL| Project operates around the idea of open sourcing 
+ideas and innovations upstream through the Linux kernel and 
+using it to take advantage of the latest and greatest features. 
+This includes security-centered innovations adopted in the Linux upstream. 
+
+ 
+
+Automated Effective Updating
+----------------------------
+
+The |CL| upstream is updated at lightning pace, releasing full
+new versions of |CL| with incremental updates multiple times a day! 
+
+This `rolling release model`_ allows |CL| users to not only take 
+advantage of the latest Linux upstream innovations but also consume 
+the latest security fixes of software packages as soon as they are available.
+There is no waiting for major or minor releases on |CL|. 
+
+But an update is not effective if it is just simply downloaded onto a system. 
+It needs to be obtained *AND* ensured that the new patched copy is being
+used; not an older copy loaded in memory. |CL| will let you know when a 
+service needs to be rebooted or do it for your automatically after 
+a software update, if desired.
+
+
+In |CL| updates are delivered automatically,efficiently, 
+and effectively.For more information see `documentation about Software Updates`_ in |CL|.
+
+ 
+
+
+
+Automated CVE Scanning and Remediation
+--------------------------------------
+
+The sheer number of software packages and security vulnerabilities is growing 
+at an exorbitant rate. Repositories of CVEs and their fixes, if known, 
+are published by :abbr:`NIST` in a National Vulnerability Database 
+\ |NVD|\  and at \ |MITRE|\  .
+
+
+|CL| takes a proactive and measured approach to addressing known 
+and fixable Common Vulnerabilities and Exposures (CVEs) disclosures.
+|CL| packages are scanned against CVEs at least daily, and 
+software patched in accordance to the fix. This scanning is automated 
+with an open source tool - `cve-check-tool`_ - and any outstanding
+vulnerabilities monitored appropriately.
+
+
+These combined practices minimize the amount of 
+time |CL| systems are exposed to unnecessary security risk.
+
+ 
+
+
+
+Security in Software
+====================
+
+
+Minimized attack surface
+-------------------------
+
+|CL| tries to make no assumptions about the usage of software that gets
+installed on a system. It will not enable system services simply because they 
+have been installed. This helps avoid the inadvertent opening of a network 
+port or sensitive service starting on its own, unless it has been explicitly
+configured to be that way by the system administrator. 
+
+Additionally, |CL| removes legacy, unneeded, or redundant standards and
+components as much as possible to enable the use of best known security standards. 
+
+
+
+Verified trust
+--------------------------
+
+|CL| encourages the use of secure practices such as encryption
+and digital signature verification throughout the system and discourages blind
+trust. Below are some examples: 
+
+* All update operations from swupd are transparently encrypted and checked 
+  against the |CL| maintainers' public key for authenticity. 
+  More information can be found in this blog post: 
+  `blog post about swupd security`_ 
+
+* Before being built, packages available from |CL| verify checksums and 
+  signatures provided by third party project codebases and maintainers.
+
+* |CL| features a unified certificate store, `clrtrust`_ which comes 
+  ready to work with well-known Certificate Authorities out of the box. 
+  `clrtrust`_ also offers an easy to use command line interface for managing 
+  system-wide chains of trust, instead of ignoring foreign certificates. 
+
+
+ 
+
+
+
+Compiled with secure options
+---------------------------------------
+
+While |CL| packages are optimized for performance on 
+Intel Architecture, security conscious kernel and compiler options are 
+sensibly taken advantage of. Below are some examples of how: 
+
+ 
+* Kernels shipped with Clear Linux are signed and disallow the usage of 
+  custom kernel modules to maintain verifiable system integrity.
+
+* `Address space layout randomization (ASLR)`_ and 
+  `Kernel address space layout randomization (KASLR)`_  are kernel features
+  which defends against certain memory based attacks. 
+  More information can be found in a `blog post about PIE executables`_ 
+
+* `dm-verity`_ is a kernel mechanism readily available in |CL| 
+  which verifies integrity of the devices being written to, like harddisks,
+  to help ensure they have not been tampered with.  
+
+
+.. note:: 
+    Linux security modules which restrict program capabilities, 
+    such as Security-Enhanced Linux (`SELinux`_) or AppArmor, are not implemented
+    by |CL| at this time.
+
+  
+
+Security in System Design
+=========================
+
+Common and simple, yet effective, techniques are used throughout the 
+|CL| system design to defend against common attack vectors and enable
+good security hygiene. 
+
+ 
+
+Some examples are below: 
+
+
+* Full disk encryption using `Linux Unified Key Setup`_ (LUKS)  is available 
+  during installation 
+
+* Use the PAM cracklib module to harden user login and password security: 
+
+    - No default username or root password set out of the box with 
+      |CL|, you will be asked to set your own password immediately.
+
+    - Simple password are schemes, which are known to be easily compromised,
+      cannot be set in |CL|.
+
+    - A password blacklist is in place, to avoid system passwords being set to
+      passwords which have been compromised in the past.
+
+* `Tallow`_, a lightweight service which monitors for suspicious SSH login
+      patterns, is included with |CL|.
+        
+
+
+
+
+
+.. _`documentation about Software Updates`: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about
+.. _`cve-check-tool`: https://github.com/clearlinux/cve-check-tool
+.. _`blog post about swupd security`: https://clearlinux.org/blogs/security-software-update-clear-linux-os-intel-architecture
+.. _`rolling release model`: https://en.wikipedia.org/wiki/Rolling_release
+.. _`clrtrust`: https://github.com/clearlinux/clrtrust
+.. _`Address space layout randomization (ASLR)`: https://en.wikipedia.org/wiki/Address_space_layout_randomization
+.. _`Kernel address space layout randomization (KASLR)`: https://lwn.net/Articles/569635/
+.. _`dm-verity`: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/device-mapper/verity.txt
+.. _`SELinux`: https://github.com/SELinuxProject
+.. _`Linux Unified Key Setup`: https://gitlab.com/cryptsetup/cryptsetup/
+.. _`blog post about PIE executables`: https://clearlinux.org/blogs/recent-gnu-c-library-improvements 
+.. _`Tallow`: https://github.com/clearlinux/tallow
+
+.. |NVD| raw:: html
+
+    <a href="https://nvd.nist.gov/" target="_blank">https://nvd.nist.gov/</a>
+
+.. |MITRE| raw:: html
+
+    <a href="https://cve.mitre.org/" target="_blank">https://cve.mitre.org/</a>
+
