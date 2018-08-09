@@ -3,6 +3,14 @@
 Tutorials
 #########
 
+Our Tutorials:
+
+* Demonstrate how to use distinct |CL| features in cloud, 
+  client, distributed processing, and virtualization environments
+* Involve applications of |CL| that often use third-party tools 
+* Extend the development possibilities of |CL| with specific use cases
+
+
 This section provides detailed instructions to guide you through completing
 specific |CLOSIA| use cases.
 
