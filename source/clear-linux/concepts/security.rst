@@ -148,10 +148,6 @@ sensibly taken advantage of. Below are some examples of how:
   to help ensure they have not been tampered with.  
 
 
-.. note:: 
-    Linux security modules which restrict program capabilities, 
-    such as Security-Enhanced Linux (`SELinux`_) or AppArmor, are not implemented
-    by |CL| at this time.
 
   
 
@@ -181,8 +177,8 @@ Some examples are below:
     - A password blacklist is in place, to avoid system passwords being set to
       passwords which have been compromised in the past.
 
-* `Tallow`_, a lightweight service which monitors for suspicious SSH login
-      patterns, is included with |CL|.
+* `Tallow`_, a lightweight service which monitors and blocks suspicious SSH 
+  login patterns, is installed with the :command:`openssh-server` bundle. 
         
 
 
