@@ -5,8 +5,9 @@
 *********************
 
 |CL|, as it is distributed and maintained upstream, aims to make 
-systemic and layered security conscious decisions, which are rooted 
-within the project's codebase and philosophy.
+systemic and layered security conscious decisions, which are both
+performant and practical. This security philosophy is rooted within
+the project's codebase and operating culture.
 
 Below are just some examples of how:
 
@@ -20,7 +21,7 @@ Security in Updates
 ===================
 
 The |CL| team believes in the potential benefits of 
-open-source software security, incremental updates, and 
+software security through open sourcing, incremental updates, and 
 rapidly resolving known security advisories.
  
 
@@ -41,19 +42,18 @@ Automated Effective Updating
 The |CL| upstream is updated at lightning pace, releasing full
 new versions of |CL| with incremental updates multiple times a day! 
 
-This `rolling release model`_ allows |CL| users to not only take 
-advantage of the latest Linux upstream innovations but also consume 
-the latest security fixes of software packages as soon as they are available.
+This `rolling release model`_ allows |CL| to consume the latest security
+fixes of software packages as soon as they become available. 
 There is no waiting for major or minor releases on |CL|. 
 
 But an update is not effective if it is just simply downloaded onto a system. 
 It needs to be obtained *AND* ensured that the new patched copy is being
-used; not an older copy loaded in memory. |CL| will let you know when a 
+used; not an older copy loaded into memory. |CL| will let you know when a 
 service needs to be rebooted or do it for your automatically after 
 a software update, if desired.
 
 
-In |CL| updates are delivered automatically,efficiently, 
+In |CL| updates are delivered automatically, efficiently, 
 and effectively.For more information see `documentation about Software Updates`_ in |CL|.
 
  
@@ -132,7 +132,7 @@ Compiled with secure options
 
 While |CL| packages are optimized for performance on 
 Intel Architecture, security conscious kernel and compiler options are 
-sensibly taken advantage of. Below are some examples of how: 
+sensibly taken advantage of. Below are some examples: 
 
  
 * Kernels shipped with Clear Linux are signed and disallow the usage of 
@@ -156,11 +156,7 @@ Security in System Design
 
 Common and simple, yet effective, techniques are used throughout the 
 |CL| system design to defend against common attack vectors and enable
-good security hygiene. 
-
- 
-
-Some examples are below: 
+good security hygiene. Below are are some examples: 
 
 
 * Full disk encryption using `Linux Unified Key Setup`_ (LUKS)  is available 
