@@ -3,43 +3,30 @@
 Software update
 ###############
 
-The traditional way
-===================
+Clear Linux OS for Intel® Architecture does software updates differently than traditional Linux-based operating systems. Where traditional distributions rely on packages for software deployment, Clear Linux uses the concept of a bundle for deployment. Traditional Linux packages provide a particular utility or library, whereas Clear Linux bundles provide a specific function and include all necessary dependencies and packages.
 
-Traditional Linux-based operating systems are often a mix of several
-hundred, if not thousands, of open source projects. To make them
-manageable, most distributions use the concept of "packages" to configure
-and compile source code into binaries for installation.
+With Clear Linux, updating equates to an entirely new OS version with a specific set of bundles, as compared to a package-based distribution in which packages may be updated individually. Clear Linux updates are efficient, updating only changed files instead of entire packages.
 
-Many distributions then combine these compiled binaries into so-called
-packages, resolving dependencies and providing everything needed to
-install. This is the granularity at which typical distributions deploy
-their software, enabling system administrators to install and update
-each package individually or as a set, using tools such as ``yum`` and
-``apt-get``.
+System administrators can customize or add bundles to the OS, while still taking advantage of a controlled update stream. This enables system administrators to focus on the pieces that make their deployment unique.
 
-The Clear way
-=============
-
-Clear Linux OS for Intel® Architecture does things a little differently.
-The following are a few notable features that distinguish it from
-standard OSes: bundles, versioning, updating, and update speed.
 
 Bundles
--------
+=======
 
-While we use the concept of packages to manage compiling source code into
+While we use the concept of "packages" to manage compiling source code into
 installable binaries, we do not deploy software through packages. Instead,
 we provide "bundles" which operate as a self-contained set of functionality
 for the system administrator -- functionality that gets enabled by composing
 all the required upstream open-source projects into one logical unit: a
 bundle.
 
+For additional resources regarding available bundles, useful bundle commands, and compatible Clear Linux kernels, visit our :ref:`Bundles <bundles-about>` page.
+
 
 Versioning
-----------
+==========
 
-On a traditional distribution, the process of describing current software
+In a traditional distribution, the process of describing current software
 versioning usually involves:
 
 -  Listing and keeping track of the current OS release (generally
@@ -73,7 +60,7 @@ systems running the same Clear Linux OS for Intel Architecture.
 
 
 Updating
---------
+========
 
 Another notable difference between package-based distributions and Clear Linux
 is how updates are managed. On a package-based OS, system administrators update
@@ -101,9 +88,10 @@ And reenabled by running::
 
     # swupd autoupdate --enable
 
+To learn how to run an update of your system, visit our :ref:`Use swupd <swupd-guide>` page.
 
 Update speed
-------------
+============
 
 Software updates with Clear Linux OS for Intel Architecture are also
 efficient. Bundles simply describe a set of files, and the update
@@ -129,7 +117,7 @@ system and its updates as the basis. Using this tool, system administrators
 can focus on the custom pieces their deployments require while staying on
 a controlled update stream.
 
-To learn how to run an update of your system, visit our :ref:`using swupd <swupd-guide>` page.
+
 
 .. [1] The software update technology for Clear Linux* OS for Intel
    Architecture was first presented at the Linux Plumbers conference in 2012.
