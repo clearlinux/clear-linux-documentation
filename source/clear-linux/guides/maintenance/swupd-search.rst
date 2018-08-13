@@ -6,15 +6,17 @@ Use swupd search to find a bundle
 .. contents:: :local: 
    depth: 2
 
-This illustration shows you how to use `swupd search` as a Developer. We 
-assume that you have a basic knowledge of: 
+This help document shows you how to use `swupd search` as a Developer. 
 
-* How :ref:`swupd <swupd-guide>` works 
-* How :ref:`swupd differs <swupd-about>` from *package managers* in other Linux\* distributions 
+Assumptions: 
 
-This document assumes your goal is to use :ref:`mixer` to build your own 
-Clear Linux* OS for Intel® Architecture for a specific use case. Our example 
-is intended to show by example how to search and add a bundle. 
+* Basic knowledge of using :ref:`swupd <swupd-guide>` 
+* Understanding how :ref:`swupd <swupd-about>` differs from  
+  other Linux\* distributions 
+* You plan to use :ref:`mixer` to build your own |CLOSIA|for a specific 
+  use case 
+
+This example illustrates how to search for and add a bundle. 
 
 Scenario 1: Data Science with Python
 ====================================
@@ -22,10 +24,11 @@ Scenario 1: Data Science with Python
 We're developing a custom Clear Linux OS for data science with Python. We'll 
 develop our own mix, from which we'll create a release image. That image 
 will be distributed to data center (DC) clients across the United States  
-who need this data to determine DC workload balancing. We need to
-create a tool to analyze energy consumption profiles based on population 
-statistics and consumption data, whose results are heat-maps showing where 
-and when energy consumption peaks in large metropolitan areas. 
+who need this data to determine DC workload balancing. Why? We need to
+create a tool to analyze energy consumption based on population 
+statistics and consumption data. Our tool's custom dashboard will include 
+heat-maps showing where and when energy consumption peaks in large 
+metropolitan areas. 
 
 So far, we know we need Python data science capabilities. 
 
@@ -57,7 +60,7 @@ First, use :command:`swupd search` with a general term like *Python*.
 
       Result above is one of several shown in standard output.  
 
-      If the bundle is already installed, [installed] appears in search results. If it doesn't apppear, the bundle needs to be installed. 
+      If the bundle is already installed, *[installed]* appears in search results. If that doesn't apppear, the bundle needs to be installed. 
 
 #. Add the bundle `python-data-science`.
 

@@ -3,31 +3,34 @@
 Developer Workstation
 #####################
 
-Workstation Setup
-*****************
+Overview
+********
 
-*Workstation Setup* helps you, the developer, find the tools you need. Use 
-the *Clear Linux Developer Profiles* (Table 1) to help you decide which bundles, at minimum, you need to set up your developer workstation. 
+*Developer Workstation* helps you find the tools you need to 
+set up your developer workstation. 
 
-We recommend using :ref:`swupd-search` to jump-start your skills using 
-core |CL| features like `swupd`.
+First, we recommend learning how to use :ref:`swupd <swupd-guide>`. 
 
-:ref:`swupd search <swupd-search>` shows: 
+Next, check out :ref:`swupd search <swupd-search>`, which shows: 
 
-* How to use `swupd` commands
-* How to search for bundles (that contain packages)
-* How to add bundles
+* How to use `swupd` to search for bundles 
+* How to use `swupd` to add bundles
 
 How to use this document
 ========================
 
-As a Developer, you could add the bundle `os-clr-on-clr` found in 
-:ref:`enable-user-space`. However, you may want to deploy a leaner OS with
-only the bundles you need. This guide helps you get started. 
+This guide helps you understand the minimum bundles required to get started. 
+After installing them, you can add more bundles relevant to your use 
+case. To run any process required for Clear Linux developement, you may want 
+to add the large bundle :ref:`*os-clr-on-clr* <enable-user-space>`. 
+However, given how many packages this bundle contains, you may prefer
+instead to deploy a leaner OS with only bundles relevant to your project. 
+Developer Workstation responds to this need. 
 
-Use Table 1 to identify the *minimum required bundles* you need to get 
-started developing based on your role. While your role may not 
-neatly fit into one of these categories, use Table 1 as a starting point. 
+Use Table 1, *Clear Linux Developer Profiles*, to identify the *minimum 
+required bundles* to get started developing based on your role or project. 
+While your role may not fit neatly into one of these categories, use Table 1 
+as a starting point. 
 
 .. list-table:: **Table 1. Clear Linux Developer Profiles**
    :widths: 20, 20, 20, 20
