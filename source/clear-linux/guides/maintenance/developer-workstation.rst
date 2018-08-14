@@ -6,26 +6,21 @@ Developer Workstation
 Overview
 ********
 
-*Developer Workstation* helps you find the tools you need to 
-set up your developer workstation. 
+*Developer Workstation* helps you find the bundles you need to 
+start your |CL| development project. 
 
 First, we recommend learning how to use :ref:`swupd <swupd-guide>`. 
-
-Next, check out :ref:`swupd search <swupd-search>`, which shows: 
-
-* How to use `swupd` to search for bundles 
-* How to use `swupd` to add bundles
 
 How to use this document
 ========================
 
 This guide helps you understand the minimum bundles required to get started. 
-After installing them, you can add more bundles relevant to your use 
-case. To run any process required for Clear Linux developement, you may want 
-to add the large bundle :ref:`*os-clr-on-clr* <enable-user-space>`. 
-However, given how many packages this bundle contains, you may prefer
-instead to deploy a leaner OS with only bundles relevant to your project. 
-Developer Workstation responds to this need. 
+After installing them, you can add more bundles relevant to your use case. 
+To run any process required for Clear Linux developement, you may want to 
+add the large bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, 
+given how many packages this bundle contains, you may prefer instead to 
+deploy a leaner OS with only bundles relevant to your project. Developer 
+Workstation responds to this need. 
 
 Use Table 1, *Clear Linux Developer Profiles*, to identify the *minimum 
 required bundles* to get started developing based on your role or project. 
@@ -79,6 +74,15 @@ as a starting point.
      - 
      - 
      - ✓
+
+
+Second, try out :ref:`swupd search <swupd-search>`, to learn the commands to
+search for and add bundles relevant to your project. 
+
+:ref:`swupd-search` shows you how to: 
+
+* Use `swupd` to search for bundles 
+* Use `swupd` to add bundles
 
 Core Concepts
 =============

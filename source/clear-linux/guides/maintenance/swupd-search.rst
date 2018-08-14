@@ -1,40 +1,45 @@
 .. _swupd-search: 
 
-Use swupd search to find a bundle
+Use swupd search to find bundles
 #################################
 
 .. contents:: :local: 
    depth: 2
 
-This help document shows you how to use `swupd search` as a Developer. 
+This help document shows you how to use `swupd search` to search for and add 
+a bundle. 
 
-Assumptions: 
+Assumptions
+***********
 
-* Basic knowledge of using :ref:`swupd <swupd-guide>` 
-* Understanding how :ref:`swupd <swupd-about>` differs from  
+You have: 
+
+* A basic knowledge of using :ref:`swupd <swupd-guide>` 
+* An Understanding how :ref:`swupd <swupd-about>` differs from  
   other Linux\* distributions 
-* You plan to use :ref:`mixer` to build your own |CLOSIA|for a specific 
+* A plan to use :ref:`mixer` to build your own |CLOSIA|for a specific 
   use case 
 
-This example illustrates how to search for and add a bundle. 
+How do I search for a bundle? 
+*****************************
 
-Scenario 1: Data Science with Python
-====================================
+Example: Python Data Science
+============================
 
 We're developing a custom Clear Linux OS for data science with Python. We'll 
 develop our own mix, from which we'll create a release image. That image 
 will be distributed to data center (DC) clients across the United States  
-who need this data to determine DC workload balancing. Why? We need to
-create a tool to analyze energy consumption based on population 
-statistics and consumption data. Our tool's custom dashboard will include 
-heat-maps showing where and when energy consumption peaks in large 
+who need to determine DC workload balancing during peak energy hours. 
+We will create a tool to analyze energy consumption based on population 
+statistics and consumption data. Our tool's dashboard will show heat-maps 
+of where and charts of when energy consumption peaks in large 
 metropolitan areas. 
 
-So far, we know we need Python data science capabilities. 
+So far, we know we need a Python *data science* bundle. 
 
 First, use :command:`swupd search` with a general term like *Python*. 
 
-#. Enter this command and add 'Python' as the search term: 
+#. Enter this command, followed by 'Python' as the search term: 
 
    .. code-block:: bash
 
@@ -46,9 +51,9 @@ First, use :command:`swupd search` with a general term like *Python*.
       Enter only one term, or one hyphenated term, at a time. 
       Use the command :command:`man swupd` to learn more. 
 
-      `-b` flag, or `--binary`, means: Restrict search to program binary paths. 
+      `-b` flag, or `--binary`, means: Restrict search to program binary paths.
 
-#. Results of `swupd search` shows the best match for our use case.
+#. Viewing `swupd search` result, we choose the best match for our use case.
 
    .. code-block:: console
 
@@ -58,15 +63,19 @@ First, use :command:`swupd search` with a general term like *Python*.
 
    .. note::
 
-      Result above is one of several shown in standard output.  
+      The results *Python* is one of several shown.  
 
       If the bundle is already installed, *[installed]* appears in search results. If that doesn't apppear, the bundle needs to be installed. 
 
-#. Add the bundle `python-data-science`.
+#. Add the bundle `python-data-science`:
 
    .. code-block:: bash
 
       sudo swupd bundle-add python-data-science
+
+      .. note:: 
+
+         To add other bundles, replace `python-data-science` with your selected bundle.
 
 #. When prompted, enter your password. 
 
@@ -97,7 +106,9 @@ Find answers to these common questions:
 
 * How do I show all :ref:`bundles available<swupd-guide>`?
 
-* How do I :ref:`add new bundles<swupd-guide>`? 
+* How do I :ref:`update swupd<swupd-guide>`? 
+
+* How do I :ref:`remove bundles<swupd-guide>`? 
 
 .. note:: 
    

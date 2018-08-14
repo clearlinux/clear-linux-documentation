@@ -10,6 +10,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    :maxdepth: 2
 
    developer-workstation
+   swupd-search
    enable-user-space
    swupd-guide
    bulk-provision
