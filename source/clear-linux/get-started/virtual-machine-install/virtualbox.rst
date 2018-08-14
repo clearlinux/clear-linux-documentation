@@ -3,7 +3,7 @@
 Run pre-configured Clear Linux\* as a VirtualBox\* guest OS
 ###########################################################
 
-This section shows how to deploy a pre-configured Clear Linux\* image as a guest on the `VirtualBox hypervisor`_ .
+This instruction explains how to deploy a pre-configured Clear Linux\* image as a guest on the `VirtualBox hypervisor`_ .
 
 Download VirtualBox
 ===================
@@ -12,20 +12,26 @@ VirtualBox\* is a type 2 hypervisor from Oracle. Download and use **version 5.0 
 
 .. _create_vm_vbox:
 
-Install VirtualBox
-===================
+Prerequisites
+=============
 
-#. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
-   `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
-   host machine’s BIOS.
+The instruction assumes that you have: 
 
-#. Log in and open a terminal emulator.
+#. Enabled virtualization technology in the host machine's BIOS. 
+   
+   .. note:: 
 
-#. Install VirtualBox on your host machine per the
-   `appropriate instructions`_.
+      For help, see: `Intel® Virtualization Technology`_ (Intel® VT). 
+
+#. Installed VirtualBox on your host machine per the 
+   `appropriate instructions`_ for your platform.
+
+If you have not completed the above steps, do so before continuing. 
 
 Create a virtual machine in VirtualBox
 ======================================
+
+#. Log in to your host and open a terminal emulator.
 
 #. Download the `latest`_ **live** version (clear-XXXX-live.img.xz) of
    Clear Linux. You can also use this command: 
@@ -140,27 +146,9 @@ To install the VirtualBox kernel modules, here are the steps:
 
      clr-boot-manager update
 
+.. note:: 
 
-Install Guest Additions
------------------------
-
-The kernel modules are shipped with the ``kernel-lts`` bundle; however,
-you'll need to install the *user* Linux Guest Additions. To install the
-VirtualBox Guest Additions, follow these steps:
-
-#. Insert Guest Additions CD image using *Devices* menu
-
-   .. image:: ./figures/vbox-cd.png
-      :alt: VirtualBox CD
-
-#. Install Linux users Guest Additions::
-
-     install-vbox-lga
-
-#. Reboot your system::
-
-     reboot
-
+  :abbr:`LGA (Linux Guest Additions)` drivers are integrated in Clear Linux LTS kernel 4.14 going forward. You do not need to manually install LGA. 
 
 Troubleshooting
 ---------------
@@ -181,9 +169,8 @@ To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
 
-.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/
-   intel-virtualization-technology.html
-.. _Intel® Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
+.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/support/articles/000007693/server-products/server-boards.html
+
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
