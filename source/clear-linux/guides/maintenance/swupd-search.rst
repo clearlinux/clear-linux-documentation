@@ -35,9 +35,9 @@ and secure option for app/container management.
 In |CL|, you only need to add one bundle to use `Kata Containers`_: 
 `containers virt`_. We also recommend our tutorial: :ref:`kata`
 
-We need a *kata* containers bundle. So how do we search for it? Use :command:`swupd search` with **only one term** like *kata*. 
+We need a *kata* containers bundle. So how do we search for it? 
 
-#. Enter the command, followed by 'kata' as the search term: 
+#. Enter :command:`swupd search`, followed by 'kata' as the search term: 
 
    .. code-block:: bash
 
