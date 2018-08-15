@@ -25,12 +25,17 @@ How do I search for a bundle?
 Example: Kata Containers
 ========================
 
-Containers have revolutionized the way we manage cloud infrastructure. Whereas traditional containers share the same OS kernel, raising security concerns, with Kata Containers, each container has its own kernel instance and runs on its own :abbr:`Virtual Machine (VM)`. Whether you're running 3 or 300 nodes on your cluster, Kata Containers provide a lightweight, fast, and secure option for app/container management.  
+Containers have revolutionized the way we manage cloud infrastructure. 
+Whereas traditional containers share the same OS kernel, raising security 
+concerns, with Kata Containers, each container has its own kernel instance 
+and runs on its own :abbr:`Virtual Machine (VM)`. Whether you're running 3 
+or 300 nodes on your cluster, Kata Containers provide a lightweight, fast, 
+and secure option for app/container management.  
 
 In |CL|, you only need to add one bundle to use `Kata Containers`_: 
 `containers virt`_. We also recommend our tutorial: :ref:`kata`
 
-So far, we need a *kata* containers bundle. So how do we search for it?  First, use :command:`swupd search` with **only one term** like *kata*. 
+In our example, we need a *kata* containers bundle. So how do we search for it? Use :command:`swupd search` with **only one term** like *kata*. 
 
 #. Enter this command, followed by 'kata' as the search term: 
 
@@ -66,9 +71,9 @@ So far, we need a *kata* containers bundle. So how do we search for it?  First, 
 
       sudo swupd bundle-add containers-virt
 
-      .. note:: 
+   .. note:: 
 
-         To add other bundles, replace `containers-virt` with your selected bundle.
+      To add other bundles, use :command:`sudo swupd bundle-add`, plus your selected bundle name.
 
 #. When prompted, enter your password. 
 
@@ -90,9 +95,6 @@ So far, we need a *kata* containers bundle. So how do we search for it?  First, 
       Calling post-update helper scripts.
       Successfully installed 1 bundle
 
-.. note:: 
-   
-   For developers who do not wish to adopt the |CL| Common Tooling Framework (e.g., Autospec, etc.), select the complementary :file:`-dev` bundle in order to successfully build each bundle. 
 
 FAQ
 ===

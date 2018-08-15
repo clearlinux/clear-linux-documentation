@@ -35,6 +35,7 @@ While your role may not neatly fit in one of these categories, consider using Ta
      - *Internet of Things (IoT)* 
      - *System Administrator*
      - *Client/Cloud/Web Developer*
+     
    * - `editors` 
      - ✓
      - ✓
