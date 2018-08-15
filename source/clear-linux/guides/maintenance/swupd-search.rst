@@ -12,104 +12,103 @@ a bundle.
 Assumptions
 ***********
 
-You have: 
+This guide assumes you: 
 
-* A basic knowledge of using :ref:`swupd <swupd-guide>` 
-* An Understanding how :ref:`swupd <swupd-about>` differs from  
+* Possess a basic knowledge of :ref:`swupd <swupd-guide>` 
+* Understand :ref:`how swupd differs <swupd-about>` from  
   other Linux\* distributions 
-* A plan to use :ref:`mixer` to build your own |CLOSIA|for a specific 
-  use case 
+* Plan to use :ref:`mixer` to build your own |CL| OS
 
 How do I search for a bundle? 
 *****************************
 
-Example: Python Data Science
-============================
+Example: Kata Containers
+========================
 
-We're developing a custom Clear Linux OS for data science with Python. We'll 
-develop our own mix, from which we'll create a release image. That image 
-will be distributed to data center (DC) clients across the United States  
-who need to determine DC workload balancing during peak energy hours. 
-We will create a tool to analyze energy consumption based on population 
-statistics and consumption data. Our tool's dashboard will show heat-maps 
-of where and charts of when energy consumption peaks in large 
-metropolitan areas. 
+Containers have revolutionized the way we manage cloud infrastructure. Whereas traditional containers share the same OS kernel, raising security concerns, with Kata Containers, each container has its own kernel instance and runs on its own :abbr:`Virtual Machine (VM)`. Whether you're running 3 or 300 nodes on your cluster, Kata Containers provide a lightweight, fast, and secure option for app/container management.  
 
-So far, we know we need a Python *data science* bundle. 
+In |CL|, you only need to add one bundle to use `Kata Containers`_: 
+`containers virt`_. We also recommend our tutorial: :ref:`kata`
 
-First, use :command:`swupd search` with a general term like *Python*. 
+So far, we need a *kata* containers bundle. So how do we search for it?  First, use :command:`swupd search` with **only one term** like *kata*. 
 
-#. Enter this command, followed by 'Python' as the search term: 
+#. Enter this command, followed by 'kata' as the search term: 
 
    .. code-block:: bash
 
-      sudo swupd search -b Python
+      sudo swupd search -b kata
 
    .. note::
       
-      `swupd search` searches for matching paths in the manifest data. 
-      Enter only one term, or one hyphenated term, at a time. 
-      Use the command :command:`man swupd` to learn more. 
+      `swupd search` downloads |CL| manifest data and searches for matching paths. Enter only one term, or hyphenated term, per search. Use the command :command:`man swupd` to learn more. 
 
       `-b` flag, or `--binary`, means: Restrict search to program binary paths.
 
-#. Viewing `swupd search` result, we choose the best match for our use case.
+#. The `swupd search` results show a match for our use case.
 
    .. code-block:: console
 
-      Bundle python-data-science	(923 MB to install)
-      		/usr/bin/ipython3
-      		/usr/bin/ipython
+      Bundle containers-virt    (834 MB to install)
+          /usr/bin/kata-virtfs-lite-proxy-helper
+          /usr/bin/kata-runtime
+          /usr/bin/kata-qemu-lite-system-x86_64
+          /usr/bin/kata-qemu-lite-pr-helper
+          /usr/bin/kata-qemu-lite-ga
+          /usr/bin/kata-collect-data.sh
 
    .. note::
 
-      The results *Python* is one of several shown.  
+      If the bundle is already installed, *[installed]* appears in search results. If this doesn't apppear, the bundle needs to be installed. 
 
-      If the bundle is already installed, *[installed]* appears in search results. If that doesn't apppear, the bundle needs to be installed. 
-
-#. Add the bundle `python-data-science`:
+#. Add the bundle `containers-virt`:
 
    .. code-block:: bash
 
-      sudo swupd bundle-add python-data-science
+      sudo swupd bundle-add containers-virt
 
       .. note:: 
 
-         To add other bundles, replace `python-data-science` with your selected bundle.
+         To add other bundles, replace `containers-virt` with your selected bundle.
 
 #. When prompted, enter your password. 
 
-   .. note:: 
-
-      You should see console data similar to the following: 
-
+#. Upon successful installation, your console should show similar data:
+  
    .. code-block:: console 
 
-      Password: 
       Downloading packs...
 
-      Extracting python-data-science pack for version 23710
-      ...50%
-      Extracting python-extras pack for version 23830
-      ...100%
+      Extracting containers-virt pack for version 24430
+          ...50%
+      Extracting kernel-container pack for version 24430
+          ...100%
       Starting download of remaining update content. This may take a while...
-      ...100%
+          ...100%
       Finishing download of update content...
       Installing bundle(s) files...
-      ...100%
+          ...100%
       Calling post-update helper scripts.
       Successfully installed 1 bundle
+
+.. note:: 
+   
+   For developers who do not wish to adopt the |CL| Common Tooling Framework (e.g., Autospec, etc.), select the complementary :file:`-dev` bundle in order to successfully build each bundle. 
+
 FAQ
 ===
 
 Find answers to these common questions: 
 
-* How do I show all :ref:`bundles available<swupd-guide>`?
+* How do I install and *use* :ref:`Kata Containers <kata>` on |CL|? 
+
+* How do I :ref:`kata_migration`?
+
+* How do I show all :ref:`bundles available <swupd-guide>`?
 
 * How do I :ref:`update swupd<swupd-guide>`? 
 
 * How do I :ref:`remove bundles<swupd-guide>`? 
 
-.. note:: 
-   
-   For developers who do not wish to adopt the |CL| Common Tooling Framework (e.g., Autospec, etc.), select the complementary :file:`-dev` bundle in order to successfully build each bundle. 
+.. _Kata Containers: https://clearlinux.org/blogs/clear-linux-os-announces-support-kata-containers
+
+.. _containers virt: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt

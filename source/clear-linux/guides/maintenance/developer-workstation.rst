@@ -6,26 +6,26 @@ Developer Workstation
 Overview
 ********
 
-*Developer Workstation* helps you find the bundles you need to 
+*Developer Workstation* helps you find the :ref:`bundles-about` you need to 
 start your |CL| development project. 
 
-First, we recommend learning how to use :ref:`swupd <swupd-guide>`. 
+Before continuing, we recommend that you learn how to use :ref:`swupd <swupd-guide>`. Visit our :ref:`swupd-about` page to understand how |CL|
+simplifies software versioning in contrast to other Linux\* distributions. 
 
-How to use this document
-========================
+Workstation Setup
+=================
 
 This guide helps you understand the minimum bundles required to get started. 
 After installing them, you can add more bundles relevant to your use case. 
-To run any process required for Clear Linux developement, you may want to 
+To run any process required for Clear Linux development, you may choose to 
 add the large bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, 
-given how many packages this bundle contains, you may prefer instead to 
-deploy a leaner OS with only bundles relevant to your project. Developer 
+given how many packages this bundle contains, you may instead want to deploy 
+a leaner OS with only those bundles relevant to your project. Developer 
 Workstation responds to this need. 
 
 Use Table 1, *Clear Linux Developer Profiles*, to identify the *minimum 
 required bundles* to get started developing based on your role or project. 
-While your role may not fit neatly into one of these categories, use Table 1 
-as a starting point. 
+While your role may not neatly fit in one of these categories, consider using Table 1 as a starting point. 
 
 .. list-table:: **Table 1. Clear Linux Developer Profiles**
    :widths: 20, 20, 20, 20
@@ -75,9 +75,11 @@ as a starting point.
      - 
      - ✓
 
+`swupd` search
+==============
 
-Second, try out :ref:`swupd search <swupd-search>`, to learn the commands to
-search for and add bundles relevant to your project. 
+We recommend trying out :ref:`swupd search <swupd-search>`, to learn the
+commands to search for and add bundles relevant to your project. 
 
 :ref:`swupd-search` shows you how to: 
 
