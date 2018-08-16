@@ -9,8 +9,8 @@ features.
 .. toctree::
    :maxdepth: 2
 
-   compatible-hardware
    bundle-commands
+   compatible-hardware
    bundles/available-bundles
    how-to-clear-overview
    collaboration/collaboration
