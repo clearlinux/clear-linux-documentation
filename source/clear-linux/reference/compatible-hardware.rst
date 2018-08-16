@@ -11,101 +11,103 @@ grow.
     :widths: 20, 20
     :header-rows: 1
 
-    * - CPU SKU
+    * - Processor SKU
       - Platform
 
-    * - Core I5-6260U
+    * - Intel® Core™ i5-6260U
       -
 
-    * - Core i5-6560U
+    * - Intel® Core™ i5-6560U
       - Dell XPS 13 9350
 
-    * - Celeron J3455
+    * - Intel® Celeron® J3455
       - NUC6CAYS
 
-    * - Core I5-4250U
+    * - Intel® Core™ i5-4250U
       -
 
-    * - Core I7-5557U
+    * - Intel® Core™ i7-5557U
       -
 
-    * - Core I9-7900X
+    * - Intel® Core™ i9-7900X
       - Gigabyte X299
 
-    * - Core I3-4130
+    * - Intel® Core™ i3-4130
       - Lenovo Thinkserver TS140
 
-    * - Core i7-7567U
+    * - Intel® Core™ i7-7567U
       - NUC7i7BNH
 
-    * - Core i7-8809G
+    * - Intel® Core™ i7-8809G
       - NUC8i7HVK
 
-    * - Core i5-7260U
+    * - Intel® Core™ i5-7260U
       - NUC7i5BNH
 
-    * - Core i7-8650U
+    * - Intel® Core™ i7-8650U
       - NUC7i7DNKE
 
-    * - Core i5-7300U
+    * - Intel® Core™ i5-7300U
       - NUC7i5DNHE
 
-    * - Xeon Gold 6138 CPU
+    * - Intel® Xeon® Gold 6138 Processor
       -
 
-    * - Xeon CPU E5-2699A v4
+    * - Intel® Xeon® Processor E5-2699A v4
       - Dell PowerEdge R630
 
-    * - Xeon CPU E5-2620 v3
+    * - Intel® Xeon® Processor E5-2620 v3
       -
 
-    * - Core i5-6600
+    * - Intel® Core™ i5-6600
       - Gigabyte Z170X-UD5
 
-    * - Core i5-4250U
+    * - Intel® Core™ i5-4250U
       - D54250WYK
 
-    * - Xeon CPU E5-2699 v3
+    * - Intel® Xeon® Processor E5-2699 v3
       - S2600WT2
 
-    * - Atom J3455
+    * - Intel® Atom™ J3455
       - NUC6CAYB
 
-    * - Xeon Bronze 3104
+    * - Intel® Xeon® Bronze 3104
       - 0W23H8
 
-    * - Atom C2750
+    * - Intel® Atom™ C2750
       - SuperMicro A1SAi
 
-    * - Atom E3825
+    * - Intel® Atom™ E3825
       - CircuitCo MinnowBoard MAX
 
-    * - Core i7-8700
+    * - Intel® Core™ i7-8700
       - Gigabyte H370 WIFI
 
-    * - Core i7-3667U
+    * - Intel® Core™ i7-3667U
       - Lenovo X1 carbon laptop
 
-    * - Core i5-4210U
+    * - Intel® Core™ i5-4210U
       - Dell XPS 13 laptop
 
-    * - Celeron J3455
+    * - Intel® Celeron® J3455
       - NUC6CAYB
 
-    * - Core i7-4790
+    * - Intel® Core™ i7-4790
       - Gigabyte desktop
 
-    * - Core i5-6260U
+    * - Intel® Core™ i5-6260U
       - NUC6I6SYH
 
-    * - Core i7-5557U
+    * - Intel® Core™ i7-5557U
       - NUC5I7RYH
 
-    * - Core i7-4700MQ
+    * - Intel® Core™ i7-4700MQ
       - Thinkpad T540p
 
-    * - Core i7-5557U
+    * - Intel® Core™ i7-5557U
       - NUC5I7RYB
 
-    * - Core i5-6260U
+    * - Intel® Core™ i5-6260U
       - NUC6I5SYH
+
+\* Other names and brands may be claimed as the property of others.
