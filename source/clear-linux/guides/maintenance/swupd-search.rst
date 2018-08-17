@@ -6,8 +6,8 @@ Use swupd search to find bundles
 .. contents:: :local: 
    depth: 2
 
-This document shows you how to use `swupd search` to search for and add 
-a bundle. 
+This document shows you how to use `swupd search` to search for and add
+bundles. 
 
 Assumptions
 ***********
@@ -65,7 +65,9 @@ We need to find *kata* containers in a bundle. How do we search for it?
       other *bundles* via `includes`. For more details, see `Bundle Definition Files`_ and its subdirectory *bundles*. 
 
       If your search does not produce results on a specific term when using
-      the `-b` flag, abbreviate the search term. For example, if you search for *kubernetes* and it does not show results, instead abbreviate the term to *kube* to show results. 
+      the `-b` flag, abbreviate the search term. For example, if you search 
+      for *kubernetes* and it does not show results, instead abbreviate the 
+      term to *kube* to show results. 
 
 #. Optionally, you can review our `bundles`_ or individual `packages`_
 
@@ -91,6 +93,10 @@ We need to find *kata* containers in a bundle. How do we search for it?
 
       sudo swupd bundle-add containers-virt
 
+   .. note::
+
+      To add multiple bundles simply add a space followed by the bundle name.
+
 #. When prompted, enter your password. 
 
 #. Upon successful installation, your console should show similar data:
@@ -110,7 +116,6 @@ We need to find *kata* containers in a bundle. How do we search for it?
           ...100%
       Calling post-update helper scripts.
       Successfully installed 1 bundle
-
 
 FAQ
 ===
