@@ -34,7 +34,7 @@ kernel instance and runs on its own :abbr:`Virtual Machine (VM)`. Whether you're
 lightweight, fast, and secure option for app/container management.  
 
 In |CL|, you only need to add `this bundle`_ to use `Kata Containers`_: 
-`containers-virt`. Also, we recommend our tutorial: :ref:`kata`.
+`containers-virt`. Also, check out our tutorial: :ref:`kata`.
 
 We need to find *kata* containers in a bundle. How do we search for it? 
 
@@ -42,15 +42,24 @@ We need to find *kata* containers in a bundle. How do we search for it?
 
    .. code-block:: bash
 
+      sudo swupd search kata
+
+   .. note:: 
+
+      `swupd search` downloads |CL| manifest data and searches for
+      matching paths. Enter only one term, or hyphenated term, per 
+      search. Use the command :command:`man swupd` to learn more.
+
+#. Alternatively, if you want to search binaries only, add the `-b`
+   flag: 
+
+   .. code-block:: bash
+
       sudo swupd search -b kata
 
    .. note::
 
-      `-b` flag, or `--binary`, means: Restrict search to program binary paths. Omit this flag if you want a larger scope of search results. 
-
-      `swupd search` downloads |CL| manifest data and searches for matching 
-      paths. Enter only one term, or hyphenated term, per search. Use the 
-      command :command:`man swupd` to learn more. 
+      `-b` flag, or `--binary`, means: Restrict search to program binary paths. Omit this flag if you want a larger scope of search results.  
 
       Only the base bundle is returned. In |CL|, *bundles* can contain 
       other *bundles* via `includes`. For more details, see `Bundle Definition Files`_ and its subdirectory *bundles*. 
@@ -60,7 +69,7 @@ We need to find *kata* containers in a bundle. How do we search for it?
 
 #. Optionally, you can review our `bundles`_ or individual `packages`_
 
-#. The `swupd search` for *kata* shows a match for our use case.
+#. Using `sudo swupd search -b kata` shows a match for our use case.
 
    .. code-block:: console
 

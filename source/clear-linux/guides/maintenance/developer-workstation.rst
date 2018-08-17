@@ -100,7 +100,8 @@ developing your project.
 * :ref:`Mixer <mixer-about>`
 * :ref:`Autospec <autospec-about>` 
 
-Resources for |CL| developers: 
+Other resources for developers
+-----------------------------------
 
 * `Developer Tooling Framework for Clear Linux`_
 * `Clear Linux Bundles`_
