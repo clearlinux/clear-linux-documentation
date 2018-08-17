@@ -3,8 +3,9 @@
 Use swupd search to find bundles
 ################################
 
-.. contents:: :local: 
-   depth: 2
+.. contents:: 
+   :local: 
+   :depth: 2
 
 This document shows you how to use `swupd search` to find and add
 bundles. 
