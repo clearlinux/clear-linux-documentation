@@ -13,7 +13,7 @@ into five sections:
   |CL| features and what differentiates it from other |CL| distros. 
 
 * :ref:`guides` Find step-by-step instructions on how to complete 
-  common tasks that are critical to understanding |CL| and its features. 
+  common tasks that help you leverage |CL| native features. 
 
 * :ref:`tutorials` Find step-by-step instructions for applying specific use
   cases with |CL| that often involve third-party tools. 
