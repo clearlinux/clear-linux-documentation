@@ -39,7 +39,7 @@ This includes security-centered innovations adopted in the Linux upstream.
 Automated Effective Updating
 ----------------------------
 
-The |CL| upstream is updated at lightning pace, releasing full
+The |CL| content is updated at lightning pace, releasing full
 new versions of |CL| with incremental updates multiple times a day! 
 
 This `rolling release model`_ allows |CL| to consume the latest security
@@ -69,13 +69,10 @@ are published by :abbr:`NIST` in a National Vulnerability Database
 \ |NVD|\  and at \ |MITRE|\  .
 
 
-|CL| takes a proactive and measured approach to addressing known 
+|CL| employs a proactive and measured approach to addressing known 
 and fixable Common Vulnerabilities and Exposures (CVEs) disclosures.
-|CL| packages are scanned against CVEs at least daily, and 
-software patched in accordance to the fix. This scanning is automated 
-with an open source tool - `cve-check-tool`_ - and any outstanding
-vulnerabilities monitored appropriately.
-
+Packages are automatically scanned against CVEs at least daily, and 
+security updates and patches are deployed as soon as they are available. 
 
 These combined practices minimize the amount of 
 time |CL| systems are exposed to unnecessary security risk.
@@ -158,7 +155,7 @@ sensibly taken advantage of. Below are some examples:
 Security in System Design
 =========================
 
-Common and simple, yet effective, techniques are used throughout the 
+Simple, yet effective, techniques are used throughout the 
 |CL| system design to defend against common attack vectors and enable
 good security hygiene. Below are are some examples: 
 
