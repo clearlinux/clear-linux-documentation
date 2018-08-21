@@ -91,15 +91,19 @@ Security in Software
 Minimized attack surface
 -------------------------
 
-|CL| tries to make no assumptions about the usage of software that gets
-installed on a system. It will not enable system services simply because they 
-have been installed. This helps avoid the inadvertent opening of a network 
-port or sensitive service starting on its own, unless it has been explicitly
-configured to be that way by the system administrator. 
+|CL| removes legacy, unneeded, or redundant standards and
+components as much as possible to enable the use of best known security 
+standards. Below are some examples: 
 
-Additionally, |CL| removes legacy, unneeded, or redundant standards and
-components as much as possible to enable the use of best known security standards. 
+* `RC4`, `SSLv3`, `3DES`, and `SHA-1` ciphers which have had known 
+  vulnerabilities, have been explicitly disabled within many |CL| packages to 
+  avoid their accidental usage. 
 
+* Services and subsystems which expose sensitive system information 
+  have been removed such as the `finger` and `tcpwrappers`.
+
+* `SFTP` has been disabled by default due to security 
+  considerations. See the `openssh-server reference page`_ for more details. 
 
 
 Verified trust
@@ -183,6 +187,7 @@ good security hygiene. Below are are some examples:
 
 .. _`documentation about Software Updates`: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about
 .. _`cve-check-tool`: https://github.com/clearlinux/cve-check-tool
+.. _`openssh-server reference page`: https://clearlinux.org/documentation/clear-linux/reference/bundles/openssh-server
 .. _`blog post about swupd security`: https://clearlinux.org/blogs/security-software-update-clear-linux-os-intel-architecture
 .. _`rolling release model`: https://en.wikipedia.org/wiki/Rolling_release
 .. _`clrtrust`: https://github.com/clearlinux/clrtrust
