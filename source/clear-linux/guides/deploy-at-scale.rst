@@ -3,8 +3,8 @@
 Deploying |CL| at Scale
 #######################
 
-Once you are comfrotable with `Clear Linux concepts`_, your next step
-as a system administraotr may be needing to understand how to deploy 
+Once you are comfortable with `Clear Linux concepts`_, your next step
+as a system administrator may be needing to understand how to deploy 
 |CL| at scale in your enoviornment.  
 
 Throughout this document the term *endpoint* will be used to generally refer 
@@ -35,7 +35,7 @@ Pick a |CL| usage and update strategy
 =====================================
 
 Different business scenarios can call for different deployment methodologies. 
-|CLOSIA| offers the flexibility to continue consuming upstream |CL|
+|CLOSIA| offers the flexibility to continue consuming the upstream |CL|
 distribution or the option to fork away from the |CL| distribution and
 act as your own OSV. 
 
