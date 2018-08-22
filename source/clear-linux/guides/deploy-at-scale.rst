@@ -37,7 +37,7 @@ Pick a |CL| usage and update strategy
 Different business scenarios can call for different deployment methodologies. 
 |CLOSIA| offers the flexibility to continue consuming the upstream |CL|
 distribution or the option to fork away from the |CL| distribution and
-act as your own OSV. 
+act as your own :abbr:`OSV (Operating System Vendor)`. 
 
 
 Below are overviews of both approaches and some considerations.
@@ -83,10 +83,10 @@ Option #2: Create your own Linux distribution (mix)
 ---------------------------------------------------
 
 This approach forks away from the |CL| upstream and has you act as your own 
-Operating System Vendor (OSV) by leveraging the `mixer process`_ to create 
-customized images based on |CL|. This is a level of responsibility that 
-requires having more infrastructure and processes  to adopt. In return, this 
-approach *offers you a high degree of control and customization*.
+:abbr:`OSV (Operating System Vendor)` by leveraging the `mixer process`_ to 
+create customized images based on |CL|. This is a level of responsibility 
+that requires having more infrastructure and processes  to adopt. In return, this approach 
+*offers you a high degree of control and customization*.
 
 
 * Development systems which are generating bundles and updates should be 
