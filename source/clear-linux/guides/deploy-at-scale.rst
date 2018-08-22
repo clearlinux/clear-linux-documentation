@@ -5,7 +5,7 @@ Deploying |CL| at Scale
 
 Once you are comfortable with `Clear Linux concepts`_, your next step
 as a system administrator may be needing to understand how to deploy 
-|CL| at scale in your enoviornment.  
+|CL| at scale in your environment.  
 
 Throughout this document the term *endpoint* will be used to generally refer 
 to a system targeted for |CL| installation, whether that is a datacenter 
@@ -90,7 +90,7 @@ approach *offers you a high degree of control and customization*.
 
 
 * Development systems which are generating bundles and updates should be 
-  sufficiently performant for the task and seperate from the swupd update 
+  sufficiently performant for the task and separate from the swupd update 
   webservers which are serving update content to production machines.
 
 * swupd update webservers which are serving update content to 
@@ -110,7 +110,7 @@ It only makes sense that any |CL| deployment strategy should follow suit.
 Manually rebuilding your own bundles or mix upon every release is not 
 sustainable at a large scale. A |CL| deployment pipeline should be agile 
 enough to validate and produce new versions with speed. Whether or not those 
-updates actually make their way to your production can be seperate 
+updates actually make their way to your production can be separate 
 business decision. However this *ability to frequently roll new versions* of 
 software to your endpoints is a very important prerequisite. 
 
@@ -197,7 +197,7 @@ Preboot Execution Environments (PXE) or other
 out-of-band booting options are one way to a |CL| image or installer 
 offers a way to distribute |CL| to physical baremetal systems on a LAN.
 
-This option works well if your your customizations are fairly small in size 
+This option works well if your customizations are fairly small in size 
 and infrastructure can be stateless. 
 
 The |CL| `downloads page`_ offers a Live Image and can be deployed as 
@@ -252,7 +252,7 @@ Backup strategy
 ---------------
 
 A |CL| system and its infrastructure should be considered commodity and 
-easily reproducible.Avoid focusing on backing up the operating system itself 
+easily reproducible. Avoid focusing on backing up the operating system itself 
 or default values. 
 
 Instead, focus on backing up what's important and unique - the application 
@@ -314,7 +314,7 @@ run. References should be relative and dynamic when possible.
 
 The application architecture should incorporate an appropriate tolerance for 
 infrastructure outages. Don't just keep stateless design as a noted feature. 
-Continiously test its use; Automate its use by redeploying |CL| and 
+Continuously test its use; Automate its use by redeploying |CL| and 
 application on new hosts. This naturally minimizes configuration drift, 
 challenges your monitoring systems, and business continuity plans.
 
@@ -335,7 +335,7 @@ challenges your monitoring systems, and business continuity plans.
 .. _`micro-config-drive`: https://github.com/clearlinux/micro-config-drive
 
 .. |WEB-SERVER-SCALE| replace:: 
-   There are many well-known ways to achieve a scaleable and resilient web 
+   There are many well-known ways to achieve a scalable and resilient web 
    servers for this purpose however, implementation details out of scope from this 
    document. In general, they should be located close to your endpoints, 
    high available according to your business needs, and easy to scale with a 
