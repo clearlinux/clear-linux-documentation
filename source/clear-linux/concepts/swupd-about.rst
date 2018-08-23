@@ -5,14 +5,14 @@ Software update
 
 |CLOSIA| does software updates differently than traditional Linux-based 
 operating systems. Where traditional distributions rely on packages for 
-software deployment, Clear Linux uses the concept of a *bundle* for 
+software deployment, |CL| uses the concept of a "bundle" for 
 deployment. Traditional Linux packages provide a particular utility or 
-library; Clear Linux bundles provide all necessary packages to enable a 
+library; |CL| bundles provide all necessary packages to enable a 
 specific function.
 
-With Clear Linux, updating equates to an entirely new OS version with a 
+With |CL|, updating equates to an entirely new OS version with a 
 specific set of bundles, as compared to a package-based distribution in 
-which packages may be updated individually. Clear Linux updates are 
+which packages may be updated individually. |CL| updates are 
 efficient, updating only changed files instead of entire packages.
 
 System administrators can customize or add bundles to the OS, while still 
@@ -28,10 +28,10 @@ binaries, we do not deploy software through packages. Instead, we use bundles
 to deploy software, where each bundle encapsulates a particular functionality 
 -- functionality that is enabled by composing all the required upstream 
 open-source projects and packages into one logical unit: a bundle. This 
-simplifies installing features on Clear Linux.
+simplifies installing features on |CL|.
 
 For additional resources regarding available bundles, useful bundle commands, 
-and compatible Clear Linux kernels, visit our :ref:`bundles-about` 
+and compatible |CL| kernels, visit our :ref:`bundles-about` 
 page.
 
 
@@ -56,7 +56,7 @@ non-trivial to define what "version" the system is and what software it
 is running without explicitly going through each system and inspecting
 every package.
 
-With Clear Linux, we need only track:
+With |CL|, we need only track:
 
 -  One single number
 
@@ -67,18 +67,18 @@ packages. This matters on a daily basis to system administrators, who
 need to determine which of their systems do not have the latest security
 fixes, or which combinations of software have been tested. Every release 
 of the same number is guaranteed to contain the same versions of software, 
-so there's no ambiguity between two systems running the same Clear Linux OS.
+so there's no ambiguity between two systems running the same version of |CL|.
 
 
 Updating
 ========
 
-Another notable difference between package-based distributions and Clear Linux
+Another notable difference between package-based distributions and |CL|
 is how updates are managed. On a package-based OS, system administrators update
 each individual package or piece of software to a newer (or older!) version. With
-Clear Linux, an update translates to an entirely new OS version, containing one 
+|CL|, an update translates to an entirely new OS version, containing one 
 or many updates.  It is not possible to update a piece of the system while 
-remaining on the same version of Clear Linux.
+remaining on the same version of |CL|.
 
 How is this useful? Although it seems, at first, like a huge restriction
 or limitation, this method has many non-obvious benefits. Imagine a
@@ -89,7 +89,7 @@ and/or code, rather than configuring environments or worrying about
 synchronizing versions and updates.  At the system admin level, it ensures 
 security is tighter and makes it far easier to monitor and update patches.
 
-Clear Linux promotes regular updating of the OS and will automatically check 
+|CL| promotes regular updating of the OS and will automatically check 
 for updates and apply them by default.
 
 To learn how to run an update of your system, visit our :ref:`swupd-guide` page.
@@ -98,7 +98,7 @@ To learn how to run an update of your system, visit our :ref:`swupd-guide` page.
 Update speed
 ============
 
-Software updates with Clear Linux are also efficient. Bundles simply describe 
+Software updates with |CL| are also efficient. Bundles simply describe 
 a set of files, and the update technology updates *only* files that actually 
 changed by using binary-delta technology for efficiency [1]_. Operating systems 
 that use packages as the unit of deployment require full package updates (thus
@@ -122,7 +122,7 @@ operators may have special needs and ideas. Therefore, we provide a
 :ref:`mixer tool <mixer>`. This tool allows users to customize and add bundles
 or even add their own software, while keeping the operating
 system and its updates as the basis. Using this tool, system administrators
-can focus on the custom pieces their deployments require while staying on
+can focus on the customization their deployments require while staying on
 a controlled update stream.
 
 To learn more about mixing, visit our :ref:`mixer-about` page.
