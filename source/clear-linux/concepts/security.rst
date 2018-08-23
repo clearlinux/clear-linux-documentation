@@ -54,7 +54,8 @@ a software update, if desired.
 
 
 In |CL| updates are delivered automatically, efficiently, 
-and effectively.For more information see `documentation about Software Updates`_ in |CL|.
+and effectively. For more information see 
+`documentation about Software Updates`_ in |CL|.
 
  
 
@@ -157,7 +158,7 @@ Security in System Design
 
 Simple, yet effective, techniques are used throughout the 
 |CL| system design to defend against common attack vectors and enable
-good security hygiene. Below are are some examples: 
+good security hygiene. Below are some examples: 
 
 
 * Full disk encryption using `Linux Unified Key Setup`_ (LUKS)  is available 
