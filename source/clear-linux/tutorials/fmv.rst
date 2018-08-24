@@ -184,7 +184,7 @@ You can see the multiple clones of the `foo` function:
 The cloned functions use AVX2 registers and vectorized instructions. To
 verify, enter the following commands:
 
-.. code-block:: asm
+:: 
 
     vpaddd (%r8,%rax,1),%ymm0,%ymm0
     vmovdqu %ymm0,(%rcx,%rax,1)
