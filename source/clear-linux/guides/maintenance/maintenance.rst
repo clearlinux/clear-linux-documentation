@@ -9,6 +9,8 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
 .. toctree::
    :maxdepth: 2
 
+   developer-workstation
+   swupd-search
    enable-user-space
    swupd-guide
    bulk-provision

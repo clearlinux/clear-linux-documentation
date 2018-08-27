@@ -9,9 +9,11 @@ features.
 .. toctree::
    :maxdepth: 2
 
+   compatible-hardware
    bundle-commands
    bundles/available-bundles
    how-to-clear-overview
    collaboration/collaboration
    compatible-kernels
    system-requirements
+   image-types

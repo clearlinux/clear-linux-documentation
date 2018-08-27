@@ -1,7 +1,7 @@
 .. _bare-metal-install:
 
-Install Clear Linux OS on bare metal
-####################################
+Install Clear Linux OS on bare metal (automatic)
+################################################
 
 These instructions guide you through the installation of |CLOSIA|
 on bare metal using a bootable USB drive.

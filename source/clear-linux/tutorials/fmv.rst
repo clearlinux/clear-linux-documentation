@@ -184,7 +184,7 @@ You can see the multiple clones of the `foo` function:
 The cloned functions use AVX2 registers and vectorized instructions. To
 verify, enter the following commands:
 
-.. code-block:: assembly
+:: 
 
     vpaddd (%r8,%rax,1),%ymm0,%ymm0
     vmovdqu %ymm0,(%rcx,%rax,1)
@@ -213,53 +213,54 @@ To follow the same approach with a package like FFT, we must use the
 For example, the :file:`fftw-3.3.6-pl2/tools/fftw-wisdom.c.patch` file
 generates the following patches:
 
-.. code-block:: git
+.. code-block:: diff
+   :linenos:
 
-      1 --- fftw-3.3.6-pl2/libbench2/verify-lib.c   2017-01-27 21:08:13.000000000 +0000
-      2 +++ fftw-3.3.6-pl2/libbench2/verify-lib.c~  2017-09-27 17:49:21.913802006 +0000
-      3 @@ -33,6 +33,7 @@
-      4
-      5  double dmax(double x, double y) { return (x > y) ? x : y; }
-      6
-      7 +__attribute__((target_clones("avx2","arch=atom","default")))
-      8  static double aerror(C *a, C *b, int n)
-      9  {
-     10       if (n > 0) {
-     11 @@ -111,6 +112,7 @@
-     12  }
-     13
-     14  /* make array hermitian */
-     15 +__attribute__((target_clones("avx2","arch=atom","default")))
-     16  void mkhermitian(C *A, int rank, const bench_iodim *dim, int stride)
-     17  {
-     18       if (rank == 0)
-     19 @@ -148,6 +150,7 @@
-     20  }
-     21
-     22  /* C = A + B */
-     23 +__attribute__((target_clones("avx2","arch=atom","default")))
-     24  void aadd(C *c, C *a, C *b, int n)
-     25  {
-     26       int i;
-     27 @@ -159,6 +162,7 @@
-     28  }
-     29
-     30  /* C = A - B */
-     31 +__attribute__((target_clones("avx2","arch=atom","default")))
-     32  void asub(C *c, C *a, C *b, int n)
-     33  {
-     34       int i;
-     35 @@ -170,6 +174,7 @@
-     36  }
-     37
-     38  /* B = rotate left A (complex) */
-     39 +__attribute__((target_clones("avx2","arch=atom","default")))
-     40  void arol(C *b, C *a, int n, int nb, int na)
-     41  {
-     42       int i, ib, ia;
-     43 @@ -192,6 +197,7 @@
-     44       }
-     45  }
+       --- fftw-3.3.6-pl2/libbench2/verify-lib.c   2017-01-27 21:08:13.000000000 +0000
+       +++ fftw-3.3.6-pl2/libbench2/verify-lib.c~  2017-09-27 17:49:21.913802006 +0000
+       @@ -33,6 +33,7 @@
+       
+        double dmax(double x, double y) { return (x > y) ? x : y; }
+       
+       +__attribute__((target_clones("avx2","arch=atom","default")))
+        static double aerror(C *a, C *b, int n)
+        {
+            if (n > 0) {
+       @@ -111,6 +112,7 @@
+       }
+       
+       /* make array hermitian */
+       +__attribute__((target_clones("avx2","arch=atom","default")))
+       void mkhermitian(C *A, int rank, const bench_iodim *dim, int stride)
+       {
+            if (rank == 0)
+       @@ -148,6 +150,7 @@
+       }
+     
+       /* C = A + B */
+       +__attribute__((target_clones("avx2","arch=atom","default")))
+       void aadd(C *c, C *a, C *b, int n)
+       {
+            int i;
+       @@ -159,6 +162,7 @@
+       }
+     
+       /* C = A - B */
+       +__attribute__((target_clones("avx2","arch=atom","default")))
+       void asub(C *c, C *a, C *b, int n)
+       {
+            int i;
+       @@ -170,6 +174,7 @@
+       }
+     
+       /* B = rotate left A (complex) */
+       +__attribute__((target_clones("avx2","arch=atom","default")))
+       void arol(C *b, C *a, int n, int nb, int na)
+       {
+            int i, ib, ia;
+       @@ -192,6 +197,7 @@
+            }
+       }
 
 With these patches, we can select where to apply the FMV technology making
 bringing architecture-based optimizations to application code even easier.

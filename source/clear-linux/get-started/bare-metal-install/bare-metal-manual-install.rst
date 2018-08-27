@@ -1,7 +1,7 @@
 .. _bare-metal-manual-install:
 
-Bare metal manual installation guide
-####################################
+Install Clear Linux OS on bare metal (manual)
+#############################################
 
 This section contains the steps for a |CL| manual installation.  It picks up
 where the :ref:`bare-metal-install` left off.

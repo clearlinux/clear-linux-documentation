@@ -92,7 +92,7 @@ Configuration
    within the web hosting directory of **ICIS**. The following example shows
    an Ister configuration file:
 
-   .. code-block:: json
+   .. code-block:: none
 
       template=http://192.168.1.1:60000/icis/static/ister/ister.json
 
@@ -102,7 +102,7 @@ Configuration
    kernel parameter value.  The following example shows an iPXE boot script
    with the ``isterconf`` parameter:
 
-   .. code-block:: json
+   .. code-block:: none
 
       #!ipxe
       kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug tsc=reliable no_timer_check noreplace-smp rw initrd=initrd isterconf=http://192.168.1.1:60000/icis/static/ister/ister.conf
@@ -129,7 +129,7 @@ Configuration
    in the ``static`` directory within the web hosting directory of **ICIS**.
    The following example shows one such assignment:
 
-   .. code-block:: json
+   .. code-block:: none
 
       # MAC address,role
       00:01:02:03:04:05,ciao
@@ -138,7 +138,7 @@ Configuration
    :file:`config.txt` file, a default role for those MAC address may be
    defined as follows:
 
-   .. code-block:: json
+   .. code-block:: none
 
       # MAC address,role
       default,ciao

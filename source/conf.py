@@ -295,3 +295,6 @@ texinfo_documents = [
 
 # If true, generates permalinks on the HTML output.
 html_add_permalinks = ""
+
+#suppresses warnings for options that aren't referenced
+#suppress_warnings = ["ref.option"]
