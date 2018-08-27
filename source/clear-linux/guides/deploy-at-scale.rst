@@ -48,7 +48,7 @@ Below are overviews of both approaches and some considerations.
 Option #1: Use the |CL| as the upstream origin (mixin)
 ------------------------------------------------------
 
-This approach is the *easier to adopt* by relying on the |CL| upstream for 
+This approach is *easier to adopt* by relying on the |CL| upstream for 
 packaging updates for you to deploy. 
 
 
