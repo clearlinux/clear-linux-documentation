@@ -85,8 +85,8 @@ Option #2: Create your own Linux distribution (mix)
 This approach forks away from the |CL| upstream and has you act as your own 
 :abbr:`OSV (Operating System Vendor)` by leveraging the `mixer process`_ to 
 create customized images based on |CL|. This is a level of responsibility 
-that requires having more infrastructure and processes  to adopt. In return, this approach 
-*offers you a high degree of control and customization*.
+that requires having more infrastructure and processes  to adopt. In return, 
+this approach *offers you a high degree of control and customization*.
 
 
 * Development systems which are generating bundles and updates should be 
@@ -191,7 +191,7 @@ Below are some common ways to install |CL| to systems at scale:
 
 
 Baremetal
-----------
+---------
 
 Preboot Execution Environments (PXE) or other 
 out-of-band booting options are one way to a |CL| image or installer 
@@ -286,7 +286,7 @@ persistent and can be accessed on another server when an issue occurs.
 
  
 Orchestration and Configuration Management
-------------------------------------------------
+------------------------------------------
 
 In cloud environments, where systems can be ephemeral, being able to configure
 and maintain generic instances is valuable.
@@ -305,7 +305,7 @@ and application-level configuration. Ansible\* is offered through the
  
 
 Cloud-native applications
------------------------------------
+-------------------------
 
 An Infrastructure OS can design for good behavior, but it is ultimately up 
 applications to make agile design choices and flows. Applications deployed 
