@@ -1,10 +1,10 @@
 
 .. _security:
 
-|CL|* Security 
-*********************
+Clear Linux\* Security 
+**********************
 
-|CL|*, as it is distributed and maintained upstream, aims to make 
+Clear Linux\*, as it is distributed and maintained upstream, aims to make 
 systemic and layered security conscious decisions, which are both
 performant and practical. This security philosophy is rooted within
 the project's codebase and operating culture.
