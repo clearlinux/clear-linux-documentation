@@ -27,10 +27,10 @@ rapidly resolving known security advisories.
 The latest Linux codebase
 --------------------------------
 
-The |CL| Project operates around the idea of open sourcing 
-ideas and innovations upstream through the Linux kernel and 
-using it to take advantage of the latest and greatest features. 
-This includes security-centered innovations adopted in the Linux upstream. 
+|CL| uses the newest version of the Linux kernel which allows the operating 
+system to leverage the latest features from the upstream Linux kernel, 
+including security fixes. 
+
 
  
 
