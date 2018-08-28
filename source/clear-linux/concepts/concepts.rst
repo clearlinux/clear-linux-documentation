@@ -14,3 +14,4 @@ details relevant to the |CL| features.
    mixer-about
    bundles-about
    restart
+   security
