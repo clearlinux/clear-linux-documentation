@@ -1,7 +1,7 @@
 .. _cgdisk-manual-install:
 
 Create partitions for Clear Linux\* using CGDISK
-###############################################
+################################################
 
 As part of the |CL| manual installation processThese instructions guide you through the initial setup of your hard drive
 partitions using the :command:`cgdisk` utility . If you do not wish to continue creating your own

@@ -18,9 +18,11 @@ Prerequisites
 *************
 
 This tutorial assumes the following statements are true:
+
 * You are using a linux-based system to access AWS and can run :command:`SSH`
   to access the remote |CL| AWS image.
-* Your browser puts downloaded files in the :file:`$HOME/Downloads` directory.
+* Your browser puts downloaded files in the :file:`$HOME/Downloads`
+  directory.
 * You have already set up an AWS user account and logged into the AWS
   console.
   

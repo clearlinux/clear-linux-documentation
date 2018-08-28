@@ -269,7 +269,7 @@ Log into your Microsoft Azure account
 #. Open your browser and enter the page `https://aka.ms/devicelogin` as shown
    in figure 1:
 
-   .. figure:: figures/azure-1.png
+   .. figure:: azure/figures/azure-1.png
       :scale: 50 %
       :alt: Microsoft Device Login
 
@@ -280,7 +280,7 @@ Log into your Microsoft Azure account
    session login and will be different each time you log into MS Azure using
    the :command:`az login` command.
 
-   .. figure:: figures/azure-2.png
+   .. figure:: azure/figures/azure-2.png
       :scale: 50 %
       :alt: Microsoft Device Login - Azure CLI
 
@@ -294,7 +294,7 @@ Log into your Microsoft Azure account
    have signed into the Microsoft Cross-platform Command Line Interface
    application on your device and you can close the window.
 
-   .. figure:: figures/azure-3.png
+   .. figure:: azure/figures/azure-3.png
       :scale: 50 %
       :alt: Microsoft Azure Cross-platform CLI
 
@@ -390,7 +390,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
       If you have already defined your public/private SSH key pair and they
       are stored in your :file:`$HOME/.ssh` directory, you do not need to
-      include the :option:`--generate-ssh-keys` option.
+      include the *--generate-ssh-keys* option.
 
    Your output from this command will look similar to this output, where
    [user] is your user name:

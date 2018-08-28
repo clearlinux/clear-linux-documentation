@@ -153,7 +153,7 @@ Once the installation is complete, you can name your blog and create a Wordpress
     `Figure 6: The WordPress login screen.`
 
 #. Enter your WordPress username and password.
-#. Check :guilabel:`Remember me`to save your credentials.
+#. Check :guilabel:`Remember me` to save your credentials.
 #. Click :guilabel:`Log in`.
 
 Figure 7 shows the WordPress dashboard after a successful login:

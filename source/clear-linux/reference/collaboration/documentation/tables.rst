@@ -18,7 +18,7 @@ Follow these general guidelines:
   it is not rendered.
 
 * Only create a table if the body of the table contains six or more cells,
-which is a minimum table size of at least 2x3 or 3x2.
+  which is a minimum table size of at least 2x3 or 3x2.
 
 ReST supports several types of tables. |CL| uses grid and
 :abbr:`CSV-tables (Comma Separated Values tables)`. Grid tables are only

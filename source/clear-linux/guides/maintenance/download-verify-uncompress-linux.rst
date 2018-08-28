@@ -14,7 +14,7 @@ Instructions for other operating systems are available:
 Image types
 ***********
 
-.. include:: image-types.rst
+.. include:: ../../reference/image-types.rst
    :start-after: image-types-content:
 
 .. _verify-linux:
@@ -41,6 +41,9 @@ If the checksum of the downloaded image is different than the original
 checksum, a warning is displayed with a message indicating the computed
 checksum does **not** match. Otherwise, the name of the image is printed on
 the screen followed by `OK`.
+
+For a more in-depth discussion of image verification including checking the
+certificate see :ref:`image-content-validation`.
 
 Uncompress the Clear Linux image
 ********************************

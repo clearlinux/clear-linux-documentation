@@ -53,7 +53,7 @@ RAM and a 360GB SSD. Table 1 lists the information specific to the
 installation of the tested operating systems.
 
 .. csv-table:: Table 1: OS specific installation information
-   :header: # , OS, Version, Partition Size [1], Swap Size [2], EFI Partition Size [3], Download Link
+   :header: # , OS, Version, Partition Size [#]_, Swap Size [#]_, EFI Partition Size [#]_, Download Link
 
    1,Clear Linux,16140,50 GB,8 GB,1 GB,https://download.clearlinux.org/releases/16140/clear/
    2,Windows,Server 2016,50 GB,N/A,Shared with #1,https://www.microsoft.com/en-us/cloud-platform/windows-server
@@ -73,9 +73,9 @@ Table notes:
 
 
 .. [#] The EFI partition holds the kernel and boot information for |CL| and
-   other operating systems. The partition size is dependent on    the number
-   of operating systems to be installed. In general, allocate about 100 MB per
-   operating system. For this tutorial, we used 1 GB.
+   other operating systems. The partition size is dependent on the number
+   of operating systems to be installed. In general, allocate about 100 MB
+   per operating system. For this tutorial, we used 1 GB.
 
 
 

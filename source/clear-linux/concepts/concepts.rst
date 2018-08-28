@@ -13,5 +13,7 @@ details relevant to the |CL| features.
    swupd-about
    mixer-about
    bundles-about
+   autospec-about
    restart
    security
+   telemetry-about

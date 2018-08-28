@@ -123,13 +123,13 @@ and core update take merely seconds.
 
 While we realize our definition of bundles makes sense to us, data center
 operators may have special needs and ideas. Therefore, we provide a
-:ref:`mixer`. This tool allows users to customize and add bundles
+:ref:`mixer tool <mixer>`. This tool allows users to customize and add bundles
 or even add their own software, while keeping the operating
 system and its updates as the basis. Using this tool, system administrators
 can focus on the custom pieces their deployments require while staying on
 a controlled update stream.
 
-To learn how to run an update of your system, visit our :ref:`update` page.
+To learn how to run an update of your system, visit our :ref:`using swupd <swupd-guide>` page.
 
 .. [1] The software update technology for Clear Linux* OS for Intel
    Architecture was first presented at the Linux Plumbers conference in 2012.

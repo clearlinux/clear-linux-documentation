@@ -1,7 +1,7 @@
 .. _bare-metal-install:
 
-Install Clear Linux OS on bare metal
-####################################
+Install Clear Linux OS on bare metal (automatic)
+################################################
 
 These instructions guide you through the installation of |CLOSIA|
 on bare metal using a bootable USB drive.
@@ -44,7 +44,7 @@ Follow these steps to install |CL| on the target system:
 
 #. Power on the system.
 
-#. Open the system BIOS setup menu, normally by pressing the :kbd:`F2` key.
+#. Open the system BIOS setup menu by pressing the :kbd:`F2` key.
    Your BIOS setup menu entry point may vary.
 
 #. In the setup menu, enable the UEFI boot and set the USB drive as the first

@@ -64,7 +64,7 @@ For additional help, see the `VMware Workstation Player guide`_.
 Clear Linux image types
 ***********************
 
-.. include:: ../../guides/maintenance/image-types.rst
+.. include:: ../../reference/image-types.rst
    :Start-after: image-types-content:
 
 Download the latest Clear Linux VMware image

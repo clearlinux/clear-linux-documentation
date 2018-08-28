@@ -36,7 +36,7 @@ The |CL| technical content is written in simple American English and our
 This guide includes the following sections:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    basic
    structures
@@ -73,8 +73,7 @@ This style guide applies to the following technical content:
 
 We are always grateful to receive content contributions and are happy to help
 via our mailing list or our IRC channel, #clearlinux. If you have found a
-problem with one of our documents, please file a bug report. Use our
-:ref:`bug-report` to submit the bug.
+problem with one of our documents, please file a `bug report`_.
 
 Tone and audience
 *****************
@@ -86,12 +85,12 @@ Remain professional in your writing and carry an undertone of cordiality,
 respect, and cooperation.
 
 Assume your audience has about the same level of technical understanding and
-expertise as you did when you first started collaborating. Do not talk down to
-our readers but do not assume they know everything about the subject.
+expertise as you did when you first started collaborating. Do not talk down
+to our readers but do not assume they know everything about the subject.
 Offer brief explanations or summaries of "common knowledge" if a
 significant portion of readers might benefit.
 
-All contributions must follow our :ref:`code-of-conduct`.
+All contributions must follow our `code of conduct`_.
 
 Methodology
 ***********
@@ -126,7 +125,7 @@ decisions are explained in the respective section.
 
 This guide takes precedence over all other style guides in all cases. In
 cases where the guide does not address the issue at hand, please report the
-issue to the `mailing list`_ using our :ref:`bug-report`.
+issue to the `mailing list`_ using our `bug report`_.
 
 Use the Merriam-Webster's Collegiate Dictionary to determine correct
 spelling, hyphenation, and usage.
@@ -136,3 +135,5 @@ spelling, hyphenation, and usage.
 .. _documentation section: https://clearlinux.org/documentation
 .. _Clear Linux documentation repository:
    https://github.com/clearlinux/clear-linux-documentation
+.. _bug report: https://github.com/clearlinux/distribution/issues
+.. _code of conduct: https://clearlinux.org/community/code-of-conduct
