@@ -37,8 +37,7 @@ This includes security-centered innovations adopted in the Linux upstream.
 Automated Effective Updating
 ----------------------------
 
-The |CL| content is updated at lightning pace, releasing full
-new versions of |CL| with incremental updates multiple times a day! 
+|CL| is incrementally updated multiple times per day.
 
 This `rolling release model`_ allows |CL| to consume the latest security
 fixes of software packages as soon as they become available. 
@@ -63,7 +62,7 @@ Automated CVE Scanning and Remediation
 --------------------------------------
 
 The sheer number of software packages and security vulnerabilities is growing 
-at an exorbitant rate. Repositories of CVEs and their fixes, if known, 
+exponentially. Repositories of CVEs and their fixes, if known, 
 are published by :abbr:`NIST` in a National Vulnerability Database 
 \ |NVD|\  and at \ |MITRE|\  .
 
@@ -160,14 +159,14 @@ good security hygiene. Below are some examples:
 
 
 * Full disk encryption using `Linux Unified Key Setup`_ (LUKS)  is available 
-  during installation 
+  during installation.
 
 * Use the PAM cracklib module to harden user login and password security: 
 
     - No default username or root password set out of the box with 
       |CL|, you will be asked to set your own password immediately.
 
-    - Simple password are schemes, which are known to be easily compromised,
+    - Simple password schemes, which are known to be easily compromised,
       cannot be set in |CL|.
 
     - A password blacklist is in place, to avoid system passwords being set to
