@@ -140,11 +140,11 @@ sensibly taken advantage of. Below are some examples:
 
 * `Address space layout randomization (ASLR)`_ and 
   `Kernel address space layout randomization (KASLR)`_  are kernel features
-  which defends against certain memory based attacks. 
+  which defend against certain memory based attacks. 
   More information can be found in a `blog post about PIE executables`_ 
 
 * `dm-verity`_ is a kernel mechanism readily available in |CL| 
-  which verifies integrity of the devices being written to, like harddisks,
+  which verifies integrity of the devices being written to, like hard disks,
   to help ensure they have not been tampered with.  
 
 
