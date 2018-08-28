@@ -1,15 +1,13 @@
 
 .. _security:
 
-|CL| Security 
+|CL|* Security 
 *********************
 
-|CL|, as it is distributed and maintained upstream, aims to make 
+|CL|*, as it is distributed and maintained upstream, aims to make 
 systemic and layered security conscious decisions, which are both
 performant and practical. This security philosophy is rooted within
 the project's codebase and operating culture.
-
-Below are just some examples of how:
 
 
 .. contents:: :local:
@@ -20,7 +18,7 @@ Below are just some examples of how:
 Security in Updates
 ===================
 
-The |CL| team believes in the potential benefits of 
+The |CL| team believes in the benefits of 
 software security through open sourcing, incremental updates, and 
 rapidly resolving known security advisories.
  
@@ -46,7 +44,7 @@ This `rolling release model`_ allows |CL| to consume the latest security
 fixes of software packages as soon as they become available. 
 There is no waiting for major or minor releases on |CL|. 
 
-But an update is not effective if it is just simply downloaded onto a system. 
+An update is not effective if it is just simply downloaded onto a system. 
 It needs to be obtained *AND* ensured that the new patched copy is being
 used; not an older copy loaded into memory. |CL| will let you know when a 
 service needs to be rebooted or do it for your automatically after 
@@ -71,7 +69,7 @@ are published by :abbr:`NIST` in a National Vulnerability Database
 
 
 |CL| employs a proactive and measured approach to addressing known 
-and fixable Common Vulnerabilities and Exposures (CVEs) disclosures.
+and fixable Common Vulnerabilities and Exposures (CVEs).
 Packages are automatically scanned against CVEs at least daily, and 
 security updates and patches are deployed as soon as they are available. 
 
