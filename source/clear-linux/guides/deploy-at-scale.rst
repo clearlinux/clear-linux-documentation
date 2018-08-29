@@ -293,9 +293,11 @@ and maintain generic instances is valuable.
 
 
 |CL| offers an efficient cloud-init style solution, `micro-config-drive`_, 
-through the *os-cloudguest* bundles which allows you to configure many 
+through the *os-cloudguest* bundles which allow you to configure many 
 common Day 1 operations such as setting hostname, creating users, or placing 
-SSH keys in an automated way at boot.
+SSH keys in an automated way at boot. For more information on 
+automating configuration during deployment of |CL| endpoints see 
+the `documentation on bulk provisioning`_ .
  
 
 A configuration management tool is useful for maintaining consistent system 
@@ -333,6 +335,7 @@ challenges your monitoring systems, and business continuity plans.
 .. _`systemd journal-remote service`: https://www.freedesktop.org/software/systemd/man/systemd-journal-remote.service.html
 .. _`native telemetry solution`: https://clearlinux.org/features/telemetry
 .. _`micro-config-drive`: https://github.com/clearlinux/micro-config-drive
+.. _`documentation on bulk provisioning`: https://clearlinux.org/documentation/clear-linux/guides/maintenance/bulk-provision
 
 .. |WEB-SERVER-SCALE| replace:: 
    There are many well-known ways to achieve a scalable and resilient web 
