@@ -8,7 +8,11 @@ server hardware.  With VMware ESXi, you can create, configure, manage, and run
 |CLOSIA| virtual machines in the cloud.  
 
 This section shows you how to create a new :abbr:`VM (Virtual Machine)` and 
-install |CL| into it with VMware ESXi 6.5 Update 1.  Some of the advantages of 
+manually install |CL| into it with VMware ESXi 6.5. If you would prefer to
+use a preconfigured |CL| VMware disk image instead, see 
+:ref:`vmware-esxi-preconfigured-cl-image`. 
+
+Some of the advantages of 
 installing |CL| into a new VM is that it provides you flexibility in configuring, 
 for example: its size, the number of partitions, bundles, etc. 
 We will perform these steps: 
