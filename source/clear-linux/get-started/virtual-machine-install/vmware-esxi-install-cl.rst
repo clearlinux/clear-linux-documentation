@@ -8,17 +8,13 @@ server hardware.  With VMware ESXi, you can create, configure, manage, and run
 |CLOSIA| virtual machines in the cloud.  
 
 This section shows you how to create a new :abbr:`VM (Virtual Machine)` and 
-manually install |CL| into it with VMware ESXi 6.5. If you would prefer to
-use a preconfigured |CL| VMware disk image instead, see 
+manually install |CL| into it with VMware ESXi 6.5. 
+
+If you would prefer to use a preconfigured |CL| VMware disk image instead, see 
 :ref:`vmware-esxi-preconfigured-cl-image`. 
 
-Some of the advantages of 
-installing |CL| into a new VM is that it provides you flexibility in configuring, 
-for example: its size, the number of partitions, bundles, etc. 
-We will perform these steps: 
-
-.. contents:: :local:
-   :depth: 1
+Manually installing |CL| into a new VM provides you some additional flexibility in 
+configuring during installation, for example: disk size, the number of partitions, bundles, etc. 
 
 If you would prefer to use a preconfigured |CL| VMware image instead, 
 see :ref:`vmware-esxi-preconfigured-cl-image`. 
@@ -28,7 +24,15 @@ see :ref:`vmware-esxi-preconfigured-cl-image`.
   VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ 
   which is designed for the desktop environment. 
 
-Visit :ref:`image-types` to learn more about the available images.
+  See :ref:`vmw-player-preconf` or see :ref:`vmw-player`
+  
+  Visit :ref:`image-types` to learn more about all available images.
+
+We will perform these steps: 
+
+.. contents:: :local:
+   :depth: 1
+
 
 Download the latest Clear Linux installer ISO
 *********************************************
