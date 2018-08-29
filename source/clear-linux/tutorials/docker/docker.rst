@@ -141,12 +141,12 @@ an the official Docker image for nginx, an open source reverse proxy server.
       detailed :command:`docker run` switches and syntax, refer to the 
       `Docker Documentation`_ .
 
-      * The :option:`--name` switch lets you provide a friendly name to
+      * The *--name* switch lets you provide a friendly name to
         target the container for future operations
 
-      * The :option:`-d` switch launches the container in the background
+      * The *-d* switch launches the container in the background
         
-      * The :option:`-p` switch allows the container's HTTP port (80) to be
+      * The *-p* switch allows the container's HTTP port (80) to be
         accessible from the Clear Linux host on port 8080
 
 #. You can access the Welcome to Nginx! splash page running in the container

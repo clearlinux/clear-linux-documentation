@@ -390,7 +390,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
       If you have already defined your public/private SSH key pair and they
       are stored in your :file:`$HOME/.ssh` directory, you do not need to
-      include the :option:`--generate-ssh-keys` option.
+      include the *--generate-ssh-keys* option.
 
    Your output from this command will look similar to this output, where
    [user] is your user name:
