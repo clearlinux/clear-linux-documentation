@@ -13,14 +13,8 @@ installing |CL| into a new VM is that it provides you flexibility in configuring
 for example: its size, the number of partitions, bundles, etc. 
 We will perform these steps: 
 
-#.  Download the latest |CL| installer ISO.
-#.  Verify the integrity of the |CL| image.
-#.  Uncompress the |CL| image.
-#.  Upload the |CL| installer ISO to the VMware server.
-#.  Create and configure a new VM.
-#.  Install |CL| into the new VM.
-#.  Reconfigure the VM's settings to boot the newly-installed |CL|.
-#.  Power on the VM and boot |CL|.
+.. contents:: :local:
+   :depth: 1
 
 If you would prefer to use a preconfigured |CL| VMware image instead, 
 see :ref:`vmware-esxi-preconfigured-cl-image`. 
@@ -284,7 +278,7 @@ After configuring the settings above, power on the VM.
       Figure 16: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
 Also see:
-*********
+=========
 
 * :ref:`vmware-esxi-preconfigured-cl-image`
 
