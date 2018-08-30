@@ -1,4 +1,3 @@
-
 .. _security:
 
 Clear Linux\* Security 
@@ -25,7 +24,7 @@ rapidly resolving known security advisories.
 
 
 The latest Linux codebase
---------------------------------
+-------------------------
 
 |CL| uses the newest version of the Linux kernel which allows the operating 
 system to leverage the latest features from the upstream Linux kernel, 
@@ -62,15 +61,16 @@ Automated CVE Scanning and Remediation
 --------------------------------------
 
 The sheer number of software packages and security vulnerabilities is growing 
-exponentially. Repositories of CVEs and their fixes, if known, 
-are published by :abbr:`NIST` in a National Vulnerability Database 
-\ |NVD|\  and at \ |MITRE|\  .
+exponentially. Repositories of Common Vulnerabilities and Exposures (CVEs) 
+and their fixes, if known, are published by :abbr:`NIST` in a 
+National Vulnerability Database \ |NVD|\  and at \ |MITRE|\  .
 
 
-|CL| employs a proactive and measured approach to addressing known 
-and fixable Common Vulnerabilities and Exposures (CVEs).
-Packages are automatically scanned against CVEs at least daily, and 
-security updates and patches are deployed as soon as they are available. 
+|CL| employs a proactive and measured approach to addressing known
+and fixable :abbr:`CVEs (Common Vulnerabilities and Exposures)`.
+Packages are automatically scanned against 
+:abbr:`CVEs (Common Vulnerabilities and Exposures)` daily, and security 
+patches are deployed as soon as they are available. 
 
 These combined practices minimize the amount of 
 time |CL| systems are exposed to unnecessary security risk.
@@ -102,7 +102,7 @@ standards. Below are some examples:
 
 
 Verified trust
---------------------------
+--------------
 
 |CL| encourages the use of secure practices such as encryption
 and digital signature verification throughout the system and discourages blind
@@ -127,7 +127,7 @@ trust. Below are some examples:
 
 
 Compiled with secure options
----------------------------------------
+----------------------------
 
 While |CL| packages are optimized for performance on 
 Intel Architecture, security conscious kernel and compiler options are 
@@ -140,7 +140,7 @@ sensibly taken advantage of. Below are some examples:
 * `Address space layout randomization (ASLR)`_ and 
   `Kernel address space layout randomization (KASLR)`_  are kernel features
   which defend against certain memory based attacks. 
-  More information can be found in a `blog post about PIE executables`_ 
+  More information can be found in a `blog post about PIE executables`_ .
 
 * `dm-verity`_ is a kernel mechanism readily available in |CL| 
   which verifies integrity of the devices being written to, like hard disks,
@@ -161,7 +161,7 @@ good security hygiene. Below are some examples:
 * Full disk encryption using `Linux Unified Key Setup`_ (LUKS)  is available 
   during installation.
 
-* Use the PAM cracklib module to harden user login and password security: 
+* Use of the PAM cracklib module to harden user login and password security: 
 
     - No default username or root password set out of the box with 
       |CL|, you will be asked to set your own password immediately.
