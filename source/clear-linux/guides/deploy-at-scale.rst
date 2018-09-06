@@ -78,9 +78,9 @@ this approach *offers you a high degree of control and customization*.
 
 * swupd update webservers which are serving update content to 
   production machines (see `mixer process`_ for more information) should be
-  appropriately scaled and  
-  
-  Your swupd update server is just like any other web application.
+  appropriately scaled. 
+
+  Your swupd update server is just like any other web application. 
   |WEB-SERVER-SCALE| 
 
 Adopt an agile methodology
@@ -231,7 +231,7 @@ persistent and can be accessed on another server when an issue occurs.
   and the kind of data that would be valuable, and expose events
   appropriately.  
 
-  Your telemetry server is just like any other web application;
+  Your telemetry server is just like any other web application. 
   |WEB-SERVER-SCALE|
 
 Orchestration and Configuration Management
