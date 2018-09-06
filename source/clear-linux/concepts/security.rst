@@ -161,7 +161,8 @@ good security hygiene. Below are some examples:
 * Full disk encryption using `Linux Unified Key Setup`_ (LUKS)  is available 
   during installation.
 
-* Use of the PAM cracklib module to harden user login and password security: 
+* |CL| uses the PAM cracklib module to harden user login and password
+  security resulting in: 
 
     - No default username or root password set out of the box with 
       |CL|, you will be asked to set your own password immediately.
@@ -169,7 +170,7 @@ good security hygiene. Below are some examples:
     - Simple password schemes, which are known to be easily compromised,
       cannot be set in |CL|.
 
-    - A password blacklist is in place, to avoid system passwords being set to
+    - A password blacklist, to avoid system passwords being set to
       passwords which have been compromised in the past.
 
 * `Tallow`_, a lightweight service which monitors and blocks suspicious SSH 
