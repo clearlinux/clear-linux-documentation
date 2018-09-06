@@ -3,19 +3,19 @@
 Install Clear Linux as a VMware\* ESXi guest OS
 ###############################################
 
-`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top of 
-server hardware.  With VMware ESXi, you can create, configure, manage, and run 
-|CLOSIA| virtual machines in the cloud.  
+`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
+of server hardware. With VMware ESXi, you can create, configure, manage, and
+run |CLOSIA| virtual machines in the cloud.  
 
 This section shows you how to create a new :abbr:`VM (Virtual Machine)` and 
 manually install |CL| into it with VMware ESXi 6.5. 
 
-If you would prefer to use a preconfigured |CL| VMware disk image instead, see 
-:ref:`vmware-esxi-preconfigured-cl-image`. 
+If you would prefer to use a preconfigured |CL| VMware disk image 
+instead, see :ref:`vmware-esxi-preconfigured-cl-image`. 
 
 Manually installing |CL| into a new VM provides you some additional 
-configuration flexibility during installation. For example: alternate disk sizes,  
-number of partitions, pre-installed bundles, etc. 
+configuration flexibility during installation. For example: alternate
+disk sizes, number of partitions, pre-installed bundles, etc. 
 
 If you would prefer to use a preconfigured |CL| VMware image instead, 
 see :ref:`vmware-esxi-preconfigured-cl-image`. 
@@ -29,7 +29,7 @@ see :ref:`vmware-esxi-preconfigured-cl-image`.
   
   Visit :ref:`image-types` to learn more about all available images.
 
-We will perform these steps: 
+Install steps: 
 
 .. contents:: :local:
    :depth: 1
@@ -286,7 +286,7 @@ After configuring the settings above, power on the VM.
 
       Figure 16: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
-Also see:
+See Also:
 =========
 
 * :ref:`vmware-esxi-preconfigured-cl-image`

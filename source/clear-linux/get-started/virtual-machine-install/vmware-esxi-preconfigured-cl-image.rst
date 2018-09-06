@@ -23,7 +23,7 @@ VMware ESXi :abbr:`VM (Virtual Machine)` instead, see
 
    Visit :ref:`image-types` to learn more about all available images.
 
-We will perform these steps: 
+Install steps: 
 
 .. contents:: :local:
     :depth: 1
@@ -276,7 +276,7 @@ After configuring the settings above, power on the VM.
 
       Figure 13: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
-Also see:
+See Also:
 =========
 
 * :ref:`vmware-esxi-install-cl`
