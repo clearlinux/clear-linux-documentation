@@ -3,24 +3,19 @@
 Install Clear Linux as a VMware\* ESXi guest OS
 ###############################################
 
-`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top of 
-server hardware.  With VMware ESXi, you can create, configure, manage, and run 
-|CLOSIA| virtual machines in the cloud.  
+`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
+of server hardware. With VMware ESXi, you can create, configure, manage, and
+run |CLOSIA| virtual machines in the cloud.  
 
 This section shows you how to create a new :abbr:`VM (Virtual Machine)` and 
-install |CL| into it with VMware ESXi 6.5 Update 1.  Some of the advantages of 
-installing |CL| into a new VM is that it provides you flexibility in configuring, 
-for example: its size, the number of partitions, bundles, etc. 
-We will perform these steps: 
+manually install |CL| into it with VMware ESXi 6.5. 
 
-#.  Download the latest |CL| installer ISO.
-#.  Verify the integrity of the |CL| image.
-#.  Uncompress the |CL| image.
-#.  Upload the |CL| installer ISO to the VMware server.
-#.  Create and configure a new VM.
-#.  Install |CL| into the new VM.
-#.  Reconfigure the VM's settings to boot the newly-installed |CL|.
-#.  Power on the VM and boot |CL|.
+If you would prefer to use a preconfigured |CL| VMware disk image 
+instead, see :ref:`vmware-esxi-preconfigured-cl-image`. 
+
+Manually installing |CL| into a new VM provides you some additional 
+configuration flexibility during installation. For example: alternate
+disk sizes, number of partitions, pre-installed bundles, etc. 
 
 If you would prefer to use a preconfigured |CL| VMware image instead, 
 see :ref:`vmware-esxi-preconfigured-cl-image`. 
@@ -30,7 +25,15 @@ see :ref:`vmware-esxi-preconfigured-cl-image`.
   VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ 
   which is designed for the desktop environment. 
 
-Visit :ref:`image-types` to learn more about the available images.
+  See :ref:`vmw-player-preconf` or see :ref:`vmw-player`
+  
+  Visit :ref:`image-types` to learn more about all available images.
+
+Install steps: 
+
+.. contents:: :local:
+   :depth: 1
+
 
 Download the latest Clear Linux installer ISO
 *********************************************
@@ -283,8 +286,8 @@ After configuring the settings above, power on the VM.
 
       Figure 16: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
-Also see:
-*********
+See Also:
+=========
 
 * :ref:`vmware-esxi-preconfigured-cl-image`
 
