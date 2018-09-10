@@ -68,7 +68,12 @@ server, where you can host custom |CL| mixes.
 
    .. code-block:: bash
 
-      sudo ln -sf $HOME/mixer/update/www /var/www/mixer
+      sudo ln -sf /home/clr/mix/update/www /var/www/mixer
+
+   .. note::
+
+      `/home/clr/mix` is the workspace for the mix (read `Create workspace`)
+
 
 #. Set up ``nginx`` configuration. 
 
@@ -721,7 +726,7 @@ with the default values from the `ister` package with the following command:
 
 .. code-block:: bash
 
-   sudo cp /usr/share/defaults/ister/ister.json relase-image-config.json
+   sudo cp /usr/share/defaults/ister/ister.json release-image-config.json
 
 For reference, you can inspect the `Clear Linux ister configuration file`_
 used for releases.
