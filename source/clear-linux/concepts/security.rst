@@ -1,12 +1,11 @@
 .. _security:
 
-Clear Linux\* Security 
+Clear Linux\* OS Security 
 **********************
 
-Clear Linux\*, as it is distributed and maintained upstream, aims to make 
-systemic and layered security conscious decisions, which are both
-performant and practical. This security philosophy is rooted within
-the project's codebase and operating culture.
+Clear Linux\* aims to make systemic and layered security-conscious decisions,
+that are both performant and practical. This security philosophy is rooted 
+within the project's codebase and operating culture.
 
 
 .. contents:: :local:
@@ -130,7 +129,7 @@ Compiled with secure options
 ----------------------------
 
 While |CL| packages are optimized for performance on 
-Intel Architecture, security conscious kernel and compiler options are 
+Intel® Architecture, security conscious kernel and compiler options are 
 sensibly taken advantage of. Below are some examples: 
 
  
