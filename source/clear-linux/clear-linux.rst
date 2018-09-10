@@ -1,6 +1,6 @@
 .. _clear-linux:
 
-Clear Linux\* Project for Intel® Architecture
+|CL-PRJ|
 #############################################
 
 Welcome to the |CLOSIA| documentation pages. Our documentation is divided 

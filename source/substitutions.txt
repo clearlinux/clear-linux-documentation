@@ -2,7 +2,9 @@
 
 .. |CLOSIA| replace:: Clear Linux* OS
 
-.. |CLP| replace:: Clear Linux* project
+.. |CL-ATTR| replace:: Clear Linux* OS
+
+.. |CL-PRJ| replace:: Clear Linux* project
 
 .. |CC| replace:: Clear Containers
 
