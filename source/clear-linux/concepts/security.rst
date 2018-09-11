@@ -163,14 +163,14 @@ good security hygiene. Below are some examples:
 * |CL| uses the PAM cracklib module to harden user login and password
   security resulting in: 
 
-    - No default username or root password set out of the box with 
-      |CL|, you will be asked to set your own password immediately.
+  - No default username or root password set out of the box with 
+    |CL|, you will be asked to set your own password immediately.
 
-    - Simple password schemes, which are known to be easily compromised,
-      cannot be set in |CL|.
+  - Simple password schemes, which are known to be easily compromised,
+   cannot be set in |CL|.
 
-    - A password blacklist, to avoid system passwords being set to
-      passwords which have been compromised in the past.
+  - A password blacklist, to avoid system passwords being set to
+   passwords which have been compromised in the past.
 
 * `Tallow`_, a lightweight service which monitors and blocks suspicious SSH 
   login patterns, is installed with the :command:`openssh-server` bundle. 
