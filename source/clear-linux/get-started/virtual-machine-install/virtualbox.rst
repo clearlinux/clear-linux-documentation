@@ -146,16 +146,12 @@ To install the VirtualBox kernel modules, here are the steps:
 
      clr-boot-manager update
 
-.. note:: 
-
-  :abbr:`LGA (Linux Guest Additions)` drivers are integrated in Clear Linux LTS kernel 4.14 going forward. You do not need to manually install LGA. 
-
 Install Guest Additions
 -----------------------
 
-The kernel modules are shipped with the ``kernel-lts`` bundle; however, #. 
-Insert Guest Additions CD image using *Devices* menu you'll need to install 
-the *user* Linux Guest Additions. To install the VirtualBox Guest Additions, 
+The kernel modules are shipped with the ``kernel-lts`` bundle. Insert Guest 
+Additions CD image using *Devices* menu you'll need to install the *user* 
+Linux Guest Additions. To install the VirtualBox Guest Additions, 
 follow these steps:
 
 
@@ -191,8 +187,6 @@ in an **Administrator: Command Prompt**, then reboot your system.
 To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
-
-.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/support/articles/000007693/server-products/server-boards.html
 
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
