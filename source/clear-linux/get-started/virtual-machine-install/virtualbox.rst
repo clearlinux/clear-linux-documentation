@@ -150,6 +150,15 @@ To install the VirtualBox kernel modules, here are the steps:
 
   :abbr:`LGA (Linux Guest Additions)` drivers are integrated in Clear Linux LTS kernel 4.14 going forward. You do not need to manually install LGA. 
 
+Install Guest Additions
+-----------------------
+
+The kernel modules are shipped with the ``kernel-lts`` bundle; however, #. 
+Insert Guest Additions CD image using *Devices* menu you'll need to install 
+the *user* Linux Guest Additions. To install the VirtualBox Guest Additions, 
+follow these steps:
+
+
 #. Insert Guest Additions CD image using *Devices* menu 
 
    .. image:: ./figures/vbox-cd.png  
