@@ -3,7 +3,7 @@
 Clear Linux\* OS Security 
 **********************
 
-Clear Linux\* aims to make systemic and layered security-conscious decisions
+Clear Linux\* OS aims to make systemic and layered security-conscious decisions
 that are both performant and practical. This security philosophy is rooted 
 within the project's codebase and operating culture.
 
@@ -167,10 +167,10 @@ good security hygiene. Below are some examples:
     |CL|, you will be asked to set your own password immediately.
 
   - Simple password schemes, which are known to be easily compromised,
-   cannot be set in |CL|.
+    cannot be set in |CL|.
 
   - A password blacklist, to avoid system passwords being set to
-   passwords which have been compromised in the past.
+    passwords which have been compromised in the past.
 
 * `Tallow`_, a lightweight service which monitors and blocks suspicious SSH 
   login patterns, is installed with the :command:`openssh-server` bundle. 
