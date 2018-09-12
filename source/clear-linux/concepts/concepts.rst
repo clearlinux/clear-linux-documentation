@@ -15,4 +15,5 @@ details relevant to the |CL| features.
    bundles-about
    autospec-about
    restart
+   security
    telemetry-about
