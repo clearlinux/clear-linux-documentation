@@ -1,6 +1,10 @@
-.. |CL| replace:: Clear Linux
+.. |CL| replace:: Clear Linux OS
 
-.. |CLOSIA| replace:: Clear Linux* OS for Intel® Architecture
+.. |CLOSIA| replace:: Clear Linux* OS
+
+.. |CL-ATTR| replace:: Clear Linux* OS
+
+.. |CL-PRJ| replace:: Clear Linux* project
 
 .. |CC| replace:: Clear Containers
 
