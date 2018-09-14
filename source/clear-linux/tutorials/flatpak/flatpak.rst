@@ -1,16 +1,16 @@
 .. _flatpak:
 
-Use Flatpak\* to install applications on |CLOSIA|
-#################################################
+Use Flatpak\* to install applications on Clear Linux\* OS
+#########################################################
 
 This tutorial provides all the required steps to install Flatpak as well as
-downloading, installing, and running LibreOffice on |CL|.
+downloading, installing, and running LibreOffice\* on Clear Linux\* OS.
 
 Please visit the `Flatpak website`_ for more information about Flatpak and
-how to use it.
+how to use it. You can also `download it here`_.
 
 Before you begin
-================
+****************
 
 This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, visit
@@ -22,9 +22,9 @@ Install Flatpak on your host system
 Flatpak is included as part of the bundle `desktop`. To install the
 application, log in to your user account and enter the following command:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ sudo swupd bundle-add desktop
+   sudo swupd bundle-add desktop
 
 
 Install and run the LibreOffice Flatpak image
@@ -42,7 +42,7 @@ Installing using gnome software
 -------------------------------
 
 All you need to do is to launch `gnome software`, search for the LibreOffice
-app and click the install button
+app, and click the install button.
 
 .. figure:: figures/01-install-libreoffice.gif
    :alt: install libreoffice step by step
@@ -57,9 +57,9 @@ Installing using the command line
 Open the `gnome-terminal` and type the following command to install the
 LibreOffice app.
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ flatpak install --user flathub org.libreoffice.LibreOffice
+   flatpak install --user flathub org.libreoffice.LibreOffice
    Installing in user:
    org.libreoffice.LibreOffice/x86_64/stable        flathub 2aff77bd5cf1
      permissions: ipc, network, pulseaudio, wayland, x11, dri
@@ -90,9 +90,9 @@ LibreOffice will start normally.
 Using the command line
 ----------------------
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ flatpak run org.libreoffice.LibreOffice
+   flatpak run org.libreoffice.LibreOffice
 
 
 .. _Flatpak website: http://flatpak.org
