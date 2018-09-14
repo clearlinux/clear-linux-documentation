@@ -1,7 +1,7 @@
 .. _flatpak:
 
-Use Flatpak\* to install applications on Clear Linux\* OS
-#########################################################
+Use Flatpak\* to install applications on |CL-ATTR|
+##################################################
 
 This tutorial provides all the required steps to install Flatpak as well as
 downloading, installing, and running LibreOffice\* on |CL-ATTR|.
