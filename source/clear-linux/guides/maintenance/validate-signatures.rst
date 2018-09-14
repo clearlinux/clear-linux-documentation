@@ -45,7 +45,7 @@ used for illustrative purposes. You may use any image of |CL| you choose.
 
       4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890  ClearLinuxRoot.pem
 
-#. Generate the SHA512 sum of the image and save it to a filex.
+#. Generate the SHA512 sum of the image and save it to a file.
 
    .. code-block:: console
 
