@@ -4,7 +4,7 @@ Use Flatpak\* to install applications on Clear Linux\* OS
 #########################################################
 
 This tutorial provides all the required steps to install Flatpak as well as
-downloading, installing, and running LibreOffice\* on Clear Linux\* OS.
+downloading, installing, and running LibreOffice\* on |CL-ATTR|.
 
 Please visit the `Flatpak website`_ for more information about Flatpak and
 how to use it. You can also `download it here`_.
