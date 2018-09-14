@@ -45,17 +45,11 @@ used for illustrative purposes. You may use any image of |CL| you choose.
 
       4b0ca67300727477913c331ff124928a98bcf2fb12c011a855f17cd73137a890  ClearLinuxRoot.pem
 
-#. Generate the SHA512 sum of the image and save it to a file.
+#. Generate the SHA512 sum of the image and save it to a filex.
 
    .. code-block:: console
 
-      sha512sum ./clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
-
-   .. important::
-
-      The ``./`` in the file name must be included because it is part of the
-      SHA512 sum of the image. Without it, the validation of the signature
-      of the image will fail.
+      sha512sum clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
 
 #. Ensure the signature of the SHA512 sum of the image was created using the
    Clear Linux certificate. This validates the image is trusted and it has not
@@ -84,7 +78,7 @@ these steps manually when performing a ``swupd update``.
       # MoM
       curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.MoM
       # Signature of MoM
-      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.sig
+      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.MoM.sig
       # Swupd certificate
       curl -O https://download.clearlinux.org/releases/$(curl https://download.clearlinux.org/latest)/clear/Swupd_Root.pem
 
