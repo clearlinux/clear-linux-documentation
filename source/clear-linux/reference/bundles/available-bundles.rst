@@ -4,7 +4,7 @@ Available bundles
 #################
 
 This document provides a current list of available `bundles`_ as of 
-``7 May 2018``.                                      
+``12 September 2018``.                                      
 
 See in depth descriptions of the following bundles:
 
