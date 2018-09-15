@@ -1,6 +1,6 @@
 .. _mixer:
 
-Use mixer tool
+Use the mixer tool
 ##############
 
 *Mixing* refers to composing an operating system for specific use cases.
@@ -22,18 +22,21 @@ add it with the :command:`swupd bundle-add` command as follows:
 
 Current mixing workflow
 ***********************
-Mixer by default runs *all* build commands in a container to ensure the
+Mixer by default runs **all** build commands in a container to ensure the
 correct version of the tooling is being used. This also allows custom mixes
 to automatically perform downstream format bumps when upstream releases
-a format bump. You can still run mixer natively by appending --native to
-any of the commands. Note that you cannot run mixer if you are already in a
-container, unless you pass --native to the command. Nested containerization
-is not supported, nor is building images using the container mode.
+a format bump. You can still run mixer natively by appending the *--native* flag to
+any of the commands. 
+
+.. note::
+  You cannot run mixer if you are already in a container, unless you pass 
+  *--native* to the command. Nested containerization is not supported, nor 
+  is building images using the container mode.
 
 There are two different workflows to create your own mix.
 First, if your mix only uses |CL| content, *skip step 5* below. 
 Second, if your mix includes your own 
-:abbr:`RPMs (RPM Package Manager files)`, follow all these steps. 
+:abbr:`RPMs (RPM Package Manager files)`, follow all steps below. 
 
 #. `Create ngninx web server to host mixer updates`_
 #. `Create a workspace`_
@@ -57,9 +60,9 @@ Create nginx web server to host mixer updates
 **********************************************
 
 Follow these steps to set up a HTTP service with ``nginx`` web 
-server, where you can host custom |CL| mixes.  
+server, where you can host custom |CL| mixes:  
 
-#. Install ``web-server-basic``: 
+#. Install ``web-server-basic``. 
    
    .. code-block:: bash
 
@@ -122,7 +125,7 @@ server, where you can host custom |CL| mixes.
 
       sudo systemctl start nginx 
 
-#. To verify the web server is running, enter in an Internet browser:
+#. To verify the web server is running, check it in an Internet browser:
 
    .. code-block:: bash
 
