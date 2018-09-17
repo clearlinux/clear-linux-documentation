@@ -180,7 +180,7 @@ The next steps of the manual installer setup process allows you to:
       Figure 9: :guilabel:`Bundle selector`
 
 For a complete description of the content of these additional bundles, go to
-the :ref:`software bundle list<available-bundles>` and select the name for a
+the :ref:`software bundle list<bundles>` and select the name for a
 specific bundle to show the contents within the bundle.
 
 Target system network configuration
