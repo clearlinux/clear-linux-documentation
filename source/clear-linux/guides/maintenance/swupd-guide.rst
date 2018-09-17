@@ -3,7 +3,7 @@
 Use swupd
 #########
 
-*swupd* manages the software update capability of |CLOSIA|. It can check for
+*swupd* manages the software update capability of |CL-ATTR|. It can check for
 valid system updates and, if found, download and install them. It can also
 perform verification of the system software. 
 
@@ -165,7 +165,7 @@ binary. Note that it may be present in multiple bundles:
 Adding a bundle
 ===============
 
-Start by selecting a bundle from the list of :ref:`available-bundles`. In
+Start by selecting a bundle from the list of :ref:`bundles`. In
 this example we're adding dev-utils-dev, which is useful for development.
 
 .. code-block:: bash
