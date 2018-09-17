@@ -17,15 +17,14 @@ individually or as a set, using tools such as "yum" and "apt-get."
 The |CLOSIA| takes a slightly different approach. While we also use the
 concept of packages to manage compiling source code into binaries, we do not
 use the package concept to deploy software. Instead, we provide software
-"bundles" that are installed and managed using :ref:`swupd<swupd-about>`. Each
-bundle contains as many or as few open source projects needed to provide a
-complete functionality.
+"bundles" that are installed and managed using :ref:`swupd<swupd-about>`.
+Each bundle contains as many or as few open source projects needed to provide a complete functionality.
 
 Next steps
 ==========
 
 To put this concept into practice, see the following resources:
 
-* :ref:`available-bundles`
+* :ref:`bundles`
 * :ref:`bundle-commands`
 * :ref:`compatible-kernels`
