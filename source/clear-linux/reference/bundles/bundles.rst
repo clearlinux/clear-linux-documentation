@@ -1,4 +1,4 @@
-.. _available-bundles:
+.. _bundles:
 
 Available bundles
 #################
