@@ -3,7 +3,7 @@
 Bulk provision
 ##############
 
-The |CLOSIA| can be automatically provisioned in bulk using a combination of
+The |CL-ATTR| can be automatically provisioned in bulk using a combination of
 the |CL| installer, **Ister**, and :abbr:`ICIS (Ister Cloud Init Service)`.
 This guide covers how to perform a bulk provision of |CL| using **Ister**
 and **ICIS**.
@@ -49,7 +49,7 @@ Configuration
    with the steps it needs to perform an installation. The file outlines
    what partitions, file systems, and mount points **Ister** should set
    up. Lastly, the file outlines which bundles to install. See our
-   :ref:`available-bundles` document for the list of available bundles. The
+   :ref:`bundles` document for the list of available bundles. The
    following example shows the contents of an Ister installation file:
 
    .. code-block:: json
