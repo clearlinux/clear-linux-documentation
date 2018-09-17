@@ -1,11 +1,11 @@
 .. _custom-clear-container:
 
-Build a custom Clear Linux based Docker container image
+Build a custom |CL-ATTR| based Docker container image
 #######################################################
 
-The official base |CLOSIA| container image is published on Docker\* Hub and is
-updated on a regular basis. This guide contains the steps to build a custom
-container image.
+The official base |CL-ATTR| container image is published on Docker\* Hub and 
+is updated on a regular basis. This guide contains the steps to build a 
+custom container image.
 
 Prerequisites
 *************
@@ -117,7 +117,7 @@ Build the base container image
 #. Optionally, you can include additional bundles with the base image.
 
    #. Identify the desired bundles on the |CL| website's
-      :ref:`available-bundles` page or execute the
+      :ref:`bundles` page or execute the
       :command:`swupd bundle-list -a` command.
 
    #. Create reference files for the identified bundles. For example,
