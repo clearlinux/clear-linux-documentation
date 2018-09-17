@@ -22,7 +22,7 @@ add it with the :command:`swupd bundle-add` command as follows:
 
 Current mixing workflow
 ***********************
-Mixer by default runs **all** build commands in a container to ensure the
+Mixer by default runs *all* build commands in a container to ensure the
 correct version of the tooling is being used. This also allows custom mixes
 to automatically perform downstream format bumps when upstream releases
 a format bump. You can still run mixer natively by appending the *--native* flag to
