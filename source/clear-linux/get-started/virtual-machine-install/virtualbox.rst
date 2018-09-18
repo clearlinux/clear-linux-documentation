@@ -1,9 +1,9 @@
 .. _virtualbox:
 
-Run pre-configured Clear Linux\* as a VirtualBox\* guest OS
+Run pre-configured |CL-ATTR| as a VirtualBox\* guest OS
 ###########################################################
 
-This instruction explains how to deploy a pre-configured Clear Linux\* image as a guest on the `VirtualBox hypervisor`_ .
+This instruction explains how to deploy a pre-configured |CL-ATTR| image as a guest on the `VirtualBox hypervisor`_ .
 
 Download VirtualBox
 ===================
@@ -34,7 +34,7 @@ Create a virtual machine in VirtualBox
 #. Log in to your host and open a terminal emulator.
 
 #. Download the `latest`_ **live** version (clear-XXXX-live.img.xz) of
-   Clear Linux. You can also use this command: 
+   |CL|. You can also use this command: 
 
    .. code-block:: bash
 

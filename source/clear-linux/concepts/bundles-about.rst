@@ -14,7 +14,7 @@ distributions deploy their software. With those kinds of distributions,
 system administrators can then install and update sub-packages
 individually or as a set, using tools such as "yum" and "apt-get."
 
-The |CLOSIA| takes a slightly different approach. While we also use the
+The |CL-ATTR| takes a slightly different approach. While we also use the
 concept of packages to manage compiling source code into binaries, we do not
 use the package concept to deploy software. Instead, we provide software
 "bundles" that are installed and managed using :ref:`swupd<swupd-about>`.
