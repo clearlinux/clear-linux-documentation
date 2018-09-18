@@ -193,3 +193,5 @@ To enable Hyper-V again, you should execute::
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
+.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en
+/virtualization/virtualization-technology/intel-virtualization-technology.html
