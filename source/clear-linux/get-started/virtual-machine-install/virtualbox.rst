@@ -21,7 +21,7 @@ The instruction assumes that you have:
    
    .. note:: 
 
-      For help, see: `Intel® Virtualization Technology`_ (Intel® VT). 
+      For help, see: Intel® `Virtualization Technology`_ (Intel® VT). 
 
 #. Installed VirtualBox on your host machine per the 
    `appropriate instructions`_ for your platform.
@@ -193,5 +193,4 @@ To enable Hyper-V again, you should execute::
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
-.. _Intel® Virtualization Technology: 
-https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+.. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
