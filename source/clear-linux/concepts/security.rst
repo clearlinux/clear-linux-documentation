@@ -1,7 +1,7 @@
 .. _security:
 
 Clear Linux\* OS Security 
-**********************
+*************************
 
 Clear Linux\* OS aims to make systemic and layered security-conscious decisions
 that are both performant and practical. This security philosophy is rooted 
