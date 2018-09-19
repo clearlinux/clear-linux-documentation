@@ -119,7 +119,7 @@ Related Topics
 
 Learn how to:
 
-* :ref:`kata` on |CL| 
+* :ref:`kata`
 
 * :ref:`kata_migration`
 
