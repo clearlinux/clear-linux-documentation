@@ -1,9 +1,9 @@
 .. _virtualbox:
 
-Run pre-configured Clear Linux\* as a VirtualBox\* guest OS
+Run pre-configured |CL-ATTR| as a VirtualBox\* guest OS
 ###########################################################
 
-This instruction explains how to deploy a pre-configured Clear Linux\* image as a guest on the `VirtualBox hypervisor`_ .
+This instruction explains how to deploy a pre-configured |CL-ATTR| image as a guest on the `VirtualBox hypervisor`_ .
 
 Download VirtualBox
 ===================
@@ -21,7 +21,7 @@ The instruction assumes that you have:
    
    .. note:: 
 
-      For help, see: `Intel® Virtualization Technology`_ (Intel® VT). 
+      For help, see: Intel® `Virtualization Technology`_ (Intel® VT). 
 
 #. Installed VirtualBox on your host machine per the 
    `appropriate instructions`_ for your platform.
@@ -34,7 +34,7 @@ Create a virtual machine in VirtualBox
 #. Log in to your host and open a terminal emulator.
 
 #. Download the `latest`_ **live** version (clear-XXXX-live.img.xz) of
-   Clear Linux. You can also use this command: 
+   |CL|. You can also use this command: 
 
    .. code-block:: bash
 
@@ -193,3 +193,4 @@ To enable Hyper-V again, you should execute::
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
+.. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html

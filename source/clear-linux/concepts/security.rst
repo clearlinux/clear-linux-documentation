@@ -1,9 +1,9 @@
 .. _security:
 
-Clear Linux\* OS Security 
-**********************
+|CL-ATTR| OS Security 
+*************************
 
-Clear Linux\* OS aims to make systemic and layered security-conscious decisions
+|CL-ATTR| aims to make systemic and layered security-conscious decisions
 that are both performant and practical. This security philosophy is rooted 
 within the project's codebase and operating culture.
 
@@ -133,7 +133,7 @@ Intel® architecture, security conscious kernel and compiler options are
 sensibly taken advantage of. Below are some examples: 
 
  
-* Kernels shipped with Clear Linux are signed and disallow the usage of 
+* Kernels shipped with |CL| are signed and disallow the usage of 
   custom kernel modules to maintain verifiable system integrity.
 
 * `Address space layout randomization (ASLR)`_ and 
