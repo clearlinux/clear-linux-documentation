@@ -22,7 +22,7 @@ How do I search for a bundle?
 Use `swupd search` to locate the bundle where the application binary exists. 
 
 Example: Kata\* Containers
-========================
+==========================
 
 Containers have revolutionized the way we manage cloud infrastructure. 
 Traditional containers often share the same OS kernel, which raises 
