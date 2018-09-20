@@ -3,8 +3,8 @@
 Use swupd search to find bundles
 ################################
 
-This document shows you how to use `swupd search` to find and add
-bundles. 
+This document explains how to use `swupd search` to find and add
+bundles in |CL-ATTR|. 
 
 Assumptions
 ***********
@@ -14,15 +14,15 @@ This guide assumes you:
 * Possess a basic knowledge of :ref:`swupd <swupd-guide>` 
 * Understand :ref:`how swupd differs <swupd-about>` from  
   other Linux\* distributions 
-* May use :ref:`mixer` to build your own |CL| OS
+* May :ref:`mixer` to produce a custom distribution/image
 
 How do I search for a bundle? 
 *****************************
 
 Use `swupd search` to locate the bundle where the application binary exists. 
 
-Example: Kata Containers
-========================
+Example: Kata\* Containers
+==========================
 
 Containers have revolutionized the way we manage cloud infrastructure. 
 Traditional containers often share the same OS kernel, which raises 
@@ -30,7 +30,7 @@ security concerns. Instead, with Kata Containers, each container has its own
 kernel instance and runs on its own :abbr:`Virtual Machine (VM)`. Whether you're running 3 or 300 nodes on your cluster, Kata Containers provide a 
 lightweight, fast, and secure option for app/container management.  
 
-In |CL|, you only need to add `this bundle`_ to use `Kata Containers`_: 
+In |CL|, you only need to add `one bundle`_ to use `Kata Containers`_: 
 `containers-virt`. Also, check out our tutorial: :ref:`kata`.
 
 We need to find *kata* containers in a bundle. How do we search for it? 
@@ -114,24 +114,24 @@ We need to find *kata* containers in a bundle. How do we search for it?
       Calling post-update helper scripts.
       Successfully installed 1 bundle
 
-FAQ
-===
+Related Topics
+==============
 
-Find answers to these common questions: 
+Learn how to:
 
-* How do I install and *use* :ref:`Kata Containers <kata>` on |CL|? 
+* :ref:`kata`
 
-* How do I :ref:`kata_migration`?
+* :ref:`kata_migration`
 
-* How do I show all :ref:`bundles available <swupd-guide>`?
+* :ref:`swupd-guide` 
 
-* How do I :ref:`update swupd<swupd-guide>`? 
+* :ref:`Show all available bundles <swupd-guide>`
 
-* How do I :ref:`remove bundles<swupd-guide>`? 
+* :ref:`Remove bundles<swupd-guide>` 
 
 .. _Kata Containers: https://clearlinux.org/blogs/clear-linux-os-announces-support-kata-containers
 
-.. _this bundle: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt
+.. _one bundle: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt
 
 .. _Bundle Definition Files: https://github.com/clearlinux/clr-bundles
 
