@@ -1,14 +1,13 @@
 .. Clear Technologies documentation master file.
 
-Clear technologies - Documentation
-##################################
+Clear Linux - Documentation
+###########################
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    clear-linux/clear-linux
-   clear-containers/clear-containers
-
+   
 License and disclaimers
 =======================
 
