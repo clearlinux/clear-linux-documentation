@@ -3,8 +3,8 @@
 Maintenance guide
 #################
 
-This guide provides step-by-step instructions for common tasks associated with
-maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
+These guides provide step-by-step instructions for common tasks associated with
+maintaining |CL-ATTR| after :ref:`installation <get-started>` is completed.
 
 .. toctree::
    :maxdepth: 2
@@ -19,6 +19,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    validate-signatures
    telemetry-enable
    time
+   hostname
    increase-virtual-disk-size
    download-verify-uncompress-linux
    download-verify-uncompress-mac
