@@ -24,7 +24,7 @@ In this tutorial, we perform the following steps:
 
 .. note::
 
-   The screenshots on this document show the Windows\* version of the
+   The screenshots on this document show the Windows version of the
    VMware Workstation 14 Player. The menus and prompts are similar to those
    in the Linux version save some minor wording differences.
 

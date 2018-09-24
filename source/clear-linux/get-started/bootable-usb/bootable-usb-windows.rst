@@ -1,7 +1,7 @@
 .. _bootable-usb-windows:
 
-Create a bootable USB drive on Windows
-######################################
+Create a bootable USB drive on Windows\*
+########################################
 
 Follow these instructions to create a bootable |CL-ATTR| USB drive.
 Use an **8GB** or larger USB drive. Download either a live image, 

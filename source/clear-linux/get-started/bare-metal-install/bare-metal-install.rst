@@ -281,7 +281,7 @@ Set up your root account
 ========================
 
 Once the |CL| installation is complete and the system boots, a full screen
-console requests your login: as shown in figure 12:
+console requests your login as shown in figure 12:
 
 .. figure:: figures/bare-metal-install-12.png
    :scale: 50 %
