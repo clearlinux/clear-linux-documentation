@@ -3,7 +3,7 @@
 Use Hyper-V\*
 #############
 
-This section explains how to run |CLOSIA| inside a
+This section explains how to run |CL-ATTR| inside a
 `Windows Server Virtualization`_\* or **Hyper-V** environment.
 
 Please ensure you have enabled `Intel® Virtualization Technology
@@ -31,7 +31,7 @@ Create a virtual machine
 
 #. Download and uncompress the latest hyperv disk image
    :file:`clear-XXXXX-hyperv.img.gz`, where XXXXX is the latest 
-   available version of |CLOSIA| from our `downloads`_ section.
+   available version of |CL| from our `downloads`_ section.
 
 #. Create a virtual machine using the **Hyper-V Manager**:
 
@@ -41,7 +41,7 @@ Create a virtual machine
    c. When finished, open VM settings, select Firmware Section and in Secure
       Boot config, **uncheck** Enable Secure Boot.
 
-   .. note:: Currently, Clear Linux does not boot with `secure boot`
+   .. note:: Currently, |CL| does not boot with `secure boot`
       enabled.
 
 #. Connect to your new VM and start it. You should see a prompt:
@@ -52,7 +52,7 @@ Create a virtual machine
 
 #. Set a root user password.
 
-Your virtual machine running |CLOSIA| is ready!
+Your virtual machine running |CL| is ready!
 
 .. _Windows Server Virtualization: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/
 .. _Microsoft documentation: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v

@@ -1,11 +1,11 @@
 .. _cgdisk-manual-install:
 
-Create partitions for Clear Linux\* using CGDISK
-################################################
+Create partitions for |CL-ATTR| using CGDISK
+############################################
 
-As part of the |CL| manual installation processThese instructions guide you through the initial setup of your hard drive
-partitions using the :command:`cgdisk` utility . If you do not wish to continue creating your own
-partitions, :ref:`return to the bare metal manual installation
+These instructions guide you through the initial setup of your hard drive
+partitions using the :command:`cgdisk` utility . If you do not wish to continue 
+creating your own partitions, :ref:`return to the bare metal manual installation
 <bare-metal-manual-install>`.
 
 Prerequisites
@@ -278,7 +278,7 @@ partitions and select to format them.
    
    You have completed the process of manually partitioning your target
    system. Now, :ref:`return to the bare metal manual installation 
-   <bare-metal-manual-install>` to complete installation of Clear Linux.
+   <bare-metal-manual-install>` to complete installation of |CL|.
    Continue at the section *Additional manual installer settings*.
 
 .. _`GPT fdisk tutorial`:

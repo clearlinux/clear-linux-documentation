@@ -1,11 +1,11 @@
 .. _compatibility-check:
 
-Check processor and EFI firmware compatibility with Clear Linux\*
-#################################################################
+Check processor and EFI firmware compatibility with |CL-ATTR|
+#############################################################
 
-On a system that is currently running a Linux operating system, follow the
+On a system that is currently running a Linux\* operating system, follow the
 instructions below to determine if your system's processor and EFI firmware is
-capable of running |CLOSIA|. Otherwise,
+capable of running |CL-ATTR|. Otherwise,
 :ref:`run Clear Linux as a Live image <live-image>` and then perform the steps
 below.
 

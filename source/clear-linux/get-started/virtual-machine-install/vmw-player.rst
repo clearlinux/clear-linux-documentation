@@ -1,11 +1,11 @@
 .. _vmw-player:
 
-Install Clear Linux as a VMware\* Workstation Player guest OS
-#############################################################
+Install |CL-ATTR| as a VMware\* Workstation Player guest OS
+###########################################################
 
 `VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of
 another operating system such as Windows or Linux. With VMware ESXi, you can
-create, configure, manage, and run |CLOSIA| :abbr:`VMs (Virtual Machines)` on
+create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)` on
 your local system.
 
 This section shows how to create a new VM and install |CL| into it with the
@@ -71,15 +71,15 @@ Install the VMware Workstation Player hypervisor
 
 For additional help, see the `VMware Workstation Player guide`_.
 
-Clear Linux image types
-***********************
+|CL| image types
+****************
 
 .. include:: ../../reference/image-types.rst
    :Start-after: image-types-content:
 
 
-Download the latest Clear Linux installer ISO
-*********************************************
+Download the latest |CL| installer ISO
+**************************************
 
 Get the latest |CL| installer ISO image from the `image`_ repository.
 Look for :file:`clear-[version number]-installer.iso.xz`.
@@ -204,8 +204,8 @@ Create and configure a new VM
 
 #. Click the :guilabel:`Finish` button.
 
-Install Clear Linux into the new VM
-***********************************
+Install |CL| into the new VM
+****************************
 
 #. Select the newly-created VM and click the :guilabel:`Play virtual machine`
    button. See Figure 9.

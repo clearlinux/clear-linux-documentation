@@ -1,9 +1,9 @@
 .. _kvm:
 
-Run Clear Linux as a KVM guest OS
-#################################
+Run |CL-ATTR| as a KVM guest OS
+###############################
 
-This section explains how to run |CLOSIA| in a virtualized environment using
+This section explains how to run |CL-ATTR| in a virtualized environment using
 :abbr:`KVM (Kernel-based Virtual Machine)`.
 
 Install QEMU-KVM
