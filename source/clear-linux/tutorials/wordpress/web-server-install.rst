@@ -1,9 +1,10 @@
 .. _web-server-install:
 
-Create a Clear Linux\* based web server
+Create a |CL-ATTR| based web server
 #######################################
 
-This tutorial shows you how to create a LAMP server using |CLOSIA| and how to use phpMyAdmin\* to manage an associated database.
+This tutorial shows you how to create a :abbr:`LAMP (Linux, Apache, MySQL, PHP)` server using |CL-ATTR| and how to use 
+phpMyAdmin\* to manage an associated database.
 
 In order to create a web server using |CL| as the host OS, your host system 
 must be running |CL|. This tutorial assumes you have successfully installed 
@@ -18,7 +19,9 @@ Before you install new packages, update the |CL| OS with the following console c
 Create a LAMP Server
 ********************
 
-A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop-in replacement for MySQL.
+A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web 
+server and host a website. Note that this tutorial installs MariaDB\*, which is a drop-in 
+replacement for MySQL.
 
 This tutorial follows these steps:
 
@@ -380,7 +383,7 @@ our |CL| host system.
 Use phpMyAdmin to Manage Databases
 ====================================
 
-You can use the phpMyAdmin web-based tool to manage your databases. Follow the steps below for setting up a database called Wordpress.
+You can use the phpMyAdmin web-based tool to manage your databases. Follow the steps below for setting up a database called "WordPress".
 
 #. Verify that a successful installation of all LAMP server components by
    going to http://localhost/phpMyAdmin. See figure 3.
@@ -470,7 +473,7 @@ If successful, you should see the screen shown in figure 8:
 **Congratulations!**
 
 You have now created a fully functional LAMP server along with a 
-WordPress-ready database using |CL|.
+WordPress\*-ready database using |CL|.
 
 As a next step, you could :ref:`create a WordPress server <wp-install>` and
 present it to the world.
