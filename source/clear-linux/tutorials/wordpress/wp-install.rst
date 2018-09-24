@@ -1,14 +1,19 @@
 .. _wp-install:
 
-Create a Clear Linux WordPress server
+Create a |CL-ATTR| WordPress\* server
 #######################################
 
-This tutorial shows you how to install the WordPress components on your |CL| LAMP server. At the end of :ref:`web-server-install`, you created a WordPress\*-ready database using phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you can add the WordPress components needed to host a WordPress website on your system.
+This tutorial shows you how to install the WordPress\* components on your |CL| 
+:abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of 
+:ref:`web-server-install`, you created a WordPress-ready database using 
+phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you 
+can add the WordPress components needed to host a WordPress website on your system.
 
 Before you begin
 =================
 
-This tutorial assumes you have successfully installed :ref:`Clear Linux on bare metal<bare-metal-install>` and that you have :ref:`set up a LAMP web server <web-server-install>`.
+This tutorial assumes you have successfully installed :ref:`Clear Linux on bare metal<bare-metal-install>` 
+and that you have :ref:`set up a LAMP web server <web-server-install>`.
 
 
 Before you install new packages, update the |CL| OS with the following command:
@@ -21,11 +26,20 @@ Before you install new packages, update the |CL| OS with the following command:
 Create a WordPress server
 ===========================
 
-WordPress can be installed in a variety of ways. These instructions are written for users who have followed our instructions for installing phpMyAdmin when they :ref:`set up a LAMP web server <web-server-install>`. Note that all steps in this tutorial have been tested using a NUC6i5SYH Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed information.
+WordPress can be installed in a variety of ways. These instructions are 
+written for users who have followed our instructions for installing phpMyAdmin 
+when they :ref:`set up a LAMP web server <web-server-install>`. Note that 
+all steps in this tutorial have been tested using a NUC6i5SYH Intel® NUC. 
+Visit the `NUC6i5SYH product page`_ for detailed information.
 
-Numerous online articles are available to help you name your website and acquire the necessary certificates. Those tasks are beyond the scope of this tutorial.
+Numerous online articles are available to help you name your website and 
+acquire the necessary certificates. Those tasks are beyond the scope of this tutorial.
 
-You can take several actions to harden your website from attacks. The security of your website and the data it contains are complex and ever-evolving tasks. Prioritize security if you plan to expose your website to the outside world. This tutorial does not address security measures that you can take to harden your site but we strongly encourage you to take action.
+You can take several actions to harden your website from attacks. The security 
+of your website and the data it contains are complex and ever-evolving tasks. 
+Prioritize security if you plan to expose your website to the outside world. 
+This tutorial does not address security measures that you can take to harden 
+your site but we strongly encourage you to take action.
 
 .. note::
 
@@ -35,9 +49,11 @@ You can take several actions to harden your website from attacks. The security o
 Download WordPress and manage directories
 ------------------------------------------
 
-For this tutorial, you will create a WordPress blog that can be accessed at: http://<your_website>/blog.
+For this tutorial, you will create a WordPress blog that can be accessed at: 
+http://<your_website>/blog.
 
-To accomplish this setup, you must add WordPress components to the :file:`/var/www/html/blog` directory.
+To accomplish this setup, you must add WordPress components to the :file:`/var/www/html/blog` 
+directory.
 
 Follow these steps:
 
@@ -75,9 +91,12 @@ Follow these steps:
 Set up WordPress with Web-based GUI
 -----------------------------------
 
-Recall that you created a database and user when you installed phpMyAdmin during :ref:`Creating a Clear Linux based web server <web-server-install>`. Next, you must connect WordPress to the database and install WordPress.
+Recall that you created a database and user when you installed phpMyAdmin during 
+:ref:`Creating a Clear Linux based web server <web-server-install>`. Next, you must 
+connect WordPress to the database and install WordPress.
 
-To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.php. The WordPress language option screen appears, as shown in figure 1.
+To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.php. 
+The WordPress language option screen appears, as shown in figure 1.
 
 #. Select :guilabel:`English` and click :guilabel:`Continue`.
 
@@ -88,7 +107,8 @@ To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.p
     `Figure 1: WordPress language selection screen.`
 
 
-   The WordPress installation continues until the Welcome screen appears, as shown in figure 2:
+   The WordPress installation continues until the Welcome screen appears, as shown in 
+   figure 2:
 
    .. figure:: figures/wp-install-2.png
     :alt: WordPress welcome screen
@@ -97,7 +117,9 @@ To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.p
     `Figure 2: WordPress Welcome screen.`
 
 #. Click :guilabel:`Let’s go!`.
-#. Enter database connection specifics in the screen that appears as shown in Figure 3 below.
+
+#. Enter database connection specifics in the screen that appears as shown in figure 3 
+below.
 
    * Database name:       WordPress
 
@@ -119,7 +141,8 @@ To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.p
 
 #. Click :guilabel:`Submit` to complete the setup.
 
-   Figure 4 shows the confirmation screen that verifies a successful setup. WordPress is connected to the MariaDB database.
+   Figure 4 shows the confirmation screen that verifies a successful setup. WordPress 
+   is connected to the MariaDB database.
 
    .. figure:: figures/wp-install-4.png
     :alt: Successful database connection.
@@ -133,7 +156,8 @@ To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.p
 Complete successful login
 ---------------------------
 
-Once the installation is complete, you can name your blog and create a Wordpress username and password. See figure 5.
+Once the installation is complete, you can name your blog and create a Wordpress username 
+and password. See figure 5.
 
 .. figure:: figures/wp-install-5.png
     :alt: WordPress user creation
@@ -179,7 +203,7 @@ http://<your_website>/blog on your browser. Figure 8 shows the result:
 
 You have successfully installed WordPress on a host system.
 
-Add new entries to your blog and share them with the world using |CLOSIA|!
+Add new entries to your blog and share them with the world using |CL|!
 
 .. _`step-by-step guide`:
    https://codex.wordpress.org/Installing_WordPress#Famous_5-Minute_Install
