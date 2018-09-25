@@ -11,11 +11,12 @@ Kubernetes\* is an open source system for automating deployment, scaling, and
 management of containerized applications. It groups containers that make up an
 application into logical units for easy management and discovery.
 
-Runc and kata are OCI-compatible runtimes that work seamlessly with Kubernetes,
-with kata containers providing strong isolation for untrusted workloads or
-multi-tenant scenarios (see `katacontainers.io`_ for more.)  Runc and Kata
-containers can be allocated on a per container basis so you can mix and match
-both on the same host to suit your needs.
+Runc and kata-runtime are compatible with :abbr:`OCI (Open Container
+Initiative)` guidelines and work seamlessly with Kubernetes. `Kata
+Containers`_\* provide strong isolation for untrusted workloads or
+multi-tenant scenarios.  Runc and Kata Containers can be allocated on a
+per-container basis so you can mix and match both on the same host to suit
+your needs.
 
 Prerequisites
 *************
@@ -34,8 +35,9 @@ Before you install any new packages, update |CL| with the following command:
 Install Kubernetes and CRI runtimes
 ***********************************
 
-Kubernetes and a set of supported CRI runtimes are included in the `cloud-native-basic`_
-bundle. To install the framework, enter the following command:
+Kubernetes and a set of supported :abbr:`CRI (Container Runtime Interface)` 
+runtimes are included in the `cloud-native-basic`_ bundle. To install the 
+framework, enter the following command:
 
 .. code-block:: bash
 
@@ -279,7 +281,7 @@ Troubleshooting
 
 .. _Kubernetes system: https://kubernetes.io/
 
-.. _katacontainers.io: https://katacontainers.io/
+.. _Kata Containers: https://katacontainers.io/
 
 .. _cloud-native-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic
 
