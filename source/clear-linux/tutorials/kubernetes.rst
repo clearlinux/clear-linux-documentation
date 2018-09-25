@@ -15,8 +15,7 @@ Runc and kata-runtime are compatible with :abbr:`OCI (Open Container
 Initiative)` guidelines and work seamlessly with Kubernetes. `Kata
 Containers`_\* provide strong isolation for untrusted workloads or
 multi-tenant scenarios.  Runc and Kata Containers can be allocated on a
-per-container basis so you can mix and match both on the same host to suit
-your needs.
+per-pod basis so you can mix and match both on the same host to suit your needs.
 
 Prerequisites
 *************
@@ -134,7 +133,9 @@ deployment and your security needs.
 
    or:
 
-   b) Run Kubernetes with CRI-O + kata-runtime:
+   b) Run Kubernetes with CRI-O + your desired runtime. You can use multiple
+      runtimes with CRI-O, including *runc* and *kata-runtime*. To use
+      CRI-O + *kata-runtime*:
 
       #. Enable crio.service:
 
