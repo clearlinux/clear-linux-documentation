@@ -7,41 +7,25 @@ This guide describes how to modify and view the hostname of your
 |CL-ATTR| system.
 
 
-By default, |CL| installations have a machine generated name. This 
-long string of letters and numbers is fine for computers, but is not 
-human-friendly. Administrators and users will often want to rename 
+By default, |CL| installations have a machine generated name, which is a 
+long string of letters and numbers. The generated name is fine for computers 
+but is not human-friendly. Administrators and users will often want to rename 
 their machines with a name that is easier to remember, type, and search 
 for. Renaming a machine also makes it easier to identify, by including 
-meaningful data in the name. A meaningful, human-friendly machine 
-name might:
+meaningful data in the name.  The following examples show human-friendly machine names:
 
-   * indicate the computer purpose e.g. “regression-test.”
-   * indicate the owner e.g. “sally-test-box1.”
-   * indicate the geographical location e.g. “az-bld2-lab.”
-
-
-.. note::
-
-   There are three types of hostname: “static”, “transient”, and “pretty.” 
-   The most common is the static hostname. If the static hostname exists, 
-   it is used to generate the transient hostname, which is maintained by 
-   the kernel. The transient hostname can be changed by DHCP or mDNS at 
-   runtime. The pretty hostname is a human readable name that is used for 
-   presentation to the user.
-
-   Static hostnames must be between two and 63 characters long, must start 
-   and end with a letter or number, and may contain letters (case-insensitive), 
-   numbers, dashes, or dots.  Pretty hostnames can use free-form UTF8 characters
-   to make the hostname more aesthetically pleasing for the user.  
+   * *regression-test*
+   * *sally-test-box1*
+   * *az-bldg2-lab*
 
 
-Setting your hostname
-*********************
+Set your hostname
+*****************
 
 |CL| uses the :command:`hostnamectl` command to display and modify the 
 machine name. :command:`hostnamectl` is part of the **os-core** bundle. 
 
-This example sets the hostname to “telemetry-test-2-h15,” to identify a 
+This example sets the hostname to *telemetry-test-2-h15*, to identify a 
 |CL| telemetry test machine on the second floor at grid location H15. 
 Make sure to reboot after setting a new hostname.
 
@@ -50,6 +34,21 @@ Make sure to reboot after setting a new hostname.
       sudo hostnamectl set-hostname telemetry-test-2-h15
       sudo reboot
 
+
+.. note::
+
+   There are three types of hostname: *static*, *transient*, and *pretty*. 
+   The most common is the static hostname. Static hostnames must be between 
+   two and 63 characters long, must start and end with a letter or number, 
+   and may contain letters (case-insensitive), numbers, dashes, or dots.  
+
+   If the static hostname exists, it is used to generate the transient hostname, 
+   which is maintained by the kernel. The transient hostname can be changed 
+   by DHCP or mDNS at runtime. 
+
+   The pretty hostname is a free-form UTF8 name used for presentation to the user.
+
+     
 
 View your hostname
 ******************
