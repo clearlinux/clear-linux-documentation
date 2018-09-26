@@ -3,7 +3,7 @@
 Enable and disable telemetry in Clear Linux
 ###########################################
 
-|CLOSIA| includes a telemetry solution as part of the OS that records events
+|CL| includes a telemetry solution as part of the OS that records events
 of interest and reports them back to the development team via the telemetrics
 daemon, **telemd**. This functionality is maintained in the
 **telemetrics** software bundle.
@@ -21,7 +21,7 @@ Install the telemetry software bundle
 *************************************
 
 During the initial installation of |CL|, you are requested to join the
-stability enhancement program and allow |CLOSIA| to collect anonymous reports
+stability enhancement program and allow |CL| to collect anonymous reports
 to improve system stability. If you choose not to join this program, then the
 telemetry software bundle is not added to your system.
 
@@ -36,7 +36,7 @@ This adds the telemetrics-client to your system and you will automatically
 opt-in for the service.
 
 Enable Telemetry
-****************
+*****************
 
 To start telemetry on your system, run the following command:
 
@@ -44,7 +44,7 @@ To start telemetry on your system, run the following command:
 
 	sudo telemctl start
 
-This enables and starts the :command:`telemd` daemon and your system will
+This enables and starts the :command:`telemprobd` and :command:`telempostd` daemons and your system will
 begin to send telemetry data to the server defined in the file
 :file:`/etc/telemetrics/telemetrics.conf`. If this file does not exist, the
 :command:`telemd` daemon will use the file
@@ -53,7 +53,7 @@ begin to send telemetry data to the server defined in the file
 Disable Telemetry
 *****************
 
-To disable the telemetry daemon, run the following command:
+To disable both of the telemetry daemons, run the following command:
 
 .. code-block:: bash
 

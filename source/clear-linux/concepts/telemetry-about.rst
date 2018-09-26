@@ -3,7 +3,7 @@
 Telemetrics
 ###########
 
-One of the key features of |CLOSIA| is telemetry, which is used to
+One of the key features of |CL| is telemetry, which is used to
 monitor system health. Telemetry enables developers to observe and proactively
 address issues before end users are impacted.
 
@@ -47,11 +47,13 @@ Architecture
 The telemetry client provides the front end of a complete telemetrics solution
 and includes the following components:
 
-*	**telemd**, a daemon that prepares the records to send to a telemetrics server or
-	spools the records on disk in case it cannot successfully deliver them.
-*	Probes that collect specific types of data from the operating system.
+*	**telemprobd**, a daemon that prepares the telemetry records and spools them on disk prior to delivery
+* **telempostd**, a daemon that takes the records, verifies and then sends to the telemetry server or spools on disk in case the server is unavailable.
+
+*	**probes**, that collect specific types of data from the operating system.
 *	**libtelemetry**, that telemetrics probes use to create telemetrics records and
-	send them to the telemd daemon for further processing.
+	send them to the telemprobd daemon for further processing.
+
 
 The telemetry backend provides the server-side component of a complete telemetrics solution and
 consists of:
