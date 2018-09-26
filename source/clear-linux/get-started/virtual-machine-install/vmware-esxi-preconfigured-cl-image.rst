@@ -21,7 +21,6 @@ VMware ESXi :abbr:`VM (Virtual Machine)` instead, see
 
    See :ref:`vmw-player-preconf` or see :ref:`vmw-player`.
 
-   Visit :ref:`image-types` to learn more about all available images.
 
 Install steps: 
 
@@ -38,6 +37,8 @@ this command:
 .. code-block:: bash
 
    curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-vmware.vmdk.xz
+
+Visit :ref:`image-types` for additional information about all available |CL| images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
    :Start-after: verify-linux:

@@ -13,14 +13,8 @@ VMware Workstation 14 Player.
 
 In this tutorial, we perform the following steps:
 
-#. Install the VMware Workstation Player hypervisor
-#. Download the latest |CL| pre-configured image
-#. VMware image Verify the integrity of the |CL| image
-#. Uncompress the |CL| image
-#. Create and configure a new VM
-#. Attach the pre-configured VMware |CL| image
-#. Enable EFI boot support
-#. Power on the VM
+.. contents:: :local:
+   :depth: 1
 
 .. note::
 
@@ -61,12 +55,6 @@ Install the VMware Workstation Player hypervisor
 
 For additional help, see the `VMware Workstation Player guide`_.
 
-|CL| image types
-****************
-
-.. include:: ../../reference/image-types.rst
-   :Start-after: image-types-content:
-
 Download the latest |CL| VMware image
 *************************************
 
@@ -77,6 +65,8 @@ this command:
 .. code-block:: bash
 
    curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-vmware.vmdk.xz
+
+Visit :ref:`image-types` for additional information about all available |CL| images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
    :Start-after: verify-windows:

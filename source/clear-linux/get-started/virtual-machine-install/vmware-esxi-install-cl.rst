@@ -10,9 +10,6 @@ run |CL-ATTR| virtual machines in the cloud.
 This section shows you how to create a new :abbr:`VM (Virtual Machine)` and 
 manually install |CL| into it with VMware ESXi 6.5. 
 
-If you would prefer to use a preconfigured |CL| VMware disk image 
-instead, see :ref:`vmware-esxi-preconfigured-cl-image`. 
-
 Manually installing |CL| into a new VM provides you some additional 
 configuration flexibility during installation. For example: alternate
 disk sizes, number of partitions, pre-installed bundles, etc. 

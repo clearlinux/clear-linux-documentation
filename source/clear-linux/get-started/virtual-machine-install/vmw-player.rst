@@ -15,17 +15,8 @@ size, number of partitions, installed bundles, etc.
 
 In this tutorial, we perform the following steps:
 
-#. Install the VMware Workstation Player hypervisor
-#. Download the latest |CL| installer ISO
-#. Verify the integrity of the |CL| image
-#. Uncompress the |CL| image
-#. Create and configure a new VM
-#. Attach the |CL| installer ISO to the VM
-#. Install |CL| into the new VM
-#. Detach the |CL| installer ISO from the VM
-#. Power off the VM
-#. Enable EFI boot support
-#. Power on the VM
+.. contents:: :local:
+   :depth: 1
 
 If you prefer to use a pre-configured |CL| VMware image instead,
 see our :ref:`vmw-player-preconf` guide.
@@ -71,18 +62,13 @@ Install the VMware Workstation Player hypervisor
 
 For additional help, see the `VMware Workstation Player guide`_.
 
-|CL| image types
-****************
-
-.. include:: ../../reference/image-types.rst
-   :Start-after: image-types-content:
-
-
 Download the latest |CL| installer ISO
 **************************************
 
 Get the latest |CL| installer ISO image from the `image`_ repository.
 Look for :file:`clear-[version number]-installer.iso.xz`.
+
+Visit :ref:`image-types` for additional information about all available |CL| images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
    :Start-after: verify-windows:
