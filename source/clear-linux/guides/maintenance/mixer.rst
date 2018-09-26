@@ -46,7 +46,7 @@ these workflows.
 
 .. _create-nginx-web-server:
 
-Create ngninx web server to host mixer updates
+Create nginx web server to host mixer updates
 **********************************************
 
 Follow these steps to set up a HTTP service with ``nginx`` web 
