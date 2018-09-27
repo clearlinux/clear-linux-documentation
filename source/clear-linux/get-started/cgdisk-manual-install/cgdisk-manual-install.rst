@@ -67,7 +67,7 @@ installation.
 
       Figure 4: :guilabel:`cgdisk`
 
-Linux Partition setup
+Linux partition setup
 *********************
 
 In order to properly set up the |CL| partitioning scheme, we create three
@@ -173,7 +173,7 @@ about it, review `Rod Smith's Partitioning advice about alignment`_.
       Figure 9: :guilabel:`cgdisk - swap partition defined`
 
 Create the Linux filesystem partition
-*************************************
+=====================================
 
 Lastly, we must create the the Linux filesystem partition to use it as the
 root mount point for you |CL| installation.

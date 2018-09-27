@@ -1,7 +1,7 @@
 .. _vmw-player-preconf:
 
 Run pre-configured |CL-ATTR| image as a VMware\* Workstation Player guest OS
-##############################################################################
+############################################################################
 
 `VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of
 another operating system such as Windows\* or Linux\*. With VMware ESXi, you
@@ -293,6 +293,9 @@ After configuring the settings above, power on your |CL| virtual machine.
       Figure 15: VMware Workstation 14 Player - Power on virtual machine
 
 #. Click :guilabel:`Play virtual machine`.
+
+Related topics
+**************
 
 For other guides on using the VMWare Player and ESXi, see:
 

@@ -302,18 +302,15 @@ You have now set your root password and are logged in with root privileges.
 You have successfully installed |CL| on a bare metal system using the
 automatic installation method and set the password for the ``root`` user.
 
-The automatic installation of |CL| is designed to install with minimal
-software overhead. Therefore, some housekeeping and package installations
-could be needed before you can take full advantage of the |CL| operating
-system. These instructions are captured in the :ref:`enable-user-space`.
+Next steps
+**********
 
-* Create a new user
-* Update the OS to its most current version using `swupd`.
-* Install the most common applications for system administrators and
-  developers using bundles.
-* Setup a new user.
-* Setup `sudo` privileges for that new user.
-* Install a GUI using those `sudo` privileges.
+The automatic installation of |CL| is designed to install with minimal
+software overhead. Some housekeeping and package installations could be 
+needed before you can take full advantage of the |CL| operating system. 
+
+See the :ref:`enable-user-space` guide for additional information and
+instructions.
 
 
 .. _`information about stateless`:

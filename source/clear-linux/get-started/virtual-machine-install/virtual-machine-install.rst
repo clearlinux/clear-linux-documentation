@@ -10,7 +10,7 @@ the end of this document, you will be able to select the set of installation
 steps most suitable to you and install |CL| under a VM.
 
 Compatible kernels
-==================
+******************
 
 The |CL| provides the following Linux kernels with a respective
 :ref:`bundle <bundles-about>` for VMs. Specific use cases these bundles serve
@@ -19,8 +19,8 @@ are provided along with links to their source code.
 .. include:: ../../reference/compatible-kernels.rst
    :Start-after: vm-kernels:
 
-Next steps:
-===========
+Next steps
+**********
 
 Now that you have read about the |CL| compatible kernels, choose the
 appropriate set of step-by-step instructions to proceed.

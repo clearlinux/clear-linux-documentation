@@ -13,13 +13,13 @@ Please ensure you have enabled `Intel® Virtualization Technology
 (Intel® VT-d) in your BIOS/UEFI firmware configuration.
 
 Enable Hyper-V
-==============
+**************
 
 Please refer to the `Microsoft documentation`_ to enable and configure
 *Hyper-V* on your machine.
 
 Create a virtual network
-========================
+************************
 
 Once *Hyper-V* has been enabled on your Windows system you will need to 
 create a virtual network in the **Hyper-V Manager**.  Refer to the
@@ -27,7 +27,7 @@ create a virtual network in the **Hyper-V Manager**.  Refer to the
 a virtual network.
 
 Create a virtual machine
-========================
+************************
 
 #. Download and uncompress the latest hyperv disk image
    :file:`clear-XXXXX-hyperv.img.gz`, where XXXXX is the latest 

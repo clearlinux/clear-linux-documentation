@@ -277,8 +277,8 @@ After configuring the settings above, power on the VM.
 
       Figure 13: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
-See Also:
-=========
+Related topics
+**************
 
 * :ref:`vmware-esxi-install-cl`
 

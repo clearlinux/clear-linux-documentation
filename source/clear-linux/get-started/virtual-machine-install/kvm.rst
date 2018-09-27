@@ -7,7 +7,7 @@ This section explains how to run |CL-ATTR| in a virtualized environment using
 :abbr:`KVM (Kernel-based Virtual Machine)`.
 
 Install QEMU-KVM
-================
+****************
 
 #. Enable the `Intel® Virtualization Technology`_ (Intel® VT) and the
    `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
@@ -47,7 +47,7 @@ Install QEMU-KVM
         dnf install qemu-kvm
 
 Download and launch the virtual machine
-=======================================
+***************************************
 
 #. Download the latest pre-built |CL| KVM image file from
    the `image <https://download.clearlinux.org/image/>`_ directory. Look for
@@ -87,7 +87,8 @@ Download and launch the virtual machine
 #. Log in as ``root`` user and set a new password.
 
 SSH access into the virtual machine
-===================================
+***********************************
+
 To interact with the |CL| VM through SSH instead of the console it was
 launched from, follow these steps.
 
@@ -107,7 +108,7 @@ launched from, follow these steps.
       ssh -p 10022 root@localhost
 
 Add the GNOME Display Manager (GDM)
-===================================
+***********************************
 
 To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
