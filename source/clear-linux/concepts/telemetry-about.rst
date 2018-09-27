@@ -3,7 +3,7 @@
 Telemetrics
 ###########
 
-One of the key features of |CL| is telemetry, which is used to
+One of the key features of |CL-ATTR| is telemetry, which is used to
 monitor system health. Telemetry enables developers to observe and proactively
 address issues before end users are impacted.
 
@@ -48,7 +48,7 @@ The telemetry client provides the front end of a complete telemetrics solution
 and includes the following components:
 
 *	**telemprobd**, a daemon that prepares the telemetry records and spools them on disk prior to delivery
-* **telempostd**, a daemon that takes the records, verifies and then sends to the telemetry server or spools on disk in case the server is unavailable.
+*       **telempostd**, a daemon that sends the records to the telemetry backend server or leaves them on disk until deleting after the record expires. 
 
 *	**probes**, that collect specific types of data from the operating system.
 *	**libtelemetry**, that telemetrics probes use to create telemetrics records and
