@@ -1,10 +1,10 @@
 .. _web-server-install:
 
 Create a |CL-ATTR| based web server
-#######################################
+###################################
 
-This tutorial shows you how to create a :abbr:`LAMP (Linux, Apache, MySQL, PHP)` server using |CL-ATTR| and how to use 
-phpMyAdmin\* to manage an associated database.
+This tutorial shows you how to create a :abbr:`LAMP (Linux, Apache, MySQL, PHP)` server 
+using |CL-ATTR| and how to use phpMyAdmin\* to manage an associated database.
 
 In order to create a web server using |CL| as the host OS, your host system 
 must be running |CL|. This tutorial assumes you have successfully installed 
@@ -32,7 +32,7 @@ This tutorial follows these steps:
 * Install phpMyAdmin and create a database.
 
 Install Apache
-*****************
+**************
 
 Apache is an open source HTTP web server application that can run on several 
 operating systems, including |CL|. Go to the `Apache HTTP Server Project`_ 
@@ -85,7 +85,7 @@ directory. |CL| can overwrite this directory as part of the stateless
 paradigm. This default :file:`.conf` file includes the following directives 
 that allow for additional locations of configuration definitions:
 
-.. code-block:: bash
+.. code-block:: console
 
    # Virtual hosts
    IncludeOptional /usr/share/defaults/httpd/conf.d/*.conf
@@ -106,7 +106,7 @@ Open a text editor and perform the following:
 #. Copy the content listed below into the new file 
    :file:`/etc/httpd/conf.d/httpd.conf`.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       #
       # Set a new location for DocumentRoot
@@ -219,7 +219,7 @@ the PHP components and are now ready to add your database application to
 complete your LAMP server implementation.
 
 Install MariaDB
-******************
+***************
 
 Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL 
 and is available in the database-basic |CL| bundle.
@@ -381,7 +381,7 @@ our |CL| host system.
       sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
 
 Use phpMyAdmin to Manage Databases
-====================================
+==================================
 
 You can use the phpMyAdmin web-based tool to manage your databases. Follow the steps below for setting up a database called "WordPress".
 
