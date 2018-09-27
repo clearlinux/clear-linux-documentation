@@ -99,12 +99,19 @@ exist by default.
 
    .. code-block:: bash
 
-      touch /etc/docker/daemon.json
+      sudo touch /etc/docker/daemon.json
 
    .. note:: 
 
       Refer to the `Docker documentation on daemon configuration`_ for the 
       full list of available configuration options and examples.
+      
+      An minimal configuration would be.
+    .. code-block:: json
+      
+      {
+         "storage-driver": "devicemapper"
+      }
 
 #. Once you've made any required changes, be sure to restart the 
    Docker daemon through systemd manager by running this command:
