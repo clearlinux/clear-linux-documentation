@@ -3,7 +3,7 @@
 Create a bootable USB drive on macOS
 ####################################
 
-Follow these instructions to create a bootable |CLOSIA| USB drive.
+Follow these instructions to create a bootable |CL-ATTR| USB drive.
 Use an **8GB** or larger USB drive. Download either a live image, 
 ``clear-<version>-live.img.xz`` or an installer image, 
 ``clear-<version>-installer.img.xz``, from our `image`_ download page. 
@@ -21,8 +21,8 @@ Instructions are also available for other operating systems:
    :start-after: verify-mac:
 
 
-Burn the Clear Linux image onto a USB drive
-*******************************************
+Burn the |CL| image onto a USB drive
+************************************
 
 .. caution::
 
@@ -35,7 +35,7 @@ Burn the Clear Linux image onto a USB drive
 
    .. code-block:: console
 
-      $ diskutil list
+      diskutil list
 
    .. figure:: figures/bootable-usb-mac-1.png
       :scale: 100 %
@@ -48,14 +48,14 @@ Burn the Clear Linux image onto a USB drive
 
    .. code-block:: console
 
-      $ diskutil umountDisk /dev/disk2
+      diskutil umountDisk /dev/disk2
 
 #. Burn the image onto the drive using the :command:`dd` command.  The 
    command-line example below burns an uncompressed image onto `/dev/disk2`:
 
    .. code-block:: console
 
-      $ sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
+      sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
 
 
    Adding an ‘r’ in front of the disk identifier should help speed up the 
@@ -67,7 +67,7 @@ Burn the Clear Linux image onto a USB drive
 
    .. code-block:: console
 
-      $ diskutil eject /dev/disk2
+      diskutil eject /dev/disk2
 
 Next steps
 **********

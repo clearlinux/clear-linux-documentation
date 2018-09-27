@@ -1,11 +1,11 @@
 .. _vmw-player:
 
-Install Clear Linux as a VMware\* Workstation Player guest OS
-#############################################################
+Install |CL-ATTR| as a VMware\* Workstation Player guest OS
+###########################################################
 
 `VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of
-another operating system such as Windows or Linux. With VMware ESXi, you can
-create, configure, manage, and run |CLOSIA| :abbr:`VMs (Virtual Machines)` on
+another operating system such as Windows\* or Linux\*. With VMware ESXi, you can
+create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)` on
 your local system.
 
 This section shows how to create a new VM and install |CL| into it with the
@@ -15,17 +15,8 @@ size, number of partitions, installed bundles, etc.
 
 In this tutorial, we perform the following steps:
 
-#. Install the VMware Workstation Player hypervisor
-#. Download the latest |CL| installer ISO
-#. Verify the integrity of the |CL| image
-#. Uncompress the |CL| image
-#. Create and configure a new VM
-#. Attach the |CL| installer ISO to the VM
-#. Install |CL| into the new VM
-#. Detach the |CL| installer ISO from the VM
-#. Power off the VM
-#. Enable EFI boot support
-#. Power on the VM
+.. contents:: :local:
+   :depth: 1
 
 If you prefer to use a pre-configured |CL| VMware image instead,
 see our :ref:`vmw-player-preconf` guide.
@@ -36,7 +27,7 @@ it, see :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
-   The screenshots on this document show the Windows\* version of the
+   The screenshots on this document show the Windows version of the
    VMware Workstation 14 Player. The menus and prompts are similar to those
    in the Linux version save some minor wording differences.
 
@@ -55,34 +46,29 @@ Install the VMware Workstation Player hypervisor
 
    * On supported Linux distros:
 
-      #. Enable a GUI desktop.
-      #. Start a terminal emulator.
-      #. Start the installer by issuing the command below and follow the
-          guided steps.
+     #. Enable a GUI desktop.
+     #. Start a terminal emulator.
+     #. Start the installer by issuing the command below and follow the
+        guided steps.
 
-          .. code-block:: console
+        .. code-block:: console
 
-            $ sudo sh ./VMware-Player-[version number].x86_64.bundle
+           sudo sh ./VMware-Player-[version number].x86_64.bundle
 
    * On Windows:
 
-      #. Start the installer.
-      #. Follow the setup wizard.
+     #. Start the installer.
+     #. Follow the setup wizard.
 
 For additional help, see the `VMware Workstation Player guide`_.
 
-Clear Linux image types
-***********************
-
-.. include:: ../../reference/image-types.rst
-   :Start-after: image-types-content:
-
-
-Download the latest Clear Linux installer ISO
-*********************************************
+Download the latest |CL| installer ISO
+**************************************
 
 Get the latest |CL| installer ISO image from the `image`_ repository.
 Look for :file:`clear-[version number]-installer.iso.xz`.
+
+Visit :ref:`image-types` for additional information about all available |CL| images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
    :Start-after: verify-windows:
@@ -204,8 +190,8 @@ Create and configure a new VM
 
 #. Click the :guilabel:`Finish` button.
 
-Install Clear Linux into the new VM
-***********************************
+Install |CL| into the new VM
+****************************
 
 #. Select the newly-created VM and click the :guilabel:`Play virtual machine`
    button. See Figure 9.
@@ -267,7 +253,7 @@ Enable UEFI boot support
 |CL| needs UEFI support to boot. To enable UEFI, add the
 following line to the end of your VM's :file:`.vmx` file:
 
-.. code-block:: bash
+.. code-block:: console
 
    firmware = "efi"
 
@@ -293,6 +279,9 @@ After configuring the settings above, power on your |CL| virtual machine.
       Figure 13: VMware Workstation 14 Player - Power on virtual machine
 
 #. Click :guilabel:`Play virtual machine`.
+
+Related topics
+**************
 
 For other guides on using the VMWare Player and ESXi, see:
 

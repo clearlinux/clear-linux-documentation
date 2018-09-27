@@ -1,11 +1,11 @@
 .. _vmw-player-preconf:
 
-Run pre-configured Clear Linux image as a VMware\* Workstation Player guest OS
-##############################################################################
+Run pre-configured |CL-ATTR| image as a VMware\* Workstation Player guest OS
+############################################################################
 
 `VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of
 another operating system such as Windows\* or Linux\*. With VMware ESXi, you
-can create, configure, manage, and run |CLOSIA| :abbr:`VMs (Virtual Machines)`
+can create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
 on your local system.
 
 This section shows how to deploy a pre-configured |CL| VMware image on
@@ -13,18 +13,12 @@ VMware Workstation 14 Player.
 
 In this tutorial, we perform the following steps:
 
-#. Install the VMware Workstation Player hypervisor
-#. Download the latest |CL| pre-configured image
-#. VMware image Verify the integrity of the |CL| image
-#. Uncompress the |CL| image
-#. Create and configure a new VM
-#. Attach the pre-configured VMware |CL| image
-#. Enable EFI boot support
-#. Power on the VM
+.. contents:: :local:
+   :depth: 1
 
 .. note::
 
-   The screenshots on this document show the Windows\* version of the
+   The screenshots on this document show the Windows version of the
    VMware Workstation 14 Player. The menus and prompts are similar to those
    in the Linux version save some minor wording differences.
 
@@ -61,14 +55,8 @@ Install the VMware Workstation Player hypervisor
 
 For additional help, see the `VMware Workstation Player guide`_.
 
-Clear Linux image types
-***********************
-
-.. include:: ../../reference/image-types.rst
-   :Start-after: image-types-content:
-
-Download the latest Clear Linux VMware image
-********************************************
+Download the latest |CL| VMware image
+*************************************
 
 Get the latest |CL| VMware image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
@@ -77,6 +65,8 @@ this command:
 .. code-block:: bash
 
    curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-vmware.vmdk.xz
+
+Visit :ref:`image-types` for additional information about all available |CL| images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
    :Start-after: verify-windows:
@@ -189,8 +179,8 @@ Create and configure a new VM
 
 #. Click the :guilabel:`Finish` button.
 
-Attach the pre-configured Clear Linux VMware image
-**************************************************
+Attach the pre-configured |CL| VMware image
+*******************************************
 
 #. Move the downloaded and uncompressed pre-configured |CL| VMware image file
    :file:`clear-[version number]-basic.vmdk` to the directory where your
@@ -303,6 +293,9 @@ After configuring the settings above, power on your |CL| virtual machine.
       Figure 15: VMware Workstation 14 Player - Power on virtual machine
 
 #. Click :guilabel:`Play virtual machine`.
+
+Related topics
+**************
 
 For other guides on using the VMWare Player and ESXi, see:
 

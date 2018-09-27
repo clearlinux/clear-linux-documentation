@@ -1,11 +1,11 @@
 .. _vmware-esxi-preconfigured-cl-image:
 
-Run preconfigured Clear Linux\* image as a VMware\* ESXi guest OS
-#################################################################
+Run preconfigured |CL-ATTR| image as a VMware\* ESXi guest OS
+#############################################################
 
 `VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
 of server hardware.  With VMware ESXi, you can create, configure, manage,
-and run |CLOSIA| virtual machines at scale.
+and run |CL-ATTR| virtual machines at scale.
 
 This section shows you how to deploy a preconfigured |CL| VMware 
 :abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host.
@@ -21,15 +21,14 @@ VMware ESXi :abbr:`VM (Virtual Machine)` instead, see
 
    See :ref:`vmw-player-preconf` or see :ref:`vmw-player`.
 
-   Visit :ref:`image-types` to learn more about all available images.
 
 Install steps: 
 
 .. contents:: :local:
     :depth: 1
 
-Download the latest Clear Linux VMware image
-********************************************
+Download the latest |CL| VMware image
+*************************************
 
 Get the latest |CL| VMware prebuilt image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
@@ -38,6 +37,8 @@ this command:
 .. code-block:: bash
 
    curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-vmware.vmdk.xz
+
+Visit :ref:`image-types` for additional information about all available |CL| images.
 
 .. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
    :Start-after: verify-linux:
@@ -48,8 +49,8 @@ For alternative instructions on other operating systems, see:
 * :ref:`download-verify-uncompress-mac`
 * :ref:`download-verify-uncompress-windows`
 
-Upload the Clear Linux image to the VMware server
-*************************************************
+Upload the |CL| image to the VMware server
+******************************************
 
 Once the |CL| VMware prebuilt image has been downloaded and 
 uncompressed on your local system, it must be uploaded to a datastore 
@@ -94,8 +95,8 @@ The steps in this section can also be referenced from the `VMware documentation 
 #. Select the uncompressed |CL| VMware image file
    :file:`clear-[version number]-vmware.vmdk` and upload it.
 
-Convert the Clear Linux image to an ESXi-supported format
-*********************************************************
+Convert the |CL| image to an ESXi-supported format
+**************************************************
 
 Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi
 datastore, it must be converted to a format for usable with VMware's ESXi 
@@ -258,8 +259,8 @@ VMware image. Also, in order to boot |CL|, you must enable UEFI support.
 #. Click the :guilabel:`Next` button.
 #. Click the :guilabel:`Finish` button.
 
-Power on the VM and boot Clear Linux
-************************************
+Power on the VM and boot |CL|
+*****************************
 
 After configuring the settings above, power on the VM.
 
@@ -276,8 +277,8 @@ After configuring the settings above, power on the VM.
 
       Figure 13: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
-See Also:
-=========
+Related topics
+**************
 
 * :ref:`vmware-esxi-install-cl`
 
