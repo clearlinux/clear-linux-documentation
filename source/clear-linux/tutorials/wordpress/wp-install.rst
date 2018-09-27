@@ -1,7 +1,7 @@
 .. _wp-install:
 
 Create a |CL-ATTR| WordPress\* server
-#######################################
+#####################################
 
 This tutorial shows you how to install the WordPress\* components on your |CL| 
 :abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of 
@@ -10,7 +10,7 @@ phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you
 can add the WordPress components needed to host a WordPress website on your system.
 
 Before you begin
-=================
+****************
 
 This tutorial assumes you have successfully installed :ref:`Clear Linux on bare metal<bare-metal-install>` 
 and that you have :ref:`set up a LAMP web server <web-server-install>`.
@@ -24,7 +24,7 @@ Before you install new packages, update the |CL| OS with the following command:
 
 
 Create a WordPress server
-===========================
+*************************
 
 WordPress can be installed in a variety of ways. These instructions are 
 written for users who have followed our instructions for installing phpMyAdmin 
@@ -47,7 +47,7 @@ your site but we strongly encourage you to take action.
 
 
 Download WordPress and manage directories
-------------------------------------------
+=========================================
 
 For this tutorial, you will create a WordPress blog that can be accessed at: 
 http://<your_website>/blog.
@@ -89,7 +89,7 @@ Follow these steps:
       sudo rm latest.tar.gz
 
 Set up WordPress with Web-based GUI
------------------------------------
+===================================
 
 Recall that you created a database and user when you installed phpMyAdmin during 
 :ref:`Creating a Clear Linux based web server <web-server-install>`. Next, you must 
@@ -118,26 +118,20 @@ The WordPress language option screen appears, as shown in figure 1.
 
 #. Click :guilabel:`Let’s go!`.
 
-#. Enter database connection specifics in the screen that appears as shown in figure 3 
-below.
-
+#. Enter database connection specifics in the screen that appears, as shown in figure 3 
+   below.
+  
    * Database name:       WordPress
-
    * Database username:   wordpressuser
-
    * Database password:   wp-example  (asterisks will not appear in the text box)
-
    * Database host:  localhost
-
    * Table prefix:   wp\_
 
-   Figure 3 shows the completed fields:
-
    .. figure:: figures/wp-install-3.png
-    :alt: Database connection details
-    :width:     600
+      :alt: Database connection details
+      :width:     600
 
-    `Figure 3: Information necessary for WordPress to connect to the database.`
+      `Figure 3: Information necessary for WordPress to connect to the database.`
 
 #. Click :guilabel:`Submit` to complete the setup.
 
@@ -154,7 +148,7 @@ below.
    The installer runs until WordPress is fully installed on your system.
 
 Complete successful login
----------------------------
+=========================
 
 Once the installation is complete, you can name your blog and create a Wordpress username 
 and password. See figure 5.
