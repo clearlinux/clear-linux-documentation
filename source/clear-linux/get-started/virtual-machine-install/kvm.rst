@@ -16,35 +16,35 @@ Install QEMU-KVM
 #. Log in, open a terminal emulator, and get root privilege on the host
    machine:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-    $ sudo -s
+      sudo -s
 
 #. Install `QEMU*-KVM` on the host machine. Below are some example distros.
 
    * On |CL|:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # swupd bundle-add desktop-autostart kvm-host
+        swupd bundle-add desktop-autostart kvm-host
 
    * On Ubuntu\* 16.04 LTS Desktop:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # apt-get install qemu-kvm
+        apt-get install qemu-kvm
 
    * On Mint\* 18.1 “Serena” Desktop:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # apt-get install qemu-kvm
+        apt-get install qemu-kvm
 
    * On Fedora\* 25 Workstation:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # dnf install qemu-kvm
+        dnf install qemu-kvm
 
 Download and launch the virtual machine
 =======================================
@@ -59,9 +59,9 @@ Download and launch the virtual machine
 
 #. Uncompress the downloaded image:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # unxz clear-<version>-kvm.img.xz
+      unxz clear-<version>-kvm.img.xz
 
 #. Download the `OVMF file`_ file that provides UEFI support for
    virtual machines from the `image <https://download.clearlinux.org/image/>`_
@@ -74,15 +74,15 @@ Download and launch the virtual machine
 
 #. Make the script executable:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # chmod +x start_qemu.sh
+      chmod +x start_qemu.sh
 
 #. Start the |CL| KVM virtual machine:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # ./start_qemu.sh clear-<version>-kvm.img
+      ./start_qemu.sh clear-<version>-kvm.img
 
 #. Log in as ``root`` user and set a new password.
 
@@ -93,18 +93,18 @@ launched from, follow these steps.
 
 #. Enable SSH in the |CL| VM:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # cat > /etc/ssh/sshd_config << EOF
+      cat > /etc/ssh/sshd_config << EOF
         PermitRootLogin yes
         EOF
 
 #. From the host, SSH into the |CL| VM.  The port number ``10022`` is defined
    in the ``start_qemu.sh`` script.  
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # ssh -p 10022 root@localhost
+      ssh -p 10022 root@localhost
 
 Add the GNOME Display Manager (GDM)
 ===================================
@@ -113,35 +113,35 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 #. Shutdown the active |CL| VM.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # shutdown now
+      shutdown now
           
 #. Install a VNC viewer on the host machine.  Below are some example distros.
 
    * On Clear Linux:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # swupd bundle-add desktop-apps-extras 
+        swupd bundle-add desktop-apps-extras 
 
    * On Ubuntu\* 16.04 LTS Desktop:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # apt-get install vncviewer
+        apt-get install vncviewer
 
    * On Mint\* 18.1 “Serena” Desktop:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # apt-get install vncviewer
+        apt-get install vncviewer
 
    * On Fedora\* 25 Workstation:
 
-     .. code-block:: console
+     .. code-block:: bash
 
-        # dnf install tigervnc
+        dnf install tigervnc
 
 #. Modify the :file:`start_qemu.sh` script to increase memory (``-m``), add
    graphics driver (``-vga``), and add VNC (``-vnc``, ``-usb``, and
@@ -169,48 +169,48 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
    #. Relaunch the |CL| VM.  The UEFI shell will appear.
 
-      .. code-block:: console
+      .. code-block:: bash
 
-         # ./start_qemu.sh clear-<version>-kvm.img
+         ./start_qemu.sh clear-<version>-kvm.img
 
    #. At the UEFI shell, delete the :file:`NvVars` file:
 
-      .. code-block:: console
+      .. code-block:: bash
 
          Shell> del FS0:\NvVars
 
    #. Exit out of the UEFI shell:
 
-      .. code-block:: console
+      .. code-block:: bash
 
          Shell> reset -s
 
    #. Relaunch the |CL| VM:
 
-      .. code-block:: console
+      .. code-block:: bash
 
-         # ./start_qemu.sh clear-<version>-kvm.img
+         ./start_qemu.sh clear-<version>-kvm.img
 
 #. From the host machine, open a new terminal emulator window and VNC into the
    |CL| VM:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # vncviewer 0.0.0.0
+      vncviewer 0.0.0.0
 
 #. Log in as ``root`` user into the |CL| VM.
 
 #. Add GDM to the |CL| VM:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # swupd bundle-add desktop-autostart
+      swupd bundle-add desktop-autostart
 
 #. Reboot the |CL| VM to enable GDM:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # reboot
+      reboot
       
 #. Go through GDM's out-of-box experience (OOBE).
 

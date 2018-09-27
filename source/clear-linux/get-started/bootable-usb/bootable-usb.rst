@@ -14,8 +14,8 @@ Download the latest |CL| image
 There are 2 types of |CL| images suitable for burning onto and running
 off a USB drive:
 
-   * Live image: :file:`clear-[version number]-live.img.xz`
-   * Installer image: :file:`clear-[version number]-installer.img.xz`
+* Live image: :file:`clear-[version number]-live.img.xz`
+* Installer image: :file:`clear-[version number]-installer.img.xz`
 
 Go to the |CL| `image`_ repository and download the desired type.
 

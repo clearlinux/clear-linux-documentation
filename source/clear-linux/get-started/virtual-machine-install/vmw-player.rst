@@ -46,19 +46,19 @@ Install the VMware Workstation Player hypervisor
 
    * On supported Linux distros:
 
-      #. Enable a GUI desktop.
-      #. Start a terminal emulator.
-      #. Start the installer by issuing the command below and follow the
-          guided steps.
+     #. Enable a GUI desktop.
+     #. Start a terminal emulator.
+     #. Start the installer by issuing the command below and follow the
+        guided steps.
 
-          .. code-block:: console
+        .. code-block:: console
 
-            $ sudo sh ./VMware-Player-[version number].x86_64.bundle
+           sudo sh ./VMware-Player-[version number].x86_64.bundle
 
    * On Windows:
 
-      #. Start the installer.
-      #. Follow the setup wizard.
+     #. Start the installer.
+     #. Follow the setup wizard.
 
 For additional help, see the `VMware Workstation Player guide`_.
 
@@ -253,7 +253,7 @@ Enable UEFI boot support
 |CL| needs UEFI support to boot. To enable UEFI, add the
 following line to the end of your VM's :file:`.vmx` file:
 
-.. code-block:: bash
+.. code-block:: console
 
    firmware = "efi"
 

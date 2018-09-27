@@ -35,7 +35,7 @@ Burn the |CL| image onto a USB drive
 
    .. code-block:: console
 
-      $ diskutil list
+      diskutil list
 
    .. figure:: figures/bootable-usb-mac-1.png
       :scale: 100 %
@@ -48,14 +48,14 @@ Burn the |CL| image onto a USB drive
 
    .. code-block:: console
 
-      $ diskutil umountDisk /dev/disk2
+      diskutil umountDisk /dev/disk2
 
 #. Burn the image onto the drive using the :command:`dd` command.  The 
    command-line example below burns an uncompressed image onto `/dev/disk2`:
 
    .. code-block:: console
 
-      $ sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
+      sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
 
 
    Adding an ‘r’ in front of the disk identifier should help speed up the 
@@ -67,7 +67,7 @@ Burn the |CL| image onto a USB drive
 
    .. code-block:: console
 
-      $ diskutil eject /dev/disk2
+      diskutil eject /dev/disk2
 
 Next steps
 **********
