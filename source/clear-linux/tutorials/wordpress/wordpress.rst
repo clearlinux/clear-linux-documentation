@@ -3,13 +3,8 @@
 WordPress\* use case tutorial
 #############################
 
-Welcome to our WordPress\* use case tutorial. This tutorial describes the steps to 
-setup a webserver to host a WordPress site using |CL-ATTR|.  
-
-In this tutorial we assume your system is already running |CL|. For instructions 
-on how to install |CL| on bare metal, see the :ref:`bare metal install<bare-metal-install>` 
-page from our :ref:`get-started` guide. For your convenience, we have split this 
-tutorial into two sections:  
+This tutorial describes how to setup a webserver to host a WordPress site using 
+|CL-ATTR|. The tutorial is split into two sections:  
 
 #. Setting up a LAMP webserver with :ref:`web-server-install`.
 
