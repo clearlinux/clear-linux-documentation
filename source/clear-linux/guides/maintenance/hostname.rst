@@ -31,8 +31,8 @@ Make sure to reboot after setting a new hostname.
 
 .. code-block:: bash
 
-  sudo hostnamectl set-hostname telemetry-test-2-h15
-  sudo reboot
+   sudo hostnamectl set-hostname telemetry-test-2-h15
+   sudo reboot
 
 .. note::
 
@@ -54,21 +54,21 @@ View your current hostname using the following command:
 
 .. code-block:: bash
 
-  hostnamectl
+   hostnamectl
 
 You should see output similar to:
 
 .. code-block:: console
 
-   Static hostname: telemetry-test-2-h15
-   Pretty hostname: telemetry-test-2-h15
-         Icon name: computer-desktop
-           Chassis: desktop
-        Machine ID: 4d0d60207a904ebbab96680a51ac1339
-           Boot ID: 98d3514e5a984e8cbbdf46a2f0d6b397
-  Operating System: Clear Linux OS
-            Kernel: Linux 4.18.8-632.native
-      Architecture: x86-64
+   Static hostname   : telemetry-test-2-h15
+   Pretty hostname   : telemetry-test-2-h15
+   Icon name         : computer-desktop
+   Chassis           : desktop
+   Machine ID        : 4d0d60207a904ebbab96680a51ac1339
+   Boot ID           : 98d3514e5a984e8cbbdf46a2f0d6b397
+   Operating System  : Clear Linux OS
+   Kernel            : Linux 4.18.8-632.native
+   Architecture      : x86-64
 
  
 **Congratulations!** You successfully modified the hostname of your |CL| system.
