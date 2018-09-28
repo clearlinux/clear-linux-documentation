@@ -6,13 +6,13 @@ Modify hostname on |CL-ATTR|
 This guide describes how to modify and view the hostname of your 
 |CL-ATTR| system.
 
-
 By default, |CL| installations have a machine generated name, which is a 
 long string of letters and numbers. The generated name is fine for computers 
 but is not human-friendly. Administrators and users will often want to rename 
 their machines with a name that is easier to remember, type, and search 
 for. Renaming a machine also makes it easier to identify, by including 
-meaningful data in the name.  The following examples show human-friendly machine names:
+meaningful data in the name.  The following examples show human-friendly machine 
+names:
 
 * *regression-test*
 * *sally-test-box1*
