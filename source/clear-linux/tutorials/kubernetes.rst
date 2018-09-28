@@ -4,14 +4,14 @@ Run Kubernetes\* on Clear Linux
 ###############################
 
 This tutorial describes how to install, configure, and run the 
-`Kubernetes system`_ on |CL-ATTR| using either the Kubernetes
-runtime interface *CRI-O* and *kata-runtime* or *Docker\** and *runc*.
+`Kubernetes container orchestration system`_ on |CL-ATTR| using different
+container engines and runtimes.
 
 Kubernetes\* is an open source system for automating deployment, scaling, and
 management of containerized applications. It groups containers that make up an
 application into logical units for easy management and discovery.
 
-Runc and kata-runtime are compatible with :abbr:`OCI (Open Container
+Runc and kata-runtime are runtimes that adhere to :abbr:`OCI (Open Container
 Initiative)` guidelines and work seamlessly with Kubernetes. `Kata
 Containers`_\* provide strong isolation for untrusted workloads or
 multi-tenant scenarios.  Runc and Kata Containers can be allocated on a
@@ -20,8 +20,9 @@ per-pod basis so you can mix and match both on the same host to suit your needs.
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| version 25040 or newer on your
-host system.
+This tutorial assumes you have installed |CL| updated to the latest release
+on your host system. You can learn about the benefits for cloud orchestration
+of having an up-to-date system in the `Software Update documentation`_.
 For detailed instructions on installing |CL| on a bare metal system, follow
 the :ref:`bare metal installation tutorial<bare-metal-install>`.
 
@@ -49,7 +50,7 @@ This tutorial uses the basic default Kubernetes configuration for simplicity.
 You must define your Kubernetes configuration according to your specific
 deployment and your security needs.
 
-#. Enable IP forwarding:
+#. Enable IP forwarding to avoid "preflight check" errors:
 
    Create (or edit if it exists) the file :file:`/etc/sysctl.d/60-k8s.conf`
    and include the following line:
@@ -209,8 +210,8 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
-Package configuration customization in Clear Linux
-**************************************************
+Package configuration customization in Clear Linux (Optional)
+*************************************************************
 
 |CL| is a stateless system that looks for user-defined package configuration
 files in the :file:`/etc/<package-name>` directory to be used as default. If
@@ -240,7 +241,7 @@ If you use a proxy server, you must set your proxy environment variables and
 create an appropriate proxy configuration file for both CRI-O and Docker
 services. Consult your IT department if you are behind a corporate proxy for
 the appropriate values. Ensure that your local IP is EXPLICITLY INCLUDED
-in the variable *NO_PROXY*. (Setting *localhost* is not enough.)
+in the environment variable *NO_PROXY*. (Setting *localhost* is not enough.)
 
 If you have already set your proxy environment variables, run the following
 commands as a shell script to configure all of these services in one step:
@@ -272,17 +273,19 @@ Troubleshooting
 * Images cannot be pulled. 
 
   You may be behind a proxy server. Try configuring your proxy settings, 
-  using the variables *HTTP_PROXY*, *HTTPS_PROXY*, and *NO_PROXY* as required
-  in your environment.
+  using the environment variables *HTTP_PROXY*, *HTTPS_PROXY*, and *NO_PROXY*
+  as required in your environment.
 
 * Connection refused error. 
 
   If you are behind a proxy server, you may need to add the master's IP to
-  the variable *NO_PROXY*.
+  the environment variable *NO_PROXY*.
 
-.. _Kubernetes system: https://kubernetes.io/
+.. _Kubernetes container orchestration system: https://kubernetes.io/
 
 .. _Kata Containers: https://katacontainers.io/
+
+.. _Software Update documentation: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about#updating
 
 .. _cloud-native-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic
 
