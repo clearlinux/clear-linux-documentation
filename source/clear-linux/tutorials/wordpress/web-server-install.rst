@@ -10,7 +10,7 @@ In order to create a web server using |CL| as the host OS, your host system
 must be running |CL|. This tutorial assumes you have successfully installed 
 :ref:`Clear Linux on bare metal<bare-metal-install>`.
 
-Before you install new packages, update the |CL| OS with the following console command:
+Before you install new packages, update the |CL| with the following console command:
 
 .. code-block:: bash
 
