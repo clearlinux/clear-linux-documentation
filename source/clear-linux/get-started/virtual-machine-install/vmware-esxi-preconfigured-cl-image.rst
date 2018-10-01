@@ -41,8 +41,8 @@ this command:
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
 .. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
-   :Start-after: verify-linux:
-   :end-before: To decompress a GZ
+   :Start-after: incl-decompress-image:
+   :end-before: incl-decompress-image-end:
 
 For alternative instructions on other operating systems, see:
 

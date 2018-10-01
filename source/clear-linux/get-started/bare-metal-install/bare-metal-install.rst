@@ -25,8 +25,8 @@ Look for the :file:`clear-[version number]-installer.img.xz` file. You can also 
 Once you have downloaded the image, verify and decompress the file.
 
 .. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
-   :Start-after: verify-linux:
-   :end-before: To decompress a GZ
+   :Start-after: incl-decompress-image:
+   :end-before: incl-decompress-image-end:
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:

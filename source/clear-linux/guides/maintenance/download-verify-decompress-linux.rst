@@ -45,6 +45,8 @@ the screen followed by `OK`.
 For a more in-depth discussion of image verification including checking the
 certificate see :ref:`image-content-validation`.
 
+.. incl-decompress-image:
+
 Decompress the Clear Linux image
 ********************************
 
@@ -66,3 +68,5 @@ environment. To decompress the image, follow these steps:
     .. code-block:: bash
 
         gunzip clear-[version number]-[image type].gz
+
+.. incl-decompress-image-end:
