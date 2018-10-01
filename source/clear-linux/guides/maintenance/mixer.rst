@@ -1,6 +1,6 @@
 .. _mixer:
 
-Use mixer tool
+Use the mixer tool
 ##############
 
 *Mixing* refers to composing an operating system for specific use cases.
@@ -22,11 +22,21 @@ add it with the :command:`swupd bundle-add` command as follows:
 
 Current mixing workflow
 ***********************
+Mixer by default runs *all* build commands in a container to ensure the
+correct version of the tooling is being used. This also allows custom mixes
+to automatically perform downstream format bumps when upstream releases
+a format bump. You can still run mixer natively by appending the *--native* flag to
+any of the commands. 
+
+.. note::
+  You cannot run mixer if you are already in a container, unless you pass 
+  *--native* to the command. Nested containerization is not supported, nor 
+  is building images using the container mode.
 
 There are two different workflows to create your own mix.
 First, if your mix only uses |CL| content, *skip step 5* below. 
 Second, if your mix includes your own 
-:abbr:`RPMs (RPM Package Manager files)`, follow all these steps. 
+:abbr:`RPMs (RPM Package Manager files)`, follow all steps below. 
 
 #. `Create nginx web server to host mixer updates`_
 #. `Create a workspace`_
@@ -50,9 +60,9 @@ Create nginx web server to host mixer updates
 **********************************************
 
 Follow these steps to set up a HTTP service with ``nginx`` web 
-server, where you can host custom |CL| mixes.  
+server, where you can host custom |CL| mixes:  
 
-#. Install ``web-server-basic``: 
+#. Install ``web-server-basic``. 
    
    .. code-block:: bash
 
@@ -115,7 +125,7 @@ server, where you can host custom |CL| mixes.
 
       sudo systemctl start nginx 
 
-#. To verify the web server is running, enter in an Internet browser:
+#. To verify the web server is running, check it in an Internet browser:
 
    .. code-block:: bash
 
@@ -191,7 +201,7 @@ For example:
 
 .. code-block:: bash
 
-   mixer init --clear-version 21060 --mix-version 100
+   mixer init --upstream-version 21060 --mix-version 10
 
 
 Additionally, to build a mix with your own custom RPMs, use the optional
@@ -228,7 +238,7 @@ up automatically with the optional *--git* flag, for example:
 
    .. code-block:: bash
 
-      mixer init --clear-version 21060 --mix-version 100 --local-rpms --all-upstream --git
+      mixer init --upstream-version 21060 --mix-version 10 --local-rpms --all-upstream --git
 
 Edit builder.conf
 *****************
@@ -260,26 +270,29 @@ following example:
 
 .. code-block:: console
 
-   [Mixer]
-   LOCAL_BUNDLE_DIR=/home/clr/mix/local-bundles
+   #VERSION 1.0
 
    [Builder]
-   SERVER_STATE_DIR=/home/clr/mix/update
-   BUNDLE_DIR=/home/clr/mix/mix-bundles
-   YUM_CONF=/home/clr/mix/.yum-mix.conf
-   CERT=/home/clr/mix/Swupd_Root.pem
-   VERSIONS_PATH=/home/clr/mix
+     CERT = "/home/clr/mix/Swupd_Root.pem"
+     SERVER_STATE_DIR = "/home/clr/mix/update"
+     VERSIONS_PATH = "/home/clr/mix"
+     YUM_CONF = "/home/clr/mix/.yum-mix.conf"
 
-   [swupd]
-   BUNDLE=os-core-update
-   CONTENTURL=<URL where the content will be hosted>
-   VERSIONURL=<URL where the version of the mix will be hosted>
-   FORMAT=1
+   [Swupd]
+     BUNDLE = "os-core-update"
+     CONTENTURL = "<URL where the content will be hosted>"
+     VERSIONURL = "<URL where the version of the mix will be hosted>"
 
    [Server]
-   debuginfo_banned=true
-   debuginfo_lib=/usr/lib/debug/
-   debuginfo_src=/usr/src/debug/
+     DEBUG_INFO_BANNED = "true"
+     DEBUG_INFO_LIB = "/usr/lib/debug"
+     DEBUG_INFO_SRC = "/usr/src/debug"
+
+   [Mixer]
+     LOCAL_BUNDLE_DIR = "/home/clr/mix/local-bundles"
+     LOCAL_REPO_DIR = ""
+     LOCAL_RPM_DIR = ""
+     DOCKER_IMAGE_PATH = "clearlinux/mixer"
 
 The following variables require further explanation:
 
@@ -291,13 +304,6 @@ The following variables require further explanation:
 * The `SERVER_STATE_DIR` variable sets the path for the output of the mix
   content. Mixer automatically creates the path for you, but the path can be
   set to any location. In this example, we use the workspace directory.
-
-* The `BUNDLE_DIR` variable sets the path where mixer temporarily stores the
-  bundle definition files while building chroots. Only the legacy
-  chroot-builder uses this path. By default, mixer does not generate this
-  directory until the directory is needed. In our example, the path is set to
-  :file:`/home/clr/mix/mix-bundles`. The new chroot-builder does not generate
-  the folder at all.
 
 * The `YUM_CONF` variable sets the path where mixer automatically generates
   the :file:`.yum-mix.conf` yum configuration file. The yum configuration 
@@ -333,14 +339,13 @@ The following variables require further explanation:
   from where to download the updated content. These links are equivalent
   to the |CL| `update page`_ but for the mix.
 
-* The `FORMAT` variable relates to format bumps. To learn more about the
-  `FORMAT` option, refer to :ref:`mixer-format` and the `format bumps wiki`_.
-  For now, leave the `FORMAT` value unchanged.
-
 * The `VERSIONS_PATH` variable sets the path for the mix version and upstream
   |CL| version's two state files: :file:`mixversion` and
   :file:`upstreamversion`. Mixer creates both files for you when you set up
   the workspace.
+
+* The `DOCKER_IMAGE_PATH` variable sets the base name of the docker image
+  mixer will pull down in order to run builds in the proper container.
 
 .. note:: If you are working only with |CL| bundles, then
    skip to `List, edit, create, add, remove, or validate bundles`_.
@@ -390,7 +395,7 @@ Create a local RPM repo
 
    .. code-block:: bash
 
-      sudo mixer add-rpms
+      mixer add-rpms
 
 After the tool exits, you should see the RPMs and a repository data
 directory in :file:`/home/clr/mix/local-yum`. If the RPMs are not all in this
@@ -644,29 +649,18 @@ command in your workspace:
 
 .. code-block:: bash
 
-   sudo mixer build chroots
+   mixer build bundles 
 
 If the mix has many bundles, this step might take some time.
 
-By default, mixer uses the legacy chroot-builder. In this mode, mixer
-automatically gathers the bundle definition files for the bundles in the mix
-into a :file:`mix-bundles` directory. The directory's path is set in the
-`BUNDLE_DIR` variable in the :file:`builder.conf`. **Do not edit these
-files.** Mixer automatically deletes the contents of the :file:`mix-bundles`
-directory before repopulating the directory on-the-fly as mixer builds the
-chroots.
+Mixer automatically gathers the bundle definition files for the upstream
+bundles into a :file:`upstream-bundles` directory, and user bundles should
+be placed directly into :file:`local-bundles`. The local path is set in
+the `LOCAL_BUNDLE_DIR` variable in the :file:`builder.conf`. **Do not edit
+files in upstream-bundles.** Mixer automatically deletes the contents of
+the :file:`upstream-bundles` directory before repopulating the directory
+on-the-fly if a new version must be downloaded.
 
-We have added a new chroot-builder to the mixer tool itself. While this is
-currently an experimental feature, you should use the new chroot-builder. To
-use the new chroot-builder, use the following command with the
-*--new-chroots* flag:
-
-.. code-block:: bash
-
-   sudo mixer build chroots --new-chroots
-
-We will soon deprecate the legacy chroot-builder. When we do, mixer will use
-the new version automatically.
 
 Create an update
 ****************
@@ -675,25 +669,16 @@ Create an update with the following command:
 
 .. code-block:: bash
 
-   sudo mixer build update
+   mixer build update
 
 When the build completes, you can find the mix update content under
 :file:`/home/clr/mix/update/www/VER`. In our example, the update content is
 found in :file:`/home/clr/mix/update/www/{<MIXVERSION>}`. `<MIXVERSION>`
 is the defined mix version, which is 10 by default.
 
-By default, mixer uses the legacy `swupd-server` to generate the update
-content. However, we have built a new implementation into the mixer tool
-itself. While this is currently an experimental feature, you should use the
-new `swupd-server`. To use the the new `swupd-server`, use the following
-command with the *--new-swupd* flag:
-
 .. code-block:: bash
 
-   sudo mixer build update --new-swupd
-
-We will soon deprecate the legacy `swupd-server`. When we do, mixer will use
-the new version automatically.
+   mixer build update 
 
 Mixer creates all the content needed to make a fully usable mix with this
 step. However, only *zero packs* are automatically generated. Zero packs are
@@ -705,13 +690,12 @@ mix version to another, with the following command:
 
 .. code-block:: bash
 
-   sudo mixer-pack-maker.sh --to <MIX_VERSION> --from <PAST_VERSION> -S /home/clr/mix/update
+   mixer build delta-packs --to <MIX_VERSION> --from <PAST_VERSION>
 
-The pack-maker generates all delta packs for the bundles changed from
-`PAST_VERSION` to `MIX_VERSION`. If your `STATE_DIR` is in a different
-location, specify the location with the *-S* flag. Mixer cannot
-create delta packs for the first build because the update is from version 0.
-Version 0 implicitly has no content. Thus, mixer can generate no deltas.
+This command generates all delta packs for the bundles changed from
+`PAST_VERSION` to `MIX_VERSION`. Mixer cannot create delta packs for the
+first build because the update is from version 0. Version 0 implicitly has
+no content, thus mixer can generate no deltas.
 
 For subsequent builds, you can run :file:`mixer-pack-maker.sh` to generate
 delta content between them, for example: 10 to 20.
@@ -755,7 +739,7 @@ With the `ister` tool configured, build the image with the following command:
 
 .. code-block:: bash
 
-   sudo mixer build image --format 1
+   sudo mixer build image
 
 Mixer automatically looks for the :file:`release-image-config.json` file, but
 you can freely choose the filename. To use a different name, simply pass the
@@ -763,7 +747,7 @@ you can freely choose the filename. To use a different name, simply pass the
 
 .. code-block:: bash
 
-   sudo mixer build image --format 1 --template path/to/file.config
+   sudo mixer build image --template path/to/file.config
 
 By default, `ister` uses the format version of the build machine it runs on.
 Therefore, if the format you are building differs from the format of the |CL|
@@ -789,14 +773,14 @@ amount, use the *--increment* flag, for example:
 
 .. code-block:: bash
 
-   mixer versions update --increment 100
+   mixer versions update --increment 10
 
 Alternatively, to set the mix version to a specific value, use the
 *--mix-version* flag, for example:
 
 .. code-block:: bash
 
-   mixer versions update --mix-version 200
+   mixer versions update --mix-version 20
 
 The :command:`mixer versions update` command does not allow you to set the
 mix version to a value less than its current value. The mix version is
@@ -842,20 +826,19 @@ modifications as needed, for example:
 
    .. code-block:: bash
 
-      sudo mixer build chroots
+      mixer build chroots
 
 #. Build and update with:
 
    .. code-block:: bash
 
-      sudo mixer build update
+      mixer build update
 
 #. Optionally, you can create delta packs with:
 
    .. code-block:: bash
 
-      sudo mixer-pack-maker.sh --to <NEWVERSION> --from <PREV_VERSION> -S /
-      home/clr/mix/update
+      mixer build delta-packs --to <NEWVERSION> --from <PREV_VERSION>
 
 .. _mixer-format:
 
@@ -881,9 +864,10 @@ reaching the final release in the old format can a client continue to update
 to releases in the new format.
 
 When creating a custom mix, the format version should start at "1" or some
-known number. The format version should increment only when a compatibility
-breakage is introduced. Normal updates, like updating a software package for
-example, do not require a format increment.
+known number such as the host system format. The format version should
+increment only when a compatibility breakage is introduced. Normal updates,
+like updating a software package for example, do not require a format
+increment.
 
 .. _update page: https://cdn.download.clearlinux.org/update/
 
