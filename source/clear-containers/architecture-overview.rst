@@ -65,7 +65,7 @@ Our version of ``qemu-lite`` has the following modifications:
 * **Direct kernel boot**, allowing fast booting by loading the kernel as
   an uncompressed ELF binary. Although the kernel image is slightly larger
   than a compressed one, it is faster to read and boot the larger
-  file than it is to uncompress and boot the slightly smaller file.
+  file than it is to decompress and boot the slightly smaller file.
 * **Added an** :abbr:`OCI (Open Container Initiative)` **runtime-compliant
   wrapper**, AKA ``cor``, for easier integration with
   :abbr:`OCI (Open Container Initiative)`-compliant host orchestration systems.
@@ -136,7 +136,7 @@ fast and lightweight hypervisor. Optimizations to `kvmtool`_ include:
 * **Direct kernel boot** -- The hypervisor can boot the kernel directly as
   an uncompressed ELF binary. Although the kernel image is slightly larger
   than a compressed one, it is faster to read and boot the larger
-  file than it is to uncompress and boot the slightly smaller file.
+  file than it is to decompress and boot the slightly smaller file.
 
 
 Client mini-OS
@@ -260,7 +260,7 @@ Modifications to `kvmtool`_ include:
 * **Direct kernel boot** -- The hypervisor can boot the kernel directly as
   an uncompressed ELF binary. Although the kernel image is slightly larger
   than a compressed one, it ends up being faster to read and boot the larger
-  file than it is to uncompress and boot the slightly smaller file.
+  file than it is to decompress and boot the slightly smaller file.
 
 
 .. _qemu-lite:

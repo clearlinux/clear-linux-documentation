@@ -4,7 +4,7 @@ Maintenance guide
 #################
 
 This guide provides step-by-step instructions for common tasks associated with
-maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
+maintaining |CL-ATTR| after :ref:`installation <get-started>` is completed.
 
 .. toctree::
    :maxdepth: 2
@@ -20,7 +20,7 @@ maintaining |CLOSIA| after :ref:`installation <get-started>` is completed.
    telemetry-enable
    time
    increase-virtual-disk-size
-   download-verify-uncompress-linux
-   download-verify-uncompress-mac
-   download-verify-uncompress-windows
+   download-verify-decompress-linux
+   download-verify-decompress-mac
+   download-verify-decompress-windows
    autospec

@@ -40,20 +40,20 @@ this command:
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
    :Start-after: verify-linux:
-   :end-before: To uncompress a GZ
+   :end-before: To decompress a GZ
 
 For alternative instructions on other operating systems, see:
 
-* :ref:`download-verify-uncompress-mac`
-* :ref:`download-verify-uncompress-windows`
+* :ref:`download-verify-decompress-mac`
+* :ref:`download-verify-decompress-windows`
 
 Upload the |CL| image to the VMware server
 ******************************************
 
 Once the |CL| VMware prebuilt image has been downloaded and 
-uncompressed on your local system, it must be uploaded to a datastore 
+decompressed on your local system, it must be uploaded to a datastore 
 on the VMware ESXi server.
 
 The steps in this section can also be referenced from the `VMware documentation on Using the Datastore File Browser`_ 
@@ -92,7 +92,7 @@ The steps in this section can also be referenced from the `VMware documentation 
 
       Figure 3: VMware ESXi - Datastore > Upload VMware image
 
-#. Select the uncompressed |CL| VMware image file
+#. Select the decompressed |CL| VMware image file
    :file:`clear-[version number]-vmware.vmdk` and upload it.
 
 Convert the |CL| image to an ESXi-supported format

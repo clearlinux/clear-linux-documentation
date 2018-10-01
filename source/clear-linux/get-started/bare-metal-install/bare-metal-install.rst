@@ -22,11 +22,11 @@ Look for the :file:`clear-[version number]-installer.img.xz` file. You can also 
    
    curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz
 
-Once you have downloaded the image, verify and uncompress the file.
+Once you have downloaded the image, verify and decompress the file.
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
    :Start-after: verify-linux:
-   :end-before: To uncompress a GZ
+   :end-before: To decompress a GZ
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:

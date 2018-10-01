@@ -1,15 +1,15 @@
-.. _download-verify-uncompress-mac:
+.. _download-verify-decompress-mac:
 
-Download, verify, and uncompress a Clear Linux image on macOS\*
+Download, verify, and decompress a Clear Linux image on macOS\*
 ###############################################################
 
-This guide describes the types of |CLOSIA| images available, where to download
-them, how to verify the integrity of an image, and how to uncompress it.
+This guide describes the types of |CL-ATTR| images available, where to download
+them, how to verify the integrity of an image, and how to decompress it.
 
 Instructions for other operating systems are available:
 
-* :ref:`download-verify-uncompress-linux`
-* :ref:`download-verify-uncompress-windows`
+* :ref:`download-verify-decompress-linux`
+* :ref:`download-verify-decompress-windows`
 
 Image types
 ***********
@@ -41,16 +41,16 @@ If the checksum of the downloaded image is different than the original
 checksum, the differences will be displayed. Otherwise, an empty output indicates
 a match and your downloaded image is good.
 
-Uncompress the Clear Linux image
+Decompress the Clear Linux image
 ********************************
 
 We compress all released |CL| images by default with either GNU zip 
 (`.gz`) or xz (`.xz`). The compression type we use depends on the target 
-platform or environment. To uncompress the image, follow these steps:
+platform or environment. To decompress the image, follow these steps:
 
 #. Start the Terminal app.
 #. Go to the directory with the downloaded image.
-#. Use the :command:`gunzip` command to uncompress either compression type. For example:
+#. Use the :command:`gunzip` command to decompress either compression type. For example:
 
    .. code-block:: bash
 

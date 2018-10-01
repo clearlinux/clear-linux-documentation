@@ -3,7 +3,7 @@
 Create a Clear Linux\* based web server
 #######################################
 
-This tutorial shows you how to create a LAMP server using |CLOSIA| and how to use phpMyAdmin\* to manage an associated database.
+This tutorial shows you how to create a LAMP server using |CL-ATTR| and how to use phpMyAdmin\* to manage an associated database.
 
 In order to create a web server using |CL| as the host OS, your host system 
 must be running |CL|. This tutorial assumes you have successfully installed 
@@ -360,7 +360,7 @@ our |CL| host system.
 
       This example downloads and uses version 4.6.4.
 
-#. Once the file has been successfully downloaded and verified, uncompress
+#. Once the file has been successfully downloaded and verified, decompress
    the file and directories into the Apache web server document root
    directory. Use the following commands:
 

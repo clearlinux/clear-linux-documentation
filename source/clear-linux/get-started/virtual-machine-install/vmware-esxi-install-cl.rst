@@ -38,14 +38,14 @@ Download the latest |CL| installer ISO
 Get the latest |CL| installer ISO image from the `image`_ repository.
 Look for :file:`clear-[version number]-installer.iso.xz`.
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
    :Start-after: verify-linux:
-   :end-before: To uncompress a GZ
+   :end-before: To decompress a GZ
 
 For alternative instructions on other operating systems, see: 
 
-* :ref:`download-verify-uncompress-mac`
-* :ref:`download-verify-uncompress-windows`
+* :ref:`download-verify-decompress-mac`
+* :ref:`download-verify-decompress-windows`
 
 Upload the |CL| installer ISO to the VMware server
 **************************************************
@@ -81,7 +81,7 @@ Upload the |CL| installer ISO to the VMware server
 
       Figure 3: VMware ESXi - Datastore > Upload ISO 
    
-#.  Select the uncompressed |CL| installer ISO file :file:`clear-[version number]-installer.iso` 
+#.  Select the decompressed |CL| installer ISO file :file:`clear-[version number]-installer.iso` 
     and upload it.
 
 Create and configure a new VM

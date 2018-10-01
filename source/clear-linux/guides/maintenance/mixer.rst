@@ -4,7 +4,7 @@ Use mixer tool
 ##############
 
 *Mixing* refers to composing an operating system for specific use cases.
-While the default |CLOSIA| provides options to install bundles for various
+While the default |CL-ATTR| provides options to install bundles for various
 server capabilities, some developers may wish to either augment the
 operating system itself with functionality from their own packages or modify
 the structure of current bundles to cater to their particular needs.
@@ -28,7 +28,7 @@ First, if your mix only uses |CL| content, *skip step 5* below.
 Second, if your mix includes your own 
 :abbr:`RPMs (RPM Package Manager files)`, follow all these steps. 
 
-#. `Create ngninx web server to host mixer updates`_
+#. `Create nginx web server to host mixer updates`_
 #. `Create a workspace`_
 #. `Generate the starting point for your mix`_
 #. `Edit builder.conf`_
