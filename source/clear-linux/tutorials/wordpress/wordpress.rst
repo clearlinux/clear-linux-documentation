@@ -1,14 +1,14 @@
 .. _wordpress:
 
-WordPress\* use case tutorial
-#############################
+WordPress\* on |CL-ATTR| 
+########################
 
-This tutorial describes how to setup a webserver to host a WordPress site using 
-|CL-ATTR|. The tutorial is split into two sections:  
+This tutorial describes how to setup a web server to host a WordPress\* site on a 
+|CL-ATTR| system. The tutorial is split into two sections:  
 
-#. Setting up a LAMP webserver with :ref:`web-server-install`.
+#. :ref:`web-server-install`
 
-#. Setting up Wordpress on a LAMP webserver with :ref:`wp-install`.
+#. :ref:`wp-install`
 
 If you already have a |CL| based :abbr:`LAMP (Linux, Apache, MySQL, PHP)` web server, 
 you can skip ahead to the second section of this tutorial.
@@ -20,8 +20,8 @@ you can skip ahead to the second section of this tutorial.
    of this tutorial.
 
 .. toctree::
-    :maxdepth: 1
-    :hidden:
+   :maxdepth: 1
+   :hidden:
 
-    web-server-install.rst
-    wp-install.rst
+   web-server-install.rst
+   wp-install.rst
