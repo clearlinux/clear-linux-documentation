@@ -371,8 +371,3 @@ Example output:
    Removing intermediate container 7694989e97de
    Successfully built ec23189ef954
    Successfully tagged my-clearlinux-remove-pxe-server-bundle:latest
-
-For more details, refer to:
-
-* :ref:`cc-getting-started`
-* :ref:`architecture-overview`

@@ -17,7 +17,7 @@ Instructions are also available for other operating systems:
    :start-after: incl-image-filename: 
    :end-before: incl-image-filename-end:
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-mac.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-mac.rst
    :start-after: verify-mac:
 
 
@@ -29,7 +29,7 @@ Burn the |CL| image onto a USB drive
    |CAUTION-BACKUP-USB|
 
 #. Launch the Terminal app.
-#. Go to the directory with the uncompressed image.
+#. Go to the directory with the decompressed image.
 #. Plug in a USB drive and get its identifier by entering the command
    :command:`diskutil list`.  See Figure 1.
 

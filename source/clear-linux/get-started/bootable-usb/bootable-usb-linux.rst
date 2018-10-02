@@ -17,7 +17,7 @@ Instructions are also available for other operating systems:
    :start-after: incl-image-filename: 
    :end-before: incl-image-filename-end:
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
    :Start-after: verify-linux:
 
 .. _copy-usb-linux:
@@ -35,7 +35,7 @@ Burn the |CL| image onto a USB drive
 
       sudo -s
 
-#. Go to the directory with the uncompressed image.
+#. Go to the directory with the decompressed image.
 #. Plug in the USB drive.
 #. Identify the USB drive using the :command:`lsblk` command. This shows all
    drives attached to the system, including the primary hard disk. In the

@@ -70,13 +70,13 @@ Look for :file:`clear-[version number]-installer.iso.xz`.
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-windows.rst
    :Start-after: verify-windows:
 
 We also provide instructions for other operating systems:
 
-* :ref:`download-verify-uncompress-linux`
-* :ref:`download-verify-uncompress-mac`
+* :ref:`download-verify-decompress-linux`
+* :ref:`download-verify-decompress-mac`
 
 Create and configure a new VM
 *****************************
@@ -103,7 +103,7 @@ Create and configure a new VM
 
       Figure 2: VMware Workstation 14 Player - Select |CL| installer ISO
 
-#. Click the :guilabel:`Browse` button and select the uncompressed |CL|
+#. Click the :guilabel:`Browse` button and select the decompressed |CL|
    installer ISO.
 
 #. Click the :guilabel:`Next` button.
