@@ -1,7 +1,7 @@
 .. _telemetry-enable:
 
-Enable and disable telemetry in Clear Linux* OS
-###############################################
+Enable and disable telemetry in |CL-ATTR|
+#########################################
 
 |CL-ATTR| includes a telemetry solution as part of the OS that records events
 of interest and reports them back to the development team via the telemetrics
@@ -35,7 +35,7 @@ root user or with :command:`sudo` privileges:
 This adds the telemetrics-client to your system and you will automatically
 opt-in for the service.
 
-Enable Telemetry
+Enable telemetry
 *****************
 
 To start telemetry on your system, run the following command:
@@ -50,7 +50,7 @@ begin to send telemetry data to the server defined in the file
 :command:`telemd` daemon will use the file
 :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
 
-Disable Telemetry
+Disable telemetry
 *****************
 
 To disable both of the telemetry daemons, run the following command:
