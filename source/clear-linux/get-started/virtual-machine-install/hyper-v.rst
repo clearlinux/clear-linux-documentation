@@ -29,7 +29,7 @@ a virtual network.
 Create a virtual machine
 ************************
 
-#. Download and uncompress the latest hyperv disk image
+#. Download and decompress the latest hyperv disk image
    :file:`clear-XXXXX-hyperv.img.gz`, where XXXXX is the latest 
    available version of |CL| from our `downloads`_ section.
 

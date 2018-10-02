@@ -3,8 +3,9 @@
 Maintenance guide
 #################
 
-These guides provide step-by-step instructions for common tasks associated with
-maintaining |CL-ATTR| after :ref:`installation <get-started>` is completed.
+These guides provide step-by-step instructions for common tasks associated
+with maintaining |CL-ATTR| after :ref:`installation <get-started>` is
+completed.
 
 .. toctree::
    :maxdepth: 2
@@ -21,7 +22,7 @@ maintaining |CL-ATTR| after :ref:`installation <get-started>` is completed.
    time
    hostname
    increase-virtual-disk-size
-   download-verify-uncompress-linux
-   download-verify-uncompress-mac
-   download-verify-uncompress-windows
+   download-verify-decompress-linux
+   download-verify-decompress-mac
+   download-verify-decompress-windows
    autospec

@@ -68,13 +68,13 @@ this command:
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-windows.rst
    :Start-after: verify-windows:
 
 We also provide instructions for other operating systems:
 
-* :ref:`download-verify-uncompress-linux`
-* :ref:`download-verify-uncompress-mac`
+* :ref:`download-verify-decompress-linux`
+* :ref:`download-verify-decompress-mac`
 
 Create and configure a new VM
 *****************************
@@ -182,7 +182,7 @@ Create and configure a new VM
 Attach the pre-configured |CL| VMware image
 *******************************************
 
-#. Move the downloaded and uncompressed pre-configured |CL| VMware image file
+#. Move the downloaded and decompressed pre-configured |CL| VMware image file
    :file:`clear-[version number]-basic.vmdk` to the directory where your
    newly-created VM resides.
 

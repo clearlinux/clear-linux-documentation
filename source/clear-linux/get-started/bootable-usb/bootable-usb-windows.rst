@@ -17,7 +17,7 @@ Instructions are also available for other operating systems:
    :start-after: incl-image-filename: 
    :end-before: incl-image-filename-end:
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-windows.rst
+.. include:: ../../guides/maintenance/download-verify-decompress-windows.rst
    :Start-after: verify-windows:
 
 Burn the |CL| image onto a USB drive
