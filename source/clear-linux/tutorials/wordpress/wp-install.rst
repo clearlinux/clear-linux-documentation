@@ -1,7 +1,7 @@
 .. _wp-install:
 
-Create a |CL-ATTR| WordPress\* server
-#####################################
+Set up WordPress\* on a LAMP web server
+#######################################
 
 This tutorial shows you how to install the WordPress\* components on your |CL| 
 :abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of 
@@ -12,16 +12,8 @@ can add the WordPress components needed to host a WordPress website on your syst
 Before you begin
 ****************
 
-This tutorial assumes you have successfully installed :ref:`Clear Linux on bare metal<bare-metal-install>` 
-and that you have :ref:`set up a LAMP web server <web-server-install>`.
-
-
-Before you install new packages, update the |CL| OS with the following command:
-
-.. code-block:: bash
-
-   sudo swupd update
-
+This tutorial assumes you have successfully completed :ref:`bare-metal-install` 
+and that you have :ref:`web-server-install`.
 
 Create a WordPress server
 *************************
@@ -88,7 +80,7 @@ Follow these steps:
 
       sudo rm latest.tar.gz
 
-Set up WordPress with Web-based GUI
+Set up WordPress with web-based GUI
 ===================================
 
 Recall that you created a database and user when you installed phpMyAdmin during 
@@ -101,20 +93,20 @@ The WordPress language option screen appears, as shown in figure 1.
 #. Select :guilabel:`English` and click :guilabel:`Continue`.
 
    .. figure:: figures/wp-install-1.png
-    :alt: WordPress language selection
-    :width:     600
+      :alt: WordPress language selection
+      :width:     600
 
-    `Figure 1: WordPress language selection screen.`
+      `Figure 1: WordPress language selection screen.`
 
 
    The WordPress installation continues until the Welcome screen appears, as shown in 
    figure 2:
 
    .. figure:: figures/wp-install-2.png
-    :alt: WordPress welcome screen
-    :width:     600
+      :alt: WordPress welcome screen
+      :width:     600
 
-    `Figure 2: WordPress Welcome screen.`
+      `Figure 2: WordPress Welcome screen.`
 
 #. Click :guilabel:`Let’s go!`.
 
@@ -139,10 +131,10 @@ The WordPress language option screen appears, as shown in figure 1.
    is connected to the MariaDB database.
 
    .. figure:: figures/wp-install-4.png
-    :alt: Successful database connection.
-    :width:     600
+      :alt: Successful database connection.
+      :width:     600
 
-    `Figure 4: Successful WordPress connection.`
+      `Figure 4: Successful WordPress connection.`
 
 #. Click :guilabel:`Run the install`.
    The installer runs until WordPress is fully installed on your system.
@@ -150,14 +142,14 @@ The WordPress language option screen appears, as shown in figure 1.
 Complete successful login
 =========================
 
-Once the installation is complete, you can name your blog and create a Wordpress username 
+Once the installation is complete, you can name your blog and create a WordPress username 
 and password. See figure 5.
 
 .. figure:: figures/wp-install-5.png
-    :alt: WordPress user creation
-    :width:     600
+   :alt: WordPress user creation
+   :width:     600
 
-    `Figure 5: WordPress site information screen.`
+   `Figure 5: WordPress site information screen.`
 
 
 #. Enter all required information.
@@ -165,10 +157,10 @@ and password. See figure 5.
 #. Verify that the initial login screen appears once the installation is complete. See figure 6:
 
    .. figure:: figures/wp-install-6.png
-    :alt: WordPress login
-    :width:     600
+      :alt: WordPress login
+      :width:     600
 
-    `Figure 6: The WordPress login screen.`
+      `Figure 6: The WordPress login screen.`
 
 #. Enter your WordPress username and password.
 #. Check :guilabel:`Remember me` to save your credentials.
@@ -177,10 +169,10 @@ and password. See figure 5.
 Figure 7 shows the WordPress dashboard after a successful login:
 
 .. figure:: figures/wp-install-7.png
-    :alt: WordPress Dashboard
-    :width:     600
+   :alt: WordPress Dashboard
+   :width:     600
 
-    `Figure 7: The WordPress dashboard.`
+   `Figure 7: The WordPress dashboard.`
 
 You are ready to go!
 
@@ -188,10 +180,10 @@ To check out your blog as it is seen by the outside world, enter:
 http://<your_website>/blog on your browser. Figure 8 shows the result:
 
 .. figure:: figures/wp-install-8.png
-    :alt: WordPress blog
-    :width:     600
+   :alt: WordPress blog
+   :width:     600
 
-    `Figure 8: Your WordPress blog.`
+   `Figure 8: Your WordPress blog.`
 
 **Congratulations, your WordPress blog is up and running!**
 
