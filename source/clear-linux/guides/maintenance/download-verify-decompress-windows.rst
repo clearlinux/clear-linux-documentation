@@ -1,7 +1,7 @@
 .. _download-verify-decompress-windows:
 
-Download, verify, and decompress a Clear Linux image on Windows\*
-#################################################################
+Download, verify, and decompress a |CL-ATTR| image on Windows\*
+###############################################################
 
 This guide describes the types of |CL-ATTR| images available, where to download
 them, how to verify the integrity of an image, and how to decompress it.
@@ -19,8 +19,8 @@ Image types
 
 .. _verify-windows:
 
-Verify the integrity of the Clear Linux image
-*********************************************
+Verify the integrity of the |CL| image
+**************************************
 
 Before you use a downloaded |CL| image, verify its integrity. This action
 eliminates the small chance of a corrupted image due to download issues. To
@@ -39,7 +39,7 @@ checksum file designated with the suffix `-SHA512SUMS`.
 #.  Manually compare the output with the original checksum value shown in
     the downloaded checksum file and make sure they match.
 
-Decompress the Clear Linux image
+Decompress the |CL| image
 ********************************
 
 Released |CL| images are compressed with either GNU zip (*.gz*) or XZ

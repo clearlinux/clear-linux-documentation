@@ -1,9 +1,9 @@
 .. _download-verify-decompress-mac:
 
-Download, verify, and decompress a Clear Linux image on macOS\*
-###############################################################
+Download, verify, and decompress a |CL-ATTR| image on macOS\*
+#############################################################
 
-This guide describes the types of |CL-ATTR| images available, where to download
+This guide describes the types of |CL| images available, where to download
 them, how to verify the integrity of an image, and how to decompress it.
 
 Instructions for other operating systems are available:
@@ -19,8 +19,8 @@ Image types
 
 .. _verify-mac:
 
-Verify the integrity of the Clear Linux image
-*********************************************
+Verify the integrity of the |CL| image
+**************************************
 
 Before you use a downloaded |CL| image, verify its integrity. This action
 eliminates the small chance of a corrupted image due to download issues. To
@@ -41,8 +41,8 @@ If the checksum of the downloaded image is different than the original
 checksum, the differences will be displayed. Otherwise, an empty output indicates
 a match and your downloaded image is good.
 
-Decompress the Clear Linux image
-********************************
+Decompress the |CL| image
+*************************
 
 We compress all released |CL| images by default with either GNU zip 
 (`.gz`) or xz (`.xz`). The compression type we use depends on the target 
