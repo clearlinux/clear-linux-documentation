@@ -40,7 +40,7 @@ Second, if your mix includes your own
 
 .. contents:: 
    :local:
-   :depth: 2
+   :depth: 1
    :backlinks: top
 
 The following sections contain detailed information on every step of
