@@ -3,21 +3,33 @@
 Get started
 ###########
 
-This section contains information about the installation of |CLOSIA|.
+The Get Started section will get you up and running fast with |CL-ATTR|. Use 
+these step-by-step instructions to guide you through the installation of |CL| 
+from bare metal to a live image.
+ 
+Pre-install
+***********
 
-The :ref:`get-started` section provides step-by-step instructions to download
-and run |CL| on :ref:`bare metal <bare-metal-install>`, under
-a :ref:`virtual machine <virtual-machine-install>`, or by way of a
-:ref:`live image <live-image>`. Additionally, it provides useful pre-install
-information and instructions on how to complete pre-install tasks.
+* :ref:`system-requirements` 
+* :ref:`compatibility-check`
+* :ref:`bootable-usb` 
+
+Install |CL| 
+************
+
+* :ref:`bare-metal-install` 
+* :ref:`bare-metal-manual-install`
+* :ref:`virtual-machine-install`
+* :ref:`live-image`
+
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
 
-   ../reference/system-requirements
    bare-metal-install/bare-metal-install
-   bare-metal-install/bare-metal-manual-install
-   bare-metal-install/cgdisk-manual-install
+   bare-metal-manual-install/bare-metal-manual-install
+   cgdisk-manual-install/cgdisk-manual-install
    virtual-machine-install/virtual-machine-install
    live-image
    compatibility-check

@@ -1,15 +1,15 @@
-.. _download-verify-uncompress-linux:
+.. _download-verify-decompress-linux:
 
-Download, verify, and uncompress a Clear Linux image on Linux
-#############################################################
+Download, verify, and decompress a |CL-ATTR| image on Linux
+###########################################################
 
-This guide describes the types of |CLOSIA| images available, where to download
-them, how to verify the integrity of an image, and how to uncompress it.
+This guide describes the types of |CL| images available, where to download
+them, how to verify the integrity of an image, and how to decompress it.
 
 Instructions for other operating systems are available:
 
-* :ref:`download-verify-uncompress-mac`
-* :ref:`download-verify-uncompress-windows`
+* :ref:`download-verify-decompress-mac`
+* :ref:`download-verify-decompress-windows`
 
 Image types
 ***********
@@ -19,8 +19,8 @@ Image types
 
 .. _verify-linux:
 
-Verify the integrity of the Clear Linux image
-*********************************************
+Verify the integrity of the |CL| image
+**************************************
 
 Before you use a downloaded |CL| image, verify its integrity. This action
 eliminates the small chance of a corrupted image due to download issues. To
@@ -45,24 +45,28 @@ the screen followed by `OK`.
 For a more in-depth discussion of image verification including checking the
 certificate see :ref:`image-content-validation`.
 
-Uncompress the Clear Linux image
-********************************
+.. incl-decompress-image:
+
+Decompress the |CL| image
+*************************
 
 Released |CL| images are compressed with either GNU zip (*.gz*) or XZ
 (*.xz*). The compression type depends on the target platform or
-environment. To uncompress the image, follow these steps:
+environment. To decompress the image, follow these steps:
 
 #.  Start a terminal emulator.
 #.  Go to the directory with the downloaded image.
 
-    To uncompress an XZ image, enter:
+    To decompress an XZ image, enter:
 
     .. code-block:: bash
 
         unxz clear-[version number]-[image type].xz
 
-    To uncompress a GZ image, enter:
+    To decompress a GZ image, enter:
 
     .. code-block:: bash
 
         gunzip clear-[version number]-[image type].gz
+
+.. incl-decompress-image-end:

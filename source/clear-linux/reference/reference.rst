@@ -11,7 +11,7 @@ features.
 
    compatible-hardware
    bundle-commands
-   bundles/available-bundles
+   bundles/bundles
    how-to-clear-overview
    collaboration/collaboration
    compatible-kernels

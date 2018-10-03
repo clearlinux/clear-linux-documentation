@@ -1,10 +1,10 @@
 .. _bare-metal-manual-install:
 
-Install Clear Linux OS on bare metal (manual)
+Install |CL-ATTR| on bare metal (manual)
 #############################################
 
-This section contains the steps for a |CL| manual installation.  It picks up
-where the :ref:`bare-metal-install` left off.
+This section contains the steps for a |CL-ATTR| manual installation. It
+picks up where the :ref:`bare-metal-install` left off.
 
 To perform additional tasks during the |CL| Installer setup, select the 
 :guilabel:`< Manual(Advanced) >` menu option (figure 1).  
@@ -180,7 +180,7 @@ The next steps of the manual installer setup process allows you to:
       Figure 9: :guilabel:`Bundle selector`
 
 For a complete description of the content of these additional bundles, go to
-the :ref:`software bundle list<available-bundles>` and select the name for a
+the :ref:`software bundle list <bundles>` and select the name for a
 specific bundle to show the contents within the bundle.
 
 Target system network configuration

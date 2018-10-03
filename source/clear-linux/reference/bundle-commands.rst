@@ -15,7 +15,8 @@ To see the list of all available bundles, enter:
 
    sudo swupd bundle-list --all
 
-Alternatively, you may reference the `available bundle list`_ webpage.
+Alternatively, you can view our :ref:`available bundles <bundles>`
+webpage.
 
 To search for bundles and their contents, enter:
 
@@ -44,4 +45,3 @@ To reference the :command:`swupd` man page, enter:
 
    man swupd
 
-.. _available bundle list: https://clearlinux.org/documentation/clear-linux/reference/bundles/available-bundles

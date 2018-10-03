@@ -52,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Clear Linux* Project for Intel® Architecture'
+project = u'Clear Linux* project'
 copyright = u'2016, many'
 author = u'many'
 
@@ -130,7 +130,7 @@ html_theme_path = ['_themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = "Documentation for Clear Linux* Project for Intel(r) Architecture"
+html_title = "Documentation for Clear Linux* project"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -232,7 +232,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'clr.tex', u'Documentation for Clear Linux* Project for Intel® Architecture',
+  (master_doc, 'clr.tex', u'Documentation for Clear Linux* project',
    u'many', 'manual'),
 ]
 
@@ -262,7 +262,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'clearlinux', u'Documentation for Clear Linux* Project for Intel® Architecture',
+    (master_doc, 'clearlinux', u'Documentation for Clear Linux* project',
      [author], 1)
 ]
 
@@ -276,7 +276,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'clearlinux', u'Documentation for Clear Linux* Project for Intel® Architecture',
+  (master_doc, 'clearlinux', u'Documentation for Clear Linux* project',
    author, 'Clear Linux', 'One line description of project.',
    'Miscellaneous'),
 ]

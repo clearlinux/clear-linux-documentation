@@ -1,16 +1,16 @@
 .. _flatpak:
 
-Use Flatpak\* to install applications on |CLOSIA|
-#################################################
+Use Flatpak\* to install applications on |CL-ATTR|
+##################################################
 
 This tutorial provides all the required steps to install Flatpak as well as
-downloading, installing, and running LibreOffice on |CL|.
+downloading, installing, and running LibreOffice\* on |CL-ATTR|.
 
 Please visit the `Flatpak website`_ for more information about Flatpak and
-how to use it.
+how to use it. You can also `download it here`_.
 
 Before you begin
-================
+****************
 
 This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, visit
@@ -22,9 +22,9 @@ Install Flatpak on your host system
 Flatpak is included as part of the bundle `desktop`. To install the
 application, log in to your user account and enter the following command:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ sudo swupd bundle-add desktop
+   sudo swupd bundle-add desktop
 
 
 Install and run the LibreOffice Flatpak image
@@ -32,82 +32,68 @@ Install and run the LibreOffice Flatpak image
 
 Application developers have the option to bundle their applications using
 Flatpak to allow the installation of a single distribution of their
-application on different distributions of Linux, including Clear Linux.
-Flatpak provides a `list of applications`_ available through Flatpak.
+application on different distributions of Linux, including |CL|.
+Flatpak provides a `list of applications`_ available through Flathub.
 
-Download and install the Latest LibreOffice Flatpak
----------------------------------------------------
+|CL| enables the Flathub repository by default.
 
-To get the latest version of the LibreOffice Flatpak repository, either
-`download it here`_ or you can enter the following command:
 
-.. code-block:: console
+Installing using gnome software
+-------------------------------
 
-   $ curl –O -L http://download.documentfoundation.org/libreoffice/flatpak/latest/LibreOffice.flatpak
+All you need to do is to launch `gnome software`, search for the LibreOffice
+app, and click the install button.
 
-The command downloads the latest LibreOffice.flatpak and saves it in your
-current directory.
+.. figure:: figures/01-install-libreoffice.gif
+   :alt: install libreoffice step by step
 
-Once the download is complete, the next step is to install LibreOffice along
-with the runtime environment LibreOffice needs to execute. As mentioned on
-the `Flatpak website`_, with the release of Flatpak 0.8.0 and
-LibreOffice.flatpak 4.2.4, you no longer have to specifically install the
-runtime required to execute LibreOffice since it will automatically install
-the runtime referenced in the LibreOffice.flatpak file.
+   Figure 1: Installing LibreOffice using gnome-software
 
-To install LibreOffice run the following command:
 
-.. code-block:: console
 
-   $ sudo flatpak install --bundle LibreOffice.flatpak
+Installing using the command line
+---------------------------------
 
-The output from this command will look similar to the following.
+Open the `gnome-terminal` and type the following command to install the
+LibreOffice app.
 
-.. note::
+.. code-block:: bash
 
-   You will be prompted to install the runtime environment if it is not
-   already installed.  Type :kbd:`y` to allow this task to execute.
+   flatpak install --user flathub org.libreoffice.LibreOffice
+   Installing in user:
+   org.libreoffice.LibreOffice/x86_64/stable        flathub 2aff77bd5cf1
+     permissions: ipc, network, pulseaudio, wayland, x11, dri
+     file access: host, xdg-run/dconf
+     dbus access: ca.desrt.dconf, org.gtk.vfs.*
+     dbus ownership: org.libreoffice.LibreOfficeIpc0
+   org.libreoffice.LibreOffice.Locale/x86_64/stable flathub 924157b3b009
+   Is this ok [y/n]: y
+   Installing for user: org.libreoffice.LibreOffice/x86_64/stable from flathub
+   [####################] 403 metadata, 4661 content objects fetched; 222574 KiB transferred in 99 seconds
+   Now at 2aff77bd5cf1.
+   Installing for user: org.libreoffice.LibreOffice.Locale/x86_64/stable from flathub
+   [####################] 10 metadata, 71 content objects fetched; 1013 KiB transferred in 3 seconds
+   Now at 924157b3b009.
 
-.. code-block:: console
 
-   GLib-GIO-Message: Using the 'memory' GSettings backend.
-   Your settings will not be saved or shared with other applications.
-   This application depends on runtimes from:
-   http://sdk.gnome.org/repo/
-   Configure this as new remote 'gnome' [y/n]: y
-   Required runtime for org.libreoffice.LibreOffice/x86_64/fresh
-   (org.gnome.Platform/x86_64/3.20) is not installed, searching...
-   Found in remote gnome, do you want to install it? [y/n]: y
-   Installing: org.gnome.Platform/x86_64/3.20 from gnome
-
-   Receiving delta parts: 0/11 2.5 MB/s 4.9 MB/223.2 MB 1 minutes 28 seconds
-   remain
-   Receiving delta parts: 0/11 2.9 MB/s 8.7 MB/223.2 MB 1 minutes 13 seconds
-   remain
-   11 delta parts, 84 loose fetched; 218002 KiB transferred in 17 seconds
-   Installing: org.gnome.Platform.Locale/x86_64/3.20 from gnome
-
-   5 metadata, 1 content objects fetched; 13 KiB transferred in 1 seconds
-   Installing: org.libreoffice.LibreOffice/x86_64/fresh from bundle
-   LibreOffice.flatpak
-
-Once the LibreOffice Flatpak application has been installed, you can launch
-LibreOffice with the following command from the command line:
-
-.. code-block:: console
-
-   $ flatpak run org.libreoffice.LibreOffice
-
-Add LibreOffice to your Gnome desktop
-=====================================
-A new icon will appear in your Gnome applications list titled :guilabel:`LibreOffice.` To
+Launch LibreOffice
+==================
+A new set of icons will appear in your Gnome applications list titled :guilabel:`LibreOffice.` To
 execute the application, highlight the application and click on the :guilabel:`LibreOffice` icon.
 LibreOffice will start normally.
 
-.. figure:: figures/gnome1.png
-   :alt: Gnome desktop
+.. figure:: figures/02-openlibreoffice.gif
+   :alt: Opening LibreOffice app
 
-   Figure 1: Select :guilabel:`Gnome applications list`
+   Figure 2: Select :guilabel:`LibreOffice` app
+
+Using the command line
+----------------------
+
+.. code-block:: bash
+
+   flatpak run org.libreoffice.LibreOffice
+
 
 .. _Flatpak website: http://flatpak.org
 

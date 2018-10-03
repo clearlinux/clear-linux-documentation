@@ -1,28 +1,40 @@
 .. _clear-linux:
 
-Clear Linux\* Project for Intel® Architecture
+|CL-PRJ|
 #############################################
 
-Welcome to the |CLOSIA| documentation pages. Our documentation is divided 
-into five sections:
+Welcome to the |CLOSIA| documentation pages, the source for |CL| documentation. 
+Our documentation is divided into the following sections:
 
-* :ref:`get-started` Information about installing |CL| on
-  bare metal, in a virtual environment, or as a live image on a USB stick 
+* :ref:`get-started`
 
-* :ref:`concepts` Detailed technical information about 
-  |CL| features and what differentiates it from other |CL| distros 
+  If you are new to |CL|, get started fast with tutorials for installing |CL| on 
+  bare metal, in a virtual environment, or as a live image on a USB stick. 
 
-* :ref:`guides` Step-by-step instructions on how to complete 
-  common tasks that help you leverage |CL| native features 
+* :ref:`concepts` 
+  
+  Wondering what makes |CL| different? Learn about |CL| features and what 
+  differentiates |CL| from other Linux distros.
 
-* :ref:`tutorials` Step-by-step instructions for applying specific use
-  cases with |CL| that often involve third-party tools 
+* :ref:`guides` 
 
-* :ref:`reference` Technical descriptions that provide context or
-  important details about |CL|
+  Guides show how to complete common tasks that help you leverage |CL| native 
+  features effectively. From basic system configuration to advanced management 
+  of a cloud installation, there is a guide for you.
+
+* :ref:`tutorials` 
+
+  |CL| tutorials provide step-by-step instructions on how |CL| features can 
+  be used and extended, frequently with third-party tools. 
+
+* :ref:`reference` 
+  
+  Find the detailed information you need to enable your configuration or task 
+  in our |CL| reference section.
 
 .. toctree::
     :maxdepth: 2
+    :hidden:
 
     get-started/get-started
     concepts/concepts

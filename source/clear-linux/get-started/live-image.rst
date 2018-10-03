@@ -1,12 +1,12 @@
 .. _live-image:
 
-Install Clear Linux as a live image
-###################################
+Install |CL-ATTR| as a live image
+#################################
 
-A live image contains the complete |CLOSIA| operating system and resides
+A live image contains the complete |CL-ATTR| operating system and resides
 on a bootable media such as a USB drive or in a virtual machine
-(see :ref:`virtual-machine-install`). This is a
-great way to use |CL| without modifying your computer's hard disk.
+(see :ref:`virtual-machine-install`). This is a great way to use |CL| 
+without modifying your computer's hard disk.
 
 To create a bootable USB drive with a live image, follow
 :ref:`our step-by-step instructions<bootable-usb>` and use the latest |CL|
@@ -15,8 +15,8 @@ live image from the `image`_ directory. Look for the
 
 .. _boot-live-image:
 
-Boot the Clear Linux live image
-*******************************
+Boot the |CL| live image
+************************
 
 #. Configure the BIOS/UEFI firmware settings of the target system:
 

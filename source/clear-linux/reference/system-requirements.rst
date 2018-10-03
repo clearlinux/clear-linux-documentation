@@ -3,9 +3,8 @@
 Recommended minimum system requirements
 #######################################
 
-Clear Linux\* OS for Intel® Architecture can run on very minimal hardware.
-For example, it can run on a system with a single core CPU, 128MB of memory,
-and 600MB of disk space.
+|CL-ATTR| can run on very minimal hardware. For example, it can run on a 
+system with a single core CPU, 128MB of memory, and 600MB of disk space.
 
 Different use cases and applications will require different configurations.
 For general |CL| use, in addition to a supported processor, the recommended
@@ -13,9 +12,8 @@ minimum requirements include:
 
 *  Processors:
 
-   Clear Linux\* OS for Intel® Architecture can run on any Intel® 64bit
-   processors which support UEFI\* and SSE\* v4.1 streaming SIMD\*
-   instructions.
+   |CL-ATTR| can run on any Intel® 64bit processors which support UEFI\* 
+   and SSE\* v4.1 streaming SIMD\* instructions.
 
    The following processor families have been verified to run |CL|:
 

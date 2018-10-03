@@ -1,34 +1,40 @@
 .. _virtualbox:
 
-Run pre-configured Clear Linux\* as a VirtualBox\* guest OS
+Run pre-configured |CL-ATTR| as a VirtualBox\* guest OS
 ###########################################################
 
-This section shows how to deploy a pre-configured Clear Linux\* image as a guest on the `VirtualBox hypervisor`_ .
+This instruction explains how to deploy a pre-configured |CL-ATTR| image as a guest on the `VirtualBox hypervisor`_ .
 
 Download VirtualBox
-===================
+*******************
 
 VirtualBox\* is a type 2 hypervisor from Oracle. Download and use **version 5.0 or greater** from the `official VirtualBox website`_.
 
 .. _create_vm_vbox:
 
-Install VirtualBox
-===================
+Prerequisites
+*************
 
-#. Enable `Intel® Virtualization Technology`_ (Intel® VT) and
-   `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
-   host machine’s BIOS.
+The instruction assumes that you have: 
 
-#. Log in and open a terminal emulator.
+#. Enabled virtualization technology in the host machine's BIOS. 
+   
+   .. note:: 
 
-#. Install VirtualBox on your host machine per the
-   `appropriate instructions`_.
+      For help, see: Intel® `Virtualization Technology`_ (Intel® VT). 
+
+#. Installed VirtualBox on your host machine per the 
+   `appropriate instructions`_ for your platform.
+
+If you have not completed the above steps, do so before continuing. 
 
 Create a virtual machine in VirtualBox
-======================================
+**************************************
+
+#. Log in to your host and open a terminal emulator.
 
 #. Download the `latest`_ **live** version (clear-XXXX-live.img.xz) of
-   Clear Linux. You can also use this command: 
+   |CL|. You can also use this command: 
 
    .. code-block:: bash
 
@@ -97,7 +103,7 @@ Create a virtual machine in VirtualBox
 
 
 Run your new VM
-===============
+***************
 
 |CL| supports VirtualBox kernel modules used
 by the Linux kernel 4.14 :abbr:`LTS (Long Term Support)` 
@@ -140,30 +146,31 @@ To install the VirtualBox kernel modules, here are the steps:
 
      clr-boot-manager update
 
-
 Install Guest Additions
------------------------
+=======================
 
-The kernel modules are shipped with the ``kernel-lts`` bundle; however,
-you'll need to install the *user* Linux Guest Additions. To install the
-VirtualBox Guest Additions, follow these steps:
+The kernel modules are shipped with the ``kernel-lts`` bundle. Insert Guest 
+Additions CD image using *Devices* menu you'll need to install the *user* 
+Linux Guest Additions. To install the VirtualBox Guest Additions, 
+follow these steps:
 
-#. Insert Guest Additions CD image using *Devices* menu
 
-   .. image:: ./figures/vbox-cd.png
-      :alt: VirtualBox CD
+#. Insert Guest Additions CD image using *Devices* menu 
 
-#. Install Linux users Guest Additions::
+   .. image:: ./figures/vbox-cd.png  
+      :alt: VirtualBox CD 
 
-     install-vbox-lga
+#. Install Linux users Guest Additions:: 
 
-#. Reboot your system::
+    install-vbox-lga  
 
-     reboot
+#. Reboot your system::  
+      
+    reboot
 
 
 Troubleshooting
----------------
+===============
 
 On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
 *Hyper-V* is enabled.
@@ -181,11 +188,9 @@ To enable Hyper-V again, you should execute::
 
   bcdedit /set {current} hypervisorlaunchtype Auto
 
-.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/
-   intel-virtualization-technology.html
-.. _Intel® Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
 .. _latest: https://download.clearlinux.org/image/
 .. _7zip: http://www.7-zip.org/
+.. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
