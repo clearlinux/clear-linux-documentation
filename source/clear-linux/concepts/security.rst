@@ -1,6 +1,6 @@
 .. _security:
 
-|CL-ATTR| OS Security 
+|CL-ATTR| Security 
 *************************
 
 |CL-ATTR| aims to make systemic and layered security-conscious decisions
