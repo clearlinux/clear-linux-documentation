@@ -9,7 +9,7 @@ within the project's codebase and operating culture.
 
 
 .. contents:: :local:
-   :depth: 2
+   :depth: 1
 
 
 
