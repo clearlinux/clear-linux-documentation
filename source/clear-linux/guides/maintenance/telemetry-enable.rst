@@ -47,7 +47,7 @@ To start telemetry on your system, run the following command:
 This enables and starts the :command:`telemprobd` and :command:`telempostd` daemons and your system will
 begin to send telemetry data to the server defined in the file
 :file:`/etc/telemetrics/telemetrics.conf`. If this file does not exist, the
-:command:`telemd` daemon will use the file
+:command:`telemprobd` and :command:`telempostd` daemons will use the file
 :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
 
 Disable telemetry
