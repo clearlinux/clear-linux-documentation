@@ -29,9 +29,10 @@ a format bump. You can still run mixer natively by appending the *--native* flag
 any of the commands. 
 
 .. note::
-  You cannot run mixer if you are already in a container, unless you pass 
-  *--native* to the command. Nested containerization is not supported, nor 
-  is building images using the container mode.
+
+   You cannot run mixer if you are already in a container, unless you pass 
+   *--native* to the command. Nested containerization is not supported, nor 
+   is building images using the container mode.
 
 There are two different workflows to create your own mix.
 First, if your mix only uses |CL| content, *skip Create custom RPMs* below. 
