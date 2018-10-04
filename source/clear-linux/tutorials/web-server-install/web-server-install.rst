@@ -472,8 +472,8 @@ If successful, you should see the screen shown in figure 8:
 You have now created a fully functional LAMP server along with a 
 WordPress-ready database using |CL|.
 
-As a next step, you could :ref:`create a WordPress server <wp-install>` and
-present it to the world.
+Next, add the WordPress components needed to host a WordPress website with 
+:ref:`wp-install`.
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
 .. _phpMyAdmin: https://www.phpmyadmin.net/
