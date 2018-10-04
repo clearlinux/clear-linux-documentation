@@ -479,8 +479,7 @@ WordPress\*-ready database using |CL|.
 Next steps
 **********
 
-Next, add the WordPress components needed to host a WordPress website with 
-:ref:`wp-install`.
+Next, add the WordPress components needed to host a WordPress website with :ref:`wp-install`.
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
 .. _phpMyAdmin: https://www.phpmyadmin.net/
