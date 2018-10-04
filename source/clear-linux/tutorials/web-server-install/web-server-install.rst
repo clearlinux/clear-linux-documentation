@@ -1,24 +1,35 @@
 .. _web-server-install:
 
-Set up a LAMP web server on |CL-ATTR|
-#####################################
+Create a Clear Linux\* based web server
+#######################################
 
-This tutorial provides instructions on how to set up a 
-:abbr:`LAMP (Linux, Apache, MySQL, PHP)` web server on |CL-ATTR| and how 
-to use phpMyAdmin\* to manage an associated database. Note that this 
-tutorial installs MariaDB\*, which is a drop-in replacement for MySQL\*.
+This tutorial shows you how to create a LAMP server using |CL-ATTR| and how to use phpMyAdmin\* to manage an associated database.
 
 In order to create a web server using |CL| as the host OS, your host system 
 must be running |CL|. This tutorial assumes you have successfully installed 
-:ref:`Clear Linux on bare metal<bare-metal-install>`. 
+:ref:`Clear Linux on bare metal<bare-metal-install>`.
 
-This tutorial covers:
+Before you install new packages, update the |CL| OS with the following console command:
 
-.. contents:: :local:
-   :depth: 1
+.. code-block:: bash
+
+   sudo swupd update
+
+Create a LAMP Server
+********************
+
+A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop-in replacement for MySQL.
+
+This tutorial follows these steps:
+
+* Install Apache.
+* Change the default configuration and data directory.
+* Install PHP.
+* Install MariaDB.
+* Install phpMyAdmin and create a database.
 
 Install Apache
-**************
+*****************
 
 Apache is an open source HTTP web server application that can run on several 
 operating systems, including |CL|. Go to the `Apache HTTP Server Project`_ 
@@ -27,17 +38,8 @@ for more information.
 Install the web-server-basic bundle
 ===================================
 
-The **web-server-basic** bundle contains the packages needed to install the 
+The web-server-basic bundle contains the packages needed to install the 
 Apache software bundle on |CL|.
-
-.. note::
-
-   Before you install new packages, update the |CL| with the following 
-   console command:
-
-   .. code-block:: bash
-
-      sudo swupd update
 
 #. To install the bundle, enter the following command:
 
@@ -53,6 +55,7 @@ Apache software bundle on |CL|.
       sudo systemctl enable httpd.service
       sudo systemctl start httpd.service
 
+
 #. To verify that the Apache server application is running, open a web
    browser and navigate to: http://localhost.
 
@@ -66,14 +69,12 @@ Apache software bundle on |CL|.
 
    .. note::
 
-      The :file:`index.html` file is located in the :file:`/var/www/html` directory 
-      of your host system. You will copy this file into a new location after you 
-      modify the configuration in the next step.
+      The :file:`index.html` file is located in the :file:`/var/www/html` directory of your host system. You will copy this file into a new location after you modify the configuration in the next step.
 
 Change the default configuration and data directory
 ***************************************************
 
-|CL| is designed to be a `stateless`_ operating system which means that you 
+|CL| is designed to be a stateless operating system which means that you 
 must create an optional configuration file to make changes over the default 
 values. The default location of the Apache configuration file, 
 :file:`httpd.conf`, is located in the :file:`/usr/share/defaults/httpd` 
@@ -81,7 +82,7 @@ directory. |CL| can overwrite this directory as part of the stateless
 paradigm. This default :file:`.conf` file includes the following directives 
 that allow for additional locations of configuration definitions:
 
-.. code-block:: console
+.. code-block:: bash
 
    # Virtual hosts
    IncludeOptional /usr/share/defaults/httpd/conf.d/*.conf
@@ -102,7 +103,7 @@ Open a text editor and perform the following:
 #. Copy the content listed below into the new file 
    :file:`/etc/httpd/conf.d/httpd.conf`.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       #
       # Set a new location for DocumentRoot
@@ -215,7 +216,7 @@ the PHP components and are now ready to add your database application to
 complete your LAMP server implementation.
 
 Install MariaDB
-***************
+******************
 
 Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL 
 and is available in the database-basic |CL| bundle.
@@ -239,7 +240,7 @@ and is available in the database-basic |CL| bundle.
 
       sudo systemctl status mariadb
 
-Security hardening
+Security Hardening
 ==================
 
 With the MariaDB service running, we can perform some basic security 
@@ -306,18 +307,14 @@ hardening.
       ... Success!
       Disallow root login remotely? [Y/n]
 
-   Normally, root should only be allowed to connect from the 'localhost'. This 
-   ensures that someone cannot guess the root password from the network. To 
-   block any remote root login, type 'y'.
+   Normally, root should only be allowed to connect from the 'localhost'. This ensures that someone cannot guess the root password from the network. To block any remote root login, type 'y'.
 
    .. code-block:: bash
 
       ... Success!
       Remove test database and access to it? [Y/n]
 
-   By default, MariaDB includes a database named 'test' which anyone can access. 
-   This database is also intended only for testing and should be removed. To 
-   remove the test database, type 'y'.
+   By default, MariaDB includes a database named 'test' which anyone can access. This database is also intended only for testing and should be removed. To remove the test database, type 'y'.
 
    .. code-block:: bash
 
@@ -380,11 +377,10 @@ our |CL| host system.
 
       sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
 
-Use phpMyAdmin to manage databases
-==================================
+Use phpMyAdmin to Manage Databases
+====================================
 
-You can use the phpMyAdmin web-based tool to manage your databases. Follow the 
-steps below for setting up a database called "WordPress".
+You can use the phpMyAdmin web-based tool to manage your databases. Follow the steps below for setting up a database called Wordpress.
 
 #. Verify that a successful installation of all LAMP server components by
    going to http://localhost/phpMyAdmin. See figure 3.
@@ -474,13 +470,10 @@ If successful, you should see the screen shown in figure 8:
 **Congratulations!**
 
 You have now created a fully functional LAMP server along with a 
-WordPress\*-ready database using |CL|.
+WordPress-ready database using |CL|.
 
-Next steps
-**********
-
-Next, add the WordPress components needed to host a WordPress website with :ref:`wp-install`.
+As a next step, you could :ref:`create a WordPress server <wp-install>` and
+present it to the world.
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
 .. _phpMyAdmin: https://www.phpmyadmin.net/
-.. _`stateless`: https://clearlinux.org/features/stateless
