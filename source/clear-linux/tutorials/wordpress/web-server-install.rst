@@ -10,7 +10,7 @@ tutorial installs MariaDB\*, which is a drop-in replacement for MySQL\*.
 
 In order to create a web server using |CL| as the host OS, your host system 
 must be running |CL|. This tutorial assumes you have successfully installed 
-:ref:`Clear Linux on bare metal<bare-metal-install>`.
+:ref:`Clear Linux on bare metal<bare-metal-install>`. 
 
 This tutorial covers:
 
@@ -479,7 +479,8 @@ WordPress\*-ready database using |CL|.
 Next steps
 **********
 
-Next, add the WordPress components needed to host a WordPress website with :ref:`wp-install`.
+Next, add the WordPress components needed to host a WordPress website with 
+:ref:`wp-install`.
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
 .. _phpMyAdmin: https://www.phpmyadmin.net/
