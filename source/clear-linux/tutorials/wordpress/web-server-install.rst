@@ -56,7 +56,8 @@ Apache software bundle on |CL|.
 #. To verify that the Apache server application is running, open a web
    browser and navigate to: http://localhost.
 
-   If the service is running, a confirmation message appears, as shown in figure 1.
+   If the service is running, a confirmation message will appear, similar to the 
+   message shown in figure 1.
 
    .. figure:: figures/web-server-install-1.png
       :alt: This web server is operational from host.
@@ -74,12 +75,12 @@ Change the default configuration and data directory
 ***************************************************
 
 |CL| is designed to be a `stateless`_ operating system which means that you 
-must create an optional configuration file to make changes over the default 
-values. The default location of the Apache configuration file, 
-:file:`httpd.conf`, is located in the :file:`/usr/share/defaults/httpd` 
-directory. |CL| can overwrite this directory as part of the stateless 
-paradigm. This default :file:`.conf` file includes the following directives 
-that allow for additional locations of configuration definitions:
+must create an optional configuration file to override the default values. 
+The default location of the Apache configuration file, :file:`httpd.conf`, 
+is located in the :file:`/usr/share/defaults/httpd` directory. |CL| can 
+override this directory as part of the stateless paradigm. This default 
+:file:`.conf` file includes the following directives that allow for additional 
+locations of configuration definitions:
 
 .. code-block:: console
 
@@ -89,18 +90,24 @@ that allow for additional locations of configuration definitions:
    IncludeOptional /etc/httpd/conf.d/*.conf
    IncludeOptional /etc/httpd/conf.modules.d/*.conf
 
-This tutorial follows these steps:
+In this section you will define your own httpd.conf file to override the 
+default values, and define a custom DocumentRoot for your web server.
 
-* Create the directory structure for :file:`/etc/httpd/conf.d`. 
+#. Create the directory structure for :file:`/etc/httpd/conf.d`. 
 
-* Create the :file:`httpd.conf` file in directory :file:`/etc/httpd/conf.d`.
-  
-* Add the ``DocumentRoot`` variable to :file:`httpd.conf`.
+   .. code-block:: bash
 
-Open a text editor and perform the following:
+      sudo mkdir -p /etc/httpd/conf.d
 
-#. Copy the content listed below into the new file 
-   :file:`/etc/httpd/conf.d/httpd.conf`.
+#. Create and open the :file:`httpd.conf` file in your new :file:`/etc/httpd/conf.d` 
+   directory.
+
+   .. code-block:: bash
+
+      sudo nano /etc/httpd/conf.d/httpd.conf
+
+#. Add the ``DocumentRoot`` variable to :file:`httpd.conf`. Copy the content 
+   listed below into the new :file:`/etc/httpd/conf.d/httpd.conf` file.
 
    .. code-block:: console
 
@@ -117,7 +124,6 @@ Open a text editor and perform the following:
         Require all granted
       </Directory>
 
-
 #. Create a new ``DocumentRoot`` directory structure and copy the 
    :file:`index.html` file from :file:`/var/www/html` directory to 
    :file:`/var/www/tutorial`.
@@ -128,16 +134,21 @@ Open a text editor and perform the following:
       cd /var/www/tutorial
       sudo cp /var/www/html/index.html .
 
+#. To ensure a successful setup, edit the new :file:`index.html` file with an 
+   obvious change. 
 
-#. To ensure a successful setup, edit the new :file:`index.html` file.
-   Change the original text from
+   .. code-block:: bash
 
-   "This web server is operational from host."
+      sudo nano index.html
 
-   to
+   For example, we changed the default message 
 
-   "This web server is operational from its new location."
+   "It works!" 
 
+   to 
+
+   "It works from its new location!"
+   
 #. Stop and then restart ``httpd.service``.
 
    .. code-block:: bash
@@ -145,11 +156,16 @@ Open a text editor and perform the following:
       sudo systemctl stop httpd.service
       sudo systemctl start httpd.service
 
-#. Go to http://localhost to view the new screen.
+#. Go to http://localhost to view the new screen. You should see your updated 
+   default message from step 5.
 
 #. Change the configuration back to the default :file:`/var/www/html` 
    location. To do this, edit the :file:`/etc/httpd/conf.d/httpd.conf` file 
    again and replace any instance of /var/www/tutorial with /var/www/html.
+
+   .. code-block:: bash
+
+      sudo nano /etc/httpd/conf.d/httpd.conf
 
 #. Stop and then restart ``httpd.service``.
 
@@ -161,7 +177,7 @@ Open a text editor and perform the following:
 #. Go to http://localhost and verify that you can see the default screen
    again.
 
-   Optionally, remove the /var/www/tutorial directory you previously created.
+#. Optionally, remove the /var/www/tutorial directory you previously created.
 
    .. code-block:: bash
 
@@ -191,8 +207,12 @@ functionality to your web server, install PHP on your system.
 
    After restarting the Apache service, test your PHP installation.
 
-#. Create a file named :file:`phpinfo.php` in the
-   :file:`/var/www/html/` directory using a text editor.
+#. Create and open a file named :file:`phpinfo.php` in the :file:`/var/www/html/` 
+   directory using a text editor.
+
+   .. code-block:: bash
+
+      sudo nano /var/www/html/phpinfo.php
 
 #. Add the following line to the file:
 
@@ -202,7 +222,7 @@ functionality to your web server, install PHP on your system.
 
 #. Go to http://localhost/phpinfo.php.
 
-#. Verify that the PHP information screen appears, as shown in figure 2:
+#. Verify that the PHP information screen appears, similar to figure 2:
 
    .. figure:: figures/web-server-install-2.png
       :alt: PHP information screen
@@ -239,6 +259,8 @@ and is available in the database-basic |CL| bundle.
 
       sudo systemctl status mariadb
 
+   Press :kbd:`Ctrl` + :kbd:`c` or :kbd:`q` to exit. 
+
 Security hardening
 ==================
 
@@ -249,7 +271,7 @@ hardening.
 
    .. code-block:: bash
 
-      mysql_secure_installation
+      sudo mysql_secure_installation
 
 #. Respond to the questions that appear in the script below. 
    
@@ -352,8 +374,7 @@ MariaDB databases. Visit the `phpMyAdmin`_ website for the complete
 discussion regarding phpMyAdmin, its documentation, the latest downloads, 
 and other useful information.
 
-This tutorial uses the latest English version of phpMyAdmin to install it on 
-our |CL| host system.
+In this tutorial, we use the latest English version of phpMyAdmin.
 
 #. Download the :file:`phpMyAdmin-<version>-english.tar.gz` file to your
    :file:`~/Downloads` directory. Here, <version> refers to the current
@@ -380,8 +401,8 @@ our |CL| host system.
 
       sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
 
-Use phpMyAdmin to manage databases
-==================================
+Use phpMyAdmin to manage a database
+***********************************
 
 You can use the phpMyAdmin web-based tool to manage your databases. Follow the 
 steps below for setting up a database called "WordPress".
@@ -399,7 +420,6 @@ steps below for setting up a database called "WordPress".
 
       `Figure 3: The phpMyAdmin login page.`
 
-
 #. Verify a successful login by confirming that the main phpMyAdmin page
    displays, as shown in figure 4:
 
@@ -408,7 +428,6 @@ steps below for setting up a database called "WordPress".
       :width:     600
 
       `Figure 4: The phpMyAdmin dashboard.`
-
 
 #. Set up a database by selecting the :guilabel:`Databases` tab, as shown in
    figure 5.
@@ -426,7 +445,6 @@ steps below for setting up a database called "WordPress".
       :width:     600
 
       `Figure 5: The Databases tab.`
-
 
 #. Set up user permissions by selecting the :guilabel:`WordPress` database
    located in the left panel. See figure 6.
@@ -475,7 +493,6 @@ If successful, you should see the screen shown in figure 8:
 
 You have now created a fully functional LAMP server along with a 
 WordPress\*-ready database using |CL|.
-
 
 Next steps
 **********
