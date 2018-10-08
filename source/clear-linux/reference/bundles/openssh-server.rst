@@ -43,7 +43,6 @@ OpenSSH service:
 
       cat /etc/systemd/system/sshd.socket.d/override.conf
       
-
    You should see the following output: 
       
    .. code-block:: console
@@ -52,7 +51,6 @@ OpenSSH service:
       ListenStream=
       ListenStream=4200
 
-    
 #. Reload the systemd daemon configurations:
 
    .. code-block:: bash
@@ -70,7 +68,6 @@ OpenSSH service:
    .. code-block:: bash
    
       systemctl status sshd.socket
-
 
 Enable SFTP
 ***********
