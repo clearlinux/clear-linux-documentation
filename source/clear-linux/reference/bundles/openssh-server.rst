@@ -3,53 +3,77 @@
 openssh-server
 ##############
 
-This bundle provides the OpenSSH\* package needed to enable a SSH service.
-Remote users require a SSH service to be able to use an encrypted login
-shell. The first time OpenSSH starts, it generates the server SSH keys needed
-for the service.
+The **openssh-server** bundle provides the OpenSSH\* package needed to enable 
+a SSH service in |CL-ATTR|. Remote users require a SSH service to be able to 
+use an encrypted login shell. 
 
-|CL| enables the `sshd.socket` unit, which will listen on port 22 by default and
-start the openssh service as required.
+|CL| enables the `sshd.socket` unit, which will listen on port 22 by default 
+and start the OpenSSH service as required. The first time OpenSSH starts, it 
+generates the server SSH keys needed for the service.
 
-Change Default Port
-===================
-In order to change the default listen port for the OpenSSH\* service, perform
-the following steps:
+Change default port
+*******************
+Perform the following steps to change the default listen port for the 
+OpenSSH service:
 
-#. Edit the sshd.socket unit file, provide the `ListenStream` option in the
-   `[Socket]` section with no value in order to remove the |CL| default port
-   value, then provide the `ListenStream` option again with the new default
-   port to listen. In this example, we change `ListenStream` to
-   listen on port 4200 instead of the |CL| default:
+#. Open the sshd.socket file:
+
+   .. code-block:: bash
+
+      sudo systemctl edit sshd.socket
+
+#. Add the `[Socket]` section and `ListenStream` option to the sshd.socket 
+   file as shown below. The first `ListenStream` entry removes the |CL| 
+   default listen port value. The second `ListenStream` entry sets the new 
+   default listen port value. In this example, we set the new default port 
+   to 4200:
 
    .. code-block:: console
 
-      # systemctl edit sshd.socket
-
-#. Verify your changes:
-
-   .. code-block:: console
-
-      # cat /etc/systemd/system/sshd.socket.d/override.conf
       [Socket]
       ListenStream=
       ListenStream=4200
 
-#. Reload the systemd daemon configurations:
 
+   Make sure to include a new line after the last line of text in the sshd.socket file.
+
+#. Verify your changes:
+
+   .. code-block:: bash
+
+      cat /etc/systemd/system/sshd.socket.d/override.conf
+      
+
+   You should see the following output: 
+      
    .. code-block:: console
 
-      # systemctl daemon-reload
+      [Socket]
+      ListenStream=
+      ListenStream=4200
+
+    
+#. Reload the systemd daemon configurations:
+
+   .. code-block:: bash
+
+      sudo systemctl daemon-reload
 
 #. Restart the sshd.socket unit:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # systemctl restart sshd.socket
+      sudo systemctl restart sshd.socket
+
+#. Confirm the the sshd.socket unit is listening on your new port: 
+
+   .. code-block:: bash
+   
+      systemctl status sshd.socket
 
 
-SFTP
-====
+Enable SFTP
+***********
 
 |CL| *disables* the :abbr:`SFTP (SSH File Transfer Protocol)` subsystem by
 default due to security considerations. To enable the SFTP subsystem, perform
@@ -57,14 +81,14 @@ the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
 
 #. Create a systemd drop-in directory for the SSHD service:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # mkdir -p /etc/systemd/system/sshd@.service.d
+      mkdir -p /etc/systemd/system/sshd@.service.d
 
 #. Create the following file:
    :file:`/etc/systemd/system/sshd@.service.d/sftp.conf`
 
-#. Add the OPTIONS environment variable
+#. Add the OPTIONS environment variable to the sftp.conf file.
 
    .. code-block:: console
 
@@ -73,25 +97,25 @@ the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
 
 #. Reload systemd configuration:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # systemctl daemon-reload
+      systemctl daemon-reload
 
 Congratulations! The SFTP subsystem is enabled.
 
-Root login
-==========
+Enable root login
+*****************
 
-To enable root login via ssh, perform the following steps:
+To enable root login via SSH, perform the following steps:
 
-#. Create a *ssh* directory in :file:`/etc`, only if it does not exist)
+#. Create a *ssh* directory in :file:`/etc`, if it does not already exist.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # mkdir /etc/ssh
+      mkdir /etc/ssh
 
 #. Set the configuration variable.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
