@@ -1,22 +1,29 @@
 .. _machine-learning:
 
-Machine learning tutorial
-#########################
+TensorFlow\* machine learning on |CL-ATTR|
+##########################################
 
-This tutorial guides you through installing and using a Jupyter\* notebook to
-set up and execute a TensorFlow\* machine learning example using the MNIST
-data for handwriting recognition using the |CLOSIA|. The initial steps will
-have you set up a Jupyter kernel and run a notebook on a bare-metal |CL|
-system.
+This tutorial will demonstrate the installation and execusion of a TensorFlow\* 
+machine learning example on |CL-ATTR|. It uses a Jupyter\* Notebook and MNIST
+data for handwriting recognition. 
 
-Install and configure a Clear Linux Host OS on bare metal
-=========================================================
+The initial steps will have you set up a Jupyter kernel and run a Notebook 
+on a bare-metal |CL| system.
 
-First, follow our instructions to install
-:ref:`Clear Linux on bare metal<bare-metal-install>`.
+Prerequisites
+*************
 
-Once the bare metal installation and initial configuration are complete, add
-the following two bundles to your system:
+This tutorial assumes you have installed |CL| on your host system. For detailed 
+instructions on installing |CL| on a bare metal system, follow the 
+:ref:`bare metal installation tutorial<bare-metal-install>`.
+
+Before you install any new packages, update |CL| with the following command:
+
+.. code-block:: bash
+
+   sudo swupd update
+
+Once your system is updated, add the following bundles to your system:
 
 * `machine-learning-web-ui`: This bundle contains the Jupyter application.
 
@@ -26,14 +33,14 @@ the following two bundles to your system:
 To install the bundles, run the following commands in your :file:`$HOME`
 directory:
 
-.. code-block:: console
+.. code-block:: bash
 
    sudo swupd bundle-add machine-learning-web-ui
 
    sudo swupd bundle-add machine-learning-basic
 
 Set up a Jupyter notebook
-=========================
+*************************
 
 With all required packages and libraries installed, set up the file structure
 for the Jupyter Notebook.
@@ -41,19 +48,19 @@ for the Jupyter Notebook.
 #. In the :file:`$HOME` directory, create a directory for the Jupyter
    Notebooks named :file:`Notebooks`.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       mkdir Notebooks
 
 #. Within :file:`Notebooks`, create a directory named :file:`Handwriting`.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       mkdir Notebooks/Handwriting
 
 #. Change to the new directory.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       cd Notebooks/Handwriting
 
@@ -82,7 +89,7 @@ The files needed are:
 * `t10k-labels-idx1-ubyte.gz`_: Test set labels (4542 bytes)
 
 Run the Jupyter machine learning example code
-=============================================
+*********************************************
 
 With |CL|, Jupyter, and TensorFlow installed and configured, we can
 run the example code.
@@ -90,7 +97,7 @@ run the example code.
 #. Go to the :file:`($HOME)/Notebooks` directory and start Jupyter with the
    following commands:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       cd ~/Notebooks
 
@@ -184,18 +191,18 @@ run the example code.
 
       Figure 8: The system's accuracy for the entire data set.
 
-For more in-depth and detailed information on the model used and the
-mathematics it entails, visit the TensorFlow tutorials
+For more in-depth information on the model used and the mathematics it entails, 
+visit the TensorFlow tutorials
 `TensorFlow MNIST beginners demo`_ and `TensorFlow MNIST pros demo`_.
 
 **Congratulations!**
 
-You have successfully installed a Jupyter kernel on |CL|. Furthermore, you
+You have successfully installed a Jupyter kernel on |CL|. In addition, you
 trained a neural network to successfully predict the values contained in a
 data set of hand-written number images.
 
-Additional resources
-====================
+Related topics
+**************
 
 * `MNIST Database website`_
 * `TensorFlow MNIST beginners demo`_
