@@ -33,7 +33,7 @@ Once your system is updated, add the following bundles to your system:
 To install the bundles, run the following commands in your :file:`$HOME`
 directory:
 
-.. code-block:: console
+.. code-block:: bash
 
    sudo swupd bundle-add machine-learning-web-ui
 
@@ -48,19 +48,19 @@ for the Jupyter Notebook.
 #. In the :file:`$HOME` directory, create a directory for the Jupyter
    Notebooks named :file:`Notebooks`.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       mkdir Notebooks
 
 #. Within :file:`Notebooks`, create a directory named :file:`Handwriting`.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       mkdir Notebooks/Handwriting
 
 #. Change to the new directory.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       cd Notebooks/Handwriting
 
@@ -97,7 +97,7 @@ run the example code.
 #. Go to the :file:`($HOME)/Notebooks` directory and start Jupyter with the
    following commands:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       cd ~/Notebooks
 
