@@ -3,12 +3,26 @@
 Concepts
 ########
 
-The concepts section provides content for a deeper understanding of the
-features of |CLOSIA|. These concepts attempt to provide all the technical
-details relevant to the |CL| features.
+Learn about |CL-ATTR| features and what makes |CL| different from other Linux distributions. 
+
+* :ref:`bundles-about`
+  
+  Instead of traditional packages, |CL| uses bundles to deploy software. 
+  
+* :ref:`swupd-about`
+  
+  In |CL|, an update translates to an entirely new OS version, with one or many updates.
+
+* :ref:`mixer-about`
+  
+  |CL| enables customization of your OS or customizing your own |CL|-based distribution.  
+
+* :ref:`telemetry-about`
+  
+  |CL| provides a customizable telemetry solution, that helps developers detect and address issues.
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    swupd-about
    mixer-about
