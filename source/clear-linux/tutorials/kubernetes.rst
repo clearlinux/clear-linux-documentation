@@ -103,6 +103,12 @@ deployment and your security needs.
          "sudo systemctl mask `sed -r -n -e 's#^/dev/\([0-9a-z]*\).*#dev-\1.swap#p' /proc/swaps`"
          with
          "sudo systemctl mask $(sed -n -e 's#^/dev/([0-9a-z]).#dev-\1.swap#p' /proc/swaps)"
+#. Create (or edit if it exists) the hosts file that kubernetes will read to locate
+   master's host:
+
+   .. code-block:: bash
+
+      echo "127.0.0.1 localhost `hostname`" >> /etc/hosts
 
 #. Configure the Kubernetes runtime interface, either:
 
