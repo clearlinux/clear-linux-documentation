@@ -3,7 +3,8 @@
 Concepts
 ########
 
-Learn about |CL-ATTR| features and what makes |CL| different from other Linux distributions. 
+Learn about |CL-ATTR| features and what makes |CL| different from other 
+Linux distributions. 
 
 * :ref:`bundles-about`
   
@@ -11,15 +12,18 @@ Learn about |CL-ATTR| features and what makes |CL| different from other Linux di
   
 * :ref:`swupd-about`
   
-  In |CL|, an update translates to an entirely new OS version, with one or many updates.
+  In |CL|, an update translates to an entirely new OS version, with one 
+  or many updates.
 
 * :ref:`mixer-about`
   
-  |CL| enables customization of your OS or customizing your own |CL|-based distribution.  
+  |CL| enables customization of your OS or customizing your own |CL|-based 
+  distribution.  
 
 * :ref:`telemetry-about`
   
-  |CL| provides a customizable telemetry solution, that helps developers detect and address issues.
+  |CL| provides a customizable telemetry solution, that helps developers 
+  detect and address issues.
 
 .. toctree::
    :hidden:

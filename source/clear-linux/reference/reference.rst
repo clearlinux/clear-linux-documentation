@@ -3,7 +3,8 @@
 Reference
 #########
 
-This section provides additional information for use of |CL-ATTR| and its features.
+This section provides additional information for use of |CL-ATTR| and 
+its features.
 
 .. toctree::
    :hidden:
