@@ -5,7 +5,7 @@ Enable and disable telemetry in |CL-ATTR|
 
 |CL-ATTR| includes a telemetry solution as part of the OS that records events
 of interest and reports them back to the development team via the telemetrics
-client daemons, **telempobd** and **telempostmd**. This functionality is
+client daemons, **telemprobd** and **telempostmd**. This functionality is
 maintained in the **telemetrics** software bundle.
 
 .. note::
