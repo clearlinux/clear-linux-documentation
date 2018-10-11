@@ -143,7 +143,7 @@ Configuration
       # MAC address,role
       default,ciao
 
-#. Verify the following URLs are accessible:
+#. Verify the following URLs are accessible on your local network:
 
    * ``http://192.168.1.1:60000/icis/static/ister/ister.conf``
    * ``http://192.168.1.1:60000/icis/static/ister/ister.json``
