@@ -1,11 +1,11 @@
 .. _image-types:
 
-Clear Linux\* image types
+|CL-ATTR| image types
 #########################
 
 .. _image-types-content:
 
-|CLOSIA| offers many types of `images`_ for different platforms and environments.
+|CL-ATTR| offers many types of `images`_ for different platforms and environments.
 
 .. _incl-image-filename:
 
@@ -28,7 +28,7 @@ The naming convention of a |CL| image filename is:
 Table 1 lists the currently available images that are platform independent.
 Table 2 lists the currently available images that are platform specific.
 
-.. list-table:: Table 1: Types of platform-independent Clear Linux images
+.. list-table:: Table 1: Types of platform-independent |CL| images
    :widths: 15, 85
    :header-rows: 1
 
@@ -36,15 +36,15 @@ Table 2 lists the currently available images that are platform specific.
      - Description
 
    * - installer.img 
-     - Preferred image of Clear Linux with interactive installer. 
+     - Preferred image of |CL| with interactive installer. 
 
    * - installer.iso
-     - ISO of Clear Linux with interactive installer. Only for special cases where ISO image format is required (not for use with a USB key)
+     - ISO of |CL| with interactive installer. Only for special cases where ISO image format is required (not for use with a USB key)
 
    * - live.img
-     - image for live booting into memory, without requiring installaton. 
+     - Image for live booting into memory, without requiring installaton. 
 
-.. list-table:: Table 2: Types of platform-specific Clear Linux images
+.. list-table:: Table 2: Types of platform-specific |CL| images
    :widths: 15, 85
    :header-rows: 1
 

@@ -1,35 +1,24 @@
 .. _web-server-install:
 
-Create a Clear Linux\* based web server
-#######################################
+Set up a LAMP web server on |CL-ATTR|
+#####################################
 
-This tutorial shows you how to create a LAMP server using |CLOSIA| and how to use phpMyAdmin\* to manage an associated database.
+This tutorial provides instructions on how to set up a 
+:abbr:`LAMP (Linux, Apache, MySQL, PHP)` web server on |CL-ATTR| and how 
+to use phpMyAdmin\* to manage an associated database. Note that this 
+tutorial installs MariaDB\*, which is a drop-in replacement for MySQL\*.
 
 In order to create a web server using |CL| as the host OS, your host system 
 must be running |CL|. This tutorial assumes you have successfully installed 
 :ref:`Clear Linux on bare metal<bare-metal-install>`.
 
-Before you install new packages, update the |CL| OS with the following console command:
+This tutorial covers:
 
-.. code-block:: bash
-
-   sudo swupd update
-
-Create a LAMP Server
-********************
-
-A LAMP server uses Linux\*, Apache\*, MySQL\*, and PHP\* to set up a fully functional web server and host a website. Note that this tutorial installs MariaDB, which is a drop-in replacement for MySQL.
-
-This tutorial follows these steps:
-
-* Install Apache.
-* Change the default configuration and data directory.
-* Install PHP.
-* Install MariaDB.
-* Install phpMyAdmin and create a database.
+.. contents:: :local:
+   :depth: 1
 
 Install Apache
-*****************
+**************
 
 Apache is an open source HTTP web server application that can run on several 
 operating systems, including |CL|. Go to the `Apache HTTP Server Project`_ 
@@ -38,8 +27,17 @@ for more information.
 Install the web-server-basic bundle
 ===================================
 
-The web-server-basic bundle contains the packages needed to install the 
+The **web-server-basic** bundle contains the packages needed to install the 
 Apache software bundle on |CL|.
+
+.. note::
+
+   Before you install new packages, update the |CL| with the following 
+   console command:
+
+   .. code-block:: bash
+
+      sudo swupd update
 
 #. To install the bundle, enter the following command:
 
@@ -55,11 +53,11 @@ Apache software bundle on |CL|.
       sudo systemctl enable httpd.service
       sudo systemctl start httpd.service
 
-
 #. To verify that the Apache server application is running, open a web
    browser and navigate to: http://localhost.
 
-   If the service is running, a confirmation message appears, as shown in figure 1.
+   If the service is running, a confirmation message will appear, similar to the 
+   message shown in figure 1.
 
    .. figure:: figures/web-server-install-1.png
       :alt: This web server is operational from host.
@@ -69,20 +67,22 @@ Apache software bundle on |CL|.
 
    .. note::
 
-      The :file:`index.html` file is located in the :file:`/var/www/html` directory of your host system. You will copy this file into a new location after you modify the configuration in the next step.
+      The :file:`index.html` file is located in the :file:`/var/www/html` directory 
+      of your host system. You will copy this file into a new location after you 
+      modify the configuration in the next step.
 
 Change the default configuration and data directory
 ***************************************************
 
-|CL| is designed to be a stateless operating system which means that you 
-must create an optional configuration file to make changes over the default 
-values. The default location of the Apache configuration file, 
-:file:`httpd.conf`, is located in the :file:`/usr/share/defaults/httpd` 
-directory. |CL| can overwrite this directory as part of the stateless 
-paradigm. This default :file:`.conf` file includes the following directives 
-that allow for additional locations of configuration definitions:
+|CL| is designed to be a `stateless`_ operating system which means that you 
+must create an optional configuration file to override the default values. 
+The default location of the Apache configuration file, :file:`httpd.conf`, 
+is located in the :file:`/usr/share/defaults/httpd` directory. |CL| can 
+override this directory as part of the stateless paradigm. This default 
+:file:`.conf` file includes the following directives that allow for additional 
+locations of configuration definitions:
 
-.. code-block:: bash
+.. code-block:: console
 
    # Virtual hosts
    IncludeOptional /usr/share/defaults/httpd/conf.d/*.conf
@@ -90,20 +90,26 @@ that allow for additional locations of configuration definitions:
    IncludeOptional /etc/httpd/conf.d/*.conf
    IncludeOptional /etc/httpd/conf.modules.d/*.conf
 
-This tutorial follows these steps:
+In this section you will define your own httpd.conf file to override the 
+default values, and define a custom DocumentRoot for your web server.
 
-* Create the directory structure for :file:`/etc/httpd/conf.d`. 
-
-* Create the :file:`httpd.conf` file in directory :file:`/etc/httpd/conf.d`.
-  
-* Add the ``DocumentRoot`` variable to :file:`httpd.conf`.
-
-Open a text editor and perform the following:
-
-#. Copy the content listed below into the new file 
-   :file:`/etc/httpd/conf.d/httpd.conf`.
+#. Create the directory structure for :file:`/etc/httpd/conf.d`. 
 
    .. code-block:: bash
+
+      sudo mkdir -p /etc/httpd/conf.d
+
+#. Create and open the :file:`httpd.conf` file in your new :file:`/etc/httpd/conf.d` 
+   directory.
+
+   .. code-block:: bash
+
+      sudo nano /etc/httpd/conf.d/httpd.conf
+
+#. Add the ``DocumentRoot`` variable to :file:`httpd.conf`. Copy the content 
+   listed below into the new :file:`/etc/httpd/conf.d/httpd.conf` file.
+
+   .. code-block:: console
 
       #
       # Set a new location for DocumentRoot
@@ -118,7 +124,6 @@ Open a text editor and perform the following:
         Require all granted
       </Directory>
 
-
 #. Create a new ``DocumentRoot`` directory structure and copy the 
    :file:`index.html` file from :file:`/var/www/html` directory to 
    :file:`/var/www/tutorial`.
@@ -129,16 +134,21 @@ Open a text editor and perform the following:
       cd /var/www/tutorial
       sudo cp /var/www/html/index.html .
 
+#. To ensure a successful setup, edit the new :file:`index.html` file with an 
+   obvious change. 
 
-#. To ensure a successful setup, edit the new :file:`index.html` file.
-   Change the original text from
+   .. code-block:: bash
 
-   "This web server is operational from host."
+      sudo nano index.html
 
-   to
+   For example, we changed the default message 
 
-   "This web server is operational from its new location."
+   "It works!" 
 
+   to 
+
+   "It works from its new location!"
+   
 #. Stop and then restart ``httpd.service``.
 
    .. code-block:: bash
@@ -146,11 +156,16 @@ Open a text editor and perform the following:
       sudo systemctl stop httpd.service
       sudo systemctl start httpd.service
 
-#. Go to http://localhost to view the new screen.
+#. Go to http://localhost to view the new screen. You should see your updated 
+   default message from step 5.
 
 #. Change the configuration back to the default :file:`/var/www/html` 
    location. To do this, edit the :file:`/etc/httpd/conf.d/httpd.conf` file 
    again and replace any instance of /var/www/tutorial with /var/www/html.
+
+   .. code-block:: bash
+
+      sudo nano /etc/httpd/conf.d/httpd.conf
 
 #. Stop and then restart ``httpd.service``.
 
@@ -162,7 +177,7 @@ Open a text editor and perform the following:
 #. Go to http://localhost and verify that you can see the default screen
    again.
 
-   Optionally, remove the /var/www/tutorial directory you previously created.
+#. Optionally, remove the /var/www/tutorial directory you previously created.
 
    .. code-block:: bash
 
@@ -192,8 +207,12 @@ functionality to your web server, install PHP on your system.
 
    After restarting the Apache service, test your PHP installation.
 
-#. Create a file named :file:`phpinfo.php` in the
-   :file:`/var/www/html/` directory using a text editor.
+#. Create and open a file named :file:`phpinfo.php` in the :file:`/var/www/html/` 
+   directory using a text editor.
+
+   .. code-block:: bash
+
+      sudo nano /var/www/html/phpinfo.php
 
 #. Add the following line to the file:
 
@@ -203,7 +222,7 @@ functionality to your web server, install PHP on your system.
 
 #. Go to http://localhost/phpinfo.php.
 
-#. Verify that the PHP information screen appears, as shown in figure 2:
+#. Verify that the PHP information screen appears, similar to figure 2:
 
    .. figure:: figures/web-server-install-2.png
       :alt: PHP information screen
@@ -216,7 +235,7 @@ the PHP components and are now ready to add your database application to
 complete your LAMP server implementation.
 
 Install MariaDB
-******************
+***************
 
 Install MariaDB to store content. MariaDB is a drop-in replacement for MySQL 
 and is available in the database-basic |CL| bundle.
@@ -240,7 +259,9 @@ and is available in the database-basic |CL| bundle.
 
       sudo systemctl status mariadb
 
-Security Hardening
+   Press :kbd:`Ctrl` + :kbd:`c` or :kbd:`q` to exit. 
+
+Security hardening
 ==================
 
 With the MariaDB service running, we can perform some basic security 
@@ -250,7 +271,7 @@ hardening.
 
    .. code-block:: bash
 
-      mysql_secure_installation
+      sudo mysql_secure_installation
 
 #. Respond to the questions that appear in the script below. 
    
@@ -307,14 +328,18 @@ hardening.
       ... Success!
       Disallow root login remotely? [Y/n]
 
-   Normally, root should only be allowed to connect from the 'localhost'. This ensures that someone cannot guess the root password from the network. To block any remote root login, type 'y'.
+   Normally, root should only be allowed to connect from the 'localhost'. This 
+   ensures that someone cannot guess the root password from the network. To 
+   block any remote root login, type 'y'.
 
    .. code-block:: bash
 
       ... Success!
       Remove test database and access to it? [Y/n]
 
-   By default, MariaDB includes a database named 'test' which anyone can access. This database is also intended only for testing and should be removed. To remove the test database, type 'y'.
+   By default, MariaDB includes a database named 'test' which anyone can access. 
+   This database is also intended only for testing and should be removed. To 
+   remove the test database, type 'y'.
 
    .. code-block:: bash
 
@@ -349,8 +374,7 @@ MariaDB databases. Visit the `phpMyAdmin`_ website for the complete
 discussion regarding phpMyAdmin, its documentation, the latest downloads, 
 and other useful information.
 
-This tutorial uses the latest English version of phpMyAdmin to install it on 
-our |CL| host system.
+In this tutorial, we use the latest English version of phpMyAdmin.
 
 #. Download the :file:`phpMyAdmin-<version>-english.tar.gz` file to your
    :file:`~/Downloads` directory. Here, <version> refers to the current
@@ -360,7 +384,7 @@ our |CL| host system.
 
       This example downloads and uses version 4.6.4.
 
-#. Once the file has been successfully downloaded and verified, uncompress
+#. Once the file has been successfully downloaded and verified, decompress
    the file and directories into the Apache web server document root
    directory. Use the following commands:
 
@@ -377,10 +401,11 @@ our |CL| host system.
 
       sudo mv phpMyAdmin-4.6.4-english phpMyAdmin
 
-Use phpMyAdmin to Manage Databases
-====================================
+Use phpMyAdmin to manage a database
+***********************************
 
-You can use the phpMyAdmin web-based tool to manage your databases. Follow the steps below for setting up a database called Wordpress.
+You can use the phpMyAdmin web-based tool to manage your databases. Follow the 
+steps below for setting up a database called "WordPress".
 
 #. Verify that a successful installation of all LAMP server components by
    going to http://localhost/phpMyAdmin. See figure 3.
@@ -395,7 +420,6 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
 
       `Figure 3: The phpMyAdmin login page.`
 
-
 #. Verify a successful login by confirming that the main phpMyAdmin page
    displays, as shown in figure 4:
 
@@ -404,7 +428,6 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
       :width:     600
 
       `Figure 4: The phpMyAdmin dashboard.`
-
 
 #. Set up a database by selecting the :guilabel:`Databases` tab, as shown in
    figure 5.
@@ -422,7 +445,6 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the s
       :width:     600
 
       `Figure 5: The Databases tab.`
-
 
 #. Set up user permissions by selecting the :guilabel:`WordPress` database
    located in the left panel. See figure 6.
@@ -470,10 +492,13 @@ If successful, you should see the screen shown in figure 8:
 **Congratulations!**
 
 You have now created a fully functional LAMP server along with a 
-WordPress-ready database using |CL|.
+WordPress\*-ready database using |CL|.
 
-As a next step, you could :ref:`create a WordPress server <wp-install>` and
-present it to the world.
+Next steps
+**********
+
+Next, add the WordPress components needed to host a WordPress website with :ref:`wp-install`.
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
 .. _phpMyAdmin: https://www.phpmyadmin.net/
+.. _stateless: https://clearlinux.org/features/stateless

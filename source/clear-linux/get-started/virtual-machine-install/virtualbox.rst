@@ -6,14 +6,14 @@ Run pre-configured |CL-ATTR| as a VirtualBox\* guest OS
 This instruction explains how to deploy a pre-configured |CL-ATTR| image as a guest on the `VirtualBox hypervisor`_ .
 
 Download VirtualBox
-===================
+*******************
 
 VirtualBox\* is a type 2 hypervisor from Oracle. Download and use **version 5.0 or greater** from the `official VirtualBox website`_.
 
 .. _create_vm_vbox:
 
 Prerequisites
-=============
+*************
 
 The instruction assumes that you have: 
 
@@ -29,7 +29,7 @@ The instruction assumes that you have:
 If you have not completed the above steps, do so before continuing. 
 
 Create a virtual machine in VirtualBox
-======================================
+**************************************
 
 #. Log in to your host and open a terminal emulator.
 
@@ -103,7 +103,7 @@ Create a virtual machine in VirtualBox
 
 
 Run your new VM
-===============
+***************
 
 |CL| supports VirtualBox kernel modules used
 by the Linux kernel 4.14 :abbr:`LTS (Long Term Support)` 
@@ -147,7 +147,7 @@ To install the VirtualBox kernel modules, here are the steps:
      clr-boot-manager update
 
 Install Guest Additions
------------------------
+=======================
 
 The kernel modules are shipped with the ``kernel-lts`` bundle. Insert Guest 
 Additions CD image using *Devices* menu you'll need to install the *user* 
@@ -170,7 +170,7 @@ follow these steps:
 
 
 Troubleshooting
----------------
+===============
 
 On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
 *Hyper-V* is enabled.

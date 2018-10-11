@@ -1,6 +1,6 @@
 .. _security:
 
-|CL-ATTR| OS Security 
+OS Security 
 *************************
 
 |CL-ATTR| aims to make systemic and layered security-conscious decisions
@@ -9,7 +9,7 @@ within the project's codebase and operating culture.
 
 
 .. contents:: :local:
-   :depth: 2
+   :depth: 1
 
 
 

@@ -1,16 +1,19 @@
 .. _bare-metal-install:
 
-Install Clear Linux OS on bare metal (automatic)
-################################################
+Install |CL-ATTR| on bare metal (automatic)
+###########################################
 
-These instructions guide you through the installation of |CLOSIA|
+These instructions guide you through the installation of |CL-ATTR|
 on bare metal using a bootable USB drive.
 
-Before you begin, run our :ref:`compatibility-check`.
+Before you begin, check that your system meets the requirements to install |CL|: 
+
+* :ref:`system-requirements` 
+* :ref:`compatibility-check`
 
 
-Download the latest Clear Linux installer image
-***********************************************
+Download the latest |CL| installer image
+****************************************
 
 Get the latest |CL| installer image from the `image`_ directory.
 Look for the :file:`clear-[version number]-installer.img.xz` file. You can also use this command:
@@ -19,11 +22,11 @@ Look for the :file:`clear-[version number]-installer.img.xz` file. You can also 
    
    curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz
 
-Once you have downloaded the image, verify and uncompress the file.
+Once you have downloaded the image, verify and decompress the file.
 
-.. include:: ../../guides/maintenance/download-verify-uncompress-linux.rst
-   :Start-after: verify-linux:
-   :end-before: To uncompress a GZ
+.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
+   :Start-after: incl-decompress-image:
+   :end-before: incl-decompress-image-end:
 
 .. include:: ../bootable-usb/bootable-usb-linux.rst
    :Start-after: copy-usb-linux:
@@ -31,8 +34,8 @@ Once you have downloaded the image, verify and uncompress the file.
 
 .. _install-on-target:
 
-Install Clear Linux on your target system
-*****************************************
+Install |CL| on your target system
+**********************************
 
 We formatted the previously created USB drive as a UEFI boot device. Our
 target system has a hard drive installed containing a single primary
@@ -54,25 +57,24 @@ Follow these steps to install |CL| on the target system:
 
 #. Reboot the target system.
 
-#. The |CL| Installer menu will start as shown in Figure 1.
+#. The |CL| boot menu will start as shown in figure 1.
    Select :guilabel:`Clear Linux OS for Intel Architecture` and press the
    :kbd:`Enter` key or wait five seconds to automatically select it.
 
    .. figure:: figures/bare-metal-install-1.png
       :scale: 50 %
-      :alt: Clear Linux boot menu
+      :alt: Boot menu
 
-      Figure 1: :guilabel:`Clear Linux boot menu`
+      Figure 1: :guilabel:`Boot menu`
 
-#. This will take you into the :guilabel:`Clear Linux OS for Intel
-   Architecture Installer` menu as shown in figure 2 and explains how to
+#. This will take you into the |CL| installer menu as shown in figure 2 and explains how to
    navigate through the |CL| installer setup menus.
 
    .. figure:: figures/bare-metal-install-2.png
       :scale: 50 %
-      :alt: Clear Linux OS for Intel Architecture Installer
+      :alt: Installer menu
 
-      Figure 2: :guilabel:`Clear Linux OS for Intel Architecture Installer`
+      Figure 2: :guilabel:`Installer menu`
 
    Press the :kbd:`Enter` key.
 
@@ -97,7 +99,7 @@ The :guilabel:`Network Requirements` menu, the first step of the |CL|
 installer setup process, will attempt to connect to the |CL| update server
 where the installer image is located. Once the connection to the |CL| update
 server is established, you will see a screen similar to the one shown in
-figure 4:
+figure 4.
 
 .. figure:: figures/bare-metal-install-4.png
    :scale: 50 %
@@ -134,11 +136,11 @@ Once the connection to the |CL| udpate server is established, use the
 :kbd:`Tab` key to advance to the :guilabel:`< Next >` button and press
 :kbd:`Enter` to advance to the next |CL| installer setup menu.
 
-Choose Clear Linux installer action
-===================================
+Choose |CL| installer action
+============================
 
 The :guilabel:`Choose Action` menu is where you can choose to install, repair,
-open a shell, or exit the |CL| installer.  This menu is shown in figure 5:
+open a shell, or exit the |CL| installer.  This menu is shown in figure 5.
 
 .. figure:: figures/bare-metal-install-5.png
    :scale: 50 %
@@ -181,8 +183,8 @@ open a shell, or exit the |CL| installer.  This menu is shown in figure 5:
    information is collected. Please visit our website to
    `learn more about telemetry.`_
 
-Choose Clear Linux installation type
-************************************
+Choose |CL| installation type
+*****************************
 
 Figure 7 shows the next step of the |CL| installer:
 :guilabel:`Choose installation Type`. Chose whether to install |CL|
@@ -216,8 +218,8 @@ If you want to perform any of these additional tasks, select the
 :ref:`bare-metal-manual-install` to complete the |CL| manual installation
 process. Otherwise, you can follow the |CL| automatic installation steps.
 
-Clear Linux automatic installation
-**********************************
+|CL| automatic installation
+***************************
 
 #. To install the minimum components for your |CL| implementation, select the
    :guilabel:`< Automatic >` menu item shown in figure 7 and press the
@@ -279,7 +281,7 @@ Set up your root account
 ========================
 
 Once the |CL| installation is complete and the system boots, a full screen
-console requests your login: as shown in figure 12:
+console requests your login as shown in figure 12:
 
 .. figure:: figures/bare-metal-install-12.png
    :scale: 50 %
@@ -300,18 +302,15 @@ You have now set your root password and are logged in with root privileges.
 You have successfully installed |CL| on a bare metal system using the
 automatic installation method and set the password for the ``root`` user.
 
-The automatic installation of |CL| is designed to install with minimal
-software overhead. Therefore, some housekeeping and package installations
-could be needed before you can take full advantage of the |CL| operating
-system. These instructions are captured in the :ref:`enable-user-space`.
+Next steps
+**********
 
-* Create a new user
-* Update the OS to its most current version using `swupd`.
-* Install the most common applications for system administrators and
-  developers using bundles.
-* Setup a new user.
-* Setup `sudo` privileges for that new user.
-* Install a GUI using those `sudo` privileges.
+The automatic installation of |CL| is designed to install with minimal
+software overhead. Some housekeeping and package installations could be 
+needed before you can take full advantage of the |CL| operating system. 
+
+See the :ref:`enable-user-space` guide for additional information and
+instructions.
 
 
 .. _`information about stateless`:
