@@ -92,17 +92,14 @@ deployment and your security needs.
 
       .. code-block:: bash
 
-         sudo systemctl mask `sed -r -n -e 's#^/dev/\([0-9a-z]*\).*#dev-\1.swap#p' /proc/swaps`
+         sudo systemctl mask $(sed -n -e 's#^/dev/\([0-9a-z]*\).*#dev-\1.swap#p' /proc/swaps) 2>/dev/null
          sudo swapoff -a
 
       .. note::
 
          On systems with limited resources, some performance degradation may
          be observed while swap is disabled.
-         On some systems you may need to substitute the command 
-         "sudo systemctl mask `sed -r -n -e 's#^/dev/\([0-9a-z]*\).*#dev-\1.swap#p' /proc/swaps`"
-         with
-         "sudo systemctl mask $(sed -n -e 's#^/dev/([0-9a-z]).#dev-\1.swap#p' /proc/swaps)"
+         
 #. Create (or edit if it exists) the hosts file that kubernetes will read to locate
    master's host:
 
