@@ -178,11 +178,12 @@ Run Kubernetes for the first time
    or:
 
    b) If you are running Kubernetes with CRI-O + kata-runtime:
-   .. code-block:: bash
 
-      sudo systemctl daemon-reload
-      sudo systemctl restart crio
-      sudo systemctl restart kubelet
+      .. code-block:: bash
+
+         sudo systemctl daemon-reload
+         sudo systemctl restart crio
+         sudo systemctl restart kubelet
 
 #. Initialize the master control plane with the following command, either:
 
@@ -301,6 +302,18 @@ Troubleshooting
 
   If you are behind a proxy server, you may need to add the master's IP to
   the environment variable *NO_PROXY*.
+
+* Connection timed-out or Access Refused errors.
+
+  You must ensure that the appropriate proxy settings are available from the
+  terminal where the control plane is initialized. You can run the commands
+  *"echo $HTTP_PROXY"*, *"echo $HTTPS_PROXY"* and *"echo $NO_PROXY"* from the
+  same terminal where you will initialize the control plane to verify what are
+  the proxy settings that will be actually used by kubernetes. If the proxy
+  values displayed are different than what they should be, the cluster
+  initialization will fail. Contact your IT support team to learn the
+  appropriate procedure to set the proxy variables permanently and available
+  from all the access forms that you will use (for example: remote ssh access).
 
 .. _Kubernetes container orchestration system: https://kubernetes.io/
 
