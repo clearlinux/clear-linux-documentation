@@ -46,6 +46,44 @@ Second, if your mix includes your own
 The following sections contain detailed information on every step of
 these workflows.
 
+.. _create-user:
+
+Create clr user to run mixer updates
+=============================================
+
+To create a new user called `clr` and set a password for that user, enter the following
+commands as a root user:
+
+.. code-block:: bash
+
+   useradd clr
+   passwd clr
+
+The :command:`passwd` command prompts
+you to enter a new password. Retype the new password for the new user
+account just created.
+Before logging off as root and logging into your new user account,
+enable the :command:`sudo` command for your new `<userid>`.
+
+To be able to execute all applications with root privileges, add the
+`<userid>` to the `wheel group`_.
+
+#. Add `clr` to the `wheel` group:
+
+   .. code-block:: bash
+
+      usermod -G wheel -a clr
+
+#. Log out of root and into the new `clr`.
+
+   To log off as root, enter :command:`exit`.
+
+   The command will bring you back to the `login:` prompt.
+
+#. Enter clr as user and the password created earlier.
+
+   You will now be in the home directory of clr. 
+   
 .. _create-nginx-web-server:
 
 Create nginx web server to host mixer updates
