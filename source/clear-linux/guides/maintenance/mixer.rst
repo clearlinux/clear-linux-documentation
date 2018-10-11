@@ -84,6 +84,18 @@ To be able to execute all applications with root privileges, add the
 
    You will now be in the home directory of clr. 
    
+Create a workspace
+==================
+
+Use the following command to create an empty directory in your |CL| image to
+use as a **workspace** for mixing:
+
+.. code-block:: bash
+
+    mkdir /home/clr/mix
+
+This guide assumes your workspace location is :file:`/home/clr/mix`.
+
 .. _create-nginx-web-server:
 
 Create nginx web server to host mixer updates
@@ -196,18 +208,6 @@ to this URL to find the update content.
          For example: 
          CONTNENTURL=http://192.168.25.52
          VERSIONURL=http://192.168.25.52
-
-Create a workspace
-==================
-
-Use the following command to create an empty directory in your |CL| image to
-use as a **workspace** for mixing:
-
-.. code-block:: bash
-
-    mkdir /home/clr/mix
-
-This guide assumes your workspace location is :file:`/home/clr/mix`.
 
 Generate the starting point for your mix
 ========================================
