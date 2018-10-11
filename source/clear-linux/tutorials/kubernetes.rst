@@ -1,30 +1,30 @@
-  .. _kubernetes:
+.. _kubernetes:
 
-Run Kubernetes\* on Clear Linux
-###############################
+Run Kubernetes\* on |CL-ATTR|
+#############################
 
 This tutorial describes how to install, configure, and run the 
 `Kubernetes container orchestration system`_ on |CL-ATTR| using different
 container engines and runtimes.
 
 Kubernetes\* is an open source system for automating deployment, scaling, and
-management of containerized applications. It groups containers that make up an
-application into logical units for easy management and discovery.
+management of containerized applications. It groups containers that make up
+an application into logical units for easy management and discovery.
 
-Runc and `Kata Containers`_' kata-runtime are runtimes that adhere to :abbr:`OCI
-(Open Container Initiative)` guidelines and work seamlessly with Kubernetes.
-`Kata Containers`_\* provide strong isolation for untrusted workloads or
-multi-tenant scenarios.  Runc and Kata Containers can be allocated on a
-per-pod basis so you can mix and match both on the same host to suit your needs.
+Runc and Kata Containers\* kata-runtime adhere to :abbr:`OCI (Open Container Initiative*)` guidelines and work seamlessly with Kubernetes.
+`Kata Containers`_ provide strong isolation for untrusted workloads or 
+multi-tenant scenarios.  Runc and Kata Containers can be allocated on a 
+per-pod basis so you can mix and match both on the same host
+to suit your needs.
 
 Prerequisites
 *************
 
 This tutorial assumes you have installed |CL| updated to the latest release
-on your host system. You can learn about the benefits for cloud orchestration
-of having an up-to-date system in the `Software Update documentation`_.
-For detailed instructions on installing |CL| on a bare metal system, follow
-the :ref:`bare metal installation tutorial<bare-metal-install>`.
+on your host system. You can learn about the benefits of having an 
+up-to-date system for cloud orchestration in the :ref:`swupd-about`
+page. For detailed instructions on installing |CL| on a bare metal system,
+follow the :ref:`bare metal installation tutorial<bare-metal-install>`.
 
 Before you install any new packages, update |CL| with the following command:
 
@@ -100,8 +100,8 @@ deployment and your security needs.
          On systems with limited resources, some performance degradation may
          be observed while swap is disabled.
          
-#. Create (or edit if it exists) the hosts file that kubernetes will read to locate
-   master's host:
+#. Create (or edit if it exists) the hosts file that kubernetes will read to 
+   locate master's host:
 
    .. code-block:: bash
 
@@ -117,7 +117,8 @@ deployment and your security needs.
 
             sudo systemctl enable docker.service
 
-      #. Create (or edit if it exists) the file :file:`/etc/systemd/system/docker.service.d/51-runtime.conf` and include the following lines:
+      #. Create (or edit if it exists) the file 
+         :file:`/etc/systemd/system/docker.service.d/51-runtime.conf` and include the following lines:
 
          .. code-block:: bash
 
@@ -199,10 +200,10 @@ Run Kubernetes for the first time
          sudo -E kubeadm init --pod-network-cidr 10.244.0.0/16 --cri-socket=/run/crio/crio.sock
 
 Once your master control is successfully initialized, instructions on how to
-use your cluster and its *IP*, *token*, and *hash* values are displayed. It is
-important that you note these cluster values because they will be needed when
-joining worker nodes to the cluster and some of them have a valid period. The
-values are presented in a format similar to:
+use your cluster and its *IP*, *token*, and *hash* values are displayed. It 
+is important that you note these cluster values because they will be needed 
+when joining worker nodes to the cluster and some of them have a valid
+period. The values are presented in a format similar to:
 
 .. code-block:: bash
 
@@ -211,10 +212,10 @@ values are presented in a format similar to:
 
 **Congratulations!**
 
-You've successfully installed and set up Kubernetes in |CL| using Docker and
-runc or CRI-O and kata-runtime. You are now ready to follow on-screen
-instructions to deploy a pod network to the cluster and join worker nodes with
-the displayed token and IP information.
+You've successfully installed and set up Kubernetes in |CL| using Docker and 
+runc or CRI-O and kata-runtime. You are now ready to follow on-screen 
+instructions to deploy a pod network to the cluster and join worker nodes 
+with the displayed token and IP information.
 
 Related Topics
 **************
@@ -239,8 +240,8 @@ configuration files for each package.
 
 If you customize any of the default package configuration files, you **must**
 store the customized files in the :file:`/etc/` directory. If you edit any of
-the distribution-provided default files, your changes will be lost in the next
-system update.
+the distribution-provided default files, your changes will be lost in the
+next system update.
 
 For example, to customize CRI-O configuration in your system you can run the
 following commands:
@@ -251,7 +252,7 @@ following commands:
    sudo cp /usr/share/defaults/crio/crio.conf /etc/crio/
    sudo $EDITOR /etc/crio/crio.conf
 
-Learn more about `Stateless in Clear Linux`_ in the `Clear Linux documentation`_.
+Learn more about `Stateless in Clear Linux`_ and view the `Clear Linux documentation`_.
 
 Proxy configuration (optional)
 ******************************
