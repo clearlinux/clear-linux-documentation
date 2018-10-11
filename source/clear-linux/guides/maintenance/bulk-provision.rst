@@ -145,11 +145,11 @@ Configuration
 
 #. Verify the following URLs are accessible:
 
-   * http://192.168.1.1:60000/icis/static/ister/ister.conf
-   * http://192.168.1.1:60000/icis/static/ister/ister.json
-   * http://192.168.1.1:60000/icis/get_config/<MAC address>
-   * http://192.168.1.1:60000/icis/get_role/<role>
-   * http://192.168.1.1:60000/ipxe/ipxe_boot_script.txt
+   * ``http://192.168.1.1:60000/icis/static/ister/ister.conf``
+   * ``http://192.168.1.1:60000/icis/static/ister/ister.json``
+   * ``http://192.168.1.1:60000/icis/get_config/<MAC address>``
+   * ``http://192.168.1.1:60000/icis/get_role/<role>``
+   * ``http://192.168.1.1:60000/ipxe/ipxe_boot_script.txt``
 
 #. Power on the PXE client and watch it boot and install |CL|.
 
