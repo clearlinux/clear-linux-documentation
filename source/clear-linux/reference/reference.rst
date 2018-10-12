@@ -3,11 +3,11 @@
 Reference
 #########
 
-This section provides additional information on the |CL| project and |CL|
-features.
+This section provides additional information for use of |CL-ATTR| and 
+its features.
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    compatible-hardware
    bundle-commands

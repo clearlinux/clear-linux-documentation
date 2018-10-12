@@ -3,19 +3,16 @@
 Guides
 ######
 
-Our Guides: 
-
-*  Provide a critical, fundamental understanding of |CL| features
-*  Show you how to leverage the full feature set of |CL|
-*  Enhance your productivity when using |CL| 
-
-
-The following guides provide step-by-step instructions for tasks that come
-after completing the |CL| :ref:`installation <get-started>`.
+Use our guides to learn how to complete common tasks in |CL-ATTR| and use 
+|CL| native features effectively. 
+     
+Our guides assume you have a basic understanding of |CL| :ref:`concepts` 
+and a |CL| installation. For details regarding installing |CL|, see 
+:ref:`get-started`.
 
 .. toctree::
-   :maxdepth: 2
-
+   :hidden:
+   
    maintenance/maintenance
    network/network
    deploy-at-scale
