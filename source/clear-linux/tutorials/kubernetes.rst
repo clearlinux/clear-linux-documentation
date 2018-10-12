@@ -20,8 +20,8 @@ to suit your needs.
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| updated to the latest release
-on your host system. You can learn about the benefits of having an 
+This tutorial assumes you have installed |CL| and updated to the latest
+release on your host system. You can learn about the benefits of having an 
 up-to-date system for cloud orchestration in the :ref:`swupd-about`
 page. For detailed instructions on installing |CL| on a bare metal system,
 follow the :ref:`bare metal installation tutorial<bare-metal-install>`.
@@ -230,15 +230,15 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
-Package configuration customization in Clear Linux (Optional)
-*************************************************************
+Package configuration customization in |CL| (Optional)
+******************************************************
 
 |CL| is a stateless system that looks for user-defined package configuration
 files in the :file:`/etc/<package-name>` directory to be used as default. If
 user-defined files are not found, |CL| uses the distribution-provided
 configuration files for each package.
 
-If you customize any of the default package configuration files, you **must**
+If you customize any of the default package configuration files, you *must*
 store the customized files in the :file:`/etc/` directory. If you edit any of
 the distribution-provided default files, your changes will be lost in the
 next system update.
@@ -260,7 +260,7 @@ Proxy configuration (optional)
 If you use a proxy server, you must set your proxy environment variables and
 create an appropriate proxy configuration file for both CRI-O and Docker
 services. Consult your IT department if you are behind a corporate proxy for
-the appropriate values. Ensure that your local IP is EXPLICITLY INCLUDED
+the appropriate values. Ensure that your local IP is **explicitly included**
 in the environment variable *NO_PROXY*. (Setting *localhost* is not enough.)
 
 If you have already set your proxy environment variables, run the following
@@ -303,15 +303,15 @@ Troubleshooting
 
 * Connection timed-out or Access Refused errors.
 
-  You must ensure that the appropriate proxy settings are available from the
-  terminal where the control plane is initialized. You can run the commands
-  *"echo $HTTP_PROXY"*, *"echo $HTTPS_PROXY"* and *"echo $NO_PROXY"* from the
-  same terminal where you will initialize the control plane to verify what are
-  the proxy settings that will be actually used by kubernetes. If the proxy
-  values displayed are different than what they should be, the cluster
-  initialization will fail. Contact your IT support team to learn the
-  appropriate procedure to set the proxy variables permanently and available
-  from all the access forms that you will use (for example: remote ssh access).
+  You must ensure that the appropriate proxy settings are available from the 
+  same terminal where you will initialize the control plane. To verify the 
+  proxy settings that kubernetes will actually use, run the commands:
+
+  * *"echo $HTTP_PROXY"* 
+  * *"echo $HTTPS_PROXY"* 
+  * *"echo $NO_PROXY"* 
+
+  If the displayed proxy values are different from your assigned values, the cluster initialization will fail. Contact your IT support team to learn the appropriate procedure to set the proxy variables permanently, and make them available for all the access forms that you will use (for example: remote ssh access).
 
 .. _Kubernetes container orchestration system: https://kubernetes.io/
 
