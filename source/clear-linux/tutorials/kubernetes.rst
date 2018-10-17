@@ -13,16 +13,23 @@ an application into logical units for easy management and discovery.
 
 Runc and Kata Containers\* kata-runtime adhere to :abbr:`OCI (Open Container Initiative*)` guidelines and work seamlessly with Kubernetes.
 `Kata Containers`_ provide strong isolation for untrusted workloads or 
-multi-tenant scenarios.  Runc and Kata Containers can be allocated on a 
+multi-tenant scenarios. Runc and Kata Containers can be allocated on a 
 per-pod basis so you can mix and match both on the same host
 to suit your needs.
+
+Kubernetes supports many combinations of container engines and runtime
+interfaces. You can use multiple runtimes with CRI-O, including *runc* and
+*kata-runtime*. This tutorial describes the following combinations:
+
+* Kubernetes with Docker and runc
+* Kubernetes with CRI-O and kata-runtime
 
 Prerequisites
 *************
 
 This tutorial assumes you have installed |CL| and updated to the latest
 release on your host system. You can learn about the benefits of having an 
-up-to-date system for cloud orchestration in the :ref:`swupd-about`
+up-to-date system for cloud orchestration on the :ref:`swupd-about`
 page. For detailed instructions on installing |CL| on a bare metal system,
 follow the :ref:`bare metal installation tutorial<bare-metal-install>`.
 
@@ -50,7 +57,7 @@ This tutorial uses the basic default Kubernetes configuration for simplicity.
 You must define your Kubernetes configuration according to your specific
 deployment and your security needs.
 
-#. Enable IP forwarding to avoid "preflight check" errors:
+#. Enable IP forwarding to avoid kubeadm `preflight check`_ errors:
 
    Create (or edit if it exists) the file :file:`/etc/sysctl.d/60-k8s.conf`
    and include the following line:
@@ -65,7 +72,7 @@ deployment and your security needs.
 
       sudo systemctl restart systemd-sysctl
 
-#. Enable kubelet service:
+#. Enable the kubelet service:
 
    .. code-block:: bash
 
@@ -99,111 +106,104 @@ deployment and your security needs.
 
          On systems with limited resources, some performance degradation may
          be observed while swap is disabled.
-         
-#. Create (or edit if it exists) the hosts file that kubernetes will read to 
-   locate master's host:
+
+#. Switch to root to modify `hostname`:
 
    .. code-block:: bash
 
-      echo "127.0.0.1 localhost `hostname`" >> /etc/hosts
+      sudo -s
 
-#. Configure the Kubernetes runtime interface, either:
+#.  Create (or edit if it exists) the hosts file that Kubernetes will read to
+    locate the master's host:
 
-   a) Run Kubernetes with Docker + runc:
+    .. code-block:: bash
 
-      #. Enable docker.service:
+       echo "127.0.0.1 localhost `hostname`" >> /etc/hosts
 
-         .. code-block:: bash
+#.  Exit root:
 
-            sudo systemctl enable docker.service
+    .. code-block:: bash
 
-      #. Create (or edit if it exists) the file 
-         :file:`/etc/systemd/system/docker.service.d/51-runtime.conf` and include the following lines:
+       exit
 
-         .. code-block:: bash
+Configure and run Kubernetes
+****************************
 
-            [Service]
-            Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime runc"
+This section describes how to configure and run Kubernetes with:
 
-      #. Create (or edit if it exists) the file :file:`/etc/systemd/system/kubelet.service.d/10-kubeadm.conf` and include the following lines:
+* Docker and runc
+* CRI-O and kata-runtime
 
-         .. code-block:: bash
+Configure and run Docker + runc
+===============================
 
-            [Service]
-            Environment="KUBELET_EXTRA_ARGS="
+#.  Enable the Docker service:
 
-      #. Restart services:
+    .. code-block:: bash
 
-         .. code-block:: bash
+       sudo systemctl enable docker.service
 
-            sudo systemctl daemon-reload
-            sudo systemctl restart docker
-            sudo systemctl restart kubelet
+#.  Create (or edit if it exists) the file 
+    :file:`/etc/systemd/system/docker.service.d/51-runtime.conf` and include the following lines:
 
-   or:
+    .. code-block:: bash
 
-   b) Run Kubernetes with CRI-O + your desired runtime. You can use multiple
-      runtimes with CRI-O, including *runc* and *kata-runtime*. To use
-      CRI-O + *kata-runtime*:
+       [Service]
+       Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime runc"
 
-      #. Enable crio.service:
+#.  Create (or edit if it exists) the file :file:`/etc/systemd/system/kubelet.service.d/10-kubeadm.conf` and include the following lines:
 
-         .. code-block:: bash
+    .. code-block:: bash
 
-            sudo systemctl enable crio.service
+       [Service]
+       Environment="KUBELET_EXTRA_ARGS="
 
-      #. Restart services:
+#.  Enter the commands:
 
-         .. code-block:: bash
+    .. code-block:: bash
 
-            sudo systemctl restart crio
-            sudo systemctl restart kubelet
+       sudo systemctl daemon-reload
+       sudo systemctl restart docker
+       sudo systemctl restart kubelet
 
-Run Kubernetes for the first time
-*********************************
+#.  Initialize the master control plane with the command:
 
-#. Prepare your system to run Kubernetes for the first time with the
-   following commands, either:
+    .. code-block:: bash
 
-   a) If you are running Kubernetes with Docker + runc:
+       sudo kubeadm init --pod-network-cidr 10.244.0.0/16 --ignore-preflight-errors=SystemVerification
 
-      .. code-block:: bash
 
-         sudo systemctl daemon-reload
-         sudo systemctl restart docker
-         sudo systemctl restart kubelet
+Configure and run CRI-O + kata-runtime
+======================================
 
-   or:
+#.  Enable the CRI-O service:
 
-   b) If you are running Kubernetes with CRI-O + kata-runtime:
+    .. code-block:: bash
 
-      .. code-block:: bash
+       sudo systemctl enable crio.service
 
-         sudo systemctl daemon-reload
-         sudo systemctl restart crio
-         sudo systemctl restart kubelet
+#.  Enter the commands:
 
-#. Initialize the master control plane with the following command, either:
+    .. code-block:: bash
 
-   a) If you are running Kubernetes with Docker + runc:
+       sudo systemctl daemon-reload
+       sudo systemctl restart crio
+       sudo systemctl restart kubelet
 
-      .. code-block:: bash
+#.  Initialize the master control plane with the command:
 
-         sudo -E kubeadm init --pod-network-cidr 10.244.0.0/16 --ignore-preflight-errors=SystemVerification
+    .. code-block:: bash
 
-   or:
+       sudo kubeadm init --pod-network-cidr 10.244.0.0/16 --cri-socket=/run/crio/crio.sock
 
-   b) If you are running Kubernetes with CRI-O + kata-runtime:
-
-      .. code-block:: bash
-
-         sudo -E kubeadm init --pod-network-cidr 10.244.0.0/16 --cri-socket=/run/crio/crio.sock
+Use your cluster
+****************
 
 Once your master control is successfully initialized, instructions on how to
-use your cluster and its *IP*, *token*, and *hash* values are displayed. It 
-is important that you note these cluster values because they will be needed 
-when joining worker nodes to the cluster and some of them have a valid
-period. The values are presented in a format similar to:
+use your cluster and its *IP*, *token*, and *hash* values are displayed. It
+is important that you record the cluster values because they are needed
+when joining worker nodes to the cluster. Some values have a valid period. The
+values are presented in a format similar to:
 
 .. code-block:: bash
 
@@ -212,12 +212,12 @@ period. The values are presented in a format similar to:
 
 **Congratulations!**
 
-You've successfully installed and set up Kubernetes in |CL| using Docker and 
-runc or CRI-O and kata-runtime. You are now ready to follow on-screen 
-instructions to deploy a pod network to the cluster and join worker nodes 
+You've successfully installed and set up Kubernetes in |CL| using Docker and
+runc or CRI-O and kata-runtime. You are now ready to follow on-screen
+instructions to deploy a pod network to the cluster and join worker nodes
 with the displayed token and IP information.
 
-Related Topics
+Related topics
 **************
 
 Read the Kubernetes documentation to learn more about: 
@@ -230,7 +230,7 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
-Package configuration customization in |CL| (Optional)
+Package configuration customization in |CL| (optional)
 ******************************************************
 
 |CL| is a stateless system that looks for user-defined package configuration
@@ -238,12 +238,12 @@ files in the :file:`/etc/<package-name>` directory to be used as default. If
 user-defined files are not found, |CL| uses the distribution-provided
 configuration files for each package.
 
-If you customize any of the default package configuration files, you *must*
+If you customize any of the default package configuration files, you **must**
 store the customized files in the :file:`/etc/` directory. If you edit any of
 the distribution-provided default files, your changes will be lost in the
 next system update.
 
-For example, to customize CRI-O configuration in your system you can run the
+For example, to customize CRI-O configuration in your system, run the
 following commands:
 
 .. code-block:: bash
@@ -283,35 +283,56 @@ commands as a shell script to configure all of these services in one step:
 Troubleshooting
 ***************
 
-* <HOSTNAME> not found in <IP> message. 
+* <HOSTNAME> not found in <IP> message.
 
-  Your DNS server may not be appropriately configured. You can try adding
-  an entry to the :file:`/etc/hosts` file with your host's IP and Name. Use
-  the commands *hostname* and *hostname -I* to retrieve them.
-  For example: 100.200.50.20   myhost
+  Your DNS server may not be appropriately configured. Try adding an
+  entry to the :file:`/etc/hosts` file with your host's IP and Name.
+  
+  For example: 100.200.50.20 myhost
 
-* Images cannot be pulled. 
+  Use the commands :command:`hostname` and :command:`hostname -I` to retrieve them.
 
-  You may be behind a proxy server. Try configuring your proxy settings, 
+* Images cannot be pulled.
+
+  You may be behind a proxy server. Try configuring your proxy settings,
   using the environment variables *HTTP_PROXY*, *HTTPS_PROXY*, and *NO_PROXY*
   as required in your environment.
 
-* Connection refused error. 
+* Connection refused error.
 
   If you are behind a proxy server, you may need to add the master's IP to
   the environment variable *NO_PROXY*.
 
 * Connection timed-out or Access Refused errors.
 
-  You must ensure that the appropriate proxy settings are available from the 
-  same terminal where you will initialize the control plane. To verify the 
-  proxy settings that kubernetes will actually use, run the commands:
+  You must ensure that the appropriate proxy settings are available from the
+  same terminal where you will initialize the control plane. To verify the
+  proxy settings that Kubernetes will actually use, run the commands:
 
-  * *"echo $HTTP_PROXY"* 
-  * *"echo $HTTPS_PROXY"* 
-  * *"echo $NO_PROXY"* 
+  .. code-block:: bash
 
-  If the displayed proxy values are different from your assigned values, the cluster initialization will fail. Contact your IT support team to learn the appropriate procedure to set the proxy variables permanently, and make them available for all the access forms that you will use (for example: remote ssh access).
+    echo $HTTP_PROXY
+    echo $HTTPS_PROXY
+    echo $NO_PROXY
+
+  If the displayed proxy values are different from your assigned values, the
+  cluster initialization will fail. Contact your IT support team to learn how
+  to set the proxy variables permanently, and how to make them available for
+  all the types of access that you will use, such as remote SSH access.
+
+* Missing environment variables.
+
+  If you are behind a proxy server, pass environment variables by adding *-E*
+  to the command that initializes the master control plane.
+
+  .. code-block:: bash
+
+    /* Kubernetes with Docker + runc */
+    sudo -E kubeadm init --pod-network-cidr 10.244.0.0/16 --ignore-preflight-errors=SystemVerification
+
+    /* Kubernetes with CRI-O + kata-runtime */
+    sudo -E kubeadm init --pod-network-cidr 10.244.0.0/16 --cri-socket=/run/crio/crio.sock
+
 
 .. _Kubernetes container orchestration system: https://kubernetes.io/
 
@@ -320,6 +341,8 @@ Troubleshooting
 .. _Software Update documentation: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about#updating
 
 .. _cloud-native-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic
+
+.. _preflight check: https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/#preflight-checks
 
 .. _Understanding basic Kubernetes architecture: https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-3
 
