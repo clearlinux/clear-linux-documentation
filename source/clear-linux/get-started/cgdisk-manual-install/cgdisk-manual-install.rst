@@ -265,21 +265,40 @@ partitions and select to format them.
 
       Figure 14: :guilabel:`Set mount point of sda3`
 
-   Upon completion, the :guilabel:`Set mount points` appear as shown
-   in figure 15:
+#. Optional: Select :guilabel:`Encrypt Root Partition`, if
+   desired, as shown in figure 15. 
 
+   .. note:: 
+      `Set mount points` now show as completed. 
+   
    .. figure:: figures/cgdisk-manual-install-15.png
       :scale: 50 %
-      :alt: Set mount point completed
+      :alt: Encrypt root partition
 
-      Figure 15: :guilabel:`Set mount points completed`
+      Figure 15: :guilabel:`Encrypt root partition`
+
+#. Type a confirmation passphrase as directed.    
+
+   .. note: 
+
+      It is recommended to record the passphrase for safekeeping. 
+               
+   .. figure:: figures/cgdisk-manual-install-16.png
+      :scale: 50 %
+      :alt: Type confirmation passphrase
+
+      Figure 16: :guilabel: `Type confirmation passphrase`
 
 #. Select the :guilabel:`< Next >` button and press :kbd:`Enter`. 
    
    You have completed the process of manually partitioning your target
-   system. Now, :ref:`return to the bare metal manual installation 
+   system. 
+
+#. Now, :ref:`return to the bare metal manual installation 
    <bare-metal-manual-install>` to complete installation of |CL|.
-   Continue at the section *Additional manual installer settings*.
+   
+   Continue at the section :ref:`Additional manual installer settings
+   <incl-additional-manual-installer-settings>`.
 
 .. _`GPT fdisk tutorial`:
    http://www.rodsbooks.com/gdisk/
