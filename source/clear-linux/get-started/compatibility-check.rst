@@ -1,7 +1,7 @@
 .. _compatibility-check:
 
-Check processor and EFI firmware compatibility with |CL-ATTR|
-#############################################################
+Check processor and EFI firmware compatibility
+##############################################
 
 On a system that is currently running a Linux\* operating system, follow the
 instructions below to determine if your system's processor and EFI firmware is
@@ -48,7 +48,7 @@ below.
 
    .. code-block:: console
 
-      Checking if host is capable of running Clear Liunx* OS for Intel® Architecture
+      Checking if host is capable of running Clear Linux* OS
 
       SUCCESS: 64-bit CPU (lm)
       SUCCESS: Supplemental Streaming SIMD Extensions 3 (ssse3)
