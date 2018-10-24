@@ -19,4 +19,4 @@ after completing the |CL| :ref:`installation <get-started>`.
    maintenance/maintenance
    network/network
    deploy-at-scale
-   telemetry
+   telemetrics

@@ -103,6 +103,6 @@ classification.
 Next steps
 ==========
 
-Learn to read records:
+Adding telemetry to your applications:
 
 * :ref:`telemetry-api`

@@ -1,4 +1,4 @@
-.. _telemetry:
+.. _telemetrics:
 
 Telemetrics in |CL-ATTR|
 ########################
