@@ -106,7 +106,7 @@ exist by default.
       Refer to the `Docker documentation on daemon configuration`_ for the 
       full list of available configuration options and examples.
 
-      An minimal configuration would be.
+      A minimal configuration would be.
     .. code-block:: json
       
       {
