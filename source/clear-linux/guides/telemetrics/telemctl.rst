@@ -1,7 +1,7 @@
 .. _telemctl:
 
-Using telemctl options
-######################
+Use telemctl options
+####################
 
 The |CL-ATTR| telemetry client provides an admin tool called telemctl for
 managing the telemetry services and probes. The tool is located in
