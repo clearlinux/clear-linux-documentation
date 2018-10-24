@@ -11,15 +11,13 @@ Kubernetes\* is an open source system for automating deployment, scaling, and
 management of containerized applications. It groups containers that make up
 an application into logical units for easy management and discovery.
 
-Runc and Kata Containers\* kata-runtime adhere to :abbr:`OCI (Open Container Initiative*)` guidelines and work seamlessly with Kubernetes.
-`Kata Containers`_ provide strong isolation for untrusted workloads or 
-multi-tenant scenarios. Runc and Kata Containers can be allocated on a 
-per-pod basis so you can mix and match both on the same host
-to suit your needs.
+Runc and Kata Containers\* kata-runtime adhere to :abbr:`OCI (Open Container Initiative*)`
+guidelines and work seamlessly with Kubernetes. `Kata Containers`_ provide
+strong isolation for untrusted workloads or  multi-tenant scenarios. Runc and
+Kata Containers can be allocated on a  per-pod basis so you can mix and match
+both on the same host to suit your needs.
 
-Kubernetes supports many combinations of container engines and runtime
-interfaces. You can use multiple runtimes with CRI-O, including *runc* and
-*kata-runtime*. This tutorial describes the following combinations:
+This tutorial describes the following combinations: 
 
 * Kubernetes with Docker and runc
 * Kubernetes with CRI-O and kata-runtime
@@ -143,7 +141,7 @@ Configure and run Docker + runc
 
        sudo systemctl enable docker.service
 
-#.  Create (or edit if it exists) the file 
+#.  Create (or edit if it exists) the file
     :file:`/etc/systemd/system/docker.service.d/51-runtime.conf` and include the following lines:
 
     .. code-block:: bash
@@ -170,7 +168,7 @@ Configure and run Docker + runc
 
     .. code-block:: bash
 
-       sudo kubeadm init --pod-network-cidr 10.244.0.0/16 --ignore-preflight-errors=SystemVerification
+       sudo kubeadm init --ignore-preflight-errors=SystemVerification
 
 
 Configure and run CRI-O + kata-runtime
@@ -194,16 +192,33 @@ Configure and run CRI-O + kata-runtime
 
     .. code-block:: bash
 
-       sudo kubeadm init --pod-network-cidr 10.244.0.0/16 --cri-socket=/run/crio/crio.sock
+       sudo kubeadm init --cri-socket=/run/crio/crio.sock
+
+
+Install pod network add-on
+**************************
+
+You must choose and install a `pod network add-on`_ to allow your pods to
+communicate.
+
+Check whether or not your add-on requires special flags when you initialize
+the master control plane. For example, if you choose the `flannel` add-on,
+then you must add :command:`--pod-network-cidr 10.244.0.0/16` to the `kubeadm
+init` command.
+
+Similarly, if you choose the `weave` add-on, then you must change the CNI
+add-on directory parameter because the weave plugin installs itself in the
+:file:`/opt/cni/bin` directory.
+
 
 Use your cluster
 ****************
 
-Once your master control is successfully initialized, instructions on how to
-use your cluster and its *IP*, *token*, and *hash* values are displayed. It
-is important that you record the cluster values because they are needed
-when joining worker nodes to the cluster. Some values have a valid period. The
-values are presented in a format similar to:
+Once your master control plane is successfully initialized, instructions on
+how to use your cluster and its *IP*, *token*, and *hash* values are
+displayed. It is important that you record the cluster values because they are
+needed when joining worker nodes to the cluster. Some values have a valid
+period. The values are presented in a format similar to:
 
 .. code-block:: bash
 
@@ -226,7 +241,7 @@ Read the Kubernetes documentation to learn more about:
 
 * `Deploying an application to your cluster`_
 
-* `Installing a pod network add-on`_
+* Installing a `pod network add-on`_
 
 * `Joining your nodes`_
 
@@ -328,10 +343,10 @@ Troubleshooting
   .. code-block:: bash
 
     /* Kubernetes with Docker + runc */
-    sudo -E kubeadm init --pod-network-cidr 10.244.0.0/16 --ignore-preflight-errors=SystemVerification
+    sudo -E kubeadm init --ignore-preflight-errors=SystemVerification
 
     /* Kubernetes with CRI-O + kata-runtime */
-    sudo -E kubeadm init --pod-network-cidr 10.244.0.0/16 --cri-socket=/run/crio/crio.sock
+    sudo -E kubeadm init --cri-socket=/run/crio/crio.sock
 
 
 .. _Kubernetes container orchestration system: https://kubernetes.io/
@@ -348,7 +363,7 @@ Troubleshooting
 
 .. _Deploying an application to your cluster: https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-2
 
-.. _Installing a pod network add-on: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
+.. _pod network add-on: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
 
 .. _Joining your nodes: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
 
