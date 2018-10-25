@@ -110,9 +110,35 @@ To enable root login via SSH, perform the following steps:
    .. code-block:: bash
 
       mkdir /etc/ssh
+      
+#. Create the following file, if it does not already exist:
+   :file:`/etc/ssh/sshd_config`
+   
+#. Set the configuration variable in /etc/ssh/sshd_config
 
-#. Set the configuration variable.
-
-   .. code-block:: bash
-
-      echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+    .. code-block:: console
+    
+      PermitRootLogin yes
+      
+Enable X11-forwarding 
+*****************
+ To enable X11-forwarding via SSH, perform the following steps:
+ 
+ #. Create a *ssh* directory in :file:`/etc`, if it does not already exist.
+ 
+ .. code-block:: bash
+ 
+   mkdir /etc/ssh
+   
+ #. Create the following file, if it does not already exist:
+   :file:`/etc/ssh/sshd_config`
+   
+ #. Set the configuration variable.
+ 
+ .. code-block:: console
+ 
+   AllowTcpForwarding yes
+   X11UseLocalhost yes
+   X11DisplayOffset 10
+   X11Forwarding yes
+ 
