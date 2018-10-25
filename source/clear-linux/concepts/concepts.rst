@@ -3,9 +3,8 @@
 Concepts
 ########
 
-The concepts section provides content for a deeper understanding of the
-features of |CLOSIA|. These concepts attempt to provide all the technical
-details relevant to the |CL| features.
+|CL-ATTR| does things differently than other Linux distributions. Use the concepts section to learn in detail about the features that make |CL|
+different.
 
 .. toctree::
    :maxdepth: 2
