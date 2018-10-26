@@ -14,7 +14,7 @@ documentation. This section contains the preferred methods for using the
 `Sphinx documentation`_ for the complete list of available markup and use
 as much markup as possible.
 
-.. _Sphinx documentation: http://www.sphinx-doc.org/en/stable/markup/index.html
+.. _Sphinx documentation: http://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
 
 Remember: **Changing incorrect markup is easier than adding markup from
 scratch.**
