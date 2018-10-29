@@ -3,23 +3,21 @@
 Autospec
 ########
 
-A standard RPM build process using ``rpmbuild`` requires a tarball and .spec
-file to start. The .spec provides information about a package, how to
-build it, as well as what should be installed and where.
-
 ``autospec`` is a tool to assist in the automated creation and maintenance of
-RPM packaging in |CL-ATTR|. Compared to ``rpmbuild``, ``autospec`` requires
-only a tarball and package name to start.
+RPM packaging in |CL-ATTR|. Where a standard RPM build process using ``rpmbuild``
+requires a tarball and .spec file to start, ``autospec`` requires only a tarball
+and package name to start.
 
 How autospec works
 ******************
 
-``autospec`` attempts to infer the requirements of the .spec file
-by analyzing the source code and :file:`Makefile` information.
-It will continuously run updated builds based on new information
-discovered from build failures until it has a complete and valid .spec file.
-You may optionally influence the behavior of ``autospec`` by providing
-:ref:`control files <control-files>`.
+``autospec`` attempts to infer the requirements of the .spec file by analyzing
+the source code and :file:`Makefile` information. It will continuously run
+updated builds based on new information discovered from build failures until it
+has a complete and valid .spec file. Although not required, you can influence
+the behavior of ``autospec`` by providing :ref:`control files <control-files>`.
+
+The basic process is described in the following steps:
 
 #. The :command:`make autospec` command generates a .spec based on
    analysis of code and control files, if present.
