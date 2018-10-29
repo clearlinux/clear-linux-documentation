@@ -220,13 +220,13 @@ a new number that is higher than the |CL| OS version, and rebuild the package.
 
 You've successfully created a RPM.
 
-Use your RPM
-************
+Next steps
+**********
 
 Now you can create a custom bundle with your new RPM and use it with |CL|:
 
-* Use the :ref:`Mixer tool <mixer>` to add a new bundle to your derivative of |CL|
-* Use the :ref:`Mixin tool <mixin>` to customize your upstream |CL| installation with a new bundle
+* Use the :ref:`Mixer tool <mixer>` to add a new bundle to your derivative of |CL|.
+* Use the :ref:`Mixin tool <mixin>` to customize your upstream |CL| installation with a new bundle.
 
 Related topics
 **************
