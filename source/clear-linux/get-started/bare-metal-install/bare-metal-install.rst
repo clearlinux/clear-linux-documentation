@@ -20,7 +20,7 @@ Look for the :file:`clear-[version number]-installer.img.xz` file. You can also 
 
 .. code-block:: bash
    
-   curl -O https://download.clearlinux.org/image/$(curl https://download/clearlinux.org/image/latest-images | grep "installer")
+   curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep "installer")
 
 Once you have downloaded the image, verify and decompress the file.
 
