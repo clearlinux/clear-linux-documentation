@@ -1,66 +1,74 @@
 .. _mixer:
 
-Use the mixer tool
-##################
+Mixer
+#####
 
-*Mixing* refers to composing an operating system for specific use cases.
-While the default |CL-ATTR| provides options to install bundles for various
-server capabilities, some developers may wish to either augment the
-operating system itself with functionality from their own packages or modify
-the structure of current bundles to cater to their particular needs.
+The mixer tool is used to create a customized image based on |CL-ATTR|. Creating
+a custom mix provides a high degree of control and customization, but requires
+you to act as your own OSV. This guide covers the basic workflow of creating
+your own mix using the mixer tool and setting up a basic webserver to host your
+mix for downstream users.
 
 Prerequisites
 *************
 
-To start working with the mixer tools, you need a recent image of |CL| with
-the `mixer` bundle installed. If the bundle is not yet installed, you can
-add it with the :command:`swupd bundle-add` command as follows:
+To start working with the mixer tool, you need a recent image of |CL| with
+the `mixer` bundle installed. Before you install any new packages, update |CL|
+with the following command:
+
+.. code-block:: bash
+
+   sudo swupd update
+
+If the bundle is not yet installed, you can add it with the
+:command:`swupd bundle-add` command as follows:
 
 .. code-block:: bash
 
    sudo swupd bundle-add mixer
 
-Current mixing workflow
-***********************
-Mixer by default runs *all* build commands in a container to ensure the
+Mixer workflow
+**************
+Mixer by default runs all build commands in a container to ensure the
 correct version of the tooling is being used. This also allows custom mixes
 to automatically perform downstream format bumps when upstream releases
-a format bump. You can still run mixer natively by appending the *--native* flag to
-any of the commands. 
+a format bump. You can still run mixer natively by appending the *--native*
+flag to any of the commands.
 
 .. note::
-  You cannot run mixer if you are already in a container, unless you pass 
-  *--native* to the command. Nested containerization is not supported, nor 
+  You cannot run mixer if you are already in a container, unless you pass
+  *--native* to the command. Nested containerization is not supported, nor
   is building images using the container mode.
 
-There are two different workflows to create your own mix.
-First, if your mix only uses |CL| content, *skip Create custom RPMs* below. 
-Second, if your mix includes your own 
-:abbr:`RPMs (RPM Package Manager files)`, follow all steps below. 
+The workflow to create your own mix using mixer is outlined below. If your
+mix only uses |CL| content, *skip the Create custom RPMs* step.
 
-.. contents:: 
-   :local:
-   :depth: 1
-   :backlinks: top
-
-The following sections contain detailed information on every step of
-these workflows.
+#. :ref:`create-nginx-web-server`
+#. :ref:`create-workspace-mixer`
+#. :ref:`generate-starting-point-mix`
+#. :ref:`edit-builder`
+#. :ref:`create-custom-rpms`
+#. :ref:`manage-bundles`
+#. :ref:`build-chroots`
+#. :ref:`create-update`
+#. :ref:`create-image`
+#. :ref:`update-mix-version-info`
 
 .. _create-nginx-web-server:
 
-Create nginx web server to host mixer updates
-=============================================
+Set up nginx web server
+=======================
 
-Follow these steps to set up a HTTP service with ``nginx`` web 
-server, where you can host custom |CL| mixes:  
+Follow these steps to set up a HTTP service with ``nginx`` web server, where
+you can host custom |CL| mixes:
 
-#. Install ``web-server-basic``. 
-   
+#. Install ``web-server-basic``.
+
    .. code-block:: bash
 
       sudo swupd bundle-add web-server-basic
 
-#. Make the directory where mixer updates will reside.  
+#. Make the directory where mixer updates will reside.
 
    .. code-block:: bash
 
@@ -77,13 +85,13 @@ server, where you can host custom |CL| mixes:
       `/home/clr/mix` is the workspace for the mix (read `Create workspace`)
 
 
-#. Set up ``nginx`` configuration. 
+#. Set up ``nginx`` configuration.
 
    .. code-block:: bash
 
       sudo mkdir -p  /etc/nginx/conf.d
 
-#. Copy the default example configuration file. 
+#. Copy the default example configuration file.
 
    .. code-block:: bash
 
@@ -92,10 +100,10 @@ server, where you can host custom |CL| mixes:
 #. Open ``mixer.conf`` with an editor.
 
    .. code-block:: bash
- 
-      sudo nano /etc/nginx/conf.d/mixer.conf 
 
-#. Add the server configuration content below to ``mixer.conf``. 
+      sudo nano /etc/nginx/conf.d/mixer.conf
+
+#. Add the server configuration content below to ``mixer.conf``.
 
    .. code-block:: console
 
@@ -103,7 +111,7 @@ server, where you can host custom |CL| mixes:
            server_name localhost;
            location / {
                      root /var/www/mixer;
-                     autoindex on; 
+                     autoindex on;
            }
       }
 
@@ -111,11 +119,11 @@ server, where you can host custom |CL| mixes:
 
    .. code-block:: bash
 
-      sudo systemctl daemon-reload 
+      sudo systemctl daemon-reload
 
-      sudo systemctl enable nginx 
+      sudo systemctl enable nginx
 
-      sudo systemctl start nginx 
+      sudo systemctl start nginx
 
 #. To verify the web server is running, check it in an Internet browser:
 
@@ -127,43 +135,45 @@ server, where you can host custom |CL| mixes:
 
    .. code-block:: bash
 
-      ps aux | grep nginx 
+      ps aux | grep nginx
 
-   .. note:: 
+   .. note::
 
-      If `nginx` is active, a list should appear showing one master process 
+      If `nginx` is active, a list should appear showing one master process
       and a few worker processes.
 
 Connect the URL to mixer
 ------------------------
 
-Add the URL of the `nginx` server to builder.conf. Your |CL| clients connect 
-to this URL to find the update content.    
+Add the URL of the `nginx` server to builder.conf. Your |CL| clients connect
+to this URL to find the update content.
 
-#. Get the IP address of your nginx server: 
+#. Get the IP address of your nginx server:
 
    .. code-block:: bash
 
       networkctl status
 
 #. In the mixer workspace, edit `builder.conf` to set the value for
-   CONTENTURL and VERSIONURL to the IP `Address` of your `nginx` server.    
+   CONTENTURL and VERSIONURL to the IP `Address` of your `nginx` server.
 
    .. code-block:: bash
 
       nano builder.conf
 
-      .. note:: 
-            
-         For example: 
+      .. note::
+
+         For example:
          CONTNENTURL=http://192.168.25.52
          VERSIONURL=http://192.168.25.52
+
+.. _create-workspace-mixer:
 
 Create a workspace
 ==================
 
 Use the following command to create an empty directory in your |CL| image to
-use as a **workspace** for mixing:
+use as a workspace for mixing:
 
 .. code-block:: bash
 
@@ -171,8 +181,10 @@ use as a **workspace** for mixing:
 
 This guide assumes your workspace location is :file:`/home/clr/mix`.
 
-Generate the starting point for your mix
-========================================
+.. _generate-starting-point-mix:
+
+Generate starting point for mix
+===============================
 
 In your workspace, initialize mixer with the following command:
 
@@ -209,8 +221,9 @@ directories in your mix workspace and adds their paths to the generated
 the paths manually. For more information on using these directories or
 setting them up manually, see `Create or locate RPMs for the mix`_.
 
-If all upstream |CL| bundles will be part of the mix, you can easily add 
-them all during initialization with the optional *--all-upstream* flag. For example:
+If all upstream |CL| bundles will be part of the mix, you can easily add
+them all during initialization with the optional *--all-upstream* flag. For
+example:
 
 .. code-block:: bash
 
@@ -231,6 +244,8 @@ up automatically with the optional *--git* flag, for example:
    .. code-block:: bash
 
       mixer init --upstream-version 21060 --mix-version 10 --local-rpms --all-upstream --git
+
+.. _edit-builder:
 
 Edit builder.conf
 =================
@@ -298,7 +313,7 @@ The following variables require further explanation:
   set to any location. In this example, we use the workspace directory.
 
 * The `YUM_CONF` variable sets the path where mixer automatically generates
-  the :file:`.yum-mix.conf` yum configuration file. The yum configuration 
+  the :file:`.yum-mix.conf` yum configuration file. The yum configuration
   file points the chroot-builder to the path where the RPMs are stored.
 
 * The `CERT` variable sets the path where mixer stores the
@@ -307,8 +322,8 @@ The following variables require further explanation:
   security for content verification. The value of the `CERT` variable can
   point to a different certificate. The chroot-builder inserts the
   certificate specified in this value into the
-  :file:`/os-core-update/usr/share/clear/update-ca/` path. The software 
-  update client uses this certificate to verify the :file:`Manifest.MoM` 
+  :file:`/os-core-update/usr/share/clear/update-ca/` path. The software
+  update client uses this certificate to verify the :file:`Manifest.MoM`
   file's signature. For now, we **strongly** recommend that you do not modify
   this line, as the certificate that :abbr:`swupd (Software Updater)`
   expects needs to have a very specific configuration to sign and verify
@@ -317,13 +332,13 @@ The following variables require further explanation:
   file to provide security for the updated content you create.
 
 * The `CONTENTURL` and `VERSIONURL` variables set the domain or IP address
-  where swupd looks for your update content and the corresponding version. 
-  You must set these variables to the domain or IP-address of the server 
-  hosting the update content. You can use any web server to host your update 
-  content. To learn how to install and configure web server using |CL|, see 
-  :ref:`create-nginx-web-server`. For our example, the web update content 
+  where swupd looks for your update content and the corresponding version.
+  You must set these variables to the domain or IP-address of the server
+  hosting the update content. You can use any web server to host your update
+  content. To learn how to install and configure web server using |CL|, see
+  :ref:`create-nginx-web-server`. For our example, the web update content
   within the `SERVER_STATE_DIR` directory is located here:
-  :file:`/home/clr/mix/update/www`. If the web server is on the same machine 
+  :file:`/home/clr/mix/update/www`. If the web server is on the same machine
   as this directory, you can create a symlink to the directory in your web
   server's document root to easily host the content. These URLs are
   embedded in images created for your mix. The `swupd-client` looks at
@@ -340,20 +355,31 @@ The following variables require further explanation:
   mixer will pull down in order to run builds in the proper container.
 
 .. note:: If you are working only with |CL| bundles, then
-   skip to `List, edit, create, add, remove, or validate bundles`_.
+   skip to `Add/edit bundles for mix`_.
 
+.. _create-custom-rpms:
 
 Create custom RPMs
 ==================
 
+If your mix only uses |CL| content, jump to the next section, :ref:`manage-bundles`.
+
 Create or locate RPMs for the mix
 ---------------------------------
 
-If you create RPMs from scratch, you can use `autospec`, `mock`, `rpmbuild`,
-or similar tools to build them. If the RPMs are not built on |CL|, ensure
-your configuration and toolchain builds them correctly for |CL|, or else
-there is no guarantee they will be compatible. For more information on
-building the RPMs properly, refer to our `build RPMs instructions`_.
+.. incl-create-rpm:
+
+You can use :ref:`autospec<autospec>`, `mock`, `rpmbuild`, or similar tools to
+build RPMs from scratch. If the RPMs are not built on |CL|, ensure your
+configuration and toolchain builds them correctly for |CL|. Otherwise there is
+no guarantee they will be compatible.
+
+For more information on using our autospec tool to build RPMS, read our
+:ref:`autospec` guide. Additional information on building RPMs properly can be
+found in our
+`Developer tooling framework repo <https://github.com/clearlinux/common#build-rpms-for-a-package>`_.
+
+.. incl-create-rpm-end:
 
 Import RPMs into workspace
 --------------------------
@@ -390,19 +416,21 @@ Create a local RPM repo
       mixer add-rpms
 
 After the tool exits, you should see the RPMs and a repository data
-directory in :file:`/home/clr/mix/local-yum`. If the RPMs are not all in this
+directory in :file:`/home/clr/mix/local-yum`. If all RPMs are not in this
 :file:`local-yum` directory, check to ensure that the RPM files are valid
 and not corrupt.
 
-List, edit, create, add, remove, or validate bundles
-====================================================
+.. _manage-bundles:
 
-The bundles in the mix are specified in the mix bundle list. Mixer stores
+Add/edit bundles for mix
+========================
+
+Bundles in a mix are specified in the *mix bundle list*. Mixer stores
 this list as a flat file called :file:`mixbundles` in the path set by the
-`VERSIONS_PATH` variable of the :file:`builder.conf` file. Mixer
-automatically generates the :file:`mixbundles` list file during
-initialization. Mixer reads and writes the bundle list file when you change
-the bundles of the mix.
+`VERSIONS_PATH` variable of the :file:`builder.conf` file. The
+:file:`mixbundles` list file is automatically generated during mix
+initialization. When you change the bundles of a mix, mixer reads and writes
+the bundle list file.
 
 List the bundles in the mix
 ---------------------------
@@ -413,9 +441,8 @@ To view the bundles already in the mix, enter the following command:
 
    mixer bundle list
 
-This command shows a list of every bundle in the mix. Bundles can include
-other bundles. Those nested bundles can themselves include other
-bundles. When listing bundles with this command, mixer automatically
+Bundles can include other bundles, and those nested bundles can themselves
+include other bundles. When listing bundles with this command, mixer automatically
 recurses through the includes to show every single bundle in the mix.
 
 If you see an unexpected bundle in the list, that bundle is probably included
@@ -489,12 +516,11 @@ directory first.
 
 In both cases, mixer launches your default editor to edit the file. When the
 editor closes, mixer automatically validates the edited bundle file and
-reports any errors found. If mixer finds an error, you can edit the file
+reports any errors. If mixer finds an error, you can edit the file
 as-is, revert and edit, or skip and move on to the next bundle. If you skip a
 file, mixer saves a backup of the original file with the ``.orig`` suffix.
-Because mixer always checks your local bundles first, edited copies of an
-upstream bundle always take precedence over their upstream counterpart. You
-can edit multiple bundles with the following command:
+
+You can edit multiple bundles with the following command:
 
 .. code-block:: bash
 
@@ -503,9 +529,8 @@ can edit multiple bundles with the following command:
 Create bundles for the mix
 --------------------------
 
-To create a totally **new bundle**, the bundle name you specify cannot exist
-upstream. If that is the case, create a :file:`new-bundle` with the following
-command:
+To create a totally new bundle, the bundle name you specify cannot exist
+upstream. Create a new bundle :file:`new-bundle` with the following command:
 
 .. code-block:: bash
 
@@ -520,7 +545,7 @@ as part of the bundle.
 .. note::
 
    The :command:`mixer bundle edit` command accepts multiple bundles at once.
-   Thus, you can create multiple new bundles in a single command, for 
+   Thus, you can create multiple new bundles in a single command, for
    example:
 
    .. code-block:: bash
@@ -539,8 +564,9 @@ Add `bundle1` to your mix with the following command:
 This command adds the specified bundles to the mix bundles list stored in
 your :file:`mixbundles` file. For each bundle you add, mixer checks your
 local and upstream bundles to ensure the added bundles actually exist. If
-mixer cannot find the bundle, it reports back an error. Additionally, when
-mixer adds a bundle, it tells you whether the bundle is local or upstream.
+mixer cannot find the bundle, it reports back an error.
+
+When mixer adds a bundle, it will tell you whether the bundle is local or upstream.
 Alternatively, you can learn this information with the
 :command:`mixer bundle list` command. Refer to `List the bundles in the mix`_.
 
@@ -588,10 +614,9 @@ bundle definition file and will produce an error.
 Validate the bundles in the mix
 -------------------------------
 
-Mixer performs basic validation on all bundles when used throughout the
-system.
+Mixer performs basic validation on all bundles used in the system.
 
-Mixer checks the validity of the bundle's syntax and name. Optionally, you 
+Mixer checks the validity of the bundle's syntax and name. Optionally, you
 can run this validation manually on `bundle1` with the following command:
 
 .. code-block:: bash
@@ -620,7 +645,7 @@ Validate multiple bundles with the following command:
 Managing bundles with Git
 -------------------------
 
-If you initialized your workspace to be tracked as a git repository
+If you initialized your workspace to be tracked as a Git repository
 with the :command:`mixer init --git` command, it might be useful to apply a
 git commit after you modify the mix bundle list or edit a bundle definition
 file.
@@ -633,26 +658,29 @@ when the command completes, for example:
 
    mixer bundle remove --git bundle1
 
-Build the bundle chroots
-========================
+.. _build-chroots:
+
+Build bundle chroots
+====================
 
 To build all the ``chroots`` based on the defined bundles, use the following
 command in your workspace:
 
 .. code-block:: bash
 
-   mixer build bundles 
+   mixer build bundles
 
-If the mix has many bundles, this step might take some time.
+If the mix has many bundles, this step may take some time.
 
 Mixer automatically gathers the bundle definition files for the upstream
-bundles into a :file:`upstream-bundles` directory, and user bundles should
-be placed directly into :file:`local-bundles`. The local path is set in
-the `LOCAL_BUNDLE_DIR` variable in the :file:`builder.conf`. **Do not edit
-files in upstream-bundles.** Mixer automatically deletes the contents of
+bundles into a :file:`upstream-bundles` directory. **Do not edit
+files in upstream-bundles.** User bundles should be placed directly into
+:file:`local-bundles`. The local path is set in the `LOCAL_BUNDLE_DIR` variable
+in the :file:`builder.conf`.  Mixer automatically deletes the contents of
 the :file:`upstream-bundles` directory before repopulating the directory
 on-the-fly if a new version must be downloaded.
 
+.. _create-update:
 
 Create an update
 ================
@@ -667,10 +695,6 @@ When the build completes, you can find the mix update content under
 :file:`/home/clr/mix/update/www/VER`. In our example, the update content is
 found in :file:`/home/clr/mix/update/www/{<MIXVERSION>}`. `<MIXVERSION>`
 is the defined mix version, which is 10 by default.
-
-.. code-block:: bash
-
-   mixer build update 
 
 Mixer creates all the content needed to make a fully usable mix with this
 step. However, only *zero packs* are automatically generated. Zero packs are
@@ -692,11 +716,13 @@ no content, thus mixer can generate no deltas.
 For subsequent builds, you can run :file:`mixer-pack-maker.sh` to generate
 delta content between them, for example: 10 to 20.
 
+.. _create-image:
+
 Create an image
 ===============
 
-Since mixer uses the `ister` tool to create a bootable image from your
-updated content, we must first configure the `ister` tool. To configure the
+First we must configure the `ister` tool. The `ister` tool is used by mixer
+to create a bootable image from your updated content. To configure the
 image `ister` creates, we need the `ister` configuration file. Obtain a copy
 with the default values from the `ister` package with the following command:
 
@@ -716,15 +742,15 @@ the configuration file with the following command:
    sudo swupd bundle-add bundle1
 
 Keeping the list of bundles in the configuration file small allows for a
-smaller image size. For the minimal base image, the list is:
+smaller image size. For the minimal base image, the list of bundles is:
 
 .. code-block:: console
 
    "Bundles": ["os-core", "os-core-update", "kernel-native"]
 
-Next, set the `Version` field to the mix version that you want the content
-mixer to use to build the image. `ister` allows you to build an image from
-any mix version that you have built, not just from the current version. In
+Next, set the `Version` field to the mix version that mixer should use to
+build the image. `ister` allows you to build an image from any mix version
+that you have previously built, not just from the current version. In
 our example so far, `Version` is set to 10.
 
 With the `ister` tool configured, build the image with the following command:
@@ -743,15 +769,17 @@ you can freely choose the filename. To use a different name, simply pass the
 
 By default, `ister` uses the format version of the build machine it runs on.
 Therefore, if the format you are building differs from the format of the |CL|
-OS you are building on, you must use the *--format <FORMAT_NUMBER>*
-flag. Find the current format version of your OS with the following command:
+you are building on, you must use the *--format <FORMAT_NUMBER>* flag. Find
+the current format version of your OS with the following command:
 
 .. code-block:: bash
 
    sudo cat /usr/share/defaults/swupd/format
 
-Update the next mix version information
-=======================================
+.. _update-mix-version-info:
+
+Update mix version information
+==============================
 
 Increment the mix version number for the next mix with the following command:
 
@@ -779,9 +807,9 @@ mix version to a value less than its current value. The mix version is
 expected to always increase, even if the new mix is undoing an earlier
 change.
 
-If you have been tracking your workspace with git, you can restore the mix to
-an earlier state. However, be careful when "rewriting history" if you have
-published the mix content to users already.
+If you have been tracking your workspace with Git, you can restore the mix to
+an earlier state. However, be careful when rewriting the history of your repo
+if you have published the mix content to users already.
 
 Use the following command with the the *--upstream-version* flag to
 update the upstream version of |CL| used as a base for the mix:
@@ -800,7 +828,7 @@ This command sets the upstream version to the latest released version of
 upstream |CL| within the same format version. The
 :command:`mixer versions update` command does not allow you to set an
 upstream version to a value that crosses an upstream format boundary.
-Such values require a "format bump" build, which is currently a
+Such values require a *format bump* build, which is currently a
 manual process. Refer to :ref:`mixer-format` for more information.
 
 Optionally, you can learn which mix version or upstream version you are
@@ -810,7 +838,7 @@ currently using with the following command:
 
    mixer versions
 
-At this point, you can continue to iterate through the workflows and make
+At this point, you can continue to iterate through the workflow and make
 modifications as needed, for example:
 
 #. Add, remove, or modify bundles.
@@ -835,7 +863,7 @@ modifications as needed, for example:
 .. _mixer-format:
 
 Format version
-==============
+**************
 
 The `Format` variable set in the :file:`builder.conf` file can be more
 precisely referred to as an OS *compatibility epoch*. Versions of the OS
@@ -861,11 +889,17 @@ increment only when a compatibility breakage is introduced. Normal updates,
 like updating a software package for example, do not require a format
 increment.
 
+Related topics
+**************
+
+* :ref:`mixer-about`
+* :ref:`mixin`
+* :ref:`autospec-about`
+* :ref:`bundles-about`
+
 .. _update page: https://cdn.download.clearlinux.org/update/
 
 .. _format bumps wiki: https://github.com/clearlinux/swupd-server/wiki/Format-Bumps
-
-.. _build RPMs instructions: https://github.com/clearlinux/common#build-rpms-for-a-package
 
 .. _Clear Linux ister configuration file:
    https://raw.githubusercontent.com/bryteise/ister/master/release-image-config.json
