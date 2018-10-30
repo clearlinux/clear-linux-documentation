@@ -28,14 +28,17 @@ The basic process is described in the following steps:
 
 #. ``autospec`` detects any missed declarations in the .spec.
 
-#. If a build error occurs, ``autospec`` stops for user inspection and
-   editing of control files to resolve issues.
+#. If build errors occur, ``autospec`` will scan the build log to try and detect
+   the root cause.
 
-#. After user inspection, ``autospec`` creates another ``mock`` ``chroot``
-   and starts building again at Step 1.
+#. If ``autospec`` detects the root cause and knows how to continue, it will restart the build
+   automatically at step 1 with updated build instructions.
+
+#. Otherwise, ``autospec`` will stop the build for user inspection and editing of control files
+   to resolve the errors. The user resumes the process at step 1 after errors are resolved.
 
 Following these steps, ``autospec`` continues to rebuild the package, based on
-new information discovered from build failures until it has a valid .spec. If
+new information discovered from build failures, until it has a valid .spec. If
 no build errors occur, RPM packages are successfully built.
 
 .. _control-files:
