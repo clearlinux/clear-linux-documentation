@@ -203,12 +203,35 @@ communicate.
 
 Check whether or not your add-on requires special flags when you initialize
 the master control plane. For example, if you choose the `flannel` add-on,
-then you must add :command:`--pod-network-cidr 10.244.0.0/16` to the `kubeadm
-init` command.
+then you must add the following to the `kubeadm init` command:
 
-Similarly, if you choose the `weave` add-on, then you must change the CNI
-add-on directory parameter because the weave plugin installs itself in the
+..  code-block:: bash
+
+    --pod-network-cidr 10.244.0.0/16
+
+Similarly, if you choose the `weave` add-on, then you must make the following
+changes because the weave plugin installs itself in the
 :file:`/opt/cni/bin` directory.
+
+If you are using Docker and `weave`, edit the :file:`kubeadm.conf` file to
+add:
+
+..  code-block:: bash
+
+    Environment="KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin"
+
+If you are using CRI-O and `weave`, edit the :file:`etc/crio/crio.conf` file
+to change `plugin_dir` from:
+
+..  code-block:: bash
+
+    plugin_dir = "/usr/libexec/cni/"
+
+to:
+
+..  code-block:: bash
+
+    plugin_dir = "/opt/cni/bin"
 
 
 Use your cluster
