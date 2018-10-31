@@ -210,7 +210,7 @@ then you must add the following to the `kubeadm init` command:
     --pod-network-cidr 10.244.0.0/16
 
 Similarly, if you choose the `weave` add-on, then you must make the following
-changes because the weave plugin installs itself in the
+changes because the weave-net plugin installs itself in the
 :file:`/opt/cni/bin` directory.
 
 If you are using Docker and `weave`, edit the :file:`kubeadm.conf` file to
@@ -220,18 +220,33 @@ add:
 
     Environment="KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin"
 
-If you are using CRI-O and `weave`, edit the :file:`etc/crio/crio.conf` file
-to change `plugin_dir` from:
+If you are using CRI-O and `weave`, you must complete the following steps.
+
+#.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
+
+    ..  code-block:: bash
+
+        plugin_dir = "/usr/libexec/cni/"
+
+    to:
+
+    ..  code-block:: bash
+
+        plugin_dir = "/opt/cni/bin"
+
+#.  Add the `loopback` CNI plugin to the plugin path with the command:
+
+    ..  code-block:: bash
+
+        sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
+
+If you are using CRI-O and `flannel` and you want to use Kata Containers, edit
+the :file:`/etc/crio/crio.conf` file to add:
 
 ..  code-block:: bash
 
-    plugin_dir = "/usr/libexec/cni/"
-
-to:
-
-..  code-block:: bash
-
-    plugin_dir = "/opt/cni/bin"
+    [crio.runtime]
+    manage_network_ns_lifecycle = true
 
 
 Use your cluster
