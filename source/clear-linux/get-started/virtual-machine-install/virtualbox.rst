@@ -38,7 +38,7 @@ Create a virtual machine in VirtualBox
 
    .. code-block:: bash
 
-      curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-live.img.xz
+      curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep live)
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
