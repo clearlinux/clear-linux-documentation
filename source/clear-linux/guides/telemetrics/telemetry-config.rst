@@ -1,6 +1,6 @@
 .. _telemetry-config:
 
-Telemetry Client Configuration
+Telemetry client configuration
 ##############################
 
 The telemetry client will look for the configuration file located at
