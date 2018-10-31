@@ -1,7 +1,7 @@
 .. _telemetry-api
 
-The telemetry API
-##################
+Telemetry API
+#############
 
 Installing the ``telemetry`` bundle includes the libtelemetry C library,
 which exposes an API used by the telemprobd and telempostd daemons. You
