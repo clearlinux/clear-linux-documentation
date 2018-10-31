@@ -1,7 +1,7 @@
 .. _telemetrics:
 
-Telemetrics in |CL-ATTR|
-########################
+Telemetry
+#########
 
 The |CL-ATTR| telemetrics solution collects data from running |CL| systems
 and helps to quickly identify and fix bugs in the OS. These guides will walk
