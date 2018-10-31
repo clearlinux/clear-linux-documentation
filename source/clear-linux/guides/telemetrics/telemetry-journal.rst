@@ -1,7 +1,7 @@
 .. _telemetry-journal:
 
-Use telemctl journal
-####################
+telemctl journal
+################
 
 The telemctl ``journal`` command gives you access to features and options of
 the telemetry journal to assist with system analytics and debug. The
