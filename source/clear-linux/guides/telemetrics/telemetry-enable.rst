@@ -1,7 +1,7 @@
 .. _telemetry-enable:
 
-Install and enable telemetry in |CL-ATTR|
-#########################################
+Enable telemetry
+################
 
 Telemetry enables developers to observe and proactively address issues on
 |CL-ATTR| before end users are impacted. The telemetry functionality
