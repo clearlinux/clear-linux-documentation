@@ -70,7 +70,7 @@ Running Model Optimizer
 
 Follow these instructions for converting deep learning models to 
 Intermediate Representation (IR) `using Model Optimizer`_. For 
-example, for above models, use the following commands.
+example, use the following commands.
 
 For classification using BVLC Alexnet model:
 
@@ -89,9 +89,18 @@ For object detection using SqueezeNetSSD-5Class model,
    SqueezeNetSSD-5Class.caffemodel --input_proto SqueezeNetSSD-5Class.prototxt 
    --data_type <data_type> --output_dir <output_dir>
 
-.. note:: 
+In these examples: 
 
-   where :file:`/usr/share/openvino/models is the location where the user installed the models, <data_type> is FP32 or FP16 depending on target device, and <output_dir> is the directory where the user wants to store the IR. IR contains .xml format corresponding to the network structure and .bin format corresponding to weights. This .xml should be passed to <PARAM_MODEL_XML>. In the BVLC Alexnet model, the prototxt defines the input shape with batch size 10 by default. In order to use any other batch size, the entire input shape needs to be provided as an argument to the model optimizer. For example, if you want to use batch size 1, you can provide “--input_shape [1,3,227,227]”.
+ * <model_location> is :file:`/usr/share/openvino/models 
+
+ * <data_type> is FP32 or FP16 depending on target device, 
+
+ * <output_dir> is the directory where the user wants to store the IR. 
+   IR contains .xml format corresponding to the network structure and .bin format corresponding to weights. This .xml file should be passed to 
+   <PARAM_MODEL_XML>. 
+
+*  In the BVLC Alexnet model, the prototxt defines the input shape with
+   batch size 10 by default. In order to use any other batch size, the entire input shape needs to be provided as an argument to the model optimizer. For example, to use batch size 1, you can provide “--input_shape [1,3,227,227]”.
 
 Installing |CL| on the edge device
 **********************************
@@ -132,6 +141,14 @@ To be able to execute all applications with root privileges:
       useradd ggc_user
       groupadd ggc_group
 
+
+#. Create a :file:`/etc/fstab` file. |CL| does not create one by default. 
+
+   .. code-block:: bash
+
+      touch /etc/fstab 
+
+
 Add required bundles
 ====================
 
@@ -141,7 +158,6 @@ enable the OpenVINO software stack:
 .. code-block:: bash
 
    swupd bundle-add os-clr-on-clear desktop-autostart computer-vision-basic
-
 
 .. note::
 
@@ -157,20 +173,17 @@ For each Intel edge platform, we need to create a new Greengrass group and
 install Greengrass core software to establish the connection between cloud 
 and edge.
 
-* To create a Greengrass group, follow the `AWS Greengrass developer guide`_
+#. To create a Greengrass group, follow the `AWS Greengrass developer guide`_
    
-* To install and configure Greengrass core on edge platform, follow
-  the instructions at `Start AWS Greengrass`_.    
+#. To install and configure Greengrass core on edge platform, follow
+   the instructions at `Start AWS Greengrass`_.    
 
-    .. TODO: Step 6? Make general reference; BD advise. 
-
-  .. note::
+   .. note::
 
      You will not need to run the ``cgroupfs-mount.sh`` script in step #6 of 
      Module 1 of the `AWS Greengrass developer guide`_, as this is enabled 
-     already in |CL|. You must create a :file:`/etc/fstab` file . 
-     |CL| does not create one by default. To do so, use the 
-     :command:`sudo touch /etc/fstab`. 
+     already in |CL|. 
+
 
 Creating and Packaging Lambda Functions
 =======================================
@@ -268,42 +281,57 @@ Local Resources
 
 Following are the local resources needed for CPU:
 
-::
-  Name 	      Resource
-  Type	      Local path 	Access
-  ModelDir	  Volume	<MODEL_DIR> to be specified by user	Read-Only
-  Webcam	    Device	/dev/video0
-	Read-Only  
-  DataDir	    Volume	<DATA_DIR> to be specified by user. Holds both input
-              and output data.	Read and Write
+.. list-table:: **Local Resources**
+   :widths: 20, 20, 20, 20
+   :header-rows: 1
 
+   * - Name      
+     - Resource type   
+     - Local path         
+     - Access
+     
+   * - ModelDir 
+     - Volume   
+     - <MODEL_DIR> to be specified by user 
+     - Read-Only
+
+   * - Webcam 
+     - Device    
+     - /dev/video0
+     - Read-Only
+
+   * - DataDir  
+     - Volume   
+     - <DATA_DIR> to be specified by user. Holds both input and output data.
+     - Read and Write
 
 Deploy
 ------
 
 To `deploy the lambda function to AWS Greengrass core device`_, select 
-“Deployments” on group page and follow the instructions 
+“Deployments” on group page and follow the instructions at link shown here. 
 
 
 Output Consumption
 ------------------
 
 There are four options available for output consumption. These options are 
-used to report/stream/upload/store inference output at an interval defined 
-by the variable ‘reporting_interval’ in the Greengrass samples.
+used to report, stream, upload, or store inference output at an interval 
+defined by the variable ``reporting_interval`` in the Greengrass samples.
 
 a. IoT Cloud Output:
    This option is enabled by default in the Greengrass samples using a 
-   variable ‘enable_iot_cloud_output’.  We can use it to verify the lambda 
+   variable ``enable_iot_cloud_output``.  We can use it to verify the lambda 
    running on the edge device. It enables publishing messages to IoT cloud 
    using the subscription topic specified in the lambda (For example, 
    ‘openvino/classification’ for classification and ‘openvino/ssd’ for 
    object detection samples).  For classification, top-1 result with class 
    label are published to IoT cloud. For SSD object detection, detection 
    results such as bounding box co-ordinates of objects, class label, and 
-   class confidence are published. To view the output on IoT cloud, follow 
-   the instructions at https://docs.aws.amazon.com/greengrass/latest/
-   developerguide/lambda-check.html
+   class confidence are published. 
+
+   Follow the instructions here to `view the output on IoT cloud`_
+   
 
 b. Kinesis Streaming:
    
@@ -316,16 +344,13 @@ b. Kinesis Streaming:
 
 c. Cloud Storage using AWS S3 Bucket:
    
-   This option enables uploading and storing processed frames (in JPEG 
-   format) in an AWS S3 bucket when ‘enable_s3_jpeg_output’ variable is set 
-   to True. The users need to set up and specify the S3 bucket name in the 
+   When the ‘enable_s3_jpeg_output’ variable is set to True, it enables uploading and storing processed frames (in JPEG format) in an AWS S3 bucket. The users need to set up and specify the S3 bucket name in the 
    Greengrass samples to store the JPEG images. The images are named using 
    the timestamp and uploaded to S3.
 
 d. Local Storage:
    
-   This option enables storing processed frames (in JPEG format) on the 
-   edge device when ‘enable_s3_jpeg_output’ variable is set to True. The 
+   When the ‘enable_s3_jpeg_output’ variable is set to True, it enables storing processed frames (in JPEG format) on the edge device. The 
    images are named using the timestamp and stored in a directory specified 
    by ‘PARAM_OUTPUT_DIRECTORY’.
 
@@ -355,7 +380,8 @@ References
 
 .. _Add local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html 
 
-
 .. _deploy the lambda function to AWS Greengrass core device: https://docs.aws.amazon.com/greengrass/latest/developerguide/configs-core.html
 
 .. _Edge-optmized models repository: https://github.com/intel/Edge-optimized-models
+
+.. _view the output on IoT cloud: https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-check.html
