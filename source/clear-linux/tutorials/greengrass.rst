@@ -4,19 +4,18 @@ Enable Greengrass and OpenVINO on |CL-ATTR|
 ###########################################
 
 Hardware accelerated Function-as-a-Service (FaaS) enables cloud developers 
-to deploy inference functionalities [1] on Intel IoT edge devices with 
-accelerators (Integrated GPU, FPGA, and Movidius).  These functions provide 
-a great developer experience and seamless migration of visual analytics from 
-cloud to edge in a secure manner using containerized environment. 
-Hardware-accelerated FaaS provides the best-in-class performance by 
-accessing optimized deep learning libraries on Intel IoT edge devices with 
-accelerators.
+to deploy inference functionalities [1] on Intel® IoT edge devices with 
+accelerators (Integrated GPU, Intel® FPGA, and Intel® Movidius™). These
+functions provide a great developer experience and seamless migration of 
+visual analytics from cloud to edge in a secure manner using a containerized 
+environment. Hardware-accelerated FaaS provides the best-in-class 
+performance by accessing optimized deep learning libraries on Intel® IoT edge devices with accelerators.
 
-This document describes implementation of FaaS inference samples (based on 
-Python 2.7) using AWS Greengrass [1] and lambdas [2]. These lambdas can be 
+This tutorial describes implementation of FaaS inference samples (based on 
+Python 2.7) using AWS Greengrass* [1] and lambdas [2]. These lambdas can be 
 created, modified, or updated in the cloud and can be deployed from cloud to 
-edge using AWS Greengrass. This document covers description of samples, 
-pre-requisites for Intel edge device, configuring a Greengrass group, 
+edge using AWS Greengrass. This document covers the description of samples, 
+pre-requisites for Intel® edge device, configuring an AWS Greengrass group, 
 creating and packaging lambda functions, deployment of lambdas and various 
 options to consume the inference output.
 
@@ -24,34 +23,35 @@ Supported Platforms
 *******************
 
 *	Operating System: |CL-ATTR| latest release 
-*	Hardware:	Intel core platforms (Tutorial supports inference on CPU only)
+*	Hardware:	Intel® core platforms (Tutorial supports inference on CPU only)
 
 Description of Samples
 **********************
 
-The Greengrass samples are located at the `Edge-Analytics-FaaS`_.
+The AWS Greengrass samples are located at the `Edge-Analytics-FaaS`_.
 
-We provide the following Greengrass samples:
+We provide the following AWS Greengrass samples:
 
 *	:file:`greengrass_classification_sample.py`
-
-  This Greengrass sample classifies a video stream using classification
-  networks such as AlexNet and GoogLeNet and publishes top-10 results on AWS IoT Cloud every second.
+  
+  This AWS Greengrass sample classifies a video stream using classification
+  networks such as AlexNet and GoogLeNet and publishes top-10 results on AWS
+  IoT Cloud every second.
 
 *	:file:`greengrass_object_detection_sample_ssd.py`
   
-  This Greengrass sample detects objects in a video stream and classifies 
-  them using single-shot multi-box detection (SSD) networks such as SSD 
-  Squeezenet, SSD Mobilenet, and SSD300. This sample publishes detection 
-  outputs such as class label, class confidence, and bounding box 
+  This AWS Greengrass sample detects objects in a video stream and
+  classifies them using single-shot multi-box detection (SSD) networks such 
+  as SSD Squeezenet, SSD Mobilenet, and SSD300. This sample publishes 
+  detection outputs such as class label, class confidence, and bounding box 
   coordinates on AWS IoT Cloud every second.
 
 Converting Deep Learning Models
 *******************************
 
 This tutorial provides intermediate representation for edge-optimized models 
-in the FP32 directory for each model, accessible via the  
-`Edge-optmized models repository`_.
+at the `Edge-optmized models repository`_, inside each model in the 
+:file:`FP32` directory.
 
 Sample Models
 =============
@@ -60,7 +60,7 @@ For classification, `download the BVLC Alexnet model`_ as an example.
 Any custom pre-trained classification models can be used with the 
 classification sample.
 
-For object detection, the sample models optimized for Intel edge platforms 
+For object detection, the sample models optimized for Intel® edge platforms 
 are present at :file:`/usr/share/openvino/models'. These models are provided 
 as an example, but any custom pre-trained SSD models can be used with the 
 object detection sample.
@@ -68,9 +68,8 @@ object detection sample.
 Running Model Optimizer
 =======================
 
-Follow these instructions for converting deep learning models to 
-Intermediate Representation (IR) `using Model Optimizer`_. For 
-example, use the following commands.
+Follow these instructions for `converting deep learning models to Intermediate Representation using Model Optimizer`_. For example, use the
+following commands.
 
 For classification using BVLC Alexnet model:
 
@@ -91,16 +90,20 @@ For object detection using SqueezeNetSSD-5Class model,
 
 In these examples: 
 
- * <model_location> is :file:`/usr/share/openvino/models 
+* <model_location> is :file:`/usr/share/openvino/models 
 
- * <data_type> is FP32 or FP16 depending on target device, 
+* <data_type> is FP32 or FP16, depending on target device. 
 
- * <output_dir> is the directory where the user wants to store the IR. 
-   IR contains .xml format corresponding to the network structure and .bin format corresponding to weights. This .xml file should be passed to 
-   <PARAM_MODEL_XML>. 
+* <output_dir> is the directory where the user wants to store the 
+  Intermediate Representation (IR). IR contains .xml format corresponding 
+  to the network structure and .bin format corresponding to weights. This 
+  .xml file should be passed to <PARAM_MODEL_XML>. 
 
-*  In the BVLC Alexnet model, the prototxt defines the input shape with
-   batch size 10 by default. In order to use any other batch size, the entire input shape needs to be provided as an argument to the model optimizer. For example, to use batch size 1, you can provide “--input_shape [1,3,227,227]”.
+* In the BVLC Alexnet model, the prototxt defines the input shape with
+  batch size 10 by default. In order to use any other batch size, the 
+  entire input shape needs to be provided as an argument to the model 
+  optimizer. For example, to use batch size 1, you can provide 
+  “--input_shape [1,3,227,227]”.
 
 Installing |CL| on the edge device
 **********************************
@@ -112,7 +115,8 @@ Create user accounts
 ====================
 
 After the core OS is installed, create two user accounts.  To create a new 
-user and set a password for that user, enter the following commands as a root user:
+user and set a password for that user, enter the following commands as a
+root user:
 
 .. code-block:: bash
 
@@ -141,18 +145,16 @@ To be able to execute all applications with root privileges:
       useradd ggc_user
       groupadd ggc_group
 
-
 #. Create a :file:`/etc/fstab` file. |CL| does not create one by default. 
 
    .. code-block:: bash
 
       touch /etc/fstab 
 
-
 Add required bundles
 ====================
 
-Use the `swupd` software updater utility to add the following bundles to
+Use the ``swupd`` software updater utility to add the following bundles to
 enable the OpenVINO software stack:
 
 .. code-block:: bash
@@ -166,24 +168,22 @@ enable the OpenVINO software stack:
 The ``computer-vision-basic`` bundle will install the OpenVINO software, 
 along with the edge device models needed.
 
-Configuring a Greengrass group
-==============================
+Configuring an AWS Greengrass group
+===================================
 
-For each Intel edge platform, we need to create a new Greengrass group and
-install Greengrass core software to establish the connection between cloud 
-and edge.
+For each Intel® edge platform, we need to create a new AWS Greengrass group 
+and install AWS Greengrass core software to establish the connection between 
+cloud and edge.
 
-#. To create a Greengrass group, follow the `AWS Greengrass developer guide`_
+#. To create an AWS Greengrass group, follow the
+   `AWS Greengrass developer guide`_
    
-#. To install and configure Greengrass core on edge platform, follow
-   the instructions at `Start AWS Greengrass`_.    
+#. To install and configure AWS Greengrass core on edge platform, follow
+   the instructions at `Start AWS Greengrass on the Core Device`_.    
 
    .. note::
 
-     You will not need to run the ``cgroupfs-mount.sh`` script in step #6 of 
-     Module 1 of the `AWS Greengrass developer guide`_, as this is enabled 
-     already in |CL|. 
-
+      You will not need to run the ``cgroupfs-mount.sh`` script in step #6 of Module 1 of the `AWS Greengrass developer guide`_ because this is enabled already in |CL|. 
 
 Creating and Packaging Lambda Functions
 =======================================
@@ -192,19 +192,19 @@ Creating and Packaging Lambda Functions
    1-4. 
 
 #. Replace greengrassHelloWorld.py with Greengrass samples: 
+
    - greengrass_classification_sample.py
    - greengrass_object_detection_sample_ssd.py 
 
 #. Zip these files with extracted Greengrass SDK folders from the previous 
-   step into greengrass_sample_python_lambda.zip. 
+   step into :file:`greengrass_sample_python_lambda.zip`. 
 
    The zip should contain:
    
    * greengrasssdk
    * greengrass sample 
-
-     Choose one of the following: 
-
+     
+     For the sample, choose one of these: 
      - greengrass_classification_sample.py
      - greengrass_object_detection_sample_ssd.py
 
@@ -218,13 +218,15 @@ Creating and Packaging Lambda Functions
   
    .. note:: 
 
-      In the AWS dcoumentation, step 9(a), while uploading the zip file, make sure to name the handler as below depending on the Greengrass sample you are using:
+      In the AWS documentation, step 9(a), while uploading the zip file, 
+      make sure to name the handler as below depending on the AWS Greengrass 
+      sample you are using:
 
       greengrass_object_detection_sample_ssd.function_handler (or)  
       greengrass_classification_sample.function_handler
 
-Deploying  Lambdas
-==================
+Deploying Lambdas
+=================
 
 Configuring the Lambda function
 -------------------------------
@@ -232,7 +234,8 @@ Configuring the Lambda function
 After creating the Greengrass group and the lambda function, start 
 configuring the lambda function for AWS Greengrass. 
 
-#. Follow steps 1-8 in the AWS documentation `Configure the Lambda Function`_. 
+#. Follow steps 1-8 in `Configure the Lambda Function`_ of the AWS
+   documentation. 
 
 #. In addition to the details mentioned in step 8, change the Memory limit
    to 2048MB to accommodate large input video streams.
@@ -240,7 +243,6 @@ configuring the lambda function for AWS Greengrass.
 #. Add the following environment variables as key-value pair when editing
    the lambda configuration and click on update:
   
-
 .. list-table:: **Table 1.  Environment Variables: Lambda Configuration**
    :widths: 20 80
    :header-rows: 1
@@ -249,7 +251,7 @@ configuring the lambda function for AWS Greengrass.
      - Value
    * - PARAM_MODEL_XML
      - <MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and 
-       contains IR.xml, the Intermediate Representation file from Intel Model Optimizer
+       contains IR.xml, the Intermediate Representation file from Intel® Model Optimizer
    * - PARAM_INPUT_SOURCE
      - <DATA_DIR>/input.webm to be specified by user. Holds both input and
        output data. For webcam, set PARAM_INPUT_SOURCE to ‘/dev/video0’
@@ -263,8 +265,8 @@ configuring the lambda function for AWS Greengrass.
      - User specified for classification sample.
        (e.g. 1 for top-1 result, 5 for top-5 results)
 
-#. Add subscription to subscribe, or publish messages from Greengrass lambda
-   function by following the steps 10-14 in `Configure the Lambda Function`_ 
+#. Add subscription to subscribe, or publish messages from AWS Greengrass 
+   lambda function by following the steps 10-14 in `Configure the Lambda Function`_ 
 
    .. note:: 
       
@@ -273,13 +275,11 @@ configuring the lambda function for AWS Greengrass.
    
       For example, openvino/ssd or openvino/classification
 
-      .. TODO: Restart here. 10.31.2018
-
 Local Resources
 ---------------
-#. `Add local resources and access privileges` by selecting this link. 
+#. Select this to `add local resources and access privileges`_. 
 
-Following are the local resources needed for CPU:
+Following are the local resources needed for the CPU:
 
 .. list-table:: **Local Resources**
    :widths: 20, 20, 20, 20
@@ -309,18 +309,17 @@ Deploy
 ------
 
 To `deploy the lambda function to AWS Greengrass core device`_, select 
-“Deployments” on group page and follow the instructions at link shown here. 
-
+“Deployments” on group page and follow the instructions. 
 
 Output Consumption
 ------------------
 
 There are four options available for output consumption. These options are 
 used to report, stream, upload, or store inference output at an interval 
-defined by the variable ``reporting_interval`` in the Greengrass samples.
+defined by the variable ``reporting_interval`` in the AWS Greengrass samples.
 
 a. IoT Cloud Output:
-   This option is enabled by default in the Greengrass samples using a 
+   This option is enabled by default in the AWS Greengrass samples using a 
    variable ``enable_iot_cloud_output``.  We can use it to verify the lambda 
    running on the edge device. It enables publishing messages to IoT cloud 
    using the subscription topic specified in the lambda (For example, 
@@ -332,21 +331,19 @@ a. IoT Cloud Output:
 
    Follow the instructions here to `view the output on IoT cloud`_
    
-
 b. Kinesis Streaming:
    
    This option enables inference output to be streamed from the edge device 
    to cloud using Kinesis [3] streams when ‘enable_kinesis_output’ is set 
    to True. The edge devices act as data producers and continually push 
    processed data to the cloud. The users need to set up and specify 
-   Kinesis stream name, Kinesis shard, and AWS region in the Greengrass 
+   Kinesis stream name, Kinesis shard, and AWS region in the AWS Greengrass 
    samples.
 
 c. Cloud Storage using AWS S3 Bucket:
    
    When the ‘enable_s3_jpeg_output’ variable is set to True, it enables uploading and storing processed frames (in JPEG format) in an AWS S3 bucket. The users need to set up and specify the S3 bucket name in the 
-   Greengrass samples to store the JPEG images. The images are named using 
-   the timestamp and uploaded to S3.
+   AWS Greengrass samples to store the JPEG images. The images are named using the timestamp and uploaded to S3.
 
 d. Local Storage:
    
@@ -361,16 +358,15 @@ References
 2. AWS Lambda: https://aws.amazon.com/lambda/
 3. AWS Kinesis: https://aws.amazon.com/kinesis/
 
-
 .. _Edge-Analytics-FaaS: https://github.com/intel/Edge-Analytics-FaaS/tree/master/AWS%20Greengrass
 
 .. _download the BVLC Alexnet model: https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet
 
-.. _using Model Optimizer: https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer
+.. _converting deep learning models to Intermediate Representation using Model Optimizer: https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer
 
 .. _AWS Greengrass developer guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
 
-.. _Start AWS Greengrass: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-device-start.html
+.. _Start AWS Greengrass on the Core Device: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-device-start.html
 
 .. _AWS Greengrass Core SDK: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html
 
@@ -385,3 +381,5 @@ References
 .. _Edge-optmized models repository: https://github.com/intel/Edge-optimized-models
 
 .. _view the output on IoT cloud: https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-check.html
+
+.. _ add local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
