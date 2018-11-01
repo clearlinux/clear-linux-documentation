@@ -219,20 +219,19 @@ the :file:`/etc/crio/crio.conf` file to add:
     [crio.runtime]
     manage_network_ns_lifecycle = true
 
-**Notes about weave add-on**
+**Notes about Weave Net add-on**
 
-If you choose the `weave` add-on, then you must make the following
-changes because the weave-net plugin installs itself in the
-:file:`/opt/cni/bin` directory.
+If you choose the `Weave Net` add-on, then you must make the following changes
+because it installs itself in the :file:`/opt/cni/bin` directory.
 
-If you are using Docker and `weave`, edit the :file:`kubeadm.conf` file to
+If you are using Docker and `Weave Net`, edit the :file:`kubeadm.conf` file to
 add:
 
 ..  code-block:: bash
 
     Environment="KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin"
 
-If you are using CRI-O and `weave`, you must complete the following steps.
+If you are using CRI-O and `Weave Net`, you must complete the following steps.
 
 #.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
 
