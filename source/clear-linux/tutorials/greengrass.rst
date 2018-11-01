@@ -1,7 +1,7 @@
 .. _greengrass:
 
 Enable AWS Greengrass* and OpenVINO™ on |CL-ATTR|
-###########################################
+#################################################
 
 Hardware accelerated Function-as-a-Service (FaaS) enables cloud developers 
 to deploy inference functionalities [1] on Intel® IoT edge devices with 
@@ -38,11 +38,11 @@ We provide the following AWS Greengrass samples:
   IoT Cloud every second.
 
 *	:file:`greengrass_object_detection_sample_ssd.py`
-  
+
   This AWS Greengrass sample detects objects in a video stream and
-  classifies them using single-shot multi-box detection (SSD) networks such 
+  classifies them using single-shot multi-box detection (SSD) networks such
   as SSD Squeezenet, SSD Mobilenet, and SSD300. This sample publishes 
-  detection outputs such as class label, class confidence, and bounding box 
+  detection outputs such as class label, class confidence, and bounding box
   coordinates on AWS IoT Cloud every second.
 
 Converting Deep Learning Models
@@ -75,7 +75,7 @@ For classification using BVLC Alexnet model:
    model_location>/deploy.prototxt --data_type <data_type> --output_dir <
    output_dir> --input_shape [1,3,227,227]
 
-For object detection using SqueezeNetSSD-5Class model,
+For object detection using SqueezeNetSSD-5Class model:
 
 .. code-block:: bash
 
@@ -210,24 +210,24 @@ Creating and Packaging Lambda Functions
 #. Zip these files with extracted Greengrass SDK folders from the previous 
    step into :file:`greengrass_sample_python_lambda.zip`. 
 
-The zip should contain:
-   
-* greengrasssdk
+   The zip should contain:
+       
+   * greengrasssdk
 
-* greengrass sample 
-   
-For the sample, choose one of these: 
+   * greengrass sample 
+       
+   For the sample, choose one of these: 
 
-- greengrass_classification_sample.py
+   - greengrass_classification_sample.py
 
-- greengrass_object_detection_sample_ssd.py
+   - greengrass_object_detection_sample_ssd.py
 
-For example:
+   For example:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   zip -r greengrass_lambda.zip greengrasssdk
-   greengrass_object_detection_sample_ssd.py
+      zip -r greengrass_lambda.zip greengrasssdk
+      greengrass_object_detection_sample_ssd.py
 
 #. Follow steps 6-11 to `complete creating lambdas`_.  
   
@@ -237,8 +237,8 @@ For example:
       make sure to name the handler as below depending on the AWS Greengrass 
       sample you are using:
 
-      greengrass_object_detection_sample_ssd.function_handler (or)  
-      greengrass_classification_sample.function_handler
+      * greengrass_object_detection_sample_ssd.function_handler (or)  
+      * greengrass_classification_sample.function_handler
 
 Deploying Lambdas
 =================
@@ -258,28 +258,28 @@ configuring the lambda function for AWS Greengrass.
 #. Add the following environment variables as key-value pairs when editing
    the lambda configuration and click on update:
   
-.. list-table:: **Table 1.  Environment Variables: Lambda Configuration**
+   .. list-table:: **Table 1.  Environment Variables: Lambda Configuration**
+      :widths: 20 80
+      :header-rows: 1
 
-   :widths: 20 80
-   :header-rows: 1
-
-   * - Key
-     - Value
-   * - PARAM_MODEL_XML
-     - <MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and 
-       contains IR.xml, the Intermediate Representation file from Intel® Model Optimizer
-   * - PARAM_INPUT_SOURCE
-     - <DATA_DIR>/input.webm to be specified by user. Holds both input and
-       output data. For webcam, set PARAM_INPUT_SOURCE to ‘/dev/video0’
-   * - PARAM_DEVICE
-     - For CPU, specify "CPU"
-   * - PARAM_CPU_EXTENSION_PATH
-     - /usr/lib64/libcpu_extension.so
-   * - PARAM_OUTPUT_DIRECTORY
-     - <DATA_DIR> to be specified by user. Holds both input and output data
-   * - PARAM_NUM_TOP_RESULTS
-     - User specified for classification sample.
-       (e.g. 1 for top-1 result, 5 for top-5 results)
+      * - Key
+        - Value
+      * - PARAM_MODEL_XML
+        - <MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and 
+          contains IR.xml, the Intermediate Representation file from Intel® Model Optimizer
+      * - PARAM_INPUT_SOURCE
+        - <DATA_DIR>/input.webm to be specified by user. Holds both input and
+           output data. For webcam, set PARAM_INPUT_SOURCE to ‘/dev/video0’
+      * - PARAM_DEVICE
+        - For CPU, specify "CPU"
+      * - PARAM_CPU_EXTENSION_PATH
+        - /usr/lib64/libcpu_extension.so
+      * - PARAM_OUTPUT_DIRECTORY
+        - <DATA_DIR> to be specified by user. Holds both input and output
+          data
+      * - PARAM_NUM_TOP_RESULTS
+        - User specified for classification sample.
+          (e.g. 1 for top-1 result, 5 for top-5 results)
 
 #. Add subscription to subscribe, or publish messages from AWS Greengrass 
    lambda function by following the steps 10-14 in `Configure the Lambda Function`_ 
@@ -293,33 +293,34 @@ configuring the lambda function for AWS Greengrass.
 
 Local Resources
 ---------------
-#. Select this to `add local resources and access privileges`_. 
+#. Select `this link to add local resources and access privileges`_. 
 
-Following are the local resources needed for the CPU:
+   Following are the local resources needed for the CPU:
 
-.. list-table:: **Local Resources**
-   :widths: 20, 20, 20, 20
-   :header-rows: 1
+   .. list-table:: **Local Resources**
+      :widths: 20, 20, 20, 20
+      :header-rows: 1
 
-   * - Name      
-     - Resource type   
-     - Local path         
-     - Access
-     
-   * - ModelDir 
-     - Volume   
-     - <MODEL_DIR> to be specified by user 
-     - Read-Only
+      * - Name      
+        - Resource type   
+        - Local path         
+        - Access
+         
+      * - ModelDir 
+        - Volume   
+        - <MODEL_DIR> to be specified by user 
+        - Read-Only
 
-   * - Webcam 
-     - Device    
-     - /dev/video0
-     - Read-Only
+      * - Webcam 
+        - Device    
+        - /dev/video0
+        - Read-Only
 
-   * - DataDir  
-     - Volume   
-     - <DATA_DIR> to be specified by user. Holds both input and output data.
-     - Read and Write
+      * - DataDir  
+        - Volume   
+        - <DATA_DIR> to be specified by user. Holds both input and output 
+          data.
+        - Read and Write
 
 Deploy
 ------
@@ -398,7 +399,7 @@ References
 
 .. _view the output on IoT cloud: https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-check.html
 
-.. _ add local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
+.. _this link to add local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
 
 .. _Configure AWS Greengrass on AWS IoT: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
 
