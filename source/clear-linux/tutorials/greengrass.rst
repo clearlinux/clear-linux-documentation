@@ -1,6 +1,6 @@
 .. _greengrass:
 
-Enable Greengrass and OpenVINO™ on |CL-ATTR|
+Enable AWS Greengrass* and OpenVINO™ on |CL-ATTR|
 ###########################################
 
 Hardware accelerated Function-as-a-Service (FaaS) enables cloud developers 
@@ -15,7 +15,7 @@ edge devices with accelerators.
 This tutorial shows how to: 
 
 * Set up the Intel® edge device with |CL-ATTR|
-* Install the OpenVINO™ and AWS Greengrass software stacks
+* Install the OpenVINO™ and AWS Greengrass* software stacks
 * Use AWS Greengrass and lambdas to deploy the FaaS samples from the cloud 
 
 Supported Platforms
@@ -31,10 +31,10 @@ The AWS Greengrass samples are located at the `Edge-Analytics-FaaS`_.
 
 We provide the following AWS Greengrass samples:
 
-*	:file:`greengrass_classification_sample.py`
+* :file:`greengrass_classification_sample.py`
   
   This AWS Greengrass sample classifies a video stream using classification
-  networks such as AlexNet and GoogLeNet and publishes top-10 results on AWS
+  networks such as AlexNet and GoogLeNet and publishes top-10 results on AWS*
   IoT Cloud every second.
 
 *	:file:`greengrass_object_detection_sample_ssd.py`
@@ -56,7 +56,7 @@ Any custom pre-trained classification models can be used with the
 classification sample.
 
 For object detection, the sample models optimized for Intel® edge platforms 
-are present at :file:`/usr/share/openvino/models'. These models are provided 
+are present at :file:`/usr/share/openvino/models`. These models are provided 
 as an example, but any custom pre-trained SSD models can be used with the 
 object detection sample.
 
@@ -86,7 +86,7 @@ For object detection using SqueezeNetSSD-5Class model,
 
 In these examples: 
 
-* <model_location> is :file:`/usr/share/openvino/models 
+* <model_location> is :file:`/usr/share/openvino/models` 
 
 * <data_type> is FP32 or FP16, depending on target device. 
 
@@ -122,8 +122,8 @@ services to use (see Greengrass user below).
       useradd <userid>
       passwd <userid>
 
-#. Next, enable the :command:`sudo` command for your new `<userid>`. Add 
-   `<userid>` to the `wheel` group:
+#. Next, enable the :command:`sudo` command for your new ``<userid>``. Add 
+   ``<userid>`` to the ``wheel`` group:
 
    .. code-block:: bash
 
@@ -191,7 +191,8 @@ Creating and Packaging Lambda Functions
   
    .. note:: 
 
-      This creates the tarball needed to create the AWS Greengrass environment on the edge device. 
+      This creates the tarball needed to create the AWS Greengrass 
+      environment on the edge device. 
 
 #. Assure to download both the security resources and the AWS Greengrass 
    core software. 
@@ -202,8 +203,9 @@ Creating and Packaging Lambda Functions
 
 #. Replace greengrassHelloWorld.py with Greengrass samples: 
 
-   - greengrass_classification_sample.py
-   - greengrass_object_detection_sample_ssd.py 
+   * greengrass_classification_sample.py
+
+   * greengrass_object_detection_sample_ssd.py 
 
 #. Zip these files with extracted Greengrass SDK folders from the previous 
    step into :file:`greengrass_sample_python_lambda.zip`. 
@@ -211,18 +213,21 @@ Creating and Packaging Lambda Functions
 The zip should contain:
    
 * greengrasssdk
+
 * greengrass sample 
    
 For the sample, choose one of these: 
+
 - greengrass_classification_sample.py
+
 - greengrass_object_detection_sample_ssd.py
 
 For example:
 
 .. code-block:: bash
 
-zip -r greengrass_lambda.zip greengrasssdk
-greengrass_object_detection_sample_ssd.py
+   zip -r greengrass_lambda.zip greengrasssdk
+   greengrass_object_detection_sample_ssd.py
 
 #. Follow steps 6-11 to `complete creating lambdas`_.  
   
@@ -250,10 +255,11 @@ configuring the lambda function for AWS Greengrass.
 #. In addition to the details mentioned in step 8, change the Memory limit
    to 2048MB to accommodate large input video streams.
 
-#. Add the following environment variables as key-value pair when editing
+#. Add the following environment variables as key-value pairs when editing
    the lambda configuration and click on update:
   
 .. list-table:: **Table 1.  Environment Variables: Lambda Configuration**
+
    :widths: 20 80
    :header-rows: 1
 
