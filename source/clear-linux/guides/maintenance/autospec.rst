@@ -100,7 +100,7 @@ we build a new helloclear RPM.
       file://<absolute-path-to-tarball>
 
 #. If build failures or dependency issues occur, continue below.
-   Otherwise, skip directly to `Use your RPM`_.
+   Otherwise, skip directly to `Next steps`_.
 
    #. Navigate to the specific package.
 
@@ -125,7 +125,7 @@ we build a new helloclear RPM.
 
 You've successfully created a RPM.
 
-Skip to `Use your RPM`_ for next steps.
+Skip to `Next steps`_.
 
 .. _build-source-code-with-existing-spec-file:
 
@@ -152,7 +152,7 @@ method assumes that a spec file already exists. In this example, we run a
 
 You've successfully created a RPM.
 
-Skip to `Use your RPM`_ for next steps.
+Skip to `Next steps`_.
 
 .. _generate-a-new-spec-file:
 
@@ -234,6 +234,7 @@ Related topics
 * :ref:`Mixer tool <mixer>`
 * :ref:`Mixin tool <mixin>`
 * :ref:`autospec <autospec-about>`
+* :ref:`Bundles <bundles-about>`
 
 
 .. _rpm website: http://rpm.org
