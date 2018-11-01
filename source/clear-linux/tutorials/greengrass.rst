@@ -1,6 +1,6 @@
 .. _greengrass:
 
-Enable Greengrass and OpenVINO on |CL-ATTR|
+Enable Greengrass and OpenVINO™ on |CL-ATTR|
 ###########################################
 
 Hardware accelerated Function-as-a-Service (FaaS) enables cloud developers 
@@ -9,15 +9,14 @@ accelerators (Integrated GPU, Intel® FPGA, and Intel® Movidius™). These
 functions provide a great developer experience and seamless migration of 
 visual analytics from cloud to edge in a secure manner using a containerized 
 environment. Hardware-accelerated FaaS provides the best-in-class 
-performance by accessing optimized deep learning libraries on Intel® IoT edge devices with accelerators.
+performance by accessing optimized deep learning libraries on Intel® IoT 
+edge devices with accelerators.
 
-This tutorial describes implementation of FaaS inference samples (based on 
-Python 2.7) using AWS Greengrass* [1] and lambdas [2]. These lambdas can be 
-created, modified, or updated in the cloud and can be deployed from cloud to 
-edge using AWS Greengrass. This document covers the description of samples, 
-pre-requisites for Intel® edge device, configuring an AWS Greengrass group, 
-creating and packaging lambda functions, deployment of lambdas and various 
-options to consume the inference output.
+This tutorial shows how to: 
+
+* Set up the Intel® edge device with |CL-ATTR|
+* Install the OpenVINO™ and AWS Greengrass software stacks
+* Use AWS Greengrass and lambdas to deploy the FaaS samples from the cloud 
 
 Supported Platforms
 *******************
@@ -48,10 +47,6 @@ We provide the following AWS Greengrass samples:
 
 Converting Deep Learning Models
 *******************************
-
-This tutorial provides intermediate representation for edge-optimized models 
-at the `Edge-optmized models repository`_, inside each model in the 
-:file:`FP32` directory.
 
 Sample Models
 =============
@@ -85,7 +80,8 @@ For object detection using SqueezeNetSSD-5Class model,
 .. code-block:: bash
 
    python3 mo.py --framework caffe --input_model 
-   SqueezeNetSSD-5Class.caffemodel --input_proto SqueezeNetSSD-5Class.prototxt 
+   SqueezeNetSSD-5Class.caffemodel --input_proto
+   SqueezeNetSSD-5Class.prototxt 
    --data_type <data_type> --output_dir <output_dir>
 
 In these examples: 
@@ -114,25 +110,20 @@ Start with a clean installation of |CL| on a new system, using the
 Create user accounts
 ====================
 
-After the core OS is installed, create two user accounts.  To create a new 
-user and set a password for that user, enter the following commands as a
-root user:
+After |CL| is installed, create two user accounts. Create an administrative 
+user in |CL|. You will also create a user account for the Greengrass
+services to use (see Greengrass user below).  
 
-.. code-block:: bash
+#. Create a new user and set a password for that user. Enter the following 
+   commands as ``root``:
 
-   useradd <userid>
-   passwd <userid>
+   .. code-block:: bash
 
-Replace the <userid> with the name of the user account you want to create
-including the password for that user. The :command:`passwd` command prompts
-you to enter a new password. Retype the new password for the new user
-account just created.
+      useradd <userid>
+      passwd <userid>
 
-Next, enable the :command:`sudo` command for your new `<userid>`.
-
-To be able to execute all applications with root privileges:
-
-#. Add `<userid>` to the `wheel` group:
+#. Next, enable the :command:`sudo` command for your new `<userid>`. Add 
+   `<userid>` to the `wheel` group:
 
    .. code-block:: bash
 
@@ -145,12 +136,18 @@ To be able to execute all applications with root privileges:
       useradd ggc_user
       groupadd ggc_group
 
-#. Create a :file:`/etc/fstab` file. |CL| does not create one by default. 
+#. Create a :file:`/etc/fstab` file. 
 
    .. code-block:: bash
 
-      touch /etc/fstab 
+      touch /etc/fstab
 
+   .. note:: 
+   
+      By default |CL| does not create an :file:`/etc/fstab` file. 
+      The Greengrass service needs to have the file created before 
+      it will run.
+     
 Add required bundles
 ====================
 
@@ -183,13 +180,25 @@ cloud and edge.
 
    .. note::
 
-      You will not need to run the ``cgroupfs-mount.sh`` script in step #6 of Module 1 of the `AWS Greengrass developer guide`_ because this is enabled already in |CL|. 
+      You will not need to run the ``cgroupfs-mount.sh`` script in step #6
+      of Module 1 of the `AWS Greengrass developer guide`_ because this is 
+      enabled already in |CL|. 
 
 Creating and Packaging Lambda Functions
 =======================================
 
-#. To download the `AWS Greengrass Core SDK`_ for python 2.7, follow steps 
-   1-4. 
+#. Complete the tutorial at `Configure AWS Greengrass on AWS IoT`_ .  
+  
+   .. note:: 
+
+      This creates the tarball needed to create the AWS Greengrass environment on the edge device. 
+
+#. Assure to download both the security resources and the AWS Greengrass 
+   core software. 
+
+   .. note:: 
+
+      Security certificates are linked to your AWS* account. 
 
 #. Replace greengrassHelloWorld.py with Greengrass samples: 
 
@@ -199,20 +208,21 @@ Creating and Packaging Lambda Functions
 #. Zip these files with extracted Greengrass SDK folders from the previous 
    step into :file:`greengrass_sample_python_lambda.zip`. 
 
-   The zip should contain:
+The zip should contain:
    
-   * greengrasssdk
-   * greengrass sample 
-     
-     For the sample, choose one of these: 
-     - greengrass_classification_sample.py
-     - greengrass_object_detection_sample_ssd.py
+* greengrasssdk
+* greengrass sample 
+   
+For the sample, choose one of these: 
+- greengrass_classification_sample.py
+- greengrass_object_detection_sample_ssd.py
 
-   For example:
+For example:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      zip -r greengrass_lambda.zip greengrasssdk greengrass_object_detection_sample_ssd.py
+zip -r greengrass_lambda.zip greengrasssdk
+greengrass_object_detection_sample_ssd.py
 
 #. Follow steps 6-11 to `complete creating lambdas`_.  
   
@@ -370,7 +380,7 @@ References
 
 .. _AWS Greengrass Core SDK: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html
 
-.. _complete creating lambda: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html
+.. _complete creating lambdas: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html
 
 .. _Configure the Lambda Function: https://docs.aws.amazon.com/greengrass/latest/developerguide/config-lambda.html
 
@@ -383,3 +393,7 @@ References
 .. _view the output on IoT cloud: https://docs.aws.amazon.com/greengrass/latest/developerguide/lambda-check.html
 
 .. _ add local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
+
+.. _Configure AWS Greengrass on AWS IoT: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
+
+
