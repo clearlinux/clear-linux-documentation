@@ -199,17 +199,29 @@ Install pod network add-on
 **************************
 
 You must choose and install a `pod network add-on`_ to allow your pods to
-communicate.
+communicate. Check whether or not your add-on requires special flags when you
+initialize the master control plane.
 
-Check whether or not your add-on requires special flags when you initialize
-the master control plane. For example, if you choose the `flannel` add-on,
-then you must add the following to the `kubeadm init` command:
+**Notes about flannel add-on**
+
+If you choose the `flannel` add-on, then you must add the following to the
+`kubeadm init` command:
 
 ..  code-block:: bash
 
     --pod-network-cidr 10.244.0.0/16
 
-Similarly, if you choose the `weave` add-on, then you must make the following
+If you are using CRI-O and `flannel` and you want to use Kata Containers, edit
+the :file:`/etc/crio/crio.conf` file to add:
+
+..  code-block:: bash
+
+    [crio.runtime]
+    manage_network_ns_lifecycle = true
+
+**Notes about weave add-on**
+
+If you choose the `weave` add-on, then you must make the following
 changes because the weave-net plugin installs itself in the
 :file:`/opt/cni/bin` directory.
 
@@ -239,14 +251,6 @@ If you are using CRI-O and `weave`, you must complete the following steps.
     ..  code-block:: bash
 
         sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
-
-If you are using CRI-O and `flannel` and you want to use Kata Containers, edit
-the :file:`/etc/crio/crio.conf` file to add:
-
-..  code-block:: bash
-
-    [crio.runtime]
-    manage_network_ns_lifecycle = true
 
 
 Use your cluster
