@@ -4,7 +4,7 @@ Punctuation guide
 #################
 
 This section contains all the information regarding the correct use of
-punctuation for the |CLOSIA| documentation.
+punctuation for the |CL-ATTR| documentation.
 
 Commas, Semicolons, and Colons
 ******************************
