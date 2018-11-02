@@ -8,11 +8,11 @@ Autoproxy
 About
 =====
 
-.. include:: autoproxy_about.txt
+.. include:: autoproxy_about.rst.txt
 
 .. rst-class:: html-toggle
 
 Guide
 =====
 
-.. include:: autoproxy_guide.txt
+.. include:: autoproxy_guide.rst.txt
