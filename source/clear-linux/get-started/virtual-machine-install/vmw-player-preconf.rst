@@ -64,7 +64,7 @@ this command:
 
 .. code-block:: bash
 
-   curl -O https://download.clearlinux.org/image/clear-$(curl https://download.clearlinux.org/latest)-vmware.vmdk.xz
+   curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep vmware)
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
