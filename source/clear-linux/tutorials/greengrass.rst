@@ -37,7 +37,7 @@ We provide the following AWS Greengrass samples:
   networks such as AlexNet and GoogLeNet and publishes top-10 results on AWS*
   IoT Cloud every second.
 
-*	:file:`greengrass_object_detection_sample_ssd.py`
+* :file:`greengrass_object_detection_sample_ssd.py`
 
   This AWS Greengrass sample detects objects in a video stream and
   classifies them using single-shot multi-box detection (SSD) networks such
@@ -57,8 +57,8 @@ classification sample.
 
 For object detection, the sample models optimized for Intel® edge platforms 
 are present at :file:`/usr/share/openvino/models`. These models are provided 
-as an example, but any custom pre-trained SSD models can be used with the 
-object detection sample.
+as an example; however, any custom pre-trained SSD models can be used with 
+the object detection sample.
 
 Running Model Optimizer
 =======================
@@ -86,11 +86,11 @@ For object detection using SqueezeNetSSD-5Class model:
 
 In these examples: 
 
-* <model_location> is :file:`/usr/share/openvino/models` 
+* ``<model_location>`` is :file:`/usr/share/openvino/models` 
 
-* <data_type> is FP32 or FP16, depending on target device. 
+* ``<data_type>`` is FP32 or FP16, depending on target device. 
 
-* <output_dir> is the directory where the user wants to store the 
+* ``<output_dir>`` is the directory where the user wants to store the 
   Intermediate Representation (IR). IR contains .xml format corresponding 
   to the network structure and .bin format corresponding to weights. This 
   .xml file should be passed to <PARAM_MODEL_XML>. 
