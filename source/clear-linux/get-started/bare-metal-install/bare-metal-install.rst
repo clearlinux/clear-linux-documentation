@@ -58,7 +58,7 @@ Follow these steps to install |CL| on the target system:
 #. Reboot the target system.
 
 #. The |CL| boot menu will start as shown in figure 1.
-   Select :guilabel:`Clear Linux OS for Intel Architecture` and press the
+   Select :guilabel:`Clear Linux OS` and press the
    :kbd:`Enter` key or wait five seconds to automatically select it.
 
    .. figure:: figures/bare-metal-install-1.png

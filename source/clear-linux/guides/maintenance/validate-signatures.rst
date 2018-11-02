@@ -3,7 +3,7 @@
 Validate signatures
 ###################
 
-|CLOSIA| offers a way to validate the content of an image or an update. All
+|CL-ATTR| offers a way to validate the content of an image or an update. All
 validation of content works by creating and signing a hash. A valid signature
 creates a chain of trust. A broken chain of trust, seen as an invalid
 signature, means the content is not valid.
@@ -21,7 +21,7 @@ For the outlined steps, the installer image of the latest release of |CL| is
 used for illustrative purposes. You may use any image of |CL| you choose.
 
 #. Download the image, the signature of the SHA512 sum of the image, and the
-   Clear Linux certificate used for signing the SHA512 sum.
+   |CL| certificate used for signing the SHA512 sum.
 
    .. code-block:: console
 
@@ -29,16 +29,16 @@ used for illustrative purposes. You may use any image of |CL| you choose.
       curl -O https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz
       # Signature of SHA512 sum of image
       curl -O https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig
-      # Clear Linux certificate
+      # Certificate
       curl -O https://download.clearlinux.org/releases/$(curl https://download.clearlinux.org/latest)/clear/ClearLinuxRoot.pem
 
-#. Generate the SHA256 sum of the Clear Linux certificate.
+#. Generate the SHA256 sum of the |CL| certificate.
 
    .. code-block:: console
 
       sha256sum ClearLinuxRoot.pem
 
-#. Ensure the generated SHA256 sum of the Clear Linux certificate matches the
+#. Ensure the generated SHA256 sum of the |CL| certificate matches the
    following SHA256 sum to verify the integrity of the certificate.
 
    .. code-block:: console
@@ -52,7 +52,7 @@ used for illustrative purposes. You may use any image of |CL| you choose.
       sha512sum clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
 
 #. Ensure the signature of the SHA512 sum of the image was created using the
-   Clear Linux certificate. This validates the image is trusted and it has not
+   |CL| certificate. This validates the image is trusted and it has not
    been modified.
 
    .. code-block:: console
