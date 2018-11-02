@@ -89,7 +89,7 @@ to install |CL| onto.
 
       Figure 4: :guilabel:`Device installation warning`
 
-.. _Additional_manual_installer_settings:
+.. _incl-additional-manual-installer-settings:
 
 Additional manual installer settings
 ====================================
@@ -182,6 +182,8 @@ The next steps of the manual installer setup process allows you to:
 For a complete description of the content of these additional bundles, go to
 the :ref:`software bundle list <bundles>` and select the name for a
 specific bundle to show the contents within the bundle.
+
+.. _incl-additional-manual-installer-settings-end:
 
 Target system network configuration
 ===================================

@@ -5,8 +5,8 @@ Create a telemetry backend server in Clear Linux
 
 |CLOSIA| includes a telemetry and analytics solution, also known as
 telemetrics, as part of the OS that records events of interest and reports
-them back to the development team using the :command:`telemd` telemetrics
-daemon.
+them back to the development team using the telemetrics daemons that are
+running on the |CL| client system.
 
 End users can enable or disable the telemetry client component of |CL| and
 also redirect where records go if they wish to collect records for themselves

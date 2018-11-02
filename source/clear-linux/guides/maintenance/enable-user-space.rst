@@ -41,19 +41,16 @@ and to perform system updates called software update utility or
 :command:`swupd`. Software applications are installed as bundles using the
 sub-command :command:`bundle-add`.
 
-The `os-clr-on-clr` bundle installs the vast majority of
-applications useful to a system administrator or a developer. The bundle
-contains other bundles such as `sysadmin-basic`, `editors`, `c-basic`,
-`dev-utils-dev`, and other useful packages.
-
-Install the `os-clr-on-clr` bundle:
+The `sysadmin-basic` bundle installs the vast majority of
+applications useful to a system administrator.
+Install the `sysadmin-basic` bundle:
 
 .. code-block:: bash
 
-   swupd bundle-add os-clr-on-clr
+   swupd bundle-add sysadmin-basic
 
 We provide the full list of bundles and packages installed with the
-`os-clr-on-clr`_ bundle. Additionally, we have listed
+`sysadmin-basic`_ bundle. Additionally, we have listed
 `all Clear Linux bundles`_, active or deprecated. Click any bundle on the
 list to view the manifest of the bundle.
 
@@ -81,8 +78,8 @@ To be able to execute all applications with root privileges, add the
 #. Enter the new `<userid>` and the password created earlier.
 
    You will now be in the home directory of `<userid>`. The bundle
-   `os-clr-on-clr`_ contains the majority of applications that a developer or
-   system administrator would want, but it does not include a graphical user
+   `sysadmin-basic`_ contains the majority of applications that a system
+   administrator would want, but it does not include a graphical user
    interface. The `desktop` bundle includes the GNOME\* Display Manager and
    additional supporting applications.
 
@@ -136,8 +133,8 @@ With your system now running |CL|, many opportunities exist.
 Visit the :ref:`tutorials <tutorials>` page for examples on using your |CL|
 system.
 
-.. _`os-clr-on-clr`:
-   https://github.com/clearlinux/clr-bundles/blob/master/bundles/os-clr-on-clr
+.. _`sysadmin-basic`:
+   https://github.com/clearlinux/clr-bundles/blob/master/bundles/sysadmin-basic
 
 .. _`all Clear Linux bundles`:
    https://github.com/clearlinux/clr-bundles/tree/master/bundles
