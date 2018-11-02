@@ -13,9 +13,30 @@ Our Guides:
 The following guides provide step-by-step instructions for tasks that come
 after completing the |CL| :ref:`installation <get-started>`.
 
-.. toctree::
-   :maxdepth: 2
+Clear Linux Tooling
+===================
 
-   maintenance/maintenance
-   network/network
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   clearlinux/*
+
+Maintenance
+===========
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   maintenance/*
    deploy-at-scale
+
+Network   
+=======
+
+.. toctree::
+   :maxdepth: 1
+   :glob: 
+
+   network/*
