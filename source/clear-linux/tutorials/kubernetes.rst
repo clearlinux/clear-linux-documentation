@@ -3,7 +3,7 @@
 Run Kubernetes\* on |CL-ATTR|
 #############################
 
-This tutorial describes how to install, configure, and run the 
+This tutorial describes how to install, configure, and run the
 `Kubernetes container orchestration system`_ on |CL-ATTR| using different
 container engines and runtimes.
 
@@ -17,7 +17,7 @@ strong isolation for untrusted workloads or  multi-tenant scenarios. Runc and
 Kata Containers can be allocated on a  per-pod basis so you can mix and match
 both on the same host to suit your needs.
 
-This tutorial describes the following combinations: 
+This tutorial describes the following combinations:
 
 * Kubernetes with Docker and runc
 * Kubernetes with CRI-O and kata-runtime
@@ -26,7 +26,7 @@ Prerequisites
 *************
 
 This tutorial assumes you have installed |CL| and updated to the latest
-release on your host system. You can learn about the benefits of having an 
+release on your host system. You can learn about the benefits of having an
 up-to-date system for cloud orchestration on the :ref:`swupd-about`
 page. For detailed instructions on installing |CL| on a bare metal system,
 follow the :ref:`bare metal installation tutorial<bare-metal-install>`.
@@ -40,8 +40,8 @@ Before you install any new packages, update |CL| with the following command:
 Install Kubernetes and CRI runtimes
 ***********************************
 
-Kubernetes and a set of supported :abbr:`CRI (Container Runtime Interface)` 
-runtimes are included in the `cloud-native-basic`_ bundle. To install the 
+Kubernetes and a set of supported :abbr:`CRI (Container Runtime Interface)`
+runtimes are included in the `cloud-native-basic`_ bundle. To install the
 framework, enter the following command:
 
 .. code-block:: bash
@@ -276,7 +276,7 @@ with the displayed token and IP information.
 Related topics
 **************
 
-Read the Kubernetes documentation to learn more about: 
+Read the Kubernetes documentation to learn more about:
 
 * `Understanding basic Kubernetes architecture`_
 
@@ -308,7 +308,7 @@ following commands:
    sudo cp /usr/share/defaults/crio/crio.conf /etc/crio/
    sudo $EDITOR /etc/crio/crio.conf
 
-Learn more about `Stateless in Clear Linux`_ and view the `Clear Linux documentation`_.
+Learn more about `Stateless`_ in |CL| and view the |CL| `documentation`_.
 
 Proxy configuration (optional)
 ******************************
@@ -343,7 +343,7 @@ Troubleshooting
 
   Your DNS server may not be appropriately configured. Try adding an
   entry to the :file:`/etc/hosts` file with your host's IP and Name.
-  
+
   For example: 100.200.50.20 myhost
 
   Use the commands :command:`hostname` and :command:`hostname -I` to retrieve them.
@@ -408,7 +408,7 @@ Troubleshooting
 
 .. _Joining your nodes: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
 
-.. _Stateless in Clear Linux: https://clearlinux.org/features/stateless
+.. _Stateless: https://clearlinux.org/features/stateless
 
-.. _Clear Linux documentation: https://clearlinux.org/documentation/clear-linux
+.. _documentation: https://clearlinux.org/documentation/clear-linux
 

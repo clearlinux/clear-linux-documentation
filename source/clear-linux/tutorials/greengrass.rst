@@ -21,7 +21,7 @@ This tutorial shows how to:
 Supported Platforms
 *******************
 
-*	Operating System: |CL-ATTR| latest release
+*	Operating System: |CL| latest release
 *	Hardware:	Intel® core platforms (Tutorial supports inference on CPU only)
 
 Description of Samples
@@ -188,6 +188,19 @@ Creating and Packaging Lambda Functions
 =======================================
 
 #. Complete the tutorial at `Configure AWS Greengrass on AWS IoT`_ .
+<<<<<<< HEAD
+
+   .. note::
+
+      This creates the tarball needed to create the AWS Greengrass
+      environment on the edge device.
+
+#. Assure to download both the security resources and the AWS Greengrass
+   core software.
+
+   .. note::
+
+=======
 
    .. note::
 

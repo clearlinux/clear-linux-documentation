@@ -6,7 +6,7 @@ Migrate Clear Containers to Kata Containers\*
 `Clear Containers`_ and `Kata Containers`_ can co-exist in the same system.
 Both can be installed through the :file:`containers-virt bundle`. However, we
 recommend that you migrate to Kata Containers because Clear Containers is no
-longer maintained_ and will soon be deprecated on |CLOSIA|.
+longer maintained_ and will soon be deprecated on |CL-ATTR|.
 
 This guide describes how to migrate to Kata Containers and assumes that:
 
@@ -68,7 +68,7 @@ Enable Kata Containers as default
 Run Kata Containers
 *******************
 
-Use the following command: 
+Use the following command:
 
 .. code-block:: bash
 

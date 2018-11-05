@@ -4,7 +4,7 @@ Set up a standalone cluster system using Apache\* Spark\*
 #########################################################
 
 This tutorial describes how to install, configure, and run Apache Spark on
-|CLOSIA|. Apache Spark is a fast general-purpose cluster computing system with
+|CL-ATTR|. Apache Spark is a fast general-purpose cluster computing system with
 the following features:
 
 *  Provides high-level APIs in Java\*, Scala\*, Python\*, and R\*.
