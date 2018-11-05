@@ -4,17 +4,16 @@ resolve the proxy needed for a given connection. With Autoproxy, you can use
 |CL| inside any proxy environment without having to manually
 configure the proxies.
 
+* Automate unit testing without worrying about the proxy not being set
+* Remove unset proxies from the equation when dealing with network
+  unavailability across systems.
+
 Corporate and private networks can be very complex, needing to restrict and
 control network connections for security reasons. The typical side effects
 are limited or blocked connectivity and requiring manual configuration of
 proxies to perform the most mundane tasks such as cloning a repo or checking
-for updates. With Clear Linux, all of the work is done behind the scenes to
+for updates. With |CL|, all of the work is done behind the scenes to
 effortlessly use your network and have connections “just work”.
-
-This feature removes massive complications in network connectivity due to
-proxy issues. You can automate tasks like unit testing without worrying
-about the proxy not being set and you can remove unset proxies from the
-equation when dealing with network unavailability across systems.
 
 How Autoproxy works
 -------------------

@@ -1,10 +1,10 @@
 Autoproxy allows |CL| to operate seamlessly behind a proxy
-because, :ref:`swupd-guide` and other |CL| tools are implemented on
+because :ref:`swupd-guide` and other |CL| tools are implemented on
 top of libcurl. Tools that do not use libcurl, like git, must
 be configured independently. 
 
 If you encounter problems with autoproxy functioning, use
-:command:`pacdiscovery` and :command:`FindProxyForURL` to
+:command:`sudo pacdiscovery` and :command:`FindProxyForURL` to
 help troubleshoot assuming a familiarity with PAC files and WPAD. 
 
 .. note::
@@ -54,8 +54,9 @@ an external URL and host are provided as arguments.
    $ busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client FindProxyForURL ss "http://www.google.com" "google.com"
    s "PROXY proxy.your.domain.com:<port>"
 
-If a proxy server is not avialable, or if :command:`pacrunner` is running
-without a PAC file, :command:`FindProxyForURL` will return "DIRECT". 
+If a proxy server is not available, or if :command:`pacrunner` is running
+without a PAC file, :command:`FindProxyForURL` will return "DIRECT". Otherwise,
+it should return your local proxy settings as shown above. 
 
 .. code:: console
 
