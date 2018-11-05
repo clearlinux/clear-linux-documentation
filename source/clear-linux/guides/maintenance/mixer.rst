@@ -1,13 +1,13 @@
 .. _mixer:
 
-Mixer
-#####
+Mixer tool
+##########
 
-The mixer tool is used to create a customized image based on |CL-ATTR|. Creating
-a custom mix provides a high degree of control and customization, but requires
-you to act as your own OSV. This guide covers the basic workflow of creating
-your own mix using the mixer tool and setting up a basic webserver to host your
-mix for downstream users.
+The mixer tool is used to create a customized image based on |CL-ATTR|. This is
+known as a *mix*. Creating a custom mix provides a high degree of control and
+customization, but requires you to act as your own OSV. This guide covers the
+basic workflow of creating your own mix using the mixer tool and setting up a
+basic web server to host your mix for downstream users.
 
 Prerequisites
 *************
@@ -125,13 +125,13 @@ you can host custom |CL| mixes:
 
       sudo systemctl start nginx
 
-#. To verify the web server is running, check it in an Internet browser:
+#. Verify the web server is running. Check it in an Internet browser:
 
    .. code-block:: bash
 
       http://localhost
 
-#. Alternatively, verify the server is running by entering:
+   Alternatively, verify the server is running by entering:
 
    .. code-block:: bash
 
@@ -142,30 +142,15 @@ you can host custom |CL| mixes:
       If `nginx` is active, a list should appear showing one master process
       and a few worker processes.
 
-Connect the URL to mixer
-------------------------
-
-Add the URL of the `nginx` server to builder.conf. Your |CL| clients connect
-to this URL to find the update content.
-
 #. Get the IP address of your nginx server:
 
    .. code-block:: bash
 
       networkctl status
 
-#. In the mixer workspace, edit `builder.conf` to set the value for
-   CONTENTURL and VERSIONURL to the IP `Address` of your `nginx` server.
-
-   .. code-block:: bash
-
-      nano builder.conf
-
-      .. note::
-
-         For example:
-         CONTNENTURL=http://192.168.25.52
-         VERSIONURL=http://192.168.25.52
+   Make note of your nginx server IP address, for example: http://192.168.25.52.
+   It will be configured in a later step as the URL your |CL| clients  will
+   connect to for update content.
 
 .. _create-workspace-mixer:
 
@@ -250,13 +235,13 @@ up automatically with the optional *--git* flag, for example:
 Edit builder.conf
 =================
 
-To configure the mixer tool, edit the :file:`builder.conf` as needed.
+The :file:`builder.conf` file is used to configure the mixer tool.
 
-The file :file:`builder.conf` is read automatically from the current
+:file:`builder.conf` is read automatically from the current
 workspace directory. Use the *--config* flag during initialization
 to specify an alternate path to the file as needed.
 
-The :file:`builder.conf` file has different sections, for example:
+:file:`builder.conf` has different sections. For example:
 
 * The `[Builder]` section provides the mixer tools with the required
   configuration options. This section defines the path where the generated
@@ -271,6 +256,15 @@ Edit the configuration file according to your needs with the command:
 .. code-block:: bash
 
    vim /home/clr/mix/builder.conf
+
+For the purposes of this guide, set the CONTENTURL and VERSIONURL variables
+to the IP address of your nginx server, created in the first part of this
+guide. For example:
+
+.. code-block:: console
+
+   CONTNENTURL=http://192.168.25.52
+   VERSIONURL=http://192.168.25.52
 
 Your version of the :file:`builder.conf` file should resemble the
 following example:
@@ -892,7 +886,7 @@ increment.
 Related topics
 **************
 
-* :ref:`mixer-about`
+* :ref:`About mixer <mixer-about>`
 * :ref:`mixin`
 * :ref:`autospec-about`
 * :ref:`bundles-about`

@@ -1,7 +1,7 @@
 .. _mixin:
 
-Mixin
-#####
+Mixin tool
+##########
 
 The mixin tool, a light wrapper for :ref:`mixer`, is used to customize your
 installation of |CL-ATTR| by *side loading* a custom bundle. This is known
@@ -9,12 +9,13 @@ as a *mixin*. Creating a mixin is useful when you need to add custom or 3rd
 party content but want to keep on the upstream update cycle. This guide covers
 the workflow of creating your own mixin using the mixin tool.
 
-If you need a greater degree of customization, use our :ref:`mixer tool<mixer>`.
+If you need a greater degree of customization than provided by mixin, use our
+:ref:`mixer tool<mixer>`.
 
 Prerequisites
 *************
 
-To start working with the mixin tool, you need a recent image of |CL| with
+To start working with the mixin tool, you will need a recent image of |CL| with
 the `mixer` bundle installed. Before you install any new packages, update your
 OS with the following command:
 
@@ -189,7 +190,7 @@ because :file:`/usr/share/mix` is deleted as part of the reversion process.
 Related topics
 **************
 
-* :ref:`mixer-about`
+* :ref:`About mixer <mixer-about>`
 * :ref:`mixer`
 * :ref:`autospec-about`
 * :ref:`bundles-about`
