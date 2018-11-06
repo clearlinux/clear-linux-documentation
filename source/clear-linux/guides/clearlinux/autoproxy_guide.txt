@@ -14,8 +14,9 @@ help troubleshoot assuming a familiarity with PAC files and WPAD.
 .. _findproxyforurl: http://findproxyforurl.com/
 
 Running :command:`pacdiscovery` with no arguments will immediately indicate
+one of the following:
 
-1. if there is a problem resolving the :command:`WPAD` host name resolution: 
+1. If there is a problem resolving the :command:`WPAD` host name resolution: 
 
    .. code:: console
 
@@ -23,7 +24,7 @@ Running :command:`pacdiscovery` with no arguments will immediately indicate
       failed getaddrinfo: No address associated with hostname
       Unable to find wpad host
 
-2. or if the :command:`pacrunner` service is disabled (masked).
+2. Or if the :command:`pacrunner` service is disabled (masked):
 
    .. code:: console
 
