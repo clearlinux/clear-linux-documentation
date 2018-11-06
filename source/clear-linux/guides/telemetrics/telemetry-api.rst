@@ -1,4 +1,4 @@
-.. _telemetry-api
+.. _telemetry-api:
 
 Telemetry API
 #############
