@@ -1,6 +1,6 @@
 Autoproxy allows |CL| to operate seamlessly behind a proxy
-because :ref:`swupd-guide` and other |CL| tools are implemented on
-top of libcurl. Tools that do not use libcurl, like git, must
+because :ref:`software update <swupd-guide>` and other |CL| tools are
+implemented on top of libcurl. Tools that do not use libcurl, like git, must
 be configured independently. 
 
 If you encounter problems with autoproxy functioning, use

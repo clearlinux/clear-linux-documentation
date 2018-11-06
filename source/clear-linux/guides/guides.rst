@@ -11,7 +11,7 @@ Our Guides:
 
 
 The following guides provide step-by-step instructions for tasks that come
-after completing the |CL| :ref:`installation <get-started>`.
+after completing the |CL-ATTR| :ref:`installation <get-started>`.
 
 Clear Linux Tooling
 ===================

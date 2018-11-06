@@ -2,7 +2,7 @@ The |CL-ATTR| is the first Linux distribution to support autoproxy. The OS
 can discover a Proxy Auto-Config (PAC) script and use it to automatically
 resolve the proxy needed for a given connection. With Autoproxy, you can use
 |CL| inside any proxy environment without having to manually
-configure the proxies.
+configure the proxies:
 
 * Automate unit testing without worrying about the proxy not being set
 * Remove unset proxies from the equation when dealing with network
