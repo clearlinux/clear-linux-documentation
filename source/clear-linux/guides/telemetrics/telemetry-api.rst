@@ -3,7 +3,7 @@
 Telemetry API
 #############
 
-Installing the ``telemetry`` bundle includes the libtelemetry C library,
+Installing the ``telemetrics`` bundle includes the libtelemetry C library,
 which exposes an API used by the telemprobd and telempostd daemons. You
 can use these in your applications as well. The API documentation is found
 in the :file:`telemetry.h` file in `Telemetrics client`_ repository.
@@ -11,7 +11,7 @@ in the :file:`telemetry.h` file in `Telemetrics client`_ repository.
 Creating records with telem-record-gen
 **************************************
 
-The telemetrics-client package provides a record generator tool called
+The telemetrics bundle also provides a record generator tool called
 ``telem-record-gen``. This tool can be used to create records from shell
 scripts, etc., when writing a probe in C is not desirable. Records are sent
 to the backend server, and can also be echoed to stdout.
