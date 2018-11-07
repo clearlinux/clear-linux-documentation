@@ -57,7 +57,7 @@ mix only uses |CL| content, *skip the Create custom RPMs* step.
 .. _create-nginx-web-server:
 
 Set up nginx web server
-=======================
+***********************
 
 Follow these steps to set up a HTTP service with ``nginx`` web server, where
 you can host custom |CL| mixes:
@@ -148,14 +148,14 @@ you can host custom |CL| mixes:
 
       networkctl status
 
-   Make note of your nginx server IP address, for example: http://192.168.25.52.
-   It will be configured in a later step as the URL your |CL| clients  will
-   connect to for update content.
+   Make note of your nginx server IP address (e.g. http://192.168.25.52).
+   This IP address will be used in a later step to connect your |CL| mix clients
+   to your update content server.
 
 .. _create-workspace-mixer:
 
 Create a workspace
-==================
+******************
 
 Use the following command to create an empty directory in your |CL| image to
 use as a workspace for mixing:
@@ -169,7 +169,7 @@ This guide assumes your workspace location is :file:`/home/clr/mix`.
 .. _generate-starting-point-mix:
 
 Generate starting point for mix
-===============================
+*******************************
 
 In your workspace, initialize mixer with the following command:
 
@@ -204,7 +204,7 @@ This command creates the :file:`local-yum` and :file:`local-rpms`
 directories in your mix workspace and adds their paths to the generated
 :file:`builder.conf`. If the configuration file already exists, you must add
 the paths manually. For more information on using these directories or
-setting them up manually, see `Create or locate RPMs for the mix`_.
+setting them up manually, see `Create RPMs for the mix`_.
 
 If all upstream |CL| bundles will be part of the mix, you can easily add
 them all during initialization with the optional *--all-upstream* flag. For
@@ -233,7 +233,7 @@ up automatically with the optional *--git* flag, for example:
 .. _edit-builder:
 
 Edit builder.conf
-=================
+*****************
 
 The :file:`builder.conf` file is used to configure the mixer tool.
 
@@ -354,17 +354,17 @@ The following variables require further explanation:
 .. _create-custom-rpms:
 
 Create custom RPMs
-==================
+******************
 
 If your mix only uses |CL| content, jump to the next section, :ref:`manage-bundles`.
 
-Create or locate RPMs for the mix
----------------------------------
+Create RPMs for the mix
+=======================
 
 .. incl-create-rpm:
 
 You can use :ref:`autospec<autospec>`, `mock`, `rpmbuild`, or similar tools to
-build RPMs from scratch. If the RPMs are not built on |CL|, ensure your
+build RPMs from scratch. If the RPMs are not built on |CL|, make sure your
 configuration and toolchain builds them correctly for |CL|. Otherwise there is
 no guarantee they will be compatible.
 
@@ -375,8 +375,8 @@ found in our
 
 .. incl-create-rpm-end:
 
-Import RPMs into workspace
---------------------------
+Copy RPMs into workspace
+========================
 
 #. Create a :file:`local-rpms` directory in your workspace, for example,
    :file:`/home/clr/mix/local-rpms`.
@@ -393,7 +393,7 @@ Mixer uses this directory to find the RPMs to build a local RPM repo for
 yum to use.
 
 Create a local RPM repo
------------------------
+=======================
 
 #. Create an empty directory in your workspace named :file:`local-yum`.
 #. Add the path to your :file:`builder.conf` file:
@@ -417,7 +417,7 @@ and not corrupt.
 .. _manage-bundles:
 
 Add/edit bundles for mix
-========================
+************************
 
 Bundles in a mix are specified in the *mix bundle list*. Mixer stores
 this list as a flat file called :file:`mixbundles` in the path set by the
@@ -427,7 +427,7 @@ initialization. When you change the bundles of a mix, mixer reads and writes
 the bundle list file.
 
 List the bundles in the mix
----------------------------
+===========================
 
 To view the bundles already in the mix, enter the following command:
 
@@ -486,7 +486,7 @@ Both the local and upstream :command:`bundle list` commands accept the
 between the bundles in the mix.
 
 Edit the bundles in the mix
----------------------------
+===========================
 
 **Mixer always checks local bundles first and the upstream bundles second.**
 
@@ -521,7 +521,7 @@ You can edit multiple bundles with the following command:
    mixer bundle edit bundle1 bundle2 [bundle3 ...]
 
 Create bundles for the mix
---------------------------
+==========================
 
 To create a totally new bundle, the bundle name you specify cannot exist
 upstream. Create a new bundle :file:`new-bundle` with the following command:
@@ -547,7 +547,7 @@ as part of the bundle.
       mixer bundle edit new-bundle1 new-bundle2 [new-bundle3 ...]
 
 Add bundles to the mix
-----------------------
+======================
 
 Add `bundle1` to your mix with the following command:
 
@@ -571,7 +571,7 @@ To add multiple bundles at once, use the following command:
    mixer bundle add bundle1 bundle2 [bundle3 ...]
 
 Remove bundles from the mix
----------------------------
+===========================
 
 Remove `bundle1` from your mix with the following command:
 
@@ -606,7 +606,7 @@ keep the bundle in the mix bundles list, mixer will not find a valid
 bundle definition file and will produce an error.
 
 Validate the bundles in the mix
--------------------------------
+===============================
 
 Mixer performs basic validation on all bundles used in the system.
 
@@ -637,7 +637,7 @@ Validate multiple bundles with the following command:
    mixer bundle validate bundle1 bundle2 [bundle3 ...]
 
 Managing bundles with Git
--------------------------
+=========================
 
 If you initialized your workspace to be tracked as a Git repository
 with the :command:`mixer init --git` command, it might be useful to apply a
@@ -655,7 +655,7 @@ when the command completes, for example:
 .. _build-chroots:
 
 Build bundle chroots
-====================
+********************
 
 To build all the ``chroots`` based on the defined bundles, use the following
 command in your workspace:
@@ -677,7 +677,7 @@ on-the-fly if a new version must be downloaded.
 .. _create-update:
 
 Create an update
-================
+****************
 
 Create an update with the following command:
 
@@ -713,7 +713,7 @@ delta content between them, for example: 10 to 20.
 .. _create-image:
 
 Create an image
-===============
+***************
 
 First we must configure the `ister` tool. The `ister` tool is used by mixer
 to create a bootable image from your updated content. To configure the
@@ -773,7 +773,7 @@ the current format version of your OS with the following command:
 .. _update-mix-version-info:
 
 Update mix version information
-==============================
+******************************
 
 Increment the mix version number for the next mix with the following command:
 

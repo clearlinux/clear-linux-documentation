@@ -9,7 +9,7 @@ as a *mixin*. Creating a mixin is useful when you need to add custom or 3rd
 party content but want to keep on the upstream update cycle. This guide covers
 the workflow of creating your own mixin using the mixin tool.
 
-If you need a greater degree of customization than provided by mixin, use our
+If you need to customize beyond what the mixin tool provides, use the
 :ref:`mixer tool<mixer>`.
 
 Prerequisites
@@ -46,7 +46,7 @@ The workflow to create your own mixin is outlined below.
 .. _create-workspace-mixin:
 
 Create a workspace
-==================
+******************
 
 Use the following command to create an empty directory in your |CL| image to
 use as a workspace for mixing:
@@ -57,8 +57,12 @@ use as a workspace for mixing:
 
 .. _create-rpm:
 
-Create or locate RPMs for mixin
-===============================
+Create RPMs for mixin
+***********************
+
+Create a RPM for your mixin, using your content or 3rd party content.
+Alternatively, you can use a remote RPM repository. In both cases, ensure
+the RPM is built for |CL|.
 
 .. include:: ../../guides/maintenance/mixer.rst
    :Start-after: incl-create-rpm:
@@ -66,8 +70,8 @@ Create or locate RPMs for mixin
 
 .. _copy-custom-rpm:
 
-Copy RPM to workspace
-=====================
+Copy RPMs to workspace
+**********************
 
 If the RPM you want to add to your mix is local, copy the local
 RPM package to the workspace:
@@ -76,7 +80,7 @@ RPM package to the workspace:
 
    sudo cp [RPM] /usr/share/mix/local-rpms
 
-Alternatively, you can add a remote RPM repository with the following
+If you are using a remote RPM repository, use the following
 command:
 
 .. code-block:: bash
@@ -85,46 +89,53 @@ command:
 
 .. _create-bundle:
 
-Create a bundle with custom RPM
-===============================
+Create a bundle with your RPM
+*****************************
 
-Use the :command:`mixin` command to create a bundle with the RPM
-package:
+Create a bundle using your custom RPM with the following steps:
 
-.. code-block:: bash
+#. Use the :command:`mixin package add` command to create a bundle with the RPM
+   package:
 
-   sudo mixin package add [package-name] [--bundle bundle-name] [--build]
+   .. code-block:: bash
 
-This command will add package-name to a bundle that is named after its parent
-repository. For example, if the RPM was provided locally, it will be added to
-the 'local' bundle. If it came from a repo that was added with
-:command:`mixin repo add`, it will be added to a bundle named after the
-repo-name. If the `--bundle bundle-name` flag is provided, the package will
-be added to `bundle-name` instead. The `--build` flag tells :command:`mixin`
-to run a `mixer` build after adding the package.
+      sudo mixin package add [package-name] [--bundle bundle-name] [--build]
 
-To add more than one RPM to your previously created bundle, repeat
-the :command:`mixin package add` command and change the package name. Do not
-add the `--build` flag until all packages have been added. Once done adding
-packages, run the following command to create your local mix:
+   This command will add package-name to a bundle that is named after its parent
+   repository. For example, if the RPM was provided locally, it will be added to
+   the 'local' bundle. If it came from a repo that was added with
+   :command:`mixin repo add`, it will be added to a bundle named after the
+   repo-name.
 
-.. code-block:: bash
+   If the `--bundle bundle-name` flag is provided, the package will
+   be added to `bundle-name` instead.
 
-   sudo mixin build
+   The `--build` flag tells :command:`mixin` to run a `mixer` build after adding
+   the package.
 
-.. note::
+#. To add more than one RPM to your previously created bundle, repeat
+   the :command:`mixin package add` command and change the package name. Do not
+   add the `--build` flag until all packages have been added.
 
-   * The first time you run the :command:`mixin build` command, mixer
-     creates a new OS version by taking your current upstream |CL| version
-     and multiplying it by 1000.  For example, if your upstream version is
-     21530, your custom version will be 21530000.  For each subsequent call
-     to mixin, mixer will increment the version by 10.  For example,
-     21530010, 21530020, etc.
+#. Once done adding packages, run the following command to create your local mix:
+
+   .. code-block:: bash
+
+      sudo mixin build
+
+   .. note::
+
+      The first time you run the :command:`mixin build` command, mixer
+      creates a new OS version by taking your current upstream |CL| version
+      and multiplying it by 1000.  For example, if your upstream version is
+      21530, your custom version will be 21530000.  For each subsequent call
+      to mixin, mixer will increment the version by 10.  For example,
+      21530010, 21530020, etc.
 
 .. _migrate-mix:
 
 Migrate to your custom mix
-==========================
+**************************
 
 Before you can use your custom bundle, you must migrate your |CL| system
 to your custom mix to make the bundle accessible:
@@ -144,21 +155,23 @@ to make the new bundles visible.
 .. _add-bundle-to-system:
 
 Add custom bundle to your system
-================================
+********************************
 
-Get a listing of your newly-created bundle:
+Add your custom bundle to your system with the following steps:
 
-.. code-block:: bash
+#. Get a listing of your newly-created bundle:
 
-   sudo swupd bundle-list -a
+   .. code-block:: bash
+
+      sudo swupd bundle-list -a
 
    The listing includes all upstream bundles.
 
-And add your bundle:
+#. Add your bundle:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   sudo swupd bundle-add [bundle-name]
+      sudo swupd bundle-add [bundle-name]
 
 .. note::
 
@@ -172,7 +185,7 @@ And add your bundle:
 .. _revert-to-upstream:
 
 Optional: Revert system back to 100% upstream
-=============================================
+*********************************************
 
 You can revert your |CL| system back to the official upstream version
 with the following command:
@@ -184,9 +197,6 @@ with the following command:
 After the command completes, all custom RPMs and bundles are unavailable
 because :file:`/usr/share/mix` is deleted as part of the reversion process.
 
-.. _Developer tooling framework for Clear Linux:
-   https://github.com/clearlinux/common
-
 Related topics
 **************
 
@@ -194,3 +204,6 @@ Related topics
 * :ref:`mixer`
 * :ref:`autospec-about`
 * :ref:`bundles-about`
+
+.. _Developer tooling framework for Clear Linux:
+   https://github.com/clearlinux/common
