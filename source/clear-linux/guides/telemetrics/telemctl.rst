@@ -33,7 +33,7 @@ The commands to start, stop and restart the telemetry services manage all
 required services and probes on the system.  There is no need to separately
 start/stop/restart the two client daemons **telemprobd** and **telempostd**.
 The **restart** command option will call **telemctl stop** followed by 
-**telemctl start**
+**telemctl start** .
 
 is-active
 =========
@@ -54,7 +54,7 @@ Note that both daemons are verified.
 
 .. include:: ./telemetry-enable.rst
    :start-after: incl-opt-in-out-telemetry:
-   :end-before: Remove the telemetry software bundle
+   :end-before: incl-opt-in-out-telemetry-end:
 
 Next steps
 ==========
