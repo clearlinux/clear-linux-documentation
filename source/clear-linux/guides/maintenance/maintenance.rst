@@ -18,7 +18,6 @@ completed.
    mixer
    mixin
    validate-signatures
-   telemetry-enable
    time
    hostname
    increase-virtual-disk-size
