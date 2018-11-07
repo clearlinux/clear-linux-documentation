@@ -104,7 +104,7 @@ There are three ways to supply the payload to the record.
       payload read from file
 
 #. If the :command:`-p` or :command:`-P` options are absent, the tool reads
-   from stdin so you can use it in a HEREDOC in scripts.
+   from stdin so you can use it in a :file:`heredoc` in scripts.
 
    .. code-block:: bash
 
