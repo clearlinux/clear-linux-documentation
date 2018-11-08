@@ -3,11 +3,11 @@
 Reference
 #########
 
-This section provides additional information on the |CL| project and |CL|
+This section provides additional information on the |CL| project and
 features.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    compatible-hardware
    bundle-commands

@@ -21,6 +21,7 @@ Clear Linux Tooling
    :glob:
 
    clearlinux/*
+   telemetrics/telemetrics
 
 Maintenance
 ===========

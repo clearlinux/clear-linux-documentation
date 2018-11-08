@@ -4,10 +4,10 @@ Compatible Hardware
 ###################
 
 This document describes hardware that has been tested and confirmed as
-compatible with |CLOSIA|. This list is not comprehensive and will continue to
+compatible with |CL-ATTR|. This list is not comprehensive and will continue to
 grow.
 
-.. list-table:: **Table 1. Clear Linux Compatible Hardware**
+.. list-table:: **Table 1. Compatible Hardware**
     :widths: 20, 20
     :header-rows: 1
 

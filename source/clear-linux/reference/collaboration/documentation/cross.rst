@@ -12,7 +12,7 @@ consistency of the documents.
 Internal cross-references
 *************************
 
-An internal cross-reference is a reference to a location within the |CLOSIA|
+An internal cross-reference is a reference to a location within the |CL-ATTR|
 documentation. Use explicit markup labels and the ``:ref:`` role to create
 cross references to headings, figures, and code examples as needed. Every
 file must have a label before the title, which is identical to the file's 
@@ -127,7 +127,7 @@ Use this template to add a hyperlink with a separated definition:
 The include directive 
 *********************
 
-Clear Linux documentation also uses the ``.. include::`` 
+|CL| documentation also uses the ``.. include::`` 
 directive to include a portion of another reST file. 
 
 Use the ``.. include::`` directive to show a select portion of a file.  

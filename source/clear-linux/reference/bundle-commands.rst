@@ -22,7 +22,7 @@ To search for bundles and their contents, enter:
 
 .. code-block:: bash
 
-   sudo swupd search [bundle name]  
+   sudo swupd search [bundle name]
 
 To add a bundle, enter:
 
@@ -30,14 +30,14 @@ To add a bundle, enter:
 
    sudo swupd bundle-add [bundle name]
 
-Additional information 
+Additional information
 ======================
 
 For additional :command:`swupd` commands, enter:
 
 .. code-block:: bash
 
-   swupd --help 
+   swupd --help
 
 To reference the :command:`swupd` man page, enter:
 

@@ -6,7 +6,7 @@ How to Clear training overview
 The existing Linux\* ecosystem can be challenging to users because of long
 intervals between :abbr:`OS (operating system)` updates, which leads to large
 update downloads. Users can also be frustrated when managing complicated
-component dependencies. |CLOSIA| solves these problems by:
+component dependencies. |CL-ATTR| solves these problems by:
 
 *	Allowing you to update frequently, even multiple times per day
 *	Preventing you from combining incompatible components
@@ -31,7 +31,7 @@ overview of these |CL| mechanisms:
 *   Tools: `mixer-tools` software suite generates the update server content using |CL|
     official software update content, local bundle definitions, and local RPM files.
 
-The training helps you create a customized OS that is based on |CLOSIA|. The
+The training helps you create a customized OS that is based on |CL|. The
 training content is self-contained and hosted on GitHub. You need a clean
 |CL| installation and a functional network connection to complete the
 training. For convenience, the project includes the training files you need
