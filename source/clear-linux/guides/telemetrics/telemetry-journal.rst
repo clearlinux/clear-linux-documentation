@@ -5,7 +5,7 @@ telemctl journal
 
 The telemctl ``journal`` command gives you access to features and options of
 the telemetry journal to assist with system analytics and debug. The
-:command:`sudo telemctl journal` has a number of options to help filter
+:command:`telemctl journal` has a number of options to help filter
 records. Use :command:`-h` or :command:`--help` to view usage options.
 
 .. code-block:: bash
@@ -33,7 +33,7 @@ To see the listing of records in the journal, run the command:
 
 This will produce output like the following:
 
-.. list-table:: **Table 1. Using -V for Verbose output**
+.. list-table:: **Table 1. Journal Output**
    :widths:  10 30 20 20 20
    :header-rows: 1
 
