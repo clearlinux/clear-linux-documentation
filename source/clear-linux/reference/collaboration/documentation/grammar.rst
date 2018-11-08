@@ -4,7 +4,7 @@ Grammar guide
 #############
 
 This guide provides valuable insight into the correct grammar for the
-|CLOSIA| documentation. It covers subjects such as capitalization, verbs,
+|CL-ATTR| documentation. It covers subjects such as capitalization, verbs,
 hyphenation, possessives, and contractions.
 
 Capitalization

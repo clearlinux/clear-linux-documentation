@@ -35,14 +35,14 @@ Table 2 lists the currently available images that are platform specific.
    * - Image Type
      - Description
 
-   * - installer.img 
-     - Preferred image of |CL| with interactive installer. 
+   * - installer.img
+     - Preferred image of |CL| with interactive installer.
 
    * - installer.iso
      - ISO of |CL| with interactive installer. Only for special cases where ISO image format is required (not for use with a USB key)
 
    * - live.img
-     - Image for live booting into memory, without requiring installaton. 
+     - Image for live booting into memory, without requiring installaton.
 
 .. list-table:: Table 2: Types of platform-specific |CL| images
    :widths: 15, 85
@@ -70,7 +70,7 @@ Table 2 lists the currently available images that are platform specific.
      - Virtual Hard Disk for use with Microsoft Hyper-V\* hypervisor. Includes `optimized kernel`_ for Hyper-V.
 
    * - kvm.img
-     - Image for booting in a simple VM with start_qemu.sh. Includes 
+     - Image for booting in a simple VM with start_qemu.sh. Includes
        `optimized kernel`_ for KVM.
 
    * - vmware.vmdk

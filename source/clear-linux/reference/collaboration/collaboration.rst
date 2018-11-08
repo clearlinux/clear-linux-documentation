@@ -3,7 +3,7 @@
 Collaboration guidelines
 ########################
 
-Thank you for your interest in collaborating with the |CLOSIA|. This guide
+Thank you for your interest in collaborating with the |CL-ATTR|. This guide
 details the best ways to collaborate with the |CL| team.
 Additionally, this guide provides the guidelines our documentation follows.
 Thus, you can help improve our documents with your use case tutorials,

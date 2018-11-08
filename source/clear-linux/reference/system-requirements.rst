@@ -3,7 +3,7 @@
 Recommended minimum system requirements
 #######################################
 
-|CL-ATTR| can run on very minimal hardware. For example, it can run on a 
+|CL-ATTR| can run on very minimal hardware. For example, it can run on a
 system with a single core CPU, 128MB of memory, and 600MB of disk space.
 
 Different use cases and applications will require different configurations.
@@ -12,7 +12,7 @@ minimum requirements include:
 
 *  Processors:
 
-   |CL-ATTR| can run on any Intel® 64bit processors which support UEFI\* 
+   |CL-ATTR| can run on any Intel® 64bit processors which support UEFI\*
    and SSE\* v4.1 streaming SIMD\* instructions.
 
    The following processor families have been verified to run |CL|:

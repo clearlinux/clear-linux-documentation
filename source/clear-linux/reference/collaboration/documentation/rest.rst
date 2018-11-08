@@ -8,7 +8,7 @@ RestructuredText guide
 Overview
 ********
 
-The |CLOSIA| uses Sphinx and RestructuredText as authoring tools for its
+The |CL-ATTR| uses Sphinx and RestructuredText as authoring tools for its
 documentation. This section contains the preferred methods for using the
 :abbr:`ReST (RestructuredText)` markup on your documents. Please refer to the
 `Sphinx documentation`_ for the complete list of available markup and use
