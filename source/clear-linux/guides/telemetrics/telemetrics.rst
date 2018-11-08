@@ -16,4 +16,4 @@ telemetry backend solution. For more details, learn how to
    telemetry-config
    telemctl
    telemetry-journal
-   telemetry-api
+   telemetry-z-api
