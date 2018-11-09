@@ -25,7 +25,7 @@ security practices, see the :ref:`security` page.
 
 
 Check if the module is already available through Clear Linux
-===========================================================
+============================================================
 |CL| comes with many upstream kernel modules available for use.  If 
 you require a kernel module, be sure to check whether it is already available in |CL| first. 
 
@@ -63,17 +63,17 @@ For a more scalable and customizable approach, consider using the
 `mixer tool`_ to provide a custom kernel and updates.
 
 
-Building modules
-----------------
+Building kernel modules
+-----------------------
 
-#. From a |CL| system, ensure you are running the native kernel. 
-   Currently only kernel-native bundle is enabled to build and load
-   out-of-tree modules
+#. From a |CL| system, ensure you are running the *native* kernel. 
+   Currently only the native kernel is enabled to build and load
+   out-of-tree modules.
 
     .. code-block:: bash
 
         $ uname -r
-        4.17.YY-XXX.native
+        4.XX.YY-ZZZZ.native
 
     Ensure *.native* is in the kernel name
 
@@ -88,8 +88,8 @@ Building modules
    kernel module
 
 
-Disable kernel and module signature verification
-------------------------------------------------
+Loading kernel modules
+----------------------
 
 #. Disable Secure Boot in your BIOS or EFI you have enabled it. The loading of 
    new out-of-tree modules modifies the signatures  Secure Boot relies on for 
@@ -170,7 +170,7 @@ which end with the :file:`.conf` extension contain a list of module names
 of aliases (one per line) to load at boot.
 
 
-You can find more info on module loading in the modprobe.d manual page:
+You can find more info on module loading in the modules-load.d manual page:
 
     .. code-block:: bash
 
