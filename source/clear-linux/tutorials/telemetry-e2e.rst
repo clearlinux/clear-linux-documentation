@@ -4,26 +4,38 @@
 |CL-ATTR| includes a telemetry and analytics solution (also known as telemetrics) as part of the OS, which records events of interest and reports them back to the development team using the telemetrics client daemons.
 End users can enable or disable the telemetry client component of |CL| and also redirect where records are sent if they wish to collect records for themselves by using their own telemetry backend server.
 
-This tutorial walks you through creating a telemetry enabled app on your local |CL| machine. The tutorial will show you how to send your own custom reports to any telemetry backend server.
+This tutorial walks you through creating a telemetry enabled app on your local |CL| machine. The tutorial will show you how to send your own custom records to any telemetry backend server.
 
-.. note::
-
-   The telemetrics functionality adheres to `Intel privacy policies`_ regarding the collection and use of :abbr:`PII (Personally Identifiable Information)` and is Open Source. Specifically, no intentionally identifiable information about the user or system owner is collected.
 
 Prerequisites
 =============
 
-For this tutorial, start with a clean installation of |CL| on a new system
+For this tutorial, you can use an existing |CL| system, or you can start with a clean installation of |CL| on a new system
 using the :ref:`bare-metal-install` getting started guide and:
 
 #. Choose the automatic install.
 #. Join the :guilabel:`Stability Enhancement Program` during the installation process to enable the telemetrics client components.
 
+If you are using an existing |CL| system, make sure you have installed the telemetry bundle.  Use the :command:`swupd` utility with the `bundle-list` option and check for "telemetrics" in the list:
+
+.. code-block:: bash
+
+  sudo swupd bundle-list
+
+If you need to install the telemetrics bundle, use :command:`swupd` to do so.
+
+.. code-block:: bash
+
+  sudo swupd bundle-add telemetrics
+
+More information about enabling and configuring the telemetry client can be found at :ref:`telemetry-enable`.
+
+
 You can also set up a telemetry backend server; you can use the same |CL| system we're working with for this tutorial, or setup on a separate system.  Follow the :ref:`telemetry-backend` guide to setup the server and redirect your telemetry records to it. Refer to the :ref:`telemetry-config` guide to configure the telemetry client and specify where to send the records.
 
-If you choose to use the default |CL| telemetry server, you may want to enable local storage of telemetry records so you can inspect the payload.  The :ref:`telemetry-config` guide will walk through how to enable local storage.
+If you choose to use the default |CL| telemetry server, you may want to enable local storage of telemetry records so you can inspect the payload. You will not be able to directly access the records on the default telemetry server.  The :ref:`telemetry-config` guide will walk through how to enable local storage.
 
-Once the telemetry backend server is running, and you have verified that your client is enabled and sending records to the server by using the :command:`hprobe` utility, you're ready to begin adding custom telemetry events to your applications.
+Once the telemetry backend server is running and/or you have enabled local retention of the records, and you have verified that your client is enabled and sending records to the server by using the :command:`hprobe` utility, you're ready to begin adding custom telemetry events to your applications.
 
 Creating custom telemetry events
 ================================
