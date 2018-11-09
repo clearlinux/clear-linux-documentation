@@ -1,6 +1,6 @@
 .. _multi-boot-restore-bl:
 
-Restore the Clear Linux boot loader
+Restore the |CL-ATTR| boot loader
 ###################################
 
 This guide is part of the :ref:`multi-boot` tutorial. If you install a new

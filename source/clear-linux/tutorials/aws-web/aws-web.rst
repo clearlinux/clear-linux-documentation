@@ -1,6 +1,6 @@
 .. _aws-web:
 
-Create and launch Clear Linux from Amazon Web Services
+Create and launch |CL-ATTR| from Amazon Web Services
 ######################################################
 
 This tutorial walks you through creating and launching a |CL|
@@ -25,14 +25,14 @@ This tutorial assumes the following statements are true:
   directory.
 * You have already set up an AWS user account and logged into the AWS
   console.
-  
+
 .. note::
    This tutorial uses a |CL| AMI t2.micro instance that is eligible for the
    AWS free tier. To learn more about AWS and setting up an account, visit the
    AWS website at http://aws.amazon.com.
 
-Locate, select, and launch the Clear Linux OS Basic AMI
-*******************************************************
+Locate, select, and launch the |CL| Basic AMI
+*********************************************
 
 #. Start from your main AWS services console menu in your browser and select the
    :guilabel:`EC2` text as shown in figure 1:
@@ -57,18 +57,18 @@ Locate, select, and launch the Clear Linux OS Basic AMI
    This selection takes you to the
    :guilabel:`Step 1: Choose an Amazon Machine Image (AMI)` menu.
 
-#. To find the :guilabel:`|CL| OS Basic` AMI in the
+#. To find the :guilabel:`Clear Linux OS Basic` AMI in the
    :guilabel:`Step 1: Choose an Amazon Machine Image (AMI)` menu, do the
    following:
-   
+
    #. In the lefthand navigation window, select the
       :guilabel:`AWS Marketplace` menu item to bring up the search bar to
       :guilabel:`Search AWS Marketplace Products`.
 
-   #. In the search bar, type `clear linux os` and hit the :kbd:`Enter` key to
-      search for and locate the :guilabel:`|CL| OS Basic` AMI.
+   #. In the search bar, type "clear linux os" and hit the :kbd:`Enter` key to
+      search for and locate the :guilabel:`Clear Linux OS Basic` AMI.
 
-   #. Select the :guilabel:`|CL| OS Basic` AMI by clicking on the
+   #. Select the :guilabel:`Clear Linux OS Basic` AMI by clicking on the
       :guilabel:`Select` button as shown in figure 3:
 
       .. figure:: figures/aws-web-3.png
@@ -78,7 +78,7 @@ Locate, select, and launch the Clear Linux OS Basic AMI
          Figure 3: :guilabel:`Step 1: Choose AMI`
 
    #. A pop-up dialog box appears showing you more information about the
-      :guilabel:`|CL| OS Basic` AMI along with the pricing details for running
+      :guilabel:`Clear Linux OS Basic` AMI along with the pricing details for running
       |CL| on different platform configurations as shown in figure 4. Select
       the :guilabel:`Continue` button.
 
@@ -129,13 +129,13 @@ Locate, select, and launch the Clear Linux OS Basic AMI
          Figure 7: :guilabel:`Select an existing key pair or create a new pair`
 
       #. Select the :guilabel:`Create a new key pair` option.
-      
+
       #. For the :guilabel:`Key pair name` field, enter `AWSClearTestKey`.
-      
+
       #. Select the :guilabel:`Download Key Pair` button to download the
          :file:`AWSClearTestKey.pem` to your browser's defined
          :file:`Downloads` directory.
-         
+
       #. When the file finishes downloading, select the
          :guilabel:`Launch Instances` button to proceed to the
          :guilabel:`Launch Status` menu shown in figure 8.
@@ -171,8 +171,8 @@ other instances available, they are also listed but not selected.
 
 #. To connect to your running instance, click the :guilabel:`Connect` button
    located at the top of your dashboard. AWS brings up the pop-up dialog
-   box shown in figure 11 describing how to connect to your running instance. 
-   
+   box shown in figure 11 describing how to connect to your running instance.
+
 .. _fig-aws-web-11:
 
 .. figure:: figures/aws-web-11.png
@@ -223,10 +223,10 @@ other instances available, they are also listed but not selected.
    .. code-block:: console
 
       Warning: Permanently added 'ec2-34-209-39-184.us-west-2.compute.amazonaws.com,34.209.39.184' (ECDSA) to the list of known hosts.
-      clear@clr-96a8565d0ca54b0c80364a1e5e7b0f88 ~ $ 
+      clear@clr-96a8565d0ca54b0c80364a1e5e7b0f88 ~ $
 
-Update the Clear Linux OS instance
-**********************************
+Update the |CL| instance
+************************
 
 Run the :command:`sudo swupd update` command to update the operating
 system as shown in figure 12:
@@ -239,8 +239,8 @@ system as shown in figure 12:
 
 In this example we updated from version 18940 to 19100.
 
-Stop the Clear Linux OS instance
-********************************
+Stop the |CL| instance
+**********************
 
 When you are finished using your AWS |CL| instance you need to stop it using
 the :guilabel:`Instances` dashboard to stop accruing charges. Complete the

@@ -87,7 +87,7 @@ of containers by using a hardware-backed virtual machine container runtime
 rather than software namespace containers that are provided by the standard
 Docker *runc* runtime.
 
-Clear Linux provides easy integration of the *kata-runtime* with Docker.
+|CL| provides easy integration of the *kata-runtime* with Docker.
 More information on installing and using  the *kata-runtime* may be found at :ref:`kata`.
 
 

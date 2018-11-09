@@ -1,9 +1,9 @@
 .. _telemetry-backend:
 
-Create a telemetry backend server in Clear Linux
-################################################
+Create a telemetry backend server in |CL-ATTR|
+##############################################
 
-|CLOSIA| includes a telemetry and analytics solution, also known as
+|CL-ATTR| includes a telemetry and analytics solution, also known as
 telemetrics, as part of the OS that records events of interest and reports
 them back to the development team using the telemetrics daemons that are
 running on the |CL| client system.
@@ -23,14 +23,13 @@ A telemetry backend server consists of two Flask applications:
 The applications run within a web stack, using the :guilabel:`nginx` web
 server, the :guilabel:`uWSGI` application server, and
 :guilabel:`PostgreSQL` as the underlying database server. For a detailed
-description, visit the `Clear Linux telemetry backend server overview`_.
+description, visit the |CL| `telemetrics backend`_ server overview.
 
 This tutorial walks you through creating a telemetrics backend server on
 your local |CL| machine. The tutorial uses the :command:`deploy.sh` bash
-shell script that is maintained in a GitHub repository at
-https://github.com/clearlinux/telemetrics-backend. Once the backend server is
-up and running, we show you how to redirect telemetry records from the system
-you set up to this new server location.
+shell script that is maintained in a the `telemetrics backend`_ GitHub repository.
+Once the backend server isup and running, we show you how to redirect telemetry
+records from the system you set up to this new server location.
 
 .. note::
    The telemetrics functionality adheres to `Intel privacy policies`_
@@ -82,7 +81,7 @@ Run the deploy.sh script to install the backend server
 
    cd telemetrics-backend/scripts
    ./deploy.sh -h
-  
+
    Deploy snapshot of the telemetrics-backend
 
      -a    Perform specified action (deploy, install, migrate, resetdb,
@@ -111,8 +110,8 @@ following actions:
 * *uninstall* - uninstall all packages.
 
   .. note::
-  
-     The *uninstall* option does not perform any actions if the 
+
+     The *uninstall* option does not perform any actions if the
      distro is set to |CL| and will only uninstall packages if the distro is
      Ubuntu
 
@@ -160,7 +159,7 @@ To begin the installation with the options defined:
 
 #. For the :guilabel:`DB password:`, press the :kbd:`Enter` key to accept the
    default password `postgres`.
-   
+
 The :command:`swupd` begins installing the required software bundles to set
 up the telemetrics backend server. The output will look similar to what is
 shown below:
@@ -234,7 +233,7 @@ the requirements to install and implement the telemetrics server. Finally,
 the script enables the server and provides output similar to:
 
 .. code-block:: console
-   
+
    Collecting uwsgitop
      Downloading uwsgitop-0.10.tar.gz
    Requirement already satisfied: simplejson in /usr/lib/python3.6/site-packages (from uwsgitop)
@@ -331,7 +330,7 @@ Once all the server components have been installed you are prompted to enter
 the :guilabel:`PostgreSQL` database password to change it as illustrated below:
 
 .. code-block:: console
-   
+
    Enter password for 'postgres' user:
    New password:
    Retype new password:
@@ -344,7 +343,7 @@ database password will be updated.
 The script finalizes installation and finishes.
 
 .. code-block:: console
-   
+
    Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
    Cloning into 'telemetrics-backend'...
    remote: Counting objects: 344, done.
@@ -461,8 +460,8 @@ server, redirected the records from your local machine to this new server and
 tested it using the :command:`hprobe` command to send a ``hello`` record to
 it.
 
-Additional resources
-********************
+Related topics
+**************
 
 * `Telemetry feature description`_
 * :ref:`Telemetry architecture<telemetry-about>`
@@ -470,7 +469,7 @@ Additional resources
 * https://github.com/clearlinux/telemetrics-client
 * https://github.com/clearlinux/telemetrics-backend
 
-.. _`Clear Linux telemetry backend server overview`:
+.. _`telemetrics backend`:
    https://github.com/clearlinux/telemetrics-backend
 
 .. _`Intel privacy policies`:
