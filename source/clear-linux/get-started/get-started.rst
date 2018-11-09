@@ -17,6 +17,7 @@ Pre-install
 Install |CL| 
 ************
 
+* :ref:`bare-metal-install-beta`
 * :ref:`bare-metal-install` 
 * :ref:`bare-metal-manual-install`
 * :ref:`virtual-machine-install`
