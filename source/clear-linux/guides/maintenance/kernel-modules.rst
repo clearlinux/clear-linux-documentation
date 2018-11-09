@@ -106,7 +106,7 @@ Loading kernel modules
     .. code-block:: bash
 
         sudo mkdir -p /etc/kernel/cmdline.d
-        sudo echo “module.sig_unenforce” > /etc/kernel/cmdline.d/load-modules.conf
+        sudo echo "module.sig_unenforce" > /etc/kernel/cmdline.d/load-modules.conf
 
 #. Update the boot manager and reboot the system to implement the changed 
    kernel parameters.
