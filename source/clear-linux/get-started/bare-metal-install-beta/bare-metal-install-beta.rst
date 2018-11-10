@@ -1,10 +1,10 @@
 .. _bare-metal-install-beta:
 
-Install |CL-ATTR| beta on bare metal
-####################################
+Install |CL-ATTR| on bare metal
+###############################
 
-These instructions guide you through the installation of a |CL-ATTR|
-on bare metal using a bootable USB drive. 
+These instructions guide you through |CL-ATTR| installation using
+a live install image, which includes a desktop image installer. 
 
 .. contents:: :local:
    :depth: 1
@@ -12,43 +12,17 @@ on bare metal using a bootable USB drive.
 Prerequisites
 *************
 
-You must have the `live image` burned onto a USB drive. Image types  
-are available for various platforms:  
-  
-* :ref:`bootable-usb`.
+You must have the |CL| `live install image` burned onto a USB drive. 
+:ref:`Select here for instructions on the live install image 
+<bare-metal-install-beta-intro>`
+
+Our target system has a hard drive containing a single primary
+partition. The target system needs a wired Internet connection with DHCP.
 
 Before starting, assure your target system supports the installation: 
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
-
-.. _download-the-latest:
-
-Install |CL| on your target system
-**********************************
-
-We formatted the previously created USB drive as a UEFI boot device. Our
-target system has a hard drive installed containing a single primary
-partition. The target system needs a wired Internet connection with DHCP.
-
-Follow these steps to install |CL| on the target system:
-
-#. Insert the USB drive into an available USB slot.
-
-#. Power on the system.
-
-#. Open the system BIOS setup menu by selecting the :kbd:`F2` key.
-
-   .. note::
-
-      The key selected to access the BIOS setup menu may vary.
-
-#. In the setup menu, enable the UEFI boot and set the USB drive as the first
-   option in the device boot order.
-
-#. Save these settings and exit.
-
-#. Reboot the target system.
 
 .. _minimum-installation-requirements: 
 
