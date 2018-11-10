@@ -8,6 +8,10 @@ configure the proxies:
 * Remove unset proxies from the equation when dealing with network
   unavailability across systems.
 
+* Automate unit testing without worrying about the proxy not being set
+* Remove unset proxies from the equation when dealing with network
+  unavailability across systems.
+
 Corporate and private networks can be very complex, needing to restrict and
 control network connections for security reasons. The typical side effects
 are limited or blocked connectivity and requiring manual configuration of
