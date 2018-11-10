@@ -9,7 +9,7 @@ your OS.
 Requirements: 
 
 * Use a **16GB** or larger USB drive. 
-* `Download the live image installer here`_. [link to live desktop img/dir]
+* Target system requirements [TBD]
 
 Choose the operating system where you will download and burn the live
 image onto a USB: 
@@ -193,7 +193,4 @@ Burn the |CL| image onto a USB drive
       :alt: Rufus utility - Click the START button
          
       Figure 3: Rufus utility - Click START button
-
-
-.. _Download the live image here: https://download.clearlinux.org/image/
 
