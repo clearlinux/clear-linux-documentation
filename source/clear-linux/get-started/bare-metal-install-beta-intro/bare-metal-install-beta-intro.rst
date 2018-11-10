@@ -1,18 +1,17 @@
 .. _bare-metal-install-beta-intro: 
 
-Install |CL-ATTR| with live desktop image
+Install |CL-ATTR| with live install image
 #########################################
 
-The live desktop image allows you to boot the |CL| GNOME desktop and install 
-|CL| from the contents of the image.  Access our |CL| image installer from 
-the GNOME desktop and explore the power. 
+The live install image allows you to boot the |CL| GNOME desktop and install 
+|CL|. Access our |CL| image installer from the GNOME desktop and explore the power. 
 
 First, prepare your environment: 
 
-#. :ref: `Download and burn a live install image compatible with 
-   your native OS <bootable-usb-beta-all>`. 
+* Create a bootable :ref: `USB compatible with your OS on which you will 
+  write the live install image <bootable-usb-beta-all>`. 
 
-#. `Download the live install image here`_. [link img/dir or state filename]
+* `Download the live install image`_. [link img/dir or state filename]
 
 Get started 
 ***********
