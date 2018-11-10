@@ -3,19 +3,22 @@
 Install |CL-ATTR| with live desktop image
 #########################################
 
-A live installer image is now available that launches a |CL| installer from 
-the GNOME desktop. 
+The live desktop image allows you to boot the |CL| GNOME desktop and install 
+|CL| from the contents of the image.  Access our |CL| image installer from 
+the GNOME desktop and explore the power. 
 
-#. Follow these steps to :ref: `download and burn a new live image, based 
-   on your OS <bootable-usb-beta-all>`. 
+First, prepare your environment: 
 
-#. `Download the live image installer here`_. [link to live desktop img/dir]
+#. :ref: `Download and burn a live install image compatible with 
+   your native OS <bootable-usb-beta-all>`. 
 
-Getting started with the live image installer
-*********************************************
+#. `Download the live install image here`_. [link img/dir or state filename]
 
-After you've successfully downloaded and burned the installer image on a USB drive, follow these steps to boot up from the live installer image. 
+Get started 
+***********
 
+After you've successfully downloaded and burned the live install image on a 
+USB drive, follow these steps. 
 
 #. Insert the USB drive into an available USB slot.
 
@@ -32,12 +35,14 @@ After you've successfully downloaded and burned the installer image on a USB dri
 
 #. Save these settings and exit.
 
+	..TODO: We can clarify that "Reboot your OS where you plan to install." 
+
 #. Reboot the target system.
 
-#. The |CL| live image will boot as shown in Figure 1. 
+#. The |CL| live install image will boot as shown in Figure 1. 
 
    .. figure:: figures/live-desktop-1.png
-	  :scale: 100 %
+	  :scale: 50 %
 	  :alt: The |CL| GNOME desktop
 
 	  Figure 1: The |CL| GNOME desktop
@@ -47,21 +52,21 @@ After you've successfully downloaded and burned the installer image on a USB dri
 #. Select the |CL| icon, **Install CLear Linux OS**, shown in Figure 2. 
 
    .. figure:: figures/live-desktop-2.png
-	  :scale: 100 %
-	  :alt: Install Clear Linnux icon
+	  :scale: 50 %
+	  :alt: Install Clear Linux icon
 
-	  Figure 2: Install Clear Linnux icon
+	  Figure 2: Install Clear Linux icon
 
-#. Upon selecting the |CL| icon, the bare metal installer user interface is 
+#. Upon selecting the |CL| icon, the installer user interface is 
    launched, as shown in Figure 3.
 
    .. figure:: figures/live-desktop-3.png
-	  :scale: 100 %
-	  :alt: Install Clear Linnux icon
+	  :scale: 50 %
+	  :alt: Install Clear Linux icon
 
-	  Figure 3: Install Clear Linnux icon
+	  Figure 3: Install Clear Linux icon
 
-#. Follow the instructions in the :ref:`bare-metal-install-beta`
+#. Continue with installation by following :ref:`bare-metal-install-beta`
 
 
-
+.. _Download the live install image here: https://download.clearlinux.org/image/
