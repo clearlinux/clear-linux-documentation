@@ -1,22 +1,41 @@
 .. _bare-metal-install-beta-intro: 
 
-Install |CL-ATTR| with live install image
-#########################################
+Boot the |CL-ATTR| live install image
+#####################################
 
-The live install image allows you to boot the |CL| GNOME desktop and install 
-|CL|. Access our |CL| image installer from the GNOME desktop and explore the power. 
+The live install image allows you to boot |CL-ATTR| into a GNOME desktop 
+without modifying the host system. Using the live image, you can explore the 
+possibilities of developing with |CL|. You can launch the image installer 
+and install |CL| on your target system. 
 
-First, prepare your environment: 
+.. contents:: :local:
+   :depth: 1
 
-* Create a bootable :ref: `USB compatible with your OS on which you will 
-  write the live install image <bootable-usb-beta-all>`. 
+Prerequisites
+*************
 
-* `Download the live install image`_. [link img/dir or state filename]
+Before starting, assure your target system supports the installation: 
 
-Get started 
-***********
+* :ref:`system-requirements`
+* :ref:`compatibility-check`
 
-After you've successfully downloaded and burned the live install image on a 
+Preliminary steps 
+*****************
+
+#. `Download the live install image`_. [link img/dir or filename]
+
+#. Follow your OS instructions to create a bootable USB drive.
+
+   * :ref:`bootable-usb-linux`
+   * :ref:`bootable-usb-mac`
+   * :ref:`bootable-usb-windows`
+
+.. _install-from-live-image
+
+Install from live image
+***********************
+
+After you've downloaded and burned the live install image on a
 USB drive, follow these steps. 
 
 #. Insert the USB drive into an available USB slot.
@@ -34,21 +53,25 @@ USB drive, follow these steps.
 
 #. Save these settings and exit.
 
-	..TODO: We can clarify that "Reboot your OS where you plan to install." 
-
 #. Reboot the target system.
 
-#. The |CL| live install image will boot as shown in Figure 1. 
+
+Launch the installer
+********************
+
+#. After the |CL| live install image boots, select the Activities 
+   menu in the upper left. 
+
+#. Select the |CL| icon, **Install CLear Linux OS**, shown in Figure 1. 
 
    .. figure:: figures/live-desktop-1.png
 	  :scale: 50 %
-	  :alt: The |CL| GNOME desktop
+	  :alt: Install Clear Linux icon
 
-	  Figure 1: The |CL| GNOME desktop
+	  Figure 1: Install Clear Linux icon
 
-#. Select the Activities menu in the upper left. 
-
-#. Select the |CL| icon, **Install CLear Linux OS**, shown in Figure 2. 
+#. After selecting the |CL| icon, the installer is launched, as shown in 
+   Figure 2.
 
    .. figure:: figures/live-desktop-2.png
 	  :scale: 50 %
@@ -56,16 +79,7 @@ USB drive, follow these steps.
 
 	  Figure 2: Install Clear Linux icon
 
-#. Upon selecting the |CL| icon, the installer user interface is 
-   launched, as shown in Figure 3.
-
-   .. figure:: figures/live-desktop-3.png
-	  :scale: 50 %
-	  :alt: Install Clear Linux icon
-
-	  Figure 3: Install Clear Linux icon
-
-#. Continue with installation by following :ref:`bare-metal-install-beta`
+#. Continue to :ref:`bare-metal-install-beta`
 
 
 .. _Download the live install image here: https://download.clearlinux.org/image/
