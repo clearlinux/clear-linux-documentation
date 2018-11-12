@@ -3,26 +3,11 @@
 Install |CL-ATTR| on bare metal
 ###############################
 
-These instructions guide you through |CL-ATTR| installation using
-a live install image, which includes a desktop image installer. 
+These instructions guide you through installation of |CL-ATTR| using
+a live image, which includes a desktop image installer. 
 
 .. contents:: :local:
    :depth: 1
-
-Prerequisites
-*************
-
-You must have the |CL| `live install image` burned onto a USB drive. 
-:ref:`Select here for instructions on the live install image 
-<bare-metal-install-beta-intro>`
-
-Our target system has a hard drive containing a single primary
-partition. The target system needs a wired Internet connection with DHCP.
-
-Before starting, assure your target system supports the installation: 
-
-* :ref:`system-requirements`
-* :ref:`compatibility-check`
 
 .. _minimum-installation-requirements: 
 
@@ -35,13 +20,13 @@ To fulfill minimum installation requirements, complete
 .. note::
 
    * In the Main menu, the :kbd:`Install` button is highlighted 
-     **only after** you complete :ref:`reqiured-options-installation`.
+     **only after** you complete :ref:`required-options-installation`.
 
    * You must choose whether or not to participate in :ref:`telemetry`
      before you can :ref:`complete_installation`.
 
    * You may wish to :ref:`test-network-settings` before you 
-     :ref:`configure-network-interfaces`.
+     :ref:`configure-network-interfaces`. Assure that a ``Success`` message is received.
 
 Main menu
 *********
@@ -74,7 +59,7 @@ Navigation
 
      Figure 1: :guilabel:`|CL| Installer main menu`
 
-.. _reqiured-options-installation:
+.. _required-options-installation:
 
 Required options
 ****************
@@ -164,6 +149,8 @@ Configure Media
       Available media appear by default. 
 
 #. Navigate to the desired media until highlighted. 
+
+    .. TODO: Add another screenshot showing contextual menu. 
 
 #. Select :kbd:`Enter` or :kbd:`Spacebar` to select it.
 
@@ -729,90 +716,10 @@ Complete installation
 
 #. When the system reboots, remove any installation media present.
 
+
 **Congratulations!**
 
-You have successfully installed the |CL| beta on bare metal using a bootable 
-USB drive.
-
-.. Next steps
-.. ==========
-
-.. |CL| is designed to install with minimal software overhead. Therefore, some
-.. housekeeping and package installations could be needed before you can take
-.. full advantage of the |CL| operating system. These instructions are captured
-.. in the :ref:`enable-user-space`.
-
-.. _image: https://download.clearlinux.org/image
+You have successfully installed |CL| on bare metal using the live image beta
+installer.
 
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
-
-
-.. _bootable-usb-windows:
-
-Create a bootable USB drive on Windows\*
-########################################
-
-Follow these instructions to create a bootable |CL-ATTR| USB drive.
-Use an **8GB** or larger USB drive. Download either a live image, 
-``clear-<version>-live.img.xz`` or an installer image, 
-``clear-<version>-installer.img.xz``, from our `image`_ download page.
-
-Instructions are also available for other operating systems:
-
-* :ref:`bootable-usb-mac`
-* :ref:`bootable-usb-linux`
-
-.. include:: ../../reference/image-types.rst
-   :start-after: incl-image-filename: 
-   :end-before: incl-image-filename-end:
-
-.. include:: ../../guides/maintenance/download-verify-decompress-windows.rst
-   :Start-after: verify-windows:
-
-Burn the |CL| image onto a USB drive
-************************************
-
-.. caution::
-
-   |CAUTION-BACKUP-USB|
-
-#. Download the `Rufus`_ utility to burn the image onto a USB drive.
-
-#. Plug in the USB drive and open Rufus.
-
-#. Click the :guilabel:`SELECT` button. See Figure 1.
-
-   .. figure:: figures/bootable-usb-windows-1.png
-      :scale: 80 %
-      :alt: Rufus utility - Click the SELECT button
-
-      Figure 1: Rufus utility - Click the SELECT button
-
-#. Find and select the previously extracted |CL| image file. 
-   Then, click the  :guilabel:`Open` button. See Figure 2.
-
-   .. figure:: figures/bootable-usb-windows-2.png
-      :scale:  80 %
-      :alt: Rufus utility - Show and select |CL| image file
-
-      Figure 2: Rufus utility - Show and select |CL| image file
-    
-#. Click the :guilabel:`START` button. See Figure 3.
-
-   .. figure:: figures/bootable-usb-windows-3.png
-      :scale: 80 %
-      :alt: Rufus utility - Click the START button
-         
-      Figure 3: Rufus utility - Click START button
-
-Next steps
-**********
-
-With a bootable |CL| USB drive, you can:
-
-* :ref:`bare-metal-install`
-* :ref:`boot-live-image`
-* :ref:`multi-boot`
-
-.. _Rufus: http://rufus.akeo.ie/
-.. _image: https://download.clearlinux.org/image
