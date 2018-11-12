@@ -6,24 +6,21 @@ Create a bootable USB on your OS
 Follow these instructions to create a bootable |CL-ATTR| USB drive based on 
 your OS.
 
-Requirements: 
-
-* Use a **16GB** or larger USB drive. 
-* Target system requirements [TBD]
-
-Choose the operating system where you will download and burn the live
-image onto a USB: 
-
 .. contents:: :local:
    :depth: 1
 
-Create a bootable USB drive on Linux\*
-**************************************
+Requirements: 
+
+* Use a **16GB** or larger USB drive. 
+
+.. _bootable-usb-linux:
+
+Create a bootable USB drive on Linux
+************************************
 
 .. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
    :Start-after: verify-linux:
 
-.. _copy-usb-linux:
 
 Burn the |CL| image onto a USB drive
 ====================================
@@ -194,3 +191,7 @@ Burn the |CL| image onto a USB drive
          
       Figure 3: Rufus utility - Click START button
 
+Return to install from live image
+*********************************
+
+Select here to return to :ref:`install-from-live-image`
