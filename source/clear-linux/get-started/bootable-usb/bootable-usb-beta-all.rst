@@ -13,7 +13,7 @@ Requirements:
 
 * Use a **16GB** or larger USB drive. 
 
-.. _bootable-usb-linux:
+.. _bootable-usb-linux-all:
 
 Create a bootable USB drive on Linux
 ************************************
@@ -90,7 +90,7 @@ Burn the |CL| image onto a USB drive
 
       dd if=./clear-[version number]-[image type] of=/dev/sdd bs=4M status=progress
 
-.. _bootable-usb-mac:
+.. _bootable-usb-mac-all:
 
 Create a bootable USB drive on macOS*
 *************************************
@@ -147,7 +147,7 @@ Burn the |CL| image onto a USB drive
 
       diskutil eject /dev/disk2
 
-.. _bootable-usb-windows:
+.. _bootable-usb-windows-all:
 
 Create a bootable USB drive on Windows\*
 ****************************************
@@ -195,3 +195,5 @@ Return to install from live image
 *********************************
 
 Select here to return to :ref:`install-from-live-image`
+
+.. _Rufus: https://rufus.ie/
