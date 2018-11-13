@@ -22,8 +22,8 @@ To fulfill minimum installation requirements, complete
    * In the Main menu, the :kbd:`Install` button is highlighted 
      **only after** you complete :ref:`required-options-installation`.
 
-   * You must choose whether or not to participate in :ref:`telemetry`
-     before you can :ref:`complete_installation`.
+   * You must choose whether or not to participate in :ref:`telemetrics`
+     before you can :ref:`complete-cl-installation`.
 
    * You may wish to :ref:`test-network-settings` before you 
      :ref:`configure-network-interfaces`. Assure that a ``Success`` message is received.
@@ -663,7 +663,7 @@ Assign Hostname
 
 #. In Advanced Options, select :guilabel:`Assign Hostname`. 
 
-#. In :guilabel:`Hostname', enter the hostname only (excluding the domain).
+#. In :guilabel:`Hostname`, enter the hostname only (excluding the domain).
 
    .. note::
 
@@ -719,7 +719,6 @@ Complete installation
 
 **Congratulations!**
 
-You have successfully installed |CL| on bare metal using the live image beta
-installer.
+You have successfully installed |CL| on bare metal using the new installer.
 
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
