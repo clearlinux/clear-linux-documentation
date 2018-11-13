@@ -3,8 +3,8 @@
 Install |CL-ATTR| on bare metal
 ###############################
 
-These instructions guide you through installation of |CL-ATTR| using
-a live image, which includes a desktop image installer. 
+These instructions guide you through installation of |CL-ATTR| on bare metal 
+using the new installer. 
 
 .. contents:: :local:
    :depth: 1
@@ -53,7 +53,7 @@ Navigation
 
   The |CL| Installer main menu appears as shown in Figure 1.
 
-  .. figure:: figures/bare-metal-install-1.png
+  .. figure:: figures/bare-metal-install-beta-1.png
      :scale: 50 %
      :alt: Clear Linux OS Installer main menu
 
@@ -83,7 +83,7 @@ Choose timezone
       Select :guilabel:`Cancel` to restore the previously defined value and
       return to the main menu.
 
-   .. figure:: figures/bare-metal-install-2.png
+   .. figure:: figures/bare-metal-install-beta-2.png
       :scale: 50 %
       :alt: Select System Timezone
 
@@ -106,7 +106,7 @@ Choose Language
 
       Select :guilabel:`Cancel` to restore the previously defined value and return to the main menu.  
 
-   .. figure:: figures/bare-metal-install-3.png
+   .. figure:: figures/bare-metal-install-beta-3.png
       :scale: 50 %
       :alt: Select System Language 
 
@@ -133,7 +133,7 @@ Configure the Keyboard
 
       Select :guilabel:`Cancel` to restore the previously defined value and return to the main menu.  
 
-   .. figure:: figures/bare-metal-install-4.png
+   .. figure:: figures/bare-metal-install-beta-4.png
       :scale: 50 %
       :alt: Select Keyboard menu
 
@@ -160,7 +160,7 @@ Configure Media
    :guilabel:`Add Partition` to add partitions manually. See 
    instructions below.
 
-   .. figure:: figures/bare-metal-install-5.png
+   .. figure:: figures/bare-metal-install-beta-5.png
       :scale: 50 %
       :alt: Configure Media menu 
 
@@ -177,7 +177,8 @@ Configure Media
 
 #. Select :kbd:`Enter` to :kbd:`Confirm`.
 
-**Continue with one partitioning option below**: 
+Choose one partitioning option below 
+------------------------------------
 
 * :ref:`auto-partition` 
 * :ref:`add-partition`  
@@ -198,7 +199,7 @@ Auto partition will configure the media to meet the minimum requirements.
 
    This action returns you to the Main Menu. 
 
-   .. figure:: figures/bare-metal-install-6.png
+   .. figure:: figures/bare-metal-install-beta-6.png
       :scale: 50 %
       :alt: Auto Partition 
 
@@ -254,7 +255,7 @@ boot partition
 
 #. Select :guilabel:`Enter` to confirm. 
 
-   .. figure:: figures/bare-metal-install-7.png
+   .. figure:: figures/bare-metal-install-beta-7.png
       :scale: 50 %
       :alt: boot partition 
 
@@ -278,7 +279,7 @@ swap partition
 
 #. Select :guilabel:`Enter` to continue. 
 
-   .. figure:: figures/bare-metal-install-8.png
+   .. figure:: figures/bare-metal-install-beta-8.png
       :scale: 50 %
       :alt: swap partition 
 
@@ -306,7 +307,7 @@ root partition
 
 #. Select :guilabel:`Confirm` to complete the media selection. 
 
-   .. figure:: figures/bare-metal-install-9.png
+   .. figure:: figures/bare-metal-install-beta-9.png
       :scale: 50 %
       :alt: root partition 
 
@@ -314,7 +315,7 @@ root partition
 
    You are returned to the :guilabel:`Configure media` menu. Your partitions should appear similar to those shown in Figure 10. 
 
-   .. figure:: figures/bare-metal-install-10.png
+   .. figure:: figures/bare-metal-install-beta-10.png
       :scale: 50 %
       :alt: root partition 
 
@@ -341,7 +342,7 @@ For more detailed information, see our :ref:`telemetry-about` page.
 
 #. Select :kbd:`Enter` to confirm.
 
-   .. figure:: figures/bare-metal-install-11.png
+   .. figure:: figures/bare-metal-install-beta-11.png
       :scale: 50 %
       :alt: Enable Telemetry 
 
@@ -383,7 +384,7 @@ interface settings are automatically applied.
 
    .. note:: Multiple network interfaces may appear.  
 
-   .. figure:: figures/bare-metal-install-12.png
+   .. figure:: figures/bare-metal-install-beta-12.png
       :scale: 50 %
       :alt: CAPTION BELOW 
 
@@ -394,7 +395,7 @@ interface settings are automatically applied.
    Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select
    :kbd:`Spacebar` to deselect. 
 
-   .. figure:: figures/bare-metal-install-13.png
+   .. figure:: figures/bare-metal-install-beta-13.png
       :scale: 50 %
       :alt: Network interface configuration
 
@@ -434,7 +435,7 @@ instruction.
  
 #. Navigate to the field :guilabel:`HTTPS Proxy`. 
    
-   .. figure:: figures/bare-metal-install-14.png
+   .. figure:: figures/bare-metal-install-beta-14.png
       :scale: 50 %
       :alt: Configure the network proxy
 
@@ -460,7 +461,7 @@ select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
 A progress bar appears as shown in Figure 15. 
 
-.. figure:: figures/bare-metal-install-15.png
+.. figure:: figures/bare-metal-install-beta-15.png
    :scale: 50 %
    :alt: Testing Networking dialogue
 
@@ -483,7 +484,7 @@ Bundle Selection
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle. 
    
 
-   .. figure:: figures/bare-metal-install-16.png
+   .. figure:: figures/bare-metal-install-beta-16.png
       :scale: 50 %
       :alt: Bundle selection
 
@@ -505,7 +506,7 @@ Add new users
 
 #. Select :guilabel:`Add a new user` as shown in Figure 17. 
 
-   .. figure:: figures/bare-metal-install-17X.png
+   .. figure:: figures/bare-metal-install-beta-17.png
       :scale: 50 %
       :alt: Add New User, User Name 
 
@@ -518,7 +519,7 @@ Add new users
 
       The User Name must be alphanumeric and can include spaces, commas, or hyphens. Maximum length is 64 characters. 
 
-   .. figure:: figures/bare-metal-install-18.png
+   .. figure:: figures/bare-metal-install-beta-18.png
       :scale: 50 %
       :alt: User Name 
 
@@ -545,7 +546,7 @@ Add new users
 
       Selecting this option enables sudo privileges for the user. 
 
-   .. figure:: figures/bare-metal-install-19.png
+   .. figure:: figures/bare-metal-install-beta-19.png
       :scale: 50 %
       :alt: Administrative rights
 
@@ -564,7 +565,7 @@ Modify / Delete User
 
 #. Select :kbd:`Enter` to modify the user. 
 
-   .. figure:: figures/bare-metal-install-20.png
+   .. figure:: figures/bare-metal-install-beta-20.png
       :scale: 50 %
       :alt: Modify User
 
@@ -602,7 +603,7 @@ new kernel.
 
 #. To add or remove arguments, choose one of the following options. 
 
-   .. figure:: figures/bare-metal-install-21.png
+   .. figure:: figures/bare-metal-install-beta-21.png
       :scale: 50 %
       :alt: kernel command line
 
@@ -627,7 +628,7 @@ Select a kernel option. By default, the latest kernel release is selected.
    You may choose a different option, such as kernel with Long Term Support 
    (LTS). To do so, select :guilabel:`Tab` until the kernel option is highlighted. 
 
-   .. figure:: figures/bare-metal-install-22.png
+   .. figure:: figures/bare-metal-install-beta-22.png
       :scale: 50 %
       :alt: Kernel selection
 
@@ -650,7 +651,7 @@ If you have your own custom mirror of |CL|, you may want add that URL.
 
 #. Select :kbd:`Confirm`. 
 
-   .. figure:: figures/bare-metal-install-23.png
+   .. figure:: figures/bare-metal-install-beta-23.png
       :scale: 50 %
       :alt: Swupd Mirror
 
@@ -669,7 +670,7 @@ Assign Hostname
 
       Hostname does not allow empty spaces. Hostname must start with an alphanumeric character but may also contain hyphens. Maximum length of 63 characters. 
 
-   .. figure:: figures/bare-metal-install-24.png
+   .. figure:: figures/bare-metal-install-beta-24.png
       :scale: 50 %
       :alt: Assign Hostname
 
@@ -692,7 +693,7 @@ follow the onscreen instructions.
 
 #. Select the desired option. 
 
-   .. figure:: figures/bare-metal-install-25.png
+   .. figure:: figures/bare-metal-install-beta-25.png
       :scale: 50 %
       :alt: Automatic OS Updates
 
