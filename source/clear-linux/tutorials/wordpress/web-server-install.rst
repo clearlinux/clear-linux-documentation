@@ -55,7 +55,7 @@ Apache software bundle on |CL|.
       sudo systemctl start httpd.service
 
 #. To verify that the Apache server application is running, open a web
-   browser and navigate to: http://localhost.
+   browser and navigate to: \http://localhost.
 
    If the service is running, a confirmation message will appear, similar to the
    message shown in figure 1.
@@ -157,7 +157,7 @@ default values, and define a custom DocumentRoot for your web server.
       sudo systemctl stop httpd.service
       sudo systemctl start httpd.service
 
-#. Go to http://localhost to view the new screen. You should see your updated
+#. Go to \http://localhost to view the new screen. You should see your updated
    default message from step 5.
 
 #. Change the configuration back to the default :file:`/var/www/html`
@@ -175,7 +175,7 @@ default values, and define a custom DocumentRoot for your web server.
       sudo systemctl stop httpd.service
       sudo systemctl start httpd.service
 
-#. Go to http://localhost and verify that you can see the default screen
+#. Go to \http://localhost and verify that you can see the default screen
    again.
 
 #. Optionally, remove the /var/www/tutorial directory you previously created.
@@ -221,7 +221,7 @@ functionality to your web server, install PHP on your system.
 
       <?PHP phpinfo() ?>
 
-#. Go to http://localhost/phpinfo.php.
+#. Go to \http://localhost/phpinfo.php.
 
 #. Verify that the PHP information screen appears, similar to figure 2:
 
@@ -409,7 +409,7 @@ You can use the phpMyAdmin web-based tool to manage your databases. Follow the
 steps below for setting up a database called "WordPress".
 
 #. Verify that a successful installation of all LAMP server components by
-   going to http://localhost/phpMyAdmin. See figure 3.
+   going to \http://localhost/phpMyAdmin. See figure 3.
 
 #. Log in with your root userid and the password you set up when you ran the
    :ref:`mysql_secure_installation command <set-password>`. Enter your
