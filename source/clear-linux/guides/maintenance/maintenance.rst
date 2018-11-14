@@ -15,6 +15,7 @@ completed.
    enable-user-space
    swupd-guide
    bulk-provision
+   kernel-modules
    mixer
    mixin
    validate-signatures
