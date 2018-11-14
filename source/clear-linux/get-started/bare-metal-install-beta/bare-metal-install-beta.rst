@@ -64,7 +64,7 @@ Navigation
 Required options
 ****************
 
-Choose timezone
+Choose Timezone
 ===============
 
 #. From the main menu, select :guilabel:`Choose Timezone`
@@ -168,7 +168,7 @@ Configure Media
 
       .. note:: 
 
-         Use additional options as necesary during partitioning: 
+         Use additional options as necessary during partitioning: 
 
          * Select :guilabel:`Revert` to cancel changes and revert to the 
            original configuration. 
@@ -499,12 +499,12 @@ Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
 User Manager
 ============
 
-Add new users
--------------
+Add New User
+------------
 
 #. In Advanced Options, select :guilabel:`User Manager`. 
 
-#. Select :guilabel:`Add a new user` as shown in Figure 17. 
+#. Select :guilabel:`Add New User` as shown in Figure 17. 
 
    .. figure:: figures/bare-metal-install-beta-17.png
       :scale: 50 %
@@ -588,7 +588,7 @@ You are returned to the User Manager menu.
 
 Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
 
-Kernel command line 
+Kernel Command Line 
 ===================
 
 For more advanced users, |CL| provides the ability to add, or remove, kernel 
@@ -618,7 +618,7 @@ new kernel.
 
 Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
 
-Kernel selection 
+Kernel Selection 
 ================
 
 Select a kernel option. By default, the latest kernel release is selected. 
@@ -640,7 +640,7 @@ Select a kernel option. By default, the latest kernel release is selected.
 
 Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
 
-Swupd mirror
+Swupd Mirror
 ============
 
 If you have your own custom mirror of |CL|, you may want add that URL. 
