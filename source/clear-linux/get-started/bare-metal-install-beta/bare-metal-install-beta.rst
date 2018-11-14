@@ -67,7 +67,7 @@ Required options
 Choose Timezone
 ===============
 
-#. From the main menu, select :guilabel:`Choose Timezone`
+#. From the main menu, select :guilabel:`Choose Timezone`.
 
 #. Select :kbd:`Enter` to continue.
 
@@ -643,7 +643,7 @@ Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
 Swupd Mirror
 ============
 
-If you have your own custom mirror of |CL|, you may want add that URL. 
+If you have your own custom mirror of |CL|, you may want to add that URL. 
 
 #. In Advanced Options, select :guilabel:`Swupd Mirror`. 
 
@@ -668,7 +668,9 @@ Assign Hostname
 
    .. note::
 
-      Hostname does not allow empty spaces. Hostname must start with an alphanumeric character but may also contain hyphens. Maximum length of 63 characters. 
+      Hostname does not allow empty spaces. Hostname must start with an
+      alphanumeric character but may also contain hyphens. Maximum length of 
+      63 characters. 
 
    .. figure:: figures/bare-metal-install-beta-24.png
       :scale: 100 %
@@ -724,3 +726,4 @@ Complete installation
 You have successfully installed |CL| on bare metal using the new installer.
 
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
+.. _telemetry: https://clearlinux.org/features/telemetry
