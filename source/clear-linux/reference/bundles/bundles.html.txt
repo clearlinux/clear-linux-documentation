@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 
@@ -11,6 +11,13 @@
   <table id="bundletable">
 
     <thead>
+      <tr>
+        <th></th>
+        <th style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic"> 
+            Updated: 11/14/18 05:24 UTC 
+        </th>
+      </tr>
+      <tr> 
         <th> Name</th>
         <th> Description</th>
       </tr>
@@ -18,9 +25,6 @@
     <tbody>
       <tr>    
         <td></td> 
-        <td style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic"> 
-          Updated: 11/07/18 04:43 UTC
-        </td>
       </tr>
     <tr></tr>
       
@@ -126,7 +130,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">bmap</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">bmap-tools</a></td>
         <td class="bundledesc"> Tools for creating the block map (bmap) for a file and copying files. Alternative to "dd" or "cp" </td>
       </tr>
       
@@ -437,6 +441,21 @@
           <p>Includes bundle(s):
             
             <li>openssl</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cryptoprocessor-management">cryptoprocessor-management</a></td>
+        <td class="bundledesc">Manage the Trusted Platform Module (TPM) <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>TPM</li>
             
           </p>
           
@@ -777,7 +796,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">dfu</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">dfu-util</a></td>
         <td class="bundledesc"> Device Firmware Upgrade Utilities </td>
       </tr>
       
@@ -1005,6 +1024,15 @@
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/emacs">emacs</a></td>
         <td class="bundledesc">The popular emacs terminal text editor <br />
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/enterprise-login">enterprise-login</a></td>
+        <td class="bundledesc">Enable enterprise login systems like Active Directory <br />
           
         </td>
       </tr>
@@ -1322,7 +1350,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">inotify</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">inotify-tools</a></td>
         <td class="bundledesc"> monitor for file system events </td>
       </tr>
       
@@ -1441,13 +1469,6 @@
       
       
       
-      <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">kernel</a></td>
-        <td class="bundledesc"> installs kernel, initrd, kernel config and system map and creates a bootloader entry for the new kernel </td>
-      </tr>
-      
-      
-      
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-aws">kernel-aws</a></td>
         <td class="bundledesc">Run the kvm specific kernel <br />
@@ -1528,6 +1549,13 @@
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">kernel-install</a></td>
+        <td class="bundledesc"> installs kernel, initrd, kernel config and system map and creates a bootloader entry for the new kernel </td>
       </tr>
       
       
@@ -1747,7 +1775,14 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">libva</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">lftp</a></td>
+        <td class="bundledesc"> File transfer client for http, ftp, sftp and more </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">libva-utils</a></td>
         <td class="bundledesc"> collection of utilities and examples to exercise VA-API (Video Acceleration API) </td>
       </tr>
       
@@ -1772,14 +1807,14 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">linux</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">linux-dev</a></td>
         <td class="bundledesc"> programs for developing Linux </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">linux</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">linux-tools</a></td>
         <td class="bundledesc"> Tools for use in Linux </td>
       </tr>
       
@@ -1939,6 +1974,21 @@
       
       
       <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mercurial">mercurial</a></td>
+        <td class="bundledesc">mercurial SCM tool <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>python3-basic</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/mixer">mixer</a></td>
         <td class="bundledesc">Create Clear Linux releases <br />
           
@@ -2043,6 +2093,28 @@
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/network-time-sensitive">network-time-sensitive</a></td>
+        <td class="bundledesc">Various tools and plugins to set up TSN/TCC <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>network-basic</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">nfs-utils</a></td>
+        <td class="bundledesc"> Server and client tooling for network file systems (NFS) </td>
       </tr>
       
       
@@ -2606,7 +2678,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">p11</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">p11-kit</a></td>
         <td class="bundledesc"> Load and enumerate PKCS#11 modules for cryptography </td>
       </tr>
       
@@ -3007,7 +3079,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">redis</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">redis-native</a></td>
         <td class="bundledesc"> key-value database </td>
       </tr>
       
@@ -3580,7 +3652,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">weston</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">weston-extras</a></td>
         <td class="bundledesc"> Utilities and tools for the Wayland graphics compositor </td>
       </tr>
       
