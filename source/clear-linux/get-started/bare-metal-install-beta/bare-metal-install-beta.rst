@@ -55,7 +55,7 @@ Navigation
 
   .. figure:: figures/bare-metal-install-beta-1.png
      :scale: 50 %
-     :alt: Clear Linux OS Installer main menu
+     :alt: |CL| Installer main menu
 
      Figure 1: :guilabel:`|CL| Installer main menu`
 
@@ -353,7 +353,7 @@ Skip to complete installation
 
 After selecting values for all :guilabel:`Required options`, you may skip directly to :ref:`complete-cl-installation`
 
-If you wish to configure network interfaces, proxy settings, 
+If you wish to configure network interfaces or proxy settings, 
 or add bundles, or add/manage users, continue to the next section.  
 
 Advanced Options
@@ -500,7 +500,7 @@ User Manager
 ============
 
 Add new users
-=============
+-------------
 
 #. In Advanced Options, select :guilabel:`User Manager`. 
 
@@ -559,7 +559,7 @@ Add new users
       If desired, select :guilabel:`Reset` to reset the form. 
 
 Modify / Delete User
-====================
+--------------------
 
 #. In User Manager, Select :guilabel:`Tab` to highlight the user. 
 
@@ -717,6 +717,7 @@ Complete installation
 
 #. When the system reboots, remove any installation media present.
 
+| 
 
 **Congratulations!**
 
