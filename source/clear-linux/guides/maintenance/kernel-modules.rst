@@ -2,15 +2,15 @@
 
 Kernel Modules 
 ##############
-Kernel modules are additional pieces of software capable of interacting with 
-the kernel to add functionality, such as a hardware driver. Kernel modules 
-may already be part of the Linux source tree (in-tree) or may come from an 
-external source, such as a directly from vendor (out-of-tree).  
+Kernel modules are additional pieces of software capable of being inserted 
+into the Linux kernel to add functionality, such as a hardware driver. 
+Kernel modules may already be part of the Linux source tree (in-tree) or may 
+come from an external source, such as a directly from vendor (out-of-tree).  
 
 In many cases kernel modules are already available through |CL|. 
 In other cases, a kernel module may not exist but can be requested to be 
 enabled in the |CL| kernel. Finally, a situation may call for manually 
-building and loading out-of-tree kernels. 
+building and loading out-of-tree kernel modules. 
 
 .. contents:: :local:
    :depth: 2
@@ -30,14 +30,17 @@ Check if the module is already available through Clear Linux
 you require a kernel module, be sure to check whether it is already available in |CL| first. 
 
 
-You can search for kernel modules using the :command:`swupd search` command. 
+You can search for kernel module file names, which end with the :file:`.ko` 
+file extension, using the :command:`swupd search` command. For example: 
+:command:`sudo swupd search ${module_name}.ko`.
 See :ref:`swupd-search` for more information. 
 
 
 Consider requesting the module be added to |CL|
 ===============================================
-If the kernel module you're needing is open source and likely to be useful to 
-others, consider submitting a request to add or enable to the |CL| kernel.
+If the kernel module you're needing is already already open source 
+(e.g. in the Linux upstream) and likely to be useful to others, 
+consider submitting a request to add or enable to the |CL| kernel.
 
 You can make enhancement  requests to the |CL| distribution `on GitHub`_ .
 
@@ -91,9 +94,9 @@ Building kernel modules
 Loading kernel modules
 ----------------------
 
-#. Disable Secure Boot in your BIOS or EFI you have enabled it. The loading of 
-   new out-of-tree modules modifies the signatures  Secure Boot relies on for 
-   trust. 
+#. Disable Secure Boot in your system's UEFI settings, if you have enabled it. 
+   The loading of new out-of-tree modules modifies the signatures Secure Boot 
+   relies on for trust. 
 
 
 #. Disable signature checking for the kernel by modifying the kernel boot 
@@ -106,7 +109,7 @@ Loading kernel modules
     .. code-block:: bash
 
         sudo mkdir -p /etc/kernel/cmdline.d
-        sudo echo "module.sig_unenforce" > /etc/kernel/cmdline.d/load-modules.conf
+        echo "module.sig_unenforce" | sudo tee /etc/kernel/cmdline.d/allow-unsigned-modules.conf
 
 #. Update the boot manager and reboot the system to implement the changed 
    kernel parameters.
@@ -116,13 +119,16 @@ Loading kernel modules
         sudo clr-boot-manager update
         sudo reboot
 
+    .. note::
+        The :command:`clr-boot-manager update` command does not return any console output if success.
+
    
 #. After rebooting, out-of-tree modules can be manually loaded with 
-   :command:`modprobe` command. 
+   :command:`insmod` command. 
 
     .. code-block:: bash
 
-        sudo modprobe ${module_name}
+        sudo insmod ${path_to_module}
 
 
 
