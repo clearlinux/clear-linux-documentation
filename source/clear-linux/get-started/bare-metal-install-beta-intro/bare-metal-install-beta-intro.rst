@@ -1,12 +1,12 @@
 .. _bare-metal-install-beta-intro: 
 
-Install from the live desktop image beta
+Install from the live desktop beta image
 ########################################
 
-The live desktop image allows you to boot |CL-ATTR| into a GNOME desktop 
-without modifying the host system. Using the live image, you can explore the 
-possibilities of developing with |CL|. You can also launch the new installer 
-and install |CL| on your target system. 
+The live desktop beta image allows you to boot |CL-ATTR| into a GNOME 
+desktop without modifying the host system. Using the live image, you can 
+explore the possibilities of developing with |CL|. You can also launch the 
+new installer and install |CL| on your target system. 
 
 .. contents:: :local:
    :depth: 1
@@ -21,9 +21,14 @@ Assure that your target system supports the installation:
 
 Preliminary steps 
 *****************
-.. TODO: [ Add link to img/dir or filename]
 
-#. `Download the live install image`_. 
+#. `Navigate to the image directory`_. 
+
+#. Download :file:`clear-<release number>-live-desktop-beta.img.xz`
+
+   .. note: 
+
+      <release-number> is the latest |CL| auto-numbered release.
 
 #. Follow your OS instructions to create a bootable USB drive.
 
@@ -36,7 +41,7 @@ Preliminary steps
 Install from live image
 ***********************
 
-After you've downloaded and burned the live install image on a
+After you've downloaded and burned the live desktop image on a
 USB drive, follow these steps. 
 
 #. Insert the USB drive into an available USB slot.
@@ -56,19 +61,18 @@ USB drive, follow these steps.
 
 #. Reboot the target system.
 
-
 Launch the installer
 ********************
 
-#. After the |CL| live install image boots, select the :guilabel:`Activities`   menu in the upper left. 
+#. After the |CL| live desktop image boots, select the :guilabel:`Activities`   menu in the upper left. 
 
-#. Select the |CL| icon, **Install CLear Linux OS**, shown in Figure 1. 
+#. Select the |CL| icon, **Install |CL|**, shown in Figure 1. 
 
    .. figure:: figures/bare-metal-install-beta-intro-1.png
 	  :scale: 50 %
-	  :alt: Install Clear Linux icon
+	  :alt: Install |CL| icon
 
-	  Figure 1: Install Clear Linux icon
+	  Figure 1: Install |CL| icon
 
 #. After selecting the |CL| icon, the installer is launched, as shown in 
    Figure 2.
@@ -81,4 +85,4 @@ Launch the installer
 
 #. Continue to :ref:`bare-metal-install-beta`
 
-.. _Download the live install image: https://download.clearlinux.org/image/
+.. _Navigate to the image directory: https://download.clearlinux.org/image/
