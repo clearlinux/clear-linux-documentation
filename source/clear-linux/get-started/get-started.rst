@@ -45,5 +45,3 @@ Install |CL|
 
    bare-metal-install-beta/bare-metal-install-beta
    bootable-usb/bootable-usb-beta-all
-
-..After new TUI installer is incorporated in main dir, remove final two entries above. 
