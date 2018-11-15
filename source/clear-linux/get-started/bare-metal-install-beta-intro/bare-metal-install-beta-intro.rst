@@ -66,22 +66,21 @@ Launch the installer
 
 #. After the |CL| live desktop image boots, select the :guilabel:`Activities`   menu in the upper left. 
 
-#. Select the |CL| icon, **Install |CL|**, shown in Figure 1. 
+#. Select the icon, :guilabel:`Install Clear Linux OS`, shown in Figure 1. 
 
    .. figure:: figures/bare-metal-install-beta-intro-1.png
-	  :scale: 50 %
-	  :alt: Install |CL| icon
+	   :scale: 50 %
+	   :alt: Install Clear Linux OS icon
 
-	  Figure 1: Install |CL| icon
+	   Figure 1: Install Clear Linux OS icon
 
-#. After selecting the |CL| icon, the installer is launched, as shown in 
-   Figure 2.
+#. Upon selecting the icon, the installer is launched, as shown in Figure 2.
 
    .. figure:: figures/bare-metal-install-beta-intro-2.png
-	  :scale: 50 %
-	  :alt: Install Clear Linux icon
+	   :scale: 50 %
+	   :alt: Install Clear Linux icon
 
-	  Figure 2: Install Clear Linux icon
+	   Figure 2: Install Clear Linux icon
 
 #. Continue to :ref:`bare-metal-install-beta`
 
