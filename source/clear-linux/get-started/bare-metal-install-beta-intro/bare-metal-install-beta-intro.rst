@@ -78,9 +78,9 @@ Launch the installer
 
    .. figure:: figures/bare-metal-install-beta-intro-2.png
 	   :scale: 50 %
-	   :alt: Install Clear Linux icon
+	   :alt: Clear Linux OS Installer
 
-	   Figure 2: Install Clear Linux icon
+	   Figure 2: Clear Linux OS Installer
 
 #. Continue to :ref:`bare-metal-install-beta`
 
