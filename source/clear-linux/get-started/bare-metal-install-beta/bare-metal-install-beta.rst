@@ -1,13 +1,86 @@
 .. _bare-metal-install-beta:
 
-Install |CL-ATTR| on bare metal
-###############################
+Install |CL-ATTR| from the live desktop beta image
+##################################################
 
-These instructions guide you through installation of |CL-ATTR| on bare metal 
-using the new installer. 
+The live desktop beta image allows you to boot |CL-ATTR| into a GNOME 
+desktop without modifying the host system. Using the live image, you can 
+explore the possibilities of developing with |CL|. You can also launch the 
+new installer and install |CL| on your target system. 
 
 .. contents:: :local:
    :depth: 1
+
+System requirements
+*******************
+
+Assure that your target system supports the installation: 
+
+* :ref:`system-requirements`
+* :ref:`compatibility-check`
+
+Preliminary steps 
+*****************
+
+#. `Navigate to the image directory`_. 
+
+#. Download the file :file:`clear-<release number>-live-desktop-beta.img.xz`
+
+   .. note:: 
+
+      ``<release-number>`` is the latest |CL| auto-numbered release.
+
+#. Follow your OS instructions to create a bootable USB drive.
+
+   * :ref:`bootable-usb-linux-all`
+   * :ref:`bootable-usb-mac-all`
+   * :ref:`bootable-usb-windows-all`
+
+.. _install-from-live-image:
+
+Install from live image
+***********************
+
+After you've downloaded and burned the live desktop image on a
+USB drive, follow these steps. 
+
+#. Insert the USB drive into an available USB slot.
+
+#. Power on the system.
+
+#. Open the system BIOS setup menu by pressing the F2 key. 
+
+   .. note:: 
+
+    Your BIOS setup menu entry point may vary.
+
+#. In the setup menu, enable the UEFI boot and set the USB drive as the
+   first option in the device boot order.
+
+#. Save these settings and exit.
+
+#. Reboot the target system.
+
+Launch the installer
+====================
+
+#. After the |CL| live desktop image boots, select the :guilabel:`Activities`   menu in the upper left. 
+
+#. Select the icon, :guilabel:`Install Clear Linux OS`, shown in Figure 1. 
+
+   .. figure:: figures/bare-metal-install-beta-1.png
+     :scale: 50 %
+     :alt: Install Clear Linux OS icon
+
+     Figure 1: Install Clear Linux OS icon
+
+#. Upon selecting the icon, the installer is launched, as shown in Figure 2.
+
+   .. figure:: figures/bare-metal-install-beta-2.png
+     :scale: 50 %
+     :alt: Clear Linux OS Installer
+
+     Figure 2: Clear Linux OS Installer
 
 .. _minimum-installation-requirements: 
 
@@ -23,7 +96,7 @@ To fulfill minimum installation requirements, complete
      **only after** you complete :ref:`required-options-installation`.
 
    * You must choose whether or not to participate in :ref:`telemetrics`
-     before you can :ref:`complete-cl-installation`.
+     before you can :ref:`finish-cl-installation`.
 
    * You may wish to :ref:`test-network-settings` before you 
      :ref:`configure-network-interfaces`. Assure that a ``Success`` message is received.
@@ -51,13 +124,13 @@ Navigation
 
 * Select :kbd:`Cancel` or :kbd:`Esc` to cancel your choice.
 
-  The |CL| Installer main menu appears as shown in Figure 1.
+  The |CL| Installer main menu appears as shown in Figure 3.
 
-  .. figure:: figures/bare-metal-install-beta-1.png
+  .. figure:: figures/bare-metal-install-beta-3.png
      :scale: 100 %
      :alt: Clear Linux OS Installer main menu
 
-     Figure 1: :guilabel:`Clear Linux OS Installer main menu`
+     Figure 3: :guilabel:`Clear Linux OS Installer main menu`
 
 .. _required-options-installation:
 
@@ -83,11 +156,11 @@ Choose Timezone
       Select :guilabel:`Cancel` to restore the previously defined value and
       return to the main menu.
 
-   .. figure:: figures/bare-metal-install-beta-2.png
+   .. figure:: figures/bare-metal-install-beta-4.png
       :scale: 100 %
       :alt: Select System Timezone
 
-      Figure 2: :guilabel:`Select System Timezone`
+      Figure 4: :guilabel:`Select System Timezone`
 
 Choose Language
 ===============
@@ -106,11 +179,11 @@ Choose Language
 
       Select :guilabel:`Cancel` to restore the previously defined value and return to the main menu.  
 
-   .. figure:: figures/bare-metal-install-beta-3.png
+   .. figure:: figures/bare-metal-install-beta-5.png
       :scale: 100 %
       :alt: Select System Language 
 
-      Figure 3: :guilabel:`Select System Language`
+      Figure 5: :guilabel:`Select System Language`
 
 
 Configure the Keyboard
@@ -133,11 +206,11 @@ Configure the Keyboard
 
       Select :guilabel:`Cancel` to restore the previously defined value and return to the main menu.  
 
-   .. figure:: figures/bare-metal-install-beta-4.png
+   .. figure:: figures/bare-metal-install-beta-6.png
       :scale: 100 %
       :alt: Select Keyboard menu
 
-      Figure 4: :guilabel:`Select Keyboard menu`
+      Figure 6: :guilabel:`Select Keyboard menu`
 
 Configure Media
 ===============
@@ -160,11 +233,11 @@ Configure Media
    :guilabel:`Add Partition` to add partitions manually. See instructions
    below.
 
-   .. figure:: figures/bare-metal-install-beta-5.png
+   .. figure:: figures/bare-metal-install-beta-7.png
       :scale: 100 %
       :alt: Configure Media menu 
 
-      Figure 5: :guilabel:`Configure Media menu`
+      Figure 7: :guilabel:`Configure Media menu`
 
       .. note:: 
 
@@ -190,7 +263,7 @@ Auto Partition
 
 Auto partition will configure the media to meet the minimum requirements. 
 
-#. Select :guilabel:`Auto Partition` as shown in Figure 6. 
+#. Select :guilabel:`Auto Partition` as shown in Figure 8. 
 
 #. Select :kbd:`Enter` or :kbd:`Spacebar` to highlight 
    :guilabel:`Auto partition`. 
@@ -199,11 +272,11 @@ Auto partition will configure the media to meet the minimum requirements.
 
    This action returns you to the Main Menu. 
 
-   .. figure:: figures/bare-metal-install-beta-6.png
+   .. figure:: figures/bare-metal-install-beta-8.png
       :scale: 100 %
       :alt: Auto Partition 
 
-      Figure 6: :guilabel:`Auto Partition`
+      Figure 8: :guilabel:`Auto Partition`
 
 
 #. You may skip to the :ref:`telemetry-tui` section below. 
@@ -245,7 +318,7 @@ boot partition
 --------------
 
 #. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to 
-   select the file system type.  See Figure 7.
+   select the file system type.  See Figure 9.
 
 #. In :guilabel:`Mount Point`, enter the ``/boot`` partition. 
 
@@ -255,17 +328,17 @@ boot partition
 
 #. Select :guilabel:`Enter` to confirm. 
 
-   .. figure:: figures/bare-metal-install-beta-7.png
+   .. figure:: figures/bare-metal-install-beta-9.png
       :scale: 100 %
       :alt: boot partition 
 
-      Figure 7: :guilabel:`boot partition`
+      Figure 9: :guilabel:`boot partition`
 
 swap partition
 --------------
 
 #. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to 
-   select the file system type. See Figure 8.
+   select the file system type. See Figure 10.
 
 #. In :guilabel:`Mount Point`, the field remains blank. 
 
@@ -279,17 +352,17 @@ swap partition
 
 #. Select :guilabel:`Enter` to continue. 
 
-   .. figure:: figures/bare-metal-install-beta-8.png
+   .. figure:: figures/bare-metal-install-beta-10.png
       :scale: 100 %
       :alt: swap partition 
 
-      Figure 8: :guilabel:`swap partition`
+      Figure 10: :guilabel:`swap partition`
 
 root partition
 --------------
 
 #. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to 
-   select the file system type. See Figure 9.
+   select the file system type. See Figure 11.
 
 #. In :guilabel:`Mount Point`, enter ``/root``.
 
@@ -307,19 +380,19 @@ root partition
 
 #. Select :guilabel:`Confirm` to complete the media selection. 
 
-   .. figure:: figures/bare-metal-install-beta-9.png
+   .. figure:: figures/bare-metal-install-beta-11.png
       :scale: 100 %
       :alt: root partition 
 
-      Figure 9: :guilabel:`root partition`
+      Figure 11: :guilabel:`root partition`
 
-   You are returned to the :guilabel:`Configure media` menu. Your partitions should appear similar to those shown in Figure 10. 
+   You are returned to the :guilabel:`Configure media` menu. Your partitions should appear similar to those shown in Figure 12. 
 
-   .. figure:: figures/bare-metal-install-beta-10.png
+   .. figure:: figures/bare-metal-install-beta-12.png
       :scale: 100 %
-      :alt: root partition 
+      :alt: Partitions
 
-   Figure 10: :guilabel:`root partition`
+   Figure 12: :guilabel:`Partitions`
 
 #. Navigate to :guilabel:`Confirm` until highlighted.
 
@@ -342,16 +415,16 @@ For more detailed information, see our :ref:`telemetry-about` page.
 
 #. Select :kbd:`Enter` to confirm.
 
-   .. figure:: figures/bare-metal-install-beta-11.png
+   .. figure:: figures/bare-metal-install-beta-13.png
       :scale: 100 %
       :alt: Enable Telemetry 
 
-      Figure 11: :guilabel:`Enable Telemetry`  
+      Figure 13: :guilabel:`Enable Telemetry`  
 
-Skip to complete installation
-=============================
+Skip to finish installation
+===========================
 
-After selecting values for all :guilabel:`Required options`, you may skip directly to :ref:`complete-cl-installation`
+After selecting values for all :guilabel:`Required options`, you may skip directly to :ref:`finish-cl-installation`
 
 If you wish to configure network interfaces or proxy settings, 
 or add bundles, or add/manage users, continue to the next section.  
@@ -374,7 +447,7 @@ interface settings are automatically applied.
    
    If DHCP is available, no user selection may be required. 
 
-#. Navigate to :guilabel:`Configure network interface` and
+#. Navigate to :guilabel:`Configure Network Interfaces` and
    select :kbd:`Enter`. 
 
 #. Navigate to the network :guilabel:`interface` you wish to change. 
@@ -384,22 +457,22 @@ interface settings are automatically applied.
 
    .. note:: Multiple network interfaces may appear.  
 
-   .. figure:: figures/bare-metal-install-beta-12.png
+   .. figure:: figures/bare-metal-install-beta-14.png
       :scale: 100 %
-      :alt: CAPTION BELOW 
+      :alt: Configure Network Interfaces
 
-      Figure 12: :guilabel:`CAPTION BELOW`  
+      Figure 14: :guilabel:`Configure Network Interfaces`  
 
 #. Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom). 
 
    Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select
    :kbd:`Spacebar` to deselect. 
 
-   .. figure:: figures/bare-metal-install-beta-13.png
+   .. figure:: figures/bare-metal-install-beta-15.png
       :scale: 100 %
       :alt: Network interface configuration
 
-      Figure 13: :guilabel:`Network interface configuration`  
+      Figure 15: :guilabel:`Network interface configuration`  
 
 #. Navigate to the appropriate fields and assign the desired
    network configuration. 
@@ -421,7 +494,7 @@ interface settings are automatically applied.
 
 #. Navigate to and select :guilabel:`Main Menu`. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 Proxy
 =====
@@ -435,11 +508,11 @@ instruction.
  
 #. Navigate to the field :guilabel:`HTTPS Proxy`. 
    
-   .. figure:: figures/bare-metal-install-beta-14.png
+   .. figure:: figures/bare-metal-install-beta-16.png
       :scale: 100 %
       :alt: Configure the network proxy
 
-      Figure 14: :guilabel:`Configure the network proxy`  
+      Figure 16: :guilabel:`Configure the network proxy`  
 
 #. Enter the desired proxy address and port using conventional syntax,
    such as: http://address:port. 
@@ -449,7 +522,7 @@ instruction.
 #. To revert to previous settings, navigate to :guilabel:`Cancel` 
    and select :guilabel:`Cancel`. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 .. _test-network-settings:
 
@@ -459,20 +532,20 @@ Test Network Settings
 To manually assure network connectivity before installing |CL|, 
 select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
-A progress bar appears as shown in Figure 15. 
+A progress bar appears as shown in Figure 17. 
 
-.. figure:: figures/bare-metal-install-beta-15.png
+.. figure:: figures/bare-metal-install-beta-17.png
    :scale: 100 %
    :alt: Testing Networking dialogue
 
-   Figure 15: :guilabel:`Testing Networking dialogue`  
+   Figure 17: :guilabel:`Testing Networking dialogue`  
 
 .. note:: 
    
    Any changes made to network settings are automatically tested 
    during configuration. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 Bundle Selection
 ================
@@ -484,17 +557,17 @@ Bundle Selection
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle. 
    
 
-   .. figure:: figures/bare-metal-install-beta-16.png
+   .. figure:: figures/bare-metal-install-beta-18.png
       :scale: 100 %
       :alt: Bundle selection
 
-      Figure 16: :guilabel:`Bundle selection`  
+      Figure 18: :guilabel:`Bundle selection`  
 
 #. Select :kbd:`Confirm` or :kbd:`Cancel`.
 
    You are returned to the :guilabel:`Advanced options` menu. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 User Manager
 ============
@@ -504,13 +577,13 @@ Add New User
 
 #. In Advanced Options, select :guilabel:`User Manager`. 
 
-#. Select :guilabel:`Add New User` as shown in Figure 17. 
+#. Select :guilabel:`Add New User` as shown in Figure 19. 
 
-   .. figure:: figures/bare-metal-install-beta-17.png
+   .. figure:: figures/bare-metal-install-beta-19.png
       :scale: 100 %
       :alt: Add New User, User Name 
 
-      Figure 17: :guilabel:`Add New User`  
+      Figure 19: :guilabel:`Add New User`  
 
    
 #. Optional: Enter a :guilabel:`User Name`.
@@ -519,11 +592,11 @@ Add New User
 
       The User Name must be alphanumeric and can include spaces, commas, or hyphens. Maximum length is 64 characters. 
 
-   .. figure:: figures/bare-metal-install-beta-18.png
+   .. figure:: figures/bare-metal-install-beta-20.png
       :scale: 100 %
       :alt: User Name 
 
-      Figure 18: :guilabel:`User Name`  
+      Figure 20: :guilabel:`User Name`  
 
 #. Enter a :guilabel:`Login`.
 
@@ -546,11 +619,11 @@ Add New User
 
       Selecting this option enables sudo privileges for the user. 
 
-   .. figure:: figures/bare-metal-install-beta-19.png
+   .. figure:: figures/bare-metal-install-beta-21.png
       :scale: 100 %
       :alt: Administrative rights
 
-      Figure 19: :guilabel:`Administrative rights`  
+      Figure 21: :guilabel:`Administrative rights`  
       
 #. Select :kbd:`Confirm`. 
 
@@ -561,15 +634,16 @@ Add New User
 Modify / Delete User
 --------------------
 
-#. In User Manager, Select :guilabel:`Tab` to highlight the user. 
+#. In User Manager, select :guilabel:`Tab` to highlight the user, as shown 
+   in Figure 22. 
 
 #. Select :kbd:`Enter` to modify the user. 
 
-   .. figure:: figures/bare-metal-install-beta-20.png
+   .. figure:: figures/bare-metal-install-beta-22.png
       :scale: 100 %
       :alt: Modify User
 
-      Figure 20: :guilabel:`Modify User`  
+      Figure 22: :guilabel:`Modify User`  
 
 #. Modify user details as desired. 
 
@@ -586,7 +660,7 @@ Modify / Delete User
 
 You are returned to the User Manager menu. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 Kernel Command Line 
 ===================
@@ -603,11 +677,11 @@ new kernel.
 
 #. To add or remove arguments, choose one of the following options. 
 
-   .. figure:: figures/bare-metal-install-beta-21.png
+   .. figure:: figures/bare-metal-install-beta-23.png
       :scale: 100 %
       :alt: kernel command line
 
-      Figure 21: :guilabel:`kernel command line`  
+      Figure 23: :guilabel:`kernel command line`  
 
 #. To add arguments, enter the argument in :guilabel:`Add Extra Arguments`. 
 
@@ -616,29 +690,29 @@ new kernel.
 
 #. Select :kbd:`Confirm`. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 Kernel Selection 
 ================
 
-Select a kernel option. By default, the latest kernel release is selected. 
+#. Select a kernel option. By default, the latest kernel release is
+   selected. 
 
-.. note:: 
+   .. note:: 
 
-   You may choose a different option, such as kernel with Long Term Support 
-   (LTS). To do so, select :guilabel:`Tab` until the kernel option is highlighted. 
+      To choose a different kernel, such as Long Term Support (LTS), shown in Figure 24, navigate to it using :guilabel:`Tab`. 
+    
+   .. figure:: figures/bare-metal-install-beta-24.png
+      :scale: 100 %
+      :alt: Kernel selection
 
-.. figure:: figures/bare-metal-install-beta-22.png
-   :scale: 100 %
-   :alt: Kernel selection
-
-   Figure 22: :guilabel:`Kernel selection`  
+      Figure 24: :guilabel:`Kernel selection`  
 
 #. Select :kbd:`Spacebar` to select the desired option. 
     
 #. Select :kbd:`Confirm`. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 Swupd Mirror
 ============
@@ -651,13 +725,13 @@ If you have your own custom mirror of |CL|, you may want to add that URL.
 
 #. Select :kbd:`Confirm`. 
 
-   .. figure:: figures/bare-metal-install-beta-23.png
+   .. figure:: figures/bare-metal-install-beta-25.png
       :scale: 100 %
       :alt: Swupd Mirror
 
-      Figure 23: :guilabel:`Swupd Mirror`  
+      Figure 25: :guilabel:`Swupd Mirror`  
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 Assign Hostname
 ===============
@@ -672,18 +746,18 @@ Assign Hostname
       alphanumeric character but may also contain hyphens. Maximum length of 
       63 characters. 
 
-   .. figure:: figures/bare-metal-install-beta-24.png
+   .. figure:: figures/bare-metal-install-beta-26.png
       :scale: 100 %
       :alt: Assign Hostname
 
-      Figure 24: :guilabel:`Assign Hostname` 
+      Figure 26: :guilabel:`Assign Hostname` 
 
 
 #. Navigate to :kbd:`Confirm` until highlighted. 
 
 #. Select :kbd:`Confirm`. 
 
-Optional: :ref:`Skip to complete installation <complete-cl-installation>`.
+Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
 Automatic OS Updates
 ====================
@@ -695,35 +769,34 @@ follow the onscreen instructions.
 
 #. Select the desired option. 
 
-   .. figure:: figures/bare-metal-install-beta-25.png
+   .. figure:: figures/bare-metal-install-beta-27.png
       :scale: 100 %
       :alt: Automatic OS Updates
 
-      Figure 25: :guilabel:`Automatic OS Updates`
+      Figure 27: :guilabel:`Automatic OS Updates`
 
 You are returned to the :guilabel:`Main Menu`. 
 
-.. _complete-cl-installation:
+.. _finish-cl-installation:
 
-Complete installation
-*********************
+Finish installation
+*******************
 
 #. When you are satisfied with your installation configuration, navigate to
    :guilabel:`Install` and select :kbd:`Enter`. 
 
    .. note:: 
 
-      Whenever installation is complete, a ``reboot`` button appears. 
+      Whenever installation is finished, a ``reboot`` button appears. 
 
 #. Select ``reboot``. 
 
 #. When the system reboots, remove any installation media present.
-
-| 
-
+ 
 **Congratulations!**
 
 You have successfully installed |CL| on bare metal using the new installer.
 
+.. _Navigate to the image directory: https://download.clearlinux.org/image/
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _telemetry: https://clearlinux.org/features/telemetry
