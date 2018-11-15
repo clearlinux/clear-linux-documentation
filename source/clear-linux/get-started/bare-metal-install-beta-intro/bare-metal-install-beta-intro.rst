@@ -24,11 +24,11 @@ Preliminary steps
 
 #. `Navigate to the image directory`_. 
 
-#. Download :file:`clear-`<release number>`-live-desktop-beta.img.xz`
+#. Download :file:`clear-<release number>-live-desktop-beta.img.xz`
 
    .. note:: 
 
-      ``<release-number>`` is the latest |CL| auto-numbered release
+      ``<release-number>`` is the latest |CL| auto-numbered release.
 
 #. Follow your OS instructions to create a bootable USB drive.
 
