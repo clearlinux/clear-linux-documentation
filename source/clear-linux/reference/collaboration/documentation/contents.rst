@@ -4,7 +4,7 @@
 Contents directive
 ##################
 
-For |CL| documentation that has three or more sections, use the `contents::`
+For |CL-ATTR| documentation that has three or more sections, use the `contents::`
 directive as shown in the example below. This directive automatically captures the headings (and 
 subheadings if used) as specified in the value given after `:depth:`. Adding this directive to 
 longer documents allows users to quickly navigate to the desired section.
@@ -24,8 +24,8 @@ longer documents allows users to quickly navigate to the desired section.
 
 EXAMPLE: 
 
-Clear Linux Guide Example  
-*************************
+Guide Example  
+*************
 
 Introduction
 ============

@@ -6,7 +6,7 @@ Headings
 Descriptive and brief headings are crucial to the quality of the
 documentation. Sphinx uses the headings within the
 :abbr:`ReST (RestructuredText)` files to generate the navigation of the HTML
-output and the outlines of the PDF files. The |CLOSIA| publishes the
+output and the outlines of the PDF files. The |CL-ATTR| publishes the
 documentation as HTML making consistent heading levels extremely important.
 
 In addition to the title of the file, only three levels of headings are

@@ -3,9 +3,10 @@
 telemctl options
 ################
 
-The |CL-ATTR| telemetry client provides an admin tool called telemctl for
-managing the telemetry services and probes. The tool is located in
-:file:` /usr/bin`. Running it with no argument results in the following:
+The |CL-ATTR| telemetry client provides an admin tool called ``telemctl`` 
+that is used for managing the telemetry services and probes. The tool is 
+located in :file:`/usr/bin`. Running it with no argument results in the 
+following:
 
 .. code-block:: bash
 

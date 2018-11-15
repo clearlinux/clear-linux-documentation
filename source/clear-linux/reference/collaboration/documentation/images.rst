@@ -8,7 +8,7 @@ sometimes is difficult to explain using words alone. Well-planned graphics
 reduce the amount of text required to explain information. Non-native English
 readers rely heavily on graphics because graphics enhance their understanding of the text.
 
-Follow these guidelines when creating graphics for the |CLOSIA|:
+Follow these guidelines when creating graphics for the |CL-ATTR|:
 
 * Save the image files in a :file:`figures` folder. The folder must be found
   at the same level as the file containing the text.

@@ -3,7 +3,7 @@
 Code blocks
 ###########
 
-Collaborating to the |CLOSIA| is all about code. Therefore, your
+Contributing to the |CL-ATTR| is all about code. Therefore, your
 documentation must include as many code examples as possible. You can write
 code examples directly in the documentation or include them from a source
 file. Use these guidelines to insert code blocks to your documentation:

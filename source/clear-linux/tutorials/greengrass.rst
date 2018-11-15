@@ -21,7 +21,7 @@ This tutorial shows how to:
 Supported Platforms
 *******************
 
-*	Operating System: |CL-ATTR| latest release
+*	Operating System: |CL| latest release
 *	Hardware:	Intel® core platforms (Tutorial supports inference on CPU only)
 
 Description of Samples

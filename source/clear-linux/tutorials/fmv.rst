@@ -18,8 +18,8 @@ In this tutorial we will use FMV on general code and on
 tutorial, you will be able to use this technology on your code and use the
 libraries to deploy architecture-based optimizations to your application code.
 
-Install and configure a Clear Linux host on bare metal
-******************************************************
+Install and configure a |CL| host on bare metal
+***********************************************
 
 First, follow our guide to :ref:`bare-metal-install`.
 
@@ -184,7 +184,7 @@ You can see the multiple clones of the `foo` function:
 The cloned functions use AVX2 registers and vectorized instructions. To
 verify, enter the following commands:
 
-:: 
+::
 
     vpaddd (%r8,%rax,1),%ymm0,%ymm0
     vmovdqu %ymm0,(%rcx,%rax,1)
@@ -219,16 +219,16 @@ generates the following patches:
        --- fftw-3.3.6-pl2/libbench2/verify-lib.c   2017-01-27 21:08:13.000000000 +0000
        +++ fftw-3.3.6-pl2/libbench2/verify-lib.c~  2017-09-27 17:49:21.913802006 +0000
        @@ -33,6 +33,7 @@
-       
+
         double dmax(double x, double y) { return (x > y) ? x : y; }
-       
+
        +__attribute__((target_clones("avx2","arch=atom","default")))
         static double aerror(C *a, C *b, int n)
         {
             if (n > 0) {
        @@ -111,6 +112,7 @@
        }
-       
+
        /* make array hermitian */
        +__attribute__((target_clones("avx2","arch=atom","default")))
        void mkhermitian(C *A, int rank, const bench_iodim *dim, int stride)
@@ -236,7 +236,7 @@ generates the following patches:
             if (rank == 0)
        @@ -148,6 +150,7 @@
        }
-     
+
        /* C = A + B */
        +__attribute__((target_clones("avx2","arch=atom","default")))
        void aadd(C *c, C *a, C *b, int n)
@@ -244,7 +244,7 @@ generates the following patches:
             int i;
        @@ -159,6 +162,7 @@
        }
-     
+
        /* C = A - B */
        +__attribute__((target_clones("avx2","arch=atom","default")))
        void asub(C *c, C *a, C *b, int n)
@@ -252,7 +252,7 @@ generates the following patches:
             int i;
        @@ -170,6 +174,7 @@
        }
-     
+
        /* B = rotate left A (complex) */
        +__attribute__((target_clones("avx2","arch=atom","default")))
        void arol(C *b, C *a, int n, int nb, int na)
@@ -267,8 +267,8 @@ bringing architecture-based optimizations to application code even easier.
 
 **Congratulations!**
 
-You have successfully installed an FMV development environment on Clear
-Linux. Furthermore, you used cutting edge compiler technology to improve the
+You have successfully installed an FMV development environment on |CL|.
+Furthermore, you used cutting edge compiler technology to improve the
 performance of your application based on Intel Architecture technology and
 profiling of the specific execution of your application.
 

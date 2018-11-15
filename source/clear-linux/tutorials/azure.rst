@@ -1,9 +1,9 @@
 .. _azure:
 
-Run Clear Linux using Microsoft Azure CLI 2.0
-#############################################
+Run |CL-ATTR| using Microsoft Azure CLI 2.0
+###########################################
 
-|CLOSIA| is available for you to use in the Microsoft* Azure* marketplace and
+|CL-ATTR| is available for you to use in the Microsoft* Azure* marketplace and
 is offered with three different images, also known as a
 :abbr:`SKU (Stock Keeping Unit)`.
 
@@ -89,8 +89,8 @@ sysadmin-basic software bundle using the :command:`swupd` command:
    instructions in the `MS Azure Install Azure CLI tutorial`_ for your
    specific operating system.
 
-Install MS Azure CLI 2.0 on Clear Linux
-***************************************
+Install MS Azure CLI 2.0 on |CL|
+********************************
 
 #. To install the MS Azure CLI 2.0 on |CL|, use the :command:`curl` command as
    follows:
@@ -335,8 +335,8 @@ of resources within MS Azure.
         "tags": null
       }
 
-Create and log into the Clear Linux virtual machine
-***************************************************
+Create and log into the |CL| virtual machine
+********************************************
 
 For this tutorial, we are using the |CL| Basic SKU for our VM.
 
@@ -467,8 +467,8 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
    When you are finished using your new |CL| VM, type :command:`exit` to close
    the :command:`SSH` terminal and logout.
 
-Stop and deallocate the Clear Linux VM and resources
-****************************************************
+Stop and deallocate the |CL| VM and resources
+*********************************************
 
 When you finish using your new |CL| instance, you must stop the VM and
 deallocate the resources in your resource group. If you only stop a VM, the OS
@@ -516,7 +516,7 @@ Next steps
 To see use cases you can fulfill with your |CL| instance, visit our
 :ref:`tutorials <tutorials>` section.
 
-For additional information visit the Clear Linux
+For additional information visit the |CL|
 `Azure Partner Mini Case Study`_ and the `Azure Partner Datasheet`_.
 
 To learn more about the MS Azure CLI 2.0 tool and options that are available,
