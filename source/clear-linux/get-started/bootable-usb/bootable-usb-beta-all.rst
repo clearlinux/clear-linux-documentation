@@ -10,9 +10,7 @@ your OS.
 * :ref:`bootable-usb-mac-all`
 * :ref:`bootable-usb-windows-all`
 
-Return to install from live desktop image: 
-
-* :ref:`install-from-live-image`
+Return to :ref:`install-from-live-image`
 
 Requirements: 
 *************
