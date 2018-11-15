@@ -15,7 +15,7 @@ Minimum installation requirements
 *********************************
 
 To fulfill minimum installation requirements, complete 
-``Required options``. All other menu items are optional.
+:guilabel:`Required options`. All other menu items are optional.
 
 .. note::
 
@@ -55,9 +55,9 @@ Navigation
 
   .. figure:: figures/bare-metal-install-beta-1.png
      :scale: 100 %
-     :alt: |CL| Installer main menu
+     :alt: Clear Linux OS Installer main menu
 
-     Figure 1: :guilabel:`|CL| Installer main menu`
+     Figure 1: :guilabel:`Clear Linux OS Installer main menu`
 
 .. _required-options-installation:
 
@@ -157,8 +157,8 @@ Configure Media
    Two options for partitioning appear. 
 
 #. Select :guilabel:`Auto Partition` to accept the default configuration, or
-   :guilabel:`Add Partition` to add partitions manually. See 
-   instructions below.
+   :guilabel:`Add Partition` to add partitions manually. See instructions
+   below.
 
    .. figure:: figures/bare-metal-install-beta-5.png
       :scale: 100 %
@@ -239,7 +239,7 @@ requirements shown in Table 1:
 #. In the Configure Media menu, select :guilabel:`Add Partition`. 
 
    .. note:: To change an existing partition, navigate to the partition, 
-      and select :guilabel:`Enter`
+      and select :guilabel:`Enter`.
 
 boot partition
 --------------
@@ -628,11 +628,11 @@ Select a kernel option. By default, the latest kernel release is selected.
    You may choose a different option, such as kernel with Long Term Support 
    (LTS). To do so, select :guilabel:`Tab` until the kernel option is highlighted. 
 
-   .. figure:: figures/bare-metal-install-beta-22.png
-      :scale: 100 %
-      :alt: Kernel selection
+.. figure:: figures/bare-metal-install-beta-22.png
+   :scale: 100 %
+   :alt: Kernel selection
 
-      Figure 22: :guilabel:`Kernel selection`  
+   Figure 22: :guilabel:`Kernel selection`  
 
 #. Select :kbd:`Spacebar` to select the desired option. 
     
