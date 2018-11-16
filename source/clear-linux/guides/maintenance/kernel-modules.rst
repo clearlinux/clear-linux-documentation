@@ -7,10 +7,13 @@ into the Linux kernel to add functionality, such as a hardware driver.
 Kernel modules may already be part of the Linux source tree (in-tree) or may 
 come from an external source, such as a directly from vendor (out-of-tree).  
 
-In many cases kernel modules are already available through |CL|. 
+In many cases kernel modules are already available through |CL-ATTR|. 
 In other cases, a kernel module may not exist but can be requested to be 
 enabled in the |CL| kernel. Finally, a situation may call for manually 
 building and loading out-of-tree kernel modules. 
+The document will describe evaluating each of these scenarios.
+
+
 
 .. contents:: :local:
    :depth: 2
