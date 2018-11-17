@@ -42,7 +42,7 @@ Download WordPress and manage directories
 =========================================
 
 For this tutorial, you will create a WordPress blog that can be accessed at:
-http://<your_website>/blog.
+\http://<your_website>/blog.
 
 To accomplish this setup, you must add WordPress components to the :file:`/var/www/html/blog`
 directory.
@@ -87,7 +87,7 @@ Recall that you created a database and user when you installed phpMyAdmin when y
 set up a |CL| based :ref:`web server <web-server-install>`. Next, you must
 connect WordPress to the database and install WordPress.
 
-To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.php.
+To continue with the setup, go to: \http://<your_website>/blog/wp-admin/install.php.
 The WordPress language option screen appears, as shown in figure 1.
 
 #. Select :guilabel:`English` and click :guilabel:`Continue`.
@@ -177,7 +177,7 @@ Figure 7 shows the WordPress dashboard after a successful login:
 You are ready to go!
 
 To check out your blog as it is seen by the outside world, enter:
-http://<your_website>/blog on your browser. Figure 8 shows the result:
+\http://<your_website>/blog on your browser. Figure 8 shows the result:
 
 .. figure:: figures/wp-install-8.png
    :alt: WordPress blog

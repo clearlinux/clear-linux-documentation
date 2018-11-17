@@ -169,7 +169,7 @@ an the official Docker image for nginx, an open source reverse proxy server.
         accessible from the |CL| host on port 8080
 
 #. You can access the Welcome to Nginx! splash page running in the container
-   by browsing to http://127.0.0.1:8080 or by running this :command:`curl`
+   by browsing to \http://127.0.0.1:8080 or by running this :command:`curl`
    command from your |CL| machine:
 
    .. code-block:: bash

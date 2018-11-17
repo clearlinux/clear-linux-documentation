@@ -96,8 +96,7 @@ we build a new helloclear RPM.
 
    .. note::
 
-      For a local tarball, use for the *URL*:
-      file://<absolute-path-to-tarball>
+      For a local tarball, use this type of *URL*: \file://<absolute-path-to-tarball>
 
 #. If build failures or dependency issues occur, continue below.
    Otherwise, skip directly to `Next steps`_.
