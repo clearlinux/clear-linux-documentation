@@ -5,30 +5,84 @@
 <head>
   <meta charset="UTF-8">
   <title>Bundles in Clear Linux* OS</title>
+    <style> 
+    table {
+      margin: 32px;
+      border: 1px solid #e0e0e0;
+      border-collapse: collapse;
+      width: auto;
+    }
+    th {
+      font-family: IntelClear-Regular,Helvetica,Arial,sans-serif;
+      align-content: center;
+      padding: 5px;
+      border: #ccc solid 1px;
+      background-color: #555;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+    tr {
+      padding-top: 20px ;
+      padding-bottom: 10px;
+    }
+     tbody tr:nth-child(odd) {
+      background-color: #e0e0e0;
+    }
+     .bundlename {
+      font-family: IntelClear-Regular,Helvetica,Arial,sans-serif;
+      font-size: 16px;
+      font-weight: bolder;
+      padding-left: 6px;
+      line-height: 18px;
+      padding-top:7px ;
+      padding-bottom: 5px;
+    }
+    .bundledesc {
+      font-family: IntelClear-Regular,Helvetica,Arial,sans-serif;
+      font: italic;
+      font-size: 16px;
+      padding-left: 6px;
+      line-height: 18px;
+      padding-top: 7px ;
+      padding-bottom: 5px;
+    }
+     ul, li {
+      margin-left: 8px;
+      /* padding: 0; */
+      padding-left: 5px;
+      padding-top: 2px;
+      line-height: 16px;
+    }
+
+   </style> 
+
 </head>
 
 <body>
   <table id="bundletable">
 
     <thead>
+      
       <tr>
         <th></th>
-        <th style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic"> 
+        <th style="text-align:left; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic"> 
             Updated: 11/14/18 05:24 UTC 
         </th>
       </tr>
+
       <tr> 
         <th> Name</th>
         <th> Description</th>
       </tr>
+      
     </thead>
     <tbody>
       <tr>    
         <td></td> 
+        <td></td> 
       </tr>
-    <tr></tr>
-      
-      
+         
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/amateur-radio">amateur-radio</a></td>
         <td class="bundledesc">Applications to support amateur radio operations <br />
