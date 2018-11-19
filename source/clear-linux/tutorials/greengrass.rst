@@ -205,7 +205,7 @@ Creating and Packaging Lambda Functions
 
 
 #. In step 5, replace greengrassHelloWorld.py with the classification or object detection 
-   Greengrass sample from `Edge-Analytics`Faas`_:
+   Greengrass sample from `Edge-Analytics-Faas`_:
 
    * Classification: `greengrass_classification_sample.py`_
 
