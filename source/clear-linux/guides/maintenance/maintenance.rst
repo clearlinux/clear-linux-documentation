@@ -25,3 +25,4 @@ completed.
    download-verify-decompress-mac
    download-verify-decompress-windows
    autospec
+   assign-static-ip
