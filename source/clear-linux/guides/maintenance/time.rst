@@ -3,7 +3,7 @@
 Set the time
 ############
 
-|CLOSIA| uses the `systemd-timesyncd.service` daemon to synchronize time.
+|CL-ATTR| uses the `systemd-timesyncd.service` daemon to synchronize time.
 
 This guide describes how to reset the time in your |CL| system when
 the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.

@@ -6,7 +6,7 @@ Combine multiple interfaces with network bonding
 Network bonding combines multiple network interfaces into a single logical
 interface to provide redundancy and bandwidth aggregation.
 
-|CLOSIA| includes Linux bonding_ and team_ drivers. This guide describes how
+|CL-ATTR| includes Linux bonding_ and team_ drivers. This guide describes how
 to configure systemd to use the `bonding` driver.
 
 The example demonstrates how to:

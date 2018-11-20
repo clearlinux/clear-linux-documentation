@@ -25,7 +25,7 @@ drivers, sample applications, and tools for fast packet processing.
 Prerequisites
 *************
 
-*  Two platforms using |CLOSIA| release `13330`_ or higher.
+*  Two platforms using |CL-ATTR| release `13330`_ or higher.
 *  Both images must include the :file:`kernel-native bundle`.
 *  Install the :file:`network-basic-dev` bundle with the command:
 
@@ -130,7 +130,7 @@ NICs to DPDK modules to run DPDK applications.
 Set hugepages (Platforms A and B)
 *********************************
 
-|CLOSIA| supports `hugepages` for the large memory pool allocation used for
+|CL| supports `hugepages` for the large memory pool allocation used for
 packet buffers.
 
 #. Set the number of hugepages.
@@ -264,7 +264,7 @@ machines control the NICs on the host.
 
       sudo curl -O https://download.clearlinux.org/image/start_qemu.sh
 
-#. Download a bare-metal image of |CLOSIA| and rename it as :file:`clear.img`.
+#. Download a bare-metal image of |CL| and rename it as :file:`clear.img`.
 
 #. Look for an Ethernet\* device entry that contains vendor and device ID:
 
@@ -283,7 +283,7 @@ machines control the NICs on the host.
    host.
 
 
-#. Unbind the NICs from the host to do pass-through with virtual machines. |CLOSIA|
+#. Unbind the NICs from the host to do pass-through with virtual machines. |CL|
    supports this action. The commands take the format:
 
    .. code-block:: bash

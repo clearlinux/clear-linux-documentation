@@ -1,9 +1,9 @@
 .. _ipxe-install:
 
-Install Clear Linux over the network with iPXE
-################################################
+Install |CL-ATTR| over the network with iPXE
+############################################
 
-This guide describes how to install Clear Linux\* using :abbr:`PXE (Pre-boot
+This guide describes how to install |CL-ATTR| using :abbr:`PXE (Pre-boot
 Execution Environment)`.
 
 PXE is an industry standard that describes client-server interaction with

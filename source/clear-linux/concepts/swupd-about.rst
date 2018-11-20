@@ -3,35 +3,35 @@
 Software update
 ###############
 
-|CLOSIA| does software updates differently than traditional Linux-based 
-operating systems. Where traditional distributions rely on packages for 
-software deployment, |CL| uses the concept of a "bundle" for 
-deployment. Traditional Linux packages provide a particular utility or 
-library; |CL| bundles provide all necessary packages to enable a 
+|CL-ATTR| does software updates differently than traditional Linux-based
+operating systems. Where traditional distributions rely on packages for
+software deployment, |CL| uses the concept of a "bundle" for
+deployment. Traditional Linux packages provide a particular utility or
+library; |CL| bundles provide all necessary packages to enable a
 specific function.
 
-With |CL|, updating equates to an entirely new OS version with a 
-specific set of bundles, as compared to a package-based distribution in 
-which packages may be updated individually. |CL| updates are 
+With |CL|, updating equates to an entirely new OS version with a
+specific set of bundles, as compared to a package-based distribution in
+which packages may be updated individually. |CL| updates are
 efficient, updating only changed files instead of entire packages.
 
-System administrators can customize or add bundles to the OS, while still 
-taking advantage of a controlled update stream. This enables system 
+System administrators can customize or add bundles to the OS, while still
+taking advantage of a controlled update stream. This enables system
 administrators to focus on the pieces that make their deployment unique.
 
 
 Bundles
 =======
 
-While we use packages to manage compiling source code into installable 
-binaries, we do not deploy software through packages. Instead, we use bundles 
-to deploy software, where each bundle encapsulates a particular functionality 
--- functionality that is enabled by composing all the required upstream 
-open-source projects and packages into one logical unit: a bundle. This 
+While we use packages to manage compiling source code into installable
+binaries, we do not deploy software through packages. Instead, we use bundles
+to deploy software, where each bundle encapsulates a particular functionality
+-- functionality that is enabled by composing all the required upstream
+open-source projects and packages into one logical unit: a bundle. This
 simplifies installing features on |CL|.
 
-For additional resources regarding available bundles, useful bundle commands, 
-and compatible |CL| kernels, visit our :ref:`bundles-about` 
+For additional resources regarding available bundles, useful bundle commands,
+and compatible |CL| kernels, visit our :ref:`bundles-about`
 page.
 
 
@@ -65,8 +65,8 @@ describe the versions of all the software on the OS. Each build is
 composed of a specific set of bundles made from a particular version of
 packages. This matters on a daily basis to system administrators, who
 need to determine which of their systems do not have the latest security
-fixes, or which combinations of software have been tested. Every release 
-of the same number is guaranteed to contain the same versions of software, 
+fixes, or which combinations of software have been tested. Every release
+of the same number is guaranteed to contain the same versions of software,
 so there's no ambiguity between two systems running the same version of |CL|.
 
 
@@ -76,20 +76,20 @@ Updating
 Another notable difference between package-based distributions and |CL|
 is how updates are managed. On a package-based OS, system administrators update
 each individual package or piece of software to a newer (or older!) version. With
-|CL|, an update translates to an entirely new OS version, containing one 
-or many updates.  It is not possible to update a piece of the system while 
+|CL|, an update translates to an entirely new OS version, containing one
+or many updates.  It is not possible to update a piece of the system while
 remaining on the same version of |CL|.
 
 How is this useful? Although it seems, at first, like a huge restriction
 or limitation, this method has many non-obvious benefits. Imagine a
 cloud environment composed of numerous machines.  Here, a homogeneous set of
 software makes sense -- from the system administrator's level down to the
-user level. Homogeneous systems allow users to focus on their contributions 
-and/or code, rather than configuring environments or worrying about 
-synchronizing versions and updates.  At the system admin level, it ensures 
+user level. Homogeneous systems allow users to focus on their contributions
+and/or code, rather than configuring environments or worrying about
+synchronizing versions and updates.  At the system admin level, it ensures
 security is tighter and makes it far easier to monitor and update patches.
 
-|CL| promotes regular updating of the OS and will automatically check 
+|CL| promotes regular updating of the OS and will automatically check
 for updates and apply them by default.
 
 To learn how to run an update of your system, visit our :ref:`swupd-guide` page.
@@ -98,9 +98,9 @@ To learn how to run an update of your system, visit our :ref:`swupd-guide` page.
 Update speed
 ============
 
-Software updates with |CL| are also efficient. Bundles simply describe 
-a set of files, and the update technology updates *only* files that actually 
-changed by using binary-delta technology for efficiency [1]_. Operating systems 
+Software updates with |CL| are also efficient. Bundles simply describe
+a set of files, and the update technology updates *only* files that actually
+changed by using binary-delta technology for efficiency [1]_. Operating systems
 that use packages as the unit of deployment require full package updates (thus
 hogging resources), even when one small file in that package has changed.
 
@@ -128,5 +128,5 @@ a controlled update stream.
 To learn more about mixing, visit our :ref:`mixer-about` page.
 
 
-.. [1] The software update technology for |CLOSIA| was first presented at the 
+.. [1] The software update technology for |CL-ATTR| was first presented at the
    Linux Plumbers conference in 2012.

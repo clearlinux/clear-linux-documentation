@@ -3,7 +3,7 @@
 Create and add custom bundles to your upstream Clear Linux system
 #################################################################
 
-|CLOSIA| offers many curated bundles that you can install on your system to
+|CL-ATTR| offers many curated bundles that you can install on your system to
 create your desired capabilities. If the available upstream bundles do not
 meet your needs, you can create and add your own custom bundles to your
 system using one of two methods. Note: Upstream refers to the official
