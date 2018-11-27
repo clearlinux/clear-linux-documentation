@@ -1,12 +1,12 @@
 .. _kernel-modules:
 
-Add Kernel Modules 
+Add kernel modules 
 ##################
 
 Kernel modules are additional pieces of software capable of being inserted 
 into the Linux kernel to add functionality, such as a hardware driver. 
 Kernel modules may already be part of the Linux source tree (in-tree) or may 
-come from an external source, such as a directly from vendor (out-of-tree).  
+come from an external source, such as directly from a vendor (out-of-tree).  
 
 In cases where drivers beyond those enabled by default in |CL-ATTR| are
 needed it may be necessary to:
@@ -33,7 +33,7 @@ See :ref:`swupd-search` for more information.
 Request the module be added to |CL|
 ===================================
 
-If the kernel module you need is already already open source 
+If the kernel module you need is already open source 
 (e.g. in the Linux upstream) and likely to be useful to others, 
 consider submitting a request to add or enable in the |CL| kernel.
 
@@ -45,10 +45,11 @@ Build and load an out-of-tree module
 In some cases you may need an out-of-tree kernel module that is not 
 available through |CL|.
 
-You can build and load out-of-tree kernel modules, however secure boot
-must be disabled, kernel module integrity checking must be disabled, and
-you are responsible for building the module against new versions of the
-Linux kernel.
+You can build and load out-of-tree kernel modules, however you must:
+
+* disable secure boot
+* disable kernel module integrity checking
+* build the module against new versions of the Linux kernel
 
 .. note::
 
@@ -73,14 +74,14 @@ Build kernel module
       # Ensure *.native* is in the kernel name
 
 #. Install the `linux-dev` bundle to obtain the kernel headers, which are
-   required for compiling kernel modules
+   required for compiling kernel modules.
 
    .. code-block:: bash
 
       sudo swupd bundle-add linux-dev
 
 #. Follow instructions from the kernel module source code to compile the 
-   kernel module
+   kernel module.
 
 
 Load kernel module
@@ -140,7 +141,7 @@ configuration files under the :file:`/etc/modprobe.d` directory.
    sudo mkdir /etc/modprobe.d
 
 All files underneath the :file:`/etc/modprobe.d` directory 
-which end with the :file:`.conf` extension specify module options to use when
+that end with the :file:`.conf` extension specify module options to use when
 loading. This can also be used to create convenient aliases for modules or 
 they can override the normal loading behavior altogether for those with 
 special requirements. 
@@ -154,15 +155,15 @@ You can find more info on module loading in the modprobe.d manual page:
 Optional: Configure kernel modules to load at boot
 --------------------------------------------------
 
-The :file:`/etc/modules-load.d` configuration directory can be used to 
-specify kernel modules that should be automatically loaded at boot.
+Use the :file:`/etc/modules-load.d` configuration directory to 
+specify kernel modules to load automatically at boot.
 
 .. code-block:: bash
 
    sudo mkdir /etc/modules-load.d
 
 All files underneath the :file:`/etc/modules-load.d` directory 
-which end with the :file:`.conf` extension contain a list of module names 
+that end with the :file:`.conf` extension contain a list of module names 
 of aliases (one per line) to load at boot.
 
 You can find more info on module loading in the modules-load.d manual page:
