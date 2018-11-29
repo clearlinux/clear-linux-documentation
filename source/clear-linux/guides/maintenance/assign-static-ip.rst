@@ -7,8 +7,8 @@ Introduction
 ************
 
 By default, your |CL-ATTR| system automatically gets an IP address from your
-network via DHCP. If you do not have a DHCP server on your network, assign a
-static IP address using the steps in this guide.
+network via DHCP. If you do not have a DHCP server on your network or simply
+want to use a static IP address, follow the steps in this guide.
 
 Process
 *******
@@ -52,7 +52,7 @@ Process
 
 	.. code-block:: bash
 
-		sudo vi /etc/systemd/network/70-static.network
+		sudo $EDITOR /etc/systemd/network/70-static.network
 
 		[Match]
 		Name=[interface name]
