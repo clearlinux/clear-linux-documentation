@@ -87,24 +87,26 @@ Launch the installer
 Minimum installation requirements
 *********************************
 
-To fulfill minimum installation requirements, complete
-:guilabel:`Required options`. All other menu items are optional.
+To fulfill minimum installation requirements, complete the
+:guilabel:`Required options`. :guilabel:`Advanced options` are optional. Additional user help is described below.
 
 .. note::
 
-   * In the Main menu, the :kbd:`Install` button is highlighted
-     **only after** you complete :ref:`required-options-installation`.
+   * The :kbd:`Install` button is only highlighted **after** you complete the
+     :ref:`required-options-installation`, and after you enter all required
+     values in submenus of :ref:`required-options-installation` and
+     :ref:`advanced-options-installation`.
 
    * You must choose whether or not to participate in :ref:`telemetrics`
-     before you can :ref:`finish-cl-installation`.
+     before you can finish installation.
 
    * You may wish to :ref:`test-network-settings` before you
-     :ref:`configure-network-interfaces`. Assure that a ``Success`` message is received.
+     :ref:`configure-network-interfaces`. Assure that a ``Success`` message is received before installation.
 
-Main menu
+Main Menu
 *********
 
-In the |CL| Installer main menu, two tabs appear:
+In the |CL| Installer Main Menu, two tabs appear:
 :guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`.
 Navigate between tabs using the arrow keys or these shortcut keys:
 
@@ -124,13 +126,13 @@ Navigation
 
 * Select :kbd:`Cancel` or :kbd:`Esc` to cancel your choice.
 
-  The |CL| Installer main menu appears as shown in Figure 3.
+  The |CL| Installer Main Menu appears as shown in Figure 3.
 
   .. figure:: figures/bare-metal-install-beta-3.png
      :scale: 100 %
-     :alt: Clear Linux OS Installer main menu
+     :alt: Clear Linux OS Installer Main Menu
 
-     Figure 3: :guilabel:`Clear Linux OS Installer main menu`
+     Figure 3: :guilabel:`Clear Linux OS Installer Main Menu`
 
 .. _required-options-installation:
 
@@ -140,7 +142,7 @@ Required options
 Choose Timezone
 ===============
 
-#. From the main menu, select :guilabel:`Choose Timezone`.
+#. From the Main Menu, select :guilabel:`Choose Timezone`.
 
 #. Select :kbd:`Enter` to continue.
 
@@ -154,7 +156,7 @@ Choose Timezone
    .. note::
 
       Select :guilabel:`Cancel` to restore the previously defined value and
-      return to the main menu.
+      return to the Main Menu.
 
    .. figure:: figures/bare-metal-install-beta-4.png
       :scale: 100 %
@@ -165,7 +167,7 @@ Choose Timezone
 Choose Language
 ===============
 
-#. From the main menu, select :guilabel:`Choose Language`.
+#. From the Main Menu, select :guilabel:`Choose Language`.
 
 #. Select :kbd:`Enter`.
 
@@ -177,7 +179,7 @@ Choose Language
 
    .. note::
 
-      Select :guilabel:`Cancel` to restore the previously defined value and return to the main menu.
+      Select :guilabel:`Cancel` to restore the previously defined value and return to the Main Menu.
 
    .. figure:: figures/bare-metal-install-beta-5.png
       :scale: 100 %
@@ -189,7 +191,7 @@ Choose Language
 Configure the Keyboard
 ======================
 
-#. From the main menu, select :guilabel:`Configure the Keyboard`.
+#. From the Main Menu, select :guilabel:`Configure the Keyboard`.
 
 #. Select :kbd:`Enter`.
 
@@ -204,7 +206,7 @@ Configure the Keyboard
 
    .. note::
 
-      Select :guilabel:`Cancel` to restore the previously defined value and return to the main menu.
+      Select :guilabel:`Cancel` to restore the previously defined value and return to the Main Menu.
 
    .. figure:: figures/bare-metal-install-beta-6.png
       :scale: 100 %
@@ -215,23 +217,13 @@ Configure the Keyboard
 Configure Media
 ===============
 
-#. From the main menu, select :guilabel:`Configure Media`.
+#. From the Main Menu, select :guilabel:`Configure Media`.
 
    .. note::
 
       Available media appear by default.
 
 #. Navigate to the desired media until highlighted.
-
-    .. TODO: Add another screenshot showing contextual menu.
-
-#. Select :kbd:`Enter` or :kbd:`Spacebar` to select it.
-
-   Two options for partitioning appear.
-
-#. Select :guilabel:`Auto Partition` to accept the default configuration, or
-   :guilabel:`Add Partition` to add partitions manually. See instructions
-   below.
 
    .. figure:: figures/bare-metal-install-beta-7.png
       :scale: 100 %
@@ -248,13 +240,20 @@ Configure Media
          * Select :guilabel:`Rescan` to show media connected to the host
            machine.
 
+#. Select :kbd:`Enter` or :kbd:`Spacebar` to select it.
+
+   Two options for partitioning appear.
+
+#. Select :guilabel:`Auto Partition` to accept the default configuration, or
+   :guilabel:`Add Partition` to add partitions manually. See instructions
+   below.
+
 #. Select :kbd:`Enter` to :kbd:`Confirm`.
 
-Choose one partitioning option below
-------------------------------------
+#. Choose one partitioning option and continue below:
 
-* :ref:`auto-partition`
-* :ref:`add-partition`
+   * :ref:`auto-partition`
+   * :ref:`add-partition`
 
 .. _auto-partition:
 
@@ -277,7 +276,6 @@ Auto partition will configure the media to meet the minimum requirements.
       :alt: Auto Partition
 
       Figure 8: :guilabel:`Auto Partition`
-
 
 #. You may skip to the :ref:`telemetry-tui` section below.
 
@@ -406,9 +404,9 @@ Telemetry
 To fulfill the :guilabel:`Required options`, choose whether or not to
 participate in `telemetry`_.  :ref:`telemetrics` is a |CL| feature that
 reports failures and crashes to the |CL| development team for improvements.
-For more detailed information, see our :ref:`telemetry-about` page.
+For more detailed information, visit our :ref:`telemetry-about` page.
 
-#. In the main menu, navigate to :guilabel:`Telemetry` and select
+#. In the Main Menu, navigate to :guilabel:`Telemetry` and select
    :kbd:`Enter`.
 
 #. Select :kbd:`Tab` to highlight your choice.
@@ -424,10 +422,14 @@ For more detailed information, see our :ref:`telemetry-about` page.
 Skip to finish installation
 ===========================
 
-After selecting values for all :guilabel:`Required options`, you may skip directly to :ref:`finish-cl-installation`
+After selecting values for all :guilabel:`Required options`, you may skip
+directly to :ref:`finish-cl-installation`
 
-If you wish to configure network interfaces or proxy settings,
-or add bundles, or add/manage users, continue to the next section.
+In the Main Menu, select the :guilabel:`Advanced options` if you wish to
+configure network interfaces or proxy settings, add bundles, add/manage
+users, and more. Continue with the next section.
+
+.. _advanced-options-installation:
 
 Advanced Options
 ****************
@@ -550,7 +552,7 @@ Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 Bundle Selection
 ================
 
-#. On the Advanced menu, select :guilabel:`Bundle selection`
+#. On the Advanced menu, select :guilabel:`Bundle Selection`
 
 #. Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows.
 
@@ -559,9 +561,9 @@ Bundle Selection
 
    .. figure:: figures/bare-metal-install-beta-18.png
       :scale: 100 %
-      :alt: Bundle selection
+      :alt: Bundle Selection
 
-      Figure 18: :guilabel:`Bundle selection`
+      Figure 18: :guilabel:`Bundle Selection`
 
 #. Select :kbd:`Confirm` or :kbd:`Cancel`.
 
@@ -664,9 +666,9 @@ Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 Kernel Command Line
 ===================
 
-For more advanced users, |CL| provides the ability to add, or remove, kernel
+For advanced users, |CL| provides the ability to add or remove kernel
 arguments. If you want to append a new argument, enter the argument here.
-This argument will be used every time you install a new kernel or update a
+This argument will be used every time you install or update a
 new kernel.
 
 #. In Advanced Options, select :guilabel:`Tab` to highlight
@@ -716,7 +718,7 @@ Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 Swupd Mirror
 ============
 
-If you have your own custom mirror of |CL|, you may want to add that URL.
+If you have your own custom mirror of |CL|, you can add its URL.
 
 #. In Advanced Options, select :guilabel:`Swupd Mirror`.
 
