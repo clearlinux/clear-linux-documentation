@@ -10,6 +10,7 @@ completed.
 .. toctree::
    :maxdepth: 2
 
+   autoproxy
    developer-workstation
    swupd-search
    enable-user-space
