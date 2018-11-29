@@ -427,7 +427,7 @@ directly to :ref:`finish-cl-installation`
 
 In the Main Menu, select the :guilabel:`Advanced options` if you wish to
 configure network interfaces or proxy settings, add bundles, add/manage
-users, and more. Continue with the next section.
+users, and more. Continue to the next section.
 
 .. _advanced-options-installation:
 
@@ -558,12 +558,13 @@ Bundle Selection
 
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
 
-
    .. figure:: figures/bare-metal-install-beta-18.png
       :scale: 100 %
       :alt: Bundle Selection
 
       Figure 18: :guilabel:`Bundle Selection`
+
+..TODO:Add new screenshot that shows more bundles.
 
 #. Select :kbd:`Confirm` or :kbd:`Cancel`.
 
@@ -631,6 +632,10 @@ Add New User
    .. note::
 
       If desired, select :guilabel:`Reset` to reset the form.
+
+#. In :guilabel:`User Manager`, navigate to :guilabel:`Confirm`.
+
+#. With :guilabel:`Confirm` highlighted, select :kbd:`Enter`.
 
 Modify / Delete User
 --------------------
