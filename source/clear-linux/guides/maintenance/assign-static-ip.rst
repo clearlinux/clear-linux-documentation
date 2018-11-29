@@ -6,23 +6,24 @@ Assign a static IP address to a network interface
 Introduction
 ************
 
-*<< Need input: why you need to do this and/or how it relates to other
-tasks. Prerequisites? Any issues that are solved by doing this? >>*
+By default, your |CL-ATTR| system automatically gets an IP address from your
+network via DHCP. If you do not have a DHCP server on your network, assign a
+static IP address using the steps in this guide.
 
 Process
 *******
 
-#.	Make this directory:
+#.	Create this directory structure:
 
 	.. code-block:: bash
 
-		$ sudo mkdir -p /etc/systemd/network
+		sudo mkdir -p /etc/systemd/network
 
 #.	Identify the interface to be assigned the static IP address:
 
 	.. code-block:: bash
 
-		$ ip addr
+		ip addr
 
 	The system returns the following:
 
@@ -51,7 +52,7 @@ Process
 
 	.. code-block:: bash
 
-		$ sudo vi /etc/systemd/network/70-static.network
+		sudo vi /etc/systemd/network/70-static.network
 
 		[Match]
 		Name=[interface name]
@@ -59,12 +60,12 @@ Process
 		Address=[IP address]/24
 		DHCP=yes # to get DNS info, etc.
 
-	Replace [interface-name] and [IP-address] with your specific settings.
+	Replace [interface name] and [IP address] with your specific settings.
 
 #.	Restart the networkd service:
 
 	.. code-block:: bash
 
-		# sudo systemctl restart systemd-networkd
+		sudo systemctl restart systemd-networkd
 
 **Congratulations!** You have successfully assigned a static IP address.
