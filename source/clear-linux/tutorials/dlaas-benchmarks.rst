@@ -181,5 +181,3 @@ You will need to parse the logs of the k8s pod to get the performance numbers. T
 .. _flannel: https://github.com/coreos/flannel
 .. _networking documentation: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
 .. _quick start guide: https://www.kubeflow.org/docs/started/getting-started/
-.. _ResNet50: https://github.intel.com/verticals/DLaaS/blob/master/kubeflow/dlaas-resnet50.jsonnet
-.. _Alexnet: https://github.intel.com/verticals/DLaaS/blob/master/kubeflow/dlaas-alexnet.jsonnet
