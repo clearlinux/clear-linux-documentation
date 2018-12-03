@@ -4,7 +4,7 @@
 |CL-ATTR| includes a telemetry and analytics solution (also known as telemetrics) as part of the OS, which records events of interest and reports them back to the development team using the telemetrics client daemons.
 End users can enable or disable the telemetry client component of |CL| and also redirect where records are sent if they wish to collect records for themselves by using their own telemetry backend server.
 
-This tutorial walks you through creating a telemetry enabled app on your local |CL| machine. The tutorial will show you how to send your own custom records to any telemetry backend server.
+This tutorial walks you through setting up a telemetry backend server to manage your records, and using the telemetry API to add telemetry to your own applications.
 
 
 Prerequisites
@@ -30,17 +30,17 @@ If you need to install the telemetrics bundle, use :command:`swupd` to do so.
 
 More information about enabling and configuring the telemetry client can be found at :ref:`telemetry-enable`.
 
+Setting up the telemetry backend server
+=======================================
 
-You can also set up a telemetry backend server; you can use the same |CL| system we're working with for this tutorial, or setup on a separate system.  Follow the :ref:`telemetry-backend` guide to setup the server and redirect your telemetry records to it. Refer to the :ref:`telemetry-config` guide to configure the telemetry client and specify where to send the records.
-
-If you choose to use the default |CL| telemetry server, you may want to enable local storage of telemetry records so you can inspect the payload. You will not be able to directly access the records on the default telemetry server.  The :ref:`telemetry-config` guide will walk through how to enable local storage.
+To set up a telemetry backend server you can use the same |CL| system we're working with for this tutorial, or setup on a separate system.  Follow the :ref:`telemetry-backend` guide to setup the server and redirect your telemetry records to it. Refer to the :ref:`telemetry-config` guide to configure the telemetry client and specify where to send the records.
 
 Once the telemetry backend server is running and/or you have enabled local retention of the records, and you have verified that your client is enabled and sending records to the server by using the :command:`hprobe` utility, you're ready to begin adding custom telemetry events to your applications.
 
 Creating custom telemetry events
 ================================
 
-Enabling telemetry during installation gives us everything we need to create custom telemetry events, even from C programs, because the telemetry bundle provides a simple pipe-based :abbr:`CLI (Commandline Interface)` program named :file:`telem-record-gen` that can be called trivially:
+Enabling telemetry during installation gives us everything we need on the client side to create custom telemetry events, even from C programs, because the telemetry bundle provides a simple pipe-based :abbr:`CLI (Commandline Interface)` program named :file:`telem-record-gen` that can be called trivially:
 
 .. code-block:: bash
 
@@ -299,6 +299,8 @@ To verify that the heartbeat message was received by the telemetry backend serve
 
 A full example of the `heartbeat probe`_ in C is documented in the source code.  For more information about telemetrics in |CL| refer to the :ref:`telemetrics` guide.
 
+
+You can also look for the record on the telemetry backend server. 
 
 .. _latest version:
 https://github.com/clearlinux/telemetrics-client/tree/master/src
