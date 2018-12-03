@@ -75,18 +75,21 @@ Refer to the Kubernetes `networking documentation`_ for setup.
 
 
 Images
-We will need to create a docker image that will include launcher.py  similar to Dockerfile.cpu to include DLaaS and put the benchmarks repo in the right location. This is the one i used in my testing.
+++++++
 
-FROM hub.docker.intel.com/verticals/dlaas:latest
-RUN mkdir -p /opt
-RUN git clone https://github.com/tensorflow/benchmarks.git /opt/tf-benchmarks
-COPY launcher.py /opt
-RUN chmod u+x /opt/*
-ENTRYPOINT ["/opt/launcher.py"]
+We will need to create a docker image that will include launcher.py to include the |CL| Deep Learning Stack, and put the benchmarks repo in the right location. From the docker image, run the following
+
+.. code-block:: bash
+
+  mkdir -p /opt
+  git clone https://github.com/tensorflow/benchmarks.git /opt/tf-benchmarks
+  cp launcher.py /opt
+  chmod u+x /opt/*
+
+Your entry point then becomes "/opt/launcher.py".
 
 
-This will build an image which can be consumed directly by TFJob from kubeflow.
-AR: Currently we are working to create these images as part of our normal release cycles.
+This will build an image which can be consumed directly by TFJob from kubeflow.  We are working to create these images as part of our release cycle.
 
 
 Ksonnet
@@ -139,7 +142,7 @@ This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
 Running the Deep Learning as a Service TFJob
 ++++++++++++++++++++++++++++++++++++++++++++
 
-The jsonnet template files for `ResNet50`_ and `Alexnet`_ are available in the |CL| Deep Learning Stack repository. Download and copy these files into
+The jsonnet template files for ResNet50 and Alexnet are available in the |CL| Deep Learning Stack repository. Download and copy these files into
 
 .. code-block:: console
 
