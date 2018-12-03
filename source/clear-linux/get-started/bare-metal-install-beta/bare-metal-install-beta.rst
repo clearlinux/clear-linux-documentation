@@ -517,7 +517,7 @@ instruction.
       Figure 16: :guilabel:`Configure the network proxy`
 
 #. Enter the desired proxy address and port using conventional syntax,
-   such as: http://address:port.
+   such as: \http://address:port.
 
 #. Navigate to :guilabel:`Confirm` and select :kbd:`Enter`.
 
