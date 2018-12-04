@@ -9,13 +9,12 @@ hundreds of bundles that will meet most, if not all, of your OS and software
 needs.
 
 However, if you need additional customization or content, |CL| provides the
-mixer tool. There are two ways to customize the OS using the mixer depending
-on the level of customization you need:
+mixer tool. We provide two different ways to develop and extend the OS, depending on your needs:
 
 1. :ref:`create-mix` to create a distinct derivative of the |CL| that
    contains your custom software.
-2. :ref:`create-mixin` using a lightweight wrapper of mixer to add custom
-   bundles to be included with an upstream version of the |CL|.
+2. :ref:`create-mixin` to add custom bundles but also keep updating the OS
+   from upstream.
 
 .. _create-mix:
 
@@ -50,9 +49,9 @@ have a higher degree of control and customization of your custom |CL|.
 Create a mixin
 ==============
 
-The second option is to use the mixin tool, a light wrapper for mixer, to
-create custom bundles and sideload them into your upstream version of |CL|. 
-A mixin is useful when you need to add custom or 3rd
+The second option is to use the :command:`mixin` tool, a light wrapper for
+mixer, to create custom bundles and sideload them into your upstream version
+of |CL|. A mixin is useful when you need to add custom or 3rd
 party content but want to keep on the upstream update cycle, as shown in
 Figure 2. You can also create new bundles using upstream packages.
 
