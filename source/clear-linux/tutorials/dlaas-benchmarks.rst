@@ -19,7 +19,7 @@ Prerequisites
 * `cloud-native-basic` bundle is installed (includes kubernetes)
 
 In |CL|, `containers-basic` provides Docker*, which is required for
-TensorFlow benchmarking. Use the :command:`swupd` utility to check if 
+TensorFlow benchmarking. Use the :command:`swupd` utility to check if
 `containers-basic` and `cloud-native-basic` are present:
 
 .. code-block:: bash
@@ -37,23 +37,16 @@ To ensure that kubernetes is correctly installed and configured,
 
 We have validated these steps against the following software package versions
 
-* |CL| 26240--lowest version permissible.
-* Docker 18.06.1
-* Kubernetes 1.11.3
-* Go 1.11.12
 
-TensorFlow benchmarks
-=====================
+The |CL| Deep Learning Stack is available in two versions.  First, a version that includes TensorFlow* optimized for Intel Architecture, the `Eigen`_ version, and a version that includes the TensorFlow* framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives, the `Intel MKL`_ version.
 
-This section describes running the `TensorFlow benchmarks`_ as run by the
-TensorFlow community. These steps provide a template to run other
-benchmarks, providing they can invoke TensorFlow.
+TensorFlow* Single and Multi Node Benchmarks
+============================================
 
-The |CL| Deep Learning Stack is available in two versions:
+This section describes running the `TensorFlow benchmarks`_ in single node. For multi node testing replicate these steps for each node. These steps provide a template to run other benchmarks, providing they can invoke TensorFlow.
 
-* `TensorFlow`_ includes TensorFlow optimized for Intel® architecture
-* `TensorFlow with MKL-DNN`_ includes the TensorFlow* framework optimized
-  using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN)
+Download and run either the `Eigen`_ or the `Intel MKL-DNN`_  docker image from hub.docker.com. The next commands will take place in the running container. Replace <docker_name> with the name of the image.
+
 
 Download and run either of these from the `Clear Linxu Docker Hub page`_.
 The next commands will take place in the running container.
@@ -79,8 +72,8 @@ The next commands will take place in the running container.
          You can replace the model with one of your choice supported by the
          TensorFlow benchmarks.
 
-Kubeflow benchmarks
-===================
+Kubeflow Multinode benchmarks
+=============================
 
 The benchmark workload will run in a Kubernetes container. We will use Kubeflow and deploy three nodes for this tutorial to get a decent return.
 
@@ -209,12 +202,10 @@ benchmark results.
 .. _flannel: https://github.com/coreos/flannel
 .. _networking documentation: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
 .. _quick start guide: https://www.kubeflow.org/docs/started/getting-started/
-.. _TensorFlow: https://hub.docker.com/r/clearlinux/stacks-dlaas-oss/
 
-.. _TensorFlow with MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
+.. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlaas-oss/
+.. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
 
 .. _release notes for the Clear Linux Deep Learning Stack: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas
 
 .. _Clear Linux Docker Hub page: https://hub.docker.com/u/clearlinux/
-
-
