@@ -9,7 +9,7 @@ hundreds of bundles that will meet most, if not all, of your OS and software
 needs.
 
 However, if you need additional customization or content, |CL| provides the
-mixer tool. We provide two different ways to develop and extend the OS, depending on your needs:
+mixer tool. Depending on your needs, the mixer tool allows you to:
 
 1. :ref:`create-mix` to create a distinct derivative of the |CL| that
    contains your custom software.
