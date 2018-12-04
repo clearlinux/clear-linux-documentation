@@ -3,7 +3,7 @@
 Deep Learning as a Service Benchmarking
 #######################################
 
-This tutorial details the steps needed to run benchmarking workloads in |CL-ATTR| using TensorFlow and on Kubeflow with the |CL| Deep Learning as a Service Stack.
+This tutorial details the steps needed to run benchmarking workloads in |CL-ATTR| using TensorFlow* and on Kubeflow with the |CL| Deep Learning as a Service Stack.
 
 Prerequisites
 =============
