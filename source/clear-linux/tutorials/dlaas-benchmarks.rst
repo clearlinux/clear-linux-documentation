@@ -38,7 +38,9 @@ TensorFlow Benchmarks
 
 This section describes running the `TensorFlow benchmarks`_ as run by the TensorFlow community. These steps provide a template to run other benchmarks, providing they can invoke TensorFlow.
 
-Download and run the docker image from hub.docker.com. The next commands will take place in the running container. Replace <docker_name> with the name of the image.
+The |CL| Deep Learning Stack is available in two versions.  First, a version that includes TensorFlow* optimized for Intel Architecture, and second, a version that includes the TensorFlow* framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
+
+Download and run either the `TensorFlow`_ or the `TensorFlow with MKL-DNN`_  docker image from hub.docker.com. The next commands will take place in the running container. Replace <docker_name> with the name of the image.
 
 First, clone the benchmark repository
 
@@ -165,9 +167,8 @@ Results
 You will need to parse the logs of the k8s pod to get the performance numbers. The pods will still be around post completion and will be in ‘Completed’ state. You can get the logs from any of the pods to inpsect the benchmark results.
 
 .. To-Dos
-.. This is a list of to-do’s to the engineering team to get this moving in the right direction.
+
 .. Make kubeflow docker images along with release images.
-.. Second downstream docker file for MKL.
 .. Another set of jsonnet files for MKL.
 .. Trim down the base DLaaS image to contain tensorflow bundle and nothing else.
 .. CI will throw benchmarks into the repo and be able to test it.
@@ -181,3 +182,5 @@ You will need to parse the logs of the k8s pod to get the performance numbers. T
 .. _flannel: https://github.com/coreos/flannel
 .. _networking documentation: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
 .. _quick start guide: https://www.kubeflow.org/docs/started/getting-started/
+.. _TensorFlow: https://hub.docker.com/r/clearlinux/stacks-dlaas-oss/
+.. _TensorFlow with MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
