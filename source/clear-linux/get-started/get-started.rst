@@ -14,14 +14,16 @@ Pre-install
 * :ref:`compatibility-check`
 * :ref:`bootable-usb` 
 
+
+
 Install |CL| 
 ************
 
 * :ref:`bare-metal-install` 
 * :ref:`bare-metal-manual-install`
 * :ref:`virtual-machine-install`
-* :ref:`live-image`
-
+* :ref:`live-image` 
+* :ref:`bare-metal-install-beta`
 
 .. toctree::
    :maxdepth: 2
@@ -34,3 +36,6 @@ Install |CL|
    live-image
    compatibility-check
    bootable-usb/bootable-usb
+
+   bare-metal-install-beta/bare-metal-install-beta
+   bootable-usb/bootable-usb-beta-all

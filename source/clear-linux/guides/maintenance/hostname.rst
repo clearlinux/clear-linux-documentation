@@ -3,15 +3,15 @@
 Modify hostname on |CL-ATTR|
 ############################
 
-This guide describes how to modify and view the hostname of your 
+This guide describes how to modify and view the hostname of your
 |CL-ATTR| system.
 
-By default, |CL| installations have a machine generated name, which is a 
-long string of letters and numbers. The generated name is fine for computers 
-but is not human-friendly. Administrators and users will often want to rename 
-their machines with a name that is easier to remember, type, and search 
-for. Renaming a machine also makes it easier to identify, by including 
-meaningful data in the name.  The following examples show human-friendly machine 
+By default, |CL| installations have a machine generated name, which is a
+long string of letters and numbers. The generated name is fine for computers
+but is not human-friendly. Administrators and users will often want to rename
+their machines with a name that is easier to remember, type, and search
+for. Renaming a machine also makes it easier to identify, by including
+meaningful data in the name.  The following examples show human-friendly machine
 names:
 
 * *regression-test*
@@ -21,12 +21,12 @@ names:
 Set your hostname
 *****************
 
-|CL| uses the :command:`hostnamectl` command to display and modify the machine 
-name. :command:`hostnamectl` is part of the **os-core** bundle, which provides 
-a basic Linux\* user space and utilities. 
+|CL| uses the :command:`hostnamectl` command to display and modify the machine
+name. :command:`hostnamectl` is part of the **os-core** bundle, which provides
+a basic Linux\* user space and utilities.
 
-This example sets the hostname to *telemetry-test-2-h15*, to identify a 
-|CL| telemetry test machine on the second floor at grid location H15. 
+This example sets the hostname to *telemetry-test-2-h15*, to identify a
+|CL| telemetry test machine on the second floor at grid location H15.
 Make sure to reboot after setting a new hostname.
 
 .. code-block:: bash
@@ -36,14 +36,14 @@ Make sure to reboot after setting a new hostname.
 
 .. note::
 
-   There are three types of hostname: *static*, *transient*, and *pretty*. 
-   The most common is the static hostname. Static hostnames must be between 
-   two and 63 characters long, must start and end with a letter or number, 
-   and may contain letters (case-insensitive), numbers, dashes, or dots.  
+   There are three types of hostname: *static*, *transient*, and *pretty*.
+   The most common is the static hostname. Static hostnames must be between
+   two and 63 characters long, must start and end with a letter or number,
+   and may contain letters (case-insensitive), numbers, dashes, or dots.
 
-   If the static hostname exists, it is used to generate the transient hostname, 
-   which is maintained by the kernel. The transient hostname can be changed 
-   by DHCP or mDNS at runtime. 
+   If the static hostname exists, it is used to generate the transient hostname,
+   which is maintained by the kernel. The transient hostname can be changed
+   by DHCP or mDNS at runtime.
 
    The pretty hostname is a free-form UTF8 name used for presentation to the user.
 
@@ -70,5 +70,5 @@ You should see output similar to:
    Kernel            : Linux 4.18.8-632.native
    Architecture      : x86-64
 
- 
+
 **Congratulations!** You successfully modified the hostname of your |CL| system.

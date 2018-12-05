@@ -4,7 +4,7 @@ Enable simple file sharing with a Windows\* machine using Samba\*
 #################################################################
 
 This tutorial describes how to enable simple file sharing from a system
-running |CLOSIA| to a Windows machine using Samba. For more advanced sharing,
+running |CL-ATTR| to a Windows machine using Samba. For more advanced sharing,
 refer to the `Samba guide`_.
 
 Prerequisites
@@ -96,8 +96,8 @@ use the hostname of the |CL| machine. For other ways to access shares using a
 hostname instead of an IP address, see `Chapter 7 of the Samba guide`_.
 
 
-Map Clear Linux drive in Windows
-********************************
+Map |CL| drive in Windows
+*************************
 
 #.	Open Windows Explorer and click on the left sidebar on :guilabel:`This PC`
 	to change the options available at the top.

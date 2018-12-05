@@ -4,7 +4,7 @@ Install Kata Containers\*
 #########################
 
 This tutorial describes how to install, configure, and run `Kata Containers`_
-on |CLOSIA|. Kata Containers is an open source project developing a
+on |CL-ATTR|. Kata Containers is an open source project developing a
 lightweight implementation of :abbr:`VMs (Virtual Machines)` that offer the
 speed of containers and the security of VMs.
 
@@ -79,12 +79,12 @@ Run Kata Containers
 
 **Congratulations!**
 
-You've successfully installed and set up Kata Containers on |CLOSIA|.
+You've successfully installed and set up Kata Containers on |CL|.
 
 More information about Docker
 *****************************
 
-Docker on |CLOSIA| provides a :file:`docker.service` file to start the Docker
+Docker on |CL| provides a :file:`docker.service` file to start the Docker
 daemon. The daemon will use runc or kata-runtime depending on the
 environment:
 

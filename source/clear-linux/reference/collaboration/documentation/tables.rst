@@ -5,7 +5,7 @@ Tables
 
 Tables must only be used for information that is either too numerous or too
 related for a list to be appropriate. The smallest acceptable table is 2x2
-not counting the table header. The |CLOSIA| uses special ReStructuredText
+not counting the table header. The |CL-ATTR| uses special ReStructuredText
 markup to make including tables easier. If you plan on adding a table
 consider transforming it into a list before you embark on creating a table.
 Follow these general guidelines:

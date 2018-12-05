@@ -3,34 +3,34 @@
 Set up WordPress\* on a LAMP web server
 #######################################
 
-This tutorial shows you how to install the WordPress\* components on your |CL| 
-:abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of 
-:ref:`web-server-install`, you created a WordPress-ready database using 
-phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you 
+This tutorial shows you how to install the WordPress\* components on your |CL|
+:abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of
+:ref:`web-server-install`, you created a WordPress-ready database using
+phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you
 can add the WordPress components needed to host a WordPress website on your system.
 
 Before you begin
 ****************
 
-This tutorial assumes you have successfully completed :ref:`bare-metal-install` 
+This tutorial assumes you have successfully completed :ref:`bare-metal-install`
 and that you have :ref:`web-server-install`.
 
 Create a WordPress server
 *************************
 
-WordPress can be installed in a variety of ways. These instructions are 
-written for users who have followed our instructions for installing phpMyAdmin 
-when they :ref:`set up a LAMP web server <web-server-install>`. Note that 
-all steps in this tutorial have been tested using a NUC6i5SYH Intel® NUC. 
+WordPress can be installed in a variety of ways. These instructions are
+written for users who have followed our instructions for installing phpMyAdmin
+when they :ref:`set up a LAMP web server <web-server-install>`. Note that
+all steps in this tutorial have been tested using a NUC6i5SYH Intel® NUC.
 Visit the `NUC6i5SYH product page`_ for detailed information.
 
-Numerous online articles are available to help you name your website and 
+Numerous online articles are available to help you name your website and
 acquire the necessary certificates. Those tasks are beyond the scope of this tutorial.
 
-You can take several actions to harden your website from attacks. The security 
-of your website and the data it contains are complex and ever-evolving tasks. 
-Prioritize security if you plan to expose your website to the outside world. 
-This tutorial does not address security measures that you can take to harden 
+You can take several actions to harden your website from attacks. The security
+of your website and the data it contains are complex and ever-evolving tasks.
+Prioritize security if you plan to expose your website to the outside world.
+This tutorial does not address security measures that you can take to harden
 your site but we strongly encourage you to take action.
 
 .. note::
@@ -41,10 +41,10 @@ your site but we strongly encourage you to take action.
 Download WordPress and manage directories
 =========================================
 
-For this tutorial, you will create a WordPress blog that can be accessed at: 
-http://<your_website>/blog.
+For this tutorial, you will create a WordPress blog that can be accessed at:
+\http://<your_website>/blog.
 
-To accomplish this setup, you must add WordPress components to the :file:`/var/www/html/blog` 
+To accomplish this setup, you must add WordPress components to the :file:`/var/www/html/blog`
 directory.
 
 Follow these steps:
@@ -83,11 +83,11 @@ Follow these steps:
 Set up WordPress with web-based GUI
 ===================================
 
-Recall that you created a database and user when you installed phpMyAdmin during 
-:ref:`Creating a Clear Linux based web server <web-server-install>`. Next, you must 
+Recall that you created a database and user when you installed phpMyAdmin when you
+set up a |CL| based :ref:`web server <web-server-install>`. Next, you must
 connect WordPress to the database and install WordPress.
 
-To continue with the setup, go to: http://<your_website>/blog/wp-admin/install.php. 
+To continue with the setup, go to: \http://<your_website>/blog/wp-admin/install.php.
 The WordPress language option screen appears, as shown in figure 1.
 
 #. Select :guilabel:`English` and click :guilabel:`Continue`.
@@ -99,7 +99,7 @@ The WordPress language option screen appears, as shown in figure 1.
       `Figure 1: WordPress language selection screen.`
 
 
-   The WordPress installation continues until the Welcome screen appears, as shown in 
+   The WordPress installation continues until the Welcome screen appears, as shown in
    figure 2:
 
    .. figure:: figures/wp-install-2.png
@@ -110,9 +110,9 @@ The WordPress language option screen appears, as shown in figure 1.
 
 #. Click :guilabel:`Let’s go!`.
 
-#. Enter database connection specifics in the screen that appears, as shown in figure 3 
+#. Enter database connection specifics in the screen that appears, as shown in figure 3
    below.
-  
+
    * Database name:       WordPress
    * Database username:   wordpressuser
    * Database password:   wp-example  (asterisks will not appear in the text box)
@@ -127,7 +127,7 @@ The WordPress language option screen appears, as shown in figure 1.
 
 #. Click :guilabel:`Submit` to complete the setup.
 
-   Figure 4 shows the confirmation screen that verifies a successful setup. WordPress 
+   Figure 4 shows the confirmation screen that verifies a successful setup. WordPress
    is connected to the MariaDB database.
 
    .. figure:: figures/wp-install-4.png
@@ -142,7 +142,7 @@ The WordPress language option screen appears, as shown in figure 1.
 Complete successful login
 =========================
 
-Once the installation is complete, you can name your blog and create a WordPress username 
+Once the installation is complete, you can name your blog and create a WordPress username
 and password. See figure 5.
 
 .. figure:: figures/wp-install-5.png
@@ -177,7 +177,7 @@ Figure 7 shows the WordPress dashboard after a successful login:
 You are ready to go!
 
 To check out your blog as it is seen by the outside world, enter:
-http://<your_website>/blog on your browser. Figure 8 shows the result:
+\http://<your_website>/blog on your browser. Figure 8 shows the result:
 
 .. figure:: figures/wp-install-8.png
    :alt: WordPress blog

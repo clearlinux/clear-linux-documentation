@@ -12,7 +12,7 @@ Simple English improves the clarity of procedural technical writing,
 makes translation easier, and improves comprehension for people whose
 first language is not English.
 
-|CLOSIA| does not use controlled language, which restricts the writer's
+|CL-ATTR| does not use controlled language, which restricts the writer's
 vocabulary to a list of approved words. However, we do strongly recommend
 using the language principles described below.
 

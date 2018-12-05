@@ -3,7 +3,7 @@
 Documentation contribution guidelines
 #####################################
 
-The |CLOSIA| documentation contribution guidelines provide detailed information
+The |CL-ATTR| documentation contribution guidelines provide detailed information
 about the scope and purpose of the documentation, the accepted writing style,
 and the markup used.
 

@@ -1,18 +1,18 @@
 .. _increase-virtual-disk-size:
 
-Increase virtual disk size of a Clear Linux\* image 
-###################################################
+Increase virtual disk size of a |CL-ATTR| image
+###############################################
 
-|CLOSIA| prebuilt images come in different sizes, ranging from 300 MB to 20
+|CL-ATTR| prebuilt images come in different sizes, ranging from 300 MB to 20
 GB. This guide describes how to increase the size of your prebuilt |CL| image
 if you need more capacity.
 
 .. contents:: This guide will cover:
 
-Determine the partition order and sizes of the prebuilt image 
+Determine the partition order and sizes of the prebuilt image
 *************************************************************
 
-There are two methods to find the order and sizes of partitions virtual disk 
+There are two methods to find the order and sizes of partitions virtual disk
 of your prebuilt |CL| image.
 
 In both examples, the prebuilt Hyper-V image has a disk size of 8.5 GB with /
@@ -28,7 +28,7 @@ execute the :command:`lsblk` command as shown below:
 
    sudo lsblk
 
-An example output of the :command:`lsblk` command: 
+An example output of the :command:`lsblk` command:
 
 .. code-block:: console
 
@@ -36,16 +36,16 @@ An example output of the :command:`lsblk` command:
    sda      8:0   0    8.5G  0 disk
    ├─sda1   8:1   0    512M  0 part
    ├─sda2   8:2   0     32M  0 part [SWAP]
-   └─sda3   8:3   0      8G  0 part /         
+   └─sda3   8:3   0      8G  0 part /
 
 An example of this can also be seen in Figure 1.
 
-Checking :file:`config.json` used to build the image  
+Checking :file:`config.json` used to build the image
 ----------------------------------------------------
 
-The second method to determine partition to check the :file:`config.json` 
+The second method to determine partition to check the :file:`config.json`
 file used to create prebuilt image, located in the `releases`_ repository.
-For example, to find the size of the Hyper-V\* image version number 20450, 
+For example, to find the size of the Hyper-V\* image version number 20450,
 follow these steps:
 
 #. Go to the `releases`_ repository.
@@ -74,17 +74,17 @@ follow these steps:
 
 Increase virtual disk size
 **************************
-Once you have determined the disk and partition to be increased, you are 
+Once you have determined the disk and partition to be increased, you are
 ready to perform the actual increase of the disk, partition, and filesystem.
 
 Power off VM and increase virtual disk size:
 --------------------------------------------
 
-To increase the virtual disk size for a prebuilt image, perform the steps 
+To increase the virtual disk size for a prebuilt image, perform the steps
 below:
 
 #. Shut down your VM if it is running.
-#. Use the process defined by your hypervisor 
+#. Use the process defined by your hypervisor
    or cloud provider to increase
    the virtual disk size of your |CL| VM.
 #. Power up the VM.
@@ -95,7 +95,7 @@ Resize the partition of the virtual disk:
 
 #. Log in to an account with root privileges.
 #. Open a terminal emulator.
-#. Add the |CL| `storage-utils` bundle to install the 
+#. Add the |CL| `storage-utils` bundle to install the
    :command:`parted` and :command:`resize2fs` tools.
 
    .. code-block:: bash
@@ -121,7 +121,7 @@ Resize the partition of the virtual disk:
 
          Fix/Ignore?
 
-   #. Enter :command:`resizepart [partition number]` where 
+   #. Enter :command:`resizepart [partition number]` where
       *[partition number]* is the partition number of the partition to modify.
    #. Enter :command:`yes` when prompted.
    #. Enter the new `End` size.
@@ -142,18 +142,18 @@ Resize the partition of the virtual disk:
 
       .. figure:: figures/increase-virtual-disk-size-1.png
          :scale: 100 %
-         :alt: Increase root partition size 
+         :alt: Increase root partition size
 
          Figure 1: Increase root partition size.
 
-Resize the filesytem 
+Resize the filesytem
 --------------------
 
 #. Enter :command:`sudo resize2fs -p /dev/[modified partition name]` where
    *[modified partition name]* is the partition that was changed in `parted`.
 
 #. Run the :command:`df -h` to verify that the filesystem size has
-   increased. 
+   increased.
 
    Figure 2 depicts the described steps to resize the partition of the virtual disk from 8.5GB to 20GB.
 
@@ -164,6 +164,6 @@ Resize the filesytem
       Figure 2: Increase root filesystem size after partition has been expanded.
 
 Congratulations! You have resized the disk, partition, and filesystem. At
-this point, the increase in disk capacity is usable. 
+this point, the increase in disk capacity is usable.
 
 .. _releases: https://download.clearlinux.org/releases/

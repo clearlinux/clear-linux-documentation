@@ -6,9 +6,9 @@ Install |CL-ATTR| on bare metal (automatic)
 These instructions guide you through the installation of |CL-ATTR|
 on bare metal using a bootable USB drive.
 
-Before you begin, check that your system meets the requirements to install |CL|: 
+Before you begin, check that your system meets the requirements to install |CL|:
 
-* :ref:`system-requirements` 
+* :ref:`system-requirements`
 * :ref:`compatibility-check`
 
 
@@ -19,7 +19,7 @@ Get the latest |CL| installer image from the `image`_ directory.
 Look for the :file:`clear-[version number]-installer.img.xz` file. You can also use this command:
 
 .. code-block:: bash
-   
+
    curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep "installer")
 
 Once you have downloaded the image, verify and decompress the file.
@@ -58,7 +58,7 @@ Follow these steps to install |CL| on the target system:
 #. Reboot the target system.
 
 #. The |CL| boot menu will start as shown in figure 1.
-   Select :guilabel:`Clear Linux OS for Intel Architecture` and press the
+   Select :guilabel:`Clear Linux OS` and press the
    :kbd:`Enter` key or wait five seconds to automatically select it.
 
    .. figure:: figures/bare-metal-install-1.png
@@ -225,7 +225,7 @@ process. Otherwise, you can follow the |CL| automatic installation steps.
    :guilabel:`< Automatic >` menu item shown in figure 7 and press the
    :kbd:`Enter` key.
 
-   The :guilabel:`Choose target device for installation` screen shown in figure 8 appears.  
+   The :guilabel:`Choose target device for installation` screen shown in figure 8 appears.
 
 #. Move the cursor to the desired target and press the :kbd:`Enter`
    key.
@@ -255,7 +255,7 @@ process. Otherwise, you can follow the |CL| automatic installation steps.
    through the automated installation process.
 
    Once all steps have completed, you will see the :guilabel:`Successful
-   installation` status message and the :guilabel:`< Ok >` button is highlighted as shown in figure 10. 
+   installation` status message and the :guilabel:`< Ok >` button is highlighted as shown in figure 10.
 
 #. Press the :kbd:`Enter` key to continue.
 
@@ -266,10 +266,10 @@ process. Otherwise, you can follow the |CL| automatic installation steps.
       Figure 10: :guilabel:`Installation complete`
 
    Figure 11 shows the final installer screen, showing that the
-   installation completed successfully and the system will reboot. 
+   installation completed successfully and the system will reboot.
 
-#. Press the :kbd:`Enter` key and remove the USB media while the system 
-   restarts. 
+#. Press the :kbd:`Enter` key and remove the USB media while the system
+   restarts.
 
    .. figure:: figures/bare-metal-install-11.png
       :scale: 50 %
@@ -306,8 +306,8 @@ Next steps
 **********
 
 The automatic installation of |CL| is designed to install with minimal
-software overhead. Some housekeeping and package installations could be 
-needed before you can take full advantage of the |CL| operating system. 
+software overhead. Some housekeeping and package installations could be
+needed before you can take full advantage of the |CL| operating system.
 
 See the :ref:`enable-user-space` guide for additional information and
 instructions.

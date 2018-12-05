@@ -1,9 +1,9 @@
 .. _multi-boot:
 
-Multi-boot Clear Linux with other operating systems
-###################################################
+Multi-boot |CL-ATTR| with other operating systems
+#################################################
 
-|CLOSIA| uses the Systemd-Boot boot loader, which does not support multi-
+|CL-ATTR| uses the Systemd-Boot boot loader, which does not support multi-
 booting without manual manipulation. This tutorial shows how to configure the
 |CL| boot loader to work with other :abbr:`OSes (operating systems)`.
 
@@ -99,8 +99,8 @@ Detailed procedures
 
 .. _multi-boot-cl:
 
-Install Clear Linux OS
-**********************
+Install |CL|
+************
 
 Navigation tips for text-based installation interfaces:
 

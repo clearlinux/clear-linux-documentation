@@ -4,7 +4,7 @@ Inline Markup
 *************
 
 Sphinx supports a large number of inline markup elements called roles. The
-|CLOSIA| documentation encourages the use of as many roles as
+|CL-ATTR| documentation encourages the use of as many roles as
 possible. Thus, you can use any additional roles supported by Sphinx
 not listed here. Please refer to the `Sphinx reStructuredText Markup`_
 documentation for the full list of supported roles.

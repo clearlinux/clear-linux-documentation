@@ -3,18 +3,18 @@
 TensorFlow\* machine learning on |CL-ATTR|
 ##########################################
 
-This tutorial will demonstrate the installation and execusion of a TensorFlow\* 
+This tutorial will demonstrate the installation and execusion of a TensorFlow\*
 machine learning example on |CL-ATTR|. It uses a Jupyter\* Notebook and MNIST
 data for handwriting recognition. 
 
-The initial steps will have you set up a Jupyter kernel and run a Notebook 
+The initial steps will have you set up a Jupyter kernel and run a Notebook
 on a bare-metal |CL| system.
 
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| on your host system. For detailed 
-instructions on installing |CL| on a bare metal system, follow the 
+This tutorial assumes you have installed |CL| on your host system. For detailed
+instructions on installing |CL| on a bare metal system, follow the
 :ref:`bare metal installation tutorial<bare-metal-install>`.
 
 Before you install any new packages, update |CL| with the following command:
@@ -191,7 +191,7 @@ run the example code.
 
       Figure 8: The system's accuracy for the entire data set.
 
-For more in-depth information on the model used and the mathematics it entails, 
+For more in-depth information on the model used and the mathematics it entails,
 visit the TensorFlow tutorials
 `TensorFlow MNIST beginners demo`_ and `TensorFlow MNIST pros demo`_.
 
