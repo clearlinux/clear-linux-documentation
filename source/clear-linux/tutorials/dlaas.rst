@@ -4,12 +4,12 @@ Deep Learning as a Service
 ##########################
 
 This tutorial explains how to run benchmarking workloads in |CL-ATTR| using
-TensorFlow* and Kubeflow with the Clear Linux* Deep Learning Stack.
+TensorFlow* and Kubeflow with the Intel® Deep Learning Stack.
 
 Release notes
 =============
 
-View current `release notes for the Clear Linux Deep Learning Stack`_.
+View current `release notes`_ for the Intel® Deep Learning Stack.
 
 Prerequisites
 =============
@@ -42,7 +42,7 @@ We have validated these steps against the following software package versions
 * Kubernetes 1.11.3
 * Go 1.11.12
 
-The |CL| Deep Learning Stack is available in two versions.  First, a version that includes TensorFlow* optimized for Intel Architecture, the `Eigen`_ version, and a version that includes the TensorFlow* framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives, the `Intel MKL`_ version.
+The Intel® Deep Learning Stack is available in two versions.  First, a version that includes TensorFlow* optimized for Intel Architecture, the `Eigen`_ version, and a version that includes the TensorFlow* framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives, the `Intel MKL`_ version.
 
 TensorFlow* Single and Multi Node Benchmarks
 ============================================
@@ -96,7 +96,7 @@ Images
 ******
 
 We need to add `launcher.py` to our docker image to
-include the |CL| Deep Learning Stack, and put the benchmarks repo in the
+include the Intel® Deep Learning Stack, and put the benchmarks repo in the
 right location. From the docker image, run the following:
 
 .. code-block:: bash
@@ -161,7 +161,7 @@ This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
 Running the Deep Learning as a Service TFJob
 ============================================
 
-The `jsonnet template files`_ for ResNet50 and Alexnet are available in the |CL|
+The `jsonnet template files`_ for ResNet50 and Alexnet are available in the Intel®
 Deep Learning Stack repository. Download and copy these files into:
 
 .. code-block:: console
@@ -207,7 +207,7 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 .. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlaas-oss/
 .. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
 
-.. _release notes for the Clear Linux Deep Learning Stack: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas
+.. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas
 
 .. _Clear Linux Docker Hub page: https://hub.docker.com/u/clearlinux/
 
