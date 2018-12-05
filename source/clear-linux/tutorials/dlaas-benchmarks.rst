@@ -37,6 +37,10 @@ To ensure that kubernetes is correctly installed and configured,
 
 We have validated these steps against the following software package versions
 
+* |CL| 26240--lowest version permissible.
+* Docker 18.06.1
+* Kubernetes 1.11.3
+* Go 1.11.12
 
 The |CL| Deep Learning Stack is available in two versions.  First, a version that includes TensorFlow* optimized for Intel Architecture, the `Eigen`_ version, and a version that includes the TensorFlow* framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives, the `Intel MKL`_ version.
 
@@ -47,9 +51,6 @@ This section describes running the `TensorFlow benchmarks`_ in single node. For 
 
 Download and run either the `Eigen`_ or the `Intel MKL-DNN`_  docker image from hub.docker.com. The next commands will take place in the running container. Replace <docker_name> with the name of the image.
 
-
-Download and run either of these from the `Clear Linxu Docker Hub page`_.
-The next commands will take place in the running container.
 
 .. note::
 
@@ -75,7 +76,7 @@ The next commands will take place in the running container.
 Kubeflow Multinode benchmarks
 =============================
 
-The benchmark workload will run in a Kubernetes container. We will use Kubeflow and deploy three nodes for this tutorial to get a decent return.
+The benchmark workload will run in a Kubernetes container. We will use Kubeflow and deploy three nodes for this tutorial to show resource management and get sufficient output data for evaluation.
 
 Kubernetes setup
 ****************
@@ -94,7 +95,7 @@ comfortable with another network layer, refer to the Kubernetes
 Images
 ******
 
-We need to create a docker image that includes `launcher.py` to
+We need to add `launcher.py` to our docker image to
 include the |CL| Deep Learning Stack, and put the benchmarks repo in the
 right location. From the docker image, run the following:
 
@@ -160,7 +161,7 @@ This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
 Running the Deep Learning as a Service TFJob
 ============================================
 
-The jsonnet template files for ResNet50 and Alexnet are available in the |CL|
+The `jsonnet template files`_ for ResNet50 and Alexnet are available in the |CL|
 Deep Learning Stack repository. Download and copy these files into:
 
 .. code-block:: console
@@ -184,7 +185,7 @@ Results
 You need to parse the logs of the Kubernetes pod to get the performance
 numbers. The pods will still be around post completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
-benchmark results.
+benchmark results. More information about `Kubernetes logging`_ is available from the Kubernetes community.
 
 .. To-Dos
 
@@ -209,3 +210,7 @@ benchmark results.
 .. _release notes for the Clear Linux Deep Learning Stack: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas
 
 .. _Clear Linux Docker Hub page: https://hub.docker.com/u/clearlinux/
+
+.. _jsonnet template files: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlaas-tfjob/dlaas-bench/prototypes
+
+.. _Kubernetes logging: https://kubernetes.io/docs/concepts/cluster-administration/logging/
