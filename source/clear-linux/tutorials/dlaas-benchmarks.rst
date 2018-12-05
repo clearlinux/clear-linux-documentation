@@ -1,122 +1,145 @@
-.. _dlaas-benchmarks:
+.. _dlaas:
 
-Deep Learning as a Service Benchmarking
-#######################################
+Deep Learning as a Service
+##########################
 
-This tutorial details the steps needed to run benchmarking workloads in |CL-ATTR| using TensorFlow* and on Kubeflow with the |CL| Deep Learning as a Service Stack.
+This tutorial explains how to run benchmarking workloads in |CL-ATTR| using
+TensorFlow* and Kubeflow with the Clear Linux* Deep Learning Stack.
+
+Release notes
+=============
+
+View current `release notes for the Clear Linux Deep Learning Stack`_.
 
 Prerequisites
 =============
 
-For this tutorial, we'll be using a system that has |CL| installed using the :ref:`bare-metal-install` getting started guide.  It is possible to follow these instructions on other OS systems but we're limiting the scope of this document to |CL|.
+* |CL| is installed on host system. If not, :ref:`bare-metal-install`
+* `containers-basic` bundle is installed
+* `cloud-native-basic` bundle is installed (includes kubernetes)
 
-Ensure you have the "containers-basic" bundle installed, this will provide Docker, which is required for TensorFlow benchmarking. Use the :command:`swupd` utility with the `bundle-list` option and check for "containers-basic" in the list:
-
-.. code-block:: bash
-
-  sudo swupd bundle-list
-
-If you need to install the containers-basic bundle, use :command:`swupd` to do so.
+In |CL|, `containers-basic` provides Docker*, which is required for
+TensorFlow benchmarking. Use the :command:`swupd` utility to check if 
+`containers-basic` and `cloud-native-basic` are present:
 
 .. code-block:: bash
 
-  sudo swupd bundle-add containers-basic
+   sudo swupd bundle-list
 
+If you need to install the `containers-basic` or `cloud-native-basic`, enter:
 
-To run Kubernetes on |CL|, please refer to the :ref:`kubernetes` tutorial to ensure it is correctly installed and configured.
+.. code-block:: bash
+
+   sudo swupd bundle-add containers-basic
+
+To ensure that kubernetes is correctly installed and configured,
+:ref:`kubernetes`.
 
 We have validated these steps against the following software package versions
 
-  * |CL| 26240
-  * Docker 18.06.1
-  * Kubernetes 1.11.3
-  * Go 1.11.12
+* |CL| 26240--lowest version permissible.
+* Docker 18.06.1
+* Kubernetes 1.11.3
+* Go 1.11.12
 
-
-TensorFlow Benchmarks
+TensorFlow benchmarks
 =====================
 
-This section describes running the `TensorFlow benchmarks`_ as run by the TensorFlow community. These steps provide a template to run other benchmarks, providing they can invoke TensorFlow.
+This section describes running the `TensorFlow benchmarks`_ as run by the
+TensorFlow community. These steps provide a template to run other
+benchmarks, providing they can invoke TensorFlow.
 
-The |CL| Deep Learning Stack is available in two versions.  First, a version that includes TensorFlow* optimized for Intel Architecture, and second, a version that includes the TensorFlow* framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
+The |CL| Deep Learning Stack is available in two versions:
 
-Download and run either the `TensorFlow`_ or the `TensorFlow with MKL-DNN`_  docker image from hub.docker.com. The next commands will take place in the running container. Replace <docker_name> with the name of the image.
+* `TensorFlow`_ includes TensorFlow optimized for Intel® architecture
+* `TensorFlow with MKL-DNN`_ includes the TensorFlow* framework optimized
+  using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN)
 
-First, clone the benchmark repository
+Download and run either of these from the `Clear Linxu Docker Hub page`_.
+The next commands will take place in the running container.
 
-.. code-block:: bash
+.. note::
 
-  docker exec -t <docker_name> bash -c ‘git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.11_compatible’
+   Replace <docker_name> with the name of the image.
 
-Next, execute the benchmark script to run the benchmark
+#. First, clone the benchmark repository:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-  docker exec -i <docker_name> bash -c ‘python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NWHC ’.
+      docker exec -t <docker_name> bash -c ‘git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.11_compatible’
 
-You can replace the model with one of your choice supported by the TensorFlow benchmarks.
+#. Next, execute the benchmark script to run the benchmark
 
+   .. code-block:: bash
 
+      docker exec -i <docker_name> bash -c ‘python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NWHC ’.
 
-Kubeflow Benchmarks
+      .. note::
+
+         You can replace the model with one of your choice supported by the
+         TensorFlow benchmarks.
+
+Kubeflow benchmarks
 ===================
 
-The benchmark workload will run in a Kubernetes (k8s) container. We will use Kubeflow and deploy three nodes for this tutorial, to get a decent return.
+The benchmark workload will run in a Kubernetes container. We will use Kubeflow and deploy three nodes for this tutorial to get a decent return.
 
-k8s setup
-+++++++++
+Kubernetes setup
+****************
 
-Please follow the instructions in the :ref:`kubernetes` tutorial to get set up on |CL|.  The k8s community also has `instructions`_ if you are using Ubuntu instead of |CL|.
+Follow the instructions in the :ref:`kubernetes` tutorial to get set up on
+|CL|. The kubernetes community also has `instructions for creating a cluster`_.
 
+Kubernetes networking
+*********************
 
-k8s networking
-++++++++++++++
-
-We have used `flannel`_ as the network provider for these tests. If you are comfortable with another network layer, there is nothing that will prevent you from using that.
-Refer to the Kubernetes `networking documentation`_ for setup.
+We have used `flannel`_ as the network provider for these tests. If you are
+comfortable with another network layer, refer to the Kubernetes
+`networking documentation`_ for setup.
 
 
 Images
-++++++
+******
 
-We will need to create a docker image that will include launcher.py to include the |CL| Deep Learning Stack, and put the benchmarks repo in the right location. From the docker image, run the following
-
-.. code-block:: bash
-
-  mkdir -p /opt
-  git clone https://github.com/tensorflow/benchmarks.git /opt/tf-benchmarks
-  cp launcher.py /opt
-  chmod u+x /opt/*
-
-Your entry point then becomes "/opt/launcher.py".
-
-
-This will build an image which can be consumed directly by TFJob from kubeflow.  We are working to create these images as part of our release cycle.
-
-
-Ksonnet
-+++++++
-
-Kubeflow uses Ksonnet to manage deployments, so we need to install that before setting up Kubeflow. On |CL|, follow these steps:
+We need to create a docker image that includes `launcher.py` to
+include the |CL| Deep Learning Stack, and put the benchmarks repo in the
+right location. From the docker image, run the following:
 
 .. code-block:: bash
 
-  swupd bundle-add go-basic-dev
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$GOPATH/bin
-  go get github.com/ksonnet/ksonnet
-  cd $GOPATH/src/github.com/ksonnet/ksonnet
-  make install
+   mkdir -p /opt
+   git clone https://github.com/tensorflow/benchmarks.git /opt/tf-benchmarks
+   cp launcher.py /opt
+   chmod u+x /opt/*
+
+Your entry point now becomes "/opt/launcher.py".
+
+This will build an image which can be consumed directly by TFJob from
+kubeflow.  We are working to create these images as part of our release
+cycle.
 
 
-.. For other OS, follow steps in: https://www.kubeflow.org/docs/guides/components/ksonnet/ .
+ksonnet*
+********
 
-After the ksonnet installation is complete, ensure that binary `ks` is accessible across the environment.
+Kubeflow uses ksonnet* to manage deployments, so we need to install that before setting up Kubeflow. On |CL|, follow these steps:
 
+.. code-block:: bash
+
+   swupd bundle-add go-basic-dev
+   export GOPATH=$HOME/go
+   export PATH=$PATH:$GOPATH/bin
+   go get github.com/ksonnet/ksonnet
+   cd $GOPATH/src/github.com/ksonnet/ksonnet
+   make install
+
+After the ksonnet installation is complete, ensure that binary `ks` is
+accessible across the environment.
 
 Kubeflow
-========
-Once you have k8s running on your nodes, you can setup Kubeflow by following these instructions from their `quick start guide`_.
+********
+
+Once you have Kubernetes running on your nodes, you can setup Kubeflow by following these instructions from their `quick start guide`_.
 
 .. code-block:: bash
 
@@ -142,29 +165,33 @@ Now you have all the required kubeflow packages, and you can deploy the primary 
 This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
 
 Running the Deep Learning as a Service TFJob
-++++++++++++++++++++++++++++++++++++++++++++
+============================================
 
-The jsonnet template files for ResNet50 and Alexnet are available in the |CL| Deep Learning Stack repository. Download and copy these files into
+The jsonnet template files for ResNet50 and Alexnet are available in the |CL|
+Deep Learning Stack repository. Download and copy these files into:
 
 .. code-block:: console
 
-  ${KUBEFLOW_SRC}/${KFAPP}/vendor/kubeflow/examples/prototypes/
+   ${KUBEFLOW_SRC}/${KFAPP}/vendor/kubeflow/examples/prototypes/
 
 Next, generate Kubernetes manifests for the workloads and apply them to create and run them using these commands
 
 .. code-block:: bash
 
-  ks generate dlaas-resnet50 dlaasresnet50 --name=dlaasresnet50
-  ks generate dlaas-alexnet dlaasalexnet --name=dlaasalexnet
-  ks apply default -c dlaasresnet50
-  ks apply default -c dlaasalexnet
+   ks generate dlaas-resnet50 dlaasresnet50 --name=dlaasresnet50
+   ks generate dlaas-alexnet dlaasalexnet --name=dlaasalexnet
+   ks apply default -c dlaasresnet50
+   ks apply default -c dlaasalexnet
 
-This will replicate and deploy three test setups in your k8s cluster.
+This will replicate and deploy three test setups in your Kubernetes cluster.
 
 
 Results
 =======
-You will need to parse the logs of the k8s pod to get the performance numbers. The pods will still be around post completion and will be in ‘Completed’ state. You can get the logs from any of the pods to inpsect the benchmark results.
+You need to parse the logs of the Kubernetes pod to get the performance
+numbers. The pods will still be around post completion and will be in
+‘Completed’ state. You can get the logs from any of the pods to inspect the
+benchmark results.
 
 .. To-Dos
 
@@ -178,9 +205,16 @@ You will need to parse the logs of the k8s pod to get the performance numbers. T
 
 
 .. _TensorFlow benchmarks: https://www.tensorflow.org/guide/performance/benchmarks
-.. _instructions: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
+.. _instructions for creating a cluster: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
 .. _flannel: https://github.com/coreos/flannel
 .. _networking documentation: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
 .. _quick start guide: https://www.kubeflow.org/docs/started/getting-started/
 .. _TensorFlow: https://hub.docker.com/r/clearlinux/stacks-dlaas-oss/
+
 .. _TensorFlow with MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
+
+.. _release notes for the Clear Linux Deep Learning Stack: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas
+
+.. _Clear Linux Docker Hub page: https://hub.docker.com/u/clearlinux/
+
+
