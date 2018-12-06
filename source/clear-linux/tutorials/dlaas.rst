@@ -8,7 +8,7 @@ TensorFlow\* and Kubeflow with the Intel® Deep Learning Stack.
 
 The Intel® Deep Learning Stack is available in two versions. The first is
 `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture. The
-second is `Intel MKL`_, which includes the TensorFlow framework optimized
+second is `Intel MKL-DNN`_, which includes the TensorFlow framework optimized
 using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN)
 primitives.
 
@@ -91,7 +91,7 @@ TensorFlow.
          TensorFlow benchmarks.
 
 Kubeflow multi-node benchmarks
-=============================
+==============================
 
 The benchmark workload will run in a Kubernetes container. We will use
 `Kubeflow`_ and deploy three nodes for this tutorial to show resource
@@ -104,15 +104,12 @@ Follow the instructions in the :ref:`kubernetes` tutorial to get set up on
 |CL|. The kubernetes community also has
 `instructions for creating a cluster`_.
 
-.. TODO:  Confirm by review of DnPlas answer to thread of email.
-
 Kubernetes networking
 *********************
 
 We used `flannel`_ as the network provider for these tests. If you are
 comfortable with another network layer, refer to the Kubernetes
 `networking documentation`_ for setup.
-
 
 Images
 ******
@@ -133,7 +130,6 @@ Your entry point now becomes "/opt/launcher.py".
 This will build an image which can be consumed directly by TFJob from
 kubeflow. We are working to create these images as part of our release
 cycle.
-
 
 ksonnet\*
 *********
@@ -159,32 +155,35 @@ Once you have Kubernetes running on your nodes, you can setup `Kubeflow`_ by fol
 
 .. code-block:: bash
 
-  export KUBEFLOW_SRC=$HOME/kflow
-  export KUBEFLOW_TAG=”v0.3.2”
-  export KFAPP=”kflow_app”
-  export K8S_NAMESPACE=”kubeflow”
-  mkdir ${KUBEFLOW_SRC}
-  cd ${KUBEFLOW_SRC}
-  curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
-  ${KUBEFLOW_SRC}/scripts/kfctl.sh init ${KFAPP} --platform none
-  cd ${KFAPP}
-  ${KUBEFLOW_SRC}/scripts/kfctl.sh generate k8s
+   export KUBEFLOW_SRC=$HOME/kflow
+   export KUBEFLOW_TAG=”v0.3.2”
+   export KFAPP=”kflow_app”
+   export K8S_NAMESPACE=”kubeflow”
+   mkdir ${KUBEFLOW_SRC}
+   cd ${KUBEFLOW_SRC}
+   curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
+   ${KUBEFLOW_SRC}/scripts/kfctl.sh init ${KFAPP} --platform none
+   cd ${KFAPP}
+   ${KUBEFLOW_SRC}/scripts/kfctl.sh generate k8s
 
 Now you have all the required kubeflow packages, and you can deploy the primary one for our purposes: tf-job-operator.
 
 .. code-block:: bash
 
-  kubectl create namespace ${K8S_NAMESPACE}
-  ks env add default --namespace "${K8S_NAMESPACE}"
-  ks apply default -c tf-job-operator
+   ks env rm default
+   kubectl create namespace ${K8S_NAMESPACE}
+   ks env add default --namespace "${K8S_NAMESPACE}"
+   ks generate tf-job-operator tf-job-operator
+   ks apply default -c tf-job-operator
 
 This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
 
 Running the Deep Learning as a Service TFJob
 ============================================
 
-The `jsonnet template files`_ for ResNet50 and Alexnet are available in the Intel®
-Deep Learning Stack repository. Download and copy these files into:
+The `jsonnet template files`_ for ResNet50 and Alexnet are available in
+the Intel® Deep Learning Stack repository. Download and copy these files
+into:
 
 .. code-block:: console
 
@@ -201,7 +200,6 @@ Next, generate Kubernetes manifests for the workloads and apply them to create a
 
 This will replicate and deploy three test setups in your Kubernetes cluster.
 
-
 Results
 =======
 You need to parse the logs of the Kubernetes pod to get the performance
@@ -209,16 +207,7 @@ numbers. The pods will still be around post completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
 benchmark results. More information about `Kubernetes logging`_ is available from the Kubernetes community.
 
-.. To-Dos
-
-.. Make kubeflow docker images along with release images.
-.. Another set of jsonnet files for MKL.
-.. Trim down the base DLaaS image to contain tensorflow bundle and nothing else.
-.. CI will throw benchmarks into the repo and be able to test it.
-.. The downstream dockerfile will generate another image with benchmarks repo and launcher.py file in the right locations.
-.. Dynamic generation of ksonnet template files for a matrix of batch_size, model and replicas.
-
-.. TensorFlow: https://www.tensorflow.org/
+.. _TensorFlow: https://www.tensorflow.org/
 .. _Kubeflow: https://www.kubeflow.org/
 .. _Docker Hub: https://hub.docker.com/
 .. _TensorFlow benchmarks: https://www.tensorflow.org/guide/performance/benchmarks
