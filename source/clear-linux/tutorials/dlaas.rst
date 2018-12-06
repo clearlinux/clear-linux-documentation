@@ -16,7 +16,7 @@ Prerequisites
 
 * |CL| is installed on host system. If not, :ref:`bare-metal-install`
 * `containers-basic` bundle is installed
-* `cloud-native-basic` bundle is installed (includes kubernetes)
+* `cloud-native-basic` bundle is installed
 
 In |CL|, `containers-basic` provides Docker*, which is required for
 TensorFlow benchmarking. Use the :command:`swupd` utility to check if
@@ -30,7 +30,9 @@ If you need to install the `containers-basic` or `cloud-native-basic`, enter:
 
 .. code-block:: bash
 
-   sudo swupd bundle-add containers-basic
+   sudo swupd bundle-add containers-basic cloud-native-basic
+
+.. TODO: Resolve issue: Are we installing kubernetes in the bare metal or in the Virtual environment. F-up with DnPlas, bd-dean
 
 To ensure that kubernetes is correctly installed and configured,
 :ref:`kubernetes`.
@@ -42,14 +44,23 @@ We have validated these steps against the following software package versions
 * Kubernetes 1.11.3
 * Go 1.11.12
 
-The Intel® Deep Learning Stack is available in two versions.  First, a version that includes TensorFlow* optimized for Intel Architecture, the `Eigen`_ version, and a version that includes the TensorFlow* framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives, the `Intel MKL`_ version.
+The Intel® Deep Learning Stack is available in two versions.  First, a
+version that includes TensorFlow* optimized for Intel Architecture, the
+`Eigen`_ version. Second, there is a version that includes the TensorFlow*
+framework optimized using Intel® Math Kernel Library for Deep Neural
+Networks (Intel® MKL-DNN) primitives, the `Intel MKL`_ version.
 
 TensorFlow* Single and Multi Node Benchmarks
 ============================================
 
-This section describes running the `TensorFlow benchmarks`_ in single node. For multi node testing replicate these steps for each node. These steps provide a template to run other benchmarks, providing they can invoke TensorFlow.
+This section describes running the `TensorFlow benchmarks`_ in single node.
+For multi node testing replicate these steps for each node. These steps
+provide a template to run other benchmarks, providing they can invoke
+TensorFlow.
 
-Download and run either the `Eigen`_ or the `Intel MKL-DNN`_  docker image from hub.docker.com. The next commands will take place in the running container. Replace <docker_name> with the name of the image.
+Download and run either the `Eigen`_ or the `Intel MKL-DNN`_  docker image
+from hub.docker.com. The next commands will take place in the running
+container. Replace <docker_name> with the name of the image.
 
 
 .. note::
@@ -76,13 +87,18 @@ Download and run either the `Eigen`_ or the `Intel MKL-DNN`_  docker image from 
 Kubeflow Multinode benchmarks
 =============================
 
-The benchmark workload will run in a Kubernetes container. We will use Kubeflow and deploy three nodes for this tutorial to show resource management and get sufficient output data for evaluation.
+The benchmark workload will run in a Kubernetes container. We will use
+Kubeflow and deploy three nodes for this tutorial to show resource
+management and get sufficient output data for evaluation.
 
 Kubernetes setup
 ****************
 
 Follow the instructions in the :ref:`kubernetes` tutorial to get set up on
-|CL|. The kubernetes community also has `instructions for creating a cluster`_.
+|CL|. The kubernetes community also has
+`instructions for creating a cluster`_.
+
+.. TODO:  Confirm by review of DnPlas answer to thread of email.
 
 Kubernetes networking
 *********************
