@@ -151,7 +151,8 @@ accessible across the environment.
 Kubeflow
 ********
 
-Once you have Kubernetes running on your nodes, you can setup `Kubeflow`_ by following these instructions from their `quick start guide`_.
+Once you have Kubernetes running on your nodes, you can setup `Kubeflow`_ by 
+following these instructions from their `quick start guide`_.
 
 .. code-block:: bash
 
@@ -159,12 +160,13 @@ Once you have Kubernetes running on your nodes, you can setup `Kubeflow`_ by fol
    export KUBEFLOW_TAG=”v0.3.2”
    export KFAPP=”kflow_app”
    export K8S_NAMESPACE=”kubeflow”
+
    mkdir ${KUBEFLOW_SRC}
    cd ${KUBEFLOW_SRC}
-   curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
-   ${KUBEFLOW_SRC}/scripts/kfctl.sh init ${KFAPP} --platform none
+   ks init ${KFAPP}
    cd ${KFAPP}
-   ${KUBEFLOW_SRC}/scripts/kfctl.sh generate k8s
+   ks registry add kubeflow github.com/kubeflow/kubeflow/tree/${KUBEFLOW_TAG}/kubeflow
+   ks pkg install kubeflow/core
 
 Now you have all the required kubeflow packages, and you can deploy the primary one for our purposes: tf-job-operator.
 
@@ -181,22 +183,31 @@ This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
 Running the Deep Learning as a Service TFJob
 ============================================
 
-The `jsonnet template files`_ for ResNet50 and Alexnet are available in
-the Intel® Deep Learning Stack repository. Download and copy these files
-into:
+#. Select this link for the `DLaaS ksonnet registries for deploying TFJobs`_.
 
-.. code-block:: console
+   #. Install DLaaS TFJob componets as follows:
 
-   ${KUBEFLOW_SRC}/${KFAPP}/vendor/kubeflow/examples/prototypes/
+      .. code-block:: bash
 
-Next, generate Kubernetes manifests for the workloads and apply them to create and run them using these commands
+         ks registry add dlaas-tfjob github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlaas-tfjob
 
-.. code-block:: bash
+         ks pkg install dlaas-tfjob/dlaas-bench
 
-   ks generate dlaas-resnet50 dlaasresnet50 --name=dlaasresnet50
-   ks generate dlaas-alexnet dlaasalexnet --name=dlaasalexnet
-   ks apply default -c dlaasresnet50
-   ks apply default -c dlaasalexnet
+#. Download and copy these files into:
+
+   .. code-block:: console
+
+      ${KUBEFLOW_SRC}/${KFAPP}/vendor/kubeflow/examples/prototypes/
+
+#. Next, generate Kubernetes manifests for the workloads and apply them to
+   create and run them using these commands
+
+   .. code-block:: bash
+
+      ks generate dlaas-resnet50 dlaasresnet50 --name=dlaasresnet50
+      ks generate dlaas-alexnet dlaasalexnet --name=dlaasalexnet
+      ks apply default -c dlaasresnet50
+      ks apply default -c dlaasalexnet
 
 This will replicate and deploy three test setups in your Kubernetes cluster.
 
@@ -223,6 +234,6 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 
 .. _Clear Linux Docker Hub page: https://hub.docker.com/u/clearlinux/
 
-.. _jsonnet template files: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlaas-tfjob/dlaas-bench/prototypes
+.. _DLaaS ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlaas-tfjob
 
 .. _Kubernetes logging: https://kubernetes.io/docs/concepts/cluster-administration/logging/
