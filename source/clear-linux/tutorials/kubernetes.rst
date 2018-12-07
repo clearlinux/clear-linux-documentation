@@ -100,7 +100,7 @@ deployment and your security needs.
          On systems with limited resources, some performance degradation may
          be observed while swap is disabled.
 
-#. Switch to root to modify `hosts` file:
+#. Switch to root to modify the `hosts` file:
 
    .. code-block:: bash
 
@@ -171,31 +171,45 @@ If you are using CRI-O and `flannel` and you want to use Kata Containers, edit t
     [crio.runtime]
     manage_network_ns_lifecycle = true
 
-**Notes about Weave Net add-on**
+.. TODO: Should Weave and Calico be mentioned below, or is Flannel enought?
 
-If you choose the `Weave Net` add-on, then you must make the following
-changes because it installs itself in the :file:`/opt/cni/bin` directory.
+Create a symlink for the network overlays:
 
-For using CRI-O and `Weave Net`, you must complete the following
-steps.
+.. code-block:: bash
 
-#.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
+   sudo ln -s /usr/libexec/cni /opt/bin/cni
 
-    ..  code-block:: bash
+.. note::
 
-        plugin_dir = "/usr/libexec/cni/"
+   |CL| installs CNI plugins that are part of the `cloud-native-basic` bundle to :file:`/usr/libexec/cni`. The directory is required because `swupd verify` uses it, if necessary, to repair a system to a known good state.
 
-    to:
+.. TODO: Verify whether to omit this section per mythi, eadamsintel.
 
-    ..  code-block:: bash
+.. **Notes about Weave Net add-on**
 
-        plugin_dir = "/opt/cni/bin"
+.. If you choose the `Weave Net` add-on, then you must make the following
+.. changes because it installs itself in the :file:`/opt/cni/bin` directory.
 
-#.  Add the `loopback` CNI plugin to the plugin path with the command:
+.. For using CRI-O and `Weave Net`, you must complete the following
+.. steps.
 
-    ..  code-block:: bash
+.. #.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
 
-        sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
+..     ..  code-block:: bash
+
+..         plugin_dir = "/usr/libexec/cni/"
+
+..     to:
+
+..     ..  code-block:: bash
+
+..         plugin_dir = "/opt/cni/bin"
+
+.. #.  Add the `loopback` CNI plugin to the plugin path with the command:
+
+..     ..  code-block:: bash
+
+..         sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
 
 
 Use your cluster
