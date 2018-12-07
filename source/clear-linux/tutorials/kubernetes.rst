@@ -177,7 +177,7 @@ Create a symlink for the network overlays:
 
 .. code-block:: bash
 
-   sudo ln -s /usr/libexec/cni /opt/bin/cni
+   sudo ln -s /usr/libexec/cni /opt/cni/bin
 
 .. note::
 
