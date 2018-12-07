@@ -1,16 +1,16 @@
 .. _dlaas:
 
-Deep Learning as a Service
-##########################
+Intel® Deep Learning as a Service Stack
+#######################################
 
 This tutorial shows you how to run benchmarking workloads in |CL-ATTR| using
-TensorFlow\* and Kubeflow with the Intel® Deep Learning Stack.
+TensorFlow\* and Kubeflow with the Intel® Deep Learning as a Service Stack.
 
-The Intel® Deep Learning Stack is available in two versions. The first is
-`Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture. The
-second is `Intel MKL-DNN`_, which includes the TensorFlow framework optimized
-using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN)
-primitives.
+The Intel® Deep Learning as a Service Stack is available in two versions.
+The first is `Eigen`_, which includes `TensorFlow`_ optimized for Intel®
+architecture. The second is `Intel MKL-DNN`_, which includes the TensorFlow
+framework optimized using Intel® Math Kernel Library for Deep Neural
+Networks (Intel® MKL-DNN) primitives.
 
 .. contents:: :local:
    :depth: 1
@@ -18,11 +18,12 @@ primitives.
 Release notes
 =============
 
-View current `release notes`_ for the Intel® Deep Learning Stack.
+View current `release notes`_ for the Intel® Deep Learning as a Service
+Stack.
 
 .. note::
 
-   Performance test numbers in the Intel® Deep Learning Stack were obtained using `runc` as the runtime.
+   Performance test numbers in the Intel® Deep Learning as a Service Stack were obtained using `runc` as the runtime.
 
 Prerequisites
 =============
@@ -151,7 +152,7 @@ accessible across the environment.
 Kubeflow
 ********
 
-Once you have Kubernetes running on your nodes, you can setup `Kubeflow`_ by 
+Once you have Kubernetes running on your nodes, you can setup `Kubeflow`_ by
 following these instructions from their `quick start guide`_.
 
 .. code-block:: bash
@@ -180,8 +181,8 @@ Now you have all the required kubeflow packages, and you can deploy the primary 
 
 This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
 
-Running the Deep Learning as a Service TFJob
-============================================
+Running an Intel Deep Learning as a Service Stack TFJob
+=======================================================
 
 #. Select this link for the `DLaaS ksonnet registries for deploying TFJobs`_.
 
