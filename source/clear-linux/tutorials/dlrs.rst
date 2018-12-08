@@ -85,11 +85,10 @@ TensorFlow.
 
       docker exec -i <docker_name> bash -c ‘python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NHWC ’.
 
-      .. note::
+.. note::
 
-         You may also use: `--data_format=NCHW`
-         You can replace the model with one of your choice supported by the
-         TensorFlow benchmarks.
+   You can replace the model with one of your choice supported by the
+   TensorFlow benchmarks.
 
 Kubeflow multi-node benchmarks
 ==============================
@@ -225,8 +224,6 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 .. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
 
 .. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas
-
-.. _Clear Linux Docker Hub page: https://hub.docker.com/u/clearlinux/
 
 .. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlaas-tfjob
 
