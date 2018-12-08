@@ -77,16 +77,17 @@ TensorFlow.
 
    .. code-block:: bash
 
-      docker exec -t <docker_name> bash -c ‘git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.11_compatible’
+      docker exec -t <docker_name> bash -c ‘git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.12_compatible’
 
 #. Next, execute the benchmark script to run the benchmark.
 
    .. code-block:: bash
 
-      docker exec -i <docker_name> bash -c ‘python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NWHC ’.
+      docker exec -i <docker_name> bash -c ‘python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NHWC ’.
 
       .. note::
 
+         You may also use: `--data_format=NCHW`
          You can replace the model with one of your choice supported by the
          TensorFlow benchmarks.
 
