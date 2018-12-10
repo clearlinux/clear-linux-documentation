@@ -18,6 +18,9 @@ workloads or  multi-tenant scenarios. Kata Containers can be
 allocated on a per-pod basis so you can mix and match both on the same host
 to suit your needs.
 
+.. contents:: :local:
+   :depth: 1
+
 Prerequisites
 *************
 
@@ -183,35 +186,6 @@ Create a symlink for the network overlays:
 
    |CL| installs CNI plugins that are part of the `cloud-native-basic` bundle to :file:`/usr/libexec/cni`. The directory is required because `swupd verify` uses it, if necessary, to repair a system to a known good state.
 
-.. TODO: Verify whether to omit this section per mythi, eadamsintel.
-
-.. **Notes about Weave Net add-on**
-
-.. If you choose the `Weave Net` add-on, then you must make the following
-.. changes because it installs itself in the :file:`/opt/cni/bin` directory.
-
-.. For using CRI-O and `Weave Net`, you must complete the following
-.. steps.
-
-.. #.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
-
-..     ..  code-block:: bash
-
-..         plugin_dir = "/usr/libexec/cni/"
-
-..     to:
-
-..     ..  code-block:: bash
-
-..         plugin_dir = "/opt/cni/bin"
-
-.. #.  Add the `loopback` CNI plugin to the plugin path with the command:
-
-..     ..  code-block:: bash
-
-..         sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
-
-
 Use your cluster
 ****************
 
@@ -283,17 +257,17 @@ commands as a shell script to configure all of these services in one step:
 
 .. code-block:: bash
 
-      services=('crio')
-      for s in "${services[@]}"; do
-      sudo mkdir -p "/etc/systemd/system/${s}.service.d/"
-      cat << EOF | sudo tee "/etc/systemd/system/${s}.service.d/proxy.conf"
-      [Service]
-      Environment="HTTP_PROXY=${http_proxy}"
-      Environment="HTTPS_PROXY=${https_proxy}"
-      Environment="SOCKS_PROXY=${socks_proxy}"
-      Environment="NO_PROXY=${no_proxy}"
-      EOF
-      done
+   services=('crio')
+   for s in "${services[@]}"; do
+   sudo mkdir -p "/etc/systemd/system/${s}.service.d/"
+   cat << EOF | sudo tee "/etc/systemd/system/${s}.service.d/proxy.conf"
+   [Service]
+   Environment="HTTP_PROXY=${http_proxy}"
+   Environment="HTTPS_PROXY=${https_proxy}"
+   Environment="SOCKS_PROXY=${socks_proxy}"
+   Environment="NO_PROXY=${no_proxy}"
+   EOF
+   done
 
 Troubleshooting
 ***************
@@ -334,6 +308,44 @@ Troubleshooting
   cluster initialization will fail. Contact your IT support team to learn how
   to set the proxy variables permanently, and how to make them available for
   all the types of access that you will use, such as remote SSH access.
+
+  If the result of the above commands is blank, you may need to add a
+  `profile` to the `/etc`directory. To do so, follow these steps.
+
+  #. Create a `profile` in :file:`/etc`
+
+     .. code-block:: bash
+
+        sudo touch profile
+
+  #. With a preferred editor, open `profile`, and enter your proxy settings.
+     Example shown below.
+
+     .. code-block:: bash
+
+        export "HTTP_PROXY=http://proxy.example.com:443"
+        export "HTTPS_PROXY=http://proxy.example.com:445"
+        export "SOCKS_PROXY=http://proxy.example.com:1080"
+        export "NO_PROXY= site.com,.site.com,localhost,127.0.0.1,<master IP>
+
+  <master IP> can be obtained by running :command:`ifconfig`.
+
+  #. Save and exit the `profile`.
+
+  #. Run:
+
+     .. code-block:: bash
+
+        sudo source profile
+
+  #. To ssure your system isn't running previous session variables, run:
+
+     .. code-block:: bash
+
+        sudo kubeadm reset --cri-socket=/run/crio/crio.sock
+
+  #. Return to the `kubeadm init` command above.
+
 
 * Missing environment variables.
 
