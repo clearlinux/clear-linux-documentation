@@ -20,6 +20,8 @@ Release notes
 
 View current `release notes`_ for the Deep Learning Reference Stack.
 
+View current `benchmark results`_ for the Deep Learning Reference Stack.
+
 .. note::
 
    Performance test numbers in the Deep Learning Reference Stack were obtained using `runc` as the runtime.
@@ -204,8 +206,8 @@ Run a TFJob
 
 This will replicate and deploy three test setups in your Kubernetes cluster.
 
-Results
-=======
+Results of Running this Tutorial
+================================
 You need to parse the logs of the Kubernetes pod to get the performance
 numbers. The pods will still be around post completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
@@ -223,8 +225,10 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 .. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlaas-oss/
 .. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
 
-.. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas
+.. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs
 
-.. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlaas-tfjob
+.. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlrs-tfjob
 
 .. _Kubernetes logging: https://kubernetes.io/docs/concepts/cluster-administration/logging/
+
+.. _benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack
