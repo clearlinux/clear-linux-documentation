@@ -227,7 +227,7 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 
 .. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs
 
-.. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlrs-tfjob
+.. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
 .. _Kubernetes logging: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
