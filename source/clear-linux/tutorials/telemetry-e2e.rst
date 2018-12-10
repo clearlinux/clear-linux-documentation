@@ -2,13 +2,16 @@
 
 
 |CL-ATTR| includes a telemetry and analytics solution (also known as telemetrics) as part of the OS, which records events of interest and reports them back to the development team using the telemetrics client daemons.
+
 End users can enable or disable the telemetry client component of |CL| and also redirect where records are sent if they wish to collect records for themselves by using their own telemetry backend server. More detailed information about using and configuring the telemetrics client is found in the :ref:`telemetrics` guide.
 
 This tutorial walks you through setting up a telemetry backend server to manage your records, and how to use the telemetry API to add telemetry to your own applications.
 
 
+
 Prerequisites
 =============
+
 
 For this tutorial, you can use an existing |CL| system, or you can start with a clean installation of |CL| on a new system.
 
@@ -318,10 +321,13 @@ The record should show up on your new server console as shown in figure 2:
       Figure 2: :guilabel:`Telemetry UI`
 
 
+
 Creating custom telemetry events
 ================================
 
-Enabling telemetry during installation gives us everything we need on the client side to create custom telemetry events, even from C programs, because the telemetry bundle provides a simple pipe-based :abbr:`CLI (Commandline Interface)` program named :file:`telem-record-gen` that can be called trivially:
+
+Enabling telemetry during installation gives us everything we need to create custom telemetry events, even from C programs, because the telemetry bundle provides a simple pipe-based :abbr:`CLI (Commandline Interface)` program named :file:`telem-record-gen` that can be called trivially:
+
 
 .. code-block:: bash
 
@@ -583,9 +589,11 @@ A full example of the `heartbeat probe`_ in C is documented in the source code. 
 
 You can also look for the record on the telemetry backend server.
 
+
 .. _latest version:
 https://github.com/clearlinux/telemetrics-client/tree/master/src
 
 .. _heartbeat probe: https://github.com/clearlinux/telemetrics-client/tree/master/src/probes/hello.c
+
 
 .. _clearlinux/telemetrics-backend: https://github.com/clearlinux/telemetrics-backend
