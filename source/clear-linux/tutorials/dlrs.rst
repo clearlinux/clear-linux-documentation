@@ -190,19 +190,19 @@ Run a TFJob
 
       .. code-block:: bash
 
-         ks registry add dlaas-tfjob github.com/clearlinux/dockerfiles/tree/master/stacks/dlaas/kubeflow/dlaas-tfjob
+         ks registry add dlrs-tfjob github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
-         ks pkg install dlaas-tfjob/dlaas-bench
+         ks pkg install dlrs-tfjob/dlrs-bench
 
 #. Next, generate Kubernetes manifests for the workloads and apply them to
    create and run them using these commands
 
    .. code-block:: bash
 
-      ks generate dlaas-resnet50 dlaasresnet50 --name=dlaasresnet50
-      ks generate dlaas-alexnet dlaasalexnet --name=dlaasalexnet
-      ks apply default -c dlaasresnet50
-      ks apply default -c dlaasalexnet
+      ks generate dlrs-resnet50 dlaasresnet50 --name=dlrsresnet50
+      ks generate dlrs-alexnet dlaasalexnet --name=dlrsalexnet
+      ks apply default -c dlrsresnet50
+      ks apply default -c dlrsalexnet
 
 This will replicate and deploy three test setups in your Kubernetes cluster.
 
@@ -228,6 +228,7 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 .. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs
 
 .. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
+
 
 .. _Kubernetes logging: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
