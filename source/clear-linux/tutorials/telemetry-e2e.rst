@@ -7,6 +7,8 @@ End users can enable or disable the telemetry client component of |CL| and also 
 
 This tutorial walks you through setting up a telemetry backend server to manage your records, and how to use the telemetry API to add telemetry to your own applications.
 
+.. contents:: :local:
+   :depth: 1
 
 
 Prerequisites
@@ -41,20 +43,22 @@ If you are using an existing |CL| system, make sure you have installed the telem
 
    sudo swupd bundle-list
 
-If you need to install the telemetrics bundle, use :command:`swupd` to do so.
+If you need to install the bundles, use :command:`swupd` to do so.
 
 .. code-block:: bash
 
-   sudo swupd bundle-add telemetrics
+   sudo swupd bundle-add telemetrics dev-utils
 
 More information about enabling and configuring the telemetry client can be found at :ref:`telemetry-enable`.
+
+You will need to run some of the commands in this tutorial with root privileges.  You can create a new user or add your user to the sudoers list :ref:`enable-user-space`.
 
 Setting up the telemetry backend server
 =======================================
 We'll be using the :file:`deploy.sh` file from the `clearlinux/telemetrics-backend`_ Git repository to install required dependencies for the web server applications.  The script also configures nginx and uwsgi, deploys snapshots of the applications, and starts all required services.
 
-Download the clearlinux/telemetrics-backend Git repository
-**********************************************************
+Clone the clearlinux/telemetrics-backend Git repository
+*******************************************************
 
 With all prerequisite software bundles installed, log in with your administrative user, and from your :file:`$HOME` directory, run :command:`git` to clone the :guilabel:`telemetrics-backend` repository into the :file:`$HOME/telemetrics-backend` directory:
 
@@ -160,32 +164,9 @@ The :command:`swupd` begins installing the required software bundles to set up t
          ...10%
     Extracting database-basic pack for version 18670
          ...15%
-    Extracting os-clr-on-clr pack for version 18740
-         ...21%
-    Extracting sysadmin-basic-dev pack for version 18740
-         ...26%
-    Extracting storage-utils-dev pack for version 18770
-         ...31%
-    Extracting os-core-update-dev pack for version 18760
-         ...36%
-    Extracting network-basic-dev pack for version 18760
-         ...42%
-    Extracting mixer pack for version 18790
-         ...47%
-    Extracting os-installer pack for version 18800
-         ...52%
-    Extracting mail-utils-dev pack for version 18760
-         ...57%
-    Extracting koji pack for version 18800
-         ...63%
-    Extracting go-basic pack for version 18800
-         ...68%
-    Extracting dev-utils-dev pack for version 18820
-         ...73%
-    Extracting python-basic-dev pack for version 18750
-         ...78%
-    Extracting perl-basic-dev pack for version 18610
-         ...84%
+    .
+    .
+    .
     Extracting c-basic pack for version 18800
          ...89%
     Extracting os-core-dev pack for version 18800
@@ -320,11 +301,16 @@ The record should show up on your new server console as shown in figure 2:
 
       Figure 2: :guilabel:`Telemetry UI`
 
-
+You have now set up the |CL| telemetry backend server, and redirected records from your client to your server.
 
 Creating custom telemetry events
 ================================
+For the following steps, we'll be sending records to the backend server we've just set up. If you prefer to keep records locally and not send them to a server, follow the :ref:`telemetrics` guide and enable :record_retention_enabled: in your :file:`etc/telemetrics/telemetrics.conf` to keep the records locally.
 
+There are two ways to create custom telemetry events: using :command:`telem-record-gen` and using the telemetry API in your applications.
+
+Using telem-record-gen
+**********************
 
 Enabling telemetry during installation gives us everything we need to create custom telemetry events, even from C programs, because the telemetry bundle provides a simple pipe-based :abbr:`CLI (Commandline Interface)` program named :file:`telem-record-gen` that can be called trivially:
 
@@ -374,7 +360,7 @@ We won't see anything happen on the console, but we can track existing and previ
    hello there
 
 Using the telemetry API in your C application
-=============================================
+*********************************************
 
 .. note::
   More details about the :ref:`telemetry-z-api` are available in the telemetry guide.
