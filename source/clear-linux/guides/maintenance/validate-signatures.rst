@@ -57,7 +57,14 @@ used for illustrative purposes. You may use any image of |CL| you choose.
 
    .. code-block:: console
 
-      openssl smime -verify -in clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem
+      openssl smime -verify -purpose any -in clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem
+
+   .. note::
+
+      The `-purpose any` option is required when using OpenSSL 1.1.  If using
+      an earlier version of OpenSSL, omit this option to perform signature
+      validation.  The `openssl version` command may be used to determine the
+      version of OpenSSL in use.
 
 #. The output should contain ``Verification successful``. If the output
    contains ``bad_signature`` anywhere, then the image is not trustworthy.
@@ -101,7 +108,14 @@ these steps manually when performing a ``swupd update``.
 
    .. code-block:: console
 
-      openssl smime -verify -in Manifest.MoM.sig -inform der -content Manifest.MoM -CAfile Swupd_Root.pem
+      openssl smime -verify -purpose any -in Manifest.MoM.sig -inform der -content Manifest.MoM -CAfile Swupd_Root.pem
+
+   .. note::
+
+      The `-purpose any` option is required when using OpenSSL 1.1.  If using
+      an earlier version of OpenSSL, omit this option to perform signature
+      validation.  The `openssl version` command may be used to determine the
+      version of OpenSSL in use.
 
    .. note::
 

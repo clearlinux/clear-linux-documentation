@@ -31,3 +31,4 @@ Explore our tutorials to discover what you can do with |CL|!
    kata_migration
    kubernetes
    greengrass
+   dlrs

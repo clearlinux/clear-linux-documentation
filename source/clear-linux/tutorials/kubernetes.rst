@@ -4,23 +4,19 @@ Run Kubernetes\* on |CL-ATTR|
 #############################
 
 This tutorial describes how to install, configure, and run the
-`Kubernetes container orchestration system`_ on |CL-ATTR| using different
-container engines and runtimes.
+`Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
+kata-runtime.
 
 Kubernetes\* is an open source system for automating deployment, scaling, and
 management of containerized applications. It groups containers that make up
 an application into logical units for easy management and discovery.
 
-Runc and Kata Containers\* kata-runtime adhere to :abbr:`OCI (Open Container Initiative*)`
-guidelines and work seamlessly with Kubernetes. `Kata Containers`_ provide
-strong isolation for untrusted workloads or  multi-tenant scenarios. Runc and
-Kata Containers can be allocated on a  per-pod basis so you can mix and match
-both on the same host to suit your needs.
-
-This tutorial describes the following combinations:
-
-* Kubernetes with Docker and runc
-* Kubernetes with CRI-O and kata-runtime
+Kata Containers\* kata-runtime adheres to
+:abbr:`OCI (Open Container Initiative*)` guidelines and work seamlessly with
+Kubernetes. `Kata Containers`_ provide strong isolation for untrusted
+workloads or  multi-tenant scenarios. Kata Containers can be
+allocated on a per-pod basis so you can mix and match both on the same host
+to suit your needs.
 
 Prerequisites
 *************
@@ -40,13 +36,12 @@ Before you install any new packages, update |CL| with the following command:
 Install Kubernetes and CRI runtimes
 ***********************************
 
-Kubernetes and a set of supported :abbr:`CRI (Container Runtime Interface)`
-runtimes are included in the `cloud-native-basic`_ bundle. To install the
-framework, enter the following command:
+Kubernetes, a set of supported :abbr:`CRI (Container Runtime Interface)`
+runtimes, and networking plugins, are included in the `cloud-native-basic`_ and `containers-basic`_ bundles. To install this framework, enter the following command:
 
 .. code-block:: bash
 
-   sudo swupd bundle-add cloud-native-basic
+   sudo swupd bundle-add cloud-native-basic containers-basic
 
 Configure Kubernetes
 ********************
@@ -105,7 +100,7 @@ deployment and your security needs.
          On systems with limited resources, some performance degradation may
          be observed while swap is disabled.
 
-#. Switch to root to modify `hostname`:
+#. Switch to root to modify the `hosts` file:
 
    .. code-block:: bash
 
@@ -127,49 +122,7 @@ deployment and your security needs.
 Configure and run Kubernetes
 ****************************
 
-This section describes how to configure and run Kubernetes with:
-
-* Docker and runc
-* CRI-O and kata-runtime
-
-Configure and run Docker + runc
-===============================
-
-#.  Enable the Docker service:
-
-    .. code-block:: bash
-
-       sudo systemctl enable docker.service
-
-#.  Create (or edit if it exists) the file
-    :file:`/etc/systemd/system/docker.service.d/51-runtime.conf` and include the following lines:
-
-    .. code-block:: bash
-
-       [Service]
-       Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime runc"
-
-#.  Create (or edit if it exists) the file :file:`/etc/systemd/system/kubelet.service.d/10-kubeadm.conf` and include the following lines:
-
-    .. code-block:: bash
-
-       [Service]
-       Environment="KUBELET_EXTRA_ARGS="
-
-#.  Enter the commands:
-
-    .. code-block:: bash
-
-       sudo systemctl daemon-reload
-       sudo systemctl restart docker
-       sudo systemctl restart kubelet
-
-#.  Initialize the master control plane with the command:
-
-    .. code-block:: bash
-
-       sudo kubeadm init --ignore-preflight-errors=SystemVerification
-
+This section describes how to configure and run Kubernetes with CRI-O and kata-runtime.
 
 Configure and run CRI-O + kata-runtime
 ======================================
@@ -211,45 +164,52 @@ If you choose the `flannel` add-on, then you must add the following to the
 
     --pod-network-cidr 10.244.0.0/16
 
-If you are using CRI-O and `flannel` and you want to use Kata Containers, edit
-the :file:`/etc/crio/crio.conf` file to add:
+If you are using CRI-O and `flannel` and you want to use Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
 
 ..  code-block:: bash
 
     [crio.runtime]
     manage_network_ns_lifecycle = true
 
-**Notes about Weave Net add-on**
+.. TODO: Should Weave and Calico be mentioned below, or is Flannel enought?
 
-If you choose the `Weave Net` add-on, then you must make the following changes
-because it installs itself in the :file:`/opt/cni/bin` directory.
+Create a symlink for the network overlays:
 
-If you are using Docker and `Weave Net`, edit the :file:`kubeadm.conf` file to
-add:
+.. code-block:: bash
 
-..  code-block:: bash
+   sudo ln -s /usr/libexec/cni /opt/cni/bin
 
-    Environment="KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin"
+.. note::
 
-If you are using CRI-O and `Weave Net`, you must complete the following steps.
+   |CL| installs CNI plugins that are part of the `cloud-native-basic` bundle to :file:`/usr/libexec/cni`. The directory is required because `swupd verify` uses it, if necessary, to repair a system to a known good state.
 
-#.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
+.. TODO: Verify whether to omit this section per mythi, eadamsintel.
 
-    ..  code-block:: bash
+.. **Notes about Weave Net add-on**
 
-        plugin_dir = "/usr/libexec/cni/"
+.. If you choose the `Weave Net` add-on, then you must make the following
+.. changes because it installs itself in the :file:`/opt/cni/bin` directory.
 
-    to:
+.. For using CRI-O and `Weave Net`, you must complete the following
+.. steps.
 
-    ..  code-block:: bash
+.. #.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
 
-        plugin_dir = "/opt/cni/bin"
+..     ..  code-block:: bash
 
-#.  Add the `loopback` CNI plugin to the plugin path with the command:
+..         plugin_dir = "/usr/libexec/cni/"
 
-    ..  code-block:: bash
+..     to:
 
-        sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
+..     ..  code-block:: bash
+
+..         plugin_dir = "/opt/cni/bin"
+
+.. #.  Add the `loopback` CNI plugin to the plugin path with the command:
+
+..     ..  code-block:: bash
+
+..         sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
 
 
 Use your cluster
@@ -257,8 +217,8 @@ Use your cluster
 
 Once your master control plane is successfully initialized, instructions on
 how to use your cluster and its *IP*, *token*, and *hash* values are
-displayed. It is important that you record the cluster values because they are
-needed when joining worker nodes to the cluster. Some values have a valid
+displayed. It is important that you record the cluster values because they
+are needed when joining worker nodes to the cluster. Some values have a valid
 period. The values are presented in a format similar to:
 
 .. code-block:: bash
@@ -268,10 +228,10 @@ period. The values are presented in a format similar to:
 
 **Congratulations!**
 
-You've successfully installed and set up Kubernetes in |CL| using Docker and
-runc or CRI-O and kata-runtime. You are now ready to follow on-screen
-instructions to deploy a pod network to the cluster and join worker nodes
-with the displayed token and IP information.
+You've successfully installed and set up Kubernetes in |CL| using CRI-O and
+kata-runtime. You are now ready to follow on-screen instructions to deploy a
+pod network to the cluster and join worker nodes with the displayed token
+and IP information.
 
 Related topics
 **************
@@ -314,8 +274,7 @@ Proxy configuration (optional)
 ******************************
 
 If you use a proxy server, you must set your proxy environment variables and
-create an appropriate proxy configuration file for both CRI-O and Docker
-services. Consult your IT department if you are behind a corporate proxy for
+create an appropriate proxy configuration file for both CRI-O services. Consult your IT department if you are behind a corporate proxy for
 the appropriate values. Ensure that your local IP is **explicitly included**
 in the environment variable *NO_PROXY*. (Setting *localhost* is not enough.)
 
@@ -324,7 +283,7 @@ commands as a shell script to configure all of these services in one step:
 
 .. code-block:: bash
 
-      services=('crio' 'docker')
+      services=('crio')
       for s in "${services[@]}"; do
       sudo mkdir -p "/etc/systemd/system/${s}.service.d/"
       cat << EOF | sudo tee "/etc/systemd/system/${s}.service.d/proxy.conf"
@@ -383,9 +342,6 @@ Troubleshooting
 
   .. code-block:: bash
 
-    /* Kubernetes with Docker + runc */
-    sudo -E kubeadm init --ignore-preflight-errors=SystemVerification
-
     /* Kubernetes with CRI-O + kata-runtime */
     sudo -E kubeadm init --cri-socket=/run/crio/crio.sock
 
@@ -395,6 +351,8 @@ Troubleshooting
 .. _Kata Containers: https://katacontainers.io/
 
 .. _Software Update documentation: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about#updating
+
+.. _containers-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-basic
 
 .. _cloud-native-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic
 

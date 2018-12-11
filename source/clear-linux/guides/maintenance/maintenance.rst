@@ -10,11 +10,13 @@ completed.
 .. toctree::
    :maxdepth: 2
 
+   autoproxy
    developer-workstation
    swupd-search
    enable-user-space
    swupd-guide
    bulk-provision
+   kernel-modules
    mixer
    mixin
    validate-signatures
@@ -25,3 +27,4 @@ completed.
    download-verify-decompress-mac
    download-verify-decompress-windows
    autospec
+   assign-static-ip

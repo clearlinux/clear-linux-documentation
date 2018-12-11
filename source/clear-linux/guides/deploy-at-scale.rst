@@ -1,4 +1,4 @@
-.. _deploy-at-scale.rst:
+.. _deploy-at-scale:
 
 Deploy at Scale
 ###############
