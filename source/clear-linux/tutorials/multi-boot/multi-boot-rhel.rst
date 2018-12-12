@@ -80,7 +80,7 @@ tutorial.
 #. Click :guilabel:`Done`.
 
 #. Follow the remaining prompts to complete the Red Hat installation.
-         
+
 #. At this point, you cannot boot |CL| because `Grub`
    is the default boot loader. Follow these steps to make the |CL|
    Systemd-Boot the default boot loader and add Red Hat as a boot option:
@@ -115,6 +115,13 @@ tutorial.
          efi /EFI/redhat/grubx64.efi
 
 #. Reboot.
+
+On |CL|, Systemd-Boot timeout needs to be set for this entry to show up. Please make sure the following is set each time |CL| does an update
+
+    .. code-block:: bash
+
+       sudo clr-boot-manager set-timeout 20
+       sudo clr-boot-manager update
 
 If you want to install other :abbr:`OSes (operating systems)`, refer to
 :ref:`multi-boot` for details.

@@ -69,6 +69,14 @@ tutorial.
 
 #. Reboot.
 
+On |CL|, Systemd-Boot timeout needs to be set for this entry to show up. Please make sure the following is set each time |CL| does an update
+
+    .. code-block:: bash
+
+       sudo clr-boot-manager set-timeout 20
+       sudo clr-boot-manager update
+
+
 If you want to install other :abbr:`OSes (operating systems)`, refer to
 :ref:`multi-boot` for details.
 
