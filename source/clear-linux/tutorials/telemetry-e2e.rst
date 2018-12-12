@@ -245,7 +245,7 @@ Once the installation is complete you can use your web browser and view the new 
 You should see a web page similar to the one shown in figure 1:
 
 .. TODO fix links for figures
-.. figure:: telemetry-backend/figures/telemetry-backend-1.png
+.. figure:: ../guides/telemetrics/telemetry-backend-1.png
    :scale: 50 %
    :alt: Telemetry UI
 
@@ -295,7 +295,7 @@ Test the new telemetry backend server
 
 The record should show up on your new server console as shown in figure 2:
 
-.. figure:: telemetry-backend/figures/telemetry-backend-2.png
+.. figure:: ../guides/telemetrics/telemetry-backend-2.png
       :scale: 50 %
       :alt: Telemetry UI
 
