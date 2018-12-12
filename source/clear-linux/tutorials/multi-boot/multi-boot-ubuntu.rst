@@ -64,47 +64,18 @@ tutorial.
 
    #. Log in.
 
-   #. Locate the Ubuntu :file:`grub.cfg` file in the :file:`/boot/grub/`
-      directory and look for the :guilabel:`menuentry` section. In Figure 5, the
-      highlighted lines identify the kernel, the :file:`initrd` files, the
-      root partition UUID, and the additional parameters used. Use this
-      information to create a new Systemd-Boot entry for Ubuntu.
-
-      .. figure:: figures/multi-boot-ubuntu-5.png
-
-         Figure 5: Ubuntu: grub.cfg file.
-
-   #. Copy the kernel and the :file:`initrd` file to the EFI partition.
-
-      .. code-block:: bash
-
-         sudo cp /boot/vmlinuz-4.8.0-36-generic.efi.signed /boot/efi
-
-         sudo cp /boot/initrd.img-4.8.0-36-generic /boot/efi
-
-   #. Create a boot entry for Ubuntu. At a minimum, the file must contain
-      these settings:
+   #. Create a boot entry for Ubuntu to invoke grub
 
       +---------+------------------------------------+
       | Setting | Description                        |
       +=========+====================================+
       | title   | Text to show in the boot menu      |
       +---------+------------------------------------+
-      | linux   | Linux kernel image                 |
-      +---------+------------------------------------+
-      | initrd  | initramfs image                    |
-      +---------+------------------------------------+
-      | options | Options to pass to the EFI program |
-      |         | or kernel boot parameters          |
+      | efi     | Linux bootloader                   |
       +---------+------------------------------------+
 
       See the `systemd boot loader documentation`_ for additional
       details.
-
-      The *options* parameters must specify the root partition UUID and
-      any additional parameters that Ubuntu requires.
-
-      .. note:: The root partition UUID used below is unique to this example.
 
       .. code-block:: bash
 
@@ -114,24 +85,9 @@ tutorial.
 
       .. code-block:: console
 
-         title Ubuntu 16.04 LTS Desktop
+         title Ubuntu
 
-         linux /vmlinuz-4.8.0-36-generic.efi.signed
-
-         initrd /initrd.img-4.8.0-36-generic
-
-         options root=UUID=17f0aa66-3467-4f99-b92c-8b2cea1045aa ro
-
-#. Re-install Systemd-Boot to make it the default boot loader.
-
-   .. code-block:: bash
-
-      sudo bootctl install --path /boot/efi
-
-   .. note::
-      If an older version of Ubuntu does not have the `bootctl` command,
-      skip this step and see :ref:`multi-boot-restore-bl` to restore
-      Systemd-Boot.
+         efi /EFI/ubuntu/grubx64.efi
 
 #. Reboot.
 

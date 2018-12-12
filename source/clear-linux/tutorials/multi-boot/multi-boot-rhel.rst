@@ -80,61 +80,31 @@ tutorial.
 #. Click :guilabel:`Done`.
 
 #. Follow the remaining prompts to complete the Red Hat installation.
-
-#. At this point, you cannot boot |CL| because `Grub` is the default boot
-   loader. Follow these steps to make the |CL| Systemd-Boot the default boot
-   loader and add Red Hat as a boot option:
+         
+#. At this point, you cannot boot |CL| because `Grub`
+   is the default boot loader. Follow these steps to make the |CL|
+   Systemd-Boot the default boot loader and add Red Hat as a boot option:
 
    #. Boot into Red Hat.
 
    #. Log in.
 
-   #. Locate the Red Hat :file:`grub.cfg` file in the
-      :file:`/boot/efi/EFI/redhat/` directory and look for the primary Red
-      Hat :guilabel:`menuentry` section. In Figure 7, the highlighted lines
-      identify the kernel and `initrd` filenames, root partition UUID, and
-      additional parameters used. Use this information to create a
-      new Systemd-Boot entry for Red Hat.
+   #. Create a boot entry for Red Hat to invoke grub
 
-      .. figure:: figures/multi-boot-rhel-7.png
-
-         Figure 7: Red Hat: grub.cfg file.
-
-   #. Copy the kernel and :file:`initrd` file to the EFI partition.
-
-      .. code-block:: bash
-
-         sudo cp /boot/vmlinuz-3.10.0-663.el7.x86_64 /boot/efi
-
-         sudo cp /boot/initramfs-3.10.0-663.el7.x86_64.img /boot/efi
-
-   #. Create a boot entry for Red Hat. At a minimum, the file must contain
-      these settings:
-
-      +---------+---------------------------------------------------+
-      | Setting | Description                                       |
-      +=========+===================================================+
-      | title   | Text to show in the boot menu                     |
-      +---------+---------------------------------------------------+
-      | linux   | Linux kernel image                                |
-      +---------+---------------------------------------------------+
-      | initrd  | initramfs image                                   |
-      +---------+---------------------------------------------------+
-      | options | Options to pass to the EFI program or kernel boot |
-      |         | parameters                                        |
-      +---------+---------------------------------------------------+
+      +---------+------------------------------------+
+      | Setting | Description                        |
+      +=========+====================================+
+      | title   | Text to show in the boot menu      |
+      +---------+------------------------------------+
+      | efi     | Linux bootloader                   |
+      +---------+------------------------------------+
 
       See the `systemd boot loader documentation`_ for additional
       details.
 
-      The *options* parameters must specify the root partition UUID and any
-      additional parameters that Red Hat requires.
+      .. code-block:: bash
 
-      .. note:: The root partition UUID used below is unique to this example.
-
-         .. code-block:: bash
-
-            sudoedit /boot/efi/loader/entries/redhat.conf
+         sudoedit /boot/efi/loader/entries/redhat.conf
 
       Add the following lines to the :file:`redhat.conf` file:
 
@@ -142,20 +112,9 @@ tutorial.
 
          title Red Hat Enterprise Linux 7.4 Beta
 
-         linux /vmlinuz-3.10.0-663.el7.x86_64
+         efi /EFI/redhat/grubx64.efi
 
-         initrd /initramfs-3.10.0-663.el7.x86_64.img
-
-         options root=UUID=30655c74-6cc1-4c55-8fcc-ac8bddcea4db ro
-         crashkernel=auto rhgb LANG=en_US.UTF-8
-
-   #. Re-install Systemd-Boot to make it the default boot loader.
-
-      .. note::
-         This version of Red Hat does not support `bootctl install`. Perform
-         the steps in :ref:`multi-boot-restore-bl` instead.
-
-   #. Reboot.
+#. Reboot.
 
 If you want to install other :abbr:`OSes (operating systems)`, refer to
 :ref:`multi-boot` for details.

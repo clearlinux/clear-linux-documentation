@@ -42,77 +42,30 @@ tutorial.
 
    #. Log in.
 
-   #. Locate the SUSE :file:`grub.cfg` file in the :file:`/boot/grub2/` directory
-      and look for the primary SUSE :guilabel:`menuentry` section. In Figure 4, the
-      highlighted lines identify the kernel, the :file:`initrd` filenames, the
-      root partition UUID, and the additional parameters used. Use this information
-      to create a new Systemd-Boot entry for SUSE.
+   #. Create a boot entry for SUSE to invoke grub
 
-      .. figure:: figures/multi-boot-sles-4.png
-
-         Figure 4: SUSE: grub.cfg file.
-
-   #. Copy the kernel and the :file:`initrd` file to the EFI partition.
-
-      .. code-block:: bash
-
-         sudo cp /boot/vmlinuz-4.4.21-69-default /boot/efi
-
-         sudo cp /boot/initrd-4.4.21-69-default /boot/efi
-
-   #. Create a boot entry for SUSE. At a minimum, the file must contain
-      these settings:
-
-      +---------+---------------------------------------+
-      | Setting | Description                           |
-      +=========+=======================================+
-      | title   | Text to show in the boot menu         |
-      +---------+---------------------------------------+
-      | linux   | Linux kernel image                    |
-      +---------+---------------------------------------+
-      | initrd  | initramfs image                       |
-      +---------+---------------------------------------+
-      | options | Options to pass to the EFI program or |
-      |         | kernel boot parameters                |
-      +---------+---------------------------------------+
+      +---------+------------------------------------+
+      | Setting | Description                        |
+      +=========+====================================+
+      | title   | Text to show in the boot menu      |
+      +---------+------------------------------------+
+      | efi     | Linux bootloader                   |
+      +---------+------------------------------------+
 
       See the `systemd boot loader documentation`_ for additional
       details.
 
-      The *options* parameter must specify the root partition UUID and
-      any additional parameters SUSE requires.
+      .. code-block:: bash
 
-      .. note:: The root partition UUID used below is unique to this example.
+         sudoedit /boot/efi/loader/entries/suse.conf
 
-         .. code-block:: bash
+      Add the following lines to the :file:`suse.conf` file:
 
-            sudoedit /boot/efi/loader/entries/suse.conf
+      .. code-block:: console
 
-         Add the following lines to the :file:`suse.conf` file:
+         title SUSE Enterprise Linux 7.4 Beta
 
-            .. code-block:: console
-
-               title SUSE Linux Enterprise 12 SP2
-
-               linux /vmlinuz-4.4.21-69-default
-
-               initrd /initrd-4.4.21-69-default
-
-               options root=UUID=b9e25e98-a644-4ac3-b955-ae32800ee350 ro
-               resume=/dev/disk/by-uuid/6a50c032-1c1e-4b4a-b799-ca365bb10dc7
-               splash=silent showopts crashkernel=109M,high
-               crashkernel=72M,low
-
-#. Re-install Systemd-Boot to make it the default boot loader.
-
-   .. code-block:: bash
-
-      sudo bootctl install --path /boot/efi
-
-   .. note::
-      If an older version of SUSE does not have the `bootctl` command,
-      skip this step and see :ref:`multi-boot-restore-bl` to restore
-      Systemd-Boot.
+         efi /EFI/suse/grubx64.efi
 
 #. Reboot.
 

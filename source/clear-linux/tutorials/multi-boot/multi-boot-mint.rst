@@ -61,47 +61,26 @@ tutorial.
 
    #. Log in.
 
-   #. Locate the Mint :file:`grub.cfg` file in the :file:`/boot/grub/`
-      directory and look for the :guilabel:`menuentry` section. In Figure 5, the
-      highlighted lines identify the kernel, the :file:`initrd` files, the root
-      partition UUID, and the additional parameters used. Use this information
-      to create a new Systemd-Boot entry for Mint.
+#. At this point, you cannot boot |CL| because `Grub`
+   is the default boot loader. Follow these steps to make the |CL|
+   Systemd-Boot the default boot loader and add Mint as a boot option:
 
-      .. figure:: figures/multi-boot-mint-5.png
+   #. Boot into Mint.
 
-         Figure 5: Mint: grub.cfg file.
+   #. Log in.
 
-   #. Copy the kernel and :file:`initrd` file to the EFI partition.
-
-      .. code-block:: bash
-
-         sudo cp /boot/vmlinuz-4.4.0-53-generic /boot/efi
-
-         sudo cp /boot/initrd.img-4.4.0-53-generic /boot/efi
-
-   #. Create a boot entry for Mint. At a minimum, the file must contain
-      these settings:
+   #. Create a boot entry for Mint to invoke grub
 
       +---------+------------------------------------+
       | Setting | Description                        |
       +=========+====================================+
       | title   | Text to show in the boot menu      |
       +---------+------------------------------------+
-      | linux   | Linux kernel image                 |
-      +---------+------------------------------------+
-      | initrd  | initramfs image                    |
-      +---------+------------------------------------+
-      | options | Options to pass to the EFI program |
-      |         | or kernel boot parameters          |
+      | efi     | Linux bootloader                   |
       +---------+------------------------------------+
 
       See the `systemd boot loader documentation`_ for additional
       details.
-
-      The *options* parameters must specify the root partition UUID and
-      any additional parameters that Mint requires.
-
-      .. note:: The root partition UUID used below is unique to this example.
 
       .. code-block:: bash
 
@@ -113,22 +92,7 @@ tutorial.
 
          title Mint 18.1 Serena MATE
 
-         linux /vmlinuz-4.4.0-53-generic
-
-         initrd /initrd.img-4.4.0-53-generic
-
-         options root=UUID=af4901e1-6238-470a-8c14-bc0f0f7715ec ro
-
-#. Re-install Systemd-Boot to make it the default boot loader.
-
-   .. code-block:: bash
-
-      sudo bootctl install --path /boot/efi
-
-   .. note::
-      If an older version of Mint does not have the `bootctl` command,
-      skip this step and see :ref:`multi-boot-restore-bl` to restore
-      Systemd-Boot.
+         efi /EFI/mint/grubx64.efi
 
 #. Reboot.
 
