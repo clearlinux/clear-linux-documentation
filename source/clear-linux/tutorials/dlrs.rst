@@ -199,8 +199,8 @@ Run a TFJob
 
    .. code-block:: bash
 
-      ks generate dlrs-resnet50 dlaasresnet50 --name=dlrsresnet50
-      ks generate dlrs-alexnet dlaasalexnet --name=dlrsalexnet
+      ks generate dlrs-resnet50 dlrsresnet50 --name=dlrsresnet50
+      ks generate dlrs-alexnet dlrsalexnet --name=dlrsalexnet
       ks apply default -c dlrsresnet50
       ks apply default -c dlrsalexnet
 
@@ -222,8 +222,8 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 .. _networking documentation: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
 .. _quick start guide: https://www.kubeflow.org/docs/started/getting-started/
 
-.. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlaas-oss/
-.. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlaas-mkl/
+.. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlrs-oss/
+.. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl/
 
 .. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs
 
