@@ -429,11 +429,11 @@ setting to your new server location.
    You can also use the fully qualified domain name for your server instead of
    :guilabel:`localhost`.
 
-#. Restart the :command:`telemd` daemon to reload the configuration file.
+#. Restart the telemetry daemons to reload the configuration file.
 
    .. code-block:: console
 
-      systemctl restart telemd
+      telemctl restart
 
 Test the new telemetry backend server
 *************************************
