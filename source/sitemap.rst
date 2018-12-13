@@ -9,5 +9,5 @@ Clear Linux - Documentation Sitemap
    clear-linux/concepts/concepts
    clear-linux/get-started/get-started
    clear-linux/guides/guides
-   clear-linux/tutorials/tutorials
    clear-linux/reference/reference
+   clear-linux/tutorials/tutorials
