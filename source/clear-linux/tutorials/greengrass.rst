@@ -27,7 +27,7 @@ Supported Platforms
 Description of Samples
 **********************
 
-The AWS Greengrass samples are located at the `Edge-Analytics-FaaS`_.
+The AWS Greengrass samples are located at the `Edge-Analytics-FaaS`_. For this tutorial we will use the 1.0 version of the source code. 
 
 We provide the following AWS Greengrass samples:
 
@@ -109,7 +109,7 @@ Converting Deep Learning Models
 Locate Sample Models
 --------------------
 
-There are two types of provided models that can be used in conjunction with AWS Greengrass 
+There are two types of provided models that can be used in conjunction with AWS Greengrass
 for this tutorial: classification or object detection.
 
 To complete this tutorial using an image classification model,
@@ -119,8 +119,8 @@ Any custom pre-trained classification models can be used with the
 classification sample.
 
 For object detection, the sample models optimized for Intel® edge platforms
-are included with the computer-vision-basic bundle installation at :file:`/usr/share/openvino/models`. 
-These models are provided as an example; however, you may also use a custom SSD model 
+are included with the computer-vision-basic bundle installation at :file:`/usr/share/openvino/models`.
+These models are provided as an example; however, you may also use a custom SSD model
 with the Greengrass object detection sample.
 
 Running Model Optimizer
@@ -132,9 +132,9 @@ For classification using BVLC Alexnet model:
 
 .. code-block:: bash
 
-   python3 mo.py --framework caffe --input_model 
-   <model_location>/bvlc_alexnet.caffemodel --input_proto 
-   <model_location>/deploy.prototxt --data_type <data_type> --output_dir 
+   python3 mo.py --framework caffe --input_model
+   <model_location>/bvlc_alexnet.caffemodel --input_proto
+   <model_location>/deploy.prototxt --data_type <data_type> --output_dir
    <output_dir> --input_shape [1,3,227,227]
 
 For object detection using SqueezeNetSSD-5Class model:
@@ -175,7 +175,7 @@ cloud and edge.
    `AWS Greengrass developer guide`_
 
 #. To install and configure AWS Greengrass core on edge platform, follow
-   the instructions at `Start AWS Greengrass on the Core Device`_. In 
+   the instructions at `Start AWS Greengrass on the Core Device`_. In
    step 8(b), download the x86_64 Ubuntu configuration of the AWS Greengrass
    core software.
 
@@ -196,7 +196,7 @@ cloud and edge.
 Creating and Packaging Lambda Functions
 =======================================
 
-#. Complete steps 1-4 of the tutorial at `Create and Package Lambda Function`_ . 
+#. Complete steps 1-4 of the tutorial at `Create and Package Lambda Function`_ .
 
    .. note::
 
@@ -204,7 +204,7 @@ Creating and Packaging Lambda Functions
       environment on the edge device.
 
 
-#. In step 5, replace greengrassHelloWorld.py with the classification or object detection 
+#. In step 5, replace greengrassHelloWorld.py with the classification or object detection
    Greengrass sample from `Edge-Analytics-Faas`_:
 
    * Classification: `greengrass_classification_sample.py`_
@@ -264,8 +264,8 @@ configuring the lambda function for AWS Greengrass.
         - Value
       * - PARAM_MODEL_XML
         - <MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and
-          contains IR.xml, the Intermediate Representation file from Intel® Model Optimizer. 
-          For this tutorial, <MODEL_DIR> should be set to '/usr/share/openvino/models' 
+          contains IR.xml, the Intermediate Representation file from Intel® Model Optimizer.
+          For this tutorial, <MODEL_DIR> should be set to '/usr/share/openvino/models'
           or one of its subdirectories.
       * - PARAM_INPUT_SOURCE
         - <DATA_DIR>/input.webm to be specified by user. Holds both input and
@@ -375,15 +375,15 @@ References
 2. AWS Lambda: https://aws.amazon.com/lambda/
 3. AWS Kinesis: https://aws.amazon.com/kinesis/
 
-.. _Edge-Analytics-FaaS: https://github.com/intel/Edge-Analytics-FaaS/tree/master/AWS%20Greengrass
+.. _Edge-Analytics-FaaS: https://github.com/intel/Edge-Analytics-FaaS/tree/v1.0/AWS%20Greengrass
 
 .. _bvlc_alexnet.caffemodel: http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel
 
 .. _deploy.prototxt: https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/deploy.prototxt
 
-.. _greengrass_classification_sample.py: https://github.com/intel/Edge-Analytics-FaaS/blob/master/AWS%20Greengrass/greengrass_classification_sample.py
+.. _greengrass_classification_sample.py: https://github.com/intel/Edge-Analytics-FaaS/blob/v1.0/AWS%20Greengrass/greengrass_classification_sample.py
 
-.. _greengrass_object_detection_sample_ssd.py: https://github.com/intel/Edge-Analytics-FaaS/blob/master/AWS%20Greengrass/greengrass_object_detection_sample_ssd.py
+.. _greengrass_object_detection_sample_ssd.py: https://github.com/intel/Edge-Analytics-FaaS/blob/v1.0/AWS%20Greengrass/greengrass_object_detection_sample_ssd.py
 
 .. _converting deep learning models to Intermediate Representation using Model Optimizer: https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer
 
