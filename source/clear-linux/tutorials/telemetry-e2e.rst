@@ -1,11 +1,21 @@
 .. _telemetry-e2e:
 
+Develop with telemetry
+######################
 
-|CL-ATTR| includes a telemetry and analytics solution (also known as telemetrics) as part of the OS, which records events of interest and reports them back to the development team using the telemetrics client daemons.
+This tutorial shows you how to set up a telemetry backend server to
+manage your records and how to instrument your application with the telemetry
+API.
 
-End users can enable or disable the telemetry client component of |CL| and also redirect where records are sent if they wish to collect records for themselves by using their own telemetry backend server. More detailed information about using and configuring the telemetrics client is found in the :ref:`telemetrics` guide.
+|CL-ATTR| includes a telemetry and analytics solution (also known as
+telemetrics) as part of the OS, which records events of interest and reports
+them back to the development team using the telemetrics client daemons.
 
-This tutorial walks you through setting up a telemetry backend server to manage your records, and how to use the telemetry API to add telemetry to your own applications.
+The |CL| telemetry client can be enabled or disabled and records can be
+redirected to a desired location. More detailed information about using and
+configuring the telemetrics client is found in
+the :ref:`telemetrics` guide.
+
 
 .. contents:: :local:
    :depth: 1
@@ -363,9 +373,14 @@ Using the telemetry API in your C application
 *********************************************
 
 .. note::
-  More details about the :ref:`telemetry-z-api` are available in the telemetry guide.
 
-Confirm that the telemetrics header file is located on the system at :file:`/usr/include/telemetry.h`  The `latest version`_ of the file can also be found on github for reference, but installing the `telemetry` bundle will install the header file that matches your |CL| version.
+   More details about the :ref:`the telemetry API <telemetry-api>` are
+   available in the telemetry guide.
+
+Confirm that the telemetrics header file is located on the system at
+:file:`usr/include/telemetry.h`  The `latest version`_ of the file can also
+be found on github for reference, but installing the `telemetry` bundle will
+install the header file that matches your |CL| version.
 
 You will need to include the following headers in your code to use the API:
 
@@ -576,8 +591,7 @@ A full example of the `heartbeat probe`_ in C is documented in the source code. 
 You can also look for the record on the telemetry backend server.
 
 
-.. _latest version:
-https://github.com/clearlinux/telemetrics-client/tree/master/src
+.. _latest version: https://github.com/clearlinux/telemetrics-client/tree/master/src
 
 .. _heartbeat probe: https://github.com/clearlinux/telemetrics-client/tree/master/src/probes/hello.c
 
