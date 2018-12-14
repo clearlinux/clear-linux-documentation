@@ -71,6 +71,7 @@ Build kernel module
 
       $ uname -r
       4.XX.YY-ZZZZ.native
+
    Ensure *.native* is in the kernel name
 
 #. Install the `linux-dev` bundle to obtain the kernel headers, which are
