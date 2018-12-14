@@ -13,7 +13,7 @@ if len(sys.argv) < 2:
 
 outputPath = sys.argv[1]
 fileNamePath = outputPath + "/" + fileName
-outFilePath = outputPath + outFile
+outFilePath = outputPath + "/" +  outFile
 
 with open (whitelistFile) as w:
 	whLines = w.readlines()
