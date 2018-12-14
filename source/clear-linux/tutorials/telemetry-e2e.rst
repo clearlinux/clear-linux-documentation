@@ -256,7 +256,7 @@ Once the installation is complete you can use your web browser and view the new 
 
 You should see a web page similar to the one shown in figure 1:
 
-.. figure:: ../guides/telemetrics/figures/telemetry-backend-1.png
+.. figure:: telemetry-backend/figures/telemetry-backend-1.png
    :scale: 50 %
    :alt: Telemetry UI
 
@@ -317,7 +317,7 @@ hprobe` command to send a ``hello`` record to the server as follows:
 
 The record should show up on your new server console as shown in figure 2:
 
-.. figure:: ../guides/telemetrics/figures/telemetry-backend-2.png
+.. figure:: telemetry-backend/figures/telemetry-backend-2.png
    :scale: 50 %
    :alt: Telemetry UI
 
