@@ -256,11 +256,11 @@ Once the installation is complete you can use your web browser and view the new 
 
 You should see a web page similar to the one shown in figure 1:
 
-.. figure:: telemetry-backend/figures/telemetry-backend-1.png
-   :scale: 50 %
-   :alt: Telemetry UI
+  .. figure:: telemetry-backend/figures/telemetry-backend-1.png
+     :alt: Telemetry UI
+     :scale: 50%
 
-   Figure 1: :guilabel:`Telemetry UI`
+     Figure 1: :guilabel:`Telemetry UI`
 
 Redirect telemetry records
 **************************
@@ -317,11 +317,11 @@ hprobe` command to send a ``hello`` record to the server as follows:
 
 The record should show up on your new server console as shown in figure 2:
 
-.. figure:: telemetry-backend/figures/telemetry-backend-2.png
-   :scale: 50 %
-   :alt: Telemetry UI
+  .. figure:: telemetry-backend/figures/telemetry-backend-2.png
+     :alt: Telemetry UI
+     :scale: 50%
 
-   Figure 2: :guilabel:`Telemetry UI`
+     Figure 2: :guilabel:`Telemetry UI`
 
 You have now set up the |CL| telemetry backend server, and redirected records from your client to your server.
 
