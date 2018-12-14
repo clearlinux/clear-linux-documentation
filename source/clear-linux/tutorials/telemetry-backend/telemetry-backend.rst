@@ -385,8 +385,7 @@ new server by opening the web browser on the system you installed the backend
 server onto and type in ``localhost`` in the address bar.  You should see a
 web page similar to the one shown in figure 1:
 
-.. figure:: ../../guides/telemetrics/figures/telemetry-backend-1.png
-   :scale: 50 %
+.. figure:: figures/telemetry-backend-1.png
    :alt: Telemetry UI
 
    Figure 1: :guilabel:`Telemetry UI`
@@ -449,8 +448,7 @@ command to send a ``hello`` record to the server as follows:
 
 The record should show up on your new server console as shown in figure 2:
 
-.. figure:: ../../guides/telemetrics/figures/telemetry-backend-2.png
-   :scale: 50 %
+.. figure:: figures/telemetry-backend-2.png
    :alt: Telemetry UI
 
    Figure 2: :guilabel:`Telemetry UI`
