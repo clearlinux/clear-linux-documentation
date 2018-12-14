@@ -134,6 +134,7 @@ We do not need to set the following options since the values are set to the corr
 * *-t git* to set the source type to git.
 
 .. caution::
+
    The :file:`deploy.sh` shell script has minimal error checking and makes several changes to your system.  Be sure that the options you define on the cmdline are correct before proceeding.
 
 To begin the installation with the options defined:
@@ -149,12 +150,12 @@ The script will start and list all the defined options and prompt you for the :g
 .. code-block:: console
 
     Options:
-      host: localhost
-      distro: clr
-      action: install
-      repo: https://github.com/clearlinux/telemetrics-backend
-      source: master
-      type: git
+    host: localhost
+    distro: clr
+    action: install
+    repo: https://github.com/clearlinux/telemetrics-backend
+    source: master
+    type: git
     DB password: (default: postgres):
 
 For the :guilabel:`DB password:`, press the :kbd:`Enter` key to accept the default password `postgres`.
@@ -164,53 +165,54 @@ The :command:`swupd` begins installing the required software bundles to set up t
 .. code-block:: console
 
    swupd-client bundle adder 3.12.7
-       Copyright (C) 2012-2017 Intel Corporation
+   Copyright (C) 2012-2017 Intel Corporation
 
-    Downloading packs...
+   Downloading packs...
 
-    Extracting application-server pack for version 18740
+   Extracting application-server pack for version 18740
          ...5%
-    Extracting database-basic-dev pack for version 18670
+   Extracting database-basic-dev pack for version 18670
          ...10%
-    Extracting database-basic pack for version 18670
+   Extracting database-basic pack for version 18670
          ...15%
-    .
-    .
-    .
-    Extracting c-basic pack for version 18800
+   ...
+
+   Extracting c-basic pack for version 18800
          ...89%
-    Extracting os-core-dev pack for version 18800
+   Extracting os-core-dev pack for version 18800
          ...94%
-    Extracting web-server-basic pack for version 18680
+   Extracting web-server-basic pack for version 18680
          ...100%
-    Installing bundle(s) files...
+   Installing bundle(s) files...
          ...100%
-    Calling post-update helper scripts.
-    Possible filedescriptor leak : 8 (socket:[30833])
-    Bundle(s) installation done.
+   Calling post-update helper scripts.
+   Possible filedescriptor leak : 8 (socket:[30833])
+   Bundle(s) installation done.
 
 .. note::
 
    This script uses :command:`sudo` to run commands and you may be prompted to enter your user password at any time while the script is executing. If this occurs, enter your user password to execute the :command:`sudo` command.
 
-    .. code-block:: console
+   .. code-block:: console
 
-       Password:
+      Password:
 
+   You may also see an informational message about setting the :envvar:`
+   https_proxy` environment variable if this variable isn't set.
 
-   You may also see an informational message about setting the :envvar:`https_proxy` environment variable if this variable isn't set.
-
-
-Once the :command:`swupd` command is complete, the script begins processing the requirements to install and implement the telemetrics server. Finally, the script enables the server and provides output that finishes with something similar to:
+Once the :command:`swupd` command is complete, the script begins processing
+the requirements to install and implement the telemetrics server. Finally,
+the script enables the server and provides output that finishes with
+something similar to:
 
 .. code-block:: console
 
-  .
-  .
-  Successfully built alembic Flask-Migrate itsdangerous Mako MarkupSafe python-editor SQLAlchemy uWSGI WTForms
-  Installing collected packages: SQLAlchemy, MarkupSafe, Mako, python-editor, six, python-dateutil, alembic, click, Werkzeug, Jinja2, itsdangerous, Flask, Flask-SQLAlchemy, Flask-Migrate, WTForms, Flask-WTF, psycopg2, uWSGI
-  Running setup.py install for psycopg2 ... done
-  Successfully installed Flask-0.12.2 Flask-Migrate-2.1.0 Flask-SQLAlchemy-2.2 Flask-WTF-0.14.2 Jinja2-2.9.6 Mako-1.0.7 MarkupSafe-1.0 SQLAlchemy-1.1.13 WTForms-2.1 Werkzeug-0.12.2 alembic-0.9.5 click-6.7 itsdangerous-0.24 psycopg2-2.7.3 python-dateutil-2.6.1 python-editor-1.0.3 six-1.10.0 uWSGI-2.0.15
+   .
+   .
+   Successfully built alembic Flask-Migrate itsdangerous Mako MarkupSafe python-editor SQLAlchemy uWSGI WTForms
+   Installing collected packages: SQLAlchemy, MarkupSafe, Mako, python-editor, six, python-dateutil, alembic, click, Werkzeug, Jinja2, itsdangerous, Flask, Flask-SQLAlchemy, Flask-Migrate, WTForms, Flask-WTF, psycopg2, uWSGI
+   Running setup.py install for psycopg2 ... done
+   Successfully installed Flask-0.12.2 Flask-Migrate-2.1.0 Flask-SQLAlchemy-2.2 Flask-WTF-0.14.2 Jinja2-2.9.6 Mako-1.0.7 MarkupSafe-1.0 SQLAlchemy-1.1.13 WTForms-2.1 Werkzeug-0.12.2 alembic-0.9.5 click-6.7 itsdangerous-0.24 psycopg2-2.7.3 python-dateutil-2.6.1 python-editor-1.0.3 six-1.10.0 uWSGI-2.0.15
 
 Once all the server components have been installed you are prompted to enter the :guilabel:`PostgreSQL` database password to change it as illustrated below:
 
@@ -221,8 +223,9 @@ Once all the server components have been installed you are prompted to enter the
    Retype new password:
    passwd: password updated successfully
 
-
-Enter `postgres` for the current value of the password and then enter a new password, retype it to verify the new password and the :guilabel:`PostgreSQL` database password will be updated.
+Enter `postgres` for the current value of the password and then enter a new
+password, retype it to verify the new password and the :guilabel:`PostgreSQL`
+database password will be updated.
 
 The script finalizes installation and finishes.
 
@@ -235,9 +238,7 @@ The script finalizes installation and finishes.
    remote: Total 344 (delta 30), reused 50 (delta 20), pack-reused 268
    Receiving objects: 100% (344/344), 130.20 KiB | 1.40 MiB/s, done.
    Resolving deltas: 100% (177/177), done.
-   .
-   .
-   .
+   ...
    Already using interpreter /usr/bin/python3
    Using base prefix '/usr'
    New python executable in /var/www/telemetry/venv/bin/python3
@@ -250,11 +251,11 @@ The script finalizes installation and finishes.
 
    Install complete (installation folder: /var/www/telemetry)
 
-Once the installation is complete you can use your web browser and view the new server by opening the web browser on your system and type in ``localhost`` in the address bar.
+Once the installation is complete you can use your web browser and view the new server by opening the web browser on your system and type in
+``localhost`` in the address bar.
 
 You should see a web page similar to the one shown in figure 1:
 
-.. TODO fix links for figures
 .. figure:: ../guides/telemetrics/figures/telemetry-backend-1.png
    :scale: 50 %
    :alt: Telemetry UI
@@ -264,52 +265,63 @@ You should see a web page similar to the one shown in figure 1:
 Redirect telemetry records
 **************************
 
-Telemetry records generated by the telemetrics clients are sent to the server location defined in the :file:`/usr/share/defaults/telemetrics/telemetrics.conf` configuration file. You can customize this setting by copying this file to :file:`/etc/telemetrics/telemetrics.conf` and changing the ``server=`` setting to your new server location.
+Telemetry records generated by the telemetrics clients are sent to the
+server location defined in the :file:`/usr/share/defaults/telemetrics/
+telemetrics.conf` configuration file. You can customize this setting by
+copying this file to :file:`/etc/telemetrics/telemetrics.conf` and changing
+the ``server=`` setting to your new server location.
 
-#. Create the :file:`/etc/telemetrics` directory and make it your current working directory.
+#. Create the :file:`/etc/telemetrics` directory and make it your current
+   working directory.
 
-     .. code-block:: bash
+   .. code-block:: bash
 
-        sudo mkdir -p /etc/telemetrics
-        cd /etc/telemetrics
+      sudo mkdir -p /etc/telemetrics
+      cd /etc/telemetrics
 
+#. Copy the default :file:`telemetrics.conf` file to the new
+   :file:`/etc/telemetrics` directory.
 
-#. Copy the default :file:`telemetrics.conf` file to the new :file:`/etc/telemetrics` directory.
+    .. code-block:: bash
 
-     .. code-block:: bash
+       sudo cp /usr/share/defaults/telemetrics/telemetrics.conf
 
-        sudo cp /usr/share/defaults/telemetrics/telemetrics.conf
+#. Edit the new :file:`/etc/telemetrics/telemetrics.conf` file with your
+   editor using the :command:`sudo` directive and change the
+   :guilabel:`server=` setting to ``http://localhost/v2/collector`` and save
+   this change in the new file.
 
-#. Edit the new :file:`/etc/telemetrics/telemetrics.conf` file with your editor using the :command:`sudo` directive and change the :guilabel:`server=` setting to ``http://localhost/v2/collector`` and save this change in the new file.
+   .. code-block:: console
 
-     .. code-block:: console
+      server=http://localhost/v2/collector
 
-        server=http://localhost/v2/collector
-
-    You can also use the fully qualified domain name for your server instead of :guilabel:`localhost`.
+   You can also use the fully qualified domain name for your server instead of :guilabel:`localhost`.
 
 #. Restart the telemetry daemons to reload the configuration file.
 
-      .. code-block:: bash
+   .. code-block:: bash
 
-         telemctl restart
+      telemctl restart
 
 Test the new telemetry backend server
 *************************************
 
-|CL| includes a telemetry test probe called :command:`hprobe` that will send a ``hello`` record to the telemetry backend server.  To test that the telemetry records are now going to your new destination, run the :command:`hprobe` command to send a ``hello`` record to the server as follows:
+|CL| includes a telemetry test probe called :command:`hprobe` that will send
+a ``hello`` record to the telemetry backend server.  To test that the
+telemetry records are now going to your new destination, run the :command:`
+hprobe` command to send a ``hello`` record to the server as follows:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      hprobe
+   hprobe
 
 The record should show up on your new server console as shown in figure 2:
 
 .. figure:: ../guides/telemetrics/figures/telemetry-backend-2.png
-      :scale: 50 %
-      :alt: Telemetry UI
+   :scale: 50 %
+   :alt: Telemetry UI
 
-      Figure 2: :guilabel:`Telemetry UI`
+   Figure 2: :guilabel:`Telemetry UI`
 
 You have now set up the |CL| telemetry backend server, and redirected records from your client to your server.
 
@@ -350,19 +362,22 @@ Enabling telemetry during installation gives us everything we need to create cus
 
 .. note::
 
-  The C library (:file:`libtelemetry.so - man 3 telemetry`) uses the same API parameters and will yield the same effect as :command:`telem-record-gen`.
+   The C library (:file:`libtelemetry.so - man 3 telemetry`) uses the same API parameters and will yield the same effect as :command:`telem-record-gen`.
 
-Let's try generating a simple heartbeat event with :command:`telem-record-gen`, similar to the hprobe heartbeat probe that |CL| includes by default.
+Let's try generating a simple heartbeat event with
+:command:`telem-record-gen`, similar to the hprobe heartbeat probe that |CL|
+includes by default.
 
 .. code-block:: bash
 
    ~ $ telem-record-gen -c org.clearlinux/hello/world -p "hello there"
 
-We won't see anything happen on the console, but we can track existing and previous telemetry events with :command:`telemctl`:
+We won't see anything happen on the console, but we can track existing and
+previous telemetry events with :command:`telemctl`:
 
 .. code-block:: bash
 
-  ~$ sudo telemctl journal -V -c org.clearlinux/hello/world -i
+   ~$ sudo telemctl journal -V -c org.clearlinux/hello/world -i
 
 .. code-block:: console
 
@@ -474,7 +489,10 @@ The ``free()`` function frees the memory space pointed to by ptr, which must hav
 Send a record to the telemetrics daemon
 ***************************************
 
-The function ``tm_send_record()`` delivers the record to the local ``telemprobd(1)`` service. Since the telemetry record was allocated by the program it should be freed with ``tm_free_record()`` when it is no longer needed.
+The function ``tm_send_record()`` delivers the record to the local
+``telemprobd(1)`` service. Since the telemetry record was allocated by the
+program it should be freed with ``tm_free_record()`` when it is no longer
+needed.
 
 ::
 
@@ -556,40 +574,40 @@ Compile with the gcc compiler, using this command:
 
 .. code-block:: bash
 
-  gcc test.c -ltelemetry -o test_telem
+   gcc test.c -ltelemetry -o test_telem
 
 
 Test to ensure the program is working:
 
 .. code-block:: bash
 
-  ./test_telem
-  Successfully sent record to daemon.
+   ./test_telem
+   Successfully sent record to daemon.
 
 Verify record was received
 *****************************
 
-To verify that the heartbeat message was received by the telemetry backend server you can check the telemetry client journal, and specify the classification as org.clearlinux/hello/world
-:
+To verify that the heartbeat message was received by the telemetry backend
+server you can check the telemetry client journal, and specify the
+classification as org.clearlinux/hello/world
 
 .. code-block:: bash
 
-  sudo telemctl journal -V -c org.clearlinux/hello/world -i
+   sudo telemctl journal -V -c org.clearlinux/hello/world -i
 
 .. code-block:: console
 
-  Classification                 Time stamp                  Record ID                        Event ID                         Boot ID
-  org.clearlinux/hello/world     Tue 2018-11-06 22:58:25 UTC b11db07c58c90d8f496ff963df6c43de 24699c2d60c12d154692875b599ca957 75f547ff-e55b-44b1-9333-1106098bd448
-  hello
-  Total records: 1
+   Classification                 Time stamp                  Record ID                        Event ID                         Boot ID
+   org.clearlinux/hello/world     Tue 2018-11-06 22:58:25 UTC b11db07c58c90d8f496ff963df6c43de 24699c2d60c12d154692875b599ca957 75f547ff-e55b-44b1-9333-1106098bd448
+   hello
+   Total records: 1
 
 
 
-A full example of the `heartbeat probe`_ in C is documented in the source code.  For more information about telemetrics in |CL| refer to the :ref:`telemetrics` guide.
-
+A full example of the `heartbeat probe`_ in C is documented in the source code.  For more information about telemetrics in |CL| refer to the
+:ref:`telemetrics` guide.
 
 You can also look for the record on the telemetry backend server.
-
 
 .. _latest version: https://github.com/clearlinux/telemetrics-client/tree/master/src
 
