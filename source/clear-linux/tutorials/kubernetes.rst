@@ -338,13 +338,13 @@ Troubleshooting
 
         sudo source profile
 
-  #. To ssure your system isn't running previous session variables, run:
+  #. To assure your system isn't running previous session variables, run:
 
      .. code-block:: bash
 
         sudo kubeadm reset --cri-socket=/run/crio/crio.sock
 
-  #. Return to the `kubeadm init` command above.
+  #. Continue below and pass the `-E` in the command.
 
 
 * Missing environment variables.
