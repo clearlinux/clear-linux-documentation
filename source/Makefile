@@ -167,7 +167,7 @@ changes:
 
 linkcheck:
 	-$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
-	python3 parse-link-check.py $(BUILDDIR)/linkcheck
+	python3 _scripts/parse-link-check.py $(BUILDDIR)/linkcheck
 	@echo
 	@echo "Link check complete; look for any errors in the above output " \
 	      "or in $(BUILDDIR)/linkcheck/output.txt."

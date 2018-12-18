@@ -8,7 +8,7 @@ outFile = "broken_links.html"
 whitelistFile = "link-whitelist.txt"
 
 if len(sys.argv) < 2:
-    print ("Enter a file name to parse")
+    print ("Enter path of input directory")
     sys.exit()
 
 outputPath = sys.argv[1]
