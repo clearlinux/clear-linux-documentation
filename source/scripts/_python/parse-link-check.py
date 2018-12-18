@@ -1,5 +1,25 @@
 #!/usr/bin/env python
 
+#***********************************************************
+#
+# parse-link-check.py
+# 
+# Arguments:
+#     1. path to input file 
+#
+# External file dependencies:
+#     1. output.txt - the output of sphinx-build
+#     2. link-whitelist.txt - broken links that should be ignored
+#
+# Output:
+#     1. broken_links.html - provides count of broken and whitelist 
+#        matches. Also provides links to all flagged links. Will 
+#        appear in the same directory as output.txt
+#     2. Error code 255 if unexpected broken links are found
+#
+#***********************************************************
+
+
 import sys
 import re
 import os
