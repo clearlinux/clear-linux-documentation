@@ -2,6 +2,7 @@
 
 import sys
 import re
+import os
 
 fileName = "output.txt"
 outFile = "broken_links.html"
@@ -11,11 +12,14 @@ if len(sys.argv) < 2:
     print ("Enter path of input directory")
     sys.exit()
 
+scriptPath = sys.argv[0]
 outputPath = sys.argv[1]
 fileNamePath = outputPath + "/" + fileName
 outFilePath = outputPath + "/" +  outFile
 
-with open (whitelistFile) as w:
+whitelistFilePath = os.path.dirname(scriptPath) + "/" + whitelistFile
+
+with open (whitelistFilePath) as w:
 	whLines = w.readlines()
 
 whitelist = []
@@ -57,4 +61,7 @@ with open (outFilePath, "w") as outF:
 print("See ./" + outFilePath + " for a detailed breakdown of broken links.")
 
 if numBrokenLinks != 0:
-	sys.exit(-1) 
+    print (numBrokenLinks + " detected. Exiting with error code 255.")
+    sys.exit(-1) 
+else:
+    print ("No unexpected broken links detected.")
