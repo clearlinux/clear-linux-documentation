@@ -7,7 +7,8 @@ Clear Linux - Documentation
    :maxdepth: 1
 
    clear-linux/clear-linux
-   
+   sitemap
+
 License and disclaimers
 =======================
 
