@@ -285,7 +285,7 @@ Add Partition
 =============
 
 Minimum requirements
-====================
+--------------------
 
 To add partitions manually, assign partitions per the minimum
 requirements shown in Table 1:
@@ -306,6 +306,28 @@ requirements shown in Table 1:
    * - ``root``
      - /
      - *Size depends upon use case/desired bundles.*
+
+Disk encryption
+---------------
+
+Disk encryption is supported for root and swap partitions on |CL| for
+greater security. Encryption is optional. To encrypt a partition, see the example below in the :ref:`encrypt-root`.
+
+.. note::
+
+   **The `boot` partition cannot be encrypted**.
+
+Encryption Passphrase
+---------------------
+
+|CL| supports use of a single passphrase for all encrypted partitions.
+Therefore, if you turn on encryption for one partition, the same passphrase
+must be used for all partitions. For example, suppose you encrypt the `root`
+partition first and the `swap` partition second. Upon selecting encryption
+for the `swap` partition, the :guilabel:`Encryption Passphrase` dialogue
+appears showing the current default Passphrase. Select :guilabel:`Confirm`
+and press :kbd:`Enter` to use the same Passphrase.
+
 
 #. In the Configure Media menu, select :guilabel:`Add Partition`.
 
@@ -356,13 +378,48 @@ swap partition
 
       Figure 10: :guilabel:`swap partition`
 
+
+.. _encrypt-root:
+
 root partition
 --------------
 
 #. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to
    select the file system type. See Figure 11.
 
-#. In :guilabel:`Mount Point`, enter ``/root``.
+   #. Optional: Select :guilabel:`[ ] Encrypt` to encrypt the partition.
+
+      .. figure:: figures/bare-metal-install-beta-11.png
+         :scale: 100 %
+         :alt: Encrypt partition
+
+         Figure 11: :guilabel:`Encrypt partition`
+
+
+   #. The :guilabel:`Encryption Passphrase` dialogue appears.
+
+      .. note::
+
+         Minimum length is 8 characters. Maximum length is 94 characters.
+
+         .. figure:: figures/bare-metal-install-beta-12.png
+            :scale: 100 %
+            :alt: Encryption Passphrase
+
+            Figure 12: :guilabel:`Encryption Passphrase`
+
+   #. Enter the same passphrase in the first and second field.
+
+   #. Navigate to :guilabel:`Confirm` and press :kbd:`Enter`.
+
+      .. note::
+
+         :guilabel:`Confirm` is only highlighted if passphrases match.
+
+#. Optional: In :guilabel:`[Optional] Label:`, enter your desired
+   label for the partition.
+
+#. In :guilabel:`Mount Point`, enter ``/``. See Figure 11.
 
 #. In :guilabel:`Size`, enter an appropriate size per Table 1.
 
@@ -376,21 +433,16 @@ root partition
 
    You are returned to the :guilabel:`Configure media` menu.
 
-#. Select :guilabel:`Confirm` to complete the media selection.
+#. Select :guilabel:`Confirm` to complete the media selection. See Figure 13.
 
-   .. figure:: figures/bare-metal-install-beta-11.png
-      :scale: 100 %
-      :alt: root partition
+#. You are returned to the :guilabel:`Configure media` menu. Your partitions
+   should be similar to those shown in Figure 13.
 
-      Figure 11: :guilabel:`root partition`
-
-   You are returned to the :guilabel:`Configure media` menu. Your partitions should appear similar to those shown in Figure 12.
-
-   .. figure:: figures/bare-metal-install-beta-12.png
+   .. figure:: figures/bare-metal-install-beta-13.png
       :scale: 100 %
       :alt: Partitions
 
-   Figure 12: :guilabel:`Partitions`
+      Figure 13: :guilabel:`Partitions`
 
 #. Navigate to :guilabel:`Confirm` until highlighted.
 
@@ -413,11 +465,11 @@ For more detailed information, visit our :ref:`telemetry-about` page.
 
 #. Select :kbd:`Enter` to confirm.
 
-   .. figure:: figures/bare-metal-install-beta-13.png
+   .. figure:: figures/bare-metal-install-beta-14.png
       :scale: 100 %
       :alt: Enable Telemetry
 
-      Figure 13: :guilabel:`Enable Telemetry`
+      Figure 14: :guilabel:`Enable Telemetry`
 
 Skip to finish installation
 ===========================
@@ -459,22 +511,22 @@ interface settings are automatically applied.
 
    .. note:: Multiple network interfaces may appear.
 
-   .. figure:: figures/bare-metal-install-beta-14.png
+   .. figure:: figures/bare-metal-install-beta-15.png
       :scale: 100 %
       :alt: Configure Network Interfaces
 
-      Figure 14: :guilabel:`Configure Network Interfaces`
+      Figure 15: :guilabel:`Configure Network Interfaces`
 
 #. Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom).
 
    Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select
    :kbd:`Spacebar` to deselect.
 
-   .. figure:: figures/bare-metal-install-beta-15.png
+   .. figure:: figures/bare-metal-install-beta-16.png
       :scale: 100 %
       :alt: Network interface configuration
 
-      Figure 15: :guilabel:`Network interface configuration`
+      Figure 16: :guilabel:`Network interface configuration`
 
 #. Navigate to the appropriate fields and assign the desired
    network configuration.
@@ -510,11 +562,11 @@ instruction.
 
 #. Navigate to the field :guilabel:`HTTPS Proxy`.
 
-   .. figure:: figures/bare-metal-install-beta-16.png
+   .. figure:: figures/bare-metal-install-beta-17.png
       :scale: 100 %
       :alt: Configure the network proxy
 
-      Figure 16: :guilabel:`Configure the network proxy`
+      Figure 17: :guilabel:`Configure the network proxy`
 
 #. Enter the desired proxy address and port using conventional syntax,
    such as: \http://address:port.
@@ -534,13 +586,13 @@ Test Network Settings
 To manually assure network connectivity before installing |CL|,
 select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
-A progress bar appears as shown in Figure 17.
+A progress bar appears as shown in Figure 18.
 
-.. figure:: figures/bare-metal-install-beta-17.png
+.. figure:: figures/bare-metal-install-beta-18.png
    :scale: 100 %
    :alt: Testing Networking dialogue
 
-   Figure 17: :guilabel:`Testing Networking dialogue`
+   Figure 18: :guilabel:`Testing Networking dialogue`
 
 .. note::
 
@@ -558,13 +610,11 @@ Bundle Selection
 
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
 
-   .. figure:: figures/bare-metal-install-beta-18.png
+   .. figure:: figures/bare-metal-install-beta-19.png
       :scale: 100 %
       :alt: Bundle Selection
 
-      Figure 18: :guilabel:`Bundle Selection`
-
-..TODO:Add new screenshot that shows more bundles.
+      Figure 19: :guilabel:`Bundle Selection`
 
 #. Select :kbd:`Confirm` or :kbd:`Cancel`.
 
@@ -580,13 +630,13 @@ Add New User
 
 #. In Advanced Options, select :guilabel:`User Manager`.
 
-#. Select :guilabel:`Add New User` as shown in Figure 19.
+#. Select :guilabel:`Add New User` as shown in Figure 20.
 
-   .. figure:: figures/bare-metal-install-beta-19.png
+   .. figure:: figures/bare-metal-install-beta-20.png
       :scale: 100 %
       :alt: Add New User, User Name
 
-      Figure 19: :guilabel:`Add New User`
+      Figure 20: :guilabel:`Add New User`
 
 #. Optional: Enter a :guilabel:`User Name`.
 
@@ -594,11 +644,11 @@ Add New User
 
       The User Name must be alphanumeric and can include spaces, commas, or hyphens. Maximum length is 64 characters.
 
-   .. figure:: figures/bare-metal-install-beta-20.png
+   .. figure:: figures/bare-metal-install-beta-21.png
       :scale: 100 %
       :alt: User Name
 
-      Figure 20: :guilabel:`User Name`
+      Figure 21: :guilabel:`User Name`
 
 #. Enter a :guilabel:`Login`.
 
@@ -621,11 +671,11 @@ Add New User
 
       Selecting this option enables sudo privileges for the user.
 
-   .. figure:: figures/bare-metal-install-beta-21.png
+   .. figure:: figures/bare-metal-install-beta-22.png
       :scale: 100 %
       :alt: Administrative rights
 
-      Figure 21: :guilabel:`Administrative rights`
+      Figure 22: :guilabel:`Administrative rights`
 
 #. Select :kbd:`Confirm`.
 
@@ -641,15 +691,15 @@ Modify / Delete User
 --------------------
 
 #. In User Manager, select :guilabel:`Tab` to highlight the user, as shown
-   in Figure 22.
+   in Figure 23.
 
 #. Select :kbd:`Enter` to modify the user.
 
-   .. figure:: figures/bare-metal-install-beta-22.png
+   .. figure:: figures/bare-metal-install-beta-23.png
       :scale: 100 %
       :alt: Modify User
 
-      Figure 22: :guilabel:`Modify User`
+      Figure 23: :guilabel:`Modify User`
 
 #. Modify user details as desired.
 
@@ -683,11 +733,11 @@ new kernel.
 
 #. To add or remove arguments, choose one of the following options.
 
-   .. figure:: figures/bare-metal-install-beta-23.png
+   .. figure:: figures/bare-metal-install-beta-24.png
       :scale: 100 %
       :alt: kernel command line
 
-      Figure 23: :guilabel:`kernel command line`
+      Figure 24: :guilabel:`kernel command line`
 
 #. To add arguments, enter the argument in :guilabel:`Add Extra Arguments`.
 
@@ -706,13 +756,13 @@ Kernel Selection
 
    .. note::
 
-      To choose a different kernel, such as Long Term Support (LTS), shown in Figure 24, navigate to it using :guilabel:`Tab`.
+      To choose a different kernel, such as Long Term Support (LTS), shown in Figure 25, navigate to it using :guilabel:`Tab`.
 
-   .. figure:: figures/bare-metal-install-beta-24.png
+   .. figure:: figures/bare-metal-install-beta-25.png
       :scale: 100 %
       :alt: Kernel selection
 
-      Figure 24: :guilabel:`Kernel selection`
+      Figure 25: :guilabel:`Kernel selection`
 
 #. Select :kbd:`Spacebar` to select the desired option.
 
@@ -731,11 +781,11 @@ If you have your own custom mirror of |CL|, you can add its URL.
 
 #. Select :kbd:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-beta-25.png
+   .. figure:: figures/bare-metal-install-beta-26.png
       :scale: 100 %
       :alt: Swupd Mirror
 
-      Figure 25: :guilabel:`Swupd Mirror`
+      Figure 26: :guilabel:`Swupd Mirror`
 
 Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
@@ -752,11 +802,11 @@ Assign Hostname
       alphanumeric character but may also contain hyphens. Maximum length of
       63 characters.
 
-   .. figure:: figures/bare-metal-install-beta-26.png
+   .. figure:: figures/bare-metal-install-beta-27.png
       :scale: 100 %
       :alt: Assign Hostname
 
-      Figure 26: :guilabel:`Assign Hostname`
+      Figure 27: :guilabel:`Assign Hostname`
 
 
 #. Navigate to :kbd:`Confirm` until highlighted.
@@ -775,11 +825,11 @@ follow the onscreen instructions.
 
 #. Select the desired option.
 
-   .. figure:: figures/bare-metal-install-beta-27.png
+   .. figure:: figures/bare-metal-install-beta-28.png
       :scale: 100 %
       :alt: Automatic OS Updates
 
-      Figure 27: :guilabel:`Automatic OS Updates`
+      Figure 28: :guilabel:`Automatic OS Updates`
 
 You are returned to the :guilabel:`Main Menu`.
 
