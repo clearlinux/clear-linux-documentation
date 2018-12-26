@@ -168,7 +168,6 @@ changes:
 linkcheck:
 	-$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
 	python3 scripts/_python/parse-link-check.py $(BUILDDIR)/linkcheck
-	@echo
 
 doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
