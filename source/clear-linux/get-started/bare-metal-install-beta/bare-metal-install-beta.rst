@@ -279,6 +279,28 @@ Auto partition will configure the media to meet the minimum requirements.
 
 #. You may skip to the :ref:`telemetry-tui` section below.
 
+Disk encryption
+===============
+
+For greater security, disk encryption is supported by use of LUKS for all
+partitions **except boot** on |CL|. Encryption is optional. To encrypt a
+partition, see the example below to encrypt :ref:`encrypt-root`.
+
+Encryption passphrase
+---------------------
+
+|CL| supports use of a single passphrase for all encrypted partitions.
+Therefore, if you turn on encryption for one partition, the same passphrase
+is used for all partitions.
+
+.. note::
+
+   For example, suppose you encrypt the `root` partition first and the `swap`
+   partition second. Upon selecting encryption for the `swap` partition, the
+   :guilabel:`Encryption Passphrase` dialogue appears showing the default
+   Passphrase assigned to the `root`. Select :guilabel:`Confirm` and press
+   :kbd:`Enter` to use the same Passphrase.
+
 .. _add-partition:
 
 Add Partition
@@ -306,27 +328,6 @@ requirements shown in Table 1:
    * - ``root``
      - /
      - *Size depends upon use case/desired bundles.*
-
-Disk encryption
----------------
-
-Disk encryption is supported for root and swap partitions on |CL| for
-greater security. Encryption is optional. To encrypt a partition, see the example below in the :ref:`encrypt-root`.
-
-.. note::
-
-   **The `boot` partition cannot be encrypted**.
-
-Encryption Passphrase
----------------------
-
-|CL| supports use of a single passphrase for all encrypted partitions.
-Therefore, if you turn on encryption for one partition, the same passphrase
-must be used for all partitions. For example, suppose you encrypt the `root`
-partition first and the `swap` partition second. Upon selecting encryption
-for the `swap` partition, the :guilabel:`Encryption Passphrase` dialogue
-appears showing the current default Passphrase. Select :guilabel:`Confirm`
-and press :kbd:`Enter` to use the same Passphrase.
 
 
 #. In the Configure Media menu, select :guilabel:`Add Partition`.
