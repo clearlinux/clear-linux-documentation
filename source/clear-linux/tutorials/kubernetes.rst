@@ -18,14 +18,17 @@ workloads or  multi-tenant scenarios. Kata Containers can be
 allocated on a per-pod basis so you can mix and match both on the same host
 to suit your needs.
 
+.. contents:: :local:
+   :depth: 1
+
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| and updated to the latest
-release on your host system. You can learn about the benefits of having an
-up-to-date system for cloud orchestration on the :ref:`swupd-about`
-page. For detailed instructions on installing |CL| on a bare metal system,
-follow the :ref:`bare metal installation tutorial<bare-metal-install>`.
+This tutorial assumes you have already installed |CL|. For detailed
+instructions on installing |CL| on a bare metal system, follow the
+:ref:`bare metal installation tutorial<bare-metal-install>`. Learn about the
+benefits of having an up-to-date system for cloud orchestration on the
+:ref:`swupd-about` page.
 
 Before you install any new packages, update |CL| with the following command:
 
@@ -37,11 +40,19 @@ Install Kubernetes and CRI runtimes
 ***********************************
 
 Kubernetes, a set of supported :abbr:`CRI (Container Runtime Interface)`
-runtimes, and networking plugins, are included in the `cloud-native-basic`_ and `containers-basic`_ bundles. To install this framework, enter the following command:
+runtimes, and networking plugins, are included in the `cloud-native-basic`_
+bundle.
+
+.. note::
+
+   CRI-O’s default plugin_dir is :file:`/opt/bin/cni`.
+   CNI plugins are installed as part of ``cloud-native-basic``.
+
+To install this framework, enter the following command:
 
 .. code-block:: bash
 
-   sudo swupd bundle-add cloud-native-basic containers-basic
+   sudo swupd bundle-add cloud-native-basic
 
 Configure Kubernetes
 ********************
@@ -171,8 +182,6 @@ If you are using CRI-O and `flannel` and you want to use Kata Containers, edit t
     [crio.runtime]
     manage_network_ns_lifecycle = true
 
-.. TODO: Should Weave and Calico be mentioned below, or is Flannel enought?
-
 Create a symlink for the network overlays:
 
 .. code-block:: bash
@@ -181,36 +190,22 @@ Create a symlink for the network overlays:
 
 .. note::
 
-   |CL| installs CNI plugins that are part of the `cloud-native-basic` bundle to :file:`/usr/libexec/cni`. The directory is required because `swupd verify` uses it, if necessary, to repair a system to a known good state.
+   |CL| installs CNI plugins that are part of the `cloud-native-basic`
+   bundle to :file:`/usr/libexec/cni`. The directory is required because `
+   swupd verify` may use it to repair a system to a known good state.
 
-.. TODO: Verify whether to omit this section per mythi, eadamsintel.
+**Notes about Weave Net add-on**
 
-.. **Notes about Weave Net add-on**
+If you choose the `Weave Net` add-on, you must make the following
+changes because it installs itself in the :file:`/opt/cni/bin` directory.
 
-.. If you choose the `Weave Net` add-on, then you must make the following
-.. changes because it installs itself in the :file:`/opt/cni/bin` directory.
+For using CRI-O and ``Weave Net``, complete the following step.
 
-.. For using CRI-O and `Weave Net`, you must complete the following
-.. steps.
+#.  Add the `loopback` CNI plugin to the plugin path with the command:
 
-.. #.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
+    code-block:: bash
 
-..     ..  code-block:: bash
-
-..         plugin_dir = "/usr/libexec/cni/"
-
-..     to:
-
-..     ..  code-block:: bash
-
-..         plugin_dir = "/opt/cni/bin"
-
-.. #.  Add the `loopback` CNI plugin to the plugin path with the command:
-
-..     ..  code-block:: bash
-
-..         sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
-
+    sudo ln -s /usr/libexec/cni/loopback /opt/bin/cni/loopback
 
 Use your cluster
 ****************
@@ -224,7 +219,6 @@ period. The values are presented in a format similar to:
 .. code-block:: bash
 
    kubeadm join <master-ip>:<master-port> --token <token> --discovery-token-ca-cert-hash <hash>
-
 
 **Congratulations!**
 
@@ -283,17 +277,17 @@ commands as a shell script to configure all of these services in one step:
 
 .. code-block:: bash
 
-      services=('crio')
-      for s in "${services[@]}"; do
-      sudo mkdir -p "/etc/systemd/system/${s}.service.d/"
-      cat << EOF | sudo tee "/etc/systemd/system/${s}.service.d/proxy.conf"
-      [Service]
-      Environment="HTTP_PROXY=${http_proxy}"
-      Environment="HTTPS_PROXY=${https_proxy}"
-      Environment="SOCKS_PROXY=${socks_proxy}"
-      Environment="NO_PROXY=${no_proxy}"
-      EOF
-      done
+   services=('crio')
+   for s in "${services[@]}"; do
+   sudo mkdir -p "/etc/systemd/system/${s}.service.d/"
+   cat << EOF | sudo tee "/etc/systemd/system/${s}.service.d/proxy.conf"
+   [Service]
+   Environment="HTTP_PROXY=${http_proxy}"
+   Environment="HTTPS_PROXY=${https_proxy}"
+   Environment="SOCKS_PROXY=${socks_proxy}"
+   Environment="NO_PROXY=${no_proxy}"
+   EOF
+   done
 
 Troubleshooting
 ***************
@@ -335,6 +329,44 @@ Troubleshooting
   to set the proxy variables permanently, and how to make them available for
   all the types of access that you will use, such as remote SSH access.
 
+  If the result of the above commands is blank, you may need to add a
+  `profile` to the `/etc`directory. To do so, follow these steps.
+
+  #. Create a `profile` in :file:`/etc`
+
+     .. code-block:: bash
+
+        sudo touch profile
+
+  #. With a preferred editor, open `profile`, and enter your proxy settings.
+     Example shown below.
+
+     .. code-block:: bash
+
+        export "HTTP_PROXY=http://proxy.example.com:443"
+        export "HTTPS_PROXY=http://proxy.example.com:445"
+        export "SOCKS_PROXY=http://proxy.example.com:1080"
+        export "NO_PROXY= site.com,.site.com,localhost,127.0.0.1,<master IP>
+
+  <master IP> can be obtained by running :command:`ifconfig`.
+
+  #. Save and exit the `profile`.
+
+  #. Run:
+
+     .. code-block:: bash
+
+        sudo source profile
+
+  #. To assure your system isn't running previous session variables, run:
+
+     .. code-block:: bash
+
+        sudo kubeadm reset --cri-socket=/run/crio/crio.sock
+
+  #. Continue below while pass `-E` in the command as shown.
+
+
 * Missing environment variables.
 
   If you are behind a proxy server, pass environment variables by adding *-E*
@@ -351,8 +383,6 @@ Troubleshooting
 .. _Kata Containers: https://katacontainers.io/
 
 .. _Software Update documentation: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about#updating
-
-.. _containers-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-basic
 
 .. _cloud-native-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic
 
