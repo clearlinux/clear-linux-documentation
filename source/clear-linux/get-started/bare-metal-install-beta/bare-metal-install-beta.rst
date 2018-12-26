@@ -286,7 +286,7 @@ For greater security, disk encryption is supported by use of LUKS for all
 partitions **except boot** on |CL|. Encryption is optional. To encrypt a
 partition, see the example below to encrypt :ref:`encrypt-root`.
 
-Encryption passphrase
+Encryption Passphrase
 ---------------------
 
 |CL| supports use of a single passphrase for all encrypted partitions.
@@ -379,7 +379,6 @@ swap partition
 
       Figure 10: :guilabel:`swap partition`
 
-
 .. _encrypt-root:
 
 root partition
@@ -388,7 +387,7 @@ root partition
 #. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to
    select the file system type. See Figure 11.
 
-   #. Optional: Select :guilabel:`[ ] Encrypt` to encrypt the partition.
+   #. Optional: Select :guilabel:`[X] Encrypt` to encrypt the partition.
 
       .. figure:: figures/bare-metal-install-beta-11.png
          :scale: 100 %
@@ -757,7 +756,7 @@ Kernel Selection
 
    .. note::
 
-      To choose a different kernel, such as Long Term Support (LTS), shown in Figure 25, navigate to it using :guilabel:`Tab`.
+      To choose a different kernel, such as Native, shown in Figure 25, navigate to it using :guilabel:`Tab`.
 
    .. figure:: figures/bare-metal-install-beta-25.png
       :scale: 100 %
