@@ -24,11 +24,11 @@ to suit your needs.
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| and updated to the latest
-release on your host system. You can learn about the benefits of having an
-up-to-date system for cloud orchestration on the :ref:`swupd-about`
-page. For detailed instructions on installing |CL| on a bare metal system,
-follow the :ref:`bare metal installation tutorial<bare-metal-install>`.
+This tutorial assumes you have already installed |CL|. For detailed
+instructions on installing |CL| on a bare metal system, follow the
+:ref:`bare metal installation tutorial<bare-metal-install>`. Learn about the
+benefits of having an up-to-date system for cloud orchestration on the
+:ref:`swupd-about` page.
 
 Before you install any new packages, update |CL| with the following command:
 
@@ -190,29 +190,16 @@ Create a symlink for the network overlays:
 
 .. note::
 
-   |CL| installs CNI plugins that are part of the `cloud-native-basic`   bundle to :file:`/usr/libexec/cni`. The directory is required because `
-   swupd verify` uses it, if necessary, to repair a system to a known good
-   state.
+   |CL| installs CNI plugins that are part of the `cloud-native-basic`
+   bundle to :file:`/usr/libexec/cni`. The directory is required because `
+   swupd verify` may use it to repair a system to a known good state.
 
 **Notes about Weave Net add-on**
 
-If you choose the `Weave Net` add-on, then you must make the following
+If you choose the `Weave Net` add-on, you must make the following
 changes because it installs itself in the :file:`/opt/cni/bin` directory.
 
-For using CRI-O and ``Weave Net``, you must complete the following
-steps.
-
-#. Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
-
-   ..  code-block:: bash
-
-       plugin_dir = "/usr/libexec/cni/"
-
-    to:
-
-    ..  code-block:: bash
-
-        plugin_dir = "/opt/bin/cni"
+For using CRI-O and ``Weave Net``, complete the following step.
 
 #.  Add the `loopback` CNI plugin to the plugin path with the command:
 
@@ -232,7 +219,6 @@ period. The values are presented in a format similar to:
 .. code-block:: bash
 
    kubeadm join <master-ip>:<master-port> --token <token> --discovery-token-ca-cert-hash <hash>
-
 
 **Congratulations!**
 
@@ -378,7 +364,7 @@ Troubleshooting
 
         sudo kubeadm reset --cri-socket=/run/crio/crio.sock
 
-  #. Continue below and pass the `-E` in the command.
+  #. Continue below while pass `-E` in the command as shown.
 
 
 * Missing environment variables.
@@ -397,8 +383,6 @@ Troubleshooting
 .. _Kata Containers: https://katacontainers.io/
 
 .. _Software Update documentation: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about#updating
-
-.. _containers-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-basic
 
 .. _cloud-native-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic
 
