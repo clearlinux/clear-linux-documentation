@@ -11,22 +11,38 @@
   <table id="bundletable">
 
     <thead>
-      
       <tr>
         <th></th>
-        <th style="text-align:left; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic"> 
-            Updated: 11/14/18 05:24 UTC 
+        <th style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic">
+          Updated: 12/27/18 20:30 UTC
         </th>
       </tr>
-
-      <tr> 
+      <tr>
         <th> Name</th>
         <th> Description</th>
       </tr>
-      
     </thead>
     <tbody>
-         
+      <tr>
+        <td></td>
+      </tr>
+      <tr></tr>
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">acpica-unix2</a></td>
+        <td class="bundledesc"> Intel ACPI utilities </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">alsa-utils</a></td>
+        <td class="bundledesc"> alsa management tools </td>
+      </tr>
+      
+      
+      
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/amateur-radio">amateur-radio</a></td>
         <td class="bundledesc">Applications to support amateur radio operations <br />
@@ -46,9 +62,19 @@
       
       
       
-      <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">ansible</a></td>
-        <td class="bundledesc"> Automates software provisioning, configuration management, and application deployment. </td>
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/ansible">ansible</a></td>
+        <td class="bundledesc">The ansible tool for host management <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>ipmitool</li>
+            
+            <li>python3-basic</li>
+            
+          </p>
+          
+        </td>
       </tr>
       
       
@@ -88,21 +114,38 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">audit</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">audit</a></td>
         <td class="bundledesc"> system audit tools </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">axel</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">axel</a></td>
         <td class="bundledesc"> Download accelerator </td>
       </tr>
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/azure-iot-sdk">azure-iot-sdk</a></td>
+        <td class="bundledesc">Libraries to support building IoT applications on Azure <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>p11-kit</li>
+            
+            <li>python3-basic</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">bc</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">bc</a></td>
         <td class="bundledesc"> basic calculator, an arbitrary-precision calculator language </td>
       </tr>
       
@@ -127,9 +170,39 @@
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/blender">blender</a></td>
+        <td class="bundledesc">A 3D Modelling And Rendering Package <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>python3-basic</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">bmap-tools</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">bmap-tools</a></td>
         <td class="bundledesc"> Tools for creating the block map (bmap) for a file and copying files. Alternative to "dd" or "cp" </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/boot-encrypted">boot-encrypted</a></td>
+        <td class="bundledesc">Enable booting encrypted root partition, swap, or other partitions <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>bootloader-extras</li>
+            
+          </p>
+          
+        </td>
       </tr>
       
       
@@ -153,7 +226,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">borgbackup</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">borgbackup</a></td>
         <td class="bundledesc"> Deduplicating archiver with compression and authenticated encryption. </td>
       </tr>
       
@@ -184,15 +257,36 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">casync</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">cabextract</a></td>
+        <td class="bundledesc"> Manipulate CAB archives </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">casync</a></td>
         <td class="bundledesc"> Content Addressable Data Synchronizer, to distribute frequently-updated file system images over the Internet </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">clamav</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">ccache</a></td>
+        <td class="bundledesc"> cache compilations to avoid redoing the same computation and speed project build times </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">clamav</a></td>
         <td class="bundledesc"> Clam AntiVirus is an anti-virus toolkit for Unix </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">cloc</a></td>
+        <td class="bundledesc"> Count lines of code for many programming languages </td>
       </tr>
       
       
@@ -218,6 +312,10 @@
           
           <p>Includes bundle(s):
             
+            <li>cloud-api</li>
+            
+            <li>git</li>
+            
             <li>kvm-host</li>
             
             <li>network-basic</li>
@@ -225,8 +323,6 @@
             <li>openssl</li>
             
             <li>python3-basic</li>
-            
-            <li>cloud-api</li>
             
             <li>storage-cluster</li>
             
@@ -245,9 +341,11 @@
           
           <p>Includes bundle(s):
             
-            <li>containers-virt</li>
-            
             <li>ethtool</li>
+            
+            <li>iproute2</li>
+            
+            <li>p11-kit</li>
             
           </p>
           
@@ -315,7 +413,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">cockpit</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">cockpit</a></td>
         <td class="bundledesc"> Web based administration for GNU/Linux servers </td>
       </tr>
       
@@ -348,6 +446,12 @@
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/computer-vision-models">computer-vision-models</a></td>
         <td class="bundledesc">Deep learning models for computer vision <br />
           
+          <p>Includes bundle(s):
+            
+            <li>machine-learning-tensorflow</li>
+            
+          </p>
+          
         </td>
       </tr>
       
@@ -358,6 +462,8 @@
         <td class="bundledesc">Run container applications from Dockerhub <br />
           
           <p>Includes bundle(s):
+            
+            <li>git</li>
             
             <li>iproute2</li>
             
@@ -426,7 +532,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">cpio</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">cpio</a></td>
         <td class="bundledesc"> File archiver utility </td>
       </tr>
       
@@ -462,15 +568,34 @@
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/cryptoprocessor-management-dev">cryptoprocessor-management-dev</a></td>
+        <td class="bundledesc">All packages required to build the cryptoprocessor-management bundle. <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>cryptoprocessor-management</li>
+            
+            <li>dev-utils</li>
+            
+            <li>os-core-dev</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">curl</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">curl</a></td>
         <td class="bundledesc"> Transfer data to/from a URL </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">darktable</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">darktable</a></td>
         <td class="bundledesc"> Photography workflow application </td>
       </tr>
       
@@ -574,7 +699,11 @@
             
             <li>desktop-kde-apps</li>
             
+            <li>pidgin</li>
+            
             <li>python3-basic</li>
+            
+            <li>virt-manager</li>
             
             <li>atom</li>
             
@@ -600,6 +729,12 @@
           <p>Includes bundle(s):
             
             <li>desktop-gnomelibs</li>
+            
+            <li>intended for all supported styles</li>
+            
+            <li>current default</li>
+            
+            <li>common</li>
             
           </p>
           
@@ -720,6 +855,8 @@
             
             <li>desktop-kde-libs</li>
             
+            <li>perl-basic</li>
+            
             <li>qt-basic</li>
             
           </p>
@@ -747,6 +884,12 @@
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/desktop-locales">desktop-locales</a></td>
         <td class="bundledesc">translations and documentation for desktop components <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>perl-basic</li>
+            
+          </p>
           
         </td>
       </tr>
@@ -793,8 +936,1334 @@
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-at-spi2-atk">devpkg-at-spi2-atk</a></td>
+        <td class="bundledesc">All content for pkgconfig file at-spi2-atk.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-glib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-at-spi2-core">devpkg-at-spi2-core</a></td>
+        <td class="bundledesc">All content for pkgconfig file at-spi2-core.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>devpkg-glib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-atk">devpkg-atk</a></td>
+        <td class="bundledesc">All content for pkgconfig file atk.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-glib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-base">devpkg-base</a></td>
+        <td class="bundledesc">basic pkgconfig infra <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>c-basic</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-cairo">devpkg-cairo</a></td>
+        <td class="bundledesc">All content for pkgconfig file cairo.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXext</li>
+            
+            <li>devpkg-libXrender</li>
+            
+            <li>devpkg-libxcb</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>devpkg-pixman</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-cheese">devpkg-cheese</a></td>
+        <td class="bundledesc">All content for pkgconfig file cheese.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>devpkg-clutter-gst</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-clutter">devpkg-clutter</a></td>
+        <td class="bundledesc">All content for pkgconfig file clutter.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-clutter-gst">devpkg-clutter-gst</a></td>
+        <td class="bundledesc">All content for pkgconfig file clutter-gst.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>devpkg-cogl</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gst-plugins-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-cogl">devpkg-cogl</a></td>
+        <td class="bundledesc">All content for pkgconfig file cogl.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-dbus">devpkg-dbus</a></td>
+        <td class="bundledesc">All content for pkgconfig file dbus.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-elfutils">devpkg-elfutils</a></td>
+        <td class="bundledesc">All content for pkgconfig file elfutils.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-evolution">devpkg-evolution</a></td>
+        <td class="bundledesc">All content for pkgconfig file evolution.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-evolution-data-server</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gnome-desktop</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>devpkg-webkitgtk</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-evolution-data-server">devpkg-evolution-data-server</a></td>
+        <td class="bundledesc">All content for pkgconfig file evolution-data-server.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>devpkg-libical</li>
+            
+            <li>devpkg-libsecret</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>devpkg-nspr</li>
+            
+            <li>devpkg-nss</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-expat">devpkg-expat</a></td>
+        <td class="bundledesc">All content for pkgconfig file expat.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-fontconfig">devpkg-fontconfig</a></td>
+        <td class="bundledesc">All content for pkgconfig file fontconfig.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-util-linux</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-freetype">devpkg-freetype</a></td>
+        <td class="bundledesc">All content for pkgconfig file freetype.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-zlib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-fribidi">devpkg-fribidi</a></td>
+        <td class="bundledesc">All content for pkgconfig file fribidi.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-gdk-pixbuf">devpkg-gdk-pixbuf</a></td>
+        <td class="bundledesc">All content for pkgconfig file gdk-pixbuf.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-libpng</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-glib">devpkg-glib</a></td>
+        <td class="bundledesc">All content for pkgconfig file glib.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-pcre</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-gnome-desktop">devpkg-gnome-desktop</a></td>
+        <td class="bundledesc">All content for pkgconfig file gnome-desktop.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-gsettings-desktop-schemas</li>
+            
+            <li>devpkg-gtk3</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-graphite">devpkg-graphite</a></td>
+        <td class="bundledesc">All content for pkgconfig file graphite.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-gsettings-desktop-schemas">devpkg-gsettings-desktop-schemas</a></td>
+        <td class="bundledesc">All content for pkgconfig file gsettings-desktop-schemas.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-gst-plugins-base">devpkg-gst-plugins-base</a></td>
+        <td class="bundledesc">All content for pkgconfig file gst-plugins-base.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+            <li>devpkg-orc</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-gstreamer">devpkg-gstreamer</a></td>
+        <td class="bundledesc">All content for pkgconfig file gstreamer.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-glib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-gtk3">devpkg-gtk3</a></td>
+        <td class="bundledesc">All content for pkgconfig file gtk3.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXcomposite</li>
+            
+            <li>devpkg-libXdamage</li>
+            
+            <li>devpkg-libXext</li>
+            
+            <li>devpkg-libXfixes</li>
+            
+            <li>devpkg-libXi</li>
+            
+            <li>devpkg-libXinerama</li>
+            
+            <li>devpkg-libXrandr</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-harfbuzz">devpkg-harfbuzz</a></td>
+        <td class="bundledesc">All content for pkgconfig file harfbuzz.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-graphite</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-icu4c">devpkg-icu4c</a></td>
+        <td class="bundledesc">All content for pkgconfig file icu4c.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libdrm">devpkg-libdrm</a></td>
+        <td class="bundledesc">All content for pkgconfig file libdrm.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libepoxy">devpkg-libepoxy</a></td>
+        <td class="bundledesc">All content for pkgconfig file libepoxy.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-mesa</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libical">devpkg-libical</a></td>
+        <td class="bundledesc">All content for pkgconfig file libical.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-icu4c</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libpciaccess">devpkg-libpciaccess</a></td>
+        <td class="bundledesc">All content for pkgconfig file libpciaccess.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libpng">devpkg-libpng</a></td>
+        <td class="bundledesc">All content for pkgconfig file libpng.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-zlib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libpthread-stubs">devpkg-libpthread-stubs</a></td>
+        <td class="bundledesc">All content for pkgconfig file libpthread-stubs.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libsecret">devpkg-libsecret</a></td>
+        <td class="bundledesc">All content for pkgconfig file libsecret.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-glib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libsoup">devpkg-libsoup</a></td>
+        <td class="bundledesc">All content for pkgconfig file libsoup.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-libxml2</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libX11">devpkg-libX11</a></td>
+        <td class="bundledesc">All content for pkgconfig file libX11.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libxcb</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXau">devpkg-libXau</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXau.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libxcb">devpkg-libxcb</a></td>
+        <td class="bundledesc">All content for pkgconfig file libxcb.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libXau</li>
+            
+            <li>devpkg-libXdmcp</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXcomposite">devpkg-libXcomposite</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXcomposite.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXfixes</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXdamage">devpkg-libXdamage</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXdamage.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXfixes</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXdmcp">devpkg-libXdmcp</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXdmcp.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXext">devpkg-libXext</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXext.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXfixes">devpkg-libXfixes</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXfixes.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXi">devpkg-libXi</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXi.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXext</li>
+            
+            <li>devpkg-libXfixes</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXinerama">devpkg-libXinerama</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXinerama.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXext</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libxkbcommon">devpkg-libxkbcommon</a></td>
+        <td class="bundledesc">All content for pkgconfig file libxkbcommon.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libxml2">devpkg-libxml2</a></td>
+        <td class="bundledesc">All content for pkgconfig file libxml2.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXrandr">devpkg-libXrandr</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXrandr.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXext</li>
+            
+            <li>devpkg-libXrender</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXrender">devpkg-libXrender</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXrender.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-libXxf86vm">devpkg-libXxf86vm</a></td>
+        <td class="bundledesc">All content for pkgconfig file libXxf86vm.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXext</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-mesa">devpkg-mesa</a></td>
+        <td class="bundledesc">All content for pkgconfig file mesa.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libXdamage</li>
+            
+            <li>devpkg-libXext</li>
+            
+            <li>devpkg-libXfixes</li>
+            
+            <li>devpkg-libXxf86vm</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libxcb</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-nspr">devpkg-nspr</a></td>
+        <td class="bundledesc">All content for pkgconfig file nspr.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-nss">devpkg-nss</a></td>
+        <td class="bundledesc">All content for pkgconfig file nss.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-nspr</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-openblas">devpkg-openblas</a></td>
+        <td class="bundledesc">All content for pkgconfig file openblas.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-orc">devpkg-orc</a></td>
+        <td class="bundledesc">All content for pkgconfig file orc.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-pango">devpkg-pango</a></td>
+        <td class="bundledesc">All content for pkgconfig file pango.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-pcre">devpkg-pcre</a></td>
+        <td class="bundledesc">All content for pkgconfig file pcre.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-pixman">devpkg-pixman</a></td>
+        <td class="bundledesc">All content for pkgconfig file pixman.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-qt3d">devpkg-qt3d</a></td>
+        <td class="bundledesc">All content for pkgconfig file qt3d.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-qtdeclarative</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-qtbase">devpkg-qtbase</a></td>
+        <td class="bundledesc">All content for pkgconfig file qtbase.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-qtdeclarative">devpkg-qtdeclarative</a></td>
+        <td class="bundledesc">All content for pkgconfig file qtdeclarative.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-qtbase</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-sqlite-autoconf">devpkg-sqlite-autoconf</a></td>
+        <td class="bundledesc">All content for pkgconfig file sqlite-autoconf.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-util-linux">devpkg-util-linux</a></td>
+        <td class="bundledesc">All content for pkgconfig file util-linux.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-wayland">devpkg-wayland</a></td>
+        <td class="bundledesc">All content for pkgconfig file wayland.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-wayland-protocols">devpkg-wayland-protocols</a></td>
+        <td class="bundledesc">All content for pkgconfig file wayland-protocols.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-webkitgtk">devpkg-webkitgtk</a></td>
+        <td class="bundledesc">All content for pkgconfig file webkitgtk.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>devpkg-libsoup</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-xorg-server">devpkg-xorg-server</a></td>
+        <td class="bundledesc">All content for pkgconfig file xorg-server.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-xorgproto">devpkg-xorgproto</a></td>
+        <td class="bundledesc">All content for pkgconfig file xorgproto.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-xz">devpkg-xz</a></td>
+        <td class="bundledesc">All content for pkgconfig file xz.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-zlib">devpkg-zlib</a></td>
+        <td class="bundledesc">All content for pkgconfig file zlib.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">dfu-util</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">dfu-util</a></td>
         <td class="bundledesc"> Device Firmware Upgrade Utilities </td>
       </tr>
       
@@ -810,21 +2279,36 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">diffoscope</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">diffoscope</a></td>
         <td class="bundledesc"> In-depth comparison of files, archives, and directories </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">diffutils</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">diffutils</a></td>
         <td class="bundledesc"> Tools for file comparisons and differences </td>
       </tr>
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/django">django</a></td>
+        <td class="bundledesc">Django web framwork <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>python-basic</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">docutils</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">docutils</a></td>
         <td class="bundledesc"> Tools for converting text to other formats (e.g. HTML, XML, LaTeX) </td>
       </tr>
       
@@ -848,21 +2332,28 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">dovecot</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">dosfstools</a></td>
+        <td class="bundledesc">  </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">dovecot</a></td>
         <td class="bundledesc"> Security focused IMAP and POP3 email server </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">dtc</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">dtc</a></td>
         <td class="bundledesc"> Device Tree Compiler, to describe non-discoverable hardware </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">duperemove</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">duperemove</a></td>
         <td class="bundledesc"> Tool for finding duplicated extents and submitting them for deduplication </td>
       </tr>
       
@@ -1038,35 +2529,35 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">ethtool</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">ethtool</a></td>
         <td class="bundledesc"> Utility for displaying and modifying some parameters of network interface controller </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">file</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">file</a></td>
         <td class="bundledesc"> program for recognizing the type of data contained in a computer file </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">findutils</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">findutils</a></td>
         <td class="bundledesc"> basic directory searching utilities e.g. find, xargs, and locate </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">fio</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">fio</a></td>
         <td class="bundledesc"> Flexible I/O tester </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">firefox</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">firefox</a></td>
         <td class="bundledesc"> Web Browser </td>
       </tr>
       
@@ -1093,13 +2584,19 @@
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/flatpak">flatpak</a></td>
         <td class="bundledesc">Use flatpak packages, or build them <br />
           
+          <p>Includes bundle(s):
+            
+            <li>git</li>
+            
+          </p>
+          
         </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">fwupdate</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">fwupdate</a></td>
         <td class="bundledesc"> Firmware update tool </td>
       </tr>
       
@@ -1114,6 +2611,8 @@
             <li>libX11client</li>
             
             <li>p11-kit</li>
+            
+            <li>perl-basic</li>
             
           </p>
           
@@ -1134,6 +2633,8 @@
             
             <li>os-core-dev</li>
             
+            <li>perl-basic-dev</li>
+            
           </p>
           
         </td>
@@ -1142,21 +2643,21 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">gdb</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">gdb</a></td>
         <td class="bundledesc"> GNU debugger </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">gftp</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">gftp</a></td>
         <td class="bundledesc"> Text mode and GUI FTP Client </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">gimp</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">gimp</a></td>
         <td class="bundledesc"> GNU Image Manipulation Program </td>
       </tr>
       
@@ -1180,8 +2681,15 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">glmark2</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">glmark2</a></td>
         <td class="bundledesc"> OpenGL 2.0 and ES 2.0 benchmark </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">global</a></td>
+        <td class="bundledesc"> GNU GLOBAL source code tagging system </td>
       </tr>
       
       
@@ -1223,14 +2731,21 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">goaccess</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">goaccess</a></td>
         <td class="bundledesc"> Real-time web log analyzer </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">gzip</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">gpgme</a></td>
+        <td class="bundledesc"> GPG encryption tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">gzip</a></td>
         <td class="bundledesc"> lossless data compression/decompression utility </td>
       </tr>
       
@@ -1291,42 +2806,56 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">htop</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">htop</a></td>
         <td class="bundledesc"> interactive text-mode process viewer </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">httpd</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">httpd</a></td>
         <td class="bundledesc"> Apache HyperText Transfer Protocol (HTTP) Server daemon </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">hugo</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">hugo</a></td>
         <td class="bundledesc"> Static Web site generator </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">iasimage</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">hwloc</a></td>
+        <td class="bundledesc"> hardware affinity tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">iasimage</a></td>
         <td class="bundledesc"> for creating Intel Automotive Service (IAS) images, a binary file format understood by Intel© Slim Bootloader </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">icdiff</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">icdiff</a></td>
         <td class="bundledesc"> Improved Color Differences between similar files </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">iftop</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">icecream</a></td>
+        <td class="bundledesc"> Distributed network compilation </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">iftop</a></td>
         <td class="bundledesc"> display bandwidth usage on an interface </td>
       </tr>
       
@@ -1348,28 +2877,42 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">inotify-tools</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">inkscape</a></td>
+        <td class="bundledesc"> Inkscape SVG drawing program </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">inotify-tools</a></td>
         <td class="bundledesc"> monitor for file system events </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">iproute2</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">ipmitool</a></td>
+        <td class="bundledesc"> Manage IPMI functions of a local or remote system </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">iproute2</a></td>
         <td class="bundledesc"> utilities for controlling TCP / IP networking and traffic control </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">ipvsadm</a></td>
-        <td class="bundledesc"> used to set up, maintain or inspect the virtual server table in the Linux kernel </td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">ipvsadm</a></td>
+        <td class="bundledesc"> Virtual Server admin tool used to set up, maintain or inspect the virtual server table in the Linux kernel </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">irssi</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">irssi</a></td>
         <td class="bundledesc"> Internet Relay Chat (IRC) client program </td>
       </tr>
       
@@ -1384,6 +2927,8 @@
             <li>libX11client</li>
             
             <li>p11-kit</li>
+            
+            <li>perl-basic</li>
             
             <li>python3-basic</li>
             
@@ -1433,35 +2978,35 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">joe</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">joe</a></td>
         <td class="bundledesc"> Text editor </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">jq</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">jq</a></td>
         <td class="bundledesc"> lightweight and flexible command-line JSON processor </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">kbd</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">kbd</a></td>
         <td class="bundledesc"> library to manage the Linux keymaps </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">keepalived</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">keepalived</a></td>
         <td class="bundledesc"> strong & robust keepalive facility for the Linux Virtual Server project </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">keepassxc</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">keepassxc</a></td>
         <td class="bundledesc"> KeePassXC is a password manager </td>
       </tr>
       
@@ -1552,7 +3097,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">kernel-install</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">kernel-install</a></td>
         <td class="bundledesc"> installs kernel, initrd, kernel config and system map and creates a bootloader entry for the new kernel </td>
       </tr>
       
@@ -1634,6 +3179,15 @@
       
       
       <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-networktest">kernel-networktest</a></td>
+        <td class="bundledesc">kernel with NFS root FS support and modular network drivers <br />
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-oracle">kernel-oracle</a></td>
         <td class="bundledesc">Run the Oracle Cloud specific kernel <br />
           
@@ -1654,7 +3208,7 @@
           
           <p>Includes bundle(s):
             
-            <li>bootloader</li>
+            <li>kernel-iot-lts2018</li>
             
           </p>
           
@@ -1679,7 +3233,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">keychain</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">keychain</a></td>
         <td class="bundledesc"> manage SSH and GPG keys </td>
       </tr>
       
@@ -1690,6 +3244,8 @@
         <td class="bundledesc">Sets up a koji build service based on NFS mounts. <br />
           
           <p>Includes bundle(s):
+            
+            <li>git</li>
             
             <li>package-utils</li>
             
@@ -1755,6 +3311,13 @@
       
       
       
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">less</a></td>
+        <td class="bundledesc"> the less page </td>
+      </tr>
+      
+      
+      
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/letsencrypt-client">letsencrypt-client</a></td>
         <td class="bundledesc">Obtain and renew valid SSL certificates through Let's Encrypt's ACME service. <br />
@@ -1773,14 +3336,21 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">lftp</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">lftp</a></td>
         <td class="bundledesc"> File transfer client for http, ftp, sftp and more </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">libva-utils</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">libnl</a></td>
+        <td class="bundledesc"> Low level firewall tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">libva-utils</a></td>
         <td class="bundledesc"> collection of utilities and examples to exercise VA-API (Video Acceleration API) </td>
       </tr>
       
@@ -1795,6 +3365,13 @@
       
       
       
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">libzmq</a></td>
+        <td class="bundledesc"> ZMQ tools and libs </td>
+      </tr>
+      
+      
+      
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/lightdm">lightdm</a></td>
         <td class="bundledesc">LightDM login manager with GTK greeter <br />
@@ -1805,15 +3382,22 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">linux-dev</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">linux-dev</a></td>
         <td class="bundledesc"> programs for developing Linux </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">linux-tools</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">linux-tools</a></td>
         <td class="bundledesc"> Tools for use in Linux </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">llvm</a></td>
+        <td class="bundledesc"> LLVM/Clang compiler toolchain </td>
       </tr>
       
       
@@ -1828,7 +3412,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">logrotate</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">logrotate</a></td>
         <td class="bundledesc"> manages the automatic rotation and compression of log files </td>
       </tr>
       
@@ -1958,14 +3542,48 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">make</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">make</a></td>
         <td class="bundledesc"> build automation tool </td>
       </tr>
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/maker-cnc">maker-cnc</a></td>
+        <td class="bundledesc">CNC carving tools for Makers <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>inkscape</li>
+            
+            <li>python-extras</li>
+            
+            <li>python2-basic</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/maker-gis">maker-gis</a></td>
+        <td class="bundledesc">GIS/Mapping tools for Makers <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>desktop-kde-libs</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">meld</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">meld</a></td>
         <td class="bundledesc"> visual file difference and merging tool, targeted at developers </td>
       </tr>
       
@@ -2014,21 +3632,35 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">mkosi</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">mkosi</a></td>
         <td class="bundledesc"> generate disk images </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">mtr</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">mtd-utils</a></td>
+        <td class="bundledesc"> memory (usually flash) device utilities exposing an interface between hardware drivers and upper system layers </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">mtr</a></td>
         <td class="bundledesc"> Poll a remote server and see how the latency and performance changes over time </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">ncdu</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">musl</a></td>
+        <td class="bundledesc"> musl compiler toolchain </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">ncdu</a></td>
         <td class="bundledesc"> curses disk space usage management tool </td>
       </tr>
       
@@ -2086,7 +3718,11 @@
           
           <p>Includes bundle(s):
             
+            <li>libX11client</li>
+            
             <li>network-basic</li>
+            
+            <li>qt-basic</li>
             
           </p>
           
@@ -2111,15 +3747,22 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">nfs-utils</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">nfs-utils</a></td>
         <td class="bundledesc"> Server and client tooling for network file systems (NFS) </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">nginx</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">nginx</a></td>
         <td class="bundledesc"> HTTP server, reverse proxy, IMAP/POP3 proxy server </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">nmap</a></td>
+        <td class="bundledesc"> security scanner for network device discovery </td>
       </tr>
       
       
@@ -2134,7 +3777,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">octave</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">octave</a></td>
         <td class="bundledesc"> high-level programming language, primarily intended for numerical computations </td>
       </tr>
       
@@ -2148,7 +3791,7 @@
             
             <li>kvm-host</li>
             
-            <li>perl-basic</li>
+            <li>perl-extras</li>
             
             <li>postgresql</li>
             
@@ -2171,7 +3814,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">openssl</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">openssl</a></td>
         <td class="bundledesc"> Toolkit for Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols </td>
       </tr>
       
@@ -2182,6 +3825,8 @@
         <td class="bundledesc">Grouping bundle used by all openstack using bundles <br />
           
           <p>Includes bundle(s):
+            
+            <li>cloud-api</li>
             
             <li>perl-basic</li>
             
@@ -2486,6 +4131,8 @@
             
             <li>openssh-server</li>
             
+            <li>perl-basic</li>
+            
           </p>
           
         </td>
@@ -2618,6 +4265,8 @@
             
             <li>python2-basic</li>
             
+            <li>rust-basic</li>
+            
           </p>
           
         </td>
@@ -2634,6 +4283,8 @@
             <li>cryptography</li>
             
             <li>openssl</li>
+            
+            <li>perl-basic</li>
             
             <li>python3-basic</li>
             
@@ -2668,6 +4319,8 @@
             
             <li>os-utils-gui</li>
             
+            <li>perl-basic-dev</li>
+            
           </p>
           
         </td>
@@ -2676,7 +4329,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">p11-kit</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">p11-kit</a></td>
         <td class="bundledesc"> Load and enumerate PKCS#11 modules for cryptography </td>
       </tr>
       
@@ -2713,6 +4366,8 @@
             
             <li>python3-basic</li>
             
+            <li>perl-basic</li>
+            
             <li>python2-basic</li>
             
           </p>
@@ -2723,15 +4378,29 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">parallel</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">parallel</a></td>
         <td class="bundledesc"> shell tool for executing jobs in parallel using one or more computers </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">patch</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">patch</a></td>
         <td class="bundledesc"> updates text files according to instructions contained in a separate file </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">pdns</a></td>
+        <td class="bundledesc"> PowerDNS authoritative name server (DNSSEC enabled) </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">pdns-recursor</a></td>
+        <td class="bundledesc"> PowerDNS recursive caching name server </td>
       </tr>
       
       
@@ -2811,9 +4480,18 @@
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/pidgin">pidgin</a></td>
+        <td class="bundledesc">Multi-protocol instant messagging client <br />
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">pmdk</a></td>
-        <td class="bundledesc"> tools and libraries for working with non-volatile memory </td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">pmdk</a></td>
+        <td class="bundledesc"> Persistent Memory Development Kit tools and libraries for working with non-volatile memory </td>
       </tr>
       
       
@@ -2828,14 +4506,14 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">postgresql</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">postgresql</a></td>
         <td class="bundledesc"> Database </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">powertop</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">powertop</a></td>
         <td class="bundledesc"> diagnose issues with power consumption and power management </td>
       </tr>
       
@@ -2849,6 +4527,8 @@
             
             <li>mail-utils</li>
             
+            <li>perl-basic</li>
+            
             <li>python3-basic</li>
             
           </p>
@@ -2859,7 +4539,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">pwgen</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">pwgen</a></td>
         <td class="bundledesc"> generates passwords which are designed to be easily memorized by humans, while being as secure as possible. </td>
       </tr>
       
@@ -2926,6 +4606,8 @@
             
             <li>c-basic</li>
             
+            <li>cloud-api</li>
+            
             <li>python-extras</li>
             
           </p>
@@ -2986,6 +4668,12 @@
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/qt-basic">qt-basic</a></td>
         <td class="bundledesc">Run programs that use the QT runtime <br />
           
+          <p>Includes bundle(s):
+            
+            <li>libX11client</li>
+            
+          </p>
+          
         </td>
       </tr>
       
@@ -3006,6 +4694,13 @@
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">quagga</a></td>
+        <td class="bundledesc"> zebra and related routing tools </td>
       </tr>
       
       
@@ -3077,7 +4772,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">redis-native</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">redis-native</a></td>
         <td class="bundledesc"> key-value database </td>
       </tr>
       
@@ -3131,6 +4826,8 @@
           <p>Includes bundle(s):
             
             <li>git</li>
+            
+            <li>perl-basic</li>
             
             <li>python3-basic</li>
             
@@ -3191,6 +4888,8 @@
         <td class="bundledesc">Run the automotive software defined cockpit which has graphic, media, sound and connectivity <br />
           
           <p>Includes bundle(s):
+            
+            <li>libX11client</li>
             
             <li>wpa_supplicant</li>
             
@@ -3283,7 +4982,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">strace</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">strace</a></td>
         <td class="bundledesc"> System call diagnostic, instructional, and debugging tool </td>
       </tr>
       
@@ -3299,21 +4998,21 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">subversion</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">subversion</a></td>
         <td class="bundledesc"> Version Control System </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">sudo</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">sudo</a></td>
         <td class="bundledesc"> allows a user to run a program as another user </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">suricata</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">suricata</a></td>
         <td class="bundledesc"> network threat detection engine </td>
       </tr>
       
@@ -3346,6 +5045,8 @@
             
             <li>p11-kit</li>
             
+            <li>perl-basic</li>
+            
             <li>sudo</li>
             
             <li>which</li>
@@ -3367,6 +5068,8 @@
             
             <li>os-core-dev</li>
             
+            <li>perl-basic-dev</li>
+            
             <li>sysadmin-basic</li>
             
           </p>
@@ -3382,7 +5085,11 @@
           
           <p>Includes bundle(s):
             
+            <li>ansible</li>
+            
             <li>git</li>
+            
+            <li>ipmitool</li>
             
             <li>pxe-server</li>
             
@@ -3412,6 +5119,13 @@
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">sysstat</a></td>
+        <td class="bundledesc"> utilities for monitoring system performance and usage activity </td>
       </tr>
       
       
@@ -3450,14 +5164,14 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">texlive</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">texlive</a></td>
         <td class="bundledesc"> major TeX-related typesetting programs, macro packages, and fonts. </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">thunderbird</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">thunderbird</a></td>
         <td class="bundledesc"> Email client </td>
       </tr>
       
@@ -3473,28 +5187,28 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">tmux</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">tmux</a></td>
         <td class="bundledesc"> terminal multiplexer (similar to screen) </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">tzdata</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">tzdata</a></td>
         <td class="bundledesc"> timezone database </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">unison</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">unison</a></td>
         <td class="bundledesc"> bidirectional file synchronization tool </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">unzip</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">unzip</a></td>
         <td class="bundledesc"> list, test, or extract files from a ZIP archive </td>
       </tr>
       
@@ -3569,7 +5283,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">valgrind</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">valgrind</a></td>
         <td class="bundledesc"> suite of tools for debugging and profiling software code </td>
       </tr>
       
@@ -3609,8 +5323,25 @@
       
       
       
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/virt-manager-gui">virt-manager-gui</a></td>
+        <td class="bundledesc">Enable controlling virt-manager through a GUI <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>libX11client</li>
+            
+            <li>virt-manager</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">vlc</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">vlc</a></td>
         <td class="bundledesc"> VideoLAN Client, multimedia player and framework </td>
       </tr>
       
@@ -3643,21 +5374,21 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">weechat</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">weechat</a></td>
         <td class="bundledesc"> Internet Relay Chat (IRC) client </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">weston-extras</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">weston-extras</a></td>
         <td class="bundledesc"> Utilities and tools for the Wayland graphics compositor </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">which</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">which</a></td>
         <td class="bundledesc"> locate executables in the system </td>
       </tr>
       
@@ -3681,7 +5412,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">wpa_supplicant</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">wpa_supplicant</a></td>
         <td class="bundledesc"> backend component controlling the wireless connections </td>
       </tr>
       
@@ -3712,6 +5443,8 @@
             
             <li>libX11client</li>
             
+            <li>perl-basic</li>
+            
           </p>
           
         </td>
@@ -3720,7 +5453,7 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">xemacs</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">xemacs</a></td>
         <td class="bundledesc"> text editor and application development system </td>
       </tr>
       
@@ -3744,21 +5477,42 @@
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">xz</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">xfsprogs</a></td>
+        <td class="bundledesc"> XFS tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">xz</a></td>
         <td class="bundledesc"> data compression/decompression tool </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">zsh</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">zip</a></td>
+        <td class="bundledesc"> create ZIP archives </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">znc</a></td>
+        <td class="bundledesc"> IRC network bouncer </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">zsh</a></td>
         <td class="bundledesc"> Z Shell, an interactive shell and powerful command-line interpreter for scripting language </td>
       </tr>
       
       
       
       <tr id="pundle">
-        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages-descriptions">zstd</a></td>
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">zstd</a></td>
         <td class="bundledesc"> realtime data compression/decompression tool </td>
       </tr>
       
