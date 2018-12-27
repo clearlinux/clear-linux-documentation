@@ -282,24 +282,24 @@ Auto partition will configure the media to meet the minimum requirements.
 Disk encryption
 ===============
 
-For greater security, disk encryption is supported by use of LUKS for all
-partitions **except boot** on |CL|. Encryption is optional. To encrypt a
-partition, see the example below to encrypt :ref:`encrypt-root`.
+For greater security, disk encryption is supported using LUKS for all
+partitions **except boot** on |CL|. To encrypt a partition, see the example
+below to encrypt :ref:`encrypt-root`. Encryption is optional.
 
 Encryption Passphrase
 ---------------------
 
-|CL| supports use of a single passphrase for all encrypted partitions.
-Therefore, if you turn on encryption for one partition, the same passphrase
-is used for all partitions.
+|CL| uses a single passphrase for all encrypted partitions. Therefore, if
+you turn on encryption for one partition, the same passphrase is used for
+all partitions. Additional or different keys may be configured
+post-installation using the ``cryptsetup`` tool.
 
 .. note::
 
-   For example, suppose you encrypt the `root` partition first and the `swap`
-   partition second. Upon selecting encryption for the `swap` partition, the
-   :guilabel:`Encryption Passphrase` dialogue appears showing the default
-   Passphrase assigned to the `root`. Select :guilabel:`Confirm` and press
-   :kbd:`Enter` to use the same Passphrase.
+   During installation, if you encrypt the `root` partition first and the
+   `swap` partition second, after you select encrypt for `swap`, the
+   :guilabel:`Encryption Passphrase` dialogue will show the same Passphrase that was assigned to `root`. Select :guilabel:`Confirm` and
+   press :kbd:`Enter` to use the same Passphrase.
 
 .. _add-partition:
 
@@ -475,11 +475,11 @@ Skip to finish installation
 ===========================
 
 After selecting values for all :guilabel:`Required options`, you may skip
-directly to :ref:`finish-cl-installation`
+directly to :ref:`finish-cl-installation`.
 
-In the Main Menu, select the :guilabel:`Advanced options` if you wish to
-configure network interfaces or proxy settings, add bundles, add/manage
-users, and more. Continue to the next section.
+Otherwise, continue below. In the Main Menu, select
+:guilabel:`Advanced options` to configure network interfaces or proxy
+settings, add bundles, add/manage users, add kernel arguments, and more.
 
 .. _advanced-options-installation:
 
@@ -752,11 +752,11 @@ Kernel Selection
 ================
 
 #. Select a kernel option. By default, the latest kernel release is
-   selected.
+   selected. Native kernel is shown in Figure 25.
 
    .. note::
 
-      To choose a different kernel, such as Native, shown in Figure 25, navigate to it using :guilabel:`Tab`.
+#. To select a differnt kernel, navigate to it using :guilabel:`Tab`.
 
    .. figure:: figures/bare-metal-install-beta-25.png
       :scale: 100 %
