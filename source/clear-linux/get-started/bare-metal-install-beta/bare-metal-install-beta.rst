@@ -402,11 +402,11 @@ root partition
 
          Minimum length is 8 characters. Maximum length is 94 characters.
 
-         .. figure:: figures/bare-metal-install-beta-12.png
-            :scale: 100 %
-            :alt: Encryption Passphrase
+      .. figure:: figures/bare-metal-install-beta-12.png
+         :scale: 100 %
+         :alt: Encryption Passphrase
 
-            Figure 12: :guilabel:`Encryption Passphrase`
+         Figure 12: :guilabel:`Encryption Passphrase`
 
    #. Enter the same passphrase in the first and second field.
 
