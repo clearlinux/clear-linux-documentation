@@ -21,11 +21,11 @@ Download the latest |CL| installer image
 Get the latest |CL| installer image from the `downloads page`_. See Figure 1.
 Look for the :file:`clear-[version number]-installer.img.xz` file.
 
-.. figure:: figures/bare-metal-install-1.png
-   :scale: 50 %
-   :alt: Boot menu
+   .. figure:: figures/bare-metal-install-1.png
+      :scale: 50 %
+      :alt: Boot menu
 
-   Figure 1: :guilabel:`Boot menu`
+      Figure 1: :guilabel:`Boot menu`
 
 Optionally, you can use this command:
 
@@ -78,11 +78,11 @@ Main Menu
 
 The |CL| Installer Main Menu appears as shown in Figure 3.
 
-.. figure:: figures/bare-metal-install-3.png
-   :scale: 100 %
-   :alt: Clear Linux OS Installer Main Menu
+   .. figure:: figures/bare-metal-install-3.png
+      :scale: 100 %
+      :alt: Clear Linux OS Installer Main Menu
 
-   Figure 3: :guilabel:`Clear Linux OS Installer Main Menu`
+      Figure 3: :guilabel:`Clear Linux OS Installer Main Menu`
 
 In the |CL| Installer Main Menu has two tabs:
 :guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`.
@@ -577,11 +577,11 @@ select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
 A progress bar appears as shown in Figure 18.
 
-.. figure:: figures/bare-metal-install-18.png
-   :scale: 100 %
-   :alt: Testing Networking dialogue
+   .. figure:: figures/bare-metal-install-18.png
+      :scale: 100 %
+      :alt: Testing Networking dialogue
 
-   Figure 18: :guilabel:`Testing Networking dialogue`
+      Figure 18: :guilabel:`Testing Networking dialogue`
 
 .. note::
 
@@ -741,8 +741,6 @@ Kernel Selection
 
 #. Select a kernel option. By default, the latest kernel release is
    selected. Native kernel is shown in Figure 25.
-
-   .. note::
 
 #. To select a differnt kernel, navigate to it using :guilabel:`Tab`.
 
