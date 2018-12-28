@@ -20,7 +20,6 @@ Install |CL|
 ************
 
 * :ref:`bare-metal-install` 
-* :ref:`bare-metal-manual-install`
 * :ref:`virtual-machine-install`
 * :ref:`live-image` 
 * :ref:`bare-metal-install-beta`
@@ -30,7 +29,6 @@ Install |CL|
    :hidden:
 
    bare-metal-install/bare-metal-install
-   bare-metal-manual-install/bare-metal-manual-install
    cgdisk-manual-install/cgdisk-manual-install
    virtual-machine-install/virtual-machine-install
    live-image
