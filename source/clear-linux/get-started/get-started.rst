@@ -29,11 +29,9 @@ Install |CL|
    :hidden:
 
    bare-metal-install/bare-metal-install
-   cgdisk-manual-install/cgdisk-manual-install
    virtual-machine-install/virtual-machine-install
    live-image
    compatibility-check
    bootable-usb/bootable-usb
-
    bare-metal-install-beta/bare-metal-install-beta
    bootable-usb/bootable-usb-beta-all
