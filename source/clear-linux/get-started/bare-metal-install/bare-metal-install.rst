@@ -9,11 +9,10 @@ on bare metal using a bootable USB drive.
 .. contents:: :local:
    :depth: 1
 
-Before you begin, verify that your system meets the requirements to install |CL|:
+Before you begin, verify your system meets the requirements to install |CL|:
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
-
 
 Download the latest |CL| installer image
 ****************************************
@@ -25,7 +24,7 @@ Look for the :file:`clear-[version number]-installer.img.xz` file.
       :scale: 50 %
       :alt: Boot menu
 
-      Figure 1: :guilabel:`Boot menu`
+      Figure 1: Boot menu
 
 Optionally, you can use this command:
 
@@ -67,7 +66,7 @@ Follow these steps to install |CL| on the target system:
       :scale: 50 %
       :alt: Installer menu
 
-      Figure 2: :guilabel:`Clear Linux OS Installer`
+      Figure 2: Clear Linux OS Installer
 
 #. With :guilabel:`Clear Linux OS` highlighted, press :kbd:`Enter`.
 
@@ -82,7 +81,7 @@ The |CL| Installer Main Menu appears as shown in Figure 3.
       :scale: 100 %
       :alt: Clear Linux OS Installer Main Menu
 
-      Figure 3: :guilabel:`Clear Linux OS Installer Main Menu`
+      Figure 3: Clear Linux OS Installer Main Menu
 
 In the |CL| Installer Main Menu has two tabs:
 :guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`.
@@ -152,7 +151,7 @@ Choose Timezone
       :scale: 100 %
       :alt: Select System Timezone
 
-      Figure 4: :guilabel:`Select System Timezone`
+      Figure 4: Select System Timezone
 
 Choose Language
 ===============
@@ -175,7 +174,7 @@ Choose Language
       :scale: 100 %
       :alt: Select System Language
 
-      Figure 5: :guilabel:`Select System Language`
+      Figure 5: Select System Language
 
 
 Configure the Keyboard
@@ -202,7 +201,7 @@ Configure the Keyboard
       :scale: 100 %
       :alt: Select Keyboard menu
 
-      Figure 6: :guilabel:`Select Keyboard menu`
+      Figure 6: Select Keyboard menu
 
 Configure Media
 ===============
@@ -219,7 +218,7 @@ Configure Media
       :scale: 100 %
       :alt: Configure Media menu
 
-      Figure 7: :guilabel:`Configure Media menu`
+      Figure 7: Configure Media menu
 
       .. note::
 
@@ -265,7 +264,7 @@ Auto partition will configure the media to meet the minimum requirements.
       :scale: 100 %
       :alt: Auto Partition
 
-      Figure 8: :guilabel:`Auto Partition`
+      Figure 8: Auto Partition
 
 #. You may skip to the :ref:`telemetry-tui` section below.
 
@@ -344,7 +343,7 @@ boot partition
       :scale: 100 %
       :alt: boot partition
 
-      Figure 9: :guilabel:`boot partition`
+      Figure 9: boot partition
 
 swap partition
 --------------
@@ -368,7 +367,7 @@ swap partition
       :scale: 100 %
       :alt: swap partition
 
-      Figure 10: :guilabel:`swap partition`
+      Figure 10: swap partition
 
 .. _encrypt-root:
 
@@ -384,7 +383,7 @@ root partition
          :scale: 100 %
          :alt: Encrypt partition
 
-         Figure 11: :guilabel:`Encrypt partition`
+         Figure 11: Encrypt partition
 
 
    #. The :guilabel:`Encryption Passphrase` dialogue appears.
@@ -397,7 +396,7 @@ root partition
          :scale: 100 %
          :alt: Encryption Passphrase
 
-         Figure 12: :guilabel:`Encryption Passphrase`
+         Figure 12: Encryption Passphrase
 
    #. Enter the same passphrase in the first and second field.
 
@@ -433,7 +432,7 @@ root partition
       :scale: 100 %
       :alt: Partitions
 
-      Figure 13: :guilabel:`Partitions`
+      Figure 13: Partitions
 
 #. Navigate to :guilabel:`Confirm` until highlighted.
 
@@ -460,7 +459,7 @@ For more detailed information, visit our :ref:`telemetry-about` page.
       :scale: 100 %
       :alt: Enable Telemetry
 
-      Figure 14: :guilabel:`Enable Telemetry`
+      Figure 14: Enable Telemetry
 
 Skip to finish installation
 ===========================
@@ -504,7 +503,7 @@ interface settings are automatically applied.
       :scale: 100 %
       :alt: Configure Network Interfaces
 
-      Figure 15: :guilabel:`Configure Network Interfaces`
+      Figure 15: Configure Network Interfaces
 
 #. Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom).
 
@@ -515,7 +514,7 @@ interface settings are automatically applied.
       :scale: 100 %
       :alt: Network interface configuration
 
-      Figure 16: :guilabel:`Network interface configuration`
+      Figure 16: Network interface configuration
 
 #. Navigate to the appropriate fields and assign the desired
    network configuration.
@@ -555,7 +554,7 @@ instruction.
       :scale: 100 %
       :alt: Configure the network proxy
 
-      Figure 17: :guilabel:`Configure the network proxy`
+      Figure 17: Configure the network proxy
 
 #. Enter the desired proxy address and port using conventional syntax,
    such as: \http://address:port.
@@ -581,7 +580,7 @@ A progress bar appears as shown in Figure 18.
       :scale: 100 %
       :alt: Testing Networking dialogue
 
-      Figure 18: :guilabel:`Testing Networking dialogue`
+      Figure 18: Testing Networking dialogue
 
 .. note::
 
@@ -603,7 +602,7 @@ Bundle Selection
       :scale: 100 %
       :alt: Bundle Selection
 
-      Figure 19: :guilabel:`Bundle Selection`
+      Figure 19: Bundle Selection
 
 #. Select :kbd:`Confirm` or :kbd:`Cancel`.
 
@@ -625,7 +624,7 @@ Add New User
       :scale: 100 %
       :alt: Add New User, User Name
 
-      Figure 20: :guilabel:`Add New User`
+      Figure 20: Add New User
 
 #. Optional: Enter a :guilabel:`User Name`.
 
@@ -637,7 +636,7 @@ Add New User
       :scale: 100 %
       :alt: User Name
 
-      Figure 21: :guilabel:`User Name`
+      Figure User Name
 
 #. Enter a :guilabel:`Login`.
 
@@ -664,7 +663,7 @@ Add New User
       :scale: 100 %
       :alt: Administrative rights
 
-      Figure 22: :guilabel:`Administrative rights`
+      Figure 22: Administrative rights
 
 #. Select :kbd:`Confirm`.
 
@@ -688,7 +687,7 @@ Modify / Delete User
       :scale: 100 %
       :alt: Modify User
 
-      Figure 23: :guilabel:`Modify User`
+      Figure 23: Modify User
 
 #. Modify user details as desired.
 
@@ -725,7 +724,7 @@ will be used every time you install or update a new kernel.
       :scale: 100 %
       :alt: kernel command line
 
-      Figure 24: :guilabel:`kernel command line`
+      Figure 24: kernel command line
 
 #. To add arguments, enter the argument in :guilabel:`Add Extra Arguments`.
 
@@ -748,7 +747,7 @@ Kernel Selection
       :scale: 100 %
       :alt: Kernel selection
 
-      Figure 25: :guilabel:`Kernel selection`
+      Figure 25: Kernel selection
 
 #. Select :kbd:`Spacebar` to select the desired option.
 
@@ -771,7 +770,7 @@ If you have your own custom mirror of |CL|, you can add its URL.
       :scale: 100 %
       :alt: Swupd Mirror
 
-      Figure 26: :guilabel:`Swupd Mirror`
+      Figure 26: Swupd Mirror
 
 Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
@@ -792,7 +791,7 @@ Assign Hostname
       :scale: 100 %
       :alt: Assign Hostname
 
-      Figure 27: :guilabel:`Assign Hostname`
+      Figure 27: Assign Hostname
 
 
 #. Navigate to :kbd:`Confirm` until highlighted.
@@ -815,7 +814,7 @@ follow the onscreen instructions.
       :scale: 100 %
       :alt: Automatic OS Updates
 
-      Figure 28: :guilabel:`Automatic OS Updates`
+      Figure 28: Automatic OS Updates
 
 You are returned to the :guilabel:`Main Menu`.
 
