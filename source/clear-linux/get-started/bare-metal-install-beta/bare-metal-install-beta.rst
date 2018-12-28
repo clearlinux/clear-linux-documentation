@@ -88,12 +88,12 @@ Minimum installation requirements
 *********************************
 
 To fulfill minimum installation requirements, complete the
-:guilabel:`Required options`. :guilabel:`Advanced options` are optional. Additional user help is described below.
+:guilabel:`Required options`. :guilabel:`Advanced options` are optional.
 
 .. note::
 
    * The :kbd:`Install` button is only highlighted **after** you complete the
-     :ref:`required-options-installation`, and after you enter all required
+     :ref:`required-options-installation`, and after you enter required
      values in submenus of :ref:`required-options-installation` and
      :ref:`advanced-options-installation`.
 
@@ -105,17 +105,21 @@ To fulfill minimum installation requirements, complete the
 
 Main Menu
 *********
+The |CL| Installer Main Menu appears as shown in Figure 3.
 
-In the |CL| Installer Main Menu, two tabs appear:
-:guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`.
-Navigate between tabs using the arrow keys or these shortcut keys:
+.. figure:: figures/bare-metal-install-beta-3.png
+   :scale: 100 %
+   :alt: Clear Linux OS Installer Main Menu
+
+   Figure 3: :guilabel:`Clear Linux OS Installer Main Menu`
+
+The |CL| Installer Main Menu has two tabs: :guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`. Navigate between tabs using the arrow keys or these shortcut keys:
 
 * :kbd:`Shift+A` for :guilabel:`[A] Advanced options`
 * :kbd:`Shift+R` for :guilabel:`[R] Required options`
 
 To meet the minimum requirements, enter your choices in the
-:guilabel:`Required options`. After confirmation, your selections appear
-below menu options in the Main Menu, beside the :guilabel:`>>` chevron.
+:guilabel:`Required options`. After confirmation, your selections appear beside the :guilabel:`>>` chevron, below the menu options.
 
 Navigation
 **********
@@ -125,14 +129,6 @@ Navigation
 * Select :kbd:`Enter` or :kbd:`Spacebar` to confirm your choice.
 
 * Select :kbd:`Cancel` or :kbd:`Esc` to cancel your choice.
-
-  The |CL| Installer Main Menu appears as shown in Figure 3.
-
-  .. figure:: figures/bare-metal-install-beta-3.png
-     :scale: 100 %
-     :alt: Clear Linux OS Installer Main Menu
-
-     Figure 3: :guilabel:`Clear Linux OS Installer Main Menu`
 
 .. _required-options-installation:
 
@@ -753,8 +749,6 @@ Kernel Selection
 
 #. Select a kernel option. By default, the latest kernel release is
    selected. Native kernel is shown in Figure 25.
-
-   .. note::
 
 #. To select a differnt kernel, navigate to it using :guilabel:`Tab`.
 

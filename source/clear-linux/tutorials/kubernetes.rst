@@ -330,7 +330,7 @@ Troubleshooting
   all the types of access that you will use, such as remote SSH access.
 
   If the result of the above commands is blank, you may need to add a
-  `profile` to the `/etc`directory. To do so, follow these steps.
+  ``profile`` to the :file:`/etc` directory. To do so, follow these steps.
 
   #. Create a `profile` in :file:`/etc`
 
