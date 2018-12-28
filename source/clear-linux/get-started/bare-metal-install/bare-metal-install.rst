@@ -64,9 +64,9 @@ Follow these steps to install |CL| on the target system:
 
    .. figure:: figures/bare-metal-install-2.png
       :scale: 50 %
-      :alt: Installer menu
+      :alt: Clear Linux OS Installer boot menu
 
-      Figure 2: Clear Linux OS Installer
+      Figure 2: Clear Linux OS Installer boot menu
 
 #. With :guilabel:`Clear Linux OS` highlighted, press :kbd:`Enter`.
 
