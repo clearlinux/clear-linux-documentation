@@ -113,13 +113,16 @@ The |CL| Installer Main Menu appears as shown in Figure 3.
 
    Figure 3: :guilabel:`Clear Linux OS Installer Main Menu`
 
-The |CL| Installer Main Menu has two tabs: :guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`. Navigate between tabs using the arrow keys or these shortcut keys:
+The |CL| Installer Main Menu has two tabs: :guilabel:`[R] Required options`
+and :guilabel:`[A] Advanced options`. Navigate between tabs using the arrow
+keys or these shortcut keys:
 
 * :kbd:`Shift+A` for :guilabel:`[A] Advanced options`
 * :kbd:`Shift+R` for :guilabel:`[R] Required options`
 
 To meet the minimum requirements, enter your choices in the
-:guilabel:`Required options`. After confirmation, your selections appear beside the :guilabel:`>>` chevron, below the menu options.
+:guilabel:`Required options`. After confirmation, your selections appear
+beside the :guilabel:`>>` chevron, below the menu options.
 
 Navigation
 **********
