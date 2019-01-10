@@ -1,12 +1,12 @@
 .. _multi-boot-ubuntu:
 
-Install Ubuntu\* 16.04 LTS Desktop
+Install Ubuntu\* 18.04 LTS Desktop
 ##################################
 
-This guide describes Ubuntu-specific details of the :ref:`multi-boot`
-tutorial.
+This guide explains how to install Ubuntu 18.04 LTS Desktop on a separate
+partition of a target on which |CL| is already installed.
 
-#. Start the Ubuntu installer and follow the prompts.
+#. Start the Ubuntu installer, and follow the prompts.
 
 #. At the :guilabel:`Installation type` screen, choose
    :guilabel:`Something else`. See Figure 1.
@@ -56,87 +56,84 @@ tutorial.
 
 #. Follow the remaining prompts to complete the Ubuntu installation.
 
-#. At this point, you cannot boot |CL| because `Grub`
-   is the default boot loader. Follow these steps to make the |CL|
-   Systemd-Boot the default boot loader and add Ubuntu as a boot option:
+#. Upon reboot, remove the USB/installation media.
+
+#. Follow these steps to make `Systemd-Boot` the default boot loader and add
+   Ubuntu as a boot option:
 
    #. Boot into Ubuntu.
 
    #. Log in.
 
-   #. Locate the Ubuntu :file:`grub.cfg` file in the :file:`/boot/grub/`
-      directory and look for the :guilabel:`menuentry` section. In Figure 5, the
-      highlighted lines identify the kernel, the :file:`initrd` files, the
-      root partition UUID, and the additional parameters used. Use this
-      information to create a new Systemd-Boot entry for Ubuntu.
+#. Open a Terminal, and cd into the root directory:
 
-      .. figure:: figures/multi-boot-ubuntu-5.png
+   .. code-block:: bash
 
-         Figure 5: Ubuntu: grub.cfg file.
+      cd  /
 
-   #. Copy the kernel and the :file:`initrd` file to the EFI partition.
+#. Next, create a boot entry for Ubuntu to invoke grub, using this format:
 
-      .. code-block:: bash
+   +---------+------------------------------------+
+   | Setting | Description                        |
+   +=========+====================================+
+   | title   | Text to show in the boot menu      |
+   +---------+------------------------------------+
+   | efi     | Linux bootloader                   |
+   +---------+------------------------------------+
 
-         sudo cp /boot/vmlinuz-4.8.0-36-generic.efi.signed /boot/efi
+   .. note::
 
-         sudo cp /boot/initrd.img-4.8.0-36-generic /boot/efi
+      See the `systemd boot loader documentation`_ for additional details.
 
-   #. Create a boot entry for Ubuntu. At a minimum, the file must contain
-      these settings:
+#. To do so, enter the command:
 
-      +---------+------------------------------------+
-      | Setting | Description                        |
-      +=========+====================================+
-      | title   | Text to show in the boot menu      |
-      +---------+------------------------------------+
-      | linux   | Linux kernel image                 |
-      +---------+------------------------------------+
-      | initrd  | initramfs image                    |
-      +---------+------------------------------------+
-      | options | Options to pass to the EFI program |
-      |         | or kernel boot parameters          |
-      +---------+------------------------------------+
+   .. code-block:: bash
 
-      See the `systemd boot loader documentation`_ for additional
-      details.
+      sudoedit /boot/efi/loader/entries/ubuntu.conf
 
-      The *options* parameters must specify the root partition UUID and
-      any additional parameters that Ubuntu requires.
+#. Add the following lines to the :file:`ubuntu.conf` file:
 
-      .. note:: The root partition UUID used below is unique to this example.
+   .. code-block:: bash
 
-      .. code-block:: bash
+      title Ubuntu 18.04 LTS Desktop
 
-         sudoedit /boot/efi/loader/entries/ubuntu.conf
+      efi /EFI/ubuntu/grubx64.efi
 
-      Add the following lines to the :file:`ubuntu.conf` file:
+#. Save and close the file.
 
-      .. code-block:: console
+#. Reboot.
 
-         title Ubuntu 16.04 LTS Desktop
+#. Log in.
 
-         linux /vmlinuz-4.8.0-36-generic.efi.signed
+#. Open a new Terminal.
 
-         initrd /initrd.img-4.8.0-36-generic
-
-         options root=UUID=17f0aa66-3467-4f99-b92c-8b2cea1045aa ro
-
-#. Re-install Systemd-Boot to make it the default boot loader.
+#. Re-install `Systemd-Boot` to make it the default boot loader.
 
    .. code-block:: bash
 
       sudo bootctl install --path /boot/efi
 
    .. note::
+
       If an older version of Ubuntu does not have the `bootctl` command,
       skip this step and see :ref:`multi-boot-restore-bl` to restore
       Systemd-Boot.
 
-#. Reboot.
+#. After running the above command, the output should look similar to
+   Figure 6.
+
+   .. figure:: figures/multi-boot-ubuntu-6.png
+
+      Figure 6: Created EFI boot entry Linux Boot Manager.
+
+#. Reboot the target system.
+
+#. Upon reboot, the GRUB menu should appear with the new option for Ubuntu,
+   as well as |CL|.
 
 If you want to install other :abbr:`OSes (operating systems)`, refer to
 :ref:`multi-boot` for details.
 
 .. _systemd boot loader documentation:
    https://wiki.archlinux.org/index.php/Systemd-boot
+

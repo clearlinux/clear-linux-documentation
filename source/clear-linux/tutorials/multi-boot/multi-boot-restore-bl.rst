@@ -10,29 +10,21 @@ Systemd-Boot.
 
 #. Boot the |CL| installer from a USB thumb drive. See :ref:`bootable-usb`.
 
-#. At the introduction screen, press :kbd:`Control+Alt+F2` to bring up the
-   |CL| console. See Figure 1.
-
-   .. figure:: figures/multi-boot-restore-bl-1.png
-
-      Figure 1: |CL|: Console.
-
 #. Log in as *root*.
 
    .. note::
-      When you log in for the first time as *root* through the console, you must
-      set a new password.
+      When you log in for the first time as *root* through the console, you must set a new password.
 
 #. Find the location of the |CL| EFI partition. In this example, it is
-   :file:`/dev/sda3`. See Figure 2.
+   :file:`/dev/sda1`. See Figure 2.
 
    .. code-block:: bash
 
       fdisk -l
 
-   .. figure:: figures/multi-boot-restore-bl-2.png
+   .. figure:: figures/multi-boot-restore-bl-1.png
 
-      Figure 2: |CL|: fdisk -l command.
+      Figure 1: |CL|: fdisk -l command.
 
 #. Mount the EFI partition.
 
