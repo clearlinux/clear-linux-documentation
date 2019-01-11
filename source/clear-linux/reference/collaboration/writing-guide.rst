@@ -7,16 +7,24 @@ We want our documentation to be easy to read and understand. This
 document describes guidelines for writing documentation that is
 clear, concise, confident, and courteous.
 
+Refer to :ref:`structure-formatting` for details on how we use reStructuredText
+and Sphinx in our documents.
+
+This document contains the following sections:
+
+
 .. contents:: :local:
    :depth: 1
+
+
 
 Use simple English
 ******************
 
-Write using simple English: Be brief, get to the point, communicate only
-the information that is needed. Be friendly and informative. Emphasize
-clarity and avoid unnecessarily complicated or technical terms. Make the
-content accessible to non-native speakers.
+Write using simple English: Be brief and communicate only the information that
+is needed. Be friendly and informative. Emphasize clarity and avoid
+complicated or technical terms. Make the content accessible to non-native
+speakers.
 
 Be brief
 ========
@@ -62,7 +70,7 @@ Follow our tips for making good word choices:
    more than               in excess of
    if                      in the event of
    before                  prior to
-   if you want             should you wish
+   if you want             should one wish
    use                     utilize
    example                 instance
   ===================     ===================
@@ -70,9 +78,9 @@ Follow our tips for making good word choices:
 Avoid overuse of product name
 =============================
 
-Use  product name only when necessary. Many sentences can be re-written
-to not use the product name with no change in meaning. This keeps the
-content concise and scannable.
+Use product names only when necessary. Typically, you can rewrite sentences to
+remove the product name with no change in meaning, which keeps the content
+concise and scannable.
 
 Avoid using the product name in page titles and headings. Keep page
 titles and headings concise and descriptive of the topic.
@@ -81,7 +89,7 @@ Make content scannable
 **********************
 
 Organize your content to make it scannable for the reader, which
-helps them find what the need quickly, and helps them understand more
+helps them find what they need quickly, and helps them understand more
 efficiently.
 
 * **Put the most important content first.** Make sure your introduction
@@ -99,7 +107,7 @@ Link text
 
 All links in content should follow these guidelines:
 
-* **Use descriptive link text**: Link text should describe where the
+* **Write descriptive link text**: Link text should describe where the
   link goes, without having to read the surrounding text.
 * **Keep link text concise**: Use only the words needed to accurately
   describe the destination.
@@ -107,7 +115,7 @@ All links in content should follow these guidelines:
   see the same link text twice on a page, they'll assume it goes to the
   same place.
 * **Start link text with keywords**: Frontload the link text with the most
-  important words - this helps users scan the text.
+  important words to help users scan the text.
 * **Avoid generic text**: Don't use generic, uninformative link text such
   as "click here" or "read more".
 
@@ -139,9 +147,9 @@ For example:
 Use present tense
 =================
 
-Use simple present tense instead of future tense for most text. Future
-tense is acceptable for conditional statements, for example in a caution
-or a warning.
+Use simple present tense instead of future tense for most text. Search for the
+words "will" or "shall" to find future tense instances. Future tense is
+acceptable for conditional statements, for example, in a caution or a warning.
 
 For example:
 
@@ -197,9 +205,9 @@ Use active voice whenever possible to show who or what is performing an
 action.
 
 * Active voice follows standard English word order: SUBJECT–VERB–OBJECT
-  (optional).
+  (where the OBJECT is optional).
 * Passive voice reverses the order and weakens the verb: OBJECT–be VERB–by
-  SUBJECT (optional).
+  SUBJECT (where the OBJECT is optional).
 
 For example:
 
@@ -216,7 +224,7 @@ Or:
 Avoid long noun phrases
 ***********************
 
-Noun phrases - a noun and everything that describe or modify it - can be
+Noun phrases (a noun and other words that describe or modify it) can be
 difficult to understand. Try to limit the number of modifiers in a noun phrase
 to two.
 
@@ -265,7 +273,7 @@ structures and how they can be made parallel with a little rewording.
 Grammar and punctuation
 ***********************
 
-This section covers common grammatical topics relevant to the our
+This section covers common grammatical topics relevant to our
 documentation. For detailed explanations of correct grammar and punctuation,
 use one of our :ref:`preferred references <references>`.
 
@@ -295,7 +303,7 @@ A few other tips when referring to menu items:
   :menuselection:`View --> Side Bar --> Hide Side Bar`"
 
 * Do not include more than 3 navigation steps in a menu selection. If
-  more than three steps are needed divide the steps using
+  more than three steps are needed, divide the steps using
   ``:guilabel:`` or ``:menuselection:``.
 
   For example: "Go to :guilabel:`File` and select
@@ -305,11 +313,11 @@ Software version capitalization
 -------------------------------
 
 When listing software or hardware version numbers, the word “version” or letter
-v are lowercase. The v is closed with the number (no period).
+"v" are lowercase. The v is closed with the number (no period).
 
 For example:
 
-* Widget Pro v5.0
+* Widget Pro version 5.0
 * Widget Master v2.1.12
 
 Terms using a hyphen or slash
@@ -326,8 +334,8 @@ For example:
 Contractions
 ============
 
-Avoid the use of contractions as they may not be clear to non-native
-English-speaking audiences.
+Avoid using contractions, such as it's, they're, and you're, because they may be
+unclear to non-native English-speaking audiences.
 
 Quotation marks
 ===============
@@ -342,8 +350,8 @@ Commas and colons
 =================
 
 This section addresses common use of commas, semicolons, and colons in our
-documentation. Refer to Merriam-Webster's Collegiate Dictionary or one of
-our :ref:`preferred references <references>` for further detail.
+documentation. Refer to one of our :ref:`preferred references <references>`
+for further details.
 
 Use the serial comma
 --------------------
@@ -374,7 +382,7 @@ For example:
 
 * This is a capitalization example: Donuts do not cause holes.
 
-* These is a non capitalization example: colons, semicolons, and commas.
+* These is a non-capitalization example: colons, semicolons, and commas.
 
 Use a colon at the end of a sentence or phrase that introduces examples, a list,
 a path, user input, or code.

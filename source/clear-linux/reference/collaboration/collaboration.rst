@@ -8,29 +8,29 @@ be improved? Help us out by contributing! If you haven't contributed before,
 take a moment to review our `Contribution guidelines`_.
 
 Do you have questions about contributing to the documentation that were not
-answered by our guidelines? Send your question to the `mailing list`_ at: dev@lists.clearlinux.org.
+answered by these guidelines? Send your question to the `mailing list`_ at:
+dev@lists.clearlinux.org.
 
 Contribution guidelines
 ***********************
 
-We welcome all contributions to our documentation. For all contributions,
-please follow our guidelines for consistent, readable documentation.
+We welcome contributions and we ask you to follow our guidelines for
+consistent, readable documentation.
 
-For new content, it is important to understand how Sphinx works and how the
-documentation is organized and structured.
+The |CL| documentation is hosted in GitHub and is written using
+reStructuredText. These guidelines provide examples, templates, and best
+practices for your contributions.
 
 Before contributing
 ===================
 
-If you haven't contributed before, take the time to get familiar with the existing
-documentation and organization (link). Make sure you are familiar with our writing and
-formatting guidelines, as well as basic reStructuredText and Sphinx:
+If you haven't contributed before, review the following items:
 
-.. toctree::
-   :maxdepth: 1
-
-   writing-guide
-   structure-formatting
+*   GitHub `documentation repository`_ shows our document organization.
+*   :ref:`writing-guide` describes the style we use to keep our documents clear
+    and concise.
+*   :ref:`structure-formatting` provides details on how we use reStructuredText
+    and Sphinx in our documents.
 
 How to contribute
 =================
