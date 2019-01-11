@@ -8,42 +8,41 @@ formatting, and writing style helps readers quickly find what they need and to
 understand the content more effectively. This document describes our
 organization and formatting guidelines.
 
-.. contents:: :local:
-   :depth: 1
-
 Refer to :ref:`writing-guide` to learn how we keep our documents clear and
 concise.
 
+.. contents:: :local:
+   :depth: 1
 
 Markup
 ******
 
 Our documentation is written in the reStructuredText markup language, using
-Sphinx roles and directives. We use Sphinx to generate the final
-documentation. You can read more about reStructuredText and Sphinx on their
-respective websites:
+Sphinx roles and directives. We use Sphinx to generate the final documentation.
+You can read more about reStructuredText and Sphinx on their respective
+websites:
 
 * `Sphinx documentation`_
 * `reStructuredText Primer`_
 
-You can view the content directly in the .rst markup files, or you can
-generate the HTML content by installing and running the documentation locally.
-To run the documentation locally, follow the instructions found in the
+You can view the content directly in the .rst markup files, or you can generate
+the HTML content by installing and running the documentation locally. To run the
+documentation locally, follow the instructions found in the
 `documentation repository`_ README.
 
 New pages
 =========
 
 There are a few additional steps to consider when adding a new page to the
-documentation. First, identify where your new page should be located within
-the existing `Documentation organization`_. Second, make sure the new page
-is picked up in the Sphinx build and easily linkable from other content.
+documentation. First, identify where your new page should be located within the
+existing `Documentation organization`_. Second, make sure the new page is picked
+up in the Sphinx build and easily linkable from other content.
 
-Each page must be included in a `Sphinx toctree`_ in order to
-be included in the documentation content tree. Typically, pages are added to
-the section landing page toctree.
+Each page must be included in a `Sphinx toctree`_ in order to be included in the
+documentation content tree. Typically, pages are added to the section landing
+page toctree.
 
-For example, the "Documentation contribution guidelines" page toctree looks like:
+For example, the :ref:`collaboration` page toctree looks like:
 
   .. code-block:: rest
 
@@ -53,10 +52,11 @@ For example, the "Documentation contribution guidelines" page toctree looks like
         writing-guide
         structure-formatting
 
-Additionally, each page must include a uniquely named reST label directly
-before the page title, to enable the `Sphinx ref role`_ for linking to a page.
+Additionally, each page must include a uniquely named reST label directly before
+the page title, to enable the `Sphinx ref role`_ for linking to a page.
 
-For example, this page "Structure and formating" has the label ``.. _structure-formatting``:
+For example, this page "Structure and formating" has the label
+``.. _structure-formatting``:
 
   .. code-block:: rest
 
@@ -65,8 +65,8 @@ For example, this page "Structure and formating" has the label ``.. _structure-f
      Structure and formatting
      ########################
 
-This page can then be referenced from other pages in the documentation using
-the `:ref:` role:
+This page can then be referenced from other pages in the documentation using the
+`:ref:` role:
 
   .. code-block:: rest
 
@@ -77,7 +77,8 @@ Documentation organization
 
 The documentation is organized into five general sections:
 
-#. **Concepts**: Introduction and overview of |CL| specific concepts or features.
+#. **Concepts**: Introduction and overview of |CL| specific concepts or
+   features.
 #. **Get started**: Information about getting started with |CL|.
 #. **Guides**: Detailed information and instruction on using |CL| features.
 #. **Tutorials**: Step-by-step instruction for using |CL| in specific use cases.
@@ -102,7 +103,8 @@ clarity.
 
 * All files must have a top level heading, which is the title for the page.
 * Headings should be short and descriptive.
-* Write headings in sentence case (capitalize only the first word and proper nouns).
+* Write headings in sentence case (capitalize only the first word and proper
+  nouns).
 * Up to three additional levels of headings are allowed under the title heading.
 * Each heading must be followed by at least one paragraph of content. There
   should never be two consecutive headings.
@@ -140,8 +142,8 @@ To mark up headings in the .rst file:
 In-page navigation
 ==================
 
-If a page has three or more sections, provide quick links to each section.
-Place the quick links after the overview section.
+If a page has three or more sections, provide quick links to each section. Place
+the quick links after the overview section.
 
 Use the standard `reST contents directive`_ with depth: 1 for quick links.
 
@@ -149,14 +151,72 @@ Inline text formatting
 **********************
 
 We use the `Microsoft Writing Style Guide`_ as our starting point for text
-formatting. We execute the formatting using reST and Sphinx markup.
+formatting. We apply the formatting using reST and Sphinx markup.
 
 Use our quick reference for the most commonly used inline text elements:
 
 +--------------------------------+---------------------------------------+-----------------------------+
 | **Element**                    | **Convention**                        | **reST/Sphinx**             |
 +--------------------------------+---------------------------------------+-----------------------------+
+| Acronyms                       | Spell out first use, with             | Use ``:abbr:``              |
+|                                | acronym in parenthesis.               |                             |
+|                                | For all subsequent uses,              |                             |
+|                                | use the acronym.                      |                             |
++--------------------------------+---------------------------------------+-----------------------------+
+| Bundle names                   | Bold                                  | Use the ``:command:`` role. |
++--------------------------------+---------------------------------------+-----------------------------+
+| Callouts                       |                                       | Use ``.. note::``           |
++--------------------------------+---------------------------------------+-----------------------------+
+| Code/command examples          | Monospace, visually distinct          | Use ``.. code-block::``     |
+|                                | from rest of text. Use an             | with the correct language   |
+|                                | indented call-out box.                | setting.                    |
++--------------------------------+---------------------------------------+-----------------------------+
+| Commands                       | Bold                                  | Use the ``:command:`` role. |
++--------------------------------+---------------------------------------+-----------------------------+
+| Command flags                  | Bold                                  | Use the ``:command:`` role. |
++--------------------------------+---------------------------------------+-----------------------------+
+| Console output                 | Monospace, visual distinction         | Use ``.. code-block::``     |
+|                                | from rest of text. Use an             | with console as the         |
+|                                | indented call-out box.                | language setting.           |
++--------------------------------+---------------------------------------+-----------------------------+
 | Emphasis                       | Italic                                | ``*strong*``                |
++--------------------------------+---------------------------------------+-----------------------------+
+| Environment variables          | Use the case format of the            | Use ``:envvar:``            |
+|                                | environment variable.                 |                             |
++--------------------------------+---------------------------------------+-----------------------------+
+| Example commands with          | Use angle brackets for swapping       |                             |
+| optional or replaceable        | in the specific name,                 |                             |
+| parts                          | e.g. <package-name>.                  |                             |
+|                                |                                       |                             |
+|                                | Use square brackets for optional      |                             |
+|                                | parts,                                |                             |
+|                                | e.g. [--build].                       |                             |
++--------------------------------+---------------------------------------+-----------------------------+
+| Example URLs (not linked)      | Plain text                            |                             |
++--------------------------------+---------------------------------------+-----------------------------+
+| File extensions                | Lowercase                             |                             |
++--------------------------------+---------------------------------------+-----------------------------+
+| File names, directories, paths | Title style capitalization            | Use the ``:file:`` role.    |
++--------------------------------+---------------------------------------+-----------------------------+
+| GUI labels                     |                                       | Use ``:guilabel:``          |
++--------------------------------+---------------------------------------+-----------------------------+
+| Inline comments                |                                       | Use ``..``                  |
++--------------------------------+---------------------------------------+-----------------------------+
+| Keystrokes                     |                                       | Use ``:kbd:``               |
++--------------------------------+---------------------------------------+-----------------------------+
+| Local navigation               |                                       | ``.. contents:: :local:``   |
+|                                |                                       | with a depth of 1           |
++--------------------------------+---------------------------------------+-----------------------------+
+| Menu selection                 |                                       | Use ``:menuselection:``     |
++--------------------------------+---------------------------------------+-----------------------------+
+| New terms                      | Italic for first use, normal for all  | ``*term*``                  |
+|                                | subsequent use.                       |                             |
+|                                |                                       |                             |
+|                                | If it is used outside of the source   |                             |
+|                                | of definition, link the term.         |                             |
++--------------------------------+---------------------------------------+-----------------------------+
+| Product name                   | Follow correct trademark and          |                             |
+|                                | attribution guidelines.               |                             |
 +--------------------------------+---------------------------------------+-----------------------------+
 | Tool names                     | Correctly capitalized, no quotes,     |                             |
 |                                | bold, or italics as the basic rule.   |                             |
@@ -168,64 +228,6 @@ Use our quick reference for the most commonly used inline text elements:
 |                                | If the tool name is lowercase and     |                             |
 |                                | used at the start of a sentence, use  |                             |
 |                                | bold.                                 |                             |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Commands                       | Bold                                  | Use the ``:command:`` role. |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Command flags                  | Bold                                  | Use the ``:command:`` role. |
-+--------------------------------+---------------------------------------+-----------------------------+
-| New terms                      | Italic for first use, normal for all  | ``*term*``                  |
-|                                | subsequent use.                       |                             |
-|                                |                                       |                             |
-|                                | If it is used outside of the source   |                             |
-|                                | of definition, link the term.         |                             |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Bundle names                   | Bold                                  | Use the ``:command:`` role. |
-+--------------------------------+---------------------------------------+-----------------------------+
-| File names, directories, paths | Title style capitalization            | Use the ``:file:`` role.    |
-+--------------------------------+---------------------------------------+-----------------------------+
-| File extensions                | Lowercase                             |                             |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Example URLs (not linked)      | Plain text                            |                             |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Product name                   | Follow correct trademark and          |                             |
-|                                | attribution guidelines.               |                             |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Code/command examples          | Monospace, visually distinct          | Use ``.. code-block::``     |
-|                                | from rest of text. Use an             | with the correct language   |
-|                                | indented call-out box.                | setting.                    |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Console output                 | Monospace, visual distinction         | Use ``.. code-block::``     |
-|                                | from rest of text. Use an             | with console as the         |
-|                                | indented call-out box.                | language setting.           |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Acronyms                       | Spell out first use, with             | Use ``:abbr:``              |
-|                                | acronym in parenthesis.               |                             |
-|                                | For all subsequent uses,              |                             |
-|                                | use the acronym.                      |                             |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Keystrokes                     |                                       | Use ``:kbd:``               |
-+--------------------------------+---------------------------------------+-----------------------------+
-| GUI labels                     |                                       | Use ``:guilabel:``          |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Menu selection                 |                                       | Use ``:menuselection:``     |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Callouts                       |                                       | Use ``.. note::``           |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Local navigation               |                                       | ``.. contents:: :local:``   |
-|                                |                                       | with a depth of 1           |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Environment variables          | Use the case format of the            | Use ``:envvar:``            |
-|                                | environment variable.                 |                             |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Inline comments                |                                       | Use ``..``                  |
-+--------------------------------+---------------------------------------+-----------------------------+
-| Example commands with          | Use angle brackets for swapping       |                             |
-| optional or replaceable        | in the specific name,                 |                             |
-| parts                          | e.g. <package-name>.                  |                             |
-|                                |                                       |                             |
-|                                | Use square brackets for optional      |                             |
-|                                | parts,                                |                             |
-|                                | e.g. [--build].                       |                             |
 +--------------------------------+---------------------------------------+-----------------------------+
 
 White space and line length
@@ -239,9 +241,9 @@ Remove trailing whitespace from your documents.
 Code blocks and examples
 ************************
 
-When providing example code or commands that are less than 10 lines, use
-the `Sphinx code-block directive`_. Use the appropriate syntax highlighting
-for the example command or code.
+When providing example code or commands that are less than 10 lines, use the
+`Sphinx code-block directive`_. Use the appropriate syntax highlighting for the
+example command or code.
 
 For example, if showing console output, use console highlighting:
 
@@ -259,15 +261,16 @@ as step-by-step instructions.
 
 Use a bulleted list when the order of the items is not important.
 
-For both list types, keep all items in the list parallel. See :ref:`parallelism`.
+For both list types, keep all items in the list parallel. See
+:ref:`parallelism`.
 
 Use standard `reST list markup`_.
 
 Numbered lists
 ==============
 
-Numbered lists are most frequently used for procedures. Use numbered lists
-to show sequence for the items. Follow our guidelines for numbered lists:
+Numbered lists are most frequently used for procedures. Use numbered lists to
+show sequence for the items. Follow our guidelines for numbered lists:
 
 * Make sure the list is sequential and not just a collection of items.
 * Introduce a numbered list with a sentence. End the setup text with a
@@ -298,20 +301,9 @@ a sequence is not required. Here are some guidelines for bulleted lists:
 * Avoid interrupting bulleted lists with other paragraph styles.
 * Second-level bullets are acceptable; avoid third-level bullets.
 
-Use the correct ending punctuation for sentence style bullet lists. For
-example:
+Use the correct ending punctuation for sentence style bullet lists. For example:
 
-**Incorrect**
-
-  When setting the user code remember:
-
-  * make the user code easy to remember. Use a number that has a meaning
-    for you
-  * change the code once a month
-  * do not disclose the user code to anyone else. This includes the
-    security company
-
-**Correct**
+**Use this:**
 
   When setting the user code, remember:
 
@@ -319,11 +311,20 @@ example:
   * Change the code once a month.
   * Do not disclose the user code to anyone, including the security company.
 
+**Not this:**
+
+  When setting the user code remember:
+
+  * make the user code easy to remember. Use a number that has a meaning for you
+  * change the code once a month
+  * do not disclose the user code to anyone else. This includes the security
+    company
+
 Instructions
 ============
 
-When presenting instructions, such as in a tutorial, present them in a
-numbered list according to these guidelines:
+When presenting instructions, such as in a tutorial, present them in a numbered
+list according to these guidelines:
 
 * Each step (list item) should describe one action.
 
@@ -346,78 +347,66 @@ numbered list according to these guidelines:
 Notices
 *******
 
-We use four special types of notices: notes, cautions, warnings, and
-dangers. Here are some specific rules and tips regarding use of these
-notices:
+We use four special types of notices: notes, cautions, warnings, and dangers.
+Here are some specific rules and tips regarding use of these notices:
 
-* Do not use a notice directly after a heading. Notices must follow a
-  variant of body text.
+* Do not use a notice directly after a heading. Notices must follow a variant of
+  body text.
 * Do not include more than one notice in a single notice block.
 * Avoid back-to-back notices.
-* If back-to-back notices are not avoidable, make sure each distinct
-  notice in the notice block is clearly defined.
+* If back-to-back notices are not avoidable, make sure each distinct notice in
+  the notice block is clearly defined.
 
 Use the standard `reST admonition directive`_.
 
-Notes, cautions, warnings, and dangers
-======================================
+Notes, cautions, and warnings
+=============================
 
-Use notes sparingly. Avoid having more than one note per section. If
-you exceed this number consistently, consider rewriting the notes as
-main body text.
+Use notes sparingly. Avoid having more than one note per section. If you exceed
+this number consistently, consider rewriting the notes as main body text.
 
-Use cautions, warnings, and dangers to alert readers of potential
-problems or pitfalls. Use conditional phrases in cautions and warnings,
-such as "If you do X, then Y will occur."
+Use cautions and warnings to alert readers of potential problems or pitfalls.
+Use conditional phrases in cautions and warnings, such as "If you do X, then Y
+will occur."
 
 These are examples of typical notices and the conditions for their usage:
 
 .. note::
-   Notes are extra bits of information, supplementary to the main
-   flow. Notes should be relatively short. If the note content is
-   a short paragraph, consider rewriting the note as body text.
+   Notes are extra bits of information that supplement the main content. Notes
+   should be relatively short.
 
 .. caution::
-   Cautions are low-level hazard messages that alert the user of
-   possible equipment, product, and software damage, including loss
-   of data.
+   Cautions are low-level hazard messages that alert the user of possible
+   equipment, product, and software damage, including loss of data.
 
 .. warning::
-   Warnings are mid-level hazards that are likely to cause product
-   damage as well as bodily injury to humans. The most common warning
-   is for electrical hazards.
-
-.. danger::
-   Dangers are high-level hazards that are likely to cause product
-   damage as well as bodily injury and even death to humans.
+   Warnings are mid-level hazards that are likely to cause product damage.
 
 Links
 *****
 
 Use the standard `reST markup for links`_.
 
-To add a link to another documentation page, use the `:ref:` role:
+To add a cross-reference to another documentation page, use the `:ref:` role:
 
   .. code-block:: rest
 
      :ref:`structure-formatting`
 
-To add an external link, we use named references that refer to a defined link/label
-at the bottom of the page.
+To add an external link, we use named references that refer to a defined
+link/label at the bottom of the page.
 
-For example, a link is defined at the bottom of the page like this:
+For example, an external link is defined at the bottom of the page like this:
 
 .. code-block:: rest
 
    .. _wiki about dogs: https://en.wikipedia.org/wiki/Dog
 
-The same link is used in the content like this:
+The defined link is then used in the content like this:
 
 .. code-block:: rest
 
    Check out the great `wiki about dogs`_.
-
-
 
 Images
 ******
@@ -440,8 +429,8 @@ Follow these guidelines when using graphics in support of your documentation:
 * Place the image immediately after the text it helps clarify, or as close as
   possible.
 
-* Use the `Sphinx figure directive`_ to insert images and figures into the document.
-  Include both alt text and a figure name and caption.
+* Use the `Sphinx figure directive`_ to insert images and figures into the
+  document. Include both alt text, a figure name, and caption.
 
   For example:
 

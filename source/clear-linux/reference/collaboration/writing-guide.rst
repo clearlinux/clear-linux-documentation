@@ -3,28 +3,23 @@
 Writing guide
 #############
 
-We want our documentation to be easy to read and understand. This
-document describes guidelines for writing documentation that is
-clear, concise, confident, and courteous.
+We want our documentation to be easy to read and understand. This document
+describes guidelines for writing documentation that is clear, concise,
+confident, and courteous.
 
-Refer to :ref:`structure-formatting` for details on how we use reStructuredText
-and Sphinx in our documents.
-
-This document contains the following sections:
-
+Refer to :ref:`structure-formatting` for details on organizing content and how
+we use reStructuredText and Sphinx.
 
 .. contents:: :local:
    :depth: 1
-
-
 
 Use simple English
 ******************
 
 Write using simple English: Be brief and communicate only the information that
 is needed. Be friendly and informative. Emphasize clarity and avoid
-complicated or technical terms. Make the content accessible to non-native
-speakers.
+unecessary complicated or technical terms. Make the content accessible to
+non-native speakers.
 
 Be brief
 ========
@@ -37,24 +32,24 @@ Introduction, body, and conclusion.
 Be friendly
 ===========
 
-We write for our peers and want to be familiar. Use the second person,
-you or we. Be professional, respectful, and cooperative.
+We write for our peers and want to be familiar. Use the second person, you or
+we. Be professional, respectful, and cooperative.
 
-Assume your audience has the same level of technical understanding and
-expertise as you did when you first started collaborating. Do not talk
-down to our readers, but also do not assume they know everything about
-the subject. Offer brief explanations or summaries of common knowledge
-if a significant portion of readers might benefit.
+Assume your audience has the same level of technical understanding and expertise
+as you did when you first started collaborating. Do not talk down to our
+readers, but also do not assume they know everything about the subject. Offer
+brief explanations or summaries of common knowledge if a significant portion of
+readers might benefit.
 
 Use simple words
 ================
 
-Use simple words to increase reader comprehension and reduce ambiguity.
-Follow our tips for making good word choices:
+Use simple words to increase reader comprehension and reduce ambiguity. Follow
+our tips for making good word choices:
 
-* **Avoid jargon**: Write for your audience, using everyday language
-  where possible, and technical terms where appropriate. Avoid clichés,
-  idioms, and metaphors.
+* **Avoid jargon**: Write for your audience, using everyday language where
+  possible, and technical terms where appropriate. Avoid clichés, idioms, and
+  metaphors.
 * **Be consistent**: Use one term for each concept or action and use it
   consistently.
 * **Avoid "fancy" words and phrases**: If there is a simpler word or phrase,
@@ -82,42 +77,39 @@ Use product names only when necessary. Typically, you can rewrite sentences to
 remove the product name with no change in meaning, which keeps the content
 concise and scannable.
 
-Avoid using the product name in page titles and headings. Keep page
-titles and headings concise and descriptive of the topic.
+Avoid using the product name in page titles and headings.
 
 Make content scannable
 **********************
 
-Organize your content to make it scannable for the reader, which
-helps them find what they need quickly, and helps them understand more
-efficiently.
+Organize your content to make it scannable for the reader, which helps them find
+what they need quickly, and helps them understand more efficiently.
 
-* **Put the most important content first.** Make sure your introduction
-  clearly communicates what the reader can find on the page. Organize
-  supporting information towards the end of the page.
+* **Put the most important content first.** Make sure your introduction clearly
+  communicates what the reader can find on the page. Organize supporting
+  information towards the end of the page.
 * **Write scannable headings.** Think of headings as the outline for your
   content. Write headings that are short, specific, and use `Parallelism`_.
   Top level headings should show the most important subjects on the page.
-* **Write great link text.** Great link text tells the reader what they
-  can expect when they click on a link. It also helps make the page more
-  scannable. Follow our guidelines for writing `Link text`_.
+* **Write great link text.** Great link text tells the reader what they can
+  expect when they click on a link. It also helps make the page more scannable.
+  Follow our guidelines for writing `Link text`_.
 
 Link text
 =========
 
 All links in content should follow these guidelines:
 
-* **Write descriptive link text**: Link text should describe where the
-  link goes, without having to read the surrounding text.
-* **Keep link text concise**: Use only the words needed to accurately
-  describe the destination.
-* **Use unique link text**: Each link on a page should be unique. If users
-  see the same link text twice on a page, they'll assume it goes to the
-  same place.
+* **Write descriptive link text**: Link text should describe where the link
+  goes, without having to read the surrounding text.
+* **Keep link text concise**: Use only the words needed to accurately describe
+  the destination.
+* **Use unique link text**: Each link on a page should be unique. If users see
+  the same link text twice on a page, they'll assume it goes to the same place.
 * **Start link text with keywords**: Frontload the link text with the most
   important words to help users scan the text.
-* **Avoid generic text**: Don't use generic, uninformative link text such
-  as "click here" or "read more".
+* **Avoid generic text**: Don't use generic, uninformative link text such as
+  "click here" or "read more".
 
 For example:
 
@@ -129,14 +121,14 @@ For example:
 Use strong verbs
 ****************
 
-Passive verbs make writing stuffy and formal. Use strong verbs to get to
-the point and avoid unnecessary words and phrases.
+Passive verbs make writing stuffy and formal. Use strong verbs to get to the
+point and avoid unnecessary words and phrases.
 
 Use imperatives
 ===============
 
-Commands, also called imperatives, are the fastest and most direct way of
-giving someone instructions.
+Commands, also called imperatives, are the fastest and most direct way of giving
+someone instructions.
 
 For example:
 
@@ -320,17 +312,6 @@ For example:
 * Widget Pro version 5.0
 * Widget Master v2.1.12
 
-Terms using a hyphen or slash
------------------------------
-
-Capitalize only the first letter of terms using a hyphen or slash, even if they
-are headings.
-
-For example:
-
-* Day/night Menu
-* Follow-up Action Items
-
 Contractions
 ============
 
@@ -364,33 +345,6 @@ For example:
   **Use this:** Mom, Dad, and I are going to the game.
 
   **Not this:** Mom, Dad and I are going to the game.
-
-Commas in numbers
------------------
-
-Use commas to divide large numbers into sets of three digits. Use periods for
-decimal points.
-
-Colons ":"
-----------
-
-If the text following a colon is a sentence, capitalize the first word after the
-colon. If the text after a colon is not a sentence, do not capitalize the first
-term unless it is a title.
-
-For example:
-
-* This is a capitalization example: Donuts do not cause holes.
-
-* These is a non-capitalization example: colons, semicolons, and commas.
-
-Use a colon at the end of a sentence or phrase that introduces examples, a list,
-a path, user input, or code.
-
-Do not use a colon to introduce graphics, tables, or sections.
-
-Do not use a colon at the end of a task title or heading.
-
 
 .. _click here: https://en.wikipedia.org/wiki/Dog
 .. _dog wiki article: https://en.wikipedia.org/wiki/Dog

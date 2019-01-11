@@ -1,49 +1,43 @@
 .. _collaboration:
 
-Documentation contribution guidelines
-#####################################
+Documentation guidelines
+########################
 
 See a missing topic in the documentation? Find an existing document that could
 be improved? Help us out by contributing! If you haven't contributed before,
 take a moment to review our `Contribution guidelines`_.
 
-Do you have questions about contributing to the documentation that were not
-answered by these guidelines? Send your question to the `mailing list`_ at:
+Do you have questions about the documentation that were not answered by these
+guidelines? Send your question to the `mailing list`_ at:
 dev@lists.clearlinux.org.
 
 Contribution guidelines
 ***********************
 
-We welcome contributions and we ask you to follow our guidelines for
-consistent, readable documentation.
-
 The |CL| documentation is hosted in GitHub and is written using
-reStructuredText. These guidelines provide examples, templates, and best
-practices for your contributions.
+reStructuredText. Use our guidelines and best practices to write consistent,
+readable documentation.
 
-Before contributing
-===================
+.. toctree::
+   :maxdepth: 1
 
-If you haven't contributed before, review the following items:
-
-*   GitHub `documentation repository`_ shows our document organization.
-*   :ref:`writing-guide` describes the style we use to keep our documents clear
-    and concise.
-*   :ref:`structure-formatting` provides details on how we use reStructuredText
-    and Sphinx in our documents.
+	Writing guide describes the style we use to keep our documents clear and concise. <writing-guide>
+	Structure and formatting guide details how we structure and format our documents using reStructuredText and Sphinx. <structure-formatting>
+	GitHub documentation repository shows our document organization. <https://github.com/clearlinux/clear-linux-documentation>
 
 How to contribute
-=================
+*****************
 
 There are multiple ways to contribute and help improve our documentation:
 
 * **Make a suggestion**: Have a documentation suggestion but no time to write it
-  yourself? Send your suggestion to the `mailing list`_ at: dev@lists.clearlinux.org.
-* **Log an issue**: If you find a problem in our documentation (such as typos or out-of-date
-  information), log an issue in the `documentation repository`_.
+  yourself? Send your suggestion to the `mailing list`_ at:
+  dev@lists.clearlinux.org.
+* **Log an issue**: If you find a problem in our documentation (such as typos or
+  out-of-date information), log an issue in the `documentation repository`_.
 * **Contribute directly via GitHub**: Whether you've found a typo, have better
-  instructions or examples, or have a new page to add, submit your improvement or
-  addition as a pull request on the `documentation repository`_.
+  instructions or examples, or have a new page to add, submit your improvement
+  or addition as a pull request on the `documentation repository`_.
 * **Test documentation**: Step through our instructional guides and tutorials to
   verify the instructions. Log or correct any out-of-date information.
 
@@ -74,17 +68,19 @@ Our documentation is hosted in GitHub and we follow the standard `GitHub flow`_:
 References
 **********
 
-We use the following references to guide the grammar, style, and formatting of our
-documentation:
+We use the following references to guide the grammar, style, and formatting of
+our documentation:
 
+* `Microsoft Writing Style Guide`_
+* `Merriam-Webster Dictionary`_
 * The Chicago Manual of Style (15th edition), The University of Chicago Press
-* Merriam-Webster Dictionary
-* Microsoft Manual of Style for Technical Publications, Microsoft Press
 * Microsoft Press Computer Dictionary, Microsoft Press
 * Read Me First!, Oracle Technical Publications
-* The Merriam-Webster's Collegiate Dictionary
+
 
 .. _`code of conduct`: https://clearlinux.org/community/code-of-conduct
 .. _mailing list: https://lists.clearlinux.org/mailman/listinfo/dev
 .. _GitHub flow: https://guides.github.com/introduction/flow/
 .. _documentation repository: https://github.com/clearlinux/clear-linux-documentation
+.. _Microsoft Writing Style Guide: https://docs.microsoft.com/en-us/style-guide/welcome/
+.. _Merriam-Webster Dictionary: https://www.merriam-webster.com/
