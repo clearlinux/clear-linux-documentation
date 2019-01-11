@@ -122,7 +122,7 @@ To set up |CL| manually, perform the steps below.
    .. code-block:: console
 
       sudo cat > $ipxe_root/ipxe_boot_script.ipxe << EOF
-      sudo!ipxe
+      #!ipxe
       kernel linux quiet init=/usr/lib/systemd/systemd-bootchart \
       initcall_debug tsc=reliable no_timer_check noreplace-smp rw \
       initrd=initrd
