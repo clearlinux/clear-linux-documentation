@@ -22,7 +22,7 @@ readable documentation.
    :maxdepth: 1
 
 	Writing guide describes the style we use to keep our documents clear and concise. <writing-guide>
-	Structure and formatting guide details how we structure and format our documents using reStructuredText and Sphinx. <structure-formatting>
+	Structure and formatting guide explains how we use reStructuredText and Sphinx. <structure-formatting>
 	GitHub documentation repository shows our document organization. <https://github.com/clearlinux/clear-linux-documentation>
 
 How to contribute

@@ -158,10 +158,10 @@ Use our quick reference for the most commonly used inline text elements:
 +--------------------------------+---------------------------------------+-----------------------------+
 | **Element**                    | **Convention**                        | **reST/Sphinx**             |
 +--------------------------------+---------------------------------------+-----------------------------+
-| Acronyms                       | Spell out first use, with             | Use ``:abbr:``              |
-|                                | acronym in parenthesis.               |                             |
-|                                | For all subsequent uses,              |                             |
-|                                | use the acronym.                      |                             |
+| Acronyms                       | First instance, display definition as | Use the ``:abbr:`` role.    |
+|                                | flyover text in this format:          |                             |
+|                                | ``:abbr:`Acronym (Definition)```      |                             |
+|                                | For subsequent uses, use the acronym. |                             |
 +--------------------------------+---------------------------------------+-----------------------------+
 | Bundle names                   | Bold                                  | Use the ``:command:`` role. |
 +--------------------------------+---------------------------------------+-----------------------------+
@@ -210,7 +210,7 @@ Use our quick reference for the most commonly used inline text elements:
 | Menu selection                 |                                       | Use ``:menuselection:``     |
 +--------------------------------+---------------------------------------+-----------------------------+
 | New terms                      | Italic for first use, normal for all  | ``*term*``                  |
-|                                | subsequent use.                       |                             |
+|                                | subsequent uses.                      |                             |
 |                                |                                       |                             |
 |                                | If it is used outside of the source   |                             |
 |                                | of definition, link the term.         |                             |
@@ -221,9 +221,9 @@ Use our quick reference for the most commonly used inline text elements:
 | Tool names                     | Correctly capitalized, no quotes,     |                             |
 |                                | bold, or italics as the basic rule.   |                             |
 |                                |                                       |                             |
-|                                | If it is a Linux tool e.g the tool    |                             |
-|                                | name is the command, treat it like    |                             |
-|                                | a command.                            |                             |
+|                                | If the tool name is the command, like |                             |
+|                                | most Linux tools, treat it like a     |                             |
+|                                | command.                              |                             |
 |                                |                                       |                             |
 |                                | If the tool name is lowercase and     |                             |
 |                                | used at the start of a sentence, use  |                             |
