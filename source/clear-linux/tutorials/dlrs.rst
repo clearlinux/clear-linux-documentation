@@ -69,11 +69,17 @@ TensorFlow.
 #. Download and run either the `Eigen`_ or the `Intel MKL-DNN`_ docker image
    from `Docker Hub`_.
 
+#. Run the image with Docker:
+
+   .. code-block:: bash
+
+      docker run --name <image name>  --rm -i -t <clearlinux/stacks-dlrs-TYPE> bash
+
    .. note::
 
       You will enter the following commands in the running container.
 
-      Replace <docker_name> with the name of the image.
+      Replace <docker_name> with the name of the image you  specified above.
 
 #. Clone the benchmark repository:
 
