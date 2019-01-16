@@ -24,6 +24,7 @@ Explore our tutorials to discover what you can do with |CL|!
    hadoop
    fmv
    aws-web/aws-web
+   telemetry-e2e
    telemetry-backend/telemetry-backend
    smb/smb
    spark
@@ -31,3 +32,4 @@ Explore our tutorials to discover what you can do with |CL|!
    kata_migration
    kubernetes
    greengrass
+   dlrs

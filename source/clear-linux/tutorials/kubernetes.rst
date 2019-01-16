@@ -4,32 +4,31 @@ Run Kubernetes\* on |CL-ATTR|
 #############################
 
 This tutorial describes how to install, configure, and run the
-`Kubernetes container orchestration system`_ on |CL-ATTR| using different
-container engines and runtimes.
+`Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
+kata-runtime.
 
 Kubernetes\* is an open source system for automating deployment, scaling, and
 management of containerized applications. It groups containers that make up
 an application into logical units for easy management and discovery.
 
-Runc and Kata Containers\* kata-runtime adhere to :abbr:`OCI (Open Container Initiative*)`
-guidelines and work seamlessly with Kubernetes. `Kata Containers`_ provide
-strong isolation for untrusted workloads or  multi-tenant scenarios. Runc and
-Kata Containers can be allocated on a  per-pod basis so you can mix and match
-both on the same host to suit your needs.
+Kata Containers\* kata-runtime adheres to
+:abbr:`OCI (Open Container Initiative*)` guidelines and work seamlessly with
+Kubernetes. `Kata Containers`_ provide strong isolation for untrusted
+workloads or  multi-tenant scenarios. Kata Containers can be
+allocated on a per-pod basis so you can mix and match both on the same host
+to suit your needs.
 
-This tutorial describes the following combinations:
-
-* Kubernetes with Docker and runc
-* Kubernetes with CRI-O and kata-runtime
+.. contents:: :local:
+   :depth: 1
 
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| and updated to the latest
-release on your host system. You can learn about the benefits of having an
-up-to-date system for cloud orchestration on the :ref:`swupd-about`
-page. For detailed instructions on installing |CL| on a bare metal system,
-follow the :ref:`bare metal installation tutorial<bare-metal-install>`.
+This tutorial assumes you have already installed |CL|. For detailed
+instructions on installing |CL| on a bare metal system, follow the
+:ref:`bare metal installation tutorial<bare-metal-install>`. Learn about the
+benefits of having an up-to-date system for cloud orchestration on the
+:ref:`swupd-about` page.
 
 Before you install any new packages, update |CL| with the following command:
 
@@ -40,9 +39,16 @@ Before you install any new packages, update |CL| with the following command:
 Install Kubernetes and CRI runtimes
 ***********************************
 
-Kubernetes and a set of supported :abbr:`CRI (Container Runtime Interface)`
-runtimes are included in the `cloud-native-basic`_ bundle. To install the
-framework, enter the following command:
+Kubernetes, a set of supported :abbr:`CRI (Container Runtime Interface)`
+runtimes, and networking plugins, are included in the `cloud-native-basic`_
+bundle.
+
+.. note::
+
+   CRI-O’s default plugin_dir is :file:`/opt/bin/cni`.
+   CNI plugins are installed as part of ``cloud-native-basic``.
+
+To install this framework, enter the following command:
 
 .. code-block:: bash
 
@@ -105,7 +111,7 @@ deployment and your security needs.
          On systems with limited resources, some performance degradation may
          be observed while swap is disabled.
 
-#. Switch to root to modify `hostname`:
+#. Switch to root to modify the `hosts` file:
 
    .. code-block:: bash
 
@@ -127,49 +133,7 @@ deployment and your security needs.
 Configure and run Kubernetes
 ****************************
 
-This section describes how to configure and run Kubernetes with:
-
-* Docker and runc
-* CRI-O and kata-runtime
-
-Configure and run Docker + runc
-===============================
-
-#.  Enable the Docker service:
-
-    .. code-block:: bash
-
-       sudo systemctl enable docker.service
-
-#.  Create (or edit if it exists) the file
-    :file:`/etc/systemd/system/docker.service.d/51-runtime.conf` and include the following lines:
-
-    .. code-block:: bash
-
-       [Service]
-       Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime runc"
-
-#.  Create (or edit if it exists) the file :file:`/etc/systemd/system/kubelet.service.d/10-kubeadm.conf` and include the following lines:
-
-    .. code-block:: bash
-
-       [Service]
-       Environment="KUBELET_EXTRA_ARGS="
-
-#.  Enter the commands:
-
-    .. code-block:: bash
-
-       sudo systemctl daemon-reload
-       sudo systemctl restart docker
-       sudo systemctl restart kubelet
-
-#.  Initialize the master control plane with the command:
-
-    .. code-block:: bash
-
-       sudo kubeadm init --ignore-preflight-errors=SystemVerification
-
+This section describes how to configure and run Kubernetes with CRI-O and kata-runtime.
 
 Configure and run CRI-O + kata-runtime
 ======================================
@@ -211,67 +175,57 @@ If you choose the `flannel` add-on, then you must add the following to the
 
     --pod-network-cidr 10.244.0.0/16
 
-If you are using CRI-O and `flannel` and you want to use Kata Containers, edit
-the :file:`/etc/crio/crio.conf` file to add:
+If you are using CRI-O and `flannel` and you want to use Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
 
 ..  code-block:: bash
 
     [crio.runtime]
     manage_network_ns_lifecycle = true
 
+Create a symlink for the network overlays:
+
+.. code-block:: bash
+
+   sudo ln -s /usr/libexec/cni /opt/cni/bin
+
+.. note::
+
+   |CL| installs CNI plugins that are part of the `cloud-native-basic`
+   bundle to :file:`/usr/libexec/cni`. The directory is required because `
+   swupd verify` may use it to repair a system to a known good state.
+
 **Notes about Weave Net add-on**
 
-If you choose the `Weave Net` add-on, then you must make the following changes
-because it installs itself in the :file:`/opt/cni/bin` directory.
+If you choose the `Weave Net` add-on, you must make the following
+changes because it installs itself in the :file:`/opt/cni/bin` directory.
 
-If you are using Docker and `Weave Net`, edit the :file:`kubeadm.conf` file to
-add:
-
-..  code-block:: bash
-
-    Environment="KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin"
-
-If you are using CRI-O and `Weave Net`, you must complete the following steps.
-
-#.  Edit the :file:`/etc/crio/crio.conf` file to change `plugin_dir` from:
-
-    ..  code-block:: bash
-
-        plugin_dir = "/usr/libexec/cni/"
-
-    to:
-
-    ..  code-block:: bash
-
-        plugin_dir = "/opt/cni/bin"
+For using CRI-O and ``Weave Net``, complete the following step.
 
 #.  Add the `loopback` CNI plugin to the plugin path with the command:
 
-    ..  code-block:: bash
+    code-block:: bash
 
-        sudo ln -s /usr/libexec/cni/loopback /opt/cni/bin/loopback
-
+    sudo ln -s /usr/libexec/cni/loopback /opt/bin/cni/loopback
 
 Use your cluster
 ****************
 
 Once your master control plane is successfully initialized, instructions on
 how to use your cluster and its *IP*, *token*, and *hash* values are
-displayed. It is important that you record the cluster values because they are
-needed when joining worker nodes to the cluster. Some values have a valid
+displayed. It is important that you record the cluster values because they
+are needed when joining worker nodes to the cluster. Some values have a valid
 period. The values are presented in a format similar to:
 
 .. code-block:: bash
 
    kubeadm join <master-ip>:<master-port> --token <token> --discovery-token-ca-cert-hash <hash>
 
-
 **Congratulations!**
 
-You've successfully installed and set up Kubernetes in |CL| using Docker and
-runc or CRI-O and kata-runtime. You are now ready to follow on-screen
-instructions to deploy a pod network to the cluster and join worker nodes
-with the displayed token and IP information.
+You've successfully installed and set up Kubernetes in |CL| using CRI-O and
+kata-runtime. You are now ready to follow on-screen instructions to deploy a
+pod network to the cluster and join worker nodes with the displayed token
+and IP information.
 
 Related topics
 **************
@@ -314,8 +268,7 @@ Proxy configuration (optional)
 ******************************
 
 If you use a proxy server, you must set your proxy environment variables and
-create an appropriate proxy configuration file for both CRI-O and Docker
-services. Consult your IT department if you are behind a corporate proxy for
+create an appropriate proxy configuration file for both CRI-O services. Consult your IT department if you are behind a corporate proxy for
 the appropriate values. Ensure that your local IP is **explicitly included**
 in the environment variable *NO_PROXY*. (Setting *localhost* is not enough.)
 
@@ -324,17 +277,17 @@ commands as a shell script to configure all of these services in one step:
 
 .. code-block:: bash
 
-      services=('crio' 'docker')
-      for s in "${services[@]}"; do
-      sudo mkdir -p "/etc/systemd/system/${s}.service.d/"
-      cat << EOF | sudo tee "/etc/systemd/system/${s}.service.d/proxy.conf"
-      [Service]
-      Environment="HTTP_PROXY=${http_proxy}"
-      Environment="HTTPS_PROXY=${https_proxy}"
-      Environment="SOCKS_PROXY=${socks_proxy}"
-      Environment="NO_PROXY=${no_proxy}"
-      EOF
-      done
+   services=('crio')
+   for s in "${services[@]}"; do
+   sudo mkdir -p "/etc/systemd/system/${s}.service.d/"
+   cat << EOF | sudo tee "/etc/systemd/system/${s}.service.d/proxy.conf"
+   [Service]
+   Environment="HTTP_PROXY=${http_proxy}"
+   Environment="HTTPS_PROXY=${https_proxy}"
+   Environment="SOCKS_PROXY=${socks_proxy}"
+   Environment="NO_PROXY=${no_proxy}"
+   EOF
+   done
 
 Troubleshooting
 ***************
@@ -376,15 +329,50 @@ Troubleshooting
   to set the proxy variables permanently, and how to make them available for
   all the types of access that you will use, such as remote SSH access.
 
+  If the result of the above commands is blank, you may need to add a
+  ``profile`` to the :file:`/etc` directory. To do so, follow these steps.
+
+  #. Create a `profile` in :file:`/etc`
+
+     .. code-block:: bash
+
+        sudo touch profile
+
+  #. With a preferred editor, open `profile`, and enter your proxy settings.
+     Example shown below.
+
+     .. code-block:: bash
+
+        export "HTTP_PROXY=http://proxy.example.com:443"
+        export "HTTPS_PROXY=http://proxy.example.com:445"
+        export "SOCKS_PROXY=http://proxy.example.com:1080"
+        export "NO_PROXY= site.com,.site.com,localhost,127.0.0.1,<master IP>
+
+  <master IP> can be obtained by running :command:`ifconfig`.
+
+  #. Save and exit the `profile`.
+
+  #. Run:
+
+     .. code-block:: bash
+
+        sudo source profile
+
+  #. To assure your system isn't running previous session variables, run:
+
+     .. code-block:: bash
+
+        sudo kubeadm reset --cri-socket=/run/crio/crio.sock
+
+  #. Continue below while pass `-E` in the command as shown.
+
+
 * Missing environment variables.
 
   If you are behind a proxy server, pass environment variables by adding *-E*
   to the command that initializes the master control plane.
 
   .. code-block:: bash
-
-    /* Kubernetes with Docker + runc */
-    sudo -E kubeadm init --ignore-preflight-errors=SystemVerification
 
     /* Kubernetes with CRI-O + kata-runtime */
     sudo -E kubeadm init --cri-socket=/run/crio/crio.sock
