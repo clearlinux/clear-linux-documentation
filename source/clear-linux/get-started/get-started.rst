@@ -11,31 +11,23 @@ Pre-install
 ***********
 
 * :ref:`system-requirements` 
-* :ref:`compatibility-check`
-* :ref:`bootable-usb` 
 
+.. toctree::
+   :maxdepth: 1
 
+   compatibility-check
+   bootable-usb/bootable-usb   
+   bootable-usb/bootable-usb-beta-all
 
 Install |CL| 
 ************
 
-* :ref:`bare-metal-install` 
-* :ref:`bare-metal-manual-install`
-* :ref:`virtual-machine-install`
-* :ref:`live-image` 
-* :ref:`bare-metal-install-beta`
-
 .. toctree::
-   :maxdepth: 2
-   :hidden:
+   :maxdepth: 1
 
    bare-metal-install/bare-metal-install
    bare-metal-manual-install/bare-metal-manual-install
    cgdisk-manual-install/cgdisk-manual-install
    virtual-machine-install/virtual-machine-install
    live-image
-   compatibility-check
-   bootable-usb/bootable-usb
-
    bare-metal-install-beta/bare-metal-install-beta
-   bootable-usb/bootable-usb-beta-all
