@@ -24,7 +24,8 @@ This guide assumes:
 
 .. _man_swupd:
 
-For a full listing of commands and options please see the man page in |CL|
+For a full listing of commands and options please see the man page found in
+the `swupd` `source code`_ or on |CL| itself. 
 
 .. code-block:: bash
 
@@ -181,3 +182,4 @@ Dependencies common to other bundles will not be removed
 
    sudo swupd bundle-remove dev-utils-dev
 
+.. _source code: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
