@@ -6,7 +6,8 @@ Install |CL-ATTR| on bare metal
 These instructions guide you through the installation of |CL-ATTR|
 on bare metal using a bootable USB drive.
 
-.. contents:: :local:
+.. contents::
+   :local:
    :depth: 1
 
 System requirements
@@ -24,7 +25,7 @@ Get the latest |CL| installer image from the `downloads page`_. See Figure 1.
 Look for the :file:`clear-[version number]-installer.img.xz` file.
 
 .. figure:: figures/bare-metal-install-1.png
-   :scale: 50 %
+   :scale: 50%
    :alt: Visit Downloads
 
    Figure 1: Visit Downloads
@@ -35,11 +36,10 @@ Optionally, you can use this command:
 
    curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep "installer")
 
-#. Follow the instructions relevant to your OS and
-   :ref:`create a bootable USB drive <bootable-usb>'.
+#. Follow the instructions relevant to your OS and :ref:`create a bootable USB drive<bootable-usb>'.
 
 #. After downloading the image, :ref:`verify and decompress the file based on
-   your system <bootable-usb-all>`.
+   your system<bootable-usb-all>`.
 
 .. _install-on-target:
 
@@ -69,7 +69,7 @@ Follow these steps to install |CL| on the target system:
 #. This action launches the |CL| installer boot menu, shown in figure 2.
 
    .. figure:: figures/bare-metal-install-2.png
-      :scale: 50 %
+      :scale: 50%
       :alt: Clear Linux OS Installer boot menu
 
       Figure 2: Clear Linux OS Installer boot menu
@@ -84,7 +84,7 @@ Main Menu
 The |CL| Installer Main Menu appears as shown in Figure 3.
 
 .. figure:: figures/bare-metal-install-3.png
-   :scale: 100 %
+   :scale: 100%
    :alt: Clear Linux OS Installer Main Menu
 
    Figure 3: Clear Linux OS Installer Main Menu
@@ -154,7 +154,7 @@ Choose Timezone
       return to the Main Menu.
 
    .. figure:: figures/bare-metal-install-4.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Select System Timezone
 
       Figure 4: Select System Timezone
@@ -177,7 +177,7 @@ Choose Language
       Select :guilabel:`Cancel` to restore the previously defined value and return to the Main Menu.
 
    .. figure:: figures/bare-metal-install-5.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Select System Language
 
       Figure 5: Select System Language
@@ -204,7 +204,7 @@ Configure the Keyboard
       Select :guilabel:`Cancel` to restore the previously defined value and return to the Main Menu.
 
    .. figure:: figures/bare-metal-install-6.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Select Keyboard menu
 
       Figure 6: Select Keyboard menu
@@ -221,7 +221,7 @@ Configure Media
 #. Navigate to the desired media until highlighted.
 
    .. figure:: figures/bare-metal-install-7.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Configure Media menu
 
       Figure 7: Configure Media menu
@@ -266,7 +266,7 @@ Auto partition will configure the media to meet the minimum requirements.
    Upon confirmation, you're returned to the Main Menu.
 
    .. figure:: figures/bare-metal-install-8.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Auto Partition
 
       Figure 8: Auto Partition
@@ -345,7 +345,7 @@ boot partition
 #. Select :guilabel:`Enter` to confirm.
 
    .. figure:: figures/bare-metal-install-9.png
-      :scale: 100 %
+      :scale: 100%
       :alt: boot partition
 
       Figure 9: boot partition
@@ -373,7 +373,7 @@ swap partition
 #. Select :guilabel:`Enter` to continue.
 
    .. figure:: figures/bare-metal-install-10.png
-      :scale: 100 %
+      :scale: 100%
       :alt: swap partition
 
       Figure 10: swap partition
@@ -389,7 +389,7 @@ root partition
    #. Optional: Select :guilabel:`[X] Encrypt` to encrypt the partition.
 
       .. figure:: figures/bare-metal-install-11.png
-         :scale: 100 %
+         :scale: 100%
          :alt: Encrypt partition
 
          Figure 11: Encrypt partition
@@ -402,7 +402,7 @@ root partition
          Minimum length is 8 characters. Maximum length is 94 characters.
 
       .. figure:: figures/bare-metal-install-12.png
-         :scale: 100 %
+         :scale: 100%
          :alt: Encryption Passphrase
 
          Figure 12: Encryption Passphrase
@@ -438,7 +438,7 @@ root partition
    should be similar to those shown in Figure 13.
 
    .. figure:: figures/bare-metal-install-13.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Partitions
 
       Figure 13: Partitions
@@ -465,7 +465,7 @@ For more detailed information, visit our :ref:`telemetry-about` page.
 #. Select :kbd:`Enter` to confirm.
 
    .. figure:: figures/bare-metal-install-14.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Enable Telemetry
 
       Figure 14: Enable Telemetry
@@ -509,7 +509,7 @@ interface settings are automatically applied.
    .. note:: Multiple network interfaces may appear.
 
    .. figure:: figures/bare-metal-install-15.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Configure Network Interfaces
 
       Figure 15: Configure Network Interfaces
@@ -520,7 +520,7 @@ interface settings are automatically applied.
    :kbd:`Spacebar` to deselect.
 
    .. figure:: figures/bare-metal-install-16.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Network interface configuration
 
       Figure 16: Network interface configuration
@@ -560,7 +560,7 @@ instruction.
 #. Navigate to the field :guilabel:`HTTPS Proxy`.
 
    .. figure:: figures/bare-metal-install-17.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Configure the network proxy
 
       Figure 17: Configure the network proxy
@@ -588,7 +588,7 @@ Test Network Settings
    A progress bar appears as shown in Figure 18.
 
    .. figure:: figures/bare-metal-install-18.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Testing Networking dialogue
 
       Figure 18: Testing Networking dialogue
@@ -610,7 +610,7 @@ Bundle Selection
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
 
    .. figure:: figures/bare-metal-install-19.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Bundle Selection
 
       Figure 19: Bundle Selection
@@ -632,7 +632,7 @@ Add New User
 #. Select :guilabel:`Add New User` as shown in Figure 20.
 
    .. figure:: figures/bare-metal-install-20.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Add New User, User Name
 
       Figure 20: Add New User
@@ -644,7 +644,7 @@ Add New User
       The User Name must be alphanumeric and can include spaces, commas, or hyphens. Maximum length is 64 characters.
 
    .. figure:: figures/bare-metal-install-21.png
-      :scale: 100 %
+      :scale: 100%
       :alt: User Name
 
       Figure 21: User Name
@@ -671,7 +671,7 @@ Add New User
       Selecting this option enables sudo privileges for the user.
 
    .. figure:: figures/bare-metal-install-22.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Administrative rights
 
       Figure 22: Administrative rights
@@ -695,7 +695,7 @@ Modify / Delete User
 #. Select :kbd:`Enter` to modify the user.
 
    .. figure:: figures/bare-metal-install-23.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Modify User
 
       Figure 23: Modify User
@@ -732,7 +732,7 @@ will be used every time you install or update a new kernel.
 #. To add or remove arguments, choose one of the following options.
 
    .. figure:: figures/bare-metal-install-24.png
-      :scale: 100 %
+      :scale: 100%
       :alt: kernel command line
 
       Figure 24: kernel command line
@@ -755,7 +755,7 @@ Kernel Selection
 #. To select a differnt kernel, navigate to it using :guilabel:`Tab`.
 
    .. figure:: figures/bare-metal-install-25.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Kernel selection
 
       Figure 25: Kernel selection
@@ -778,7 +778,7 @@ If you have your own custom mirror of |CL|, you can add its URL.
 #. Select :kbd:`Confirm`.
 
    .. figure:: figures/bare-metal-install-26.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Swupd Mirror
 
       Figure 26: Swupd Mirror
@@ -799,7 +799,7 @@ Assign Hostname
       63 characters.
 
    .. figure:: figures/bare-metal-install-27.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Assign Hostname
 
       Figure 27: Assign Hostname
@@ -822,7 +822,7 @@ follow the onscreen instructions.
 #. Select the desired option.
 
    .. figure:: figures/bare-metal-install-28.png
-      :scale: 100 %
+      :scale: 100%
       :alt: Automatic OS Updates
 
       Figure 28: Automatic OS Updates

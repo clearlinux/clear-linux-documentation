@@ -8,7 +8,8 @@ desktop without modifying the host system. Using the live image, you can
 explore the possibilities of developing with |CL|. You can also launch the
 desktop installer to install |CL| on your target system.
 
-.. contents:: :local:
+.. contents::
+   :local:
    :depth: 1
 
 System requirements
@@ -87,3 +88,4 @@ Launch the installer
    :end-before: incl-bare-metal-installation-end:
 
 .. _Navigate to the image directory: https://download.clearlinux.org/image/
+
