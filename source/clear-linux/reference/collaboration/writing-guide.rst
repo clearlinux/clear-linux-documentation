@@ -79,21 +79,57 @@ concise and scannable.
 
 Avoid using the product name in page titles and headings.
 
+.. _scannable-content:
+
 Make content scannable
 **********************
 
 Organize your content to make it scannable for the reader, which helps them find
-what they need quickly, and helps them understand more efficiently.
+what they need quickly, and to understand the information more efficiently.
 
 * **Put the most important content first.** Make sure your introduction clearly
-  communicates what the reader can find on the page. Organize supporting
-  information towards the end of the page.
-* **Write scannable headings.** Think of headings as the outline for your
-  content. Write headings that are short, specific, and use `Parallelism`_.
-  Top level headings should show the most important subjects on the page.
+  communicates what the reader can find on the page. Present the point of the
+  document first, and organize supporting information towards the end of the
+  page.
+* **Write scannable headings.** Expect readers of documentation to skim and scan
+  the content, and to leave if they dont find what they need quickly. Good
+  headings add organization to your content and help the reader to find and
+  understand content more effectively. Follow our guidelines for writing
+  effective `Headings`_.
 * **Write great link text.** Great link text tells the reader what they can
   expect when they click on a link. It also helps make the page more scannable.
   Follow our guidelines for writing `Link text`_.
+
+Headings
+========
+
+Use these guidelines to write effective headings:
+
+* **Be concise and descriptive.** Use only the words necessary to describe the
+  section.
+* **Use sentence case.** Capitalize only the first word and proper nouns in a
+  heading.
+* **Avoid punctuation.** Unless your heading is a question, don't use sentence
+  punctuation in headings.
+* **Use parallel structure.** Headings at the same level should use the same
+  grammatical pattern. This provides structure to the document and helps users
+  find information more easily. See :ref:`parallelism`.
+* **Use strong verbs.** Strong, active verbs get to the point. Avoid -ing verbs,
+  such as *Running*, *Testing*, etc.
+
+For example, two headings at the same level:
+
+**Use this:** ::
+
+  Install software
+
+  Configure software
+
+**Not this:** ::
+
+  Installing the Software on the Platform
+
+  Software Configuration.
 
 Link text
 =========

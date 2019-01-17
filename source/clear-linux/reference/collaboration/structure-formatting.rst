@@ -102,12 +102,12 @@ Use headings to section and organize your content for better readability and
 clarity.
 
 * All files must have a top level heading, which is the title for the page.
-* Headings should be short and descriptive.
-* Write headings in sentence case (capitalize only the first word and proper
-  nouns).
 * Up to three additional levels of headings are allowed under the title heading.
-* Each heading must be followed by at least one paragraph of content. There
-  should never be two consecutive headings.
+* Each heading should be followed by at least one paragraph of content. Avoid
+  two or more consecutive headings.
+
+Refer to the :ref:`writing-guide` for tips on using headings to create
+:ref:`scannable content <scannable-content>`.
 
 To mark up headings in the .rst file:
 

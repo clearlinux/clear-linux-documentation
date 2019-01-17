@@ -4,8 +4,8 @@ Documentation build instructions
 .. todo add comment re not using standards here.
 
 `Clear Linux\* OS documentation`_ is written using `reStructuredText`_ and
-built using `Sphinx`_. Documentation may be built locally for development and
-testing purposes by following the instructions in this README.
+built using `Sphinx`_. Follow the instructions in this README to build the
+documentation locally for development and testing.
 
 Please make yourself familiar with our `contribution guidelines`_ before
 submitting a contribution.
@@ -32,7 +32,7 @@ local machine.
 Run the build
 *************
 
-We build our documentation using . In the source directory of your
+We build our documentation using Sphinx. In the source directory of your
 local clear-linux-documentation repository, build the documentation by running
 **make html**:
 
