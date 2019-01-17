@@ -44,13 +44,13 @@ page toctree.
 
 For example, the :ref:`collaboration` page toctree looks like:
 
-  .. code-block:: rest
+.. code-block:: rest
 
-     .. toctree::
-        :maxdepth: 1
+   .. toctree::
+      :maxdepth: 1
 
-        writing-guide
-        structure-formatting
+      writing-guide
+      structure-formatting
 
 Additionally, each page must include a uniquely named reST label directly before
 the page title, to enable the `Sphinx ref role`_ for linking to a page.
@@ -58,19 +58,19 @@ the page title, to enable the `Sphinx ref role`_ for linking to a page.
 For example, this page "Structure and formating" has the label
 ``.. _structure-formatting``:
 
-  .. code-block:: rest
+.. code-block:: rest
 
-     .. _structure-formatting:
+   .. _structure-formatting:
 
-     Structure and formatting
-     ########################
+   Structure and formatting
+   ########################
 
 This page can then be referenced from other pages in the documentation using the
 `:ref:` role:
 
-  .. code-block:: rest
+.. code-block:: rest
 
-     :ref:`structure-formatting`
+   :ref:`structure-formatting`
 
 Documentation organization
 **************************
@@ -305,6 +305,8 @@ Use the correct ending punctuation for sentence style bullet lists. For example:
 
 **Use this:**
 
+::
+
   When setting the user code, remember:
 
   * Use a number that has a meaning for you.
@@ -312,6 +314,8 @@ Use the correct ending punctuation for sentence style bullet lists. For example:
   * Do not disclose the user code to anyone, including the security company.
 
 **Not this:**
+
+::
 
   When setting the user code remember:
 
@@ -389,9 +393,9 @@ Use the standard `reST markup for links`_.
 
 To add a cross-reference to another documentation page, use the `:ref:` role:
 
-  .. code-block:: rest
+.. code-block:: rest
 
-     :ref:`structure-formatting`
+   :ref:`structure-formatting`
 
 To add an external link, we use named references that refer to a defined
 link/label at the bottom of the page.
@@ -442,12 +446,15 @@ Follow these guidelines when using graphics in support of your documentation:
         Figure 1: This is the figure 1 caption.
 
 * Include at least one direct reference to an image from the main text, using
-  the figure number.
+  the figure number. For example:
 
-  For example:
+  **Use this:** ::
 
-    **Use this:** "Figure 1"
-    **Not this:** "The figure above or below"
+    Figure 1
+
+  **Not this:** ::
+
+    The figure above or below
 
 Images should follow these naming and location conventions:
 

@@ -113,10 +113,13 @@ All links in content should follow these guidelines:
 
 For example:
 
-  **Use this:** For more information about dogs, read the `dog wiki article`_.
+**Use this:** ::
 
-  **Not this:** For more information about dogs, `click here`_.
+  For more information about dogs, read the `dog wiki article`_.
 
+**Not this:** ::
+
+  For more information about dogs, `click here`_.
 
 Use strong verbs
 ****************
@@ -128,28 +131,31 @@ Use imperatives
 ===============
 
 Commands, also called imperatives, are the fastest and most direct way of giving
-someone instructions.
+someone instructions. For example:
 
-For example:
+**Use this:** ::
 
-   **Use this:** Send it to me.
+  Send it to me.
 
-   **Not this:** I would appreciate it if you would send it to me.
+**Not this:** ::
+
+  I would appreciate it if you would send it to me.
 
 Use present tense
 =================
 
 Use simple present tense instead of future tense for most text. Search for the
 words "will" or "shall" to find future tense instances. Future tense is
-acceptable for conditional statements, for example, in a caution or a warning.
+acceptable for conditional statements, such as in a caution or a warning. For
+example:
 
-For example:
+**Use this:** ::
 
-  **Use this:** The system operates at a nominal temperature of 180 degrees
-  Fahrenheit.
+  The system operates at a nominal temperature of 180 degrees Fahrenheit.
 
-  **Not this:** The system will operate at a nominal temperature of 180
-  degrees Fahrenheit.
+**Not this:** ::
+
+  The system will operate at a nominal temperature of 180 degrees Fahrenheit.
 
 Avoid nominalizations
 =====================
@@ -169,26 +175,37 @@ For example:
 
 For example:
 
-  **Use this:** We discussed the matter.
+**Use this:** ::
 
-  **Not this:** We had a discussion about the matter.
+  We discussed the matter.
+
+**Not this:** ::
+
+  We had a discussion about the matter.
 
 Or:
 
-  **Use this:** IT has installed the software.
+**Use this:** ::
 
-  **Not this:** IT has completed the installation of the software.
+  IT has installed the software.
+
+**Not this:** ::
+
+  IT has completed the installation of the software.
 
 Avoid words ending in -ing
 ==========================
 
-Avoid using words ending in -ing unless they are part of a technical name.
+Avoid using words ending in -ing unless they are part of a technical name. For
+example:
 
-For example:
+**Use this:** ::
 
-  **Use this:** There is no way to verify this.
+  There is no way to verify this.
 
-  **Not this:** There is no way of verifying this.
+**Not this:** ::
+
+  There is no way of verifying this.
 
 Use the active voice
 ====================
@@ -203,34 +220,48 @@ action.
 
 For example:
 
-  **Use this:** I made a mistake.
+**Use this:** ::
 
-  **Not this:** A mistake was made. *(By whom?)*
+  I made a mistake.
+
+**Not this:** ::
+
+  A mistake was made. *(By whom?)*
 
 Or:
 
-  **Use this:** We released version 2.0 in June.
+**Use this:** ::
 
-  **Not this:** Version 2.0 was released in June.
+  We released version 2.0 in June.
+
+**Not this:** ::
+
+  Version 2.0 was released in June.
 
 Avoid long noun phrases
 ***********************
 
 Noun phrases (a noun and other words that describe or modify it) can be
 difficult to understand. Try to limit the number of modifiers in a noun phrase
-to two.
+to two. For example:
 
-For example:
+**Use this:** ::
 
-  **Use this:** Integration policies for power management mechanisms.
+  Integration policies for power management mechanisms.
 
-  **Not this:** Power management mechanism integration policies.
+**Not this:** ::
+
+  Power management mechanism integration policies.
 
 Or:
 
-  **Use this:** Requirements for test desks that measure signal integrity.
+**Use this:** ::
 
-  **Not this:** Signal integrity test deck requirements.
+  Requirements for test desks that measure signal integrity.
+
+**Not this:** ::
+
+  Signal integrity test deck requirements.
 
 .. _parallelism:
 
@@ -338,13 +369,15 @@ Use the serial comma
 --------------------
 
 When writing a series of items, use the serial comma before the final *and* and
-*or* to avoid confusion and ambiguity.
+*or* to avoid confusion and ambiguity. For example:
 
-For example:
+**Use this:** ::
 
-  **Use this:** Mom, Dad, and I are going to the game.
+  Mom, Dad, and I are going to the game.
 
-  **Not this:** Mom, Dad and I are going to the game.
+**Not this:** ::
+
+  Mom, Dad and I are going to the game.
 
 .. _click here: https://en.wikipedia.org/wiki/Dog
 .. _dog wiki article: https://en.wikipedia.org/wiki/Dog
