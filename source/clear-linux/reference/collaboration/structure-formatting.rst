@@ -158,10 +158,10 @@ Use our quick reference for the most commonly used inline text elements:
 +--------------------------------+---------------------------------------+-----------------------------+
 | **Element**                    | **Convention**                        | **reST/Sphinx**             |
 +--------------------------------+---------------------------------------+-----------------------------+
-| Acronyms                       | First instance, display definition as | Use the ``:abbr:`` role.    |
-|                                | flyover text in this format:          |                             |
-|                                | ``:abbr:`Acronym (Definition)```      |                             |
-|                                | For subsequent uses, use the acronym. |                             |
+| Acronyms                       | Define acronym when first used. After | Use the ``:abbr:`` role, in |
+|                                | first use and definition, use the     | the following format:       |
+|                                | acronym only.                         |                             |
+|                                |                                       | ``:abbr:`Acronym (Def)```   |
 +--------------------------------+---------------------------------------+-----------------------------+
 | Bundle names                   | Bold                                  | Use the ``:command:`` role. |
 +--------------------------------+---------------------------------------+-----------------------------+

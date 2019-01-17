@@ -8,8 +8,7 @@ be improved? Help us out by contributing! If you haven't contributed before,
 take a moment to review our `Contribution guidelines`_.
 
 Do you have questions about the documentation that were not answered by these
-guidelines? Send your question to the `mailing list`_ at:
-dev@lists.clearlinux.org.
+guidelines? Send your question to the `mailing list`_.
 
 Contribution guidelines
 ***********************
@@ -21,9 +20,8 @@ readable documentation.
 .. toctree::
    :maxdepth: 1
 
-	Writing guide describes the style we use to keep our documents clear and concise. <writing-guide>
-	Structure and formatting guide explains how we use reStructuredText and Sphinx. <structure-formatting>
-	GitHub documentation repository shows our document organization. <https://github.com/clearlinux/clear-linux-documentation>
+	 Writing guide: Describes the style we use to keep our documents clear and concise. <writing-guide>
+   Structure and formatting guide: Explains how we organize and format content, using reStructuredText and Sphinx. <structure-formatting>
 
 How to contribute
 *****************
