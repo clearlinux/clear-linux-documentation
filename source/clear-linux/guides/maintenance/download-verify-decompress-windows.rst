@@ -27,12 +27,13 @@ eliminates the small chance of a corrupted image due to download issues. To
 support verification, each released |CL| image has a corresponding SHA512
 checksum file designated with the suffix `-SHA512SUMS`.
 
-#.  Download the corresponding SHA512 checksum file of your |CL| image.
-#.  Start Command Prompt.
-#.  Go to the directory with the downloaded image and checksum files.
-#.  Get the SHA512 checksum of the image with the command:
+#. Download the corresponding SHA512 checksum file of your |CL| image from
+   `the image directory`_.
+#. Start Command Prompt.
+#. Go to the directory with the downloaded image and checksum files.
+#. Get the SHA512 checksum of the image with the command:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
         CertUtil -hashfile ./clear-[version number]-[image type].[compression type] sha512
 
@@ -58,3 +59,5 @@ environment. To decompress the image, follow these steps:
       Figure 1: Windows 7-Zip extract file.
 
 .. _7-Zip: http://www.7-zip.org/
+
+.. _the image directory: https://download.clearlinux.org/image/

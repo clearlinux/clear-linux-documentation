@@ -27,7 +27,8 @@ eliminates the small chance of a corrupted image due to download issues. To
 support verification, each released |CL| image has a corresponding SHA512
 checksum file designated with the suffix `-SHA512SUMS`.
 
-#. Download the corresponding SHA512 checksum file of your |CL| image.
+#. Download the corresponding SHA512 checksum file of your |CL| image from
+   `the image directory`_.
 #. Start the Terminal app.
 #. Go to the directory with the downloaded image and checksum files.
 #. Verify the integrity of the image and compare it to its original checksum
@@ -56,3 +57,5 @@ platform or environment. To decompress the image, follow these steps:
 
 	  gunzip clear-[version number]-[image type].xz
 	  gunzip clear-[version number]-[image type].gz
+
+.. _the image directory: https://download.clearlinux.org/image/

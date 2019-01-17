@@ -12,7 +12,7 @@ on bare metal using a bootable USB drive.
 System requirements
 *******************
 
-Before you begin, verify your system meets the requirements to install |CL|:
+Assure that your target system supports the installation:
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
@@ -35,15 +35,11 @@ Optionally, you can use this command:
 
    curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep "installer")
 
-After downloading the image, :ref:`verify and decompress file based on your system <bootable-usb>`. The example below demonstrates use on Linux\* OS.
+#. Follow the instructions relevant to your OS and
+   :ref:`create a bootable USB drive <bootable-usb>'.
 
-.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
-   :Start-after: incl-decompress-image:
-   :end-before: incl-decompress-image-end:
-
-.. include:: ../bootable-usb/bootable-usb-linux.rst
-   :Start-after: copy-usb-linux:
-   :end-before: usb-next
+#. After downloading the image, :ref:`verify and decompress the file based on
+   your system <bootable-usb-all>`.
 
 .. _install-on-target:
 
@@ -853,12 +849,12 @@ Finish installation
 
 You have successfully installed |CL| on bare metal using the new installer.
 
-.. _incl-bare-metal-installation-end:
-
 Next steps
 **********
 
 :ref:`enable-user-space`
+
+.. _incl-bare-metal-installation-end:
 
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _telemetry: https://clearlinux.org/features/telemetry

@@ -23,10 +23,8 @@ With the appropriate image downloaded, choose the step-by-step instructions
 applicable to your system:
 
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 2
 
-    bootable-usb-linux
-    bootable-usb-windows
-    bootable-usb-mac
+   bootable-usb-all
 
 .. _image: https://download.clearlinux.org/image

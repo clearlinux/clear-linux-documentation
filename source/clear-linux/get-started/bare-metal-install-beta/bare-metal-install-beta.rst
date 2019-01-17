@@ -6,7 +6,7 @@ Install |CL-ATTR| from the live desktop beta image
 The live desktop beta image allows you to boot |CL-ATTR| into a GNOME
 desktop without modifying the host system. Using the live image, you can
 explore the possibilities of developing with |CL|. You can also launch the
-new installer and install |CL| on your target system.
+desktop installer to install |CL| on your target system.
 
 .. contents:: :local:
    :depth: 1
@@ -69,18 +69,18 @@ Launch the installer
 #. Select the icon, :guilabel:`Install Clear Linux OS`, shown in Figure 1.
 
    .. figure:: figures/bare-metal-install-beta-1.png
-     :scale: 50 %
-     :alt: Install Clear Linux OS icon
+      :scale: 50 %
+      :alt: Install Clear Linux OS icon
 
-     Figure 1: Install Clear Linux OS icon
+      Figure 1: Install Clear Linux OS icon
 
 #. Upon selecting the icon, the installer is launched, as shown in Figure 2.
 
    .. figure:: figures/bare-metal-install-beta-2.png
-     :scale: 50 %
-     :alt: Clear Linux OS Installer
+      :scale: 50 %
+      :alt: Clear Linux OS Installer
 
-     Figure 2: Clear Linux OS Installer
+      Figure 2: Clear Linux OS Installer
 
 .. include:: ../bare-metal-install/bare-metal-install.rst
    :Start-after: incl-bare-metal-installation:
