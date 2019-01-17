@@ -9,6 +9,9 @@ on bare metal using a bootable USB drive.
 .. contents:: :local:
    :depth: 1
 
+System requirements
+*******************
+
 Before you begin, verify your system meets the requirements to install |CL|:
 
 * :ref:`system-requirements`
@@ -20,11 +23,11 @@ Download the latest |CL| installer image
 Get the latest |CL| installer image from the `downloads page`_. See Figure 1.
 Look for the :file:`clear-[version number]-installer.img.xz` file.
 
-   .. figure:: figures/bare-metal-install-1.png
-      :scale: 50 %
-      :alt: Boot menu
+.. figure:: figures/bare-metal-install-1.png
+   :scale: 50 %
+   :alt: Visit Downloads
 
-      Figure 1: Boot menu
+   Figure 1: Visit Downloads
 
 Optionally, you can use this command:
 
@@ -32,8 +35,15 @@ Optionally, you can use this command:
 
    curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep "installer")
 
-Once you have downloaded the image,
-:ref:`verify and decompress the file based on your system <bootable-usb>`.
+After downloading the image, :ref:`verify and decompress file based on your system <bootable-usb>`. The example below demonstrates use on Linux\* OS.
+
+.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
+   :Start-after: incl-decompress-image:
+   :end-before: incl-decompress-image-end:
+
+.. include:: ../bootable-usb/bootable-usb-linux.rst
+   :Start-after: copy-usb-linux:
+   :end-before: usb-next
 
 .. _install-on-target:
 
@@ -77,13 +87,13 @@ Main Menu
 
 The |CL| Installer Main Menu appears as shown in Figure 3.
 
-   .. figure:: figures/bare-metal-install-3.png
-      :scale: 100 %
-      :alt: Clear Linux OS Installer Main Menu
+.. figure:: figures/bare-metal-install-3.png
+   :scale: 100 %
+   :alt: Clear Linux OS Installer Main Menu
 
-      Figure 3: Clear Linux OS Installer Main Menu
+   Figure 3: Clear Linux OS Installer Main Menu
 
-In the |CL| Installer Main Menu has two tabs:
+The |CL| Installer Main Menu has two tabs:
 :guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`.
 
 Navigate between tabs using the arrow keys or these shortcut keys:
@@ -233,9 +243,8 @@ Configure Media
 
    Two options for partitioning appear.
 
-#. Select :guilabel:`Auto Partition` to accept the default configuration, or
-   :guilabel:`Add Partition` to add partitions manually. See instructions
-   below.
+#. Navigate and select :guilabel:`Auto Partition` to accept the default
+   configuration, or :guilabel:`Add Partition` to add partitions manually. See instructions below.
 
 #. Select :kbd:`Enter` to :kbd:`Confirm`.
 
@@ -258,7 +267,7 @@ Auto partition will configure the media to meet the minimum requirements.
 
 #. Select :kbd:`Enter` to :kbd:`Confirm`.
 
-   This action returns you to the Main Menu.
+   Upon confirmation, you're returned to the Main Menu.
 
    .. figure:: figures/bare-metal-install-8.png
       :scale: 100 %
@@ -344,6 +353,10 @@ boot partition
       :alt: boot partition
 
       Figure 9: boot partition
+
+   .. note::
+
+      Encryption is disabled in the `boot` partition.
 
 swap partition
 --------------
@@ -571,10 +584,12 @@ Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 Test Network Settings
 =====================
 
-To manually assure network connectivity before installing |CL|,
-select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
+#. To manually assure network connectivity before installing |CL|,
+   select :guilabel:`Test Network Settings`
 
-A progress bar appears as shown in Figure 18.
+#. Select :guilabel:`Enter`.
+
+   A progress bar appears as shown in Figure 18.
 
    .. figure:: figures/bare-metal-install-18.png
       :scale: 100 %
@@ -582,10 +597,10 @@ A progress bar appears as shown in Figure 18.
 
       Figure 18: Testing Networking dialogue
 
-.. note::
+   .. note::
 
-   Any changes made to network settings are automatically tested
-   during configuration.
+      Any changes made to network settings are automatically tested
+      during configuration.
 
 Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
 
@@ -636,7 +651,7 @@ Add New User
       :scale: 100 %
       :alt: User Name
 
-      Figure User Name
+      Figure 21: User Name
 
 #. Enter a :guilabel:`Login`.
 
@@ -841,7 +856,7 @@ You have successfully installed |CL| on bare metal using the new installer.
 .. _incl-bare-metal-installation-end:
 
 Next steps
-==========
+**********
 
 :ref:`enable-user-space`
 
