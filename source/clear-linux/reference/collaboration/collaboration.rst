@@ -29,8 +29,7 @@ How to contribute
 There are multiple ways to contribute and help improve our documentation:
 
 * **Make a suggestion**: Have a documentation suggestion but no time to write it
-  yourself? Send your suggestion to the `mailing list`_ at:
-  dev@lists.clearlinux.org.
+  yourself? Send your suggestion to the `mailing list`_.
 * **Log an issue**: If you find a problem in our documentation (such as typos or
   out-of-date information), log an issue in the `documentation repository`_.
 * **Contribute directly via GitHub**: Whether you've found a typo, have better
