@@ -20,7 +20,7 @@ readable documentation.
 .. toctree::
    :maxdepth: 1
 
-	 Writing guide: Describes the style we use to keep our documents clear and concise. <writing-guide>
+   Writing guide: Describes the style we use to keep our documents clear and concise. <writing-guide>
    Structure and formatting guide: Explains how we organize and format content, using reStructuredText and Sphinx. <structure-formatting>
 
 How to contribute
