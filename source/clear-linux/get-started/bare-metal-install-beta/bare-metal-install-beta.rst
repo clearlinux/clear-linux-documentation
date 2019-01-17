@@ -64,7 +64,7 @@ USB drive, follow these steps.
 Launch the installer
 ====================
 
-#. After the |CL| live desktop image boots, select the :guilabel:`Activities`   menu in the upper left.
+#. After the |CL| live desktop image boots, select the :guilabel:`Activities` menu in the upper left.
 
 #. Select the icon, :guilabel:`Install Clear Linux OS`, shown in Figure 1.
 
@@ -82,9 +82,11 @@ Launch the installer
 
       Figure 2: Clear Linux OS Installer
 
+
 .. include:: ../bare-metal-install/bare-metal-install.rst
    :Start-after: incl-bare-metal-installation:
    :end-before: incl-bare-metal-installation-end:
+
 
 .. _Navigate to the image directory: https://download.clearlinux.org/image/
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
