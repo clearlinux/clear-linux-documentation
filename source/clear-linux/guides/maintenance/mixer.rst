@@ -68,7 +68,7 @@ Prerequisites
    Consul your IT department if you are behind a corporate proxy for the correct
    values.
 
-   Refer to `Configure Docker proxy info` for instruction.
+   Refer to `Configure Docker proxy info`_ for instruction.
 
 #. **Docker container**
 
@@ -199,7 +199,7 @@ A mix is created with the following steps:
 
    Deploy update content and images to your update server.
 
-   View the `Example: Deploy updates to target`_ for a simple deployment
+   View the `Example 3: Deploy updates to target`_ for a simple deployment
    scenario.
 
 Maintain or modify mix
@@ -211,8 +211,18 @@ create a mix. Increment the mix version number for the next mix.
 Examples
 ********
 
-Example: First time set up
-==========================
+The following examples are designed to work together and in order. For
+simplicity, we use a setup that can be easily reproduced using a stock |CL|
+install. We'll use:
+
+* A stock installation of |CL| with all `Prerequisites`_.
+* A web server that comes with |CL| to host the content updates.
+  (If you haven't already, `Set up a nginx web server for mixer`_.)
+* A simple VM that will update against the locally produced content created in
+  Example 2.
+
+Example 1: First time set up
+============================
 
 This example shows the basic steps for first time setup of mixer for a new mix.
 
@@ -230,6 +240,9 @@ This example shows the basic steps for first time setup of mixer for a new mix.
       cd ~/mixer
       mixer init
 
+   Note in the initialization output, that your initial mix version is set to
+   10 and that the minimum bundles have been added.
+
 #. Edit :file:`builder.conf` to set the value of CONTENTURL and VERSIONURL to
    the IP address of your content server:
 
@@ -244,41 +257,188 @@ This example shows the basic steps for first time setup of mixer for a new mix.
       CONTENTURL=http://192.168.25.52
       VERSIONURL=http://192.168.25.52
 
-Example: Create a simple mix
-============================
-
-.. TODO ADD/TEST actual working commands.
+Example 2: Create a simple mix
+==============================
 
 This example shows how to create a simple custom mix using upstream content.
+We'll create an image for a QEMU virtual machine which we can later use to test
+our mix.
 
-#. Update bundles in mix
+We can use the default bundles that were added during intialization, but these
+include the :command:`native-kernel` bundle which has hundreds of drivers we
+don't need for the QEMU virtual machine. So we will modify the default bundle
+set to get a smaller kernel image, which will also be faster to load.
 
-.. remove a default
-.. add a different
+#. Update bundles in mix:
 
-#. Build bundles
+   .. code-block:: bash
 
+      mixer bundle remove kernel-native
+      mixer bundle add kernel-kvm
 
-#. Create update
+#. Build bundles:
 
+   .. code-block:: bash
 
-#. Create image
+      mixer build bundles
 
+   Look in ~/mixer/update/image/<mix version>/full for the full chrot after the
+   :command:`build` command completes.
 
-#. Make next mix
+#. Build update content. Browse to your http://localhost site and you'll see
+   the web page is now up, but with no update content. Build the update content:
 
-.. add curl
+   .. code-block:: bash
 
-Example: Deploy updates to target
-=================================
+      mixer build update
 
-.. TODO DECIDE this is the part where you pull the content down, example uses VM.... How to Clear has a good presenation of it (explains the example scenario a little better I think).
-.. Does this make sense? look at example - does this HELP in anyway, or is it just extra steps?
+   Refresh your http://localhost site and now you can see the update content for
+   mix version 10.
 
-#. Make update available
+   Look in ~/mixer/update/www/<mix version> to see the update content in your
+   workspace.
 
-Example: Create a mix with custom RPM
-=====================================
+#. Configure image. Edit the ister configuration file for your image to include
+   all of the bundles you want preinstalled in the image. If this is the first
+   time creating an image, first get a copy of the
+   :file:`release-image-config.json` template file:
+
+   .. code-block:: bash
+
+      curl -O https://raw.githubusercontent.com/bryteise/ister/master/release-image-config.json
+
+   For this example, edit :file:`release-image-config.json` so that the root
+   partition size is "5G" and replace the "kernel-native" bundle with
+   "kernel-kvm".
+
+   .. code-block:: console
+
+      {
+        "DestinationType" : "virtual",
+        "PartitionLayout" : [ { "disk" : "release.img", "partition" : 1, "size" : "32M", "type" : "EFI" },
+                              { "disk" : "release.img", "partition" : 2, "size" : "16M", "type" : "swap" },
+                              { "disk" : "release.img", "partition" : 3, "size" : "5G", "type" : "linux" } ],
+        "FilesystemTypes" : [ { "disk" : "release.img", "partition" : 1, "type" : "vfat" },
+                              { "disk" : "release.img", "partition" : 2, "type" : "swap" },
+                              { "disk" : "release.img", "partition" : 3, "type" : "ext4" } ],
+        "PartitionMountPoints" : [ { "disk" : "release.img", "partition" : 1, "mount" : "/boot" },
+                                   { "disk" : "release.img", "partition" : 3, "mount" : "/" } ],
+        "Version": "latest",
+        "Bundles": ["kernel-kvm", "os-core", "os-core-update"]
+      }
+
+#. Build the image.
+
+   .. code-block:: bash
+
+      sudo mixer build image
+
+   The output from this step will be :file:`release.img`, which is a live image.
+
+#. Make the next mix. Create a new version of your mix, for the live image to
+   update to. Increment your mix version by 10:
+
+   .. code-block:: bash
+
+      mixer versions update
+
+   Repeat steps 1-3 to add the upstream :command:`curl` bundle to the mix:
+
+   .. code-block:: bash
+
+      mixer bundle add curl
+      mixer build bundles
+      mixer build update
+
+   And build optional delta-packs, which will help reduce client update time:
+
+   .. code-block:: bash
+
+      mixer build delta-packs --from 10 --to 20
+
+   Refresh your http://localhost site and now you can see the update content for
+   mix version 20.
+
+   Look in ~/mixer/update/www/<mix version> to see the update content in your
+   workspace.
+
+Example 3: Deploy updates to target
+===================================
+
+The image created in Example 2 is directly bootable in QEMU. In this example,
+we'll boot the image from Example 2 to verify it, and update the image from mix
+version 10 (which the image was built from), to mix version 20.
+
+#. Set up the QEMU environment.
+
+   Install the :command:`kvm-host` bundle to your |CL|:
+
+   .. code-block:: bash
+
+      sudo swupd bundle-add kvm-host
+
+   Get the virtual EFI firmware, download the image launch script, and make it
+   executable:
+
+   .. code-block:: bash
+
+      curl -O https://download.clearlinux.org/image/OVMF.fd
+      curl -O https://download.clearlinux.org/image/start_qemu.sh
+      chmod +x start_qemu.sh
+
+#. Start your VM image (created in Example 2):
+
+   .. code-block:: bash
+
+      sudo ./start_qemu.sh release.img
+
+#. Log in as root and set a password
+
+#. Try out your mix.
+
+   Take a look at the default bundles installed in your mix:
+
+   .. code-block:: bash
+
+      swupd info
+      swupd bundle-list
+      swupd bundle-list -a
+
+   Note that you cannot see the curl bundle that you added in Example 2 because
+   your mix is still on version 10.
+
+   Check for updates. You should see that version 20 is available. Use swupd to
+   update your mix:
+
+   .. code-block:: bash
+
+      swupd check-update
+      swupd update
+      swupd bundle-list -a
+
+   Now your mix should be at version 20 and curl is now available. Try using
+   curl. This will fail as curl is not yet installed:
+
+   .. code-block:: console
+
+      curl: command not found
+      To install curl use: swupd bundle-add curl
+
+   Add the new bundle from your update server to your VM. Retry curl. It works!
+
+   .. code-block:: bash
+
+      swupd bundle-add curl
+      curl -O https://download.clearlinux.org/image/start_qemu.sh
+
+   And shutdown your VM:
+
+   .. code-block:: bash
+
+      poweroff
+
+.. Example: Create a mix with custom RPM
+.. =====================================
 .. TODO DECIDE do we want to do this? this would show copy into local-rpms... (or add a note in the basic?) Does this example do anything that autospec doesnt already show, aside from the copy step? Can that be explained elsewhere?
 
 Mixer reference
@@ -368,8 +528,6 @@ Additional explanation of variables in :file:`builder.conf` is provided in Table
 | `DOCKER_IMAGE_PATH`           | Sets the base name of the docker image mixer will pull   |
 |                               | down in order to run builds in the proper container.     |
 +-------------------------------+----------------------------------------------------------+
-| `FORMAT`                      | >>>>>>>>>>>>>>>>TODO                                     |
-+-------------------------------+----------------------------------------------------------+
 | `LOCAL_BUNDLE_DIR`            | Sets the path where mixer stores the local bundle        |
 |                               | definition files. The bundle definition files include    |
 |                               | any new, original bundles you create, along with any     |
@@ -397,6 +555,7 @@ Format version
 
 .. should this be here, or somewhere else?
 .. if Format var is found in builder.conf, it should be included in the table above
+.. TODO: Even after mixing, I see NO FORMAT variable. Is this out of date?
 
 The `Format` variable set in the :file:`builder.conf` file can be considered as
 an OS *compatibility epoch*. Versions of the OS within an epoch are fully
@@ -428,6 +587,7 @@ Bundles
 =======
 .. where is edit? Looks like the editor has been removed in favor of create command...so a lot of this was out of date.
 .. how does create work with editing an upstream bundle into a local? check that man page is updated properly
+.. TODO rest man page is not in sync with OS man page. (see github repo)
 
 mixer stores information about the bundles included in a mix in a flat file
 called :file:`mixbundles`, located in the path set by the VERSIONS_PATH
@@ -576,9 +736,9 @@ Use these steps to enable Docker for the mixer tool. Make sure to
 
       sudo usermod -G docker -a <username>
 
-Mixer will automatically pull a Docker container for mixing if one does not
-already exist. You can optionally pull a container in advance, using the
-following steps:
+The mixer Docker container is available on `Docker Hub`_. Mixer will
+automatically pull a Docker container for mixing if one does not already exist.
+You can optionally pull a container in advance, using the following steps:
 
 #. Find the latest version of the container by viewing the tags for the
    `clearlinux/mixer repo <https://hub.docker.com/r/clearlinux/mixer/tags/>`_
@@ -595,13 +755,6 @@ following steps:
    .. code-block:: bash
 
       docker images
-
-.. _setup-web-server:
-
-.. Slide 31
-.. TODO test and update
-
-The mixer Docker container is available on `Docker Hub`_.
 
 Configure Docker proxy info
 ===========================
@@ -674,7 +827,6 @@ Configure proxies to allow mixer to work behind a firewall:
 
 Set up a nginx web server for mixer
 ===================================
-.. TODO Review/test (against camp, current doc, How to Clear)
 
 A web server is needed to host your update content. In this example, we use the
 nginx web server, which comes with |CL|.
@@ -693,18 +845,13 @@ Set up a nginx web server for mixer with the following steps:
 
       sudo mkdir -p /var/www
 
-#. Create a symbolic link.
+#. Create a symbolic link between your workspace updates and the updates on the
+   local nginx web server. In this example, `$HOME/mixer` is the workspace for
+   the mix.
 
    .. code-block:: bash
 
       sudo ln -sf $HOME/mixer/update/www /var/www/mixer
-
-   .. note::
-
-      `$HOME/mixer` is the workspace for the mix. It will be created in
-      the next section `Create a workspace`.
-
-      .. TODO Fix this note. Can I remove it in favor of inline text?
 
 #. Set up ``nginx`` configuration:
 
@@ -718,13 +865,15 @@ Set up a nginx web server for mixer with the following steps:
 
       sudo cp -f /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
 
-#. Configure the mixer update location. First open ``mixer.conf``:
+#. Configure the mixer update server. Create a simple config file for nginx to
+   point to the update content directly:
 
    .. code-block:: bash
 
       sudo nano /etc/nginx/conf.d/mixer.conf
 
-   And add the following server configuration content to the file:
+   Add the following server configuration content to the :file:`mixer.conf`
+   file:
 
    .. code-block:: console
 
