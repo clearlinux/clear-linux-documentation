@@ -80,5 +80,5 @@ Follow these steps to install |CL| on the target system:
    :start-after: minimum-installation-requirements:
    :end-before: incl-bare-metal-beta-end:
 
-
+.. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _downloads page: https://clearlinux.org/downloads

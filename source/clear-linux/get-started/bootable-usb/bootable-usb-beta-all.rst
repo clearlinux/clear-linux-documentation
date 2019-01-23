@@ -3,19 +3,19 @@
 Create a bootable USB on your OS
 ################################
 
-Follow these instructions to create a bootable |CL-ATTR| USB drive based on 
+Follow these instructions to create a bootable |CL-ATTR| USB drive based on
 your OS.
 
 * :ref:`bootable-usb-linux-all`
 * :ref:`bootable-usb-mac-all`
 * :ref:`bootable-usb-windows-all`
 
-Return to :ref:`install-from-live-image`
+Return to :ref:`get-started`
 
-Requirements: 
+Requirements:
 *************
 
-* Use a **16GB** or larger USB drive. 
+* Use a **16GB** or larger USB drive.
 
 .. _bootable-usb-linux-all:
 
@@ -43,8 +43,8 @@ Burn the |CL| image onto a USB drive
 #. Plug in the USB drive.
 #. Identify the USB drive using the :command:`lsblk` command. This shows all
    drives attached to the system, including the primary hard disk. In the
-   example output below, there are 4 drives 
-   (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and `/dev/sdd`) attached, where 
+   example output below, there are 4 drives
+   (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and `/dev/sdd`) attached, where
    `/dev/sda` is primary drive in this case. The remaining are 3 USB drives.
    The output also shows the mounted partitions (under the `MOUNTPOINT`
    column) for each drive.
@@ -132,7 +132,7 @@ Burn the |CL| image onto a USB drive
 
       diskutil umountDisk /dev/disk2
 
-#. Burn the image onto the drive using the :command:`dd` command.  The 
+#. Burn the image onto the drive using the :command:`dd` command.  The
    command-line example below burns an uncompressed image onto `/dev/disk2`:
 
    .. code-block:: console
@@ -140,9 +140,9 @@ Burn the |CL| image onto a USB drive
       sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
 
 
-   Adding an ‘r’ in front of the disk identifier should help speed up the 
+   Adding an ‘r’ in front of the disk identifier should help speed up the
    imaging process.
-   
+
    You can press :kbd:`<CTL>-T` to check imaging progress.
 
 #. Eject the USB drive.
@@ -178,7 +178,7 @@ Burn the |CL| image onto a USB drive
 
       Figure 1: Rufus utility - Click the SELECT button
 
-#. Find and select the previously extracted |CL| image file. 
+#. Find and select the previously extracted |CL| image file.
    Then, click the  :guilabel:`Open` button. See Figure 2.
 
    .. figure:: figures/bootable-usb-windows-2.png
@@ -186,18 +186,18 @@ Burn the |CL| image onto a USB drive
       :alt: Rufus utility - Show and select |CL| image file
 
       Figure 2: Rufus utility - Show and select |CL| image file
-    
+
 #. Click the :guilabel:`START` button. See Figure 3.
 
    .. figure:: figures/bootable-usb-windows-3.png
       :scale: 80 %
       :alt: Rufus utility - Click the START button
-         
+
       Figure 3: Rufus utility - Click START button
 
 Return to install from live image
 *********************************
 
-Return to :ref:`install-from-live-image`
+Return to :ref:`get-started`
 
 .. _Rufus: https://rufus.ie/

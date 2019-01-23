@@ -36,8 +36,6 @@ Preliminary steps
    * :ref:`bootable-usb-mac-all`
    * :ref:`bootable-usb-windows-all`
 
-.. _install-from-live-image:
-
 Install from live image
 ***********************
 
@@ -82,26 +80,22 @@ Launch the installer
 
       Figure 2: Clear Linux OS Installer
 
-.. _minimum-installation-requirements:
-
 Minimum installation requirements
 *********************************
 
 To fulfill minimum installation requirements, complete the
-:guilabel:`Required options`. :guilabel:`Advanced options` are optional.
+`Required options`_. `Advanced options`_ are optional.
 
 .. note::
 
    * The :kbd:`Install` button is only highlighted **after** you complete the
-     :ref:`required-options-installation`, and after you enter required
-     values in submenus of :ref:`required-options-installation` and
-     :ref:`advanced-options-installation`.
+     `Required options`_, and after you enter required values in submenus.
 
    * You must choose whether or not to participate in :ref:`telemetrics`
      before you can finish installation.
 
-   * You may wish to :ref:`test-network-settings` before you
-     :ref:`configure-network-interfaces`. Assure that a ``Success`` message is received before installation.
+   * You may wish to `Test Network Settings`_ before you
+     `Configure Network Interfaces`_. Assure that a ``Success`` message is received before installation.
 
 Main Menu
 *********
@@ -132,8 +126,6 @@ Navigation
 * Select :kbd:`Enter` or :kbd:`Spacebar` to confirm your choice.
 
 * Select :kbd:`Cancel` or :kbd:`Esc` to cancel your choice.
-
-.. _required-options-installation:
 
 Required options
 ****************
@@ -185,7 +177,6 @@ Choose Language
       :alt: Select System Language
 
       Figure 5: Select System Language
-
 
 Configure the Keyboard
 ======================
@@ -249,12 +240,10 @@ Configure Media
 
 #. Select :kbd:`Enter` to :kbd:`Confirm`.
 
-#. Choose one partitioning option and continue below:
+#. Choose one partitioning method and continue below:
 
-   * :ref:`auto-partition`
-   * :ref:`add-partition`
-
-.. _auto-partition:
+   * `Auto Partition`_
+   * `Add Partition`_
 
 Auto Partition
 ==============
@@ -276,14 +265,14 @@ Auto partition will configure the media to meet the minimum requirements.
 
       Figure 8: Auto Partition
 
-#. You may skip to the :ref:`telemetry-tui` section below.
+#. You may skip to the `Telemetry`_ section below.
 
 Disk encryption
 ===============
 
 For greater security, disk encryption is supported using LUKS for all
 partitions **except boot** on |CL|. To encrypt a partition, see the example
-below to encrypt :ref:`encrypt-root`. Encryption is optional.
+in `root partition`_ below. Encryption is optional.
 
 Encryption Passphrase
 ---------------------
@@ -299,8 +288,6 @@ post-installation using the ``cryptsetup`` tool.
    `swap` partition second, after you select encrypt for `swap`, the
    :guilabel:`Encryption Passphrase` dialogue will show the same Passphrase that was assigned to `root`. Select :guilabel:`Confirm` and
    press :kbd:`Enter` to use the same Passphrase.
-
-.. _add-partition:
 
 Add Partition
 =============
@@ -378,8 +365,6 @@ swap partition
 
       Figure 10: swap partition
 
-.. _encrypt-root:
-
 root partition
 --------------
 
@@ -447,8 +432,6 @@ root partition
 
 #. Select :guilabel:`Enter` to complete adding partitions.
 
-.. _telemetry-tui:
-
 Telemetry
 =========
 
@@ -474,18 +457,14 @@ Skip to finish installation
 ===========================
 
 After selecting values for all :guilabel:`Required options`, you may skip
-directly to :ref:`finish-cl-installation`.
+to `Finish installation`_.
 
 Otherwise, continue below. In the Main Menu, select
 :guilabel:`Advanced options` to configure network interfaces or proxy
 settings, add bundles, add/manage users, add kernel arguments, and more.
 
-.. _advanced-options-installation:
-
 Advanced Options
 ****************
-
-.. _configure-network-interfaces:
 
 Configure Network Interfaces
 ============================
@@ -547,7 +526,7 @@ interface settings are automatically applied.
 
 #. Navigate to and select :guilabel:`Main Menu`.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 Proxy
 =====
@@ -575,9 +554,7 @@ instruction.
 #. To revert to previous settings, navigate to :guilabel:`Cancel`
    and select :guilabel:`Cancel`.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
-
-.. _test-network-settings:
+Optional: Skip to `Finish installation`_.
 
 Test Network Settings
 =====================
@@ -598,7 +575,7 @@ A progress bar appears as shown in Figure 18.
    Any changes made to network settings are automatically tested
    during configuration.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 Bundle Selection
 ================
@@ -619,7 +596,7 @@ Bundle Selection
 
    You are returned to the :guilabel:`Advanced options` menu.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 User Manager
 ============
@@ -715,7 +692,7 @@ Modify / Delete User
 
 You are returned to the User Manager menu.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 Kernel Command Line
 ===================
@@ -745,7 +722,7 @@ new kernel.
 
 #. Select :kbd:`Confirm`.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 Kernel Selection
 ================
@@ -765,7 +742,7 @@ Kernel Selection
 
 #. Select :kbd:`Confirm`.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 Swupd Mirror
 ============
@@ -784,7 +761,7 @@ If you have your own custom mirror of |CL|, you can add its URL.
 
       Figure 26: Swupd Mirror
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 Assign Hostname
 ===============
@@ -810,7 +787,7 @@ Assign Hostname
 
 #. Select :kbd:`Confirm`.
 
-Optional: :ref:`Skip to finish installation <finish-cl-installation>`.
+Optional: Skip to `Finish installation`_.
 
 Automatic OS Updates
 ====================
@@ -829,8 +806,6 @@ follow the onscreen instructions.
       Figure 28: Automatic OS Updates
 
 You are returned to the :guilabel:`Main Menu`.
-
-.. _finish-cl-installation:
 
 Finish installation
 *******************
