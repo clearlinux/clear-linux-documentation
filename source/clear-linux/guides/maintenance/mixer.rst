@@ -209,7 +209,7 @@ Update or modify your content to a new version by following the same steps to
 create a mix. Increment the mix version number for the next mix.
 
 Examples
-********
+========
 
 The following examples are designed to work together and in order. For
 simplicity, we use a setup that can be easily reproduced using a stock |CL|
@@ -222,7 +222,7 @@ install. We'll use:
   Example 2.
 
 Example 1: First time set up
-============================
+----------------------------
 
 This example shows the basic steps for first time setup of mixer for a new mix.
 
@@ -258,7 +258,7 @@ This example shows the basic steps for first time setup of mixer for a new mix.
       VERSIONURL=http://192.168.25.52
 
 Example 2: Create a simple mix
-==============================
+------------------------------
 
 This example shows how to create a simple custom mix using upstream content.
 We'll create an image for a QEMU virtual machine which we can later use to test
@@ -363,7 +363,7 @@ set to get a smaller kernel image, which will also be faster to load.
    workspace.
 
 Example 3: Deploy updates to target
-===================================
+-----------------------------------
 
 The image created in Example 2 is directly bootable in QEMU. In this example,
 we'll boot the image from Example 2 to verify it, and update the image from mix
@@ -438,7 +438,7 @@ version 10 (which the image was built from), to mix version 20.
       poweroff
 
 .. Example: Create a mix with custom RPM
-.. =====================================
+.. -------------------------------------
 .. TODO DECIDE do we want to do this? this would show copy into local-rpms... (or add a note in the basic?) Does this example do anything that autospec doesnt already show, aside from the copy step? Can that be explained elsewhere?
 
 Mixer reference
