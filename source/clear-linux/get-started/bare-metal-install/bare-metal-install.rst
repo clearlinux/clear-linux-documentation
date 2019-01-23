@@ -75,6 +75,9 @@ Follow these steps to install |CL| on the target system:
 
       Figure 2: Clear Linux OS Installer boot menu
 
+#. With :guilabel:`Clear Linux OS` highlighted, select :kbd:`Enter`.
+
+Your system will display the |CL| Installer.
 
 .. include:: ../bare-metal-install-beta/bare-metal-install-beta.rst
    :start-after: incl-bare-metal-beta-start:
