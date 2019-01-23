@@ -77,8 +77,8 @@ Follow these steps to install |CL| on the target system:
 
 
 .. include:: ../bare-metal-install-beta/bare-metal-install-beta.rst
-   :start-after: minimum-installation-requirements:
-   :end-before: incl-bare-metal-beta-end:
+   :start-after: incl-bare-metal-beta-start:
+
 
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _downloads page: https://clearlinux.org/downloads

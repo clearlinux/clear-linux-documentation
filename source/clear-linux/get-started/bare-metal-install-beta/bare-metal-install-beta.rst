@@ -80,6 +80,8 @@ Launch the installer
 
       Figure 2: Clear Linux OS Installer
 
+.. _incl-bare-metal-beta-start:
+
 Minimum installation requirements
 *********************************
 
@@ -829,8 +831,6 @@ Next steps
 **********
 
 :ref:`enable-user-space`
-
-.. _incl-bare-metal-beta-end:
 
 .. _Navigate to the image directory: https://download.clearlinux.org/image/
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
