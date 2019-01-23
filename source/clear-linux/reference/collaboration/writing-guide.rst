@@ -32,8 +32,9 @@ Introduction, body, and conclusion.
 Be friendly
 ===========
 
-We write for our peers and want to be familiar. Use the second person, you or
-we. Be professional, respectful, and cooperative.
+We write for our peers and want to be familiar. Take a personal tone as if you
+were speaking directly to the reader. Use "you" to address the reader and "we"
+to refer to our view. Be professional, respectful, and cooperative.
 
 Assume your audience has the same level of technical understanding and expertise
 as you did when you first started collaborating. Do not talk down to our
@@ -288,16 +289,6 @@ to two. For example:
 **Not this:** ::
 
   Power management mechanism integration policies.
-
-Or:
-
-**Use this:** ::
-
-  Requirements for test desks that measure signal integrity.
-
-**Not this:** ::
-
-  Signal integrity test deck requirements.
 
 .. _parallelism:
 

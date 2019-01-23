@@ -25,8 +25,8 @@ websites:
 * `Sphinx documentation`_
 * `reStructuredText Primer`_
 
-You can view the content directly in the .rst markup files, or you can generate
-the HTML content by installing and running the documentation locally. To run the
+You can view the content directly in the .rst markup files, or generate the HTML
+content by installing and building the documentation locally. To run the
 documentation locally, follow the instructions found in the
 `documentation repository`_ README.
 
@@ -241,9 +241,8 @@ Remove trailing whitespace from your documents.
 Code blocks and examples
 ************************
 
-When providing example code or commands that are less than 10 lines, use the
-`Sphinx code-block directive`_. Use the appropriate syntax highlighting for the
-example command or code.
+When providing example code or commands use the `Sphinx code-block directive`_.
+Select the appropriate syntax highlighting for the example command or code.
 
 For example, if showing console output, use console highlighting:
 
