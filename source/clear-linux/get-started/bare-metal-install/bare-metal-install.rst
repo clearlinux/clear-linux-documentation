@@ -70,7 +70,7 @@ Follow these steps to install |CL| on the target system:
 #. This action launches the |CL| installer boot menu, shown in figure 2.
 
    .. figure:: figures/bare-metal-install-2.png
-      :scale: 50%
+      :scale: 100%
       :alt: Clear Linux OS Installer boot menu
 
       Figure 2: Clear Linux OS Installer boot menu
