@@ -201,11 +201,11 @@ changes because it installs itself in the :file:`/opt/cni/bin` directory.
 
 For using CRI-O and ``Weave Net``, complete the following step.
 
-#.  Add the `loopback` CNI plugin to the plugin path with the command:
+Add the `loopback` CNI plugin to the plugin path with the command:
 
-    code-block:: bash
+.. code-block:: bash
 
-    sudo ln -s /usr/libexec/cni/loopback /opt/bin/cni/loopback
+   sudo ln -s /usr/libexec/cni/loopback /opt/bin/cni/loopback
 
 Use your cluster
 ****************
