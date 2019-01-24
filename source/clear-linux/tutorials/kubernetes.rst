@@ -348,7 +348,9 @@ Troubleshooting
         export "SOCKS_PROXY=http://proxy.example.com:1080"
         export "NO_PROXY= site.com,.site.com,localhost,127.0.0.1,<master IP>
 
-  <master IP> can be obtained by running :command:`ifconfig`.
+     .. note::
+
+        <master IP> can be obtained by running :command:`ifconfig`.
 
   #. Save and exit the `profile`.
 
@@ -358,14 +360,13 @@ Troubleshooting
 
         sudo source profile
 
-  #. To assure your system isn't running previous session variables, run:
+  #. To ensure your system isn't running previous session variables, run:
 
      .. code-block:: bash
 
         sudo kubeadm reset --cri-socket=/run/crio/crio.sock
 
-  #. Continue below while pass `-E` in the command as shown.
-
+  #. Continue below while passing `-E` in the command as shown.
 
 * Missing environment variables.
 
@@ -374,8 +375,8 @@ Troubleshooting
 
   .. code-block:: bash
 
-    /* Kubernetes with CRI-O + kata-runtime */
-    sudo -E kubeadm init --cri-socket=/run/crio/crio.sock
+     /* Kubernetes with CRI-O + kata-runtime */
+     sudo -E kubeadm init --cri-socket=/run/crio/crio.sock
 
 .. _Kubernetes container orchestration system: https://kubernetes.io/
 
