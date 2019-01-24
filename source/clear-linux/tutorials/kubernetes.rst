@@ -377,7 +377,6 @@ Troubleshooting
     /* Kubernetes with CRI-O + kata-runtime */
     sudo -E kubeadm init --cri-socket=/run/crio/crio.sock
 
-
 .. _Kubernetes container orchestration system: https://kubernetes.io/
 
 .. _Kata Containers: https://katacontainers.io/
