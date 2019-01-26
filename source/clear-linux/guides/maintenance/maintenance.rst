@@ -28,3 +28,4 @@ completed.
    download-verify-decompress-windows
    autospec
    assign-static-ip
+   ister
