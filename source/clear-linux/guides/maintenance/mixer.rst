@@ -46,24 +46,14 @@ Learn the mixer tool workflow and create your own content update.
 Prerequisites
 =============
 
-#. **|CL| installed**
+#. **OS installed**
+
+   The |CL| must be installed to use the mixer tool.
 
 #. **Required bundles**
 
    The mixer tool requires that the :command:`mixer` and
    :command:`network-basic` bundles are installed.
-
-   .. TODO future link to swupd guide: Refer to the instructions to add or remove bundles.
-
-#. **Docker proxy (optional)**
-
-   If you use a proxy server, you must set your proxy environment variables and
-   create a proxy configuration file for the Docker daemon and container.
-
-   Consul your IT department if you are behind a corporate proxy for the correct
-   values.
-
-   Refer to `Configure Docker proxy info`_ for instruction.
 
 #. **Docker container**
 
@@ -73,6 +63,16 @@ Prerequisites
    format bump.
 
    Refer to `Configure and enable Docker`_ for instruction.
+
+#. **Docker proxy (optional)**
+
+   If you use a proxy server, you must set your proxy environment variables and
+   create a proxy configuration file for the Docker daemon and container.
+
+   Consult your IT department if you are behind a corporate proxy for the correct
+   values.
+
+   Refer to `Configure Docker proxy info`_ for instruction.
 
 #. **Location to host the update content and images**
 
@@ -150,8 +150,8 @@ A mix is created with the following steps:
 
 #. **Update and build bundles**
 
-   Add, edit, or remove bundles that will be part of your content and then
-   build the updated list of bundles. mixer will automatically update the
+   Add, edit, or remove bundles that will be part of your content and then build
+   the updated list of bundles. mixer will automatically update the
    :file:`mixbundles` file when you update the bundles in your mix.
 
    View the `mixer.bundle man page`_ for more information on configuring bundles
@@ -159,7 +159,8 @@ A mix is created with the following steps:
 
    View the `mixer.build man page`_ for more information on building bundles.
 
-   View the `Bundles`_ section for more information on how mixer manages bundles.
+   View the `Bundles`_ section for more information on how mixer manages
+   bundles.
 
 #. **Create update**
 
@@ -196,7 +197,7 @@ Update or modify your content to a new version by following the same steps to
 create a mix. Increment the mix version number for the next mix.
 
 Examples
-========
+********
 
 The following examples are designed to work together and in order. For
 simplicity, we use a setup that can be easily reproduced using a stock |CL|
@@ -209,7 +210,7 @@ install. We'll use:
   Example 2.
 
 Example 1: First time set up
-----------------------------
+============================
 
 This example shows the basic steps for first time setup of mixer for a new mix.
 
@@ -241,11 +242,11 @@ This example shows the basic steps for first time setup of mixer for a new mix.
 
    .. code-block:: console
 
-      CONTENTURL=http://192.168.25.52
-      VERSIONURL=http://192.168.25.52
+      CONTENTURL="http://192.168.25.52"
+      VERSIONURL="http://192.168.25.52"
 
 Example 2: Create a simple mix
-------------------------------
+==============================
 
 This example shows how to create a simple custom mix using upstream content.
 We'll create an image for a QEMU virtual machine which we can later use to test
@@ -350,7 +351,7 @@ set to get a smaller kernel image, which will also be faster to load.
    workspace.
 
 Example 3: Deploy updates to target
------------------------------------
+===================================
 
 The image created in Example 2 is directly bootable in QEMU. In this example,
 we'll boot the image from Example 2 to verify it, and update the image from mix
@@ -678,8 +679,6 @@ in a mix.
 .. Remove bundles
 .. --------------
 
-.. do we need to explain these flags or are they clarified in the man pages?
-
 .. By default, removing a bundle will not remove the bundle definition file from
 .. your local bundles. To completely remove a bundle, including its local bundle
 .. definition file, use the following the –local flag.. 
@@ -741,7 +740,6 @@ You can optionally pull a container in advance, using the following steps:
 
 Configure Docker proxy info
 ===========================
-.. TODO test
 
 If needed, use these steps to configure the Docker proxy information.
 
@@ -791,8 +789,8 @@ settings to containers:
         {
           "default":
           {
-            "httpProxy": <proxy-url>,
-            "httpsProxy": <proxy-url>
+            "httpProxy": "proxy-url",
+            "httpsProxy": "proxy-url"
           }
         }
       }
@@ -804,8 +802,8 @@ settings to containers:
       sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
       sudo chmod g+rwx "$HOME/.docker" -R
 
-Lastly, configure proxies to allow mixer to access upstream content from behind a
-firewall. For example:
+Lastly, configure proxies to allow mixer to access upstream content from behind
+a firewall. For example:
 
 #. Open your :file:`.bashrc` file:
 
