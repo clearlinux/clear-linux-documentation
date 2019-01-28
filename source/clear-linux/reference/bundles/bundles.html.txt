@@ -13,20 +13,27 @@
     <thead>
       <tr>
         <th></th>
-        <th style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic">
-          Updated: 12/27/18 20:30 UTC
+        <th style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic"> 
+            Updated: 01/28/19 16:16 UTC 
         </th>
       </tr>
-      <tr>
+      <tr> 
         <th> Name</th>
         <th> Description</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
+      <tr>    
+        <td></td> 
       </tr>
-      <tr></tr>
+    <tr></tr>
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">acl</a></td>
+        <td class="bundledesc"> Tools to manipulate filesystem acls </td>
+      </tr>
+      
       
       
       <tr id="pundle">
@@ -116,6 +123,25 @@
       <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">audit</a></td>
         <td class="bundledesc"> system audit tools </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/aws-greengrass-iot">aws-greengrass-iot</a></td>
+        <td class="bundledesc">Libraries to support building IoT applications on AWS Greengrass <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>python3-basic</li>
+            
+            <li>python2-basic</li>
+            
+            <li>cloud-api</li>
+            
+          </p>
+          
+        </td>
       </tr>
       
       
@@ -240,6 +266,14 @@
             
             <li>perl-basic</li>
             
+            <li>nasm</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>nasm</li>
+            
           </p>
           
         </td>
@@ -250,6 +284,14 @@
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/c-basic-legacy">c-basic-legacy</a></td>
         <td class="bundledesc">Build and run 32bit C/C++ language programs <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>make</li>
+            
+            <li>devpkg-zlib</li>
+            
+          </p>
           
         </td>
       </tr>
@@ -405,6 +447,8 @@
             
             <li>wpa_supplicant</li>
             
+            <li>less</li>
+            
           </p>
           
         </td>
@@ -488,6 +532,78 @@
             
             <li>os-core-dev</li>
             
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libsecret</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -523,6 +639,86 @@
             <li>dev-utils</li>
             
             <li>os-core-dev</li>
+            
+            <li>bc</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libsecret</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>musl</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -580,6 +776,66 @@
             
             <li>os-core-dev</li>
             
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -590,6 +846,13 @@
       <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">curl</a></td>
         <td class="bundledesc"> Transfer data to/from a URL </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">cve-bin</a></td>
+        <td class="bundledesc"> CVE scanning tool </td>
       </tr>
       
       
@@ -609,6 +872,8 @@
             
             <li>python3-basic</li>
             
+            <li>postgresql</li>
+            
           </p>
           
         </td>
@@ -627,6 +892,76 @@
             <li>dev-utils</li>
             
             <li>os-core-dev</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>nasm</li>
+            
+            <li>devpkg-openmpi</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -661,6 +996,14 @@
             
             <li>wpa_supplicant</li>
             
+            <li>fuse</li>
+            
+            <li>tzdata</li>
+            
+            <li>alsa-utils</li>
+            
+            <li>fwupdate</li>
+            
           </p>
           
         </td>
@@ -682,6 +1025,12 @@
             
             <li>xemacs</li>
             
+            <li>firefox</li>
+            
+            <li>libva-utils</li>
+            
+            <li>xemacs</li>
+            
           </p>
           
         </td>
@@ -696,8 +1045,6 @@
           <p>Includes bundle(s):
             
             <li>desktop-gnomelibs</li>
-            
-            <li>desktop-kde-apps</li>
             
             <li>pidgin</li>
             
@@ -714,6 +1061,8 @@
             <li>thunderbird</li>
             
             <li>vlc</li>
+            
+            <li>gimp</li>
             
           </p>
           
@@ -787,6 +1136,182 @@
             
             <li>sysadmin-basic-dev</li>
             
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-cheese</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>devpkg-clutter-gst</li>
+            
+            <li>devpkg-cogl</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>docutils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-evolution-data-server</li>
+            
+            <li>devpkg-evolution</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>fonttools</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gnome-desktop</li>
+            
+            <li>gpgme</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gsettings-desktop-schemas</li>
+            
+            <li>devpkg-gst-plugins-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>iproute2</li>
+            
+            <li>jq</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libical</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsecret</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>libxml2</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>devpkg-nspr</li>
+            
+            <li>devpkg-nss</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>parallel</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-qtdeclarative</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>devpkg-webkitgtk</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorg-server</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -839,6 +1364,14 @@
             <li>x11-tools</li>
             
             <li>x11-server</li>
+            
+            <li>fuse</li>
+            
+            <li>gpgme</li>
+            
+            <li>kdiff3</li>
+            
+            <li>libxslt</li>
             
           </p>
           
@@ -910,6 +1443,32 @@
             
             <li>python3-basic</li>
             
+            <li>bc</li>
+            
+            <li>cloc</li>
+            
+            <li>cpio</li>
+            
+            <li>diffutils</li>
+            
+            <li>docutils</li>
+            
+            <li>gdb</li>
+            
+            <li>icdiff</li>
+            
+            <li>inotify-tools</li>
+            
+            <li>linux-tools</li>
+            
+            <li>llvm</li>
+            
+            <li>patch</li>
+            
+            <li>strace</li>
+            
+            <li>valgrind</li>
+            
           </p>
           
         </td>
@@ -928,6 +1487,119 @@
             <li>os-core-dev</li>
             
             <li>perl-basic-dev</li>
+            
+            <li>bc</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>cpio</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>devpkg-openmpi</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/dev-utils-gui">dev-utils-gui</a></td>
+        <td class="bundledesc">Assist application development (gui components) <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>gui components</li>
+            
+            <li>dev-utils</li>
+            
+            <li>libX11client</li>
+            
+            <li>tcl-basic</li>
+            
+            <li>qt-basic</li>
             
           </p>
           
@@ -1021,12 +1693,6 @@
             <li>devpkg-glib</li>
             
             <li>devpkg-libX11</li>
-            
-            <li>devpkg-libXext</li>
-            
-            <li>devpkg-libXrender</li>
-            
-            <li>devpkg-libxcb</li>
             
             <li>devpkg-mesa</li>
             
@@ -1282,6 +1948,21 @@
       
       
       <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-fuse">devpkg-fuse</a></td>
+        <td class="bundledesc">All content for pkgconfig file fuse.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-gdk-pixbuf">devpkg-gdk-pixbuf</a></td>
         <td class="bundledesc">All content for pkgconfig file gdk-pixbuf.pc <br />
           
@@ -1309,6 +1990,8 @@
             <li>devpkg-base</li>
             
             <li>devpkg-pcre</li>
+            
+            <li>devpkg-util-linux</li>
             
           </p>
           
@@ -1425,20 +2108,6 @@
             <li>devpkg-glib</li>
             
             <li>devpkg-libX11</li>
-            
-            <li>devpkg-libXcomposite</li>
-            
-            <li>devpkg-libXdamage</li>
-            
-            <li>devpkg-libXext</li>
-            
-            <li>devpkg-libXfixes</li>
-            
-            <li>devpkg-libXi</li>
-            
-            <li>devpkg-libXinerama</li>
-            
-            <li>devpkg-libXrandr</li>
             
             <li>devpkg-libepoxy</li>
             
@@ -1631,7 +2300,7 @@
             
             <li>devpkg-base</li>
             
-            <li>devpkg-libxcb</li>
+            <li>devpkg-libpthread-stubs</li>
             
             <li>devpkg-xorgproto</li>
             
@@ -1924,17 +2593,7 @@
             
             <li>devpkg-libX11</li>
             
-            <li>devpkg-libXdamage</li>
-            
-            <li>devpkg-libXext</li>
-            
-            <li>devpkg-libXfixes</li>
-            
-            <li>devpkg-libXxf86vm</li>
-            
             <li>devpkg-libdrm</li>
-            
-            <li>devpkg-libxcb</li>
             
           </p>
           
@@ -1978,6 +2637,51 @@
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-openblas">devpkg-openblas</a></td>
         <td class="bundledesc">All content for pkgconfig file openblas.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-opencv">devpkg-opencv</a></td>
+        <td class="bundledesc">All content for pkgconfig file opencv.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-openmpi">devpkg-openmpi</a></td>
+        <td class="bundledesc">All content for pkgconfig file openmpi.pc <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>devpkg-base</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/devpkg-openssl">devpkg-openssl</a></td>
+        <td class="bundledesc">All content for pkgconfig file openssl.pc <br />
           
           <p>Includes bundle(s):
             
@@ -2308,6 +3012,13 @@
       
       
       <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">docbook-utils</a></td>
+        <td class="bundledesc"> docbook tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">docutils</a></td>
         <td class="bundledesc"> Tools for converting text to other formats (e.g. HTML, XML, LaTeX) </td>
       </tr>
@@ -2341,6 +3052,13 @@
       <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">dovecot</a></td>
         <td class="bundledesc"> Security focused IMAP and POP3 email server </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">doxygen</a></td>
+        <td class="bundledesc"> documentation tooling </td>
       </tr>
       
       
@@ -2390,6 +3108,70 @@
             
             <li>os-core-dev</li>
             
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -2418,6 +3200,8 @@
             <li>education-secondary</li>
             
             <li>education-tertiary</li>
+            
+            <li>gimp</li>
             
           </p>
           
@@ -2573,9 +3357,18 @@
             
             <li>libX11client</li>
             
+            <li>fwupdate</li>
+            
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">flac</a></td>
+        <td class="bundledesc"> FLAC audio format tools </td>
       </tr>
       
       
@@ -2591,6 +3384,27 @@
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">fonttools</a></td>
+        <td class="bundledesc"> tools to manipulate system and user fonts </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">fossil</a></td>
+        <td class="bundledesc"> Fossil is a simple, high-reliability, distributed software configuration management system </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">fuse</a></td>
+        <td class="bundledesc"> fuse filesystem support </td>
       </tr>
       
       
@@ -2614,6 +3428,18 @@
             
             <li>perl-basic</li>
             
+            <li>diffutils</li>
+            
+            <li>theme, data, etc</li>
+            
+            <li>32-bit</li>
+            
+            <li>native</li>
+            
+            <li>32-bit</li>
+            
+            <li>native</li>
+            
           </p>
           
         </td>
@@ -2634,6 +3460,148 @@
             <li>os-core-dev</li>
             
             <li>perl-basic-dev</li>
+            
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gst-plugins-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libical</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsecret</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>devpkg-nspr</li>
+            
+            <li>devpkg-nss</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>devpkg-webkitgtk</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -2672,6 +3640,8 @@
             <li>openssl</li>
             
             <li>p11-kit</li>
+            
+            <li>less</li>
             
           </p>
           
@@ -2723,6 +3693,66 @@
             
             <li>os-core-dev</li>
             
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -2764,6 +3794,12 @@
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/hardware-wifi">hardware-wifi</a></td>
         <td class="bundledesc">Firmware and tools for basic wifi support <br />
           
+          <p>Includes bundle(s):
+            
+            <li>wpa_supplicant</li>
+            
+          </p>
+          
         </td>
       </tr>
       
@@ -2782,6 +3818,12 @@
             <li>perl-basic</li>
             
             <li>c-basic</li>
+            
+            <li>make</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -2891,6 +3933,13 @@
       
       
       <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">intltool</a></td>
+        <td class="bundledesc"> internationalization tool for develops </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">ipmitool</a></td>
         <td class="bundledesc"> Manage IPMI functions of a local or remote system </td>
       </tr>
@@ -2994,6 +4043,13 @@
       <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">kbd</a></td>
         <td class="bundledesc"> library to manage the Linux keymaps </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">kdiff3</a></td>
+        <td class="bundledesc"> Feature-Rich Code Comparison Utility </td>
       </tr>
       
       
@@ -3179,6 +4235,23 @@
       
       
       <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-native-dkms">kernel-native-dkms</a></td>
+        <td class="bundledesc">Support module building/loading via DKMS in native kernel <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>c-basic</li>
+            
+            <li>linux-dev</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/kernel-networktest">kernel-networktest</a></td>
         <td class="bundledesc">kernel with NFS root FS support and modular network drivers <br />
           
@@ -3253,6 +4326,10 @@
             
             <li>web-server-basic</li>
             
+            <li>nfs-utils</li>
+            
+            <li>postgresql</li>
+            
           </p>
           
         </td>
@@ -3286,6 +4363,140 @@
             <li>kvm-host</li>
             
             <li>os-core-dev</li>
+            
+            <li>acpica-unix2</li>
+            
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>dosfstools</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>nfs-utils</li>
+            
+            <li>devpkg-nspr</li>
+            
+            <li>devpkg-nss</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -3366,6 +4577,20 @@
       
       
       <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">libxml2</a></td>
+        <td class="bundledesc"> XML processing tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">libxslt</a></td>
+        <td class="bundledesc"> XML documentation processing tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">libzmq</a></td>
         <td class="bundledesc"> ZMQ tools and libs </td>
       </tr>
@@ -3402,6 +4627,13 @@
       
       
       
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">lm-sensors</a></td>
+        <td class="bundledesc"> Read various system sensors, sometimes using scary methods </td>
+      </tr>
+      
+      
+      
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/locales">locales</a></td>
         <td class="bundledesc">basic system translations <br />
@@ -3423,6 +4655,13 @@
         <td class="bundledesc">Lua programming language <br />
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">lz4</a></td>
+        <td class="bundledesc"> tools to compress and decompress lz4 files </td>
       </tr>
       
       
@@ -3515,6 +4754,8 @@
             
             <li>python2-basic</li>
             
+            <li>mutt</li>
+            
           </p>
           
         </td>
@@ -3533,6 +4774,94 @@
             <li>mail-utils</li>
             
             <li>os-core-dev</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gpgme</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -3595,6 +4924,8 @@
           
           <p>Includes bundle(s):
             
+            <li>python2-basic</li>
+            
             <li>python3-basic</li>
             
           </p>
@@ -3639,6 +4970,13 @@
       
       
       <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">mpg123</a></td>
+        <td class="bundledesc"> play and decode mp3 files </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">mtd-utils</a></td>
         <td class="bundledesc"> memory (usually flash) device utilities exposing an interface between hardware drivers and upper system layers </td>
       </tr>
@@ -3655,6 +4993,20 @@
       <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">musl</a></td>
         <td class="bundledesc"> musl compiler toolchain </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">mutt</a></td>
+        <td class="bundledesc"> The mutt mail client </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">nasm</a></td>
+        <td class="bundledesc"> assembler </td>
       </tr>
       
       
@@ -3684,6 +5036,14 @@
             
             <li>wpa_supplicant</li>
             
+            <li>curl</li>
+            
+            <li>irssi</li>
+            
+            <li>weechat</li>
+            
+            <li>znc</li>
+            
           </p>
           
         </td>
@@ -3705,6 +5065,78 @@
             
             <li>perl-basic-dev</li>
             
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>iproute2</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-nss</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -3724,6 +5156,10 @@
             
             <li>qt-basic</li>
             
+            <li>nmap</li>
+            
+            <li>suricata</li>
+            
           </p>
           
         </td>
@@ -3738,6 +5174,8 @@
           <p>Includes bundle(s):
             
             <li>network-basic</li>
+            
+            <li>alsa-utils</li>
             
           </p>
           
@@ -3761,6 +5199,13 @@
       
       
       <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">nload</a></td>
+        <td class="bundledesc"> network load monitor </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">nmap</a></td>
         <td class="bundledesc"> security scanner for network device discovery </td>
       </tr>
@@ -3779,6 +5224,20 @@
       <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">octave</a></td>
         <td class="bundledesc"> high-level programming language, primarily intended for numerical computations </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">openldap</a></td>
+        <td class="bundledesc"> ldap tools </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">openmpi</a></td>
+        <td class="bundledesc"> HPC tools for running on jobs on clusters </td>
       </tr>
       
       
@@ -3831,6 +5290,8 @@
             <li>perl-basic</li>
             
             <li>python3-basic</li>
+            
+            <li>keepalived</li>
             
           </p>
           
@@ -4000,6 +5461,38 @@
             
             <li>sysadmin-basic-dev</li>
             
+            <li>unbundle</li>
+            
+            <li>cabextract</li>
+            
+            <li>diffoscope</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>global</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libxcb</li>
+            
+            <li>devpkg-libXdamage</li>
+            
+            <li>devpkg-libXfixes</li>
+            
+            <li>devpkg-libXxf86vm</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>mkosi</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-xorgproto</li>
+            
           </p>
           
         </td>
@@ -4037,6 +5530,182 @@
             
             <li>sysadmin-basic-dev</li>
             
+            <li>acpica-unix2</li>
+            
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>bc</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>ccache</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>cpio</li>
+            
+            <li>curl</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>docutils</li>
+            
+            <li>dosfstools</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>file</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gpgme</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gst-plugins-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>iproute2</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libical</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsecret</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>libxml2</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>nfs-utils</li>
+            
+            <li>devpkg-nspr</li>
+            
+            <li>devpkg-nss</li>
+            
+            <li>devpkg-openmpi</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>plzip</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-qtdeclarative</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>texlive</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>zip</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -4061,6 +5730,64 @@
             
             <li>dev-utils</li>
             
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -4075,6 +5802,8 @@
           <p>Includes bundle(s):
             
             <li>os-core</li>
+            
+            <li>os-core-webproxy</li>
             
           </p>
           
@@ -4095,6 +5824,87 @@
             
             <li>os-core-update</li>
             
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>docutils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-core-webproxy">os-core-webproxy</a></td>
+        <td class="bundledesc">Provides basic suite for using http proxies <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>os-core</li>
+            
           </p>
           
         </td>
@@ -4114,6 +5924,12 @@
             
             <li>wpa_supplicant</li>
             
+            <li>curl</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
           </p>
           
         </td>
@@ -4127,11 +5943,25 @@
           
           <p>Includes bundle(s):
             
+            <li>acl</li>
+            
+            <li>cpio</li>
+            
+            <li>curl</li>
+            
+            <li>diffutils</li>
+            
+            <li>file</li>
+            
             <li>git</li>
+            
+            <li>make</li>
             
             <li>openssh-server</li>
             
             <li>perl-basic</li>
+            
+            <li>sudo</li>
             
           </p>
           
@@ -4153,6 +5983,44 @@
             <li>python3-basic</li>
             
             <li>perl-basic</li>
+            
+            <li>acpica-unix2</li>
+            
+            <li>intltool</li>
+            
+            <li>llvm</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-automotive">os-testsuite-automotive</a></td>
+        <td class="bundledesc">Provides minimal functionality for automotive testing functions <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>os-testsuite</li>
+            
+            <li>os-testsuite-graphics</li>
+            
+          </p>
+          
+        </td>
+      </tr>
+      
+      
+      
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/os-testsuite-graphics">os-testsuite-graphics</a></td>
+        <td class="bundledesc">Provides minimal functionality for graphics testing functions <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>glmark2</li>
             
           </p>
           
@@ -4197,7 +6065,43 @@
             
             <li>python3-basic</li>
             
-            <li>qt-basic-dev</li>
+            <li>devpkg-qtbase</li>
+            
+            <li>bc</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>fio</li>
+            
+            <li>gimp</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>openmpi</li>
+            
+            <li>devpkg-openmpi</li>
+            
+            <li>nasm</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>redis-native</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>unzip</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
+            
+            <li>hwloc</li>
             
           </p>
           
@@ -4230,7 +6134,39 @@
             
             <li>python2-basic</li>
             
-            <li>qt-basic-dev</li>
+            <li>devpkg-qtbase</li>
+            
+            <li>nasm</li>
+            
+            <li>yasm</li>
+            
+            <li>bc</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>fio</li>
+            
+            <li>gimp</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>nasm</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>unzip</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -4267,6 +6203,36 @@
             
             <li>rust-basic</li>
             
+            <li>bc</li>
+            
+            <li>fio</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>openmpi</li>
+            
+            <li>devpkg-openmpi</li>
+            
+            <li>nasm</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>redis-native</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>unzip</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -4300,6 +6266,16 @@
             
             <li>x11-server</li>
             
+            <li>alsa-utils</li>
+            
+            <li>darktable</li>
+            
+            <li>firefox</li>
+            
+            <li>thunderbird</li>
+            
+            <li>xemacs</li>
+            
           </p>
           
         </td>
@@ -4320,6 +6296,160 @@
             <li>os-utils-gui</li>
             
             <li>perl-basic-dev</li>
+            
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>bc</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>docutils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-gnome-desktop</li>
+            
+            <li>gpgme</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gsettings-desktop-schemas</li>
+            
+            <li>devpkg-gst-plugins-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>jq</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsecret</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>libxml2</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>nfs-utils</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>parallel</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorg-server</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -4350,6 +6480,12 @@
             <li>package-utils</li>
             
             <li>sudo</li>
+            
+            <li>make</li>
+            
+            <li>plzip</li>
+            
+            <li>zstd</li>
             
           </p>
           
@@ -4421,6 +6557,16 @@
             
             <li>tcl-basic</li>
             
+            <li>htop</li>
+            
+            <li>linux-tools</li>
+            
+            <li>powertop</li>
+            
+            <li>strace</li>
+            
+            <li>sysstat</li>
+            
           </p>
           
         </td>
@@ -4448,6 +6594,60 @@
             <li>os-core-dev</li>
             
             <li>perl-basic</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -4485,6 +6685,13 @@
         <td class="bundledesc">Multi-protocol instant messagging client <br />
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">plzip</a></td>
+        <td class="bundledesc"> Parallel LZMA Data Compressor </td>
       </tr>
       
       
@@ -4531,6 +6738,10 @@
             
             <li>python3-basic</li>
             
+            <li>irssi</li>
+            
+            <li>weechat</li>
+            
           </p>
           
         </td>
@@ -4552,6 +6763,8 @@
           <p>Includes bundle(s):
             
             <li>python3-basic</li>
+            
+            <li>nginx</li>
             
           </p>
           
@@ -4590,6 +6803,88 @@
             <li>os-core-dev</li>
             
             <li>python-basic</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -4691,6 +6986,144 @@
             
             <li>qt-basic</li>
             
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gst-plugins-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libical</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-qt3d</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-qtdeclarative</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -4732,6 +7165,8 @@
             
             <li>plotting, help navigation, etc</li>
             
+            <li>less</li>
+            
           </p>
           
         </td>
@@ -4767,6 +7202,13 @@
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">rebootmgr</a></td>
+        <td class="bundledesc"> Performs scheduled or immediate system reboots after the kernel or critical OS components change. </td>
       </tr>
       
       
@@ -4827,13 +7269,24 @@
             
             <li>git</li>
             
+            <li>openssh-server</li>
+            
             <li>perl-basic</li>
             
             <li>python3-basic</li>
             
+            <li>nginx</li>
+            
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">scons</a></td>
+        <td class="bundledesc"> python build system </td>
       </tr>
       
       
@@ -4847,6 +7300,8 @@
             <li>bootloader</li>
             
             <li>python3-basic</li>
+            
+            <li>iasimage</li>
             
           </p>
           
@@ -4867,6 +7322,72 @@
             
             <li>service-os</li>
             
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
@@ -4878,7 +7399,20 @@
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/shells">shells</a></td>
         <td class="bundledesc">Run a shell <br />
           
+          <p>Includes bundle(s):
+            
+            <li>zsh</li>
+            
+          </p>
+          
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">smartmontools</a></td>
+        <td class="bundledesc"> hard disk diagnostic utilities </td>
       </tr>
       
       
@@ -4892,6 +7426,10 @@
             <li>libX11client</li>
             
             <li>wpa_supplicant</li>
+            
+            <li>alsa-utils</li>
+            
+            <li>v4l-utils</li>
             
           </p>
           
@@ -4911,6 +7449,142 @@
             <li>os-core-dev</li>
             
             <li>software-defined-cockpit</li>
+            
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>devpkg-clutter</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>docutils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gst-plugins-base</li>
+            
+            <li>devpkg-gstreamer</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-qtdeclarative</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -4936,15 +7610,24 @@
       
       
       
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">squid</a></td>
+        <td class="bundledesc"> HTTP caching proxy </td>
+      </tr>
+      
+      
+      
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-cluster">storage-cluster</a></td>
         <td class="bundledesc">Run a storage server <br />
           
           <p>Includes bundle(s):
             
+            <li>python2-basic</li>
+            
             <li>python3-basic</li>
             
-            <li>python2-basic</li>
+            <li>xfsprogs</li>
             
           </p>
           
@@ -4956,6 +7639,22 @@
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/storage-utils">storage-utils</a></td>
         <td class="bundledesc">Run disk and filesystem management functions <br />
+          
+          <p>Includes bundle(s):
+            
+            <li>smartmontools</li>
+            
+            <li>dosfstools</li>
+            
+            <li>nfs-utils</li>
+            
+            <li>pmdk</li>
+            
+            <li>smartmontools</li>
+            
+            <li>xfsprogs</li>
+            
+          </p>
           
         </td>
       </tr>
@@ -4973,6 +7672,82 @@
             <li>os-core-dev</li>
             
             <li>storage-utils</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>docutils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>libxml2</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -5051,6 +7826,42 @@
             
             <li>which</li>
             
+            <li>acpica-unix2</li>
+            
+            <li>diffutils</li>
+            
+            <li>file</li>
+            
+            <li>findutils</li>
+            
+            <li>gzip</li>
+            
+            <li>htop</li>
+            
+            <li>kbd</li>
+            
+            <li>kernel-install</li>
+            
+            <li>less</li>
+            
+            <li>parallel</li>
+            
+            <li>patch</li>
+            
+            <li>powertop</li>
+            
+            <li>strace</li>
+            
+            <li>tmux</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>xz</li>
+            
+            <li>zstd</li>
+            
           </p>
           
         </td>
@@ -5071,6 +7882,76 @@
             <li>perl-basic-dev</li>
             
             <li>sysadmin-basic</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>make</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>p11-kit</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>strace</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>which</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>devpkg-zlib</li>
             
           </p>
           
@@ -5164,6 +8045,13 @@
       
       
       <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">texinfo</a></td>
+        <td class="bundledesc"> unix style documentation tooling </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">texlive</a></td>
         <td class="bundledesc"> major TeX-related typesetting programs, macro packages, and fonts. </td>
       </tr>
@@ -5196,6 +8084,13 @@
       <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">tzdata</a></td>
         <td class="bundledesc"> timezone database </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">unbundle</a></td>
+        <td class="bundledesc"> Recursively resolves a package list from a bundle definition </td>
       </tr>
       
       
@@ -5275,9 +8170,168 @@
             
             <li>user-basic</li>
             
+            <li>acpica-unix2</li>
+            
+            <li>devpkg-at-spi2-atk</li>
+            
+            <li>devpkg-at-spi2-core</li>
+            
+            <li>devpkg-atk</li>
+            
+            <li>bc</li>
+            
+            <li>devpkg-cairo</li>
+            
+            <li>cpio</li>
+            
+            <li>devpkg-dbus</li>
+            
+            <li>diffutils</li>
+            
+            <li>docbook-utils</li>
+            
+            <li>docutils</li>
+            
+            <li>dosfstools</li>
+            
+            <li>doxygen</li>
+            
+            <li>devpkg-elfutils</li>
+            
+            <li>devpkg-expat</li>
+            
+            <li>devpkg-fontconfig</li>
+            
+            <li>devpkg-freetype</li>
+            
+            <li>devpkg-fribidi</li>
+            
+            <li>gdb</li>
+            
+            <li>devpkg-gdk-pixbuf</li>
+            
+            <li>devpkg-glib</li>
+            
+            <li>gpgme</li>
+            
+            <li>devpkg-graphite</li>
+            
+            <li>devpkg-gtk3</li>
+            
+            <li>gzip</li>
+            
+            <li>devpkg-harfbuzz</li>
+            
+            <li>devpkg-icu4c</li>
+            
+            <li>intltool</li>
+            
+            <li>iproute2</li>
+            
+            <li>kbd</li>
+            
+            <li>less</li>
+            
+            <li>devpkg-libX11</li>
+            
+            <li>devpkg-libdrm</li>
+            
+            <li>devpkg-libepoxy</li>
+            
+            <li>devpkg-libpciaccess</li>
+            
+            <li>devpkg-libpng</li>
+            
+            <li>devpkg-libpthread-stubs</li>
+            
+            <li>devpkg-libsoup</li>
+            
+            <li>devpkg-libxkbcommon</li>
+            
+            <li>libxml2</li>
+            
+            <li>devpkg-libxml2</li>
+            
+            <li>libxslt</li>
+            
+            <li>llvm</li>
+            
+            <li>make</li>
+            
+            <li>devpkg-mesa</li>
+            
+            <li>nasm</li>
+            
+            <li>nfs-utils</li>
+            
+            <li>devpkg-nspr</li>
+            
+            <li>devpkg-nss</li>
+            
+            <li>devpkg-openmpi</li>
+            
+            <li>openssl</li>
+            
+            <li>devpkg-openssl</li>
+            
+            <li>devpkg-orc</li>
+            
+            <li>p11-kit</li>
+            
+            <li>devpkg-pango</li>
+            
+            <li>patch</li>
+            
+            <li>devpkg-pcre</li>
+            
+            <li>devpkg-pixman</li>
+            
+            <li>devpkg-qtbase</li>
+            
+            <li>scons</li>
+            
+            <li>devpkg-sqlite-autoconf</li>
+            
+            <li>strace</li>
+            
+            <li>subversion</li>
+            
+            <li>texinfo</li>
+            
+            <li>tzdata</li>
+            
+            <li>unzip</li>
+            
+            <li>devpkg-util-linux</li>
+            
+            <li>valgrind</li>
+            
+            <li>devpkg-wayland</li>
+            
+            <li>devpkg-wayland-protocols</li>
+            
+            <li>which</li>
+            
+            <li>devpkg-xorgproto</li>
+            
+            <li>xz</li>
+            
+            <li>devpkg-xz</li>
+            
+            <li>yasm</li>
+            
+            <li>devpkg-zlib</li>
+            
           </p>
           
         </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">v4l-utils</a></td>
+        <td class="bundledesc"> video4linux tools </td>
       </tr>
       
       
@@ -5368,6 +8422,14 @@
         <td class="bundlename" id="bundle"><a href="https://github.com/clearlinux/clr-bundles/tree/master/bundles/web-server-basic">web-server-basic</a></td>
         <td class="bundledesc">Run a HTTP web server <br />
           
+          <p>Includes bundle(s):
+            
+            <li>httpd</li>
+            
+            <li>nginx</li>
+            
+          </p>
+          
         </td>
       </tr>
       
@@ -5445,6 +8507,8 @@
             
             <li>perl-basic</li>
             
+            <li>xterm</li>
+            
           </p>
           
         </td>
@@ -5484,8 +8548,22 @@
       
       
       <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">xterm</a></td>
+        <td class="bundledesc"> The basic X.Org terminal program desktop launcher </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
         <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">xz</a></td>
         <td class="bundledesc"> data compression/decompression tool </td>
+      </tr>
+      
+      
+      
+      <tr id="pundle">
+        <td class="bundlename"><a href="https://github.com/clearlinux/clr-bundles/blob/master/packages">yasm</a></td>
+        <td class="bundledesc"> assembler </td>
       </tr>
       
       
