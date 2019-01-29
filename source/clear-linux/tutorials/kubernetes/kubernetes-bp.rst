@@ -3,6 +3,9 @@
 Kubernetes Best Practices on |CL|
 #################################
 
+Update Kubernetes clusters
+**************************
+
 This tutorial shows you how to manage your Kubernetes cluster while using
 :command:`swupd` to update |CL-ATTR|.
 
@@ -13,11 +16,18 @@ RPM/DEB). In contrast, |CL| manages packages in bundles. This document
 describes best practices to manage cluster upgrades with kubeadm on a |CL|-based cluster.
 
 Prerequisites
-**************
+*************
 
 Let's review some basic assumptions:
 
 * |CL| includes Kubernetes support with the `cloud-native-basic` bundle.
+
+* Ensure `autoupdate` is enabled. See :ref:`swupd-guide`.
+  To enable, run:
+
+  .. code-block:: bash
+
+     sudo swupd autoupdate
 
 * Execute :command:`sudo swupd update` **on each node** to do the update.
 
@@ -29,7 +39,7 @@ binaries simultaneously, which are part of `cloud-native-basic` bundle
 
 .. note::
 
-   Oher Linux\* distros shown in Kubernetes upgrade documentation reflect
+   Other Linux\* distros shown in Kubernetes upgrade documentation reflect
    `apt-get update`, `apt-mark hold kubeadm`, and similar commands; however, such commands **aren not valid** on |CL|.
 
 
@@ -49,20 +59,18 @@ Update the cluster
 
       cat /run/motd
 
-#. Next, ....[Explain resultant actions/choices from above]
+.. TODO: As of 01/29/19 the motd is only available if the k8s minor version changes. Under consideration that the motd will ALWAYS show when k8s changes.
+
+#. If the 'motd' indicates a change...., follow instructions below to update.
 
    .. note::
 
-      Swupd post install script adds a message-of-the-day to warn/notify
-      users if the OS update installs a new kubernetes version that is not
-      compatible (according to kubernetes API guarantee) with the previous
-      version. If the `motd` appears, a kubelet restart on master and nodes
-      must be postponed until the control plane is properly updated.
-      :command:`swupd update` does not restart services automatically unless
-      explicitly configured to do so (be warned about making kubelet
-      automatically restartable).
+      Do not restart the kubelet before the control plane is updated.
 
-   .. note:: Do not restart the kubelet before the control plane is updated.
+      If the `motd` appears, a kubelet restart on master and nodes
+      **must be postponed** until the control plane is properly updated.
+      :command:`swupd update` does not restart services automatically unless
+      explicitly configured to do so.
 
 #. Now follow these instructions in kubernetes documentation.
 
@@ -87,7 +95,7 @@ Update worker nodes
    * `Restart Kubelet and undrain node`_
 
 
-.. _Restart Keubelet and undrain node: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-13/#restart-the-kubelet-for-all-nodes
+.. _Restart Kubelet and undrain node: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-13/#restart-the-kubelet-for-all-nodes
 
 .. _Update kubelet configuration: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-13/#upgrade-the-kubelet-config-on-worker-nodes
 
