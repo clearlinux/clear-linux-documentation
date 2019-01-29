@@ -4,6 +4,11 @@
 #############################################
 
 Welcome to the |CL-ATTR| documentation pages, the source for |CL| documentation.
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/JFg-_5xihkE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Our documentation is divided into the following sections:
 
 * :ref:`get-started`
