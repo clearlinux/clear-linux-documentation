@@ -1,31 +1,36 @@
 .. _ister:
 
-ister
-#####
+ister.py
+########
 
 The `ister.py tool`_ is a template based installer used by |CL-ATTR| to produce
-images for each release. The same ister tool is available for use to create
-custom images based on upstream |CL|.
+images for each release. The same ister tool is available for use in |CL| to
+create custom images based on an upstream image.
 
 Description
 ***********
 
 |CL| is a rolling release and produces on average 10 releases per week using the
-ister tool. With each release, we produce multiple `different image types`_ for
-different environments and use cases such as installers, Hyper-V, KVM, or
-VMWare.
+ister tool. With each release we produce multiple
+`image types for different environments`_  and use cases such as installers,
+Hyper-V, KVM, or VMWare.
 
-For each image, we also publish the corresponding JSON configuration file used
-by ister to generate the image. These JSON configuration files describe image
-type, partitions, version, and which bundles will be preinstalled by default
-with the image.
+Each image has a JSON configuration file used by ister to generate the image.
+These JSON configuration files describe the image type, partitions, version,
+and which bundles will be preinstalled by default with the image. For each image
+type we produce, the corresponding JSON configuration file for the image is also
+published.
 
-The :ref:`mixer<mixer>` tool uses ister to build an image for your custom mix.
-Like upstream images, a JSON configuration file is defined for the image, which
-ister uses to generate the image.
+The :ref:`mixer<mixer>` tool also uses ister to build images for your custom
+mix. Like upstream images, a JSON configuration file is defined for the image,
+which ister uses to generate the image. Refer to the :ref:`mixer<mixer>` guide
+for instruction on using ister to build an image for a custom mix.
 
-Configuration files for upstream images may be used to recreate an image, for
-example when you want to:
+Example: Recreate an upstream image
+***********************************
+
+The published configuration files for upstream images may be used to recreate an
+image, for example when you want to:
 
 * Use an older version of |CL| and the image is no longer available (only after
   March 2017).
@@ -33,18 +38,8 @@ example when you want to:
 * Customize the bundles preinstalled in an image.
 * Run your own post installation script.
 
-How to use ister
-****************
-
-Learn how to use ister to recreate an upstream image. Refer to the
-:ref:`mixer <mixer>` guide for instruction on using ister to build an image for
-a custom mix.
-
-Example: Recreate an upstream image
-===================================
-
 Prerequisites
--------------
+=============
 
 #. |CL| installed.
 
@@ -53,7 +48,7 @@ Prerequisites
 #. ister.py has sudo privilege.
 
 Recreate upstream image
------------------------
+=======================
 
 Follow these steps to recreate an upstream image based on the image's JSON
 configuration file:
@@ -89,6 +84,6 @@ Related topics
 * :ref:`bulk-provision`
 
 .. _ister.py tool: https://github.com/bryteise/ister
-.. _different image types: https://cdn.download.clearlinux.org/image/README-IMAGES.html
+.. _image types for different environments: https://cdn.download.clearlinux.org/image/README-IMAGES.html
 .. _Configuration files for the current release: https://cdn.download.clearlinux.org/current/config/image/
 .. _Previous releases: https://cdn.download.clearlinux.org/releases/
