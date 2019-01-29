@@ -1,12 +1,10 @@
 .. |CL| replace:: Clear Linux OS
 
-.. |CLOSIA| replace:: Clear Linux* OS
-
 .. |CL-ATTR| replace:: Clear Linux* OS
 
 .. |CL-PRJ| replace:: Clear Linux* project
 
 .. |CC| replace:: Clear Containers
 
-.. |CAUTION-BACKUP-USB| replace:: 
+.. |CAUTION-BACKUP-USB| replace::
 	Burning an image formats the USB drive, thus destroying all existing content.  Backup your data before proceeding.

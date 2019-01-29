@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bundles in Clear Linux* OS</title>
+</head>
+
+<body>
+  <table id="bundletable">
+
+    <thead>
+      <tr>
+        <th></th>
+        <th style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic">
+          Updated: {{ now.strftime('%x %H:%M') }} UTC
+        </th>
+      </tr>
+      <tr>
+        <th> Name</th>
+        <th> Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+      </tr>
+      <tr></tr>
+      {% for d in data %}
+      {% if d.url %}
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="{{d.url}}">{{d.title}}</a></td>
+        <td class="bundledesc">{{d.data_desc}} <br />
+          {% if d.include_list %}
+          <p>Includes bundle(s):
+            {% for include in d.include_list %}
+            <li>{{include}}</li>
+            {% endfor %}
+          </p>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr id="pundle">
+        <td class="bundlename"><a href="{{d.purl}}">{{d.title}}</a></td>
+        <td class="bundledesc"> {{d.pun_desc}} </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+
+</html>

@@ -3,8 +3,8 @@
 Build a custom |CL-ATTR| based Docker container image
 #######################################################
 
-The official base |CL-ATTR| container image is published on Docker\* Hub and 
-is updated on a regular basis. This guide contains the steps to build a 
+The official base |CL-ATTR| container image is published on Docker\* Hub and
+is updated on a regular basis. This guide contains the steps to build a
 custom container image.
 
 Prerequisites
@@ -111,7 +111,7 @@ Build the base container image
     ..  note::
 
         * :file:`os-core` provides the minimal Linux namespace.
-        * :file:`os-core-update` provides the basic suite for running the |CLOSIA|
+        * :file:`os-core-update` provides the basic suite for running the |CL|
           updater.
 
 #. Optionally, you can include additional bundles with the base image.

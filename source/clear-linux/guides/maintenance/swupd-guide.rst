@@ -5,7 +5,7 @@ Use swupd
 
 *swupd* manages the software update capability of |CL-ATTR|. It can check for
 valid system updates and, if found, download and install them. It can also
-perform verification of the system software. 
+perform verification of the system software.
 
 |CL| uses :ref:`bundles <bundles-about>` as the base abstraction for
 installing functionality on top of the core operating system. Use the `swupd`
@@ -18,13 +18,14 @@ This guide assumes:
 * The device is able to connect to the release infrastructure
   http://update.clearlinux.org
 
-.. contents:: 
+.. contents::
    :local:
    :depth: 2
 
 .. _man_swupd:
 
-For a full listing of commands and options please see the man page in |CL|
+For a full listing of commands and options please see the man page found in
+the `swupd` `source code`_ or on |CL| itself. 
 
 .. code-block:: bash
 
@@ -54,7 +55,7 @@ Current OS version and update server info:
 Enable or disable automatic updates
 ===================================
 
-|CL| updates are automatic by default but can be set to occur only 
+|CL| updates are automatic by default but can be set to occur only
 on demand. To verify your current auto-update setting:
 
 .. code-block:: bash
@@ -105,7 +106,7 @@ to, overwritten, removed, or modified (e.g., permissions).
 
    sudo swupd verify
 
-All directories that are watched by `swupd` are verified according to 
+All directories that are watched by `swupd` are verified according to
 the manifest data and hash mismatches are flagged as follows:
 
 .. code-block:: console
@@ -113,7 +114,7 @@ the manifest data and hash mismatches are flagged as follows:
    Verifying version 23300
    Verifying files
       ...0%
-   Hash mismatch for file: /usr/bin/chardetect   
+   Hash mismatch for file: /usr/bin/chardetect
    ...
    ...
    Hash mismatch for file: /usr/lib/python3.6/site-packages/urllib3/util/wait.py
@@ -124,7 +125,7 @@ the manifest data and hash mismatches are flagged as follows:
 
 In this case, python packages that were installed on top of the default
 install were flagged as mismatched. `swupd` can be directed to ignore
-or fix issues based on :ref:`command line options <man_swupd>`. 
+or fix issues based on :ref:`command line options <man_swupd>`.
 
 Fixing hash mismatches
 ======================
@@ -138,7 +139,7 @@ ignore files or directories matching `/usr/lib/python`:
 
 .. code-block:: bash
 
-   sudo swupd verify --fix --picky --picky-whitelist=/usr/lib/python 
+   sudo swupd verify --fix --picky --picky-whitelist=/usr/lib/python
 
 Bundles
 *******
@@ -150,7 +151,7 @@ You can list all of the bundles currently installed on the system
 
 .. code-block:: bash
 
-   sudo swupd bundle-list --all 
+   sudo swupd bundle-list --all
 
 Finding a bundle containing a binary
 ====================================
@@ -160,7 +161,7 @@ binary. Note that it may be present in multiple bundles:
 
 .. code-block:: bash
 
-   swupd search -b <binary you want> 
+   swupd search -b <binary you want>
 
 Adding a bundle
 ===============
@@ -181,3 +182,4 @@ Dependencies common to other bundles will not be removed
 
    sudo swupd bundle-remove dev-utils-dev
 
+.. _source code: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst

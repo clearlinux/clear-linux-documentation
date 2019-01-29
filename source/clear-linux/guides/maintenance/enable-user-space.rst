@@ -4,7 +4,7 @@ Create and enable a new user space
 ##################################
 
 This section provides steps to complete the following basic setup tasks for
-a newly installed |CLOSIA| system:
+a newly installed |CL-ATTR| system:
 
 * Create a new user.
 * Update the OS to its most current version using `swupd`.
@@ -51,7 +51,7 @@ Install the `sysadmin-basic` bundle:
 
 We provide the full list of bundles and packages installed with the
 `sysadmin-basic`_ bundle. Additionally, we have listed
-`all Clear Linux bundles`_, active or deprecated. Click any bundle on the
+`all bundles`_ for |CL|, active or deprecated. Click any bundle on the
 list to view the manifest of the bundle.
 
 Set up a new user and add the new user to the `wheel` group
@@ -88,7 +88,7 @@ Install a GUI to test `sudo` privileges
 .. note::
 
    If you are following this sequence after just setting up the
-   pre-configured VMware\* virtual machine from the repo, you must 
+   pre-configured VMware\* virtual machine from the repo, you must
    :ref:`increase virtual disk size<increase-virtual-disk-size>` or the
    following step will fail.
 
@@ -136,7 +136,7 @@ system.
 .. _`sysadmin-basic`:
    https://github.com/clearlinux/clr-bundles/blob/master/bundles/sysadmin-basic
 
-.. _`all Clear Linux bundles`:
+.. _`all bundles`:
    https://github.com/clearlinux/clr-bundles/tree/master/bundles
 
 .. _`wheel group`:

@@ -97,7 +97,7 @@ standards. Below are some examples:
   have been removed such as the `finger` and `tcpwrappers`.
 
 * `SFTP` has been disabled by default due to security 
-  considerations. See the `openssh-server reference page`_ for more details. 
+  considerations. 
 
 
 Verified trust
@@ -182,7 +182,6 @@ good security hygiene. Below are some examples:
 
 .. _`documentation about Software Updates`: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about
 .. _`cve-check-tool`: https://github.com/clearlinux/cve-check-tool
-.. _`openssh-server reference page`: https://clearlinux.org/documentation/clear-linux/reference/bundles/openssh-server
 .. _`blog post about swupd security`: https://clearlinux.org/blogs/security-software-update-clear-linux-os-intel-architecture
 .. _`rolling release model`: https://en.wikipedia.org/wiki/Rolling_release
 .. _`clrtrust`: https://github.com/clearlinux/clrtrust
