@@ -124,7 +124,7 @@ html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "clearlinux", # Username
     "github_repo": "clear-linux-documentation", # Repo name
-    "github_version": "master", # Version
+    "github_version": "rtd-theme", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
 }
 
