@@ -101,7 +101,6 @@ RPM SPEC file.
 #. Modify the Version, Release, and Source0 URL entries at the top of the file
 
       .. code-block:: bash
-       :emphasize-lines: 2,3,8
       
        Name:           linux
        Version:        4.20.5
@@ -236,7 +235,6 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
    patch number does not collide with an existing patch.
 
    .. code-block:: bash
-      :emphasize-lines: 13
 
       #
       # Small Clear Linux Tweaks
@@ -257,7 +255,6 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
    patch application and append your patch file number used in the step above.
 
    .. code-block:: bash
-      :emphasize-lines: 11
 
       #
       # Small tweaks
@@ -287,23 +284,29 @@ the kernel is ready to be compiled and packaged into a RPM.
       
          make build
 
-#. The result there will be :file:`.rpm` files in the :file:`results` 
-   directory
+#. The result there will be multiple :file:`.rpm` files in the :file:`rpms` 
+   directory as output. 
 
       .. code-block:: bash
       
-         ls results/
+         ls rpms/
+
+   The kernel RPM will be named :file:`linux<name>-<version><release>.x86_64.rpm`
+
+
 
 
 #. The kernel RPM file can be input to the `mixer tool`_ to create a custom 
    bundle and mix of |CL|.
 
-   Alternatively, the kernel RPM bundle can be installed locally for testing
-   with the :command:`rpm` command.
+   
+Alternatively, the kernel RPM bundle can be installed locally for testing
+with the :command:`rpm` command.
 
+1. Install with the rpm command
       .. code-block:: bash
 
-         rpm -ivh linux-custom.<version>.<release>.x86_64.rpm
+         sudo rpm -ivh linux-custom.<version>.<release>.x86_64.rpm
 
 #. Update the |CL| boot manager using :command:`clr-boot-manager`
    sudo clr-boot-manager list-kernels
@@ -312,7 +315,7 @@ the kernel is ready to be compiled and packaged into a RPM.
 
          sudo clr-boot-manager list-kernels
 
-         clr-boot-manager set-kernel <name>
+         sudo clr-boot-manager set-kernel <name>
 
 
 
