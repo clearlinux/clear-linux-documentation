@@ -26,18 +26,19 @@ part of your update. You can select content from each of these sources to make a
 unique combination of functionality for your custom update content (known as a
 mix).
 
-The update content output by mixer consists of various pieces of OS content,
-update metadata, as well as a complete image. The OS content includes all files
-in an update, as well as zero- and delta-packs for improved update performance.
-The metadata, stored as manifests, describes all of the bundle information for
-the update. Update content produced by mixer is then published to a web server
-and consumed by clients via swupd. Refer to :ref:`swupd <swupd-guide>` for
-additional information regarding updates and update content.
+The update content that mixer generates consists of various pieces of OS
+content, update metadata, as well as a complete image. The OS content includes
+all files in an update, as well as zero- and delta-packs for improved update
+performance. The metadata, stored as manifests, describes all of the bundle
+information for the update. Update content produced by mixer is then published
+to a web server and consumed by clients via swupd. Refer to
+:ref:`swupd <swupd-guide>` for additional information regarding updates and
+update content.
 
 How to use mixer
 ****************
 
-Learn the mixer tool workflow and create your own content update.
+Learn the mixer tool set up and workflow.
 
 .. contents::
    :local:
@@ -60,7 +61,8 @@ Prerequisites
    Mixer by default runs all build commands in a Docker container to make sure
    the correct tool versions are used. This also allows custom mixes to
    automatically perform downstream format bumps when the upstream releases a
-   format bump.
+   format bump. See `Format version`_ for additional information regarding
+   format bumps.
 
    Refer to `Configure and enable Docker`_ for instruction.
 
@@ -541,17 +543,17 @@ Additional explanation of variables in :file:`builder.conf` is provided in Table
 Format version
 --------------
 
-.. TODO: Even after mixing, I see NO FORMAT variable in builder.conf. Is this out of date?
+Compatible versions of an OS are tracked with an OS *compatibility epoch*.
+Versions of an OS within an epoch are fully compatible and can update to any
+other version within that epoch. The compatibility epoch is set as the `Format`
+variable in the :file:`mixer.state` file. Variables in the :file:`mixer.state`
+are used by mixer between executions and should not be manually changed.
 
-The `Format` variable set in the :file:`builder.conf` file can be considered as
-an OS *compatibility epoch*. Versions of the OS within an epoch are fully
-compatible and can update to any other version within that epoch.
-
-If `Format` increments to a new epoch, the OS has changed in such a way that
-updating from build M in format X, to build N in format Y will not work.
-Generally, this scenario occurs when the software updater or software manifests
-change in such a way that they are no longer compatible with the previous update
-scheme.
+If `Format` increments to a new epoch (a "format bump"), the OS has changed in
+such a way that updating from build M in format X, to build N in format Y will
+not work. Generally, this scenario occurs when the software updater or software
+manifests a change in such a way that it is no longer compatible with the
+previous update scheme.
 
 Using a format increment, we make sure pre- and co-requisite changes flow out
 with proper ordering. The updated client will only update to the latest
@@ -563,15 +565,12 @@ The given format *must* contain all the changes needed to understand the content
 built in the next format. Only after reaching the final release in the old
 format can a client continue to update to releases in the new format.
 
-When creating a custom mix, the format version should start at "1" or some known
-number such as the host system format. The format version should increment only
-when a compatibility breakage is introduced. Normal updates, like updating a
-software package, do not require a format increment.
+The format version is incremented only when a compatibility breakage is
+introduced. Normal updates, like updating a software package, do not require a
+format increment.
 
 Bundles
 =======
-
-.. TODO Need to verify update from edit to create, in terms of change in workflow/content here (how does create work with editing an upstream bundle?). Likely out of date content is commented out, to be confirmed.
 
 mixer stores information about the bundles included in a mix in a flat file
 called :file:`mixbundles`, located in the path set by the VERSIONS_PATH
@@ -608,95 +607,30 @@ bundles. Local bundle definition files are stored in the local-bundles directory
 in the workspace. The LOCAL_BUNDLE_DIR variable sets the path of this directory
 in the :file:`builder.conf` file.
 
-.. Edit bundles
-.. ------------
+*Mixer always checks for local bundles first and the upstream bundles second.*
+So bundles in the local-bundles directory will always take precedence over any
+upstream bundles that have the same name. This precedence enables you to copy
+upstream bundles locally, and edit into a local variation.
 
-*Mixer always checks local bundles first and the upstream bundles second.* So
-bundles in the local-bundles directory will always take precedence over any
-upstream bundles that have the same name. This precedence enables you to edit
-upstream bundles into local variations.
+Bundle configuration
+--------------------
 
-View the `mixer.bundle man page`_ for more information on configuring bundles
-in a mix.
+mixer provides commands to configure the bundles for a mix, for example to add a
+bundle to a mix, to create a new bundle for a mix, or to remove a bundle from a
+mix. View the `mixer.bundle man page`_ for a full list of commands and more
+information on configuring bundles in a mix.
 
-.. Editing an upstream bundle looks like this:
+Editing an existing local bundle is as simple as opening the bundle definition
+file in your favorite editor, making the desired edits, and saving your changes.
 
-.. #. Edit the upstream bundle. For example:
+A note on removing bundles from a mix: By default, removing a bundle will only
+remove the bundle from the mix. The local bundle defintion file will still
+remain. To completely remove a bundle, including its local bundle definition
+file, use the :command:`--local` flag.
 
-..    .. code-block:: bash
-
-..       mixer bundle edit <upstream-bundle>
-.. #. mixer will look for <upstream-bundle> first in local-bundles. If
-..    <upstream-bundle> is found locally, mixer will open the local bundle
-..    definition file for editing.
-
-..    If <upstream-bundle> is only found upstream, mixer will copy the bundle
-..    definition file from upstream, into your local-bundles directory, and then
-..    open the (now local) bundle definition file.
-.. #. The local, edited version of the bundle will override the bundle version found
-..    upstream.
-
-.. When editing a bundle, mixer launches your default editor to edit the file.
-.. When the editor is closed, mixer will automatically validate the edited bundle.
-
-.. You can edit multiple bundles at once. For example:.. 
-
-..    .. code-block:: bash.. 
-
-..       mixer bundle edit <bundle-1> [<bundle-3> ...].. 
-
-.. Add bundles
-.. -----------.. 
-
-.. mixer treats adding a new bundle like an edit - simply edit your new bundle to
-.. create it. For example:.. 
-
-.. .. code-block:: bash.. 
-
-..       mixer bundle edit <my-new-bundle>.. 
-
-.. This will generate a blank template in local-bundles with the my-new-bundle
-.. filename. Like editing a bundle, mixer will launch the editor to edit the new
-.. bundle file. Add your package or packages to the bundle definition file to
-.. define the packages to install as part of the bundle... 
-
-.. New bundles must have a name that is not used by an upstream bundle... 
-
-.. For each bundle you add, mixer checks your local and upstream bundles to make
-.. sure the added bundle actually exists. If mixer cannot find the bundle, it
-.. reports back an error... 
-
-.. Validate bundles
-.. ----------------.. 
-
-.. mixer will automatically validate your bundles after editing or on demand. mixer
-.. will report any errors found during validation, as they are found. If an error
-.. is found, you have the option to edit the file as-is, revert and edit, or skip
-.. the error and move on to the next bundle (if editing multiple bundles). If you
-.. skip a file, mixer will save a backup of the original file with the .orig
-.. suffix... 
-
-.. Remove bundles
-.. --------------
-
-.. By default, removing a bundle will not remove the bundle definition file from
-.. your local bundles. To completely remove a bundle, including its local bundle
-.. definition file, use the following the –local flag.. 
-
-.. Using the -local flag will remove the bundle from the mix as well. To remove
-.. *only* the local bundle definition file, use the –mix=false flag.. 
-
-.. .. code-block:: bash.. 
-
-..    mixer bundle remove --local --mix=false <upstream-bundle>.. 
-
-.. If you remove a local, edited version of an upstream bundle and keep the bundle
-.. in the mix, the mix will revert to reference the original upstream version of
-.. the bundle... 
-
-.. Caution: If you remove a local bundle that is *not* an edited version of an
-.. upstream bundle, but keep the bundle in the mix bundles list, mixer will not
-.. find a valid bundle definition file and will produce an error.
+If you remove the bundle definition file for a local, edited version of an
+upstream bundle in a mix, the mix will revert to reference the original upstream
+version of the bundle.
 
 Configure and enable Docker
 ===========================
