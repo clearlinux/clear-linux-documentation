@@ -19,12 +19,12 @@ needed it may be necessary to:
    :backlinks: top
 
 
-Request the change be added to |CL| kernel
-==========================================
+Request the change be included with the |CL| kernel
+===================================================
 
-If the kernel modification you need is already open source 
-(e.g. in the Linux upstream) and likely to be useful to others, 
-consider submitting a request to add or enable in the |CL| kernel.
+If the kernel modification you need is already open source and likely to be 
+useful to others, consider submitting a request to add or enable in the
+|CL| kernel.
 
 If your change request is accepted, you do not need to maintain your own modified kernel.
 
@@ -39,13 +39,11 @@ needs or test new kernel code as a developer.
 
 You can build and install a custom kernel, however you must:
 
-    * disable secure boot
-    * maintain any updates to the kernel going forward
+* Disable secure boot
+* Maintain any updates to the kernel going forward
 
-This approach works well for individual development or testing. 
-For a more scalable and customizable approach, consider using the 
-`mixer tool`_ to provide a custom kernel and updates.
-
+To customize the kernel you will need a |CL| development evnironment, 
+make changes to the kernel, build the kernel, and install it.
 
 
 Install the |CL| development tooling framework
@@ -61,14 +59,14 @@ Clone the Linux kernel package
 ------------------------------
 clone the existing kernel package repository from |CL| as a starting point.
 
-#. Clone the Linux kernel package from Clear Linux
+#. Clone the Linux kernel package from |CL|.
 
    .. code-block:: bash
 
       cd ~/clearlinux
       make clone_linux
 
-#. Navigate into the cloned package directory
+#. Navigate into the cloned package directory.
 
    .. code-block:: bash
 
@@ -77,7 +75,7 @@ clone the existing kernel package repository from |CL| as a starting point.
 .. note::
     The "linux" package is the kernel that comes with |CL| in the kernel-native bundle.
     You can alternatively use a different kernel variant as the base for modification. 
-    For a list of kernel package names which you can clone instead, see the `clearlinux-pkgs GitHub`.
+    For a list of kernel package names which you can clone instead, see the `clearlinux-pkgs GitHub`_.
 
 
 Change the kernel version 
@@ -92,13 +90,13 @@ RPM SPEC file.
    :ref:`autospec`, the kernel is not. This means control files provided 
    by autospec are not available  and changes must be made directly.
 
-#. Open the Linux kernel package RPM SPEC file in an editor
+#. Open the Linux kernel package RPM SPEC file in an editor.
 
    .. code-block:: bash
 
       $EDITOR linux.spec
 
-#. Modify the Version, Release, and Source0 URL entries at the top of the file
+#. Modify the Version, Release, and Source0 URL entries at the top of the file.
 
       .. code-block:: bash
       
@@ -133,7 +131,7 @@ unique configuration changes that have been made and makes applying any
 future default configuration values easier. 
 
 The :file:`config-fragment` is the only file that is modified and is 
-eventually merged or overlaid with the main :file:`.config`.
+eventually merged with the main :file:`.config`.
 
 
 
@@ -180,7 +178,7 @@ eventually merged or overlaid with the main :file:`.config`.
 
 
 .. note::
-   If you hae a large number of patches or a more complex workflow, 
+   If you have a large number of patches or a more complex workflow, 
    consider using a patch management tool in addition to Git such as `Quilt`_. 
 
 Modify kernel source code 
@@ -197,6 +195,7 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
 #. Make any code changes to the Linux source files
 
 #. Track and commit your changes to the local git repo. 
+
       .. code-block:: bash
       
          git commit -m "My patch for driver A"
@@ -211,19 +210,19 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
          git format-patch -<n>
 
 #. Copy the patch files from the patches directory in the linux 
-   source tree to the RPM build directory
+   source tree to the RPM build directory.
 
       .. code-block:: bash
       
          cp patches/*.patch ~/clearlinux/packages/linux/
 
-#. Navigate back to the RPM build directory
+#. Navigate back to the RPM build directory.
 
       .. code-block:: bash
       
          cd ~/clearlinux/packages/linux/
 
-#. Open the Linux kernel package RPM SPEC file in an editor
+#. Open the Linux kernel package RPM SPEC file in an editor.
 
    .. code-block:: bash
 
@@ -272,8 +271,8 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
 #. Commit and save the changes to the RPM SPEC file.
 
 
-Build and install a kernel
-==========================
+Build and install the kernel
+============================
 After changes have been made to the kernel SPEC file and config file, 
 the kernel is ready to be compiled and packaged into a RPM.
 
@@ -300,22 +299,38 @@ the kernel is ready to be compiled and packaged into a RPM.
    bundle and mix of |CL|.
 
    
-Alternatively, the kernel RPM bundle can be installed locally for testing
-with the :command:`rpm` command.
+Alternatively, the kernel RPM bundle can be installed manually on a local 
+machine for testing. This approach works well for individual development or 
+testing. For a more scalable and customizable approach, consider using the 
+`mixer tool`_ to provide a custom kernel with updates.
 
-1. Install with the rpm command
+1. Install the os-core-dev bundle which contains install dependencies, 
+   such as systemd binaries.
+
+      .. code-block:: bash
+
+         swupd bundle-add os-core-dev
+
+#. Install with the rpm command.
+
       .. code-block:: bash
 
          sudo rpm -ivh linux-custom.<version>.<release>.x86_64.rpm
 
-#. Update the |CL| boot manager using :command:`clr-boot-manager`
-   sudo clr-boot-manager list-kernels
+#. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
 
       .. code-block:: bash
 
          sudo clr-boot-manager list-kernels
 
          sudo clr-boot-manager set-kernel <name>
+         sudo reboot
+
+#. After a reboot, verify the customized kernel is running.
+
+      .. code-block:: bash
+
+         uname -a
 
 
 
