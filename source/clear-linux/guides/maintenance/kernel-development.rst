@@ -304,14 +304,7 @@ machine for testing. This approach works well for individual development or
 testing. For a more scalable and customizable approach, consider using the 
 `mixer tool`_ to provide a custom kernel with updates.
 
-1. Install the os-core-dev bundle which contains install dependencies, 
-   such as systemd binaries.
-
-      .. code-block:: bash
-
-         swupd bundle-add os-core-dev
-
-#. Install with the rpm command.
+1. Install the kernel RPM onto the local system with the :command:`rpm` command.
 
       .. code-block:: bash
 
