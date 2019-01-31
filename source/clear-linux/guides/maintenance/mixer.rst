@@ -1,6 +1,6 @@
 .. _mixer:
 
-Mixer
+mixer
 #####
 
 mixer is the tool used by the |CL-ATTR| team to generate official update content
@@ -58,7 +58,7 @@ Prerequisites
 
 #. **Docker container**
 
-   Mixer by default runs all build commands in a Docker container to make sure
+   mixer by default runs all build commands in a Docker container to make sure
    the correct tool versions are used. This also allows custom mixes to
    automatically perform downstream format bumps when the upstream releases a
    format bump. See `Format version`_ for additional information regarding
@@ -431,7 +431,7 @@ version 10 (which the image was built from), to mix version 20.
 .. -------------------------------------
 .. TODO future example to show copy into local-rpms...
 
-Mixer reference
+mixer reference
 ***************
 
 .. contents::
@@ -481,7 +481,7 @@ Additional explanation of variables in :file:`builder.conf` is provided in Table
 | **Variable**                  | **Explanation**                                          |
 +-------------------------------+----------------------------------------------------------+
 | `CERT`                        | Sets the path where mixer stores the certificate file    |
-|                               | used to sign content for verification. Mixer             |
+|                               | used to sign content for verification. mixer             |
 |                               | automatically generates the certificate if you do not    |
 |                               | provide the path to an existing one, and signs the       |
 |                               | :file:`Manifest.MoM` file to provide security for the    |
@@ -528,7 +528,7 @@ Additional explanation of variables in :file:`builder.conf` is provided in Table
 +-------------------------------+----------------------------------------------------------+
 | `VERSIONS_PATH`               | Sets the path for the mix version and upstream version's |
 |                               | two state files: :file:`mixversion` and                  |
-|                               | :file:`upstreamversion`. Mixer creates both files for    |
+|                               | :file:`upstreamversion`. mixer creates both files for    |
 |                               | you when you set up the workspace.                       |
 +-------------------------------+----------------------------------------------------------+
 | `YUM_CONF`                    | Sets the path where mixer automatically generates the    |
@@ -589,14 +589,14 @@ bundles or new local bundles.
 Upstream bundles
 ----------------
 
-Mixer automatically downloads and caches upstream bundle definition files. These
+mixer automatically downloads and caches upstream bundle definition files. These
 definition files are stored in the upstream-bundles directory in the workspace.
 Do not modify the files in this directory. This directory is simply a mirror for
 mixer to use. mixer will automatically delete the contents of this directory
 before repopulating it on-the-fly if a new version must be downloaded.
 
 The mixer tool automatically caches the bundles for the |CL| version configured
-in the :file:`upstreamversion` file. Mixer also cleans up old versions once they
+in the :file:`upstreamversion` file. mixer also cleans up old versions once they
 are no longer needed.
 
 Local bundles
@@ -607,7 +607,7 @@ bundles. Local bundle definition files are stored in the local-bundles directory
 in the workspace. The LOCAL_BUNDLE_DIR variable sets the path of this directory
 in the :file:`builder.conf` file.
 
-*Mixer always checks for local bundles first and the upstream bundles second.*
+*mixer always checks for local bundles first and the upstream bundles second.*
 So bundles in the local-bundles directory will always take precedence over any
 upstream bundles that have the same name. This precedence enables you to copy
 upstream bundles locally, and edit into a local variation.
@@ -652,7 +652,7 @@ Use these steps to enable Docker for the mixer tool. Make sure to
 
       sudo usermod -G docker -a <username>
 
-The mixer Docker container is available on `Docker Hub`_. Mixer will
+The mixer Docker container is available on `Docker Hub`_. mixer will
 automatically pull a Docker container for mixing if one does not already exist.
 You can optionally pull a container in advance, using the following steps:
 
