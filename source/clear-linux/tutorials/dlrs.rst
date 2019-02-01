@@ -141,7 +141,12 @@ cycle.
 ksonnet\*
 *********
 
-Kubeflow uses ksonnet* to manage deployments, so we need to install that before setting up Kubeflow. On |CL|, follow these steps:
+Kubeflow uses ksonnet* to manage deployments, so we need to install that before setting up Kubeflow.
+
+Since Clear Linux version 27550, the ksonnet was added to the bundle cloud-native-basic. But if using
+old versions (not recommended), please manually install the ksonnet as below.
+
+On |CL|, follow these steps:
 
 .. code-block:: bash
 
