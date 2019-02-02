@@ -11,7 +11,7 @@ The |CL| kernels aim to be performant and practical. In some cases, it may be
 necessary modify the kernel to suit your specific needs or test new kernel 
 code as a developer.
 
-In cases where drivers beyond those enabled by default in |CL-ATTR| are
+In cases where features beyond those enabled by default in |CL-ATTR| are
 needed it may be necessary to:
 
 .. contents:: :local:
@@ -26,7 +26,8 @@ If the kernel modification you need is already open source and likely to be
 useful to others, consider submitting a request to add or enable in the
 |CL| kernel.
 
-If your change request is accepted, you do not need to maintain your own modified kernel.
+If your change request is accepted, you do not need to maintain your own 
+modified kernel.
 
 Make enhancement requests to the |CL| distribution `on GitHub`_ .
 
@@ -39,11 +40,19 @@ needs or test new kernel code as a developer.
 
 You can build and install a custom kernel, however you must:
 
-* Disable secure boot
+* Disable Secure Boot
 * Maintain any updates to the kernel going forward
 
-To customize the kernel you will need a |CL| development evnironment, 
+To customize the kernel you will need a |CL| development environment, 
 make changes to the kernel, build the kernel, and install it.
+
+.. note::
+
+      This document shows how to obtain and compile a Linux kernel source 
+      using the |CL| development tooling.
+
+      Source RPM files (SRPM) are available for all |CL| kernels, and can be used for development instead.
+      The latest source RPM files are available at: `https://download.clearlinux.org/current/source/SRPMS/`_
 
 
 Install the |CL| development tooling framework
@@ -57,7 +66,7 @@ Install the |CL| development tooling framework
 
 Clone the Linux kernel package 
 ------------------------------
-clone the existing kernel package repository from |CL| as a starting point.
+Clone the existing kernel package re-pository from |CL| as a starting point.
 
 #. Clone the Linux kernel package from |CL|.
 
@@ -65,6 +74,7 @@ clone the existing kernel package repository from |CL| as a starting point.
 
       cd ~/clearlinux
       make clone_linux
+
 
 #. Navigate into the cloned package directory.
 
@@ -81,7 +91,7 @@ clone the existing kernel package repository from |CL| as a starting point.
 Change the kernel version 
 -------------------------
 
-|CL| tends to use the latest kernel available from kernel.org, the Linux 
+|CL| tends to use the latest kernel available from `kernel.org`_, the Linux 
 upstream. The kernel version that will be built can be changed in the 
 RPM SPEC file.
 
@@ -96,7 +106,9 @@ RPM SPEC file.
 
       $EDITOR linux.spec
 
-#. Modify the Version, Release, and Source0 URL entries at the top of the file.
+
+#. Modify the Version, Release, and Source0 URL entries at the top of the 
+   file.
 
       .. code-block:: bash
       
@@ -143,7 +155,9 @@ eventually merged with the main :file:`.config`.
 
    .. note::
       Due to how |CL| packaging tools make use of :command:`mock` environments 
-      psuedo-GUI tools that abstract kernel configuration such as menuconfig do not work.
+      psuedo-GUI tools that abstract kernel configuration such as menuconfig 
+      do not work.
+
 
 #. Find the configuration values you are looking for. 
    If a particular setting does not already exist , it can be added manually.
@@ -179,12 +193,14 @@ eventually merged with the main :file:`.config`.
 
 .. note::
    If you have a large number of patches or a more complex workflow, 
-   consider using a patch management tool in addition to Git such as `Quilt`_. 
+   consider using a patch management tool in addition to Git such as 
+   `Quilt`_. 
 
 Modify kernel source code 
 -------------------------
 
-Changes to kernel code are applied with patch files. Patch files are formatted git commits that can be applied to the main source code.
+Changes to kernel code are applied with patch files. Patch files are 
+formatted git commits that can be applied to the main source code.
 
 #. Clone the linux kernel source code into a new working directory
 
@@ -192,13 +208,16 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
       
          git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 
+
 #. Make any code changes to the Linux source files
+
 
 #. Track and commit your changes to the local git repo. 
 
       .. code-block:: bash
       
          git commit -m "My patch for driver A"
+
 
 #. Generate a patch file based on your git commits. 
    <n> represents the number of local commits to create patch file. 
@@ -209,6 +228,7 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
       
          git format-patch -<n>
 
+
 #. Copy the patch files from the patches directory in the linux 
    source tree to the RPM build directory.
 
@@ -216,11 +236,13 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
       
          cp patches/*.patch ~/clearlinux/packages/linux/
 
+
 #. Navigate back to the RPM build directory.
 
       .. code-block:: bash
       
          cd ~/clearlinux/packages/linux/
+
 
 #. Open the Linux kernel package RPM SPEC file in an editor.
 
@@ -271,6 +293,7 @@ Changes to kernel code are applied with patch files. Patch files are formatted g
 #. Commit and save the changes to the RPM SPEC file.
 
 
+
 Build and install the kernel
 ============================
 After changes have been made to the kernel SPEC file and config file, 
@@ -283,6 +306,7 @@ the kernel is ready to be compiled and packaged into a RPM.
       
          make build
 
+
 #. The result there will be multiple :file:`.rpm` files in the :file:`rpms` 
    directory as output. 
 
@@ -293,12 +317,11 @@ the kernel is ready to be compiled and packaged into a RPM.
    The kernel RPM will be named :file:`linux<name>-<version><release>.x86_64.rpm`
 
 
-
-
 #. The kernel RPM file can be input to the `mixer tool`_ to create a custom 
    bundle and mix of |CL|.
 
    
+
 Alternatively, the kernel RPM bundle can be installed manually on a local 
 machine for testing. This approach works well for individual development or 
 testing. For a more scalable and customizable approach, consider using the 
@@ -327,9 +350,16 @@ testing. For a more scalable and customizable approach, consider using the
 
 
 
+Related topics:
+
+      * :ref:`kernel-modules`
+      * :ref:`mixer`
+
 .. _`on GitHub`: https://github.com/clearlinux/distribution 
+.. _`https://download.clearlinux.org/current/source/SRPMS/`: https://download.clearlinux.org/current/source/SRPMS/
 .. _`mixer tool`: https://clearlinux.org/features/mixer-tool
 .. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
 .. _`Quilt`: http://savannah.nongnu.org/projects/quilt
 .. _`clearlinux-pkgs GitHub`: https://github.com/clearlinux-pkgs?&q=linux
+.. _`kernel.org`: https://www.kernel.org/
 .. _`git-format-patch Documentation`: https://git-scm.com/docs/git-format-patch
