@@ -7,7 +7,7 @@ The kernel is the heart of an operating system with many things relying on it
 to provide access to hardware and software functionality. 
 The Linux kernel is very customizable and extensible. 
  
-The |CL| kernels aim to be performant and practical. In some cases, it may be 
+The `Clear Linux kernels`_ aim to be performant and practical. In some cases, it may be 
 necessary modify the kernel to suit your specific needs or test new kernel 
 code as a developer.
 
@@ -353,6 +353,7 @@ Related topics:
       * :ref:`kernel-modules`
       * :ref:`mixer`
 
+.. _`Clear Linux kernels`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
 .. _`on GitHub`: https://github.com/clearlinux/distribution 
 .. _`https://download.clearlinux.org/current/source/SRPMS/`: https://download.clearlinux.org/current/source/SRPMS/
 .. _`mixer tool`: https://clearlinux.org/features/mixer-tool
