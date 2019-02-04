@@ -11,12 +11,17 @@ The |CL| kernels aim to be performant and practical. In some cases, it may be
 necessary modify the kernel to suit your specific needs or test new kernel 
 code as a developer.
 
-In cases where features beyond those enabled by default in |CL-ATTR| are
-needed it may be necessary to:
+This document shows how to obtain and compile a Linux kernel source 
+using the |CL-ATTR| development tooling.
+
 
 .. contents:: :local:
    :depth: 2
    :backlinks: top
+
+Source RPM files (SRPM) are also available for all |CL| kernels, and can be 
+used for development instead. The latest source RPM files are available at:
+`https://download.clearlinux.org/current/source/SRPMS/`_
 
 
 Request the change be included with the |CL| kernel
@@ -35,7 +40,7 @@ Make enhancement requests to the |CL| distribution `on GitHub`_ .
 Customize the Linux kernel source
 =================================
 
-In some cases, it may be necessary modify the kernel to suit your specific 
+In some cases, it may be necessary to modify the kernel to suit your specific 
 needs or test new kernel code as a developer.
 
 You can build and install a custom kernel, however you must:
@@ -46,13 +51,6 @@ You can build and install a custom kernel, however you must:
 To customize the kernel you will need a |CL| development environment, 
 make changes to the kernel, build the kernel, and install it.
 
-.. note::
-
-      This document shows how to obtain and compile a Linux kernel source 
-      using the |CL| development tooling.
-
-      Source RPM files (SRPM) are available for all |CL| kernels, and can be used for development instead.
-      The latest source RPM files are available at: `https://download.clearlinux.org/current/source/SRPMS/`_
 
 
 Install the |CL| development tooling framework
@@ -66,7 +64,7 @@ Install the |CL| development tooling framework
 
 Clone the Linux kernel package 
 ------------------------------
-Clone the existing kernel package re-pository from |CL| as a starting point.
+Clone the existing kernel package repository from |CL| as a starting point.
 
 #. Clone the Linux kernel package from |CL|.
 
@@ -98,7 +96,7 @@ RPM SPEC file.
 .. note:: 
    While most packages in Clear Linux are typically packaged using 
    :ref:`autospec`, the kernel is not. This means control files provided 
-   by autospec are not available  and changes must be made directly.
+   by autospec are not available and changes must be made manually.
 
 #. Open the Linux kernel package RPM SPEC file in an editor.
 
@@ -142,7 +140,7 @@ instead of directly editing the :file:`.config` file helps identify the
 unique configuration changes that have been made and makes applying any 
 future default configuration values easier. 
 
-The :file:`config-fragment` is the only file that is modified and is 
+The :file:`config-fragment` is the **only** file that is modified and is 
 eventually merged with the main :file:`.config`.
 
 
@@ -160,10 +158,10 @@ eventually merged with the main :file:`.config`.
 
 
 #. Find the configuration values you are looking for. 
-   If a particular setting does not already exist , it can be added manually.
+   If a particular setting does not already exist, it can be added manually.
 
-   For example, BTRFS support configuration is below indicating it is 
-   enabled in-tree.
+   For example, the snippet below shows BTRFS support configuration indicating
+   it is enabled in-tree.
 
       .. code-block:: bash
       
@@ -172,8 +170,8 @@ eventually merged with the main :file:`.config`.
 
 
 #. Modify the configuration values as desired. 
-   For example, to disable BTRFS support change the configuration to be
-   commented out.
+   For example, the snippet below shows BTRFS support configuration changed 
+   change to be disabled and commented out.
 
       .. code-block:: bash
       
