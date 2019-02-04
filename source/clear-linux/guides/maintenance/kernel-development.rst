@@ -3,17 +3,12 @@
 Kernel development on Clear Linux 
 #################################
 
-The kernel is the heart of an operating system with many things relying on it
-to provide access to hardware and software functionality. 
-The Linux kernel is very customizable and extensible. 
- 
-The `kernels available in Clear Linux`_ aim to be performant and practical. 
-In some cases, it may be necessary modify the kernel to suit your specific 
-needs or test new kernel code as a developer.
-
 This document shows how to obtain and compile a Linux kernel source 
 using the |CL-ATTR| development tooling.
 
+The `kernels available in Clear Linux`_ aim to be performant and practical. 
+In some cases, it may be necessary modify the kernel to suit your specific 
+needs or test new kernel code as a developer.
 
 .. contents:: :local:
    :depth: 2
@@ -48,8 +43,8 @@ You can build and install a custom kernel, however you must:
 * Disable Secure Boot
 * Maintain any updates to the kernel going forward
 
-To customize the kernel you will need a |CL| development environment, 
-make changes to the kernel, build the kernel, and install it.
+To create a custom kernel, start with the |CL| development environment. 
+Then make changes to the kernel, build it, and install it.
 
 
 
@@ -111,16 +106,16 @@ by autospec are not available and changes must be made manually.
 
    .. code-block:: bash
       
-       Name:           linux
-       Version:        4.20.5
-       Release:        690
-       License:        GPL-2.0
-       Summary:        The Linux kernel
-       Url:            http://www.kernel.org/
-       Group:          kernel
-       Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.5.tar.xz
-       Source1:        config
-       Source2:        cmdline
+      Name:           linux
+      Version:        4.20.5
+      Release:        690
+      License:        GPL-2.0
+      Summary:        The Linux kernel
+      Url:            http://www.kernel.org/
+      Group:          kernel
+      Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.5.tar.xz
+      Source1:        config
+      Source2:        cmdline
 
    .. note::
       Consider changing the Name in the RPM spec file to easily identify a modified kernel.
@@ -342,7 +337,7 @@ testing. For a more scalable and customizable approach, consider using the
 
       sudo clr-boot-manager list-kernels
       sudo clr-boot-manager set-kernel <name>
-      
+
       sudo reboot
 
 #. After a reboot, verify the customized kernel is running.
