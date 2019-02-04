@@ -7,9 +7,9 @@ The kernel is the heart of an operating system with many things relying on it
 to provide access to hardware and software functionality. 
 The Linux kernel is very customizable and extensible. 
  
-The `Clear Linux kernels`_ aim to be performant and practical. In some cases, it may be 
-necessary modify the kernel to suit your specific needs or test new kernel 
-code as a developer.
+The `kernels available in Clear Linux`_ aim to be performant and practical. 
+In some cases, it may be necessary modify the kernel to suit your specific 
+needs or test new kernel code as a developer.
 
 This document shows how to obtain and compile a Linux kernel source 
 using the |CL-ATTR| development tooling.
@@ -28,8 +28,8 @@ Request the change be included with the |CL| kernel
 ===================================================
 
 If the kernel modification you need is already open source and likely to be 
-useful to others, consider submitting a request to add or enable in the
-|CL| kernel.
+useful to others, consider submitting a request to include it in the
+|CL| kernels.
 
 If your change request is accepted, you do not need to maintain your own 
 modified kernel.
@@ -86,6 +86,7 @@ Clone the existing kernel package repository from |CL| as a starting point.
     For a list of kernel package names which you can clone instead, see the `clearlinux-pkgs GitHub`_.
 
 
+
 Change the kernel version 
 -------------------------
 
@@ -93,10 +94,10 @@ Change the kernel version
 upstream. The kernel version that will be built can be changed in the 
 RPM SPEC file.
 
-.. note:: 
-   While most packages in Clear Linux are typically packaged using 
-   :ref:`autospec`, the kernel is not. This means control files provided 
-   by autospec are not available and changes must be made manually.
+While most packages in Clear Linux are typically packaged using 
+`autospec`_, the kernel is not. This means control files provided 
+by autospec are not available and changes must be made manually.
+
 
 #. Open the Linux kernel package RPM SPEC file in an editor.
 
@@ -106,9 +107,9 @@ RPM SPEC file.
 
 
 #. Modify the Version, Release, and Source0 URL entries at the top of the 
-   file.
+   file to change the version of Linux kernel to be compiled.
 
-      .. code-block:: bash
+   .. code-block:: bash
       
        Name:           linux
        Version:        4.20.5
@@ -122,9 +123,10 @@ RPM SPEC file.
        Source2:        cmdline
 
    .. note::
-      TIP: Consider changing the Name in the RPM spec file to easily identify a modified kernel.
+      Consider changing the Name in the RPM spec file to easily identify a modified kernel.
 
 #. Commit and save the changes to the file
+
 
 
 Modify kernel configuration 
@@ -146,15 +148,14 @@ eventually merged with the main :file:`.config`.
 
 
 #. Open the kernel :file:`config-fragment` file in an editor.
+   
+   Due to how |CL| packaging tools make use of :command:`mock` environments 
+   psuedo-GUI tools that abstract kernel configuration such as menuconfig do 
+   not work. 
 
    .. code-block:: bash
 
       $EDITOR config-fragment
-
-   .. note::
-      Due to how |CL| packaging tools make use of :command:`mock` environments 
-      psuedo-GUI tools that abstract kernel configuration such as menuconfig 
-      do not work.
 
 
 #. Find the configuration values you are looking for. 
@@ -163,20 +164,21 @@ eventually merged with the main :file:`.config`.
    For example, the snippet below shows BTRFS support configuration indicating
    it is enabled in-tree.
 
-      .. code-block:: bash
-      
-         CONFIG_BTRFS_FS=y
-         CONFIG_BTRFS_FS_POSIX_ACL=y
+   .. code-block:: bash
+
+      CONFIG_BTRFS_FS=y
+      CONFIG_BTRFS_FS_POSIX_ACL=y
 
 
 #. Modify the configuration values as desired. 
+
    For example, the snippet below shows BTRFS support configuration changed 
    change to be disabled and commented out.
 
-      .. code-block:: bash
+   .. code-block:: bash
       
-         # CONFIG_BTRFS_FS is not set
-         # CONFIG_BTRFS_FS_POSIX_ACL is not set
+      # CONFIG_BTRFS_FS is not set
+      # CONFIG_BTRFS_FS_POSIX_ACL is not set
 
 #. Commit and save the changes to the :file:`config-fragment` file.
 
@@ -184,15 +186,16 @@ eventually merged with the main :file:`.config`.
 #. Run the :command:`make config` command to apply the changes made in the 
    :file:`config-fragment` file and regenerate the :file:`config` file.
 
-      .. code-block:: bash
-      
-         make config
+   .. code-block:: bash
+
+      make config
 
 
-.. note::
-   If you have a large number of patches or a more complex workflow, 
-   consider using a patch management tool in addition to Git such as 
-   `Quilt`_. 
+If you have a large number of patches or a more complex workflow, 
+consider using a patch management tool in addition to Git such as 
+`Quilt`_. 
+
+
 
 Modify kernel source code 
 -------------------------
@@ -202,9 +205,9 @@ formatted git commits that can be applied to the main source code.
 
 #. Clone the linux kernel source code into a new working directory
 
-      .. code-block:: bash
-      
-         git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+   .. code-block:: bash
+
+      git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 
 
 #. Make any code changes to the Linux source files
@@ -212,9 +215,9 @@ formatted git commits that can be applied to the main source code.
 
 #. Track and commit your changes to the local git repo. 
 
-      .. code-block:: bash
-      
-         git commit -m "My patch for driver A"
+   .. code-block:: bash
+
+      git commit -m "My patch for driver A"
 
 
 #. Generate a patch file based on your git commits. 
@@ -222,24 +225,24 @@ formatted git commits that can be applied to the main source code.
    See the `git-format-patch Documentation`_ for detailed information 
    on using :command:`git format-patch`
 
-      .. code-block:: bash
+   .. code-block:: bash
       
-         git format-patch -<n>
+      git format-patch -<n>
 
 
 #. Copy the patch files from the patches directory in the linux 
    source tree to the RPM build directory.
 
-      .. code-block:: bash
+   .. code-block:: bash
       
-         cp patches/*.patch ~/clearlinux/packages/linux/
+      cp patches/*.patch ~/clearlinux/packages/linux/
 
 
 #. Navigate back to the RPM build directory.
 
-      .. code-block:: bash
+   .. code-block:: bash
       
-         cd ~/clearlinux/packages/linux/
+      cd ~/clearlinux/packages/linux/
 
 
 #. Open the Linux kernel package RPM SPEC file in an editor.
@@ -300,17 +303,17 @@ the kernel is ready to be compiled and packaged into a RPM.
 #. Start the compilation process by issuing the :command:`make build` command. 
    This process is typically resource intensive and will take a while.
 
-      .. code-block:: bash
+   .. code-block:: bash
       
-         make build
+      make build
 
 
 #. The result there will be multiple :file:`.rpm` files in the :file:`rpms` 
    directory as output. 
 
-      .. code-block:: bash
+   .. code-block:: bash
       
-         ls rpms/
+      ls rpms/
 
    The kernel RPM will be named :file:`linux<name>-<version><release>.x86_64.rpm`
 
@@ -327,24 +330,26 @@ testing. For a more scalable and customizable approach, consider using the
 
 1. Install the kernel RPM onto the local system with the :command:`rpm` command.
 
-      .. code-block:: bash
+   .. code-block:: bash
 
-         sudo rpm -ivh linux-custom.<version>.<release>.x86_64.rpm
+      sudo rpm -ivh linux-custom.<version>.<release>.x86_64.rpm
 
 #. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
 
-      .. code-block:: bash
+   .. code-block:: bash
 
-         sudo clr-boot-manager list-kernels
+      sudo clr-boot-manager update
 
-         sudo clr-boot-manager set-kernel <name>
-         sudo reboot
+      sudo clr-boot-manager list-kernels
+      sudo clr-boot-manager set-kernel <name>
+      
+      sudo reboot
 
 #. After a reboot, verify the customized kernel is running.
 
-      .. code-block:: bash
+   .. code-block:: bash
 
-         uname -a
+      uname -a
 
 
 
@@ -353,7 +358,7 @@ Related topics:
       * :ref:`kernel-modules`
       * :ref:`mixer`
 
-.. _`Clear Linux kernels`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
+.. _`kernels available in Clear Linux`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
 .. _`on GitHub`: https://github.com/clearlinux/distribution 
 .. _`https://download.clearlinux.org/current/source/SRPMS/`: https://download.clearlinux.org/current/source/SRPMS/
 .. _`mixer tool`: https://clearlinux.org/features/mixer-tool
@@ -361,4 +366,5 @@ Related topics:
 .. _`Quilt`: http://savannah.nongnu.org/projects/quilt
 .. _`clearlinux-pkgs GitHub`: https://github.com/clearlinux-pkgs?&q=linux
 .. _`kernel.org`: https://www.kernel.org/
+.. _`autospec`: https://clearlinux.org/documentation/clear-linux/concepts/autospec-about
 .. _`git-format-patch Documentation`: https://git-scm.com/docs/git-format-patch
