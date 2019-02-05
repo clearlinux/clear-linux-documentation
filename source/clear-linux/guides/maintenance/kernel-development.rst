@@ -20,7 +20,7 @@ used for development instead. The latest source RPM files are available at:
 
 
 Request the change be included with the |CL| kernel
-===================================================
+***************************************************
 
 If the kernel modification you need is already open source and likely to be 
 useful to others, consider submitting a request to include it in the
@@ -33,7 +33,7 @@ Make enhancement requests to the |CL| distribution `on GitHub`_ .
 
 
 Customize the Linux kernel source
-=================================
+*********************************
 
 In some cases, it may be necessary to modify the kernel to suit your specific 
 needs or test new kernel code as a developer.
@@ -49,7 +49,7 @@ Then make changes to the kernel, build it, and install it.
 
 
 Install the |CL| development tooling framework
-----------------------------------------------
+==============================================
 
 .. include:: autospec.rst
    :start-after: install-tooling-after-header:
@@ -58,7 +58,7 @@ Install the |CL| development tooling framework
 
 
 Clone the Linux kernel package 
-------------------------------
+==============================
 Clone the existing kernel package repository from |CL| as a starting point.
 
 #. Clone the Linux kernel package from |CL|.
@@ -83,7 +83,7 @@ Clone the existing kernel package repository from |CL| as a starting point.
 
 
 Change the kernel version 
--------------------------
+=========================
 
 |CL| tends to use the latest kernel available from `kernel.org`_, the Linux 
 upstream. The kernel version that will be built can be changed in the 
@@ -125,7 +125,7 @@ by autospec are not available and changes must be made manually.
 
 
 Modify kernel configuration 
----------------------------
+===========================
 
 Existing kernel features and in-tree kernel modules can be enabled or 
 disabled in the kernel configuration file, :file:`.config` , at compile time.
@@ -193,7 +193,7 @@ consider using a patch management tool in addition to Git such as
 
 
 Modify kernel source code 
--------------------------
+=========================
 
 Changes to kernel code are applied with patch files. Patch files are 
 formatted git commits that can be applied to the main source code.
@@ -348,10 +348,11 @@ testing. For a more scalable and customizable approach, consider using the
 
 
 
-Related topics:
+Related topics
+**************
 
-      * :ref:`kernel-modules`
-      * :ref:`mixer`
+* :ref:`kernel-modules`
+* :ref:`mixer`
 
 .. _`kernels available in Clear Linux`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
 .. _`on GitHub`: https://github.com/clearlinux/distribution 
