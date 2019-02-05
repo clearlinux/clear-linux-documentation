@@ -455,6 +455,27 @@ For more detailed information, visit our :ref:`telemetry-about` page.
 
       Figure 14: Enable Telemetry
 
+Installation options
+====================
+
+After you complete the `Required options`_, we highly recommend completing these `Advanced Options`_ at minimum.
+
+Select:
+
+* `Bundle Selection`_ to add :file:`desktop-autostart`, which launches the
+  GUI at boot time
+* `User Manager`_ to assign a new user with administrative rights
+* `Assign Hostname`_ to simplify your development environment
+
+This document assumes that you follow these additional steps.
+
+Alternatively, you can `Skip to finish installation`_.
+
+.. note::
+
+   If you do not perform the above, after rebooting, you must login
+   as `root` and change your password immediately.
+
 Skip to finish installation
 ===========================
 
@@ -462,8 +483,7 @@ After selecting values for all :guilabel:`Required options`, you may skip
 to `Finish installation`_.
 
 Otherwise, continue below. In the Main Menu, select
-:guilabel:`Advanced options` to configure network interfaces or proxy
-settings, add bundles, add/manage users, add kernel arguments, and more.
+:guilabel:`Advanced options` for additional configuration.
 
 Advanced Options
 ****************
@@ -822,6 +842,18 @@ Finish installation
 #. Select ``reboot``.
 
 #. When the system reboots, remove any installation media present.
+
+#. Upon launch of the GUI, open a Terminal.
+
+#. In the Terminal, log into `root` for the first time.
+
+   .. code-block:: bash
+
+      sudo -i
+
+#. Follow the onscreen instructions to create a password for `root`.
+
+#.  Enter :command:`exit` to return to the administative user.
 
 **Congratulations!**
 
