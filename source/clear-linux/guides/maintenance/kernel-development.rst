@@ -186,17 +186,17 @@ eventually merged with the main :file:`.config`.
       make config
 
 
-If you have a large number of patches or a more complex workflow, 
-consider using a patch management tool in addition to Git such as 
-`Quilt`_. 
-
-
 
 Modify kernel source code 
 =========================
 
 Changes to kernel code are applied with patch files. Patch files are 
 formatted git commits that can be applied to the main source code.
+
+If you have a large number of patches or a more complex workflow, 
+consider using a patch management tool in addition to Git such as 
+`Quilt`_. 
+
 
 #. Clone the linux kernel source code into a new working directory
 
@@ -291,7 +291,7 @@ formatted git commits that can be applied to the main source code.
 
 
 Build and install the kernel
-============================
+****************************
 After changes have been made to the kernel SPEC file and config file, 
 the kernel is ready to be compiled and packaged into a RPM.
 
