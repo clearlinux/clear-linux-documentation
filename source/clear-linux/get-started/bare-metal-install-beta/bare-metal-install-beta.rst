@@ -86,7 +86,8 @@ Minimum installation requirements
 *********************************
 
 To fulfill minimum installation requirements, complete the
-`Required options`_. `Advanced options`_ are optional.
+`Required options`_. We also encourage you to install `Recommended options`_.
+`Advanced options`_ are optional.
 
 .. note::
 
@@ -455,10 +456,11 @@ For more detailed information, visit our :ref:`telemetry-about` page.
 
       Figure 14: Enable Telemetry
 
-Installation options
-====================
+Recommended options
+===================
 
-After you complete the `Required options`_, we highly recommend completing these `Advanced Options`_ at minimum.
+After you complete the `Required options`_, we highly recommend completing a
+few `Advanced Options`_ to improve your desktop or developer experience.
 
 Select:
 
