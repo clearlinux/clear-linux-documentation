@@ -123,7 +123,7 @@ by autospec are not available and changes must be made manually.
    .. note::
       Consider changing the Name in the RPM spec file to easily identify a modified kernel.
 
-#. Commit and save the changes to the file
+#. Commit and save the changes to the file.
 
 
 
@@ -201,14 +201,14 @@ consider using a patch management tool in addition to Git such as
 `Quilt`_. 
 
 
-#. Clone the linux kernel source code into a new working directory
+#. Clone the linux kernel source code into a new working directory.
 
    .. code-block:: bash
 
       git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 
 
-#. Make any code changes to the Linux source files
+#. Make any code changes to the Linux source files.
 
 
 #. Track and commit your changes to the local git repo. 
