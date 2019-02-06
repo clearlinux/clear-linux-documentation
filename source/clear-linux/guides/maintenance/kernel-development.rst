@@ -102,7 +102,10 @@ by autospec are not available and changes must be made manually.
 
 
 #. Modify the Version, Release, and Source0 URL entries at the top of the 
-   file to change the version of Linux kernel to be compiled.
+   file to change the version of Linux kernel that will be compiled.
+
+   A list of current and available kernel release can be found on 
+   `kernel.org`_.
 
    .. code-block:: bash
       
