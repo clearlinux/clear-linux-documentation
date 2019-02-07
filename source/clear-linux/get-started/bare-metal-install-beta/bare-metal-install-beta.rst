@@ -5,8 +5,11 @@ Install |CL-ATTR| from the live desktop beta image
 
 The live desktop beta image allows you to boot |CL-ATTR| into a GNOME
 desktop without modifying the host system. Using the live image, you can
-explore the possibilities of developing with |CL|. You can also launch the
-new installer and install |CL| on your target system.
+explore the possibilities of developing with |CL|.
+
+You can also launch the installer to install |CL| on your target system.
+If you proceed with installation, this document assumes you follow
+`Recommended options`_.
 
 .. contents:: :local:
    :depth: 1
@@ -86,8 +89,7 @@ Minimum installation requirements
 *********************************
 
 To fulfill minimum installation requirements, complete the
-`Required options`_. We also encourage you to install `Recommended options`_.
-`Advanced options`_ are optional.
+`Required options`_. We also encourage you to install `Recommended options`_ for a full desktop experience. `Advanced options`_ are optional.
 
 .. note::
 
@@ -243,7 +245,7 @@ Configure Media
 
 #. Select :kbd:`Enter` to :kbd:`Confirm`.
 
-#. Choose one partitioning method and continue below:
+#. Select one partitioning method and continue:
 
    * `Auto Partition`_
    * `Add Partition`_
@@ -459,24 +461,26 @@ For more detailed information, visit our :ref:`telemetry-about` page.
 Recommended options
 ===================
 
-After you complete the `Required options`_, we highly recommend completing a
-few `Advanced Options`_ to improve your desktop or developer experience.
+After you complete the `Required options`_, we highly recommend completing
+these `Advanced Options`_. Select:
 
-Select:
+* `Bundle Selection`_ to add basic utlities and tools:
 
-* `Bundle Selection`_ to add :file:`desktop-autostart`, which launches the
-  GUI at boot time
+  * :file:`desktop-autostart`
+  * :file:`user-basic`
+
 * `User Manager`_ to assign a new user with administrative rights
 * `Assign Hostname`_ to simplify your development environment
 
-This document assumes that you follow these additional steps.
+This document assumes you follow these additional steps.
 
 Alternatively, you can `Skip to finish installation`_.
 
 .. note::
 
-   If you do not perform the above, after rebooting, you must login
-   as `root` and change your password immediately.
+   If you do not perform the above steps, after rebooting, a :file:`login:`
+   prompt appears. At the prompt, enter `root` and change your password
+   immediately.
 
 Skip to finish installation
 ===========================
@@ -609,6 +613,8 @@ Bundle Selection
 #. Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows.
 
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
+
+#. We recommend adding :file:`desktop-autostart` and :file:`user-basic`.
 
    .. figure:: figures/bare-metal-install-beta-19.png
       :scale: 100%
@@ -837,29 +843,37 @@ Finish installation
 #. When you are satisfied with your installation configuration, navigate to
    :guilabel:`Install` and select :kbd:`Enter`.
 
-   .. note::
-
-      When installation is finished, a ``reboot`` button appears.
-
-#. Select ``reboot``.
+#. Select :guilabel:`reboot`.
 
 #. When the system reboots, remove any installation media present.
 
+   ..note::
+
+     Allow time for the graphical login to appear. This shows the user assigned earlier who has administrative rights.
+
+#. Log in as the adminstrative user.
+
 #. Upon launch of the GUI, open a Terminal.
 
-#. In the Terminal, log into `root` for the first time.
+#. In the Terminal, log into *root* for the first time.
 
    .. code-block:: bash
 
       sudo -i
 
-#. Follow the onscreen instructions to create a password for `root`.
+   .. figure:: figures/bare-metal-install-beta-29.png
+      :scale: 100%
+      :alt: root login
 
-#.  Enter :command:`exit` to return to the administative user.
+      Figure 29: root login
+
+#. Follow the onscreen instructions to create a password for *root*.
+
+#. Enter :command:`exit` to return to the administative user.
 
 **Congratulations!**
 
-You have successfully installed |CL| on bare metal using the new installer.
+You have successfully installed |CL| on bare metal using the installer.
 
 Next steps
 **********

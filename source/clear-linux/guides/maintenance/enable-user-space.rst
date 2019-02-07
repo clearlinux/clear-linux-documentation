@@ -58,7 +58,7 @@ The `sysadmin-basic` bundle installs the vast majority of applications useful to
 
    swupd bundle-add sysadmin-basic
 
-Select this linkt to view a full list of bundles and packages installed with the `sysadmin-basic`_ bundle. Additionally, we list `all bundles`_ for
+Select this link to view a full list of bundles and packages installed with the `sysadmin-basic`_ bundle. Additionally, we list `all bundles`_ for
 |CL|, active or deprecated. Click any bundle on the list to view the
 manifest of the bundle.
 
