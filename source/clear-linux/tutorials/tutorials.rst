@@ -30,6 +30,6 @@ Explore our tutorials to discover what you can do with |CL|!
    spark
    kata
    kata_migration
-   kubernetes
+   kubernetes/kubernetes
    greengrass
    dlrs
