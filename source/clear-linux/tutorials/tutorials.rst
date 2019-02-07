@@ -14,6 +14,7 @@ Explore our tutorials to discover what you can do with |CL|!
 
 .. toctree::
    :maxdepth: 1
+   :glob:
 
    wordpress/wordpress
    flatpak/flatpak
@@ -30,6 +31,6 @@ Explore our tutorials to discover what you can do with |CL|!
    spark
    kata
    kata_migration
-   kubernetes/kubernetes
+   kubernetes/kubernetes*
    greengrass
    dlrs
