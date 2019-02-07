@@ -26,10 +26,10 @@ This document describes best practices to manage cluster upgrades with
 Prerequisites
 *************
 
-Let's review some basic assumptions:
+Assure that you:
 
-* Assure you completed :ref:`kubernetes`
-* Assure you have the `cloud-native-basic` bundle installed
+* Completed :ref:`kubernetes`
+* Installed the bundle `cloud-native-basic`
 
 .. note::
 
