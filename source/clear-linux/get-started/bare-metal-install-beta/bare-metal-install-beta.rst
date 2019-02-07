@@ -459,7 +459,7 @@ For more detailed information, visit our :ref:`telemetry-about` page.
       Figure 14: Enable Telemetry
 
 Recommended options
-===================
+*******************
 
 After you complete the `Required options`_, we highly recommend completing
 these `Advanced Options`_. Select:
