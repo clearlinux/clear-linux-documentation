@@ -17,3 +17,4 @@ features.
    compatible-kernels
    system-requirements
    image-types
+   openssh-server
