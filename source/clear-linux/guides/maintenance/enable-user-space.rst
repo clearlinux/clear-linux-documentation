@@ -6,22 +6,24 @@ Create and enable a new user space
 This section provides steps to complete the following basic setup tasks for
 a newly installed |CL-ATTR| system:
 
-* Create a new user.
-* Update the OS to its most current version using `swupd`.
-* Install the most common applications for system administrators and
-  developers using bundles.
-* Set up a new user and add the new user to the `wheel` group.
-* Install a GUI to test `sudo` privileges.
+.. contents::
+   :local:
+   :depth: 1
 
-.. note::
-   Log in as the root user to complete the tasks in this
-   section.
+Prerequisites
+*************
+
+Log in as the root user to complete the tasks in this section. Enter:
+
+.. code-block:: bash
+
+   sudo -i
 
 Create a new user
 ******************
 
 To create a new user and set a password for that user, enter the following
-commands as a root user:
+commands as a `root` user:
 
 .. code-block:: bash
 
@@ -36,23 +38,29 @@ account just created.
 Install and update the OS software to its current version
 *********************************************************
 
-|CL| has a unique application and architecture to add and update applications
-and to perform system updates called software update utility or
-:command:`swupd`. Software applications are installed as bundles using the
-sub-command :command:`bundle-add`.
+The |CL| software utility :ref:`swupd <swupd-guide>` allows you to perform system updates while reaping the benefits of upstream development.
 
-The `sysadmin-basic` bundle installs the vast majority of
-applications useful to a system administrator.
-Install the `sysadmin-basic` bundle:
+To update your newly installed OS, run.
+
+.. code-block:: bash
+
+   sudo swupd update
+
+Software applications are installed as bundles using the command
+:command:`swupd bundle-add`. Experienced Linux* users can compare
+using `swupd` to running :command:`apt-get` or :command:`yum install` for
+package management. Yet |CL| manages packages at the level of bundles, which
+are integrated stacks of packages.
+
+The `sysadmin-basic` bundle installs the vast majority of applications useful to a system administrator. To install it, enter:
 
 .. code-block:: bash
 
    swupd bundle-add sysadmin-basic
 
-We provide the full list of bundles and packages installed with the
-`sysadmin-basic`_ bundle. Additionally, we have listed
-`all bundles`_ for |CL|, active or deprecated. Click any bundle on the
-list to view the manifest of the bundle.
+Select this linkt to view a full list of bundles and packages installed with the `sysadmin-basic`_ bundle. Additionally, we list `all bundles`_ for
+|CL|, active or deprecated. Click any bundle on the list to view the
+manifest of the bundle.
 
 Set up a new user and add the new user to the `wheel` group
 ***********************************************************
@@ -83,55 +91,10 @@ To be able to execute all applications with root privileges, add the
    interface. The `desktop` bundle includes the GNOME\* Display Manager and
    additional supporting applications.
 
-Install a GUI to test `sudo` privileges
-========================================
-.. note::
-
-   If you are following this sequence after just setting up the
-   pre-configured VMware\* virtual machine from the repo, you must
-   :ref:`increase virtual disk size<increase-virtual-disk-size>` or the
-   following step will fail.
-
-To test the :command:`sudo` command and ensure it is set up correctly,
-install the GNOME Display Manager (gdm) and start it.
-
-#. To install the the GNOME Display Manager using :command:`swupd`, enter
-   the following command:
-
-   .. code-block:: bash
-
-      sudo swupd bundle-add desktop
-
-#. To start the GNOME Display Manager, enter the following command:
-
-   .. code-block:: bash
-
-      systemctl start gdm
-
-#. The system prompts you to authenticate the user. Enter the password for
-   `<userid>`, and the GNOME Display Manager starts as shown in Figure
-   1:
-
-   .. figure:: figures/gnomedt.png
-      :scale: 50 %
-      :alt: Gnome Desktop
-
-      Figure 1: :guilabel:`Gnome Desktop`
-
-#. To start the GNOME Display Manager each time you start your system, enter
-   the following command:
-
-   .. code-block:: bash
-
-      systemctl enable gdm
-
 Next steps
 ***********
 
-With your system now running |CL|, many opportunities exist.
-
-Visit the :ref:`tutorials <tutorials>` page for examples on using your |CL|
-system.
+Check out our :ref:`tutorials`.
 
 .. _`sysadmin-basic`:
    https://github.com/clearlinux/clr-bundles/blob/master/bundles/sysadmin-basic
