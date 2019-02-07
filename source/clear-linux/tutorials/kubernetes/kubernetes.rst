@@ -289,6 +289,12 @@ commands as a shell script to configure all of these services in one step:
    EOF
    done
 
+Next steps
+**********
+
+:ref:`kubernetes-bp`
+
+
 Troubleshooting
 ***************
 

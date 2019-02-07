@@ -3,8 +3,8 @@
 Kubernetes Best Practices on |CL|
 #################################
 
-Update Kubernetes clusters
-**************************
+Use swupd to update clusters
+****************************
 
 This tutorial shows you how to manage your Kubernetes cluster while using
 :command:`swupd` to update |CL-ATTR|.
@@ -28,19 +28,17 @@ Prerequisites
 
 Let's review some basic assumptions:
 
-* |CL| provides support for Kubernetes with the `cloud-native-basic` bundle.
-
-* Execute :command:`sudo swupd update` **on each node** to do the update.
-
-* Repeat the above command for both master and worker nodes.
+* Assure you completed :ref:`kubernetes`
+* Assure you have the `cloud-native-basic` bundle installed
 
 .. note::
 
    Other Linux\* distros shown in Kubernetes upgrade documentation reflect
    `apt-get update`, `apt-mark hold kubeadm`, and similar commands; however, such commands **are not valid** on |CL|.
 
-Update the cluster
-******************
+Update the control plane
+************************
+
 #. Read kubernetes documentation `before you begin`_.
 
 #. On your master node, run the command:
