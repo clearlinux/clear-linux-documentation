@@ -64,8 +64,19 @@ Download and launch the virtual machine
       unxz clear-<version>-kvm.img.xz
 
 #. Download the `OVMF file`_ file that provides UEFI support for
-   virtual machines from the `image <https://download.clearlinux.org/image/>`_
-   directory.
+   virtual machines from the `image <https://download.clearlinux.org/image/>`_ directory.
+
+#. Copy :file:`OVMF.fd` to the working directory, as shown below.
+
+   .. code-block:: bash
+
+      cp /usr/share/qemu/OVMF.fd <working_directory>
+
+   .. note::
+
+      Replace <working_directory> with your own.
+
+      For non-Clear Linux hosts, the preferred approach is to download it from https://cdn.download.clearlinux.org/image/OVMF.fd
 
 #. Download the sample `QEMU-KVM launcher`_ script from the
    `image <https://download.clearlinux.org/image/>`_ directory.  This script
