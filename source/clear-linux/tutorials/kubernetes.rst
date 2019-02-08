@@ -150,7 +150,6 @@ Configure and run CRI-O + kata-runtime
 
        sudo systemctl daemon-reload
        sudo systemctl restart crio
-       sudo systemctl restart kubelet
 
 #.  Initialize the master control plane with the command:
 
