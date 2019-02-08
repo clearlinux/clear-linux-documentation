@@ -1,7 +1,7 @@
 .. _kubernetes:
 
-Run Kubernetes\* on |CL-ATTR|
-#############################
+Run Kubernetes\*
+################
 
 This tutorial describes how to install, configure, and run the
 `Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
