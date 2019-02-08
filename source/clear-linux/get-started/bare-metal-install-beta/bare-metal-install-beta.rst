@@ -94,13 +94,13 @@ To fulfill minimum installation requirements, complete the
 .. note::
 
    * The :kbd:`Install` button is only highlighted **after** you complete the
-     `Required options`_, and after you enter required values in submenus.
+     `Required options`_.
 
    * You must choose whether or not to participate in :ref:`telemetrics`
      before you can finish installation.
 
-   * You may wish to `Test Network Settings`_ before you
-     `Configure Network Interfaces`_. Assure that a ``Success`` message is received before installation.
+   * You may `Test Network Settings`_ before you
+     `Configure Network Interfaces`_. Assure a *Success* message appears before installation.
 
 Main Menu
 *********
@@ -462,7 +462,7 @@ Recommended options
 *******************
 
 After you complete the `Required options`_, we highly recommend completing
-these `Advanced Options`_. Select:
+these `Advanced options`_. Select:
 
 * `Bundle Selection`_ to add basic utlities and tools:
 
@@ -491,7 +491,7 @@ to `Finish installation`_.
 Otherwise, continue below. In the Main Menu, select
 :guilabel:`Advanced options` for additional configuration.
 
-Advanced Options
+Advanced options
 ****************
 
 Configure Network Interfaces
