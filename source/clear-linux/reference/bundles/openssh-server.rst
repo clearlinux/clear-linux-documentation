@@ -4,15 +4,33 @@ openssh-server
 ##############
 
 The **openssh-server** bundle provides the OpenSSH\* package needed to enable
-an SSH service in |CL-ATTR|. Remote users require a SSH service to be able to
-use an encrypted login shell.
+an SSH service in |CL-ATTR|. Remote users require an SSH service to be able
+to use an encrypted login shell.
 
 |CL| enables the `sshd.socket` unit, which will listen on port 22 by default
 and start the OpenSSH service as required. The first time OpenSSH starts, it
 generates the server SSH keys needed for the service.
 
+Prerequisites
+*************
+
+Assure the bundle :file:`openssh-server` is installed.
+
+To check it it's on your host, enter:
+
+.. code-block:: bash
+
+   sudo swupd bundle-list
+
+To add it, enter:
+
+.. code-block:: bash
+
+   sudo swupd bundle-add openssh-server
+
 Change default port
 *******************
+
 Perform the following steps to change the default listening port for the
 OpenSSH service:
 
@@ -22,10 +40,10 @@ OpenSSH service:
 
       sudo systemctl edit sshd.socket
 
-#. Add the `[Socket]` section and `ListenStream` option to the sshd.socket 
-   file as shown below. The first `ListenStream` entry removes the |CL| 
-   default listen port value. The second `ListenStream` entry sets the new 
-   default listen port value. In this example, we set the new default port 
+#. Add the `[Socket]` section and `ListenStream` option to the sshd.socket
+   file as shown below. The first `ListenStream` entry removes the |CL|
+   default listen port value. The second `ListenStream` entry sets the new
+   default listen port value. In this example, we set the new default port
    to 4200:
 
    .. code-block:: console
@@ -42,9 +60,9 @@ OpenSSH service:
    .. code-block:: bash
 
       cat /etc/systemd/system/sshd.socket.d/override.conf
-      
-   You should see the following output: 
-      
+
+   You should see the following output:
+
    .. code-block:: console
 
       [Socket]
@@ -63,7 +81,7 @@ OpenSSH service:
 
       sudo systemctl restart sshd.socket
 
-#. Confirm the the sshd.socket unit is listening on your new port: 
+#. Confirm the the sshd.socket unit is listening on your new port:
 
    .. code-block:: bash
 
@@ -71,7 +89,7 @@ OpenSSH service:
 
    .. note::
 
-      Output should show :guilable:`Active:` as `active(listening)`.
+      Output should show :guilabel:`Active:` as `active(listening)`.
 
 Enable SFTP
 ***********
@@ -100,7 +118,7 @@ the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
 
    .. code-block:: bash
 
-      systemctl daemon-reload
+      sudo systemctl daemon-reload
 
 Congratulations! The SFTP subsystem is enabled.
 
@@ -127,10 +145,10 @@ To enable root login via SSH, perform the following steps:
 Enable X11-forwarding
 *********************
 
-X11 forwarding allows you to securely run graphical applications (i.e., X clients)
-over the ssh conection. this will alow for remote gui apps without the need for full
-VNC/remotedesktop.
-To enable X11-forwarding via SSH, perform the following steps:
+X11 forwarding allows you to securely run graphical applications
+(i.e., X clients) over the ssh conection. This will alow for remote gui apps
+without the need for full VNC/remotedesktop. To enable X11-forwarding via
+SSH, perform the following steps:
 
 #. Create a *ssh* directory in :file:`/etc`, if it does not already exist.
 
@@ -143,7 +161,7 @@ To enable X11-forwarding via SSH, perform the following steps:
 
 #. Set the configuration variables.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       AllowTcpForwarding yes
       X11UseLocalhost yes

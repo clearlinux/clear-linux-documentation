@@ -12,9 +12,9 @@ features.
    compatible-hardware
    bundle-commands
    bundles/bundles
+   bundles/openssh-server
    how-to-clear-overview
    collaboration/collaboration
    compatible-kernels
    system-requirements
    image-types
-   openssh-server
