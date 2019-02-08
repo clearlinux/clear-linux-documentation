@@ -185,7 +185,7 @@ Weave or Flannel do, make them available by creating symlinks:
 
 .. code-block:: bash
 
-   for i in /usr/libexec/cni/*; do sudo ln -sf $i /opt/bin/cni/; done
+   for i in /usr/libexec/cni/*; do sudo ln -sf $i /opt/cni/bin; done
 
 Use your cluster
 ****************
