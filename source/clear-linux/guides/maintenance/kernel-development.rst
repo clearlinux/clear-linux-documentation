@@ -296,7 +296,7 @@ consider using a patch management tool in addition to Git such as
 Build and install the kernel
 ****************************
 After changes have been made to the kernel SPEC file and config file, 
-the kernel is ready to be compiled and packaged into a RPM.
+the kernel is ready to be compiled and packaged into an RPM.
 
 #. Start the compilation process by issuing the :command:`make build` command. 
    This process is typically resource intensive and will take a while.
