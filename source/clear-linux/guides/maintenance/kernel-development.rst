@@ -7,7 +7,7 @@ This document shows how to obtain and compile a Linux kernel source
 using the |CL-ATTR| development tooling.
 
 The `kernels available in Clear Linux`_ aim to be performant and practical. 
-In some cases, it may be necessary modify the kernel to suit your specific 
+In some cases, it may be necessary to modify the kernel to suit your specific 
 needs or test new kernel code as a developer.
 
 .. contents:: :local:
