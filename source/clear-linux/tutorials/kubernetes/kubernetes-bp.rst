@@ -49,12 +49,7 @@ Update the control plane
 
    .. note::
 
-      If the minor version of Kubernetes changes, |CL| shows a message-of-the-day, or `motd`.
-
-      Please note: If the `motd` appears, you **must postpone** a kubelet
-      restart on master and nodes until the control plane is properly
-      updated. :command:`swupd update` does not restart services
-      automatically unless explicitly configured to do so.
+      If the minor version of Kubernetes changes, |CL| shows a message-of-the-day, or `motd`. When the `motd` appears, you **must postpone** a kubelet restart on master and nodes until the control plane is properly updated. :command:`swupd update` does not restart services automatically unless explicitly configured to do so.
 
 #. Now follow these instructions in kubernetes documentation.
 
