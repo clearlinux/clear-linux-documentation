@@ -10,15 +10,6 @@ a newly installed |CL-ATTR| system:
    :local:
    :depth: 1
 
-Prerequisites
-*************
-
-Log in as the root user to complete the tasks in this section. Enter:
-
-.. code-block:: bash
-
-   sudo -i
-
 Create a new user
 ******************
 

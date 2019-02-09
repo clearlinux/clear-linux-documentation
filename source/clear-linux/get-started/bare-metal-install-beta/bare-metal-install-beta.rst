@@ -843,9 +843,9 @@ Finish installation
 
 #. When the system reboots, remove any installation media present.
 
-   ..note::
+   .. note::
 
-     Allow time for the graphical login to appear. This shows the administrative user that you assigned in `Recommended options`_.
+      Allow time for the graphical login to appear. This shows the administrative user that you assigned in `Recommended options`_.
 
 #. Log in as the adminstrative user.
 
@@ -857,7 +857,7 @@ Finish installation
 
       sudo -i
 
-#. Enter password of adminstrative user to switch to root.
+#. Enter password of administrative user to switch to root.
 
 #. Enter the command to change the root password:
 
@@ -865,7 +865,7 @@ Finish installation
 
       passwd root
 
-#. Follow onscreen instructions to create a password for *root*.
+#. Follow onscreen instructions to create a password for root.
 
 #. Enter :command:`exit` to return to the administative user.
 
