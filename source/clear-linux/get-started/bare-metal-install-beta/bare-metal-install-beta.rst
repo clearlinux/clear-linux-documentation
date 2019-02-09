@@ -8,7 +8,7 @@ desktop without modifying the host system. Using the live image, you can
 explore the possibilities of developing with |CL|.
 
 You can also launch the installer to install |CL| on your target system.
-If you proceed with installation, this document assumes you follow
+If you proceed with installation, this document assumes you follow the
 `Recommended options`_.
 
 .. contents:: :local:
@@ -35,9 +35,7 @@ Preliminary steps
 
 #. Follow your OS instructions to create a bootable USB drive.
 
-   * :ref:`bootable-usb-linux-all`
-   * :ref:`bootable-usb-mac-all`
-   * :ref:`bootable-usb-windows-all`
+   * :ref:`bootable-usb-beta-all`
 
 Install from live image
 ***********************
@@ -93,13 +91,13 @@ To fulfill minimum installation requirements, complete the
 
 .. note::
 
-   * The :kbd:`Install` button is only highlighted **after** you complete the
+   * The :kbd:`Install` button is **only highlighted after** you complete
      `Required options`_.
 
    * You must choose whether or not to participate in :ref:`telemetrics`
      before you can finish installation.
 
-   * You may `Test Network Settings`_ before you
+   * You may `Test Network Settings`_ before you 
      `Configure Network Interfaces`_. Assure a *Success* message appears before installation.
 
 Main Menu
@@ -462,25 +460,18 @@ Recommended options
 *******************
 
 After you complete the `Required options`_, we highly recommend completing
-these `Advanced options`_. Select:
+a few `Advanced options`_ at minimum:
 
-* `Bundle Selection`_ to add basic utlities and tools:
-
+* `Bundle Selection`_ Add basic utlities and tools:
   * :file:`desktop-autostart`
   * :file:`user-basic`
 
-* `User Manager`_ to assign a new user with administrative rights
-* `Assign Hostname`_ to simplify your development environment
+* `User Manager`_ Assign a new user with administrative rights
+* `Assign Hostname`_ Simplify your development environment
 
 This document assumes you follow these additional steps.
 
 Alternatively, you can `Skip to finish installation`_.
-
-.. note::
-
-   If you do not perform the above steps, after rebooting, a :file:`login:`
-   prompt appears. At the prompt, enter `root` and change your password
-   immediately.
 
 Skip to finish installation
 ===========================
@@ -845,11 +836,16 @@ Finish installation
 
 #. Select :guilabel:`reboot`.
 
+   .. note::
+
+      If you do not perform `Recommended options`_, upon rebooting, a
+      :file:`login:` prompt will appear. At the prompt, enter `root` and change your password immediately.
+
 #. When the system reboots, remove any installation media present.
 
    ..note::
 
-     Allow time for the graphical login to appear. This shows the user assigned earlier who has administrative rights.
+     Allow time for the graphical login to appear. This shows the administrative user that you assigned in `Recommended options`_.
 
 #. Log in as the adminstrative user.
 
@@ -861,13 +857,15 @@ Finish installation
 
       sudo -i
 
-   .. figure:: figures/bare-metal-install-beta-29.png
-      :scale: 100%
-      :alt: root login
+#. Enter password of adminstrative user to switch to root.
 
-      Figure 29: root login
+#. Enter the command to change the root password:
 
-#. Follow the onscreen instructions to create a password for *root*.
+   .. code-block:: bash
+
+      passwd root
+
+#. Follow onscreen instructions to create a password for *root*.
 
 #. Enter :command:`exit` to return to the administative user.
 
