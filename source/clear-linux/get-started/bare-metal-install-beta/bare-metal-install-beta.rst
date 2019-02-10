@@ -5,8 +5,11 @@ Install |CL-ATTR| from the live desktop beta image
 
 The live desktop beta image allows you to boot |CL-ATTR| into a GNOME
 desktop without modifying the host system. Using the live image, you can
-explore the possibilities of developing with |CL|. You can also launch the
-new installer and install |CL| on your target system.
+explore the possibilities of developing with |CL|.
+
+You can also launch the installer to install |CL| on your target system.
+If you proceed with installation, this document assumes you follow the
+`Recommended options`_.
 
 .. contents:: :local:
    :depth: 1
@@ -32,9 +35,7 @@ Preliminary steps
 
 #. Follow your OS instructions to create a bootable USB drive.
 
-   * :ref:`bootable-usb-linux-all`
-   * :ref:`bootable-usb-mac-all`
-   * :ref:`bootable-usb-windows-all`
+   * :ref:`bootable-usb-beta-all`
 
 Install from live image
 ***********************
@@ -86,18 +87,18 @@ Minimum installation requirements
 *********************************
 
 To fulfill minimum installation requirements, complete the
-`Required options`_. `Advanced options`_ are optional.
+`Required options`_. We also encourage you to install `Recommended options`_ for a full desktop experience. `Advanced options`_ are optional.
 
 .. note::
 
-   * The :kbd:`Install` button is only highlighted **after** you complete the
-     `Required options`_, and after you enter required values in submenus.
+   * The :kbd:`Install` button is **only highlighted after** you complete
+     `Required options`_.
 
    * You must choose whether or not to participate in :ref:`telemetrics`
      before you can finish installation.
 
-   * You may wish to `Test Network Settings`_ before you
-     `Configure Network Interfaces`_. Assure that a ``Success`` message is received before installation.
+   * You may `Test Network Settings`_ before you 
+     `Configure Network Interfaces`_. Assure a *Success* message appears before installation.
 
 Main Menu
 *********
@@ -242,7 +243,7 @@ Configure Media
 
 #. Select :kbd:`Enter` to :kbd:`Confirm`.
 
-#. Choose one partitioning method and continue below:
+#. Select one partitioning method and continue:
 
    * `Auto Partition`_
    * `Add Partition`_
@@ -455,6 +456,22 @@ For more detailed information, visit our :ref:`telemetry-about` page.
 
       Figure 14: Enable Telemetry
 
+Recommended options
+*******************
+
+After you complete the `Required options`_, we highly recommend completing
+a few `Advanced options`_ at minimum:
+
+* `Bundle Selection`_ Add basic utlities and tools:
+
+  * :file:`desktop-autostart`
+  * :file:`user-basic`
+
+* `User Manager`_ Assign a new user with administrative rights
+* `Assign Hostname`_ Simplify your development environment
+
+This document assumes you follow these additional steps.
+
 Skip to finish installation
 ===========================
 
@@ -462,10 +479,9 @@ After selecting values for all :guilabel:`Required options`, you may skip
 to `Finish installation`_.
 
 Otherwise, continue below. In the Main Menu, select
-:guilabel:`Advanced options` to configure network interfaces or proxy
-settings, add bundles, add/manage users, add kernel arguments, and more.
+:guilabel:`Advanced options` for additional configuration.
 
-Advanced Options
+Advanced options
 ****************
 
 Configure Network Interfaces
@@ -587,6 +603,8 @@ Bundle Selection
 #. Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows.
 
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
+
+#. We recommend adding :file:`desktop-autostart` and :file:`user-basic`.
 
    .. figure:: figures/bare-metal-install-beta-19.png
       :scale: 100%
@@ -815,17 +833,44 @@ Finish installation
 #. When you are satisfied with your installation configuration, navigate to
    :guilabel:`Install` and select :kbd:`Enter`.
 
+#. Select :guilabel:`reboot`.
+
    .. note::
 
-      When installation is finished, a ``reboot`` button appears.
-
-#. Select ``reboot``.
+      If you do not perform `Recommended options`_, upon rebooting, a
+      :file:`login:` prompt will appear. At the prompt, enter `root` and change your password immediately.
 
 #. When the system reboots, remove any installation media present.
 
+   .. note::
+
+      Allow time for the graphical login to appear. This shows the administrative user assigned in `Recommended options`_.
+
+#. Log in as the adminstrative user.
+
+#. Upon launch of the GUI, open a Terminal.
+
+#. In the Terminal, log into *root* for the first time.
+
+   .. code-block:: bash
+
+      sudo -i
+
+#. Enter password of administrative user to switch to root.
+
+#. Enter the command to change the root password:
+
+   .. code-block:: bash
+
+      passwd root
+
+#. Follow onscreen instructions to create a password for root.
+
+#. Enter :command:`exit` to return to the administative user.
+
 **Congratulations!**
 
-You have successfully installed |CL| on bare metal using the new installer.
+You have successfully installed |CL| on bare metal using the installer.
 
 Next steps
 **********
