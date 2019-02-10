@@ -54,11 +54,11 @@ Install and update the OS software to its current version
 
 The |CL| software utility :ref:`swupd <swupd-guide>` allows you to perform system updates while reaping the benefits of upstream development.
 
-To update your newly installed OS, run.
+To update your newly installed OS, run:
 
 .. code-block:: bash
 
-   sudo swupd update
+   swupd update
 
 Add a bundle
 ************
