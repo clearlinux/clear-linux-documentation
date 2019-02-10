@@ -463,6 +463,7 @@ After you complete the `Required options`_, we highly recommend completing
 a few `Advanced options`_ at minimum:
 
 * `Bundle Selection`_ Add basic utlities and tools:
+
   * :file:`desktop-autostart`
   * :file:`user-basic`
 
@@ -470,8 +471,6 @@ a few `Advanced options`_ at minimum:
 * `Assign Hostname`_ Simplify your development environment
 
 This document assumes you follow these additional steps.
-
-Alternatively, you can `Skip to finish installation`_.
 
 Skip to finish installation
 ===========================
@@ -845,7 +844,7 @@ Finish installation
 
    .. note::
 
-      Allow time for the graphical login to appear. This shows the administrative user that you assigned in `Recommended options`_.
+      Allow time for the graphical login to appear. This shows the administrative user assigned in `Recommended options`_.
 
 #. Log in as the adminstrative user.
 
