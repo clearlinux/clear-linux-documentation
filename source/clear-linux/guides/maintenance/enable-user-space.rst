@@ -26,33 +26,6 @@ including the password for that user. The :command:`passwd` command prompts
 you to enter a new password. Retype the new password for the new user
 account just created.
 
-Install and update the OS software to its current version
-*********************************************************
-
-The |CL| software utility :ref:`swupd <swupd-guide>` allows you to perform system updates while reaping the benefits of upstream development.
-
-To update your newly installed OS, run.
-
-.. code-block:: bash
-
-   sudo swupd update
-
-Software applications are installed as bundles using the command
-:command:`swupd bundle-add`. Experienced Linux* users can compare
-using `swupd` to running :command:`apt-get` or :command:`yum install` for
-package management. Yet |CL| manages packages at the level of bundles, which
-are integrated stacks of packages.
-
-The `sysadmin-basic` bundle installs the vast majority of applications useful to a system administrator. To install it, enter:
-
-.. code-block:: bash
-
-   swupd bundle-add sysadmin-basic
-
-Select this link to view a full list of bundles and packages installed with the `sysadmin-basic`_ bundle. You can also view `all bundles`_ for
-|CL|, active or deprecated. Click any bundle on the list to view the
-manifest of the bundle.
-
 Add the new user to the `wheel` group
 *************************************
 
@@ -76,8 +49,35 @@ To be able to execute all applications with root privileges, add the
 
    You will now be in the home directory of `<userid>`.
 
-The bundle `sysadmin-basic`_ contains the majority of applications a
-system administrator desires. You can learn to use swupd and check out our developer resources:
+Install and update the OS software to its current version
+*********************************************************
+
+The |CL| software utility :ref:`swupd <swupd-guide>` allows you to perform system updates while reaping the benefits of upstream development.
+
+To update your newly installed OS, run.
+
+.. code-block:: bash
+
+   sudo swupd update
+
+Add a bundle
+************
+
+Software applications are installed as bundles using the command
+:command:`swupd bundle-add`. Experienced Linux* users might compare `swupd`
+to running :command:`apt-get` or :command:`yum install` for package
+management. Yet |CL| manages packages at the level of bundles, which
+are integrated stacks of packages.
+
+For example, the `sysadmin-basic` bundle installs the majority of applications useful to a system administrator. To install it, enter:
+
+.. code-block:: bash
+
+   swupd bundle-add sysadmin-basic
+
+View a full list of bundles and packages installed with the `sysadmin-basic`_ bundle. You can also view `all bundles`_ for |CL|, active or deprecated.
+
+Expand your knowledge of :command:`swupd` and check out our developer resources:
 
 * :ref:`swupd-guide`
 * :ref:`developer-workstation`
