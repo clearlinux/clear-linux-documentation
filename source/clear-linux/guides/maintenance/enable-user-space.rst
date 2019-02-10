@@ -58,7 +58,7 @@ To update your newly installed OS, run:
 
 .. code-block:: bash
 
-   swupd update
+   sudo swupd update
 
 Add a bundle
 ************
