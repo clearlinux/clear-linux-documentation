@@ -137,7 +137,7 @@ Burn the |CL| image onto a USB drive
 
    .. code-block:: console
 
-      sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
+      sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4M
 
 
    Adding an ‘r’ in front of the disk identifier should help speed up the
