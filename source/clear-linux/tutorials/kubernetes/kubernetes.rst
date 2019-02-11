@@ -1,7 +1,12 @@
 .. _kubernetes:
 
+<<<<<<< HEAD:source/clear-linux/tutorials/kubernetes.rst
 Run Kubernetes\*
 ################
+=======
+Run Kubernetes
+##############
+>>>>>>> master:source/clear-linux/tutorials/kubernetes/kubernetes.rst
 
 This tutorial describes how to install, configure, and run the
 `Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
@@ -240,8 +245,8 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
-Package configuration customization in |CL| (optional)
-******************************************************
+Package configuration customization (optional)
+**********************************************
 
 |CL| is a stateless system that looks for user-defined package configuration
 files in the :file:`/etc/<package-name>` directory to be used as default. If
@@ -288,6 +293,12 @@ commands as a shell script to configure all of these services in one step:
    Environment="NO_PROXY=${no_proxy}"
    EOF
    done
+
+Next steps
+**********
+
+:ref:`kubernetes-bp`
+
 
 Troubleshooting
 ***************
