@@ -97,7 +97,7 @@ To fulfill minimum installation requirements, complete the
    * You must choose whether or not to participate in :ref:`telemetrics`
      before you can finish installation.
 
-   * You may `Test Network Settings`_ before you 
+   * You may `Test Network Settings`_ before installation
      `Configure Network Interfaces`_. Assure a *Success* message appears before installation.
 
 Main Menu
@@ -611,6 +611,12 @@ Bundle Selection
       :alt: Bundle Selection
 
       Figure 19: Bundle Selection
+
+   .. note::
+
+      The default bundle choices and selections differ between the
+      :file:`clear-<XXXXX>.live-desktop-beta.img` and the
+      :file:`clear-<XXXXX>.installer.img`.
 
 #. Select :kbd:`Confirm` or :kbd:`Cancel`.
 
