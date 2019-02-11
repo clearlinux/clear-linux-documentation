@@ -1,12 +1,7 @@
 .. _kubernetes:
 
-<<<<<<< HEAD:source/clear-linux/tutorials/kubernetes.rst
 Run Kubernetes\*
 ################
-=======
-Run Kubernetes
-##############
->>>>>>> master:source/clear-linux/tutorials/kubernetes/kubernetes.rst
 
 This tutorial describes how to install, configure, and run the
 `Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
@@ -48,16 +43,15 @@ Kubernetes, a set of supported :abbr:`CRI (Container Runtime Interface)`
 runtimes, and networking plugins, are included in the `cloud-native-basic`_
 bundle.
 
-.. note::
-
-   CRI-O’s default plugin_dir is :file:`/opt/cni/bin`.
-   CNI plugins are installed as part of ``cloud-native-basic``.
-
 To install this framework, enter the following command:
 
 .. code-block:: bash
 
    sudo swupd bundle-add cloud-native-basic
+
+.. note::
+
+   For more on networking plugins, see `Install pod network add-on`_.
 
 Configure Kubernetes
 ********************
