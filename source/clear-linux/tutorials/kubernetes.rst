@@ -186,6 +186,27 @@ Weave or Flannel do, make them available by creating symlinks:
 
    for i in /usr/libexec/cni/*; do sudo ln -sf $i /opt/cni/bin; done
 
+**Notes about Weave Net add-on**
+
+The Weave Net add-on works by default when the above configuration is done.
+
+**Notes about flannel add-on**
+
+If you choose the `flannel` add-on, then you must add the following to the
+`kubeadm init` command:
+
+.. code-block:: bash
+
+   --pod-network-cidr 10.244.0.0/16
+
+If you are using CRI-O and `flannel` and you want to use Kata Containers,
+edit the :file:`/etc/crio/crio.conf` file to add:
+
+..  code-block:: bash
+
+    [crio.runtime]
+    manage_network_ns_lifecycle = true
+
 Use your cluster
 ****************
 
