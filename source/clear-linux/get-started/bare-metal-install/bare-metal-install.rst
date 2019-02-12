@@ -38,7 +38,7 @@ Optionally, you can use this command:
 
 #. Follow your OS instructions to create a bootable USB drive.
 
-   * :ref:`bootable-usb-beta-all`
+   * :ref:`bootable-usb`
 
 #. After downloading the image, verify and decompress the file per your OS.
 
