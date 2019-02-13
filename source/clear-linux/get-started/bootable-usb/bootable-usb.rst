@@ -13,13 +13,13 @@ system. Follow the instructions applicable to your system:
 Prerequisites
 *************
 
-* Use a **16GB** or larger USB drive.
+* Use a **8GB** or larger USB drive.
 * `Download`_ the |CL| live boot image or interactive installer image.
 
 .. _bootable-usb-linux:
 
-Create a bootable USB drive on Linux
-************************************
+Create a bootable USB drive on Linux\*
+**************************************
 
 Make sure you have have completed all `Prerequisites`_.
 
@@ -40,14 +40,16 @@ Burn the |CL| image onto a USB drive
       sudo -s
 
 #. Go to the directory with the decompressed image.
+
 #. Plug in the USB drive.
+
 #. Identify the USB drive using the :command:`lsblk` command. This shows all
    drives attached to the system, including the primary hard disk. In the
    example output below, there are 4 drives
    (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and `/dev/sdd`) attached, where
-   `/dev/sda` is primary drive in this case. The remaining are 3 USB drives.
-   The output also shows the mounted partitions (under the `MOUNTPOINT`
-   column) for each drive.
+   `/dev/sda` is primary drive. The remaining are three USB drives. The output
+   also shows the mounted partitions (under the `MOUNTPOINT` column) for each
+   drive.
 
    .. code-block:: bash
 
@@ -76,28 +78,27 @@ Burn the |CL| image onto a USB drive
       ├─sda8   8:8    0    30G  0 part /
       └─sda6   8:6    0   7.9G  0 part [SWAP]
 
-#. Before an image can be burned onto a USB drive, it should be un-mounted.
-   Some Linux* distros may automatically mount a USB drive when it is plugged
-   in. To unmount, use the :command:`umount` command followed by the device
-   identifier/partition. For example: From the above :command:`lsblk` output,
-   `/dev/sdd` has 2 mounted partitions.  To unmount them, enter:
+#. You must unmount a USB drive before you can burn an image onto it. Note that
+   some Linux distros automatically mount a USB drive when it is plugged in.
+   Unmount a USB drive with the :command:`umount` command followed by the device
+   identifier/partition. For example:
 
    .. code-block:: bash
 
       umount /dev/sdd2
       umount /dev/sdd3
 
-#. Burn the image onto the USB drive. The command-line example below burns an
-   uncompressed image onto `/dev/sdd`:
+#. Burn the image onto the USB drive. The example below burns an uncompressed
+   image onto `<your USB device>`:
 
    .. code-block:: bash
 
-      dd if=./clear-[version number]-[image type] of=/dev/sdd bs=4M status=progress
+      dd if=./clear-[version number]-[image type] of=<your USB device> bs=4M status=progress
 
 .. _bootable-usb-mac:
 
-Create a bootable USB drive on macOS*
-*************************************
+Create a bootable USB drive on macOS\*
+**************************************
 
 Make sure you have have completed all `Prerequisites`_.
 
@@ -112,43 +113,44 @@ Burn the |CL| image onto a USB drive
    |CAUTION-BACKUP-USB|
 
 #. Launch the Terminal app.
-#. Go to the directory with the decompressed image.
-#. Plug in a USB drive and get its identifier by entering the command
-   :command:`diskutil list`.  See Figure 1.
 
-   .. code-block:: console
+#. Go to the directory with the decompressed image.
+
+#. Plug in a USB drive and get its identifier:
+
+   .. code-block:: bash
 
       diskutil list
+
+   This will list available disks and their partitions, as shown in Figure 1.
 
    .. figure:: figures/bootable-usb-mac-1.png
       :scale: 100 %
       :alt: Get USB drive identifier
 
-      Figure 1: macOS* - Get USB drive identifier
+      Figure 1: macOS - Get USB drive identifier
 
-#. Unmount the USB drive identified in the previous step.  The command-line
-   example below umounts `/dev/disk2`:
+#. Unmount the USB drive identified in the previous step. For example:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       diskutil umountDisk /dev/disk2
 
-#. Burn the image onto the drive using the :command:`dd` command.  The
-   command-line example below burns an uncompressed image onto `/dev/disk2`:
+#. Burn the image onto the drive using the :command:`dd` command.  The example
+   below burns an uncompressed image onto `<your USB device>`:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      sudo dd if=./clear-[version number]-[image type] of=/dev/rdisk2 bs=4m
+      sudo dd if=./clear-[version number]-[image type] of=<your USB device> bs=4m
 
+   To speed up the imaging process, add an ‘r’ in front of the disk identifier.
+   For example `/dev/rdisk2`.
 
-   Adding an ‘r’ in front of the disk identifier should help speed up the
-   imaging process.
-
-   You can press :kbd:`<CTL>-T` to check imaging progress.
+   Press :kbd:`<CTL>-T` to check imaging progress.
 
 #. Eject the USB drive.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       diskutil eject /dev/disk2
 
@@ -173,30 +175,18 @@ Burn the |CL| image onto a USB drive
 
 #. Plug in the USB drive and open Rufus.
 
-#. Click the :guilabel:`SELECT` button. See Figure 1.
-
-   .. figure:: figures/bootable-usb-windows-1.png
-      :scale: 80 %
-      :alt: Rufus utility - Click the SELECT button
-
-      Figure 1: Rufus utility - Click the SELECT button
+#. Under `Boot selection`, click the :guilabel:`SELECT` button.
 
 #. Find and select the previously extracted |CL| image file.
-   Then, click the  :guilabel:`Open` button. See Figure 2.
 
-   .. figure:: figures/bootable-usb-windows-2.png
-      :scale:  80 %
-      :alt: Rufus utility - Show and select |CL| image file
-
-      Figure 2: Rufus utility - Show and select |CL| image file
-
-#. Click the :guilabel:`START` button. See Figure 3.
+#. With your image file selected as boot, click the :guilabel:`START` button.
+   See Figure 2.
 
    .. figure:: figures/bootable-usb-windows-3.png
       :scale: 80 %
-      :alt: Rufus utility - Click the START button
+      :alt: Rufus utility
 
-      Figure 3: Rufus utility - Click START button
+      Figure 2: Rufus utility
 
 
 .. _Rufus: https://rufus.ie/
