@@ -3,9 +3,9 @@
 mixin
 #####
 
-The mixin tool is a custom content manager provided in the |CL-ATTR| that allows
-users to add custom content to their client systems and still receive updates
-from their upstream OS vendor.
+mixin is a tool provided in the |CL-ATTR| that allows users to add custom
+content to their client systems and still receive updates from their upstream OS
+vendor.
 
 .. contents::
    :local:
@@ -68,13 +68,13 @@ tool:
 
    The first time you build the bundle, mixer will create a new OS version by
    taking your current upstream |CL| version and multiplying it by 1000. For
-   example, if your upstream version is 21530, your custom version will be
-   21530000. For each subsequent call to mixin, mixer will increment the version
+   example, if your upstream version is 27650, your custom version will be
+   27650000. For each subsequent call to mixin, mixer will increment the version
    by 10.
 
    View the `mixin man page`_ for more information on mixin commands.
 
-#. **Update system to make bundle available**
+#. **Update system to make custom bundle available**
 
    Update your system using swupd to make your custom bundle accessible.
 
@@ -103,7 +103,7 @@ Example 1: Add custom helloclear bundle
 
 This example shows the basic steps of adding a custom bundle from a local repo.
 
-#. Check that `helloclear` does not exist on your system:
+#. Check that :command:`helloclear` does not exist on your system:
 
    .. code-block:: bash
 
@@ -121,7 +121,7 @@ This example shows the basic steps of adding a custom bundle from a local repo.
 #. Create a new repo.
 
    #. Create a local repo folder and copy the new `helloclear` RPM files into
-   the repo:
+      the repo:
 
       .. code-block:: bash
 
@@ -136,22 +136,22 @@ This example shows the basic steps of adding a custom bundle from a local repo.
          cd ~/mixin-repo
          createrepo_c .
 
-   #. Add the repo name, making sure to use your username for the correct path:
+   #. Add the repo name:
 
       .. code-block:: bash
 
-         sudo mixin repo add mylocalrepo file:///home/<usrname>/mixin-repo/
+         sudo mixin repo add mylocalrepo file:///$HOME/mixin-repo/
 
 #. Create custom bundle with the new `helloclear` RPM. Add `helloclear` to the
-   `helloclear-bundle` bundle and build the bundle:
+   :command:`helloclear-bundle` bundle and build the bundle:
 
-      .. code-block:: bash
+   .. code-block:: bash
 
-         sudo mixin package add helloclear --bundle helloclear-bundle
-         sudo mixin build
+      sudo mixin package add helloclear --bundle helloclear-bundle
+      sudo mixin build
 
 #. Migrate your |CL| to your custom mix. Check your version before and after the
-   update, to see the switch to your custom mix:
+   update to see the switch to your custom mix:
 
    .. code-block:: bash
 
@@ -173,11 +173,12 @@ This example shows the basic steps of adding a custom bundle from a local repo.
 
       helloclear
 
-#. Revert your system back to upstream (optional):
+#. Revert your system back to upstream (optional). This example reverts back to
+   upstream version 27650:
 
    .. code-block:: console
 
-      sudo swupd verify --fix --picky --force -m <upstream-version-number> -C /usr/share/clear/update-ca/Swupd_Root.pem
+      sudo swupd verify --fix --picky --force -m 27650 -C /usr/share/clear/update-ca/Swupd_Root.pem
       sudo swupd clean --all
       sudo swupd check-update
 
