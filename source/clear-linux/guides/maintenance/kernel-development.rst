@@ -306,7 +306,7 @@ the kernel is ready to be compiled and packaged into a RPM.
       make build
 
 
-#. The result there will be multiple :file:`.rpm` files in the :file:`rpms` 
+#. The result will be multiple :file:`.rpm` files in the :file:`rpms` 
    directory as output. 
 
    .. code-block:: bash
