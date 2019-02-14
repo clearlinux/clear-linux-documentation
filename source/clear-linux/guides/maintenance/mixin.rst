@@ -21,8 +21,8 @@ updates. The metadata generated from the mixin tool is merged with the upstream
 metadata to provide a single source of update content, which swupd uses to
 perform updates.
 
-How to use mixin
-****************
+How to use
+**********
 
 Learn the mixin tool set up and workflow.
 
@@ -113,7 +113,7 @@ This example shows the basic steps of adding a custom bundle from a local repo.
 
       helloclear: command not found
 
-#. Follow "Option 1: Build a new RPM" from :ref:`autospec` to create a new
+#. Follow the "Build a new RPM" example from :ref:`autospec` to create a new
    `helloclear` RPM.
 
    The resulting RPMs are in `~/clearlinux/packages/helloclear/rpms`.
