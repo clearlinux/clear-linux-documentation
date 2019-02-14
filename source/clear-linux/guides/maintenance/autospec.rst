@@ -41,7 +41,7 @@ Prerequisites
 
 #. **Required bundles**
 
-   The autospec tool requires that the :command:`os-clr-on-clr` and bundle is
+   The autospec tool requires that the :command:`os-clr-on-clr` bundle is
    installed.
 
 Workflow
@@ -54,10 +54,9 @@ Before you use autospec, you will need to set up the autospec environment and
 tools. This is mostly automated for you by using the provided
 :file:`user_setup.sh` script.
 
-The `user-setup script`_ creates the :file:`clearlinux` folder, which contains
-the :file:`Makefile`, :file:`packages`, and :file:`projects` subfolders. The
-:file:`projects` folder contains the main tools, `autospec` and `common`, used
-for making packages in |CL|.
+The `user-setup script`_ creates the autospec workspace in the
+:file:`clearlinux` folder. The workspace contains the :file:`Makefile`, :file:`packages`, and :file:`projects` subfolders. The :file:`projects` folder contains
+the main tools, `autospec` and `common`, used for making packages in |CL|.
 
 Create a RPM
 ------------
@@ -112,7 +111,7 @@ This example shows the basic steps for first time setup of autospec.
 
    .. code-block:: bash
 
-      git config --global user.email ”you@example.com"
+      git config --global user.email "you@example.com"
       git config --global user.name "Your Name"
 
 .. TODO this last step (for GIT) - required? what is it doing?
@@ -123,11 +122,12 @@ Example 2: Build RPM with existing spec file
 This example shows how to build a RPM from a pre-packaged upstream package with
 an existing spec file.
 
-#. If you do not already have them locally, clone the |CL| package definitions:
+#. If you do not already have them locally, clone the |CL| package repos:
 
    .. code-block:: bash
 
-      make -j <num> clone-packages
+      cd clearlinux
+      make [-j NUM] clone-packages
 
    Alternately, you can clone a single package using:
 
@@ -143,6 +143,8 @@ an existing spec file.
       make build
 
 #. The resulting RPMs are in :file:`./rpms`. Logs are in :file:`./results`.
+
+.. _autospec-build-new-pack:
 
 Example 3: Build a new package
 ==============================
@@ -166,7 +168,7 @@ This example shows how to build a new RPM with no spec file.
 
       .. code-block:: bash
 
-         cd ~/clearlinux/packages/[package-name]
+         cd ~/clearlinux/packages/<package-name>
 
    #. Respond to the build process output by editing control files to resolve
       issues, which may include dependencies or exclusions. See
