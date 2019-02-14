@@ -87,9 +87,6 @@ Clone the existing kernel package repository from |CL| as a starting point.
 
       
       
-      
-      
-
 Change the kernel version 
 =========================
 
@@ -118,18 +115,23 @@ by autospec are not available and changes must be made manually.
    .. code-block:: bash
       
       Name:           linux
-      Version:        4.20.5
-      Release:        690
+      Version:        4.20.8
+      Release:        696
       License:        GPL-2.0
       Summary:        The Linux kernel
       Url:            http://www.kernel.org/
       Group:          kernel
-      Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.5.tar.xz
+      Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.8.tar.xz
       Source1:        config
       Source2:        cmdline
 
+      %define ktarget  native
+
    .. note::
-      Consider changing the Name in the RPM spec file to easily identify a modified kernel.
+      Consider changing the Name from *linux* in the RPM spec file to easily identify a modified kernel.
+      
+      Consider changing the ktarget from *native* in the RPM spec file to easily identify a modified kernel.
+
 
 #. Commit and save the changes to the file.
 
