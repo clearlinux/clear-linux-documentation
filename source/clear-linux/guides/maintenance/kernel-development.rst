@@ -80,7 +80,15 @@ Clone the existing kernel package repository from |CL| as a starting point.
     You can alternatively use a different kernel variant as the base for modification. 
     For a list of kernel package names which you can clone instead, see the `clearlinux-pkgs GitHub`_.
 
+    The latest version of the |CL| kernel package is pulled as a starting 
+    point. An older version can pulled by switching to different git tag with 
+    :command:`git checkout tag/${TAG_NAME}` tag.
 
+
+      
+      
+      
+      
 
 Change the kernel version 
 =========================
