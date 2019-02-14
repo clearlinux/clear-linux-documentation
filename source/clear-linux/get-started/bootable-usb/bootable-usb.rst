@@ -13,7 +13,7 @@ system. Follow the instructions applicable to your system:
 Prerequisites
 *************
 
-* Use a **8GB** or larger USB drive.
+* Use an **8GB** or larger USB drive.
 * `Download`_ the |CL| live boot image or interactive installer image.
 
 .. _bootable-usb-linux:
@@ -179,8 +179,7 @@ Burn the |CL| image onto a USB drive
 
 #. Find and select the previously extracted |CL| image file.
 
-#. With your image file selected as boot, click the :guilabel:`START` button.
-   See Figure 2.
+#. Click the :guilabel:`START` button. See Figure 2.
 
    .. figure:: figures/bootable-usb-windows-3.png
       :scale: 80 %
