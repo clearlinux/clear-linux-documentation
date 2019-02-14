@@ -146,10 +146,6 @@ eventually merged with the main :file:`.config`.
 
 
 #. Open the kernel :file:`config-fragment` file in an editor.
-   
-   Due to how |CL| packaging tools make use of :command:`mock` environments 
-   psuedo-GUI tools that abstract kernel configuration such as menuconfig do 
-   not work. 
 
    .. code-block:: bash
 
@@ -188,6 +184,15 @@ eventually merged with the main :file:`.config`.
 
       make config
 
+.. note::
+   
+   The |CL| packaging tools make use of :command:`mock` environments for 
+   building software.
+
+   If you want to make use of GUI tools to edit the kernel confguration, such as
+   :command:`menuconfig`, instead of manually editing the :file:`config`
+   file, you can from the :command:`mock` environment under 
+   :file:`/var/lib/mock/clear-linux/root/builddir/build/BUILD/kernel-*` 
 
 
 Modify kernel source code 
