@@ -129,7 +129,7 @@ by autospec are not available and changes must be made manually.
 
    .. note::
       Consider changing the Name from *linux* in the RPM spec file to easily identify a modified kernel.
-      
+
       Consider changing the ktarget from *native* in the RPM spec file to easily identify a modified kernel.
 
 
@@ -328,7 +328,7 @@ the kernel is ready to be compiled and packaged into an RPM.
       
       ls rpms/
 
-   The kernel RPM will be named :file:`linux<name>-<version><release>.x86_64.rpm`
+   The kernel RPM will be named :file:`linux%{name}-%{version}-%{release}.x86_64.rpm`
 
 
 #. The kernel RPM file can be input to the `mixer tool`_ to create a custom 
@@ -341,20 +341,18 @@ machine for testing. This approach works well for individual development or
 testing. For a more scalable and customizable approach, consider using the 
 `mixer tool`_ to provide a custom kernel with updates.
 
-1. Install the kernel RPM onto the local system with the :command:`rpm` command.
+1. Install the kernel onto the local system by extracting the RPM with the :command:`rpm2cpio` command.
 
    .. code-block:: bash
 
-      sudo rpm -ivh linux-custom.<version>.<release>.x86_64.rpm
+      sudo rpm2cpio linux%{name}-%{version}-%{release}.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
 
 #. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
 
    .. code-block:: bash
 
-      sudo clr-boot-manager update
-
       sudo clr-boot-manager list-kernels
-      sudo clr-boot-manager set-kernel <name>
+      sudo clr-boot-manager set-kernel org.clearlinux.${Target}.%{version}-%{release}
 
       sudo reboot
 
