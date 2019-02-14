@@ -144,10 +144,10 @@ an existing spec file.
 
 #. The resulting RPMs are in :file:`./rpms`. Logs are in :file:`./results`.
 
-.. _autospec-build-new-pack:
+.. _autospec-build-new-rpm:
 
-Example 3: Build a new package
-==============================
+Example 3: Build a new RPM
+==========================
 
 This example shows how to build a new RPM with no spec file.
 
