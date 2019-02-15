@@ -5,7 +5,8 @@ autospec
 
 **autospec** is a tool to assist in the automated creation and maintenance of
 RPM packaging in |CL-ATTR|. Where a standard RPM build process using
-:command:`rpmbuild` requires a tarball and :file:`.spec` file to start, autospec requires only a tarball and package name to start.
+:command:`rpmbuild` requires a tarball and :file:`.spec` file to start, autospec
+requires only a tarball and package name to start.
 
 .. contents::
    :local:
@@ -16,11 +17,13 @@ Description
 
 The autospec tool attempts to infer the requirements of the :file:`.spec` file
 by analyzing the source code and :file:`Makefile` information. It will
-continuously run updated builds based on new information discovered from build failures until it has a complete and valid :file:`.spec` file. The autospec tool makes use of mock to achieve this. It is possible to influence the exact
+continuously run updated builds based on new information discovered from build
+failures until it has a complete and valid :file:`.spec` file. The autospec tool
+makes use of mock to achieve this. It is possible to influence the exact
 behavior of autospec by providing `control files`_.
 
-For a general understanding of how RPMs work, we recommend visiting the
-`rpm website`_ or the `RPM Packaging Guide`_ .
+For a general understanding of how RPMs work, visit the `rpm website`_ or the
+`RPM Packaging Guide`_ .
 
 How to use
 **********
@@ -54,8 +57,10 @@ tools. This is mostly automated for you by using the provided
 :file:`user_setup.sh` script.
 
 The `user-setup script`_ creates the autospec workspace in the
-:file:`clearlinux` folder. The workspace contains the :file:`Makefile`, :file:`packages`, and :file:`projects` subfolders. The :file:`projects` folder contains
-the main tools, `autospec` and `common`, used for making packages in |CL|.
+:file:`clearlinux` folder. The workspace contains the :file:`Makefile`,
+:file:`packages`, and :file:`projects` subfolders. The :file:`projects` folder
+contains the main tools, `autospec` and `common`, used for making packages in
+|CL|.
 
 Create a RPM
 ------------
@@ -94,6 +99,10 @@ Examples
 ********
 
 Make sure all `Prerequisites`_ are fulfilled before using these examples.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Example 1: First time setup
 ===========================
@@ -134,23 +143,23 @@ Example 2: Build RPM with existing spec file
 This example shows how to build a RPM from a pre-packaged upstream package, with
 an existing spec file. The example uses the ``dmidecode`` package.
 
-#. Make sure you have completed the
-   `First time set up for autospec <Example 1: First time setup>`_.
+Make sure you have completed `Example 1: First time setup`_ before starting
+this example.
 
-#. Clone the ``dmidecode`` package. You can clone all |CL| package repos:
-
-   .. code-block:: bash
-
-      cd clearlinux
-      make [-j NUM] clone-packages
-
-   Or you can clone a single package using:
+#. Navigate to the autospec workspace and clone the ``dmidecode`` package.
 
    .. code-block:: bash
 
+      cd ~/clearlinux
       make clone_dmidecode
 
-#. Navigate to the ``dmidecode`` package and build it:
+   Or you can clone all package repos at once using:
+
+   .. code-block:: bash
+
+      make [-j NUM] clone-packages
+
+#. Navigate to the local copy of the ``dmidecode`` package and build it:
 
    .. code-block:: bash
 
@@ -165,20 +174,20 @@ Example 3: Build a new RPM
 This example shows how to build a new RPM with no spec file. The example will
 create a simple helloclear RPM.
 
-#. Navigate to the autospec workspace. The :file:`Makefile` provides a
-   :command:`make autospecnew` that can automatically generate an RPM package 
-   using the autospec tool. You must pass the URL to the source tarball and the
-   NAME of the RPM you wish to create.
+Make sure you have completed `Example 1: First time setup`_ before starting
+this example.
 
-   Build the helloclear RPM:
+#. Navigate to the autospec workspace and build the helloclear RPM. The
+   :file:`Makefile` provides a :command:`make autospecnew` that can
+   automatically generate an RPM package using the autospec tool. You must pass
+   the URL to the source tarball and the NAME of the RPM you wish to create:
 
    .. code-block:: bash
 
       cd ~/clearlinux
       make autospecnew URL="https://github.com/clearlinux/helloclear/archive/helloclear-v1.0.tar.gz" NAME="helloclear"
 
-#. The resulting RPMs are in :file:`~/clearlinux/packages/helloclear/rpms`.
-   Logs are in :file:`~/clearlinux/packages/helloclear/results`.
+#. The resulting RPMs are in :file:`./rpms`. Logs are in :file:`./results`.
 
 #. If build failures or dependency issues occur, provide the necessary
    dependency, ban, or exclusion information via control files to autospec:
@@ -199,8 +208,8 @@ create a simple helloclear RPM.
 
          make autospec
 
-   Repeat the last two steps above until all errors are resolved and you
-   complete a successful build.
+   #. Repeat the last two steps above until all errors are resolved and you
+      complete a successful build.
 
 Example 4: Generate a new spec file with a pre-defined package
 ==============================================================
@@ -210,12 +219,21 @@ this example you will make a simple change to the ``dmidecode`` package, change
 the revision to a new number higher than the |CL| OS version, and rebuild the
 package.
 
-#. Navigate to the autospec workspace and copy the ``dmidecode`` package:
+Make sure you have completed `Example 1: First time setup`_ before starting
+this example.
+
+#. Navigate to the autospec workspace and clone the ``dmidecode`` package.
 
    .. code-block:: bash
 
       cd ~/clearlinux
       make clone_dmidecode
+
+   Or you can clone all package repos at once using:
+
+   .. code-block:: bash
+
+      make [-j NUM] clone-packages
 
 #. Navigate into the *dmidecode* directory:
 
@@ -245,18 +263,13 @@ package.
 
       make autospec
 
-   When the process completes, you will see new RPM packages in the
-   :file:`results/` folder.
-
-#. View the new RPM packages in :file:`/clearlinux/packages/dmidecode/results/`
+#. The resulting RPMs are in :file:`./rpms`. Logs are in :file:`./results`.
 
 Related topics
 **************
 
 * :ref:`Mixer tool <mixer>`
 * :ref:`Mixin tool <mixin>`
-* :ref:`autospec <autospec-about>`
-* :ref:`Bundles <bundles-about>`
 
 .. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
 .. _autospec README: https://github.com/clearlinux/autospec
