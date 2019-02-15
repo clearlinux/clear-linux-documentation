@@ -3,30 +3,29 @@
 autospec
 ########
 
-autospec is a tool to assist in the automated creation and maintenance of RPM
-packaging in |CL-ATTR|. Where a standard RPM build process using rpmbuild
-requires a tarball and :file:`.spec` file to start, autospec requires only a
-tarball and package name to start.
+**autospec** is a tool to assist in the automated creation and maintenance of
+RPM packaging in |CL-ATTR|. Where a standard RPM build process using
+:command:`rpmbuild` requires a tarball and :file:`.spec` file to start, autospec requires only a tarball and package name to start.
 
 .. contents::
    :local:
    :depth: 1
 
-.. Todo: this should be the concept content
-
-.. This guide shows you how to create RPMs with :ref:`autospec <autospec-about>`, a tool that assists in automated creation and maintenance of RPM packaging on |CL-ATTR|.
-
-.. See our :ref:`autospec concept page <autospec-about>` for a detailed explaination of how ``autospec`` works on |CL|. For a general understanding of how RPMs work, we recommend visiting the `rpm website`_ or the `RPM Packaging Guide`_ .
-
 Description
 ***********
 
-.. TODO
+The autospec tool attempts to infer the requirements of the :file:`.spec` file
+by analyzing the source code and :file:`Makefile` information. It will
+continuously run updated builds based on new information discovered from build failures until it has a complete and valid :file:`.spec` file. The autospec tool makes use of mock to achieve this. It is possible to influence the exact
+behavior of autospec by providing `control files`_.
 
-How to use autospec
-*******************
+For a general understanding of how RPMs work, we recommend visiting the
+`rpm website`_ or the `RPM Packaging Guide`_ .
 
-Learn the autospec tool set up and workflow.
+How to use
+**********
+
+Learn the autospec tool set up and process.
 
 .. contents::
    :local:
@@ -61,25 +60,40 @@ the main tools, `autospec` and `common`, used for making packages in |CL|.
 Create a RPM
 ------------
 
-autospec helps build RPMs following these basic steps:
+The basic autospec process is described in the following steps:
 
-#. Run autospec, passing in the tarball URL and package name.
+#. The :command:`make autospec` command generates a :file:`.spec` file based on
+   analysis of code and control files, if present.
 
-#. If there are build failures or dependency issues, supply the necessary
-   dependency, ban, or exclusion information via control files to autospec.
+#. autospec creates a ``build root`` with mock config.
 
-   View the `autospec README`_ for more information on control files.
+#. autospec attempts to build an RPM from the generated :file:`.spec`.
+
+#. autospec detects any missed declarations in the :file:`.spec`.
+
+#. If build errors occur, autospec will scan the build log to try and detect
+   the root cause.
+
+#. If autospec detects the root cause and knows how to continue, it will restart
+   the build automatically at step 1 with updated build instructions.
+
+#. Otherwise, autospec will stop the build for user inspection and editing of
+   control files to resolve the errors. The user resumes the process at step 1
+   after errors are resolved.
 
    If a binary dependency doesn't exist in |CL|, you will need to build it
    before running autospec again.
 
-#. Run autospec again.
+   View the `autospec README`_ for more information on control files.
 
-#. Repeat steps 2-3 until all errors are resolved, resulting in a successful
-   build.
+Following these steps, autospec continues to rebuild the package, based on
+new information discovered from build failures, until it has a valid
+:file:`.spec`. If no build errors occur, RPM packages are successfully built.
 
 Examples
 ********
+
+Make sure all `Prerequisites`_ are fulfilled before using these examples.
 
 Example 1: First time setup
 ===========================
@@ -114,26 +128,27 @@ This example shows the basic steps for first time setup of autospec.
       git config --global user.email "you@example.com"
       git config --global user.name "Your Name"
 
-.. TODO this last step (for GIT) - required? what is it doing?
-
 Example 2: Build RPM with existing spec file
 ============================================
 
-This example shows how to build a RPM from a pre-packaged upstream package with
-an existing spec file.
+This example shows how to build a RPM from a pre-packaged upstream package, with
+an existing spec file. The example uses the ``dmidecode`` package.
 
-#. If you do not already have them locally, clone the |CL| package repos:
+#. Make sure you have completed the
+   `First time set up for autospec <Example 1: First time setup>`_.
+
+#. Clone the ``dmidecode`` package. You can clone all |CL| package repos:
 
    .. code-block:: bash
 
       cd clearlinux
       make [-j NUM] clone-packages
 
-   Alternately, you can clone a single package using:
+   Or you can clone a single package using:
 
    .. code-block:: bash
 
-      make clone_<package-name>
+      make clone_dmidecode
 
 #. Navigate to the ``dmidecode`` package and build it:
 
@@ -144,14 +159,18 @@ an existing spec file.
 
 #. The resulting RPMs are in :file:`./rpms`. Logs are in :file:`./results`.
 
-.. _autospec-build-new-rpm:
-
 Example 3: Build a new RPM
 ==========================
 
-This example shows how to build a new RPM with no spec file.
+This example shows how to build a new RPM with no spec file. The example will
+create a simple helloclear RPM.
 
-#. Navigate to the autospec workspace and build the helloclear RPM:
+#. Navigate to the autospec workspace. The :file:`Makefile` provides a
+   :command:`make autospecnew` that can automatically generate an RPM package 
+   using the autospec tool. You must pass the URL to the source tarball and the
+   NAME of the RPM you wish to create.
+
+   Build the helloclear RPM:
 
    .. code-block:: bash
 
@@ -182,7 +201,6 @@ This example shows how to build a new RPM with no spec file.
 
    Repeat the last two steps above until all errors are resolved and you
    complete a successful build.
-
 
 Example 4: Generate a new spec file with a pre-defined package
 ==============================================================
@@ -232,16 +250,6 @@ package.
 
 #. View the new RPM packages in :file:`/clearlinux/packages/dmidecode/results/`
 
-Next steps
-**********
-
-Create a custom bundle and use it with |CL|:
-
-* Use the :ref:`Mixer tool <mixer>` to add a new bundle to your derivative of
-  |CL|.
-* Use the :ref:`Mixin tool <mixin>` to customize your upstream |CL| installation
-  with a new bundle.
-
 Related topics
 **************
 
@@ -252,6 +260,6 @@ Related topics
 
 .. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
 .. _autospec README: https://github.com/clearlinux/autospec
-
+.. _control files: https://github.com/clearlinux/autospec#control-files
 .. _rpm website: http://rpm.org
 .. _RPM Packaging Guide: https://rpm-packaging-guide.github.io/
