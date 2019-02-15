@@ -850,33 +850,9 @@ Finish installation
 
    .. note::
 
-      Allow time for the graphical login to appear. This shows the administrative user assigned in `Recommended options`_.
+      Allow time for the graphical login to appear. This shows the administrative user that you created in `Recommended options`_.
 
 #. Log in as the adminstrative user.
-
-#. Upon launch of the GUI, open a Terminal.
-
-#. In the Terminal, log into *root* for the first time.
-
-   .. code-block:: bash
-
-      sudo -i
-
-#. Enter password of administrative user to switch to root.
-
-#. Enter the command to change the root password:
-
-   .. code-block:: bash
-
-      passwd root
-
-#. Follow onscreen instructions to create a password for root.
-
-#. Enter :command:`exit` to return to the administative user.
-
-**Congratulations!**
-
-You have successfully installed |CL| on bare metal using the installer.
 
 Next steps
 **********
