@@ -35,7 +35,7 @@ Preliminary steps
 
 #. Follow your OS instructions to create a bootable USB drive.
 
-   * :ref:`bootable-usb-beta-all`
+   * :ref:`bootable-usb`
 
 Install from live image
 ***********************
