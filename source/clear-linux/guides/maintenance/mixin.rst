@@ -140,7 +140,7 @@ This example shows the basic steps of adding a custom bundle from a local repo.
 
       .. code-block:: bash
 
-         sudo mixin repo add mylocalrepo file:///$HOME/mixin-repo/
+         sudo mixin repo add mylocalrepo file://$HOME/mixin-repo/
 
 #. Create custom bundle with the new `helloclear` RPM. Add `helloclear` to the
    :command:`helloclear-bundle` bundle and build the bundle:
