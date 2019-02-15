@@ -312,8 +312,7 @@ consider using a patch management tool in addition to Git such as
 
 #. Locate the section of the SPEC file further down that contains 
    patch application and append your patch file number used in the step above.
-   In this example, the patch file is called 
-   :file:`2001-my-patch-for-driver-A.patch`
+   In this example, patch2001 is added.
 
    .. code-block:: bash
 
@@ -331,6 +330,33 @@ consider using a patch management tool in addition to Git such as
 
 
 #. Commit and save the changes to the RPM SPEC file.
+
+
+
+Modify kernel boot parameters
+=============================
+The kernel boot options are passed from the bootloader to the kernel with 
+command-line parameters. 
+
+While temporarily changes can be made to kernel parameters on a running 
+system or on a during boot, you can also modify the default parameters that 
+are persistent and distributed with a customized kernel.
+
+
+#. Open the kernel :file:`cmdline` file in an editor.
+
+   .. code-block:: bash
+
+      $EDITOR cmdline
+
+#. Make any desired change to the kernel parameters. 
+   For example, you can remove the :command:`quiet` parameter to see more 
+   verbose output of kernel log messages during the boot process.
+
+#. Commit and save the changes to the :file:`cmdline` file.
+
+See the 
+`Kernel parameters documentation`_ for a list of available parameters. 
 
 
 
@@ -404,5 +430,6 @@ Related topics
 .. _`Quilt`: http://savannah.nongnu.org/projects/quilt
 .. _`clearlinux-pkgs GitHub`: https://github.com/clearlinux-pkgs?&q=linux
 .. _`kernel.org`: https://www.kernel.org/
+.. _`Kernel parameters documentation`: https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt
 .. _`autospec`: https://clearlinux.org/documentation/clear-linux/concepts/autospec-about
 .. _`git-format-patch Documentation`: https://git-scm.com/docs/git-format-patch
