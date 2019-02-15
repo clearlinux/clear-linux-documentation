@@ -78,7 +78,8 @@ Clone the existing kernel package repository from |CL| as a starting point.
 .. note::
     The "linux" package is the kernel that comes with |CL| in the kernel-native bundle.
     You can alternatively use a different kernel variant as the base for modification. 
-    For a list of kernel package names which you can clone instead, see the `clearlinux-pkgs GitHub`_.
+    For a list of kernel package names which you can clone instead,
+    see the `clearlinux-pkgs GitHub`_.
 
     The latest version of the |CL| kernel package is pulled as a starting 
     point. An older version can pulled by switching to different git tag with 
@@ -128,9 +129,11 @@ by autospec are not available and changes must be made manually.
       %define ktarget  native
 
    .. note::
-      Consider changing the Name from *linux* in the RPM spec file to easily identify a modified kernel.
+      Consider changing the Name from *linux* in the RPM spec file to easily 
+      identify a modified kernel.
 
-      Consider changing the ktarget from *native* in the RPM spec file to easily identify a modified kernel.
+      Consider changing the ktarget from *native* in the RPM spec file to easily 
+      identify a modified kernel.
 
 
 #. Commit and save the changes to the file.
@@ -211,26 +214,45 @@ Modify kernel source code
 Changes to kernel code are applied with patch files. Patch files are 
 formatted git commits that can be applied to the main source code.
 
+You will need to obtain a copy of the source code,
+make modifications, generate patch file(s), and add them to the RPM SPEC 
+file for inclusion during the kernel build.
+
 If you have a large number of patches or a more complex workflow, 
 consider using a patch management tool in addition to Git such as 
 `Quilt`_. 
 
 
-#. Clone the linux kernel source code into a new working directory.
+#. Run make sources to pull the kernel source code specified in the RPM 
+   SPEC file. In the example, it downloads the 
+   :file:`linux-4.20.8.tar.xz` file.
 
    .. code-block:: bash
 
-      git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+      make sources
 
 
-#. Make any code changes to the Linux source files.
+#. Extract the kernel source code archive and enter the extracted directory. 
+   This will create a working copy of the Linux source you can modify.
+   In this example, it is extracted into a 
+   :file:`linux-4.20.8` directory.
+
+   .. code-block:: bash
+
+      tar -xvf linux-4.20.8.tar.xz
+
+      cd linux-4.20.8/
+
+
+#. Make any desired code changes to the Linux source code files.
 
 
 #. Track and commit your changes to the local git repo. 
 
    .. code-block:: bash
 
-      git commit -m "My patch for driver A"
+      git add %{filename}
+      git commit -m "My patch for driver A" %{filename}
 
 
 #. Generate a patch file based on your git commits. 
@@ -248,7 +270,7 @@ consider using a patch management tool in addition to Git such as
 
    .. code-block:: bash
       
-      cp patches/*.patch ~/clearlinux/packages/linux/
+      cp *.patch ~/clearlinux/packages/linux/
 
 
 #. Navigate back to the RPM build directory.
@@ -267,7 +289,9 @@ consider using a patch management tool in addition to Git such as
 
 #. Locate the section of the SPEC file that contains existing patch 
    variable definitions and append your patch file name. Ensure the 
-   patch number does not collide with an existing patch.
+   patch number does not collide with an existing patch. 
+   In this example, the patch file is called 
+   :file:`2001-my-patch-for-driver-A.patch`
 
    .. code-block:: bash
 
@@ -288,6 +312,8 @@ consider using a patch management tool in addition to Git such as
 
 #. Locate the section of the SPEC file further down that contains 
    patch application and append your patch file number used in the step above.
+   In this example, the patch file is called 
+   :file:`2001-my-patch-for-driver-A.patch`
 
    .. code-block:: bash
 
