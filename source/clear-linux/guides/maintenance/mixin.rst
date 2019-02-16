@@ -1,167 +1,195 @@
 .. _mixin:
 
-Create and add custom bundles to your upstream Clear Linux system
-#################################################################
+mixin
+#####
 
-|CL-ATTR| offers many curated bundles that you can install on your system to
-create your desired capabilities. If the available upstream bundles do not
-meet your needs, you can create and add your own custom bundles to your
-system using one of two methods. Note: Upstream refers to the official
-version of |CL|.
+mixin is a tool provided in the |CL-ATTR| that allows users to add custom
+content to their client systems and still receive updates from their upstream OS
+vendor.
 
-The first method is to use the :ref:`mixer tool<mixer>` to create your own
-|CL| image and add your bundles to it.  Mixing your own |CL| image can
-give you great control and flexibility; however, you must act as an
-:abbr:`OSV (Operating System Vendor)` and maintain your releases and
-updates because you have forked from upstream.
+.. contents::
+   :local:
+   :depth: 1
 
-The second method is to use the :command:`mixin` tool, which also
-makes use of mixer to create custom bundles that you can add to your
-upstream |CL| system.  This  simpler method provides a “light” forking from
-upstream, which means you can continue to get upstream bundles and updates.
-If needed, you can easily revert your system back to the upstream version.
+Description
+***********
 
-This guide shows you how to accomplish the second method by following these
-steps:
+mixin uses the mixer tool to generate a local update for client systems. With
+the mixin tool, a user can add remote RPM repositories or local RPMs and mix
+them into their update stream, while continuing to get upstream bundles and
+updates. The metadata generated from the mixin tool is merged with the upstream
+metadata to provide a single source of update content, which swupd uses to
+perform updates.
 
-#. Set up the workspace.
-#. Copy your custom RPM package to the workspace.
-#. Create a bundle with your custom RPM package.
-#. Migrate your |CL| system to your custom mix.
-#. Add your custom bundle to your system.
-#. Optional: Revert your system back to 100% upstream.
+How to use
+**********
 
-Set up the workspace
-********************
+Learn the mixin tool set up and workflow.
 
-#. Install the mixer bundle to enable mixer.
+.. contents::
+   :local:
+   :depth: 1
 
-   .. code-block:: console
+Prerequisites
+=============
 
-      $ sudo swupd bundle-add mixer
+#. **OS installed**
 
-#. Create the workspace.
+   The |CL| must be installed to use the mixer tool.
 
-   .. code-block:: console
+#. **Required bundles**
 
-      $ sudo mkdir -p /usr/share/mix/local-rpms
+   The mixin tool requires that the :command:`mixer` bundle is installed.
 
-Copy your custom RPM package to the workspace
-*********************************************
+Workflow
+========
 
-.. note::
+The following steps show how to create and add a custom bundle with the mixin
+tool:
 
-   You cannot simply use RPMs from other Linux distros on |CL|. You must
-   build RPMs specifically for |CL| in order for them to work properly.
-   Follow the instructions on how to build RPMs found at the
-   `Developer tooling framework for Clear Linux`_.  
+#. **Add or create a new repo(s)**
 
-If you have a local RPM you want to add to your mix you can do so by copying
-your RPM package to the workspace.
+   mixin pulls packages to build your custom bundle from locations referred to
+   as repos. There are two default repos for mixin:
 
-.. code-block:: console
+   * upstream
+   * local
 
-   $ sudo cp [RPM] /usr/share/mix/local-rpms
+   Additional repos can be added, such as other locations on your local system
+   or remote repos.
 
-Alternatively, you can add a remote RPM repository by running the following
-command.
+   RPMs must be built specifically for |CL| in order for them to work properly.
+   Refer to :ref:`autospec` for instruction on creating RPMs for |CL|.
 
-.. code-block:: console
+#. **Create a custom bundle with desired RPMs**
 
-   $ sudo mixin repo add [repo-name] [repo-url]
+   Add the desired packages to your new bundle and build the bundle. By default,
+   the bundle will be named after its parent repo.
 
-Create a bundle with your custom RPM package
-********************************************
+   The first time you build the bundle, mixer will create a new OS version by
+   taking your current upstream |CL| version and multiplying it by 1000. For
+   example, if your upstream version is 27650, your custom version will be
+   27650000. For each subsequent call to mixin, mixer will increment the version
+   by 10.
 
-Use the :command:`mixin` command to create a bundle with the RPM
-package.
+   View the `mixin man page`_ for more information on mixin commands.
 
-.. code-block:: console
+#. **Update system to make custom bundle available**
 
-   $ sudo mixin package add [package-name] [--bundle bundle-name] [--build]
+   Update your system using swupd to make your custom bundle accessible.
 
-This command will add package-name to a bundle that is named after its parent
-repository. For example, if the RPM was provided locally, it will be added to
-the 'local' bundle. If it came from a repo that was added with 
-:command:`mixin repo add`, it will be added to a bundle named after the
-repo-name. If the `--bundle bundle-name` flag is provided, the package will 
-be added to `bundle-name` instead. The `--build` flag tells :command:`mixin` 
-to run a `mixer` build after adding the package.
+   When you first create your mix, you will have to do a one-time migration to
+   your custom mix as part of the update. After you migrate, the system version
+   switches over to your last custom version number as noted in the previous
+   step. As long as you remain on your custom version of |CL| you can continue
+   to create and add new bundles to your mix with no extra migration step.
 
-To add more than one RPM to your previously-created bundle, repeat
-the :command:`mixin package add` command and change the package name. Do not
-add the `--build` flag until all packages have been added. Once done adding 
-packages, run the following to create your local mix.
+#. **Install custom bundles**
 
-.. code-block:: console
+   Install your custom bundle using the normal swupd :command:`bundle-add`
+   command.
 
-   $ sudo mixin build
+   View the `swupd man page`_ for more information on swupd commands.
 
-.. note::
+Examples
+********
 
-   * The first time you run the :command:`mixin build` command, mixer
-     creates a new OS version by taking your current upstream |CL| version
-     and multiplying it by 1000.  For example, if your upstream version is
-     21530, your custom version will be 21530000.  For each subsequent call
-     to mixin, mixer will increment the version by 10.  For example,
-     21530010, 21530020, etc. 
+The following examples use:
 
-Migrate your Clear Linux system to your custom mix
-**************************************************
+* A stock installation of |CL| with all `Prerequisites`_.
 
-Before you can use your custom bundle, you must migrate your |CL| system
-to your custom mix to make the bundle accessible.
+Example 1: Add custom helloclear bundle
+=======================================
 
-.. code-block:: console
+This example shows the basic steps of adding a custom bundle from a local repo.
 
-   $ sudo swupd update --migrate
+#. Check that :command:`helloclear` does not exist on your system:
 
-After you migrate, the version of your |CL| system switches over to your
-last custom version number as noted in the previous section. 
+   .. code-block:: bash
 
-You can continue to create new bundles with :command:`mixin` 
-while you are in your custom version of |CL|.  You do not need to migrate
-again. However, you must run :command:`swupd update` again to update your
-system in order to make those bundles visible. 
-
-Add your custom bundle to your system
-*************************************
-
-#. Get a listing of your newly-created bundle.
+      helloclear
 
    .. code-block:: console
 
-      $ sudo swupd bundle-list -a
+      helloclear: command not found
 
-   The listing includes all upstream bundles.
+#. Follow the "Build a new RPM" example from :ref:`autospec` to create a new
+   `helloclear` RPM.
 
-#. Add your bundle.
+   The resulting RPMs are in `~/clearlinux/packages/helloclear/rpms`.
+
+#. Create a new repo.
+
+   #. Create a local repo folder and copy the new `helloclear` RPM files into
+      the repo:
+
+      .. code-block:: bash
+
+         mkdir ~/mixin-repo
+         cp ~/clearlinux/packages/helloclear/rpms/helloclear-v1.0-1.x86_64.rpm ~/mixin-repo
+         cp ~/clearlinux/packages/helloclear/rpms/helloclear-bin-v1.0-1.x86_64.rpm ~/mixin-repo
+
+   #. Create the repo data:
+
+      .. code-block:: bash
+
+         cd ~/mixin-repo
+         createrepo_c .
+
+   #. Add the repo name:
+
+      .. code-block:: bash
+
+         sudo mixin repo add mylocalrepo file://$HOME/mixin-repo/
+
+#. Create custom bundle with the new `helloclear` RPM. Add `helloclear` to the
+   :command:`helloclear-bundle` bundle and build the bundle:
+
+   .. code-block:: bash
+
+      sudo mixin package add helloclear --bundle helloclear-bundle
+      sudo mixin build
+
+#. Migrate your |CL| to your custom mix. Check your version before and after the
+   update to see the switch to your custom mix:
+
+   .. code-block:: bash
+
+      sudo swupd check-update
+      sudo swupd update --migrate
+      sudo swupd check-update
+
+#. Install your custom bundle. Check that the `helloclear-bundle` is now
+   available and install it to your system:
+
+   .. code-block:: bash
+
+      sudo swupd bundle-list -a | grep helloclear-bundle
+      sudo swupd bundle-add helloclear-bundle
+
+#. Test for `helloclear` again to see that it is installed:
+
+   .. code-block:: bash
+
+      helloclear
+
+#. Revert your system back to upstream (optional). This example reverts back to
+   upstream version 27650:
 
    .. code-block:: console
 
-      $ sudo swupd bundle-add [bundle-name]
+      sudo swupd verify --fix --picky --force -m 27650 -C /usr/share/clear/update-ca/Swupd_Root.pem
+      sudo swupd clean --all
+      sudo swupd check-update
 
-.. note:: 
+Related topics
+**************
 
-   You can also update your system to the latest upstream version using
-   this command:   
-   
-   .. code-block:: console
+* :ref:`About mixer <mixer-about>`
+* :ref:`mixer`
+* :ref:`autospec-about`
+* :ref:`bundles-about`
+* :ref:`swupd-about`
 
-      $ sudo swupd update
-
-Optional: Revert your system back to 100% upstream
-**************************************************
-
-If you want to revert your |CL| system back to the official upstream
-version, use this command:
-
-.. code-block:: console
-   
-   $ sudo swupd verify --fix --force --picky -m [upstream-version-number] -C /usr/share/clear/update-ca/Swupd_Root.pem
-
-After the command completes, all custom RPMs and bundles are unavailable
-because :file:`/usr/share/mix` is deleted as part of the reversion process.  
-
-.. _Developer tooling framework for Clear Linux:
-   https://github.com/clearlinux/common
+.. _mixin man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixin.1.rst
+.. _swupd man page: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
