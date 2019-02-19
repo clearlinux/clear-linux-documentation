@@ -40,7 +40,7 @@ Create a virtual machine in VirtualBox
 
       curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep 'live\.')
       
-   .. note:: grepfunctionality may differ depending on your CLI.
+   .. note:: `grep` functionality may differ depending on your CLI.
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
