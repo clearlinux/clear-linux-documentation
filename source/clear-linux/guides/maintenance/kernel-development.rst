@@ -19,8 +19,8 @@ used for development instead. The latest source RPM files are available at:
 `https://download.clearlinux.org/current/source/SRPMS/`_
 
 
-Request the change be included with the |CL| kernel
-***************************************************
+Request changes be included with the |CL| kernel
+************************************************
 
 If the kernel modification you need is already open source and likely to be 
 useful to others, consider submitting a request to include it in the
@@ -45,7 +45,6 @@ You can build and install a custom kernel, however you must:
 
 To create a custom kernel, start with the |CL| development environment. 
 Then make changes to the kernel, build it, and install it.
-
 
 
 Install the |CL| development tooling framework
@@ -129,83 +128,105 @@ by autospec are not available and changes must be made manually.
       %define ktarget  native
 
    .. note::
-      Consider changing the Name from *linux* in the RPM spec file to easily 
-      identify a modified kernel.
+      - Consider changing the Name from *linux* in the RPM spec file to easily 
+        identify a modified kernel.
 
-      Consider changing the ktarget from *native* in the RPM spec file to easily 
-      identify a modified kernel.
+      - Consider changing the ktarget from *native* in the RPM spec file to easily 
+        identify a modified kernel.
 
 
 #. Commit and save the changes to the file.
+
+
+Pull a copy of the kernel source code
+=====================================
+
+You will need to obtain a local copy of the source code to make modifications 
+against.
+
+
+#. Run make sources to pull the kernel source code specified in the RPM 
+   SPEC file. In the example, it downloads the 
+   :file:`linux-4.20.8.tar.xz` file.
+
+   .. code-block:: bash
+
+      make sources
+
+
+#. Extract the kernel source code archive. This will create a working copy of 
+   the Linux source which you can modify.
+
+   .. code-block:: bash
+
+      tar -xvf linux-4.20.8.tar.xz
+
+
+#. Navigate to the extracted directory. In this example, it has been 
+   extracted into a :file:`linux-4.20.8` directory.
+
+   .. code-block:: bash
+
+      cd linux-4.20.8/
 
 
 
 Modify kernel configuration 
 ===========================
 
-Existing kernel features and in-tree kernel modules can be enabled or 
-disabled in the kernel configuration file, :file:`.config` , at compile time.
+The kernel source has many different configuration options available to pick 
+support different hardware and software features.
 
-To manage unique changes that have been made to the kernel config file, 
-|CL| uses a kernel config fragment file named :file:`config-fragment`. 
-Managing kernel configuration changes with a configuration fragment file 
-instead of directly editing the :file:`.config` file helps identify the 
-unique configuration changes that have been made and makes applying any 
-future default configuration values easier. 
-
-The :file:`config-fragment` is the **only** file that is modified and is 
-eventually merged with the main :file:`.config`.
+These configuration values must be provided in the :file:`.config` file at 
+compile time.
 
 
-
-#. Open the kernel :file:`config-fragment` file in an editor.
-
-   .. code-block:: bash
-
-      $EDITOR config-fragment
+#. Make sure you have followed the steps to 
+   `Pull a copy of the kernel source code`_ and are in the kernel source 
+   working directory.
 
 
-#. Find the configuration values you are looking for. 
-   If a particular setting does not already exist, it can be added manually.
-
-   For example, the snippet below shows BTRFS support configuration indicating
-   it is enabled in-tree.
+#. If you have an existing :file:`.config` file from an old kernel, copy it 
+   into the working directory as :file:`.config` for comparison.
+   Otherwise, generate a base kernel configuration with default values 
+   for the linux source version and put them in a :file:`.config` file 
+   within the working directory. 
 
    .. code-block:: bash
 
-      CONFIG_BTRFS_FS=y
-      CONFIG_BTRFS_FS_POSIX_ACL=y
+      make defconfig
 
 
-#. Modify the configuration values as desired. 
+#. Make any desired changes to the :file:`.config` using a kernel 
+   configuration tool. Below are some popular options:
 
-   For example, the snippet below shows BTRFS support configuration changed 
-   change to be disabled and commented out.
+   - :command:`$EDITOR .config` - the .config file can be directly edited for 
+     simple changes with names that are already known.
+
+   - :command:`make config` - a text-based tool that asks questions 
+     one-by-one to decide configuration options. 
+
+   - :command:`make menuconfig` - a terminal user interface that provides 
+     menus to decide configuration options.
+
+   - :command:`make xconfig` - a graphical user interface that provides 
+     tree views to decide configuration options.
+
+
+  More configuration tools can be found by looking at the make help: 
+  :command:`make help | grep config`
+
+
+#. Commit and save the changes to the :file:`.config` file.
+
+
+#. Copy the :file:`.config` file from the kernel source directory into 
+   the kernel package directory as :file:`config` for inclusion in the build.
 
    .. code-block:: bash
-      
-      # CONFIG_BTRFS_FS is not set
-      # CONFIG_BTRFS_FS_POSIX_ACL is not set
 
-#. Commit and save the changes to the :file:`config-fragment` file.
+      cp .config ../config
 
-
-#. Run the :command:`make config` command to apply the changes made in the 
-   :file:`config-fragment` file and regenerate the :file:`config` file.
-
-   .. code-block:: bash
-
-      make config
-
-.. note::
-   
-   The |CL| packaging tools make use of :command:`mock` environments for 
-   building software.
-
-   If you want to make use of GUI tools to edit the kernel confguration, such as
-   :command:`menuconfig`, instead of manually editing the :file:`config`
-   file, you can from the :command:`mock` environment under 
-   :file:`/var/lib/mock/clear-linux/root/builddir/build/BUILD/kernel-*` 
 
 
 Modify kernel source code 
@@ -223,25 +244,9 @@ consider using a patch management tool in addition to Git such as
 `Quilt`_. 
 
 
-#. Run make sources to pull the kernel source code specified in the RPM 
-   SPEC file. In the example, it downloads the 
-   :file:`linux-4.20.8.tar.xz` file.
-
-   .. code-block:: bash
-
-      make sources
-
-
-#. Extract the kernel source code archive and enter the extracted directory. 
-   This will create a working copy of the Linux source you can modify.
-   In this example, it is extracted into a 
-   :file:`linux-4.20.8` directory.
-
-   .. code-block:: bash
-
-      tar -xvf linux-4.20.8.tar.xz
-
-      cd linux-4.20.8/
+#. Make sure you have followed the steps to 
+   `Pull a copy of the kernel source code`_ and are in the kernel source 
+   working directory.
 
 
 #. Make any desired code changes to the Linux source code files.
@@ -349,9 +354,11 @@ are persistent and distributed with a customized kernel.
 
       $EDITOR cmdline
 
+
 #. Make any desired change to the kernel parameters. 
    For example, you can remove the :command:`quiet` parameter to see more 
    verbose output of kernel log messages during the boot process.
+
 
 #. Commit and save the changes to the :file:`cmdline` file.
 
@@ -393,11 +400,13 @@ machine for testing. This approach works well for individual development or
 testing. For a more scalable and customizable approach, consider using the 
 `mixer tool`_ to provide a custom kernel with updates.
 
-1. Install the kernel onto the local system by extracting the RPM with the :command:`rpm2cpio` command.
+1. Install the kernel onto the local system by extracting the RPM with the 
+   :command:`rpm2cpio` command.
 
    .. code-block:: bash
 
       sudo rpm2cpio linux%{name}-%{version}-%{release}.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
+
 
 #. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
 
@@ -407,6 +416,7 @@ testing. For a more scalable and customizable approach, consider using the
       sudo clr-boot-manager set-kernel org.clearlinux.${Target}.%{version}-%{release}
 
       sudo reboot
+
 
 #. After a reboot, verify the customized kernel is running.
 
