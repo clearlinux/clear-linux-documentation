@@ -32,8 +32,8 @@ modified kernel.
 Make enhancement requests to the |CL| distribution `on GitHub`_ .
 
 
-Customize the Linux kernel source
-*********************************
+Set up kernel development environment
+*************************************
 
 In some cases, it may be necessary to modify the kernel to suit your specific 
 needs or test new kernel code as a developer.
@@ -56,8 +56,8 @@ Install the |CL| development tooling framework
 
 
 
-Clone the Linux kernel package 
-==============================
+Clone the kernel package 
+========================
 Clone the existing kernel package repository from |CL| as a starting point.
 
 #. Clone the Linux kernel package from |CL|.
@@ -138,8 +138,8 @@ by autospec are not available and changes must be made manually.
 #. Commit and save the changes to the file.
 
 
-Pull a copy of the kernel source code
-=====================================
+Pull a copy of the Linux kernel source code
+===========================================
 
 You will need to obtain a local copy of the source code to make modifications 
 against.
@@ -170,6 +170,15 @@ against.
       cd linux-4.20.8/
 
 
+Customize the Linux kernel source
+*********************************
+
+After the kernel sources have been obtained, customizations to the kernel 
+configuration or source code can be made for inclusion with the kernel 
+build.
+
+These customizations are option optional.
+
 
 Modify kernel configuration 
 ===========================
@@ -180,9 +189,8 @@ support for different hardware and software features.
 These configuration values must be provided in the :file:`.config` file at 
 compile time.
 
-You will need to obtain a copy of the source code, make modifications to the 
-:file:`.config` file, and include the :file:`.config` file in the kernel 
-package. 
+You will need to make modifications to the :file:`.config` file, and include 
+it in the kernel package. 
 
 
 #. Make sure you have followed the steps to 
@@ -374,7 +382,7 @@ See the
 
 Build and install the kernel
 ****************************
-After changes have been made to the kernel SPEC file and config file, 
+After changes have been made to the kernel source and RPM SPEC file, 
 the kernel is ready to be compiled and packaged into an RPM.
 
 #. Start the compilation process by issuing the :command:`make build` command. 
