@@ -82,7 +82,7 @@ Clone the existing kernel package repository from |CL| as a starting point.
 
     The latest version of the |CL| kernel package is pulled as a starting 
     point. An older version can pulled by switching to different git tag with 
-    :command:`git checkout tag/${TAG_NAME}` tag.
+    :command:`git checkout tag/<TAG_NAME>` tag.
 
 
       
@@ -174,11 +174,15 @@ against.
 Modify kernel configuration 
 ===========================
 
-The kernel source has many different configuration options available to pick 
-support different hardware and software features.
+The kernel source has many configuration options available to pick 
+support for different hardware and software features.
 
 These configuration values must be provided in the :file:`.config` file at 
 compile time.
+
+You will need to obtain a copy of the source code, make modifications to the 
+:file:`.config` file, and include the :file:`.config` file in the kernel 
+package. 
 
 
 #. Make sure you have followed the steps to 
@@ -188,13 +192,14 @@ compile time.
 
 #. If you have an existing :file:`.config` file from an old kernel, copy it 
    into the working directory as :file:`.config` for comparison.
-   Otherwise, generate a base kernel configuration with default values 
-   for the linux source version and put them in a :file:`.config` file 
-   within the working directory. 
+   Otherwise, generate a base kernel configuration. 
 
    .. code-block:: bash
 
       make defconfig
+
+   This will create a  :file:`.config` file within the working directory 
+   containing default values for the linux version.
 
 
 #. Make any desired changes to the :file:`.config` using a kernel 
@@ -213,8 +218,8 @@ compile time.
      tree views to decide configuration options.
 
 
-  More configuration tools can be found by looking at the make help: 
-  :command:`make help | grep config`
+   More configuration tools can be found by looking at the make help: 
+   :command:`make help | grep config`
 
 
 #. Commit and save the changes to the :file:`.config` file.
@@ -256,8 +261,8 @@ consider using a patch management tool in addition to Git such as
 
    .. code-block:: bash
 
-      git add %{filename}
-      git commit -m "My patch for driver A" %{filename}
+      git add <FILENAME>
+      git commit -m "My patch for driver A" <FILENAME>
 
 
 #. Generate a patch file based on your git commits. 
@@ -387,7 +392,7 @@ the kernel is ready to be compiled and packaged into an RPM.
       
       ls rpms/
 
-   The kernel RPM will be named :file:`linux%{name}-%{version}-%{release}.x86_64.rpm`
+   The kernel RPM will be named :file:`linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm`
 
 
 #. The kernel RPM file can be input to the `mixer tool`_ to create a custom 
@@ -405,7 +410,7 @@ testing. For a more scalable and customizable approach, consider using the
 
    .. code-block:: bash
 
-      sudo rpm2cpio linux%{name}-%{version}-%{release}.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
+      sudo rpm2cpio linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
 
 
 #. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
@@ -413,7 +418,7 @@ testing. For a more scalable and customizable approach, consider using the
    .. code-block:: bash
 
       sudo clr-boot-manager list-kernels
-      sudo clr-boot-manager set-kernel org.clearlinux.${Target}.%{version}-%{release}
+      sudo clr-boot-manager set-kernel org.clearlinux.<TARGET>.<VERSION>-<RELEASE>
 
       sudo reboot
 
