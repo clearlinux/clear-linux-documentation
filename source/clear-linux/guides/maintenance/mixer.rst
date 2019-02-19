@@ -35,8 +35,8 @@ to a web server and consumed by clients via swupd. Refer to
 :ref:`swupd <swupd-guide>` for additional information regarding updates and
 update content.
 
-How to use mixer
-****************
+How to use
+**********
 
 Learn the mixer tool set up and workflow.
 
@@ -53,8 +53,7 @@ Prerequisites
 
 #. **Required bundles**
 
-   The mixer tool requires that the :command:`mixer` and
-   :command:`network-basic` bundles are installed.
+   The mixer tool requires that the :command:`mixer` bundle is installed.
 
 #. **Docker container**
 
@@ -105,9 +104,9 @@ setup before you create a mix.
 
    During initialization, the mixer workspace is configured and the base for
    your mix is defined. By default, your mix will be based on the latest
-   upstream version and start with the minimum set of bundles. Your first
-   version will start at 10. You can alternately select other versions or bundle
-   sets to start from.
+   upstream version and start with the minimum set of bundles. Your first custom
+   mix version number will start at 10. You can alternately select other
+   versions or bundle sets to start from.
 
    Initialization creates the directory structure used by mixer and adds default
    configuration, such as :file:`builder.conf` and :file:`mixbundles`.
@@ -431,8 +430,8 @@ version 10 (which the image was built from), to mix version 20.
 .. -------------------------------------
 .. TODO future example to show copy into local-rpms...
 
-mixer reference
-***************
+Reference
+*********
 
 .. contents::
    :local:
