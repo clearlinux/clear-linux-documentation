@@ -1,7 +1,7 @@
 .. _kernel-development:
 
-Kernel development on Clear Linux 
-#################################
+Kernel development on |CL-ATTR|
+###############################
 
 This document shows how to obtain and compile a Linux kernel source 
 using the |CL-ATTR| development tooling.
@@ -60,7 +60,9 @@ Clone the kernel package
 ========================
 Clone the existing kernel package repository from |CL| as a starting point.
 
-#. Clone the Linux kernel package from |CL|.
+#. Clone the Linux kernel package from |CL|. 
+   Using the :command:`make clone_<PACKAGENAME>` command within the :file:`clearlinux/` 
+   directory clones the package from the `clearlinux-pkgs GitHub`_.
 
    .. code-block:: bash
 
@@ -74,11 +76,13 @@ Clone the existing kernel package repository from |CL| as a starting point.
 
       cd ~/clearlinux/packages/linux
 
+
+The "linux" package is the kernel that comes with |CL| in the kernel-native 
+bundle.You can alternatively use a different kernel variant as the base for 
+modification. For a list of kernel package names which you can clone instead,
+see the `clearlinux-pkgs GitHub`_.
+
 .. note::
-    The "linux" package is the kernel that comes with |CL| in the kernel-native bundle.
-    You can alternatively use a different kernel variant as the base for modification. 
-    For a list of kernel package names which you can clone instead,
-    see the `clearlinux-pkgs GitHub`_.
 
     The latest version of the |CL| kernel package is pulled as a starting 
     point. An older version can pulled by switching to different git tag with 
