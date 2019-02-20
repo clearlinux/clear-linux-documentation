@@ -194,8 +194,8 @@ it in the kernel package.
 
 
 #. Make sure you have followed the steps to 
-   `Pull a copy of the kernel source code`_ and are in the kernel source 
-   working directory.
+   `Pull a copy of the Linux kernel source code`_ and are in the kernel 
+   source working directory.
 
 
 #. If you have an existing :file:`.config` file from an old kernel, copy it 
@@ -258,8 +258,8 @@ consider using a patch management tool in addition to Git such as
 
 
 #. Make sure you have followed the steps to 
-   `Pull a copy of the kernel source code`_ and are in the kernel source 
-   working directory.
+   `Pull a copy of the Linux kernel source code`_ and are in the kernel 
+   source working directory.
 
 
 #. Make any desired code changes to the Linux source code files.
