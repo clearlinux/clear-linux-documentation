@@ -181,7 +181,7 @@ After the kernel sources have been obtained, customizations to the kernel
 configuration or source code can be made for inclusion with the kernel 
 build.
 
-These customizations are option optional.
+These customizations are optional.
 
 
 Modify kernel configuration 
