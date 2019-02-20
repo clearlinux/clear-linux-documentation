@@ -204,14 +204,11 @@ it in the kernel package.
 
 #. If you have an existing :file:`.config` file from an old kernel, copy it 
    into the working directory as :file:`.config` for comparison.
-   Otherwise, generate a base kernel configuration. 
+   Otherwise, use the |CL| kernel configuration file as template 
 
    .. code-block:: bash
 
-      make defconfig
-
-   This will create a  :file:`.config` file within the working directory 
-   containing default values for the linux version.
+      cp ~/clearlinux/packages/linux/config .config
 
 
 #. Make any desired changes to the :file:`.config` using a kernel 
