@@ -38,38 +38,41 @@ image, for example when you want to:
 * Customize the bundles preinstalled in an image.
 * Run your own post installation script.
 
-Prerequisites
-=============
-
-#. |CL| installed.
-
-#. :command:`os-installer` bundle is installed.
-
-#. ister.py has sudo privilege.
-
-Recreate upstream image
-=======================
-
 Follow these steps to recreate an upstream image based on the image's JSON
 configuration file:
+
+#. Make sure you have all prerequisites:
+
+   * |CL|
+
+     :ref:`bare-metal-install`.
+
+   * :command:`os-installer` bundle
+
+     `Install a bundle`_.
+
+#. Download the `ister.py tool`_ and grant it sudo privileges.
 
 #. Download the JSON configuration file for the desired image:
 
    * `Configuration files for the current release`_
    * `Previous releases`_ (only after March 2017)
 
-   For a previous release, the configuration file for the specific release is
-   located at
-   ``https://cdn.download.clearlinux.org/releases/<version number>/clear/config/image/``
+   For a previous release, navigate to `Previous releases`_, select the version
+   you want, and find the JSON configuration file under
+   :file:`/clear/config/image`. For example:
+   ``https://cdn.download.clearlinux.org/releases/15700/clear/config/image/``
 
-#. The JSON configuration file for the image may have an accompanying
+#. Download “PostNonChroot” script (if applicable).
+
+   The JSON configuration file for the image may have an accompanying
    “PostNonChroot” script that is executed at the end of the image creation
-   process. If it does, download the script as well and make it executable.
+   process. If it does, download the script and make it executable.
 
 #. Edit the JSON configuration file as needed.
 
 #. If your configuration file has an accompanying "PostNonChroot" script, change
-   the default path of the script to match yours.
+   the default path of the script to match your path.
 
 #. Generate the new image with the following command:
 
@@ -87,3 +90,4 @@ Related topics
 .. _image types for different environments: https://cdn.download.clearlinux.org/image/README-IMAGES.html
 .. _Configuration files for the current release: https://cdn.download.clearlinux.org/current/config/image/
 .. _Previous releases: https://cdn.download.clearlinux.org/releases/
+.. _Install a bundle: https://clearlinux.org/documentation/clear-linux/guides/maintenance/swupd-guide#adding-a-bundle
