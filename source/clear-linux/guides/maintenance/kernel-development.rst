@@ -450,7 +450,7 @@ Related topics
 * :ref:`mixer`
 
 .. _`kernels available in Clear Linux`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
-.. _`on GitHub`: https://github.com/clearlinux/distribution 
+.. _`on GitHub`: https://github.com/clearlinux/distribution/issues/new/choose
 .. _`https://download.clearlinux.org/current/source/SRPMS/`: https://download.clearlinux.org/current/source/SRPMS/
 .. _`mixer tool`: https://clearlinux.org/features/mixer-tool
 .. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
