@@ -422,7 +422,7 @@ testing. For a more scalable and customizable approach, consider using the
 
    .. code-block:: bash
 
-      sudo rpm2cpio linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
+      rpm2cpio linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
 
 
 #. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
