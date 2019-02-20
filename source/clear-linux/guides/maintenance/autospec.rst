@@ -40,14 +40,11 @@ Learn the autospec tool set up and process.
 Prerequisites
 =============
 
-#. **OS installed**
+* |CL|
 
-   The |CL| must be installed to use the autospec tool.
+  :ref:`bare-metal-install`.
 
-#. **Required bundles**
-
-   The autospec tool requires that the :command:`os-clr-on-clr` bundle is
-   installed.
+* :command:`os-clr-on-clr` bundle.
 
 Workflow
 ========
