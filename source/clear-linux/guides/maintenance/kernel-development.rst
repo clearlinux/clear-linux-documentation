@@ -181,7 +181,7 @@ After the kernel sources have been obtained, customizations to the kernel
 configuration or source code can be made for inclusion with the kernel 
 build.
 
-These customizations are option optional.
+These customizations are optional.
 
 
 Modify kernel configuration 
@@ -360,7 +360,7 @@ Modify kernel boot parameters
 The kernel boot options are passed from the bootloader to the kernel with 
 command-line parameters. 
 
-While temporarily changes can be made to kernel parameters on a running 
+While temporary changes can be made to kernel parameters on a running 
 system or on a during boot, you can also modify the default parameters that 
 are persistent and distributed with a customized kernel.
 
