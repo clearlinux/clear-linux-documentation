@@ -47,42 +47,42 @@ Learn the mixer tool set up and workflow.
 Prerequisites
 =============
 
-#. **OS installed**
+* |CL|
 
-   The |CL| must be installed to use the mixer tool.
+  :ref:`bare-metal-install`.
 
-#. **Required bundles**
+* :command:`mixer` bundle
 
-   The mixer tool requires that the :command:`mixer` bundle is installed.
+  .. TODO add link to swupd re how to add bundle
 
-#. **Docker container**
+* Docker container
 
-   mixer by default runs all build commands in a Docker container to make sure
-   the correct tool versions are used. This also allows custom mixes to
-   automatically perform downstream format bumps when the upstream releases a
-   format bump. See `Format version`_ for additional information regarding
-   format bumps.
+  mixer by default runs all build commands in a Docker container to make sure
+  the correct tool versions are used. This also allows custom mixes to
+  automatically perform downstream format bumps when the upstream releases a
+  format bump. See `Format version`_ for additional information regarding
+  format bumps.
 
-   Refer to `Configure and enable Docker`_ for instruction.
+  Refer to `Configure and enable Docker`_ for instruction.
 
-#. **Docker proxy (optional)**
+* Docker proxy (optional)
 
-   If you use a proxy server, you must set your proxy environment variables and
-   create a proxy configuration file for the Docker daemon and container.
+  If you use a proxy server, you must set your proxy environment variables and
+  create a proxy configuration file for the Docker daemon and container.
 
-   Consult your IT department if you are behind a corporate proxy for the correct
-   values.
+  Consult your IT department if you are behind a corporate proxy for the correct
+  values.
 
-   Refer to `Configure Docker proxy info`_ for instruction.
+  Refer to `Configure Docker proxy info`_ for instruction.
 
-#. **Location to host the update content and images**
+* Location to host the update content and images
 
-   In order for swupd to make use of your mix, the update content for your mix
-   must be hosted on a web server. Your mix will be configured with an update
-   location URL, which swupd will use to pull down updates.
+  In order for swupd to make use of your mix, the update content for your mix
+  must be hosted on a web server. Your mix will be configured with an update
+  location URL, which swupd will use to pull down updates.
 
-   Refer to `Set up a nginx web server for mixer`_ for an simple example of
-   setting up an update location.
+  Refer to `Set up a nginx web server for mixer`_ for an simple example of
+  setting up an update location.
 
 Workflow
 ========
@@ -93,14 +93,14 @@ First time setup
 First time setup creates and initializes the workspace used by mixer. Complete
 setup before you create a mix.
 
-#. **Create workspace**
+#. Create workspace.
 
    The mixer tool uses a simple workspace to contain all input and output in a
    basic directory structure. The workspace is simply an empty folder that you
    will execute the mixer commands from. Each mix will use its own separate
    workspace.
 
-#. **Initialize the workspace and mix**
+#. Initialize the workspace and mix.
 
    During initialization, the mixer workspace is configured and the base for
    your mix is defined. By default, your mix will be based on the latest
@@ -120,7 +120,7 @@ setup before you create a mix.
 
    View the list of `suitable versions`_ to mix from.
 
-#. **Edit builder.conf**
+#. Edit builder.conf.
 
    :file:`builder.conf` is used to configure the mixer tool. For example, it
    allows you to configure where mixer output is located and where swupd update
@@ -136,7 +136,7 @@ Create a mix
 
 A mix is created with the following steps:
 
-#. **Add custom RPMs and set up local repo (optional)**
+#. Add custom RPMs and set up local repo (optional).
 
    If you are adding custom RPMs to your mix, you will need to add the RPMs to
    your mix workspace and set up a corresponding local repository.
@@ -149,7 +149,7 @@ A mix is created with the following steps:
    Refer to the :ref:`autospec` guide for more information on using autospec to
    build RPMs.
 
-#. **Update and build bundles**
+#. Update and build bundles.
 
    Add, edit, or remove bundles that will be part of your content and then build
    the updated list of bundles. mixer will automatically update the
@@ -163,7 +163,7 @@ A mix is created with the following steps:
    View the `Bundles`_ section for more information on how mixer manages
    bundles.
 
-#. **Create update**
+#. Create update.
 
    mixer creates update content with this step. Zero-packs are created
    automatically, and delta-packs can be optionally created at the same time
@@ -177,14 +177,14 @@ A mix is created with the following steps:
 
    View :ref:`swupd-guide`  for more information on update content.
 
-#. **Create image**
+#. Create image.
 
    mixer creates a bootable image from your updated content using
    the ister tool. In this step you can specify which bundles you want
    *preinstalled* in the image. Users can later install other bundles available
    in your mix.
 
-#. **Make update available**
+#. Make update available.
 
    Deploy update content and images to your update server.
 
