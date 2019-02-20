@@ -14,7 +14,6 @@ tool to install and remove bundles.
 This guide assumes:
 
 * The device is on a well-connected network.
-
 * The device is able to connect to the release infrastructure
   http://update.clearlinux.org
 
