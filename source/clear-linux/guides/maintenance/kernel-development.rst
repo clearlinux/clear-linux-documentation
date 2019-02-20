@@ -389,12 +389,23 @@ Build and install the kernel
 After changes have been made to the kernel source and RPM SPEC file, 
 the kernel is ready to be compiled and packaged into an RPM.
 
+The |CL| development tooling makes use of :command:`mock` environments to 
+isolate building of packages in a sanitized workspace. 
+
+
+
 #. Start the compilation process by issuing the :command:`make build` command. 
    This process is typically resource intensive and will take a while.
 
    .. code-block:: bash
       
       make build
+
+
+   .. note::
+      The `ccache plugin for mock`_ can be enabled to help speed up any future 
+      rebuilds of the kernel package by caching compiler outputs and reusing 
+      them.
 
 
 #. The result will be multiple :file:`.rpm` files in the :file:`rpms` 
@@ -409,6 +420,7 @@ the kernel is ready to be compiled and packaged into an RPM.
 
 #. The kernel RPM file can be input to the `mixer tool`_ to create a custom 
    bundle and mix of |CL|.
+
 
    
 
@@ -458,5 +470,6 @@ Related topics
 .. _`clearlinux-pkgs GitHub`: https://github.com/clearlinux-pkgs?&q=linux
 .. _`kernel.org`: https://www.kernel.org/
 .. _`Kernel parameters documentation`: https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt
+.. _`ccache plugin for mock`: https://fedoraproject.org/wiki/Mock/Plugin/CCache?rd=Subprojects/Mock/Plugin/CCache
 .. _`autospec`: https://clearlinux.org/documentation/clear-linux/concepts/autospec-about
 .. _`git-format-patch Documentation`: https://git-scm.com/docs/git-format-patch
