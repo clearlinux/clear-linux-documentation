@@ -263,6 +263,24 @@ consider using a patch management tool in addition to Git such as
    source working directory.
 
 
+#. Initialize the kernel source directory as a new git repo and commit 
+   all the files to begin tracking changes. 
+
+   .. code-block:: bash
+
+      git init
+      git add -A
+      git commit -m "Initial commit of Linux kernel source"
+
+
+#. Apply ptches provided by the |CL| kernel package to the kernel source 
+   in the working directory.
+
+   .. code-block:: bash
+
+      git am ../*.patch
+
+
 #. Make any desired code changes to the Linux source code files.
 
 
