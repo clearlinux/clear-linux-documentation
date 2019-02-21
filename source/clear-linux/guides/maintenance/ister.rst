@@ -7,6 +7,10 @@ The `ister.py tool`_ is a template based installer used by |CL-ATTR| to produce
 images for each release. The same ister tool is available for use in |CL| to
 create custom images based on an upstream image.
 
+.. contents::
+   :local:
+   :depth: 1
+
 Description
 ***********
 
@@ -26,8 +30,11 @@ mix. Like upstream images, a JSON configuration file is defined for the image,
 which ister uses to generate the image. Refer to the :ref:`mixer<mixer>` guide
 for instruction on using ister to build an image for a custom mix.
 
-Example: Recreate an upstream image
-***********************************
+Examples
+********
+
+Recreate an upstream image
+==========================
 
 The published configuration files for upstream images may be used to recreate an
 image, for example when you want to:
@@ -38,18 +45,12 @@ image, for example when you want to:
 * Customize the bundles preinstalled in an image.
 * Run your own post installation script.
 
+
 Follow these steps to recreate an upstream image based on the image's JSON
 configuration file:
 
-#. Make sure you have all prerequisites:
-
-   * |CL|
-
-     :ref:`bare-metal-install`.
-
-   * :command:`os-installer` bundle
-
-     `Install a bundle`_.
+#. Install the :command:`os-installer` bundle. Refer to `Install a bundle`_ for
+   more details.
 
 #. Download the `ister.py tool`_ and grant it sudo privileges.
 
