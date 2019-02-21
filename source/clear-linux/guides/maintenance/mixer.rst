@@ -430,8 +430,8 @@ version 10 (which the image was built from), to mix version 20.
 .. -------------------------------------
 .. TODO future example to show copy into local-rpms...
 
-Reference
-*********
+References
+**********
 
 .. contents::
    :local:
