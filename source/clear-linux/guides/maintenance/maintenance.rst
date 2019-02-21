@@ -16,6 +16,7 @@ completed.
    enable-user-space
    swupd-guide
    bulk-provision
+   kernel-development
    kernel-modules
    mixer
    mixin

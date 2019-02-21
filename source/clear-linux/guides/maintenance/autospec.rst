@@ -23,8 +23,10 @@ This guide requires that you:
 
 .. _install-tooling:
 
-Install the |CL| tooling framework
-==================================
+Install the |CL| development tooling framework
+==============================================
+
+.. _install-tooling-after-header:
 
 #. Install the `os-clr-on-clr` developer bundle on your host system.
 
@@ -59,6 +61,8 @@ Install the |CL| tooling framework
 
    The :file:`projects` folder contains the main tools, `autospec`
    and `common`, used for making packages in |CL|.
+
+.. _install-tooling-end:
 
 Create a RPM with autospec
 **************************
