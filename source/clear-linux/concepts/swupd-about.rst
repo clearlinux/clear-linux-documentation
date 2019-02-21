@@ -3,10 +3,10 @@
 Software update
 ###############
 
-|CL-ATTR| does software updates differently than traditional Linux-based
-operating systems. Where traditional distributions rely on packages for
+|CL-ATTR| does software updates differently than other Linux-based
+operating systems. Where other distributions rely on packages for
 software deployment, |CL| uses the concept of a "bundle" for
-deployment. Traditional Linux packages provide a particular utility or
+deployment. Other Linux packages provide a particular utility or
 library; |CL| bundles provide all necessary packages to enable a
 specific function.
 
@@ -38,7 +38,7 @@ page.
 Versioning
 ==========
 
-In a traditional distribution, the process of describing current software
+In other distributions, the process of describing current software
 versioning usually involves:
 
 -  Listing and keeping track of the current OS release (generally
