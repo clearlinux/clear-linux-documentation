@@ -47,13 +47,10 @@ Learn the mixer tool set up and workflow.
 Prerequisites
 =============
 
-* |CL|
-
-  :ref:`bare-metal-install`.
-
 * :command:`mixer` bundle
 
-  .. TODO add link to swupd re how to add bundle
+  Add the mixer tool with the :command:`mixer` bundle. Refer to
+  `Install a bundle`_ for more details.
 
 * Docker container
 
@@ -843,3 +840,4 @@ Related topics
 .. _mixer.bundle man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.bundle.1.rst
 .. _mixer.build man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.build.1.rst
 .. _suitable versions: https://github.com/clearlinux/clr-bundles/releases
+.. _Install a bundle: https://clearlinux.org/documentation/clear-linux/guides/maintenance/swupd-guide#adding-a-bundle
