@@ -44,7 +44,9 @@ Prerequisites
 
   :ref:`bare-metal-install`.
 
-* :command:`os-clr-on-clr` bundle.
+* :command:`os-clr-on-clr` bundle
+
+  `Install a bundle`_.
 
 Workflow
 ========
@@ -377,3 +379,4 @@ Related topics
 .. _mock wiki: https://github.com/rpm-software-management/mock/wiki
 .. _rpm website: http://rpm.org
 .. _RPM Packaging Guide: https://rpm-packaging-guide.github.io/
+.. _Install a bundle: https://clearlinux.org/documentation/clear-linux/guides/maintenance/swupd-guide#adding-a-bundle
