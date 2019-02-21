@@ -66,26 +66,32 @@ For multi-node testing, replicate these steps for each node. These steps
 provide a template to run other benchmarks, provided that they can invoke
 TensorFlow.
 
-#. Download and run either the `Eigen`_ or the `Intel MKL-DNN`_ docker image
+#. Download either the `Eigen`_ or the `Intel MKL-DNN`_ docker image
    from `Docker Hub`_.
+
+#. Run the image with Docker:
+
+   .. code-block:: bash
+
+      docker run --name <image name>  --rm -i -t <clearlinux/stacks-dlrs-TYPE> bash
 
    .. note::
 
       You will enter the following commands in the running container.
 
-      Replace <docker_name> with the name of the image.
+      Replace <docker_name> with the <image name> you  specified above.
 
 #. Clone the benchmark repository:
 
    .. code-block:: bash
 
-      docker exec -t <docker_name> bash -c ‘git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.12_compatible’
+      docker exec -t <docker_name> bash -c 'git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.12_compatible'
 
 #. Next, execute the benchmark script to run the benchmark.
 
    .. code-block:: bash
 
-      docker exec -i <docker_name> bash -c ‘python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NHWC ’.
+      docker exec -i <docker_name> bash -c 'python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NHWC '.
 
 .. note::
 
@@ -135,7 +141,12 @@ cycle.
 ksonnet\*
 *********
 
-Kubeflow uses ksonnet* to manage deployments, so we need to install that before setting up Kubeflow. On |CL|, follow these steps:
+Kubeflow uses ksonnet* to manage deployments, so we need to install that before setting up Kubeflow.
+
+Since Clear Linux version 27550, the ksonnet was added to the bundle cloud-native-basic. But if using
+old versions (not recommended), please manually install the ksonnet as below.
+
+On |CL|, follow these steps:
 
 .. code-block:: bash
 
@@ -158,16 +169,17 @@ following these instructions from their `quick start guide`_.
 .. code-block:: bash
 
    export KUBEFLOW_SRC=$HOME/kflow
-   export KUBEFLOW_TAG=”v0.3.2”
-   export KFAPP=”kflow_app”
-   export K8S_NAMESPACE=”kubeflow”
+   export KUBEFLOW_TAG="v0.4.1"
+   export KFAPP="kflow_app"
+   export K8S_NAMESPACE="kubeflow"
 
    mkdir ${KUBEFLOW_SRC}
    cd ${KUBEFLOW_SRC}
    ks init ${KFAPP}
    cd ${KFAPP}
    ks registry add kubeflow github.com/kubeflow/kubeflow/tree/${KUBEFLOW_TAG}/kubeflow
-   ks pkg install kubeflow/core
+   ks pkg install kubeflow/common
+   ks pkg install kubeflow/tf-training
 
 Now you have all the required kubeflow packages, and you can deploy the primary one for our purposes: tf-job-operator.
 
@@ -194,13 +206,23 @@ Run a TFJob
 
          ks pkg install dlrs-tfjob/dlrs-bench
 
+#. Export the image name you'd like to use for the deployment:
+
+   .. code-block:: bash
+
+      export DLRS_IMAGE=<docker_name>
+
+   .. note::
+
+      Replace <docker_name> with the image name you specified in previous steps.
+
 #. Next, generate Kubernetes manifests for the workloads and apply them to
    create and run them using these commands
 
    .. code-block:: bash
 
-      ks generate dlrs-resnet50 dlrsresnet50 --name=dlrsresnet50
-      ks generate dlrs-alexnet dlrsalexnet --name=dlrsalexnet
+      ks generate dlrs-resnet50 dlrsresnet50 --name=dlrsresnet50 --image=${DLRS_IMAGE}
+      ks generate dlrs-alexnet dlrsalexnet --name=dlrsalexnet --image=${DLRS_IMAGE}
       ks apply default -c dlrsresnet50
       ks apply default -c dlrsalexnet
 

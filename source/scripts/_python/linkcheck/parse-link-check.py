@@ -81,7 +81,7 @@ with open (outFilePath, "w") as outF:
 print("See ./" + outFilePath + " for a detailed breakdown of broken links.")
 
 if numBrokenLinks != 0:
-    print (numBrokenLinks + " detected. Exiting with error code 255.")
+    print (str(numBrokenLinks) + " detected. Exiting with error code 255.")
     sys.exit(-1) 
 else:
     print ("No unexpected broken links detected.")
