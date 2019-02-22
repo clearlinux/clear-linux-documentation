@@ -1,7 +1,9 @@
 '''
 Usage: python code-blocks.py path/to/file.rst
 
-Parses code blocks out of rst file
+Default output is to stdout
+
+Parses bash code blocks out of rst file for instruction testing.
 '''
 import sys
 
@@ -11,7 +13,7 @@ def code_blocks(filename):
         in_section = []
         for line in fd:
             indent = line[:len(line) - len(line.lstrip())]
-            if 'code-block' in line:
+            if 'code-block:: bash' in line:
                 in_section = [line.strip()]
                 c_indent = ''
             elif in_section:
