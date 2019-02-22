@@ -197,15 +197,15 @@ create a mix. Increment the mix version number for the next mix.
 Examples
 ********
 
-The following examples are designed to work together and in order. For
-simplicity, we use a setup that can be easily reproduced using a stock |CL|
-install. We'll use:
+The following examples are designed to work together and in order. The examples
+use:
 
-* A stock installation of |CL| with all `Prerequisites`_.
+* A stock installation of |CL|.
 * A web server that comes with |CL| to host the content updates.
-  (If you haven't already, `Set up a nginx web server for mixer`_.)
 * A simple VM that will update against the locally produced content created in
   Example 2.
+
+Complete all `Prerequisites`_ before using these examples.
 
 Example 1: First time set up
 ============================
