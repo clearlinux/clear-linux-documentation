@@ -1,26 +1,28 @@
 .. _dlrs:
-
+.. todo update links for docker images.
 Deep Learning Reference Stack
 #############################
 
-This tutorial shows you how to run benchmarking workloads in |CL-ATTR| using
-TensorFlow\* and Kubeflow with the Deep Learning Reference Stack.
+This tutorial shows you how to run benchmarking workloads in |CL-ATTR| using TensorFlow\* or PyTorch\* with the Deep Learning Reference Stack. We also cover using Kubeflow for multi-node benchmarking.
 
-The Deep Learning Reference Stack is available in two versions.
-The first is `Eigen`_, which includes `TensorFlow`_ optimized for Intel®
-architecture. The second is `Intel MKL-DNN`_, which includes the TensorFlow
-framework optimized using Intel® Math Kernel Library for Deep Neural
-Networks (Intel® MKL-DNN) primitives.
+The Deep Learning Reference Stack is available in four versions.
 
-.. contents:: :local:
+* `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture.
+* `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
+* `PyTorch`_, which includes PyTorch optimized for Intel® architecture.
+* `PyTorch with Intel MKL`_, which includes the TensorFlow framework optimized using Intel® Math Kernel Library
+
+
+
+.. contents::
+   :local:
    :depth: 1
 
 Release notes
 =============
 
-View current `release notes`_ for the Deep Learning Reference Stack.
-
-View current `benchmark results`_ for the Deep Learning Reference Stack.
+* View current `release notes`_ for the Deep Learning Reference Stack.
+* View current `benchmark results`_ for the Deep Learning Reference Stack.
 
 .. note::
 
@@ -34,8 +36,7 @@ Prerequisites
 * `cloud-native-basic` bundle
 
 In |CL|, `containers-basic` provides Docker\*, which is required for
-TensorFlow benchmarking. Use the :command:`swupd` utility to check if
-`containers-basic` and `cloud-native-basic` are present:
+TensorFlow and PyTorch benchmarking. Use the :command:`swupd` utility to check if `containers-basic` and `cloud-native-basic` are present:
 
 .. code-block:: bash
 
@@ -77,9 +78,9 @@ TensorFlow.
 
    .. note::
 
-      You will enter the following commands in the running container.
+      Launching the docker image with the :command:`-i` argument will put you into interactive mode within the container.  You will enter the following commands in the running container.
 
-      Replace <docker_name> with the <image name> you  specified above.
+      
 
 #. Clone the benchmark repository:
 
@@ -97,6 +98,45 @@ TensorFlow.
 
    You can replace the model with one of your choice supported by the
    TensorFlow benchmarks.
+
+PyTorch single and multi-node benchmarks
+========================================
+
+This section describes running the `PyTorch benchmarks`_ for Caffe2 in single node.  We will be looking at validating the Caffe2 APIs with the official benchmarks, but the same process applies for other cases.
+
+
+#. Download either the `PyTorch`_ or the `PyTorch with Intel MKL`_ docker image
+   from `Docker Hub`_.
+
+
+#. Run the image with Docker:
+
+   .. code-block:: bash
+
+      docker run --name <image name>  --rm -i -t <clearlinux/stacks-dlrs-TYPE> bash
+
+   .. note::
+
+      Launching the docker image with the :command:`-i` argument will put you into interactive mode within the container.  You will enter the following commands in the running container.
+
+
+
+#. Clone the benchmark repository:
+
+   .. code-block:: bash
+
+       git clone https://github.com/pytorch/pytorch.git
+
+#. Next, execute the benchmark script to run the benchmark.
+
+   .. code-block:: bash
+
+       cd pytorch/caffe2/python
+       python convnet_benchmarks.py --batch_size 32 \
+                             --iterations 1 \
+                             --model AlexNet
+
+
 
 Kubeflow multi-node benchmarks
 ==============================
@@ -235,10 +275,12 @@ numbers. The pods will still be around post completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
 benchmark results. More information about `Kubernetes logging`_ is available from the Kubernetes community.
 
+
 .. _TensorFlow: https://www.tensorflow.org/
 .. _Kubeflow: https://www.kubeflow.org/
 .. _Docker Hub: https://hub.docker.com/
 .. _TensorFlow benchmarks: https://www.tensorflow.org/guide/performance/benchmarks
+.. _PyTorch benchmarks: https://github.com/pytorch/pytorch/blob/master/caffe2/python/convnet_benchmarks.py
 .. _instructions for creating a cluster: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
 .. _flannel: https://github.com/coreos/flannel
 .. _networking documentation: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
@@ -246,6 +288,8 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 
 .. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlrs-oss/
 .. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl/
+.. _PyTorch: https://hub.docker.com/r/clearlinux/stacks/...
+.. _PyTorch with Intel MKL: https://hub.docker.com/r/clearlinux/stacks/...
 
 .. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs
 
