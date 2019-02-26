@@ -3,11 +3,7 @@
 swupd
 #####
 
-`swupd` is the |CL-ATTR| client-side tool that manages updates including
-installing bundles. It can check for valid system updates and, if found,
-download and install them. It can also check the validity of currenty
-installed files and software and correct any problems. `swupd` links a |CL|
-installation with upstream updates and software.
+`swupd` links a |CL-ATTR| installation with upstream updates and software.
 
 .. contents::
    :local:
@@ -16,76 +12,80 @@ installation with upstream updates and software.
 Description
 ***********
 
-The central concept that any change to a |CL| installation is considered
-an update applies here. This inclues moving from one version of |CL| to
-another or simply installing a :ref:`bundle <bundle-about>`.
+`swupd` has two main functions:
 
-To remain up to date, `swupd` compares version numbers with a version url
-server and downloads manfiests and content from a content url server if
-needed.
+#. It manages software replacing APT or YUM, installing bundles
+   rather than packages. 
+#. It checks for system updates and installs them. 
 
-.. questionable content
+:ref:`bundles` are the smallest granularity component that is
+managed by |CL| and contain everything needed to deliver a software
+capability. Rather than downloading a cascade of package dependencies when
+installing a piece of software, a bundle comes with all of its dependencies.
+`swupd` manages overlapping dependencies behind the scenes ensuring that all
+software is compatible across the system.
 
-	A notable difference between package-based distributions and |CL|
-	is how updates are managed. On a package-based OS, system administrators
-	update each individual package or piece of software to a newer (or older!)
-	version. With |CL|, an update translates to an entirely new OS version,
-	containing one or many updates.  It is not possible to update a piece of the
-	system while remaining on the same version of |CL|.
+A big difference between package-based distributions and |CL| is how updates
+and software are managed. On a package-based OS, system administrators
+have to track updates at a package level, which means tracking the version
+of the OS, kernel, and each of the installed packages which can easily
+become out of sync. |CL| guarantees that any installation with the same OS
+version has the same kernel and supporting software. In other words, it
+isn't possible for any OS component to get out of sync as long as `swupd`
+is used for system updates. It also means that only one version number is
+needed to know whether a |CL| installation has the latest security patches
+installed. 
 
-	Although it may seem like a huge restriction or limitation, this
-	method has many non-obvious benefits. Imagine a cloud environment composed
-	of numerous machines.  Here, a homogeneous set of software makes sense --
-	from the system administrator's level down to the user level. Homogeneous
-	systems allow users to focus on their contributions and code, rather than
-	configuring environments or worrying about synchronizing versions and
-	updates.  At the system admin level, it ensures security is tighter and
-	makes it far easier to monitor and update patches.
+|CL| enforces regular updating of the OS by default and will automatically
+check for updates against a version server. The content server provides the
+file and metadata content for all versions and can be the same as the
+version server. The content url server provides metadata in the form of
+manifests. These Manifest files list and describe file contents, symlinks,
+and directories. Additionally, the actual content is
+provided to clients in the form of archive files.
 
-	|CL| promotes regular updating of the OS and will automatically check
-	for updates and apply them by default.
+Software updates with |CL| are also efficient. Unlike package-based
+distributions, `swupd` only updates files that have changed rather than
+entire packages. For example, it is quite common for an OS security patch to
+be as small as 15 KB. Using binary deltas, the |CL| is able to apply only
+what is needed.
 
-	To learn how to run an update of your system, visit our :ref:`swupd-guide` page.
-
-The content url server can be the same as the version url server and
-provides the file and metadata content for all versions. The content url 
-server provides metadata in the form of manifests. These Manifest files list
-and describe file contents, symlinks, and directories. Additionally, the
-actual content is provided to clients in the form of archive files.
-
-To get a more detailed understanding of how update content is generated see
-the :ref:`mixer` tool. 
+To get a more detailed understanding of how generate update content for |CL|
+see the :ref:`mixer` tool. 
 
 How it works
 ************
-
-|CL| is designed to promote a regular update cadence. `swupd` helps to
-make sure that process is simple and secure. |CL| updates are automatic by
-default but can be set to occur only on demand. 
 
 Prerequisites
 =============
 
 * The device is on a well-connected network.
-* The device is able to connect to a release server. The default server is:
+* The device is able to connect to an update server. The default server is:
   http://update.clearlinux.org
 
-Workflow
-========
+Updates explained
+=================
 
-Use this to explain the basics behind the process. Whats happening? There are two basic workflows:
+|CL| updates are automatic by default but can be set to occur only on
+demand. `swupd` makes sure that regular updates are simple and secure. It
+can also check the validity of currenty installed files and software and
+correct any problems.
 
-#. Update and Verify with upstream
-#. Manage bundles
+How does it do all this? 
 
-Search explained: 
------------------
+Bundle management explained 
+===========================
+
+Bundle Search
+-------------
 
 `swupd search` downloads |CL| manifest data and searches for
 matching paths. Enter only one term, or hyphenated term, per
 search. Use the command :command:`man swupd` to learn more.
 
-`-b` flag, or `--binary`, means: Restrict search to program binary paths. Omit this flag if you want a larger scope of search results.
+`-b` `--binary`
+   Restrict search to program binary paths. Omit this flag if you want a
+   larger scope of search results.
 
 Only the base bundle is returned. In |CL|, *bundles* can contain
 other *bundles* via `includes`. For more details, see `Bundle Definition Files`_ and its subdirectory *bundles*.
@@ -98,7 +98,55 @@ Optionally, you can review our `bundles`_ or individual `packages`_
 Examples
 ********
 
-#. Turn off audo update and change the servers that swupd looks at.
+Example 1: Disable and Enable automatic updates
+===============================================
+
+|CL| updates are automatic by default but can be set to occur only
+on demand.
+
+#. First verify your current auto-update setting.
+
+   .. code-block:: bash
+
+      sudo swupd autoupdate
+
+   .. code-block:: console
+
+      Enabled
+
+#. Disable automatic updates.
+
+   .. code-block:: bash
+
+      sudo swupd autoupdate --disable
+
+   .. code-block:: console
+
+      Warning: disabling automatic updates may take you out of compliance with your IT policy
+
+      Running systemctl to disable updates
+      Created symlink /etc/systemd/system/swupd-update.service → /dev/null.
+      Created symlink /etc/systemd/system/swupd-update.timer → /dev/null.
+
+#. Check manually for updates.
+
+   .. code-block:: bash
+
+      sudo swupd check-update
+
+#. Install an update after identifying one that you need.
+
+   .. code-block:: bash
+
+      sudo swupd update -m <version number>
+
+#. Re-enable automatic installs.
+
+   .. code-block:: bash
+
+      sudo swupd autoupdate --enable
+
+.. _swupd-guide-example-install-bundle:
 
 Example 2: Find and install Kata\* Containers
 =============================================
