@@ -1,4 +1,4 @@
-.. _swupd:
+.. _swupd-guide:
 
 swupd
 #####
