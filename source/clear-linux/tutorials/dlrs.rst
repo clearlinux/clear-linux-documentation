@@ -9,8 +9,8 @@ The Deep Learning Reference Stack is available in four versions.
 
 * `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture.
 * `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
-* `PyTorch`_, which includes PyTorch optimized for Intel® architecture.
-* `PyTorch with Intel MKL`_, which includes the TensorFlow framework optimized using Intel® Math Kernel Library
+* `PyTorch`_, which includes PyTorch with OpenBlas.
+* `PyTorch with Intel MKL`_, which includes Pytorch optimized using Intel® Math Kernel Library and Intel® Match Kernel Library for Deep Neural Networks.
 
 
 
@@ -133,7 +133,7 @@ This section describes running the `PyTorch benchmarks`_ for Caffe2 in single no
 
        cd pytorch/caffe2/python
        python convnet_benchmarks.py --batch_size 32 \
-                             --iterations 1 \
+                             --cpu \
                              --model AlexNet
 
 
