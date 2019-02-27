@@ -28,8 +28,8 @@ additional information on using mock.
 For a general understanding of how RPMs work, visit the `rpm website`_ or the
 `RPM Packaging Guide`_ .
 
-How to use
-**********
+How it works
+************
 
 Learn the autospec tool set up and process.
 
@@ -43,11 +43,8 @@ Prerequisites
 The autospec tool requires that the :command:`os-clr-on-clr` bundle is
 installed. Refer to `Install a bundle`_ for more details.
 
-Workflow
-========
-
 First-time setup
-----------------
+================
 
 Before you use autospec, you will need to set up the autospec environment and
 tools. This is mostly automated for you by using the provided
@@ -60,7 +57,7 @@ contains the main tools, `autospec` and `common`, used for making packages in
 |CL|.
 
 Create an RPM
--------------
+=============
 
 The basic autospec process is described in the following steps:
 
@@ -102,7 +99,10 @@ new information discovered from build failures, until it has a valid
 Examples
 ********
 
-Make sure all `Prerequisites`_ are fulfilled before using these examples.
+Complete all `Prerequisites`_ before using these examples.
+
+Reference the `autospec README`_ for details regarding autospec commands and
+options.
 
 .. contents::
    :local:
