@@ -35,8 +35,8 @@ to a web server and consumed by clients via swupd. Refer to
 :ref:`swupd <swupd-guide>` for additional information regarding updates and
 update content.
 
-How to use
-**********
+How it works
+************
 
 Learn the mixer tool set up and workflow.
 
@@ -81,11 +81,8 @@ Prerequisites
   Refer to `Set up a nginx web server for mixer`_ for an simple example of
   setting up an update location.
 
-Workflow
-========
-
 First time setup
-----------------
+================
 
 First time setup creates and initializes the workspace used by mixer. Complete
 setup before you create a mix.
@@ -129,7 +126,7 @@ setup before you create a mix.
    Refer to the `builder.conf`_ section for more information.
 
 Create a mix
-------------
+============
 
 A mix is created with the following steps:
 
@@ -189,7 +186,7 @@ A mix is created with the following steps:
    scenario.
 
 Maintain or modify mix
-----------------------
+======================
 
 Update or modify your content to a new version by following the same steps to
 create a mix. Increment the mix version number for the next mix.
@@ -430,9 +427,13 @@ version 10 (which the image was built from), to mix version 20.
 References
 **********
 
+Reference the `mixer man page`_ for details regarding mixer commands and options.
+
 .. contents::
    :local:
    :depth: 1
+
+.. rst-class:: content-collapse
 
 builder.conf
 ============
@@ -565,6 +566,8 @@ The format version is incremented only when a compatibility breakage is
 introduced. Normal updates, like updating a software package, do not require a
 format increment.
 
+.. rst-class:: content-collapse
+
 Bundles
 =======
 
@@ -628,6 +631,8 @@ If you remove the bundle definition file for a local, edited version of an
 upstream bundle in a mix, the mix will revert to reference the original upstream
 version of the bundle.
 
+.. rst-class:: content-collapse
+
 Configure and enable Docker
 ===========================
 
@@ -667,6 +672,8 @@ You can optionally pull a container in advance, using the following steps:
    .. code-block:: bash
 
       docker images
+
+.. rst-class:: content-collapse
 
 Configure Docker proxy info
 ===========================
@@ -753,6 +760,8 @@ a firewall. For example:
 
 #. Log out and log back in for the proxies to take effect.
 
+.. rst-class:: content-collapse
+
 Set up a nginx web server for mixer
 ===================================
 
@@ -836,6 +845,7 @@ Related topics
 * :ref:`swupd-about`
 
 .. _Docker Hub: https://hub.docker.com/r/clearlinux/mixer/tags/
+.. _mixer man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.1.rst
 .. _mixer.init man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.init.1.rst
 .. _mixer.bundle man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.bundle.1.rst
 .. _mixer.build man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.build.1.rst
