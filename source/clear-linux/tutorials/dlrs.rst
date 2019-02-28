@@ -9,7 +9,7 @@ The Deep Learning Reference Stack is available in four versions.
 
 * `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture.
 * `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
-* `PyTorch`_, which includes PyTorch with OpenBlas.
+* `PyTorch OSS`_, which includes PyTorch with OpenBlas.
 * `PyTorch with Intel MKL`_, which includes Pytorch optimized using Intel® Math Kernel Library and Intel® Match Kernel Library for Deep Neural Networks.
 
 
@@ -106,7 +106,7 @@ PyTorch single and multi-node benchmarks
 This section describes running the `PyTorch benchmarks`_ for Caffe2 in single node.  We will be looking at validating the Caffe2 APIs with the official benchmarks, but the same process applies for other cases.
 
 
-#. Download either the `PyTorch`_ or the `PyTorch with Intel MKL`_ docker image
+#. Download either the `PyTorch OSS`_ or the `PyTorch with Intel MKL`_ docker image
    from `Docker Hub`_.
 
 
@@ -289,8 +289,8 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 
 .. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlrs-oss/
 .. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl/
-.. _PyTorch: https://hub.docker.com/r/clearlinux/stacks/...
-.. _PyTorch with Intel MKL: https://hub.docker.com/r/clearlinux/stacks/...
+.. _PyTorch OSS: https://amr-registry-pre.caas.intel.com/harbor/projects/18/repositories/clearlinux%2Fstacks-pytorch-oss/tags/1110
+.. _PyTorch with Intel MKL: https://amr-registry-pre.caas.intel.com/harbor/projects/18/repositories/clearlinux%2Fstacks-pytorch-mkl/tags/1110
 
 .. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs
 
