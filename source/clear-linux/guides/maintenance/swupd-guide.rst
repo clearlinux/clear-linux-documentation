@@ -71,8 +71,44 @@ demand. `swupd` makes sure that regular updates are simple and secure. It
 can also check the validity of currenty installed files and software and
 correct any problems.
 
-How does it do all this? 
+Manifests
+---------
 
+The Clear Linux OS software update content consists of data and
+metadata.  The data is the files that end up in the OS. The metadata
+contains relevant information to properly provision the data to the OS
+file system, as well as update the system and add or remove additional
+content to the OS.
+
+The Manifests are mostly long lists of hashes that describe content.
+Each bundle gets its own manifest file. There is a master manifest
+file that describes all manifests to tie it all together.
+
+
+Fullfiles, packs, and delta packs
+---------------------------------
+
+The data that an update provisions to a system can be obtained in
+three different ways. There are three different methods, and they
+exist to optimize the delivery of content and speed up updates.
+
+Fullfiles are always generated for every file in every release. This
+allows any Clear Linux OS to obtain the exact copy of the content
+for each version directly. This would be used if the OS verification
+(`swupd verify`) needed to replace a single file, for instance.
+
+Packs are available for some releases and combine many files to speed
+up the creation of installation media and large updates. Delta packs
+are an optimized version of packs that only contain updates (binary
+diffs) and cannot be used without having the original file content.
+
+In most `swupd update` scenarios, the delta packs will be used as much
+as possible, since they deliver the update content in the smallest
+size possible.
+
+In most `swupd bundle-add` scenarios, the packs will be used as
+much as possible, since they deliver the needed content in a single
+downloadable unit.
 Bundle management explained 
 ===========================
 
