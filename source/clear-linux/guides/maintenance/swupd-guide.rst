@@ -68,7 +68,7 @@ Updates explained
 
 |CL| updates are automatic by default but can be set to occur only on
 demand. `swupd` makes sure that regular updates are simple and secure. It
-can also check the validity of currenty installed files and software and
+can also check the validity of currently installed files and software and
 correct any problems.
 
 Manifests
