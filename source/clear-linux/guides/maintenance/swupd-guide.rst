@@ -63,8 +63,8 @@ Prerequisites
 * The device is able to connect to an update server. The default server is:
   http://update.clearlinux.org
 
-Updates explained
-=================
+Updates
+=======
 
 |CL| updates are automatic by default but can be set to occur only on
 demand. `swupd` makes sure that regular updates are simple and secure. It
@@ -110,8 +110,8 @@ In most `swupd bundle-add` scenarios, the packs will be used as
 much as possible, since they deliver the needed content in a single
 downloadable unit.
 
-Search Bundles
-==============
+Bundle Search
+=============
 
 swupd search downloads |CL| manifest data and searches for
 matching paths. Enter only one term, or hyphenated term, per
