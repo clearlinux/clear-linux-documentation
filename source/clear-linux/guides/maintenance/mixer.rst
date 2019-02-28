@@ -96,18 +96,15 @@ setup before you create a mix.
 
 #. Initialize the workspace and mix.
 
+   Before you create a mix, you must explicitley initialize the mixer workspace.
    During initialization, the mixer workspace is configured and the base for
    your mix is defined. By default, your mix will be based on the latest
    upstream version and start with the minimum set of bundles. Your first custom
    mix version number will start at 10. You can alternately select other
    versions or bundle sets to start from.
 
-   Initialization creates the directory structure used by mixer and adds default
-   configuration, such as :file:`builder.conf` and :file:`mixbundles`.
-
-   :file:`builder.conf` is used to configure the mixer tool. :file:`mixbundles`
-   is a flat file used to specify the bundles in a mix. :file:`mixbundles` will
-   start with the bundles used as the basis for your mix.
+   Initialization creates the directory structure used by mixer and adds the
+   :file:`builder.conf` file, which is used to configure the mixer tool.
 
    View the `mixer.init man page`_ for more information on mixer
    initialization.
@@ -233,12 +230,15 @@ This example shows the basic steps for first time setup of mixer for a new mix.
 
       nano builder.conf
 
-   For example:
+   Use the IP address from the nginx server you set up in the prerequisite
+   `Set up a nginx web server for mixer`_. For example:
 
    .. code-block:: console
 
       CONTENTURL="http://192.168.25.52"
       VERSIONURL="http://192.168.25.52"
+
+
 
 Example 2: Create a simple mix
 ==============================
@@ -265,7 +265,7 @@ set to get a smaller kernel image, which will also be faster to load.
 
       mixer build bundles
 
-   Look in ~/mixer/update/image/<mix version>/full for the full chrot after the
+   Look in ~/mixer/update/image/<mix version>/full for the full chroot after the
    :command:`build` command completes.
 
 #. Build update content. Browse to your http://localhost site and you'll see
@@ -548,9 +548,10 @@ are used by mixer between executions and should not be manually changed.
 
 If `Format` increments to a new epoch (a "format bump"), the OS has changed in
 such a way that updating from build M in format X, to build N in format Y will
-not work. Generally, this scenario occurs when the software updater or software
-manifests a change in such a way that it is no longer compatible with the
-previous update scheme.
+not work. Generally, this scenario occurs when the software updater/the software
+has a change such that it is no longer compatible with the previous update
+scheme, or when a package is removed from the update stream and the update
+must ensure the files associated with that package are removed from the system.
 
 Using a format increment, we make sure pre- and co-requisite changes flow out
 with proper ordering. The updated client will only update to the latest
@@ -653,11 +654,22 @@ Use these steps to enable Docker for the mixer tool. Make sure to
 
       sudo usermod -G docker -a <username>
 
-The mixer Docker container is available on `Docker Hub`_. mixer will
-automatically pull a Docker container for mixing if one does not already exist.
-You can optionally pull a container in advance, using the following steps:
+Pull Docker container manually (optional)
+-----------------------------------------
 
-#. Find the latest version of the container by viewing the tags for the
+By default, mixer will automatically pull a Docker container for mixing if one
+does not already exist. If you need to troubleshoot the mixer container, it may
+be useful to manually pull a mixer Docker container.
+
+Versions of the mixer Docker container are available under the tags for the
+`clearlinux/mixer repo <https://hub.docker.com/r/clearlinux/mixer/tags/>`_
+on Docker Hub. Each version of the mixer Docker container is named after the
+associated |CL| upstream format version. Refer to `Format version`_ for
+additional information on upstream format versions.
+
+Use the following steps to manually pull a mixer Docker container:
+
+#. Find the version of the container you need by viewing the tags for the
    `clearlinux/mixer repo <https://hub.docker.com/r/clearlinux/mixer/tags/>`_
    on Docker Hub.
 
@@ -665,7 +677,7 @@ You can optionally pull a container in advance, using the following steps:
 
    .. code-block:: bash
 
-      docker pull clearlinux/mixer:<version>
+      docker pull clearlinux/mixer:<upstream-format-version>
 
 #. View local docker images:
 
