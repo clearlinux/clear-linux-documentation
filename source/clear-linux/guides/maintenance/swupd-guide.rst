@@ -109,24 +109,22 @@ size possible.
 In most `swupd bundle-add` scenarios, the packs will be used as
 much as possible, since they deliver the needed content in a single
 downloadable unit.
-Bundle management explained 
-===========================
 
-Bundle Search
--------------
+Search Bundles
+==============
 
-`swupd search` downloads |CL| manifest data and searches for
+swupd search downloads |CL| manifest data and searches for
 matching paths. Enter only one term, or hyphenated term, per
 search. Use the command :command:`man swupd` to learn more.
 
-`-b` `--binary`
+-b --binary
    Restrict search to program binary paths. Omit this flag if you want a
    larger scope of search results.
 
-Only the base bundle is returned. In |CL|, *bundles* can contain
-other *bundles* via `includes`. For more details, see `Bundle Definition Files`_ and its subdirectory *bundles*.
+Only the base bundle is returned. In |CL|, bundles can contain
+other bundles via includes. For more details, see `Bundle Definition Files`_ and its subdirectory bundles.
 
-Bundles that are already installed, will be marked *[installed]* in search
+Bundles that are already installed, will be marked [installed] in search
 results.
 
 Optionally, you can review our `bundles`_ or individual `packages`_
