@@ -1,7 +1,7 @@
 .. _ister:
 
-ister.py
-########
+ister.py image builder
+######################
 
 The `ister.py tool`_ is a template based installer used by |CL-ATTR| to produce
 images for each release. The same ister tool is available for use in |CL| to
