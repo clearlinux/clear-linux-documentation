@@ -3,16 +3,152 @@
 Autoproxy
 #########
 
-.. rst-class:: content-collapse
+Description
+***********
 
-About
-=====
+The |CL-ATTR| is the first Linux distribution to support autoproxy. The OS
+can discover a Proxy Auto-Config (PAC) script and use it to automatically
+resolve the proxy needed for a given connection. With Autoproxy, you can use
+|CL| inside any proxy environment without having to manually
+configure the proxies.
 
-.. include:: autoproxy_about.txt
+Corporate and private networks can be very complex, needing to restrict and
+control network connections for security reasons. The typical side effects
+are limited or blocked connectivity and requiring manual configuration of
+proxies to perform the most mundane tasks such as cloning a repo or checking
+for updates. With Clear Linux, all of the work is done behind the scenes to
+effortlessly use your network and have connections “just work”.
 
-.. rst-class:: content-collapse
+This feature removes massive complications in network connectivity due to
+proxy issues. You can automate tasks like unit testing without worrying
+about the proxy not being set and you can remove unset proxies from the
+equation when dealing with network unavailability across systems.
 
-Guide
-=====
+How it works
+************
 
-.. include:: autoproxy_guide.txt
+We designed autoproxy around general tools provided by nearly any Linux
+distribution with a few minor additions and modifications. We leveraged the
+DHCP and network information provided from systemd and created a
+PAC-discovery daemon. The daemon uses the information to resolve a URL for a
+PAC file. The daemon then passes the URL into PACrunner\*. PACrunner
+downloads the PAC file and uses the newly implemented Duktape\* engine to
+parse it.
+
+.. figure:: figures/autoproxy_0.png
+   :width: 400px
+
+   Figure 1: Autoproxy Flow
+
+From that point on, any cURL\* or network requests query PACrunner for the
+correct proxy to use. We modified the cURL library to communicate with
+PACrunner over DBus. However, cURL will ignore PACrunner and run normally if
+no PAC file is loaded or if you set any proxies manually. Thus, your
+environment settings are respected and no time is wasted trying to resolve a
+proxy.
+
+More importantly: all these steps happen in the background, very quickly, and
+with no user interaction.
+
+Technical details
+=================
+
+Autoproxy allows |CL| to operate seamlessly behind a proxy
+because, :ref:`swupd <swupd-guide>` and other |CL| tools are implemented on
+top of libcurl. Tools that do not use libcurl, like git, must
+be configured independently. 
+
+If you encounter problems with autoproxy functioning, use
+:command:`pacdiscovery` and :command:`FindProxyForURL` to
+help troubleshoot assuming a familiarity with PAC files and WPAD. 
+
+.. note::
+
+   Learn more about WPAD, PAC files, and PAC functions at `findproxyforurl`_.
+
+.. _findproxyforurl: http://findproxyforurl.com/
+
+Running :command:`pacdiscovery` with no arguments will immediately indicate
+
+1. if there is a problem resolving the :command:`WPAD` host name resolution: 
+
+   .. code-block:: bash
+
+      pacdiscovery
+
+   .. code-block:: console
+
+      failed getaddrinfo: No address associated with hostname
+      Unable to find wpad host
+
+2. or if the :command:`pacrunner` service is disabled (masked).
+
+   .. code-block:: bash
+
+      pacdiscovery
+
+   .. code-block:: console
+
+      PAC url: http://autoproxy.your.domain.com/wpad.dat
+      Failed to create proxy config: Unit pacrunner.service is masked.
+
+Unmask the :command:`pacrunner` service by running:
+
+.. code-block:: bash
+
+   systemctl unmask pacrunner.service
+
+:command:`FindProxyForURL` with :command:`busctl` can also indicate if the
+:command:`pacrunner.service` is masked.
+
+.. code-block:: bash
+
+   busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client 
+
+.. code-block:: console
+   
+   FindProxyForURL ss "http://www.google.com" "google.com"
+   Unit pacrunner.service is masked.
+   dig wpad, dig wpad.<domain>
+
+:command:`FindProxyForURL` returns the URL and port of the proxy server when
+an external URL and host are provided as arguments.
+
+.. code-block:: bash
+
+   busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client 
+
+.. code-block:: console
+
+   FindProxyForURL ss "http://www.google.com" "google.com"
+   s "PROXY proxy.your.domain.com:<port>"
+
+If a proxy server is not avialable, or if :command:`pacrunner` is running
+without a PAC file, :command:`FindProxyForURL` will return "DIRECT". 
+
+.. code-block:: bash
+
+   busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client 
+
+.. code-block:: console 
+
+   FindProxyForURL ss "http://www.google.com" "google.com"
+   s "DIRECT"
+
+Once :command:`pacdiscovery` is able to look up :command:`WPAD`, restart the
+:command:`pacrunner` service:
+
+.. code-block:: bash
+
+   systemctl stop pacrunner
+   systemctl restart pacdiscovery
+
+.. note::
+
+   A "domain" or "search" entry in :file:`/etc/resolv.conf` is required
+   for short name lookups to resolve. The :file:`resolv.conf` man page has
+   additional details.
+
+Related Topics
+**************
+
