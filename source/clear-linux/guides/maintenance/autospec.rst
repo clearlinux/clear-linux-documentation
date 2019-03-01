@@ -40,21 +40,11 @@ Learn the autospec tool set up and process.
 Prerequisites
 =============
 
-The autospec tool requires that the :command:`os-clr-on-clr` bundle is
-installed. Refer to `Install a bundle`_ for more details.
+The setup for building source in |CL| must be completed before using the
+autospec tool.
 
-First-time setup
-================
-
-Before you use autospec, you will need to set up the autospec environment and
-tools. This is mostly automated for you by using the provided
-:file:`user_setup.sh` script.
-
-The `user-setup script`_ creates the autospec workspace in the
-:file:`clearlinux` folder. The workspace contains the :file:`Makefile`,
-:file:`packages`, and :file:`projects` subfolders. The :file:`projects` folder
-contains the main tools, `autospec` and `common`, used for making packages in
-|CL|.
+Refer to `Example 1: Complete setup for building source`_ for
+instructions on completing setup.
 
 Create an RPM
 =============
@@ -108,10 +98,26 @@ options.
    :local:
    :depth: 1
 
-Example 1: First time setup
-===========================
+Example 1: Complete setup for building source
+=============================================
 
-This example shows the basic steps for first time setup of autospec.
+.. _install-tooling-after-header:
+
+Setup of the workspace and tooling used for building source in |CL| is mostly
+automated for you with a setup script. It uses tools from the
+:command:`os-clr-on-clr` bundle.
+
+The setup script creates a workspace in the :file:`clearlinux` folder, with the
+subfolders :file:`Makefile`, :file:`packages`, and :file:`projects`. The :file:`projects` folder contains the main tools used for making packages in
+|CL|: `autospec` and `common`.
+
+Follow these steps to setup the workspace and tooling for building source:
+
+#. Install the :command:`os-clr-on-clr` bundle:
+
+   .. code-block:: bash
+
+        sudo swupd bundle-add os-clr-on-clr
 
 #. Download the :file:`user-setup.sh` script:
 
@@ -141,14 +147,18 @@ This example shows the basic steps for first time setup of autospec.
       git config --global user.email "you@example.com"
       git config --global user.name "Your Name"
 
+   This global setting is used by |CL| tools that make use of Git.
+
+.. _install-tooling-end:
+
 Example 2: Build RPM with existing spec file
 ============================================
 
 This example shows how to build a RPM from a pre-packaged upstream package, with
 an existing spec file. The example uses the ``dmidecode`` package.
 
-Make sure you have completed `Example 1: First time setup`_ before starting
-this example.
+Complete `Example 1: Complete setup for building source`_ before starting this
+example.
 
 #. Navigate to the autospec workspace and clone the ``dmidecode`` package:
 
@@ -186,8 +196,8 @@ Example 3: Build a new RPM
 This example shows how to build a new RPM with no spec file. The example will
 create a simple helloclear RPM.
 
-Make sure you have completed `Example 1: First time setup`_ before starting
-this example.
+Complete `Example 1: Complete setup for building source`_ before starting this
+example.
 
 #. Navigate to the autospec workspace and build the helloclear RPM. The
    :file:`Makefile` provides a :command:`make autospecnew` that can
@@ -209,8 +219,8 @@ This example shows how to modify an existing package to create a custom RPM. In
 this example you will make a simple change to the ``dmidecode`` package and
 rebuild the package.
 
-Make sure you have completed `Example 1: First time setup`_ before starting
-this example.
+Complete `Example 1: Complete setup for building source`_ before starting this
+example.
 
 #. Navigate to the autospec workspace and clone the ``dmidecode`` package:
 
@@ -256,8 +266,8 @@ This example shows how to modify control files to correct build failures that
 autospec is unable to resolve. In this example you will add a missing license
 and dependencies in order for autospec to complete a successful build.
 
-Make sure you have completed `Example 1: First time setup`_ before starting
-this example.
+Complete `Example 1: Complete setup for building source`_ before starting this
+example.
 
 #. Navigate to the autospec workspace:
 
