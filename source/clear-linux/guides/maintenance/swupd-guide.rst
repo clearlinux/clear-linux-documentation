@@ -3,7 +3,7 @@
 swupd
 #####
 
-`swupd` links a |CL-ATTR| installation with upstream updates and software.
+:command:`swupd` links a |CL-ATTR| installation with upstream updates and software.
 
 .. contents::
    :local:
@@ -12,17 +12,17 @@ swupd
 Description
 ***********
 
-`swupd` has two main functions:
+:command:`swupd` has two main functions:
 
 #. It manages software replacing APT or YUM, installing bundles
    rather than packages. 
 #. It checks for system updates and installs them. 
 
-:ref:`bundles` are the smallest granularity component that is
+:ref:`Bundles <bundles>` are the smallest granularity component that is
 managed by |CL| and contain everything needed to deliver a software
 capability. Rather than downloading a cascade of package dependencies when
 installing a piece of software, a bundle comes with all of its dependencies.
-`swupd` manages overlapping dependencies behind the scenes ensuring that all
+:command:`swupd` manages overlapping dependencies behind the scenes ensuring that all
 software is compatible across the system.
 
 A big difference between package-based distributions and |CL| is how updates
@@ -31,10 +31,10 @@ have to track updates at a package level, which means tracking the version
 of the OS, kernel, and each of the installed packages which can easily
 become out of sync. |CL| guarantees that any installation with the same OS
 version has the same kernel and supporting software. In other words, it
-isn't possible for any OS component to get out of sync as long as `swupd`
-is used for system updates. It also means that only one version number is
-needed to know whether a |CL| installation has the latest security patches
-installed. 
+isn't possible for any OS component to get out of sync as long as
+:command:`swupd` is used for system updates. It also means that only one
+version number is needed to know whether a |CL| installation has the latest
+security patches installed. 
 
 |CL| enforces regular updating of the OS by default and will automatically
 check for updates against a version server. The content server provides the
@@ -45,13 +45,13 @@ and directories. Additionally, the actual content is
 provided to clients in the form of archive files.
 
 Software updates with |CL| are also efficient. Unlike package-based
-distributions, `swupd` only updates files that have changed rather than
-entire packages. For example, it is quite common for an OS security patch to
-be as small as 15 KB. Using binary deltas, the |CL| is able to apply only
-what is needed.
+distributions, :command:`swupd` only updates files that have changed rather
+than entire packages. For example, it is quite common for an OS security
+patch to be as small as 15 KB. Using binary deltas, the |CL| is able to
+apply only what is needed.
 
-To get a more detailed understanding of how generate update content for |CL|
-see the :ref:`mixer` tool. 
+To get a more detailed understanding of how to generate update content for
+|CL| see the :ref:`mixer <mixer>` tool. 
 
 How it works
 ************
@@ -67,9 +67,9 @@ Updates
 =======
 
 |CL| updates are automatic by default but can be set to occur only on
-demand. `swupd` makes sure that regular updates are simple and secure. It
-can also check the validity of currently installed files and software and
-correct any problems.
+demand. :command:`swupd` makes sure that regular updates are simple and
+secure. It can also check the validity of currently installed files and
+software and correct any problems.
 
 Manifests
 ---------
@@ -84,7 +84,6 @@ The Manifests are mostly long lists of hashes that describe content.
 Each bundle gets its own manifest file. There is a master manifest
 file that describes all manifests to tie it all together.
 
-
 Fullfiles, packs, and delta packs
 ---------------------------------
 
@@ -95,25 +94,17 @@ exist to optimize the delivery of content and speed up updates.
 Fullfiles are always generated for every file in every release. This
 allows any Clear Linux OS to obtain the exact copy of the content
 for each version directly. This would be used if the OS verification
-(`swupd verify`) needed to replace a single file, for instance.
+needed to replace a single file, for instance.
 
 Packs are available for some releases and combine many files to speed
 up the creation of installation media and large updates. Delta packs
 are an optimized version of packs that only contain updates (binary
 diffs) and cannot be used without having the original file content.
 
-In most `swupd update` scenarios, the delta packs will be used as much
-as possible, since they deliver the update content in the smallest
-size possible.
-
-In most `swupd bundle-add` scenarios, the packs will be used as
-much as possible, since they deliver the needed content in a single
-downloadable unit.
-
 Bundle Search
 =============
 
-swupd search downloads |CL| manifest data and searches for
+:command:`swupd` search downloads manifest data and searches for
 matching paths. Enter only one term, or hyphenated term, per
 search. Use the command :command:`man swupd` to learn more.
 
@@ -121,8 +112,9 @@ search. Use the command :command:`man swupd` to learn more.
    Restrict search to program binary paths. Omit this flag if you want a
    larger scope of search results.
 
-Only the base bundle is returned. In |CL|, bundles can contain
-other bundles via includes. For more details, see `Bundle Definition Files`_ and its subdirectory bundles.
+Only the base bundle is returned. Bundles can contain other bundles via
+includes. For more details, see `Bundle Definition Files`_ and its
+subdirectory bundles.
 
 Bundles that are already installed, will be marked [installed] in search
 results.
@@ -256,6 +248,47 @@ number of dependencies.  Also, check out our tutorial: :ref:`kata`.
       Calling post-update helper scripts.
       Successfully installed 1 bundle
 
+Example 3: Verify and correct sytem file mismatch
+=================================================
+
+:command:`swupd` can determine whether system directories and files have
+been added to, overwritten, removed, or modified (e.g., permissions).
+
+.. code-block:: bash
+
+   sudo swupd verify
+
+All directories that are watched by :command:`swupd` are verified according
+to the manifest data and hash mismatches are flagged as follows:
+
+.. code-block:: console
+
+   Verifying version 23300
+   Verifying files
+      ...0%
+   Hash mismatch for file: /usr/bin/chardetect
+   ...
+   ...
+   Hash mismatch for file: /usr/lib/python3.6/site-packages/urllib3/util/wait.py
+      ...100%
+   Inspected 237180 files
+      423 files did not match
+   Verify successful
+
+In this case, python packages that were installed on top of the default
+install were flagged as mismatched. :command:`swupd` can be directed to
+ignore or fix issues based on command line options.
+
+:command:`swupd` can correct any issues it detects. Additional directives
+can be added including a white list of directories that will be ignored.
+
+The following command will repair issues, remove unknown items, and
+ignore files or directories matching `/usr/lib/python`:
+
+.. code-block:: bash
+
+   sudo swupd verify --fix --picky --picky-whitelist=/usr/lib/python
+
 Quick Reference
 ***************
 
@@ -286,6 +319,10 @@ man swupd
 
 Related topics
 **************
+
+* :ref:`autospec`
+* :ref:`mixer`
+* :ref:`bundles`
 
 .. _source documentation: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
 
