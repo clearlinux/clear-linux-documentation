@@ -16,6 +16,7 @@ completed.
    enable-user-space
    swupd-guide
    bulk-provision
+   kernel-development
    kernel-modules
    mixer
    mixin
@@ -28,3 +29,4 @@ completed.
    download-verify-decompress-windows
    autospec
    assign-static-ip
+   ister

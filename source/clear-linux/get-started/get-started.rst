@@ -17,7 +17,6 @@ Pre-install
 
    compatibility-check
    bootable-usb/bootable-usb
-   bootable-usb/bootable-usb-beta-all
 
 Install |CL|
 ************

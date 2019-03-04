@@ -1,7 +1,7 @@
 .. _kubernetes:
 
-Run Kubernetes\* on |CL-ATTR|
-#############################
+Run Kubernetes\*
+################
 
 This tutorial describes how to install, configure, and run the
 `Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
@@ -43,16 +43,15 @@ Kubernetes, a set of supported :abbr:`CRI (Container Runtime Interface)`
 runtimes, and networking plugins, are included in the `cloud-native-basic`_
 bundle.
 
-.. note::
-
-   CRI-O’s default plugin_dir is :file:`/opt/bin/cni`.
-   CNI plugins are installed as part of ``cloud-native-basic``.
-
 To install this framework, enter the following command:
 
 .. code-block:: bash
 
    sudo swupd bundle-add cloud-native-basic
+
+.. note::
+
+   For more on networking plugins, see `Install pod network add-on`_.
 
 Configure Kubernetes
 ********************
@@ -150,14 +149,12 @@ Configure and run CRI-O + kata-runtime
 
        sudo systemctl daemon-reload
        sudo systemctl restart crio
-       sudo systemctl restart kubelet
 
 #.  Initialize the master control plane with the command:
 
     .. code-block:: bash
 
        sudo kubeadm init --cri-socket=/run/crio/crio.sock
-
 
 Install pod network add-on
 **************************
@@ -166,46 +163,48 @@ You must choose and install a `pod network add-on`_ to allow your pods to
 communicate. Check whether or not your add-on requires special flags when you
 initialize the master control plane.
 
+The CRI-O default plugin_dir is :file:`/opt/cni/bin`. This must be a
+writable directory because third-party networking add-ons will install
+themselves there.
+
+.. note::
+
+   CNI plugins provided by |CL| are installed as part of *cloud-native-basic*
+   in :file:`/usr/libexec/cni/` and are currently *not* found by CRI-O by
+   default. These separate directories are required because `swupd` controls
+   the content of :file:`/usr` and leaves :file:`/opt` unchanged.
+
+When using third-party network add-ons that rely on those plugins, such as
+Weave or Flannel do, make them available by creating symlinks:
+
+.. code-block:: bash
+
+   sudo mkdir -p /opt/cni/bin
+
+.. code-block:: bash
+
+   for i in /usr/libexec/cni/*; do sudo ln -sf $i /opt/cni/bin; done
+
+**Notes about Weave Net add-on**
+
+The Weave Net add-on works by default when the above configuration is done.
+
 **Notes about flannel add-on**
 
 If you choose the `flannel` add-on, then you must add the following to the
 `kubeadm init` command:
 
-..  code-block:: bash
+.. code-block:: bash
 
-    --pod-network-cidr 10.244.0.0/16
+   --pod-network-cidr 10.244.0.0/16
 
-If you are using CRI-O and `flannel` and you want to use Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
+If you are using CRI-O and `flannel` and you want to use Kata Containers,
+edit the :file:`/etc/crio/crio.conf` file to add:
 
 ..  code-block:: bash
 
     [crio.runtime]
     manage_network_ns_lifecycle = true
-
-Create a symlink for the network overlays:
-
-.. code-block:: bash
-
-   sudo ln -s /usr/libexec/cni /opt/cni/bin
-
-.. note::
-
-   |CL| installs CNI plugins that are part of the `cloud-native-basic`
-   bundle to :file:`/usr/libexec/cni`. The directory is required because `
-   swupd verify` may use it to repair a system to a known good state.
-
-**Notes about Weave Net add-on**
-
-If you choose the `Weave Net` add-on, you must make the following
-changes because it installs itself in the :file:`/opt/cni/bin` directory.
-
-For using CRI-O and ``Weave Net``, complete the following step.
-
-Add the `loopback` CNI plugin to the plugin path with the command:
-
-.. code-block:: bash
-
-   sudo ln -s /usr/libexec/cni/loopback /opt/bin/cni/loopback
 
 Use your cluster
 ****************
@@ -240,8 +239,8 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
-Package configuration customization in |CL| (optional)
-******************************************************
+Package configuration customization (optional)
+**********************************************
 
 |CL| is a stateless system that looks for user-defined package configuration
 files in the :file:`/etc/<package-name>` directory to be used as default. If
@@ -288,6 +287,12 @@ commands as a shell script to configure all of these services in one step:
    Environment="NO_PROXY=${no_proxy}"
    EOF
    done
+
+Next steps
+**********
+
+:ref:`kubernetes-bp`
+
 
 Troubleshooting
 ***************
