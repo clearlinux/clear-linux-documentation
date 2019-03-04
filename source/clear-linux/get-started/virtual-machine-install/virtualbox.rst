@@ -265,7 +265,7 @@ functionality.
 
 
 #. |CL| provides a script called :command:`install-vbox-lga` to help patch 
-   and install |VB| drivers for |CL|. Inside |CL| VM run the this command:
+   and install |VB| drivers for |CL|. Inside |CL| VM run this command:
 
    .. code-block:: bash
 
