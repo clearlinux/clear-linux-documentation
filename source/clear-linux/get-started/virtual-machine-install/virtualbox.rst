@@ -281,7 +281,7 @@ functionality.
 
    .. code-block:: bash
 
-      lsmod | grep vbox*
+      lsmod | grep ^vbox
 
    You should see drivers loaded with names beginning with **vbox**: (vboxguest, vboxsf, vboxvideo).
 
