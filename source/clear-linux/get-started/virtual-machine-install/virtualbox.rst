@@ -223,7 +223,7 @@ The |VB| Linux Guest Additions provide drivers for full compatibility and
 functionality. 
 
 |CL| provides |VB| guest drivers and an install script in the **kernel-lts** 
-(Long Term Support) by |CL|.
+(Long Term Support) bundle by |CL|.
 
 
 #. Validate the installed kernel is **kernel-lts** by checking the output 
