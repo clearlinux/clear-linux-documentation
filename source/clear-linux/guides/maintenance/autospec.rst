@@ -18,9 +18,9 @@ Description
 The autospec tool attempts to infer the requirements of the :file:`.spec` file
 by analyzing the source code and :file:`Makefile` information. It will
 continuously run updated builds based on new information discovered from build
-failures until it has a complete and valid :file:`.spec` file. You can influence
-the behavior of autospec and customize the build by providing `control files`_
-to the autospec tool.
+failures until it has a complete and valid :file:`.spec` file. If needed, you
+can influence the behavior of autospec and customize the build by providing
+optional `control files`_ to the autospec tool.
 
 autospec uses mock as a sandbox to run the builds. Visit the `mock wiki`_ for
 additional information on using mock.
@@ -43,7 +43,7 @@ Prerequisites
 The setup for building source in |CL| must be completed before using the
 autospec tool.
 
-Refer to `Complete setup for building source`_ for instructions on completing
+Refer to `Setup environment to build source`_ for instructions on completing
 setup.
 
 Create an RPM
@@ -54,7 +54,7 @@ The basic autospec process is described in the following steps:
 #. The :command:`make autospec` command generates a :file:`.spec` file based on
    analysis of code and existing control files.
 
-   Control files should be located in the same directory as the resulting
+   Any control files should be located in the same directory as the resulting
    :file:`.spec` file.
 
    View the `autospec README`_ for more information on `control files`_.
@@ -89,7 +89,7 @@ new information discovered from build failures, until it has a valid
 Examples
 ********
 
-`Complete setup for building source`_ before using these examples.
+Complete `Setup environment to build source`_ before using these examples.
 
 .. contents::
    :local:
@@ -328,8 +328,8 @@ References
 Reference the `autospec README`_ for details regarding autospec commands and
 options.
 
-Complete setup for building source
-==================================
+Setup environment to build source
+=================================
 
 .. _install-tooling-after-header:
 
