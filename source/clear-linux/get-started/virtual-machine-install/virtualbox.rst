@@ -277,7 +277,7 @@ functionality.
 
       reboot
 
-#. After the VM reboot, login and very the |VB| drivers are loaded:
+#. After the VM reboot, login and verify the |VB| drivers are loaded:
 
    .. code-block:: bash
 
