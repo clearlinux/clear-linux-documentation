@@ -64,7 +64,7 @@ The appropriate |CL| installer image needs to be downloaded and extracted.
 
 
 
-#. There originally downloaded compressed archive file 
+#. The originally downloaded compressed archive file 
    (:file:`clear-<VERSION>-installer.iso.xz`) can now be deleted.
 
 

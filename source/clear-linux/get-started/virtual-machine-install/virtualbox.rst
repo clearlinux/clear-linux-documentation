@@ -223,7 +223,7 @@ The |VB| Linux Guest Additions provide drivers for full compatibility and
 functionality. 
 
 |CL| provides |VB| guest drivers and an install script in the **kernel-lts** 
-(Long Term Support) by |CL|.
+(Long Term Support) bundle by |CL|.
 
 
 #. Validate the installed kernel is **kernel-lts** by checking the output 
@@ -267,7 +267,7 @@ functionality.
 
 
 #. |CL| provides a script called :command:`install-vbox-lga` to help patch 
-   and install |VB| drivers for |CL|. Inside |CL| VM run the this command:
+   and install |VB| drivers for |CL|. Inside |CL| VM run this command:
 
    .. code-block:: bash
 
@@ -279,11 +279,11 @@ functionality.
 
       reboot
 
-#. After the VM reboot, login and very the |VB| drivers are loaded:
+#. After the VM reboot, login and verify the |VB| drivers are loaded:
 
    .. code-block:: bash
 
-      lsmod | grep vbox*
+      lsmod | grep ^vbox
 
    You should see drivers loaded with names beginning with **vbox**: (vboxguest, vboxsf, vboxvideo).
 
