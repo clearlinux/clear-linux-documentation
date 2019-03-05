@@ -245,7 +245,7 @@ functionality.
       reboot
 
 #. Remove any kernel bundles that are not *kernel-lts* or *kernel-install* 
-   simplify and avoid conflicts:
+   to simplify and avoid conflicts:
 
    .. code-block:: bash
 
