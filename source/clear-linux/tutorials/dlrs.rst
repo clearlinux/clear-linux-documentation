@@ -301,4 +301,4 @@ benchmark results. More information about `Kubernetes logging`_ is available fro
 .. _Kubernetes logging: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
 .. _TensorFlow benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack
-.. _PyTorch benchmark results: https://clearlinux.org/stacks/
+.. _PyTorch benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
