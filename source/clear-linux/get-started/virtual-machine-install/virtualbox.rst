@@ -234,7 +234,8 @@ functionality.
       uname -r
       4.<VERSION>.lts
 
-   If the running kernel is not **lts**: install the LTS kernel manually, update the bootloader, and check again:
+   If the running kernel is not **lts**: install the LTS kernel manually, 
+   update the bootloader, and check again:
 
    .. code-block:: bash
 
@@ -243,7 +244,8 @@ functionality.
       clr-boot-manager update
       reboot
 
-#. Remove any non-LTS kernels to simplify and avoid conflicts:
+#. Remove any kernel bundles that are not *kernel-lts* or *kernel-install* 
+   simplify and avoid conflicts:
 
    .. code-block:: bash
 
