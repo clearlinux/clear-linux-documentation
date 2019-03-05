@@ -319,4 +319,5 @@ from the Kubernetes community.
 
 .. _TensorFlow benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack
 
-.. _PyTorch benchmark results: https://clearlinux.org/stacks/
+.. _PyTorch benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
+
