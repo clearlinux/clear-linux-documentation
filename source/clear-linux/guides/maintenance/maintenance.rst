@@ -20,6 +20,7 @@ completed.
    kernel-modules
    mixer
    mixin
+   distro-factory
    validate-signatures
    time
    hostname
