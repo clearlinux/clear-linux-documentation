@@ -21,6 +21,8 @@ updates. The metadata generated from the mixin tool is merged with the upstream
 metadata to provide a single source of update content, which swupd uses to
 perform updates.
 
+The mixin tool is included in the :command:`mixer` bundle.
+
 How to use
 **********
 
@@ -33,13 +35,8 @@ Learn the mixin tool set up and workflow.
 Prerequisites
 =============
 
-#. **OS installed**
-
-   The |CL| must be installed to use the mixer tool.
-
-#. **Required bundles**
-
-   The mixin tool requires that the :command:`mixer` bundle is installed.
+Install the :command:`mixer` bundle to add the mixin tool. Refer to
+`Install a bundle`_ for more details.
 
 Workflow
 ========
@@ -47,7 +44,7 @@ Workflow
 The following steps show how to create and add a custom bundle with the mixin
 tool:
 
-#. **Add or create a new repo(s)**
+#. Add or create a new repo(s)
 
    mixin pulls packages to build your custom bundle from locations referred to
    as repos. There are two default repos for mixin:
@@ -61,7 +58,7 @@ tool:
    RPMs must be built specifically for |CL| in order for them to work properly.
    Refer to :ref:`autospec` for instruction on creating RPMs for |CL|.
 
-#. **Create a custom bundle with desired RPMs**
+#. Create a custom bundle with desired RPMs
 
    Add the desired packages to your new bundle and build the bundle. By default,
    the bundle will be named after its parent repo.
@@ -74,7 +71,7 @@ tool:
 
    View the `mixin man page`_ for more information on mixin commands.
 
-#. **Update system to make custom bundle available**
+#. Update system to make custom bundle available
 
    Update your system using swupd to make your custom bundle accessible.
 
@@ -84,7 +81,7 @@ tool:
    step. As long as you remain on your custom version of |CL| you can continue
    to create and add new bundles to your mix with no extra migration step.
 
-#. **Install custom bundles**
+#. Install custom bundles
 
    Install your custom bundle using the normal swupd :command:`bundle-add`
    command.
@@ -94,9 +91,7 @@ tool:
 Examples
 ********
 
-The following examples use:
-
-* A stock installation of |CL| with all `Prerequisites`_.
+Complete all `Prerequisites`_ before using these examples.
 
 Example 1: Add custom helloclear bundle
 =======================================
@@ -193,3 +188,4 @@ Related topics
 
 .. _mixin man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixin.1.rst
 .. _swupd man page: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
+.. _Install a bundle: https://clearlinux.org/documentation/clear-linux/guides/maintenance/swupd-guide#adding-a-bundle
