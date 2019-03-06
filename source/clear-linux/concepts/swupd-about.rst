@@ -14,6 +14,11 @@ Visit the `swupd man page`_ for more details.
 Versioning
 ==========
 
+While the process of describing installed software on other Linux\*
+distributions can be done with package managers, it can still be cumbersome to
+keep track of dissociated software version compatibility or to compare
+multiple systems. 
+
 With |CL| and :command:`swupd`, versioning happens at the individual
 file-level. This means |CL| generates an entirely new OS version with any set
 of software changes to the system (including software downgrades or removals).
@@ -28,12 +33,6 @@ installed onto a system of that |CL| version. This method of whole OS
 versioning offers some unique advantages. Namely, system administrators can
 quickly compare multiple |CL| systems for important software and security
 fixes.
-
-While the process of describing installed software on other Linux\*
-distributions can be done with package managers, it can still be cumbersome to
-keep track of dissociated software version compatibility or to compare
-multiple systems. 
-
 
 
 Updating
@@ -59,8 +58,6 @@ delta technology* [1]_ means :command:`swupd` on |CL| systems only needs to
 download and apply a small fraction of a package in order to receive an
 update.
 
-
-While similar update technologies exist, they are seldomly used in practice.
 In other Linux\* distributions, updates to a particular software package
 typically results in the whole software package being downloaded again and
 replaced on the system - even when the net change is just one line of code. 
@@ -97,10 +94,12 @@ projects and packages into one logical unit.
 This bundle-based approach offers some unique advantages.
 
 - Installing software for a particular functionality will come "bundled" with 
-  all of its runtime dependencies, avoiding a situation where you have to hunt
-  them down.
-- Software package dependencies are resolved before the updates comes to |CL| 
-  systems, meaning file-level conflicts will not occur due to an update. 
+  all of its runtime dependencies.
+
+- Software package dependencies are resolved on the server, before the updates
+  comes to |CL| systems, meaning file-level conflicts will not occur due to 
+  an update. 
+
 - All combinations of bundles are able to co-exist on a |CL| system.
 
 For more information on bundles, visit:
