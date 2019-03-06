@@ -5,8 +5,7 @@ swupd (Software Updater)
 
 :command:`swupd` is an operating system software manager and update program
 that operates at a file-level. |CL| leverages :command:`swupd` to allow
-software under :file:`/usr` (see `Stateless`_) to be installed with verifiable
-integrity and updated efficiently. 
+software to be installed with verifiable integrity and updated efficiently. 
 
 Visit the `swupd man page`_ for more details.
 
@@ -25,7 +24,7 @@ commits are tracked and move the pointer forward when changed.
 While administrators can pick and choose which `bundles`_ a system has
 installed, a single |CL| version number is powerful enough to represent
 strictly one possible combination of all software versions that can be
-installed onto a system of that |CL| version.This method of whole OS
+installed onto a system of that |CL| version. This method of whole OS
 versioning offers some unique advantages. Namely, system administrators can
 quickly compare multiple |CL| systems for important software and security
 fixes.
@@ -116,4 +115,5 @@ For more information on bundles, visit:
 .. [1] The software update technology for |CL-ATTR| was first presented at the Linux Plumbers conference in 2012.
 
 .. _Stateless: https://clearlinux.org/features/stateless
-.. _swupd man page: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
+.. _swupd man page:
+https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
