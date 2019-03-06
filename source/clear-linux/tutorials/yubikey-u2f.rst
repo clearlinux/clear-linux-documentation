@@ -1,4 +1,4 @@
-.. _docker:
+.. _yubikey-u2f:
 
 Enable YubiKey U2F Support 
 ##########################
