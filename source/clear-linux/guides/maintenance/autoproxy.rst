@@ -148,7 +148,3 @@ Once :command:`pacdiscovery` is able to look up :command:`WPAD`, restart the
    A "domain" or "search" entry in :file:`/etc/resolv.conf` is required
    for short name lookups to resolve. The :file:`resolv.conf` man page has
    additional details.
-
-Related Topics
-**************
-
