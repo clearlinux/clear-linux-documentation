@@ -3,14 +3,20 @@
 Autoproxy
 #########
 
+Autoproxy is provided to enable |CL-ATTR| to work smoothly behind a
+corporate proxy.
+
+.. contents::
+   :local:
+   :depth: 1
+
 Description
 ***********
 
-The |CL-ATTR| is the first Linux distribution to support autoproxy. The OS
-can discover a Proxy Auto-Config (PAC) script and use it to automatically
-resolve the proxy needed for a given connection. With Autoproxy, you can use
-|CL| inside any proxy environment without having to manually
-configure the proxies.
+Autoproxy tries to detect a Proxy Auto-Config (PAC) script and use it to
+automatically resolve the proxy needed for a given connection. With
+Autoproxy, you can use |CL| inside any proxy environment without having to
+manually configure the proxies.
 
 Corporate and private networks can be very complex, needing to restrict and
 control network connections for security reasons. The typical side effects
@@ -27,7 +33,7 @@ equation when dealing with network unavailability across systems.
 How it works
 ************
 
-We designed autoproxy around general tools provided by nearly any Linux
+We designed autoproxy around tools provided by nearly any Linux
 distribution with a few minor additions and modifications. We leveraged the
 DHCP and network information provided from systemd and created a
 PAC-discovery daemon. The daemon uses the information to resolve a URL for a
@@ -45,10 +51,7 @@ correct proxy to use. We modified the cURL library to communicate with
 PACrunner over DBus. However, cURL will ignore PACrunner and run normally if
 no PAC file is loaded or if you set any proxies manually. Thus, your
 environment settings are respected and no time is wasted trying to resolve a
-proxy.
-
-More importantly: all these steps happen in the background, very quickly, and
-with no user interaction.
+proxy. All these steps happen in the background with no user interaction.
 
 Technical details
 =================
