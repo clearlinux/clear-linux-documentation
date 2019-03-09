@@ -103,13 +103,19 @@ SSH access into the virtual machine
 To interact with the |CL| VM through SSH instead of the console it was
 launched from, follow these steps.
 
-#. Enable SSH in the |CL| VM:
+#. Configure SSH in the |CL| VM to allow root login:
 
    .. code-block:: bash
 
       cat > /etc/ssh/sshd_config << EOF
         PermitRootLogin yes
         EOF
+
+#. Start SSH server in the |CL| VM:
+
+   .. code-block:: bash
+
+      systemctl start sshd
 
 #. From the host, SSH into the |CL| VM.  The port number ``10022`` is defined
    in the ``start_qemu.sh`` script.  
