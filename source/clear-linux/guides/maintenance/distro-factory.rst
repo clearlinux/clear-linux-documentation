@@ -1,7 +1,35 @@
 .. distro_factory:
 
-Distro factory
-##############
+Maintain the |CL-ATTR| life-cycle
+#################################
+
+.. TODO:Restart here. Use new outline below per meeting Murilo, 03-08-19.
+
+Overview of the Clear Linux OS lifecycle
+
+Fig 1. Overview
+
+Content workflow:
+
+- Explain the goal
+
+
+Release workflow:
+- Explain the goal
+
+Developing and Maintaining a Clear Linux based OS
+
+The complete process required to sustain a Clear Linux-based distro can be divided in two major workflows, each one with its own challenges and life-cycle: Content Workflow and (Distro) Release Workflow.
+
+There are multiple ways to execute upon the goals of each workflow. Teams maintaining Clear Linux based distros can pick whichever tools they see fit to achieve those goals. The amount of content being managed and intended usage of the final distribution are the main drivers on deciding which tools to pick for each job. So let's first understand what those workflows aim to achieve and then discuss on how to implement one possible solution.
+
+
+
+
+
+Content Workflow
+################
+
 
 Distro factory gives DevOps teams the means to produce |CL-ATTR|
 derivatives via pipeline jobs that support a release workflow with
