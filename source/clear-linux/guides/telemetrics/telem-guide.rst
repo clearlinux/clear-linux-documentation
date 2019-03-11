@@ -40,10 +40,10 @@ Architecture
 
 The telemetry client provides the front end of the telemetrics solution and includes the following components:
 
-* telemprobd, a daemon that prepares the telemetry records and spools them on disk prior to delivery
-* telempostd, a daemon that manages record delivery according to configurable settings.
+* telemprobd, a daemon that receives and prepares telemetry records from probes and spools them to disk.
+* telempostd, a daemon that manages spooled telemetry records and delivers these records according to configurable settings.
 * probes, that collect specific types of data from the operating system.
-* libtelemetry, the API that telemetrics probes use to create  records.
+* libtelemetry, the API that telemetrics probes use to create records.
 
 The telemetry backend provides the server-side component of the telemetrics solution and consists of:
 
@@ -168,7 +168,7 @@ The :command:`telemctl journal` command gives you access to features and options
 
 #. Keep all records  -- don't send to backend server
 
-   To keep records on the system without sending them to a backend server, set the :guilabel:`record_server_delivery_enabled` key value to :guilabel:`false`.  Note that you will also need to ensure the the :guilabel:`record_retention_enabled` configuration key value is set to :guilabel:`true` or the system will not keep local copies.
+   To keep records on the system without sending them to a backend server, set the :guilabel:`record_server_delivery_enabled` key value to :guilabel:`false`.  Note that you will also need to ensure the :guilabel:`record_retention_enabled` configuration key value is set to :guilabel:`true` or the system will not keep local copies.
 
 #. Keep and send records to custom server
 
