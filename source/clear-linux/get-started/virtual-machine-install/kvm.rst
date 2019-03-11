@@ -82,6 +82,11 @@ Download and launch the virtual machine
    `image <https://download.clearlinux.org/image/>`_ directory.  This script
    will launch the |CL| VM and provide console interaction within the same
    terminal emulator window.
+   
+   .. code-block:: bash
+      
+      curl -O https://download.clearlinux.org/image/start_qemu.sh
+   
 
 #. Make the script executable:
 
