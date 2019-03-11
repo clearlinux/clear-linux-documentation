@@ -53,17 +53,17 @@ no PAC file is loaded or if you set any proxies manually. Thus, your
 environment settings are respected and no time is wasted trying to resolve a
 proxy. All these steps happen in the background with no user interaction.
 
-Technical details
-=================
+Troubleshooting
+===============
 
 Autoproxy allows |CL| to operate seamlessly behind a proxy
-because, :ref:`swupd <swupd-guide>` and other |CL| tools are implemented on
+because :ref:`swupd <swupd-guide>` and other |CL| tools are implemented on
 top of libcurl. Tools that do not use libcurl, like git, must
 be configured independently. 
 
-If you encounter problems with autoproxy functioning, use
+If you are familiar with PAC files and WPAD, you can use
 :command:`pacdiscovery` and :command:`FindProxyForURL` to
-help troubleshoot assuming a familiarity with PAC files and WPAD. 
+troubleshoot problems with autproxy.
 
 .. note::
 
@@ -71,7 +71,7 @@ help troubleshoot assuming a familiarity with PAC files and WPAD.
 
 .. _findproxyforurl: http://findproxyforurl.com/
 
-Running :command:`pacdiscovery` with no arguments will immediately indicate
+Run :command:`pacdiscovery` with no arguments to indicate
 
 1. if there is a problem resolving the :command:`WPAD` host name resolution: 
 
