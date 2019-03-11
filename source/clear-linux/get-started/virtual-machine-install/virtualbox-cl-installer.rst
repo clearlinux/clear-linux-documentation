@@ -253,13 +253,25 @@ virtual hard disk, which |CL| has been installed to.
 .. |VB| replace:: VirtualBox
 .. |VBM| replace:: VirtualBox Manager
 
+
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
+
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
+
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
+
 .. _downloads page: https://clearlinux.org/downloads
+
 .. _`VirtualBox manual section on Creating a VM`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
 
 .. _`VirtualBox manual section on Running a VM`: https://www.virtualbox.org/manual/ch01.html#intro-starting-vm-first-time
-.. _`Install Clear Linux OS`: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#install-cl-on-your-target-system
+
+.. _`Virtual Media Manager`: https://www.virtualbox.org/manual/ch05.html#vdis
+
+.. _`Install Clear Linux OS`: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#install-cl-on-your-target-system\
+
 .. _7zip: http://www.7-zip.org/
+
 .. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+
+.. _`VirtualBox manual section on VBoxManage`: https://www.virtualbox.org/manual/ch08.html#vboxmanage-convertfromraw

@@ -297,18 +297,28 @@ The |CL| VM running on |VB| is ready to be used.
 Troubleshooting
 ***************
 
-#. **Problem:** On a Microsoft Windows OS, |VB| encounters an error when trying 
-   to start a VM indicating *VT-X/AMD-v hardware acceleration is not 
-   available on your system.* 
+#. **Problem:** Out of disk space inside of |CL| and not be able to install
+   additional bundles. 
+
+   **Solution:** The |CL| images are small to minimize download time and
+   initial disk space .
+
+   Power off the VM and resize the virtual disk for the |CL| VM using the |VB|
+   `Virtual Media Manager`_ found under the File menu. Afterwards, power the
+   |CL| VM on and follow the instructions here to have |CL| detect the resized
+   disk. :ref:`increase-virtual-disk-size`
+
+#. **Problem:** On a Microsoft Windows OS, |VB| encounters an error when
+   trying to start a VM indicating *VT-X/AMD-v hardware acceleration is not
+   available on your system.*
 
 
    .. image:: ./figures/vbox/vbox-no-vtx.png
       :alt: VirtualBox hardware acceleration error
 
 
-   **Solution:**
-   First, double check the `Prerequisites`_ section to make sure 
-   *Hardware accelerated virtualization* extensions have been enabled in the 
+   **Solution:** First, double check the `Prerequisites`_ section to make sure
+   *Hardware accelerated virtualization* extensions have been enabled in the
    host system's EFI/BIOS.
 
    *Hardware accelerated virtualization*, may get disabled for |VB| when another 
@@ -338,15 +348,23 @@ Troubleshooting
 .. |VBM| replace:: VirtualBox Manager
 
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
+
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
+
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
+
 .. _downloads page: https://clearlinux.org/downloads
+
 .. _`VirtualBox manual section on Creating a VM`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
 
 .. _`VirtualBox manual section on Running a VM`: https://www.virtualbox.org/manual/ch01.html#intro-starting-vm-first-time
-.. _`Install Clear Linux OS`: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#install-cl-on-your-target-system
-.. _7zip: http://www.7-zip.org/
-.. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 
+.. _`Virtual Media Manager`: https://www.virtualbox.org/manual/ch05.html#vdis
+
+.. _`Install Clear Linux OS`: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#install-cl-on-your-target-system\
+
+.. _7zip: http://www.7-zip.org/
+
+.. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 
 .. _`VirtualBox manual section on VBoxManage`: https://www.virtualbox.org/manual/ch08.html#vboxmanage-convertfromraw
