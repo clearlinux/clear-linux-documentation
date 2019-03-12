@@ -18,6 +18,7 @@ completed.
    bulk-provision
    kernel-development
    kernel-modules
+   kernel-modules-dkms
    mixer
    mixin
    validate-signatures
