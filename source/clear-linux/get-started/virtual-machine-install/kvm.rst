@@ -146,7 +146,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
      .. code-block:: bash
 
-        swupd bundle-add desktop-apps-extras 
+        swupd bundle-add tigervnc
 
    * On Ubuntu\* 16.04 LTS Desktop:
 
