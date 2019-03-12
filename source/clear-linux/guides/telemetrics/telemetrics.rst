@@ -17,3 +17,4 @@ telemetry backend solution. For more details, learn how to
    telemctl
    telemetry-journal
    telemetry-api
+   telem-guide

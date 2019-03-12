@@ -626,3 +626,4 @@ The `is-active` option reports whether the two client daemons are active. This i
 .. _Telemetrics client: https://github.com/clearlinux/telemetrics-client/
 .. _latest version: https://github.com/clearlinux/telemetrics-client/tree/master/src
 .. _heartbeat probe: https://github.com/clearlinux/telemetrics-client/tree/master/src/probes/hello.c
+.. _Intel privacy policies: https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
