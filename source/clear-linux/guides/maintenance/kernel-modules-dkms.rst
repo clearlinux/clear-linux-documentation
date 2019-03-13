@@ -61,29 +61,33 @@ The *kernel-native-dkms* bundle also:
       especially important for systems where a successful boot relies on a kernel
       module.
 
-   #. Kernel modules installed with DKMS typically put source and binary files
-      under the :file:`/usr` subdirectory. This conflicts with the :ref:`stateless
-      <stateless>` design principles of |CL| and the :command:`swupd verify
-      --fix` command should be avoided with out-of-tree kernel modules in use.   
 
-Install the *kernel-native-dkms* bundle:
+Install the *kernel-native-dkms* or *kernel-lts-dkms* bundle:
 
-#. From a |CL| system, ensure you are running the *native* kernel. 
-   Currently only the native kernel is enabled to build and load
-   out-of-tree modules.
+#. Determine which kernel variant is running on |CL|. Only the *native*
+   and *lts* kernels are enabled to build and load out-of-tree kernel modules
+   with DKMS.
 
    .. code-block:: bash
 
       $ uname -r
       5.XX.YY-ZZZZ.native
 
-   Ensure *.native* is in the kernel name
+   Ensure *.native* or *.lts* is in the kernel name.
 
-#. Install the `kernel-native-dkms`.
+#. Install the dkms bundle corresponding to the installed kernel.
+   *kernel-native-dkms* for the native kernel or *kernel-lts-dkms* for the 
+   lts kernel.
 
    .. code-block:: bash
 
       sudo swupd bundle-add kernel-native-dkms
+
+   or
+
+   .. code-block:: bash
+
+      sudo swupd bundle-add kernel-lts-dkms
    
 
 #. Update the |CL| bootloader and reboot.
@@ -130,6 +134,10 @@ Kernel modules may come packaged as:
 - Source code with a premade dkms.conf and precompiled module binaries
 - Precompiled module binaries only without source code
 
+Precompiled kernel module binaries will not work on |CL| because it requires
+kernel modules to be built against the same kernel source tree before they can
+be loaded.
+
 If you are only able to obtain source code without a dkms.conf, a
 :file:`dkms.conf` file will need to be manually created. 
 
@@ -173,7 +181,7 @@ directory.
    add the module into the dkms tree.
 
 
-#. Verify the kernel module is detected Check the output of 
+#. Verify the kernel module is detected by checking the output of 
    :command:`dkms status`.
  
    .. code-block:: bash
@@ -181,7 +189,7 @@ directory.
       dkms status
 
 
-#. Install the kernel module 
+#. Install the kernel module. 
 
    .. code-block:: bash
 
@@ -220,7 +228,7 @@ The instructions below show a generic example:
 
       $EDITOR dkms.conf
 
-      MAKE[0]="make -C src/ KERNELDIR=/lib/modules/${kernelver}/build"
+      MAKE="make -C src/ KERNELDIR=/lib/modules/${kernelver}/build"
       CLEAN="make -C src/ clean"
       BUILT_MODULE_NAME=custom_module
       BUILT_MODULE_LOCATION=src/
@@ -270,13 +278,13 @@ Load kernel module
 By default, DKMS installs modules "in-tree" under :file:`/lib/modules` so the
 :command:`modprobe` command can be used to load them.
 
-#.  Load the installed module with the :command:`modprobe` command 
+#.  Load the installed module with the :command:`modprobe` command.
 
     .. code-block:: bash
 
        sudo modprobe <MODULE-NAME>
 
-#. Validate the kernel module is loaded
+#. Validate the kernel module is loaded.
 
    .. code-block:: bash
 
@@ -302,6 +310,7 @@ Additional resources
 
 
 .. _`on GitHub`: https://github.com/clearlinux/distribution 
+
 .. _`mixer tool`: https://clearlinux.org/features/mixer-tool
 
 .. _`Dynamic Kernel Module System (DKMS)`: https://github.com/dell/dkms

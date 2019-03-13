@@ -91,19 +91,20 @@ provide a custom kernel and updates.
 Build and install kernel module
 -------------------------------
 
-#. From a |CL| system, ensure you are running the *native* kernel. 
-   Currently only the native kernel is enabled to build and load out-of-tree
-   modules.
+#. Determine which kernel variant is running on |CL|. In the example below,
+   the *native* kernel is in use.
 
    .. code-block:: bash
 
       $ uname -r
       5.XX.YY-ZZZZ.native
 
-   Ensure *.native* is in the kernel name
-
-#. Install the `linux-dev` bundle to obtain the kernel headers, which are
-   required for compiling kernel modules.
+#. Install the kernel dev bundle corresponding to the installed kernel. The
+   kernel dev bundle contains the kernel headers, which are required for
+   compiling kernel modules.For example:
+    
+   * `linux-dev` for developing against the native kernel.
+   * `linux-lts-dev` for developing against the LTS kernel.
 
    .. code-block:: bash
 
