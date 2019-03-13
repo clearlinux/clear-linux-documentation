@@ -1,69 +1,22 @@
-.. distro_factory:
+.. maint-cl-lifecycle:
 
 Maintain the |CL-ATTR| life-cycle
 #################################
 
 .. TODO:Restart here. Use new outline below per meeting Murilo, 03-08-19.
 
-Overview of the Clear Linux OS lifecycle
+This guide explains how a DevOps team maintains the life-cycle of a |CL|
+derivative that integrates custom software and content.
 
-Fig 1. Overview
-
-Content workflow:
-
-- Explain the goal
-
-
-Release workflow:
-- Explain the goal
-
-Developing and Maintaining a Clear Linux based OS
-
-The complete process required to sustain a Clear Linux-based distro can be divided in two major workflows, each one with its own challenges and life-cycle: Content Workflow and (Distro) Release Workflow.
-
-There are multiple ways to execute upon the goals of each workflow. Teams maintaining Clear Linux based distros can pick whichever tools they see fit to achieve those goals. The amount of content being managed and intended usage of the final distribution are the main drivers on deciding which tools to pick for each job. So let's first understand what those workflows aim to achieve and then discuss on how to implement one possible solution.
-
-
-
-
-
-Content Workflow
-################
-
-
-Distro factory gives DevOps teams the means to produce |CL-ATTR|
-derivatives via pipeline jobs that support a release workflow with
-continuous integration. This guide recommends setting up a standard
-infrastructure before implementing the release workflow.
-
-.. contents::
-   :local:
-   :depth: 1
-
-Description
-***********
-
-As an operating system vendor (OSV) toolchain, Distro factory manages |CL|
-derivatives while capturing the requirements used to maintain the release
-cadence over time. Distro factory provides a wrapper around
-:ref:`mixer <mixer>` that enables a DevOps team to publish rolling releases
-that include the update content and metadata associated with each version.
-
-Maintaining an OSV derivative of |CL| requires:
+Maintaining an |CL| derivative of requires:
 
 * Monitoring upstream |CL| for new releases
 * Building software packages and staging
 * Employing CI/CD automation for building releases
 * Integrating Quality Assurance for testing and validation
 
-How it works
-************
+Critical pieces of infrastructure can be deployed to automate the life-cycle of your |CL| derivative. The complete process required to sustain a |CL| derivative can be divided in two major workflows: Content Workflow; and Release Workflow. The latter workflow we call `Distro-Factory`.
 
-Review the requirements and learn the basics of implementation.
-
-.. contents::
-   :local:
-   :depth: 1
 
 Prerequisites
 =============
@@ -74,6 +27,8 @@ Prerequisites
 * Experience using :ref:`mixer <mixer>` to create a |CL|-based distro
 
 * Experience using :ref:`swupd <swupd-guide>`
+
+* Following |CL| architecture and may reuse its content in your releases
 
 Overview
 ========
@@ -138,3 +93,44 @@ full implementation, visit |CL| `Distro factory documentation`_.
 .. _Koji Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Koji
 
 .. _Release Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Release
+
+
+
+
+.. Content Workflow
+.. ################
+
+
+.. Distro factory gives DevOps teams the means to produce |CL-ATTR|
+.. derivatives via pipeline jobs that support a release workflow with
+.. continuous integration. This guide recommends setting up a standard
+.. infrastructure before implementing the release workflow.
+
+.. .. contents::
+..    :local:
+..    :depth: 1
+
+.. Description
+.. ***********
+
+.. As an operating system vendor (OSV) toolchain, Distro factory manages |CL|
+.. derivatives while capturing the requirements used to maintain the release
+.. cadence over time. Distro factory provides a wrapper around
+.. :ref:`mixer <mixer>` that enables a DevOps team to publish rolling releases
+.. that include the update content and metadata associated with each version.
+
+.. Maintaining an OSV derivative of |CL| requires:
+
+.. * Monitoring upstream |CL| for new releases
+.. * Building software packages and staging
+.. * Employing CI/CD automation for building releases
+.. * Integrating Quality Assurance for testing and validation
+
+.. How it works
+.. ************
+
+.. Review the requirements and learn the basics of implementation.
+
+.. .. contents::
+..    :local:
+..    :depth: 1

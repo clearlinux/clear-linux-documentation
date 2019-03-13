@@ -20,7 +20,7 @@ completed.
    kernel-modules
    mixer
    mixin
-   distro-factory
+   maint-cl-lifecycle
    validate-signatures
    time
    hostname
