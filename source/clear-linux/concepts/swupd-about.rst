@@ -16,7 +16,7 @@ Using package managers to keep track of software version compatibility or compar
 
 With |CL| :command:`swupd`, versioning happens at the individual
 file-level. This means |CL| generates an entirely new OS version with any set
-of software changes to the system (including software downgrades or removals). Thi rolling release versioning model is similar to
+of software changes to the system (including software downgrades or removals). This rolling release versioning model is similar to
 :command:`git` internal version tracking, where any of the individual file
 commits are tracked and move the pointer forward when changed.
 
