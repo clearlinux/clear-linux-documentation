@@ -3,23 +3,27 @@
 Maintain the |CL-ATTR| life-cycle
 #################################
 
-.. TODO:Restart here. Use new outline below per meeting Murilo, 03-08-19.
+This guide provides DevOps with a model to maintain the life-cycle of a |CL|
+derivative that integrates custom software and content using distinct workflows.
 
-This guide explains how a DevOps team maintains the life-cycle of a |CL|
-derivative that integrates custom software and content.
-
-Maintaining an |CL| derivative of requires:
+Maintaining a |CL| derivative requires:
 
 * Monitoring upstream |CL| for new releases
 * Building software packages and staging
 * Employing CI/CD automation for building releases
 * Integrating Quality Assurance for testing and validation
 
-Critical pieces of infrastructure can be deployed to automate the life-cycle of your |CL| derivative. The complete process required to sustain a |CL| derivative can be divided in two major workflows: Content Workflow; and Release Workflow. The latter workflow we call `Distro-Factory`.
+This guide provides the foundation of the recommended infrastructure.
 
+How it works
+************
+
+.. contents::
+   :local:
+   :depth: 1
 
 Prerequisites
-=============
+*************
 
 * A repository with software RPM artifacts and a CI/CD system with a |CL|
   machine for building `mixes`
@@ -28,109 +32,50 @@ Prerequisites
 
 * Experience using :ref:`swupd <swupd-guide>`
 
-* Following |CL| architecture and may reuse its content in your releases
+* Familiarity with |CL| architecture and reuse of its content in releases
 
-Overview
-========
+Description
+***********
 
-We divide deployment of infrastucture in two parts: *Content Workflow*;
-and *Release Workflow*. Distro Factory manages the *Release Workflow*.
+Critical infrastructure can be deployed to automate the life-cycle
+of your |CL| derivative. We divide deployment of this infrastucture in two
+parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1. Distro Factory manages the *Release Workflow* while capturing the requirements for
+maintaining a long-term release cadence.
 
-We include the *Content Workflow* to give context for the entire process.
+.. figure:: figures/maint-cl-lifecycle-1.png
+   :scale: 100%
+   :alt: |CL| maintenance life-cycle
+
+   Figure 1: |CL| maintenance life-cycle
 
 Content workflow
-----------------
-The *Content Workflow* (Figure 1) comprises all of the processes and
-methodologies used to manage the content of the distribution. It includes
-everything from detecting a new release in a custom software repository to
-generating RPM package files. Used as intermediary artifacts to track
-software dependencies, RPM files are fed into :ref:`mixer <mixer>`.
+****************
+
+The *Content Workflow* (Figure 1) orchestrates the processes used to manage
+the `content` of the distribution. This includes everything from detecting a
+new release in a custom software repository to generating RPM package files.
+The RPM files serve as intermediary artifacts that track software dependencies and provide file-level data consumed in a *Release Workflow*.  The `Watcher Pipeline`_ checks |CL| and a content provider, such as Koji, to determine if a new release is necessary.
 
 Release workflow
-----------------
-The *Release Workflow* allows DevOps to create a new release for the
-targets/clients (Figure 1). As an integral part of the toolchain, the
-*Release Pipeline* enables downstream derivatives to incorporate
-|CL| content into their own custom content.
+****************
 
+The *Release Workflow* (Figure 1) gathers the content of the RPMs and
+ensures it can be consumed by :ref:`swupd <swupd-guide>`. It also connects 
+downstream instances to a web server and updates their OSes. As an integral 
+part of this toolchain, the *Release Pipeline* enables these downstream 
+derivatives to incorporate |CL| content into their own custom content. The
+`Release Pipeline`_ creates new releases when triggered by the *Watcher Pipeline*.
 
-.. figure:: figures/distro-factory-1.png
-   :scale: 100%
-   :alt: Distro factory overview
-
-   Figure 1: Distro factory overview
-
-.. note::
-
-   While Jenkins is used for CI/CD and Koji is used for content, these may
-   be replaced with other solutions.
-
-Pipelines
-=========
-
-Pipelines define the order in which a set of scripts is executed, and they
-determine how processes interact. Pipelines can be customized to fit a
-team's requirements. So what do pipelines do?
-
-* `Watcher Pipeline`_ Checks if a new release is necessary by checking |CL| and a content provider, such as Koji.
-* `Release Pipeline`_ Creates new releases when triggered by the Watcher Pipeline
 
 Implementation
-==============
+**************
 
-To implement Distro Factory, you should follow a Distro Release Workflow
-for multiple instances to share. First, pipelines must be established to
-fetch from a `clr-distro-factory-config`, which is a git repository
-containing all the data needed for this workflow to run. To get started on a
-full implementation, visit |CL| `Distro factory documentation`_.
-
-.. TODO: Add content here on: 1) Recommended file structure; 2) clr-distro-factory-config git repo; 3) using Jenkins to create jobs for each pipeline.
+To get started on a full implementation, visit |CL| `Distro factory documentation`_.
 
 .. _Distro factory documentation: https://github.com/clearlinux/clr-distro-factory/wiki#clr-distro-factory
+
+.. _Release Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Release
 
 .. _Watcher Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Watcher
 
 .. _Koji Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Koji
-
-.. _Release Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Release
-
-
-
-
-.. Content Workflow
-.. ################
-
-
-.. Distro factory gives DevOps teams the means to produce |CL-ATTR|
-.. derivatives via pipeline jobs that support a release workflow with
-.. continuous integration. This guide recommends setting up a standard
-.. infrastructure before implementing the release workflow.
-
-.. .. contents::
-..    :local:
-..    :depth: 1
-
-.. Description
-.. ***********
-
-.. As an operating system vendor (OSV) toolchain, Distro factory manages |CL|
-.. derivatives while capturing the requirements used to maintain the release
-.. cadence over time. Distro factory provides a wrapper around
-.. :ref:`mixer <mixer>` that enables a DevOps team to publish rolling releases
-.. that include the update content and metadata associated with each version.
-
-.. Maintaining an OSV derivative of |CL| requires:
-
-.. * Monitoring upstream |CL| for new releases
-.. * Building software packages and staging
-.. * Employing CI/CD automation for building releases
-.. * Integrating Quality Assurance for testing and validation
-
-.. How it works
-.. ************
-
-.. Review the requirements and learn the basics of implementation.
-
-.. .. contents::
-..    :local:
-..    :depth: 1
