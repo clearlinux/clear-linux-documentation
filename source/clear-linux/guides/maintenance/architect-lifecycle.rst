@@ -3,7 +3,7 @@
 Architect the life-cycle of |CL-ATTR|
 #####################################
 
-This guide provides DevOps with a model to maintain the life-cycle of a |CL|
+This guide provides DevOps with a model to architect the life-cycle of a |CL|
 derivative that integrates custom software and content using distinct
 workflows.
 
@@ -44,7 +44,7 @@ of your |CL| derivative. We divide deployment of this infrastucture in two
 parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1. Distro Factory manages the *Release Workflow* while capturing the requirements for
 maintaining a long-term release cadence.
 
-.. figure:: figures/maint-cl-lifecycle-1.png
+.. figure:: figures/architect-lifecycle-1.png
    :scale: 100%
    :alt: |CL| maintenance life-cycle
 
@@ -61,8 +61,9 @@ Release workflow
 
 The *Release Workflow* (Figure 1) gathers the content of the RPMs and
 ensures it can be consumed by :ref:`mixer <mixer>`. A content web server
-hosts the |CL| derivative, which targets can connect to for updating their OSes. As an integral part of this toolchain, the *Release Pipeline*
-enables these derivatives to incorporate |CL| content into their own custom
+hosts the |CL| derivative, to which targets connect for updating their OSes.
+As an integral part of this toolchain, the *Release Pipeline* enables these
+derivatives to incorporate |CL| content into their own custom
 content. The *Watcher Pipeline* triggers the `Release Pipeline`_ to create
 new releases.
 
@@ -76,6 +77,3 @@ Distro factory implements the *Release workflow*. To get started on a full imple
 .. _Release Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Release
 
 .. _Watcher Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Watcher
-
-.. _Koji Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Koji
-
