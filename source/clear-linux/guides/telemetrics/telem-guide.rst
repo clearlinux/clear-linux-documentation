@@ -33,7 +33,7 @@ Architecture
 
 * Backend: receives records sent from the client and displays the cumulative content through a specialized web interface.
 
-.. figure:: ../../concepts/figures/telemetry-about-1.png
+.. figure:: figures/telemetry-e2e.png
    :alt: Figure 1, Telemetry Architecture
 
    Figure 1: :guilabel:`|CL| Telemetry Architecture`
@@ -253,7 +253,7 @@ For this example, start with a clean installation of |CL| on a new system using 
 
 #. Once the installation is complete you can use your web browser to view the new server by opening the browser on the system and typing in ``localhost`` in the address bar.  You should see a web page similar to the one shown in figure 1:
 
-   .. figure:: ../../tutorials/telemetry-backend/figures/telemetry-backend-1.png
+   .. figure:: figures/telemetry-backend-1.png
       :alt: Telemetry UI
 
       Figure 1: :guilabel:`Telemetry UI`
