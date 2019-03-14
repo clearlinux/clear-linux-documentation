@@ -82,6 +82,11 @@ Download and launch the virtual machine
    `image <https://download.clearlinux.org/image/>`_ directory.  This script
    will launch the |CL| VM and provide console interaction within the same
    terminal emulator window.
+   
+   .. code-block:: bash
+      
+      curl -O https://download.clearlinux.org/image/start_qemu.sh
+   
 
 #. Make the script executable:
 
@@ -103,13 +108,19 @@ SSH access into the virtual machine
 To interact with the |CL| VM through SSH instead of the console it was
 launched from, follow these steps.
 
-#. Enable SSH in the |CL| VM:
+#. Configure SSH in the |CL| VM to allow root login:
 
    .. code-block:: bash
 
       cat > /etc/ssh/sshd_config << EOF
         PermitRootLogin yes
         EOF
+
+#. Start SSH server in the |CL| VM:
+
+   .. code-block:: bash
+
+      systemctl start sshd
 
 #. From the host, SSH into the |CL| VM.  The port number ``10022`` is defined
    in the ``start_qemu.sh`` script.  
@@ -135,7 +146,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
      .. code-block:: bash
 
-        swupd bundle-add desktop-apps-extras 
+        swupd bundle-add tigervnc
 
    * On Ubuntu\* 16.04 LTS Desktop:
 
