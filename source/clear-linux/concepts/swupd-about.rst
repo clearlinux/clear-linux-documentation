@@ -57,7 +57,6 @@ multiple compression formats, allowing :command:`swupd` to utilize the most
 efficiently compressed format for a |CL| system to minimize the cost
 to update.
 
-
 Update integrity
 ----------------
 
@@ -98,5 +97,5 @@ For more information on bundles, visit:
 
 .. [1] The software update technology for |CL-ATTR| was first presented at the Linux Plumbers conference in 2012.
 
-.. _Stateless: https://clearlinux.org/features/stateless
 .. _swupd man page: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
+

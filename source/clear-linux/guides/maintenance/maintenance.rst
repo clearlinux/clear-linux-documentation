@@ -20,6 +20,7 @@ completed.
    kernel-modules
    mixer
    mixin
+   architect-lifecycle
    validate-signatures
    time
    hostname
