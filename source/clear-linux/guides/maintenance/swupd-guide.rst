@@ -3,7 +3,8 @@
 swupd
 #####
 
-:command:`swupd` links a |CL-ATTR| installation with upstream updates and software.
+:command:`swupd` links a |CL-ATTR| installation with upstream updates and
+software.
 
 .. contents::
    :local:
@@ -22,19 +23,45 @@ Description
 managed by |CL| and contain everything needed to deliver a software
 capability. Rather than downloading a cascade of package dependencies when
 installing a piece of software, a bundle comes with all of its dependencies.
-:command:`swupd` manages overlapping dependencies behind the scenes ensuring that all
-software is compatible across the system.
+:command:`swupd` manages overlapping dependencies behind the scenes ensuring
+that all software is compatible across the system.
 
-A big difference between package-based distributions and |CL| is how updates
-and software are managed. On a package-based OS, system administrators
-have to track updates at a package level, which means tracking the version
-of the OS, kernel, and each of the installed packages which can easily
-become out of sync. |CL| guarantees that any installation with the same OS
-version has the same kernel and supporting software. In other words, it
-isn't possible for any OS component to get out of sync as long as
-:command:`swupd` is used for system updates. It also means that only one
-version number is needed to know whether a |CL| installation has the latest
-security patches installed. 
+Versioning
+==========
+
+In a traditional distribution, the process of describing current software
+versioning usually involves:
+
+-  Listing and keeping track of the current OS release (generally
+   uninformative about any singular packages or functionality).
+
+-  Keeping track of packages and repositories being used, and updating them
+   individually.
+
+-  Listing and tracking every package available and installed on the
+   system, none of which are directly tied to the current OS release.
+
+This can be done effectively, but given the nearly endless combinations of
+packages and versions of packages a server may have, it quickly becomes
+non-trivial to define what "version" the system is and what software it
+is running without explicitly going through each system and inspecting
+every package.
+
+With |CL|, we need track:
+
+-  One number
+
+A number representing the **current** release of the OS is sufficient to
+describe the versions of all the software on the OS. Each build is
+composed of a specific set of bundles made from a particular version of
+packages. This matters on a daily basis to system administrators, who
+need to determine which of their systems do not have the latest security
+fixes, or which combinations of software have been tested. Every release
+of the same number is guaranteed to contain the same versions of software,
+so there's no ambiguity between two systems running the same version of |CL|.
+
+Updating
+========
 
 |CL| enforces regular updating of the OS by default and will automatically
 check for updates against a version server. The content server provides the
