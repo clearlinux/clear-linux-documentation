@@ -43,9 +43,9 @@ maintaining a long-term release cadence.
 
 .. figure:: figures/architect-lifecycle-1.png
    :scale: 100%
-   :alt: |CL| maintenance life-cycle
+   :alt: Architect the life-cycle
 
-   Figure 1: |CL| maintenance life-cycle
+   Figure 1: Architect the life-cycle
 
 Content workflow
 ****************
