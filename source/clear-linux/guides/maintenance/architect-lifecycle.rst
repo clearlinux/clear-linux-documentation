@@ -16,9 +16,6 @@ Maintaining a |CL| derivative requires:
 
 This guide provides the foundation of the recommended infrastructure.
 
-How it works
-************
-
 .. contents::
    :local:
    :depth: 1
@@ -39,7 +36,7 @@ Prerequisites
 Description
 ***********
 
-Coordinated infrastructure can be deployed to automate the life-cycle
+Coordinated infrastructure is deployed to automate the life-cycle
 of your |CL| derivative. We divide deployment of this infrastucture in two
 parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1. Distro Factory manages the *Release Workflow* while capturing the requirements for
 maintaining a long-term release cadence.
