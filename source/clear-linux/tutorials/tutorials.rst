@@ -25,7 +25,7 @@ Explore our tutorials to discover what you can do with |CL|!
    hadoop
    fmv
    aws-web/aws-web
-   smb/smb
+   smb/smb*
    spark
    kata
    kata_migration

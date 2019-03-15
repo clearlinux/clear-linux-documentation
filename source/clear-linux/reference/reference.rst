@@ -18,4 +18,7 @@ features.
    compatible-kernels
    system-requirements
    image-types
+<<<<<<< HEAD
    
+=======
+>>>>>>> c70ca64... Revises intro to add expl of CIFS/SMB in context; removes empty ref.
