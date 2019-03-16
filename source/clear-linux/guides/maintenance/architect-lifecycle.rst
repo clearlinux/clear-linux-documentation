@@ -1,4 +1,4 @@
-.. architect-lifecycle:
+.. _architect-lifecycle:
 
 Architect the life-cycle of |CL-ATTR|
 #####################################
