@@ -297,6 +297,6 @@ For other guides on using the VMWare Player and ESXi, see:
 .. _VMware Workstation Player guide:
    https://docs.vmware.com/en/VMware-Workstation-Player/index.html
 
-.. _latest: https://download.clearlinux.org/image/
+.. _latest: https://cdn.download.clearlinux.org/image/
 
-.. _image: https://download.clearlinux.org/image
+.. _image: https://cdn.download.clearlinux.org/image

@@ -262,7 +262,7 @@ machines control the NICs on the host.
 
    .. code-block:: bash
 
-      sudo curl -O https://download.clearlinux.org/image/start_qemu.sh
+      sudo curl -O https://cdn.download.clearlinux.org/image/start_qemu.sh
 
 #. Download a bare-metal image of |CL| and rename it as :file:`clear.img`.
 
@@ -338,7 +338,7 @@ machines control the NICs on the host.
 #. Run the :file:`start_qemu.sh` script.
 
 
-.. _13330: https://download.clearlinux.org/releases/13330/
+.. _13330: https://cdn.download.clearlinux.org/releases/13330/
 .. _DPDK project: http://dpdk.org
 .. _dpdk.org NICs: http://dpdk.org/doc/nics
 .. _pktgen tar package: http://dpdk.org/browse/apps/pktgen-dpdk/refs

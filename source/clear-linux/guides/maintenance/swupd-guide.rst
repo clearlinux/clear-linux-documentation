@@ -49,7 +49,7 @@ Current OS version and update server info:
 .. code-block:: console
 
    Installed version: 23330
-   Version URL:       https://download.clearlinux.org/update/
+   Version URL:       https://cdn.download.clearlinux.org/update/
    Content URL:       https://cdn.download.clearlinux.org/update/
 
 Enable or disable automatic updates

@@ -76,6 +76,6 @@ Table 2 lists the currently available images that are platform specific.
    * - vmware.vmdk
      - Virtual Machine Disk for VMware\* platforms inclduing Player, Workstation, and ESXi.
 
-.. _images: https://download.clearlinux.org/image
+.. _images: https://cdn.download.clearlinux.org/image
 .. _`optimized kernel`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
 

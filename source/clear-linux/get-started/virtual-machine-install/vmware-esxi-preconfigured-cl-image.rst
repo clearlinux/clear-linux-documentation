@@ -36,7 +36,7 @@ this command:
 
 .. code-block:: bash
 
-   curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep vmware)
+   curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep vmware)
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
@@ -290,4 +290,4 @@ Related topics
 .. _VMware documentation on Enable the Secure Shell (SSH): https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-B649CB74-832F-467B-B6A4-8BA67AD5C1F0.html
 .. _VMware documentation on General ESXi Security Recommendations: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-B39474AF-6778-499A-B8AB-E973BE6D4899.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
-.. _image: https://download.clearlinux.org/image
+.. _image: https://cdn.download.clearlinux.org/image
