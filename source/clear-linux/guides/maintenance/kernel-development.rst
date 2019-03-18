@@ -430,7 +430,7 @@ Related topics
 
 .. _distribution on GitHub: https://github.com/clearlinux/distribution/issues/new/choose
 
-.. _source RPM files: https://download.clearlinux.org/current/source/SRPMS/
+.. _source RPM files: https://cdn.download.clearlinux.org/current/source/SRPMS/
 
 .. _Quilt: http://savannah.nongnu.org/projects/quilt
 

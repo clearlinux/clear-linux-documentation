@@ -166,4 +166,4 @@ Resize the filesytem
 Congratulations! You have resized the disk, partition, and filesystem. At
 this point, the increase in disk capacity is usable.
 
-.. _releases: https://download.clearlinux.org/releases/
+.. _releases: https://cdn.download.clearlinux.org/releases/
