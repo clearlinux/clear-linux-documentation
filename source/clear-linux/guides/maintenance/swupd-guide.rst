@@ -132,12 +132,8 @@ Bundle Search
 =============
 
 :command:`swupd` search downloads manifest data and searches for
-matching paths. Enter only one term, or hyphenated term, per
+bundles that match the term. Enter only one term, or hyphenated term, per
 search. Use the command :command:`man swupd` to learn more.
-
--b --binary
-   Restrict search to program binary paths. Omit this flag if you want a
-   larger scope of search results.
 
 Only the base bundle is returned. Bundles can contain other bundles via
 includes. For more details, see `Bundle Definition Files`_ and its
@@ -146,7 +142,7 @@ subdirectory bundles.
 Bundles that are already installed, will be marked [installed] in search
 results.
 
-Optionally, you can review our `bundles`_ or individual `packages`_
+Optionally, you can review our `bundles`_ on GitHub.
 
 Examples
 ********
@@ -221,13 +217,6 @@ number of dependencies.  Also, check out our tutorial: :ref:`kata`.
      .. code-block:: bash
 
         sudo swupd search kata
-
-   * If you're only interested in searching binaries, add the `-b`
-     flag:
-
-     .. code-block:: bash
-
-        sudo swupd search -b kata
 
      The output should be similar to:
 
@@ -360,5 +349,3 @@ Related topics
 .. _Bundle Definition Files: https://github.com/clearlinux/clr-bundles
 
 .. _bundles: https://github.com/clearlinux/clr-bundles/tree/master/bundles
-
-.. _packages: https://github.com/clearlinux/clr-bundles/blob/master/packages
