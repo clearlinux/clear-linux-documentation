@@ -37,7 +37,9 @@ hooks that automatically rebuild modules against new kernel versions.
 Install DKMS on |CL|
 ====================
 
-The *kernel-native-dkms* bundle provides the :command:`dkms`: program and
+.. _kernel-modules-dkms-install-begin:
+
+The *kernel-native-dkms* bundle provides the :command:`dkms` program and
 Linux kernel headers, which are required for compiling kernel modules.
 
 The *kernel-native-dkms* bundle also:
@@ -98,6 +100,7 @@ Install the *kernel-native-dkms* or *kernel-lts-dkms* bundle:
       reboot
 
 
+.. _kernel-modules-dkms-install-end:
 
 Build, install, and load an out-of-tree module
 ==============================================
