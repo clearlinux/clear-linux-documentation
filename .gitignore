@@ -4,3 +4,6 @@ source/_build
 *.swp
 *~
 .*~
+
+# ignore VS code settings
+.vscode/

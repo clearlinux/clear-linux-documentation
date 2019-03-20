@@ -18,8 +18,10 @@ completed.
    bulk-provision
    kernel-development
    kernel-modules
+   kernel-modules-dkms
    mixer
    mixin
+   architect-lifecycle
    validate-signatures
    time
    hostname

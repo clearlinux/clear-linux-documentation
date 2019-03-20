@@ -25,8 +25,6 @@ Explore our tutorials to discover what you can do with |CL|!
    hadoop
    fmv
    aws-web/aws-web
-   telemetry-e2e
-   telemetry-backend/telemetry-backend
    smb/smb
    spark
    kata
@@ -35,3 +33,4 @@ Explore our tutorials to discover what you can do with |CL|!
    greengrass
    dlrs
    yubikey-u2f
+   nvidia
