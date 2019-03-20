@@ -222,17 +222,21 @@ number of dependencies.  Also, check out our tutorial: :ref:`kata`.
 
      .. code-block:: console
 
-        Bundle containers-virt    (834 MB to install)
-            /usr/bin/kata-virtfs-lite-proxy-helper
-            /usr/bin/kata-runtime
-            /usr/bin/kata-qemu-lite-system-x86_64
-            /usr/bin/kata-qemu-lite-pr-helper
-            /usr/bin/kata-qemu-lite-ga
-            /usr/bin/kata-collect-data.sh
+        Bundle with the best search result:
+             
+             containers-virt - Run container applications from Dockerhub in lightweight virtual machines
+
+        This bundle can be installed with:
+
+             swupd bundle-add  containers-virt
+
+        Alternative bundle options are
+             
+             cloud-native-basic - Contains ClearLinux native software for Cloud
 
      .. note::
 
-        If your search of binaries does not produce results with a specific
+        If your search does not produce results with a specific
         term, shorten the search term. For example, use *kube* instead of
         *kubernetes*.
 
