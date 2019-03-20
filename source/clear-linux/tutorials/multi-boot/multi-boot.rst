@@ -55,7 +55,7 @@ installation of the tested operating systems.
 .. csv-table:: Table 1: OS specific installation information
    :header: # , OS, Version, Partition Size [#]_, Swap Size [#]_, EFI Partition Size [#]_, Download Link
 
-   1,Clear Linux,16140,50 GB,8 GB,1 GB,https://download.clearlinux.org/releases/16140/clear/
+   1,Clear Linux,16140,50 GB,8 GB,1 GB,https://cdn.download.clearlinux.org/releases/16140/clear/
    2,Windows,Server 2016,50 GB,N/A,Shared with #1,https://www.microsoft.com/en-us/cloud-platform/windows-server
    3,Red Hat\*,Server 7.4 Beta,45 GB,Shared with #1,Shared with #1,https://access.redhat.com/downloads/
    4,SUSE\*,Server 12 SP2,45 GB,Shared with #1,Shared with #1,https://www.suse.com/download-linux/

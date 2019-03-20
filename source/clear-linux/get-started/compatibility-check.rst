@@ -19,7 +19,7 @@ below.
 
    .. code-block:: console
 
-      curl -O https://download.clearlinux.org/current/clear-linux-check-config.sh
+      curl -O https://cdn.download.clearlinux.org/current/clear-linux-check-config.sh
 
 #. Make the script executable.
 
@@ -58,4 +58,4 @@ below.
       SUCCESS: Carry-less Multiplication extensions (pclmulqdq)
       SUCCESS: EFI Firmware
 
-.. _clear-linux-check-config.sh: https://download.clearlinux.org/current/clear-linux-check-config.sh
+.. _clear-linux-check-config.sh: https://cdn.download.clearlinux.org/current/clear-linux-check-config.sh

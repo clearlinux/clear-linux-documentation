@@ -859,6 +859,6 @@ Next steps
 
 :ref:`enable-user-space`
 
-.. _Navigate to the image directory: https://download.clearlinux.org/image/
+.. _Navigate to the image directory: https://cdn.download.clearlinux.org/image/
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _telemetry: https://clearlinux.org/features/telemetry
