@@ -94,7 +94,7 @@ To fulfill minimum installation requirements, complete the
    * The :kbd:`Install` button is **only highlighted after** you complete
      `Required options`_.
 
-   * You must choose whether or not to participate in :ref:`telemetrics`
+   * You must choose whether or not to participate in :ref:`telem-guide`
      before you can finish installation.
 
    * You may `Test Network Settings`_ before installation
@@ -439,7 +439,7 @@ Telemetry
 =========
 
 To fulfill the :guilabel:`Required options`, choose whether or not to
-participate in `telemetry`_.  :ref:`telemetrics` is a |CL| feature that
+participate in `telemetry`_.  :ref:`telem-guide` is a |CL| feature that
 reports failures and crashes to the |CL| development team for improvements.
 For more detailed information, visit our :ref:`telemetry-about` page.
 
@@ -859,6 +859,6 @@ Next steps
 
 :ref:`enable-user-space`
 
-.. _Navigate to the image directory: https://download.clearlinux.org/image/
+.. _Navigate to the image directory: https://cdn.download.clearlinux.org/image/
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _telemetry: https://clearlinux.org/features/telemetry

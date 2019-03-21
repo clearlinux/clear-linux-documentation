@@ -93,7 +93,7 @@ Burn the |CL| image onto a USB drive
 
    .. code-block:: bash
 
-      dd if=./clear-[version number]-[image type] of=<your USB device> bs=4M status=progress
+      dd if=./clear-[version number]-[image type] of=<your USB device> bs=4M status=progress && sync
 
 .. _bootable-usb-mac:
 
