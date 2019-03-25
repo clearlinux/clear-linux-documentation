@@ -239,6 +239,13 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
+Cloud native setup automation (optional)
+****************************************
+
+|CL| has `cloud-native` setup helper scripts that can execute many of the
+steps described above. Clone the `clr-k8s-examples`_ repository and
+`follow these instructions`_.
+
 Package configuration customization (optional)
 **********************************************
 
@@ -405,3 +412,6 @@ Troubleshooting
 
 .. _documentation: https://clearlinux.org/documentation/clear-linux
 
+.. _follow these instructions: https://github.com/clearlinux/cloud-native-setup/blob/master/clr-k8s-examples/README.md#setup-the-nodes-in-the-cluster
+
+.. _clr-k8s-examples: https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples
