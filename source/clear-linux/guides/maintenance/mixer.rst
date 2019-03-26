@@ -17,9 +17,8 @@ Description
 
 mixer uses the following sources as inputs to generate update content:
 
-* Upstream |CL| update content
-* Local bundle definitions
-* Local RPM files
+* Upstream |CL| bundles with their corresponding RPM packages
+* Locally-defined bundles with their corresponding local RPM packages
 
 Using the mixer tool, you select which set of content from these sources will be
 part of your update. You can select content from each of these sources to make a
@@ -81,10 +80,10 @@ Prerequisites
   Refer to `Set up a nginx web server for mixer`_ for an simple example of
   setting up an update location.
 
-First time setup
-================
+Mix setup
+==========
 
-First time setup creates and initializes the workspace used by mixer. Complete
+Setup creates and initializes the workspace used by mixer. Complete
 setup before you create a mix.
 
 #. Create workspace.
@@ -96,15 +95,15 @@ setup before you create a mix.
 
 #. Initialize the workspace and mix.
 
-   Before you create a mix, you must explicitley initialize the mixer workspace.
+   Before you create a mix, you must explicitly initialize the mixer workspace.
    During initialization, the mixer workspace is configured and the base for
    your mix is defined. By default, your mix will be based on the latest
    upstream version and start with the minimum set of bundles. Your first custom
    mix version number will start at 10. You can alternately select other
    versions or bundle sets to start from.
 
-   Initialization creates the directory structure used by mixer and adds the
-   :file:`builder.conf` file, which is used to configure the mixer tool.
+   Initialization creates the directory structure within the workspace and adds
+   the :file:`builder.conf` file, which is used to configure the mixer tool.
 
    View the `mixer.init man page`_ for more information on mixer
    initialization.
@@ -113,9 +112,9 @@ setup before you create a mix.
 
 #. Edit builder.conf.
 
-   :file:`builder.conf` is used to configure the mixer tool. For example, it
-   allows you to configure where mixer output is located and where swupd update
-   content will be located.
+   :file:`builder.conf` tells the mixer tool how to configure the mix. For
+   example, it allows you to configure where mixer output is located and where
+   swupd update content will be located.
 
    At minimum, set the URL of your update server so your custom OS knows where
    to get update content.
@@ -132,8 +131,8 @@ A mix is created with the following steps:
    If you are adding custom RPMs to your mix, you will need to add the RPMs to
    your mix workspace and set up a corresponding local repository.
 
-   You can use :ref:`autospec<autospec>`, `mock`, `rpmbuild`, or similar tools
-   to build RPMs from scratch. If the RPMs are not built on |CL|, make sure your
+   Go to the :ref:`autospec<autospec>` guide to learn to build RPMs from
+   scratch. If the RPMs are not built on |CL|, make sure your
    configuration and toolchain builds them correctly for |CL|. Otherwise there
    is no guarantee they will be compatible.
 
@@ -142,9 +141,9 @@ A mix is created with the following steps:
 
 #. Update and build bundles.
 
-   Add, edit, or remove bundles that will be part of your content and then build
-   the updated list of bundles. mixer will automatically update the
-   :file:`mixbundles` file when you update the bundles in your mix.
+   Add, edit, or remove bundles that will be part of your content and build
+   them. mixer will automatically update the :file:`mixbundles` file when you
+   update the bundles in your mix.
 
    View the `mixer.bundle man page`_ for more information on configuring bundles
    in a mix.
@@ -154,7 +153,7 @@ A mix is created with the following steps:
    View the `Bundles`_ section for more information on how mixer manages
    bundles.
 
-#. Create update.
+#. Create the update content.
 
    mixer creates update content with this step. Zero-packs are created
    automatically, and delta-packs can be optionally created at the same time
@@ -201,8 +200,8 @@ use:
 
 Complete all `Prerequisites`_ before using these examples.
 
-Example 1: First time set up
-============================
+Example 1: Mix set up
+======================
 
 This example shows the basic steps for first time setup of mixer for a new mix.
 
@@ -224,13 +223,7 @@ This example shows the basic steps for first time setup of mixer for a new mix.
    10 and that the minimum bundles have been added.
 
 #. Edit :file:`builder.conf` to set the value of CONTENTURL and VERSIONURL to
-   the IP address of your content server:
-
-   .. code-block:: bash
-
-      nano builder.conf
-
-   Use the IP address from the nginx server you set up in the prerequisite
+   the IP address of  the nginx server you set up in the prerequisite
    `Set up a nginx web server for mixer`_. For example:
 
    .. code-block:: console
@@ -248,8 +241,8 @@ We'll create an image for a QEMU virtual machine which we can later use to test
 our mix.
 
 We can use the default bundles that were added during intialization, but these
-include the :command:`native-kernel` bundle which has hundreds of drivers we
-don't need for the QEMU virtual machine. So we will modify the default bundle
+include the :command:`native-kernel` bundle which is intended to be used on a
+bare metal system instead of a VM. So we will modify the default bundle
 set to get a smaller kernel image, which will also be faster to load.
 
 #. Update bundles in mix:
@@ -694,19 +687,20 @@ If needed, use these steps to configure the Docker proxy information.
 
 Configure the Docker daemon proxies:
 
-#. Create the Docker daemon proxy config file and add the
-   following entries, using your own proxy values:
+#. Create the Docker daemon proxy config directory:
 
    .. code-block:: bash
 
       sudo mkdir -p /etc/systemd/system/docker.service.d
-      sudo nano /etc/systemd/system/docker.service.d/http-proxy.conf
+  
+   Create :file:`/etc/systemd/system/docker.service.d/http-proxy.conf` and
+   add the following using your own proxy values:
 
    .. code-block:: console
 
       [Service]
-      Environment="HTTP_PROXY=[HTTP proxy URL]"
-      Environment="HTTPS_PROXY=[HTTPS proxy URL]"
+      Environment="HTTP_PROXY=<HTTP proxy URL>:<port number>"
+      Environment="HTTPS_PROXY=<HTTPS proxy URL>:<port number>"
 
 #. Reload the Docker daemon:
 
@@ -723,13 +717,8 @@ settings to containers:
 
       mkdir ~/.docker
 
-#. Create the config file and open in an editor:
-
-   .. code-block:: bash
-
-      nano ~/.docker/config.json
-
-#. Add the following entries, using your own proxy values:
+#. Create the config file :file:`~/.docker/config.json` and add the following
+   entries, using your own proxy values:
 
    .. code-block:: console
 
@@ -738,8 +727,8 @@ settings to containers:
         {
           "default":
           {
-            "httpProxy": "proxy-url",
-            "httpsProxy": "proxy-url"
+            "httpProxy": ":",
+            "httpsProxy": ":"
           }
         }
       }
@@ -754,20 +743,15 @@ settings to containers:
 Lastly, configure proxies to allow mixer to access upstream content from behind
 a firewall. For example:
 
-#. Open your :file:`.bashrc` file:
-
-   .. code-block:: bash
-
-      nano $HOME/.bashrc
-
-#. Add your proxy values for the following:
+#. Open your :file:`$HOME/.bashrc` file and add proxy and port values for the
+following:
 
    .. code-block:: console
 
-      export http_proxy="<proxy-url>"
-      export https_proxy="<proxy-url>"
-      export HTTP_PROXY="<proxy-url>"
-      export HTTPS_PROXY="<proxy-url>"
+      export http_proxy="<proxy-url>:<port>"
+      export https_proxy="<proxy-url>:<port>"
+      export HTTP_PROXY="<proxy-url>:<port>"
+      export HTTPS_PROXY="<proxy-url>:<port>"
       export no_proxy="<...>"
 
 #. Log out and log back in for the proxies to take effect.
@@ -782,11 +766,11 @@ nginx web server, which comes with |CL|.
 
 Set up a nginx web server for mixer with the following steps:
 
-#. Install the :command:`web-server-basic` bundle:
+#. Install the :command:`nginx` bundle:
 
    .. code-block:: bash
 
-      sudo swupd bundle-add web-server-basic
+      sudo swupd bundle-add nginx
 
 #. Make the directory where mixer updates will reside:
 
@@ -814,15 +798,8 @@ Set up a nginx web server for mixer with the following steps:
 
       sudo cp -f /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
 
-#. Configure the mixer update server. Create a simple config file for nginx to
-   point to the update content directly:
-
-   .. code-block:: bash
-
-      sudo nano /etc/nginx/conf.d/mixer.conf
-
-   Add the following server configuration content to the :file:`mixer.conf`
-   file:
+#. Configure the mixer update server. Create and add the following server
+   configuration content to :file:`/etc/nginx/conf.d/mixer.conf` (sudo required):
 
    .. code-block:: console
 
