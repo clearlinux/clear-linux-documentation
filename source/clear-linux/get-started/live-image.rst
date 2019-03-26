@@ -29,7 +29,7 @@ Boot the |CL| live image
    
 .. _create and enable user space: https://clearlinux.org/documentation/clear-linux/guides/maintenance/enable-user-space 
 
-.. _`image`: https://download.clearlinux.org/image
+.. _`image`: https://cdn.download.clearlinux.org/image
 
 .. _`Intel® Virtualization Technology (Intel® VT)`: http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 

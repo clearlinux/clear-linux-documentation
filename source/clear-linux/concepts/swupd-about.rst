@@ -1,132 +1,101 @@
 .. _swupd-about:
 
-Software update
-###############
+swupd: software updater
+#######################
 
-|CL-ATTR| does software updates differently than traditional Linux-based
-operating systems. Where traditional distributions rely on packages for
-software deployment, |CL| uses the concept of a "bundle" for
-deployment. Traditional Linux packages provide a particular utility or
-library; |CL| bundles provide all necessary packages to enable a
-specific function.
+:command:`swupd` is an operating system software manager and update program
+that operates at a file-level to enable verifiable integrity and update
+efficiency.
 
-With |CL|, updating equates to an entirely new OS version with a
-specific set of bundles, as compared to a package-based distribution in
-which packages may be updated individually. |CL| updates are
-efficient, updating only changed files instead of entire packages.
-
-System administrators can customize or add bundles to the OS, while still
-taking advantage of a controlled update stream. This enables system
-administrators to focus on the pieces that make their deployment unique.
-
-
-Bundles
-=======
-
-While we use packages to manage compiling source code into installable
-binaries, we do not deploy software through packages. Instead, we use bundles
-to deploy software, where each bundle encapsulates a particular functionality
--- functionality that is enabled by composing all the required upstream
-open-source projects and packages into one logical unit: a bundle. This
-simplifies installing features on |CL|.
-
-For additional resources regarding available bundles, useful bundle commands,
-and compatible |CL| kernels, visit our :ref:`bundles-about`
-page.
-
+Visit the `swupd man page`_ for more details.
 
 Versioning
 ==========
 
-In a traditional distribution, the process of describing current software
-versioning usually involves:
+Using package managers to keep track of software version compatibility or compare multiple systems on many Linux distributions can be cumbersome.
 
--  Listing and keeping track of the current OS release (generally
-   uninformative about any singular packages or functionality).
+With |CL| :command:`swupd`, versioning happens at the individual
+file-level. This means |CL| generates an entirely new OS version with any set
+of software changes to the system (including software downgrades or removals). This rolling release versioning model is similar to
+:command:`git` internal version tracking, where any of the individual file
+commits are tracked and move the pointer forward when changed.
 
--  Keeping track of packages and repositories being used, and updating them
-   individually.
-
--  Listing and tracking every package available and installed on the
-   system, none of which are directly tied to the current OS release.
-
-This can be done effectively, but given the nearly endless combinations of
-packages and versions of packages a server may have, it quickly becomes
-non-trivial to define what "version" the system is and what software it
-is running without explicitly going through each system and inspecting
-every package.
-
-With |CL|, we need only track:
-
--  One single number
-
-A number representing the **current** release of the OS is sufficient to
-describe the versions of all the software on the OS. Each build is
-composed of a specific set of bundles made from a particular version of
-packages. This matters on a daily basis to system administrators, who
-need to determine which of their systems do not have the latest security
-fixes, or which combinations of software have been tested. Every release
-of the same number is guaranteed to contain the same versions of software,
-so there's no ambiguity between two systems running the same version of |CL|.
+While administrators can pick and choose which `bundles`_ a system has
+installed, a single |CL| version number strictly represents one combination
+of all software versions that can be installed onto a system of that |CL|
+version. This method of whole OS versioning offers unique advantages.
+Namely, system administrators can quickly compare multiple |CL| systems that share the same version for important software and security fixes.
 
 
 Updating
 ========
 
-Another notable difference between package-based distributions and |CL|
-is how updates are managed. On a package-based OS, system administrators update
-each individual package or piece of software to a newer (or older!) version. With
-|CL|, an update translates to an entirely new OS version, containing one
-or many updates.  It is not possible to update a piece of the system while
-remaining on the same version of |CL|.
+|CL| promotes regular and automated updating of software to ensure
+integration of new enhancements and security fixes. Refer to :ref:`security`
+documentation for more information.
 
-How is this useful? Although it seems, at first, like a huge restriction
-or limitation, this method has many non-obvious benefits. Imagine a
-cloud environment composed of numerous machines.  Here, a homogeneous set of
-software makes sense -- from the system administrator's level down to the
-user level. Homogeneous systems allow users to focus on their contributions
-and/or code, rather than configuring environments or worrying about
-synchronizing versions and updates.  At the system admin level, it ensures
-security is tighter and makes it far easier to monitor and update patches.
+Learn how to update your system using :ref:`swupd <swupd-guide>`.
 
-|CL| promotes regular updating of the OS and will automatically check
-for updates and apply them by default.
+Update efficiency
+-----------------
 
-To learn how to run an update of your system, visit our :ref:`swupd-guide` page.
+Because :command:`swupd` operates at the individual file-level instead of a
+package-level, |CL| updates are small and fast.
 
+On many Linux\* distributions, updates to a particular software package
+require the whole software package to be downloaded and replaced
+--even for one line of code.
 
-Update speed
-============
+In |CL|, updates are generated using the :ref:`mixer <mixer-about>` tool. Mixer calculates the difference between two |CL| versions and makes available
+*binary deltas*, which contain only the changed portion of files. This
+*binary delta technology* [1]_ means :command:`swupd` on |CL| systems only
+needs to download and apply a small fraction of a package in order to
+receive an update.
 
-Software updates with |CL| are also efficient. Bundles simply describe
-a set of files, and the update technology updates *only* files that actually
-changed by using binary-delta technology for efficiency [1]_. Operating systems
-that use packages as the unit of deployment require full package updates (thus
-hogging resources), even when one small file in that package has changed.
+The :ref:`mixer <mixer-about>` tool additionally computes updates files in
+multiple compression formats, allowing :command:`swupd` to utilize the most
+efficiently compressed format for a |CL| system to minimize the cost
+to update.
 
-It is quite common for a full OS update fixing a security hole to be
-only 15 kilobytes in total update size. If only several kilobytes need
-to be changed, it does not make sense to re-download and reinstall an
-entire package or suite of programs just to incorporate a minuscule (yet
-important) update. Through binary deltas, the OS is able to update only
-those bits that changed, yielding very small update content (deltas)
-that can be applied exceedingly fast.  As a result, major security patches
-and core update take merely seconds.
+Update integrity
+----------------
 
+:command:`swupd` operates against a published manifest of files for a
+particular |CL| version that contains the unique hash of each file. This is
+the basis of the :command:`swupd verify` subcommand, which allows a |CL|
+system to check for and remediate any discrepancies to system files. As
+necessary, :command:`swupd verify` provides a useful way for software
+developers to return to a known filesystem state.
 
-Customize the OS
-================
+Bundles
+=======
 
-While we realize our definition of bundles makes sense to us, data center
-operators may have special needs and ideas. Therefore, we provide a
-:ref:`mixer tool <mixer>`. This tool allows users to customize and add bundles
-or even add their own software, while keeping the operating
-system and its updates as the basis. Using this tool, system administrators
-can focus on the customization their deployments require while staying on
-a controlled update stream.
+|CL-ATTR| approaches software management differently than many other
+Linux-based operating systems.
 
-To learn more about mixing, visit our :ref:`mixer-about` page.
+Instead of deploying granular software packages, |CL| uses the concept of
+bundles with pre-associated software. Each bundle encapsulates a particular
+use-case, which is enabled by composing all the required upstream open-source
+projects and packages into one logical unit.
 
+This bundle-based approach offers some unique advantages:
 
-.. [1] The software update technology for |CL-ATTR| was first presented at the
-   Linux Plumbers conference in 2012.
+* Bundles provide a particular functionality, or stack, which
+  include all associated runtime dependencies.
+
+* Software package dependencies are resolved on the server, so file-level
+  conflicts do not occur on the target system after an update.
+
+* All combinations of bundles are able to co-exist on a |CL| system.
+
+For more information on bundles, visit:
+
+* :ref:`bundles`
+* :ref:`bundles-about`
+* :ref:`bundle-commands`
+* :ref:`compatible-kernels`
+
+.. [1] The software update technology for |CL-ATTR| was first presented at the Linux Plumbers conference in 2012.
+
+.. _swupd man page: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
+

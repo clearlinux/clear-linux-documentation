@@ -103,8 +103,8 @@ To set up |CL| manually, perform the steps below.
 
       sudo mkdir -p $ipxe_root
       sudo curl -o /tmp/clear-pxe.tar.xz \
-        https://download.clearlinux.org/current/clear-$(curl \
-        https://download.clearlinux.org/latest)-pxe.tar.xz
+        https://cdn.download.clearlinux.org/current/clear-$(curl \
+        https://cdn.download.clearlinux.org/latest)-pxe.tar.xz
       sudo tar -xJf /tmp/clear-pxe.tar.xz -C $ipxe_root
       sudo ln -sf $(ls $ipxe_root | grep 'org.clearlinux.*') $ipxe_root/linux
 

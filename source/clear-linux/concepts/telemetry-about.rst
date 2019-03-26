@@ -38,7 +38,7 @@ Architecture
 		If you want to capture your own records for analysis, you must set up
 		your own backend server.
 
-.. figure:: figures/telemetry-about-1.png
+.. figure:: ../guides/telemetrics/figures/telemetry-e2e.png
    :scale: 75%
    :alt: Clear Linux Telemetry Architecture.
 
@@ -48,7 +48,7 @@ The telemetry client provides the front end of a complete telemetrics solution
 and includes the following components:
 
 *	**telemprobd**, a daemon that prepares the telemetry records and spools them on disk prior to delivery
-*       **telempostd**, a daemon that sends the records to the telemetry backend server or leaves them on disk until deleting after the record expires. 
+*       **telempostd**, a daemon that sends the records to the telemetry backend server or leaves them on disk until deleting after the record expires.
 
 *	**probes**, that collect specific types of data from the operating system.
 *	**libtelemetry**, that telemetrics probes use to create telemetrics records and
@@ -76,8 +76,7 @@ Next steps
 
 To put this concept into practice, see the following resources:
 
-*	:ref:`telemetry-enable`
-*	:ref:`telemetry-backend`
+*	:ref:`telem-guide`
 *	`Telemetry feature description`_
 
 .. _`Telemetry feature description`:

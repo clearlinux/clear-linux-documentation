@@ -57,4 +57,4 @@ Your virtual machine running |CL| is ready!
 .. _Windows Server Virtualization: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/
 .. _Microsoft documentation: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
 .. _Create A Virtual Network documentation: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network
-.. _downloads: https://download.clearlinux.org/image/
+.. _downloads: https://cdn.download.clearlinux.org/image/

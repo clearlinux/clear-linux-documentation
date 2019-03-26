@@ -35,5 +35,6 @@ appropriate set of step-by-step instructions to proceed.
    vmw-player
    vmw-player-preconf
    hyper-v
+   virtualbox-cl-installer
    ../../guides/maintenance/increase-virtual-disk-size.rst
 

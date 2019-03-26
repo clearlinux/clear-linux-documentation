@@ -34,11 +34,11 @@ Optionally, you can use this command:
 
 .. code-block:: bash
 
-   curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep "installer")
+   curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep "installer")
 
 #. Follow your OS instructions to create a bootable USB drive.
 
-   * :ref:`bootable-usb-beta-all`
+   * :ref:`bootable-usb`
 
 #. After downloading the image, verify and decompress the file per your OS.
 

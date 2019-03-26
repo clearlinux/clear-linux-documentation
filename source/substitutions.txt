@@ -7,4 +7,5 @@
 .. |CC| replace:: Clear Containers
 
 .. |CAUTION-BACKUP-USB| replace::
-	Burning an image formats the USB drive, thus destroying all existing content.  Backup your data before proceeding.
+	Burning an image formats the USB drive, and will destroy all pre-existing
+	content.  Back up your data before proceeding.

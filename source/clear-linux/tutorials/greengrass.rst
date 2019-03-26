@@ -1,40 +1,48 @@
 .. _greengrass:
 
-Enable AWS Greengrass* and OpenVINO™ on |CL-ATTR|
-#################################################
+Enable AWS Greengrass\* and OpenVINO™ toolkit
+#############################################
 
-Hardware accelerated Function-as-a-Service (FaaS) enables cloud developers
-to deploy inference functionalities [1] on Intel® IoT edge devices with
-accelerators (CPU, Integrated GPU, Intel® FPGA, and Intel® Movidius™). These
-functions provide a great developer experience and seamless migration of
-visual analytics from cloud to edge in a secure manner using a containerized
-environment. Hardware-accelerated FaaS provides the best-in-class
+Hardware accelerated Function-as-a-Service (FaaS) enables cloud developers to
+deploy inference functionalities [1] on Intel® IoT edge devices with
+accelerators (CPU, Integrated GPU, Intel® FPGA, and Intel® Movidius™
+technology). These functions provide a great developer experience and seamless
+migration of visual analytics from cloud to edge in a secure manner using a
+containerized environment. Hardware-accelerated FaaS provides the best-in-class
 performance by accessing optimized deep learning libraries on Intel® IoT
 edge devices with accelerators.
 
-This tutorial will demonstrate how to:
+This tutorial demonstrates how to:
 
 * Set up the Intel® edge device with |CL-ATTR|
-* Install the OpenVINO™ and AWS Greengrass* software stacks
-* Use AWS Greengrass and lambdas to deploy the FaaS samples from the cloud
+* Install the OpenVINO™ toolkit and Amazon Web Services\* (AWS\*) 
+  Greengrass\* software stacks
+* Use AWS Greengrass\* and AWS Lambda\* to deploy the FaaS samples from the cloud
 
-Supported Platforms
+Refer to the following topics:
+
+.. contents:: :local:
+   :depth: 1
+
+
+Supported platforms
 *******************
 
 *	Operating System: |CL| latest release
-*	Hardware:	Intel® core platforms (Tutorial supports inference on CPU only)
+*	Hardware:	Intel® core platforms (This tutorial supports inference on CPU only.)
 
-Description of Samples
-**********************
+Sample description
+==================
 
-The AWS Greengrass samples are located at the `Edge-Analytics-FaaS`_. For this tutorial we will use the 1.0 version of the source code. 
+The AWS Greengrass samples are located at `Edge-Analytics-FaaS`_. This
+tutorial uses the 1.0 version of the source code.
 
-We provide the following AWS Greengrass samples:
+|CL| provides the following AWS Greengrass samples:
 
 * `greengrass_classification_sample.py`_
 
   This AWS Greengrass sample classifies a video stream using classification
-  networks such as AlexNet and GoogLeNet and publishes top-10 results on AWS*
+  networks such as AlexNet and GoogLeNet and publishes top-10 results on AWS\*
   IoT Cloud every second.
 
 * `greengrass_object_detection_sample_ssd.py`_
@@ -46,8 +54,8 @@ We provide the following AWS Greengrass samples:
   coordinates on AWS IoT Cloud every second.
 
 
-Installing |CL| on the edge device
-**********************************
+Install the OS on the edge device
+*********************************
 
 Start with a clean installation of |CL| on a new system, using the
 :ref:`bare-metal-install`, found in :ref:`get-started`.
@@ -56,8 +64,8 @@ Create user accounts
 ====================
 
 After |CL| is installed, create two user accounts. Create an administrative
-user in |CL|. You will also create a user account for the Greengrass
-services to use (see Greengrass user below).
+user in |CL| and create a user account for the Greengrass services to use (see
+Greengrass user below).
 
 #. Create a new user and set a password for that user. Enter the following
    commands as ``root``:
@@ -68,7 +76,7 @@ services to use (see Greengrass user below).
       passwd <userid>
 
 #. Next, enable the :command:`sudo` command for your new ``<userid>``. Add
-   ``<userid>`` to the ``wheel`` group:
+   ``<userid>`` to the *wheel* group:
 
    .. code-block:: bash
 
@@ -82,14 +90,13 @@ services to use (see Greengrass user below).
 
    .. note::
 
-      By default |CL| does not create an :file:`/etc/fstab` file.
-      The Greengrass service needs to have the file created before
-      it will run.
+      By default, |CL| does not create an :file:`/etc/fstab` file.
+      You must create this file before the Greengrass service runs.
 
 Add required bundles
 ====================
 
-Use the ``swupd`` software updater utility to add the prerequisite bundles
+Use the :command:`swupd` software updater utility to add the prerequisite bundles
 for the OpenVINO software stack:
 
 .. code-block:: bash
@@ -100,20 +107,20 @@ for the OpenVINO software stack:
 
    Learn more about how to :ref:`swupd-guide`.
 
-The ``computer-vision-basic`` bundle will install the OpenVINO software,
-along with the edge device models needed.
+The :command:`computer-vision-basic` bundle installs the OpenVINO™ toolkit,
+and the sample models optimized for Intel® edge platforms.
 
-Converting Deep Learning Models
-===============================
+Convert deep learning models
+============================
 
-Locate Sample Models
+Locate sample models
 --------------------
 
-There are two types of provided models that can be used in conjunction with AWS Greengrass
-for this tutorial: classification or object detection.
+There are two types of provided models that can be used in conjunction with
+AWS Greengrass for this tutorial: classification or object detection.
 
 To complete this tutorial using an image classification model,
-download the BVLC Alexnet model files `bvlc_alexnet.caffemodel`_ and `deploy.prototxt`_
+download the BVLC AlexNet model files `bvlc_alexnet.caffemodel`_ and `deploy.prototxt`_
 to the default model_location at :file:`/usr/share/openvino/models`.
 Any custom pre-trained classification models can be used with the
 classification sample.
@@ -123,12 +130,12 @@ are included with the computer-vision-basic bundle installation at :file:`/usr/s
 These models are provided as an example; however, you may also use a custom SSD model
 with the Greengrass object detection sample.
 
-Running Model Optimizer
------------------------
+Run model optimizer
+-------------------
 
-Follow these instructions for `converting deep learning models to Intermediate Representation using Model Optimizer`_. To optimize either of the afformentioned sample models, run one of the following commands.
+Follow these instructions for `converting deep learning models to Intermediate Representation using Model Optimizer`_. To optimize either of the sample models described above, run one of the following commands.
 
-For classification using BVLC Alexnet model:
+For classification using BVLC AlexNet model:
 
 .. code-block:: bash
 
@@ -148,40 +155,40 @@ For object detection using SqueezeNetSSD-5Class model:
 
 In these examples:
 
-* ``<model_location>`` is :file:`/usr/share/openvino/models`
+* ``<model_location>`` is :file:`/usr/share/openvino/models`.
 
 * ``<data_type>`` is FP32 or FP16, depending on target device.
 
-* ``<output_dir>`` is the directory where the user wants to store the
-  Intermediate Representation (IR). IR contains .xml format corresponding
-  to the network structure and .bin format corresponding to weights. This
-  .xml file should be passed to <PARAM_MODEL_XML>.
+* ``<output_dir>`` is the directory where the Intermediate Representation
+  (IR) is stored. IR contains .xml format corresponding to the network
+  structure and .bin format corresponding to weights. This .xml file should be
+  passed to :command:`<PARAM_MODEL_XML>`.
 
-* In the BVLC Alexnet model, the prototxt defines the input shape with
+* In the BVLC AlexNet model, the prototxt defines the input shape with
   batch size 10 by default. In order to use any other batch size, the
-  entire input shape needs to be provided as an argument to the model
-  optimizer. For example, to use batch size 1, you can provide
-  “--input_shape [1,3,227,227]”.
+  entire input shape must be provided as an argument to the model
+  optimizer. For example, to use batch size 1, you must provide:
+  ``--input_shape [1,3,227,227]``
 
 
-Configuring an AWS Greengrass group
-===================================
+Configure AWS Greengrass group
+******************************
 
-For each Intel® edge platform, we need to create a new AWS Greengrass group
+For each Intel® edge platform, you must create a new AWS Greengrass group
 and install AWS Greengrass core software to establish the connection between
 cloud and edge.
 
-#. To create an AWS Greengrass group, follow the
-   `AWS Greengrass developer guide`_
+#. To create an AWS Greengrass group, follow the instructions in 
+   `Configure AWS IoT Greengrass on AWS IoT`_.
 
 #. To install and configure AWS Greengrass core on edge platform, follow
-   the instructions at `Start AWS Greengrass on the Core Device`_. In
-   step 8(b), download the x86_64 Ubuntu configuration of the AWS Greengrass
+   the instructions in `Start AWS Greengrass on the Core Device`_. In
+   step 8(b), download the x86_64 Ubuntu\* configuration of the AWS Greengrass
    core software.
 
    .. note::
 
-      You will not need to run the ``cgroupfs-mount.sh`` script in step #6
+      You do not need to run the :file:`cgroupfs-mount.sh` script in step #6
       of Module 1 of the `AWS Greengrass developer guide`_ because this is
       enabled already in |CL|.
 
@@ -190,13 +197,13 @@ cloud and edge.
 
    .. note::
 
-      Security certificates are linked to your AWS* account.
+      Security certificates are linked to your AWS account.
 
 
-Creating and Packaging Lambda Functions
-=======================================
+Create and package Lambda function
+**********************************
 
-#. Complete steps 1-4 of the tutorial at `Create and Package Lambda Function`_ .
+#. Complete steps 1-4 of the AWS Greengrass tutorial at `Create and Package a Lambda Function`_.
 
    .. note::
 
@@ -204,7 +211,7 @@ Creating and Packaging Lambda Functions
       environment on the edge device.
 
 
-#. In step 5, replace greengrassHelloWorld.py with the classification or object detection
+#. In step 5, replace :file:`greengrassHelloWorld.py` with the classification or object detection
    Greengrass sample from `Edge-Analytics-Faas`_:
 
    * Classification: `greengrass_classification_sample.py`_
@@ -227,36 +234,35 @@ Creating and Packaging Lambda Functions
       zip -r greengrass_lambda.zip greengrasssdk
       greengrass_object_detection_sample_ssd.py
 
-#. Return to the AWS Documentation and follow steps 6-11 to `complete creating lambdas`_.
+#. Return to the AWS documentation section called `Create and Package a Lambda Function`_
+   and complete the procedure.
 
    .. note::
 
       In step 9(a) of the AWS documentation, while uploading the zip file,
-      make sure to name the handler as below depending on the AWS Greengrass
-      sample you are using:
+      make sure to name the handler to one of the following, depending on the
+      AWS Greengrass sample you are using:
 
-      * greengrass_object_detection_sample_ssd.function_handler (or)
+      * greengrass_object_detection_sample_ssd.function_handler
       * greengrass_classification_sample.function_handler
 
-Deploying Lambdas
-=================
 
-Configuring the Lambda function
--------------------------------
+Configure Lambda function
+*************************
 
-After creating the Greengrass group and the lambda function, start
-configuring the lambda function for AWS Greengrass.
+After creating the Greengrass group and the Lambda function, start
+configuring the Lambda function for AWS Greengrass.
 
-#. Follow steps 1-8 in `Configure the Lambda Function`_ of the AWS
+#. Follow steps 1-8 in `Configure the Lambda Function for AWS IoT Greengrass`_ in the AWS
    documentation.
 
 #. In addition to the details mentioned in step 8, change the Memory limit
-   to 2048MB to accommodate large input video streams.
+   to 2048 MB to accommodate large input video streams.
 
 #. Add the following environment variables as key-value pairs when editing
-   the lambda configuration and click on update:
+   the Lambda configuration and click on update:
 
-   .. list-table:: **Table 1.  Environment Variables: Lambda Configuration**
+   .. list-table:: **Table 1.  Environment variables: Lambda configuration**
       :widths: 20 80
       :header-rows: 1
 
@@ -282,94 +288,100 @@ configuring the lambda function for AWS Greengrass.
           (e.g. 1 for top-1 result, 5 for top-5 results)
 
 #. Add subscription to subscribe, or publish messages from AWS Greengrass
-   lambda function by following the steps 10-14 in `Configure the Lambda Function`_
+   Lambda function by completing the procedure in `Configure the Lambda Function for AWS IoT Greengrass`_.
 
    .. note::
 
-      The “Optional topic filter” field should be the topic
-      mentioned inside the lambda function.
+      The optional topic filter field is the topic mentioned inside the Lambda
+      function. In this tutorial, sample topics include the following:
+      :command:`openvino/ssd` or :command:`openvino/classification`
 
-      For example, openvino/ssd or openvino/classification
+Add local resources
+===================
 
-Local Resources
----------------
-#. Select `this link to add local resources and access privileges`_.
+Refer to the AWS documentation for details about `local resources and access privileges`_.
 
-   Following are the local resources needed for the CPU:
+The following table describes the local resources needed for the CPU:
 
-   .. list-table:: **Local Resources**
-      :widths: 20, 20, 20, 20
-      :header-rows: 1
+.. list-table:: **Local resources**
+    :widths: 20, 20, 20, 20
+    :header-rows: 1
 
-      * - Name
-        - Resource type
-        - Local path
-        - Access
+    * - Name
+      - Resource type
+      - Local path
+      - Access
 
-      * - ModelDir
-        - Volume
-        - <MODEL_DIR> to be specified by user
-        - Read-Only
+    * - ModelDir
+      - Volume
+      - <MODEL_DIR> to be specified by user
+      - Read-Only
 
-      * - Webcam
-        - Device
-        - /dev/video0
-        - Read-Only
+    * - Webcam
+      - Device
+      - /dev/video0
+      - Read-Only
 
-      * - DataDir
-        - Volume
-        - <DATA_DIR> to be specified by user. Holds both input and output
-          data.
-        - Read and Write
+    * - DataDir
+      - Volume
+      - <DATA_DIR> to be specified by user. Holds both input and output
+        data.
+      - Read and Write
 
-Deploy
-------
+Deploy Lambda function
+**********************
 
-To `deploy the lambda function to AWS Greengrass core device`_, select
-“Deployments” on group page and follow the instructions.
+Refer to the AWS documentation for instructions on how to 
+`deploy the lambda function to AWS Greengrass core device`_. Select
+*Deployments* on the group page and follow the instructions.
 
-Output Consumption
-------------------
+Output consumption
+==================
 
 There are four options available for output consumption. These options are
 used to report, stream, upload, or store inference output at an interval
-defined by the variable ``reporting_interval`` in the AWS Greengrass samples.
+defined by the variable :command:`reporting_interval` in the AWS Greengrass samples.
 
-a. IoT Cloud Output:
-   This option is enabled by default in the AWS Greengrass samples using a
-   variable ``enable_iot_cloud_output``.  We can use it to verify the lambda
+a. IoT cloud output:
+
+   This option is enabled by default in the AWS Greengrass samples using the 
+   :command:`enable_iot_cloud_output` variable. You can use it to verify the lambda
    running on the edge device. It enables publishing messages to IoT cloud
-   using the subscription topic specified in the lambda (For example,
-   ‘openvino/classification’ for classification and ‘openvino/ssd’ for
-   object detection samples).  For classification, top-1 result with class
+   using the subscription topic specified in the lambda. (For example, topics
+   may include :command:`openvino/classification` for classification and :command:`openvino/ssd`
+   for object detection samples.) For classification, top-1 result with class
    label are published to IoT cloud. For SSD object detection, detection
-   results such as bounding box co-ordinates of objects, class label, and
+   results such as bounding box coordinates of objects, class label, and
    class confidence are published.
 
-   Follow the instructions here to `view the output on IoT cloud`_
+   Follow the instructions here to `view the output on IoT cloud`_.
 
-b. Kinesis Streaming:
+b. Kinesis streaming:
 
    This option enables inference output to be streamed from the edge device
-   to cloud using Kinesis [3] streams when ‘enable_kinesis_output’ is set
+   to cloud using Kinesis [3] streams when :command:`enable_kinesis_output` is set
    to True. The edge devices act as data producers and continually push
-   processed data to the cloud. The users need to set up and specify
+   processed data to the cloud. You must set up and specify
    Kinesis stream name, Kinesis shard, and AWS region in the AWS Greengrass
    samples.
 
-c. Cloud Storage using AWS S3 Bucket:
+c. Cloud storage using AWS S3 bucket:
 
-   When the ‘enable_s3_jpeg_output’ variable is set to True, it enables uploading and storing processed frames (in JPEG format) in an AWS S3 bucket. The users need to set up and specify the S3 bucket name in the
-   AWS Greengrass samples to store the JPEG images. The images are named using the timestamp and uploaded to S3.
+   When the :command:`enable_s3_jpeg_output` variable is set to True, it enables
+   uploading and storing processed frames (in jpeg format) in an AWS S3
+   bucket. You must set up and specify the S3 bucket name in the AWS
+   Greengrass samples to store the JPEG images. The images are named using the
+   timestamp and uploaded to S3.
 
-d. Local Storage:
+d. Local storage:
 
-   When the ‘enable_s3_jpeg_output’ variable is set to True, it enables storing processed frames (in JPEG format) on the edge device. The
-   images are named using the timestamp and stored in a directory specified
-   by ‘PARAM_OUTPUT_DIRECTORY’.
+   When the :command:`enable_s3_jpeg_output` variable is set to True, it enables
+   storing processed frames (in jpeg format) on the edge device. The images
+   are named using the timestamp and stored in a directory specified by
+   :command:`PARAM_OUTPUT_DIRECTORY`.
 
 References
------------
+**********
 
 1. AWS Greengrass: https://aws.amazon.com/greengrass/
 2. AWS Lambda: https://aws.amazon.com/lambda/
@@ -387,17 +399,15 @@ References
 
 .. _converting deep learning models to Intermediate Representation using Model Optimizer: https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer
 
-.. _AWS Greengrass developer guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
+.. _AWS Greengrass Developer Guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html
+
+.. _Configure AWS IoT Greengrass on AWS IoT: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-config.html
 
 .. _Start AWS Greengrass on the Core Device: https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-device-start.html
 
-.. _AWS Greengrass Core SDK: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html
+.. _Configure the Lambda Function for AWS IoT Greengrass: https://docs.aws.amazon.com/greengrass/latest/developerguide/config-lambda.html
 
-.. _complete creating lambdas: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html
-
-.. _Configure the Lambda Function: https://docs.aws.amazon.com/greengrass/latest/developerguide/config-lambda.html
-
-.. _Add local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
+.. _local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
 
 .. _deploy the lambda function to AWS Greengrass core device: https://docs.aws.amazon.com/greengrass/latest/developerguide/configs-core.html
 
@@ -407,4 +417,4 @@ References
 
 .. _this link to add local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
 
-.. _Create and Package Lambda Function: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html
+.. _Create and Package a Lambda Function: https://docs.aws.amazon.com/greengrass/latest/developerguide/create-lambda.html

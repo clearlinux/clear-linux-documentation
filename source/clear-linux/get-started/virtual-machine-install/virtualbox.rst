@@ -1,196 +1,370 @@
 .. _virtualbox:
 
-Run pre-configured |CL-ATTR| as a VirtualBox\* guest OS
-###########################################################
+Run pre-configured |CL-ATTR| as a VirtualBox\* Virtual Machine
+##############################################################
 
-This instruction explains how to deploy a pre-configured |CL-ATTR| image as a guest on the `VirtualBox hypervisor`_ .
+VirtualBox\* is a type 2 hypervisor from Oracle. This document explains how 
+to create a virtual machine on the `VirtualBox hypervisor`_  with |CL-ATTR| 
+as the guest operating system.
 
-Download VirtualBox
-*******************
+These instructions make use of a preinstalled |CL| disk image to setup a |CL| 
+virtual machine without manual installation. |CL| can also be installed from 
+scratch on a |VB| using the |CL| installed.
+See: :ref:`virtualbox-cl-installer`
 
-VirtualBox\* is a type 2 hypervisor from Oracle. Download and use **version 5.0 or greater** from the `official VirtualBox website`_.
+.. contents:: :local:
+    :depth: 2
 
-.. _create_vm_vbox:
+
+
+.. _vbox-prereqs-begin:
 
 Prerequisites
 *************
 
-The instruction assumes that you have: 
+Before continuing make sure that you have: 
 
-#. Enabled virtualization technology in the host machine's BIOS. 
+#. Enabled virtualization, such as Intel® 
+   `Virtualization Technology`_ (Intel® VT), on the host system from 
+   EFI/BIOS.
+
+#. Downloaded and installed |VB| **version 6.0 or greater** from 
+   the `official VirtualBox website`_ per the  `appropriate instructions`_ 
+   for your platform.
+
+.. _vbox-prereqs-end:
+
+
+
+Download and extract |CL|
+*************************
+
+The |CL| live image needs to be downloaded and extracted. The live image will 
+be used to created a |VB| virtual disk image that can be used with a 
+:abbr:`VM (Virtual Machine)`.
+
+#. Download the **live image** (:file:`clear-<VERSION-live.img.xz`) of
+   |CL|. On the `downloads page`_, this is listed as 
+   **Clear Linux OS live boot image**.
    
-   .. note:: 
-
-      For help, see: Intel® `Virtualization Technology`_ (Intel® VT). 
-
-#. Installed VirtualBox on your host machine per the 
-   `appropriate instructions`_ for your platform.
-
-If you have not completed the above steps, do so before continuing. 
-
-Create a virtual machine in VirtualBox
-**************************************
-
-#. Log in to your host and open a terminal emulator.
-
-#. Download the `latest`_ **live** version (clear-XXXX-live.img.xz) of
-   |CL|. You can also use this command: 
+   
+   You can also use this command to download from a terminal: 
 
    .. code-block:: bash
 
-      curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep live)
+      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep live.img)
+
+#. Validate the integrity of the downloaded image by checking the file hash 
+   and signatures. Refer to the document on :ref:`validate-signatures` for 
+   detailed steps.
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
-   + On Linux ::
+   - On Windows you can use `7zip`_ to extract the file by right-clicking the 
+     file and selecting *Extract Here* (in the same directory)
 
-       xz -d clear-XXXX-live.img.xz
-
-   + On Windows you can use `7zip`_.
-
-     - Right-click the file to *extract in the same directory*.
-
-       .. image:: ./figures/7zipwin.png
+       .. image:: ./figures/vbox/vbox-extract-cl-IMG.png
           :alt: 7zip extract here command
 
-#. To convert a raw image to :abbr:`VDI (VirtualBox Disk Image)`
-   format, you can use one of the following commands::
+   - On Linux :
 
-      VBoxManage convertfromraw clear-XXXX-live.img clear-XXXX-live.vdi --format VDI
+     .. code-block:: bash   
 
-   or::
+        xz -d clear-<VERSION>-live.img.xz
 
-      vbox-img convert --srcfilename clear-XXXX-live.img --dstfilename clear-XXXX-live.vdi --srcformat raw --dstformat vdi
+#. There originally downloaded compressed archive file
+   (:file:`clear-<VERSION>-live.img.xz`) can now be deleted.
 
 
-   .. note:: Be sure you have VirtualBox directory in your PATH (i.e., on
-      Windows :file:`C:\\Program Files\\Oracle\\VirtualBox`).
 
-      + On windows: launch a **Command Prompt** program and type
+Convert |CL| live image to a |VB| Disk Image 
+********************************************
 
-        .. code-block:: console
+The |CL| live image is in a RAW disk image. The live image needs to be 
+converted to a :abbr:`VDI (VirtualBox Disk Image)` format which |VB| 
+can utilize.
 
-           set PATH=%PATH%;"C:\Program Files\Oracle\VirtualBox"
+#. Launch a terminal and navigate to the directory containing the 
+   extracted live image.
 
-        .. image:: ./figures/vbox-convert-image.png
-           :alt: Convert image in Windows command propt
 
-#. Create a virtual machine using the VirtualBox assistant:
+#. Convert RAW live image to a :abbr:`VDI (VirtualBox Disk Image)`
+   format using the command-line VirtualBox Disk Utility.
 
-   a. Type: **Linux**
+   .. code-block:: bash
+
+      VBoxManage convertfromraw clear-<VERSION>-live.img clear-VM.vdi --format VDI
+
+   .. note::
+      The :command:`PATH` environment variable may need to be updated to make the 
+      :command:`VBoxManage` command easily accessible from the terminal. 
+      For example, using Windows PowerShell:
+
+      .. code-block:: bash
+
+         $env:PATH += ";C:\Program Files\Oracle\VirtualBox"
+
+
+   .. image:: ./figures/vbox/vbox-convert-raw-to-VDI.png
+      :alt: Convert image in Windows command prompt
+
+   For more information on the :command:`VBoxManage` command,
+   see the `VirtualBox manual section on VBoxManage`_.
+
+
+#. The originally extracted live image file 
+   (:file:`clear-<VERSION>-live.img`) can now be deleted.
+
+
+#. Move the converted :file:`clear-VM.vdi` disk image file to a permanent 
+   location. The VDI will be attached to the |VB| VM and should not be 
+   deleted.
+
+
+
+Create a new |VB| virtual machine
+*********************************
+
+A new VM needs to be created in |VBM| to attach the VDI with |CL| installed.
+
+General instructions for creating a virtual machine and details about using 
+different settings are available on the 
+`VirtualBox manual section on Creating a VM`_.
+
+
+#. Launch the |VBM| from your host system.
+
+
+#. Click the *New* button to create a new VM. 
+
+   .. image:: ./figures/vbox/vbox-new-vm.png
+      :alt: Create a new VM in VirtualBox
+
+
+#. A *Create Virtual Machine* window will appear. 
+   Select the following settings:
    
-   b. Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
+   - Type: **Linux**
+   - Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
+   - Memory size: **1024 MB** (this can be adjusted appropriately)
+   - Hard disk: **Use an existing virtual hard disk file**
 
-      .. image:: ./figures/vbox-create-vm.png
-          :alt: Create a new image in VirtualBox
+   Click the folder icon next to the drop down menu:
 
-   c. Select default memory size.
-
-      .. image:: ./figures/vbox-memory-size.png
-
-   d. Attach the virtual disk created in step number 3 as a virtual hard
-      disk file. Click the folder icon (lower right) to browse to find the
-      VDI file.
-
-      .. image:: ./figures/vbox-hdisk.png
-
-#. After it is created, go to settings to enable **EFI support**
-
-   * System -> Enable EFI (special OSes only)
-
-     .. image:: ./figures/vbox-efi.png
-        :alt: Enable EFI on VirtualBox
+   .. image:: ./figures/vbox/vbox-create-vm-existing-disk.png
+      :alt: Create a new VM in VirtualBox with an existing disk
 
 
-Run your new VM
-***************
+#. A new window will appear for choosing an existing disk. Click the *Add* 
+   button, browse to the saved VDI file, and click *Choose*.
 
-|CL| supports VirtualBox kernel modules used
-by the Linux kernel 4.14 :abbr:`LTS (Long Term Support)` 
-(*kernel-lts bundle*).This kernel was selected because |CL| OS's main kernel
-(``kernel-native``) bundle keeps up-to-date with the upstream Linux kernel,
-and sometimes VirtualBox kernel modules aren't compatible with pre-kernel
-releases.
+   .. image:: ./figures/vbox/vbox-create-vm-choose-disk.png
+      :alt: Create a new VM in VirtualBox with an existing disk
 
-On the first boot, |CL| requests a user login.
-
-#. Type **root**. 
-
-#. Enter a new password when prompted. 
-
-To install the VirtualBox kernel modules, here are the steps:
-
-#. Install the bundle that supports VirtualBox modules::
-
-     swupd bundle-add kernel-lts
-
-#. Set a timeout in the bootmanager to shows a menu at boot time::
-
-     clr-boot-manager set-timeout 10
-
-#. Update the bootloader entries with::
-
-     clr-boot-manager update
-
-#. Reboot your system with::
-
-     reboot
-
-   and choose **clear-linux-lts-4.14.XX-YYY** kernel version.
-
-#. (*Optional*) Unset timeout to boot directly to LTS version::
-
-     clr-boot-manager set-timeout 0
-
-#. (*Mandatory*) Update bootmanger to always use LTS version::
-
-     clr-boot-manager update
-
-Install Guest Additions
-=======================
-
-The kernel modules are shipped with the ``kernel-lts`` bundle. Insert Guest 
-Additions CD image using *Devices* menu you'll need to install the *user* 
-Linux Guest Additions. To install the VirtualBox Guest Additions, 
-follow these steps:
+#. Click the *Create* button.
 
 
-#. Insert Guest Additions CD image using *Devices* menu 
+#. A new virtual machine will be created and appear in the |VBM|. Click 
+   *Settings* to configure the |CL| VM.
 
-   .. image:: ./figures/vbox-cd.png  
+   .. image:: ./figures/vbox/vbox-vm-created.png
+      :alt: A VM selected in VirtualBox Manager
+
+#. A *VM - Settings* window will appear. Navigate to the *System* pane from 
+   the left-hand and select the following setting:
+
+   - **Enable I/O APIC**
+   - **Enable EFI (special OSes only)**
+   
+
+   .. image:: ./figures/vbox/vbox-vm-settings-EFI.png
+      :alt: Enable EFI on a VirtualBox VM settings
+
+
+
+.. note::
+   By default, only 1 virtual CPU is allocated to the new VM. Consider 
+   increasing the number of virtual processors allocated to the virtual 
+   machine under Settings --> System --> Processor for increased 
+   performance.
+
+.. _vbox-start-vm-and-lga-begin:
+
+Start the |CL| VM
+*****************
+
+The |CL| VM can now be powered on and setup.
+
+General instructions for using a |VB| virtual machine are available on the 
+`VirtualBox manual section on Running a VM`_.
+
+#. Start the VM from the |VBM| by selecting the |CL| VM and clicking *Start*
+
+   .. image:: ./figures/vbox/vbox-start-vm.png
+      :alt: Starting a VirtualBox VM
+
+#. |CL| will boot and prompt for login.
+
+    - Enter **root** for the username. 
+
+#. You will be immediately prompted to set a new password for the **root** 
+   user. Reference :ref:`security` for more information about |CL| security 
+   concepts.
+
+   .. image:: ./figures/vbox/vbox-cl-first-login.png
+      :alt: Initial login to Clear Linux OS on a VirtualBox VM
+
+
+
+Install |VB| Linux Guest Additions 
+==================================
+
+The |VB| Linux Guest Additions provide drivers for full compatibility and 
+functionality. 
+
+|CL| provides |VB| guest drivers and an install script in the **kernel-lts** 
+(Long Term Support) bundle by |CL|.
+
+
+#. Validate the installed kernel is **kernel-lts** by checking the output 
+   of the :command:`uname -r` command. It should end in **.lts**.
+
+   .. code-block:: bash
+
+      uname -r
+      4.<VERSION>.lts
+
+   If the running kernel is not **lts**: install the LTS kernel manually, 
+   update the bootloader, and check again:
+
+   .. code-block:: bash
+
+      swupd bundle-add kernel-lts
+      clr-boot-manager set-kernel $(basename $(realpath /usr/lib/kernel/default-lts))
+      clr-boot-manager update
+      reboot
+
+#. Remove any kernel bundles that are not *kernel-lts* or *kernel-install* 
+   to simplify and avoid conflicts:
+
+   .. code-block:: bash
+
+      swupd bundle-list | grep kernel
+      swupd bundle-remove <NON-LTS-KERNEL>
+
+   .. image:: ./figures/vbox/vbox-cl-remove-non-lts-kernels.png
+      :alt: Initial login to Clear Linux OS on a VirtualBox VM
+
+#. From the VM Console window, click *Devices* on the top menu bar, and 
+   select *Insert Guest Additions CD image...* to mount the |VB| driver 
+   installation to the |CL| VM.
+
+   .. image:: ./figures/vbox/vbox-vm-insert-ga-cd.png  
       :alt: VirtualBox CD 
 
-#. Install Linux users Guest Additions:: 
+.. note::
+   To release the mouse cursor from the VM console window, press the right Ctrl key on the keyboard.
 
-    install-vbox-lga  
 
-#. Reboot your system::  
-      
-    reboot
+#. |CL| provides a script called :command:`install-vbox-lga` to help patch 
+   and install |VB| drivers for |CL|. Inside |CL| VM run this command:
 
+   .. code-block:: bash
+
+      install-vbox-lga
+
+#. After the script completes successfully, reboot the |CL| VM.
+
+   .. code-block:: bash
+
+      reboot
+
+#. After the VM reboot, login and verify the |VB| drivers are loaded:
+
+   .. code-block:: bash
+
+      lsmod | grep ^vbox
+
+   You should see drivers loaded with names beginning with **vbox**: (vboxguest, vboxsf, vboxvideo).
+
+
+The |CL| VM running on |VB| is ready to be used.
+
+.. _vbox-start-vm-and-lga-end:
+
+.. _vbox-troubleshooting-begin:
 
 Troubleshooting
-===============
+***************
 
-On Windows OS, *VirtualBox* cannot do a **Hardware Virtualization** when
-*Hyper-V* is enabled.
+#. **Problem:** Out of disk space inside of |CL| and not be able to install
+   additional bundles. 
 
-.. image:: ./figures/vbox-no-vtx.png
-   :alt: VirtualBox hardware acceleration error
+   **Solution:** The |CL| images are small to minimize download time and
+   initial disk space .
 
-To disable *Hyper-V* you should execute::
+   Power off the VM and resize the virtual disk for the |CL| VM using the |VB|
+   `Virtual Media Manager`_ found under the File menu. Afterwards, power the
+   |CL| VM on and follow the instructions here to have |CL| detect the resized
+   disk. :ref:`increase-virtual-disk-size`
 
-  bcdedit /set {current} hypervisorlaunchtype off
+#. **Problem:** On a Microsoft Windows OS, |VB| encounters an error when
+   trying to start a VM indicating *VT-X/AMD-v hardware acceleration is not
+   available on your system.*
 
-in an **Administrator: Command Prompt**, then reboot your system.
 
-To enable Hyper-V again, you should execute::
+   .. image:: ./figures/vbox/vbox-no-vtx.png
+      :alt: VirtualBox hardware acceleration error
 
-  bcdedit /set {current} hypervisorlaunchtype Auto
+
+   **Solution:** First, double check the `Prerequisites`_ section to make sure
+   *Hardware accelerated virtualization* extensions have been enabled in the
+   host system's EFI/BIOS.
+
+   *Hardware accelerated virtualization*, may get disabled for |VB| when another 
+   hypervisor, such as *Hyper-V* is enabled.
+
+   To disable *Hyper-V* execute this command in an 
+   **Administrator: Command Prompt or Powershell**, and reboot the system:
+
+   .. code-block:: bash
+
+      bcdedit /set {current} hypervisorlaunchtype off
+
+
+   To enable Hyper-V again, execute this command in an 
+   **Administrator: Command Prompt or Powershell**, and reboot the system:
+
+   .. code-block:: bash
+
+      bcdedit /set {current} hypervisorlaunchtype Auto
+
+.. _vbox-troubleshooting-end:
+
+
+
+
+.. |VB| replace:: VirtualBox
+.. |VBM| replace:: VirtualBox Manager
 
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
+
 .. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
+
 .. _VirtualBox hypervisor: https://www.virtualbox.org/
-.. _latest: https://download.clearlinux.org/image/
+
+.. _downloads page: https://clearlinux.org/downloads
+
+.. _`VirtualBox manual section on Creating a VM`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
+
+.. _`VirtualBox manual section on Running a VM`: https://www.virtualbox.org/manual/ch01.html#intro-starting-vm-first-time
+
+.. _`Virtual Media Manager`: https://www.virtualbox.org/manual/ch05.html#vdis
+
+.. _`Install Clear Linux OS`: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#install-cl-on-your-target-system\
+
 .. _7zip: http://www.7-zip.org/
+
 .. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+
+.. _`VirtualBox manual section on VBoxManage`: https://www.virtualbox.org/manual/ch08.html#vboxmanage-convertfromraw

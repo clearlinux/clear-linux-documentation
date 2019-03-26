@@ -20,9 +20,6 @@ Clear Linux Tooling
    :maxdepth: 1
    :glob:
 
-   clearlinux/*
-   telemetrics/telemetrics
-
 Maintenance
 ===========
 
