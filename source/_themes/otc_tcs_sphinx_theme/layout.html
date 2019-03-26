@@ -1,9 +1,42 @@
 {% extends "sphinx_rtd_theme/layout.html" %}
 
-
 {% block extrahead %}
 
 <link rel="stylesheet" href="{{ pathto('_static/tcs_theme.css', 1) }}" type="text/css" />
+
+{% endblock %}
+
+{% block content %}
+
+<header id="header">
+<div>
+        <ul class="header__menu_list">
+                         <li class="header__menu_list_item  ">
+                <a tabindex='1' href="https://clearlinux.org/features">Features</a>
+                                </li>
+                         <li class="header__menu_list_item  ">
+                <a tabindex='1' href="https://clearlinux.org/documentation/clear-linux">Documentation</a>
+                                </li>
+                         <li class="header__menu_list_item  ">
+                <a tabindex='1' href="https://clearlinux.org/community">Community</a>
+                                </li>
+                         <li class="header__menu_list_item  ">
+                <a tabindex='1' href="https://clearlinux.org/blogs">Blogs</a>
+                                </li>
+                         <li class="header__menu_list_item  ">
+                <a tabindex='1' href="https://clearlinux.org/containers">Containers</a>
+                                </li>
+                         <li class="header__menu_list_item  ">
+                <a tabindex='1' href="https://clearlinux.org/downloads">Downloads</a>
+                                </li>
+                         <li class="header__menu_list_item  ">
+                <a tabindex='1' href="https://clearlinux.org/stacks">Stacks</a>
+                                </li>
+                   </ul>
+</div>
+</header>
+
+{{ super() }}
 
 {% endblock %}
 

@@ -148,3 +148,8 @@ th,td {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+
+.header__menu_list li {
+    display: inline;
+    margin-left: 20px;
+}
