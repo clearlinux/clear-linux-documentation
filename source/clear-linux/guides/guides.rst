@@ -20,6 +20,9 @@ Clear Linux Tooling
    :maxdepth: 1
    :glob:
 
+   clearlinux/*
+   telemetrics/telem-guide.rst
+
 Maintenance
 ===========
 
