@@ -78,7 +78,7 @@ Burn the |CL| image onto a USB drive
       ├─sda8   8:8    0    30G  0 part /
       └─sda6   8:6    0   7.9G  0 part [SWAP]
 
-#. You must unmount a USB drive before you can burn an image onto it. Note that
+#. You must unmount a USB drive before burning an image onto it. Note that
    some Linux distros automatically mount a USB drive when it is plugged in.
    Unmount a USB drive with the :command:`umount` command followed by the device
    identifier/partition. For example:
@@ -94,6 +94,10 @@ Burn the |CL| image onto a USB drive
    .. code-block:: bash
 
       dd if=./clear-[version number]-[image type] of=<your USB device> bs=4M status=progress && sync
+
+.. caution::
+
+   |CAUTION-UNMOUNT-USB-PARTITIONS|
 
 .. _bootable-usb-mac:
 
