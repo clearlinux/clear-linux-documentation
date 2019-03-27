@@ -93,7 +93,7 @@ Burn the |CL| image onto a USB drive
 
    .. code-block:: bash
 
-      dd if=./clear-[version number]-[image type] of=<your USB device> bs=4M status=progress && sync
+      dd if=./clear-[version number]-[image type] of=<your USB device> oflag=sync bs=4M status=progress
 
 .. caution::
 
