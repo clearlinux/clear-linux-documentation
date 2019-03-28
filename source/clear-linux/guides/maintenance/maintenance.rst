@@ -12,7 +12,6 @@ completed.
 
    autoproxy
    developer-workstation
-   swupd-search
    enable-user-space
    swupd-guide
    bulk-provision

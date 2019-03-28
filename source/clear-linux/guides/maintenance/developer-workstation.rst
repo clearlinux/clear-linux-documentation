@@ -78,10 +78,11 @@ While your role may not neatly fit in one of these categories, consider using Ta
 `swupd` search
 **************
 
-We recommend trying out :ref:`swupd search <swupd-search>`, to learn the
+We recommend learning about :ref:`swupd <swupd-guide>`, to learn the
 commands to search for and add bundles relevant to your project.
 
-:ref:`swupd-search` shows you how to:
+The guide provides an :ref:`example <swupd-guide-example-install-bundle>`
+that shows you how to:
 
 * Use `swupd` to search for bundles
 * Use `swupd` to add bundles
