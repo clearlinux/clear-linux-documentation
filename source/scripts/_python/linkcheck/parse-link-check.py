@@ -52,8 +52,10 @@ with open (fileNamePath) as f:
 
 numBrokenLinks = 0
 numWhiteListMatches = 0
+numAnchors = 0
 newLines = ["<!DOCTYPE html><html><head><style>body {font-family: sans-serif;}</style></head><body>"]
 whiteListLines = []
+anchorLines = []
 
 for line in lines:
     if "[broken]" in line:
@@ -63,12 +65,19 @@ for line in lines:
         if link in whitelist:
             whiteListLines.append("<b>" + strings[0] + "</b>\n<blockquote><a href=\"" + link + "\">[whitelist] " + link + "</a></blockquote>\n")
             numWhiteListMatches += 1
-        else:
+        elif "Anchor '" in line:
+            anchorLines.append("<b>" + strings[0] + "</b>\n<blockquote><a href=\"" + link + "\">[anchor] " + link + "</a></blockquote>\n")
+            numAnchors += 1
+        else: 
             newLines.append("<b>" + strings[0] + "</b>\n<blockquote><a href=\"" + link + "\">[broken] " + link + "</a></blockquote>\n")
             numBrokenLinks += 1
 
 newLines.insert(0,"<h1>" + str(numBrokenLinks + numWhiteListMatches) + " broken links found in Sphinx link check</h1>\n")
 newLines.insert(1,"<h2>" + str(numBrokenLinks) + " unmatched broken links</h2>\n")
+newLines.append("<h2>" + str(numAnchors) + " links did not find anchors</h2>\n")
+for line in anchorLines:
+    newLines.append(line)
+
 newLines.append("<h2>" + str(numWhiteListMatches) + " links matched whitelist</h2>\n")
 for line in whiteListLines:
 	newLines.append(line)
