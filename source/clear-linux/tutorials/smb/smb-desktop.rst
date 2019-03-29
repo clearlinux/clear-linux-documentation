@@ -1,9 +1,13 @@
 .. _smb-desktop:
 
-Connect to Windows\* share from |CL-ATTR| desktop
-#################################################
+Connect to Windows\* shared location from |CL-ATTR| desktop
+###########################################################
 
-This tutorial explains how to access an existing shared location on Windows\* via SMB in the |CL-ATTR| GNOME GUI desktop.
+This tutorial explains how to access an existing shared location on
+Windows\* via Server Message Block (SMB) /Common Internet File System (CIFS)
+from the |CL| GNOME desktop.  CIFS filesystem is generally used to mount
+SMB/CIFS shares on Linux distributions. Though not really part of Samba,
+these tools were originally part of the Samba package.
 
 Prerequisites
 *************
