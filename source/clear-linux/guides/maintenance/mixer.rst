@@ -727,7 +727,7 @@ settings to containers:
         {
           "default":
           {
-            "httpProxy": ":",
+            "httpProxy": ":"
             "httpsProxy": ":"
           }
         }
@@ -744,7 +744,7 @@ Lastly, configure proxies to allow mixer to access upstream content from behind
 a firewall. For example:
 
 #. Open your :file:`$HOME/.bashrc` file and add proxy and port values for the
-following:
+   following:
 
    .. code-block:: console
 
