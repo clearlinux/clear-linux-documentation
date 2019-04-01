@@ -83,7 +83,7 @@ Prerequisites
 Mix setup
 ==========
 
-Setup creates and initializes the workspace used by mixer. Complete
+Follow these steps to create and initialize the mixer workspace. Complete
 setup before you create a mix.
 
 #. Create workspace.
