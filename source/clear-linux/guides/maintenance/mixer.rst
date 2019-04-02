@@ -19,6 +19,7 @@ mixer uses the following sources as inputs to generate update content:
 
 * Upstream |CL| bundles with their corresponding RPM packages
 * Locally-defined bundles with their corresponding local RPM packages
+* Locally-defined bundles with upstream RPM packages
 
 Using the mixer tool, you select which set of content from these sources will be
 part of your update. You can select content from each of these sources to make a
@@ -822,7 +823,7 @@ Set up a nginx web server for mixer with the following steps:
       sudo systemctl start nginx
 
 #. Verify the web server is running at \http://localhost. At this point
-   you should see a "404 Not Found" message.
+   you should no longer see a "404 Not Found" message.
 
 Related topics
 **************
