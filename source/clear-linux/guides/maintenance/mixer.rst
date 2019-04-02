@@ -728,8 +728,8 @@ settings to containers:
         {
           "default":
           {
-            "httpProxy": ":"
-            "httpsProxy": ":"
+            "httpProxy": "<proxy-url>:<port>",
+            "httpsProxy": "<proxy-url>:<port>"
           }
         }
       }
