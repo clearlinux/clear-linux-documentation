@@ -45,7 +45,7 @@ Then make changes to the kernel, build it, and install it.
 Install the |CL| development tooling framework
 ==============================================
 
-.. include:: autospec.rst
+.. include:: ../clearlinux/autospec.rst
    :start-after: install-tooling-after-header:
    :end-before: install-tooling-end:
 

@@ -21,7 +21,7 @@ for (i = 0; i < contents.length; i++) {
     var btn = document.createElement("BUTTON");
     //If it is a header capture which level and pass on to button
     if (element_type.length == 2 && element_type[0] == 'h') {
-      var newClass = 'c' + element_type[1];
+      var newClass = 'clps' + element_type[1];
       //collapses the section by default only if javascript is working
       contents[i].style.maxHeight = 0;
       //Build the button and define behavior
