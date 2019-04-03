@@ -1,5 +1,7 @@
 .. Clear Technologies documentation master file.
 
+:orphan:
+
 Clear Linux - Documentation
 ###########################
 

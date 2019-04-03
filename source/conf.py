@@ -49,7 +49,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'clear-linux/clear-linux'
 
 # General information about the project.
 project = u'Clear Linux* project'
