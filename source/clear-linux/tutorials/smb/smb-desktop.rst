@@ -3,11 +3,10 @@
 Connect to Windows\* shared location from |CL-ATTR| desktop
 ###########################################################
 
-This tutorial explains how to access an existing shared location on
-Windows\* via Server Message Block (SMB) /Common Internet File System (CIFS)
-from the |CL| GNOME desktop.  CIFS filesystem is generally used to mount
-SMB/CIFS shares on Linux distributions. Though not really part of Samba,
-these tools were originally part of the Samba package.
+This tutorial explains how to access an existing shared drive on
+Windows\* via Server Message Block (SMB) / Common Internet File System (CIFS)
+from the |CL| GNOME desktop.  CIFS filesystem is generally used to access
+shared storage locations, or share files.
 
 Prerequisites
 *************
@@ -23,48 +22,50 @@ Connect to Windows shared location with Nautilus
 
    	  GNOME Files is also known as `Nautilus`.
 
-
 #. In :guilabel:`Files`, select :guilabel:`Other Locations`.
 
    .. figure:: figures/smb-desktop-1.png
-  	  :scale: 100%
-	  :alt: Files, Other Locations
+      :scale: 100%
+      :alt: Files, Other Locations
 
-	  Figure 1: Files, Other Locations
+      Figure 1: Files, Other Locations
 
-#. In the taskbar at bottom beside :guilabel:`Connect to Server`,
+#. In the lower taskbar, beside :guilabel:`Connect to Server`,
    enter the file-sharing address using the Windows sharing schema:
 
    .. code-block:: bash
 
-	  smb://servername/Share
-
+	    smb://servername/Share
 
    .. figure:: figures/smb-desktop-2.png
-  	  :scale: 100%
-	  :alt: Connect to Server
+      :scale: 100%
+      :alt: Connect to Server
 
-	  Figure 2: Connect to Server
+      Figure 2: Connect to Server
 
-   #. Optional: If there are issues with DNS, you can use an IP address in
-      place of the server name. You must still specify the share.
+#. Optional: If there are issues with DNS, you can use an IP address in
+   place of the `servername` above. You must still specify the share.
 
-   #. On the Windows machine, in a CLI, retrieve the IP address by entering
-      the command:
+#. Optional: On the Windows machine, in a CLI, retrieve the IP address by
+   entering the command:
 
-	  .. code-block:: bash
+   .. code-block:: bash
 
-	     ifconfig
+      ifconfig
+
+   .. note::
+
+      If using the IP address, assure that it is accessible and secure.
 
 #. Select :guilabel:`Connect`.
 
 #. The server will request authentication, as shown in Figure 3.
 
    .. figure:: figures/smb-desktop-3.png
-  	  :scale: 100%
-	  :alt: Authentication
+      :scale: 100%
+      :alt: Authentication
 
-	  Figure 3: Authentication
+      Figure 3: Authentication
 
 #. Log in with the same Windows system credentials for which you granted
    access to the share.
