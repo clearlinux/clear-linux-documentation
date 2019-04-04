@@ -242,9 +242,7 @@ Read the Kubernetes documentation to learn more about:
 Cloud native setup automation (optional)
 ****************************************
 
-|CL| has `cloud-native` setup helper scripts that can execute many of the
-steps described above. Clone the `cloud-native-setup`_ repository and
-`follow these instructions`_.
+Clone the `cloud-native-setup`_ repository on your system and follow the instructions. This repository includes helper scripts to automate configuration.
 
 Package configuration customization (optional)
 **********************************************
@@ -411,8 +409,6 @@ Troubleshooting
 .. _Stateless: https://clearlinux.org/features/stateless
 
 .. _documentation: https://clearlinux.org/documentation/clear-linux
-
-.. _follow these instructions: https://github.com/clearlinux/cloud-native-setup/blob/master/clr-k8s-examples/README.md#setup-the-nodes-in-the-cluster
 
 .. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup
 
