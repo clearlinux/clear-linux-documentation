@@ -52,7 +52,7 @@ running the individual commands as follows:
 
 .. code-block:: bash
 
-   $ python --version
+   python --version
 
 .. code-block:: console
 
@@ -60,7 +60,7 @@ running the individual commands as follows:
 
 .. code-block:: bash
 
-   $ openssl version
+   openssl version
 
 .. code-block:: console
 
@@ -68,7 +68,7 @@ running the individual commands as follows:
 
 .. code-block:: bash
 
-   $ ls -l /usr/lib64/libffi*
+   ls -l /usr/lib64/libffi*
 
 .. code-block:: console
 
@@ -80,7 +80,7 @@ sysadmin-basic software bundle using the :command:`swupd` command:
 
 .. code-block:: bash
 
-   $ sudo swupd bundle-add sysadmin-basic
+   sudo swupd bundle-add sysadmin-basic
 
 .. note::
 
@@ -97,7 +97,7 @@ Install MS Azure CLI 2.0 on |CL|
 
    .. code-block:: bash
 
-      $ curl -L https://aka.ms/InstallAzureCli | bash
+      curl -L https://aka.ms/InstallAzureCli | bash
 
    If you get an error message from :command:`curl` related to the -L
    parameter or an error message is generated that includes the text "Object
@@ -105,7 +105,7 @@ Install MS Azure CLI 2.0 on |CL|
 
    .. code-block:: bash
 
-      $ curl https://azurecliprod.blob.core.windows.net/install | bash
+      curl https://azurecliprod.blob.core.windows.net/install | bash
 
 #. The installation script begins and prompts you several times during
    execution for information.
@@ -136,7 +136,7 @@ Install MS Azure CLI 2.0 on |CL|
 
       ===> Modify profile to update your $PATH and enable shell/tab completion now? (Y/n): Y
 
-   Type :kbd:`y` and press the :kbd:`Enter` key to allow this modification.
+   Type :kbd:`Y` and press the :kbd:`Enter` key to allow this modification.
 
    .. code-block:: console
 
@@ -163,14 +163,14 @@ Install MS Azure CLI 2.0 on |CL|
 
    .. code-block:: bash
 
-      $ exec -l $SHELL
+      exec -l $SHELL
 
 With the MS Azure CLI 2.0 executable successfully built and installed, run
 the :command:`az` command.
 
 .. code-block:: bash
 
-   $ az
+   az
 
 The output from the :command:`az` command is shown below:
 
@@ -258,7 +258,7 @@ Log into your Microsoft Azure account
 
    .. code-block:: bash
 
-      $ az login
+      az login
 
    The output from this command is:
 
@@ -317,7 +317,7 @@ of resources within MS Azure.
 
    .. code-block:: bash
 
-      $ az group create -n ClearResourceGroup -l westus
+      az group create -n ClearResourceGroup -l westus
 
 #. When the command has completed, the output from this command is similar to
    the following:
@@ -345,7 +345,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
    .. code-block:: bash
 
-      $ az vm image list --offer clear-linux --sku basic --all --output table
+      az vm image list --offer clear-linux --sku basic --all --output table
 
    This command may take some time to finish. The output lists all available
    |CL| Basic images available in the Microsoft Azure marketplace as shown
@@ -384,7 +384,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
    .. code-block:: bash
 
-      $ az vm create --resource-group ClearResourceGroup --name ClearVM --image clear-linux-project:clear-linux-os:basic:latest --generate-ssh-keys
+      az vm create --resource-group ClearResourceGroup --name ClearVM --image clear-linux-project:clear-linux-os:basic:latest --generate-ssh-keys
 
    .. note::
 
@@ -420,7 +420,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
    .. code-block:: bash
 
-      $ ssh [user]@13.91.4.245
+      ssh [user]@13.91.4.245
 
    You may see the following message about the authenticity of the host. If
    this appears, type `yes` to proceed connecting to your new |CL| VM.
@@ -436,11 +436,11 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
    You are now logged into your new |CL| VM as [user], where [user] is your
    user name. To check which software bundles are included with
-   this image, run the :command:`swupd bundle-list` command:
+   this VM image, run the :command:`swupd bundle-list` command inside the VM:
 
    .. code-block:: bash
 
-      [user]@ClearVM ~ $ sudo swupd bundle-list
+      sudo swupd bundle-list
 
    The output shown should be similar to:
 
@@ -484,7 +484,7 @@ incurring charges for them, you must deallocate the resources as well.
 
    .. code-block:: bash
 
-      $ az vm stop --resource-group ClearResourceGroup --name ClearVM
+      az vm stop --resource-group ClearResourceGroup --name ClearVM
 
    This will stop the VM and then output text similar to:
 
@@ -503,7 +503,7 @@ incurring charges for them, you must deallocate the resources as well.
 
    .. code-block:: console
 
-      $ az vm deallocate --resource-group ClearResourceGroup --name ClearVM
+      az vm deallocate --resource-group ClearResourceGroup --name ClearVM
 
 **Congratulations!**
 
