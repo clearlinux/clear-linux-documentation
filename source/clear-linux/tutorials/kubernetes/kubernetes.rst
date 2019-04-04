@@ -239,6 +239,11 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
+Cloud native setup automation (optional)
+****************************************
+
+Clone the `cloud-native-setup`_ repository on your system and follow the instructions. This repository includes helper scripts to automate configuration.
+
 Package configuration customization (optional)
 **********************************************
 
@@ -404,4 +409,6 @@ Troubleshooting
 .. _Stateless: https://clearlinux.org/features/stateless
 
 .. _documentation: https://clearlinux.org/documentation/clear-linux
+
+.. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup
 
