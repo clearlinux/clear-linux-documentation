@@ -436,7 +436,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
    You are now logged into your new |CL| VM as [user], where [user] is your
    user name. To check which software bundles are included with
-   this VM image, run the :command:`swupd bundle-list` command inside the VM:
+   this VM image, run the :command:`sudo swupd bundle-list` command inside the VM:
 
    .. code-block:: bash
 
