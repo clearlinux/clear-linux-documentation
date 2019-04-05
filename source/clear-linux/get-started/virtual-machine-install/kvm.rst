@@ -26,7 +26,13 @@ Install QEMU-KVM
 
      .. code-block:: bash
 
-        swupd bundle-add desktop-autostart kvm-host
+        swupd bundle-add kvm-host
+
+    * |CL| option: Add this bundle to lanch the GUI upon boot.
+
+     .. code-block:: bash
+
+        swupd bundle-add desktop-autostart
 
    * On Ubuntu\* 16.04 LTS Desktop:
 
