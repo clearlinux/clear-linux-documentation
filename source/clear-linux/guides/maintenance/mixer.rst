@@ -262,15 +262,15 @@ set to get a smaller kernel image, which will also be faster to load.
    Look in ~/mixer/update/image/<mix version>/full for the full chroot after the
    :command:`build` command completes.
 
-#. Build update content. Browse to your http://localhost site and you'll see
+#. Build update content. Browse to your \http://localhost site and you'll see
    the web page is now up, but with no update content. Build the update content:
 
    .. code-block:: bash
 
       mixer build update
 
-   Refresh your http://localhost site and now you can see the update content for
-   mix version 10.
+   Refresh your \http://localhost site and now you can see the update
+   content for mix version 10.
 
    Look in ~/mixer/update/www/<mix version> to see the update content in your
    workspace.
@@ -333,7 +333,7 @@ set to get a smaller kernel image, which will also be faster to load.
 
       mixer build delta-packs --from 10 --to 20
 
-   Refresh your http://localhost site and now you can see the update content for
+   Refresh your \http://localhost site and now you can see the update content for
    mix version 20.
 
    Look in ~/mixer/update/www/<mix version> to see the update content in your
