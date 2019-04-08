@@ -16,8 +16,8 @@ Description
 :command:`swupd` has two main functions:
 
 #. It manages software replacing APT or YUM, installing bundles
-   rather than packages. 
-#. It checks for system updates and installs them. 
+   rather than packages.
+#. It checks for system updates and installs them.
 
 :ref:`Bundles <bundles>` are the smallest granularity component that is
 managed by |CL| and contain everything needed to deliver a software
@@ -78,7 +78,7 @@ patch to be as small as 15 KB. Using binary deltas, the |CL| is able to
 apply only what is needed.
 
 To get a more detailed understanding of how to generate update content for
-|CL| see the :ref:`mixer <mixer>` tool. 
+|CL| see the :ref:`mixer <mixer>` tool.
 
 How it works
 ************
@@ -203,13 +203,13 @@ Example 2: Find and install Kata\* Containers
 Kata Containers is a popular container implementation. Unlike other
 container implementations, each Kata Container has its own
 kernel instance and runs on its own :abbr:`Virtual Machine (VM)` for
-improved security. 
+improved security.
 
 |CL| makes it very easy to install, since you only need to add
 `one bundle`_ to use `Kata Containers`_: `containers-virt`, despite a
 number of dependencies.  Also, check out our tutorial: :ref:`kata`.
 
-#. Find the right bundle. 
+#. Find the right bundle.
 
    * To return all possible matches for the search string enter
      :command:`swupd search`, followed by 'kata':
@@ -223,7 +223,7 @@ number of dependencies.  Also, check out our tutorial: :ref:`kata`.
      .. code-block:: console
 
         Bundle with the best search result:
-             
+
              containers-virt - Run container applications from Dockerhub in lightweight virtual machines
 
         This bundle can be installed with:
@@ -231,7 +231,7 @@ number of dependencies.  Also, check out our tutorial: :ref:`kata`.
              swupd bundle-add  containers-virt
 
         Alternative bundle options are
-             
+
              cloud-native-basic - Contains ClearLinux native software for Cloud
 
      .. note::
@@ -268,8 +268,8 @@ number of dependencies.  Also, check out our tutorial: :ref:`kata`.
       Calling post-update helper scripts.
       Successfully installed 1 bundle
 
-Example 3: Verify and correct sytem file mismatch
-=================================================
+Example 3: Verify and correct system file mismatch
+==================================================
 
 :command:`swupd` can determine whether system directories and files have
 been added to, overwritten, removed, or modified (e.g., permissions).
@@ -334,7 +334,7 @@ swupd --help
    For additional :command:`swupd` commands.
 
 man swupd
-   To reference the :command:`swupd` man page, or see the 
+   To reference the :command:`swupd` man page, or see the
    `source documentation`_ available on github.
 
 Related topics
