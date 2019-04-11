@@ -3,24 +3,22 @@
 Add kernel modules manually
 ###########################
 
-Kernel modules are additional pieces of software capable of being inserted
-into the Linux kernel to add functionality, such as a hardware driver. Kernel
-modules may already be part of the Linux source tree (in-tree) or may come
-from an external source, such as directly from a vendor (out-of-tree).  
-
-In cases where drivers beyond those enabled by default in |CL-ATTR| are
-needed it may be necessary to manually build out-of-tree modules. 
-
-Out-of-tree kernel modules can be managed by  `Dynamic Kernel Module System
-(DKMS) <kernel-modules-dkms>`_ on |CL| for automatic rebuilding upon kernel
-updates. Out-of-tree kernel modules can also be manually built and maintained
-using the instructions in this document. 
-
+Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
+kernel modules, you must build out-of-tree kernel modules. Use this guide to
+add kernel modules manually, or refer to :ref:`kernel-modules-dkms`.
 
 
 .. contents:: :local:
    :depth: 1
    :backlinks: top
+
+Description
+===========
+
+Kernel modules are additional pieces of software capable of being inserted
+into the Linux kernel to add functionality, such as a hardware driver.
+Kernel modules may already be part of the Linux source tree (in-tree) or may
+come from an external source, such as directly from a vendor (out-of-tree).
 
 
 .. _kernel-modules-availability-begin:
@@ -28,35 +26,36 @@ using the instructions in this document.
 Kernel module availability in |CL|
 ==================================
 
+|CL| comes with many upstream kernel modules available for use. Using an
+existing module is significantly easier to maintain and retains signature
+verification of the |CL| kernel. For more information on |CL| security
+practices, see the :ref:`security` page.
+
 Before continuing, check if the kernel module you're looking for is already
-available in |CL| or can be requested.
+available in |CL| or submit a request to add the module.
 
 
 Check if the module is already available
 ----------------------------------------
 
-|CL| comes with many upstream kernel modules available for use.  If you
-require a kernel module, be sure to check whether it is already available in
-|CL| first. 
-
-Using an existing module is significantly easier to maintain and retains
-signature verification of the |CL| kernel. For more information on |CL|
-security practices, see the :ref:`security` page.
 
 You can search for kernel module file names, which end with the :file:`.ko`
-file extension, using the :command:`swupd search` command. For example:
-:command:`sudo swupd search ${module_name}.ko`. See :ref:`swupd-guide` for
-more information. 
+file extension, using the :command:`swupd search` command, as shown in the
+following example. See :ref:`swupd-guide` for more information.
+
+.. code-block:: bash
+
+   sudo swupd search ${module_name}.ko
 
 
 Request the module be added to |CL|
 -----------------------------------
 
-If the kernel module you need is already open source (e.g. in the Linux
+If the kernel module you need is already open source (for example, in the Linux
 upstream) and likely to be useful to others, consider submitting a request to
-add or enable in the |CL| kernel.
+add or enable it in the |CL| kernel.
 
-Make enhancement requests to the |CL| distribution `on GitHub`_ .
+Make enhancement requests to the |CL| distribution `on GitHub`_.
 
 .. _kernel-modules-availability-end:
 
@@ -64,14 +63,16 @@ Make enhancement requests to the |CL| distribution `on GitHub`_ .
 Build, install, and load an out-of-tree module
 ==============================================
 
-In some cases you may need an out-of-tree kernel module that is not available
-through |CL|.
+Follow the steps in this section if you are an individual user or testing, and
+you need an out-of-tree kernel module that is not available through |CL|. For
+a more scalable and customizable approach, we recommend using the
+`mixer tool`_ to provide a custom kernel and updates.
 
 
-Prerequisites 
+Prerequisites
 -------------
 
-You can build and load out-of-tree kernel modules, however you must:
+Before you begin, you must:
 
 * Disable Secure Boot.
 * Disable kernel module integrity checking.
@@ -80,12 +81,8 @@ You can build and load out-of-tree kernel modules, however you must:
 
 .. note::
 
-   Any time the kernel is upgraded on your Clear Linux system, you will 
-   need to rebuild your out-of-tree modules.
-
-This approach works well for individual development or testing. For a more
-scalable and customizable approach, consider using the `mixer tool`_ to
-provide a custom kernel and updates.
+   Any time the kernel is upgraded on your Clear Linux system, you must
+   rebuild your out-of-tree modules.
 
 
 Build and install kernel module
@@ -101,8 +98,8 @@ Build and install kernel module
 
 #. Install the kernel dev bundle corresponding to the installed kernel. The
    kernel dev bundle contains the kernel headers, which are required for
-   compiling kernel modules.For example:
-    
+   compiling kernel modules. For example:
+
    * `linux-dev` for developing against the native kernel.
    * `linux-lts-dev` for developing against the LTS kernel.
 
@@ -110,7 +107,7 @@ Build and install kernel module
 
       sudo swupd bundle-add linux-dev
 
-#. Follow instructions from the kernel module source code to compile the 
+#. Follow instructions from the kernel module source code to compile the
    kernel module. For example:
 
    .. code-block:: bash
@@ -126,23 +123,22 @@ Load kernel module
 ------------------
 
 #. Disable Secure Boot in your system's UEFI settings, if you have enabled
-   it. The loading of new out-of-tree modules modifies the signatures Secure
-   Boot relies on for trust. 
+   it. The loading of new out-of-tree modules modifies the signatures that
+   Secure Boot relies on for trust.
 
+#. Disable signature checking for the kernel by modifying the kernel boot
+   parameters and reboot the system.
 
-#. Disable signature checking for the kernel by modifying the kernel boot 
-   parameters and reboot the system. 
-
-   All kernel modules from |CL| have been signed to enforce kernel security. 
-   However, out-of-tree modules break this chain of trust so this mechanism 
+   All kernel modules from |CL| have been signed to enforce kernel security.
+   However, out-of-tree modules break this chain of trust so this mechanism
    needs to be disabled.
-  
+
    .. code-block:: bash
 
       sudo mkdir -p /etc/kernel/cmdline.d
       echo "module.sig_unenforce" | sudo tee /etc/kernel/cmdline.d/allow-unsigned-modules.conf
 
-#. Update the boot manager and reboot the system to implement the changed 
+#. Update the boot manager and reboot the system to implement the changed
    kernel parameters.
 
    .. code-block:: bash
@@ -152,12 +148,11 @@ Load kernel module
 
    .. note::
 
-      :command:`clr-boot-manager update` does not return any
-      console output if successful.
+      If successful, the :command:`clr-boot-manager update` command does not
+      return any console output.
 
-   
-#. After rebooting, out-of-tree modules can be manually loaded with 
-   :command:`insmod`. 
+#. After rebooting, manually load out-of-tree modules using the
+   :command:`insmod` command.
 
    .. code-block:: bash
 
@@ -170,23 +165,22 @@ Load kernel module
 Optional: Specify module options and aliases
 ============================================
 
-Use the :command:`modprobe` command to load a module and set options.  
+Use the :command:`modprobe` command to load a module and set options.
 
-Because :command:`modprobe` may add or remove more than one module due to
-modules having dependencies, a method of specifying what options are to be
-used with individual modules is useful. This can be done with configuration
-files under the :file:`/etc/modprobe.d` directory. 
+:command:`modprobe` may add or remove more than one module due to module
+interdependencies. You can specify which options to use with individual modules,
+by using configuration files under the :file:`/etc/modprobe.d` directory.
 
 .. code-block:: bash
 
    sudo mkdir /etc/modprobe.d
 
 All files underneath the :file:`/etc/modprobe.d` directory that end with the
-:file:`.conf` extension specify module options to use when loading. This can
-also be used to create convenient aliases for modules or they can override the
-normal loading behavior altogether for those with special requirements. 
+:file:`.conf` extension specify module options to use when loading. You can use
+:file:`.conf` files to create convenient aliases for modules or to override the
+normal loading behavior altogether for those with special requirements.
 
-You can find more info on module loading in the modprobe.d manual page:
+Learn more about :command:`modprobe` on the modprobe.d manual page:
 
 .. code-block:: bash
 
@@ -206,7 +200,7 @@ All files underneath the :file:`/etc/modules-load.d` directory that end with
 the :file:`.conf` extension contain a list of module names of aliases (one per
 line) to load at boot.
 
-You can find more info on module loading in the modules-load.d manual page:
+Learn more about module loading in the modules-load.d manual page:
 
 .. code-block:: bash
 
@@ -216,5 +210,5 @@ You can find more info on module loading in the modules-load.d manual page:
 .. _kernel-modules-autoload-end:
 
 
-.. _`on GitHub`: https://github.com/clearlinux/distribution 
+.. _`on GitHub`: https://github.com/clearlinux/distribution
 .. _`mixer tool`: https://clearlinux.org/features/mixer-tool
