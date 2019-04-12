@@ -202,8 +202,8 @@ Install |CL| into the new VM
 
       Figure 9: VMware Workstation 14 Player - Power on virtual machine
 
-#. Follow the :ref:`install-on-target` guide to complete the installation of
-   |CL|.
+#. Follow the :ref:`install-on-target-start` guide to complete the
+   installation of |CL|.
 
 #. After the installation completes, reboot the VM. This reboot restarts the
    |CL| installer.
