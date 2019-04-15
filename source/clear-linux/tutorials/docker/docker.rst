@@ -98,6 +98,8 @@ More information on installing and using  the *kata-runtime* may be found at :re
    need to continue reading. The following sections are provided here for
    sake of completeness.
 
+.. _additional-docker-configuration:
+
 Additional Docker configuration
 *******************************
 
@@ -124,6 +126,9 @@ exist by default.
          {
             "storage-driver": "devicemapper"
          }
+
+#. As noted in warning message on devicemapper, "usage of loopback devices
+   is strongly discouraged for production use". Therefore, we recommend following this link to `Configure direct lvm mode for production`_ for improved efficiency and ease of scalability.
 
 #. Once you've made any required changes, be sure to restart the
    Docker daemon through systemd manager by running this command:
@@ -228,3 +233,5 @@ Related topics
 .. _Docker documentation on swarm key concepts: https://docs.docker.com/engine/swarm/key-concepts/
 
 .. _Docker documentation on creating a swarm: https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
+
+.. _Configure direct lvm mode for production: https://docs.docker.com/storage/storagedriver/device-mapper-driver/
