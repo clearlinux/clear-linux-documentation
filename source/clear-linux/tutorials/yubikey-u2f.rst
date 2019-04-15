@@ -74,7 +74,7 @@ YubiKey with Linux
 
    .. code:: bash
       
-      sudo udevadm control --reload-rules && udevadm trigger
+      sudo udevadm control --reload-rules && sudo udevadm trigger
 
 
 #. Plugin and validate the YubiKey appears as a USB device:
