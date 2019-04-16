@@ -110,7 +110,7 @@ To do so, enter:
 .. code-block:: bash
 
    sudo mkdir -p /etc/systemd/system/docker.service.d/
-   cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/51-runtime.conf
+   cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/50-runtime.conf
    [Service]
    Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime kata-runtime"
    EOF
