@@ -99,7 +99,7 @@ To check which runtime your system uses, enter:
 
 .. note::
 
-   To change the Docker devicemapper settings for production use, see
+   To change the Docker storage driver, see
    :ref:`additional-docker-configuration`.
 
 For some |CL| versions before 27000, you may need to manually
