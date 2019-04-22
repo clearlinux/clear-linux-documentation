@@ -322,6 +322,117 @@ and dependencies in order for autospec to complete a successful build.
    if autospec is not able to automatically find the correct dependency on its
    own.
 
+Test packaged software
+**********************
+
+After software has been packaged with autospec, the resulting RPMs can be
+tested for functionality before being integrated and deployed into a |CL|
+image with the :ref:`Mixer tool <mixer>` or :ref:`Mixin tool <mixin>`.
+
+The |CL| development tooling offers two ways to quickly test autospec
+generated RPMs.
+
+.. note::
+   The methods outlined below should only be used for temporary testing on
+   development systems. 
+
+
+Test in a |CL| virtual machine
+==============================
+
+The |CL| development tooling includes a method to mount RPMs into a |CL|
+virtual machine running on the KVM hypervisor. Using a :abbr:`VM (Virtual
+Machine)` allows testing is completely isolated environment. 
+
+To test an autospec created package inside a VM:
+
+#. Download the |CL| KVM image into the :file:`~/clearlinux` directory as
+   :file:`clear.img`. The location and name :file:`clear.img.xz` is important
+   for the tooling to work:
+
+   .. code-block:: bash
+
+      cd ~/clearlinux
+      curl -o clear.img.xz https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep '[0-9]'-kvm)
+
+#. Extract the downloaded |CL| KVM image:
+
+   .. code-block:: bash
+
+      unxz -v clear.img.xz
+
+#. Copy the QEMU start script and virtual firmware needed for KVM into the
+   :file:`~/clearlinux` directory:
+
+   .. code-block:: bash
+
+      cp ~/clearlinux/projects/common/start_qemu.sh .
+      cp /usr/share/qemu/OVMF.fd .
+
+#. Run :command:`make install` from the package's autospec directory. The
+   :command:`make install` command mounts the downloaded |CL| KVM image and
+   installs the autospec created RPM into it:
+
+   .. code-block:: bash
+
+      cd ~/clearlinux/packages/<package-name>
+      make install
+
+   The code that makes this possible can be viewed by searching for the
+   *install:*  target in the `Makefile.common file on GitHub`_.
+
+#. Return back to the :file:`~/clearlinux` directory and start the |CL| VM:
+
+   .. code-block:: bash
+
+      cd ~/clearlinux/
+      sudo ./start_qemu.sh clear.img
+
+#. A new |CL| VM will launch in the console. Log into the VM as *root* and set
+   a new pasword for the VM.
+
+#. Check that the software is installed in the |CL| VM as expected and perform
+   any relevant tests.
+
+#. After testing has been completed, the |CL| VM can be powered off and
+   deleted:
+
+   .. code-block:: bash
+      
+      poweroff 
+      rm clear.img
+
+
+Test directly on a development machine
+======================================
+
+The |CL| development tooling also includes a method to extract autospec
+created RPMs locally onto a |CL| development system for testing. Extracting a
+RPM directly onto a system  offers quicker testing, however conflicts may
+occur and responsibility to remove the software after testing is up to the
+developer.
+
+To test an autospec created package directly on the |CL| development system:
+
+#. Run :command:`make install-local` from the package's autospec directory.
+   The :command:`make install-local` command extracts the RPM directly onto
+   the filesystem of the running |CL| system:
+
+   .. code-block:: bash
+
+      cd ~/clearlinux/packages/<package-name>
+      make install-local
+
+   The code that makes this possible can be viewed by searching for the
+   *install-local:*  target in the `Makefile.common file on GitHub`_.
+
+#. Check that the software is installed as expected and perform any relevant
+   tests.
+
+#. After testing has been completed, the software and any related files must
+   be deleted manually.
+
+
 References
 **********
 
@@ -389,6 +500,7 @@ Related topics
 * :ref:`Mixin tool <mixin>`
 
 .. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
+.. _`Makefile.common file on GitHub`: https://github.com/clearlinux/common/blob/master/Makefile.common
 .. _autospec README: https://github.com/clearlinux/autospec
 .. _control files: https://github.com/clearlinux/autospec#control-files
 .. _mock wiki: https://github.com/rpm-software-management/mock/wiki
