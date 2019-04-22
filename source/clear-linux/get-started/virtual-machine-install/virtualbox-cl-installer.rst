@@ -41,7 +41,7 @@ The appropriate |CL| installer image needs to be downloaded and extracted.
 
    .. code-block:: bash
 
-      curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep installer.iso)
+      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep installer.iso)
 
 #. Validate the integrity of the downloaded image by checking the file hash 
    and signatures. Refer to the document on :ref:`validate-signatures` for 

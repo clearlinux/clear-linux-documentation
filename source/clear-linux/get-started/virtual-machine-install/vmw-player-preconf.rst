@@ -64,7 +64,7 @@ this command:
 
 .. code-block:: bash
 
-   curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep vmware)
+   curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep vmware)
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
@@ -306,8 +306,8 @@ For other guides on using the VMWare Player and ESXi, see:
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation 14 Player: https://www.vmware.com/products/workstation-player.html
 .. _VMware Workstation Player guide: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
-.. _latest: https://download.clearlinux.org/image/
-.. _image: https://download.clearlinux.org/image
+.. _latest: https://cdn.download.clearlinux.org/image/
+.. _image: https://cdn.download.clearlinux.org/image
 
 
 

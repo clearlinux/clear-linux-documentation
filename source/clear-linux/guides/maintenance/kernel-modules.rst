@@ -45,7 +45,7 @@ security practices, see the :ref:`security` page.
 
 You can search for kernel module file names, which end with the :file:`.ko`
 file extension, using the :command:`swupd search` command. For example:
-:command:`sudo swupd search ${module_name}.ko`. See :ref:`swupd-search` for
+:command:`sudo swupd search ${module_name}.ko`. See :ref:`swupd-guide` for
 more information. 
 
 

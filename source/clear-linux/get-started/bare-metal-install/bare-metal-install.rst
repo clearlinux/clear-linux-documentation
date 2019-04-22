@@ -30,12 +30,6 @@ Look for the :file:`clear-[version number]-installer.img.xz` file.
 
    Figure 1: Visit Downloads
 
-Optionally, you can use this command:
-
-.. code-block:: bash
-
-   curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep "installer")
-
 #. Follow your OS instructions to create a bootable USB drive.
 
    * :ref:`bootable-usb`

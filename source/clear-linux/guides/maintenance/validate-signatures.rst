@@ -26,11 +26,11 @@ used for illustrative purposes. You may use any image of |CL| you choose.
    .. code-block:: console
 
       # Image
-      curl -O https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz
+      curl -O https://cdn.download.clearlinux.org/current/clear-$(curl https://cdn.download.clearlinux.org/latest)-installer.img.xz
       # Signature of SHA512 sum of image
-      curl -O https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig
+      curl -O https://cdn.download.clearlinux.org/current/clear-$(curl https://cdn.download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig
       # Certificate
-      curl -O https://download.clearlinux.org/releases/$(curl https://download.clearlinux.org/latest)/clear/ClearLinuxRoot.pem
+      curl -O https://cdn.download.clearlinux.org/releases/$(curl https://cdn.download.clearlinux.org/latest)/clear/ClearLinuxRoot.pem
 
 #. Generate the SHA256 sum of the |CL| certificate.
 
@@ -49,7 +49,7 @@ used for illustrative purposes. You may use any image of |CL| you choose.
 
    .. code-block:: console
 
-      sha512sum clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
+      sha512sum clear-$(curl https://cdn.download.clearlinux.org/latest)-installer.img.xz > sha512sum.out
 
 #. Ensure the signature of the SHA512 sum of the image was created using the
    |CL| certificate. This validates the image is trusted and it has not
@@ -57,7 +57,7 @@ used for illustrative purposes. You may use any image of |CL| you choose.
 
    .. code-block:: console
 
-      openssl smime -verify -purpose any -in clear-$(curl https://download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem
+      openssl smime -verify -purpose any -in clear-$(curl https://cdn.download.clearlinux.org/latest)-installer.img.xz-SHA512SUMS.sig -inform der -content sha512sum.out -CAfile ClearLinuxRoot.pem
 
    .. note::
 
@@ -83,11 +83,11 @@ these steps manually when performing a ``swupd update``.
    .. code-block:: console
 
       # MoM
-      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.MoM
+      curl -O https://cdn.download.clearlinux.org/update/$(curl https://cdn.download.clearlinux.org/latest)/Manifest.MoM
       # Signature of MoM
-      curl -O https://download.clearlinux.org/update/$(curl https://download.clearlinux.org/latest)/Manifest.MoM.sig
+      curl -O https://cdn.download.clearlinux.org/update/$(curl https://cdn.download.clearlinux.org/latest)/Manifest.MoM.sig
       # Swupd certificate
-      curl -O https://download.clearlinux.org/releases/$(curl https://download.clearlinux.org/latest)/clear/Swupd_Root.pem
+      curl -O https://cdn.download.clearlinux.org/releases/$(curl https://cdn.download.clearlinux.org/latest)/clear/Swupd_Root.pem
 
 #. Generate the SHA256 sum of the Swupd certificate.
 

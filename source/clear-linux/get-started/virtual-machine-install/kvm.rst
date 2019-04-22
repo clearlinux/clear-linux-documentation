@@ -26,7 +26,13 @@ Install QEMU-KVM
 
      .. code-block:: bash
 
-        swupd bundle-add desktop-autostart kvm-host
+        swupd bundle-add kvm-host
+
+   * |CL| option: Add this bundle to lanch the GUI upon boot.
+
+     .. code-block:: bash
+
+        swupd bundle-add desktop-autostart
 
    * On Ubuntu\* 16.04 LTS Desktop:
 
@@ -50,12 +56,12 @@ Download and launch the virtual machine
 ***************************************
 
 #. Download the latest pre-built |CL| KVM image file from
-   the `image <https://download.clearlinux.org/image/>`_ directory. Look for
-   ``clear-<version>-kvm.img.xz``.  You can also use this command: 
+   the `image <https://cdn.download.clearlinux.org/image/>`_ directory. Look for
+   ``clear-<version>-kvm.img.xz``.  You can also use this command:
 
    .. code-block:: bash
 
-      curl -O https://download.clearlinux.org/image/$(curl https://download.clearlinux.org/image/latest-images | grep '[0-9]'-kvm)
+      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep '[0-9]'-kvm)
 
 #. Uncompress the downloaded image:
 
@@ -64,29 +70,30 @@ Download and launch the virtual machine
       unxz clear-<version>-kvm.img.xz
 
 #. Download the `OVMF file`_ file that provides UEFI support for
-   virtual machines from the `image <https://download.clearlinux.org/image/>`_ directory.
+   virtual machines.
+
+   .. code-block:: bash
+
+      curl -O https://cdn.download.clearlinux.org/image/OVMF.fd
 
 #. Copy :file:`OVMF.fd` to the working directory, as shown below.
 
    .. code-block:: bash
 
-      cp /usr/share/qemu/OVMF.fd <working_directory>
+      cp OVMF.fd <working_directory>
 
    .. note::
 
       Replace <working_directory> with your own.
 
-      For non-Clear Linux hosts, the preferred approach is to download it from https://cdn.download.clearlinux.org/image/OVMF.fd
-
 #. Download the sample `QEMU-KVM launcher`_ script from the
-   `image <https://download.clearlinux.org/image/>`_ directory.  This script
+   `image <https://cdn.download.clearlinux.org/image/>`_ directory.  This script
    will launch the |CL| VM and provide console interaction within the same
    terminal emulator window.
-   
+
    .. code-block:: bash
-      
-      curl -O https://download.clearlinux.org/image/start_qemu.sh
-   
+
+      curl -O https://cdn.download.clearlinux.org/image/start_qemu.sh
 
 #. Make the script executable:
 
@@ -123,7 +130,7 @@ launched from, follow these steps.
       systemctl start sshd
 
 #. From the host, SSH into the |CL| VM.  The port number ``10022`` is defined
-   in the ``start_qemu.sh`` script.  
+   in the ``start_qemu.sh`` script.
 
    .. code-block:: bash
 
@@ -139,7 +146,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
    .. code-block:: bash
 
       shutdown now
-          
+
 #. Install a VNC viewer on the host machine.  Below are some example distros.
 
    * On Clear Linux:
@@ -234,7 +241,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
    .. code-block:: bash
 
       reboot
-      
+
 #. Go through GDM's out-of-box experience (OOBE).
 
 #. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change
@@ -243,5 +250,5 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 .. _Intel®Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
-.. _QEMU-KVM launcher: https://download.clearlinux.org/image/start_qemu.sh
-.. _OVMF file: https://download.clearlinux.org/image/OVMF.fd
+.. _QEMU-KVM launcher: https://cdn.download.clearlinux.org/image/start_qemu.sh
+.. _OVMF file: https://cdn.download.clearlinux.org/image/OVMF.fd

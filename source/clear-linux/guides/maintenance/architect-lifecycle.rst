@@ -1,4 +1,4 @@
-.. architect-lifecycle:
+.. _architect-lifecycle:
 
 Architect the life-cycle of |CL-ATTR|
 #####################################
@@ -15,9 +15,6 @@ Maintaining a |CL| derivative requires:
 * Integrating Quality Assurance for testing and validation
 
 This guide provides the foundation of the recommended infrastructure.
-
-How it works
-************
 
 .. contents::
    :local:
@@ -39,16 +36,16 @@ Prerequisites
 Description
 ***********
 
-Coordinated infrastructure can be deployed to automate the life-cycle
+Coordinated infrastructure is deployed to automate the life-cycle
 of your |CL| derivative. We divide deployment of this infrastucture in two
 parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1. Distro Factory manages the *Release Workflow* while capturing the requirements for
 maintaining a long-term release cadence.
 
 .. figure:: figures/architect-lifecycle-1.png
    :scale: 100%
-   :alt: |CL| maintenance life-cycle
+   :alt: Architect the life-cycle
 
-   Figure 1: |CL| maintenance life-cycle
+   Figure 1: Architect the life-cycle
 
 Content workflow
 ****************

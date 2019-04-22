@@ -269,7 +269,7 @@ challenges your monitoring systems, and business continuity plans.
 
 .. _`mixin process`: https://clearlinux.org/documentation/clear-linux/guides/maintenance/mixin
 .. _`mixer process`: https://clearlinux.org/documentation/clear-linux/guides/maintenance/mixer
-.. _`downloads page`: https://download.clearlinux.org/image/
+.. _`downloads page`: https://cdn.download.clearlinux.org/image/
 .. _`containers page`: https://clearlinux.org/containers
 .. _`systemd journal-remote service`: https://www.freedesktop.org/software/systemd/man/systemd-journal-remote.service.html
 .. _`native telemetry solution`: https://clearlinux.org/features/telemetry

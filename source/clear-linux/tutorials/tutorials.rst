@@ -3,13 +3,6 @@
 Tutorials
 #########
 
-This section offers a range of tutorials that demonstrate:
-
-* |CL-ATTR| features for cloud, client, distributed processing,
-  and virtual environments
-* Use of |CL| with third-party tools
-* Development possibilities of |CL| with specific use cases
-
 Explore our tutorials to discover what you can do with |CL|!
 
 .. toctree::
@@ -25,10 +18,13 @@ Explore our tutorials to discover what you can do with |CL|!
    hadoop
    fmv
    aws-web/aws-web
-   smb/smb
+   smb/smb*
    spark
    kata
    kata_migration
    kubernetes/kubernetes*
    greengrass
    dlrs
+   yubikey-u2f
+   nvidia
+
