@@ -37,6 +37,8 @@ Preliminary steps
 
    * :ref:`bootable-usb`
 
+.. _install-on-target-start:
+
 Install from live image
 ***********************
 
@@ -59,6 +61,8 @@ USB drive, follow these steps.
 #. Save these settings and exit.
 
 #. Reboot the target system.
+
+.. _install-on-target-end:
 
 Launch the installer
 ====================

@@ -18,8 +18,6 @@ Assure that your target system supports the installation:
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
 
-.. _download-cl-installer-image:
-
 Download the latest |CL| installer image
 ****************************************
 
@@ -37,8 +35,6 @@ Look for the :file:`clear-[version number]-installer.img.xz` file.
    * :ref:`bootable-usb`
 
 #. After downloading the image, verify and decompress the file per your OS.
-
-.. _install-on-target-start:
 
 Install |CL| on your target system
 **********************************
@@ -74,8 +70,6 @@ Follow these steps to install |CL| on the target system:
 #. With :guilabel:`Clear Linux OS` highlighted, select :kbd:`Enter`.
 
 Your system will display the |CL| Installer.
-
-.. _install-on-target-end:
 
 .. include:: ../bare-metal-install-beta/bare-metal-install-beta.rst
    :start-after: incl-bare-metal-beta-start:
