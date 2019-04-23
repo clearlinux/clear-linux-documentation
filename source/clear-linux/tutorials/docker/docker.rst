@@ -98,6 +98,8 @@ More information on installing and using  the *kata-runtime* may be found at :re
    need to continue reading. The following sections are provided here for
    sake of completeness.
 
+.. _additional-docker-configuration:
+
 Additional Docker configuration
 *******************************
 
@@ -117,13 +119,22 @@ exist by default.
       Refer to the `Docker documentation on daemon configuration`_ for the
       full list of available configuration options and examples.
 
-      A minimal configuration would be:
+#. For production systems, we follow Docker's recommendation to use the
+   `OverlayFS storage driver`_ `overlay2`, shown below:
 
-      .. code-block:: json
+   .. code-block:: json
 
-         {
-            "storage-driver": "devicemapper"
-         }
+      {
+         "storage-driver": "overlay2"
+      }
+
+   .. note::
+
+      A testing version is found in `Docker Device Mapper storage driver`_.
+      If using this storage driver, a warning message may appear: "usage of
+      loopback devices is strongly discouraged for production use".
+
+#. Save and close :file:`daemon.json`.
 
 #. Once you've made any required changes, be sure to restart the
    Docker daemon through systemd manager by running this command:
@@ -228,3 +239,9 @@ Related topics
 .. _Docker documentation on swarm key concepts: https://docs.docker.com/engine/swarm/key-concepts/
 
 .. _Docker documentation on creating a swarm: https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/
+
+.. _Configure direct lvm mode for production: https://docs.docker.com/storage/storagedriver/device-mapper-driver/
+
+.. _OverlayFS storage driver: https://docs.docker.com/storage/storagedriver/overlayfs-driver/
+
+.. _Docker Device Mapper storage driver: https://docs.docker.com/storage/storagedriver/device-mapper-driver/
