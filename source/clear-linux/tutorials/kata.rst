@@ -90,36 +90,27 @@ it automatically uses the runtime supported by the system.
 Troubleshooting
 ===============
 
-To check which runtime your system uses, enter:
+- To change the Docker storage driver, see
+  :ref:`additional-docker-configuration`.
 
-.. code-block:: bash
+- For some |CL| versions before 27000, you may need to manually
+  configure Docker\* to use Kata Containers by default.
 
-   sudo docker info | grep runtime
+  To do so, enter:
 
+  .. code-block:: bash
 
-.. note::
+     sudo mkdir -p /etc/systemd/system/docker.service.d/
+     cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/50-runtime.conf
+     [Service]
+     Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime kata-runtime"
+     EOF
 
-   To change the Docker storage driver, see
-   :ref:`additional-docker-configuration`.
+- To check the version of |CL| on your system, enter:
 
-For some |CL| versions before 27000, you may need to manually
-configure Docker\* to use Kata Containers by default.
+  .. code-block:: bash
 
-To do so, enter:
-
-.. code-block:: bash
-
-   sudo mkdir -p /etc/systemd/system/docker.service.d/
-   cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/50-runtime.conf
-   [Service]
-   Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime kata-runtime"
-   EOF
-
-To check the version of |CL| on your system, enter:
-
-.. code-block:: bash
-
-   sudo swupd verify
+     sudo swupd verify
 
 
 .. _Kata Containers: https://katacontainers.io/
