@@ -6,8 +6,10 @@ Fix a broken installation of |CL-ATTR|
 This guide explains how to fix a broken installation of |CL| using a live
 desktop image on a USB. It's assumed you already installed |CL| on a
 target system, but your operating system does not boot or function properly.
-This guide addresses installation issues that may have impacted the
-:file:`/usr` directory.
+
+This process can only verify and fix files that :ref:`swupd<swupd-guide>`
+owns in :file:`/usr`. Files outside of this path, such as /home/, /etc,
+/var, etc., cannot be repaired by this process.
 
 Prerequisites
 *************
@@ -23,12 +25,10 @@ Boot a live desktop image to fix target system
    :start-after: install-on-target-start:
    :end-before: install-on-target-end:
 
-Mount root, verify, and run swupd
-*********************************
+Mount root partition, verify, and fix
+*************************************
 
 #. Open a Terminal window.
-
-#. Log in as `root` and set a password.
 
 #. Assure the system is connected to the network.
 
@@ -40,7 +40,7 @@ Mount root, verify, and run swupd
 
          lsblk
 
-      We find the root partition at `/dev/sda3/`.
+      We'll use `/dev/sda3/` as the root partition example.
 
    #. Next, mount it.
 
@@ -53,7 +53,7 @@ Mount root, verify, and run swupd
 
    .. code-block:: bash
 
-      sudo ls /usr/share/clear/bundles
+      ls /usr/share/clear/bundles
 
 #. Next, run swupd to fix any issues on the target system.
 
