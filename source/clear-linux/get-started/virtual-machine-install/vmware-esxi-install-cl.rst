@@ -203,7 +203,7 @@ Install |CL| into the new VM
 
           Figure 11: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
-#.  Follow the :ref:`install-on-target` guide to complete the installation of 
+#.  Follow the :ref:`install-on-target-start` guide to complete the installation of 
     |CL|.
 #.  After the installation is complete, follow the |CL| instruction to reboot it.  
     This will restart the installer again. 
