@@ -333,7 +333,43 @@ Your browser will display the following:
 
 Figure 1: :guilabel:`Jupyter Notebook`
 
-You can create a new notebook with Python 3, or you can download existing notebooks to take advantage of the Deep Learning Reference Stack's optimized deep learning frameworks. More information on `Jupyter Notebook`_.
+
+To create a new notebook, click on :guilabel:`New` and select :guilabel:`Python 3`
+
+.. figure:: figures/dlrs-fig-2.png
+   :scale: 50%
+   :alt: Create a new notebook
+
+Figure 2: Create a new notebook
+
+You will be presented with a new, blank notebook, with a cell ready for input.
+
+.. figure:: figures/dlrs-fig-3.png
+   :scale: 50%
+   :alt: New blank notebook
+
+
+To verify that PyTorch is working, copy the following snippet into the blank cell, and run the cell.
+
+  .. code-block:: console
+
+     from __future__ import print_function
+     import torch
+     x = torch.rand(5, 3)
+     print(x)
+
+.. figure:: figures/dlrs-fig-4.png
+   :scale: 50%
+   :alt: Sample code snippet
+
+When you run the cell, your output will look something like this:
+
+.. figure:: figures/dlrs-fig-5.png
+   :scale: 50%
+   :alt: code output
+
+You can continue working in this notebook, or you can download existing notebooks to take advantage of the Deep Learning Reference Stack's optimized deep learning frameworks. More information on `Jupyter Notebook`_.
+
 
 
 
