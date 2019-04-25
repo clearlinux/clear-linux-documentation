@@ -42,18 +42,19 @@ Mount root partition, verify, and fix
 
       We'll use `/dev/sda3/` as the root partition example.
 
-   #. Next, mount it.
+   #. Next, mount the partition to the `/mnt` folder.
 
       .. code-block:: bash
 
          sudo mount /dev/sda3 /mnt
 
-#. Verify that you mounted the correct root partition by checking the list
-   of bundles that you installed on it.
+#. Verify that you mounted the correct root partition by checking for some 
+   files commonly found on |CL| systems.
 
    .. code-block:: bash
 
-      ls /usr/share/clear/bundles
+      cat /mnt/usr/lib/os-release
+      ls /mnt/usr/share/clear/bundles
 
 #. Next, run swupd to fix any issues on the target system.
 
