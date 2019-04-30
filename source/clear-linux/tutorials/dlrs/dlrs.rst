@@ -42,7 +42,7 @@ Release notes
 Prerequisites
 *************
 
-* |CL| installed on host system. :ref:`Install <bare-metal-install-server>`
+* |CL| installed on host system. :ref:`Install <bare-metal-install-desktop>`
 * `containers-basic` bundle
 * `cloud-native-basic` bundle
 

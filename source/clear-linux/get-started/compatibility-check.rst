@@ -6,7 +6,7 @@ Check processor and EFI firmware compatibility
 On a system that is currently running a Linux\* operating system, follow the
 instructions below to determine if your system's processor and EFI firmware is
 capable of running |CL-ATTR|. Otherwise,
-:ref:`run Clear Linux as a Live image <live-image>` and then perform the steps
+:ref:`bare-metal-install-desktop` and then perform the steps
 below.
 
 .. note::

@@ -10,8 +10,8 @@ tutorial installs MariaDB\*, which is a drop-in replacement for MySQL\*.
 
 In order to create a web server using |CL| as the host OS, your host system
 must be running |CL|. This tutorial assumes you have installed |CL| on your
-host system. For detailed instructions on installing |CL| on a bare metal system,
-visit the :ref:`bare metal installation tutorial<bare-metal-install-server>`.
+host system. For detailed instructions on installing |CL| on a bare metal
+system, visit :ref:`bare-metal-install-desktop`.
 
 This tutorial covers:
 

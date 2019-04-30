@@ -183,8 +183,8 @@ Install |CL| using the installer
    .. image:: ./figures/vbox/vbox-start-vm.png
       :alt: Starting a VirtualBox VM
 
-#. A new window of the VM console will appear and boot into the |CL| 
-   installer. Follow the steps in the `Install Clear Linux OS`_ to 
+#. A new window of the VM console will appear and boot into the |CL|
+   installer. Follow the steps in :ref:`bare-metal-install-desktop` to
    install |CL| onto the VM virtual disk.
 
 .. note::
@@ -267,8 +267,6 @@ virtual hard disk, which |CL| has been installed to.
 .. _`VirtualBox manual section on Running a VM`: https://www.virtualbox.org/manual/ch01.html#intro-starting-vm-first-time
 
 .. _`Virtual Media Manager`: https://www.virtualbox.org/manual/ch05.html#vdis
-
-.. _`Install Clear Linux OS`: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#install-cl-on-your-target-system\
 
 .. _7zip: http://www.7-zip.org/
 

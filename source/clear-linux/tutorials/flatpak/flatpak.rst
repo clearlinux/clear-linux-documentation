@@ -14,7 +14,7 @@ Before you begin
 
 This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, visit
-our :ref:`bare metal installation tutorial<bare-metal-install-server>`.
+our :ref:`bare metal installation guide <bare-metal-install-desktop>`.
 
 Install Flatpak on your host system
 ===================================
@@ -25,7 +25,6 @@ application, log in to your user account and enter the following command:
 .. code-block:: bash
 
    sudo swupd bundle-add desktop
-
 
 Install and run the LibreOffice Flatpak image
 =============================================
