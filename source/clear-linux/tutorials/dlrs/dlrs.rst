@@ -11,23 +11,29 @@ cover using Kubeflow for multi-node benchmarking.
    :local:
    :depth: 1
 
-The Deep Learning Reference Stack is available in four versions:
+The Deep Learning Reference Stack is available in five versions:
 
+* `Intel MKL-DNN-VNNI`_, which is optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives and introduces support for AVX-512 Vector Neural Network Instructions (VNNI).
+* `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
 * `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture.
-* `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using
-   Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
 * `PyTorch with OpenBLAS`_, which includes PyTorch with OpenBlas.
-* `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using
-   Intel® Math Kernel Library (Intel® MKL)and Intel MKL-DNN.
+* `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using Intel® Math Kernel Library (Intel® MKL)and Intel MKL-DNN.
+
+
+.. note::
+
+   To take advantage of the AVX-512 and VNNI functionality with the Deep Learning Reference Stack, please use the following hardware:
+      * AVX 512 images requires an Intel® Xeon® Scalable Platform
+      * VNNI requires a Second-Generation Intel® Xeon® Scalable Platform
+
 
 Release notes
 *************
 
-* View current `release notes`_ for the Deep Learning Reference Stack.
-* View current `TensorFlow benchmark results`_ for the Deep Learning
-  Reference Stack with TensorFlow.
-* View current `PyTorch benchmark results`_ for the Deep Learning Reference
-  Stack with PyTorch.
+* View current `release notes`_ for the Deep Learning Reference Stack V3.
+* View current  `PyTorch benchmark results`_ for the Deep Learning Reference Stack with PyTorch, DLRS V2.
+* View current `TensorFlow benchmark results`_ for the first release of the Deep Learning Reference Stack with TensorFlow.
+* Go to the `github release notes`_ for the latest release.
 
 .. note::
 
@@ -400,7 +406,9 @@ You can continue working in this notebook, or you can download existing notebook
 
 .. _PyTorch with Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-pytorch-mkl
 
-.. _release notes: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs
+.. _Intel MKL-DNN-VNNI: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl-vnni
+
+.. _release notes:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
 
 .. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
@@ -411,3 +419,5 @@ You can continue working in this notebook, or you can download existing notebook
 .. _PyTorch benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
 .. _Jupyter Notebook: https://jupyter.org/
+
+.. _github release notes: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
