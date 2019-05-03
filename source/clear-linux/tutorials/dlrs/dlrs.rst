@@ -54,8 +54,19 @@ If you need to install the `containers-basic` or `cloud-native-basic`, enter:
 
    sudo swupd bundle-add containers-basic cloud-native-basic
 
+Note that docker is not started upon installation of the containers-basic bundle.  To start docker, enter:
+
+
+.. code-block:: bash
+
+   sudo systemctl start docker
+
+
+
 To ensure that Kubernetes is correctly installed and configured, follow
 :ref:`kubernetes`.
+
+
 
 We have validated these steps against the following software package
 versions:
@@ -87,19 +98,19 @@ TensorFlow.
 
       Launching the docker image with the :command:`-i` argument will put
       you into interactive mode within the container. You will enter the
-      following commands in the running container.
+      following commands in the running container. The following commands are executed within the scope of the container.
 
-#. Clone the benchmark repository:
+#. Clone the benchmark repository in the container:
 
    .. code-block:: bash
 
-      docker exec -t <docker_name> bash -c 'git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.12_compatible'
+      git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.12_compatible
 
 #. Next, execute the benchmark script to run the benchmark.
 
    .. code-block:: bash
 
-      docker exec -i <docker_name> bash -c 'python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NHWC '.
+      python benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py --device=cpu --model=resnet50 --data_format=NHWC
 
 .. note::
 
@@ -277,13 +288,91 @@ Run a TFJob
 This will replicate and deploy three test setups in your Kubernetes cluster.
 
 Results of Running this Tutorial
-********************************
+================================
 
 You need to parse the logs of the Kubernetes pod to get the performance
 numbers. The pods will still be around post completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
 benchmark results. More information about `Kubernetes logging`_ is available
 from the Kubernetes community.
+
+Use Jupyter Notebook
+********************
+
+We will use the `PyTorch with OpenBLAS`_ container image for these steps. Once it is downloaded, run the docker image with :command:`-p` to specify the shared port between the container and the host.  For this example we will use port 8888.
+
+.. code-block:: bash
+
+  docker run --name pytorchtest --rm -i -t -p 8888:8888 clearlinux/stacks-pytorch-oss bash
+
+After you've started the container, you can launch the Jupyter Notebook. This command is executed inside the container image.
+
+.. code-block:: bash
+
+  jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+
+Once the notebook has loaded, you will see output similar to the following:
+
+.. code-block:: console
+
+   To access the notebook, open this file in a browser: file:///.local/share/jupyter/runtime/nbserver-16-open.html
+   Or copy and paste one of these URLs:
+   http://(846e526765e3 or 127.0.0.1):8888/?token=6357dbd072bea7287c5f0b85d31d70df344f5d8843fbfa09
+
+From your host system, or any system that can access the host's IP address, start a web browser with the following.  If you are not running the browser on the host system, replace :command:`127.0.0.1` with the IP address of the host.
+
+.. code-block:: bash
+
+  http://127.0.0.1:8888/?token=6357dbd072bea7287c5f0b85d31d70df344f5d8843fbfa09
+
+Your browser will display the following:
+
+.. figure:: figures/dlrs-fig-1.png
+   :scale: 50 %
+   :alt: Jupyter Notebook
+
+Figure 1: :guilabel:`Jupyter Notebook`
+
+
+To create a new notebook, click on :guilabel:`New` and select :guilabel:`Python 3`
+
+.. figure:: figures/dlrs-fig-2.png
+   :scale: 50%
+   :alt: Create a new notebook
+
+Figure 2: Create a new notebook
+
+You will be presented with a new, blank notebook, with a cell ready for input.
+
+.. figure:: figures/dlrs-fig-3.png
+   :scale: 50%
+   :alt: New blank notebook
+
+
+To verify that PyTorch is working, copy the following snippet into the blank cell, and run the cell.
+
+  .. code-block:: console
+
+     from __future__ import print_function
+     import torch
+     x = torch.rand(5, 3)
+     print(x)
+
+.. figure:: figures/dlrs-fig-4.png
+   :scale: 50%
+   :alt: Sample code snippet
+
+When you run the cell, your output will look something like this:
+
+.. figure:: figures/dlrs-fig-5.png
+   :scale: 50%
+   :alt: code output
+
+You can continue working in this notebook, or you can download existing notebooks to take advantage of the Deep Learning Reference Stack's optimized deep learning frameworks. More information on `Jupyter Notebook`_.
+
+
+
+
 
 .. _TensorFlow: https://www.tensorflow.org/
 
@@ -321,3 +410,4 @@ from the Kubernetes community.
 
 .. _PyTorch benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
+.. _Jupyter Notebook: https://jupyter.org/

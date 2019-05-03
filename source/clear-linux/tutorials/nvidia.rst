@@ -31,8 +31,7 @@ Install the LTS kernel and DKMS
 *******************************
 
 The Long Term Support (LTS) kernel variant is most likely to remain
-compatible with NVIDIA drivers. The `Dynamic Kernel Module System (DKMS)
-<kernel-modules-dkms>`_ allows the NVIDIA kernel modules to be automatically
+compatible with NVIDIA drivers. The :ref:`Dynamic Kernel Module System (DKMS) <kernel-modules-dkms>` allows the NVIDIA kernel modules to be automatically
 integrated when kernel updates occur in |CL|. Install both using the
 instructions below:
 
