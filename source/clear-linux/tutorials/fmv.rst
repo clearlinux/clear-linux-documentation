@@ -21,7 +21,7 @@ libraries to deploy architecture-based optimizations to your application code.
 Install and configure a |CL| host on bare metal
 ***********************************************
 
-First, follow our guide to :ref:`bare-metal-install`.
+First, follow our guide to :ref:`bare-metal-install-server`.
 
 Once the bare metal installation and initial configuration are complete,
 add the `desktop-dev` bundle to the system.

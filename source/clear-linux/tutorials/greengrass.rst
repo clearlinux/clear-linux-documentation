@@ -15,7 +15,7 @@ edge devices with accelerators.
 This tutorial demonstrates how to:
 
 * Set up the Intel® edge device with |CL-ATTR|
-* Install the OpenVINO™ toolkit and Amazon Web Services\* (AWS\*) 
+* Install the OpenVINO™ toolkit and Amazon Web Services\* (AWS\*)
   Greengrass\* software stacks
 * Use AWS Greengrass\* and AWS Lambda\* to deploy the FaaS samples from the cloud
 
@@ -58,7 +58,7 @@ Install the OS on the edge device
 *********************************
 
 Start with a clean installation of |CL| on a new system, using the
-:ref:`bare-metal-install`, found in :ref:`get-started`.
+:ref:`bare-metal-install-server`, found in :ref:`get-started`.
 
 Create user accounts
 ====================
