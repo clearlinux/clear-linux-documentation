@@ -5,11 +5,15 @@
 # parse-link-check.py
 # 
 # Arguments:
-#     1. path to input file 
+#     1. working directory: path to directory containing output
+#        of sphinx-build linkcheck (output.txt). Output of this
+#        script (broken_links.html) will also be saved in this
+#        location.
 #
 # External file dependencies:
 #     1. output.txt - the output of sphinx-build
-#     2. link-whitelist.txt - broken links that should be ignored
+#     2. link-whitelist.txt - broken links that should be ignored. 
+#        This file should be in the same location as this script.
 #
 # Output:
 #     1. broken_links.html - provides count of broken and whitelist 
