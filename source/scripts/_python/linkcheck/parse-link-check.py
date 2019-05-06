@@ -21,6 +21,14 @@
 #        appear in the same directory as output.txt
 #     2. Error code 255 if unexpected broken links are found
 #
+# Purpose:
+#     This script supplements the built-in link checking of 
+#     sphinx-build. In practice, sphinx-build link checking
+#     will produce a variety of false negatives. This script,
+#     using the white list will skip known false negatives and
+#     anchors, providing an HTML digest of suspected actual
+#     broken links. 
+#
 #***********************************************************
 
 
