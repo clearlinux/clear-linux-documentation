@@ -37,6 +37,8 @@ Preliminary steps
 
    * :ref:`bootable-usb`
 
+.. _install-on-target-start:
+
 Install from live image
 ***********************
 
@@ -59,6 +61,8 @@ USB drive, follow these steps.
 #. Save these settings and exit.
 
 #. Reboot the target system.
+
+.. _install-on-target-end:
 
 Launch the installer
 ====================
@@ -207,101 +211,58 @@ Configure the Keyboard
 
       Figure 6: Select Keyboard menu
 
-Configure Media
-===============
+Configure Installation Media
+============================
 
-#. From the Main Menu, select :guilabel:`Configure Media`.
+#. From the Main Menu, select :guilabel:`Configure Installation Media`.
 
-   .. note::
+#. Choose an installation method: `Safe Installation`_;
+   `Destructive Installation`_; or `Advanced Configuration`_
 
-      Available media appear by default.
-
-#. Navigate to the desired media until highlighted.
 
    .. figure:: figures/bare-metal-install-beta-7.png
       :scale: 100%
-      :alt: Configure Media menu
+      :alt: Select Installation Media
 
-      Figure 7: Configure Media menu
+      Figure 7: Select Installation Media
 
-      .. note::
+Safe Installation
+-----------------
 
-         Use additional options as necessary during partitioning:
+Use this method to safely install |CL| on media with available space,
+or alongside existing partitions, and accept the recommended partitioning
+schema. If an unallocated partition exists with enough space, safe
+installation is allowed.
 
-         * Select :guilabel:`Revert` to cancel changes and revert to the
-           original configuration.
-         * Select :guilabel:`Rescan` to show media connected to the host
-           machine.
+If a warning message appears that no media or space is available:
 
-#. Select :kbd:`Enter` or :kbd:`Spacebar` to select it.
+- Verify that target media has enough unallocated disk space
+- Confirm target media is properly connected or mounted
+- Review the size of existing partitions on the target media:
 
-   Two options for partitioning appear.
+  - Linux\* OS: :command:`lsblk -a`
+  - Windows\* OS:  :command:`diskpart`, then :command:`list disk`
+  - macOS\* platform: :command:`diskutil list`
 
-#. Select :guilabel:`Auto Partition` to accept the default configuration, or
-   :guilabel:`Add Partition` to add partitions manually. See instructions
-   below.
+Destructive Installation
+------------------------
 
-#. Select :kbd:`Enter` to :kbd:`Confirm`.
-
-#. Select one partitioning method and continue:
-
-   * `Auto Partition`_
-   * `Add Partition`_
-
-Auto Partition
-==============
-
-Auto partition will configure the media to meet the minimum requirements.
-
-#. Select :guilabel:`Auto Partition` as shown in Figure 8.
-
-#. Select :kbd:`Enter` or :kbd:`Spacebar` to highlight
-   :guilabel:`Auto partition`.
-
-#. Select :kbd:`Enter` to :kbd:`Confirm`.
-
-   This action returns you to the Main Menu.
-
-   .. figure:: figures/bare-metal-install-beta-8.png
-      :scale: 100%
-      :alt: Auto Partition
-
-      Figure 8: Auto Partition
-
-#. You may skip to the `Telemetry`_ section below.
-
-Disk encryption
-===============
-
-For greater security, disk encryption is supported using LUKS for all
-partitions **except boot** on |CL|. To encrypt a partition, see the example
-in `root partition`_ below. Encryption is optional.
-
-Encryption Passphrase
----------------------
-
-|CL| uses a single passphrase for all encrypted partitions. Therefore, if
-you turn on encryption for one partition, the same passphrase is used for
-all partitions. Additional or different keys may be configured
-post-installation using the ``cryptsetup`` tool.
+Use this method to destroy the contents of the target device, install |CL|,
+and accept the recommended partitioning schema. If no safe options exist,
+:guilabel:`Destructive Installation` will appear by default.
 
 .. note::
 
-   During installation, if you encrypt the `root` partition first and the
-   `swap` partition second, after you select encrypt for `swap`, the
-   :guilabel:`Encryption Passphrase` dialogue will show the same Passphrase that was assigned to `root`. Select :guilabel:`Confirm` and
-   press :kbd:`Enter` to use the same Passphrase.
+   From the :guilabel:`Select Installation Media` menu, select
+   :guilabel:`Enable Encryption` to encrypt the root filesystem for either option above. See also `Disk encryption`_ for more information.
 
-Add Partition
-=============
+Partition minimum requirements
+-------------------------------
 
-Minimum requirements
---------------------
+To add partitions manually, see `Advanced configuration`_ below and create
+partitions per requirements in Table 1.
 
-To add partitions manually, assign partitions per the minimum
-requirements shown in Table 1:
-
-.. list-table:: **Table 1. Disk Partition Setup**
+.. list-table:: **Table 1. Disk Partition Setup: Minimum requirements**
    :widths: 33, 33, 33
    :header-rows: 1
 
@@ -318,130 +279,150 @@ requirements shown in Table 1:
      - /
      - *Size depends upon use case/desired bundles.*
 
+Advanced Configuration
+----------------------
 
-#. In the Configure Media menu, select :guilabel:`Add Partition`.
+Use this method to manually configure partitions. Partitions
+must meet `Partition minimum requirements`_.
+You may also choose `Disk encryption`_ during partitioning.
 
-   .. note:: To change an existing partition, navigate to the partition,
-      and select :guilabel:`Enter`.
+.. note::
 
-boot partition
---------------
+   Advanced Configuration is available in the installer versions 1.2.0 and above.
 
-#. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to
-   select the file system type.  See Figure 9.
+#. In :guilabel:`Advanced Configuration`, press
+   :kbd:`Enter` to activate editing.
 
-#. In :guilabel:`Mount Point`, enter the ``/boot`` partition.
-
-#. In :guilabel:`Size`, enter an appropriate size (e.g., 150M) per Table 1.
-
-#. Navigate to :guilabel:`Confirm` until highlighted.
-
-#. Select :guilabel:`Enter` to confirm.
-
-   .. figure:: figures/bare-metal-install-beta-9.png
+   .. figure:: figures/bare-metal-install-beta-8.png
       :scale: 100%
-      :alt: boot partition
+      :alt: Advanced configuration menu
 
-      Figure 9: boot partition
+      Figure 8: Advanced configuration menu
 
-swap partition
---------------
+#. Choose one of these options:
 
-#. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to
-   select the file system type. See Figure 10.
+   :guilabel:`Auto Partition`
 
-#. In :guilabel:`Mount Point`, the field remains blank.
+   #. Select this option to accept the recommended partitioning schema.
+
+   #. Navigate to and press :guilabel:`Confirm`.
+
+   #. Continue with installation configuration.
+
+   :guilabel:`Manual Partition`
+
+   #. Continue below.
+
+Manual Partition
+----------------
+
+We provide a simple example below.
+
+#. Navigate to the unallocated media (e.g.,`sdb1`) until highlighted.
+
+#. Select :guilabel:`Enter` to edit the partition.
+
+#. The :guilabel:`Partition Setup` menu appears, shown in Figure 9.
 
    .. note::
 
-      The Mount Point field is disabled.
-
-#. In :guilabel:`Size`, enter an appropriate size (e.g., 256MB) per Table 1.
-
-#. Navigate to :guilabel:`Add`.
-
-#. Select :guilabel:`Enter` to continue.
-
-   .. figure:: figures/bare-metal-install-beta-10.png
-      :scale: 100%
-      :alt: swap partition
-
-      Figure 10: swap partition
+      After adding the first partition, select :guilabel:`Free Space` to add another partition.
 
 root partition
 --------------
 
-#. In the :guilabel:`File System` menu, select :kbd:`Up/Down` arrows to
-   select the file system type. See Figure 11.
+We configure the `root` partition as shown in Figure 9.
 
-   #. Optional: Select :guilabel:`[X] Encrypt` to encrypt the partition.
+.. figure:: figures/bare-metal-install-beta-9.png
+   :scale: 100%
+   :alt: root partition
 
-      .. figure:: figures/bare-metal-install-beta-11.png
-         :scale: 100%
-         :alt: Encrypt partition
+   Figure 9: root partition
 
-         Figure 11: Encrypt partition
+boot partition
+--------------
 
+We configure the `boot` partition as shown in Figure 10.
 
-   #. The :guilabel:`Encryption Passphrase` dialogue appears.
+.. figure:: figures/bare-metal-install-beta-10.png
+   :scale: 100%
+   :alt: boot partition
 
-      .. note::
+   Figure 10: boot partition
 
-         Minimum length is 8 characters. Maximum length is 94 characters.
+swap partition
+--------------
 
-      .. figure:: figures/bare-metal-install-beta-12.png
-         :scale: 100%
-         :alt: Encryption Passphrase
+#. In the :guilabel:`File System` pulldown menu, we select `swap`, and
+   enter its label. We enter the minimum required size (e.g., 256M).
 
-         Figure 12: Encryption Passphrase
+   .. figure:: figures/bare-metal-install-beta-11.png
+      :scale: 100%
+      :alt: swap partition
 
-   #. Enter the same passphrase in the first and second field.
+      Figure 11: swap partition
 
-   #. Navigate to :guilabel:`Confirm` and press :kbd:`Enter`.
+#. Next, navigate to :guilabel:`Confirm` and press :guilabel:`Enter`,
+   shown in Figure 12.
 
-      .. note::
+   .. figure:: figures/bare-metal-install-beta-12.png
+      :scale: 100%
+      :alt: Final configuration of disk partitions
 
-         :guilabel:`Confirm` is only highlighted if passphrases match.
+      Figure 12: Final configuration of disk partitions
 
-#. Optional: In :guilabel:`[Optional] Label:`, enter your desired
-   label for the partition.
+#. You may skip to the `Telemetry`_ section below.
 
-#. In :guilabel:`Mount Point`, enter ``/``. See Figure 11.
+Disk encryption
+===============
 
-#. In :guilabel:`Size`, enter an appropriate size per Table 1.
+For greater security, disk encryption is supported using LUKS for the
+any partition except `/boot` on |CL|. To encrypt the root partition, see the
+example below. Encryption is optional.
 
-   .. note::
+Encryption Passphrase
+---------------------
 
-      The remaining available space shows by default.
+|CL| uses a single passphrase for encrypted partitions. Additional or
+different keys may be configured post-installation using the ``cryptsetup``
+tool.
 
-#. Navigate to :guilabel:`Add` until highlighted.
-
-#. Select :guilabel:`Enter` to continue.
-
-   You are returned to the :guilabel:`Configure media` menu.
-
-#. Select :guilabel:`Confirm` to complete the media selection. See Figure 13.
-
-#. You are returned to the :guilabel:`Configure media` menu. Your partitions
-   should be similar to those shown in Figure 13.
+#. Optional: Select :guilabel:`[X] Encrypt` to encrypt the root partition,
+   as shown in Figure 13.
 
    .. figure:: figures/bare-metal-install-beta-13.png
       :scale: 100%
-      :alt: Partitions
+      :alt: Encrypt partition
 
-      Figure 13: Partitions
+      Figure 13: Encrypt partition
 
-#. Navigate to :guilabel:`Confirm` until highlighted.
+#. The :guilabel:`Encryption Passphrase` dialogue appears.
 
-#. Select :guilabel:`Enter` to complete adding partitions.
+   .. note::
+
+      Minimum length is 8 characters. Maximum length is 94 characters.
+
+   .. figure:: figures/bare-metal-install-beta-14.png
+      :scale: 100%
+      :alt: Encryption Passphrase
+
+      Figure 14: Encryption Passphrase
+
+#. Enter the same passphrase in the first and second field.
+
+#. Navigate to :guilabel:`Confirm` and press :kbd:`Enter`.
+
+   .. note::
+
+      :guilabel:`Confirm` is only highlighted if passphrases match.
 
 Telemetry
 =========
 
-To fulfill the :guilabel:`Required options`, choose whether or not to
-participate in `telemetry`_.  :ref:`telem-guide` is a |CL| feature that
-reports failures and crashes to the |CL| development team for improvements.
-For more detailed information, visit our :ref:`telemetry-about` page.
+To fulfill :guilabel:`Required options`, choose whether to participate in
+the `telemetry option`_. :ref:`telem-guide` is a |CL| feature that reports
+failures and crashes to the |CL| development team for improvements. For more
+detailed information, visit our :ref:`telemetry-about` page.
 
 #. In the Main Menu, navigate to :guilabel:`Telemetry` and select
    :kbd:`Enter`.
@@ -450,11 +431,11 @@ For more detailed information, visit our :ref:`telemetry-about` page.
 
 #. Select :kbd:`Enter` to confirm.
 
-   .. figure:: figures/bare-metal-install-beta-14.png
+   .. figure:: figures/bare-metal-install-beta-15.png
       :scale: 100%
       :alt: Enable Telemetry
 
-      Figure 14: Enable Telemetry
+      Figure 15: Enable Telemetry
 
 Recommended options
 *******************
@@ -507,22 +488,22 @@ interface settings are automatically applied.
 
    .. note:: Multiple network interfaces may appear.
 
-   .. figure:: figures/bare-metal-install-beta-15.png
+   .. figure:: figures/bare-metal-install-beta-16.png
       :scale: 100%
       :alt: Configure Network Interfaces
 
-      Figure 15: Configure Network Interfaces
+      Figure 16: Configure Network Interfaces
 
 #. Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom).
 
    Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select
    :kbd:`Spacebar` to deselect.
 
-   .. figure:: figures/bare-metal-install-beta-16.png
+   .. figure:: figures/bare-metal-install-beta-17.png
       :scale: 100%
       :alt: Network interface configuration
 
-      Figure 16: Network interface configuration
+      Figure 17: Network interface configuration
 
 #. Navigate to the appropriate fields and assign the desired
    network configuration.
@@ -558,11 +539,11 @@ instruction.
 
 #. Navigate to the field :guilabel:`HTTPS Proxy`.
 
-   .. figure:: figures/bare-metal-install-beta-17.png
+   .. figure:: figures/bare-metal-install-beta-18.png
       :scale: 100%
       :alt: Configure the network proxy
 
-      Figure 17: Configure the network proxy
+      Figure 18: Configure the network proxy
 
 #. Enter the desired proxy address and port using conventional syntax,
    such as: \http://address:port.
@@ -580,13 +561,13 @@ Test Network Settings
 To manually assure network connectivity before installing |CL|,
 select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
-A progress bar appears as shown in Figure 18.
+A progress bar appears as shown in Figure 19.
 
-.. figure:: figures/bare-metal-install-beta-18.png
+.. figure:: figures/bare-metal-install-beta-19.png
    :scale: 100%
    :alt: Testing Networking dialogue
 
-   Figure 18: Testing Networking dialogue
+   Figure 19: Testing Networking dialogue
 
 .. note::
 
@@ -606,11 +587,11 @@ Bundle Selection
 
 #. We recommend adding :file:`desktop-autostart` and :file:`user-basic`.
 
-   .. figure:: figures/bare-metal-install-beta-19.png
+   .. figure:: figures/bare-metal-install-beta-20.png
       :scale: 100%
       :alt: Bundle Selection
 
-      Figure 19: Bundle Selection
+      Figure 20: Bundle Selection
 
    .. note::
 
@@ -632,13 +613,13 @@ Add New User
 
 #. In Advanced Options, select :guilabel:`User Manager`.
 
-#. Select :guilabel:`Add New User` as shown in Figure 20.
+#. Select :guilabel:`Add New User` as shown in Figure 21.
 
-   .. figure:: figures/bare-metal-install-beta-20.png
+   .. figure:: figures/bare-metal-install-beta-21.png
       :scale: 100%
       :alt: Add New User, User Name
 
-      Figure 20: Add New User
+      Figure 21: Add New User
 
 #. Optional: Enter a :guilabel:`User Name`.
 
@@ -646,11 +627,11 @@ Add New User
 
       The User Name must be alphanumeric and can include spaces, commas, or hyphens. Maximum length is 64 characters.
 
-   .. figure:: figures/bare-metal-install-beta-21.png
+   .. figure:: figures/bare-metal-install-beta-22.png
       :scale: 100%
       :alt: User Name
 
-      Figure 21: User Name
+      Figure 22: User Name
 
 #. Enter a :guilabel:`Login`.
 
@@ -673,11 +654,11 @@ Add New User
 
       Selecting this option enables sudo privileges for the user.
 
-   .. figure:: figures/bare-metal-install-beta-22.png
+   .. figure:: figures/bare-metal-install-beta-23.png
       :scale: 100%
       :alt: Administrative rights
 
-      Figure 22: Administrative rights
+      Figure 23: Administrative rights
 
 #. Select :kbd:`Confirm`.
 
@@ -693,15 +674,15 @@ Modify / Delete User
 --------------------
 
 #. In User Manager, select :guilabel:`Tab` to highlight the user, as shown
-   in Figure 23.
+   in Figure 24.
 
 #. Select :kbd:`Enter` to modify the user.
 
-   .. figure:: figures/bare-metal-install-beta-23.png
+   .. figure:: figures/bare-metal-install-beta-24.png
       :scale: 100%
       :alt: Modify User
 
-      Figure 23: Modify User
+      Figure 24: Modify User
 
 #. Modify user details as desired.
 
@@ -735,11 +716,11 @@ new kernel.
 
 #. To add or remove arguments, choose one of the following options.
 
-   .. figure:: figures/bare-metal-install-beta-24.png
+   .. figure:: figures/bare-metal-install-beta-25.png
       :scale: 100%
       :alt: kernel command line
 
-      Figure 24: kernel command line
+      Figure 25: kernel command line
 
 #. To add arguments, enter the argument in :guilabel:`Add Extra Arguments`.
 
@@ -754,15 +735,15 @@ Kernel Selection
 ================
 
 #. Select a kernel option. By default, the latest kernel release is
-   selected. Native kernel is shown in Figure 25.
+   selected. Native kernel is shown in Figure 26.
 
 #. To select a differnt kernel, navigate to it using :guilabel:`Tab`.
 
-   .. figure:: figures/bare-metal-install-beta-25.png
+   .. figure:: figures/bare-metal-install-beta-26.png
       :scale: 100%
       :alt: Kernel selection
 
-      Figure 25: Kernel selection
+      Figure 26: Kernel selection
 
 #. Select :kbd:`Spacebar` to select the desired option.
 
@@ -781,11 +762,11 @@ If you have your own custom mirror of |CL|, you can add its URL.
 
 #. Select :kbd:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-beta-26.png
+   .. figure:: figures/bare-metal-install-beta-27.png
       :scale: 100%
       :alt: Swupd Mirror
 
-      Figure 26: Swupd Mirror
+      Figure 27: Swupd Mirror
 
 Optional: Skip to `Finish installation`_.
 
@@ -802,11 +783,11 @@ Assign Hostname
       alphanumeric character but may also contain hyphens. Maximum length of
       63 characters.
 
-   .. figure:: figures/bare-metal-install-beta-27.png
+   .. figure:: figures/bare-metal-install-beta-28.png
       :scale: 100%
       :alt: Assign Hostname
 
-      Figure 27: Assign Hostname
+      Figure 28: Assign Hostname
 
 
 #. Navigate to :kbd:`Confirm` until highlighted.
@@ -819,17 +800,17 @@ Automatic OS Updates
 ====================
 
 In the rare case that you need to disable automatic software updates,
-follow the onscreen instructions.
+follow the onscreen instructions shown in Figure 29.
 
 #. In Advanced Options, select :guilabel:`Automatic OS Updates`.
 
 #. Select the desired option.
 
-   .. figure:: figures/bare-metal-install-beta-28.png
+   .. figure:: figures/bare-metal-install-beta-29.png
       :scale: 100%
       :alt: Automatic OS Updates
 
-      Figure 28: Automatic OS Updates
+      Figure 29: Automatic OS Updates
 
 You are returned to the :guilabel:`Main Menu`.
 
@@ -861,4 +842,4 @@ Next steps
 
 .. _Navigate to the image directory: https://cdn.download.clearlinux.org/image/
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
-.. _telemetry: https://clearlinux.org/features/telemetry
+.. _telemetry option: https://clearlinux.org/features/telemetry

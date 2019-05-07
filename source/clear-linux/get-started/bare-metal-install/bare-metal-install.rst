@@ -36,8 +36,6 @@ Look for the :file:`clear-[version number]-installer.img.xz` file.
 
 #. After downloading the image, verify and decompress the file per your OS.
 
-.. _install-on-target:
-
 Install |CL| on your target system
 **********************************
 
