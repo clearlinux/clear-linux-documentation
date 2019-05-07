@@ -180,7 +180,7 @@ Uninstalling the NVIDIA driver
 The NVIDIA drivers and associated software can be uninstalled and nouveau
 driver restored by: 
 
-#. Remove the previously created file :file:`/etc/modprobe.d` that is
+#. Remove the previously created file :file:`/etc/modprobe.d` that
    prevents nouveau from loading.
 
    .. code-block:: bash
