@@ -149,7 +149,100 @@ th,td {
   transition: max-height 0.2s ease-out;
 }
 
+#header {
+    width: 100%;
+    display: block;
+    font-family: "IntelClear-Regular", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+   }
+
+.padding-md--left-right {
+    padding-left: 2.6%;
+    padding-right: 2.6%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__site_info {
+  display: inline-block;
+}
+
+.header__site_img_object {
+    height: 50px;
+}
+
+.header__site_info_name {
+    vertical-align: middle;
+    display: inline-block;
+    height: 50px
+}
+
+#header__site_info_name a:link {
+  color: black;
+}
+
+#header__site_info_name a:visited {
+  color: black;
+}
+
+.header__menu {
+    text-align: right;
+    display: inline-block;
+}
+
 .header__menu_list li {
     display: inline;
     margin-left: 20px;
+}
+
+.header__menu_list li a {
+  color: black;
+}
+
+.header__menu_list_item {
+    display: inline;
+    position: relative;
+    margin-bottom: 0;
+    margin-left: 0;
+    min-width: 1px;
+    max-width: 100%;
+    padding: 0;
+    text-align: left;
+    /*top: 35px;*/
+}
+
+.header__menu_list_item.green > a::before {
+    color: #009B93;
+}
+
+.header__menu_list_item.purple > a::before {
+    color: #6E4C9F;
+}
+
+.header__menu_list_item.blue > a::before {
+    color: #358CCB;
+}
+
+.header__menu_list_item > a::before {
+    content: '•';
+    font-size: 35px;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+.header__banner {
+   width: 120%;
+   margin-left: -3.236em;
+   background-image: url(https://stg.clearlinux.org/sites/default/files/bg_developer_0.png);
+}
+
+.header__banner_title {
+   display: block;
+   color: white;
+   font-size: 36px;
+   font-family: "IntelClear-Bold", Helvetica, Arial, sans-serif;
+   margin-left: 0.67em;
+   line-height: 100px;
 }

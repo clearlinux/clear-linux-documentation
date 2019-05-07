@@ -9,31 +9,36 @@
 {% block content %}
 
 <header id="header">
-<div>
+  <div class="padding-md--left-right">
+
+    <div class="header__site_info">
+           <object class="header__site_img_object" type="image/svg+xml" data="https://stg.clearlinux.org/modules/custom/clearlinux_org/themes/clearlinux_theme/clear-technologies.svg"></object>
+           <div class="header__site_info_name">
+             <a href ="https://stg.clearlinux.org"> Clear Linux* Project</a>
+           </div>
+    </div>
+    <nav class="header__menu">
         <ul class="header__menu_list">
-                         <li class="header__menu_list_item  ">
-                <a tabindex='1' href="https://clearlinux.org/features">Features</a>
-                                </li>
-                         <li class="header__menu_list_item  ">
-                <a tabindex='1' href="https://clearlinux.org/documentation/clear-linux">Documentation</a>
-                                </li>
-                         <li class="header__menu_list_item  ">
-                <a tabindex='1' href="https://clearlinux.org/community">Community</a>
-                                </li>
-                         <li class="header__menu_list_item  ">
-                <a tabindex='1' href="https://clearlinux.org/blogs">Blogs</a>
-                                </li>
-                         <li class="header__menu_list_item  ">
-                <a tabindex='1' href="https://clearlinux.org/containers">Containers</a>
-                                </li>
-                         <li class="header__menu_list_item  ">
-                <a tabindex='1' href="https://clearlinux.org/downloads">Downloads</a>
-                                </li>
-                         <li class="header__menu_list_item  ">
-                <a tabindex='1' href="https://clearlinux.org/stacks">Stacks</a>
-                                </li>
-                   </ul>
-</div>
+                         <li class="header__menu_list_item green  ">
+                <a tabindex='1' href="https://stg.clearlinux.org/about">About</a>
+              </li>
+                         <li class="header__menu_list_item purple  ">
+                <a tabindex='1' href="https://stg.clearlinux.org/developer">Developer</a>
+              </li>
+                         <li class="header__menu_list_item blue  ">
+                <a tabindex='1' href="https://stg.clearlinux.org/software">Software</a>
+              </li>
+        </ul>
+    </nav>
+
+  </div>
+
+    <div class="header__banner">
+      <div class="header__banner_title">
+        Documentation
+      </div>
+    </div>
+
 </header>
 
 {{ super() }}
