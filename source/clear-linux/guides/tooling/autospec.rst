@@ -340,11 +340,11 @@ generated RPMs.
 Test in a |CL| virtual machine
 ==============================
 
-The |CL| development tooling includes a method to mount RPMs into a |CL|
+The |CL| development tooling includes a method to install RPMs into a |CL|
 virtual machine running on the KVM hypervisor. Using a :abbr:`VM (Virtual
-Machine)` allows testing is completely isolated environment. 
+Machine)` allows testing in a completely isolated environment. 
 
-To test an autospec created package inside a VM:
+To test an autospec-created package inside a VM:
 
 #. Download the |CL| KVM image into the :file:`~/clearlinux` directory as
    :file:`clear.img`. The location and name :file:`clear.img.xz` is important
@@ -371,7 +371,7 @@ To test an autospec created package inside a VM:
 
 #. Run :command:`make install` from the package's autospec directory. The
    :command:`make install` command mounts the downloaded |CL| KVM image and
-   installs the autospec created RPM into it:
+   installs the autospec-created RPM into it:
 
    .. code-block:: bash
 
@@ -406,11 +406,11 @@ To test an autospec created package inside a VM:
 Test directly on a development machine
 ======================================
 
-The |CL| development tooling also includes a method to extract autospec
-created RPMs locally onto a |CL| development system for testing. Extracting a
-RPM directly onto a system  offers quicker testing, however conflicts may
-occur and responsibility to remove the software after testing is up to the
-developer.
+The |CL| development tooling also includes a method to extract
+autospec-created RPMs locally onto a |CL| development system for testing.
+Extracting an RPM directly onto a system  offers quicker testing, however
+conflicts may occur and responsibility to remove the software after testing is
+up to the developer.
 
 To test an autospec created package directly on the |CL| development system:
 
