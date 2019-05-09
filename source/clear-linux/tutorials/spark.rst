@@ -20,7 +20,7 @@ Prerequisites
 
 This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, visit
-the :ref:`bare metal installation tutorial<bare-metal-install>`.
+the :ref:`bare metal installation tutorial<bare-metal-install-server>`.
 
 Before you install any new packages, update |CL| with the following command:
 

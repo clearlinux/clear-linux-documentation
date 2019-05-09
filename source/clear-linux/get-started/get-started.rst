@@ -24,7 +24,7 @@ Install |CL|
 .. toctree::
    :maxdepth: 1
 
-   bare-metal-install/bare-metal-install
+   bare-metal-install-server/bare-metal-install-server
    virtual-machine-install/virtual-machine-install
    live-image
    bare-metal-install-beta/bare-metal-install-beta

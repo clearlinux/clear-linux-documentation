@@ -14,7 +14,7 @@ Before you begin
 
 This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, visit
-our :ref:`bare metal installation tutorial<bare-metal-install>`.
+our :ref:`bare metal installation tutorial<bare-metal-install-server>`.
 
 Install Flatpak on your host system
 ===================================

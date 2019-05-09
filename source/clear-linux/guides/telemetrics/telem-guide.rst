@@ -181,7 +181,7 @@ The :command:`telemctl journal` command gives you access to features and options
 Set up a backend server to collect telemetry records
 ====================================================
 
-For this example, start with a clean installation of |CL| on a new system using the :ref:`bare-metal-install` getting started guide and:
+For this example, start with a clean installation of |CL| on a new system using the :ref:`bare-metal-install-server` getting started guide and:
 
 #. Join the :guilabel:`Stability Enhancement Program` to install and
    enable the telemetrics components.

@@ -167,7 +167,7 @@ and infrastructure can be stateless.
 
 The |CL| `downloads page`_ offers a live image that can be deployed as
 a PXE boot server if one doesn't already exist in your environment. Also see
-documentation on how to :ref:`bare-metal-install`.
+documentation on how to :ref:`bare-metal-install-server`.
 
 Cloud Instances or Virtual Machines
 -----------------------------------
