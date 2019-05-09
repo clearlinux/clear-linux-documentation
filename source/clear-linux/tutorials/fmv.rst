@@ -20,13 +20,10 @@ libraries to deploy architecture-based optimizations to your application code.
 
 Install and configure a |CL| host on bare metal
 ***********************************************
-
-First, follow our guide to :ref:`bare-metal-install-server`.
-
-Once the bare metal installation and initial configuration are complete,
-add the `desktop-dev` bundle to the system.
-
-`desktop-dev`: contains the necessary development tools like GCC and Perl\*.
+First, follow our guide to :ref:`bare-metal-install-desktop`. Once the bare
+metal installation and initial configuration are complete, add the
+`desktop-dev` bundle to the system. `desktop-dev`: contains the necessary
+development tools like GCC and Perl\*.
 
 To install the bundles, run the following command in the :file:`$HOME`
 directory:

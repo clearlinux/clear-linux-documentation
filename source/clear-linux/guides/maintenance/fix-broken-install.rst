@@ -14,14 +14,14 @@ owns in :file:`/usr`. Files outside of this path, such as /home/, /etc,
 Prerequisites
 *************
 
-* :ref:`Download and install the live desktop image on a USB <bare-metal-install-beta>`
+* :ref:`Download and install the live desktop image on a USB <bare-metal-install-desktop>`
 
 Boot a live desktop image to fix target system
 **********************************************
 
 #. Boot the |CL| live desktop image.
 
-.. include:: ../../get-started/bare-metal-install-beta/bare-metal-install-beta.rst
+.. include:: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst
    :start-after: install-on-target-start:
    :end-before: install-on-target-end:
 

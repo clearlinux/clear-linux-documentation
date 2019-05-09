@@ -12,8 +12,8 @@ can add the WordPress components needed to host a WordPress website on your syst
 Before you begin
 ****************
 
-This tutorial assumes you have successfully completed
-:ref:`bare-metal-install-server` and that you have :ref:`web-server-install`.
+This tutorial assumes that you have successfully completed
+:ref:`bare-metal-install-desktop` and you have :ref:`web-server-install`.
 
 Create a WordPress server
 *************************
