@@ -30,8 +30,8 @@ Prerequisites
 Install DKMS
 ************
 
-The `Dynamic Kernel Module System (DKMS)
-<kernel-modules-dkms>`_ allows the NVIDIA kernel modules to be automatically
+The :ref:`Dynamic Kernel Module System (DKMS)
+<kernel-modules-dkms>` allows the NVIDIA kernel modules to be automatically
 integrated when kernel updates occur in |CL|. 
 
 Install the appropriate DKMS bundle using the instructions below:
@@ -160,8 +160,8 @@ rest of the |CL| files under :file:`/usr`.
       lsmod | grep ^nvidia
 
 
-#. Run a verification to restore system files that the NVIDIA installer likely
-   deleted.
+#. Run a |CL| system verification to restore files that the NVIDIA installer
+   likely deleted.
 
    .. code-block:: bash
 
@@ -169,9 +169,11 @@ rest of the |CL| files under :file:`/usr`.
 
 .. note::
 
-   The NVIDIA installer places some files under the :file:`/usr` subdirectory
-   which are not managed by |CL| updates. The :command:`swupd verify --fix`
-   command should be avoided with the proprietary NVIDIA drivers in use.
+   The NVIDIA software places some files under the :file:`/usr` subdirectory
+   which are not managed by |CL| and conflict with the |CL| stateless design.
+   Although a limited version of :command:`swupd verify --fix` is ran above,
+   other uses of the :command:`swupd verify --fix` command should be avoided
+   with the proprietary NVIDIA drivers installed.
       
 
 Uninstalling the NVIDIA driver
