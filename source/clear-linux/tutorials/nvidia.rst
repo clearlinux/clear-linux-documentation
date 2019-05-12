@@ -139,6 +139,7 @@ rest of the |CL| files under :file:`/usr`.
       --utility-prefix=/opt/nvidia \
       --opengl-prefix=/opt/nvidia \
       --compat32-prefix=/opt/nvidia \
+      --compat32-libdir=lib32 \      
       --x-prefix=/opt/nvidia \
       --documentation-prefix=/opt/nvidia \
       --no-precompiled-interface \
