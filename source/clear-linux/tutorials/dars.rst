@@ -68,7 +68,7 @@ First, clone the `DARS repository`_ from GitHub.
 
 .. code-block:: bash
 
-   git clone https://github.com/intel/!!!!!!! -b master
+   git clone https://github.com/clearlinux/dockerfiles/tree/master/stacks/dars -b master
 
 Then, inside the DARS directory, run :command:`make` to build OpenBLAS and MKL images, and run :command:`make baseline` to build the baseline CentOS image. Depending on the system, it may take a while to finish building, but once done, check the resulting images with :command:`Docker`
 
