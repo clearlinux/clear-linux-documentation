@@ -66,11 +66,59 @@ these steps.
 
 .. _install-on-target-end:
 
+Confirm network connection
+==========================
+
+Confirm there is a network connection before launching the installer.
+Choose a method: `Wired Connection`, or `WiFi Connected`.
+This guide shows an exmaple of a **Wired Connection**.
+
+#. In the upper right of the top menu bar, select the square icon to view
+   Network settings, shown in Figure 2.
+
+#. Select :guilabel:`Wired Connected` and then :guilabel:`Wired Settings`.
+
+   .. figure:: figures/bare-metal-install-desktop-02.png
+      :scale: 100%
+      :alt: Software icon, Network settings
+
+      Figure 2: Software icon, Network settings
+
+#. View the :guilabel:`Wired` menu to assure that you're target system and
+   installer are connected to a network.
+
+#. Optional: Configure Proxy settings.
+
+   #. To view :guilabel:`Network Proxy`, select its :guilabel:`Gear` icon.
+
+   #. Select from `Automatic`, `Manual` or `Disabled` as desired.
+
+   #. Close the dialogue box.
+
+#. Select the :guilabel:`Gear` icon to view Network settings.
+
+#. If desired, select :guilabel:`Connect automatically`.
+   Select other options as desired.
+
+#. Select :guilabel:`Apply` button to confirm change to settings.
+
+Software
+--------
+
+Optional: Explore |CL| bundles and other software available. Double-click the :guilabel:`Software` icon from the Activities menu, shown in Figure 2.
+
+.. note::
+
+   `Sofware` application is *only intended for exploring* available bundles,
+   applications, and images. Do not attempt to install them.
+
+   Assure there is a network connection before launching `Software`.
+
 Launch the |CL| installer
 =========================
 
 #. After the live desktop image boots, find the |CL| icon in
-   the :guilabel:`Activities` menu at left, shown in Figure 2.
+   the :guilabel:`Activities` menu at left, shown in Figure 3.
 
 #. Click the icon, :guilabel:`Install Clear Linux OS`.
 
@@ -78,20 +126,21 @@ Launch the |CL| installer
       :scale: 100%
       :alt: Install Clear Linux OS icon
 
-      Figure 2: Install Clear Linux OS icon
+      Figure 3: Install Clear Linux OS icon
 
-#. The installer is launched, as shown in Figure 3.
+#. The installer is launched, as shown in Figure 4.
 
-   .. figure:: figures/bare-metal-install-desktop-03.png
+   .. figure:: figures/bare-metal-install-desktop-04.png
       :scale: 100%
       :alt: |CL| Desktop Installer
 
-      Figure 3: |CL| OS Desktop Installer
+      Figure 4: |CL| OS Desktop Installer
 
 #. In :guilabel:`Select Language`, select a language from the options, or
    type your preferred language in the search bar.
 
 #. Select :guilabel:`Next`.
+
 
 .. _incl-bare-metal-beta-start:
 
@@ -114,16 +163,16 @@ To fulfill minimum installation requirements, complete the
 |CL| Desktop Installer
 **********************
 
-The |CL| Desktop Installer Main Menu appears as shown in Figure 4. To meet
+The |CL| Desktop Installer Main Menu appears as shown in Figure 5. To meet
 the minimum requirements, enter values in all submenus for the
 :guilabel:`Required options`. After you complete them, your selections appear
 below submenus and a checkmark appears at right.
 
-.. figure:: figures/bare-metal-install-desktop-04.png
+.. figure:: figures/bare-metal-install-desktop-05.png
    :scale: 100%
    :alt: Clear Linux OS Desktop Installer - Main Menu
 
-   Figure 4: Clear Linux OS Desktop Installer - Main Menu
+   Figure 5: Clear Linux OS Desktop Installer - Main Menu
 
 Navigation
 **********
@@ -152,11 +201,11 @@ Select Time Zone
 
 #. Select :guilabel:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-desktop-05.png
+   .. figure:: figures/bare-metal-install-desktop-06.png
       :scale: 100%
       :alt: Select System Timezone
 
-      Figure 5: Select System Time Zone
+      Figure 6: Select System Time Zone
 
 Select Keyboard
 ===============
@@ -168,11 +217,11 @@ Select Keyboard
 
 #. Select :guilabel:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-desktop-06.png
+   .. figure:: figures/bare-metal-install-desktop-07.png
       :scale: 100%
       :alt: Select Keyboard menu
 
-      Figure 6: Select Keyboard menu
+      Figure 7: Select Keyboard menu
 
 Select Installation Media
 =========================
@@ -182,11 +231,11 @@ Select Installation Media
 #. Choose an installation method: `Safe Installation`_ or
    `Destructive Installation`_.
 
-   .. figure:: figures/bare-metal-install-desktop-07.png
+   .. figure:: figures/bare-metal-install-desktop-08.png
       :scale: 100%
       :alt: Select Installation Media
 
-      Figure 7: Select Installation Media
+      Figure 8: Select Installation Media
 
 Safe Installation
 -----------------
@@ -206,21 +255,21 @@ For greater security, disk encryption is supported using LUKS. Encryption is
 optional.
 
 #. To encrypt the root partition, select :guilabel:`Enable Encryption`,
-   as shown in Figure 8.
-
-   .. figure:: figures/bare-metal-install-desktop-08.png
-      :scale: 100%
-      :alt: Enable Encryption
-
-      Figure 8: Enable Encryption
-
-#. When :guilabel:`Encryption Passphrase` appears, enter a passphrase.
+   as shown in Figure 9.
 
    .. figure:: figures/bare-metal-install-desktop-09.png
       :scale: 100%
+      :alt: Enable Encryption
+
+      Figure 9: Enable Encryption
+
+#. When :guilabel:`Encryption Passphrase` appears, enter a passphrase.
+
+   .. figure:: figures/bare-metal-install-desktop-10.png
+      :scale: 100%
       :alt: Encryption Passphrase
 
-      Figure 9: Encryption Passphrase
+      Figure 10: Encryption Passphrase
 
    .. note::
 
@@ -243,11 +292,11 @@ Manage User
 
 #. In :guilabel:`User Name`, enter a user name.
 
-   .. figure:: figures/bare-metal-install-desktop-10.png
+   .. figure:: figures/bare-metal-install-desktop-11.png
       :scale: 100%
       :alt: Manage User
 
-      Figure 10: Manage User
+      Figure 11: Manage User
 
 #. In :guilabel:`Login`, create a login name. It must start with a letter
    and can use numbers, hyphens, and underscores. Maximum length is 31
@@ -301,11 +350,11 @@ team for improvements. For more information, see :ref:`telemetry-about`.
 
 #. Select :kbd:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-desktop-11.png
+   .. figure:: figures/bare-metal-install-desktop-12.png
       :scale: 100%
       :alt: Enable Telemetry
 
-      Figure 11: Enable Telemetry
+      Figure 12: Enable Telemetry
 
 Advanced options
 ****************
@@ -328,21 +377,21 @@ Bundle Selection
 
 #. Select your desired bundles.
 
-   .. figure:: figures/bare-metal-install-desktop-12.png
+   .. figure:: figures/bare-metal-install-desktop-13.png
       :scale: 100%
       :alt: Bundle Selection
 
-      Figure 12: Bundle Selection
+      Figure 13: Bundle Selection
 
 #. Select :kbd:`Confirm`.
 
 #. View the bundles that you selected.
 
-   .. figure:: figures/bare-metal-install-desktop-13.png
+   .. figure:: figures/bare-metal-install-desktop-14.png
       :scale: 100%
       :alt: Bundle Selections - Advanced Options
 
-      Figure 13: Bundle Selections - Advanced Options
+      Figure 14: Bundle Selections - Advanced Options
 
 Optional: Skip to `Finish installation`_.
 
@@ -353,11 +402,11 @@ Assign Hostname
 
 #. In :guilabel:`Hostname`, enter the hostname only (excluding the domain).
 
-   .. figure:: figures/bare-metal-install-desktop-14.png
+   .. figure:: figures/bare-metal-install-desktop-15.png
       :scale: 100%
       :alt: Assign Hostname
 
-      Figure 14: Assign Hostname
+      Figure 15: Assign Hostname
 
    .. note::
 
@@ -377,11 +426,11 @@ Finish installation
 #. When you are satisfied with your installation configuration, select
    :guilabel:`Install`.
 
-   .. figure:: figures/bare-metal-install-desktop-15.png
+   .. figure:: figures/bare-metal-install-desktop-16.png
       :scale: 100%
       :alt: Assign Hostname
 
-      Figure 15: Finish installation
+      Figure 16: Finish installation
 
    .. note:
 
@@ -389,14 +438,14 @@ Finish installation
 
 #. If you do not enter a selection for all :guilabel:`Required Options`,
    the :guilabel:`Install` button remains greyed out, as shown
-   in Figure 16. Return to `Required Options`_ and make selections.
+   in Figure 17. Return to `Required Options`_ and make selections.
 
 
-   .. figure:: figures/bare-metal-install-desktop-16.png
+   .. figure:: figures/bare-metal-install-desktop-17.png
       :scale: 100%
       :alt: Required Options - Incomplete
 
-      Figure 16: Required Options - Incomplete
+      Figure 17: Required Options - Incomplete
 
 #. After installation is complete, select :guilabel:`Exit`.
 
