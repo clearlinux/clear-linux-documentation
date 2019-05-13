@@ -14,11 +14,11 @@ The Deep Analytics Reference Stack release
 ******************************************
 
 
-The Deep Analytics Reference Stack (DARS) provides three prebuilt Docker images, available on `Docker Hub`_:
+The Deep Analytics Reference Stack (DARS) provides two prebuilt Docker images, available on `Docker Hub`_:
 
-* A Clear Linux derived with DARS stack optimized for `OpenBLAS`_
-* A Clear Linux derived with DARS stack optimized for `MKL`_
-* A `CentOS`_ Linux derived with the non-optimized DARS stack
+* A Clear Linux derived `DARS with OpenBlas`_ stack optimized for `OpenBLAS`_
+* A Clear Linux derived  `DARS with MKL`_ stack optimized for `MKL`_
+
 
 You can get the latest  component versions for each image in the Readme file found in the `DARS repository`_.  Note that as |CL| is a rolling distribution, the package version numbers in the |CL| based containers may not be the latest released by |CL|.
 
@@ -81,11 +81,11 @@ You can use any of the resulting images to launch fully functional containers.  
 
 
 
-.. _DARS repository:  https://github.com/intel/<TBD>
+.. _DARS repository:  https://github.com/clearlinux/dockerfiles/tree/master/stacks/dars
 .. _Docker Hub: https://hub.docker.com/
 .. _OpenBLAS: http://www.openblas.net/
 .. _MKL: https://software.intel.com/en-us/mkl
 .. _CentOS: https://www.centos.org/
-.. _DARS with OpenBLAS: https://hub.docker.com/r/clearlinux.......
-.. _DARS with MKL: https://hub.docker.com/r/clearlinux.......
+.. _DARS with OpenBLAS: https://hub.docker.com/r/clearlinux/stacks-dars-openblas/
+.. _DARS with MKL: https://hub.docker.com/r/clearlinux/stacks-dars-mkl/
 .. _DARS on CentOS: https://hub.docker.com/r/clearlinux.......
