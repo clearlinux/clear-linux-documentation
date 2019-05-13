@@ -14,6 +14,12 @@ automatically at system boot if a compatible card is detected.
 These instructions show how to use the proprietary NVIDIA drivers which
 require a manual installation.
 
+.. note::
+  
+   Software installed outside of :ref:`swupd <swupd-about>` is not updated with |CL|
+   updates and must be updated and maintained manually.
+
+
 
 .. contents:: :local:
     :depth: 2
