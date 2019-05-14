@@ -1,29 +1,29 @@
 .. _dars:
 
-Deep Analytics Reference Stack
+Data Analytics Reference Stack
 ##############################
 
-This tutorial shows you how to use the Deep Analytics Reference Stack
+This tutorial shows you how to use the Data Analytics Reference Stack
 (DARS), and to optionally build your own images with the baseline Dockerfiles
-provided in the `DARS repository`_. Our tutorial assumes |CL-ATTR| is the
-host OS. However, any system that supports Docker containers can be used to
+provided in the `DARS repository`_. Our assumption is that |CL-ATTR| is the
+host. However, any system that supports Docker\* containers can be used to
 follow these steps.
 
 .. contents::
    :local:
    :depth: 1
 
-The Deep Analytics Reference Stack release
+The Data Analytics Reference Stack release
 ******************************************
 
-The Deep Analytics Reference Stack provides two prebuilt Docker images, available on `Docker Hub`_:
+The Data Analytics Reference Stack provides two pre-built Docker images, available on `Docker Hub`_:
 
-* A Clear Linux derived `DARS with OpenBlas`_ stack optimized for `OpenBLAS`_
-* A Clear Linux derived  `DARS with MKL`_ stack optimized for `MKL`_
+* A |CL|-derived `DARS with OpenBlas`_ stack optimized for `OpenBLAS`_
+* A |CL|-derived  `DARS with MKL`_ stack optimized for `MKL`_
 
-You can get the latest component versions for each image in the
+We recommend you view the latest component versions for each image in the
 :file:`README` found in the `DARS repository`_.  Because |CL| is a rolling
-distribution, the package version numbers in the |CL| based containers may
+distribution, the package version numbers in the |CL|-based containers may
 not be the latest released by |CL|.
 
 Using the Docker Images
@@ -68,7 +68,7 @@ Building DARS Images
 
 If you choose to build your own DARS container images, you can customize
 them as needed. Use the provided Dockerfile as a baseline. To construct
-images with Clear Linux, start with a Clear Linux development platform that
+images with |CL|, start with a |CL| development platform that
 has the :command:`containers-basic-dev` bundle installed. Learn more about
 bundles and installing them by using :ref:`swupd-guide`.
 
