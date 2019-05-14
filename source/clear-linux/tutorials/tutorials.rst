@@ -27,3 +27,4 @@ Explore our tutorials to discover what you can do with |CL|!
    dlrs/dlrs
    yubikey-u2f
    nvidia
+   dars
