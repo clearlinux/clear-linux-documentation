@@ -1,7 +1,7 @@
 .. _dars:
 
 Deep Analytics Reference Stack
-#############################
+##############################
 
 This tutorial walks you through obtaining and using the Deep Analytics Reference Stack, and optionally building your own images with the baseline Dockerfiles provided in the `DARS repository`_.  The tutorial assumes |CL-ATTR| as the host OS, but any system that supports Docker containers can be used to follow these steps.
 
@@ -62,7 +62,7 @@ The :command:`--ulimit nofile` parameter is currently required in order to incre
 Building DARS Images
 ********************
 
-If you choose to build your own DARS container images, you can customize them as needed. Use the provided Dockerfile as a baseline. To construct images with Clear Linux, start with a Clear Linux development platform that has the :command:`containers-basic-dev` bundle installed. Learn more about bundles and installing them `swupd guide`_
+If you choose to build your own DARS container images, you can customize them as needed. Use the provided Dockerfile as a baseline. To construct images with Clear Linux, start with a Clear Linux development platform that has the :command:`containers-basic-dev` bundle installed. Learn more about bundles and installing them `swupd-guide`_
 
 First, clone the `DARS repository`_ from GitHub.
 
