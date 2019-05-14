@@ -14,6 +14,12 @@ automatically at system boot if a compatible card is detected.
 These instructions show how to use the proprietary NVIDIA drivers which
 require a manual installation.
 
+.. note::
+  
+   Software installed outside of :ref:`swupd <swupd-about>` is not updated with |CL|
+   updates and must be updated and maintained manually.
+
+
 
 .. contents:: :local:
     :depth: 2
@@ -27,13 +33,18 @@ Prerequisites
 * A NVIDIA device installed
 
 
-Install the LTS kernel and DKMS
-*******************************
+Install DKMS
+************
 
-The Long Term Support (LTS) kernel variant is most likely to remain
-compatible with NVIDIA drivers. The :ref:`Dynamic Kernel Module System (DKMS) <kernel-modules-dkms>` allows the NVIDIA kernel modules to be automatically
-integrated when kernel updates occur in |CL|. Install both using the
-instructions below:
+The :ref:`Dynamic Kernel Module System (DKMS)
+<kernel-modules-dkms>` allows the NVIDIA kernel modules to be automatically
+integrated when kernel updates occur in |CL|. 
+
+Install the appropriate DKMS bundle using the instructions below:
+
+.. note::
+   The Long Term Support (LTS) kernel variant is more likely to remain
+   compatible between updates with NVIDIA drivers.
 
 
 .. include:: ../guides/maintenance/kernel-modules-dkms.rst
@@ -52,7 +63,7 @@ Download the NVIDIA Linux Driver
 
    .. code-block:: bash
 
-      lshw -C display
+      sudo lshw -C display
 
 
 #. Go to the `NVIDIA Driver Downloads website`_ . Search for and download the
@@ -68,68 +79,85 @@ Download the NVIDIA Linux Driver
 
       cd ~/Downloads/
 
-
-#. Extract the contents of the .run file.
+#. Make the :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file executable.
 
    .. code-block:: bash
 
-      sh NVIDIA-Linux-x86_64-<VERSION>.run --extract-only
+      chmod +x :file:`NVIDIA-Linux-x86_64-<VERSION>.run`
 
 
-Disable the nouveau driver
+Disable the nouveau Driver
 ==========================
 
-#. The proprietary NVIDIA driver is incompatible with the nouveau driver and
-   needs to be disabled before installation can continue.
+The proprietary NVIDIA driver is incompatible with the nouveau driver and
+needs to be disabled before installation can continue.
 
-   Disable the nouveau driver by creating a file under :file:`/etc/modprobe.d`
-   and reboot.
+#. Disable the nouveau driver by creating a blacklist file under
+   :file:`/etc/modprobe.d` and reboot.
 
    .. code-block:: bash
 
       sudo mkdir /etc/modprobe.d
 
-      echo "blacklist nouveau" | sudo tee --append /etc/modprobe.d/nvidia-disable-nouveau.conf
-      echo "options nouveau modeset=0" | sudo tee --append /etc/modprobe.d/nvidia-disable-nouveau.conf
+      printf "blacklist nouveau \noptions nouveau modeset=0 \n" | sudo tee --append /etc/modprobe.d/disable-nouveau.conf
       
 
 #. Reboot the system and log back in. It is normal for the graphical
    environment to not start with no NVIDIA driver loaded.
 
 
+
 Install the NVIDIA Linux Driver
 ===============================
 
-#. Navigate into the directory where the NVIDIA installer was extracted.
+The NVIDIA installer will be directed to install files under
+:file:`/opt/nvidia` as much as possible to keep its contents isolated from the
+rest of the |CL| files under :file:`/usr`. 
+
+
+#. A terminal not running on */dev/tty1* is useful to view uninterrupted
+   installation progress. Switch to a secondary virtual terminal by pushing
+   :command:`CTRL + ALT + F2` or remotely login over SSH. 
+
+#. Configure the dynamic linker to look for and cache shared libraries under
+   :file:`/opt/nvidia/lib` and :file:`/opt/nvidia/lib32` where the NVIDIA
+   installer will place libraries. 
+
+   .. code-block:: bash
+      
+      echo "include /etc/ld.so.conf.d/*.conf" |  sudo tee --append /etc/ld.so.conf
+      sudo mkdir /etc/ld.so.conf.d
+      printf "/opt/nvidia/lib \n/opt/nvidia/lib32 \n" | sudo tee --append /etc/ld.so.conf.d/nvidia.conf
+
+
+#. Navigate into the directory where the NVIDIA installer was downloaded.
 
    .. code-block:: bash
 
-      cd ~/Downloads/NVIDIA-Linux-x86_64-<VERSION>/   
+      cd ~/Downloads/   
 
 
 #. Run the installer with the advanced options below.
 
    .. code-block:: bash
       
-      sudo ./nvidia-installer --no-nvidia-modprobe --no-distro-scripts --no-opengl-files --no-libglx-indirect --no-install-libglvnd --no-install-compat32-libs --dkms --ui=none
-
-#. The installer will prompt to register the kernel module sources with
-   DKMS. Enter Y for yes.
-
-   .. code-block:: bash
-
-      Welcome to the NVIDIA Software Installer for Unix/Linux
-
-      <snipped>
-
-      Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new
-      module, if you install a different kernel later.
-      [default: (Y)es]: Y
-
+      sudo ./NVIDIA-Linux-x86_64-<VERSION>.run \
+      --utility-prefix=/opt/nvidia \
+      --opengl-prefix=/opt/nvidia \
+      --compat32-prefix=/opt/nvidia \
+      --compat32-libdir=lib32 \      
+      --x-prefix=/opt/nvidia \
+      --documentation-prefix=/opt/nvidia \
+      --no-precompiled-interface \
+      --no-nvidia-modprobe \
+      --no-distro-scripts \
+      --force-libglx-indirect \
+      --dkms \
+      --silent
 
 
 #. The graphical interface may automatically start after the NVIDIA driver
-   is loaded. If it does restart, log back in.
+   is loaded. Return to the working terminal and log back in if necessary.
 
 
 #. Validate the nvidia kernel modules are loaded.
@@ -139,11 +167,20 @@ Install the NVIDIA Linux Driver
       lsmod | grep ^nvidia
 
 
+#. Run a |CL| system verification to restore files that the NVIDIA installer
+   likely deleted.
+
+   .. code-block:: bash
+
+      sudo swupd verify --quick --fix --bundles=lib-opengl
+
 .. note::
 
-   The NVIDIA installer places files under the :file:`/usr` subdirectory which
-   are not managed by |CL| updates. The :command:`swupd verify --fix` command
-   should be avoided with the proprietary NVIDIA drivers in use.
+   The NVIDIA software places some files under the :file:`/usr` subdirectory
+   which are not managed by |CL| and conflict with the |CL| stateless design.
+   Although a limited version of :command:`swupd verify --fix` is ran above,
+   other uses of the :command:`swupd verify --fix` command should be avoided
+   with the proprietary NVIDIA drivers installed.
       
 
 Uninstalling the NVIDIA driver
@@ -152,17 +189,31 @@ Uninstalling the NVIDIA driver
 The NVIDIA drivers and associated software can be uninstalled and nouveau
 driver restored by: 
 
-#. Remove the previously created file :file:`etc/modprobe.d` that is
-   preventing nouveau from loading.
+#. Remove the previously created file :file:`/etc/modprobe.d` that
+   prevents nouveau from loading.
 
    .. code-block:: bash
 
-      sudo rm /etc/modprobe.d/nvidia-disable-nouveau.conf
+      sudo rm /etc/modprobe.d/disable-nouveau.conf
 
 
-#. Run the :command:`sudo nvidia-uninstall`
+#. Run the :command:`sudo /opt/nvidia/bin/nvidia-uninstall`
 
 #. Follow the prompts on the screen and reboot the system. 
+
+
+Debugging NVIDIA driver installation
+************************************
+
+* The NVIDIA driver places installer and uninstaller logs under
+  :file:`/var/log/nvidia-install` and :file:`/var/log/nvidia-uninstall`.
+
+* :file:`NVIDIA-Linux-x86_64-<VERSION>.run --advanced-options` shows many
+  parameters to control installation behavior. 
+
+* :file:`NVIDIA-Linux-x86_64-<VERSION>.run --extract-only` extracts
+  installation files into a directory named
+  :file:`NVIDIA-Linux-x86_64-<VERSION>`. 
 
 
 
@@ -173,7 +224,10 @@ Additional resources
 
 * `Where can I get support for NVIDIA Linux drivers? <https://nvidia.custhelp.com/app/answers/detail/a_id/44/kw/linux>`_
 
+* `NVIDIA Accelerated Linux Graphics Driver Installation Guides <https://download.nvidia.com/XFree86/Linux-x86_64/>`_
 
 .. _`nouveau project`:  https://nouveau.freedesktop.org/wiki/
 
 .. _`NVIDIA Driver Downloads website`: https://www.nvidia.com/download/index.aspx
+
+
