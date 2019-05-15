@@ -4,8 +4,9 @@ Add kernel modules manually
 ###########################
 
 Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
-kernel modules, you must build out-of-tree kernel modules. Use this guide to
-add kernel modules manually, or refer to :ref:`kernel-modules-dkms`.
+kernel modules that are not part of the Linux source tree, you may need to
+build out-of-tree kernel modules. Use this guide to add kernel modules
+manually, or refer to :ref:`kernel-modules-dkms`.
 
 
 .. contents:: :local:
@@ -13,7 +14,7 @@ add kernel modules manually, or refer to :ref:`kernel-modules-dkms`.
    :backlinks: top
 
 Description
-===========
+***********
 
 Kernel modules are additional pieces of software capable of being inserted
 into the Linux kernel to add functionality, such as a hardware driver.
@@ -23,8 +24,8 @@ come from an external source, such as directly from a vendor (out-of-tree).
 
 .. _kernel-modules-availability-begin:
 
-Kernel module availability in |CL|
-==================================
+Kernel module availability
+**************************
 
 |CL| comes with many upstream kernel modules available for use. Using an
 existing module is significantly easier to maintain and retains signature
@@ -36,7 +37,7 @@ available in |CL| or submit a request to add the module.
 
 
 Check if the module is already available
-----------------------------------------
+========================================
 
 
 You can search for kernel module file names, which end with the :file:`.ko`
@@ -48,8 +49,8 @@ following example. See :ref:`swupd-guide` for more information.
    sudo swupd search ${module_name}.ko
 
 
-Request the module be added to |CL|
------------------------------------
+Submit a request to add the module
+==================================
 
 If the kernel module you need is already open source (for example, in the Linux
 upstream) and likely to be useful to others, consider submitting a request to
@@ -61,7 +62,7 @@ Make enhancement requests to the |CL| distribution `on GitHub`_.
 
 
 Build, install, and load an out-of-tree module
-==============================================
+**********************************************
 
 Follow the steps in this section if you are an individual user or testing, and
 you need an out-of-tree kernel module that is not available through |CL|. For
@@ -70,7 +71,7 @@ a more scalable and customizable approach, we recommend using the
 
 
 Prerequisites
--------------
+=============
 
 Before you begin, you must:
 
@@ -86,7 +87,7 @@ Before you begin, you must:
 
 
 Build and install kernel module
--------------------------------
+===============================
 
 #. Determine which kernel variant is running on |CL|. In the example below,
    the *native* kernel is in use.
@@ -120,7 +121,7 @@ Build and install kernel module
 
 
 Load kernel module
-------------------
+==================
 
 #. Disable Secure Boot in your system's UEFI settings, if you have enabled
    it. The loading of new out-of-tree modules modifies the signatures that
@@ -158,7 +159,8 @@ Load kernel module
 
       sudo insmod </PATH/TO/MODULE.ko>
 
-
+Examples
+********
 
 .. _kernel-modules-autoload-begin:
 
@@ -208,6 +210,11 @@ Learn more about module loading in the modules-load.d manual page:
 
 
 .. _kernel-modules-autoload-end:
+
+Related topic
+*************
+
+* :ref:`kernel-modules-dkms`
 
 
 .. _`on GitHub`: https://github.com/clearlinux/distribution

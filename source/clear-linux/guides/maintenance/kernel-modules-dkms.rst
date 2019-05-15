@@ -4,8 +4,9 @@ Add kernel modules with DKMS
 ############################
 
 Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
-kernel modules, you must build out-of-tree kernel modules. Use this guide to
-add kernel modules with DKMS or refer to :ref:`kernel-modules`.
+kernel modules that are not part of the Linux source tree, you may need to
+build out-of-tree kernel modules. Use this guide to add kernel modules with
+:abbr:`DKMS (Dynamic Kernel Module System)` or refer to :ref:`kernel-modules`.
 
 
 .. contents:: :local:
@@ -14,7 +15,7 @@ add kernel modules with DKMS or refer to :ref:`kernel-modules`.
 
 
 Description
-===========
+***********
 
 Kernel modules are additional pieces of software capable of being inserted
 into the Linux kernel to add functionality, such as a hardware driver.
@@ -34,8 +35,8 @@ hooks that automatically rebuild modules against new kernel versions.
 
 
 
-Install DKMS on |CL|
-====================
+Install DKMS
+************
 
 .. _kernel-modules-dkms-install-begin:
 
@@ -104,7 +105,7 @@ bundle:
 .. _kernel-modules-dkms-install-end:
 
 Build, install, and load an out-of-tree module
-==============================================
+**********************************************
 
 Follow the steps in this section if you are an individual user or testing, and
 you need an out-of-tree kernel module that is not available through |CL|. For
@@ -113,7 +114,7 @@ a more scalable and customizable approach, we recommend using the
 
 
 Prerequisites
--------------
+=============
 
 Before you begin, you must:
 
@@ -126,7 +127,7 @@ Before you begin, you must:
 
 
 Obtain kernel module source
----------------------------
+===========================
 
 A required :file:`dkms.conf` file inside of the kernel module's source code directory
 informs DKMS how the kernel module should be compiled.
@@ -162,7 +163,7 @@ obtain source code without a :file:`dkms.conf` file, you must manually create a
 
 
 Build kernel module with an existing dkms.conf
-----------------------------------------------
+==============================================
 
 If the kernel module maintainer packaged the source archive with the
 :command:`dkms mktarball` command, the entire archive can be passed to the
@@ -202,7 +203,7 @@ directory.
 
 
 Build kernel module without an existing dkms.conf
--------------------------------------------------
+=================================================
 
 If the kernel module source does not contain a :file:`dkms.conf` file or the
 :command:`dkms ldtarball` command encounters errors, you must manually
@@ -220,7 +221,7 @@ Here are some additional resources that can be used for reference:
 * `Ubuntu community wiki`_ shows an example where a single package contains
   multiple modules.
 
-* `Sample dkms.conf file`_ in the github repository.
+* `Sample dkms.conf file`_ in the GitHub\* repository for the DKMS project.
 
 
 The instructions below show a generic example:
@@ -278,7 +279,7 @@ The instructions below show a generic example:
 
 
 Load kernel module
-------------------
+==================
 
 By default, DKMS installs modules "in-tree" under :file:`/lib/modules` so the
 :command:`modprobe` command can be used to load them.
@@ -296,7 +297,8 @@ By default, DKMS installs modules "in-tree" under :file:`/lib/modules` so the
       lsmod | grep <MODULE-NAME>
 
 
-
+Examples
+********
 
 .. include:: kernel-modules.rst
    :start-after: kernel-modules-autoload-begin:
@@ -306,7 +308,7 @@ By default, DKMS installs modules "in-tree" under :file:`/lib/modules` so the
 
 
 Related topics
-==============
+**************
 
 * `Dynamic Kernel Module System (DKMS) project on GitHub <https://github.com/dell/dkms>`_
 
