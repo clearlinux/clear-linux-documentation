@@ -3,81 +3,95 @@
 Deep Learning Reference Stack
 #############################
 
-This tutorial shows you how to run benchmarking workloads in |CL-ATTR| using
-TensorFlow\* or PyTorch\* with the Deep Learning Reference Stack. We also
-cover using Kubeflow for multi-node benchmarking.
+This tutorial describes how to run benchmarking workloads for TensorFlow\*,
+PyTorch\*, and Kubeflow in |CL-ATTR| using the Deep Learning Reference Stack.
+
 
 .. contents::
    :local:
    :depth: 1
 
-The Deep Learning Reference Stack is available in five versions:
+Overview
+********
 
-* `Intel MKL-DNN-VNNI`_, which is optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives and introduces support for AVX-512 Vector Neural Network Instructions (VNNI).
-* `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
+We created the Deep Learning Reference Stack to help AI developers deliver the
+best experience on Intel® Architecture. This stack reduces complexity common
+with deep learning software components, provides flexibility for customized
+solutions, and enables you to quickly prototype and deploy Deep Learning
+workloads. Use this tutorial to run benchmarking workloads on your solution.
+
+The Deep Learning Reference Stack is available in the following versions:
+
+* `Intel MKL-DNN-VNNI`_, which is optimized using Intel® Math Kernel Library
+  for Deep Neural Networks (Intel® MKL-DNN) primitives and introduces support
+  for Intel® AVX-512 Vector Neural Network Instructions (VNNI).
+* `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using
+  Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
 * `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture.
 * `PyTorch with OpenBLAS`_, which includes PyTorch with OpenBlas.
-* `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using Intel® Math Kernel Library (Intel® MKL)and Intel MKL-DNN.
+* `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using Intel®
+  Math Kernel Library (Intel® MKL) and Intel MKL-DNN.
 
 
 .. note::
 
-   To take advantage of the AVX-512 and VNNI functionality with the Deep Learning Reference Stack, please use the following hardware:
-      * AVX 512 images requires an Intel® Xeon® Scalable Platform
-      * VNNI requires a Second-Generation Intel® Xeon® Scalable Platform
+   To take advantage of the Intel® AVX-512 and VNNI functionality with the Deep
+   Learning Reference Stack, you must use the following hardware:
+
+   * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
+   * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
 
 
-Release notes
-*************
+Stack features
+==============
 
-* View current `release notes`_ for the Deep Learning Reference Stack V3.
-* View current  `PyTorch benchmark results`_ for the Deep Learning Reference Stack with PyTorch, DLRS V2.
-* View current `TensorFlow benchmark results`_ for the first release of the Deep Learning Reference Stack with TensorFlow.
-* Go to the `github release notes`_ for the latest release.
+* Deep Learning Reference Stack `V3.0 release announcement`_.
+* Deep Learning Reference Stack v2.0 including current `PyTorch benchmark results`_.
+* Deep Learning Reference Stack v1.0 including current `TensorFlow benchmark results`_.
+* `Release notes on Github\*`_ for the latest release of Deep Learning Reference Stack.
 
 .. note::
 
-   Performance test numbers in the Deep Learning Reference Stack were obtained using `runc` as the runtime.
+   Performance test results for the Deep Learning Reference Stack were
+   obtained using `runc` as the runtime.
 
 Prerequisites
-*************
+=============
 
-* |CL| installed on host system. :ref:`Install <bare-metal-install-desktop>`
-* `containers-basic` bundle
-* `cloud-native-basic` bundle
+* :ref:`Install <bare-metal-install-desktop>` |CL| on your host system.
+* :command:`containers-basic` bundle
+* :command:`cloud-native-basic` bundle
 
-In |CL|, `containers-basic` provides Docker\*, which is required for
+In |CL|, :command:`containers-basic` includes Docker\*, which is required for
 TensorFlow and PyTorch benchmarking. Use the :command:`swupd` utility to
-check if `containers-basic` and `cloud-native-basic` are present:
+check if :command:`containers-basic` and :command:`cloud-native-basic` are present:
 
 .. code-block:: bash
 
    sudo swupd bundle-list
 
-If you need to install the `containers-basic` or `cloud-native-basic`, enter:
+To install the :command:`containers-basic` or :command:`cloud-native-basic` bundles, enter:
 
 .. code-block:: bash
 
    sudo swupd bundle-add containers-basic cloud-native-basic
 
-Note that docker is not started upon installation of the containers-basic bundle.  To start docker, enter:
-
+Docker is not started upon installation of the :command:`containers-basic`
+bundle. To start Docker, enter: 
 
 .. code-block:: bash
 
    sudo systemctl start docker
 
+To ensure that Kubernetes is correctly installed and configured, follow the
+instructions in :ref:`kubernetes`.
 
+Version compatibility
+=====================
 
-To ensure that Kubernetes is correctly installed and configured, follow
-:ref:`kubernetes`.
+We validated these steps against the following software package versions:
 
-
-
-We have validated these steps against the following software package
-versions:
-
-* |CL| 26240--lowest version permissible.
+* |CL| 26240 (Lower version not supported.)
 * Docker 18.06.1
 * Kubernetes 1.11.3
 * Go 1.11.12
@@ -90,7 +104,7 @@ For multi-node testing, replicate these steps for each node. These steps
 provide a template to run other benchmarks, provided that they can invoke
 TensorFlow.
 
-#. Download either the `Eigen`_ or the `Intel MKL-DNN`_ docker image
+#. Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image
    from `Docker Hub`_.
 
 #. Run the image with Docker:
@@ -102,9 +116,10 @@ TensorFlow.
 
    .. note::
 
-      Launching the docker image with the :command:`-i` argument will put
-      you into interactive mode within the container. You will enter the
-      following commands in the running container. The following commands are executed within the scope of the container.
+      Launching the Docker image with the :command:`-i` argument starts
+      interactive mode within the container. Enter the following commands in
+      the running container. The commands are executed within the scope of the
+      container.
 
 #. Clone the benchmark repository in the container:
 
@@ -112,7 +127,7 @@ TensorFlow.
 
       git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.12_compatible
 
-#. Next, execute the benchmark script to run the benchmark.
+#. Execute the benchmark script:
 
    .. code-block:: bash
 
@@ -127,12 +142,11 @@ PyTorch single and multi-node benchmarks
 ****************************************
 
 This section describes running the `PyTorch benchmarks`_ for Caffe2 in
-single node.  We will be looking at validating the Caffe2 APIs with the
+single node. We will be looking at validating the Caffe2 APIs with the
 official benchmarks, but the same process applies for other cases.
 
 #. Download either the `PyTorch with OpenBLAS`_ or the `PyTorch with Intel
-   MKL-DNN`_ docker image
-   from `Docker Hub`_.
+   MKL-DNN`_ Docker image from `Docker Hub`_.
 
 #. Run the image with Docker:
 
@@ -142,17 +156,18 @@ official benchmarks, but the same process applies for other cases.
 
    .. note::
 
-      Launching the docker image with the :command:`-i` argument will put
-      you into interactive mode within the container.  You will enter the
-      following commands in the running container.
+      Launching the Docker image with the :command:`-i` argument starts
+      interactive mode within the container. Enter the following commands in
+      the running container. The commands are executed within the scope of the
+      container.
 
 #. Clone the benchmark repository:
 
    .. code-block:: bash
 
-       git clone https://github.com/pytorch/pytorch.git
+      git clone https://github.com/pytorch/pytorch.git
 
-#. Next, execute the benchmark script to run the benchmark.
+#. Execute the benchmark script:
 
    .. code-block:: bash
 
@@ -164,29 +179,29 @@ official benchmarks, but the same process applies for other cases.
 Kubeflow multi-node benchmarks
 ******************************
 
-The benchmark workload will run in a Kubernetes cluster. We will use
+The benchmark workload runs in a Kubernetes cluster. The tutorial uses
 `Kubeflow`_ for the Machine Learning workload deployment on three nodes.
 
 Kubernetes setup
 ================
 
 Follow the instructions in the :ref:`kubernetes` tutorial to get set up on
-|CL|. The kubernetes community also has
+|CL|. The Kubernetes community also has
 `instructions for creating a cluster`_.
 
 Kubernetes networking
 =====================
 
-We used `flannel`_ as the network provider for these tests. If you are
-comfortable with another network layer, refer to the Kubernetes
+We used `flannel`_ as the network provider for these tests. If you
+prefer a different network layer, refer to the Kubernetes
 `networking documentation`_ for setup.
 
 Images
 ======
 
-We need to add `launcher.py` to our docker image to include the Deep
+You must add `launcher.py` to the Docker image to include the Deep
 Learning Reference Stack and put the benchmarks repo in the correct
-location. From the docker image, run the following:
+location. From the Docker image, run the following:
 
 .. code-block:: bash
 
@@ -195,21 +210,19 @@ location. From the docker image, run the following:
    cp launcher.py /opt
    chmod u+x /opt/*
 
-Your entry point now becomes "/opt/launcher.py".
+Your entry point becomes: :file:`/opt/launcher.py`
 
-This will build an image which can be consumed directly by TFJob from
-kubeflow. We are working to create these images as part of our release
-cycle.
+This builds an image that can be consumed directly by TFJob from Kubeflow.
 
 ksonnet\*
 =========
 
-Kubeflow uses ksonnet\* to manage deployments, so we need to install that
+Kubeflow uses ksonnet\* to manage deployments, so you must install it
 before setting up Kubeflow.
 
-Since Clear Linux version 27550, the ksonnet was added to the bundle
-cloud-native-basic. But if using old versions (not recommended), please
-manually install the ksonnet as below.
+ksonnet was added to the :command:`cloud-native-basic` bundle in |CL| version 27550. If
+you are using an older |CL| version (not recommended), you must manually
+install ksonnet as described below.
 
 On |CL|, follow these steps:
 
@@ -228,8 +241,8 @@ accessible across the environment.
 Kubeflow
 ========
 
-Once you have Kubernetes running on your nodes, you can setup `Kubeflow`_ by
-following these instructions from their `quick start guide`_.
+Once you have Kubernetes running on your nodes, set up `Kubeflow`_ by
+following these instructions from the `quick start guide`_.
 
 .. code-block:: bash
 
@@ -246,7 +259,7 @@ following these instructions from their `quick start guide`_.
    ks pkg install kubeflow/common
    ks pkg install kubeflow/tf-training
 
-Now you have all the required kubeflow packages, and you can deploy the primary one for our purposes: tf-job-operator.
+Next, deploy the primary package for our purposes: tf-job-operator.
 
 .. code-block:: bash
 
@@ -256,22 +269,22 @@ Now you have all the required kubeflow packages, and you can deploy the primary 
    ks generate tf-job-operator tf-job-operator
    ks apply default -c tf-job-operator
 
-This creates the CustomResourceDefinition(CRD) endpoint to launch a TFJob.
+This creates the CustomResourceDefinition (CRD) endpoint to launch a TFJob.
 
 Run a TFJob
 ***********
 
 #. Select this link for the `ksonnet registries for deploying TFJobs`_.
 
-   #. Install the TFJob componets as follows:
+#. Install the TFJob components as follows:
 
-      .. code-block:: bash
+   .. code-block:: bash
 
-         ks registry add dlrs-tfjob github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
+      ks registry add dlrs-tfjob github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
-         ks pkg install dlrs-tfjob/dlrs-bench
+      ks pkg install dlrs-tfjob/dlrs-bench
 
-#. Export the image name you'd like to use for the deployment:
+#. Export the image name to use for the deployment:
 
    .. code-block:: bash
 
@@ -281,8 +294,7 @@ Run a TFJob
 
       Replace <docker_name> with the image name you specified in previous steps.
 
-#. Next, generate Kubernetes manifests for the workloads and apply them to
-   create and run them using these commands
+#. Generate Kubernetes manifests for the workloads and apply them using these commands:
 
    .. code-block:: bash
 
@@ -291,13 +303,13 @@ Run a TFJob
       ks apply default -c dlrsresnet50
       ks apply default -c dlrsalexnet
 
-This will replicate and deploy three test setups in your Kubernetes cluster.
+This replicates and deploys three test setups in your Kubernetes cluster.
 
-Results of Running this Tutorial
+Results of running this tutorial
 ================================
 
-You need to parse the logs of the Kubernetes pod to get the performance
-numbers. The pods will still be around post completion and will be in
+You must parse the logs of the Kubernetes pod to retrieve performance
+data. The pods will still exist post-completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
 benchmark results. More information about `Kubernetes logging`_ is available
 from the Kubernetes community.
@@ -305,19 +317,22 @@ from the Kubernetes community.
 Use Jupyter Notebook
 ********************
 
-We will use the `PyTorch with OpenBLAS`_ container image for these steps. Once it is downloaded, run the docker image with :command:`-p` to specify the shared port between the container and the host.  For this example we will use port 8888.
+This example uses the `PyTorch with OpenBLAS`_ container image. After it is
+downloaded, run the Docker image with :command:`-p` to specify the shared port
+between the container and the host. This example uses port 8888.
 
 .. code-block:: bash
 
-  docker run --name pytorchtest --rm -i -t -p 8888:8888 clearlinux/stacks-pytorch-oss bash
+   docker run --name pytorchtest --rm -i -t -p 8888:8888 clearlinux/stacks-pytorch-oss bash
 
-After you've started the container, you can launch the Jupyter Notebook. This command is executed inside the container image.
+After you start the container, launch the Jupyter Notebook. This
+command is executed inside the container image.
 
 .. code-block:: bash
 
-  jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+   jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 
-Once the notebook has loaded, you will see output similar to the following:
+After the notebook has loaded, you will see output similar to the following:
 
 .. code-block:: console
 
@@ -325,13 +340,15 @@ Once the notebook has loaded, you will see output similar to the following:
    Or copy and paste one of these URLs:
    http://(846e526765e3 or 127.0.0.1):8888/?token=6357dbd072bea7287c5f0b85d31d70df344f5d8843fbfa09
 
-From your host system, or any system that can access the host's IP address, start a web browser with the following.  If you are not running the browser on the host system, replace :command:`127.0.0.1` with the IP address of the host.
+From your host system, or any system that can access the host's IP address,
+start a web browser with the following. If you are not running the browser on
+the host system, replace :command:`127.0.0.1` with the IP address of the host.
 
 .. code-block:: bash
 
   http://127.0.0.1:8888/?token=6357dbd072bea7287c5f0b85d31d70df344f5d8843fbfa09
 
-Your browser will display the following:
+Your browser displays the following:
 
 .. figure:: figures/dlrs-fig-1.png
    :scale: 50 %
@@ -340,7 +357,7 @@ Your browser will display the following:
 Figure 1: :guilabel:`Jupyter Notebook`
 
 
-To create a new notebook, click on :guilabel:`New` and select :guilabel:`Python 3`
+To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
 
 .. figure:: figures/dlrs-fig-2.png
    :scale: 50%
@@ -348,7 +365,7 @@ To create a new notebook, click on :guilabel:`New` and select :guilabel:`Python 
 
 Figure 2: Create a new notebook
 
-You will be presented with a new, blank notebook, with a cell ready for input.
+A new, blank notebook is displayed, with a cell ready for input.
 
 .. figure:: figures/dlrs-fig-3.png
    :scale: 50%
@@ -357,12 +374,12 @@ You will be presented with a new, blank notebook, with a cell ready for input.
 
 To verify that PyTorch is working, copy the following snippet into the blank cell, and run the cell.
 
-  .. code-block:: console
+.. code-block:: console
 
-     from __future__ import print_function
-     import torch
-     x = torch.rand(5, 3)
-     print(x)
+   from __future__ import print_function
+   import torch
+   x = torch.rand(5, 3)
+   print(x)
 
 .. figure:: figures/dlrs-fig-4.png
    :scale: 50%
@@ -374,10 +391,19 @@ When you run the cell, your output will look something like this:
    :scale: 50%
    :alt: code output
 
-You can continue working in this notebook, or you can download existing notebooks to take advantage of the Deep Learning Reference Stack's optimized deep learning frameworks. More information on `Jupyter Notebook`_.
+You can continue working in this notebook, or you can download existing
+notebooks to take advantage of the Deep Learning Reference Stack's optimized
+deep learning frameworks. Refer to `Jupyter Notebook`_ for details.
 
+Related topics
+**************
 
-
+* Deep Learning Reference Stack `V3.0 release announcement`_
+* `TensorFlow benchmarks`_
+* `PyTorch benchmarks`_
+* `Kubeflow`_
+* :ref:`kubernetes` tutorial
+* `Jupyter Notebook`_
 
 
 .. _TensorFlow: https://www.tensorflow.org/
@@ -408,7 +434,7 @@ You can continue working in this notebook, or you can download existing notebook
 
 .. _Intel MKL-DNN-VNNI: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl-vnni
 
-.. _release notes:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
+.. _V3.0 release announcement:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
 
 .. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
@@ -420,4 +446,4 @@ You can continue working in this notebook, or you can download existing notebook
 
 .. _Jupyter Notebook: https://jupyter.org/
 
-.. _github release notes: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
+.. _Release notes on Github\*: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
