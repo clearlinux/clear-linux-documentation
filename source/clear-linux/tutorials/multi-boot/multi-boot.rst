@@ -42,12 +42,12 @@ Overview
 Follow this process to install other operating systems for a multi-boot
 computer. Install |CL| first, then install other operating systems.
 
-#. :ref:`multi-boot-cl` first with a EFI partition large enough
-   to store the kernels of other operating systems and their initrds, in the case of Linux distributions.
+#. Install |CL| first with an EFI partition large enough to store the kernels
+   of other operating systems and their initrds, in the case of Linux distributions.
 
    .. note::
 
-      Be sure to apply set-timeout in the `clr-boot-manager`. This enables display of all multi-boot options before a default boot.
+      Apply set-timeout in the `clr-boot-manager`. This enables display of all multi-boot options before a default boot.
 
 #. Install the next operating system without creating its own EFI
    partition.
@@ -85,16 +85,14 @@ their versions.
 Install |CL|
 ************
 
-#. Select your preferred installation type at :ref:`get-started`.
+#. Install |CL| using :ref:`bare-metal-install-server`.
 
-   #. We recommend:
+#. Follow the `Advanced Configuration`, `Manual partition` method below.
+   Allow enough free space for other OSes that you plan to install.
 
-      * :ref:`bare-metal-install`
-      * :ref:`bare-metal-install-beta`
-
-   .. note::
-
-      Be sure to allow enough space for other OSes. During installation, select `Add Partition`_ to configure |CL| partitions.
+.. include:: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst
+   :start-after: advanced-config-install-start:
+   :end-before: advanced-config-install-end:
 
 #. After installation is complete, open a Terminal and run:
 
@@ -117,7 +115,7 @@ installation of the tested operating systems.
 .. csv-table:: Table 1: OS specific installation information
    :header: # , OS, Version, Partition Size [#]_, Swap Size [#]_, EFI Partition Size [#]_, Download Link
 
-   1, Clear Linux, 28210, 112 GB, 256 MB, 150 MB, https://clearlinux.org/downloads
+   1, Clear Linux, 29400, 30 GB, 256 MB, 150 MB, https://clearlinux.org/downloads
 
    2,Ubuntu\*,18.04.0 LTS Desktop,40 GB,Shared with #1,Shared with #1,https://www.ubuntu.com/download/desktop
 
@@ -144,4 +142,8 @@ Table notes:
 .. _recommended swap partition sizes:
    https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-swapspace.html
 
-.. _Add Partition: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#add-partition
+.. _Default partition schema: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install-server#default-partition-schema
+
+.. _Disk encryption: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install-server#disk-encryption
+
+.. _Telemetry: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install-server#telemetry

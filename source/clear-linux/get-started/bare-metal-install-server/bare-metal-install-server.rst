@@ -211,8 +211,6 @@ Configure Installation Media
 
 #. Select :guilabel:`Rescan Media` to show available installation targets.
 
-.. todo: Revise below section to match the dev-gui-00
-
 Safe Installation
 -----------------
 
@@ -233,6 +231,8 @@ on it, and accept the `Default partition schema`_.
    :guilabel:`Enable Encryption` to encrypt the root filesystem for either
    option above. See also `Disk encryption`_ for more information.
 
+.. _advanced-config-install-start:
+
 Advanced Configuration
 ----------------------
 
@@ -245,8 +245,8 @@ configuration of each partition.
    `Advanced Configuration` is available in the installer versions 1.2.0 and
    above.
 
-#. From :guilabel:`Select Installation Media`, shown in Figure 8 above,
-   select :guilabel:`Advanced Configuration`.
+#. From :guilabel:`Select Installation Media` select
+   :guilabel:`Advanced Configuration`.
 
 #. In :guilabel:`Advanced Configuration`, navigate to :file:`/dev/sda`
    and then press :kbd:`Enter`.
@@ -335,6 +335,8 @@ swap partition
       :alt: Final configuration of disk partitions
 
       Figure 13: Final configuration of disk partitions
+
+.. _advanced-config-install-end:
 
 #. You may skip to the `Telemetry`_ section below.
 
