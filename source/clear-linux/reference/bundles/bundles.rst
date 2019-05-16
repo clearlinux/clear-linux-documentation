@@ -4,7 +4,7 @@ Available bundles
 #################
 
 This document provides a current list of available bundles. View the `clr-bundles repo`_ on GitHub\*, or select the bundle
-:file:`Name` fore more details.
+:file:`Name` for more details.
 
 To learn more about how |CL-ATTR| uses bundles for software deployment, visit
 :ref:`bundles-about`.
