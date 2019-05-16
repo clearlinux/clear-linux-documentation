@@ -77,7 +77,7 @@ To install the :command:`containers-basic` or :command:`cloud-native-basic` bund
    sudo swupd bundle-add containers-basic cloud-native-basic
 
 Docker is not started upon installation of the :command:`containers-basic`
-bundle. To start Docker, enter: 
+bundle. To start Docker, enter:
 
 .. code-block:: bash
 
@@ -118,8 +118,7 @@ TensorFlow.
 
       Launching the Docker image with the :command:`-i` argument starts
       interactive mode within the container. Enter the following commands in
-      the running container. The commands are executed within the scope of the
-      container.
+      the running container.
 
 #. Clone the benchmark repository in the container:
 
@@ -142,8 +141,7 @@ PyTorch single and multi-node benchmarks
 ****************************************
 
 This section describes running the `PyTorch benchmarks`_ for Caffe2 in
-single node. We will be looking at validating the Caffe2 APIs with the
-official benchmarks, but the same process applies for other cases.
+single node.
 
 #. Download either the `PyTorch with OpenBLAS`_ or the `PyTorch with Intel
    MKL-DNN`_ Docker image from `Docker Hub`_.
@@ -158,8 +156,7 @@ official benchmarks, but the same process applies for other cases.
 
       Launching the Docker image with the :command:`-i` argument starts
       interactive mode within the container. Enter the following commands in
-      the running container. The commands are executed within the scope of the
-      container.
+      the running container.
 
 #. Clone the benchmark repository:
 
@@ -272,7 +269,7 @@ Next, deploy the primary package for our purposes: tf-job-operator.
 This creates the CustomResourceDefinition (CRD) endpoint to launch a TFJob.
 
 Run a TFJob
-***********
+===========
 
 #. Select this link for the `ksonnet registries for deploying TFJobs`_.
 
