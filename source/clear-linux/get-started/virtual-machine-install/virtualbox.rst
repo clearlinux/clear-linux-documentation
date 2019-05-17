@@ -3,64 +3,56 @@
 Run pre-configured |CL-ATTR| as a VirtualBox\* Virtual Machine
 ##############################################################
 
-VirtualBox\* is a type 2 hypervisor from Oracle. This document explains how 
-to create a virtual machine on the `VirtualBox hypervisor`_  with |CL-ATTR| 
+VirtualBox\* is a type 2 hypervisor from Oracle. This document explains how
+to create a virtual machine on the `VirtualBox hypervisor`_  with |CL-ATTR|
 as the guest operating system.
 
-These instructions make use of a preinstalled |CL| disk image to setup a |CL| 
-virtual machine without manual installation. |CL| can also be installed from 
+These instructions make use of a preinstalled |CL| disk image to setup a |CL|virtual machine without manual installation. |CL| can also be installed from
 scratch on a |VB| using the |CL| installed.
 See: :ref:`virtualbox-cl-installer`
 
 .. contents:: :local:
     :depth: 2
 
-
-
 .. _vbox-prereqs-begin:
-
+gi
 Prerequisites
 *************
 
-Before continuing make sure that you have: 
+Before continuing make sure that you have:
 
-#. Enabled virtualization, such as Intel® 
-   `Virtualization Technology`_ (Intel® VT), on the host system from 
+#. Enabled virtualization, such as Intel®
+   `Virtualization Technology`_ (Intel® VT), on the host system from
    EFI/BIOS.
 
-#. Downloaded and installed |VB| **version 6.0 or greater** from 
-   the `official VirtualBox website`_ per the  `appropriate instructions`_ 
+#. Downloaded and installed |VB| **version 6.0 or greater** from
+   the `official VirtualBox website`_ per the  `appropriate instructions`_
    for your platform.
 
+.. todo: Reference to `appropriate instructions` contradicts intro using CL as host OS
+
 .. _vbox-prereqs-end:
-
-
 
 Download and extract |CL|
 *************************
 
-The |CL| live image needs to be downloaded and extracted. The live image will 
-be used to created a |VB| virtual disk image that can be used with a 
+The |CL| live iso needs to be downloaded and extracted. The live image will
+be used to created a |VB| virtual disk image that can be used with a
 :abbr:`VM (Virtual Machine)`.
 
-#. Download the **live image** (:file:`clear-<VERSION-live.img.xz`) of
-   |CL|. On the `downloads page`_, this is listed as 
+.. todo: restart edits here 05.17.19
+
+#. Download the **live image** (:file:`clear-<VERSION-live-server.iso.xz`) of
+   |CL|. On the `downloads page`_, this is listed as
    **Clear Linux OS live boot image**.
-   
-   
-   You can also use this command to download from a terminal: 
 
-   .. code-block:: bash
-
-      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep live.img)
-
-#. Validate the integrity of the downloaded image by checking the file hash 
-   and signatures. Refer to the document on :ref:`validate-signatures` for 
+#. Validate the integrity of the downloaded image by checking the file hash
+   and signatures. Refer to the document on :ref:`validate-signatures` for
    detailed steps.
 
 #. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
 
-   - On Windows you can use `7zip`_ to extract the file by right-clicking the 
+   - On Windows you can use `7zip`_ to extract the file by right-clicking the
      file and selecting *Extract Here* (in the same directory)
 
        .. image:: ./figures/vbox/vbox-extract-cl-IMG.png
@@ -68,7 +60,7 @@ be used to created a |VB| virtual disk image that can be used with a
 
    - On Linux :
 
-     .. code-block:: bash   
+     .. code-block:: bash
 
         xz -d clear-<VERSION>-live.img.xz
 
@@ -76,15 +68,14 @@ be used to created a |VB| virtual disk image that can be used with a
    (:file:`clear-<VERSION>-live.img.xz`) can now be deleted.
 
 
-
-Convert |CL| live image to a |VB| Disk Image 
+Convert |CL| live image to a |VB| Disk Image
 ********************************************
 
-The |CL| live image is in a RAW disk image. The live image needs to be 
-converted to a :abbr:`VDI (VirtualBox Disk Image)` format which |VB| 
+The |CL| live image is in a RAW disk image. The live image needs to be
+converted to a :abbr:`VDI (VirtualBox Disk Image)` format which |VB|
 can utilize.
 
-#. Launch a terminal and navigate to the directory containing the 
+#. Launch a terminal and navigate to the directory containing the
    extracted live image.
 
 
@@ -332,7 +323,7 @@ Troubleshooting
       bcdedit /set {current} hypervisorlaunchtype off
 
 
-   To enable Hyper-V again, execute this command in an 
+   To enable Hyper-V again, execute this command in an
    **Administrator: Command Prompt or Powershell**, and reboot the system:
 
    .. code-block:: bash
@@ -344,8 +335,7 @@ Troubleshooting
 
 
 
-.. |VB| replace:: VirtualBox
-.. |VBM| replace:: VirtualBox Manager
+
 
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
 
