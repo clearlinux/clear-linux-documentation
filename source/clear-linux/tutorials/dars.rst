@@ -16,6 +16,8 @@ follow these steps.
 The Data Analytics Reference Stack release
 ******************************************
 
+The Data Analytics Reference Stack (DARS) provides developers and enterprises a straightforward, highly optimized software stack for storing and processing large amounts of data.  More detail is available on the `DARS architecture and performance benchmarks`_.
+
 The Data Analytics Reference Stack provides two pre-built Docker images, available on `Docker Hub`_:
 
 * A |CL|-derived `DARS with OpenBlas`_ stack optimized for `OpenBLAS`_
@@ -25,6 +27,8 @@ We recommend you view the latest component versions for each image in the
 :file:`README` found in the `DARS repository`_.  Because |CL| is a rolling
 distribution, the package version numbers in the |CL|-based containers may
 not be the latest released by |CL|.
+
+
 
 Using the Docker Images
 ***********************
@@ -99,4 +103,4 @@ provided :file:`Dockerfile`.
 .. _CentOS: https://www.centos.org/
 .. _DARS with OpenBLAS: https://hub.docker.com/r/clearlinux/stacks-dars-openblas/
 .. _DARS with MKL: https://hub.docker.com/r/clearlinux/stacks-dars-mkl/
-.. _DARS on CentOS: https://hub.docker.com/r/clearlinux.......
+.. _DARS architecture and performance benchmarks: https://clearlinux.org/stacks/data-analytics-stack-v1
