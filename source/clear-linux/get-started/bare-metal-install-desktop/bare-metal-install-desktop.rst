@@ -71,7 +71,7 @@ Confirm network connection
 
 Confirm there is a network connection before launching the installer.
 Choose a method: `Wired Connection`, or `WiFi Connected`.
-This guide shows an exmaple of a **Wired Connection**.
+This guide shows an example of a **Wired Connection**.
 
 #. In the upper right of the top menu bar, select the square icon to view
    Network settings, shown in Figure 2.
