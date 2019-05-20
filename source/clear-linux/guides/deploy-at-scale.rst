@@ -167,7 +167,7 @@ and infrastructure can be stateless.
 
 The |CL| `downloads page`_ offers a live image that can be deployed as
 a PXE boot server if one doesn't already exist in your environment. Also see
-documentation on how to :ref:`bare-metal-install`.
+documentation on how to :ref:`bare-metal-install-server`.
 
 Cloud Instances or Virtual Machines
 -----------------------------------
@@ -269,8 +269,8 @@ challenges your monitoring systems, and business continuity plans.
 
 .. _`mixin process`: https://clearlinux.org/documentation/clear-linux/guides/maintenance/mixin
 .. _`mixer process`: https://clearlinux.org/documentation/clear-linux/guides/maintenance/mixer
-.. _`downloads page`: https://cdn.download.clearlinux.org/image/
-.. _`containers page`: https://clearlinux.org/containers
+.. _`downloads page`: https://clearlinux.org/downloads/
+.. _`containers page`: https://clearlinux.org/downloads/containers
 .. _`systemd journal-remote service`: https://www.freedesktop.org/software/systemd/man/systemd-journal-remote.service.html
 .. _`native telemetry solution`: https://clearlinux.org/features/telemetry
 .. _`micro-config-drive`: https://github.com/clearlinux/micro-config-drive

@@ -128,7 +128,7 @@ Burn the |CL| image onto a USB drive
 
    This will list available disks and their partitions, as shown in Figure 1.
 
-   .. figure:: figures/bootable-usb-mac-1.png
+   .. figure:: figures/bootable-usb-mac-01.png
       :scale: 100 %
       :alt: Get USB drive identifier
 
@@ -140,8 +140,8 @@ Burn the |CL| image onto a USB drive
 
       diskutil umountDisk /dev/disk2
 
-#. Burn the image onto the drive using the :command:`dd` command.  The example
-   below burns an uncompressed image onto `<your USB device>`:
+#. Burn the image onto the drive using the :command:`dd` command.
+   The example below burns an uncompressed image onto `<your USB device>`:
 
    .. code-block:: bash
 
@@ -176,6 +176,7 @@ Burn the |CL| image onto a USB drive
    |CAUTION-BACKUP-USB|
 
 #. Download the `Rufus`_ utility to burn the image onto a USB drive.
+   We use Rufus 3.5 here. **Only use the latest version of Rufus**.
 
 #. Plug in the USB drive and open Rufus.
 
@@ -185,12 +186,22 @@ Burn the |CL| image onto a USB drive
 
 #. Click the :guilabel:`START` button. See Figure 2.
 
-   .. figure:: figures/bootable-usb-windows-3.png
+   .. figure:: figures/bootable-usb-windows-02.png
       :scale: 80 %
       :alt: Rufus utility
 
       Figure 2: Rufus utility
 
+#. When the dialogue appears, select
+   :guilabel:`Write in ISO image mode (Recommended)`. See Figure 3.
+
+   .. figure:: figures/bootable-usb-windows-03.png
+      :scale: 80 %
+      :alt: ISOHybrid image detected
+
+      Figure 3: ISOHybrid image detected
+
+#. Select the Windows taskbar menu for USB and select eject.
 
 .. _Rufus: https://rufus.ie/
 .. _Download: https://clearlinux.org/downloads

@@ -3,9 +3,11 @@
 Available bundles
 #################
 
-This document provides a current list of available bundles. To learn more about how |CL-ATTR| uses bundles for software deployment, visit :ref:`bundles-about`.
+This document provides a current list of available bundles. View the `clr-bundles repo`_ on GitHub\*, or select the bundle
+:file:`Name` for more details.
 
-To view bundles or packages on GitHub, select the :file:`Name` in column one.
+To learn more about how |CL-ATTR| uses bundles for software deployment, visit
+:ref:`bundles-about`.
 
 Bundle list
 ===========
@@ -13,3 +15,4 @@ Bundle list
 .. raw:: html
    :file: bundles.html.txt
 
+.. _clr-bundles repo: https://github.com/clearlinux/clr-bundles/tree/master/bundles

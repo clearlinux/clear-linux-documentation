@@ -11,7 +11,7 @@ Prerequisites
 *************
 
 This tutorial assumes you have installed |CL| on your host system. For
-detailed instructions, follow the steps in :ref:`bare-metal-install`.
+detailed instructions, follow the steps in :ref:`bare-metal-install-desktop`.
 
 Before you install any new packages, update |CL| with the following command:
 
