@@ -29,12 +29,11 @@ appropriate set of step-by-step instructions to proceed.
    :maxdepth: 1
 
    kvm
-   virtualbox
+   virtualbox-cl-installer
    vmware-esxi-install-cl
    vmware-esxi-preconfigured-cl-image
    vmw-player
    vmw-player-preconf
    hyper-v
-   virtualbox-cl-installer
    ../../guides/maintenance/increase-virtual-disk-size.rst
 
