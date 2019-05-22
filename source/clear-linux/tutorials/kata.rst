@@ -13,7 +13,7 @@ Prerequisites
 
 This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, follow
-the :ref:`bare metal installation tutorial<bare-metal-install>`.
+the :ref:`bare metal installation tutorial<bare-metal-install-desktop>`.
 
 If you have Clear Containers installed on your |CL| system, then follow the
 :ref:`migrate Clear Containers to Kata Containers tutorial<kata_migration>`.

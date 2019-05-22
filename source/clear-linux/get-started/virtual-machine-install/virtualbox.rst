@@ -361,8 +361,6 @@ Troubleshooting
 
 .. _`Virtual Media Manager`: https://www.virtualbox.org/manual/ch05.html#vdis
 
-.. _`Install Clear Linux OS`: https://clearlinux.org/documentation/clear-linux/get-started/bare-metal-install#install-cl-on-your-target-system\
-
 .. _7zip: http://www.7-zip.org/
 
 .. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html

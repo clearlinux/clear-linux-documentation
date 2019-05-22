@@ -346,7 +346,7 @@ Related topics
 
 .. _source documentation: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
 
-.. _Kata Containers: https://clearlinux.org/containers
+.. _Kata Containers: https://clearlinux.org/downloads/containers
 
 .. _one bundle: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt
 

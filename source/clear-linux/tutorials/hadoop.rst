@@ -14,7 +14,7 @@ Prerequisites
 *************
 
 Before following this tutorial, you should follow the
-:ref:`bare-metal-install` to ensure you have installed |CL|.
+:ref:`bare-metal-install-desktop` to ensure you have installed |CL|.
 
 Before you install any new packages, update |CL| with the following command:
 
