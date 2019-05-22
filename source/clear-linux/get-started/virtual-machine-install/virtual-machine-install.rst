@@ -37,4 +37,4 @@ appropriate set of step-by-step instructions to proceed.
    hyper-v
    virtualbox-cl-installer
    ../../guides/maintenance/increase-virtual-disk-size.rst
-
+   gce
