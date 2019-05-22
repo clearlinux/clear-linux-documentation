@@ -16,4 +16,4 @@ pages:
     paths:
     - public
   only:
-  - master
+  - rtd-theme
