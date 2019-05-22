@@ -28,3 +28,4 @@ Explore our tutorials to discover what you can do with |CL|!
    yubikey-u2f
    nvidia
    dars
+   tutorial-proxy
