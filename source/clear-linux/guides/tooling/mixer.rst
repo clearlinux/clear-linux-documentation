@@ -829,7 +829,6 @@ Related topics
 **************
 
 * :ref:`About mixer <mixer-about>`
-* :ref:`mixin`
 * :ref:`autospec-about`
 * :ref:`bundles-about`
 * :ref:`swupd-about`
