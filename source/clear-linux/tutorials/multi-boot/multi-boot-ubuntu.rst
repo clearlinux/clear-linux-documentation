@@ -15,7 +15,7 @@ partition of a target on which |CL| is already installed.
 
       Figure 1: Ubuntu: Installation type.
 
-#. Create a new root partition.
+#. Create a new `root` partition.
 
    #. Under the :guilabel:`Device` column, select :guilabel:`free space`. See
       Figure 2.

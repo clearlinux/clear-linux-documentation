@@ -49,6 +49,15 @@ computer. Install |CL| first, then install other operating systems.
 
       Apply set-timeout in the `clr-boot-manager`. This enables display of all multi-boot options before a default boot.
 
+#. Optional: To view the available space on the target, open a Terminal in
+   |CL| and run the following command.
+
+   .. code-block:: bash
+
+      gparted
+
+   View the unallocated space and plan partitions accordingly.
+
 #. Install the next operating system without creating its own EFI
    partition.
 
