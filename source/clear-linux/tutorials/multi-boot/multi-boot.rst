@@ -138,7 +138,6 @@ Table notes:
    of operating systems to be installed. In general, allocate about 100 MB
    per operating system.
 
-
 .. _recommended swap partition sizes:
    https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/ch-swapspace.html
 
