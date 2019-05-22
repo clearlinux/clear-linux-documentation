@@ -11,7 +11,7 @@ pages:
   - apk --no-cache add ttf-dejavu 
   - apk --no-cache add openjdk8-jre
   - make html
-  - mv _build/html/ public/
+  - mv source/_build/html/ public/
   artifacts:
     paths:
     - public
