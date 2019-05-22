@@ -5,6 +5,10 @@
    max-width: none;
 }
 
+
+.wy-nav-side {
+   background: #8e6db6;
+}
 /* (temporarily) add an under development tagline to the bread crumb
 .wy-breadcrumbs::after {
    content: " (Content under development)";

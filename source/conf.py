@@ -53,7 +53,7 @@ master_doc = 'clear-linux/clear-linux'
 
 # General information about the project.
 #project = u'Clear Linux* project'
-project = u''
+project = u'Documentation'
 copyright = u'2019, many'
 author = u'many'
 
@@ -133,7 +133,7 @@ html_context = {
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-  'style_nav_header_background': 'url(https://stg.clearlinux.org/sites/default/files/bg_developer_0.png)'
+  'style_nav_header_background': '#8e6db6'
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
