@@ -3,8 +3,8 @@
 Deploy at Scale
 ###############
 
-Once you are comfortable with |CL-ATTR| :ref:`concepts <concepts>`, your next step
-as a system administrator is to understand how to deploy |CL|
+Once you are comfortable with |CL-ATTR| :ref:`concepts <concepts>`, your
+next step as a system administrator is to understand how to deploy |CL|
 at scale in your environment.
 
 In this document the term *endpoint* refers to a system targeted for
@@ -32,39 +32,10 @@ Different business scenarios call for different deployment methodologies.
 distribution or the option to fork away from the |CL| distribution and
 act as your own :abbr:`OSV (Operating System Vendor)`.
 
-Below are overviews of both approaches and some considerations.
+Below is an overview of some considerations.
 
-Option #1: Use the |CL| as the upstream origin (mixin)
-------------------------------------------------------
-
-This approach is *easier to adopt* by relying on the |CL| upstream for
-packaging updates for you to deploy.
-
-Custom software or packages that are not available in a preformed bundle
-can be added using the `mixin process`_ to form a custom bundle.
-If custom bundles are needed, you will be responsible for maintaining
-the custom bundle(s) and testing between |CL| releases in your environment,
-while the rest of the operating system and preformed bundles come from the
-|CL| upstream.
-
-#. Ensure |CL| systems are able to be inventoried, managed, and orchestrated
-   to coordinate software updates.
-
-#. With autoupdate enabled, |CL| is updated daily, however you may wish to
-   act as an intermediary buffer between the OS releases. If you do decide
-   to act as a gate to |CL| versions, define a desired release cadence for
-   yourself which is realistic with the operational expectations of your
-   environment.
-
-#. Use a web caching proxy for |CL| updates for devices connected to
-   a local area network (LAN), like a datacenter, to increase the speed
-   and resiliency of updates from the |CL| update servers.
-
-   Your caching proxy server is just like any other web application.
-   |WEB-SERVER-SCALE|
-
-Option #2: Create your own Linux distribution (mix)
----------------------------------------------------
+Create your own Linux distribution (mix)
+----------------------------------------
 
 This approach forks away from the |CL| upstream and has you act as your own
 :abbr:`OSV (Operating System Vendor)` by leveraging the `mixer process`_ to
@@ -267,7 +238,6 @@ Continuously test its use; Automate its use by redeploying |CL| and
 application on new hosts. This naturally minimizes configuration drift,
 challenges your monitoring systems, and business continuity plans.
 
-.. _`mixin process`: https://clearlinux.org/documentation/clear-linux/guides/maintenance/mixin
 .. _`mixer process`: https://clearlinux.org/documentation/clear-linux/guides/maintenance/mixer
 .. _`downloads page`: https://clearlinux.org/downloads/
 .. _`containers page`: https://clearlinux.org/downloads/containers

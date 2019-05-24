@@ -327,7 +327,7 @@ Test packaged software
 
 After software has been packaged with autospec, the resulting RPMs can be
 tested for functionality before being integrated and deployed into a |CL|
-image with the :ref:`Mixer tool <mixer>` or :ref:`Mixin tool <mixin>`.
+image with the :ref:`Mixer tool <mixer>`.
 
 The |CL| development tooling offers two ways to quickly test autospec
 generated RPMs.
@@ -500,7 +500,6 @@ Related topics
 **************
 
 * :ref:`Mixer tool <mixer>`
-* :ref:`Mixin tool <mixin>`
 
 .. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
 .. _`Makefile.common file on GitHub`: https://github.com/clearlinux/common/blob/master/Makefile.common

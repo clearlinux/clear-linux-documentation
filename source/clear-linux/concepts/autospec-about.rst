@@ -102,6 +102,5 @@ Related topics
 
 * :ref:`autospec`
 * :ref:`mixer`
-* :ref:`mixin`
 
 .. _autospec readme: https://github.com/clearlinux/autospec
