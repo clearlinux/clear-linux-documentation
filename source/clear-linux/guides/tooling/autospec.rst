@@ -242,7 +242,7 @@ and dependencies in order for autospec to complete a successful build.
 
    .. code-block:: bash
 
-      echo "Intel Corporation" > opae-sdk.license
+      echo "Intel" > opae-sdk.license
 
 #. Run autospec again:
 
