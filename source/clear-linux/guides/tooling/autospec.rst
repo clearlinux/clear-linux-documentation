@@ -238,7 +238,7 @@ and dependencies in order for autospec to complete a successful build.
 
       cd packages/opae-sdk
 
-#. Add a license:
+#. Add a valid license identifier from the `SPDX License List <https://spdx.org/licenses/>`_:
 
    .. code-block:: bash
 
