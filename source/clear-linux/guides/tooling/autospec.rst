@@ -242,7 +242,7 @@ and dependencies in order for autospec to complete a successful build.
 
    .. code-block:: bash
 
-      echo "MIT" > opae-sdk.license
+      echo "BSD-3-Clause MIT" > opae-sdk.license
 
 #. Run autospec again:
 
