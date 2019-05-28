@@ -22,7 +22,7 @@ rapidly resolving known security advisories.
 
 
 
-The latest Linux codebase
+The latest Linux* codebase
 -------------------------
 
 |CL| uses the newest version of the Linux kernel which allows the operating
