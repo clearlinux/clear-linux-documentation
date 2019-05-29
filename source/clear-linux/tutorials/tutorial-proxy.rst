@@ -101,12 +101,3 @@ Add the following to your :file:`~/.ssh/config`:
 
     Thought netcat is included with Clear Linux, it is not the BSD version,
     which is the one usually used to enable git over ssh.
-
-.. todo::
-
-    **This content won't be built**
-
-    * Redsocks
-    * Transitioning between proxy and non-proxy environments
-    * Shells and programs in a desktop session: Gnome desktop
-    * Firefox
