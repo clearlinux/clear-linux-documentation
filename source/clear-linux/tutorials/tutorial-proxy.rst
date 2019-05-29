@@ -20,14 +20,6 @@ This tutorial assumes you have installed |CL| on your host system.
 For detailed instructions on installing |CL| on a bare metal system, visit
 the :ref:`bare metal installation guide <bare-metal-install-desktop>`.
 
-.. Throughout this document we use the following variables, which you should
-   replace with your own proxy information in the following format:
-   #.. code-block:: bash
-       $http_proxy = your.proxy.url:port
-       $https_proxy = your.proxy.url:port
-       $no_proxy = ".yourdomain.com, localhost"
-       $ssh_proxy = your.proxy.url:port
-
 Shells and programs in a desktop session
 ****************************************
 
@@ -41,9 +33,6 @@ Add the following to your ~/.bashrc:
     export http_proxy=http://your.http-proxy.url:port
     export https_proxy=http://your.https-proxy.url:port
     export no_proxy=".your-company-domain.com,localhost"
-
-Gnome desktop
-=============
 
 wget
 ****
@@ -96,9 +85,6 @@ For Docker (and other services that use systemd), you can follow these steps to 
 
         Environment=HTTP_PROXY=http://your.http-proxy.url:port/ HTTPS_PROXY=http://your.https-proxy.url:port/
 
-Redsocks
-********
-
 git over ssh
 ************
 
@@ -116,5 +102,11 @@ Add the following to your :file:`~/.ssh/config`:
     Thought netcat is included with Clear Linux, it is not the BSD version,
     which is the one usually used to enable git over ssh.
 
-Transitioning between proxy and non-proxy environments
-******************************************************
+.. todo::
+
+    **This content won't be built**
+
+    * Redsocks
+    * Transitioning between proxy and non-proxy environments
+    * Shells and programs in a desktop session: Gnome desktop
+    * Firefox
