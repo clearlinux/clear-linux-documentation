@@ -238,11 +238,14 @@ and dependencies in order for autospec to complete a successful build.
 
       cd packages/opae-sdk
 
-#. Add a license:
+#. Add one or more valid license identifier from the
+   `SPDX License List <https://spdx.org/licenses/>`_.
+   In the example below, two different licenses are appropriate based on the 
+   opae-sdk project licensing:
 
    .. code-block:: bash
 
-      echo "Intel Corporation" > opae-sdk.license
+      echo "BSD-3-Clause MIT" > opae-sdk.license
 
 #. Run autospec again:
 
