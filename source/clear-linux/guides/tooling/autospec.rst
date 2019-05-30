@@ -238,11 +238,14 @@ and dependencies in order for autospec to complete a successful build.
 
       cd packages/opae-sdk
 
-#. Add a license:
+#. Add one or more valid license identifier from the
+   `SPDX License List <https://spdx.org/licenses/>`_.
+   In the example below, two different licenses are appropriate based on the 
+   opae-sdk project licensing:
 
    .. code-block:: bash
 
-      echo "Intel Corporation" > opae-sdk.license
+      echo "BSD-3-Clause MIT" > opae-sdk.license
 
 #. Run autospec again:
 
@@ -327,7 +330,7 @@ Test packaged software
 
 After software has been packaged with autospec, the resulting RPMs can be
 tested for functionality before being integrated and deployed into a |CL|
-image with the :ref:`Mixer tool <mixer>` or :ref:`Mixin tool <mixin>`.
+image with the :ref:`Mixer tool <mixer>`.
 
 The |CL| development tooling offers two ways to quickly test autospec
 generated RPMs.
@@ -500,7 +503,6 @@ Related topics
 **************
 
 * :ref:`Mixer tool <mixer>`
-* :ref:`Mixin tool <mixin>`
 
 .. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
 .. _`Makefile.common file on GitHub`: https://github.com/clearlinux/common/blob/master/Makefile.common
