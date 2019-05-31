@@ -249,18 +249,17 @@ install script in the **kernel-lts** (Long Term Support) bundle by |CL|.
 
 #. In the VM Console, log in as the administrative user previously created.
 
-#. A message may appear: "A kernel update is available: you may wish
-   to reboot the system."
-
-#. Enter:
-
-   .. code-block:: bash
-
-      sudo reboot
-
    .. note::
+      A message may appear: "A kernel update is available: you may wish
+      to reboot the system."
 
-      A warning message appears after initial login. Enter your administrative user's password and continue.
+      To update the kernel, enter:
+
+      .. code-block:: bash
+
+          sudo reboot
+
+      At initial login, enter the administrative user's password and continue.
 
 #. Validate the installed kernel is **kernel-lts** by checking the output
    of the :command:`uname -r` command. It should end in **.lts** or **.lts2018**.
