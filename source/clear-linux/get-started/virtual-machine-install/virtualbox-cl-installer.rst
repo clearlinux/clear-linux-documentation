@@ -1,258 +1,394 @@
 .. _virtualbox-cl-installer:
 
-Install |CL-ATTR| as a VirtualBox\* Virtual Machine
-###################################################
+Install a |CL-ATTR| VM in VirtualBox\*
+######################################
 
-VirtualBox\* is a type 2 hypervisor from Oracle. This document explains how 
-to create a virtual machine on the `VirtualBox hypervisor`_  with |CL-ATTR| 
-as the guest operating system.
-
-These instructions make use of the |CL| installer to create a brand new |CL| 
-installation. A preinstalled disk image is also available to get started 
-with |CL| faster. See: :ref:`virtualbox`
-
+Oracle\* VirtualBox\* is a type 2 hypervisor. This document explains how to
+create a virtual machine on the `VirtualBox hypervisor`_ with |CL-ATTR| as
+the guest operating system. These instructions support use of the |CL|
+live-server installer to create |CL| virtual machine (VM).
 
 .. contents:: :local:
-    :depth: 2
+    :depth: 1
 
+Prerequisites
+*************
 
-.. include:: virtualbox.rst
-   :start-after: vbox-prereqs-begin:
-   :end-before: vbox-prereqs-end:
+Before continuing, assure you have:
 
+#. Enabled virtualization, such as Intel®
+   `Virtualization Technology`_ (Intel® VT), on the host system from
+   EFI/BIOS.
 
+#. Downloaded and installed |VB| **version 6.0 or greater** from
+   the `official VirtualBox website`_ per the  `appropriate instructions`_
+   for your platform.
 
-Download and extract the |CL| installer ISO image
-*************************************************
+Download and extract the |CL| installer ISO
+*******************************************
 
-The appropriate |CL| installer image needs to be downloaded and extracted.
+#. Download the :file:`clear-<VERSION>-live-server.iso.xz` of
+   |CL| on the `downloads page`_.
 
-.. note::
-   The :file:`installer.iso` is for limited use on special cases where ISO 
-   image format is required, such as |VB|. The preferred installer for |CL| 
-   for UEFI systems is the :file:`-installer.img`.
+#. Validate the integrity of the downloaded image by checking the file hash
+   and signatures. Refer :ref:`validate-signatures` for detailed steps.
 
-#. Download the **installer ISO** image (:file:`clear-<VERSION>-installer.iso.xz`) of
-   |CL|. On the `downloads page`_, this is listed as 
-   **Clear Linux OS for Virtual Provisioning**.
-   
-   
-   You can also use this command to download from a terminal: 
+#. Decompress the downloaded image.
 
-   .. code-block:: bash
-
-      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep installer.iso)
-
-#. Validate the integrity of the downloaded image by checking the file hash 
-   and signatures. Refer to the document on :ref:`validate-signatures` for 
-   detailed steps.
-
-#. Decompress the downloaded image. Uncompressed image size is ~ **5GB**.
-
-   - On Windows you can use `7zip`_ to extract the file by right-clicking the 
+   - On Windows you can use `7zip`_ to extract the file by right-clicking the
      file to *Extract Here* (in the same directory)
 
-       .. image:: ./figures/vbox/vbox-extract-cl-ISO.png
-          :alt: 7zip extract here command
+   .. figure:: figures/vbox/virtualbox-cl-installer-01.png
+      :scale: 100%
+      :alt: 7zip extract here command
+
+      Figure 1: 7zip extract here command
 
    - On Linux :
 
      .. code-block:: bash
 
-         xz -d clear-<VERSION>-installer.iso.xz
+        xz -d clear-<VERSION>-live-server.iso.xz
 
-
-
-
-#. The originally downloaded compressed archive file 
-   (:file:`clear-<VERSION>-installer.iso.xz`) can now be deleted.
-
+#. Delete the originally downloaded compressed file.
 
 Create a new |VB| virtual machine
 *********************************
 
-A new :abbr:`VM (Virtual Machine)` needs to be created in |VBM| for |CL| to be installed onto. 
-
-General instructions for creating a virtual machine and details about using 
-different settings are available on the 
+A new :abbr:`VM (Virtual Machine)` needs to be created in |VBM| where |CL|
+will be installed. General instructions for creating a virtual machine and
+details about using different settings are available on the
 `VirtualBox manual section on Creating a VM`_.
-
 
 #. Launch the |VBM| from your host system.
 
+#. Click the *New* button to create a new VM.
 
-#. Click the *New* button to create a new VM. 
+#. Choose :guilabel:`Expert mode`.
 
-   .. image:: ./figures/vbox/vbox-new-vm.png
-      :alt: Create a new VM in VirtualBox
+#. In :guilabel:`Create Virtual Machine`, enter the following settings:
 
+   - **Name**: Choose name (e.g. ClearLinuxOS-VM).
+   - **Type**: Linux
+   - **Version**: **Linux 2.6 / 3.x / 4.x (64-bit)**
+   - **Hard disk**: `Create a virtual hard disk now`
+   - **Memory size default**: 2048 MB (Adjust appropriately.)
 
-#. A *Create Virtual Machine* window will appear. 
-   Select the following settings:
-   
-   - Type: **Linux**
-   - Version: **Linux 2.6 / 3.x / 4.x (64-bit)**
-   - Memory size: **1024 MB** (this can be adjusted appropriately)
-   - Hard disk: **Create a virtual hard disk now**
+     .. note::
+        Later, if you want to change the amount of RAM allocated, power down your VM. Return to :file:`Settings > System` and change
+        :guilabel:`Base Memory` to the desired size.
 
-   .. image:: ./figures/vbox/vbox-create-vm-new-disk.png
-      :alt: Create a new VM in VirtualBox with a new disk
+   .. figure:: figures/vbox/virtualbox-cl-installer-02.png
+      :scale: 100%
+      :alt: Create Virtual Machine
 
+      Figure 2: Create Virtual Machine
 
-#. Click the *Create* button.
+#. Select :guilabel:`Create`.
 
-#. A *Create Virtual Hard Disk* window will appear. 
-   Select the following settings:
+#. In :guilabel:`Create Virtual Hard Disk`, select:
 
-   - File size: **8.00 GB** (this can be adjusted appropriately)
-   
-   - Hard disk file type: **VDI (Virtual Box Disk Image)**
+   - **File location**
+   - **File size**: **32.00 GB**. Adjust size to your needs.
+   - **Hard disk file type**: `VDI (VirtualBox Disk Image)`
+   - **Storage on physical hard disk**:`Dynamically allocated`
 
-   - Storage on physical hard disk: **Dynamically allocated** 
+   .. figure:: figures/vbox/virtualbox-cl-installer-03.png
+      :scale: 100%
+      :alt: Create Virtual Hard Disk
 
-   .. image:: ./figures/vbox/vbox-create-disk.png
-      :alt: Create a new virtual hard disk in VirtualBox
+      Figure 3: Create Virtual Hard Disk
 
-#. Click the *Create* button.
+#. Click *Create*.
 
-#. A new virtual machine will be created and appear in the |VBM|. Click 
-   *Settings* to configure the |CL| VM.
+   A new virtual machine will be created and appear in the |VBM|.
 
-   .. image:: ./figures/vbox/vbox-vm-created.png
-      :alt: A VM selected in VirtualBox Manager
+#. Click *Settings* to configure the |CL| VM.
 
-#. A *VM - Settings* window will appear. Navigate to the *System* pane from 
-   the left-hand and select the following setting:
+#. In the left-hand menu, navigate to the :guilabel:`System` menu.
+
+#. In the :guilabel:`Motherboard` tab, select the `Chipset` pulldown menu,
+   and then select :guilabel:`ICH9`. See Figure 4.
+
+   .. note::
+
+      You can select which chipset will be presented to the virtual machine.
+      Consult the `VM VirtualBox User Manual`_ for more details.
+
+#. In :guilabel:`Enabled Features`, check these boxes:
 
    - **Enable I/O APIC**
    - **Enable EFI (special OSes only)**
-   
 
-   .. image:: ./figures/vbox/vbox-vm-settings-EFI.png
-      :alt: Enable EFI on a VirtualBox VM settings
+   .. figure:: figures/vbox/virtualbox-cl-installer-04.png
+      :scale: 100%
+      :alt: Settings > System
 
-.. note::
-   By default, only 1 virtual CPU is allocated to the new VM. Consider 
-   increasing the number of virtual processors allocated to the virtual 
-   machine under Settings --> System --> Processor for increased 
-   performance.
+      Figure 4: Settings > System
 
+   .. note::
+
+      By default, only 1 virtual CPU is allocated to the new VM. Consider
+      increasing the number of virtual processors allocated to the virtual
+      machine under Settings > System > Processor for increased
+      performance.
+
+#. Select :guilabel:`OK`.
 
 Install |CL| on the |VB| VM
 ***************************
 
 |CL| is ready to be installed.
 
-
 Mount the installation ISO
 ==========================
-At this point, the newly created VM has a blank virtual hard disk with no 
-operating system.The |CL| installer ISO needs to be mounted as a virtual 
-CD-ROM on the VM before powering the VM on.
 
-#. From the *VM - Settings* window, navigate to the *Storage* pane from the 
-   left-hand side.
+The |CL| installer ISO needs to be mounted as a virtual CD-ROM on the VM
+before powering the VM on.
 
-#. From the middle *Storage Devices* column, click the blue CD disk labeled 
-   *Empty* under the *Controller: IDE* from.
+#. From the *ClearLinux-OS* :guilabel:`Settings` at left, select
+   :guilabel:`Storage`.
 
-#. From the right-hand *Attributes* column, click the blue CD disk next to 
-   the *Optical Drive* drop down menu and click *Choose Virtual Optical 
+#. From :guilabel:`Storage Devices`, middle column, click the blue
+   disk labeled *Empty*.
+
+#. From the :guilabel:`Attributes` menu, click the blue CD disk next to
+   the *Optical Drive* drop down menu and click *Choose Virtual Optical
    Disk File...*
 
-   .. image:: ./figures/vbox/vbox-vm-settings-mount-ISO.png
-      :alt: Mounting an ISO in VirtualBox VM Settings  
+   .. figure:: figures/vbox/virtualbox-cl-installer-05.png
+      :scale: 100%
+      :alt: Choose Virtual Optical Disk Drive
 
-#. A *choose a virtual optical disk file* browser window will appear. 
-   Navigate to the extracted ISO file, select it, and click *Open*.
+      Figure 5: Choose Virtual Optical Disk Drive
 
-   .. image:: ./figures/vbox/vbox-vm-settings-browse-ISO.png
-      :alt: Mounting an ISO in VirtualBox VM Settings  
+#. Where there appears :guilabel:`Please choose a virtual optical disk file`,
+   select the ISO file and click *Open*.
 
-#. Click *OK* to exit the *VM Settings* menu and return to the main 
-   |VBM|.
+   .. figure:: figures/vbox/virtualbox-cl-installer-06.png
+      :scale: 100%
+      :alt: Mounting an ISO
 
+      Figure 6: Mounting an ISO
 
+#. Select :guilabel:`OK` to exit and return to the main |VBM|.
 
-Install |CL| using the installer
-================================
+Install |CL| with live-server installer
+=======================================
 
-#. Start the VM from the |VBM| by selecting the |CL| VM and 
-   clicking *Start*
+#. In the |VBM|, select virtual machine you created and click *Start*.
 
-   .. image:: ./figures/vbox/vbox-start-vm.png
-      :alt: Starting a VirtualBox VM
+   .. figure:: figures/vbox/virtualbox-cl-installer-07.png
+      :scale: 100%
+      :alt: Start the installer
 
-#. A new window of the VM console will appear and boot into the |CL|
-   installer. Follow the steps in :ref:`bare-metal-install-desktop` to
-   install |CL| onto the VM virtual disk.
+      Figure 7: Start the installer
 
-.. note::
-   Do not choose a different kernel from the installer. **kernel-lts**, the 
-   Long Term Support (LTS) kernel is required for |VB| driver compatibility.
+   .. note::
 
+      To release the mouse cursor from the VM console window, press the right
+      :kbd:`Ctrl` key on the keyboard.
 
-#. After |CL| installation is complete, the VM will reboot and return to the 
-   |CL| installer. 
+#. When :guilabel:`Clear Linux Installer` in boot manager appears,
+   select :kbd:`Enter`. Do not install the bundle `desktop-autostart`.
 
-.. note::
-   To release the mouse cursor from the VM console window, press the right Ctrl key on the keyboard.
+#. Follow the steps in :ref:`bare-metal-install-server` to
+   install |CL| onto the VM virtual disk. Note:
 
+   #. In :guilabel:`Configure Installation Media`, navigate top
+      VBOX HARDDISK, and then select :guilabel:`Confirm`.
 
-Unmount the installation ISO
-============================
+   #. In :guilabel:`Advanced options` > :guilabel:`Manage User`, create an
+      administrative user.
+
+   #. Do not install the bundle `desktop-autostart`.
+
+#. When |CL| installation is complete, select :guilabel:`Exit`.
+
+#. At the prompt, enter:
+
+   .. code-block:: bash
+
+      shutdown now
+
+Unmount the ISO
+===============
 
 The |CL| installer ISO needs to be unmounted to allow the VM to boot from the
-virtual hard disk, which |CL| has been installed to.
+virtual hard disk.
 
-
-#. Power off the |CL| VM.
-
-   .. image:: ./figures/vbox/vbox-shutdown-vm.png
-      :alt: Powering off a VirtualBox VM
+#. Return to the |VBM|.
 
 #. Click *Settings* to configure the |CL| VM.
 
-   .. image:: ./figures/vbox/vbox-vm-created.png
-      :alt: A VM selected in VirtualBox Manager
-
-#. From the *VM - Settings* window, navigate to the *Storage* pane from the 
+#. From the *VM - Settings* window, navigate to the *Storage* pane from the
    left-hand side.
 
-#. From the middle *Storage Devices* column, click the blue CD disk labeled  
-   *clear-<VERSION>-installer.iso* under the *Controller: IDE* from.
+#. From the middle *Storage Devices* column, click the blue CD disk labeled
+   *clear-<VERSION>-live-server.iso* under the *Controller: IDE* from.
 
-#. From the right-hand *Attributes* column, click the blue CD disk next to 
-   the *Optical Drive* drop down menu and click *Remove Disk from Virtual 
-   Drive*
+#. From the *Attributes* column at right, in *Optical Drive*, select the
+   blue CD icon beside and click *Remove Disk from Virtual Drive*.
 
-   .. image:: ./figures/vbox/vbox-vm-settings-unmount-ISO.png
-      :alt: Unmounting an ISO in VirtualBox VM Settings        
+   .. figure:: figures/vbox/virtualbox-cl-installer-08.png
+      :scale: 100%
+      :alt: Remove Disk from Virtual Drive
 
-#. Click *OK* to exit the *VM Settings* menu and return to the main 
+      Figure 8: Remove Disk from Virtual Drive
+
+#. Click *OK* to exit the *VM Settings* menu and return to the main
    |VBM|.
 
+Install |VB| Linux Guest Additions
+==================================
 
+|CL| provides Linux Guest Additions drivers for full compatibility using an
+install script in the **kernel-lts** (Long Term Support) bundle by |CL|.
 
+#. From the |VBM| select the |CL| VM, and select :guilabel:`Start`.
 
-.. include:: virtualbox.rst
-   :start-after: vbox-start-vm-and-lga-begin:
-   :end-before: vbox-start-vm-and-lga-end:
+#. In the VM Console, log in as the administrative user previously created.
 
+   .. note::
+      A message may appear: "A kernel update is available: you may wish
+      to reboot the system."
 
+      To update the kernel, enter:
 
+      .. code-block:: bash
 
+          sudo reboot
 
-.. include:: virtualbox.rst
-   :start-after: vbox-troubleshooting-begin:
-   :end-before: vbox-troubleshooting-end
+      At initial login, enter the administrative user's password and continue.
 
+#. Validate the installed kernel is **kernel-lts** by checking the output
+   of the :command:`uname -r` command. It should end in **.lts** or **.lts2018**.
 
+   .. code-block:: bash
 
+      uname -r
+      <VERSION>.lts
 
-.. |VB| replace:: VirtualBox
-.. |VBM| replace:: VirtualBox Manager
+   If the running kernel is not **lts**: install the LTS kernel manually,
+   update the bootloader, and check again:
 
+   .. code-block:: bash
+
+      sudo swupd bundle-add kernel-lts
+      clr-boot-manager set-kernel $(basename $(realpath /usr/lib/kernel/default-lts))
+      clr-boot-manager update
+      reboot
+
+#. Remove any kernel bundles that do not end in *-lts* or *kernel-install*
+   to simplify and avoid conflicts:
+
+   .. code-block:: bash
+
+      sudo swupd bundle-list | grep kernel
+      sudo swupd bundle-remove <NON-LTS-KERNEL>
+
+#. In the VM Console top menu, click *Devices*, and select
+   *Insert Guest Additions CD image...* to mount the |VB| driver installation to the |CL| VM.
+
+   .. figure:: figures/vbox/virtualbox-cl-installer-09.png
+      :scale: 100%
+      :alt: Insert Guest Additions CD image
+
+      Figure 9: Insert Guest Additions CD image
+
+#. If a dialogue appears, "VBx_GAs_6.0.8... Would you like to run it?",
+   select :guilabel:`Cancel`.
+
+   Instead, we provide a script to patch and install |VB| drivers on |CL|.
+
+#. Open a Terminal and enter the script:
+
+   .. code-block:: bash
+
+      sudo install-vbox-lga
+
+   .. note::
+
+      Successful installation shows: "Guest Additions installation complete".
+      If drivers are already installed, don't re-install them.
+
+#. Shut down the system. Select :guilabel:`Machine>ACPI Shutdown`.
+
+   .. figure:: figures/vbox/virtualbox-cl-installer-10.png
+      :scale: 100%
+      :alt: Powering off a VirtualBox VM
+
+      Figure 10: Powering off a VirtualBox VM
+
+#. Select :guilabel:`Settings`, :guilabel:`Display`.
+
+#. In :guilabel:`Graphics Controller`, select :guilabel:`VBoxSVGA`
+   to adjust screen size dynamically.
+
+   .. figure:: figures/vbox/virtualbox-cl-installer-11.png
+      :scale: 100%
+      :alt: Remove Disk from Virtual Drive
+
+      Figure 11: VirtualBox hardware acceleration error
+
+#. In the |VBM|, select :guilabel:`Start`.
+
+#. In the VM console, login and verify the |VB| drivers are loaded:
+
+   .. code-block:: bash
+
+      lsmod | grep ^vbox
+
+   You should see drivers loaded with names beginning with **vbox**:
+   (e.g., vboxvideo, vboxguest).
+
+#. Add `desktop-autostart` for a full desktop experience.
+
+   .. code-block:: bash
+
+      sudo swupd bundle-add desktop-autostart
+
+#. Reboot the VM and log in with the administrative user.
+
+   .. code-block:: bash
+
+      sudo reboot
+
+The |CL| VM running on |VB| is ready to develop and explore.
+
+Troubleshooting
+***************
+
+#. **Problem:** On a Microsoft\* Windows\* OS, |VB| encounters an error when
+   trying to start a VM indicating *VT-X/AMD-v hardware acceleration is not
+   available on your system.*
+
+   .. figure:: figures/vbox/virtualbox-cl-installer-12.png
+      :scale: 100%
+      :alt: Remove Disk from Virtual Drive
+
+      Figure 12: VirtualBox hardware acceleration error
+
+   **Solution:** First, double check the `Prerequisites`_ section to make
+   sure *Hardware accelerated virtualization* extensions have been enabled
+   in the host system's EFI/BIOS.
+
+   *Hardware accelerated virtualization*, may get disabled for |VB| when
+   another hypervisor, such as *Hyper-V* is enabled.
+
+   To disable *Hyper-V* execute this command in an
+   **Administrator: Command Prompt or Powershell**, and reboot the system:
+
+   .. code-block:: bash
+
+      bcdedit /set {current} hypervisorlaunchtype off
+
+   To enable Hyper-V again, execute this command in an
+   **Administrator: Command Prompt or Powershell**, and reboot the system:
+
+   .. code-block:: bash
+
+      bcdedit /set {current} hypervisorlaunchtype Auto
 
 .. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
 
@@ -264,12 +400,8 @@ virtual hard disk, which |CL| has been installed to.
 
 .. _`VirtualBox manual section on Creating a VM`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
 
-.. _`VirtualBox manual section on Running a VM`: https://www.virtualbox.org/manual/ch01.html#intro-starting-vm-first-time
-
-.. _`Virtual Media Manager`: https://www.virtualbox.org/manual/ch05.html#vdis
-
 .. _7zip: http://www.7-zip.org/
 
 .. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 
-.. _`VirtualBox manual section on VBoxManage`: https://www.virtualbox.org/manual/ch08.html#vboxmanage-convertfromraw
+.. _VM VirtualBox User Manual: https://docs.oracle.com/cd/E97728_01/E97727/html/settings-system.html
