@@ -3,11 +3,10 @@
 Install |CL-ATTR| in a virtual machine
 ######################################
 
-There are some considerations to make when installing |CL-ATTR| in a VM.
-First, you need to decide which kernel to use. This document
-will walk you through the available kernel options to help this decision. At
-the end of this document, you will be able to select the set of installation
-steps most suitable to you and install |CL| under a VM.
+When installing |CL-ATTR| in a VM, consider which kernel to use. This
+document walks you through the available kernel options to help this
+decision. At the end of this document, select the type of installation most
+suitable to your use case.
 
 Compatible kernels
 ******************
@@ -28,6 +27,7 @@ appropriate set of step-by-step instructions to proceed.
 .. toctree::
    :maxdepth: 1
 
+   gce
    kvm
    virtualbox-cl-installer
    vmware-esxi-install-cl
@@ -36,4 +36,3 @@ appropriate set of step-by-step instructions to proceed.
    vmw-player-preconf
    hyper-v
    ../../guides/maintenance/increase-virtual-disk-size.rst
-   gce
