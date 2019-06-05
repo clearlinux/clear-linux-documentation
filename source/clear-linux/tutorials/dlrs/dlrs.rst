@@ -137,6 +137,9 @@ TensorFlow.
    You can replace the model with one of your choice supported by the
    TensorFlow benchmarks.
 
+   If you are using an FP32 based model, it can be converted to an int8 model using `Intel® quantization tools`_
+   
+
 PyTorch single and multi-node benchmarks
 ****************************************
 
@@ -444,3 +447,5 @@ Related topics
 .. _Jupyter Notebook: https://jupyter.org/
 
 .. _Release notes on Github\*: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
+
+.. _Intel® quantization tools:  https://github.com/IntelAI/tools/blob/master/tensorflow_quantization/README.md#quantization-tools
