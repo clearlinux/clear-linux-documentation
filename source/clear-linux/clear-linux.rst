@@ -14,9 +14,9 @@ Our documentation is divided into the following sections:
 :ref:`get-started`
     .. include:: /includes/get-started.txt
 
-:ref:`concepts`
-    Wondering what makes |CL| different? Learn about |CL| features and what
-    differentiates |CL| from other Linux distros.
+:ref:`clear-linux-tooling`
+    Clear Linux is a little different from other distros. Here are some
+    important tools and concept for managing your install.
 
 :ref:`guides`
     Guides show how to complete common tasks that help you leverage |CL| native
