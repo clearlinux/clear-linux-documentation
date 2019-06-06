@@ -18,3 +18,13 @@ features.
    compatible-kernels
    system-requirements
    image-types
+
+Clear Linux concepts
+********************
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   ../concepts/*
+
