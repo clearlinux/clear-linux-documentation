@@ -9,11 +9,7 @@ redis-server on |CL|, plus learn a few basic redis commands. We also invite
 you to pull our `Clear Linux Redis instance`_ on dockerhub\* for application
 or infrastructure development.
 
-While `redis`_ can serve as a NoSQL database for a Web application, it's
-also easy to integrate in an existing stack. For example, you could use the
-Redis caching layer for real-time responses on a leaderboard in a gaming app.
-Redis offers many client libraries with language-specific bindings for
-Python, Perl, Ruby, and more.
+While the `redis data structure store`_ can serve as a NoSQL database for a Web application, it's also easy to integrate in an existing stack. For example, you could use the Redis caching layer for real-time responses on a leaderboard in a gaming app. Redis offers many client libraries with language-specific bindings for Python, Perl, Ruby, and more.
 
 .. contents::
    :local:
@@ -22,7 +18,7 @@ Python, Perl, Ruby, and more.
 Prerequisites
 *************
 * Install the `redis-native` bundle in |CL|
-* Install the `containers-basic`bundle in |CL| (only required in Example 2)
+* Install the `containers-basic` bundle in |CL| (only required in Example 2)
 
 Install the redis bundle
 ************************
@@ -214,6 +210,6 @@ Next Steps
 
 .. _Clear Linux Redis instance: https://hub.docker.com/r/clearlinux/redis
 
-.. _redis: https://redis.io/
+.. _redis data structure store: https://redis.io/
 
 .. _redis quickstart tutorial: https://redis.io/topics/quickstart
