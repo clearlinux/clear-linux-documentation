@@ -62,9 +62,9 @@ Update integrity
 
 :command:`swupd` operates against a published manifest of files for a
 particular |CL| version that contains the unique hash of each file. This is
-the basis of the :command:`swupd verify` subcommand, which allows a |CL|
+the basis of the :command:`swupd diagnose` subcommand, which allows a |CL|
 system to check for and remediate any discrepancies to system files. As
-necessary, :command:`swupd verify` provides a useful way for software
+necessary, :command:`swupd diagnose` provides a useful way for software
 developers to return to a known filesystem state.
 
 Bundles

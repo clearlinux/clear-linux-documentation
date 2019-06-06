@@ -110,7 +110,7 @@ Troubleshooting
 
   .. code-block:: bash
 
-     sudo swupd verify
+     sudo swupd info
 
 
 .. _Kata Containers: https://katacontainers.io/

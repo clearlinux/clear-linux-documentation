@@ -133,25 +133,24 @@ Build the base container image
 
    .. code-block:: bash
 
-      swupd verify --install --path="base" --manifest 17870 \
+      swupd os-install --path="base" --version 17870 \
       --url https://cdn.download.clearlinux.org/update \
       --statedir "$PWD/swupd-state" --no-boot-update
 
 
    The `swupd` example uses the following flags:
 
-   * :command:`verify –-install` tells `swupd` to download and install.
+   * :command:`os-install` tells `swupd` to download and install.
    * :command:`--path` specifies the root path where the bundles are to be
      installed.
-   * :command:`--manifest` specifies the version of the |CL| bundles.
+   * :command:`-V / --version` specifies the version of the |CL| bundles.
    * :command:`--url` specifies the URL of the bundles repository.
    * :command:`--statedir` specifies the state directory where downloaded bundles
      and any state information are stored.
    * :command:`--no-boot-update` tells `swupd` to skip updating boot files because
      boot files are not required for a container.
 
-   For more information on `swupd` flags, enter the :command:`swupd verify -h`
-   command.
+   For more information on `swupd` flags, enter the :command:`swupd diagnose -h` command.
 
    Example output:
 

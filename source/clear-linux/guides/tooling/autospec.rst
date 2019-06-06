@@ -433,7 +433,7 @@ To test an autospec created package directly on the |CL| development system:
    tests.
 
 #. After testing has been completed, the software and any related files must
-   be identified and deleted. The :command:`swupd verify --picky --fix`
+   be identified and deleted. The :command:`swupd diagnose --picky --fix`
    command can help restore the state of the :file:`/usr` directory (see
    :ref:`swupd <swupd-about>`) however any other files must be cleaned up
    manually.
