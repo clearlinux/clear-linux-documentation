@@ -19,6 +19,8 @@ features.
    system-requirements
    image-types
 
+.. _concepts:
+
 Clear Linux concepts
 ********************
 
