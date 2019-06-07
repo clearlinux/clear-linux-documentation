@@ -32,7 +32,14 @@ Add the following to your ~/.bashrc:
 
     export http_proxy=http://your.http-proxy.url:port
     export https_proxy=http://your.https-proxy.url:port
+    export ftp_proxy=http://your.ftp-proxy.url:port
+    export socks_proxy=http://your.socks-proxy.url:port
     export no_proxy=".your-company-domain.com,localhost"
+    export HTTP_PROXY=$http_proxy
+    export HTTPS_PROXY=$https_proxy
+    export FTP_PROXY=$ftp_proxy
+    export SOCKS_PROXY=$socks_proxy
+    export NO_PROXY=$no_proxy
 
 wget
 ****
