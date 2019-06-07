@@ -10,20 +10,40 @@ from a live desktop or to a virtual machine.
 Pre-install
 ***********
 
+There are a couple of things to take care of before you install.
+
 * :ref:`system-requirements`
+* :ref:`compatibility-check`
+* :ref:`bootable-usb`
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    compatibility-check
    bootable-usb/bootable-usb
 
-Install |CL|
-************
+Install
+*******
 
 .. toctree::
    :maxdepth: 1
 
    bare-metal-install-desktop/bare-metal-install-desktop
    bare-metal-install-server/bare-metal-install-server
-   virtual-machine-install/virtual-machine-install
+
+.. _virtual-machine-install:
+
+Install in a virtual machine
+****************************
+
+When installing |CL-ATTR| in a VM, consider which kernel to use. 
+
+* :ref:`Compatible VM kernels <vm-kernels>`
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   virtual-machine-install/*
+   ../../guides/maintenance/increase-virtual-disk-size.rst

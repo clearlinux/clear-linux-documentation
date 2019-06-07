@@ -251,6 +251,7 @@ th,td {
    line-height: 100px;
 }
 
+/*Adds a bit of spacing after the last paragraph in a bulleted list*/
 .wy-plain-list-disc li p:last-child, .rst-content .section ul li p:last-child, .rst-content .toctree-wrapper ul li p:last-child, article ul li p:last-child {
     margin-bottom: 10px;
 }
