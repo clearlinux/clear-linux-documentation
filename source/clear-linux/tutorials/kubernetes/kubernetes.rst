@@ -150,11 +150,29 @@ Configure and run CRI-O + kata-runtime
        sudo systemctl daemon-reload
        sudo systemctl restart crio
 
-#.  Initialize the master control plane with the command:
+#.  Initialize the master control plane with the command below and follow the displayed instructions to set up `kubectl`:
 
     .. code-block:: bash
 
        sudo kubeadm init --cri-socket=/run/crio/crio.sock
+
+#.  Register kata-runtime as a RuntimeClass handler:
+
+    .. code-block:: bash
+
+       cat << EOF | kubectl apply -f -
+       kind: RuntimeClass
+       apiVersion: node.k8s.io/v1beta1
+       metadata:
+           name: native
+       handler: runc
+       ---
+       kind: RuntimeClass
+       apiVersion: node.k8s.io/v1beta1
+       metadata:
+           name: kata-containers
+       handler: kata
+       EOF
 
 Install pod network add-on
 **************************
