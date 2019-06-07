@@ -442,8 +442,7 @@ To test an autospec created package directly on the |CL| development system:
 References
 **********
 
-Reference the `autospec README`_ for details regarding autospec commands and
-options.
+Reference the `autospec README`_ for details regarding `autospec` commands and options.
 
 Setup environment to build source
 =================================

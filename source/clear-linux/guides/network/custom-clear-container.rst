@@ -82,67 +82,16 @@ Build the base container image
       swupd bundle-add containers-basic
       systemctl start docker
 
-#. Create the directory structure to build the |CL| container.
+#. Use `os-install` to download and install the bundles.
 
    .. code-block:: bash
 
-      mkdir -p ./custom-clear-linux-container/base/usr/share/clear/bundles
-      cd custom-clear-linux-container
-
-   .. note::
-
-      * The directories :file:`custom-clear-linux-container` and
-        :file:`base` are used for staging. You can rename these directories.
-
-      * The directories :file:`/usr/share/clear/bundles` are mandatory and
-        cannot be renamed.
-
-#.  Create the reference files of the minimum required |CL| bundles,
-    :file:`os-core` and :file:`os-core-update`. The software updater
-    uses the reference filenames to determine which bundles to download and
-    install.
-
-
-    ..  code-block:: bash
-
-        touch ./base/usr/share/clear/bundles/os-core
-        touch ./base/usr/share/clear/bundles/os-core-update
-
-    ..  note::
-
-        * :file:`os-core` provides the minimal Linux namespace.
-        * :file:`os-core-update` provides the basic suite for running the |CL|
-          updater.
-
-#. Optionally, you can include additional bundles with the base image.
-
-   #. Identify the desired bundles on the |CL| website's
-      :ref:`bundles` page or execute the
-      :command:`swupd bundle-list -a` command.
-
-   #. Create reference files for the identified bundles. For example,
-      to include the :file:`editors` and :file:`network-basic` bundles,
-      enter the commands:
-
-      .. code-block:: bash
-
-         touch ./base/usr/share/clear/bundles/editors
-         touch ./base/usr/share/clear/bundles/network-basic
-
-#. Use `swupd` to download and install the bundles.
-
-   .. code-block:: bash
-
-      swupd os-install --path="base" --version 17870 \
-      --url https://cdn.download.clearlinux.org/update \
-      --statedir "$PWD/swupd-state" --no-boot-update
+      swupd os-install --url https://cdn.download.clearlinux.org/update --statedir "$PWD"/swupd-state --no-boot-update --version 29790 -B os-core-update,editors,network-basic base
 
 
    The `swupd` example uses the following flags:
 
    * :command:`os-install` tells `swupd` to download and install.
-   * :command:`--path` specifies the root path where the bundles are to be
-     installed.
    * :command:`-V / --version` specifies the version of the |CL| bundles.
    * :command:`--url` specifies the URL of the bundles repository.
    * :command:`--statedir` specifies the state directory where downloaded bundles
@@ -150,7 +99,7 @@ Build the base container image
    * :command:`--no-boot-update` tells `swupd` to skip updating boot files because
      boot files are not required for a container.
 
-   For more information on `swupd` flags, enter the :command:`swupd diagnose -h` command.
+   For more information on `swupd` flags, enter the :command:`swupd os-install -h` command.
 
    Example output:
 
