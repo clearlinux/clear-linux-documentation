@@ -61,7 +61,7 @@ Update integrity
 ----------------
 
 This is the basis of the :command:`swupd diagnose` subcommand, which allows a |CL| system to check for any discrepancies to system files. As necessary,
-:command: `swupd repair` provides a useful way for software developers to remediate these discrepancies and return to a known filesystem state.
+:command:`swupd repair` provides a useful way for software developers to remediate these discrepancies and return to a known filesystem state.
 
 Bundles
 =======
