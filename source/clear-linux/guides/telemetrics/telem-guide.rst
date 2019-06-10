@@ -3,7 +3,11 @@
 Telemetrics
 ###########
 
-Telemetrics in |CL-ATTR| is a client and server solution used to collect data from running |CL| systems to help quickly identify and fix bugs in the OS.  Both client and server are customizable, and an API is available on the client side for instrumenting your code for debug and analysis. Note that the telemetry client is disabled by default, this is an **opt-in** solution.
+Telemetrics in |CL-ATTR| is a client and server solution used to collect data from running |CL| systems to help quickly identify and fix bugs in the OS.  Both client and server are customizable, and an API is available on the client side for instrumenting your code for debug and analysis.
+
+.. important::
+
+   Telemetry in |CL| is **opt-in**. The telemetry client will **not** be active or send any data until you explicitly enable it.  
 
 .. note::
 
