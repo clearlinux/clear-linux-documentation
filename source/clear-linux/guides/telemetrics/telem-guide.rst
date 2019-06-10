@@ -5,6 +5,11 @@ Telemetrics
 
 Telemetrics in |CL-ATTR| is a client and server solution used to collect data from running |CL| systems to help quickly identify and fix bugs in the OS.  Both client and server are customizable, and an API is available on the client side for instrumenting your code for debug and analysis. Note that the telemetry client is disabled by default, this is an **opt-in** solution.
 
+.. note::
+
+   The telemetry functionality adheres to `Intel privacy policies`_ regarding the collection and use of :abbr:`PII (Personally Identifiable Information)` and is open source.
+   Specifically, no intentionally identifiable information about the user or system owner is collected.
+
 .. contents::
    :local:
    :depth: 1
@@ -24,7 +29,7 @@ Telemetrics is a combination word made from:
 
 |CL| telemetry is fully customizable and can be used during software development for debugging purposes. You can use the  libtelemetry library in your code to create custom telemetry records. You can also use the telem-record-gen utility in script files for light touch record creation where instrumenting code files doesn't make sense.
 
-The |CL| telemetrics solution is an opt-in on the client side.  By default the telemetry client is disabled until you choose to enable it. Enabling the client is covered in this guide.
+The |CL| telemetrics solution is an **opt-in** choice on the client side.  By default the telemetry client is disabled until you choose to enable it. Enabling the client is covered in this guide.
 
 Architecture
 ============
@@ -59,10 +64,7 @@ The telemetry backend provides the server-side component of the telemetrics solu
 
    The default telemetry backend server is hosted by the Intel |CL| development team and is not viewable outside the Intel firewall. To collect your own records, you must set up your own telemetry backend server.
 
-.. note::
 
-   The telemetry functionality adheres to `Intel privacy policies`_ regarding the collection and use of :abbr:`PII (Personally Identifiable Information)` and is open source.
-   Specifically, no intentionally identifiable information about the user or system owner is collected.
 
 How To Use
 **********
