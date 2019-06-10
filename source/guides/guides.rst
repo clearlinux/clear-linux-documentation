@@ -27,3 +27,13 @@ Network
    :glob:
 
    network/*
+
+
+Kernel
+======
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   kernel/*

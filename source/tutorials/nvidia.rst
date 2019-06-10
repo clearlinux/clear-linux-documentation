@@ -47,7 +47,7 @@ Install the appropriate DKMS bundle using the instructions below:
    compatible between updates with NVIDIA drivers.
 
 
-.. include:: ../guides/maintenance/kernel-modules-dkms.rst
+.. include:: /guides/kernel/kernel-modules-dkms.rst
    :start-after: kernel-modules-dkms-install-begin:
    :end-before: kernel-modules-dkms-install-end:
 

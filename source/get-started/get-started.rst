@@ -16,6 +16,10 @@ There are a couple of things to take care of before you install.
 * :ref:`compatibility-check`
 * :ref:`bootable-usb`
 
+When installing |CL-ATTR| in a VM, consider which kernel to use. 
+
+* :ref:`Compatible VM kernels <vm-kernels>`
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -36,10 +40,6 @@ Install
 
 Install in a virtual machine
 ****************************
-
-When installing |CL-ATTR| in a VM, consider which kernel to use. 
-
-* :ref:`Compatible VM kernels <vm-kernels>`
 
 .. toctree::
    :maxdepth: 1
