@@ -3,7 +3,7 @@
 Telemetrics
 ###########
 
-Telemetrics in |CL-ATTR| is a client and server solution used to collect data from running |CL| systems to help quickly identify and fix bugs in the OS.  Both client and server are customizable, and an API is available on the client side for instrumenting your code for debug and analysis. Note that the telemetry client is disabled by default, this is an opt-in solution.
+Telemetrics in |CL-ATTR| is a client and server solution used to collect data from running |CL| systems to help quickly identify and fix bugs in the OS.  Both client and server are customizable, and an API is available on the client side for instrumenting your code for debug and analysis. Note that the telemetry client is disabled by default, this is an **opt-in** solution.
 
 .. contents::
    :local:
@@ -24,7 +24,7 @@ Telemetrics is a combination word made from:
 
 |CL| telemetry is fully customizable and can be used during software development for debugging purposes. You can use the  libtelemetry library in your code to create custom telemetry records. You can also use the telem-record-gen utility in script files for light touch record creation where instrumenting code files doesn't make sense.
 
-The |CL| telemetrics solution is is opt-in on the client side.  By default the telemetry client is disabled until you choose to enable it. Enabling the client is covered in this guide.
+The |CL| telemetrics solution is an opt-in on the client side.  By default the telemetry client is disabled until you choose to enable it. Enabling the client is covered in this guide.
 
 Architecture
 ============
