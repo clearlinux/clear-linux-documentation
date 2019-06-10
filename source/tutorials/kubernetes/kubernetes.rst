@@ -150,11 +150,29 @@ Configure and run CRI-O + kata-runtime
        sudo systemctl daemon-reload
        sudo systemctl restart crio
 
-#.  Initialize the master control plane with the command:
+#.  Initialize the master control plane with the command below and follow the displayed instructions to set up `kubectl`:
 
     .. code-block:: bash
 
        sudo kubeadm init --cri-socket=/run/crio/crio.sock
+
+#.  Register kata-runtime as a RuntimeClass handler:
+
+    .. code-block:: bash
+
+       cat << EOF | kubectl apply -f -
+       kind: RuntimeClass
+       apiVersion: node.k8s.io/v1beta1
+       metadata:
+           name: native
+       handler: runc
+       ---
+       kind: RuntimeClass
+       apiVersion: node.k8s.io/v1beta1
+       metadata:
+           name: kata-containers
+       handler: kata
+       EOF
 
 Install pod network add-on
 **************************
@@ -162,32 +180,6 @@ Install pod network add-on
 You must choose and install a `pod network add-on`_ to allow your pods to
 communicate. Check whether or not your add-on requires special flags when you
 initialize the master control plane.
-
-The CRI-O default plugin_dir is :file:`/opt/cni/bin`. This must be a
-writable directory because third-party networking add-ons will install
-themselves there.
-
-.. note::
-
-   CNI plugins provided by |CL| are installed as part of *cloud-native-basic*
-   in :file:`/usr/libexec/cni/` and are currently *not* found by CRI-O by
-   default. These separate directories are required because `swupd` controls
-   the content of :file:`/usr` and leaves :file:`/opt` unchanged.
-
-When using third-party network add-ons that rely on those plugins, such as
-Weave or Flannel do, make them available by creating symlinks:
-
-.. code-block:: bash
-
-   sudo mkdir -p /opt/cni/bin
-
-.. code-block:: bash
-
-   for i in /usr/libexec/cni/*; do sudo ln -sf $i /opt/cni/bin; done
-
-**Notes about Weave Net add-on**
-
-The Weave Net add-on works by default when the above configuration is done.
 
 **Notes about flannel add-on**
 
@@ -198,7 +190,7 @@ If you choose the `flannel` add-on, then you must add the following to the
 
    --pod-network-cidr 10.244.0.0/16
 
-If you are using CRI-O and `flannel` and you want to use Kata Containers,
+Furthermore, if you are using CRI-O and `flannel` and you want to use Kata Containers,
 edit the :file:`/etc/crio/crio.conf` file to add:
 
 ..  code-block:: bash
