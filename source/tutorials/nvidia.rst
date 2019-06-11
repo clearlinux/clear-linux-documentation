@@ -179,17 +179,15 @@ Install the NVIDIA Drivers
 
    .. code-block:: bash
 
-      sudo swupd verify --quick --fix --bundles=lib-opengl
+      sudo swupd repair --quick --bundles=lib-opengl
 
 .. note::
 
    The NVIDIA software places some files under the :file:`/usr` subdirectory
    which are not managed by |CL| and conflict with the |CL| stateless design.
-   Although a limited version of :command:`swupd verify --fix` is ran above,
-   other uses of the :command:`swupd verify --fix` command should be avoided
+   Although a limited version of :command:`swupd repair` is ran above,
+   other uses of the :command:`swupd repair` command should be avoided
    with the proprietary NVIDIA drivers installed.
-      
-
 
 
 Updating the NVIDIA Drivers
@@ -200,7 +198,7 @@ The proprietary NVIDIA drivers are installed manually outside of :ref:`swupd
 
 Updating the NVIDIA drivers follows the same steps as initial installation,
 however the desktop environment must first be stopped so that the drivers are
-not in use. 
+not in use.
 
 #. Follow the steps in `Download the NVIDIA Drivers for Linux`_ section to get
    the latest NVIDIA drivers.
