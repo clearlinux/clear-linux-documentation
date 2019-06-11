@@ -7,7 +7,7 @@ Telemetrics in |CL-ATTR| is a client and server solution used to collect data fr
 
 .. important::
 
-   Telemetry in |CL| is **opt-in**. The telemetry client will **not** be active or send any data until you explicitly enable it.  
+   Telemetry in |CL| is **opt-in**. The telemetry client is **not**  active and sends **no** data until you explicitly enable it.
 
 .. note::
 
@@ -33,7 +33,7 @@ Telemetrics is a combination word made from:
 
 |CL| telemetry is fully customizable and can be used during software development for debugging purposes. You can use the  libtelemetry library in your code to create custom telemetry records. You can also use the telem-record-gen utility in script files for light touch record creation where instrumenting code files doesn't make sense.
 
-The |CL| telemetrics solution is an **opt-in** choice on the client side.  By default the telemetry client is disabled until you choose to enable it. Enabling the client is covered in this guide.
+The |CL| telemetrics solution is an **opt-in** choice on the client side.  By default, the telemetry client is disabled until you choose to enable it. Enabling the client is covered in this guide.
 
 Architecture
 ============
