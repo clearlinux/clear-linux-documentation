@@ -12,13 +12,16 @@ instance of |CL-ATTR| on `Google Cloud Platform`_ (:abbr:`GCP (Google Cloud Plat
 Prerequisites
 *************
 
-** TBD **
+* Set up a Google account and a GCP billing account.
+
+* Generate and install a user SSH key in the Linux PCs that will connect to
+  the VMs in GCP.
 
 
 Process
 *******
 
-#. Sign in your Google\* account on the
+#. Sign in to your Google\* account on the
    `Google Cloud Console <https://console.cloud.google.com/>`_:
 
    .. figure:: figures/gce/00-sign-in.png
@@ -252,7 +255,11 @@ Process
 Related topics
 **************
 
-* :ref:`virtual-machine-install`
+The following tutorials describe a similar process and may be useful references:
+
+* :ref:`azure`
+* :ref:`aws-web`
+
 
 .. _Google Cloud Platform: https://cloud.google.com/
 
