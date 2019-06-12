@@ -19,8 +19,9 @@ Description
    rather than packages.
 #. Checks for system updates and installs them.
 
-:command:`swupd` manages overlapping dependencies behind the scenes,
-ensuring that all software is compatible across the system.
+:command:`swupd` manages overlapping dependencies behind the scenes, ensuring
+that all software is compatible across the system. It can be used to verify
+the OS, clean cached files, and fix issues.
 
 :ref:`Bundles <bundles>` contain everything needed to deliver a software
 capability. They are the smallest granularity component that is
@@ -103,20 +104,19 @@ file that describes all manifests to tie it all together.
 Fullfiles, packs, and delta packs
 ---------------------------------
 
-The data that an update provisions to a system can be obtained in
-three different ways. There are three different methods, and they
-exist to optimize the delivery of content and speed up updates.
+To speed up updates and optimize content delivery, update data provisioned to
+a system is obtained by one of the following methods:
 
-*Fullfiles* are always generated for every file in every release. This
-allows any |CL| to obtain the exact copy of the content
-for each version directly. This is used if the OS verification
-needs to replace a single file, for instance.
+* Fullfiles* are always generated for every file in every release. This
+  allows any |CL| to obtain the exact copy of the content
+  for each version directly. This is used if the OS verification
+  needs to replace a single file, for instance.
 
-*Packs* are available for some releases. They combine many files to speed
-up the creation of installation media and large updates.
+* Packs* are available for some releases. They combine many files to speed
+  up the creation of installation media and large updates.
 
-*Delta packs* are an optimized version of packs that only contain updates
-(binary diffs). They cannot be used without having the original file content.
+* Delta packs* are an optimized version of packs that only contain updates
+  (binary diffs). They cannot be used without having the original file content.
 
 Bundle search
 =============
