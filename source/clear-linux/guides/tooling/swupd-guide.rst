@@ -19,34 +19,27 @@ Description
    rather than packages.
 #. Checks for system updates and installs them.
 
+:command:`swupd` manages overlapping dependencies behind the scenes,
+ensuring that all software is compatible across the system.
+
 :ref:`Bundles <bundles>` contain everything needed to deliver a software
 capability. They are the smallest granularity component that is
 managed by |CL|. A bundle comes with all of its dependencies, rather than
 downloading a cascade of package dependencies when installing a piece of
-software. :command:`swupd` manages overlapping dependencies behind the scenes,
-ensuring that all software is compatible across the system.
+software.
 
 Versioning
 ==========
 
-In a traditional distribution, the software versioning process usually
-involves:
+Using package managers to keep track of software version compatibility or
+compare multiple systems on many Linux distributions can be cumbersome.
 
--  Listing and keeping track of the current OS release (generally
-   uninformative about any singular packages or functionality).
-
--  Keeping track of packages and repositories being used, and updating them
-   individually.
-
--  Listing and tracking every package available and installed on the
-   system, none of which are directly tied to the current OS release.
-
-Given the nearly endless combinations of packages and versions of packages a
-server may have, it quickly becomes non-trivial to define what "version" the
-system is and what software it is running, without explicitly going through
-each system and inspecting every package.
-
-With |CL|, we track only **one number**.
+With |CL| :command:`swupd`, versioning happens at the individual file-level.
+This means |CL| generates an entirely new OS version with any set of software
+changes to the system (including software downgrades or removals). This
+rolling release versioning model is similar to :command:`git` internal version
+tracking, where any of the individual file commits are tracked and move the
+pointer forward when changed.
 
 A number that represents the **current** release of the OS describes the
 versions of all the software on the OS. Each build is composed of a specific
@@ -136,7 +129,7 @@ Only the base bundle is returned. Bundles can contain other bundles via
 includes. For more details, see `Bundle Definition Files`_ and its
 subdirectory bundles.
 
-Bundles that are already installed are marked **[installed]** in search
+Bundles that are already installed are marked **(installed)** in search
 results.
 
 Optionally, you can review our `bundles`_ on GitHub\*.
