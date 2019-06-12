@@ -24,6 +24,10 @@ for debugging purposes. You can use **libtelemetry** in your code to create cust
 telemetry records. You can also use **telem-record-gen** in script files or call
 it from another program.
 
+.. note::
+
+   The |CL| telemetry client is disabled by default until you decide to enable it.  Telemetry is an **opt-in** solution and can be easily enabled or disabled.
+
 Architecture
 ************
 
