@@ -3,7 +3,7 @@
 Run |CL-ATTR| as a KVM guest OS
 ###############################
 
-This section explains how to run |CL-ATTR| in a virtualized environment using
+This guide explains how to run |CL-ATTR| in a virtualized environment using
 :abbr:`KVM (Kernel-based Virtual Machine)`.
 
 Install QEMU-KVM
@@ -13,12 +13,7 @@ Install QEMU-KVM
    `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
    host machine’s BIOS.
 
-#. Log in, open a terminal emulator, and get root privilege on the host
-   machine:
-
-   .. code-block:: bash
-
-      sudo -s
+#. Log in and open a terminal emulator.
 
 #. Install `QEMU*-KVM` on the host machine. Below are some example distros.
 
@@ -26,31 +21,25 @@ Install QEMU-KVM
 
      .. code-block:: bash
 
-        swupd bundle-add kvm-host
+        sudo swupd bundle-add kvm-host
 
-   * |CL| option: Add this bundle to lanch the GUI upon boot.
-
-     .. code-block:: bash
-
-        swupd bundle-add desktop-autostart
-
-   * On Ubuntu\* 16.04 LTS Desktop:
+   * On Ubuntu\* 18.04 LTS Desktop:
 
      .. code-block:: bash
 
-        apt-get install qemu-kvm
+        sudo apt-get install qemu-kvm
 
-   * On Mint\* 18.1 “Serena” Desktop:
-
-     .. code-block:: bash
-
-        apt-get install qemu-kvm
-
-   * On Fedora\* 25 Workstation:
+   * On Mint\* 19.1 “Cinnamon” Desktop:
 
      .. code-block:: bash
 
-        dnf install qemu-kvm
+        sudo apt-get install qemu-kvm
+
+   * On Fedora\* 30 Workstation:
+
+     .. code-block:: bash
+
+        sudo dnf install qemu-kvm
 
 Download and launch the virtual machine
 ***************************************
@@ -67,26 +56,26 @@ Download and launch the virtual machine
 
    .. code-block:: bash
 
-      unxz clear-<version>-kvm.img.xz
+      unxz -v clear-<version>-kvm.img.xz
 
-#. Download the `OVMF file`_ file that provides UEFI support for
-   virtual machines.
+#. Download the 3 OVMF files (`OVMF.fd`, `OVMF_CODE.fd`, `OVMF_VARS.fd`) that provides UEFI 
+   support for virtual machines.
 
    .. code-block:: bash
 
       curl -O https://cdn.download.clearlinux.org/image/OVMF.fd
-
-#. Copy :file:`OVMF.fd` to the working directory, as shown below.
-
-   .. code-block:: bash
-
-      cp OVMF.fd <working_directory>
+      curl -O https://cdn.download.clearlinux.org/image/OVMF_CODE.fd
+      curl -O https://cdn.download.clearlinux.org/image/OVMF_VARS.fd
 
    .. note::
 
-      Replace <working_directory> with your own.
+      The default OVMF files from |CL| may not work for some distro version(s).  
+      You may get an `ASSERT` in the `debug.log` file when starting the VM.  
+      If that is the case, use the distro-specific-OVMF files instead. 
+      For example, the |CL| OVMF files work for Ubuntu 18.04 LTS, but not for Ubuntu 19.04 LTS.  
+      Installing and using the OVMF files for Ubuntu 19.04 LTS resolved the `ASSERT` issue.    
 
-#. Download the sample `QEMU-KVM launcher`_ script from the
+#. Download the `QEMU-KVM launcher`_ script from the
    `image <https://cdn.download.clearlinux.org/image/>`_ directory.  This script
    will launch the |CL| VM and provide console interaction within the same
    terminal emulator window.
@@ -105,7 +94,7 @@ Download and launch the virtual machine
 
    .. code-block:: bash
 
-      ./start_qemu.sh clear-<version>-kvm.img
+      sudo ./start_qemu.sh clear-<version>-kvm.img
 
 #. Log in as ``root`` user and set a new password.
 
@@ -123,20 +112,20 @@ launched from, follow these steps.
         PermitRootLogin yes
         EOF
 
-#. Start SSH server in the |CL| VM:
+#. Enable and start SSH server in the |CL| VM:
 
    .. code-block:: bash
 
+      systemctl enable sshd
       systemctl start sshd
 
-#. From the host, SSH into the |CL| VM.  The port number ``10022`` is defined
-   in the ``start_qemu.sh`` script.
+#. SSH into the |CL| VM using the default port of  `10022`:
 
    .. code-block:: bash
 
-      ssh -p 10022 root@localhost
+      ssh -p 10022 root@<ip-addr-of-kvm-host>
 
-Add the GNOME Display Manager (GDM)
+Optional: Add the GNOME Display Manager (GDM)
 ***********************************
 
 To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
@@ -145,90 +134,82 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
    .. code-block:: bash
 
-      shutdown now
+      poweroff
 
-#. Install a VNC viewer on the host machine.  Below are some example distros.
+#. Install the Spice viewer on the local host or remote system.  Below are some example distros.
 
    * On Clear Linux:
 
      .. code-block:: bash
 
-        swupd bundle-add tigervnc
+        sudo swupd bundle-add virt-viewer
 
-   * On Ubuntu\* 16.04 LTS Desktop:
-
-     .. code-block:: bash
-
-        apt-get install vncviewer
-
-   * On Mint\* 18.1 “Serena” Desktop:
+   * On Ubuntu\* 18.04 LTS Desktop:
 
      .. code-block:: bash
 
-        apt-get install vncviewer
+        sudo apt-get install virt-viewer
 
-   * On Fedora\* 25 Workstation:
+   * On Mint\* 19.1 “Cinnamon” Desktop:
 
      .. code-block:: bash
 
-        dnf install tigervnc
+        sudo apt-get install virt-viewer
 
-#. Modify the :file:`start_qemu.sh` script to increase memory (``-m``), add
-   graphics driver (``-vga``), and add VNC (``-vnc``, ``-usb``, and
-   ``-device``) support.
+   * On Fedora\* 30 Workstation:
+
+     .. code-block:: bash
+
+        sudo dnf install virt-viewer
+
+#. Modify the :file:`start_qemu.sh` script to increase memory (`-m`), add
+   graphics driver (`-vga`), and add Spice (`-spice`, `-usb`, and
+   `-device`) support.  
 
    .. code-block:: console
 
       qemu-system-x86_64 \
           -enable-kvm \
-          -bios OVMF.fd \
+          ${UEFI_BIOS} \
           -smp sockets=1,cpus=4,cores=2 -cpu host \
           -m 4096 \
           -vga qxl \
-          -vnc :0 -nographic \
+          -nographic \
+          -spice port=5924,disable-ticketing \
           -usb \
-          -device usb-tablet \
+          -device usb-tablet,bus=usb-bus.0 \
           -drive file="$IMAGE",if=virtio,aio=threads,format=raw \
           -netdev user,id=mynet0,hostfwd=tcp::${VMN}0022-:22,hostfwd=tcp::${VMN}2375-:2375 \
           -device virtio-net-pci,netdev=mynet0 \
           -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
 
 #. Due to changes in the :file:`start_qemu.sh` script from the previous step,
-   the UEFI :file:`NvVars`
-   information for the previously-booted |CL| VM will need to be reset.
+   using the same OVMF files will result in the VM not booting properly and 
+   you end up in the the UEFI shell.  The easiest way to avoid this is to delete 
+   the OVMF files and restore the originals before relaunching the VM.
 
-   #. Relaunch the |CL| VM.  The UEFI shell will appear.
-
-      .. code-block:: bash
-
-         ./start_qemu.sh clear-<version>-kvm.img
-
-   #. At the UEFI shell, delete the :file:`NvVars` file:
-
-      .. code-block:: bash
-
-         Shell> del FS0:\NvVars
-
-   #. Exit out of the UEFI shell:
-
-      .. code-block:: bash
-
-         Shell> reset -s
-
-   #. Relaunch the |CL| VM:
-
-      .. code-block:: bash
-
-         ./start_qemu.sh clear-<version>-kvm.img
-
-#. From the host machine, open a new terminal emulator window and VNC into the
-   |CL| VM:
+#. Increase the size of the VM by 10GB to accommodate the GDM installation:
 
    .. code-block:: bash
 
-      vncviewer 0.0.0.0
+      qemu-img resize -f raw clear-<version>-kvm.img +10G 
 
-#. Log in as ``root`` user into the |CL| VM.
+#. Relaunch the |CL| VM:
+
+   .. code-block:: bash
+
+      sudo ./start_qemu.sh clear-<version>-kvm.img
+
+#. From the local host or remote system, open a new terminal emulator window and 
+   connect into the |CL| VM using the Spice viewer:
+
+   .. code-block:: bash
+
+      remote-viewer spice://<ip-address-of-kvm-host>:5924
+
+#. Log in as `root` user into the |CL| VM.
+
+#. Follow these steps to `resize the partition`_ of the virtual disk of the VM.
 
 #. Add GDM to the |CL| VM:
 
@@ -236,19 +217,20 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
       swupd bundle-add desktop-autostart
 
-#. Reboot the |CL| VM to enable GDM:
+#. Reboot the |CL| VM to start GDM:
 
    .. code-block:: bash
 
       reboot
 
-#. Go through GDM's out-of-box experience (OOBE).
+#. Go through the GDM out-of-box experience (OOBE).
 
 #. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change
-   it, use GDM's ``Displays`` setting tool (located at the top-right corner).
+   it, use GDM's `Devices > Displays` setting tool (located at the top-right corner).
 
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 .. _Intel®Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
 .. _QEMU-KVM launcher: https://cdn.download.clearlinux.org/image/start_qemu.sh
 .. _OVMF file: https://cdn.download.clearlinux.org/image/OVMF.fd
+.. _resize the partition: https://clearlinux.org/documentation/clear-linux/guides/maintenance/increase-virtual-disk-size#id8
