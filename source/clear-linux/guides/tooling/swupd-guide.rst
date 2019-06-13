@@ -187,7 +187,7 @@ on demand.
 
    .. code-block:: bash
 
-      sudo swupd update -m <version number>
+      sudo swupd update --version <version number>
 
 #. Re-enable automatic installs.
 
@@ -276,7 +276,7 @@ been added to, overwritten, removed, or modified (e.g., permissions).
 
 .. code-block:: bash
 
-   sudo swupd verify
+   sudo swupd diagnose
 
 All directories that are watched by :command:`swupd` are verified according
 to the manifest data and hash mismatches are flagged as follows:
@@ -307,7 +307,7 @@ ignore files or directories matching `/usr/lib/python`:
 
 .. code-block:: bash
 
-   sudo swupd verify --fix --picky --picky-whitelist=/usr/lib/python
+   sudo swupd repair --picky --picky-whitelist=/usr/lib/python
 
 Quick Reference
 ***************

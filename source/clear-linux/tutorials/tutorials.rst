@@ -14,7 +14,6 @@ Explore our tutorials to discover what you can do with |CL|!
    machine-learning/machine-learning
    docker/docker
    azure
-   multi-boot/multi-boot
    hadoop
    fmv
    aws-web/aws-web
@@ -28,4 +27,5 @@ Explore our tutorials to discover what you can do with |CL|!
    yubikey-u2f
    nvidia
    dars
+   redis
    tutorial-proxy

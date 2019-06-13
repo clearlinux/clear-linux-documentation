@@ -48,7 +48,7 @@ Mount root partition, verify, and fix
 
          sudo mount /dev/sda3 /mnt
 
-#. Verify that you mounted the correct root partition by checking for some 
+#. Verify that you mounted the correct root partition by checking for some
    files commonly found on |CL| systems.
 
    .. code-block:: bash
@@ -60,7 +60,7 @@ Mount root partition, verify, and fix
 
    .. code-block:: bash
 
-      sudo swupd verify --fix --picky --path=/mnt
+      sudo swupd repair --picky --path=/mnt
 
    :ref:`Learn more about how swupd works <swupd-guide>`.
 
