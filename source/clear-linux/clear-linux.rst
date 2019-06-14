@@ -3,13 +3,13 @@
 |CL-PRJ|
 #############################################
 
-Welcome to the |CL-ATTR| documentation pages, the source for |CL| documentation.
-Our documentation is divided into the following sections:
+Welcome to the |CL-ATTR| documentation pages, the source for |CL|
+documentation. Our documentation is divided into the following sections:
 
 * :ref:`get-started`
 
-  If you are new to |CL|, get started fast with tutorials for installing |CL| on
-  bare metal, in a virtual environment, or as a live image on a USB stick.
+  If you are new to |CL|, get started fast with tutorials for installing |CL|
+  on bare metal, in a virtual environment, or as a live image on a USB stick.
 
 * :ref:`concepts`
 
@@ -32,6 +32,11 @@ Our documentation is divided into the following sections:
   Find the detailed information you need to enable your configuration or task
   in our |CL| reference section.
 
+* :ref:`faq`
+
+  Commonly asked questions and answers can be found in FAQ section. 
+
+
 .. toctree::
     :maxdepth: 2
     :hidden:
@@ -41,3 +46,4 @@ Our documentation is divided into the following sections:
     guides/guides
     tutorials/tutorials
     reference/reference
+    FAQ/faq    
