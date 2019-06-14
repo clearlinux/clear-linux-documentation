@@ -16,8 +16,8 @@ Description
 
 |CL| is a rolling release and produces on average 10 releases per week using the
 ister tool. With each release we produce multiple
-`image types for different environments`_  and use cases such as installers,
-Hyper-V, KVM, or VMWare.
+:ref:`image types for different environments <image-types>` and use cases such
+as installers, Hyper-V, KVM, or VMWare.
 
 Each image has a JSON configuration file used by ister to generate the image.
 These JSON configuration files describe the image type, partitions, version,
@@ -88,7 +88,6 @@ Related topics
 * :ref:`bulk-provision`
 
 .. _ister.py tool: https://github.com/bryteise/ister
-.. _image types for different environments: https://cdn.download.clearlinux.org/image/README-IMAGES.html
 .. _Configuration files for the current release: https://cdn.download.clearlinux.org/current/config/image/
 .. _Previous releases: https://cdn.download.clearlinux.org/releases/
 .. _Install a bundle: https://clearlinux.org/documentation/clear-linux/guides/maintenance/swupd-guide#adding-a-bundle
