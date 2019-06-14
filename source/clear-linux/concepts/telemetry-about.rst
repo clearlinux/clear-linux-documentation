@@ -83,5 +83,3 @@ To put this concept into practice, see the following resources:
 *	:ref:`telem-guide`
 *	`Telemetry feature description`_
 
-.. _`Telemetry feature description`:
-	https://clearlinux.org/features/telemetry
