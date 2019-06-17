@@ -28,3 +28,4 @@ Explore our tutorials to discover what you can do with |CL|!
    nvidia
    dars
    redis
+   tutorial-proxy
