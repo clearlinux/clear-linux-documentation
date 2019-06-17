@@ -60,9 +60,6 @@ Table 2 lists the currently available images that are platform specific.
    * - azure-machine-learning.vhd
      - Virtual Hard Disk for use on Microsoft Azure cloud platform with the `machine-learning-basic` bundle installed.
 
-   * - cloud.img
-     - Image for use by cloud deployments such as OpenStack\*.
-
    * - cloudguest.img
      - Image with generic cloud guest virtual machine (VM) requirements installed.
 
