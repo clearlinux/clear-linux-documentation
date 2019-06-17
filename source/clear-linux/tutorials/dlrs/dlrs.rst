@@ -138,7 +138,7 @@ TensorFlow.
    TensorFlow benchmarks.
 
    If you are using an FP32 based model, it can be converted to an int8 model using `Intel® quantization tools`_
-   
+
 
 PyTorch single and multi-node benchmarks
 ****************************************
@@ -195,6 +195,40 @@ Kubernetes networking
 We used `flannel`_ as the network provider for these tests. If you
 prefer a different network layer, refer to the Kubernetes
 `networking documentation`_ for setup.
+
+Kubectl
+=======
+
+You can use kubectl to run commands against your Kubernetes cluster.  Refer to the `kubectl overview`_ for details on syntax and operations. Once you have a working cluster on Kubernetes, you can use the following YAML script to start a pod with a simple shell script, and keep the pod open.
+
+#. Copy this example.yaml yaml script to your system:
+
+   .. code-block:: console
+
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: example-pod
+        labels:
+          app: ex-pod
+      spec:
+        containers:
+        - name: ex-pod-container
+          image: clearlinux/stacks-dlrs-mkl:latest
+          command: ['/bin/bash', '-c', '--']
+          args: [ "while true; do sleep 30; done" ]
+
+#. Execute the script with kubectl:
+
+   .. code-block:: bash
+
+      kubectl apply –f <path-to-yaml-file>/example.yaml
+
+
+This will open a single pod. More robust solutions would create a deployment or inject a python script or larger shell script into the container.
+
+
+
 
 Images
 ======
@@ -304,6 +338,8 @@ Run a TFJob
       ks apply default -c dlrsalexnet
 
 This replicates and deploys three test setups in your Kubernetes cluster.
+
+
 
 Results of running this tutorial
 ================================
@@ -445,6 +481,8 @@ Related topics
 .. _PyTorch benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
 .. _Jupyter Notebook: https://jupyter.org/
+
+.. _kubectl overview: https://kubernetes.io/docs/reference/kubectl/overview/
 
 .. _Release notes on Github\*: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
 
