@@ -61,7 +61,7 @@ Download and launch the virtual machine
 
    .. code-block:: bash
 
-      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep '[0-9]'-kvm)
+      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep '[0-9]'-kvm'\.')
 
 #. Uncompress the downloaded image:
 
