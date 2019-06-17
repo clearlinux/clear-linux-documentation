@@ -111,5 +111,5 @@ Add the following to your :file:`~/.ssh/config`:
 
 .. note::
 
-    Thought netcat is included with Clear Linux, it is not the BSD version,
+    Though netcat is included with Clear Linux, it is not the BSD version,
     which is the one usually used to enable git over ssh.
