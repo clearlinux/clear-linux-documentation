@@ -3,8 +3,8 @@
 Setting up proxy
 ################
 
-This tutorial shows you how to configure your system for use behind a
-corporate proxy. 
+This tutorial shows you how to configure your system for use behind an
+outbound proxy to access the Internet. 
 
 |CL| :ref:`tooling` applications already benefit from the :ref:`autoproxy`
 feature. 
@@ -92,6 +92,11 @@ For Docker (and other services that use systemd), you can follow these steps to 
 
         Environment=HTTP_PROXY=http://your.http-proxy.url:port/ HTTPS_PROXY=http://your.https-proxy.url:port/
 
+.. note::
+
+   This process enables the ability to successfully run ``docker pull``.
+   Containers themselves must be configured independently.
+
 git over ssh
 ************
 
@@ -100,9 +105,9 @@ Add the following to your :file:`~/.ssh/config`:
 .. code-block:: bash
 
     host github.com
-    port 22    
-    user git
-    ProxyCommand connect-proxy -S your.ssh-proxy.url:port %h %p
+        port 22    
+        user git
+        ProxyCommand connect-proxy -S your.ssh-proxy.url:port %h %p
 
 .. note::
 
