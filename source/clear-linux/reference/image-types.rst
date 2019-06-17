@@ -36,10 +36,10 @@ Table 2 lists the currently available images that are platform specific.
      - Description
 
    * - live-desktop.img or live-desktop.iso
-     - Image for live booting desktop version into memory, without requiring installaton.
+     - Image for booting to GNOME\* desktop to preview or install the OS.
 
    * - live-server.img or live-server.iso
-     - Image for live booting server version into memroy, without requiring installation.
+     - Image for booting to server command prompt to preview or install the OS.
 
 .. list-table:: Table 2: Types of platform-specific |CL| images
    :widths: 15, 85
