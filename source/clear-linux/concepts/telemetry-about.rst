@@ -78,8 +78,5 @@ own records, then you must set up your own telemetry backend server.
 Next steps
 **********
 
-To put this concept into practice, see the following resources:
-
-*	:ref:`telem-guide`
-*	`Telemetry feature description`_
+To put this concept into practice, refer to :ref:telem-guide.
 
