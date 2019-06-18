@@ -63,9 +63,6 @@ Table 2 lists the currently available images that are platform specific.
    * - cloudguest.img
      - Image with generic cloud guest virtual machine (VM) requirements installed.
 
-   * - container-host-kvm.img
-     - Image for use by Clear Containers runtime. Includes `optimized kernel`_ for Clear Containers.
-
    * - gce.tar
      - Image with the Google Compute Engine (GCE) specific kernel.
 
