@@ -34,8 +34,9 @@ latest :abbr:`LTS (Long Term Support)` Linux kernel. It is optimized for fast
 booting and performs best on the Intel® architectures described on the
 :ref:`supported hardware list<system-requirements>`. Additionally, this
 kernel includes the VirtualBox\* kernel modules, see our
-:ref:`instructions on using Virtualbox<virtualbox>` for more information.
-The optimization patches are found in our `Linux-LTS`_ GitHub repo.
+:ref:`instructions on using Virtualbox<virtualbox-cl-installer>` for more
+information. The optimization patches are found in our `Linux-LTS`_ GitHub
+repo.
 
 Kernel KVM
 ==========

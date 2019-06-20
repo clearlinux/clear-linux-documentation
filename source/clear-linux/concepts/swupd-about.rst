@@ -60,12 +60,8 @@ to update.
 Update integrity
 ----------------
 
-:command:`swupd` operates against a published manifest of files for a
-particular |CL| version that contains the unique hash of each file. This is
-the basis of the :command:`swupd verify` subcommand, which allows a |CL|
-system to check for and remediate any discrepancies to system files. As
-necessary, :command:`swupd verify` provides a useful way for software
-developers to return to a known filesystem state.
+This is the basis of the :command:`swupd diagnose` subcommand, which allows a |CL| system to check for any discrepancies to system files. As necessary,
+:command:`swupd repair` provides a useful way for software developers to remediate these discrepancies and return to a known filesystem state.
 
 Bundles
 =======

@@ -52,12 +52,12 @@ Install the appropriate DKMS bundle using the instructions below:
    :end-before: kernel-modules-dkms-install-end:
 
 
-Download and install the NVIDIA Linux Driver
-********************************************
+Download and install the NVIDIA Drivers
+***************************************
 
 
-Download the NVIDIA Linux Driver
-================================
+Download the NVIDIA Drivers for Linux
+=====================================
 
 #. Identify the model of NVIDIA GPU that is installed.
 
@@ -107,27 +107,34 @@ needs to be disabled before installation can continue.
 
 
 
-Install the NVIDIA Linux Driver
-===============================
+Configure the Dynamic Linker
+============================
 
 The NVIDIA installer will be directed to install files under
 :file:`/opt/nvidia` as much as possible to keep its contents isolated from the
-rest of the |CL| files under :file:`/usr`. 
+rest of the |CL| system files under :file:`/usr`.  The dynamic linker will
+need to be configured to use the NVIDIA-provided libraries.
+
+
+#. Configure the dynamic linker to look for and cache shared libraries under
+   :file:`/opt/nvidia/lib` and :file:`/opt/nvidia/lib32`.
+
+   .. code-block:: bash
+      
+      echo "include /etc/ld.so.conf.d/*.conf" |  sudo tee --append /etc/ld.so.conf
+      
+      sudo mkdir /etc/ld.so.conf.d
+      printf "/opt/nvidia/lib \n/opt/nvidia/lib32 \n" | sudo tee --append /etc/ld.so.conf.d/nvidia.conf
+      
+
+
+Install the NVIDIA Drivers
+==========================
 
 
 #. A terminal not running on */dev/tty1* is useful to view uninterrupted
    installation progress. Switch to a secondary virtual terminal by pushing
    :command:`CTRL + ALT + F2` or remotely login over SSH. 
-
-#. Configure the dynamic linker to look for and cache shared libraries under
-   :file:`/opt/nvidia/lib` and :file:`/opt/nvidia/lib32` where the NVIDIA
-   installer will place libraries. 
-
-   .. code-block:: bash
-      
-      echo "include /etc/ld.so.conf.d/*.conf" |  sudo tee --append /etc/ld.so.conf
-      sudo mkdir /etc/ld.so.conf.d
-      printf "/opt/nvidia/lib \n/opt/nvidia/lib32 \n" | sudo tee --append /etc/ld.so.conf.d/nvidia.conf
 
 
 #. Navigate into the directory where the NVIDIA installer was downloaded.
@@ -172,19 +179,64 @@ rest of the |CL| files under :file:`/usr`.
 
    .. code-block:: bash
 
-      sudo swupd verify --quick --fix --bundles=lib-opengl
+      sudo swupd repair --quick --bundles=lib-opengl
 
 .. note::
 
    The NVIDIA software places some files under the :file:`/usr` subdirectory
    which are not managed by |CL| and conflict with the |CL| stateless design.
-   Although a limited version of :command:`swupd verify --fix` is ran above,
-   other uses of the :command:`swupd verify --fix` command should be avoided
+   Although a limited version of :command:`swupd repair` is ran above,
+   other uses of the :command:`swupd repair` command should be avoided
    with the proprietary NVIDIA drivers installed.
-      
 
-Uninstalling the NVIDIA driver
-******************************
+
+Updating the NVIDIA Drivers
+***************************
+
+The proprietary NVIDIA drivers are installed manually outside of :ref:`swupd
+<swupd-about>` and must be updated manually when needed.
+
+Updating the NVIDIA drivers follows the same steps as initial installation,
+however the desktop environment must first be stopped so that the drivers are
+not in use.
+
+#. Follow the steps in `Download the NVIDIA Drivers for Linux`_ section to get
+   the latest NVIDIA drivers.
+
+#. Temporarily set the default boot target to the *multi-user* which is
+   a non-graphical runtime.
+
+   .. code-block:: bash
+
+      sudo systemctl set-default multi-user.target
+
+
+#. Reboot the system and log back in. It is normal for the graphical
+   environment to not start.
+
+#. Follow the steps in `Install the NVIDIA Drivers`_ section to update
+   the NVIDIA drivers. This installation will overwrite the previous NVIDIA
+   drivers and files.
+
+#. Set the default boot target back to the *graphical* target.
+
+   .. code-block:: bash
+
+      sudo systemctl set-default graphical.target
+
+
+#. Reboot the system and log back in. 
+
+#. Trigger a flatpak update which will download the runtime corresponding
+   with the new NVIDIA drivers for flatpak apps requiring it.
+
+   .. code-block:: bash
+
+      flatpak update
+
+
+Uninstalling the NVIDIA Drivers
+*******************************
 
 The NVIDIA drivers and associated software can be uninstalled and nouveau
 driver restored by: 
@@ -202,8 +254,8 @@ driver restored by:
 #. Follow the prompts on the screen and reboot the system. 
 
 
-Debugging NVIDIA driver installation
-************************************
+Debugging Installation of NVIDIA Drivers 
+****************************************
 
 * The NVIDIA driver places installer and uninstaller logs under
   :file:`/var/log/nvidia-install` and :file:`/var/log/nvidia-uninstall`.
