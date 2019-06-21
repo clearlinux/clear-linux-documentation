@@ -199,9 +199,9 @@ prefer a different network layer, refer to the Kubernetes
 Kubectl
 =======
 
-You can use kubectl to run commands against your Kubernetes cluster.  Refer to the `kubectl overview`_ for details on syntax and operations. Once you have a working cluster on Kubernetes, you can use the following YAML script to start a pod with a simple shell script, and keep the pod open.
+You can use kubectl to run commands against your Kubernetes cluster.  Refer to the `kubectl overview`_ for details on syntax and operations. Once you have a working cluster on Kubernetes, use the following YAML script to start a pod with a simple shell script, and keep the pod open.
 
-#. Copy this example.yaml yaml script to your system:
+#. Copy this example.yaml script to your system:
 
    .. code-block:: console
 
@@ -225,7 +225,7 @@ You can use kubectl to run commands against your Kubernetes cluster.  Refer to t
       kubectl apply –f <path-to-yaml-file>/example.yaml
 
 
-This will open a single pod. More robust solutions would create a deployment or inject a python script or larger shell script into the container.
+This script opens a single pod. More robust solutions would create a deployment or inject a python script or larger shell script into the container.
 
 
 
