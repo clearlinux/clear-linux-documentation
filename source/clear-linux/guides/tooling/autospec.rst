@@ -16,8 +16,8 @@ Description
 ***********
 
 The autospec tool attempts to infer the requirements of the :file:`.spec` file
-by analyzing the source code and :file:`Makefile` information. It will
-continuously run updated builds based on new information discovered from build
+by analyzing the source code and :file:`Makefile` information. It 
+continuously runs updated builds based on new information discovered from build
 failures until it has a complete and valid :file:`.spec` file. If needed, you
 can influence the behavior of autospec and customize the build by providing
 optional `control files`_ to the autospec tool.
