@@ -18,7 +18,7 @@ automatically resolve the proxy needed for a given connection. With
 Autoproxy, you can use |CL| inside any proxy environment without having to
 manually configure the proxies.
 
-Corporate and private networks can be very complex, needing to restrict and
+Corporate and private networks can be very complex needing to restrict and
 control network connections for security reasons. The typical side effects
 are limited or blocked connectivity and requiring manual configuration of
 proxies to perform the most mundane tasks such as cloning a repo or checking
