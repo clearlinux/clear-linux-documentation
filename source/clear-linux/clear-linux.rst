@@ -34,7 +34,7 @@ documentation. Our documentation is divided into the following sections:
 
 * :ref:`faq`
 
-  Commonly asked questions and answers can be found in FAQ section. 
+  Refer to our FAQ section to read commonly asked questions and answers.
 
 
 .. toctree::
@@ -46,4 +46,4 @@ documentation. Our documentation is divided into the following sections:
     guides/guides
     tutorials/tutorials
     reference/reference
-    FAQ/faq    
+    FAQ/faq
