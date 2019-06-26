@@ -27,3 +27,4 @@ Install |CL|
    bare-metal-install-desktop/bare-metal-install-desktop
    bare-metal-install-server/bare-metal-install-server
    virtual-machine-install/virtual-machine-install
+   install-configfile
