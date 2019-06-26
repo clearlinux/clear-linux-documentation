@@ -13,11 +13,12 @@ PyTorch\*, and Kubeflow in |CL-ATTR| using the Deep Learning Reference Stack.
 Overview
 ********
 
-We created the Deep Learning Reference Stack to help AI developers deliver the
-best experience on Intel® Architecture. This stack reduces complexity common
-with deep learning software components, provides flexibility for customized
-solutions, and enables you to quickly prototype and deploy Deep Learning
-workloads. Use this tutorial to run benchmarking workloads on your solution.
+We created the Deep Learning Reference Stack to help AI developers deliver
+the best experience on Intel® Architecture. This stack reduces common
+complexity with deep learning software components, provides flexibility for
+customized solutions, and enables you to quickly prototype and deploy Deep
+Learning workloads. Use this tutorial to run benchmarking workloads on your
+solution.
 
 The Deep Learning Reference Stack is available in the following versions:
 
@@ -32,10 +33,17 @@ The Deep Learning Reference Stack is available in the following versions:
 * `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using Intel®
   Math Kernel Library (Intel® MKL) and Intel MKL-DNN.
 
+.. warning::
+
+   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your
+   platform must support the Intel® AVX-512 instruction set. Otherwise, an
+   *illegal instruction* error may appear, and you won’t be able to complete
+   the following steps of the tutorial.
+
 .. note::
 
-   To take advantage of the Intel® AVX-512 and VNNI functionality with the Deep
-   Learning Reference Stack, you must use the following hardware:
+   To take advantage of the Intel® AVX-512 and VNNI functionality with the
+   Deep Learning Reference Stack, you must use the following hardware:
 
    * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
    * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
