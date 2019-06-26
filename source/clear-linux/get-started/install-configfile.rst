@@ -51,7 +51,6 @@ Perform the following steps:
    * Under *Version*, set a version number. Use “0” for the latest version.
 
    .. code-block:: bash
-      :emphasize-lines: 14,20,22,31
 
    		# clear-linux-config
 
