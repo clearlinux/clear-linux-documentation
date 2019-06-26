@@ -32,7 +32,7 @@ The Deep Learning Reference Stack is available in the following versions:
 * `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using Intel®
   Math Kernel Library (Intel® MKL) and Intel MKL-DNN.
 
-.. note::
+.. important::
 
    To take advantage of the Intel® AVX-512 and VNNI functionality with the Deep
    Learning Reference Stack, you must use the following hardware:
@@ -185,6 +185,14 @@ Kubeflow multi-node benchmarks
 The benchmark workload runs in a Kubernetes cluster. The tutorial uses
 `Kubeflow`_ for the Machine Learning workload deployment on three nodes.
 
+.. note::
+
+   To take advantage of the Intel® AVX-512 and VNNI functionality with the Deep
+   Learning Reference Stack, you must use the following hardware:
+
+   * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
+   * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
+
 Kubernetes setup
 ================
 
@@ -236,7 +244,7 @@ or inject a python script or larger shell script into the container.
 Images
 ======
 
-You must add `launcher.py` to the Docker image to include the Deep
+You must add `launcher.py`_ to the Docker image to include the Deep
 Learning Reference Stack and put the benchmarks repo in the correct
 location. From the Docker image, run the following:
 
@@ -485,6 +493,8 @@ Related topics
 .. _Jupyter Notebook: https://jupyter.org/
 
 .. _kubectl overview: https://kubernetes.io/docs/reference/kubectl/overview/
+
+.. _launcher.py: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow
 
 .. _Release notes on Github\*: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
 
