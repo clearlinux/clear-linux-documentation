@@ -6,7 +6,7 @@ Install using clr-installer and a configuration file
 This guide shows you how to install |CL-attr| using the clr-installer tool
 with a configuration file. This method allows you to predefine configurations
 and options, which are then fed into clr-installer, thus relieving you of
-having to walkthrough the installer step by step. You can save the
+having to walk through the installer step by step. You can save the
 configuration file and reuse it again.
 
 System requirements
@@ -43,14 +43,18 @@ Perform the following steps:
 
 #. Edit the template and change the settings as needed. Commonly changed settings include:
 
-   * Under *block-devices*, set “file: "/dev/sda"” or your preferred device.
-   * Under *targetMedia*, set the 3rd partition size to “0” to use the entire disk space.
+   * Under *block-devices*, set “file: "/dev/sda"” or enter your preferred device.
+   * Under *targetMedia*, set the third partition size to “0” to use the entire disk space.
    * Under *bundles*, add additional bundles as needed.
    * Delete the *kernel-arguments* section unless you want to add kernel parameters.
-   * Delete *post-install* section unless you have post installation scripts.
+   * Delete the *post-install* section unless you have post-installation scripts.
    * Under *Version*, set a version number. Use “0” for the latest version.
 
+   Commonly changed settings are shown in lines 14, 20, 22, and 31 below.
+
    .. code-block:: bash
+      :linenos:
+      :emphasize-lines: 14,20,22,31
 
    		# clear-linux-config
 
