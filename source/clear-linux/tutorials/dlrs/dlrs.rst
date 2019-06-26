@@ -38,7 +38,7 @@ The Deep Learning Reference Stack is available in the following versions:
    If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your
    platform must support the Intel® AVX-512 instruction set. Otherwise, an
    *illegal instruction* error may appear, and you won’t be able to complete
-   the following steps of the tutorial.
+   this tutorial.
 
 .. note::
 
