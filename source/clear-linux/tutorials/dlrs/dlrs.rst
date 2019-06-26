@@ -185,14 +185,11 @@ Kubeflow multi-node benchmarks
 The benchmark workload runs in a Kubernetes cluster. The tutorial uses
 `Kubeflow`_ for the Machine Learning workload deployment on three nodes.
 
-.. note::
+.. warning::
 
-   To take advantage of the Intel® AVX-512 and VNNI functionality with the Deep
-   Learning Reference Stack, you must use the following hardware:
+   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform must support the Intel® AVX-512 instruction set. Otherwise, an *illegal instruction* error may appear, and you won’t be able to complete this tutorial.
 
-   * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
-   * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
-
+   
 Kubernetes setup
 ================
 
