@@ -10,6 +10,7 @@ different.
 .. toctree::
    :maxdepth: 2
 
+   stateless
    swupd-about
    mixer-about
    bundles-about
