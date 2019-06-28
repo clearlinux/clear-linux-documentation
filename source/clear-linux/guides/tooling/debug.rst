@@ -23,12 +23,13 @@ Background
 
 Software that is compiled and packaged for general usage in an operating
 system typically only contains components that are used to execute the
-program, like binaries and libraries. Extra developer data like the the
-actual source code and symbol information are separated and excluded for
+program, such as binaries and libraries. Extra developer data, such as the
+actual source code and symbol information, are separated and excluded for
 efficiency. 
 
 The debug information helps relate binary code to human readable source code
-lines and variables. Most of the time this auxiliary information is not needed
+lines and variables. Most of the time, this auxiliary information 
+is not needed;
 however without it, debugging a program results in limited visibility. 
 
 
@@ -50,15 +51,16 @@ installed.
       clr-debug-info.
 
 
-#. Start a debugging session against a program using a debugger, like GDB. 
-   For example, to debug *gnome-control-center*:
+#. Start a debugging session against a program using a debugger, such as GDB. 
+   For example, to debug *gnome-control-center* execute the following
+   command:
 
    .. code:: bash
 
       gdb /usr/bin/gnome-control-center
 
-As the program is stepped through and debug information is needed, the
-clr_debug_daemon will obtain it in the background.
+As you step through the program and debug information is needed, the
+clr_debug_daemon obtains it in the background.
 
 
 Implementation
@@ -68,20 +70,20 @@ The implementation of the |CL| debug system is open source and available on
 GitHub at: https://github.com/clearlinux/clr-debug-info/
 
 .. figure:: figures/debug-diagram.png
-   :scale: 75%
+   :width: 400px
    :alt: Debug system communication flow
 
    Figure 1: The communication flow of the |CL| debug system
 
 The |CL| debug system implements a :abbr:`FUSE (filesystem in userspace)`
 filesystem mounted at :file:`/usr/lib/debug` and :file:`/usr/src/debug`. The
-FUSE filesystem starts automatically. Its status can be verified with
+FUSE filesystem starts automatically. You can verify its status by executing
 :command:`systemctl status clr_debug_fuse.service`.
 
 The *clr_debug_daemon* is responsible for fetching the appropriate package
 debug content from the server and making it available for any debugging
-programs needed it. It is socket activated whenever a request to the local
-FUSE filesystem occurs. Its status can be verified with :command:`systemctl
+programs that need it. It is socket activated whenever a request to the local
+FUSE filesystem occurs. You can verify its status with :command:`systemctl
 status clr_debug_daemon.service`.
 
 
