@@ -189,7 +189,7 @@ The benchmark workload runs in a Kubernetes cluster. The tutorial uses
 
    If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform must support the Intel® AVX-512 instruction set. Otherwise, an *illegal instruction* error may appear, and you won’t be able to complete this tutorial.
 
-   
+
 Kubernetes setup
 ================
 
@@ -243,7 +243,9 @@ Images
 
 You must add `launcher.py`_ to the Docker image to include the Deep
 Learning Reference Stack and put the benchmarks repo in the correct
-location. From the Docker image, run the following:
+location. Note that this tutorial uses Kubeflow v0.4.0, and cannot guarantee results if you use a different version. 
+
+From the Docker image, run the following:
 
 .. code-block:: bash
 
