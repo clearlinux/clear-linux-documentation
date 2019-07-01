@@ -3,8 +3,8 @@
 autospec
 ########
 
-**autospec** is a tool to assist in the automated creation and maintenance of
-RPM packaging in |CL-ATTR|. Where a standard RPM build process using
+**autospec** is a tool used to assist with the automated creation and maintenance of
+RPM packaging in |CL-ATTR|. Where a standard :abbr:`RPM (RPM Package Manager)` build process using
 :command:`rpmbuild` requires a tarball and :file:`.spec` file to start, autospec
 requires only a tarball and package name to start.
 
@@ -16,17 +16,17 @@ Description
 ***********
 
 The autospec tool attempts to infer the requirements of the :file:`.spec` file
-by analyzing the source code and :file:`Makefile` information. It will
-continuously run updated builds based on new information discovered from build
+by analyzing the source code and :file:`Makefile` information. It 
+continuously runs updated builds based on new information discovered from build
 failures until it has a complete and valid :file:`.spec` file. If needed, you
 can influence the behavior of autospec and customize the build by providing
 optional `control files`_ to the autospec tool.
 
-autospec uses mock as a sandbox to run the builds. Visit the `mock wiki`_ for
+autospec uses **mock** as a sandbox to run the builds. Visit the `mock wiki`_ for
 additional information on using mock.
 
-For a general understanding of how RPMs work, visit the `rpm website`_ or the
-`RPM Packaging Guide`_ .
+For a general understanding of how an RPM works, visit 
+the `rpm website`_ or the `RPM Packaging Guide`_ .
 
 How it works
 ************
@@ -44,7 +44,7 @@ The setup for building source in |CL| must be completed before using the
 autospec tool.
 
 Refer to `Setup environment to build source`_ for instructions on completing
-setup.
+the setup.
 
 Create an RPM
 =============
@@ -52,7 +52,7 @@ Create an RPM
 The basic autospec process is described in the following steps:
 
 #. The :command:`make autospec` command generates a :file:`.spec` file based on
-   analysis of code and existing control files.
+   the analysis of code and existing control files.
 
    Any control files should be located in the same directory as the resulting
    :file:`.spec` file.
@@ -65,13 +65,13 @@ The basic autospec process is described in the following steps:
 
 #. autospec detects any missed declarations in the :file:`.spec`.
 
-#. If build errors occur, autospec will scan the build log to try and detect
+#. If build errors occur, autospec scans the build log to try to detect
    the root cause.
 
-#. If autospec detects the root cause and knows how to continue, it will restart
+#. If autospec detects the root cause and knows how to continue, it restarts
    the build automatically at step 1 with updated build instructions.
 
-#. Otherwise, autospec will stop the build for user inspection to resolve the
+#. Otherwise, autospec stops the build for user inspection to resolve the
    errors. Respond to the build process output by fixing source code issues
    and/or editing control files to resolve issues, which may include
    dependencies or exclusions. See `autospec README`_ for more information on
@@ -79,7 +79,7 @@ The basic autospec process is described in the following steps:
 
    The user resumes the process at step 1 after errors are resolved.
 
-   If a binary dependency doesn't exist in |CL|, you will need to build it
+   If a binary dependency doesn't exist in |CL|, you must build it
    before running autospec again.
 
 Following these steps, autospec continues to rebuild the package, based on
@@ -95,10 +95,10 @@ Complete `Setup environment to build source`_ before using these examples.
    :local:
    :depth: 1
 
-Example 1: Build RPM with existing spec file
-============================================
+Example 1: Build RPM with an existing spec file
+===============================================
 
-This example shows how to build a RPM from a pre-packaged upstream package, with
+This example shows how to build a RPM from a pre-packaged upstream package with
 an existing spec file. The example uses the ``dmidecode`` package.
 
 #. Navigate to the autospec workspace and clone the ``dmidecode`` package:
@@ -110,7 +110,7 @@ an existing spec file. The example uses the ``dmidecode`` package.
 
    .. note::
 
-      You can clone all package repos at once using:
+      You can clone all package repos at once using the following command:
 
       .. code-block:: bash
 
@@ -147,7 +147,7 @@ create a simple helloclear RPM.
       cd ~/clearlinux
       make autospecnew URL="https://github.com/clearlinux/helloclear/archive/helloclear-v1.0.tar.gz" NAME="helloclear"
 
-   The resulting RPMs are in :file:`./packages/helloclear/rpms`. Builde logs and
+   The resulting RPMs are in :file:`./packages/helloclear/rpms`. Build logs and
    additional RPMs are in :file:`./packages/helloclear/results`.
 
 Example 3: Generate a new spec file with a pre-defined package
@@ -198,8 +198,8 @@ Example 4: Provide control files to autospec
 ============================================
 
 This example shows how to modify control files to correct build failures that
-autospec is unable to resolve. In this example you will add a missing license
-and dependencies in order for autospec to complete a successful build.
+autospec is unable to resolve. In this example, you will add a missing license
+and dependencies so autospec can complete a successful build.
 
 #. Navigate to the autospec workspace:
 
@@ -226,7 +226,7 @@ and dependencies in order for autospec to complete a successful build.
 
       make autospecnew URL="https://github.com/OPAE/opae-sdk/archive/0.13.0.tar.gz" NAME="opae-sdk"
 
-   This will give an error for a missing license file:
+   This results in an error for a missing license file:
 
    .. code-block:: console
 
@@ -238,7 +238,7 @@ and dependencies in order for autospec to complete a successful build.
 
       cd packages/opae-sdk
 
-#. Add one or more valid license identifier from the
+#. Add one or more valid license identifiers from the
    `SPDX License List <https://spdx.org/licenses/>`_.
    In the example below, two different licenses are appropriate based on the 
    opae-sdk project licensing:
@@ -253,7 +253,7 @@ and dependencies in order for autospec to complete a successful build.
 
       make autospec
 
-   This will result in a generic error:
+   This results in a generic error:
 
    .. code-block:: console
 
@@ -265,7 +265,7 @@ and dependencies in order for autospec to complete a successful build.
 
       cat ./results/build.log
 
-   In the build log, you will find details for the specific failures. In this
+   The build log contains details for the specific failures. In this
    instance, there are missing dependencies:
 
    .. code-block:: console
@@ -279,7 +279,7 @@ and dependencies in order for autospec to complete a successful build.
          linked by target "opae-c" in directory /builddir/build/BUILD/opae-sdk-0.13.0/libopae
 
 #. Search the spec files of upstream |CL| packages to see if the json-c library
-   is availabe. In this case, it does exist and we'll add the json-c 'dev'
+   is available. In this case, it does exist and we'll add the json-c 'dev'
    package into the buildreq_add:
 
    .. code-block:: bash
@@ -302,7 +302,7 @@ and dependencies in order for autospec to complete a successful build.
       grep 'libuuid\.so$' ~/clearlinux/packages/*/*.spec
       echo "util-linux-dev" >> buildreq_add
 
-#. Run autospec again and find the successfully-generated RPMs in the rpms
+#. Run autospec again and find the successfully-generated RPMs in the :file:`rpms`
    directory:
 
    .. code-block:: bash
@@ -384,7 +384,7 @@ To test an autospec-created package inside a VM:
    The code that makes this possible can be viewed by searching for the
    *install:*  target in the `Makefile.common file on GitHub`_.
 
-#. Return back to the :file:`~/clearlinux` directory and start the |CL| VM:
+#. Return to the :file:`~/clearlinux` directory and start the |CL| VM:
 
    .. code-block:: bash
 
@@ -411,7 +411,7 @@ Test directly on a development machine
 
 The |CL| development tooling also includes a method to extract
 autospec-created RPMs locally onto a |CL| development system for testing.
-Extracting an RPM directly onto a system  offers quicker testing, however
+Extracting an RPM directly onto a system  offers quicker testing; however
 conflicts may occur and responsibility to remove the software after testing is
 up to the developer.
 
@@ -456,7 +456,7 @@ automated for you with a setup script. It uses tools from the
 The setup script creates a workspace in the :file:`clearlinux` folder, with the
 subfolders :file:`Makefile`, :file:`packages`, and :file:`projects`. The
 :file:`projects` folder contains the main tools used for making packages in
-|CL|: `autospec` and `common`.
+|CL| :file:`autospec` and :file:`common`.
 
 Follow these steps to setup the workspace and tooling for building source:
 

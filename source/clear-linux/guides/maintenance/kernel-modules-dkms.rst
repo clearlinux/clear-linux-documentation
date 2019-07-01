@@ -129,8 +129,8 @@ Before you begin, you must:
 Obtain kernel module source
 ===========================
 
-A required :file:`dkms.conf` file inside of the kernel module's source code directory
-informs DKMS how the kernel module should be compiled.
+A required :file:`dkms.conf` file inside of the kernel module's source code
+directory informs DKMS how the kernel module should be compiled.
 
 Kernel modules may come packaged as:
 
@@ -141,10 +141,10 @@ Kernel modules may come packaged as:
 - Precompiled module binaries only (without source code)
 
 Of the package types listed above, only precompiled kernel module binaries
-will not work, because |CL| requires kernel modules to be built against
-the same kernel source tree before they can be loaded. If you are only able to
-obtain source code without a :file:`dkms.conf` file, you must manually create a
-:file:`dkms.conf` file, described later in this document.
+will not work, because |CL| requires kernel modules to be built against the
+same kernel source tree before they can be loaded. If you are only able to
+obtain source code without a :file:`dkms.conf` file, you must manually create
+a :file:`dkms.conf` file, described later in this document.
 
 #. Download the kernel module's source code.
 
@@ -210,8 +210,8 @@ If the kernel module source does not contain a :file:`dkms.conf` file or the
 create the file.
 
 Review the kernel module README documentation for guidance on what needs to be
-in the :file:`dkms.conf` file, including special variables that may be required to
-build successfully.
+in the :file:`dkms.conf` file, including special variables that may be
+required to build successfully.
 
 Here are some additional resources that can be used for reference:
 
@@ -223,6 +223,10 @@ Here are some additional resources that can be used for reference:
 
 * `Sample dkms.conf file`_ in the GitHub\* repository for the DKMS project.
 
+.. note::
+
+   :command:`AUTOINSTALL=yes` must be set in the dkms.conf for the module to
+   be automatically recompiled with |CL| updates. 
 
 The instructions below show a generic example:
 
@@ -240,6 +244,7 @@ The instructions below show a generic example:
       PACKAGE_NAME=custom_module
       PACKAGE_VERSION=1.0
       DEST_MODULE_LOCATION=/kernel/drivers/other
+      AUTOINSTALL=yes
 
    This example identifies a kernel module named *custom_module* with version
    *1.0*.

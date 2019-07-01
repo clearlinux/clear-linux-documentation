@@ -114,6 +114,7 @@ connection.
    :file:`/etc/NetworkManager/system-connections/*.nmconnection`. can be edited
    directly.
 
+
 #. Restart the NetworkManager server to reload the DNS servers:
 
    .. code-block:: bash
@@ -173,6 +174,7 @@ created manually.
    .. code-block:: bash
 
       sudo systemctl restart systemd-networkd
+
 
 #. Verify your static IP address details have been set:
 
