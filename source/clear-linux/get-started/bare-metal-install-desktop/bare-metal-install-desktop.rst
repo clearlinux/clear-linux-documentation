@@ -70,8 +70,8 @@ Confirm network connection
 ==========================
 
 Confirm there is a network connection before launching the installer.
-Choose a method: `Wired Connection`, or `WiFi Connected`.
-This guide shows an example of a **Wired Connection**.
+Choose a method: `Wired Connection`, or `WiFi Connected`. This guide shows
+an example of a **Wired Connection**.
 
 #. In the upper right of the top menu bar, select the square icon to view
    Network settings, shown in Figure 2.
@@ -242,6 +242,16 @@ Safe Installation
 Use this method to safely install |CL| on media with available space, or
 alongside existing partitions, and accept the `Default partition schema`_.
 If enough free space exists, safe installation is allowed.
+
+.. note::
+
+   |CL| allows installation alongside another OS. Typically, when you boot
+   your system, you can press an `F key` to view and select a bootable
+   device or partition during the BIOS POST stage. Some BIOSes present the
+   |CL| partition, and you can select and boot it. However, other
+   BIOSes may only show the primary partition, in which case you will not be
+   able boot |CL|. Be aware of this possible limitation.
+
 
 Destructive Installation
 ------------------------
