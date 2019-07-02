@@ -112,6 +112,7 @@ needs to be disabled before installation can continue.
 
 
 
+
 Configure Alternative Software Paths
 ====================================
 
@@ -132,8 +133,7 @@ server will need to be configured to use the content under
       
       sudo mkdir /etc/ld.so.conf.d
       printf "/opt/nvidia/lib \n/opt/nvidia/lib32 \n" | sudo tee --append /etc/ld.so.conf.d/nvidia.conf
-      
-      
+
 #. Reload the dynamic linker run-time bindings and library cache. 
 
    .. code-block:: bash
@@ -209,13 +209,13 @@ Install the NVIDIA Drivers
 
    .. code-block:: bash
 
-      sudo swupd diagnose --quick --bundles=lib-opengl
+      sudo swupd repair --quick --bundles=lib-opengl
 
 .. note::
 
    The NVIDIA software places some files under the :file:`/usr` subdirectory
    which are not managed by |CL| and conflict with the |CL| stateless design.
-   
+
    Although a limited version of :command:`swupd repair` is ran above,
    other uses of the :command:`swupd repair` command should be avoided
    with the proprietary NVIDIA drivers installed.
