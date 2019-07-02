@@ -79,7 +79,7 @@ The method below uses the command line tool *nmcli* to modify network
 connection. 
 
 
-#. Identify the existing connection name.
+#. Identify the existing connection name:
 
    .. code:: bash
 
@@ -114,7 +114,15 @@ connection.
    :file:`/etc/NetworkManager/system-connections/*.nmconnection`. can be edited
    directly.
 
-#. Verify your static IP address details have been set
+
+#. Restart the NetworkManager server to reload the DNS servers:
+
+   .. code-block:: bash
+
+      sudo systemctl restart NetworkManager
+
+
+#. Verify your static IP address details have been set:
 
    .. code-block:: bash
 
@@ -167,7 +175,8 @@ created manually.
 
       sudo systemctl restart systemd-networkd
 
-#. Verify your static IP address details have been set
+
+#. Verify your static IP address details have been set:
 
    .. code-block:: bash
 
