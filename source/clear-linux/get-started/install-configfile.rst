@@ -3,11 +3,10 @@
 Install using clr-installer and a configuration file
 ####################################################
 
-This guide shows you how to install |CL-attr| using the clr-installer tool
-with a configuration file. This method allows you to predefine configurations
-and options, which are then fed into clr-installer, thus relieving you of
-having to walk through the installer step by step. You can save the
-configuration file and reuse it again.
+This guide describes how to install |CL-attr| using the clr-installer tool
+with a configuration file. The configuration file (:file:`clr-installer.yaml`)
+can be used to duplicate the same installation configuration on more machines.
+
 
 System requirements
 *******************
@@ -20,92 +19,155 @@ Ensure that your target system supports the installation:
 Process
 *******
 
+This guide describes two methods for using a configuration file with the
+clr-installer tool. You can use either method to achieve the same goal. Choose
+the method that works best for your setup.
+
+Example 1
+=========
+
+This method uses an existing configuration file template to perform a new
+installation.
+
 Perform the following steps:
 
-#. Download the latest :file:`live-server.iso` file.
+#. Go to `Downloads`_ and download the latest Clear Linux OS Server image.
 
    For example:
-   https://download.clearlinux.org/releases/29690/clear/clear-29690-live-server.iso.xz
+   https://download.clearlinux.org/releases/30010/clear/clear-30010-live-server.iso.xz
 
-#. Uncompress it and burn it to a USB thumb drive.
+#. Follow the instructions to :ref:bootable-usb based on your OS.
+
 #. Boot up the USB thumb drive.
 #. Select :guilabel:`Clear Linux OS` from the menu.
-#. After it boots, press :guilabel:`<CTRL><Shift><F2>` to bring up a TTY console.
-#. Log in as root and set a password.
+#. In the console window, log in as root and set a password.
 #. Verify you have an IP address (network connection) and configure proxies (if needed).
-#. Download an :file:`installer.yaml` template.
+#. Download an :file:`live-server.yaml` template.
 
    For example:
 
    .. code-block:: bash
 
-      # curl -O https://download.clearlinux.org/releases/29690/clear/config/image/installer.yaml
+      # curl -O https://download.clearlinux.org/releases/30010/clear/config/image/live-server.yaml
 
 #. Edit the template and change the settings as needed. Commonly changed settings include:
 
-   * Under *block-devices*, set “file: "/dev/sda"” or enter your preferred device.
-   * Under *targetMedia*, set the third partition size to “0” to use the entire disk space.
-   * Under *bundles*, add additional bundles as needed.
-   * Delete the *kernel-arguments* section unless you want to add kernel parameters.
-   * Delete the *post-install* section unless you have post-installation scripts.
-   * Under *Version*, set a version number. Use “0” for the latest version.
+   .. _install-configfile-yaml-begin:
 
-   Commonly changed settings are shown in lines 14, 20, 22, and 31 below.
+      * Under *block-devices*, set “file: "/dev/sda"” or enter your preferred device.
+      * Under *targetMedia*, set the third partition size to “0” to use the entire disk space.
+      * Under *bundles*, add additional bundles as needed.
+      * Delete the *post-install* section unless you have post-installation scripts.
+      * Under *Version*, set a version number. Use “0” for the latest version.
+
+      Commonly changed settings are shown in lines 15, 34, 37, and 51 below.
+      See `Installer YAML Syntax`_ for more details.
 
    .. code-block:: bash
       :linenos:
-      :emphasize-lines: 14,20,22,31
+      :emphasize-lines: 14,15,34,37,51
 
-   		# clear-linux-config
+   		#clear-linux-config
 
-   		# c-basic-offset: 2; tab-width: 2; indent-tabs­mode: nil
+   		# c-basic-offset: 2; tab-width: 2; indent-tabs-mode: nil
    		# vi: set shiftwidth=2 tabstop=2 expandtab:
    		# :indentSize=2:tabSize=2:noTabs=true:
 
-   		# File:  installer.yaml
-   		# Use Case:  Base Text User Interface Installer
-   		#
-		# This YAML file generates the basic TUI installer image for
-		# Clear Linux OS
+   		# File:         developer-live-server.yaml
+   		# Use Case:     Live Image which boots into login prompt
+   		#               Optionally allows for installing Clear Linux OS
+   		#               using the TUI clr-installer by running clr-installer
 
-		# switch between aliases if you want to install to an actual block device
-		# i.e /dev/sda block-devices: [   {name: "installer", file: "/dev/sda"} ]
+   		# switch between aliases if you want to install to an actual block device
+   		# i.e /dev/sda
+   		block-devices: [
+   		   {name: "bdevice", file: "live-server.img"}
+   		]
 
-		targetMedia:
-		- name: ${installer}  type: disk  children:
-		- name: ${installer}1    fstype: vfat    mountpoint: /boot    size: "150M"   type: part
-		- name: ${installer}2    fstype: swap    size: "256M"    type: part
-  		- name: ${installer}3    fstype: ext4    mountpoint: /    size: "0"    type: part
+   		targetMedia:
+   		- name: ${bdevice}
+   		  type: disk
+   		  children:
+   		  - name: ${bdevice}1
+   		    fstype: vfat
+   		    mountpoint: /boot
+   		    size: "150M"
+   		    type: part
+   		  - name: ${bdevice}2
+   		    fstype: swap
+   		    size: "32M"
+   		    type: part
+   		  - name: ${bdevice}3
+   		    fstype: ext4
+   		    mountpoint: /
+   		    size: "3.0G"
+   		    type: part
 
-		bundles: [os-core, os-core-update, clr­installer, NetworkManager]
-		autoUpdate: false
-		postArchive: false
-		postReboot: false
-		telemetry: false
-		keyboard: us
-		language: en_US.UTF-8
-		kernel: kernel-native
+   		bundles: [os-core, os-core-update, NetworkManager, clr-installer, vim]
 
-		version: 28650
+   		autoUpdate: false
+   		postArchive: false
+   		postReboot: false
+   		telemetry: false
+   		iso: true
+   		keepImage: true
+   		autoUpdate: false
 
-		#
-		# Editor modelines  -  https://www.wireshark.org/tools/modelines.html
-		#
-		# Local variables:
-		# c-basic-offset: 2
-		# tab-width: 2
-		# indent-tabs-mode: nil
-		# End:
-		#
-		# vi: set shiftwidth=2 tabstop=2 expandtab:
-		# :indentSize=2:tabSize=2:noTabs=true:
-		#
+   		keyboard: us
+   		language: en_US.UTF-8
+   		kernel: kernel-native
+
+   		version: 0
+
+   .. _install-configfile-yaml-end:
 
 #. Start the installation.
 
    .. code-block:: bash
 
-   	  # clr-installer --config installer.yaml
+   	  # clr-installer --config live-server.yaml
+
+Example 2
+=========
+
+This method creates a configuration file template based on your local setup,
+which can be used to duplicate the installation on additional machines.
+
+Perform the following steps:
+
+#. Open a console window on the target where |CL| is installed to capture the
+   current configuration.
+
+#. In the console window, log in as root and enter your password.
+
+#. Change directory to root and use your preferred editor to open the
+   :file:`clr-installer.yaml` file.
+
+   .. code-block:: bash
+
+   	  # cd /root
+   	  # nano clr-installer.yaml
+
+#. Copy the :file:`clr-installer.yaml` file, replacing <file-path> with the
+   desired location on the other target.
+
+   .. code-block:: bash
+
+      # cp clr-installer.yaml <file-path>
+
+#. Edit the copied :file:`clr-installer.yaml` file and change the settings as needed.
+   Commonly changed settings include:
+
+   .. include:: install-configfile.rst
+      :start-after: install-configfile-yaml-begin:
+      :end-before: install-configfile-yaml-end:
+
+#. Start the installation on the other target.
+
+   .. code-block:: bash
+
+   	  # clr-installer --config live-server.yaml
+
 
 References
 **********
@@ -113,7 +175,7 @@ References
 * `Clear Linux Installer`_
 * `Installer YAML Syntax`_
 
-
+.. _Downloads: https://clearlinux.org/downloads
 .. _Clear Linux Installer: https://github.com/clearlinux/clr-installer
 
 .. _Installer YAML Syntax: https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md
