@@ -39,3 +39,12 @@ Network
    :glob:
 
    network/*
+
+Stacks
+======
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   stacks/*

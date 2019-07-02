@@ -3,7 +3,7 @@
 Deep Learning Reference Stack
 #############################
 
-This tutorial describes how to run benchmarking workloads for TensorFlow\*,
+This guide describes how to run benchmarking workloads for TensorFlow\*,
 PyTorch\*, and Kubeflow in |CL-ATTR| using the Deep Learning Reference Stack.
 
 .. contents::
@@ -17,7 +17,7 @@ We created the Deep Learning Reference Stack to help AI developers deliver the
 best experience on Intel® Architecture. This stack reduces complexity common
 with deep learning software components, provides flexibility for customized
 solutions, and enables you to quickly prototype and deploy Deep Learning
-workloads. Use this tutorial to run benchmarking workloads on your solution.
+workloads. Use this guide to run benchmarking workloads on your solution.
 
 The Deep Learning Reference Stack is available in the following versions:
 
@@ -182,12 +182,12 @@ single node.
 Kubeflow multi-node benchmarks
 ******************************
 
-The benchmark workload runs in a Kubernetes cluster. The tutorial uses
+The benchmark workload runs in a Kubernetes cluster. The guide uses
 `Kubeflow`_ for the Machine Learning workload deployment on three nodes.
 
 .. warning::
 
-   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform must support the Intel® AVX-512 instruction set. Otherwise, an *illegal instruction* error may appear, and you won’t be able to complete this tutorial.
+   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform must support the Intel® AVX-512 instruction set. Otherwise, an *illegal instruction* error may appear, and you won’t be able to complete this guide.
 
 
 Kubernetes setup
@@ -243,7 +243,7 @@ Images
 
 You must add `launcher.py`_ to the Docker image to include the Deep
 Learning Reference Stack and put the benchmarks repo in the correct
-location. Note that this tutorial uses Kubeflow v0.4.0, and cannot guarantee results if you use a different version. 
+location. Note that this guide uses Kubeflow v0.4.0, and cannot guarantee results if you use a different version. 
 
 From the Docker image, run the following:
 
@@ -350,8 +350,8 @@ Run a TFJob
 
 This replicates and deploys three test setups in your Kubernetes cluster.
 
-Results of running this tutorial
-================================
+Results of running this guide
+=============================
 
 You must parse the logs of the Kubernetes pod to retrieve performance
 data. The pods will still exist post-completion and will be in

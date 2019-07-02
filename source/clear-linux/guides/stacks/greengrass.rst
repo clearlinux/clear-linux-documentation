@@ -12,7 +12,7 @@ containerized environment. Hardware-accelerated FaaS provides the best-in-class
 performance by accessing optimized deep learning libraries on Intel® IoT
 edge devices with accelerators.
 
-This tutorial demonstrates how to:
+This guide demonstrates how to:
 
 * Set up the Intel® edge device with |CL-ATTR|
 * Install the OpenVINO™ toolkit and Amazon Web Services\* (AWS\*)
@@ -29,13 +29,13 @@ Supported platforms
 *******************
 
 *	Operating System: |CL| latest release
-*	Hardware:	Intel® core platforms (This tutorial supports inference on CPU only.)
+*	Hardware:	Intel® core platforms (This guide supports inference on CPU only.)
 
 Sample description
 ==================
 
 The AWS Greengrass samples are located at `Edge-Analytics-FaaS`_. This
-tutorial uses the 1.0 version of the source code.
+guide uses the 1.0 version of the source code.
 
 |CL| provides the following AWS Greengrass samples:
 
@@ -117,9 +117,9 @@ Locate sample models
 --------------------
 
 There are two types of provided models that can be used in conjunction with
-AWS Greengrass for this tutorial: classification or object detection.
+AWS Greengrass for this guide: classification or object detection.
 
-To complete this tutorial using an image classification model,
+To complete this guide using an image classification model,
 download the BVLC AlexNet model files `bvlc_alexnet.caffemodel`_ and `deploy.prototxt`_
 to the default model_location at :file:`/usr/share/openvino/models`.
 Any custom pre-trained classification models can be used with the
@@ -203,7 +203,7 @@ cloud and edge.
 Create and package Lambda function
 **********************************
 
-#. Complete steps 1-4 of the AWS Greengrass tutorial at `Create and Package a Lambda Function`_.
+#. Complete steps 1-4 of the AWS Greengrass guide at `Create and Package a Lambda Function`_.
 
    .. note::
 
@@ -271,7 +271,7 @@ configuring the Lambda function for AWS Greengrass.
       * - PARAM_MODEL_XML
         - <MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and
           contains IR.xml, the Intermediate Representation file from Intel® Model Optimizer.
-          For this tutorial, <MODEL_DIR> should be set to '/usr/share/openvino/models'
+          For this guide, <MODEL_DIR> should be set to '/usr/share/openvino/models'
           or one of its subdirectories.
       * - PARAM_INPUT_SOURCE
         - <DATA_DIR>/input.webm to be specified by user. Holds both input and
@@ -293,7 +293,7 @@ configuring the Lambda function for AWS Greengrass.
    .. note::
 
       The optional topic filter field is the topic mentioned inside the Lambda
-      function. In this tutorial, sample topics include the following:
+      function. In this guide, sample topics include the following:
       :command:`openvino/ssd` or :command:`openvino/classification`
 
 Add local resources
