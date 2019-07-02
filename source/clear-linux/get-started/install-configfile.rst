@@ -23,6 +23,10 @@ This guide describes two methods for using a configuration file with the
 clr-installer tool. You can use either method to achieve the same goal. Choose
 the method that works best for your setup.
 
+If you are installing |CL| for the first time, we recommend Example 1.
+
+To clone an existing |CL| setup on another system, we recommend Example 2.
+
 Example 1
 =========
 
@@ -36,7 +40,7 @@ Perform the following steps:
    For example:
    https://download.clearlinux.org/releases/30010/clear/clear-30010-live-server.iso.xz
 
-#. Follow the instructions to :ref:bootable-usb based on your OS.
+#. Follow the instructions to :ref:`bootable-usb` based on your OS.
 
 #. Boot up the USB thumb drive.
 #. Select :guilabel:`Clear Linux OS` from the menu.
@@ -48,84 +52,86 @@ Perform the following steps:
 
    .. code-block:: bash
 
-      # curl -O https://download.clearlinux.org/releases/30010/clear/config/image/live-server.yaml
+      curl -O https://download.clearlinux.org/releases/30010/clear/config/image/live-server.yaml
 
-#. Edit the template and change the settings as needed. Commonly changed settings include:
+#. Edit the template and change the settings as needed.
 
-   .. _install-configfile-yaml-begin:
+   Commonly changed settings include:
 
-      * Under *block-devices*, set “file: "/dev/sda"” or enter your preferred device.
-      * Under *targetMedia*, set the third partition size to “0” to use the entire disk space.
-      * Under *bundles*, add additional bundles as needed.
-      * Delete the *post-install* section unless you have post-installation scripts.
-      * Under *Version*, set a version number. Use “0” for the latest version.
+.. _install-configfile-yaml-begin:
 
-      Commonly changed settings are shown in lines 15, 34, 37, and 51 below.
-      See `Installer YAML Syntax`_ for more details.
+   #. Under *block-devices*, set “file: "/dev/sda"” or enter your preferred device.
+   #. Under *targetMedia*, set the third partition size to “0” to use the entire disk space.
+   #. Under *bundles*, add additional bundles as needed.
+   #. Delete the *post-install* section unless you have post-installation scripts.
+   #. Under *Version*, set a version number. To use the latest version, set to “0”.
+
+   Commonly changed settings are shown in lines 15, 34, 37, and 51 below.
+   See `Installer YAML Syntax`_ for more details.
 
    .. code-block:: bash
       :linenos:
       :emphasize-lines: 14,15,34,37,51
 
-   		#clear-linux-config
+		#clear-linux-config
 
-   		# c-basic-offset: 2; tab-width: 2; indent-tabs-mode: nil
-   		# vi: set shiftwidth=2 tabstop=2 expandtab:
-   		# :indentSize=2:tabSize=2:noTabs=true:
+		# c-basic-offset: 2; tab-width: 2; indent-tabs-mode: nil
+		# vi: set shiftwidth=2 tabstop=2 expandtab:
+		# :indentSize=2:tabSize=2:noTabs=true:
 
-   		# File:         developer-live-server.yaml
-   		# Use Case:     Live Image which boots into login prompt
-   		#               Optionally allows for installing Clear Linux OS
-   		#               using the TUI clr-installer by running clr-installer
+		# File:         developer-live-server.yaml
+		# Use Case:     Live Image which boots into login prompt
+		#               Optionally allows for installing Clear Linux OS
+		#               using the TUI clr-installer by running clr-installer
 
-   		# switch between aliases if you want to install to an actual block device
-   		# i.e /dev/sda
-   		block-devices: [
-   		   {name: "bdevice", file: "live-server.img"}
-   		]
+		# switch between aliases if you want to install to an actual block device
+		# i.e /dev/sda
+		block-devices: [
+		   {name: "bdevice", file: "/dev/sda"}
+		]
 
-   		targetMedia:
-   		- name: ${bdevice}
-   		  type: disk
-   		  children:
-   		  - name: ${bdevice}1
-   		    fstype: vfat
-   		    mountpoint: /boot
-   		    size: "150M"
-   		    type: part
-   		  - name: ${bdevice}2
-   		    fstype: swap
-   		    size: "32M"
-   		    type: part
-   		  - name: ${bdevice}3
-   		    fstype: ext4
-   		    mountpoint: /
-   		    size: "3.0G"
-   		    type: part
+		targetMedia:
+		- name: ${bdevice}
+		  type: disk
+		  children:
+		  - name: ${bdevice}1
+		    fstype: vfat
+		    mountpoint: /boot
+		    size: "150M"
+		    type: part
+		  - name: ${bdevice}2
+		    fstype: swap
+		    size: "32M"
+		    type: part
+		  - name: ${bdevice}3
+		    fstype: ext4
+		    mountpoint: /
+		    size: "0"
+		    type: part
 
-   		bundles: [os-core, os-core-update, NetworkManager, clr-installer, vim]
+		bundles: [os-core, os-core-update, NetworkManager, clr-installer, vim]
 
-   		autoUpdate: false
-   		postArchive: false
-   		postReboot: false
-   		telemetry: false
-   		iso: true
-   		keepImage: true
-   		autoUpdate: false
+		autoUpdate: false
+		postArchive: false
+		postReboot: false
+		telemetry: false
+		iso: true
+		keepImage: true
+		autoUpdate: false
 
-   		keyboard: us
-   		language: en_US.UTF-8
-   		kernel: kernel-native
+		keyboard: us
+		language: en_US.UTF-8
+		kernel: kernel-native
 
-   		version: 0
+		version: 30010
 
-   .. _install-configfile-yaml-end:
+.. _install-configfile-yaml-end:
 
-#. Start the installation.
+Start the installation with the command:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-   	  # clr-installer --config live-server.yaml
+   clr-installer --config live-server.yaml
 
 Example 2
 =========
@@ -145,29 +151,28 @@ Perform the following steps:
 
    .. code-block:: bash
 
-   	  # cd /root
-   	  # nano clr-installer.yaml
+   	  cd /root
+   	  nano clr-installer.yaml
 
 #. Copy the :file:`clr-installer.yaml` file, replacing <file-path> with the
    desired location on the other target.
 
    .. code-block:: bash
 
-      # cp clr-installer.yaml <file-path>
+      cp clr-installer.yaml <file-path>
 
 #. Edit the copied :file:`clr-installer.yaml` file and change the settings as needed.
    Commonly changed settings include:
 
-   .. include:: install-configfile.rst
-      :start-after: install-configfile-yaml-begin:
-      :end-before: install-configfile-yaml-end:
+.. include:: install-configfile.rst
+   :start-after: install-configfile-yaml-begin:
+   :end-before: install-configfile-yaml-end:
 
-#. Start the installation on the other target.
+Start the installation on the other target with the command:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-   	  # clr-installer --config live-server.yaml
-
+   clr-installer --config clr-installer.yaml
 
 References
 **********
