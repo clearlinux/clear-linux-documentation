@@ -14,7 +14,7 @@ Our documentation is divided into the following sections:
 :ref:`get-started`
     .. include:: /includes/get-started.txt
 
-:ref:`clear-linux-tooling`
+:ref:`tooling`
     Clear Linux is a little different from other distros. Here are some
     important tools and concept for managing your install.
 

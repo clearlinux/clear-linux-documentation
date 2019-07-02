@@ -1,4 +1,4 @@
-.. _clear-linux-tooling:
+.. _tooling:
 
 Tooling
 #######
