@@ -1,71 +1,175 @@
 .. _assign-static-ip:
 
-Assign a static IP address to a network interface
-#################################################
-
-Introduction
-************
+Assign a static IP address
+##########################
 
 By default, your |CL-ATTR| system automatically gets an IP address from your
 network via DHCP. If you do not have a DHCP server on your network or simply
 want to use a static IP address, follow the steps in this guide.
 
-Process
-*******
+.. contents::
+   :local:
+   :depth: 1
 
-#.	Create this directory structure:
+Identify which program is managing the interface
+************************************************
 
-	.. code-block:: bash
+New installations of |CL| use NetworkManager as the default network interface
+manager for all network connections.
 
-		sudo mkdir -p /etc/systemd/network
+.. note:: 
 
-#.	Identify the interface to be assigned the static IP address:
+   * The *cloud* |CL| images continue to use systemd-networkd to manage
+     network connections.
 
-	.. code-block:: bash
+   * In earlier |CL| versions, systemd-network was used to manage Ethernet
+     interfaces and NetworkManager was used for wireless interfaces.
 
-		ip addr
 
-	The system returns the following:
+Before defining a configuration for assigning a static IP address, you should
+verify which program is managing the network interface.
 
-	.. code-block:: console
+#. Check the output of :command:`nmcli device` to see if NetworkManager is
+   managing the device.
 
-		1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-		    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-		    inet 127.0.0.1/8 scope host lo
-		       valid_lft forever preferred_lft forever
-		    inet6 ::1/128 scope host
-		       valid_lft forever preferred_lft forever
+   .. code-block:: bash
 
-		2: wlp1s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
-		    link/ether 4a:98:8d:e5:43:15 brd ff:ff:ff:ff:ff:ff
+      nmcli device status
 
-		3: eno1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq state UP group default qlen 1000
-		    link/ether f4:4d:30:68:96:20 brd ff:ff:ff:ff:ff:ff
-		    inet 10.0.1.2/24 brd 10.54.74.255 scope global dynamic eno1
-		       valid_lft 6766sec preferred_lft 6766sec
-		    inet6 fe80::f64d:30ff:fe68:9620/64 scope link
-		       valid_lft forever preferred_lft forever
+   If the STATE column for the device shows *connected* or *disconnected*, the
+   network configuration is being managed by NetworkManager and the instructions
+   for :ref:`using NetworkManager <nm-static-ip>` should be used. 
 
-	In this example, we will use the `eno1` interface.
+   If the STATE column for the device shows *unmanaged*, check to see if the
+   device is being managed by systemd-networkd  
 
-#.	Create the :file:`70-static.network` file and add the following:
 
-	.. code-block:: bash
+#. Check the output of :command:`networkctl list` to see if
+   systemd-networkd is managing the device.
 
-		sudo $EDITOR /etc/systemd/network/70-static.network
+   .. code-block:: bash
 
-		[Match]
-		Name=[interface name]
-		[Network]
-		Address=[IP address]/24
-		DHCP=yes # to get DNS info, etc.
+      networkctl list 
 
-	Replace [interface name] and [IP address] with your specific settings.
+   If the SETUP column for the device shows *configured*, the network
+   configuration is being managed by systemd-networkd and the instructions for
+   :ref:`using systemd-networkd <networkd-static-ip>` should be used. 
 
-#.	Restart the networkd service:
 
-	.. code-block:: bash
+.. _nm-static-ip:
 
-		sudo systemctl restart systemd-networkd
+Using NetworkManager
+********************
 
-**Congratulations!** You have successfully assigned a static IP address.
+Network connections managed by NetworkManager are stored as files with the
+:file:`.nmconnection` file extension in the
+:file:`/etc/NetworkManager/system-connections/` directory.
+
+A few tools exists to aid to manipulate network connections managed by
+NetworkManager:
+
+* nmcli - a command-line tool 
+
+* nmtui - a text user interface that provides a pseudo graphical menu in the
+  terminal
+
+* nm-connection-editor - a graphical user interface
+
+The method below uses the command line tool *nmcli* to modify network
+connection. 
+
+
+#. Identify the existing connection name.
+
+   .. code:: bash
+
+      nmcli connection show
+
+   The output will look like this:
+
+   .. code:: bash
+
+      NAME                UUID                                  TYPE            DEVICE 
+      Wired connection 1  00000000-0000-0000-0000-000000000000  802-3-etherneten01
+
+   If a connection does not exist, it will need to be created with
+   :command:`nmcli connection add`.  
+
+
+#. Modify the connection to use a static IP address. Replace the variables in
+   brackets with the appropriate values. *[CONNECTION_NAME]* should be
+   replaced with the NAME from the command above. 
+
+   .. code::
+
+      sudo nmcli connection modify "[CONNECTION_NAME]" \
+      ipv4.method "manual" \
+      ipv4.addresses "[IP_ADDRESS]/[CIDR_NETMASK]" \
+      ipv4.gateway "[GATEWAY_IP_ADDRESS]" \
+      ipv4.dns "[PRIMARY_DNS_IP],[SECONDARY_DNS_IP]"
+
+
+   See the `nmcli developer page <https://developer.gnome.org/NetworkManager/stable/nmcli.html>`_ for more
+   configuration options. For advanced configurations, the
+   :file:`/etc/NetworkManager/system-connections/*.nmconnection`. can be edited
+   directly.
+
+#. Verify your static IP address details have been set
+
+   .. code-block:: bash
+
+      nmcli
+
+
+
+.. _networkd-static-ip:
+
+Using systemd-networkd 
+**********************
+
+Network connections managed by systemd-networkd are stored as files with the
+:file:`.network` file extension the :file:`/etc/systemd/network/` directory.
+
+Files to manipulate network connections managed by systemd-networkd must be
+created manually. 
+
+#. Create the :file:`/etc/systemd/network` directory if it doesn't exist already:
+
+   .. code-block:: bash
+
+      sudo mkdir -p /etc/systemd/network
+
+#. Create a :file:`.network` file and add the following content. Replace the
+   variables in brackets with the appropriate values. *[INTERFACE_NAME]*
+   should be replaced with LINK from the output of :command:`networkctl list`
+   ran previously.
+
+   .. code-block:: bash
+
+      sudo $EDITOR /etc/systemd/network/70-static.network
+
+      [Match]
+      Name=[INTERFACE_NAME]
+
+      [Network]
+      Address=[IP_ADDRESS]/[CIDR_NETMASK]
+      Gateway=[GATEWAY_IP_ADDRESS]
+      DNS=[PRIMARY_DNS_IP]
+      DNS=[SECONDARY_DNS_IP]
+
+   See the `systemd-network man page
+   <https://www.freedesktop.org/software/systemd/man/systemd.network.html>`_
+   for more configuration options.
+
+#. Restart the systemd-networkd service:
+
+   .. code-block:: bash
+
+      sudo systemctl restart systemd-networkd
+
+#. Verify your static IP address details have been set
+
+   .. code-block:: bash
+
+      networkctl status
+

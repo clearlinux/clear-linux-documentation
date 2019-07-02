@@ -35,14 +35,11 @@ Table 2 lists the currently available images that are platform specific.
    * - Image Type
      - Description
 
-   * - installer.img
-     - Preferred image of |CL| with interactive installer.
+   * - live-desktop.img or live-desktop.iso
+     - Image for booting to GNOME\* desktop to preview or install the OS.
 
-   * - installer.iso
-     - ISO of |CL| with interactive installer. Only for special cases where ISO image format is required (not for use with a USB key)
-
-   * - live.img
-     - Image for live booting into memory, without requiring installaton.
+   * - live-server.img or live-server.iso
+     - Image for booting to server command prompt to preview or install the OS.
 
 .. list-table:: Table 2: Types of platform-specific |CL| images
    :widths: 15, 85
@@ -51,20 +48,23 @@ Table 2 lists the currently available images that are platform specific.
    * - Image Type
      - Description
 
+   * - aws.img
+     - Image suitable for use with Amazon\* AWS\*.
+
    * - azure.vhd
-     - Virtual Hard Disk for use on Microsoft\* Azure\* cloud platform
+     - Virtual Hard Disk for use on Microsoft\* Azure\* cloud platform.
 
    * - azure-docker.vhd
-     - Virtual Hard Disk for use on Microsoft Azure cloud platform with Docker\* pre-installed
+     - Virtual Hard Disk for use on Microsoft Azure cloud platform with Docker\* pre-installed.
 
    * - azure-machine-learning.vhd
-     - Virtual Hard Disk for use on Microsoft Azure cloud platform with the `machine-learning-basic` bundle installed
+     - Virtual Hard Disk for use on Microsoft Azure cloud platform with the `machine-learning-basic` bundle installed.
 
-   * - cloud.img
-     - Image for use by cloud deployments such as OpenStack\*
+   * - cloudguest.img
+     - Image with generic cloud guest virtual machine (VM) requirements installed.
 
-   * - containers.img
-     - Image for use by Clear Containers runtime. Includes `optimized kernel`_ for Clear Containers.
+   * - gce.tar
+     - Image with the Google Compute Engine (GCE) specific kernel.
 
    * - hyperv.vhdx
      - Virtual Hard Disk for use with Microsoft Hyper-V\* hypervisor. Includes `optimized kernel`_ for Hyper-V.
@@ -73,9 +73,15 @@ Table 2 lists the currently available images that are platform specific.
      - Image for booting in a simple VM with start_qemu.sh. Includes
        `optimized kernel`_ for KVM.
 
+   * - kvm-legacy.img
+     - Image for booting in a simple VM using legacy BIOS, if using start_qemu.sh make sure to remove -bios parameter.
+
+   * - pxe.tar
+     - Image suitable for use with PXE server.
+
    * - vmware.vmdk
      - Virtual Machine Disk for VMware\* platforms inclduing Player, Workstation, and ESXi.
 
-.. _images: https://cdn.download.clearlinux.org/image
+.. _images: https://clearlinux.org/downloads
 .. _`optimized kernel`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
 
