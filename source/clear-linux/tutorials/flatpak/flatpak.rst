@@ -1,103 +1,127 @@
-.. _flatpak:
+.. _flatpak-tutorial:
 
-Use Flatpak\* to install applications on |CL-ATTR|
-##################################################
+Use Flatpak\* to install applications
+#####################################
 
-This tutorial provides all the required steps to install Flatpak as well as
-downloading, installing, and running LibreOffice\* on |CL-ATTR|.
+`Flatpak`_ is a framework for building and distributing desktop apps on
+Linux\*. It allows you to build a single app and install it on different
+distributions of Linux. Flatpak apps are available through `Flathub`_ or the
+`Clear Linux Store`_.
 
-Please visit the `Flatpak website`_ for more information about Flatpak and
-how to use it. You can also `download it here`_.
+This tutorial shows how to install a Flatpak app on |CL| using Gnome Software
+and the command line.
 
-Before you begin
-****************
+Prerequisites
+*************
 
-This tutorial assumes you have installed |CL| on your host system.
-For detailed instructions on installing |CL| on a bare metal system, visit
-our :ref:`bare metal installation guide <bare-metal-install-desktop>`.
+* |CL| installed on host system
 
-Install Flatpak on your host system
-===================================
+  Refer to :ref:`Get started <get-started>` for installation instructions.
 
-Flatpak is included as part of the bundle `desktop`. To install the
-application, log in to your user account and enter the following command:
+* `desktop` bundle installed
 
-.. code-block:: bash
+  Flatpak is included as part of the `desktop` bundle. The Flathub repository is
+  pre-configured when the `desktop` bundle is installed.
 
-   sudo swupd bundle-add desktop
+  Install the `desktop` bundle with the following command:
 
-Install and run the LibreOffice Flatpak image
-=============================================
+  .. code-block:: bash
 
-Application developers have the option to bundle their applications using
-Flatpak to allow the installation of a single distribution of their
-application on different distributions of Linux, including |CL|.
-Flatpak provides a `list of applications`_ available through Flathub.
+     sudo swupd bundle-add desktop
 
-|CL| enables the Flathub repository by default.
+Install a Flatpak app with Gnome Software
+*****************************************
+
+|CL| desktop comes with `Gnome Software` installed. Flatpak apps can be
+installed from within `Gnome Software`.
+
+#. Launch `Gnome Software` from your desktop.
+
+#. Search for the Flatpak app that you want to install, as shown in figure 1.
+
+   .. figure:: figures/flatpak-01.png
+      :scale: 100%
+      :alt: Searching for Filezilla app in Gnome Software
+
+      Figure 1: Searching for Filezilla app in Gnome Software
+
+#. When you find the app you want to install, click it to view application
+   details.
+
+#. On the app detail page, click the :guilabel:`Install` button, as shown in
+   figure 2.
+
+   .. figure:: figures/flatpak-02.png
+      :scale: 100%
+      :alt: The Filezilla Flatpak detail page in Gnome Software
+
+      Figure 2: The Filezilla Flatpak detail page in Gnome Software
+
+#. After installation is complete, you will see the new application in your
+   Gnome applications list, as shown in figure 3.
+
+   .. figure:: figures/flatpak-03.png
+      :scale: 100%
+      :alt: Newly installed Filezilla application
+
+      Figure 3: Newly installed Filezilla application
+
+#. Click the application icon to launch the application.
+
+Install a Flatpak with the command line
+***************************************
+
+Both Flathub and the Clear Linux Store provide the command line instructions for
+installing a Flatpak. Figure 4 shows the command line instructions to install
+Filezilla from the Clear Linux Store:
+
+.. figure:: figures/flatpak-04 .png
+   :scale: 100%
+   :alt: Command line instructions to install Filezilla from the Clear Linux Store
+
+   Figure 4: Command line instructions to install Filezilla from the Clear Linux Store
+
+In this example, we install Filezilla.
+
+#. Open a terminal and enter the install command for the desired app:
+
+   .. code-block:: bash
+
+      flatpak install flathub org.filezillaproject.Filezilla
+
+   You may be prompted to select which repo to use:
+
+   .. code-block:: bash
+
+      Looking for matches…
+      Remote ‘flathub’ found in multiple installations:
+
+         1) system
+         2) user
+
+      Which do you want to use (0 to abort)? [0-2]: 2
+
+      org.filezillaproject.Filezilla permissions:
+          ipc      network              ssh-auth             wayland      x11
+          dri      file access [1]      dbus access [2]
+
+          [1] host, xdg-run/dconf, ~/.config/dconf:ro
+          [2] ca.desrt.dconf, org.freedesktop.Notifications, org.freedesktop.PowerManagement,
+              org.gnome.SessionManager
 
 
-Installing using gnome software
--------------------------------
+              ID                                       Arch      Branch    Remote    Download
+       1. [✓] org.filezillaproject.Filezilla           x86_64    stable    flathub   11.5 MB / 11.5 MB
+       2. [✓] org.filezillaproject.Filezilla.Locale    x86_64    stable    flathub    4.6 kB / 3.8 MB
 
-All you need to do is to launch `gnome software`, search for the LibreOffice
-app, and click the install button.
+      Installation complete.
 
-.. figure:: figures/01-install-libreoffice.gif
-   :alt: install libreoffice step by step
+#. After installation, run the application with the following command:
 
-   Figure 1: Installing LibreOffice using gnome-software
+   .. code-block:: bash
 
+      flatpak run org.filezillaproject.Filezilla
 
-
-Installing using the command line
----------------------------------
-
-Open the `gnome-terminal` and type the following command to install the
-LibreOffice app.
-
-.. code-block:: bash
-
-   flatpak install --user flathub org.libreoffice.LibreOffice
-   Installing in user:
-   org.libreoffice.LibreOffice/x86_64/stable        flathub 2aff77bd5cf1
-     permissions: ipc, network, pulseaudio, wayland, x11, dri
-     file access: host, xdg-run/dconf
-     dbus access: ca.desrt.dconf, org.gtk.vfs.*
-     dbus ownership: org.libreoffice.LibreOfficeIpc0
-   org.libreoffice.LibreOffice.Locale/x86_64/stable flathub 924157b3b009
-   Is this ok [y/n]: y
-   Installing for user: org.libreoffice.LibreOffice/x86_64/stable from flathub
-   [####################] 403 metadata, 4661 content objects fetched; 222574 KiB transferred in 99 seconds
-   Now at 2aff77bd5cf1.
-   Installing for user: org.libreoffice.LibreOffice.Locale/x86_64/stable from flathub
-   [####################] 10 metadata, 71 content objects fetched; 1013 KiB transferred in 3 seconds
-   Now at 924157b3b009.
-
-
-Launch LibreOffice
-==================
-A new set of icons will appear in your Gnome applications list titled :guilabel:`LibreOffice.` To
-execute the application, highlight the application and click on the :guilabel:`LibreOffice` icon.
-LibreOffice will start normally.
-
-.. figure:: figures/02-openlibreoffice.gif
-   :alt: Opening LibreOffice app
-
-   Figure 2: Select :guilabel:`LibreOffice` app
-
-Using the command line
-----------------------
-
-.. code-block:: bash
-
-   flatpak run org.libreoffice.LibreOffice
-
-
-.. _Flatpak website: http://flatpak.org
-
-.. _list of applications: http://flatpak.org/apps.html
-
-.. _download it here:
-   http://download.documentfoundation.org/libreoffice/flatpak/latest/LibreOffice.flatpak
-
+.. _Flatpak: https://flatpak.org
+.. _Flathub: https://flathub.org
+.. _Clear Linux Store: https://clearlinux.org/software
