@@ -31,6 +31,9 @@ Our documentation is divided into the following sections:
     Find the detailed information you need to enable your configuration or task
     in our |CL| reference section.
 
+:ref:`faq`
+    Refer to our FAQ section to read commonly asked questions and answers.
+
 .. toctree::
     :maxdepth: 2
     :hidden:
@@ -40,3 +43,4 @@ Our documentation is divided into the following sections:
     guides/guides
     tutorials/tutorials
     reference/reference
+    FAQ/faq
