@@ -145,6 +145,8 @@ server will need to be configured to use the content under
 
    .. code-block:: bash
 
+      sudo mkdir -p /etc/X11/xorg.conf.d/
+      
       sudo tee /etc/X11/xorg.conf.d/nvidia-files-opt.conf > /dev/null <<'EOF'
       Section "Files"
               ModulePath      "/usr/lib64/xorg/modules"
@@ -216,7 +218,7 @@ Install the NVIDIA Drivers
    The NVIDIA software places some files under the :file:`/usr` subdirectory
    which are not managed by |CL| and conflict with the |CL| stateless design.
 
-   Although a limited version of :command:`swupd repair` is ran above,
+   Although a limited version of :command:`swupd repair` is run above,
    other uses of the :command:`swupd repair` command should be avoided
    with the proprietary NVIDIA drivers installed.
 
