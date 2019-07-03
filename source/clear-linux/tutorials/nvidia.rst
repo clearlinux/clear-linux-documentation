@@ -281,7 +281,7 @@ driver restored by:
       sudo rm /etc/modprobe.d/disable-nouveau.conf
 
 
-# Remove the :file`xorg.conf.d` file that adds a search path for X modules.
+#. Remove the :file`xorg.conf.d` file that adds a search path for X modules.
 
    .. code:: bash
 
