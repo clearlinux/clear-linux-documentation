@@ -49,6 +49,11 @@ Follow these steps to install |CL| on the target system:
 #. Open the system BIOS setup menu by pressing the :kbd:`F2` key.
    Your BIOS setup menu entry point may vary.
 
+   .. note::
+      |CL| supports UEFI boot. Some hardware may list UEFI and non-UEFI USB
+      boot entries. In this case, you should select the `UEFI` boot
+      option.
+
 #. In the setup menu, enable the UEFI boot and set the USB drive as the first
    option in the device boot order.
 
