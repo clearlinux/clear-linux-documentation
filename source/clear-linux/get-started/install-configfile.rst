@@ -136,43 +136,42 @@ Start the installation with the command:
 Example 2
 =========
 
-This method creates a configuration file template based on your local setup,
-which can be used to duplicate the installation on additional machines.
+This method uses a saved configuration file from a previous installation,
+which you can use to easily duplicate the installation on additional machines.
 
 Perform the following steps:
 
-#. Open a console window on the target where |CL| is installed to capture the
-   current configuration.
+#. Open a console window on a system where |CL| was installed to retrieve a
+   copy of the configuration file.
 
 #. In the console window, log in as root and enter your password.
 
-#. Change directory to root and use your preferred editor to open the
-   :file:`clr-installer.yaml` file.
+#. Change directory to :file:`/root` and copy the :file:`clr-installer.yaml`
+   file to a thumb drive.
 
    .. code-block:: bash
 
    	  cd /root
-   	  nano clr-installer.yaml
+   	  cp clr-installer.yaml
 
-#. Copy the :file:`clr-installer.yaml` file, replacing <file-path> with the
-   desired location on the other target.
+Start the installation on the target with the following commands:
+
+#. Go to `Downloads`_ and download the latest Clear Linux OS Server image.
+
+   For example:
+   https://download.clearlinux.org/releases/30010/clear/clear-30010-live-server.iso.xz
+
+#. Follow the instructions to :ref:`bootable-usb` based on your OS.
+
+#. Boot up the USB thumb drive.
+#. Select :guilabel:`Clear Linux OS` from the menu.
+#. In the console window, log in as root and set a password.
+#. Verify you have an IP address (network connection) and configure proxies (if needed).
+#. Start the installation with the command:
 
    .. code-block:: bash
 
-      cp clr-installer.yaml <file-path>
-
-#. Edit the copied :file:`clr-installer.yaml` file and change the settings as needed.
-   Commonly changed settings include:
-
-.. include:: install-configfile.rst
-   :start-after: install-configfile-yaml-begin:
-   :end-before: install-configfile-yaml-end:
-
-Start the installation on the other target with the command:
-
-.. code-block:: bash
-
-   clr-installer --config clr-installer.yaml
+      clr-installer --config clr-installer.yaml
 
 References
 **********
