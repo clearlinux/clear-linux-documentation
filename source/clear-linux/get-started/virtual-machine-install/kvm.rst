@@ -58,8 +58,8 @@ Download and launch the virtual machine
 
       unxz -v clear-<version>-kvm.img.xz
 
-#. Download the 3 OVMF files (`OVMF.fd`, `OVMF_CODE.fd`, `OVMF_VARS.fd`) that provides UEFI 
-   support for virtual machines.
+#. Download the 3 OVMF files (`OVMF.fd`, `OVMF_CODE.fd`, `OVMF_VARS.fd`) that
+   provides UEFI  support for virtual machines.
 
    .. code-block:: bash
 
@@ -69,11 +69,11 @@ Download and launch the virtual machine
 
    .. note::
 
-      The default OVMF files from |CL| may not work for some distro version(s).  
-      You may get an `ASSERT` in the `debug.log` file when starting the VM.  
-      If that is the case, use the distro-specific-OVMF files instead. 
-      For example, the |CL| OVMF files work for Ubuntu 18.04 LTS, but not for Ubuntu 19.04 LTS.  
-      Installing and using the OVMF files for Ubuntu 19.04 LTS resolved the `ASSERT` issue.    
+      The default OVMF files from |CL| may not work for some distro version(s).
+      You may get an `ASSERT` in the `debug.log` file when starting the VM.
+      If that is the case, use the distro-specific-OVMF files instead.
+      For example, the |CL| OVMF files work for Ubuntu 18.04 LTS, but not for Ubuntu 19.04 LTS.
+      Installing and using the OVMF files for Ubuntu 19.04 LTS resolved the `ASSERT` issue.
 
 #. Download the `QEMU-KVM launcher`_ script from the
    `image <https://cdn.download.clearlinux.org/image/>`_ directory.  This script
@@ -119,6 +119,13 @@ launched from, follow these steps.
       systemctl enable sshd
       systemctl start sshd
 
+#. Determine the IP address of the host on which you will launch the VM.
+   Substitute <ip-addr-of-kvm-host> in the next step with this information.
+
+   .. code-block:: bash
+
+      ip a
+
 #. SSH into the |CL| VM using the default port of  `10022`:
 
    .. code-block:: bash
@@ -126,7 +133,7 @@ launched from, follow these steps.
       ssh -p 10022 root@<ip-addr-of-kvm-host>
 
 Optional: Add the GNOME Display Manager (GDM)
-***********************************
+*********************************************
 
 To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
@@ -136,7 +143,8 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
       poweroff
 
-#. Install the Spice viewer on the local host or remote system.  Below are some example distros.
+#. Install the Spice viewer on the local host or remote system. Below are some
+   example distros.
 
    * On Clear Linux:
 
@@ -164,7 +172,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 #. Modify the :file:`start_qemu.sh` script to increase memory (`-m`), add
    graphics driver (`-vga`), and add Spice (`-spice`, `-usb`, and
-   `-device`) support.  
+   `-device`) support.
 
    .. code-block:: console
 
@@ -184,15 +192,15 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
           -debugcon file:debug.log -global isa-debugcon.iobase=0x402 $@
 
 #. Due to changes in the :file:`start_qemu.sh` script from the previous step,
-   using the same OVMF files will result in the VM not booting properly and 
-   you end up in the the UEFI shell.  The easiest way to avoid this is to delete 
+   using the same OVMF files will result in the VM not booting properly and
+   you end up in the the UEFI shell.  The easiest way to avoid this is to delete
    the OVMF files and restore the originals before relaunching the VM.
 
 #. Increase the size of the VM by 10GB to accommodate the GDM installation:
 
    .. code-block:: bash
 
-      qemu-img resize -f raw clear-<version>-kvm.img +10G 
+      qemu-img resize -f raw clear-<version>-kvm.img +10G
 
 #. Relaunch the |CL| VM:
 
@@ -200,8 +208,15 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
       sudo ./start_qemu.sh clear-<version>-kvm.img
 
-#. From the local host or remote system, open a new terminal emulator window and 
-   connect into the |CL| VM using the Spice viewer:
+#. Determine the IP address of the host on which you will launch the VM.
+   Substitute <ip-addr-of-kvm-host> in the next step with this information.
+
+   .. code-block:: bash
+
+      ip a
+
+#. From the local host or remote system, open a new terminal emulator window
+   and connect into the |CL| VM using the Spice viewer:
 
    .. code-block:: bash
 
@@ -225,7 +240,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 #. Go through the GDM out-of-box experience (OOBE).
 
-#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3.  To change
+#. The default aspect ratio of the GDM GUI for the |CL| VM is 4:3. To change
    it, use GDM's `Devices > Displays` setting tool (located at the top-right corner).
 
 
