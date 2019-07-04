@@ -356,15 +356,13 @@ team for improvements. For more information, see :ref:`telemetry-about`.
 
 #. Select :kbd:`Confirm`.
 
-#. If you don't wish to participate, deselect :kbd:`Enable Telemetry`.
-
-#. Select :kbd:`Confirm`.
-
    .. figure:: figures/bare-metal-install-desktop-12.png
       :scale: 100%
       :alt: Enable Telemetry
 
       Figure 12: Enable Telemetry
+
+#. If you don't wish to participate, select :kbd:`No`.
 
 Advanced options
 ****************
