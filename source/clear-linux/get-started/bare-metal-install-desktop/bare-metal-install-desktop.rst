@@ -354,7 +354,7 @@ team for improvements. For more information, see :ref:`telemetry-about`.
 
 #. From :guilabel:`Required Options`, select :guilabel:`Telemetry`.
 
-#. Select :kbd:`Confirm`.
+#. Select :kbd:`Yes`.
 
    .. figure:: figures/bare-metal-install-desktop-12.png
       :scale: 100%
