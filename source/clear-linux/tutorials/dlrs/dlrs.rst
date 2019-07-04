@@ -53,8 +53,9 @@ Stack features
 
 .. note::
 
-   Performance test results for the Deep Learning Reference Stack were
-   obtained using `runc` as the runtime.
+   The Deep Learning Reference Stack is a collective work, and each piece of software within the work has its own license.  Please see the `terms of use`_ for more details about licensing and usage of the Deep Learning Reference Stack.
+
+
 
 Prerequisites
 =============
@@ -106,6 +107,12 @@ This section describes running the `TensorFlow benchmarks`_ in single node.
 For multi-node testing, replicate these steps for each node. These steps
 provide a template to run other benchmarks, provided that they can invoke
 TensorFlow.
+
+.. note::
+
+   Performance test results for the Deep Learning Reference Stack and for this tutorial were
+   obtained using `runc` as the runtime.
+
 
 #. Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image
    from `Docker Hub`_.
@@ -243,7 +250,7 @@ Images
 
 You must add `launcher.py`_ to the Docker image to include the Deep
 Learning Reference Stack and put the benchmarks repo in the correct
-location. Note that this tutorial uses Kubeflow v0.4.0, and cannot guarantee results if you use a different version. 
+location. Note that this tutorial uses Kubeflow v0.4.0, and cannot guarantee results if you use a different version.
 
 From the Docker image, run the following:
 
@@ -494,6 +501,8 @@ Related topics
 .. _kubectl overview: https://kubernetes.io/docs/reference/kubectl/overview/
 
 .. _launcher.py: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow
+
+.. _terms of use: https://clearlinux.org/stacks/deep-learning/terms-of-use
 
 .. _Release notes on Github\*: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
 
