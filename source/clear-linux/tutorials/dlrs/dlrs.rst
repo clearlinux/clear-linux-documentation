@@ -95,10 +95,15 @@ Version compatibility
 
 We validated these steps against the following software package versions:
 
-* |CL| 26240 (Lower version not supported)
+* |CL| 26240 (Minimum supported version)
 * Docker 18.06.1
 * Kubernetes 1.11.3
 * Go 1.11.12
+
+
+.. note::
+
+   The Deep Learning Reference Stack was developed to provide the best user experience when executed on a |CL| host.  However, as the stack runs in a container environment, you should be able to complete the following sections of this tutorial on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
 
 TensorFlow single and multi-node benchmarks
 *******************************************
