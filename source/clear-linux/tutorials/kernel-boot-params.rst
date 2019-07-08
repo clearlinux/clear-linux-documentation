@@ -40,3 +40,6 @@ Update the boot manager and reboot the system:
 
    sudo clr-boot-manager update
    sudo reboot now
+
+Restoring default boot parameters
+*********************************
