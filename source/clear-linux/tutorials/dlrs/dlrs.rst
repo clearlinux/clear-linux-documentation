@@ -453,6 +453,79 @@ You can continue working in this notebook, or you can download existing
 notebooks to take advantage of the Deep Learning Reference Stack's optimized
 deep learning frameworks. Refer to `Jupyter Notebook`_ for details.
 
+Uninstallation
+**************
+
+To uninstall the Deep Learning Reference Stack, you can choose to stop the container so that it is not using system resources, or you can stop the container and delete it to free storage space.
+
+To stop the container, execute the following from your host system:
+
+#. Find the container's ID
+
+   .. code-block:: bash
+
+      docker container ls
+
+   This will result in output similar to the following:
+
+   .. code-block:: console
+
+      CONTAINER ID        IMAGE                        COMMAND               CREATED             STATUS              PORTS               NAMES
+      e131dc71d339        clearlinux/stacks-dlrs-oss   "/bin/sh -c 'bash'"   23 seconds ago      Up 21 seconds                           oss
+
+#. You can then use the ID or container name to stop the container.  This example uses the name "oss":
+
+   .. code-block:: bash
+
+      docker container stop oss
+
+
+#. Verify that the container is not running
+
+   .. code-block:: bash
+
+      docker container ls
+
+
+#. To delete the container from your system you need to know the Image ID:
+
+   .. code-block:: bash
+
+      docker images
+
+   This command results in output similar to the following:
+
+   .. code-block:: console
+
+      REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+      clearlinux/stacks-dlrs-oss   latest              82757ec1648a        4 weeks ago         3.43GB
+      clearlinux/stacks-dlrs-mkl   latest              61c178102228        4 weeks ago         2.76GB
+
+#. To remove an image use the image ID:
+
+   .. code-block:: bash
+
+      docker rmi 82757ec1648a
+
+   .. code-block:: console
+
+      # docker rmi 827
+      Untagged: clearlinux/stacks-dlrs-oss:latest
+      Untagged: clearlinux/stacks-dlrs-oss@sha256:381f4b604537b2cb7fb5b583a8a847a50c4ed776f8e677e2354932eb82f18898
+      Deleted: sha256:82757ec1648a906c504e50e43df74ad5fc333deee043dbfe6559c86908fac15e
+      Deleted: sha256:e47ecc039d48409b1c62e5ba874921d7f640243a4c3115bb41b3e1009ecb48e4
+      Deleted: sha256:50c212235d3c33a3c035e586ff14359d03895c7bc701bb5dfd62dbe0e91fb486
+
+
+   Note that you can execute the :command:`docker rmi` command using only the first few characters of the image ID, provided they are unique on the system.
+
+#. Once you have removed the image, you can verify it has been deleted with:
+
+   .. code-block:: bash
+
+       docker images
+
+
 Related topics
 **************
 
