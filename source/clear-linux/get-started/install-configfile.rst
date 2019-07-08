@@ -56,7 +56,7 @@ Perform the following steps:
 
 #. Edit the template and change the settings as needed.
 
-   Commonly changed settings include:
+   Commonly-changed settings include:
 
 .. _install-configfile-yaml-begin:
 
@@ -66,7 +66,7 @@ Perform the following steps:
    #. Delete the *post-install* section unless you have post-installation scripts.
    #. Under *Version*, set a version number. To use the latest version, set to “0”.
 
-   Commonly changed settings are shown in lines 15, 34, 37, and 51 below.
+   Commonly-changed settings are shown in lines 15, 34, 37, and 51 below.
    See `Installer YAML Syntax`_ for more details.
 
    .. code-block:: bash
@@ -154,7 +154,7 @@ Perform the following steps:
    	  cd /root
    	  cp clr-installer.yaml
 
-Start the installation on the target with the following commands:
+Start the installation on the target with the following steps:
 
 #. Go to `Downloads`_ and download the latest Clear Linux OS Server image.
 
@@ -167,6 +167,8 @@ Start the installation on the target with the following commands:
 #. Select :guilabel:`Clear Linux OS` from the menu.
 #. In the console window, log in as root and set a password.
 #. Verify you have an IP address (network connection) and configure proxies (if needed).
+#. Plug in and mount the USB thumb drive containing the retrieved
+   :file:`clr-installer.yaml` configuration file.
 #. Start the installation with the command:
 
    .. code-block:: bash
