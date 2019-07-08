@@ -17,8 +17,7 @@ Description
 
 mixer uses the following sources as inputs to generate update content:
 
-* Upstream |CL| bundles with their corresponding :abbr:`RPM (RPM Package Manager)`
-packages
+* Upstream |CL| bundles with their corresponding RPM packages
 * Locally-defined bundles with their corresponding local RPM packages
 * Locally-defined bundles with upstream RPM packages
 
