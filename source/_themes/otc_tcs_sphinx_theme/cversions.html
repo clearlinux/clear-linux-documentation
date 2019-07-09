@@ -1,0 +1,31 @@
+{# Add rst-badge after rst-versions for small badge style. #}
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Clear Linux</span>
+      v: {{ current_version }}
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>{{ _('Language Versions') }}</dt>
+        {% for slug, url in languages %}
+          <dd><a href="/{{ url }}/{{ pagename }}.html">{{ slug }}</a></dd>
+        {% endfor %}
+      </dl>
+      <dl>
+        <dt>{{ _('Document Versions') }}</dt>
+        {% for slug, url in versions %}
+          <dd><a href="/{{ url }}/{{ pagename }}.html">{{ slug }}</a></dd>
+        {% endfor %}
+      </dl>
+      <dl>
+        <dt>{{ _('clearlinux.org links') }}</dt>
+          <dd>
+            <a href="https://www.clearlinux.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/clearlinux/clear-linux-documentation">GitHub</a>
+          </dd>
+      </dl>
+    </div>
+  </div>

@@ -12,21 +12,21 @@
   <div class="padding-md--left-right">
 
     <div class="header__site_info">
-           <object class="header__site_img_object" type="image/svg+xml" data="https://stg.clearlinux.org/modules/custom/clearlinux_org/themes/clearlinux_theme/clear-technologies.svg"></object>
+           <object class="header__site_img_object" type="image/svg+xml" data="https://clearlinux.org/modules/custom/clearlinux_org/themes/clearlinux_theme/clear-technologies.svg"></object>
            <div class="header__site_info_name">
-             <a href ="https://stg.clearlinux.org"> Clear Linux* Project</a>
+             <a href ="https://clearlinux.org"> Clear Linux* Project</a>
            </div>
     </div>
     <nav class="header__menu">
         <ul class="header__menu_list">
                          <li class="header__menu_list_item green  ">
-                <a tabindex='1' href="https://stg.clearlinux.org/about">About</a>
+                <a tabindex='1' href="https://clearlinux.org/about">About</a>
               </li>
                          <li class="header__menu_list_item purple  ">
-                <a tabindex='1' href="https://stg.clearlinux.org/developer">Developer</a>
+                <a tabindex='1' href="https://clearlinux.org/developer">Developer</a>
               </li>
                          <li class="header__menu_list_item blue  ">
-                <a tabindex='1' href="https://stg.clearlinux.org/software">Software</a>
+                <a tabindex='1' href="https://clearlinux.org/software">Software</a>
               </li>
         </ul>
     </nav>
@@ -39,6 +39,11 @@
 
 {{ super() }}
 
+{% endblock %}
+
+{% block menu %}
+  {% include "cversions.html" %}
+  {{ super() }}
 {% endblock %}
 
 {% block footer %}

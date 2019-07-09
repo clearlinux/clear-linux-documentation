@@ -7,7 +7,7 @@
 
 
 .wy-nav-side {
-   background: #8e6db6;
+   background: #007ab2;
 }
 /* (temporarily) add an under development tagline to the bread crumb
 .wy-breadcrumbs::after {
@@ -31,6 +31,23 @@
 .wy-side-nav-search>div.version {
     color: rgba(255,255,255,1);
 }
+
+
+.wy-side-nav-search input[type=text] {
+    border-radius: 0px;
+    padding: 0px 0px;
+    box-shadow: none;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
 
 /* squish the space between a paragraph before a list */
 div > p + ul, div > p + ol {

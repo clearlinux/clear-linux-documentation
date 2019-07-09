@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 #project = u'Clear Linux* project'
-project = u'Documentation'
+project = u'Clear Linux* Project Docs'
 copyright = u'2019, many'
 author = u'many'
 
@@ -121,20 +121,36 @@ rst_epilog = """
 #html_theme = 'sphinx_rtd_theme'
 html_theme = 'otc_tcs_sphinx_theme'
 
+version = current_version = "latest"
+
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation.
+html_theme_options = {
+  'style_nav_header_background': '#007ab2',
+  'navigation_depth': 4,
+  'display_version': False
+}
+
 html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "clearlinux", # Username
     "github_repo": "clear-linux-documentation", # Repo name
     "github_version": "rtd-theme", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
-}
-
-# Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
-html_theme_options = {
-  'style_nav_header_background': '#8e6db6',
-  'navigation_depth': 4
+    "current_version": current_version,
+    "languages": ( ("English", ""),
+                   ("Mandarin", "md"),
+                   ("Spanish", "esp")
+                 ),
+    "versions": ( ("latest", ""),
+                  ("LTS 1", "lts1"),
+                  ("LTS 2", "lts2"),
+                  ("LTS 3", "lts3"),
+                  ("LTS 4", "lts4"),
+                  ("LTS 5", "lts5"),
+                  ("LTS 6", "lts6")
+               )
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
