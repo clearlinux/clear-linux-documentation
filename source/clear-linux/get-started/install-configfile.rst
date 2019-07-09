@@ -30,8 +30,7 @@ To clone an existing |CL| setup on another system, we recommend Example 2.
 Example 1
 =========
 
-This method uses an existing configuration file template to perform a new
-installation.
+This method uses a configuration file template to perform a new installation.
 
 Perform the following steps:
 
@@ -45,8 +44,9 @@ Perform the following steps:
 #. Boot up the USB thumb drive.
 #. Select :guilabel:`Clear Linux OS` from the menu.
 #. In the console window, log in as root and set a password.
-#. Verify you have an IP address (network connection) and configure proxies (if needed).
-#. Download an :file:`live-server.yaml` template.
+#. Verify you have a network connection to the Internet and configure proxy
+   settings if you're working behind a firewall.
+#. Download a :file:`live-server.yaml` template.
 
    For example:
 
@@ -166,7 +166,8 @@ Start the installation on the target with the following steps:
 #. Boot up the USB thumb drive.
 #. Select :guilabel:`Clear Linux OS` from the menu.
 #. In the console window, log in as root and set a password.
-#. Verify you have an IP address (network connection) and configure proxies (if needed).
+#. Verify you have a network connection to the Internet and configure proxy
+   settings if you're working behind a firewall.
 #. Plug in and mount the USB thumb drive containing the retrieved
    :file:`clr-installer.yaml` configuration file.
 #. Start the installation with the command:
