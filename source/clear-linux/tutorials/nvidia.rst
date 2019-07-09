@@ -109,7 +109,7 @@ must be disabled before installation can continue.
       
 
 #. Reboot the system and log back in. It is normal for the graphical
-   environment not to start without an NVIDIA driver loaded.
+   environment not to start without the NVIDIA driver loaded.
 
 
 
@@ -282,7 +282,7 @@ driver restored with the instructions in this section.
       sudo rm /etc/modprobe.d/disable-nouveau.conf
 
 
-#. Remove the :file`xorg.conf.d` file that adds a search path for X modules.
+#. Remove the :file:`xorg.conf.d` file that adds a search path for X modules.
 
    .. code:: bash
 
