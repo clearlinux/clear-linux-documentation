@@ -29,3 +29,4 @@ Explore our tutorials to discover what you can do with |CL|!
    dars
    redis
    tutorial-proxy
+   parallels
