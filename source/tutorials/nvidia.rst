@@ -1,17 +1,18 @@
 .. _nvidia:
 
-Install NVIDIA Drivers
-######################
+Install NVIDIA\* Drivers
+########################
 
-NVIDIA is a manufacture of graphics processing units (GPU), also known as
+NVIDIA manufactures graphics processing units (GPU), also known as
 graphics cards. 
 
-NVIDIA devices on Linux have two popular device driver options: the opensource
-drivers from the `nouveau project`_ or the proprietary drivers published by
-NVIDIA. The nouveau drivers are built into the |CL-ATTR| kernel and are loaded
-automatically at system boot if a compatible card is detected. 
+NVIDIA devices on Linux\* have two popular device driver options: the
+opensource drivers from the `nouveau project`_ or the proprietary drivers
+published by NVIDIA. The nouveau drivers are built into the |CL-ATTR|
+kernel and are loaded automatically at system boot if a compatible card
+is detected. 
 
-These instructions show how to use the proprietary NVIDIA drivers which
+These instructions show how to use the proprietary NVIDIA drivers, which
 require a manual installation.
 
 .. warning::
@@ -35,7 +36,7 @@ Prerequisites
 *************
 
 * A |CL| system with a desktop installed
-* A NVIDIA device installed
+* An NVIDIA device installed
 
 
 Install DKMS
@@ -95,7 +96,7 @@ Disable the nouveau Driver
 ==========================
 
 The proprietary NVIDIA driver is incompatible with the nouveau driver and
-needs to be disabled before installation can continue.
+must be disabled before installation can continue.
 
 #. Disable the nouveau driver by creating a blacklist file under
    :file:`/etc/modprobe.d` and reboot.
@@ -108,7 +109,7 @@ needs to be disabled before installation can continue.
       
 
 #. Reboot the system and log back in. It is normal for the graphical
-   environment to not start with no NVIDIA driver loaded.
+   environment not to start without the NVIDIA driver loaded.
 
 
 
@@ -119,11 +120,11 @@ Configure Alternative Software Paths
 The NVIDIA installer will be directed to install files under
 :file:`/opt/nvidia` as much as possible to keep its contents isolated from the
 rest of the |CL| system files under :file:`/usr`.  The dynamic linker and X
-server will need to be configured to use the content under
+server must be configured to use the content under
 :file:`/opt/nvidia`.
 
 
-#. Configure the dynamic linker to look for and cache shared libraries under
+#. Configure the dynamic linker to look for and to cache shared libraries under
    :file:`/opt/nvidia/lib` and :file:`/opt/nvidia/lib32` in addition to the
    default paths.
 
@@ -199,7 +200,7 @@ Install the NVIDIA Drivers
    is loaded. Return to the working terminal and log back in if necessary.
 
 
-#. Validate the nvidia kernel modules are loaded.
+#. Confirm that the NVIDIA kernel modules are loaded.
 
    .. code-block:: bash
 
@@ -233,10 +234,10 @@ Updating the NVIDIA drivers follows the same steps as initial installation,
 however the desktop environment must first be stopped so that the drivers are
 not in use. 
 
-#. Follow the steps in `Download the NVIDIA Drivers for Linux`_ section to get
-   the latest NVIDIA drivers.
+#. Follow the steps in the `Download the NVIDIA Drivers for Linux`_ section
+   to get the latest NVIDIA drivers.
 
-#. Temporarily set the default boot target to the *multi-user* which is
+#. Temporarily set the default boot target to the *multi-user*, which is
    a non-graphical runtime.
 
    .. code-block:: bash
@@ -245,9 +246,9 @@ not in use.
 
 
 #. Reboot the system and log back in. It is normal for the graphical
-   environment to not start.
+   environment not to start.
 
-#. Follow the steps in `Install the NVIDIA Drivers`_ section to update
+#. Follow the steps in the `Install the NVIDIA Drivers`_ section to update
    the NVIDIA drivers. This installation will overwrite the previous NVIDIA
    drivers and files.
 
@@ -261,7 +262,7 @@ not in use.
 #. Reboot the system and log back in. 
 
 #. Trigger a flatpak update which will download the runtime corresponding
-   with the new NVIDIA drivers for flatpak apps requiring it.
+   with the new NVIDIA drivers for the flatpak apps that require it.
 
    .. code-block:: bash
 
@@ -272,7 +273,7 @@ Uninstalling the NVIDIA Drivers
 *******************************
 
 The NVIDIA drivers and associated software can be uninstalled and nouveau
-driver restored by: 
+driver restored with the instructions in this section. 
 
 #. Remove the :file:`modprobe.d` file that prevents nouveau from loading.
 
@@ -281,7 +282,7 @@ driver restored by:
       sudo rm /etc/modprobe.d/disable-nouveau.conf
 
 
-#. Remove the :file`xorg.conf.d` file that adds a search path for X modules.
+#. Remove the :file:`xorg.conf.d` file that adds a search path for X modules.
 
    .. code:: bash
 
