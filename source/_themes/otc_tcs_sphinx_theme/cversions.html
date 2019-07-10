@@ -9,13 +9,13 @@
       <dl>
         <dt>{{ _('Language Versions') }}</dt>
         {% for slug, url in languages %}
-          <dd><a href="/{{ url }}/{{ pagename }}.html">{{ slug }}</a></dd>
+          <dd><a href="{{ url }}/{{ pagename }}.html">{{ slug }}</a></dd>
         {% endfor %}
       </dl>
       <dl>
         <dt>{{ _('Document Versions') }}</dt>
         {% for slug, url in versions %}
-          <dd><a href="/{{ url }}/{{ pagename }}.html">{{ slug }}</a></dd>
+          <dd><a href="{{ url }}/{{ pagename }}.html">{{ slug }}</a></dd>
         {% endfor %}
       </dl>
       <dl>

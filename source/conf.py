@@ -140,16 +140,16 @@ html_context = {
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
     "languages": ( ("English", ""),
-                   ("Mandarin", "md"),
-                   ("Spanish", "esp")
+                   ("Mandarin", "/md"),
+                   ("Spanish", "/esp")
                  ),
     "versions": ( ("latest", ""),
-                  ("LTS 1", "lts1"),
-                  ("LTS 2", "lts2"),
-                  ("LTS 3", "lts3"),
-                  ("LTS 4", "lts4"),
-                  ("LTS 5", "lts5"),
-                  ("LTS 6", "lts6")
+                  ("LTS 1", "/lts/v1"),
+                  ("LTS 2", "/lts/v2"),
+                  ("LTS 3", "/lts/v3"),
+                  ("LTS 4", "/lts/v4"),
+                  ("LTS 5", "/lts/v5"),
+                  ("LTS 6", "/lts/v6")
                )
 }
 
