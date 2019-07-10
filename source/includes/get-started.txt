@@ -1,2 +1,0 @@
-If you are new to |CL|, get started fast with tutorials for installing |CL| on
-bare metal, in a virtual environment, or as a live image on a USB stick.

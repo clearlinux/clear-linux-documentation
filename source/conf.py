@@ -49,7 +49,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'clear-linux/clear-linux'
 
 # General information about the project.
 #project = u'Clear Linux* project'
@@ -133,8 +133,7 @@ html_context = {
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-  'style_nav_header_background': '#8e6db6',
-  'navigation_depth': 4
+  'style_nav_header_background': '#8e6db6'
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
