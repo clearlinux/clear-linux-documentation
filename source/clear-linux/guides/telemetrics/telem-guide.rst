@@ -356,7 +356,31 @@ There are three ways to supply the payload to the record.
 
       payload read from stdin
 
+Set a static machine id
+=======================
 
+The machine id reported by the telemetry client is rotated every three days
+for privacy reasons. If you wish to have a static machine id for testing
+purposes, you can opt in by creating a file named "opt-in-static-machine-id"
+in the directory  :file:`/etc/telemetrics/`.
+
+#. Create a directory `telemetrics`.
+
+   .. code-block:: bash
+
+      sudo mkdir -p /etc/telemetrics
+
+
+#. Create the file and replace the "unique machine ID" with your desired
+   static machine ID.
+
+   .. code-block:: bash
+
+      echo "unique machine ID" | sudo tee /etc/telemetrics/opt-in-static-machine-id
+
+.. note::
+
+   The `machine id` is different than the system hostname.
 
 Instrument your code with the libtelemetry API
 ==============================================
