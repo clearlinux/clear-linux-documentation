@@ -4,8 +4,9 @@ python:
   - "3.6"
 
 # command to install dependencies
-install: "pip3 install -q -r requirements.txt"
-install: "pip3 install -q -r source/_scripts/_python/requirements.txt"
+install: 
+  - pip3 install -q -r requirements.txt
+  - pip3 install -q -r source/_scripts/_python/requirements.txt
 
 # command to run tests
 script: 
