@@ -12,7 +12,8 @@ Welcome to the |CL-ATTR| documentation pages, the source for |CL| documentation.
 Our documentation is divided into the following sections:
 
 :ref:`get-started`
-    .. include:: /includes/get-started.txt
+    If you are new to |CL|, get started fast with tutorials for installing |CL|
+    on bare metal, in a virtual environment, or as a live image on a USB stick.
 
 :ref:`tooling`
     Clear Linux is a little different from other distros. Here are some
