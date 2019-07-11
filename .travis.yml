@@ -9,3 +9,14 @@ install: "pip3 install -q -r requirements.txt"
 # command to run tests
 script: 
   - make html
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep-history: true
+  repo: intelkevinputnam/rtd-build-target
+  target-branch: master
+  on:
+    branch: rtd-theme
+  local_dir: _build/html/
