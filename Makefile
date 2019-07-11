@@ -10,6 +10,9 @@ html:
 linkcheck:
 	make -C source linkcheck
 
+py:
+	make -C source py
+
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  html       to make standalone HTML files"
