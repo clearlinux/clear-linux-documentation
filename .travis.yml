@@ -5,6 +5,7 @@ python:
 
 # command to install dependencies
 install: "pip3 install -q -r requirements.txt"
+install: "pip3 install -q -r source/_sripts/_python/requirements.txt"
 
 # command to run tests
 script: 
