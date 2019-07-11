@@ -19,4 +19,4 @@ deploy:
   target-branch: master
   on:
     branch: rtd-theme
-  local_dir: _build/html/
+  local_dir: source/_build/html/
