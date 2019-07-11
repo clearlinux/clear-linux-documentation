@@ -102,31 +102,31 @@ an example of a **Wired Connection**.
 
 #. Select :guilabel:`Apply` button to confirm change to settings.
 
-Software
---------
+Software (Optional)
+-------------------
 
-Optional: Explore |CL| bundles and other software available. Double-click the :guilabel:`Software` icon from the Activities menu, shown in Figure 2.
+Explore |CL| bundles and other software. Double-click the
+:guilabel:`Software` icon from the Activities menu, shown in Figure 2.
+Assure a network connection exists before launching `Software`.
 
 .. note::
 
-   `Sofware` application is *only intended for exploring* available bundles,
+   `Software` application is *only intended for exploring* available bundles,
    applications, and images. Do not attempt to install them.
-
-   Assure there is a network connection before launching `Software`.
 
 Launch the |CL| installer
 =========================
 
-#. After the live desktop image boots, find the |CL| icon in
+#. After the live desktop image boots, find the |CL| installer icon in
    the :guilabel:`Activities` menu at left, shown in Figure 3.
 
-#. Click the icon, :guilabel:`Install Clear Linux OS`.
+#. Click the |CL| penguin icon to launch the installer.
 
-   .. figure:: figures/bare-metal-install-desktop-02.png
+   .. figure:: figures/bare-metal-install-desktop-03.png
       :scale: 100%
       :alt: Install Clear Linux OS icon
 
-      Figure 3: Install Clear Linux OS icon
+      Figure 3: |CL| installer icon
 
 #. The installer is launched, as shown in Figure 4.
 
