@@ -7,6 +7,9 @@ all:
 html:
 	make -C source html
 
+linkcheck:
+	make -C source linkcheck
+
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  html       to make standalone HTML files"
