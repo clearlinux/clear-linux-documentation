@@ -9,6 +9,7 @@ install: "pip3 install -q -r requirements.txt"
 # command to run tests
 script: 
   - make html
+  - make linkcheck
 
 deploy:
   provider: pages
