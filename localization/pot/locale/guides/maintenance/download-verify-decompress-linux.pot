@@ -1,0 +1,241 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:4
+msgid "Download, verify, and decompress a |CL-ATTR| image on Linux"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:6
+msgid "This guide describes the types of |CL| images available, where to download them, how to verify the integrity of an image, and how to decompress it."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:9
+msgid "Instructions for other operating systems are available:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:11
+msgid ":ref:`download-verify-decompress-mac`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:12
+msgid ":ref:`download-verify-decompress-windows`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:15
+msgid "Image types"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:3
+msgid "|CL-ATTR| offers many types of `images`_ for different platforms and environments."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:7
+msgid "The naming convention of a |CL| image filename is:"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:13
+msgid "The *[version number]* field specifies the version number."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:15
+msgid "The *[image type]* field specifies the type of image and its corresponding file format."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:18
+msgid "The *[compression type]* field specifies the compression type. Two types of compressions are used: GNU\\* zip (*.gz*) and XZ (*.xz*)."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:23
+msgid "Table 1 lists the currently available images that are platform independent. Table 2 lists the currently available images that are platform specific."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:26
+msgid "Table 1: Types of platform-independent |CL| images"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:30
+#: ../../../source/reference/image-types.rst:43
+msgid "Image Type"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:31
+#: ../../../source/reference/image-types.rst:44
+msgid "Description"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:33
+msgid "live-desktop.img or live-desktop.iso"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:34
+msgid "Image for booting to GNOME\\* desktop to preview or install the OS."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:36
+msgid "live-server.img or live-server.iso"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:37
+msgid "Image for booting to server command prompt to preview or install the OS."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:39
+msgid "Table 2: Types of platform-specific |CL| images"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:46
+msgid "aws.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:47
+msgid "Image suitable for use with Amazon\\* AWS\\*."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:49
+msgid "azure.vhd"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:50
+msgid "Virtual Hard Disk for use on Microsoft\\* Azure\\* cloud platform."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:52
+msgid "azure-docker.vhd"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:53
+msgid "Virtual Hard Disk for use on Microsoft Azure cloud platform with Docker\\* pre-installed."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:55
+msgid "azure-machine-learning.vhd"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:56
+msgid "Virtual Hard Disk for use on Microsoft Azure cloud platform with the `machine-learning-basic` bundle installed."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:58
+msgid "cloudguest.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:59
+msgid "Image with generic cloud guest virtual machine (VM) requirements installed."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:61
+msgid "gce.tar"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:62
+msgid "Image with the Google Compute Engine (GCE) specific kernel."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:64
+msgid "hyperv.vhdx"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:65
+msgid "Virtual Hard Disk for use with Microsoft Hyper-V\\* hypervisor. Includes `optimized kernel`_ for Hyper-V."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:67
+msgid "kvm.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:68
+msgid "Image for booting in a simple VM with start_qemu.sh. Includes `optimized kernel`_ for KVM."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:71
+msgid "kvm-legacy.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:72
+msgid "Image for booting in a simple VM using legacy BIOS, if using start_qemu.sh make sure to remove -bios parameter."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:74
+msgid "pxe.tar"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:75
+msgid "Image suitable for use with PXE server."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:77
+msgid "vmware.vmdk"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:78
+msgid "Virtual Machine Disk for VMware\\* platforms inclduing Player, Workstation, and ESXi."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:23
+msgid "Verify the integrity of the |CL| image"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:25
+msgid "Before you use a downloaded |CL| image, verify its integrity. This action eliminates the small chance of a corrupted image due to download issues. To support verification, each released |CL| image has a corresponding SHA512 checksum file designated with the suffix `-SHA512SUMS`."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:30
+msgid "Download the corresponding SHA512 checksum file of your |CL| image."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:31
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:57
+msgid "Start a terminal emulator."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:32
+msgid "Go to the directory with the downloaded image and checksum files."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:33
+msgid "Verify the integrity of the image and compare it to its original checksum with the command:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:40
+msgid "If the checksum of the downloaded image is different than the original checksum, a warning is displayed with a message indicating the computed checksum does **not** match. Otherwise, the name of the image is printed on the screen followed by `OK`."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:45
+msgid "For a more in-depth discussion of image verification including checking the certificate see :ref:`image-content-validation`."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:51
+msgid "Decompress the |CL| image"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:53
+msgid "Released |CL| images are compressed with either GNU zip (*.gz*) or XZ (*.xz*). The compression type depends on the target platform or environment. To decompress the image, follow these steps:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:58
+msgid "Go to the directory with the downloaded image."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:60
+msgid "To decompress an XZ image, enter:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-linux.rst:66
+msgid "To decompress a GZ image, enter:"
+msgstr ""
+

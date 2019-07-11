@@ -1,0 +1,314 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/guides/network/ipxe-install.rst:4
+msgid "Install |CL-ATTR| over the network with iPXE"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:6
+msgid ""
+"This guide describes how to install |CL-ATTR| using :abbr:`PXE (Pre-boot "
+"Execution Environment)`."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:9
+msgid ""
+"PXE is an industry standard that describes client-server interaction with"
+" network-boot software and uses the DHCP and TFTP protocols. This guide "
+"shows one method of using the PXE environment to install |CL|."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:13
+msgid ""
+"The PXE extension called `iPXE`_ adds support for additional protocols "
+"such as HTTP, :abbr:`iSCSI (Internet Small Computer Systems Interface)`, "
+":abbr:`AoE (ATA over Ethernet\\*)`, and :abbr:`FCoE (Fiber Channel over "
+"Ethernet\\*)`. iPXE enables network booting on computers with no built-in"
+" PXE support."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:18
+msgid ""
+"To install |CL| through iPXE, you must create a PXE client. Figure 1 "
+"depicts the flow of information between a PXE server and a PXE client."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:24
+msgid "Figure 1: PXE information flow."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:28
+msgid ""
+"The |CL| image that boots through the PXE process automatically erases "
+"all data and partitions on the PXE client system and creates 3 new "
+"partitions to install onto."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:33
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:35
+msgid "Before booting with iPXE, make the following preparations."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:37
+msgid ""
+"Connect the PXE server and PXE clients to a switch on a private network, "
+"as shown in Figure 2."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:43
+msgid "Figure 2: Network topology."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:45
+msgid ""
+"Your PXE client must have a boot order where the network boot option is "
+"prioritized before the disk boot option."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:48
+msgid "Your PXE server must have:"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:50
+msgid "Ethernet/LAN boot option."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:51
+msgid "At least two network adapters."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:52
+msgid "Connection to a public network."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:53
+msgid "Secure boot option disabled."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:57
+msgid ""
+"You must disable the secure boot option in the BIOS because the UEFI "
+"binaries used to boot |CL| are not signed."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:62
+msgid "Configuration"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:64
+msgid ""
+"To set up |CL| using iPXE automatically, use the :file:`configure-"
+"ipxe.sh` script included with :abbr:`ICIS (Ister Cloud Init Service)`. "
+"For additional instructions on the script, refer to the guide on the "
+"`ICIS GitHub repository`_."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:68
+msgid "To set up |CL| manually, perform the steps below."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:70
+msgid "Define the variables used for iPXE boot configuration."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:86
+msgid "Log in and get root privilege."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:92
+msgid ""
+"Add the `pxe-server` bundle to your |CL| system. The bundle contains all "
+"files needed to run a PXE server."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:99
+msgid ""
+"Download the latest network-bootable release of |CL| and extract the "
+"files."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:113
+msgid ""
+"Ensure that the initial ramdisk file is named :file:`initrd` and the "
+"kernel file is named :file:`linux`, which is a symbolic link to the "
+"actual kernel file."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:117
+msgid ""
+"Create an iPXE boot script with the following contents. During an iPXE "
+"boot, the iPXE boot script directs the PXE client to download the files "
+"to boot and install |CL|. Use the names previously given to the initial "
+"ramdisk and kernel files."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:133
+msgid ""
+"The `pxe-server` bundle contains a lightweight web-server known as "
+"`nginx`. Create a configuration file for `nginx` to serve |CL| to PXE "
+"clients with the following contents:"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:155
+msgid ""
+"Create a separate `nginx` configuration file to serve network-bootable "
+"images on a non-standard port number. This action saves existing `nginx` "
+"configurations."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:159
+msgid "Start `nginx` and enable the startup on boot option."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:166
+msgid ""
+"The `pxe-server` bundle contains a lightweight DNS server which conflicts"
+" with the DNS stub listener provided in `systemd-resolved`. Disable the "
+"DNS stub listener and temporarily stop `systemd-resolved`."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:180
+msgid ""
+"Assign a static IP address to the network adapter for the private network"
+" and restart `systemd-networkd` with the following commands:"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:196
+msgid ""
+"Configure :abbr:`NAT (Network Address Translation)` to route traffic from"
+" the private network to the public network. This action makes the PXE "
+"server act as a router. To make these changes persistent during reboots, "
+"save the changes to the firewall with the following commands:"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:212
+msgid ""
+"The firewall masks packets to make them appear as coming from the PXE "
+"server and hides PXE clients from the public network."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:215
+msgid ""
+"Configure the kernel to forward network packets to different interfaces. "
+"Otherwise, NAT will not work."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:224
+msgid ""
+"The `pxe-server` bundle contains iPXE firmware images that allow "
+"computers without an iPXE implementation to perform an iPXE boot. Create "
+"a TFTP hosting directory and populate the directory with the iPXE "
+"firmware images with the following commands:"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:234
+msgid ""
+"The `pxe-server` bundle contains a lightweight TFTP, DNS, and DHCP server"
+" known as `dnsmasq`. Create a configuration file for `dnsmasq` to listen "
+"on a dedicated IP address for those functions. PXE clients on the private"
+" network will use this IP address."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:245
+msgid ""
+"Add the options to serve iPXE firmware images to PXE clients over TFTP to"
+" the `dnsmasq` configuration file."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:255
+msgid ""
+"Add the options to host a DHCP server for PXE clients to the `dnsmasq` "
+"configuration file."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:277
+msgid "The configuration provides the following important functions:"
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:279
+msgid ""
+"Directs PXE clients without an iPXE implementation to the TFTP server to "
+"acquire architecture-specific iPXE firmware images that allow them to "
+"perform an iPXE boot."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:282
+msgid ""
+"Activates only on the network adapter that has an IP address on the "
+"defined subnet."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:284
+msgid "Directs PXE clients to the DNS server."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:285
+msgid "Directs PXE clients to the PXE server for routing via NAT."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:286
+msgid ""
+"Divides the private network into two pools of IP addresses. One pool is "
+"for network boot and one pool is used after boot. Each pool has their own"
+" lease times."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:290
+msgid ""
+"Create a file for `dnsmasq` to record the IP addresses it provides to PXE"
+" clients."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:298
+msgid "Start `dnsmasq` and enable startup on boot."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:305
+msgid "Start `systemd-resolved`."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:313
+msgid ""
+"`systemd-resolved` dynamically updates the list of DNS servers for the "
+"private network if you use the `dnsmasq` DNS server. The setup creates a "
+"pass-through DNS server that relies on the DNS servers listed in "
+":file:`/etc/resolv.conf`."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:318
+msgid "Power on the PXE client and watch the client boot and install |CL|."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:320
+msgid ""
+"After booting, |CL| automatically partitions the hard drive, installs "
+"itself, updates to the latest version, and reboots."
+msgstr ""
+
+#: ../../../source/guides/network/ipxe-install.rst:324
+msgid ""
+"**Congratulations!** You have successfully installed and configured a PXE"
+" server that enables PXE clients to boot and install |CL| over the "
+"network."
+msgstr ""
+

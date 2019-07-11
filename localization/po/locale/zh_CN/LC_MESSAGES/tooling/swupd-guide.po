@@ -1,0 +1,446 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/tooling/swupd-guide.rst:4
+msgid "swupd"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:6
+msgid ""
+":command:`swupd` links a |CL-ATTR| installation with upstream updates and"
+" software."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:14
+msgid "Description"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:16
+msgid ":command:`swupd` has two main functions:"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:18
+msgid ""
+"Manage software and replace APT or YUM, by installing bundles rather than"
+" packages."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:20
+msgid "Check for system updates and install them."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:22
+msgid ""
+":command:`swupd` manages overlapping dependencies behind the scenes, "
+"ensuring that all software is compatible across the system. It can be "
+"used to verify the OS, clean cached files, and fix issues."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:26
+msgid ""
+":ref:`Bundles <bundles>` contain everything needed to deliver a software "
+"capability. They are the smallest granularity component that is managed "
+"by |CL|. A bundle comes with all of its dependencies rather than "
+"downloading a cascade of package dependencies when installing a piece of "
+"software."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:33
+msgid "Versioning"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:35
+msgid ""
+"Using package managers to monitor software version compatibility or "
+"compare multiple systems on many Linux distributions can be cumbersome."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:38
+msgid ""
+"With |CL| :command:`swupd`, versioning happens at the individual file "
+"level. This means |CL| generates an entirely new OS version with any set "
+"of software changes to the system, including software downgrades or "
+"removals. This rolling release versioning model is similar to "
+":command:`git` internal version tracking, where any of the individual "
+"file commits are tracked and move the pointer forward when changed."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:45
+msgid ""
+"A number that represents the **current** release of the OS describes the "
+"versions of all the software on the OS. Each build is composed of a "
+"specific set of bundles made from a particular version of packages. On a "
+"daily basis, this matters to system administrators who need to determine "
+"which of their systems do not have the latest security fixes, or which "
+"combinations of software have been tested. Every release of the same "
+"number is guaranteed to contain the same versions of software, so there's"
+" no ambiguity between two systems running the same version of |CL|."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:55
+msgid "Updating"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:57
+msgid ""
+"|CL| enforces regular updating of the OS by default and automatically "
+"checks for updates against a version server. The content server provides "
+"the file and metadata content for all versions and can be the same as the"
+" version server. The content url server provides metadata in the form of "
+"*manifests*, which list and describe file contents, symlinks, and "
+"directories. Additionally, the actual content is provided to clients in "
+"the form of archive files."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:65
+msgid ""
+"Software updates with |CL| are also efficient. Unlike package-based "
+"distributions, :command:`swupd` only updates files that have changed, "
+"rather than entire packages. For example, it is quite common for an OS "
+"security patch to be as small as 15 KB. Using binary deltas, |CL| is able"
+" to apply only what is needed."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:71
+msgid ""
+"For details on how to generate update content for |CL|, see the "
+":ref:`mixer <mixer>` tool."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:75
+msgid "How it works"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:78
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:80
+msgid "The device is on a well-connected network."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:81
+msgid ""
+"The device is able to connect to an update server. The default server is:"
+" http://update.clearlinux.org"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:85
+msgid "Updates"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:87
+msgid ""
+"|CL| updates are automatic by default, but can be set to occur only on "
+"demand. :command:`swupd` makes sure that regular updates are simple and "
+"secure. It can also check the validity of currently installed files and "
+"software, and can correct any problems."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:93
+msgid "Manifests"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:95
+msgid ""
+"The |CL| software update content consists of data and metadata. The data "
+"is the files that end up in the OS. The metadata contains relevant "
+"information to properly provision the data to the OS file system, as well"
+" as update the system and add or remove additional content to the OS."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:100
+msgid ""
+"The manifests are mostly long lists of hashes that describe content. Each"
+" bundle gets its own manifest file. There is a master manifest file that "
+"describes all manifests to tie it all together."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:105
+msgid "Fullfiles, packs, and delta packs"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:107
+msgid ""
+"To speed up updates and optimize content delivery, update data "
+"provisioned to a system is obtained by one of the following methods:"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:110
+msgid ""
+"*Fullfiles* are always generated for every file in every release. This "
+"allows any |CL| to obtain the exact copy of the content for each version "
+"directly. This is used if the OS verification needs to replace a single "
+"file, for instance."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:115
+msgid ""
+"*Packs* are available for some releases. They combine many files to speed"
+" up the creation of installation media and large updates."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:118
+msgid ""
+"*Delta packs* are an optimized version of packs that only contain updates"
+" (binary diffs). They cannot be used without having the original file "
+"content."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:122
+msgid "Bundle search"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:124
+msgid ""
+":command:`swupd` searches download manifest data for bundles that match "
+"the term. Enter only one term, or hyphenated term, per search. Use the "
+"command :command:`man swupd` to learn more."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:128
+msgid ""
+"Only the base bundle is returned. Bundles can contain other bundles via "
+"includes. For more details, see `Bundle Definition Files`_ and its "
+"subdirectory bundles."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:132
+msgid ""
+"Bundles that are already installed are marked **(installed)** in search "
+"results."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:135
+msgid "Optionally, you can review our `bundles`_ on GitHub\\*."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:138
+msgid "Examples"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:141
+msgid "Example 1: Disable and enable automatic updates"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:143
+msgid ""
+"|CL| updates are automatic by default, but can be set to occur only on "
+"demand."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:146
+msgid "Verify your current auto-update setting."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:156
+msgid "Disable automatic updates."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:170
+msgid "Check manually for updates."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:176
+msgid "Install an update after identifying one that you need."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:182
+msgid "Re-enable automatic installs."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:191
+msgid "Example 2: Find and install Kata Containers\\*"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:193
+msgid ""
+"Kata Containers is a popular container implementation. Unlike other "
+"container implementations, each Kata Container has its own kernel "
+"instance and runs on its own :abbr:`VM (Virtual Machine)` for improved "
+"security."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:198
+msgid ""
+"|CL| makes it very easy to install, since you only need to add `one "
+"bundle`_ to use `Kata Containers`_: `containers-virt`, despite a number "
+"of dependencies.  Also, check out our tutorial: :ref:`kata`."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:202
+msgid "Find the correct bundle."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:204
+msgid ""
+"To return all possible matches for the search string, enter "
+":command:`swupd search`, followed by 'kata':"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:211
+msgid "The output should be similar to:"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:229
+msgid ""
+"If your search does not produce results with a specific term, shorten the"
+" search term. For example, use *kube* instead of *kubernetes*."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:232
+msgid "Add the bundle."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:240
+msgid "To add multiple bundles, add a space followed by the bundle name."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:242
+msgid "The output of a successful installation should be similar to:"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:261
+msgid "Example 3: Verify and correct system file mismatch"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:263
+msgid ""
+":command:`swupd` can determine whether system directories and files have "
+"been added to, overwritten, removed, or modified (e.g., permissions)."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:270
+msgid ""
+"All directories that are watched by :command:`swupd` are verified "
+"according to the manifest data. Hash mismatches are flagged as follows:"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:287
+msgid ""
+"In this case, Python\\* packages that were installed on top of the "
+"default install were flagged as mismatched. :command:`swupd` can be "
+"directed to ignore or fix issues based on command line options."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:291
+msgid ""
+":command:`swupd` can correct any issues it detects. Additional directives"
+" can be added including a white list of directories to be ignored."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:294
+msgid ""
+"The following command repairs issues, removes unknown items, and ignores "
+"files or directories matching :file:`/usr/lib/python`:"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:302
+msgid "Quick reference"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:305
+msgid "swupd info"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:305
+msgid "Returns the currently installed version and update servers."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:309
+msgid "swupd update <version number>"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:308
+msgid ""
+"Updates to a specific version or updates to latest version if no "
+"arguments are used."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:312
+msgid "swupd bundle-list [--all]"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:312
+msgid "Lists installed bundles."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:315
+msgid "swupd bundle-add [-b] <search term>"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:315
+msgid "Finds a bundle that contains your search term."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:318
+msgid "swupd bundle-add <bundle name>"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:318
+msgid "Adds a bundle."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:321
+msgid "swupd bundle-remove <bundle name>"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:321
+msgid "Removes a bundle."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:324
+msgid "swupd --help"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:324
+msgid "Lists additional :command:`swupd` commands."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:327
+msgid "man swupd"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:327
+msgid "Opens the :command:`swupd` man page."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:329
+msgid ""
+"Refer to :command:`swupd` `source documentation`_ on GitHub for more "
+"details."
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:332
+msgid "Related topics"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:334
+msgid ":ref:`autospec`"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:335
+msgid ":ref:`mixer`"
+msgstr ""
+
+#: ../../../source/tooling/swupd-guide.rst:336
+msgid ":ref:`bundles`"
+msgstr ""
+

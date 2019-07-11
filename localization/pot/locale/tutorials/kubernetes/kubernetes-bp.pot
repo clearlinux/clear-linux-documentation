@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:4
+msgid "Kubernetes Best Practices on |CL|"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:7
+msgid "Use swupd to update clusters"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:9
+msgid "This tutorial shows you how to manage your Kubernetes cluster while using :command:`swupd` to update |CL-ATTR|."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:12
+msgid "In our tutorial :ref:`kubernetes`, we explain how to set up a Kubernetes cluster on |CL| using `kubeadm`. `Kubeadm documentation`_ often builds on the assumption that the distribution uses a traditional package manager (e.g., RPM/DEB)."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:17
+msgid "In contrast, |CL| uses `swupd` to update the OS, which in this case updates all of the kubernetes node and client binaries simultaneously, as part of the `cloud-native-basic` bundle (e.g., kubectl, kubeadm, kubelet). Running :command:`sudo swupd update` requires special care to ensure the OS incorporates the latest Kubernetes upgrades."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:23
+msgid "This document describes best practices to manage cluster upgrades with `kubeadm` on a |CL|-based cluster."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:27
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:29
+msgid "Assure that you:"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:31
+msgid "Completed :ref:`kubernetes`"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:32
+msgid "Installed the bundle `cloud-native-basic`"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:36
+msgid "Other Linux\\* distros shown in Kubernetes upgrade documentation reflect `apt-get update`, `apt-mark hold kubeadm`, and similar commands; however, such commands **are not valid** on |CL|."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:40
+msgid "Update the control plane"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:42
+msgid "Read kubernetes documentation `before you begin`_."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:44
+msgid "On your master node, run the command:"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:52
+msgid "If the minor version of Kubernetes changes, |CL| shows a message-of-the-day, or `motd`. When the `motd` appears, you **must postpone** a kubelet restart on master and nodes until the control plane is properly updated. :command:`swupd update` does not restart services automatically unless explicitly configured to do so."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:54
+msgid "Now follow these instructions in kubernetes documentation."
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:56
+msgid "`Upgrade control plane`_"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:57
+msgid "`Drain control plane node`_"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:58
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:73
+msgid "`Restart Kubelet and undrain node`_"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:61
+msgid "Update worker nodes"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:63
+msgid "On each worker node, run the command:"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:69
+msgid "Now follow these instructions in kubernetes documentation:"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:71
+msgid "`Drain node`_"
+msgstr ""
+
+#: ../../../source/tutorials/kubernetes/kubernetes-bp.rst:72
+msgid "`Update kubelet configuration`_"
+msgstr ""
+

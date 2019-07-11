@@ -1,0 +1,578 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/tooling/autospec.rst:4
+msgid "autospec"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:6
+msgid ""
+"**autospec** is a tool used to assist with the automated creation and "
+"maintenance of RPM packaging in |CL-ATTR|. Where a standard :abbr:`RPM "
+"(RPM Package Manager)` build process using :command:`rpmbuild` requires a"
+" tarball and :file:`.spec` file to start, autospec requires only a "
+"tarball and package name to start."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:16
+msgid "Description"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:18
+msgid ""
+"The autospec tool attempts to infer the requirements of the :file:`.spec`"
+" file by analyzing the source code and :file:`Makefile` information. It "
+"continuously runs updated builds based on new information discovered from"
+" build failures until it has a complete and valid :file:`.spec` file. If "
+"needed, you can influence the behavior of autospec and customize the "
+"build by providing optional `control files`_ to the autospec tool."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:25
+msgid ""
+"autospec uses **mock** as a sandbox to run the builds. Visit the `mock "
+"wiki`_ for additional information on using mock."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:28
+msgid ""
+"For a general understanding of how an RPM works, visit the `rpm website`_"
+" or the `RPM Packaging Guide`_ ."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:32
+msgid "How it works"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:34
+msgid "Learn the autospec tool set up and process."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:41
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:43
+msgid ""
+"The setup for building source in |CL| must be completed before using the "
+"autospec tool."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:46
+msgid ""
+"Refer to `Setup environment to build source`_ for instructions on "
+"completing the setup."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:50
+msgid "Create an RPM"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:52
+msgid "The basic autospec process is described in the following steps:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:54
+msgid ""
+"The :command:`make autospec` command generates a :file:`.spec` file based"
+" on the analysis of code and existing control files."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:57
+msgid ""
+"Any control files should be located in the same directory as the "
+"resulting :file:`.spec` file."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:60
+msgid "View the `autospec README`_ for more information on `control files`_."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:62
+msgid "autospec creates a build root with mock config."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:64
+msgid "autospec attempts to build an RPM from the generated :file:`.spec`."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:66
+msgid "autospec detects any missed declarations in the :file:`.spec`."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:68
+msgid ""
+"If build errors occur, autospec scans the build log to try to detect the "
+"root cause."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:71
+msgid ""
+"If autospec detects the root cause and knows how to continue, it restarts"
+" the build automatically at step 1 with updated build instructions."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:74
+msgid ""
+"Otherwise, autospec stops the build for user inspection to resolve the "
+"errors. Respond to the build process output by fixing source code issues "
+"and/or editing control files to resolve issues, which may include "
+"dependencies or exclusions. See `autospec README`_ for more information "
+"on control files."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:80
+msgid "The user resumes the process at step 1 after errors are resolved."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:82
+msgid ""
+"If a binary dependency doesn't exist in |CL|, you must build it before "
+"running autospec again."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:85
+msgid ""
+"Following these steps, autospec continues to rebuild the package, based "
+"on new information discovered from build failures, until it has a valid "
+":file:`.spec`. If no build errors occur, RPM packages are successfully "
+"built."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:90
+msgid "Examples"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:92
+msgid "Complete `Setup environment to build source`_ before using these examples."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:99
+msgid "Example 1: Build RPM with an existing spec file"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:101
+msgid ""
+"This example shows how to build a RPM from a pre-packaged upstream "
+"package with an existing spec file. The example uses the ``dmidecode`` "
+"package."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:104
+#: ../../../source/tooling/autospec.rst:160
+msgid "Navigate to the autospec workspace and clone the ``dmidecode`` package:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:113
+msgid "You can clone all package repos at once using the following command:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:119
+#: ../../../source/tooling/autospec.rst:216
+msgid "The optional NUM is the number of threads to use."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:121
+msgid ""
+"For a list of available packages, view the "
+":file:`~/clearlinux/projects/common/packages` file."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:124
+msgid "Navigate to the local copy of the ``dmidecode`` package and build it:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:131
+msgid ""
+"The resulting RPMs are in :file:`./rpms`. Build logs and additional RPMs "
+"are in :file:`./results`."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:135
+msgid "Example 2: Build a new RPM"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:137
+msgid ""
+"This example shows how to build a new RPM with no spec file. The example "
+"will create a simple helloclear RPM."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:140
+msgid ""
+"Navigate to the autospec workspace and build the helloclear RPM. The "
+":file:`Makefile` provides a :command:`make autospecnew` that can "
+"automatically generate an RPM package using the autospec tool. You must "
+"pass the URL to the source tarball and the NAME of the RPM you wish to "
+"create:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:150
+msgid ""
+"The resulting RPMs are in :file:`./packages/helloclear/rpms`. Build logs "
+"and additional RPMs are in :file:`./packages/helloclear/results`."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:154
+msgid "Example 3: Generate a new spec file with a pre-defined package"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:156
+msgid ""
+"This example shows how to modify an existing package to create a custom "
+"RPM. In this example you will make a simple change to the ``dmidecode`` "
+"package and rebuild the package."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:167
+msgid "Navigate into the *dmidecode* directory:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:173
+msgid "Open the :file:`excludes` file with an editor and add these lines:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:186
+msgid ""
+"These files aren't needed by dmidecode, so we can remove them without any"
+" issues."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:189
+msgid ""
+"In the :file:`dmidecode` directory, build the modified ``dmidecode`` "
+"package:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:195
+msgid "The resulting RPMs are in :file:`./rpms`. Logs are in :file:`./results`."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:198
+msgid "Example 4: Provide control files to autospec"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:200
+msgid ""
+"This example shows how to modify control files to correct build failures "
+"that autospec is unable to resolve. In this example, you will add a "
+"missing license and dependencies so autospec can complete a successful "
+"build."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:204
+msgid "Navigate to the autospec workspace:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:210
+msgid "If you have not already, clone all upstream package repos:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:220
+msgid ""
+"In a later step of this example, we will search the cloned package repos "
+"for a missing dependency."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:223
+msgid "Build the opae-sdk RPM:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:229
+msgid "This results in an error for a missing license file:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:235
+msgid "Navigate to the package with build failures:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:241
+msgid ""
+"Add one or more valid license identifiers from the `SPDX License List "
+"<https://spdx.org/licenses/>`_. In the example below, two different "
+"licenses are appropriate based on the opae-sdk project licensing:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:250
+msgid "Run autospec again:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:256
+msgid "This results in a generic error:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:262
+msgid "Open the build log to view the error details:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:268
+msgid ""
+"The build log contains details for the specific failures. In this "
+"instance, there are missing dependencies:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:281
+msgid ""
+"Search the spec files of upstream |CL| packages to see if the json-c "
+"library is available. In this case, it does exist and we'll add the "
+"json-c 'dev' package into the buildreq_add:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:292
+msgid ""
+"This search step works only if the user cloned all of the upstream "
+"package repos. In this example, upstream package repos were cloned in a "
+"previous step."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:296
+msgid ""
+"Search the spec files of upstream |CL| packages to see if the libuuid "
+"library is available. In this case, it exists in the util-linux package, "
+"so we'll add util-linux-dev package into the buildreq_add:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:305
+msgid ""
+"Run autospec again and find the successfully-generated RPMs in the "
+":file:`rpms` directory:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:314
+msgid ""
+"If you need a dependency that does not exist in the |CL| repo, you must "
+"first build it manually (see `Example 2: Build a new RPM`_), then add the"
+" repo so that autospec knows the package exists. For example:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:324
+msgid ""
+"You only need to add the dependency to the :file:`buildreq_add` control "
+"file if autospec is not able to automatically find the correct dependency"
+" on its own."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:329
+msgid "Test packaged software"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:331
+msgid ""
+"After software has been packaged with autospec, the resulting RPMs can be"
+" tested for functionality before being integrated and deployed into a "
+"|CL| image with the :ref:`Mixer tool <mixer>`."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:335
+msgid ""
+"The |CL| development tooling offers two ways to quickly test autospec "
+"generated RPMs."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:339
+msgid ""
+"The methods outlined below should only be used for temporary testing on "
+"development systems."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:344
+msgid "Test in a |CL| virtual machine"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:346
+msgid ""
+"The |CL| development tooling includes a method to install RPMs into a "
+"|CL| virtual machine running on the KVM hypervisor. Using a :abbr:`VM "
+"(Virtual Machine)` allows testing in a completely isolated environment."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:350
+msgid "To test an autospec-created package inside a VM:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:352
+msgid ""
+"Download the |CL| KVM image into the :file:`~/clearlinux` directory as "
+":file:`clear.img`. The location and name :file:`clear.img.xz` is "
+"important for the tooling to work:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:361
+msgid "Extract the downloaded |CL| KVM image:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:367
+msgid ""
+"Copy the QEMU start script and virtual firmware needed for KVM into the "
+":file:`~/clearlinux` directory:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:375
+msgid ""
+"Run :command:`make install` from the package's autospec directory. The "
+":command:`make install` command mounts the downloaded |CL| KVM image and "
+"installs the autospec-created RPM into it:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:384
+msgid ""
+"The code that makes this possible can be viewed by searching for the "
+"*install:*  target in the `Makefile.common file on GitHub`_."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:387
+msgid "Return to the :file:`~/clearlinux` directory and start the |CL| VM:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:394
+msgid ""
+"A new |CL| VM will launch in the console. Log into the VM as *root* and "
+"set a new pasword for the VM."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:397
+msgid ""
+"Check that the software is installed in the |CL| VM as expected and "
+"perform any relevant tests."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:400
+msgid ""
+"After testing has been completed, the |CL| VM can be powered off and "
+"deleted:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:410
+msgid "Test directly on a development machine"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:412
+msgid ""
+"The |CL| development tooling also includes a method to extract autospec-"
+"created RPMs locally onto a |CL| development system for testing. "
+"Extracting an RPM directly onto a system  offers quicker testing; however"
+" conflicts may occur and responsibility to remove the software after "
+"testing is up to the developer."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:418
+msgid ""
+"To test an autospec created package directly on the |CL| development "
+"system:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:420
+msgid ""
+"Run :command:`make install-local` from the package's autospec directory. "
+"The :command:`make install-local` command extracts the RPM directly onto "
+"the filesystem of the running |CL| system:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:429
+msgid ""
+"The code that makes this possible can be viewed by searching for the "
+"*install-local:*  target in the `Makefile.common file on GitHub`_."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:432
+msgid ""
+"Check that the software is installed as expected and perform any relevant"
+" tests."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:435
+msgid ""
+"After testing has been completed, the software and any related files must"
+" be identified and deleted. The :command:`swupd repair --picky` command "
+"can help restore the state of the :file:`/usr` directory (see :ref:`swupd"
+" <swupd-about>`) however any other files must be cleaned up manually."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:443
+msgid "References"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:445
+msgid ""
+"Reference the `autospec README`_ for details regarding `autospec` "
+"commands and options."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:448
+msgid "Setup environment to build source"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:452
+msgid ""
+"Setup of the workspace and tooling used for building source in |CL| is "
+"mostly automated for you with a setup script. It uses tools from the "
+":command:`os-clr-on-clr` bundle."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:456
+msgid ""
+"The setup script creates a workspace in the :file:`clearlinux` folder, "
+"with the subfolders :file:`Makefile`, :file:`packages`, and "
+":file:`projects`. The :file:`projects` folder contains the main tools "
+"used for making packages in |CL| :file:`autospec` and :file:`common`."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:461
+msgid "Follow these steps to setup the workspace and tooling for building source:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:463
+msgid "Install the :command:`os-clr-on-clr` bundle:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:469
+msgid "Download the :file:`user-setup.sh` script:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:475
+msgid "Make :file:`user-setup.sh` executable:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:481
+msgid "Run the script as an unprivileged user:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:487
+msgid ""
+"After the script completes, log out and log in again to complete the "
+"setup process."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:490
+msgid "Set your Git user email and username for the repos on your system:"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:497
+msgid "This global setting is used by |CL| tools that make use of Git."
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:502
+msgid "Related topics"
+msgstr ""
+
+#: ../../../source/tooling/autospec.rst:504
+msgid ":ref:`Mixer tool <mixer>`"
+msgstr ""
+

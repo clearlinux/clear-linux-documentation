@@ -1,0 +1,245 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:4
+msgid "Increase virtual disk size of a |CL-ATTR| image"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:6
+msgid ""
+"|CL-ATTR| prebuilt images come in different sizes, ranging from 300 MB to"
+" 20 GB. This guide describes how to increase the size of your prebuilt "
+"|CL| image if you need more capacity."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:10
+msgid "This guide will cover:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:13
+msgid "Determine the partition order and sizes of the prebuilt image"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:15
+msgid ""
+"There are two methods to find the order and sizes of partitions virtual "
+"disk of your prebuilt |CL| image."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:18
+msgid ""
+"In both examples, the prebuilt Hyper-V image has a disk size of 8.5 GB "
+"with / dev/sda3 being the partition for the root filesystem (/)"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:22
+msgid "Checking :command:`lsblk` on the VM"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:24
+msgid ""
+"The first method is to boot up your :abbr:`VM (Virtual Machine)` and "
+"execute the :command:`lsblk` command as shown below:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:31
+msgid "An example output of the :command:`lsblk` command:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:41
+msgid "An example of this can also be seen in Figure 1."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:44
+msgid "Checking :file:`config.json` used to build the image"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:46
+msgid ""
+"The second method to determine partition to check the :file:`config.json`"
+" file used to create prebuilt image, located in the `releases`_ "
+"repository. For example, to find the size of the Hyper-V\\* image version"
+" number 20450, follow these steps:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:51
+msgid "Go to the `releases`_ repository."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:52
+msgid "Drill down into the `20450 > clear > config > image` directory."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:53
+msgid "Open the :file:`hyperv-config.json` file."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:54
+msgid "Locate the `PartitionLayout` key."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:56
+msgid ""
+"The example shows 512 MB for the EFI partition, 32 MB for the swap "
+"partition, and 8 GB for the root partition."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:76
+msgid "Increase virtual disk size"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:77
+msgid ""
+"Once you have determined the disk and partition to be increased, you are "
+"ready to perform the actual increase of the disk, partition, and "
+"filesystem."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:81
+msgid "Power off VM and increase virtual disk size:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:83
+msgid ""
+"To increase the virtual disk size for a prebuilt image, perform the steps"
+" below:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:86
+msgid "Shut down your VM if it is running."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:87
+msgid ""
+"Use the process defined by your hypervisor or cloud provider to increase "
+"the virtual disk size of your |CL| VM."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:90
+msgid "Power up the VM."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:94
+msgid "Resize the partition of the virtual disk:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:96
+msgid "Log in to an account with root privileges."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:97
+msgid "Open a terminal emulator."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:98
+msgid ""
+"Add the |CL| `storage-utils` bundle to install the :command:`parted` and "
+":command:`resize2fs` tools."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:105
+msgid "Launch the `parted` tool."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:111
+msgid "In the `parted` tool, perform these steps:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:113
+msgid "Press :command:`p` to print the partitions table."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:114
+msgid "If the warning message below is displayed, enter :command:`Fix`."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:124
+msgid ""
+"Enter :command:`resizepart [partition number]` where *[partition number]*"
+" is the partition number of the partition to modify."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:126
+msgid "Enter :command:`yes` when prompted."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:127
+msgid "Enter the new `End` size."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:131
+msgid ""
+"If you want a partition to take up the remaining disk space, then enter "
+"the total size of the disk. When you print the partitions table with the "
+":command:`p` command, the total disk size is shown after the `Disk` "
+"label."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:136
+msgid "An example of this can be seen in Figure 1."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:138
+msgid ""
+"Enter :command:`q` to exit `parted` when you are finished resizing the "
+"image."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:141
+msgid ""
+"Figure 1 depicts the described steps  to resize the partition of the "
+"virtual disk from 8.5GB to 20GB."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:147
+msgid "Figure 1: Increase root partition size."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:150
+msgid "Resize the filesytem"
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:152
+msgid ""
+"Enter :command:`sudo resize2fs -p /dev/[modified partition name]` where "
+"*[modified partition name]* is the partition that was changed in "
+"`parted`."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:155
+msgid "Run the :command:`df -h` to verify that the filesystem size has increased."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:158
+msgid ""
+"Figure 2 depicts the described steps to resize the partition of the "
+"virtual disk from 8.5GB to 20GB."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:164
+msgid "Figure 2: Increase root filesystem size after partition has been expanded."
+msgstr ""
+
+#: ../../../source/guides/maintenance/increase-virtual-disk-size.rst:166
+msgid ""
+"Congratulations! You have resized the disk, partition, and filesystem. At"
+" this point, the increase in disk capacity is usable."
+msgstr ""
+

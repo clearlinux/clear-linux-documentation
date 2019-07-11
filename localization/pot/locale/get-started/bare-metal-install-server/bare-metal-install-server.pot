@@ -1,0 +1,1081 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:4
+msgid "Install |CL-ATTR| on bare metal with live server"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:6
+msgid "These instructions guide you through installing |CL-ATTR| on bare metal from a bootable USB drive using a live server image."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:13
+msgid "System requirements"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:15
+msgid "Assure that your target system supports the installation:"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:17
+msgid ":ref:`system-requirements`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:18
+msgid ":ref:`compatibility-check`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:21
+msgid "Download the latest |CL| live server image"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:23
+msgid "Get the latest |CL| installer image from the `downloads page`_. Look for the :file:`clear-[version number]-live-server.iso` file."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:26
+msgid "Follow your OS instructions to create a bootable USB drive."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:28
+msgid ":ref:`bootable-usb`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:30
+msgid "After downloading the image, verify and decompress the file per your OS."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:33
+msgid "Install |CL| on your target system"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:35
+msgid "Ensure that your system is configured to boot UEFI. The installation method described below requires a wired Internet connection with DHCP."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:40
+msgid "Alternatively, you can install |CL| over a wireless connection by first using `nmtui`. Follow the `nmtui` instructions shown in Figure 2."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:43
+msgid "Follow these steps to install |CL| on the target system:"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:45
+msgid "Insert the USB drive into an available USB slot."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:47
+msgid "Power on the system."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:49
+msgid "Open the system BIOS setup menu by pressing the :kbd:`F2` key. Your BIOS setup menu entry point may vary."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:53
+msgid "|CL| supports UEFI boot. Some hardware may list UEFI and non-UEFI USB boot entries. In this case, you should select the `UEFI` boot option."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:57
+msgid "In the setup menu, enable the UEFI boot and set the USB drive as the first option in the device boot order."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:60
+msgid "Save these settings and exit."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:62
+msgid "Reboot the target system."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:64
+msgid "This action launches the |CL| installer boot menu, shown in figure 1."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:70
+msgid "Figure 1: Clear Linux OS Installer boot menu"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:72
+msgid "With :guilabel:`Clear Linux OS` highlighted, select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:75
+msgid "Launch the |CL| Installer"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:77
+msgid "At the :guilabel:`login` prompt, enter :command:`root`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:79
+msgid "Follow the onscreen instructions, shown in Figure 2, and enter a temporary password."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:86
+msgid "Figure 2: root login"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:88
+msgid "At the :guilabel:`root` prompt, enter :command:`clr-installer` and press :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:95
+msgid "Figure 3: clr-installer command"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:98
+msgid "Minimum installation requirements"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:100
+msgid "To fulfill minimum installation requirements, complete the `Required options`_. While not required, we encourage you to apply the `Recommended options`_. `Advanced options`_ are optional."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:106
+msgid "The :kbd:`Install` button is **only highlighted after** you complete `Required options`_."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:110
+msgid "Main Menu"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:111
+msgid "The |CL| Installer Main Menu appears as shown in Figure 4."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:117
+msgid "Figure 4: Clear Linux OS Installer"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:119
+msgid "The |CL| Installer Main Menu has two tabs: :guilabel:`[R] Required options` and :guilabel:`[A] Advanced options`. Navigate between tabs using the arrow these shortcut keys:"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:123
+msgid ":kbd:`Shift+A` for :guilabel:`[A] Advanced options`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:124
+msgid ":kbd:`Shift+R` for :guilabel:`[R] Required options`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:126
+msgid "To meet the minimum requirements, enter your choices in the :guilabel:`Required options`. After confirmation, your selections appear beside the :guilabel:`>>` chevron, below the menu options."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:131
+msgid "Navigation"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:133
+msgid "Select :kbd:`Tab` or :kbd:`Up/Down` arrows to highlight your choice."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:135
+msgid "Select :kbd:`Enter` or :kbd:`Spacebar` to confirm your choice."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:137
+msgid "Select :kbd:`Cancel` or :kbd:`Esc` to cancel your choice."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:140
+msgid "Required options"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:143
+msgid "Choose Timezone"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:145
+msgid "From the Main Menu, navigate to :guilabel:`Choose Timezone`. `UTC` is the default."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:148
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:168
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:185
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:677
+msgid "Select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:150
+msgid "In :guilabel:`Select System Timezone`, use :kbd:`Up/Down` arrows navigate to the desired timezone."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:155
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:172
+msgid "Press :kbd:`Enter` to confirm."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:161
+msgid "Figure 5: Select System Timezone"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:164
+msgid "Choose Language"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:166
+msgid "From the Main Menu, navigate to :guilabel:`Choose Language`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:170
+msgid "In :guilabel:`Select System Language`, navigate to your desired language."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:178
+msgid "Figure 6: Select System Language"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:181
+msgid "Configure the Keyboard"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:183
+msgid "From the Main Menu, select :guilabel:`Configure the Keyboard`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:187
+msgid "In :guilabel:`Select Keyboard`, navigate to the desired option."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:189
+msgid "Select :kbd:`Enter` to :kbd:`Confirm`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:191
+msgid "Optional: In :guilabel:`Test keyboard`, type text to assure that the keys map to your keyboard."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:198
+msgid "Figure 7: Select Keyboard menu"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:201
+msgid "Configure Installation Media"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:203
+msgid "From the Main Menu, select :guilabel:`Configure Installation Media`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:205
+msgid "Choose an installation method: * `Safe Installation`_ * `Destructive Installation`_ * `Advanced Configuration`_"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:215
+msgid "Figure 8: Select Installation Media"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:217
+msgid "Select :guilabel:`Rescan Media` to show available installation targets."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:222
+msgid "Safe Installation"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:224
+msgid "Use this method to safely install |CL| on media with available space, or alongside existing partitions, and accept the `Default partition schema`_. If enough free space exists, safe installation is allowed. See also `Troubleshooting`_ below."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:230
+msgid "Destructive Installation"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:232
+msgid "Use this method to destroy the contents of the target device, install |CL| on it, and accept the `Default partition schema`_."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:237
+msgid "From the :guilabel:`Select Installation Media` menu, select :guilabel:`Enable Encryption` to encrypt the root filesystem for either option above. See also `Disk encryption`_ for more information."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:242
+msgid "Advanced Configuration"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:244
+msgid "Use this method to manually configure partitions. These must meet `Default partition schema`_. You may also choose `Disk encryption`_ during configuration of each partition."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:250
+msgid "`Advanced Configuration` is available in the installer versions 1.2.0 and above."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:253
+msgid "From :guilabel:`Select Installation Media`, shown in Figure 8 above, select :guilabel:`Advanced Configuration`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:256
+msgid "In :guilabel:`Advanced Configuration`, navigate to :file:`/dev/sda` and then press :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:263
+msgid "Figure 9: Advanced configuration menu"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:265
+msgid "Choose a partition method:"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:267
+msgid ":guilabel:`Auto Partition` Select this option to accept the `Default partition schema`_."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:270
+msgid "Navigate to and press :guilabel:`Confirm`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:272
+msgid "Continue with installation configuration. Jump to `Telemetry`_."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:274
+msgid "`Manual Partition`_ Continue below."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:277
+msgid "Manual Partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:279
+msgid "We provide a simple example below."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:281
+msgid "Navigate to the unallocated media (e.g.,`/dev/sda`) until highlighted, as shown in Figure 9."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:284
+msgid "Press :guilabel:`Enter` to edit the partition."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:286
+msgid "The :guilabel:`Partition Setup` menu appears, shown in Figure 10."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:290
+msgid "After adding the first partition, select :guilabel:`Free Space` to add another partition."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:293
+msgid "root partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:295
+msgid "We configure the `root` partition as shown in Figure 10. Configuration of the `root` partition varies."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:302
+msgid "Figure 10: root partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:304
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:317
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:331
+msgid "Navigate to :guilabel:`Add` and press :guilabel:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:307
+msgid "boot partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:309
+msgid "We configure the `boot` partition as shown in Figure 11."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:315
+msgid "Figure 11: boot partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:320
+msgid "swap partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:322
+msgid "In the :guilabel:`File System` pulldown menu, select `swap`, and enter a label. We enter the minimum required size (e.g., 256M)."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:329
+msgid "Figure 12: swap partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:333
+msgid "Next, navigate to :guilabel:`Confirm` and press :guilabel:`Enter`, shown in Figure 13."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:336
+msgid "Manual partitioning is complete."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:342
+msgid "Figure 13: Final configuration of disk partitions"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:344
+msgid "You may skip to the `Telemetry`_ section below."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:347
+msgid "Disk encryption"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:349
+msgid "For greater security, disk encryption is supported using LUKS for the any partition except `/boot` on |CL|. To encrypt the root partition, see the example below. Encryption is optional."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:354
+msgid "Encryption Passphrase"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:356
+msgid "|CL| uses a single passphrase for encrypted partitions. Additional keys may be configured post-installation using the ``cryptsetup`` tool."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:359
+msgid "Optional: Select :guilabel:`[X] Encrypt` to encrypt the root partition, as shown in Figure 14."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:366
+msgid "Figure 14: Encrypt partition"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:368
+msgid "The :guilabel:`Encryption Passphrase` dialogue appears."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:372
+msgid "Minimum length is 8 characters. Maximum length is 94 characters."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:378
+msgid "Figure 15: Encryption Passphrase"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:380
+msgid "Enter the same passphrase in the first and second field."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:382
+msgid "Navigate to :guilabel:`Confirm` and press :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:386
+msgid ":guilabel:`Confirm` is only highlighted if passphrases match."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:389
+msgid "Telemetry"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:391
+msgid ":ref:`telem-guide` is a |CL| feature that reports failures and crashes to the |CL| development team for improvements. For more detailed information, visit our :ref:`telemetry-about` page."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:395
+msgid "Select your desired option on whether to participate in `telemetry`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:397
+msgid "In the Main Menu, navigate to :guilabel:`Telemetry` and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:400
+msgid "Select :kbd:`Tab` to highlight your choice."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:402
+msgid "Select :kbd:`Enter` to confirm."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:408
+msgid "Figure 16: Enable Telemetry"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:411
+msgid "Recommended options"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:413
+msgid "After you complete the `Required options`_, we highly recommend completing these selected `Advanced options`_ at minimum:"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:416
+msgid "`Manage User`_ Assign a new user with administrative rights"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:417
+msgid "`Assign Hostname`_ Simplify your development environment"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:420
+msgid "Skip to finish installation"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:422
+msgid "After selecting values for all :guilabel:`Required options`, you may skip to `Finish installation`_."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:425
+msgid "Otherwise, continue below. In the Main Menu, select :guilabel:`Advanced options` for additional configuration."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:429
+msgid "Advanced options"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:432
+msgid "Configure Network Interfaces"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:434
+msgid "By default, |CL| is configured to automatically detect the host network interface using DHCP. However, if you want to use a static IP address or if you do not have a DHCP server on your network, follow these instructions to manually configure the network interface. Otherwise, default network interface settings are automatically applied."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:442
+msgid "If DHCP is available, no user selection may be required."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:444
+msgid "Navigate to :guilabel:`Configure Network Interfaces` and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:447
+msgid "Navigate to the network :guilabel:`interface` you wish to change."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:449
+msgid "When the desired :guilabel:`interface` is highlighted, select :guilabel:`Enter` to edit."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:452
+msgid "Multiple network interfaces may appear."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:458
+msgid "Figure 17: Configure Network Interfaces"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:460
+msgid "Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom)."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:462
+msgid "Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select :kbd:`Spacebar` to deselect."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:469
+msgid "Figure 18: Network interface configuration"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:471
+msgid "Navigate to the appropriate fields and assign the desired network configuration."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:474
+msgid "To save settings, navigate to :guilabel:`Confirm` and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:479
+msgid "To revert to previous settings, navigate to the :guilabel:`Cancel` and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:482
+msgid "Upon confirming network configuration, the :guilabel:`Testing Networking` dialogue appears. Assure the result shows success. If a failure occurs, your changes will not be saved."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:486
+msgid "Upon confirmation, you are returned to :guilabel:`Network interface` settings."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:489
+msgid "Navigate to and select :guilabel:`Main Menu`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:491
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:519
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:540
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:564
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:664
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:694
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:714
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:733
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:758
+msgid "Optional: Skip to `Finish installation`_."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:494
+msgid "Proxy"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:496
+msgid "|CL| automatically attempts to detect proxy settings, as described in `Autoproxy`_. If you need to manually assign proxy settings, follow this instruction."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:500
+msgid "From the Advanced options menu, navigate to :guilabel:`Proxy`, and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:503
+msgid "Navigate to the field :guilabel:`HTTPS Proxy`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:509
+msgid "Figure 19: Configure the network proxy"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:511
+msgid "Enter the desired proxy address and port using conventional syntax, such as: \\http://address:port."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:514
+msgid "Navigate to :guilabel:`Confirm` and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:516
+msgid "To revert to previous settings, navigate to :guilabel:`Cancel` and select :guilabel:`Cancel`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:522
+msgid "Test Network Settings"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:524
+msgid "To manually assure network connectivity before installing |CL|, select :guilabel:`Test Network Settings` and select :guilabel:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:527
+msgid "A progress bar appears as shown in Figure 20."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:533
+msgid "Figure 20: Testing Networking dialogue"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:537
+msgid "Any changes made to network settings are automatically tested during configuration."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:543
+msgid "Bundle Selection"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:545
+msgid "On the Advanced menu, select :guilabel:`Bundle Selection`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:547
+msgid "Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:549
+msgid "Select :kbd:`Spacebar` to select the checkbox for each desired bundle."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:555
+msgid "Figure 21: Bundle Selection"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:557
+msgid "Optional: To start developing with |CL|, we recommend adding :file:`os-clr-on-clr`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:560
+msgid "Navigate to and select :kbd:`Confirm`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:562
+msgid "You are returned to the :guilabel:`Advanced options` menu."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:567
+msgid "Manage User"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:570
+msgid "Add New User"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:572
+msgid "In Advanced Options, select :guilabel:`Manage User`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:574
+msgid "Select :guilabel:`Add New User` as shown in Figure 22."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:580
+msgid "Figure 22: Add New User"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:582
+msgid "Optional: Enter a :guilabel:`User Name`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:592
+msgid "Figure 23: User Name"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:594
+msgid "Enter a :guilabel:`Login`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:598
+msgid "The User Login must be alphanumeric and can include hyphens and underscores. Maximum length is 31 characters."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:600
+msgid "Enter a :guilabel:`Password`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:606
+msgid "In :guilabel:`Confirm`, enter the same password."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:608
+msgid "Optional: Navigate to the :guilabel:`Administrative` checkbox and select :kbd:`Spacebar` to assign administrative rights to the user."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:613
+msgid "Selecting this option enables sudo privileges for the user."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:615
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:692
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:725
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:756
+msgid "Select :kbd:`Confirm`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:619
+msgid "If desired, select :guilabel:`Reset` to reset the form."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:621
+msgid "In :guilabel:`Manage User`, navigate to :guilabel:`Confirm`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:623
+msgid "With :guilabel:`Confirm` highlighted, select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:626
+msgid "Modify / Delete User"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:628
+msgid "In :guilabel:`Manage User`, navigate to the user you wish to modify until highlighted, as shown in Figure 24."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:631
+msgid "Select :kbd:`Enter` to modify the user."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:637
+msgid "Figure 24: Modify User"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:639
+msgid "Modify user details as desired."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:641
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:660
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:754
+msgid "Navigate to :kbd:`Confirm` until highlighted."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:645
+msgid "Optional: Select :guilabel:`Reset` to rest the form."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:647
+msgid "Select :guilabel:`Confirm` to save the changes you made."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:649
+msgid "Optional: In :guilabel:`Modify User`, to delete the user, navigate to the :guilabel:`Delete` button and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:656
+msgid "Figure 25: Delete User"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:658
+msgid "You are returned to :guilabel:`Manage User`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:662
+msgid "Select :guilabel:`Enter` to complete :guilabel:`Manage User` options."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:667
+msgid "Kernel Command Line"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:669
+msgid "For advanced users, |CL| provides the ability to add or remove kernel arguments. If you want to append a new argument, enter the argument here. This argument will be used every time you install or update a new kernel."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:674
+msgid "In Advanced Options, select :guilabel:`Tab` to highlight :guilabel:`Kernel Command Line`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:683
+msgid "Figure 26: kernel command line"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:685
+msgid "Choose from the following options."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:687
+msgid "To add arguments, enter the argument in :guilabel:`Add Extra Arguments`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:689
+msgid "To remove an argument, enter the argument in :guilabel:`Remove Arguments`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:697
+msgid "Kernel Selection"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:699
+msgid "Select a kernel option. By default, the latest kernel release is selected. Native kernel is shown in Figure 27."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:702
+msgid "To select a different kernel, navigate to it using :guilabel:`Tab`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:708
+msgid "Figure 27: Kernel selection"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:710
+msgid "Select :kbd:`Spacebar` to select the desired option."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:712
+msgid "Navigate to :kbd:`Confirm` and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:717
+msgid "Swupd Mirror"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:719
+msgid "If you have your own custom mirror of |CL|, you can add its URL."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:721
+msgid "In Advanced Options, select :guilabel:`Swupd Mirror`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:723
+msgid "To add a local swupd mirror, enter a valid URL in :guilabel:`Mirror URL:`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:731
+msgid "Figure 28: Swupd Mirror"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:736
+msgid "Assign Hostname"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:738
+msgid "In Advanced Options, select :guilabel:`Assign Hostname`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:740
+msgid "In :guilabel:`Hostname`, enter the hostname only (excluding the domain)."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:744
+msgid "Hostname does not allow empty spaces. Hostname must start with an alphanumeric character but may also contain hyphens. Maximum length of 63 characters."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:752
+msgid "Figure 29: Assign Hostname"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:761
+msgid "Automatic OS Updates"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:763
+msgid "Automatical OS updates are enabled by default. In the rare case that you need to disable automatic software updates, follow the onscreen instructions, shown in Figure 30."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:767
+msgid "In Advanced Options, select :guilabel:`Automatic OS Updates`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:769
+msgid "Select the desired option."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:775
+msgid "Figure 30: Automatic OS Updates"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:777
+msgid "You are returned to the :guilabel:`Main Menu`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:780
+msgid "Save Configuration Settings"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:782
+msgid "In Advanced Options, select :guilabel:`Save Configuration Settings`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:784
+msgid "A dialogue box shows the installation configuration was saved to :file:`clr-installer.yaml`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:791
+msgid "Figure 31: Automatic OS Updates"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:793
+msgid "Use the :file:`clr-installer.yaml` file to install |CL|, with the same configuration, on multiple targets."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:797
+msgid "Finish installation"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:799
+msgid "When you are satisfied with your installation configuration, navigate to :guilabel:`Install` and select :kbd:`Enter`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:806
+msgid "Figure 32: Select Install"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:808
+msgid "Select :guilabel:`reboot`."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:812
+msgid "If you do not assign an administrative user, upon rebooting, enter `root` and set the root password immediately."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:815
+msgid "When the system reboots, remove any installation media present."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:818
+msgid "Default partition schema"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:820
+msgid "To add partitions manually, see `Advanced configuration`_ below, and create partitions per requirements in Table 1."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:823
+msgid "**Table 1. Disk Partition Setup**"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:827
+msgid "FileSystem"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:828
+msgid "Mount Point"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:829
+msgid "Minimum size"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:830
+msgid "``VFAT``"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:831
+msgid "/boot"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:832
+msgid "150M"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:833
+msgid "``swap``"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:835
+msgid "256MB"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:836
+msgid "``root``"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:837
+msgid "/"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:838
+msgid "*Size depends upon use case/desired bundles.*"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:841
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:844
+msgid "For Configure Installation Media"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:846
+msgid "If a warning message appears that no media or space is available after entering :guilabel:`Configure Installation Media`:"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:849
+msgid "Verify that target media has enough free space."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:851
+msgid "Confirm the USB is properly connected to and mounted on target media."
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:853
+msgid "Review the size of existing partitions on the target media:"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:855
+msgid "Linux\\* OS: :command:`lsblk -a`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:856
+msgid "Windows\\* OS:  :command:`diskpart`, then :command:`list disk`"
+msgstr ""
+
+#: ../../../source/get-started/bare-metal-install-server/bare-metal-install-server.rst:857
+msgid "macOS\\* platform: :command:`diskutil list`"
+msgstr ""
+

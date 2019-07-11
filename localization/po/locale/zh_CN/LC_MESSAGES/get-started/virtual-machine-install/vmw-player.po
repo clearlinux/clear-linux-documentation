@@ -1,0 +1,492 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:4
+msgid "Install |CL-ATTR| as a VMware\\* Workstation Player guest OS"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:6
+msgid ""
+"`VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of"
+" another operating system such as Windows\\* or Linux\\*. With VMware "
+"ESXi, you can create, configure, manage, and run |CL-ATTR| :abbr:`VMs "
+"(Virtual Machines)` on your local system."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:11
+msgid ""
+"This section shows how to create a new VM and install |CL| into it with "
+"the VMware Workstation 14 Player hypervisor. Installing |CL| into a new "
+"VM provides you flexibility when configuring the VM. You can configure "
+"the VM's size, number of partitions, installed bundles, etc."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:16
+msgid "In this tutorial, we perform the following steps:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:21
+msgid ""
+"If you prefer to use a pre-configured |CL| VMware image instead, see our "
+":ref:`vmw-player-preconf` guide."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:24
+msgid ""
+"VMware offers a type 1 hypervisor called `VMware ESXi`_ designed for the "
+"cloud environment. For information on how to install |CL| as guest OS on "
+"it, see :ref:`vmware-esxi-install-cl`."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:30
+msgid ""
+"The screenshots on this document show the Windows version of the VMware "
+"Workstation 14 Player. The menus and prompts are similar to those in the "
+"Linux version save some minor wording differences."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:35
+msgid "Install the VMware Workstation Player hypervisor"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:37
+msgid ""
+"Enable :abbr:`Intel® VT (Intel® Virtualization Technology)` and "
+":abbr:`Intel® VT-d (Intel® Virtualization Technology for Directed I/O)` "
+"in your system's BIOS."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:41
+msgid ""
+"`VMware Workstation 14 Player`_ is available for Windows and Linux. "
+"Download your preferred version."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:44
+msgid ""
+"Install VMware Workstation 14 Player following the instructions "
+"appropriate for your system's OS:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:47
+msgid "On supported Linux distros:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:49
+msgid "Enable a GUI desktop."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:50
+msgid "Start a terminal emulator."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:51
+msgid ""
+"Start the installer by issuing the command below and follow the guided "
+"steps."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:58
+msgid "On Windows:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:60
+msgid "Start the installer."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:61
+msgid "Follow the setup wizard."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:63
+msgid "For additional help, see the `VMware Workstation Player guide`_."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:66
+msgid "Download the latest |CL| installer ISO"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:68
+msgid ""
+"Get the latest |CL| installer ISO image from the `image`_ repository. "
+"Look for :file:`clear-[version number]-installer.iso.xz`."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:71
+msgid ""
+"Visit :ref:`image-types` for additional information about all available "
+"|CL| images."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:4
+msgid "Verify the integrity of the |CL| image"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:6
+msgid ""
+"Before you use a downloaded |CL| image, verify its integrity. This action"
+" eliminates the small chance of a corrupted image due to download issues."
+" To support verification, each released |CL| image has a corresponding "
+"SHA512 checksum file designated with the suffix `-SHA512SUMS`."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:11
+msgid "Download the corresponding SHA512 checksum file of your |CL| image."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:12
+msgid "Start Command Prompt."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:13
+msgid "Go to the directory with the downloaded image and checksum files."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:14
+msgid "Get the SHA512 checksum of the image with the command:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:20
+msgid ""
+"Manually compare the output with the original checksum value shown in the"
+" downloaded checksum file and make sure they match."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:24
+msgid "Decompress the |CL| image"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:26
+msgid ""
+"Released |CL| images are compressed with either GNU zip (*.gz*) or XZ "
+"(*.xz*). The compression type depends on the target platform or "
+"environment. To decompress the image, follow these steps:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:30
+msgid "Download and install `7-Zip`_."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:31
+msgid "Go to the directory with the downloaded image and right-click it."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:32
+msgid ""
+"From the pop-up menu, select :guilabel:`7-Zip` and select "
+":guilabel:`Extract Here` as shown in Figure 1."
+msgstr ""
+
+#: ../../../source/guides/maintenance/download-verify-decompress-windows.rst:39
+msgid "Figure 1: Windows 7-Zip extract file."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:76
+msgid "We also provide instructions for other operating systems:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:78
+msgid ":ref:`download-verify-decompress-linux`"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:79
+msgid ":ref:`download-verify-decompress-mac`"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:82
+msgid "Create and configure a new VM"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:84
+msgid "Start the `VMware Workstation Player` app."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:86
+msgid ""
+"On the home screen, click :guilabel:`Create a New Virtual Machine`. See "
+"Figure 1."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:93
+msgid "Figure 1: VMware Workstation 14 Player - Create a new virtual machine"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:96
+msgid ""
+"On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen, "
+"select the :guilabel:`Installer disc image file (iso)` option. See Figure"
+" 2."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:104
+msgid "Figure 2: VMware Workstation 14 Player - Select |CL| installer ISO"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:106
+msgid ""
+"Click the :guilabel:`Browse` button and select the decompressed |CL| "
+"installer ISO."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:109
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:125
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:136
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:151
+msgid "Click the :guilabel:`Next` button."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:111
+msgid ""
+"On the :guilabel:`Select a Guest Operating System`, set the "
+":guilabel:`Guest operating system` setting to :guilabel:`Linux`. See "
+"Figure 3."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:119
+msgid ""
+"Figure 3: VMware Workstation 14 Player - Select guest operating system "
+"type"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:122
+msgid ""
+"Set the :guilabel:`Version` setting to :guilabel:`Other Linux 3.x or "
+"later kernel 64-bit`."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:127
+msgid ""
+"On the :guilabel:`Name the Virtual Machine` screen, name the new VM. See "
+"Figure 4."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:134
+msgid "Figure 4: VMware Workstation 14 Player - Name virtual machine"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:138
+msgid ""
+"On the :guilabel:`Specify Disk Capacity` screen, set the VM's maximum "
+"disk size. See Figure 5."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:145
+msgid "Figure 5: VMware Workstation 14 Player - Set disk capacity"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:148
+msgid ""
+"A minimal |CL| installation can exist on 600MB of drive space. See :ref"
+":`system-requirements` for more details."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:153
+msgid ""
+"On the :guilabel:`Ready to Create Virtual Machine` screen, click the "
+":guilabel:`Customize Hardware...` button. See Figure 6."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:160
+msgid "Figure 6: VMware Workstation 14 Player - Customize hardware"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:162
+msgid "Select :guilabel:`Memory` and set the size to 2GB. See Figure 7."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:168
+msgid "Figure 7: VMware Workstation 14 Player - Set memory size"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:171
+msgid ""
+"The |CL| installer ISO needs a minimum of 2GB of RAM. After completing "
+"installation, |CL| can run on as little as 128MB of RAM. Thus, you can "
+"reduce the memory size if needed. See :ref:`system-requirements` for more"
+" details."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:176
+msgid ""
+"Under the :guilabel:`Device` list, select :guilabel:`Processors`. See "
+"Figure 8."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:183
+msgid "Figure 8: VMware Workstation 14 Player - Set virtualization engine option"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:186
+msgid ""
+"Under the :guilabel:`Virtualization engine` section, check "
+":guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:189
+msgid "Click the :guilabel:`Close` button."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:191
+msgid "Click the :guilabel:`Finish` button."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:194
+msgid "Install |CL| into the new VM"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:196
+msgid ""
+"Select the newly-created VM and click the :guilabel:`Play virtual "
+"machine` button. See Figure 9."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:203
+msgid "Figure 9: VMware Workstation 14 Player - Power on virtual machine"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:205
+msgid ""
+"Follow the :ref:`install-on-target-start` guide to complete the "
+"installation of |CL|."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:208
+msgid ""
+"After the installation completes, reboot the VM. This reboot restarts the"
+" |CL| installer."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:212
+msgid "Detach the |CL| installer ISO from the VM"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:214
+msgid ""
+"To enable the mouse pointer so you access VMware Workstation Player's "
+"menus, press :kbd:`<CTRL>` + :kbd:`<ALT>` on the keyboard."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:217
+msgid ""
+"To disconnect the CD/DVD to stop it from booting the |CL| installer ISO "
+"again, click the :guilabel:`Player` menu. See Figure 10."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:224
+msgid "Figure 10: VMware Workstation 14 Player - Edit CD/DVD settings"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:226
+msgid "Go to :menuselection:`Removable Devices-->CD/DVD (IDE)-->Settings`."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:228
+msgid ""
+"On the :guilabel:`Device status` section, uncheck the "
+":guilabel:`Connected` and the :guilabel:`Connect at power on` settings. "
+"See Figure 11."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:236
+msgid "Figure 11: VMware Workstation 14 Player - Disconnect CD/DVD"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:238
+msgid "Click the :guilabel:`OK` button."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:240
+msgid "To power off the VM, click the :guilabel:`Player` menu. See Figure 12."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:246
+msgid "Figure 12: VMware Workstation 14 Player - Power off virtual machine"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:248
+msgid "Go to :guilabel:`Power` and select :guilabel:`Shut Down Guest`."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:251
+msgid "Enable UEFI boot support"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:253
+msgid ""
+"|CL| needs UEFI support to boot. To enable UEFI, add the following line "
+"to the end of your VM's :file:`.vmx` file:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:262
+msgid "Depending on the OS, you can typically find the VMware VM files under:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:264
+msgid "On Linux distros: :file:`/home/username/vmware`"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:265
+msgid ""
+"On Windows: :file:`C:\\\\Users\\\\username\\\\Documents\\\\Virtual "
+"Machines`"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:268
+msgid "Power on the VM"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:270
+msgid "After configuring the settings above, power on your |CL| virtual machine."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:272
+msgid ""
+"On the :guilabel:`VMware Workstation Player` home screen, select your VM."
+" See Figure 13."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:279
+msgid "Figure 13: VMware Workstation 14 Player - Power on virtual machine"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:281
+msgid "Click :guilabel:`Play virtual machine`."
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:284
+msgid "Related topics"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:286
+msgid "For other guides on using the VMWare Player and ESXi, see:"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:288
+msgid ":ref:`vmw-player-preconf`"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:289
+msgid ":ref:`vmware-esxi-install-cl`"
+msgstr ""
+
+#: ../../../source/get-started/virtual-machine-install/vmw-player.rst:290
+msgid ":ref:`vmware-esxi-preconfigured-cl-image`"
+msgstr ""
+

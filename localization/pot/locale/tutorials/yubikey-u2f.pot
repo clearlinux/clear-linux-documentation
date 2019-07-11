@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/tutorials/yubikey-u2f.rst:4
+msgid "Enable YubiKey U2F Support"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:6
+msgid "YubiKey\\* is a USB security token manufactured by `Yubico`_. Depending on the model, a YubiKey can support different authentication protocols including: One-Time Password (OTP), Smart card, FIDO2, and Universal 2nd Factor (U2F)."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:10
+msgid "These instructions will go over configuring a YubiKey for U2F authentication through a web browser on a |CL-ATTR| system."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:13
+msgid "A list of `websites accepting U2F authentication with the YubiKey`_ is available on the Yubico website. See the Yubico website to learn more about the Yubikey: https://www.yubico.com/getstarted/meet-the-yubikey/"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:26
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:28
+msgid "This tutorial assumes you have:"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:30
+msgid "|CL| installed and running."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:32
+msgid "Mozilla Firefox installed on |CL|."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:34
+msgid "A YubiKey."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:39
+msgid "Enable Linux udev rules for YubiKey"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:41
+msgid ":command:`udev` is the Linux device manager which handles events when USB devices are added and removed. Custom rules needs to be created to properly identify the YubiKey and provide applications access."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:45
+msgid "These instructions are derived from: `Yubico support article Using Your U2F YubiKey with Linux <https://support.yubico.com/support/solutions/articles/15000006449>`_"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:50
+msgid "Create the udev rules folder under :file:`/etc`"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:57
+msgid "Download the u2f rules from the Yubico GitHub:"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:64
+msgid "Move the downloaded :file:`70-u2f.rules` file into the :file:`/etc/udev` folder"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:72
+msgid "The udev rules should automatically be reloaded. However, they can be manually reloaded or reboot the system:"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:80
+msgid "Plugin and validate the YubiKey appears as a USB device:"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:89
+msgid "Enable U2F in Mozilla Firefox"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:91
+msgid "Firefox comes with U2F web authentication support disabled by default. U2F needs to be enabled in the advanced settings."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:94
+msgid "These instructions are derived from: `Yubico support article Enabling U2F support in Mozilla Firefox <https://support.yubico.com/support/solutions/articles/15000017511-enabling-u2f-support-in-mozilla-firefox>`_"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:99
+msgid "Launch Mozilla Firefox"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:101
+msgid "In the URL bar, type :command:`about:config` to access the advanced settings."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:108
+msgid "Click the *I accept the risk!* button to continue to the advanced settings"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:110
+msgid "Search for the :command:`security.webauth.u2f` and double-click it so *Value* becomes **true**."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:114
+msgid "Your YubiKey is now usable on |CL| with Mozilla Firefox with websites that support U2F authentication."
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:119
+msgid "Related topics"
+msgstr ""
+
+#: ../../../source/tutorials/yubikey-u2f.rst:121
+msgid "|CL| :ref:`security`"
+msgstr ""
+

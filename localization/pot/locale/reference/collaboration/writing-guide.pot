@@ -1,0 +1,561 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/reference/collaboration/writing-guide.rst:4
+msgid "Writing guide"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:6
+msgid "We want our documentation to be easy to read and understand. This document describes guidelines for writing documentation that is clear, concise, confident, and courteous."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:10
+msgid "Refer to :ref:`structure-formatting` for details on organizing content and how we use reStructuredText and Sphinx."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:17
+msgid "Use simple English"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:19
+msgid "Write using simple English: Be brief and communicate only the information that is needed. Be friendly and informative. Emphasize clarity and avoid unecessary complicated or technical terms. Make the content accessible to non-native speakers."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:25
+msgid "Be brief"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:27
+msgid "Use short sentences and paragraphs. Stick to the principle of one main idea per sentence, plus one additional point if needed. Each paragraph should address one main idea. Remember the basic structure of a paragraph: Introduction, body, and conclusion."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:33
+msgid "Be friendly"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:35
+msgid "We write for our peers and want to be familiar. Take a personal tone as if you were speaking directly to the reader. Use \"you\" to address the reader and \"we\" to refer to our view. Be professional, respectful, and cooperative."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:39
+msgid "Assume your audience has the same level of technical understanding and expertise as you did when you first started collaborating. Do not talk down to our readers, but also do not assume they know everything about the subject. Offer brief explanations or summaries of common knowledge if a significant portion of readers might benefit."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:46
+msgid "Use simple words"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:48
+msgid "Use simple words to increase reader comprehension and reduce ambiguity. Follow our tips for making good word choices:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:51
+msgid "**Avoid jargon**: Write for your audience, using everyday language where possible, and technical terms where appropriate. Avoid clichés, idioms, and metaphors."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:54
+msgid "**Be consistent**: Use one term for each concept or action and use it consistently."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:56
+msgid "**Avoid \"fancy\" words and phrases**: If there is a simpler word or phrase, use it."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:59
+#: ../../../source/reference/collaboration/writing-guide.rst:151
+#: ../../../source/reference/collaboration/writing-guide.rst:202
+#: ../../../source/reference/collaboration/writing-guide.rst:213
+#: ../../../source/reference/collaboration/writing-guide.rst:258
+#: ../../../source/reference/collaboration/writing-guide.rst:368
+msgid "For example:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:62
+msgid "Use this"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:62
+msgid "Not this"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:64
+msgid "start, begin"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:64
+msgid "commence"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:65
+msgid "so"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:65
+msgid "consequently"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:66
+msgid "more than"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:66
+msgid "in excess of"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:67
+msgid "if"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:67
+msgid "in the event of"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:68
+msgid "before"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:68
+msgid "prior to"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:69
+msgid "if you want"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:69
+msgid "should one wish"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:70
+msgid "use"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:70
+msgid "utilize"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:71
+msgid "example"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:71
+msgid "instance"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:75
+msgid "Avoid overuse of product name"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:77
+msgid "Use product names only when necessary. Typically, you can rewrite sentences to remove the product name with no change in meaning, which keeps the content concise and scannable."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:81
+msgid "Avoid using the product name in page titles and headings."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:86
+msgid "Make content scannable"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:88
+msgid "Organize your content to make it scannable for the reader, which helps them find what they need quickly, and to understand the information more efficiently."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:91
+msgid "**Put the most important content first.** Make sure your introduction clearly communicates what the reader can find on the page. Present the point of the document first, and organize supporting information towards the end of the page."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:95
+msgid "**Write scannable headings.** Expect readers of documentation to skim and scan the content, and to leave if they dont find what they need quickly. Good headings add organization to your content and help the reader to find and understand content more effectively. Follow our guidelines for writing effective `Headings`_."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:100
+msgid "**Write great link text.** Great link text tells the reader what they can expect when they click on a link. It also helps make the page more scannable. Follow our guidelines for writing `Link text`_."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:105
+msgid "Headings"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:107
+msgid "Use these guidelines to write effective headings:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:109
+msgid "**Be concise and descriptive.** Use only the words necessary to describe the section."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:111
+msgid "**Use sentence case.** Capitalize only the first word and proper nouns in a heading."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:113
+msgid "**Avoid punctuation.** Unless your heading is a question, don't use sentence punctuation in headings."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:115
+msgid "**Use parallel structure.** Headings at the same level should use the same grammatical pattern. This provides structure to the document and helps users find information more easily. See :ref:`parallelism`."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:118
+msgid "**Use strong verbs.** Strong, active verbs get to the point. Avoid -ing verbs, such as *Running*, *Testing*, etc."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:121
+msgid "For example, two headings at the same level:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:123
+#: ../../../source/reference/collaboration/writing-guide.rst:153
+#: ../../../source/reference/collaboration/writing-guide.rst:173
+#: ../../../source/reference/collaboration/writing-guide.rst:189
+#: ../../../source/reference/collaboration/writing-guide.rst:215
+#: ../../../source/reference/collaboration/writing-guide.rst:225
+#: ../../../source/reference/collaboration/writing-guide.rst:239
+#: ../../../source/reference/collaboration/writing-guide.rst:260
+#: ../../../source/reference/collaboration/writing-guide.rst:270
+#: ../../../source/reference/collaboration/writing-guide.rst:285
+#: ../../../source/reference/collaboration/writing-guide.rst:401
+msgid "**Use this:** ::"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:129
+#: ../../../source/reference/collaboration/writing-guide.rst:157
+#: ../../../source/reference/collaboration/writing-guide.rst:177
+#: ../../../source/reference/collaboration/writing-guide.rst:193
+#: ../../../source/reference/collaboration/writing-guide.rst:219
+#: ../../../source/reference/collaboration/writing-guide.rst:229
+#: ../../../source/reference/collaboration/writing-guide.rst:243
+#: ../../../source/reference/collaboration/writing-guide.rst:264
+#: ../../../source/reference/collaboration/writing-guide.rst:274
+#: ../../../source/reference/collaboration/writing-guide.rst:289
+#: ../../../source/reference/collaboration/writing-guide.rst:405
+msgid "**Not this:** ::"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:136
+msgid "Link text"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:138
+msgid "All links in content should follow these guidelines:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:140
+msgid "**Write descriptive link text**: Link text should describe where the link goes, without having to read the surrounding text."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:142
+msgid "**Keep link text concise**: Use only the words needed to accurately describe the destination."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:144
+msgid "**Use unique link text**: Each link on a page should be unique. If users see the same link text twice on a page, they'll assume it goes to the same place."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:146
+msgid "**Start link text with keywords**: Frontload the link text with the most important words to help users scan the text."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:148
+msgid "**Avoid generic text**: Don't use generic, uninformative link text such as \"click here\" or \"read more\"."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:162
+msgid "Use strong verbs"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:164
+msgid "Passive verbs make writing stuffy and formal. Use strong verbs to get to the point and avoid unnecessary words and phrases."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:168
+msgid "Use imperatives"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:170
+msgid "Commands, also called imperatives, are the fastest and most direct way of giving someone instructions. For example:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:182
+msgid "Use present tense"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:184
+msgid "Use simple present tense instead of future tense for most text. Search for the words \"will\" or \"shall\" to find future tense instances. Future tense is acceptable for conditional statements, such as in a caution or a warning. For example:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:198
+msgid "Avoid nominalizations"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:200
+msgid "Avoid nominalizations, which are nouns formed from verbs."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:205
+msgid "Verb"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:205
+msgid "Nominalization"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:207
+msgid "complete"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:207
+msgid "completion"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:208
+msgid "provide"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:208
+msgid "provision"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:209
+msgid "fail"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:209
+msgid "failure"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:210
+msgid "install"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:210
+msgid "installation"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:223
+#: ../../../source/reference/collaboration/writing-guide.rst:268
+msgid "Or:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:234
+msgid "Avoid words ending in -ing"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:236
+msgid "Avoid using words ending in -ing unless they are part of a technical name. For example:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:248
+msgid "Use the active voice"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:250
+msgid "Use active voice whenever possible to show who or what is performing an action."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:253
+msgid "Active voice follows standard English word order: SUBJECT–VERB–OBJECT (where the OBJECT is optional)."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:255
+msgid "Passive voice reverses the order and weakens the verb: OBJECT–be VERB–by SUBJECT (where the OBJECT is optional)."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:279
+msgid "Avoid long noun phrases"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:281
+msgid "Noun phrases (a noun and other words that describe or modify it) can be difficult to understand. Try to limit the number of modifiers in a noun phrase to two. For example:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:296
+msgid "Parallelism"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:298
+msgid "Parallelism refers to the practice of using similar patterns of grammar, and sometimes length, to coordinate words, phrases, and clauses."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:301
+msgid "Use parallel construction in lists. The table below shows some unparallel structures and how they can be made parallel with a little rewording."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:305
+msgid "Parallel (do)"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:305
+msgid "Unparallel (don't)"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:307
+#: ../../../source/reference/collaboration/writing-guide.rst:307
+msgid "Mount the panel."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:308
+msgid "Install the battery."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:309
+msgid "Wire the keypad."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:308
+msgid "Battery installation."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:309
+msgid "Wiring the keypad."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:311
+msgid "I like practicing my accordion, reading sci-fi, and eating peanut butter and pickle sandwiches."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:311
+msgid "I like practicing my accordion, reading sci-fi, and to eat peanut butter and pickle sandwiches."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:316
+msgid "For breakfast he likes coffee and bacon."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:316
+msgid "For breakfast he likes coffee and to fry bacon."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:319
+msgid "Apples or bananas are a good snack."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:319
+msgid "Apples or a banana are a good snack."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:324
+msgid "Grammar and punctuation"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:326
+msgid "This section covers common grammatical topics relevant to our documentation. For detailed explanations of correct grammar and punctuation, use one of our :ref:`preferred references <references>`."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:331
+msgid "Capitalization"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:333
+msgid "The capitalization style for all documentation is sentence case. Words should only be capitalized when they are proper nouns or refer to trademarked product names."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:338
+msgid "Do not capitalize a word to indicate it is more important than other words. Never change the case of variable, function or file names - always keep the original case."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:343
+msgid "Menu capitalization"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:345
+msgid "When referring to software menu items by name, use the same capitalization as seen in the actual menu."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:348
+msgid "A few other tips when referring to menu items:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:350
+msgid "Reference the specific menu item using \"Select :menuselection:`File --> New`.\""
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:352
+msgid "Put the option to be selected last. \"Select :menuselection:`View --> Side Bar --> Hide Side Bar`\""
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:355
+msgid "Do not include more than 3 navigation steps in a menu selection. If more than three steps are needed, divide the steps using ``:guilabel:`` or ``:menuselection:``."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:359
+msgid "For example: \"Go to :guilabel:`File` and select :menuselection:`Print --> Print Preview --> Set Up`.\""
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:363
+msgid "Software version capitalization"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:365
+msgid "When listing software or hardware version numbers, the word “version” or letter \"v\" are lowercase. The v is closed with the number (no period)."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:370
+msgid "Widget Pro version 5.0"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:371
+msgid "Widget Master v2.1.12"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:374
+msgid "Contractions"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:376
+msgid "Avoid using contractions, such as it's, they're, and you're, because they may be unclear to non-native English-speaking audiences."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:380
+msgid "Quotation marks"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:382
+msgid "Follow these guidelines for quotation marks:"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:384
+msgid "Restrict use of quotation marks to terms as terms."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:385
+msgid "Do not use quotation marks for emphasis; use *italics* for emphasis."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:386
+msgid "Avoid using single-quote marks."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:389
+msgid "Commas and colons"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:391
+msgid "This section addresses common use of commas, semicolons, and colons in our documentation. Refer to one of our :ref:`preferred references <references>` for further details."
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:396
+msgid "Use the serial comma"
+msgstr ""
+
+#: ../../../source/reference/collaboration/writing-guide.rst:398
+msgid "When writing a series of items, use the serial comma before the final *and* and *or* to avoid confusion and ambiguity. For example:"
+msgstr ""
+

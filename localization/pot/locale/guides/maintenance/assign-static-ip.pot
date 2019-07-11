@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:4
+msgid "Assign a static IP address"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:6
+msgid "By default, your |CL-ATTR| system automatically gets an IP address from your network via DHCP. If you do not have a DHCP server on your network or simply want to use a static IP address, follow the steps in this guide."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:15
+msgid "Identify which program is managing the interface"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:17
+msgid "New installations of |CL| use NetworkManager as the default network interface manager for all network connections."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:22
+msgid "The *cloud* |CL| images continue to use systemd-networkd to manage network connections."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:25
+msgid "In earlier |CL| versions, systemd-network was used to manage Ethernet interfaces and NetworkManager was used for wireless interfaces."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:29
+msgid "Before defining a configuration for assigning a static IP address, you should verify which program is managing the network interface."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:32
+msgid "Check the output of :command:`nmcli device` to see if NetworkManager is managing the device."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:39
+msgid "If the STATE column for the device shows *connected* or *disconnected*, the network configuration is being managed by NetworkManager and the instructions for :ref:`using NetworkManager <nm-static-ip>` should be used."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:43
+msgid "If the STATE column for the device shows *unmanaged*, check to see if the device is being managed by systemd-networkd"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:47
+msgid "Check the output of :command:`networkctl list` to see if systemd-networkd is managing the device."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:54
+msgid "If the SETUP column for the device shows *configured*, the network configuration is being managed by systemd-networkd and the instructions for :ref:`using systemd-networkd <networkd-static-ip>` should be used."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:62
+msgid "Using NetworkManager"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:64
+msgid "Network connections managed by NetworkManager are stored as files with the :file:`.nmconnection` file extension in the :file:`/etc/NetworkManager/system-connections/` directory."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:68
+msgid "A few tools exists to aid to manipulate network connections managed by NetworkManager:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:71
+msgid "nmcli - a command-line tool"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:73
+msgid "nmtui - a text user interface that provides a pseudo graphical menu in the terminal"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:76
+msgid "nm-connection-editor - a graphical user interface"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:78
+msgid "The method below uses the command line tool *nmcli* to modify network connection."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:82
+msgid "Identify the existing connection name:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:88
+msgid "The output will look like this:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:95
+msgid "If a connection does not exist, it will need to be created with :command:`nmcli connection add`."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:99
+msgid "Modify the connection to use a static IP address. Replace the variables in brackets with the appropriate values. *[CONNECTION_NAME]* should be replaced with the NAME from the command above."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:112
+msgid "See the `nmcli developer page <https://developer.gnome.org/NetworkManager/stable/nmcli.html>`_ for more configuration options. For advanced configurations, the :file:`/etc/NetworkManager/system-connections/*.nmconnection`. can be edited directly."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:118
+msgid "Restart the NetworkManager server to reload the DNS servers:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:125
+#: ../../../source/guides/maintenance/assign-static-ip.rst:179
+msgid "Verify your static IP address details have been set:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:136
+msgid "Using systemd-networkd"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:138
+msgid "Network connections managed by systemd-networkd are stored as files with the :file:`.network` file extension the :file:`/etc/systemd/network/` directory."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:141
+msgid "Files to manipulate network connections managed by systemd-networkd must be created manually."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:144
+msgid "Create the :file:`/etc/systemd/network` directory if it doesn't exist already:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:150
+msgid "Create a :file:`.network` file and add the following content. Replace the variables in brackets with the appropriate values. *[INTERFACE_NAME]* should be replaced with LINK from the output of :command:`networkctl list` ran previously."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:168
+msgid "See the `systemd-network man page <https://www.freedesktop.org/software/systemd/man/systemd.network.html>`_ for more configuration options."
+msgstr ""
+
+#: ../../../source/guides/maintenance/assign-static-ip.rst:172
+msgid "Restart the systemd-networkd service:"
+msgstr ""
+

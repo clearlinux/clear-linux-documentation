@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/guides/guides.rst:4
+msgid "Guides"
+msgstr ""
+
+#: ../../../source/guides/guides.rst:6
+msgid "The following guides provide step-by-step instructions on using |CL|."
+msgstr ""
+
+#: ../../../source/guides/guides.rst:10
+msgid "As of 22 May 2019 :file:`mixin` is no longer supported."
+msgstr ""
+
+#: ../../../source/guides/guides.rst:13
+msgid "Maintenance"
+msgstr ""
+
+#: ../../../source/guides/guides.rst:23
+msgid "Network"
+msgstr ""
+
+#: ../../../source/guides/guides.rst:33
+msgid "Kernel"
+msgstr ""
+

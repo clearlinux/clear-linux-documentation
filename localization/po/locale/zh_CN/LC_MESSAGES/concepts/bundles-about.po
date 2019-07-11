@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/concepts/bundles-about.rst:4
+msgid "Bundles"
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:6
+msgid ""
+"Linux-based operating systems contain the code of several hundred, if not"
+" thousands, of open source projects. To make this manageable, "
+"distributions use a concept called \"packages\" to configure and compile "
+"the source code of these projects into binaries."
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:11
+msgid ""
+"Many distributions then split the content of these compiled packages into"
+" so-called sub-packages, which are the granularity at which these "
+"distributions deploy their software. With those kinds of distributions, "
+"system administrators can then install and update sub-packages "
+"individually or as a set, using tools such as \"yum\" and \"apt-get.\""
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:17
+msgid ""
+"The |CL-ATTR| takes a slightly different approach. While we also use the "
+"concept of packages to manage compiling source code into binaries, we do "
+"not use the package concept to deploy software. Instead, we provide "
+"software \"bundles\" that are installed and managed using :ref:`swupd"
+"<swupd-about>`. Each bundle contains as many or as few open source "
+"projects needed to provide a complete functionality."
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:24
+msgid "Next steps"
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:26
+msgid "To put this concept into practice, see the following resources:"
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:28
+msgid ":ref:`bundles`"
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:29
+msgid ":ref:`bundle-commands`"
+msgstr ""
+
+#: ../../../source/concepts/bundles-about.rst:30
+msgid ":ref:`compatible-kernels`"
+msgstr ""
+

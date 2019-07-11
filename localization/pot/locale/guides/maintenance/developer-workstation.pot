@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:4
+msgid "Developer Workstation"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:6
+msgid "*Developer Workstation* helps you find the :ref:`bundles-about` you need to start your |CL-ATTR| development project."
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:9
+msgid "Before continuing, we recommend that you learn how to use :ref:`swupd <swupd-guide>`. Visit our :ref:`swupd-about` page to understand how |CL| simplifies software versioning compared to other Linux\\* distributions."
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:15
+msgid "Workstation Setup"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:17
+msgid "This guide helps you understand the minimum bundles required to get started. After installing them, you can add more bundles relevant to your use case. To run any process required for |CL| development, you can add the large bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, given how many packages this bundle contains, you may want instead to deploy a leaner OS with only those bundles relevant to your project. Developer Workstation responds to this need."
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:25
+msgid "Use Table 1, *Developer Profiles*, to identify the *minimum required bundles* to get started developing based on your role or project. While your role may not neatly fit in one of these categories, consider using Table 1 as a starting point."
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:29
+msgid "**Table 1. Developer Profiles**"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:33
+msgid "|CL| Bundle"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:34
+msgid "*Internet of Things (IoT)*"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:35
+msgid "*System Administrator*"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:36
+msgid "*Client/Cloud/Web Developer*"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:38
+msgid "`editors`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:39
+#: ../../../source/guides/maintenance/developer-workstation.rst:40
+#: ../../../source/guides/maintenance/developer-workstation.rst:41
+#: ../../../source/guides/maintenance/developer-workstation.rst:44
+#: ../../../source/guides/maintenance/developer-workstation.rst:45
+#: ../../../source/guides/maintenance/developer-workstation.rst:46
+#: ../../../source/guides/maintenance/developer-workstation.rst:49
+#: ../../../source/guides/maintenance/developer-workstation.rst:50
+#: ../../../source/guides/maintenance/developer-workstation.rst:51
+#: ../../../source/guides/maintenance/developer-workstation.rst:55
+#: ../../../source/guides/maintenance/developer-workstation.rst:56
+#: ../../../source/guides/maintenance/developer-workstation.rst:60
+#: ../../../source/guides/maintenance/developer-workstation.rst:61
+#: ../../../source/guides/maintenance/developer-workstation.rst:65
+#: ../../../source/guides/maintenance/developer-workstation.rst:66
+#: ../../../source/guides/maintenance/developer-workstation.rst:69
+#: ../../../source/guides/maintenance/developer-workstation.rst:70
+#: ../../../source/guides/maintenance/developer-workstation.rst:71
+#: ../../../source/guides/maintenance/developer-workstation.rst:76
+msgid "✓"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:43
+msgid "`network-basic`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:48
+msgid "`openssh-server`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:53
+msgid "`webserver-basic`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:58
+msgid "`application-server`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:63
+msgid "`database-basic`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:68
+msgid "`desktop-autostart`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:73
+msgid "`dev-utils`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:79
+msgid "`swupd` search"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:81
+msgid "We recommend learning about :ref:`swupd <swupd-guide>`, to learn the commands to search for and add bundles relevant to your project."
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:84
+msgid "The guide provides an :ref:`example <swupd-guide-example-install-bundle>` that shows you how to:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:87
+msgid "Use `swupd` to search for bundles"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:88
+msgid "Use `swupd` to add bundles"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:91
+msgid "Core Concepts"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:93
+msgid "We recommend that you understand these core concepts in |CL| *before* developing your project."
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:96
+msgid ":ref:`Bundles <bundles-about>`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:97
+msgid ":ref:`Software update <swupd-about>`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:98
+msgid ":ref:`Mixer <mixer-about>`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:99
+msgid ":ref:`Autospec <autospec-about>`"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:102
+msgid "Other resources for developers"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:104
+msgid "`Developer Tooling Framework`_ for |CL|"
+msgstr ""
+
+#: ../../../source/guides/maintenance/developer-workstation.rst:105
+msgid "`Bundle definition files`_"
+msgstr ""
+

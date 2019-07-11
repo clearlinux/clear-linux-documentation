@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:4
+msgid "Create a bootable USB drive"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:6
+msgid ""
+"Instructions to create a |CL-ATTR| USB drive vary depending on your "
+"operating system. Follow the instructions applicable to your system:"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:9
+msgid ":ref:`bootable-usb-linux`"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:10
+msgid ":ref:`bootable-usb-mac`"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:11
+msgid ":ref:`bootable-usb-windows`"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:14
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:16
+msgid "Use an **8GB** or larger USB drive."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:17
+msgid "`Download`_ the |CL| live boot image or interactive installer image."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:22
+msgid "Create a bootable USB drive on Linux\\*"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:24
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:107
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:166
+msgid "Make sure you have have completed all `Prerequisites`_."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:26
+msgid ""
+"Before burning the image onto your USB drive, :ref:`verify and decompress"
+" your image <verify-linux>`."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:30
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:113
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:172
+msgid "Burn the |CL| image onto a USB drive"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:34
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:117
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:176
+msgid "|CAUTION-BACKUP-USB|"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:36
+msgid "Open a terminal emulator and get root privilege."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:42
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:121
+msgid "Go to the directory with the decompressed image."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:44
+msgid "Plug in the USB drive."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:46
+msgid ""
+"Identify the USB drive using the :command:`lsblk` command. This shows all"
+" drives attached to the system, including the primary hard disk. In the "
+"example output below, there are 4 drives (`/dev/sda`, `/dev/sdb`, "
+"`/dev/sdc`, and `/dev/sdd`) attached, where `/dev/sda` is primary drive. "
+"The remaining are three USB drives. The output also shows the mounted "
+"partitions (under the `MOUNTPOINT` column) for each drive."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:58
+msgid "Example output:"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:81
+msgid ""
+"You must unmount a USB drive before burning an image onto it. Note that "
+"some Linux distros automatically mount a USB drive when it is plugged in."
+" Unmount a USB drive with the :command:`umount` command followed by the "
+"device identifier/partition. For example:"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:91
+msgid ""
+"Burn the image onto the USB drive. The example below burns an "
+"uncompressed image onto `<your USB device>`:"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:100
+msgid "|CAUTION-UNMOUNT-USB-PARTITIONS|"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:105
+msgid "Create a bootable USB drive on macOS\\*"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:109
+msgid ""
+"Before burning the image onto your USB drive, :ref:`verify and decompress"
+" your image <verify-mac>`."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:119
+msgid "Launch the Terminal app."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:123
+msgid "Plug in a USB drive and get its identifier:"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:129
+msgid "This will list available disks and their partitions, as shown in Figure 1."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:135
+msgid "Figure 1: macOS - Get USB drive identifier"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:137
+msgid "Unmount the USB drive identified in the previous step. For example:"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:143
+msgid ""
+"Burn the image onto the drive using the :command:`dd` command. The "
+"example below burns an uncompressed image onto `<your USB device>`:"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:150
+msgid ""
+"To speed up the imaging process, add an ‘r’ in front of the disk "
+"identifier. For example `/dev/rdisk2`."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:153
+msgid "Press :kbd:`<CTL>-T` to check imaging progress."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:155
+msgid "Eject the USB drive."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:164
+msgid "Create a bootable USB drive on Windows\\*"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:168
+msgid ""
+"Before burning the image onto your USB drive, :ref:`verify and decompress"
+" your image <verify-windows>`."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:178
+msgid ""
+"Download the `Rufus`_ utility to burn the image onto a USB drive. We use "
+"Rufus 3.5 here. **Only use the latest version of Rufus**."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:181
+msgid "Plug in the USB drive and open Rufus."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:183
+msgid "Under `Boot selection`, click the :guilabel:`SELECT` button."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:185
+msgid "Find and select the previously extracted |CL| image file."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:187
+msgid "Click the :guilabel:`START` button. See Figure 2."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:193
+msgid "Figure 2: Rufus utility"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:195
+msgid ""
+"When the dialogue appears, select :guilabel:`Write in ISO image mode "
+"(Recommended)`. See Figure 3."
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:202
+msgid "Figure 3: ISOHybrid image detected"
+msgstr ""
+
+#: ../../../source/get-started/bootable-usb/bootable-usb.rst:204
+msgid "Select the Windows taskbar menu for USB and select eject."
+msgstr ""
+

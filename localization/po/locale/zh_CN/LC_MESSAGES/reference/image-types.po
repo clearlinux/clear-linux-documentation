@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/reference/image-types.rst:4
+msgid "|CL-ATTR| image types"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:8
+msgid ""
+"|CL-ATTR| offers many types of `images`_ for different platforms and "
+"environments."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:12
+msgid "The naming convention of a |CL| image filename is:"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:18
+msgid "The *[version number]* field specifies the version number."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:20
+msgid ""
+"The *[image type]* field specifies the type of image and its "
+"corresponding file format."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:23
+msgid ""
+"The *[compression type]* field specifies the compression type. Two types "
+"of compressions are used: GNU\\* zip (*.gz*) and XZ (*.xz*)."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:28
+msgid ""
+"Table 1 lists the currently available images that are platform "
+"independent. Table 2 lists the currently available images that are "
+"platform specific."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:31
+msgid "Table 1: Types of platform-independent |CL| images"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:35
+#: ../../../source/reference/image-types.rst:48
+msgid "Image Type"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:36
+#: ../../../source/reference/image-types.rst:49
+msgid "Description"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:38
+msgid "live-desktop.img or live-desktop.iso"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:39
+msgid "Image for booting to GNOME\\* desktop to preview or install the OS."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:41
+msgid "live-server.img or live-server.iso"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:42
+msgid "Image for booting to server command prompt to preview or install the OS."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:44
+msgid "Table 2: Types of platform-specific |CL| images"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:51
+msgid "aws.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:52
+msgid "Image suitable for use with Amazon\\* AWS\\*."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:54
+msgid "azure.vhd"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:55
+msgid "Virtual Hard Disk for use on Microsoft\\* Azure\\* cloud platform."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:57
+msgid "azure-docker.vhd"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:58
+msgid ""
+"Virtual Hard Disk for use on Microsoft Azure cloud platform with "
+"Docker\\* pre-installed."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:60
+msgid "azure-machine-learning.vhd"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:61
+msgid ""
+"Virtual Hard Disk for use on Microsoft Azure cloud platform with the "
+"`machine-learning-basic` bundle installed."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:63
+msgid "cloudguest.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:64
+msgid ""
+"Image with generic cloud guest virtual machine (VM) requirements "
+"installed."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:66
+msgid "gce.tar"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:67
+msgid "Image with the Google Compute Engine (GCE) specific kernel."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:69
+msgid "hyperv.vhdx"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:70
+msgid ""
+"Virtual Hard Disk for use with Microsoft Hyper-V\\* hypervisor. Includes "
+"`optimized kernel`_ for Hyper-V."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:72
+msgid "kvm.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:73
+msgid ""
+"Image for booting in a simple VM with start_qemu.sh. Includes `optimized "
+"kernel`_ for KVM."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:76
+msgid "kvm-legacy.img"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:77
+msgid ""
+"Image for booting in a simple VM using legacy BIOS, if using "
+"start_qemu.sh make sure to remove -bios parameter."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:79
+msgid "pxe.tar"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:80
+msgid "Image suitable for use with PXE server."
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:82
+msgid "vmware.vmdk"
+msgstr ""
+
+#: ../../../source/reference/image-types.rst:83
+msgid ""
+"Virtual Machine Disk for VMware\\* platforms inclduing Player, "
+"Workstation, and ESXi."
+msgstr ""
+

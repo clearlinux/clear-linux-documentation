@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/tutorials/kata_migration.rst:4
+msgid "Migrate Clear Containers to Kata Containers\\*"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:6
+msgid "`Clear Containers`_ and `Kata Containers`_ can co-exist in the same system. Both can be installed through the :file:`containers-virt bundle`. However, we recommend that you migrate to Kata Containers because Clear Containers is no longer maintained_ and will soon be deprecated on |CL-ATTR|."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:11
+msgid "This guide describes how to migrate to Kata Containers and assumes that:"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:13
+msgid "Clear Containers is on a Docker\\* system."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:14
+msgid "Kata Containers is installed. See :ref:`kata`."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:18
+msgid "Stop Clear Containers instances"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:20
+msgid "As an unprivileged user, stop all running instances of Clear Containers:"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:28
+msgid "Manually migrate customized configuration files"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:30
+msgid "If you have made changes to your `Clear Containers configuration`_, review those changes and decide whether to manually apply those changes to your `Kata Containers configuration`_."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:34
+msgid "Make any required changes before continuing this process."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:38
+msgid "You do not need to manually remove any Clear Containers packages."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:42
+msgid "Enable Kata Containers as default"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:44
+msgid "Configure Docker to use the Kata Containers runtime by default."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:54
+msgid "Restart the Docker systemd services."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:61
+msgid "Verify Docker is using Kata Containers."
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:69
+msgid "Run Kata Containers"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:71
+msgid "Use the following command:"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:77
+msgid "**Congratulations!**"
+msgstr ""
+
+#: ../../../source/tutorials/kata_migration.rst:79
+msgid "You've successfully migrated from Clear Containers to Kata Containers."
+msgstr ""
+

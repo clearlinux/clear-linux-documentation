@@ -1,0 +1,293 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:4
+msgid "Set up WordPress\\* on a LAMP web server"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:6
+msgid ""
+"This tutorial shows you how to install the WordPress\\* components on "
+"your |CL| :abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of "
+":ref:`web-server-install`, you created a WordPress-ready database using "
+"phpMyAdmin\\* and MariaDB\\*. Now that the LAMP server is up and running,"
+" you can add the WordPress components needed to host a WordPress website "
+"on your system."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:13
+msgid "Before you begin"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:15
+msgid ""
+"This tutorial assumes that you have successfully completed :ref:`bare-"
+"metal-install-desktop` and you have :ref:`web-server-install`."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:19
+msgid "Create a WordPress server"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:21
+msgid ""
+"WordPress can be installed in a variety of ways. These instructions are "
+"written for users who have followed our instructions for installing "
+"phpMyAdmin when they :ref:`set up a LAMP web server <web-server-"
+"install>`. Note that all steps in this tutorial have been tested using a "
+"NUC6i5SYH Intel® NUC. Visit the `NUC6i5SYH product page`_ for detailed "
+"information."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:27
+msgid ""
+"Numerous online articles are available to help you name your website and "
+"acquire the necessary certificates. Those tasks are beyond the scope of "
+"this tutorial."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:30
+msgid ""
+"You can take several actions to harden your website from attacks. The "
+"security of your website and the data it contains are complex and ever-"
+"evolving tasks. Prioritize security if you plan to expose your website to"
+" the outside world. This tutorial does not address security measures that"
+" you can take to harden your site but we strongly encourage you to take "
+"action."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:38
+msgid ""
+"Throughout this tutorial, we reference your website name as "
+"<your_website>."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:42
+msgid "Download WordPress and manage directories"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:44
+msgid ""
+"For this tutorial, you will create a WordPress blog that can be accessed "
+"at: \\http://<your_website>/blog."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:47
+msgid ""
+"To accomplish this setup, you must add WordPress components to the "
+":file:`/var/www/html/blog` directory."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:50
+msgid "Follow these steps:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:53
+msgid "Navigate to the top level of the website’s root directory:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:59
+msgid "Download the latest version of WordPress:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:65
+msgid "Extract all files and directories from the downloaded file:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:71
+msgid "Rename the top-level WordPress directory to “blog”:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:77
+msgid "Remove the downloaded tar file:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:84
+msgid "Set up WordPress with web-based GUI"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:86
+msgid ""
+"Recall that you created a database and user when you installed phpMyAdmin"
+" when you set up a |CL| based :ref:`web server <web-server-install>`. "
+"Next, you must connect WordPress to the database and install WordPress."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:90
+msgid ""
+"To continue with the setup, go to: \\http://<your_website>/blog/wp-"
+"admin/install.php. The WordPress language option screen appears, as shown"
+" in figure 1."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:93
+msgid "Select :guilabel:`English` and click :guilabel:`Continue`."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:99
+msgid "`Figure 1: WordPress language selection screen.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:102
+msgid ""
+"The WordPress installation continues until the Welcome screen appears, as"
+" shown in figure 2:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:109
+msgid "`Figure 2: WordPress Welcome screen.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:111
+msgid "Click :guilabel:`Let’s go!`."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:113
+msgid ""
+"Enter database connection specifics in the screen that appears, as shown "
+"in figure 3 below."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:116
+msgid "Database name:       WordPress"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:117
+msgid "Database username:   wordpressuser"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:118
+msgid ""
+"Database password:   wp-example  (asterisks will not appear in the text "
+"box)"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:119
+msgid "Database host:  localhost"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:120
+msgid "Table prefix:   wp\\_"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:126
+msgid ""
+"`Figure 3: Information necessary for WordPress to connect to the "
+"database.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:128
+msgid "Click :guilabel:`Submit` to complete the setup."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:130
+msgid ""
+"Figure 4 shows the confirmation screen that verifies a successful setup. "
+"WordPress is connected to the MariaDB database."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:137
+msgid "`Figure 4: Successful WordPress connection.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:139
+msgid ""
+"Click :guilabel:`Run the install`. The installer runs until WordPress is "
+"fully installed on your system."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:143
+msgid "Complete successful login"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:145
+msgid ""
+"Once the installation is complete, you can name your blog and create a "
+"WordPress username and password. See figure 5."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:152
+msgid "`Figure 5: WordPress site information screen.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:155
+msgid "Enter all required information."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:156
+msgid "Click :guilabel:`Install WordPress`."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:157
+msgid ""
+"Verify that the initial login screen appears once the installation is "
+"complete. See figure 6:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:163
+msgid "`Figure 6: The WordPress login screen.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:165
+msgid "Enter your WordPress username and password."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:166
+msgid "Check :guilabel:`Remember me` to save your credentials."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:167
+msgid "Click :guilabel:`Log in`."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:169
+msgid "Figure 7 shows the WordPress dashboard after a successful login:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:175
+msgid "`Figure 7: The WordPress dashboard.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:177
+msgid "You are ready to go!"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:179
+msgid ""
+"To check out your blog as it is seen by the outside world, enter: "
+"\\http://<your_website>/blog on your browser. Figure 8 shows the result:"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:186
+msgid "`Figure 8: Your WordPress blog.`"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:188
+msgid "**Congratulations, your WordPress blog is up and running!**"
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:190
+msgid "You have successfully installed WordPress on a host system."
+msgstr ""
+
+#: ../../../source/tutorials/wordpress/wp-install.rst:192
+msgid "Add new entries to your blog and share them with the world using |CL|!"
+msgstr ""
+

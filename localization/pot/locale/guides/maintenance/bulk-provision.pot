@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:4
+msgid "Bulk provision"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:6
+msgid "The |CL-ATTR| can be automatically provisioned in bulk using a combination of the |CL| installer, **Ister**, and :abbr:`ICIS (Ister Cloud Init Service)`. This guide covers how to perform a bulk provision of |CL| using **Ister** and **ICIS**."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:11
+msgid "To configure a bulk provision, Ister configuration files and cloud-init files must be defined. Hosting the configuration files in **ICIS** allows **Ister** to use them during the installation. The Ister configuration files allow us to customize the installation process. The cloud-init\\* files allow us to customize the instance of the installation."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:17
+msgid "Figure 1 depicts the flow of information between a PXE server and a PXE client that needs to be set up to perform a bulk provision."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:23
+msgid "Figure 1: Bulk provision information flow"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:26
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:28
+msgid "Before performing a bulk provision, verify you have a PXE server capable of performing network boots of |CL|. Please refer to our :ref:`guide on how to perform an iPXE boot<ipxe-install>` using :abbr:`NAT (network address translation)` for details."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:33
+msgid "Because a bulk provision relies on a reboot, ensure the following preparations have been made:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:36
+msgid "No existing disks are bootable."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:37
+msgid "The network boot option must come immediately after the disk boot option on any computer performing the installation."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:41
+msgid "Configuration"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:43
+msgid "Install **ICIS** by following the getting started guide on the `ICIS GitHub repository`_."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:46
+msgid "Create an Ister installation file and save it to the :file:`static/ister` directory within the web hosting directory for **ICIS**. The installation file is a JSON block and provides **Ister** with the steps it needs to perform an installation. The file outlines what partitions, file systems, and mount points **Ister** should set up. Lastly, the file outlines which bundles to install. See our :ref:`bundles` document for the list of available bundles. The following example shows the contents of an Ister installation file:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:85
+msgid "Every Ister installation file hosted on **ICIS** must contain the the ``IsterCloudInitSvc`` parameter as well as the ``os-cloudguest`` bundle. These entries allow **Ister** to customize an instance of of an install."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:90
+msgid "Create an Ister configuration file to define the location of the Ister installation file. Save it to the :file:`static/ister` directory within the web hosting directory of **ICIS**. The following example shows an Ister configuration file:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:99
+msgid "Modify the iPXE boot script by adding a kernel parameter to the command line for booting the network image. Add the kernel parameter ``isterconf`` with the location of the Ister configuration file hosted on **ICIS** as the kernel parameter value.  The following example shows an iPXE boot script with the ``isterconf`` parameter:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:114
+msgid "After the network image of |CL| boots, **Ister** inspects the parameters used during boot in :file:`/proc/cmdline` to find the location of the Ister configuration file."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:118
+msgid "Write a cloud-init document to customize the instance of the installation according to your requirements. The `cloud-init Read the Docs`_ provides a guide on how to write a cloud-init document. The guide covers the customization options provided by cloud-init after an installation."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:123
+msgid "Save the cloud-init document to the :file:`static/roles` directory within the web hosting directory for **ICIS** with the name of a role you would like to create. For example, a role may be \"database\", \"web\", or \"ciao\"."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:127
+msgid "After creating the roles, also known as cloud-init files, assign roles to MAC addresses of PXE clients. To do so, modify the :file:`config.txt` file in the ``static`` directory within the web hosting directory of **ICIS**. The following example shows one such assignment:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:137
+msgid "If MAC addresses of PXE clients are not listed within the :file:`config.txt` file, a default role for those MAC address may be defined as follows:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:146
+msgid "Verify the following URLs are accessible on your local network:"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:148
+msgid "``http://192.168.1.1:60000/icis/static/ister/ister.conf``"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:149
+msgid "``http://192.168.1.1:60000/icis/static/ister/ister.json``"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:150
+msgid "``http://192.168.1.1:60000/icis/get_config/<MAC address>``"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:151
+msgid "``http://192.168.1.1:60000/icis/get_role/<role>``"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:152
+msgid "``http://192.168.1.1:60000/ipxe/ipxe_boot_script.txt``"
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:154
+msgid "Power on the PXE client and watch it boot and install |CL|."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:156
+msgid "Power-cycle the PXE client and watch it customize the |CL| installation."
+msgstr ""
+
+#: ../../../source/guides/maintenance/bulk-provision.rst:158
+msgid "**Congratulations!** You have successfully performed a bulk provision of |CL|."
+msgstr ""
+

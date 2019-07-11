@@ -1,0 +1,297 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../../source/tutorials/docker/docker.rst:4
+msgid "Run Docker\\* on |CL-ATTR|"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:6
+msgid ""
+"|CL-ATTR| supports multiple containerization platforms, including a "
+"Docker\\* solution. |CL| has many `unique features`_ including a minimal "
+"default installation, which makes it compelling to use as a host for "
+"container workloads, management, and orchestration."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:11
+msgid "This tutorial covers:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:18
+msgid ""
+"This tutorial focuses on the installaton of the Docker ecosystem. If you "
+"want to use |CL| as a Docker container image, refer to the official |CL| "
+"container image `published on Docker* Hub "
+"<https://hub.docker.com/_/clearlinux/>`_ and our guide to :ref:`custom-"
+"clear-container`."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:25
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:27
+msgid ""
+"This tutorial assumes you have installed |CL| on your host system. For "
+"detailed instructions on installing |CL| on a bare metal system, follow "
+"the :ref:`bare metal installation instructions<bare-metal-install-"
+"server>`."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:31
+msgid ""
+"Before you install any new packages, update |CL| with the following "
+"command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:37
+msgid "Additionally, you should have:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:39
+msgid "A basic understanding of Linux and Docker."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:41
+msgid ""
+"|CL| environment that has transparent network access to the Internet. If "
+"you are behind a HTTP proxy server, in a corporate setting for example, "
+"please refer to the `Docker proxy instructions`_ ."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:46
+msgid "Install the containers-basic bundle"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:48
+msgid ""
+"Software in |CL| is offered in the form of `bundles`_ to provide a "
+"complete function. The *containers-basic* provides all the required "
+"software packages to run Docker images as containers."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:52
+msgid ""
+"First, install the *containers-basic* bundle by running this "
+":command:`swupd` command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:59
+msgid "Start the Docker daemon through systemd manager by running this command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:65
+msgid ""
+"If you want Docker to start automatically on boot, enable the systemd "
+"service by running this command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:72
+msgid ""
+"Finally, verify :command:`docker` has been installed by running this "
+"command and checking the version output for both *client* and *server*:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:79
+msgid ""
+"Congratulations! At this point, you have a working installation of Docker"
+" on |CL|. You are ready to start using container images on your system."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:83
+msgid "Integration with Kata Containers (optional)"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:85
+msgid ""
+"`Kata Containers`_, is an open source project aiming to increase security"
+" of containers by using a hardware-backed virtual machine container "
+"runtime rather than software namespace containers that are provided by "
+"the standard Docker *runc* runtime."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:90
+msgid ""
+"|CL| provides easy integration of the *kata-runtime* with Docker. More "
+"information on installing and using  the *kata-runtime* may be found at "
+":ref:`kata`."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:96
+msgid ""
+"The proceeding sections of this tutorial are standard to Docker setup and"
+" configuration. If you are familiar with Docker basics, you do not need "
+"to continue reading. The following sections are provided here for sake of"
+" completeness."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:104
+msgid "Additional Docker configuration"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:106
+msgid ""
+"Perform additional Docker daemon configuration via a configuration file "
+"typically located at :file:`/etc/docker/daemon.json`. |CL| features a "
+"`stateless system`_  so the configuration file :file:`daemon.json` does "
+"*NOT* exist by default."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:111
+msgid "Create the :file:`daemon.json` by running this command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:119
+msgid ""
+"Refer to the `Docker documentation on daemon configuration`_ for the full"
+" list of available configuration options and examples."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:122
+msgid ""
+"For production systems, we follow Docker's recommendation to use the "
+"`OverlayFS storage driver`_ `overlay2`, shown below:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:133
+msgid ""
+"A testing version is found in `Docker Device Mapper storage driver`_. If "
+"using this storage driver, a warning message may appear: \"usage of "
+"loopback devices is strongly discouraged for production use\"."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:137
+msgid "Save and close :file:`daemon.json`."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:139
+msgid ""
+"Once you've made any required changes, be sure to restart the Docker "
+"daemon through systemd manager by running this command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:147
+msgid "Pulling and running an image from Docker Hub"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:149
+msgid ""
+"`Docker Hub`_ is a publically available container image repository which "
+"comes preconfigured with Docker. In the example below we will pull and "
+"run an the official Docker image for nginx, an open source reverse proxy "
+"server."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:153
+msgid ""
+"First, pull a container image from Docker Hub using the :command:`docker "
+"pull` command. Download the latest nginx Docker container image by "
+"running this command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:161
+msgid ""
+"Create and launch a new container using the :command:`docker run` "
+"command. Launch a nginx container by running this command:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:170
+msgid ""
+"Below is an explanation of switches used in the command above. For "
+"detailed :command:`docker run` switches and syntax, refer to the `Docker "
+"Documentation`_ ."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:174
+msgid ""
+"The *--name* switch lets you provide a friendly name to target the "
+"container for future operations"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:177
+msgid "The *-d* switch launches the container in the background"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:179
+msgid ""
+"The *-p* switch allows the container's HTTP port (80) to be accessible "
+"from the |CL| host on port 8080"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:182
+msgid ""
+"You can access the Welcome to Nginx! splash page running in the container"
+" by browsing to \\http://127.0.0.1:8080 or by running this "
+":command:`curl` command from your |CL| machine:"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:190
+msgid ""
+"Finally, stop and delete the nginx container by running the "
+":command:`docker stop` and :command:`docker rm` commands."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:198
+msgid ""
+"Congratulations! At this point, you have successfully pulled a nginx "
+"container image from `Docker Hub`_ and have run an example container."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:202
+msgid "Creating a Docker swarm cluster"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:204
+msgid "Clusters of Docker hosts are referred to as *swarms*."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:206
+msgid ""
+"The process in this tutorial can be repeated to install Docker on "
+"multiple |CL| hosts with the intent to form a Docker swarm cluster."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:209
+msgid ""
+"The `Docker documentation on swarm key concepts`_ and `Docker "
+"documentation on creating a swarm`_ can be referenced for further "
+"instructions on setting up a swarm."
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:214
+msgid "Related topics"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:216
+msgid "`Docker Home`_"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:217
+msgid "`Docker Documentation`_"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:218
+msgid "`Docker Hub`_"
+msgstr ""
+
+#: ../../../source/tutorials/docker/docker.rst:219
+msgid "`Kata Containers`_"
+msgstr ""
+

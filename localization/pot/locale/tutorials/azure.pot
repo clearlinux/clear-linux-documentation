@@ -1,0 +1,314 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux* Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-10 15:46-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../source/tutorials/azure.rst:4
+msgid "Run |CL-ATTR| using Microsoft Azure CLI 2.0"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:6
+msgid "|CL-ATTR| is available for you to use in the Microsoft* Azure* marketplace and is offered with three different images, also known as a :abbr:`SKU (Stock Keeping Unit)`."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:10
+msgid "|CL| Basic - This SKU consists of a bare-bones system which can be used as a starting point for those wanting to explore and build out a system with additional software bundles of their choosing."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:14
+msgid "|CL| Containers - This SKU comes with the containers-basic software bundle already installed."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:17
+msgid "|CL| Machine-learning - This SKU comes pre-loaded with popular open source tools for developing machine learning applications."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:20
+msgid "You can access these images directly from your MS Azure dashboard through the `Azure portal`_ or by using the MS Azure :abbr:`CLI (Command Line Interface)` 2.0. If you do not already have an account set up with MS Azure, you can sign up for a `MS Azure free account`_ to access the |CL| :abbr:`VM(Virtual Machine)` images."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:26
+msgid "The Azure CLI offers the ability to create and manage resources in MS Azure from the command line. In this tutorial you learn to:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:29
+msgid "Install the latest MS Azure CLI on your |CL| machine."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:31
+msgid "Log into MS Azure using the CLI 2.0 interface."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:33
+msgid "Create a MS Azure resource group."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:35
+msgid "Locate the |CL| images."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:37
+msgid "Create and log into the |CL| virtual machine."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:39
+msgid "Stop and deallocate the |CL| VM and resources."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:41
+msgid "To use the MS Azure CLI 2.0 on your |CL| system, your system must have the following packages installed:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:44
+msgid "Python 2.7 or later"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:46
+msgid "libffi"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:48
+msgid "OpenSSL 1.0.2"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:50
+msgid "You can check to see what versions you have installed on your system by running the individual commands as follows:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:78
+msgid "If you do not have these packages installed on your |CL| system, install the sysadmin-basic software bundle using the :command:`swupd` command:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:87
+msgid "These instructions are for installing the MS Azure CLI 2.0 tools on a |CL| system. If you are installing the CLI on another platform, follow the instructions in the `MS Azure Install Azure CLI tutorial`_ for your specific operating system."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:93
+msgid "Install MS Azure CLI 2.0 on |CL|"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:95
+msgid "To install the MS Azure CLI 2.0 on |CL|, use the :command:`curl` command as follows:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:102
+msgid "If you get an error message from :command:`curl` related to the -L parameter or an error message is generated that includes the text \"Object Moved\", use the full URL instead of the aka.ms redirect address:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:110
+msgid "The installation script begins and prompts you several times during execution for information."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:115
+msgid "The console output from the script displays your username instead of the **[user]** variable shown on this tutorial."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:122
+msgid "Press the :kbd:`Enter` key to accept the default or you can chose another directory to install the MS Azure CLI 2.0 tools into."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:129
+msgid "Press the :kbd:`Enter` key to accept the default or you can chose another directory to install the :command:`az` executable in."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:132
+msgid "The installation downloads and builds all required tools and when complete prompts you with:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:139
+msgid "Type :kbd:`Y` and press the :kbd:`Enter` key to allow this modification."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:145
+msgid "Press the :kbd:`Enter` key to accept the default or enter the pathname to your :file:`.bashrc` file. The installation completes with the final output shown below:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:160
+msgid "The installation program finishes and you must restart your shell for the changes to take effect. When the installation is successful, run the following command to restart your shell."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:168
+msgid "With the MS Azure CLI 2.0 executable successfully built and installed, run the :command:`az` command."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:175
+msgid "The output from the :command:`az` command is shown below:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:254
+msgid "Log into your Microsoft Azure account"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:256
+msgid "With the :command:`az` command properly installed and functional, login to your MS Azure account using the :command:`az login` command shown below:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:263
+msgid "The output from this command is:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:269
+msgid "Open your browser and enter the page `https://aka.ms/devicelogin` as shown in figure 1:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:276
+msgid "Figure 1: :guilabel:`Microsoft Device Login`"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:278
+msgid "Enter the code `BQ9MG442B` to authenticate your device as shown in figure 2. The code `BQ9MG442B` is a random authentication code generated for each session login and will be different each time you log into MS Azure using the :command:`az login` command."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:287
+msgid "Figure 2: :guilabel:`Microsoft Device Login - Azure CLI`"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:289
+msgid "Once you enter the authentication code, the website changes to a screen to enter your existing Microsoft Azure credentials."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:292
+msgid "Log in with your existing MS Azure account credentials. Once complete, the browser screen changes again as shown in figure 3. The screen shows you have signed into the Microsoft Cross-platform Command Line Interface application on your device and you can close the window."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:301
+msgid "Figure 3: :guilabel:`Microsoft Azure Cross-platform CLI`"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:303
+msgid "The MS Azure CLI 2.0 interface is now active using your existing MS Azure account credentials."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:307
+msgid "Create a MS Azure resource group"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:309
+msgid "To learn more about MS Azure resource groups, visit the `Azure Resource Manager overview`_ for an overview and detailed description of resources within MS Azure."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:313
+msgid "To create our new resource group, run the :command:`az group create ...` command shown below to create a resource group named `ClearResourceGroup` using the `-n` parameter and locate it in the `westus` region using the `-l` parameter."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:322
+msgid "When the command has completed, the output from this command is similar to the following:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:339
+msgid "Create and log into the |CL| virtual machine"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:341
+msgid "For this tutorial, we are using the |CL| Basic SKU for our VM."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:343
+msgid "To locate the available |CL| Basic VM SKU images in the MS Azure marketplace, run the :command:`az vm image ...` command:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:350
+msgid "This command may take some time to finish. The output lists all available |CL| Basic images available in the Microsoft Azure marketplace as shown below:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:370
+msgid "The output list shows current offerings. New versions are added to the MS Azure marketplace all the time. To reference the latest version of an image, you can use the version label `latest` when specifying an image."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:374
+msgid "The information shown in the `Urn` column lists the `Publisher:Offer:Sku:Version` for each image available and this is the information we want to create the |CL| Basic VM. Since we are creating a |CL| Basic VM, highlight the `clear-linux-project:clear-linux-os:basic:` string and copy it to your clipboard. Use the label `latest` instead of referencing a specific version."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:381
+msgid "Create the new |CL| Basic VM. Run the :command:`az vm create ...` command using the URN `:clear-linux-project:clear-linux-os:basic:latest` that we copied to the clipboard on the previous step."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:391
+msgid "If you have already defined your public/private SSH key pair and they are stored in your :file:`$HOME/.ssh` directory, you do not need to include the *--generate-ssh-keys* option."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:395
+msgid "Your output from this command will look similar to this output, where [user] is your user name:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:416
+msgid "Take note of the public IP address from the output."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:418
+msgid "Login into the new |CL| Basic VM, run the :command:`ssh` command with the public IP address obtained from the previous step as shown:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:425
+msgid "You may see the following message about the authenticity of the host. If this appears, type `yes` to proceed connecting to your new |CL| VM."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:437
+msgid "You are now logged into your new |CL| VM as [user], where [user] is your user name. To check which software bundles are included with this VM image, run the :command:`sudo swupd bundle-list` command inside the VM:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:445
+msgid "The output shown should be similar to:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:467
+msgid "When you are finished using your new |CL| VM, type :command:`exit` to close the :command:`SSH` terminal and logout."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:471
+msgid "Stop and deallocate the |CL| VM and resources"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:473
+msgid "When you finish using your new |CL| instance, you must stop the VM and deallocate the resources in your resource group. If you only stop a VM, the OS image shuts down but the resources associated with it in your resource group remain allocated and incurring charges. For instance, if you stop and then later start the VM using the :command:`az vm start...` without deallocating the resources, the IP address is retained and you can access the VM using that same IP address. To release the resources associated with the VM and stop incurring charges for them, you must deallocate the resources as well."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:482
+msgid "At the command prompt, enter the :command:`az vm stop...` command as follows:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:489
+msgid "This will stop the VM and then output text similar to:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:501
+msgid "Once the VM stops, deallocate the VM resources to stop incurring charges for the |CL| instance. Enter the following command:"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:508
+msgid "**Congratulations!**"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:510
+msgid "You are up and running with |CL| on MS Azure using the Azure CLI 2.0 command line tools."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:514
+msgid "Next steps"
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:516
+msgid "To see use cases you can fulfill with your |CL| instance, visit our :ref:`tutorials <tutorials>` section."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:519
+msgid "For additional information visit the |CL| `Azure Partner Mini Case Study`_ and the `Azure Partner Datasheet`_."
+msgstr ""
+
+#: ../../../source/tutorials/azure.rst:522
+msgid "To learn more about the MS Azure CLI 2.0 tool and options that are available, visit the `MS Azure documentation and tutorials`_ website."
+msgstr ""
+
