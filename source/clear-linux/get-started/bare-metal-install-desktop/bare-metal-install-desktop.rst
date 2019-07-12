@@ -22,9 +22,7 @@ Assure that your target system supports the installation:
 Preliminary steps
 *****************
 
-#. `Visit our Downloads page`_.
-
-#. Download the file :file:`clear-<release number>-live-desktop.iso`
+#. Visit our `Downloads`_ page and download the file :file:`clear-<release number>-live-desktop.iso`
 
    .. note::
 
@@ -499,6 +497,6 @@ Next steps
 
 :ref:`guides`
 
-.. _Visit our downloads page: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.org/downloads
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
 

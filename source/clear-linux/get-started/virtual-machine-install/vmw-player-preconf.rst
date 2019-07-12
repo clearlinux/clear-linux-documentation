@@ -53,7 +53,7 @@ Install the VMware Workstation Player hypervisor
      #. Start the installer.
      #. Follow the setup wizard.
 
-For additional help, see the `VMware Workstation Player guide`_.
+For additional help, see the `VMware Workstation Player Documentation`_.
 
 Download the latest |CL| VMware image
 *************************************
@@ -305,8 +305,7 @@ For other guides on using the VMWare Player and ESXi, see:
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation 14 Player: https://www.vmware.com/products/workstation-player.html
-.. _VMware Workstation Player guide: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
-.. _latest: https://cdn.download.clearlinux.org/image/
+.. _VMware Workstation Player Documentation: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
 .. _image: https://cdn.download.clearlinux.org/image
 
 

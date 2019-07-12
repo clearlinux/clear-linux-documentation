@@ -20,7 +20,7 @@ Assure that your target system supports the installation:
 Download the latest |CL| live server image
 ******************************************
 
-Get the latest |CL| installer image from the `downloads page`_. Look for the
+Get the latest |CL| installer image from the `Downloads`_ page. Look for the
 :file:`clear-[version number]-live-server.iso` file.
 
 #. Follow your OS instructions to create a bootable USB drive.
@@ -856,4 +856,5 @@ entering :guilabel:`Configure Installation Media`:
   - Windows\* OS:  :command:`diskpart`, then :command:`list disk`
   - macOS\* platform: :command:`diskutil list`
 
-.. _downloads page: https://clearlinux.org/downloads
+.. _Autoproxy: https://clearlinux.org/features/autoproxy
+.. _Downloads: https://clearlinux.org/downloads

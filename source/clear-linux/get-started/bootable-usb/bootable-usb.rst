@@ -14,7 +14,8 @@ Prerequisites
 *************
 
 * Use an **8GB** or larger USB drive.
-* `Download`_ the |CL| live boot image or interactive installer image.
+* Download the |CL| live boot image or interactive installer image from the 
+  `Downloads`_ page.
 
 .. _bootable-usb-linux:
 
@@ -204,4 +205,4 @@ Burn the |CL| image onto a USB drive
 #. Select the Windows taskbar menu for USB and select eject.
 
 .. _Rufus: https://rufus.ie/
-.. _Download: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.org/downloads
