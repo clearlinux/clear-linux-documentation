@@ -224,7 +224,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 #. Log in as `root` user into the |CL| VM.
 
-#. Follow these step from :ref:`increase-virtual-disk-size` to resize the partition of the virtual disk of the VM.
+#. Follow these steps from :ref:`increase-virtual-disk-size` to resize the partition of the virtual disk of the VM.
 
 #. Add GDM to the |CL| VM:
 
