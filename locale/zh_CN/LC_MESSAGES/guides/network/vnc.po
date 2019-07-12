@@ -1,0 +1,921 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../guides/network/vnc.rst:4
+msgid "Remote-desktop to a |CL-ATTR| host using VNC"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:6
+msgid ""
+":abbr:`VNC (Virtual Network Computing)` is a client-server GUI-based tool"
+" that allows you to connect via remote-desktop to your |CL-ATTR| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:9
+msgid "This guide shows you how to:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:11
+msgid "Install the VNC server and misc. components on your |CL| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:12
+msgid "Configure a VNC-server-start method on your |CL| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:13
+msgid "Install a VNC viewer app and an SSH client on your client system."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:14
+msgid "Establish a VNC connection to your |CL| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:15
+msgid "Terminate a VNC connection to your |CL| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:16
+msgid "Encrypt VNC traffic through an SSH tunnel."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:19
+msgid "Install the VNC server and misc. components on your host"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:21
+msgid "To configure VNC to work on your |CL| host, install these bundles:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:23
+msgid ""
+"`desktop-autostart`: Installs :abbr:`GDM (Gnome Desktop Manager)`, sets "
+"it to start automatically on boot, and installs TigerVNC Viewer."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:25
+msgid "`vnc-server`: Installs the TigerVNC server."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:27
+msgid "Follow these steps:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:29
+msgid "Log into your |CL| host and get root privileges."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:35
+msgid "Install the |CL| bundles."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:41
+msgid "Reboot your |CL| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:44
+msgid "Configure a VNC-server-start method on your host"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:46
+msgid ""
+"There are three methods you can use to configure and start the VNC server"
+" on your |CL| host:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:49
+msgid "Table 1: VNC-server-start Configuration Methods"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:53
+msgid "Attribute"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:54
+msgid "`Method 1`: Manually start a VNC session"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:55
+msgid "`Method 2`: Automatically start a VNC session via a systemd service script"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:56
+msgid "`Method 3`: Create multi-user logins with authentication through GDM"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:57
+msgid "Description"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:58
+msgid ""
+"This is the traditional method where you SSH into the |CL| host, manually"
+" start a VNC session to get a display ID, and connect to it by supplying "
+"the display ID."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:61
+msgid ""
+"The system administrator sets up a systemd service script for you with a "
+"pre-assigned display ID.  You make a VNC connection and supply your pre-"
+"assigned display ID."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:64
+msgid ""
+"The system adminstrator configures GDM to accept connection requests. "
+"When you make a VNC connection to the |CL| host, you see the GDM login "
+"screen and authenticate as if you are local."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:67
+msgid "Who configures VNC settings?"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:68 ../../guides/network/vnc.rst:72
+#: ../../guides/network/vnc.rst:76 ../../guides/network/vnc.rst:77
+msgid "You"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:69 ../../guides/network/vnc.rst:70
+msgid "System adminstrator"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:71
+msgid "Who starts VNC session?"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:73 ../../guides/network/vnc.rst:74
+msgid "Set to start automatically on boot by system administrator"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:75
+msgid "Who ends VNC sesssion?"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:78
+msgid "System administrator can disable VNC service altogether"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:79
+msgid "Requires VNC password to authenticate?"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:80 ../../guides/network/vnc.rst:81
+msgid "Yes"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:82
+msgid "No.  Use |CL| account username and password through GDM"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:85
+msgid ""
+"Although all three methods can coexist on the same |CL| host, we "
+"recommend you pick a method that suits your needs."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:88
+msgid ""
+"For simplicity, the rest of this guide refers to these methods as `Method"
+" 1`, `Method 2`, and `Method 3`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:92
+msgid "Method 1: Manually start a VNC session"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:94
+msgid ""
+"You (and each user) must perform these steps to initialize your VNC "
+"settings."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:96
+msgid "Log in."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:97 ../../guides/network/vnc.rst:557
+msgid "Open a terminal emulator."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:98
+msgid ""
+"Start VNC with the :command:`vncserver` command.  Since this is your "
+"first time starting VNC, it adds default configuration files and asks you"
+" to set a VNC password."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:106 ../../guides/network/vnc.rst:431
+msgid "Example output:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:126
+msgid ""
+"Upon completion, you can find the default configuration files and the "
+"password file hidden in the `.vnc` directory in your home directory."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:129
+msgid ""
+"Also, a VNC session starts and shows a unique display ID, which is the "
+"number following the hostname and the colon `:`.  In the above example, "
+"the display ID is 2.  In a later step, you will supply the display ID to "
+"your VNC viewer app for connection."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:133
+msgid ""
+"Kill the active VNC session for the time being with the "
+":command:`vncserver -kill :[display ID]` command.  Substitute [display "
+"ID] with your active VNC session display ID.  For example:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:143
+msgid ""
+"If you do not recall the active session display ID, use the "
+":command:`vncserver -list` command to find it."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:146
+msgid "Optional configurations:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:148
+msgid ""
+"To customize settings such as screen size, security type, etc., modify "
+"the :file:`$HOME/.vnc/config` file."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:150
+msgid ""
+"To customize the applications to run at startup, modify the "
+":file:`$HOME/.vnc/xstartup` file."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:154
+msgid "Method 2: Automatically start a VNC session via a systemd service script"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:156
+msgid ""
+"To configure VNC for this method, you must have root privileges.  You "
+"will set up a systemd service file for all intended VNC users with their "
+"own preassigned unique display ID."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:160 ../../guides/network/vnc.rst:244
+msgid "Log in and get root privileges."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:166
+msgid ""
+"Make sure the user accounts already exist.  Use the following command to "
+"list all users."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:174 ../../guides/network/vnc.rst:250
+msgid "Create the path :file:`/etc/systemd/system`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:180
+msgid ""
+"Create a systemd service script file :file:`vncserver@:[X].service`, "
+"where [X] is the display ID, for each user in :file:`/etc/systemd/system`"
+" Each user must be assigned a unique display ID.  Be sure the correct "
+"username is entered in the `User` field. The example below shows user "
+"`vnc-user-b` who is assigned the display ID `5`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:208
+msgid ""
+"Have each user log into their account and set a VNC password with the "
+":command:`vncpasswd` command before proceeding to the next step."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:211
+msgid ""
+"Start the VNC service script and set it to start automatically on boot "
+"for each user.  Replace the [X] with the display ID."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:220
+msgid "After starting the services, verify they are running."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:226
+msgid ""
+"The example below shows 2 VNC sessions that were successfully started for"
+" users `vnc-user-b` with display ID 5 and `vnc-user-c` with display ID 6."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:238
+msgid "Method 3: Multi-user logins with authentication through GDM"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:240
+msgid ""
+"For this method, VNC is configured as a systemd service that listens on "
+"port 5900 and GDM is configured to accept access requests from VNC. When "
+"you make a VNC connection to your |CL| host, you are presented with the "
+"GDM login screen and you authenticate as if you are local.  You must have"
+" root privileges to perform this configuration."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:256
+msgid "Create a systemd socket file :file:`xvnc.socket` and add the following:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:274
+msgid "Create a systemd service file :file:`xvnc@.service` and add the following:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:291
+msgid "Create the path :file:`/etc/gdm`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:298
+msgid "Create a GDM :file:`custom.conf` file and add the following:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:310
+msgid "Start the VNC socket script and set it to start automatically on boot."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:318
+msgid "After starting the socket, verify it is running."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:324
+msgid "The example below shows the xvnc.socket is running."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:333
+msgid "See the `vncserver` Man page for additional information."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:336
+msgid "Install a VNC viewer app and an SSH client on your client system"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:338
+msgid ""
+"You need a VNC viewer app on your client system to connect to your |CL| "
+"host. An SSH client is only needed if you chose to use `Method 1` or you "
+"plan to encrypt your VNC traffic, which is discussed later in this guide."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:342
+msgid "Perform the steps below to add these apps to your client system."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:345
+msgid "Install a VNC viewer app"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:347
+msgid "On |CL|:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:353
+msgid "On Ubuntu, Mint:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:359
+msgid "On Fedora:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:365 ../../guides/network/vnc.rst:407
+msgid "On Windows:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:367
+msgid "Install `RealVNC for Windows`_"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:369
+msgid "On macOS:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:371
+msgid "Install `RealVNC for macOS`_"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:374
+msgid "Install an SSH client"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:376
+msgid ""
+"On most Linux distros (|CL|, Ubuntu, Mint, Fedora, etc.) and macOS, SSH "
+"is built-in so you don't need to install it."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:378
+msgid "On Windows, you can install `Putty`_."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:381
+msgid "Establish a VNC connection to your host"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:383
+msgid ""
+"Depending on the VNC-server-configuration method chosen, use the "
+"appropriate VNC connection:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:385
+msgid ""
+"If you chose `Method 1`, you must take a few extra steps by using SSH to "
+"connect to your |CL| host and then manually launching VNC."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:388
+msgid ""
+"If you chose `Method 2`, get your preassigned VNC display ID from your "
+"system administrator first and then proceed to the :ref:`connect-to-vnc-"
+"session` section below."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:392
+msgid ""
+"If you chose `Method 3`, proceed to the :ref:`connect-to-vnc-session` "
+"below."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:397
+msgid "SSH into your host and launch VNC"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:399
+msgid "SSH into your |CL| host"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:401
+msgid "On Linux distros and macOS:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:409 ../../guides/network/vnc.rst:724
+msgid "Launch Putty."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:410 ../../guides/network/vnc.rst:727
+msgid ""
+"Under the :guilabel:`Category` section, select :guilabel:`Session`. See "
+"Figure 1."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:412 ../../guides/network/vnc.rst:729
+msgid ""
+"Enter the IP address of your |CL| host in the :guilabel:`Host Name (or IP"
+" address)` field."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:414 ../../guides/network/vnc.rst:731
+msgid "Set the :guilabel:`Connection type` option to :guilabel:`SSH`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:415 ../../guides/network/vnc.rst:753
+msgid "Click the :guilabel:`Open` button."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:421
+msgid "Figure 1: Putty - configure SSH session settings"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:423
+msgid "Log in with your |CL| username and password. Do not use your VNC password."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:425
+msgid "Start a VNC session."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:442
+msgid ""
+"Take note of the generated display ID because you will input it into the "
+"VNC viewer app to establish the connection.  The above example shows the "
+"display ID is 3."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:448
+msgid ""
+"VNC automatically picks a unique display ID unless you specify one. To "
+"specify a display ID, enter a unique number that is not already in use "
+"after the colon.  For example:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:456
+msgid ""
+"You can now end the SSH connection by logging out.  This does not "
+"terminate your active VNC session."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:462
+msgid "Connect to your VNC session"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:464
+msgid ""
+"For `Method 1` and `Method 2`, you must connect to a specific active "
+"session or display ID using one of two options:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:467
+msgid ""
+"Use a fully-qualified VNC port number, which consists of the default VNC "
+"server port (5900) plus the display ID"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:469
+msgid "Use the display ID"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:471
+msgid ""
+"For example, if the display ID is 3, it can be specified as `5903` or "
+"just as `3`. For `Method 3`, VNC does not expect a display ID.  Use "
+"`5900`. For simplicity, the instructions below use the fully-qualified "
+"VNC port number."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:475 ../../guides/network/vnc.rst:762
+msgid "**On Linux distros:**"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:477
+msgid "Open a terminal emulator and enter:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:483 ../../guides/network/vnc.rst:512
+msgid "Enter your credentials."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:485 ../../guides/network/vnc.rst:514
+msgid ""
+"For `Method 1` and `Method 2`, enter your VNC password.  No username is "
+"required."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:487 ../../guides/network/vnc.rst:516
+msgid "For `Method 3`, enter your |CL| account username and password through GDM."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:492 ../../guides/network/vnc.rst:521
+msgid ""
+"With `Method 3`, you cannot remotely log into your |CL| host through VNC "
+"if you are logged in locally and vice versa."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:495
+msgid "**On Windows and macOS using `RealVNC` app:**"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:497
+msgid "Start the RealVNC viewer app. See Figure 2."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:498
+msgid ""
+"Enter the IP address of the |CL| host and the fully-qualified VNC port "
+"number."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:501
+msgid ""
+"The following screenshot shows connecting to |CL| host 192.168.25.54 with"
+" a fully-qualified VNC port number 5902."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:508
+msgid "Figure 2: RealVNC Viewer"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:510
+msgid "Press the :kbd:`Enter` key."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:525
+msgid "`Optional: Configure RealVNC Image Quality`"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:527
+msgid ""
+"To increase the RealVNC viewer image quality, manually change the "
+"`ColorLevel` value. Follow these steps:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:529
+msgid ""
+"Right-click a connection node and select :guilabel:`Properties...`. See "
+"Figure 3."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:536
+msgid "Figure 3: RealVNC Viewer - change connection node properties"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:538
+msgid "Select the :guilabel:`Expert` tab. See Figure 4."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:540
+msgid ""
+"Select the :guilabel:`ColorLevel` setting and change it to your preferred"
+" setting."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:547
+msgid "Figure 4: RealVNC Viewer - change :guilabel:`ColorLevel`"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:550
+msgid "Terminate a VNC connection to your host"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:552
+msgid ""
+"For `Method 1` and `Method 2`, once started, a VNC session remains active"
+" on your |CL| host even if you close your VNC viewer app. If you want to "
+"truly terminate an active VNC session, follow these steps:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:556
+msgid "SSH into your |CL| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:558
+msgid ""
+"Find the active VNC session display ID with the command "
+":command:`vncserver -list`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:565
+msgid ""
+"Terminate it with the :command:`vncserver -kill` command followed by a "
+"colon and the display ID."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:572
+msgid ""
+"For `Method 3`, only the system administrator can stop and disable the "
+"VNC service by using these commands:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:582
+msgid "Encrypt VNC traffic through an SSH tunnel"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:584
+msgid ""
+"By default, VNC traffic is not encrypted.  Figure 6 shows an example "
+"warning from RealVNC Viewer."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:591
+msgid "Figure 6: RealVNC Viewer - Connection not encrypted warning"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:593
+msgid ""
+"To add security, VNC traffic can be routed through an SSH tunnel. This is"
+" accomplished by following these steps:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:595
+msgid ""
+"Configure the VNC server to only accept connection from localhost by "
+"adding the `-localhost` option."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:597
+msgid ""
+"Set up an SSH tunnel between your client system and your |CL| host. Your "
+"client system will forward traffic from the localhost (the client) "
+"destined for a specified fully-qualified VNC port number (on the client) "
+"to your |CL| host with the same port number."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:601
+msgid ""
+"The VNC viewer app on your client system will now connect to localhost, "
+"instead of the IP address of your |CL| host."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:605
+msgid "Configure VNC to only accept connection from localhost"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:607
+msgid "For `Method 1`:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:609
+msgid ""
+"Edit the :file:`config` file located in :file:`$HOME/.vnc` and uncomment "
+"the `# localhost` line.  It should look like this:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:625
+msgid "If an active session exists, kill it, and then restart it."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:627
+msgid "For `Method 2`:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:629
+msgid ""
+"Edit the systemd service script :file:`vncserver@:[X].service` located in"
+" :file:`/etc/systemd/system` and add `-localhost` to the `ExecStart` "
+"line. The example below uses vncserver@:5.service:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:651
+msgid "Restart the service script:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:658
+msgid "For `Method 3`:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:660
+msgid "No change is needed to the :file:`xvnc@service` script."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:662
+msgid ""
+"After you have restarted your VNC session, you can verify that it only "
+"accepts connections from localhost by using the :command:`netstat` "
+"command like this:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:672
+msgid "Add the |CL| `network-basic` bundle to get the :command:`netstat` command."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:675
+msgid ""
+"Figure 7 shows two VNC sessions (5901 and 5905) accepting connections "
+"from any host as specified by the `0.0.0.0`'s.  This is before the "
+"`-localhost` option was used."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:682
+msgid "Figure 7: VNC sessions (5901 and 5905) accepting connections from any host"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:684
+msgid ""
+"Figure 8 shows two VNC sessions (5901 and 5905) only accepting "
+"connections from localhost as specified by `127.0.0.1`'s. This is after "
+"the `-localhost` option was used."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:690
+msgid ""
+"Figure 8: VNC sessions (5901 and 5905) only accepting connections from "
+"localhost"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:693
+msgid "Set up an SSH tunnel from your client system to your |CL| host"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:695
+msgid "**On Linux distros and macOS:**"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:697 ../../guides/network/vnc.rst:764
+msgid "Open terminal emulator and enter:"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:704 ../../guides/network/vnc.rst:754
+msgid "Enter your |CL| account password (not your VNC password)."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:708
+msgid ""
+"`-L` specifies that [client port number] on the localhost (on the client "
+"side) is forwarded to [fully-qualified VNC port number] (on the server "
+"side)."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:711
+msgid ""
+"Replace `[client port number]` with an available client port number (for "
+"example: 1234). For simplicity, you can make the `[client port number]` "
+"the same as the `[fully-qualified VNC port number]`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:714
+msgid ""
+"Replace `[fully-qualified VNC port number]` with 5900 (default VNC port) "
+"plus the display ID.  For example, if the display ID is 2, the fully-"
+"qualified VNC port number is is 5902."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:717
+msgid "`-N` tells SSH to only forward ports and not execute a remote command."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:719
+msgid "`-f` tells SSH to go into the background before command execution."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:720
+msgid "`-l` specifies the username to log in as."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:722
+msgid "**On Windows:**"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:725
+msgid "Specify the |CL| VNC host to connect to."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:733
+msgid "Configure the SSH tunnel.  See Figure 9 for an example."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:735
+msgid ""
+"Under the :guilabel:`Category` section, go to :guilabel:`Connection` > "
+":guilabel:`SSH` > :guilabel:`Tunnels`."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:738
+msgid ""
+"In the :guilabel:`Source port` field, enter an available client port "
+"number (for example: 1234). For simplicity, you can make the `Source "
+"port` the same as the fully-qualified VNC port number."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:742
+msgid ""
+"In the :guilabel:`Destination` field, enter `localhost:` plus the fully-"
+"qualified VNC port number."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:745
+msgid "Click the :guilabel:`Add` button."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:751
+msgid "Figure 9: Putty - configure SSH tunnel"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:757
+msgid "Connect to a VNC session through an SSH tunnel"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:759
+msgid ""
+"After you have set up an SSH tunnel, follow these instructions to connect"
+" to your VNC session."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:770
+msgid "**On Windows and macOS using `RealVNC`:**"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:772
+msgid "Start the RealVNC viewer app."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:773
+msgid ""
+"Enter `localhost` and the fully-qualified VNC port number.  See Figure 10"
+" for an example."
+msgstr ""
+
+#: ../../guides/network/vnc.rst:780
+msgid "Figure 10: RealVNC viewer app connecting to `localhost:1234`"
+msgstr ""
+
+#: ../../guides/network/vnc.rst:784
+msgid ""
+"RealVNC will still warn that the connection is not encrypted even though "
+"its traffic is going through the SSH tunnel.  You can ignore this "
+"warning."
+msgstr ""
+

@@ -1,0 +1,340 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../get-started/virtual-machine-install/gce.rst:4
+msgid "Launch |CL-ATTR| Compute Engine on Google Cloud Platform\\*"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:6
+msgid ""
+"This tutorial walks you through the steps to create a virtual machine "
+"instance of |CL-ATTR| on `Google Cloud Platform`_ (:abbr:`GCP (Google "
+"Cloud Platform)`)."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:13
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:15
+msgid "Set up a Google account and a GCP billing account."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:17
+msgid ""
+"Generate and install a user SSH key in the Linux PCs that will connect to"
+" the VMs in GCP."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:22
+msgid "Process"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:24
+msgid ""
+"Sign in to your Google\\* account on the `Google Cloud Console "
+"<https://console.cloud.google.com/>`_:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:31
+msgid "Figure 1: Google sign in screen"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:33
+msgid ""
+"Google Cloud Platform uses **Projects** to manage resources. Select or "
+"create a new project for hosting the |CL| VM."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:38
+msgid ""
+"Refer to the `Quickstart Using a Linux VM "
+"<https://cloud.google.com/compute/docs/quickstart-linux>`_ guide to learn"
+" about the process of creating VM instances on GCP."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:42
+msgid ""
+"Navigate to the latest |CL| `release folder "
+"<https://download.clearlinux.org/releases/current/clear/>`_ to view the "
+"currently released :abbr:`GCE (Google Compute Engine\\*)` image, and "
+"download the :file:`clear-<release number>-gce.tar.gz` image archive."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:48
+msgid ""
+"You don't need to uncompress the image archive, the intact file will be "
+"uploaded to the Google Cloud Storage later."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:51
+msgid ""
+"Create a *Storage Bucket* for hosting the |CL| image source archive "
+"downloaded in the previous step:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:54
+#: ../../get-started/virtual-machine-install/gce.rst:112
+#: ../../get-started/virtual-machine-install/gce.rst:157
+msgid "Click the *Navigation menu* icon on the upper left screen menu."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:56
+msgid ""
+"Select the *Storage* item from the side bar on the left. You will be sent"
+" to the Storage Browser tool or the Cloud Storage overview page."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:63
+msgid "Figure 2: Browse Google Cloud Storage"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:66
+msgid ""
+"You may need to create a billing account and link to this project before "
+"you create a bucket."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:73
+msgid "Figure 3: Cloud Storage Browser tool"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:75
+msgid ""
+"Click the ``CREATE BUCKET`` button to enter the bucket creation tool. The"
+" bucket name must be unique because buckets in the Cloud Storage share a "
+"single global namespace."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:79
+msgid ""
+"Leave the remaining options set to the defaults, and select the "
+"``Create`` button at the bottom to create a *Bucket*."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:86
+msgid "Figure 4: Set bucket name"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:88
+msgid ""
+"Once the bucket is created, click the ``Upload files`` button on the "
+"Bucket details page to upload the |CL| GCE image archive to the named "
+"bucket:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:96
+msgid "Figure 5: Cloud Storage bucket"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:102
+msgid "Figure 6: Uploading the image source archive file"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:108
+msgid "Figure 7: Importing complete"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:110
+msgid "Browse the Compute Engine Image library page:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:114
+msgid "Hover your mouse over the *Compute Engine* menu and select *Images*."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:120
+msgid "Figure 8: Image library"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:122
+msgid ""
+"On the Compute Engine Image library page, click the ``[+] CREATE IMAGE`` "
+"menu item to create a custom image:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:129
+msgid "Figure 9: Create image"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:131
+msgid ""
+"In the VM image creation page, change the image source type to *Cloud "
+"Storage file*."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:134
+msgid "Under :guilabel:`Cloud Storage file`, select :guilabel:`Browse`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:136
+msgid ""
+"Locate the :file:`clear-<release number>-gce.tar.gz` file, and click "
+":guilabel:`Select`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:143
+msgid "Figure 10: Create image using imported object"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:145
+msgid ""
+"Accept all default options, and click the ``Create`` button at the bottom"
+" to import the Clear Linux GCE image to the image library."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:152
+msgid "Figure 11: Image is created"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:154
+msgid ""
+"After the |CL| image is imported, you can launch a VM instance running "
+"|CL|:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:159
+msgid ""
+"Hover your mouse over the *Compute Engine* menu group and select the *VM "
+"instances* item."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:166
+msgid "Figure 12: VM instances catalog"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:168
+msgid ""
+"If no VM instance was created in this project, you will be prompted to "
+"create one."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:171
+msgid ""
+"Alternatively, click the ``CREATE INSTANCE`` button on the VM instances "
+"page to create a VM instance."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:178
+msgid "Figure 13: VM creation"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:184
+msgid "Figure 14: VM instances list"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:186
+msgid ""
+"In :guilabel:`Region`, choose a region based on the `Best practices for "
+"Compute Engine regions selection`_."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:189
+msgid "Under *Boot disk*, click the ``Change`` button."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:195
+msgid "Figure 15: Use custom image"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:197
+msgid "Select the *Custom images* tab for using Clear Linux OS GCE image."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:203
+msgid "Figure 16: Select Clear Linux boot disk to create a VM instance"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:205
+msgid ""
+"Scroll down to the bottom of the VM instance creation page, expand the "
+"*Management, security, disks, networking, sole tenancy* group."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:212
+msgid "Figure 17: Set up SSH keys"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:215
+msgid ""
+"|CL| does not allow SSH login with a root account by default. As a "
+"result, you must configure the VM instance with your SSH public key, so "
+"that you are able to access it remotely."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:219
+msgid "Refer to :ref:`security` for more details."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:221
+msgid "Click the *Security* tab, copy and paste your SSH public key:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:227
+msgid "Figure 18: Set SSH key for remote login"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:231
+msgid ""
+"The username is assigned from characters preceding ``@`` in the email "
+"address, included in the SSH key. The dot symbol \".\" is not allowed, "
+"because it is an invalid character while creating user accounts in |CL|."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:236
+msgid "Click the ``Create`` button to create the |CL| VM."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:238
+msgid "The Clear Linux VM instance is created and assigned a public IP address:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:244
+msgid "Figure 19: Clear Linux VM instance is created and started"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:246
+msgid ""
+"You can now SSH login to the VM using the IP address obtained in the "
+"previous step, and the username associated with the SSH public key:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:253
+msgid "Figure 20: SSH login to Clear Linux VM"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:256
+msgid "Related topics"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:258
+msgid ""
+"The following tutorials describe a similar process and may be useful "
+"references:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:260
+msgid ":ref:`azure`"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/gce.rst:261
+msgid ":ref:`aws-web`"
+msgstr ""
+

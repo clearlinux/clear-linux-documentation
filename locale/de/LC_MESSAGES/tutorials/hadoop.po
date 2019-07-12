@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../tutorials/hadoop.rst:4
+msgid "Set up a single node cluster with Hadoop\\*"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:6
+msgid ""
+"This tutorial walks you through the process of installing, configuring, "
+"and running Apache\\* Hadoop on |CL-ATTR|. The Apache Hadoop software "
+"library is a framework for distributed processing of large data sets "
+"across clusters of computers using simple programming models. It is "
+"designed to scale up from single servers to thousands of machines, with "
+"each machine offering local computation and storage."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:14
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:16
+msgid ""
+"Before following this tutorial, you should follow the :ref:`bare-metal-"
+"install-desktop` to ensure you have installed |CL|."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:19
+msgid ""
+"Before you install any new packages, update |CL| with the following "
+"command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:25
+msgid ""
+"For the purposes of this tutorial, we will install Hadoop in a single "
+"machine running both the master and slave daemons."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:29
+msgid "Install Apache Hadoop"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:31
+msgid ""
+"Apache Hadoop is included in the `big-data-basic` bundle. To install the "
+"framework, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:39
+msgid "Configure Apache Hadoop"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:41
+msgid "To create the configuration directory, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:47
+msgid ""
+"Copy the defaults from :file:`/usr/share/defaults/hadoop` to "
+":file:`/etc/hadoop` with the following command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:54
+msgid ""
+"Since |CL| is a stateless system, you should never modify the files under"
+" the :file:`/usr/share/defaults` directory. The software updater will "
+"overwrite those files."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:58
+msgid ""
+"Once all the configuration files are in :file:`/etc/hadoop`, we must edit"
+" them to fit our needs. The `NameNode` server is the master server. It "
+"manages the namespace of the files system and regulates the clients' "
+"access to files. The first file we edit, :file:`/etc/hadoop/core-"
+"site.xml`, informs the Hadoop daemon where `NameNode` is running."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:64
+msgid ""
+"In this tutorial, our `NameNode` runs in our `localhost`. Follow these "
+"steps to set it up correctly:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:67
+msgid ""
+"Open the :file:`/etc/hadoop/core-site.xml` file using the editor of your "
+"choice and modify the file as follows:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:81
+msgid ""
+"Edit the :file:`/etc/hadoop/hdfs-site.xml` file. This file configures the"
+" :abbr:`HDFS (Hadoop Distributed File System)` daemons. This "
+"configuration includes the list of permitted and excluded data nodes and "
+"the size of said blocks. In this example, we are setting the number of "
+"block replication to 1 from the default of 3 as follows:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:103
+msgid ""
+"Edit the :file:`/etc/hadoop/mapred-site.xml` file. This file configures "
+"all daemons related to `MapReduce`: `JobTracker` and `TaskTrackers`. With"
+" `MapReduce`, Hadoop can process big amounts of data in multiple systems."
+" In our example, we set :abbr:`YARN (Yet Another Resource Manager)` as "
+"our runtime framework for executing `MapReduce` jobs as follows:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:121
+msgid ""
+"Edit the :file:`/etc/hadoop/yarn-site.xml` file. This file configures all"
+" daemons related to `YARN`: `ResourceManager` and `NodeManager`. In our "
+"example, we implement the `mapreduce_shuffle` service, which is the "
+"default as follows:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:142
+msgid "Configure your SSH key"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:144
+msgid "Create a SSH key. If you already have one, skip this step."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:151
+msgid "Copy the key to your authorized keys."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:157
+msgid ""
+"Log into the localhost. If no password prompt appears, you are ready to "
+"run the Hadoop daemons."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:165
+msgid "Run the Hadoop daemons"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:167
+msgid ""
+"With all the configuration files properly edited, we are ready to start "
+"the daemons."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:170
+msgid ""
+"When we format the `NameNode` server, it formats the meta-data related to"
+" data nodes. Thus, all the information on the data nodes is lost and the "
+"nodes can be reused for new data."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:174
+msgid "Format the `NameNode` server with the following command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:180
+msgid "Start the DFS in `NameNode` and `DataNodes` with the following command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:186 ../../tutorials/hadoop.rst:211
+msgid "The console output should be similar to:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:196
+msgid "Enter `yes` to continue."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:198
+msgid ""
+"Start the `YARN` daemons `ResourceManager` and `NodeManager` with the "
+"following command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:205
+msgid "Ensure everything is running as expected with the following command:"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:223
+msgid "Run the MapReduce wordcount example"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:225
+msgid "Create the input directory."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:231
+msgid "Copy a file from the local file system to the HDFS."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:237
+msgid "Run the `wordcount` example."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:243
+msgid ""
+"Read output file \"part-r-00000\". This file contains the number of times"
+" each word appears in the file."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:250
+msgid "**Congratulations!**"
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:252
+msgid ""
+"You successfully installed and setup a single node Hadoop cluster. "
+"Additionally, you ran a simple wordcount example."
+msgstr ""
+
+#: ../../tutorials/hadoop.rst:255
+msgid "Your single node Hadoop cluster is up and running!"
+msgstr ""
+

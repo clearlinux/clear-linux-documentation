@@ -326,3 +326,8 @@ html_add_permalinks = ""
 
 #suppresses warnings for options that aren't referenced
 #suppress_warnings = ["ref.option"]
+
+# -- Options for Localization using sphinx-intl ---------------------------
+
+locale_dirs = ['../locale/'] # path for lang-specific po files.
+gettext_compact = False # optional.

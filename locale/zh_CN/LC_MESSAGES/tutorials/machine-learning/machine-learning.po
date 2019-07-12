@@ -1,0 +1,314 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../tutorials/machine-learning/machine-learning.rst:4
+msgid "TensorFlow\\* machine learning on |CL-ATTR|"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:6
+msgid ""
+"This tutorial will demonstrate the installation and execusion of a "
+"TensorFlow\\* machine learning example on |CL-ATTR|. It uses a Jupyter\\*"
+" Notebook and MNIST data for handwriting recognition."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:10
+msgid ""
+"The initial steps will have you set up a Jupyter kernel and run a "
+"Notebook on a bare-metal |CL| system."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:14
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:16
+msgid ""
+"This tutorial assumes you have installed |CL| on your host system. For "
+"detailed instructions on installing |CL| on a bare metal system, follow "
+"the :ref:`bare metal installation tutorial<bare-metal-install-desktop>`."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:20
+msgid ""
+"Before you install any new packages, update |CL| with the following "
+"command:"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:26
+msgid "Once your system is updated, add the following bundles to your system:"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:28
+msgid "`machine-learning-web-ui`: This bundle contains the Jupyter application."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:30
+msgid ""
+"`machine-learning-basic`: This bundle contains TensorFlow and other "
+"useful tools."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:33
+msgid ""
+"To install the bundles, run the following commands in your :file:`$HOME` "
+"directory:"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:43
+msgid "Set up a Jupyter notebook"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:45
+msgid ""
+"With all required packages and libraries installed, set up the file "
+"structure for the Jupyter Notebook."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:48
+msgid ""
+"In the :file:`$HOME` directory, create a directory for the Jupyter "
+"Notebooks named :file:`Notebooks`."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:55
+msgid "Within :file:`Notebooks`, create a directory named :file:`Handwriting`."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:61
+msgid "Change to the new directory."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:67
+msgid ""
+"Copy the :file:`MNIST_example.ipynb` file into the :file:`Handwriting` "
+"directory."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:71
+msgid ""
+"After installing the `machine-learning basic` bundle, you can find the "
+"example code under :file:`/usr/share/doc/tensorflow/MNIST_example.ipynb`."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:76
+msgid ""
+"The example code downloads and decompresses the MNIST data directly into "
+"the :file:`./mnist` directory. Alternatively, download the four files "
+"directly from the Yann LeCun’s `MNIST Database website`_ and save them "
+"into a :file:`mnist` directory within the :file:`Handwriting` directory."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:81
+msgid "The files needed are:"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:83
+msgid "`train-images-idx3-ubyte.gz`_: Training set images (9912422 bytes)"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:85
+msgid "`train-labels-idx1-ubyte.gz`_: Training set labels (28881 bytes)"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:87
+msgid "`t10k-images-idx3-ubyte.gz`_: Test set images (1648877 bytes)"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:89
+msgid "`t10k-labels-idx1-ubyte.gz`_: Test set labels (4542 bytes)"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:92
+msgid "Run the Jupyter machine learning example code"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:94
+msgid ""
+"With |CL|, Jupyter, and TensorFlow installed and configured, we can run "
+"the example code."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:97
+msgid ""
+"Go to the :file:`($HOME)/Notebooks` directory and start Jupyter with the "
+"following commands:"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:106
+msgid ""
+"The Jupyter server starts and opens a web browser showing the Jupyter "
+"file manager with a list of files in the current directory, see figure 1."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:112
+msgid "Figure 1: The Jupyter file manager shows the list of available files."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:114
+msgid ""
+"Click on the :file:`Handwriting` directory. The "
+":file:`MNIST_example.ipynb` file created earlier should be listed there, "
+"see figure 2."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:120
+msgid "Figure 2: The example file within the Jupyter file manager."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:122
+msgid ""
+"To run the hand writing example, click on the :file:`MNIST_example.ipynb`"
+" file to load the notebook, see figure 3."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:128
+msgid ""
+"Figure 3: The loaded MNIST_example notebook within the Jupyter file "
+"manager."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:131
+msgid ""
+"Click the |run-cell| button to execute the code in the current cell and "
+"move to the next."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:134
+msgid ""
+"Select the :guilabel:`In [2]` cell and click the |run-cell| button to "
+"load the MNIST data. The successful output is shown on figure 4."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:140
+msgid "Figure 4: Output after successfully importing the MNIST data."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:143
+msgid ""
+"After the MNIST data was successfully downloaded and extracted into the "
+":file:`mnist` directory within the :file:`($HOME)/Notebooks/Handwriting` "
+"directory, four .gz files are present and the four data sets were "
+"created: `trainX`, `trainY`, `testX` and `testY`."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:148
+msgid ""
+"To inspect the imported data, the function in :guilabel:`In [3]` first "
+"instructs Jupyter to reshape the data into an array of 28 x 28 images and"
+" to plot the area in a 28 x 28 grid. Click the |run-cell| button twice to"
+" show the first two digits in the `trainX` dataset, see figure 5."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:156
+msgid ""
+"Figure 5: A function reshapes the data and displays the first two digits "
+"in the `trainX` dataset."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:159
+msgid ""
+"The :guilabel:`In [4]` cell defines the neural network. It provides the "
+"inputs, defines the hidden layers, runs the training model, and sets up "
+"the output layer, see figure 6. Click the |run-cell| button four times to"
+" perform these operations."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:167
+msgid "Figure 6: Defining, building and training the neural network model."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:169
+msgid ""
+"To test the accuracy of the prediction the system makes, select the "
+":guilabel:`In [8]` cell and click the |run-cell| button. In this example,"
+" the number 6 was predicted with a 99% accuracy, see figure 7."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:176
+msgid ""
+"Figure 7: The system predicts a number providing the accuracy of the "
+"prediction."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:181
+msgid ""
+"To retest the accuracy of a random data point's prediction, run the cell "
+":guilabel:`In [8]` again. It will take another random data point and "
+"predict its value."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:185
+msgid ""
+"To check the accuracy for the whole dataset, select the :guilabel:`In "
+"[10]` cell and click the |run-cell| button. Our example's accuracy is "
+"calculated as 97.17%, see figure 8."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:192
+msgid "Figure 8: The system's accuracy for the entire data set."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:194
+msgid ""
+"For more in-depth information on the model used and the mathematics it "
+"entails, visit the TensorFlow tutorials `TensorFlow MNIST beginners "
+"demo`_ and `TensorFlow MNIST pros demo`_."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:198
+msgid "**Congratulations!**"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:200
+msgid ""
+"You have successfully installed a Jupyter kernel on |CL|. In addition, "
+"you trained a neural network to successfully predict the values contained"
+" in a data set of hand-written number images."
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:205
+msgid "Related topics"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:207
+msgid "`MNIST Database website`_"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:208
+msgid "`TensorFlow MNIST beginners demo`_"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:209
+msgid "`TensorFlow MNIST pros demo`_"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:210
+msgid "`Jupyter main website`_"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:211
+msgid "`Jupyter documentation`_"
+msgstr ""
+
+#: ../../tutorials/machine-learning/machine-learning.rst:212
+msgid "`MNIST at Wikipedia`_"
+msgstr ""
+
