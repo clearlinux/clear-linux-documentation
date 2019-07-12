@@ -21,7 +21,8 @@ field.
     environment, such as your network, are healthy and scaled to suit the
     deployment.
 
-.. contents:: :local:
+.. contents::
+    :local:
     :depth: 2
 
 Pick a |CL| usage and update strategy
@@ -43,11 +44,11 @@ create customized images based on |CL|. This is a level of responsibility
 that requires having more infrastructure and processes to adopt. In return,
 this approach *offers you a high degree of control and customization*.
 
-* Development systems which are generating bundles and updates should be
-  sufficiently performant for the task and separate from the swupd update
-  webservers which are serving update content to production machines.
+* Development systems that generate bundles and updates should have
+  sufficient performance for the task and separate from the swupd update
+  webservers that serve update content to production machines.
 
-* swupd update webservers which are serving update content to
+* swupd update webservers that serve update content to
   production machines (see `mixer process`_ for more information) should be
   appropriately scaled.
 
@@ -197,7 +198,7 @@ persistent and can be accessed on another server when an issue occurs.
 * Remote syslogging in |CL| is available through the
   `systemd journal-remote service`_
 
-* |CL| offers a `native telemetry solution`_ which can be a powerful tool
+* |CL| offers a :ref:`telem-guide`, which can be a powerful tool
   for a large deployment to quickly crowdsource issues of interest. Take
   advantage of this feature with careful consideration of the target audience
   and the kind of data that would be valuable, and expose events
