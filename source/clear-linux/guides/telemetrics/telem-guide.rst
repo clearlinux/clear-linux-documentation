@@ -3,16 +3,23 @@
 Telemetrics
 ###########
 
-Telemetrics in |CL-ATTR| is a client and server solution used to collect data from running |CL| systems to help quickly identify and fix bugs in the OS.  Both client and server are customizable, and an API is available on the client side for instrumenting your code for debug and analysis.
+Telemetrics in |CL-ATTR| is a client and server solution used to collect
+data from running |CL| systems to help quickly identify and fix bugs in the
+OS.  Both client and server are customizable, and an API is available on the
+client side for instrumenting your code for debug and analysis.
 
 .. important::
 
-   Telemetry in |CL| is **opt-in**. The telemetry client is **not**  active and sends **no** data until you explicitly enable it.
+   Telemetry in |CL| is **opt-in**. The telemetry client is **not**  active
+   and sends **no** data until you explicitly enable it.
 
 .. note::
 
-   The telemetry functionality adheres to `Intel privacy policies`_ regarding the collection and use of :abbr:`PII (Personally Identifiable Information)` and is open source.
-   Specifically, no intentionally identifiable information about the user or system owner is collected.
+   The telemetry functionality adheres to `Intel privacy policies`_ regarding
+   the collection and use of :abbr:`PII (Personally Identifiable Information)`
+   and is open source. 
+   Specifically, no intentionally identifiable information about the user or
+   system owner is collected.
 
 .. contents::
    :local:
@@ -22,79 +29,123 @@ Telemetrics in |CL-ATTR| is a client and server solution used to collect data fr
 Description
 *************
 
-Telemetry, one of the key features of |CL|, enables developers to observe and proactively address issues in the OS before end users are impacted.
+Telemetry, one of the key features of |CL|, enables developers to observe and
+proactively address issues in the OS before end users are impacted.
 
 Telemetrics is a combination word made from:
 
 * Telemetry, which is sensing and reporting data.
-* Analytics, which is using visualization and statistical inferencing to make sense of the reported data.
+* Analytics, which is using visualization and statistical inferencing to make
+  sense of the reported data.
 
-|CL| telemetry reports system-level debug/crash information using specialized probes. The probes monitor system tasks such as swupd, kernel oops, machine error checks, and the BIOS error report table for unhandled hardware failures. Telemetry enables real-time issue reporting to allow system developers to quickly focus on an issue and monitor corrective actions.
+|CL| telemetry reports system-level debug/crash information using specialized
+probes. The probes monitor system tasks such as swupd, kernel oops, machine
+error checks, and the BIOS error report table for unhandled hardware
+failures. Telemetry enables real-time issue reporting to allow system
+developers to focus quickly on an issue and monitor corrective actions.
 
-|CL| telemetry is fully customizable and can be used during software development for debugging purposes. You can use the  libtelemetry library in your code to create custom telemetry records. You can also use the telem-record-gen utility in script files for light touch record creation where instrumenting code files doesn't make sense.
+|CL| telemetry is fully customizable and can be used during software
+development for debugging purposes. You can use the libtelemetry library in
+your code to create custom telemetry records. You can also use the
+telem-record-gen utility in script files for light-touch record creation
+where instrumenting code files doesn't make sense.
 
-The |CL| telemetrics solution is an **opt-in** choice on the client side.  By default, the telemetry client is disabled until you choose to enable it. Enabling the client is covered in this guide.
+The |CL| telemetrics solution is an **opt-in** choice on the client side.
+By default, the telemetry client is disabled until you choose to enable it.
+Enabling the client is covered in this guide.
 
 Architecture
 ============
 
 |CL| telemetry has two fundamental components, which are shown in figure 1:
 
-* Client: generates and delivers records to the backend server via the network
+* Client: generates and delivers records to the backend server via the network.
 
-* Backend: receives records sent from the client and displays the cumulative content through a specialized web interface.
+* Backend: receives records sent from the client and displays the cumulative
+  content through a specialized web interface.
 
 .. figure:: figures/telemetry-e2e.png
    :alt: Figure 1, Telemetry Architecture
 
    Figure 1: :guilabel:`|CL| Telemetry Architecture`
 
-The telemetry client provides the front end of the telemetrics solution and includes the following components:
+The telemetry client provides the front end of the telemetrics solution and
+includes the following components:
 
-* telemprobd, a daemon that receives and prepares telemetry records from probes and spools them to disk.
-* telempostd, a daemon that manages spooled telemetry records and delivers these records according to configurable settings.
-* probes, that collect specific types of data from the operating system.
-* libtelemetry, the API that telemetrics probes use to create records.
+* telemprobd, which is a daemon that receives and prepares telemetry records
+  from probes and spools them to disk.
+* telempostd, which is a daemon that manages spooled telemetry records and
+  delivers these records according to configurable settings.
+* probes, which collect specific types of data from the operating system.
+* libtelemetry, which is the API that telemetrics probes use to create records.
 
-The telemetry backend provides the server-side component of the telemetrics solution and consists of:
+The telemetry backend provides the server-side component of the telemetrics
+solution and consists of:
 
 * Nginx web server.
 * Two Flask apps:
-  * Collector, an ingestion web app for records received from client probes.
-  * TelemetryUI, a web app that exposes different views to visualize the telemetry data.
+
+  * Collector, which is an ingestion web app for records received from client
+    probes.
+  * TelemetryUI, which is a web app that exposes different views to visualize
+    the telemetry data.
 * PostgreSQL as the underlying database server.
 
 .. note::
 
-   The default telemetry backend server is hosted by the Intel |CL| development team and is not viewable outside the Intel firewall. To collect your own records, you must set up your own telemetry backend server.
+   The default telemetry backend server is hosted by the Intel |CL| development
+   team and is not viewable outside the Intel firewall. To collect your own
+   records, you must set up your own telemetry backend server.
 
 
 
 How To Use
 **********
 
-From a workflow perspective, the |CL| telemetrics system is straightforward.  On the client side, the main decisions after installation and enabling telemetry concern what to do with the record data generated by the probes.  You can send the data to the default or a custom backend server, keep the data local to the system, or both. The backend server has a more complex setup, but once it's running, it is simple to use and configure.
+From a workflow perspective, the |CL| telemetrics system is straightforward.
+On the client side, the main decisions after installation and enabling
+telemetry involve what to do with the record data generated by the probes.
+You can send the data to the default or a custom backend server, keep the data
+local to the system, or both. The backend server has a more complex setup, but
+once it's running, it is simple to use and configure.
 
-This section walks through some of the possible scenarios for configuring the |CL| telemetrics system, and suggests which make sense according to your needs.
+This section describes some of the possible scenarios for configuring
+the |CL| telemetrics system, and suggests which ones make sense according to
+your needs.
 
 Scenarios
 =========
-#. Enable telemetry
+#. Enable telemetry:
 
-   Before probes can generate records, the telemetry client daemons must be enabled. You can configure the client before enabling by creating a custom  :file:`telemetrics.conf` file that you place in the :file:`/etc/telemetrics` directory. If you choose to use the default settings, records will be sent to the telemetrics backend server managed by the |CL| development team at Intel.
+   Before probes can generate records, the telemetry client daemons must be
+   enabled. You can configure the client before enabling by creating a custom
+   :file:`telemetrics.conf` file that you place in the :file:`/etc/telemetrics`
+   directory. If you choose to use the default settings, records will be sent
+   to the telemetrics backend server managed by the |CL| development team at
+   Intel.
 
-#. Save record data locally
+#. Save record data locally:
 
-   You can configure the telemetry client to save records locally.  This is convenient when you want instant feedback during a development cycle, or to track system issues if you believe there is a machine specific problem. The client can be set to not send records at all, or to both keep the records locally and send to the backend server.
+   You can configure the telemetry client to save records locally.  This is
+   convenient when you want instant feedback during a development cycle, or to
+   track system issues if you believe there is a machine specific problem. The
+   client can be set not to send records at all, or to both keep the records
+   locally and send to the backend server.
 
-#. Set up a server to collect data
+#. Set up a server to collect data:
 
-   Whether you are managing a network of |CL| systems or you don't want to send records to the default telemetry server, you can set up a backend server to collect your records. The backend server can be installed on any Linux system and will give you the same dashboard as the default server.
+   Whether you are managing a network of |CL| systems or you don't want to
+   send records to the default telemetry server, you can set up a backend
+   server to collect your records. The backend server can be installed on any
+   Linux system and provides the same dashboard as the default server.
 
 
-#. Instrument your code with the libtelemetry API
+#. Instrument your code with the libtelemetry API:
 
-   The ``telemetrics`` bundle includes the libtelemetry C library, which exposes an API used by the telemprobd and telempostd daemons. You can use these in your applications as well. The API documentation is found in the :file:`telemetry.h` file in `Telemetrics client`_ repository.
+   The ``telemetrics`` bundle includes the libtelemetry C library, which
+   exposes an API used by the telemprobd and telempostd daemons. You can use
+   these in your applications as well. The API documentation is found in the
+   :file:`telemetry.h` file in `Telemetrics client`_ repository.
 
 
 Examples
@@ -107,11 +158,16 @@ Examples
 Enable or Disable Telemetry
 ===========================
 
-#. Enabling during installation
+#. Enabling during installation:
 
-   During the initial installation of |CL|, you are requested to join the stability enhancement program and allow |CL| to collect anonymous reports to improve system stability. If you choose not to join this program, then the telemetry software bundle is not added to your system. Choosing to join will automatically enable telemetry on your system after installation is commplete.
+   During the initial installation of |CL|, you are requested to join the
+   stability enhancement program and allow |CL| to collect anonymous reports to
+   improve system stability. If you choose not to join this program, then the
+   telemetry software bundle is not added to your system. Choosing to join will
+   automatically enable telemetry on your system after installation is
+   complete.
 
-#. Enabling after install
+#. Enabling after install:
 
    To start telemetry on your system, run the following command:
 
@@ -119,9 +175,13 @@ Enable or Disable Telemetry
 
       sudo telemctl start
 
-   This enables and starts the :command:`telemprobd` and :command:`telempostd` daemons. Your system will begin to send telemetry data to the server defined in the file :file:`/etc/telemetrics/telemetrics.conf`. If this file does not exist, the :command:`telemprobd` and :command:`telempostd` daemons will use the file :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
+   This enables and starts the :command:`telemprobd` and :command:`telempostd`
+   daemons. Your system will begin to send telemetry data to the server defined
+   in the file :file:`/etc/telemetrics/telemetrics.conf`. If this file does not
+   exist, the :command:`telemprobd` and :command:`telempostd` daemons will use
+   the file :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
 
-#. Disabling after install
+#. Disabling after install:
 
    To disable both of the telemetry daemons, run the following command:
 
@@ -129,64 +189,91 @@ Enable or Disable Telemetry
 
       sudo telemctl stop
 
-#. Opt in to telemetry
+#. Opt in to telemetry:
 
-   To opt-in to the telemetry services, simply enter the opt-in command and start the service:
+   To opt-in to the telemetry services, simply enter the opt-in command and
+   start the service:
 
    .. code-block:: bash
 
       sudo telemctl opt-in
 
-   This removes the :file:`/etc/telemetrics/opt-out` file, if it exists, and starts the telemetry services.
+   This removes the :file:`/etc/telemetrics/opt-out` file, if it exists, and
+   starts the telemetry services.
 
    .. note::
 
-      To opt-in but not immediately start telemetry services, you will need to run the command :command:`sudo telemctl stop` after the :command:`opt-in` command is entered. Once you are ready to start the service, enter the command :command:`sudo telemctl start`.
+      To opt-in but not immediately start telemetry services, you must
+      run the command :command:`sudo telemctl stop` after the :command:`opt-in`
+      command is entered. Once you are ready to start the service, enter the
+      command :command:`sudo telemctl start`.
 
-#. Opt out of telemetry
+#. Opt out of telemetry:
 
-   To stop sending telemetrics data from your system, opt out of the telemetry service:
+   To stop sending telemetrics data from your system, opt out of the telemetry
+   service:
 
    .. code-block:: bash
 
       sudo telemctl opt-out
 
-   This creates the file :file:`/etc/telemetrics/opt-out` and stops the telemetry services.
+   This creates the file :file:`/etc/telemetrics/opt-out` and stops the
+   telemetry services.
 
 
 Saving Data Locally
 ===================
 
-This example requires |CL| to be installed, and telemetry to be enabled on the system.
+This example requires |CL| to be installed and telemetry to be enabled on the
+system.
 
-To change how records are managed, we will be copying the default :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file to :file:`/etc/telemetrics/telemetrics.conf` and editing it.  The changes in the :file:`/etc/telemetrics/telemetrics.conf` file will override the defaults in the :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file. You may need ``root`` permissions to create and edit files in :file:`/etc`. For each example, and for any time you make changes to the configuration file, you will need to restart the client daemons to pick up the changes:
+To change how records are managed, copy the default
+:file:`/usr/share/defaults/telemetrics/telemetrics.conf` file to
+:file:`/etc/telemetrics/telemetrics.conf` and edit it.  The changes in the
+:file:`/etc/telemetrics/telemetrics.conf` file will override the defaults in
+the :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file. You may need
+``root`` permissions to create and edit files in :file:`/etc`. For each
+example, and for any time you make changes to the configuration file, you must
+restart the client daemons to pick up the changes:
 
 .. code-block:: bash
 
   sudo telemctl restart
 
 
-The :command:`telemctl journal` command gives you access to features and options of the telemetry journal to assist with system analytics and debug. :command:`telemctl journal` has a number of options to help filter records. Use :command:`-h` or :command:`--help` to view usage options.
+The :command:`telemctl journal` command gives you access to features and
+options of the telemetry journal to assist with system analytics and debug.
+:command:`telemctl journal` has a number of options to help filter records.
+Use :command:`-h` or :command:`--help` to view usage options.
 
 
-#. Keep local copy and send records to backend server
+#. Keep a local copy and send records to backend server:
 
-   To keep a local copy of the telemetry record and also send it on to the backend server, we will need to change the :guilabel:`record_retention_enabled` configuration key value to :guilabel:`true`.
+   To keep a local copy of the telemetry record and also send it on to the
+   backend server, we will need to change the :guilabel:`
+   record_retention_enabled` configuration key value to :guilabel:`true`.
 
 
-#. Keep all records  -- don't send to backend server
+#. Keep all records  -- don't send to backend server:
 
-   To keep records on the system without sending them to a backend server, set the :guilabel:`record_server_delivery_enabled` key value to :guilabel:`false`.  Note that you will also need to ensure the :guilabel:`record_retention_enabled` configuration key value is set to :guilabel:`true` or the system will not keep local copies.
+   To keep records on the system without sending them to a backend server, set
+   the :guilabel:`record_server_delivery_enabled` key value to
+   :guilabel:`false`.  Note that you will also need to ensure the
+   :guilabel:`record_retention_enabled` configuration key value is set to
+   :guilabel:`true` or the system will not keep local copies.
 
-#. Keep and send records to custom server
+#. Keep and send records to custom server:
 
    This assumes you have set up a custom server according to the next example.
 
-   The server is identified by the :guilabel:`server` setting, and by default records will be sent to the |CL| server :guilabel:`server=https://clr.telemetry.intel.com/v2/collector`.  To change this, you can use an IP address or fully qualified domain name.
+   The server is identified by the :guilabel:`server` setting, and by default
+   records are sent to the |CL| server :guilabel:`server=https://clr.
+   telemetry.intel.com/v2/collector`.  To change this, you can use an IP
+   address or fully qualified domain name.
 
 
 
-Set up a backend server to collect telemetry records
+Set Up a Backend Server to Collect Telemetry Records
 ====================================================
 
 For this example, start with a clean installation of |CL| on a new system
@@ -200,7 +287,9 @@ using the :ref:`bare-metal-install-server` getting started guide and:
    * Create an administrative user named :guilabel:`clear` and add this user
      to sudoers
 
-#. Log in with your administrative user, from your :file:`$HOME` directory, run :command:`git` to clone the :guilabel:`telemetrics-backend` repository into the :file:`$HOME/telemetrics-backend` directory:
+#. Log in with your administrative user, from your :file:`$HOME` directory, 
+   run :command:`git` to clone the :guilabel:`telemetrics-backend` repository
+   into the :file:`$HOME/telemetrics-backend` directory:
 
    .. code-block:: console
 
@@ -208,10 +297,12 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 
    .. note::
 
-      You may need to set up the :envvar:`https_proxy` environment variable if you have issues reaching github.com.
+      You may need to set up the :envvar:`https_proxy` environment variable if
+      you have issues reaching github.com.
 
 #. Change your current working directory to :file:`telemetrics-backend/scripts`.
-#. We will install the telemetrics backend with the :file:`deploy.sh` script file.  We will set the following options and leave the remainder as default:
+#. Before you install the telemetrics backend with the :file:`deploy.sh` script
+   file in the next step, here is an explanation of the options to be specified:
 
    * *-a install* to perform an install
    * *-d clr* to install to a |CL| distro
@@ -219,9 +310,11 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 
    .. caution::
       The :file:`deploy.sh` shell script has minimal error checking and makes
-      several changes to your system.  Be sure that the options you define on the cmdline are correct before proceeding.
+      several changes to your system.  Be sure that the options you define on
+      the cmdline are correct before proceeding.
 
-#. Run the shell script from the :file:`$HOME/telemetrics-backend/scripts` directory:
+#. Run the shell script from the :file:`$HOME/telemetrics-backend/scripts`
+   directory:
 
    .. code-block:: console
 
@@ -229,7 +322,8 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 
 
 
-   The script will start and list all the defined options and prompt you for the :guilabel:`PostgreSQL` database password
+   The script starts and lists all the defined options and prompts you for
+   the :guilabel:`PostgreSQL` database password.
 
    .. code-block:: console
 
@@ -242,14 +336,20 @@ using the :ref:`bare-metal-install-server` getting started guide and:
        type: git
        DB password: (default: postgres):
 
-#. For the :guilabel:`DB password:`, press the :kbd:`Enter` key to accept the default password `postgres`.
+#. For the :guilabel:`DB password:`, press the :kbd:`Enter` key to accept the
+   default password `postgres`.
 
    .. note::
 
-      The :file:`deploy.sh` script uses :command:`sudo` to run commands and you may be prompted to enter your user password at any time while the script is executing. If this occurs, enter your user password to execute the :command:`sudo` command.
+      The :file:`deploy.sh` script uses :command:`sudo` to run commands and you
+      may be prompted to enter your user password at any time while the script
+      is executing. If this occurs, enter your user password to execute the
+      :command:`sudo` command.
 
 
-#. Once all the server components have been installed you are prompted to enter the :guilabel:`PostgreSQL` database password to change it as illustrated below:
+#. After all the server components have been installed, you are prompted to
+   enter the :guilabel:`PostgreSQL` database password to change it as
+   illustrated below:
 
    .. code-block:: console
 
@@ -258,9 +358,14 @@ using the :ref:`bare-metal-install-server` getting started guide and:
       Retype new password:
       passwd: password updated successfully
 
-   Enter `postgres` for the current value of the password and then enter a new password, retype it to verify the new password and the :guilabel:`PostgreSQL` database password will be updated.
+   Enter `postgres` for the current value of the password and then enter a new
+   password, retype it to verify the new password and the
+   :guilabel:`PostgreSQL` database password will be updated.
 
-#. Once the installation is complete you can use your web browser to view the new server by opening the browser on the system and typing in ``localhost`` in the address bar.  You should see a web page similar to the one shown in figure 1:
+#. After the installation is complete, you can use your web browser to view the
+   new server by opening the browser on the system and typing in ``localhost``
+   in the address bar.  You should see a web page similar to the one shown in
+   figure 1:
 
    .. figure:: figures/telemetry-backend-1.png
       :alt: Telemetry UI
@@ -269,10 +374,13 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 
 
 
-Create records with telem-record-gen
+Create Records with telem-record-gen
 ====================================
 
-The telemetrics bundle provides a record generator tool called ``telem-record-gen``. This tool can be used to create records from shell scripts or the command line when writing a probe in C is not desirable. Records are sent to the backend server, and can also be echoed to stdout.
+The telemetrics bundle provides a record generator tool called
+``telem-record-gen``. This tool can be used to create records from shell
+scripts or the command line when writing a probe in C is not desirable.
+Records are sent to the backend server, and can also be echoed to stdout.
 
 There are three ways to supply the payload to the record.
 
@@ -302,7 +410,8 @@ There are three ways to supply the payload to the record.
 
       payload goes here
 
-#. Specify a file that contains the payload with the option :command:`-P path/to/file`.
+#. Specify a file that contains the payload with the option
+   :command:`-P path/to/file`.
 
    .. code-block:: bash
 
@@ -328,7 +437,8 @@ There are three ways to supply the payload to the record.
 
       payload read from file
 
-#. If the :command:`-p` or :command:`-P` options are absent, the tool reads from stdin so you can use it in a :file:`heredoc` in scripts.
+#. If the :command:`-p` or :command:`-P` options are absent, the tool reads
+   from stdin so you can use it in a :file:`heredoc` in scripts.
 
    .. code-block:: bash
 
@@ -358,16 +468,19 @@ There are three ways to supply the payload to the record.
 
 
 
-Instrument your code with the libtelemetry API
+Instrument Your Code with the libtelemetry API
 ==============================================
 
 Prerequisites
 -------------
-Confirm that the telemetrics header file is located on the system at :file:`usr/include/telemetry.h`  The `latest version`_ of the file can also be found on github for reference, but installing the `telemetry` bundle will install the header file that matches your |CL| version.
+Confirm that the telemetrics header file is located on the system at
+:file:`usr/include/telemetry.h`  The `latest version`_ of the file can also be
+found on github for reference, but installing the `telemetry` bundle will
+install the header file that matches your |CL| version.
 
-#. Includes and variables
+#. Includes and variables:
 
-   You will need to include the following headers in your code to use the API:
+   You must include the following headers in your code to use the API:
 
    ::
 
@@ -378,7 +491,8 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
     #include <telemetry.h>
 
 
-   Use the following code to create the variables we need to hold the data for the record we will be creating:
+   Use the following code to create the variables needed to hold the data for
+   the record to be created:
 
    ::
 
@@ -393,19 +507,29 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
 
    Severity:
     | Type: uint32_t
-    | Value:  Severity field value. Accepted values are in the range 1-4, with 1 being the lowest severity, and 4 being the highest severity. Values provided outside of this range are clamped to 1 or 4. [low, med, high, crit]
+    | Value:  Severity field value. Accepted values are in the range 1-4, with
+    1 being the lowest severity, and 4 being the highest severity. Values
+    provided outside of this range are clamped to 1 or 4. [low, med, high, crit]
 
    Payload_version:
     | Type: uint32_t
-    | Value: Payload format version. The only supported value right now is 1, which indicates that the payload is a freely-formatted (unstructured) string. Values greater than 1 are reserved for future use.
+    | Value: Payload format version. The only supported value right now is 1,
+    which indicates that the payload is a freely-formatted (unstructured)
+    string. Values greater than 1 are reserved for future use.
 
    Classification:
      | Type: char array
-     | Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the reverse domain to use as a namespace for the probe (e.g. org.clearlinux); PROBENAME is the name of the probe; and REST is an arbitrary value that the probe should use to classify the record. The maximum length for the classification string is 122 bytes. Each sub-category may be no longer than 40 bytes long. Two / delimiters are required.
+     | Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the 
+     reverse domain to use as a namespace for the probe (e.g. org.clearlinux);
+     PROBENAME is the name of the probe; and REST is an arbitrary value that
+     the probe should use to classify the record. The maximum length for the
+     classification string is 122 bytes. Each sub-category may be no longer
+     than 40 bytes long. Two / delimiters are required.
 
    Tm_handle:
      | Type: Telem_ref struct pointer
-     | Value:  Struct pointer declared by the caller, The struct is initialized if the function returns success.
+     | Value:  Struct pointer declared by the caller, The struct is initialized
+     if the function returns success.
 
    Payload:
      | Type: char pointer
@@ -413,7 +537,7 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
 
 
 
-#. For this example, we'll set the payload to “hello” by using ``asprintf()``
+#. For this example, we'll set the payload to “hello” by using ``asprintf()``:
 
    ::
 
@@ -423,11 +547,19 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
 
 
 
-   The functions ``asprintf()`` and ``vasprintf()`` are analogs of ``sprintf(3)`` and    ``vsprintf(3)``, except that they allocate a string large enough to hold the output including the terminating null byte ('\0'), and return a pointer to it via the first argument.  This pointer should be passed to ``free(3)`` to release the allocated storage when it is no longer needed.
+   The functions ``asprintf()`` and ``vasprintf()`` are analogs of
+   ``sprintf(3)`` and ``vsprintf(3)``, except that they allocate a string
+   large enough to hold the output including the terminating null byte ('\0'),
+   and return a pointer to it via the first argument.  This pointer should be
+   passed to ``free(3)`` to release the allocated storage when it is no longer
+   needed.
 
-#. Create the new telemetry record
+#. Create the new telemetry record:
 
-   The  function  ``tm_create_record()`` initializes a telemetry record and sets the severity and classification of that record, as well as the payload version number. The memory needed to store the telemetry record is allocated and should be freed with ``tm_free_record()`` when no longer needed.
+   The  function  ``tm_create_record()`` initializes a telemetry record and
+   sets the severity and classification of that record, as well as the payload
+   version number. The memory needed to store the telemetry record is allocated
+   and should be freed with ``tm_free_record()`` when no longer needed.
 
    ::
 
@@ -437,9 +569,10 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
      goto fail;
      }
 
-#. Set the payload field of a telemetrics record
+#. Set the payload field of a telemetrics record:
 
-   The function ``tm_set_payload()`` attaches the provided telemetry record data to the telemetry record. The current maximum payload size is 8192b.
+   The function ``tm_set_payload()`` attaches the provided telemetry record
+   data to the telemetry record. The current maximum payload size is 8192b.
 
    ::
 
@@ -450,11 +583,18 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
      }
      free(payload);
 
-   The ``free()`` function frees the memory space pointed to by ptr, which must have been returned by a previous call to ``malloc()``, ``calloc()``, or ``realloc()``.  Otherwise, or if ``free(ptr)`` has already been called before, undefined behavior occurs.  If ptr is NULL, no operation is performed.
+   The ``free()`` function frees the memory space pointed to by ptr, which
+   must have been returned by a previous call to ``malloc()``, ``calloc()``,
+   or ``realloc()``.  Otherwise, or if ``free(ptr)`` has already been called
+   before, undefined behavior occurs.  If ptr is NULL, no operation is
+   performed.
 
-#. Send a record to the telemetrics daemon
+#. Send a record to the telemetrics daemon:
 
-   The function ``tm_send_record()`` delivers the record to the local ``telemprobd(1)`` service. Since the telemetry record was allocated by the program it should be freed with ``tm_free_record()`` when it is no longer needed.
+   The function ``tm_send_record()`` delivers the record to the local
+   ``telemprobd(1)`` service. Since the telemetry record was allocated by
+   the program it should be freed with ``tm_free_record()`` when it is no
+   longer needed.
 
    ::
 
@@ -473,9 +613,9 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
      return ret;
 
 
-#. Full sample application with compiling flags
+#. A full sample application with compiling flags:
 
-   Create a new file test.c  add the following code.
+   Create a new file test.c and add the following code:
 
    ::
 
@@ -546,7 +686,8 @@ Confirm that the telemetrics header file is located on the system at :file:`usr/
 
    .. note::
 
-      A full example of the `heartbeat probe`_ in C is documented in the source code.
+      A full example of the `heartbeat probe`_ in C is documented in the
+      source code.
 
 Reference
 *********
@@ -558,31 +699,73 @@ Reference
 The Telemetry API
 =================
 
-Installing the ``telemetrics`` bundle includes the libtelemetry C library, which exposes an API used by the telemprobd and telempostd daemons. You can use these in your applications as well. The API documentation is found in the :file:`telemetry.h` file in `Telemetrics client`_ repository.
+Installing the ``telemetrics`` bundle includes the libtelemetry C library,
+which exposes an API used by the telemprobd and telempostd daemons. You can
+use these in your applications as well. The API documentation is found in the
+:file:`telemetry.h` file in `Telemetrics client`_ repository.
 
 Client Configuration
 ====================
 
-The telemetry client will look for the configuration file located at :file:`/etc/telemetrics/telemetrics.conf` and use it if it exists. If the file does not exist, the client will use the default configuration located at :file:`/usr/share/defaults telemetrics/telemetrics.conf`. To modify or customize the configuration, copy the file from :file:`/usr/share/defaults/telemetrics` to :file:`/etc/telemetrics` and edit it.
+The telemetry client will look for the configuration file located at
+:file:`/etc/telemetrics/telemetrics.conf` and use it if it exists. If the
+file does not exist, the client will use the default configuration located
+at :file:`/usr/share/defaults telemetrics/telemetrics.conf`. To modify or
+customize the configuration, copy the file from
+:file:`/usr/share/defaults/telemetrics` to :file:`/etc/telemetrics` and edit it.
 
 Configuration Options
 ---------------------
 The client uses the following configuration options from the config file:
 
-* **server**: This specifies the web server to which telempostd sends the telemetry records.
-* **socket_path**: This specifies the path of the unix domain socket that the telemprobd listens on for connections from the probes.
-* **spool_dir**: This configuration option is related to spooling. If the daemon is not able to send the telemetry records to the backend server due to reasons such as the network availability, then it stores the records in a spool directory. This option specifies that path of the spool directory. This directory should be owned by the same user as the daemon.
-* **record_expiry**: This is the time in minutes after which the records in the spool directory are deleted by the daemon.
-* **spool_process_time**: This specifies the time interval in seconds that the daemon waits for before checking the spool directory for records. The daemon picks up the records in the order of modification date and tries to send the record to the server. It sends a maximum of 10 records at a time. If it was able to send a record successfully, it deletes the record from the spool. If the daemon finds a record older than the "record_expiry" time, then it deletes that record. The daemon looks at a maximum of 20 records in a single spool run loop.
-* **rate_limit_enabled**: This determines whether rate-limiting is enabled or disabled. When enabled, there is a threshold on both records sent within a window of time, and record bytes sent within a window a time.
-* **record_burst_limit**: This is the maximum amount of records allowed to be passed by the daemon within the record_window_length of time. If set to -1, the rate-limiting for record bursts is disabled.
-* **record_window_length**: The time in minutes (0-59) that establishes the window length for the record_burst_limit. EX: if record_burst_window=1000 and record_window_length=15, then no more than 1000 records can be passed within any given fifteen minute window.
+* **server**: This specifies the web server to which telempostd sends the
+  telemetry records.
+* **socket_path**: This specifies the path of the unix domain socket on which
+  the telemprobd listens for connections from the probes.
+* **spool_dir**: This configuration option is related to spooling. If the
+  daemon is not able to send the telemetry records to the backend server due
+  to reasons such as the network availability, then it stores the records in
+  a spool directory. This option specifies the path of the spool directory.
+  This directory should be owned by the same user as the daemon.
+* **record_expiry**: This is the time, in minutes, after which the records in
+  the spool directory are deleted by the daemon.
+* **spool_process_time**: This specifies the time interval, in seconds, that
+  the daemon waits for before checking the spool directory for records. The
+  daemon picks up the records in the order of modification date and tries to
+  send the record to the server. It sends a maximum of 10 records at a time.
+  If it was able to send a record successfully, it deletes the record from the
+  spool. If the daemon finds a record older than the "record_expiry" time, then
+  it deletes that record. The daemon looks at a maximum of 20 records in a
+  single spool run loop.
+* **rate_limit_enabled**: This determines whether rate-limiting is enabled
+  or disabled. When enabled, there is a threshold on both records sent within
+  a window of time, and record bytes sent within a window a time.
+* **record_burst_limit**: This is the maximum amount of records allowed to be
+  passed by the daemon within the record_window_length of time. If set to -1,
+  the rate-limiting for record bursts is disabled.
+* **record_window_length**: The time, in minutes (0-59), that establishes the
+  window length for the record_burst_limit. For example, if
+  record_burst_window=1000 and record_window_length=15, then no more than
+  1000 records can be passed within any given fifteen-minute window.
 * **byte_burst_limit**: This is the maximum amount of bytes that can be
-  passed by the daemon within the byte_window_length of time. If set to -1, the rate-limiting for byte bursts is disabled.
-* **byte_window_length**: This is the time, in minutes (0-59), that establishes the window length for the byte_burst_limit.
-* **rate_limit_strategy**: This is the strategy chosen once the rate-limiting threshold has been reached. Currently the options are 'drop' or 'spool', with spool being the default. If spool is chosen, records will be spooled and sent at a later time.
-* **record_retention_enabled**: When this key is enabled (true) the daemon saves a copy of the payload on disk from all valid records. To avoid the excessive use of disk space only the latest 100 records are kept. The default value for this configuration key is false.
-* **record_server_delivery_enabled**: This key controls the delivery of records to server; when enabled (default value), the record will be posted to the address in the configuration file. If this configuration key is disabled (false), records will not be spooled or posted to backend. This configuration key can be used in combination with record_retention_enabled to keep copies of telemetry records locally only.
+  passed by the daemon within the byte_window_length of time. If set to -1,
+  the rate-limiting for byte bursts is disabled.
+* **byte_window_length**: This is the time, in minutes (0-59), that establishes
+  the window length for the byte_burst_limit.
+* **rate_limit_strategy**: This is the strategy chosen once the rate-limiting
+  threshold has been reached. Currently the options are 'drop' or 'spool', 
+  with spool being the default. If spool is chosen, records will be spooled
+  and sent at a later time.
+* **record_retention_enabled**: When this key is enabled (true) the daemon
+  saves a copy of the payload on disk from all valid records. To avoid the
+  excessive use of disk space only the latest 100 records are kept. The default
+  value for this configuration key is false.
+* **record_server_delivery_enabled**: This key controls the delivery of
+  records to server; when enabled (default value), the record will be posted to
+  the address in the configuration file. If this configuration key is disabled
+  (false), records will not be spooled or posted to backend. This configuration
+  key can be used in combination with record_retention_enabled to keep copies
+  of telemetry records locally only.
 
   .. note::
 
@@ -593,7 +776,9 @@ The client uses the following configuration options from the config file:
 
 Client Run-time Options
 =======================
-The |CL| telemetry client provides an admin tool called :guilabel:`telemctl` for managing the telemetry services and probes. The tool is located in :file:`/usr/bin`. Running it with no argument results in the following:
+The |CL| telemetry client provides an admin tool called :guilabel:`telemctl`
+for managing the telemetry services and probes. The tool is located in
+:file:`/usr/bin`. Running it with no argument results in the following:
 
 .. code-block:: bash
 
@@ -614,12 +799,19 @@ The |CL| telemetry client provides an admin tool called :guilabel:`telemctl` for
 start/stop/restart
 ------------------
 
-The commands to start, stop and restart the telemetry services manage all required services and probes on the system.  There is no need to separately start/stop/restart the two client daemons **telemprobd** and **telempostd**. The **restart** command option will call **telemctl stop** followed by **telemctl start** .
+The commands to start, stop and restart the telemetry services manage all
+required services and probes on the system.  There is no need to separately
+start/stop/restart the two client daemons **telemprobd** and **telempostd**.
+The **restart** command option will call **telemctl stop** followed
+by **telemctl start** .
 
 is-active
 ---------
 
-The `is-active` option reports whether the two client daemons are active. This is useful to verify that the **opt-in** and **opt-out** options have taken effect, or to ensure that telemetry is functioning on the system. Note that both daemons are verified.
+The `is-active` option reports whether the two client daemons are active. This
+is useful to verify that the **opt-in** and **opt-out** options have taken
+effect, or to ensure that telemetry is functioning on the system. Note that
+both daemons are verified.
 
 .. code-block:: bash
 
