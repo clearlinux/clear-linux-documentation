@@ -1,6 +1,6 @@
 .. _debug:
 
-Debug System
+Debug system
 ############
 
 |CL-ATTR| introduces a novel approach to system software debugging using

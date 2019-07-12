@@ -196,7 +196,7 @@ kernel instance and runs on its own :abbr:`VM (Virtual Machine)` for
 improved security.
 
 |CL| makes it very easy to install, since you only need to add
-`one bundle`_ to use `Kata Containers`_: `containers-virt`, despite a
+one bundle to use `Kata Containers`_: `containers-virt`_, despite a
 number of dependencies.  Also, check out our tutorial: :ref:`kata`.
 
 #. Find the correct bundle.
@@ -326,7 +326,7 @@ swupd --help
 man swupd
    Opens the :command:`swupd` man page.
 
-Refer to :command:`swupd` `source documentation`_ on GitHub for more details.
+Refer to `swupd source documentation`_ on GitHub for more details.
 
 Related topics
 **************
@@ -335,11 +335,11 @@ Related topics
 * :ref:`mixer`
 * :ref:`bundles`
 
-.. _source documentation: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
+.. _swupd source documentation: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
 
 .. _Kata Containers: https://clearlinux.org/downloads/containers
 
-.. _one bundle: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt
+.. _containers-virt: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt
 
 .. _Bundle Definition Files: https://github.com/clearlinux/clr-bundles
 
