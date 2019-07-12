@@ -494,7 +494,7 @@ Proxy
 =====
 
 |CL| automatically attempts to detect proxy settings, as described in
-`Autoproxy`_. If you need to manually assign proxy settings, follow this
+:ref:`autoproxy`. If you need to manually assign proxy settings, follow this
 instruction.
 
 #. From the Advanced options menu, navigate to :guilabel:`Proxy`, and
@@ -856,5 +856,4 @@ entering :guilabel:`Configure Installation Media`:
   - Windows\* OS:  :command:`diskpart`, then :command:`list disk`
   - macOS\* platform: :command:`diskutil list`
 
-.. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _downloads page: https://clearlinux.org/downloads
