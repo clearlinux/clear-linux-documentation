@@ -1,0 +1,658 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../tutorials/greengrass.rst:4
+msgid "Enable AWS Greengrass\\* and OpenVINO™ toolkit"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:6
+msgid ""
+"Hardware accelerated Function-as-a-Service (FaaS) enables cloud "
+"developers to deploy inference functionalities [1] on Intel® IoT edge "
+"devices with accelerators (CPU, Integrated GPU, Intel® FPGA, and Intel® "
+"Movidius™ technology). These functions provide a great developer "
+"experience and seamless migration of visual analytics from cloud to edge "
+"in a secure manner using a containerized environment. Hardware-"
+"accelerated FaaS provides the best-in-class performance by accessing "
+"optimized deep learning libraries on Intel® IoT edge devices with "
+"accelerators."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:15
+msgid "This tutorial demonstrates how to:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:17
+msgid "Set up the Intel® edge device with |CL-ATTR|"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:18
+msgid ""
+"Install the OpenVINO™ toolkit and Amazon Web Services\\* (AWS\\*) "
+"Greengrass\\* software stacks"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:20
+msgid ""
+"Use AWS Greengrass\\* and AWS Lambda\\* to deploy the FaaS samples from "
+"the cloud"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:22
+msgid "Refer to the following topics:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:29
+msgid "Supported platforms"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:31
+msgid "Operating System: |CL| latest release"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:32
+msgid ""
+"Hardware:       Intel® core platforms (This tutorial supports inference "
+"on CPU only.)"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:35
+msgid "Sample description"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:37
+msgid ""
+"The AWS Greengrass samples are located at `Edge-Analytics-FaaS`_. This "
+"tutorial uses the 1.0 version of the source code."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:40
+msgid "|CL| provides the following AWS Greengrass samples:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:42
+msgid "`greengrass_classification_sample.py`_"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:44
+msgid ""
+"This AWS Greengrass sample classifies a video stream using classification"
+" networks such as AlexNet and GoogLeNet and publishes top-10 results on "
+"AWS\\* IoT Cloud every second."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:48
+msgid "`greengrass_object_detection_sample_ssd.py`_"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:50
+msgid ""
+"This AWS Greengrass sample detects objects in a video stream and "
+"classifies them using single-shot multi-box detection (SSD) networks such"
+" as SSD Squeezenet, SSD Mobilenet, and SSD300. This sample publishes "
+"detection outputs such as class label, class confidence, and bounding box"
+" coordinates on AWS IoT Cloud every second."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:58
+msgid "Install the OS on the edge device"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:60
+msgid ""
+"Start with a clean installation of |CL| on a new system, using the :ref"
+":`bare-metal-install-desktop`, found in :ref:`get-started`."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:64
+msgid "Create user accounts"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:66
+msgid ""
+"After |CL| is installed, create two user accounts. Create an "
+"administrative user in |CL| and create a user account for the Greengrass "
+"services to use ( see Greengrass user below)."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:70
+msgid ""
+"Create a new user and set a password for that user. Enter the following "
+"commands as ``root``:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:78
+msgid ""
+"Next, enable the :command:`sudo` command for your new ``<userid>``. Add "
+"``<userid>`` to the *wheel* group:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:85
+msgid "Create a :file:`/etc/fstab` file."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:93
+msgid ""
+"By default, |CL| does not create an :file:`/etc/fstab` file. You must "
+"create this file before the Greengrass service runs."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:97
+msgid "Add required bundles"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:99
+msgid ""
+"Use the :command:`swupd` software updater utility to add the prerequisite"
+" bundles for the OpenVINO software stack:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:108
+msgid "Learn more about how to :ref:`swupd-guide`."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:110
+msgid ""
+"The :command:`computer-vision-basic` bundle installs the OpenVINO™ "
+"toolkit, and the sample models optimized for Intel® edge platforms."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:114
+msgid "Convert deep learning models"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:117
+msgid "Locate sample models"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:119
+msgid ""
+"There are two types of provided models that can be used in conjunction "
+"with AWS Greengrass for this tutorial: classification or object "
+"detection."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:122
+msgid ""
+"To complete this tutorial using an image classification model, download "
+"the BVLC AlexNet model files `bvlc_alexnet.caffemodel`_ and "
+"`deploy.prototxt`_ to the default model_location at "
+":file:`/usr/share/openvino/models`. Any custom pre-trained classification"
+" models can be used with the classification sample."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:128
+msgid ""
+"For object detection, the sample models optimized for Intel® edge "
+"platforms are included with the computer-vision-basic bundle installation"
+" at :file:`/usr/share/openvino/models`. These models are provided as an "
+"example; however, you may also use a custom SSD model with the Greengrass"
+" object detection sample."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:134
+msgid "Run model optimizer"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:136
+msgid ""
+"Follow these instructions for `converting deep learning models to "
+"Intermediate Representation using Model Optimizer`_. To optimize either "
+"of the sample models described above, run one of the following commands."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:138
+msgid "For classification using BVLC AlexNet model:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:147
+msgid "For object detection using SqueezeNetSSD-5Class model:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:156
+msgid "In these examples:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:158
+msgid "``<model_location>`` is :file:`/usr/share/openvino/models`."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:160
+msgid "``<data_type>`` is FP32 or FP16, depending on target device."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:162
+msgid ""
+"``<output_dir>`` is the directory where the Intermediate Representation "
+"(IR) is stored. IR contains .xml format corresponding to the network "
+"structure and .bin format corresponding to weights. This .xml file should"
+" be passed to :command:`<PARAM_MODEL_XML>`."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:167
+msgid ""
+"In the BVLC AlexNet model, the prototxt defines the input shape with "
+"batch size 10 by default. In order to use any other batch size, the "
+"entire input shape must be provided as an argument to the model "
+"optimizer. For example, to use batch size 1, you must provide: "
+"``--input_shape [1,3,227,227]``"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:175
+msgid "Configure AWS Greengrass group"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:177
+msgid ""
+"For each Intel® edge platform, you must create a new AWS Greengrass group"
+" and install AWS Greengrass core software to establish the connection "
+"between cloud and edge."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:181
+msgid ""
+"To create an AWS Greengrass group, follow the instructions in `Configure "
+"AWS IoT Greengrass on AWS IoT`_."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:184
+msgid ""
+"To install and configure AWS Greengrass core on edge platform, follow the"
+" instructions in `Start AWS Greengrass on the Core Device`_. In step "
+"8(b), download the x86_64 Ubuntu\\* configuration of the AWS Greengrass "
+"core software."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:191
+msgid ""
+"You do not need to run the :file:`cgroupfs-mount.sh` script in step #6 of"
+" Module 1 of the `AWS Greengrass developer guide`_ because this is "
+"enabled already in |CL|."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:195
+msgid ""
+"Be sure to download both the security resources and the AWS Greengrass "
+"core software."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:200
+msgid "Security certificates are linked to your AWS account."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:204
+msgid "Create and package Lambda function"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:206
+msgid ""
+"Complete steps 1-4 of the AWS Greengrass tutorial at `Create and Package "
+"a Lambda Function`_."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:210
+msgid ""
+"This creates the tarball needed to create the AWS Greengrass environment "
+"on the edge device."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:214
+msgid ""
+"In step 5, replace :file:`greengrassHelloWorld.py` with the "
+"classification or object detection Greengrass sample from `Edge-"
+"Analytics-Faas`_:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:217
+msgid "Classification: `greengrass_classification_sample.py`_"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:219
+msgid "Object Detection: `greengrass_object_detection_sample_ssd.py`_"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:221
+msgid ""
+"Zip the selected Greengrass sample with the extracted Greengrass SDK "
+"folders from the previous step into "
+":file:`greengrass_sample_python_lambda.zip`."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:224
+msgid "The zip should contain:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:226
+msgid "greengrasssdk"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:228
+msgid "greengrass classification or object detection sample"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:230
+msgid "For example:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:237
+msgid ""
+"Return to the AWS documentation section called `Create and Package a "
+"Lambda Function`_ and complete the procedure."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:242
+msgid ""
+"In step 9(a) of the AWS documentation, while uploading the zip file, make"
+" sure to name the handler to one of the following, depending on the AWS "
+"Greengrass sample you are using:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:246
+msgid "greengrass_object_detection_sample_ssd.function_handler"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:247
+msgid "greengrass_classification_sample.function_handler"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:251
+msgid "Configure Lambda function"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:253
+msgid ""
+"After creating the Greengrass group and the Lambda function, start "
+"configuring the Lambda function for AWS Greengrass."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:256
+msgid ""
+"Follow steps 1-8 in `Configure the Lambda Function for AWS IoT "
+"Greengrass`_ in the AWS documentation."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:259
+msgid ""
+"In addition to the details mentioned in step 8, change the Memory limit "
+"to 2048 MB to accommodate large input video streams."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:262
+msgid ""
+"Add the following environment variables as key-value pairs when editing "
+"the Lambda configuration and click on update:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:265
+msgid "**Table 1.  Environment variables: Lambda configuration**"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:269
+msgid "Key"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:270
+msgid "Value"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:271
+msgid "PARAM_MODEL_XML"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:272
+msgid ""
+"<MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and contains "
+"IR.xml, the Intermediate Representation file from Intel® Model Optimizer."
+" For this tutorial, <MODEL_DIR> should be set to "
+"'/usr/share/openvino/models' or one of its subdirectories."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:276
+msgid "PARAM_INPUT_SOURCE"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:277
+msgid "<DATA_DIR>/input.webm to be specified by user. Holds both input and"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:278
+msgid "output data. For webcam, set PARAM_INPUT_SOURCE to ‘/dev/video0’"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:279
+msgid "PARAM_DEVICE"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:280
+msgid "\"CPU\""
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:281
+msgid "PARAM_CPU_EXTENSION_PATH"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:282
+msgid "/usr/lib64/libcpu_extension.so"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:283
+msgid "PARAM_OUTPUT_DIRECTORY"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:284
+msgid "<DATA_DIR> to be specified by user. Holds both input and output data"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:286
+msgid "PARAM_NUM_TOP_RESULTS"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:287
+msgid ""
+"User specified for classification sample. (e.g. 1 for top-1 result, 5 for"
+" top-5 results)"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:290
+msgid ""
+"Add subscription to subscribe, or publish messages from AWS Greengrass "
+"Lambda function by completing the procedure in `Configure the Lambda "
+"Function for AWS IoT Greengrass`_."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:295
+msgid ""
+"The optional topic filter field is the topic mentioned inside the Lambda "
+"function. In this tutorial, sample topics include the following: "
+":command:`openvino/ssd` or :command:`openvino/classification`"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:300
+msgid "Add local resources"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:302
+msgid ""
+"Refer to the AWS documentation for details about `local resources and "
+"access privileges`_."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:304
+msgid "The following table describes the local resources needed for the CPU:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:306
+msgid "**Local resources**"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:310
+msgid "Name"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:311
+msgid "Resource type"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:312
+msgid "Local path"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:313
+msgid "Access"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:315
+msgid "ModelDir"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:316 ../../tutorials/greengrass.rst:326
+msgid "Volume"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:317
+msgid "<MODEL_DIR> to be specified by user"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:318 ../../tutorials/greengrass.rst:323
+msgid "Read-Only"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:320
+msgid "Webcam"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:321
+msgid "Device"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:322
+msgid "/dev/video0"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:325
+msgid "DataDir"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:327
+msgid "<DATA_DIR> to be specified by user. Holds both input and output data."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:329
+msgid "Read and Write"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:332
+msgid "Deploy Lambda function"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:334
+msgid ""
+"Refer to the AWS documentation for instructions on how to `deploy the "
+"lambda function to AWS Greengrass core device`_. Select *Deployments* on "
+"the group page and follow the instructions."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:339
+msgid "Output consumption"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:341
+msgid ""
+"There are four options available for output consumption. These options "
+"are used to report, stream, upload, or store inference output at an "
+"interval defined by the variable :command:`reporting_interval` in the AWS"
+" Greengrass samples."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:345
+msgid "IoT cloud output:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:347
+msgid ""
+"This option is enabled by default in the AWS Greengrass samples using the"
+" :command:`enable_iot_cloud_output` variable. You can use it to verify "
+"the lambda running on the edge device. It enables publishing messages to "
+"IoT cloud using the subscription topic specified in the lambda. (For "
+"example, topics may include :command:`openvino/classification` for "
+"classification and :command:`openvino/ssd` for object detection samples.)"
+" For classification, top-1 result with class label are published to IoT "
+"cloud. For SSD object detection, detection results such as bounding box "
+"coordinates of objects, class label, and class confidence are published."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:357
+msgid "Follow the instructions here to `view the output on IoT cloud`_."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:359
+msgid "Kinesis streaming:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:361
+msgid ""
+"This option enables inference output to be streamed from the edge device "
+"to cloud using Kinesis [3] streams when :command:`enable_kinesis_output` "
+"is set to True. The edge devices act as data producers and continually "
+"push processed data to the cloud. You must set up and specify Kinesis "
+"stream name, Kinesis shard, and AWS region in the AWS Greengrass samples."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:368
+msgid "Cloud storage using AWS S3 bucket:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:370
+msgid ""
+"When the :command:`enable_s3_jpeg_output` variable is set to True, it "
+"enables uploading and storing processed frames (in jpeg format) in an AWS"
+" S3 bucket. You must set up and specify the S3 bucket name in the AWS "
+"Greengrass samples to store the JPEG images. The images are named using "
+"the timestamp and uploaded to S3."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:376
+msgid "Local storage:"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:378
+msgid ""
+"When the :command:`enable_s3_jpeg_output` variable is set to True, it "
+"enables storing processed frames (in jpeg format) on the edge device. The"
+" images are named using the timestamp and stored in a directory specified"
+" by :command:`PARAM_OUTPUT_DIRECTORY`."
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:384
+msgid "References"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:386
+msgid "AWS Greengrass: https://aws.amazon.com/greengrass/"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:387
+msgid "AWS Lambda: https://aws.amazon.com/lambda/"
+msgstr ""
+
+#: ../../tutorials/greengrass.rst:388
+msgid "AWS Kinesis: https://aws.amazon.com/kinesis/"
+msgstr ""
+

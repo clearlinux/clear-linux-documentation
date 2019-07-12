@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../guides/kernel/kernel-modules.rst:4
+msgid "Add kernel modules manually"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:6
+msgid ""
+"Certain kernel modules are enabled by default in |CL-ATTR|. To use "
+"additional kernel modules that are not part of the Linux source tree, you"
+" may need to build out-of-tree kernel modules. Use this guide to add "
+"kernel modules manually, or refer to :ref:`kernel-modules-dkms`."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:17
+msgid "Description"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:19
+msgid ""
+"Kernel modules are additional pieces of software capable of being "
+"inserted into the Linux kernel to add functionality, such as a hardware "
+"driver. Kernel modules may already be part of the Linux source tree (in-"
+"tree) or may come from an external source, such as directly from a vendor"
+" (out-of-tree)."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:28
+msgid "Kernel module availability"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:30
+msgid ""
+"|CL| comes with many upstream kernel modules available for use. Using an "
+"existing module is significantly easier to maintain and retains signature"
+" verification of the |CL| kernel. For more information on |CL| security "
+"practices, see the :ref:`security` page."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:35
+msgid ""
+"Before continuing, check if the kernel module you're looking for is "
+"already available in |CL| or submit a request to add the module."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:40
+msgid "Check if the module is already available"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:43
+msgid ""
+"You can search for kernel module file names, which end with the "
+":file:`.ko` file extension, using the :command:`swupd search` command, as"
+" shown in the following example. See :ref:`swupd-guide` for more "
+"information."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:53
+msgid "Submit a request to add the module"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:55
+msgid ""
+"If the kernel module you need is already open source (for example, in the"
+" Linux upstream) and likely to be useful to others, consider submitting a"
+" request to add or enable it in the |CL| kernel."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:59
+msgid "Make enhancement requests to the |CL| distribution `on GitHub`_."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:65
+msgid "Build, install, and load an out-of-tree module"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:67
+msgid ""
+"Follow the steps in this section if you are an individual user or "
+"testing, and you need an out-of-tree kernel module that is not available "
+"through |CL|. For a more scalable and customizable approach, we recommend"
+" using the `mixer tool`_ to provide a custom kernel and updates."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:74
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:76
+msgid "Before you begin, you must:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:78
+msgid "Disable Secure Boot."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:79
+msgid "Disable kernel module integrity checking."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:80
+msgid "Have a kernel module package in the form of source code."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:81
+msgid "Rebuild the module against new versions of the Linux kernel."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:85
+msgid ""
+"Any time the kernel is upgraded on your Clear Linux system, you must "
+"rebuild your out-of-tree modules."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:90
+msgid "Build and install kernel module"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:92
+msgid ""
+"Determine which kernel variant is running on |CL|. In the example below, "
+"the *native* kernel is in use."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:100
+msgid ""
+"Install the kernel dev bundle corresponding to the installed kernel. The "
+"kernel dev bundle contains the kernel headers, which are required for "
+"compiling kernel modules. For example:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:104
+msgid "`linux-dev` for developing against the native kernel."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:105
+msgid "`linux-lts-dev` for developing against the LTS kernel."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:111
+msgid ""
+"Follow instructions from the kernel module source code to compile the "
+"kernel module. For example:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:124
+msgid "Load kernel module"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:126
+msgid ""
+"Disable Secure Boot in your system's UEFI settings, if you have enabled "
+"it. The loading of new out-of-tree modules modifies the signatures that "
+"Secure Boot relies on for trust."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:130
+msgid ""
+"Disable signature checking for the kernel by modifying the kernel boot "
+"parameters and reboot the system."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:133
+msgid ""
+"All kernel modules from |CL| have been signed to enforce kernel security."
+" However, out-of-tree modules break this chain of trust so this mechanism"
+" needs to be disabled."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:142
+msgid ""
+"Update the boot manager and reboot the system to implement the changed "
+"kernel parameters."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:152
+msgid ""
+"If successful, the :command:`clr-boot-manager update` command does not "
+"return any console output."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:155
+msgid ""
+"After rebooting, manually load out-of-tree modules using the "
+":command:`insmod` command."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:163
+msgid "Examples"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:168
+msgid "Optional: Specify module options and aliases"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:170
+msgid "Use the :command:`modprobe` command to load a module and set options."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:172
+msgid ""
+":command:`modprobe` may add or remove more than one module due to module "
+"interdependencies. You can specify which options to use with individual "
+"modules, by using configuration files under the :file:`/etc/modprobe.d` "
+"directory."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:180
+msgid ""
+"All files underneath the :file:`/etc/modprobe.d` directory that end with "
+"the :file:`.conf` extension specify module options to use when loading. "
+"You can use :file:`.conf` files to create convenient aliases for modules "
+"or to override the normal loading behavior altogether for those with "
+"special requirements."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:185
+msgid "Learn more about :command:`modprobe` on the modprobe.d manual page:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:192
+msgid "Optional: Configure kernel modules to load at boot"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:194
+msgid ""
+"Use the :file:`/etc/modules-load.d` configuration directory to specify "
+"kernel modules to load automatically at boot."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:201
+msgid ""
+"All files underneath the :file:`/etc/modules-load.d` directory that end "
+"with the :file:`.conf` extension contain a list of module names of "
+"aliases (one per line) to load at boot."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:205
+msgid "Learn more about module loading in the modules-load.d manual page:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:215
+msgid "Related topic"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:217
+msgid ":ref:`kernel-modules-dkms`"
+msgstr ""
+

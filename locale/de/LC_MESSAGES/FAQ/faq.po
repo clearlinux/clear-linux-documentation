@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../FAQ/faq.rst:4
+msgid "FAQ"
+msgstr ""
+
+#: ../../FAQ/faq.rst:6
+msgid ""
+"Below is a list of commonly asked questions with answers sourced from the"
+" |CL-ATTR| team and `Clear Linux community forums`_."
+msgstr ""
+
+#: ../../FAQ/faq.rst:14
+msgid "General"
+msgstr ""
+
+#: ../../FAQ/faq.rst:17
+msgid "Why did you make another distro?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:19
+msgid ""
+"The |CL| team felt that performance was left on the table with Linux "
+"software. |CL| takes a holistic approach to improving performance across "
+"the stack. We also wanted to take more modern approaches with OS updates "
+"and tooling."
+msgstr ""
+
+#: ../../FAQ/faq.rst:26
+msgid "Can other distros copy |CL| improvements?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:28
+msgid "Yes, we absolutely love open source reuse and upstreaming improvements."
+msgstr ""
+
+#: ../../FAQ/faq.rst:33
+msgid "How often do you update?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:35
+msgid ""
+"The |CL| team puts out multiple releases a week, often releasing 2 or "
+"more times a day. This rolling release approach allows |CL| to remain "
+"agile to upstream changes and security patches."
+msgstr ""
+
+#: ../../FAQ/faq.rst:42
+msgid "Is telemetry required?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:44
+msgid ""
+"The telemetry solution provided by |CL| is entirely optional and "
+"customizable. It is disabled by default. If you do choose to enable "
+"telemetry, the data helps the |CL| team proactively identify and resolve "
+"bugs. See the :ref:`telemetry <telemetry-about>` page for more "
+"information."
+msgstr ""
+
+#: ../../FAQ/faq.rst:52
+msgid "What is the default firewall?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:54
+msgid ""
+"|CL| packages :command:`iptables` as a bundle, however, there are no "
+"default firewall rules. All network traffic is allowed by default."
+msgstr ""
+
+#: ../../FAQ/faq.rst:60
+msgid "Where are the files that I usually see under /etc like fstab?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:62
+msgid ""
+"|CL| has a stateless design that maintains a separation between system "
+"files and user files. Default values are stored under "
+":file:`/usr/share/defaults/`. Files under :file:`/etc/` are not created "
+"unless you create one."
+msgstr ""
+
+#: ../../FAQ/faq.rst:66
+msgid ""
+"A blog post explaining how this is accomplished with :file:`/etc/fstab/` "
+"specifically is available here: https://clearlinux.org/news-blogs/where-"
+"etcfstab-clear-linux"
+msgstr ""
+
+#: ../../FAQ/faq.rst:73
+msgid "Software packages"
+msgstr ""
+
+#: ../../FAQ/faq.rst:76
+msgid "How is software installed and updated?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:78
+msgid ""
+"|CL| provides software in the form of :ref:`bundles <bundles-about>` and "
+"updates software with :ref:`swupd <swupd-about>`."
+msgstr ""
+
+#: ../../FAQ/faq.rst:81
+msgid ""
+":ref:`FlatPak\\* <flatpak>` is an application virtualization solution "
+"that allows more software to be available to |CL| users by augmenting the"
+" software |CL| packages natively with software available through FlatPak."
+msgstr ""
+
+#: ../../FAQ/faq.rst:85
+msgid ""
+"Our goal is to have software packaged natively and made available through"
+" bundles whenever possible."
+msgstr ""
+
+#: ../../FAQ/faq.rst:91
+msgid "Does |CL| use RPMs like other distros?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:93
+msgid ""
+"|CL| provides software in the form of :ref:`bundles <bundles-about>`. The"
+" RPM format is used as an intermediary step for packaging and determining"
+" software dependencies at OS build time."
+msgstr ""
+
+#: ../../FAQ/faq.rst:97
+msgid ""
+"Individual RPMs can sometimes be manually installed on a |CL| system with"
+" the right tools, but that is not the intended use case."
+msgstr ""
+
+#: ../../FAQ/faq.rst:103
+msgid "Can I install a software package from another OS on |CL|?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:105
+msgid ""
+"Software that is packaged in other formats for other Linux distributions "
+"is not guaranteed to work on |CL| and may be impacted by |CL| updates."
+msgstr ""
+
+#: ../../FAQ/faq.rst:108
+msgid ""
+"If the software you're seeking is open source, please submit a request to"
+" add it to |CL|. Submit requests on GitHub\\* here: "
+"https://github.com/clearlinux/distribution/issues"
+msgstr ""
+
+#: ../../FAQ/faq.rst:115
+msgid "Software availability"
+msgstr ""
+
+#: ../../FAQ/faq.rst:118
+msgid "What software is available on |CL|?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:120
+msgid ""
+"Available software can be found in the `Software Store`_, through the "
+"GNOME\\* Software application on the desktop, or by using :ref:`swupd "
+"search <bundle-commands>`."
+msgstr ""
+
+#: ../../FAQ/faq.rst:126
+msgid "Is Google\\* Chrome\\* available?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:128
+msgid ""
+"The Google Chrome web browser is not distributed as a bundle in |CL| due "
+"to copyright and licensing complexities."
+msgstr ""
+
+#: ../../FAQ/faq.rst:131
+msgid ""
+"A discussion on manually installing and maintaining Google Chrome can be "
+"found on GitHub: https://github.com/clearlinux/distribution/issues/422"
+msgstr ""
+
+#: ../../FAQ/faq.rst:137
+msgid "Is FFmpeg available?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:139
+msgid ""
+"`FFmpeg`_ is a multimedia software suite, which is commonly used for "
+"various media encoding/decoding, streaming, and playback."
+msgstr ""
+
+#: ../../FAQ/faq.rst:142
+msgid ""
+"|CL| does not distribute FFmpeg due to well-known licensing and legal "
+"complexities (See https://www.ffmpeg.org/legal.html and "
+"http://blog.pkh.me/p/13-the-ffmpeg-libav-situation.html)."
+msgstr ""
+
+#: ../../FAQ/faq.rst:146
+msgid ""
+"Read more in the |CL| repository, including discussion of an alternative "
+"hardware-based solution: "
+"https://github.com/clearlinux/distribution/issues/429."
+msgstr ""
+
+#: ../../FAQ/faq.rst:150
+msgid ""
+"While |CL| cannot distribute FFmpeg, a manual solution to build and "
+"install FFmpeg under :file:`/usr/local` has been shared on the community "
+"forums: https://community.clearlinux.org/t/how-to-h264-etc-support-for-"
+"firefox-including-ffmpeg-install."
+msgstr ""
+
+#: ../../FAQ/faq.rst:157
+msgid "Is ZFS\\* available?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:159
+msgid ""
+"ZFS is not available with |CL| because of copyright and licensing "
+"complexities. BTRFS is an alternative filesystem that is available in "
+"|CL| natively."
+msgstr ""
+
+#: ../../FAQ/faq.rst:163
+msgid ""
+"A user on GitHub notes that the ZFS kernel module can be compiled, built,"
+" and installed manually: "
+"https://github.com/clearlinux/distribution/issues/631"
+msgstr ""
+
+#: ../../FAQ/faq.rst:169
+msgid "Can you add a driver that I need?"
+msgstr ""
+
+#: ../../FAQ/faq.rst:171
+msgid ""
+"If a kernel module is available as part of the Linux kernel source tree "
+"but not enabled in the |CL| kernels, in many cases the |CL| team will "
+"enable it upon request. Submit requests on GitHub here: "
+"https://github.com/clearlinux/distribution/issues"
+msgstr ""
+
+#: ../../FAQ/faq.rst:176
+msgid ""
+"The |CL| team does not typically add out-of-tree kernel modules as a "
+"matter of practice because of the maintenance overhead. If the driver was"
+" unable to be merged upstream, there is a good chance we may be unable to"
+" merge it for similar reasons."
+msgstr ""
+
+#: ../../FAQ/faq.rst:181
+msgid ""
+"Kernel modules can be individually built and installed on |CL|. See the "
+":ref:`kernel modules <kernel-modules>` page for more information."
+msgstr ""
+

@@ -329,5 +329,5 @@ html_add_permalinks = ""
 
 # -- Options for Localization using sphinx-intl ---------------------------
 
-locale_dirs = ['../localization/po/locale/'] # path for lang-specific po files.
+locale_dirs = ['../locale/'] # path for lang-specific po files.
 gettext_compact = False # optional.

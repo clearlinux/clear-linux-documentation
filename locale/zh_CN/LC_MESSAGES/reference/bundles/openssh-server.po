@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../reference/bundles/openssh-server.rst:4
+msgid "openssh-server"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:6
+msgid ""
+"The **openssh-server** bundle provides the OpenSSH\\* package needed to "
+"enable an SSH service in |CL-ATTR|. Remote users require an SSH service "
+"to be able to use an encrypted login shell."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:10
+msgid ""
+"|CL| enables the `sshd.socket` unit, which will listen on port 22 by "
+"default and start the OpenSSH service as required. The first time OpenSSH"
+" starts, it generates the server SSH keys needed for the service."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:15
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:17
+msgid "Assure the bundle :file:`openssh-server` is installed."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:19
+msgid "To check it it's on your host, enter:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:25
+msgid "To add it, enter:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:32
+msgid "Change default port"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:34
+msgid ""
+"Perform the following steps to change the default listening port for the "
+"OpenSSH service:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:37
+msgid "Open the sshd.socket file:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:43
+msgid ""
+"Add the `[Socket]` section and `ListenStream` option to the sshd.socket "
+"file as shown below. The first `ListenStream` entry removes the |CL| "
+"default listen port value. The second `ListenStream` entry sets the new "
+"default listen port value. In this example, we set the new default port "
+"to 4200:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:56
+msgid ""
+"Make sure to include a new line after the last line of text in the "
+"sshd.socket file."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:58
+msgid "Verify your changes:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:64
+msgid "You should see the following output:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:72
+msgid "Reload the systemd daemon configurations:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:78
+msgid "Restart the sshd.socket unit:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:84
+msgid "Confirm the the sshd.socket unit is listening on your new port:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:92
+msgid "Output should show :guilabel:`Active:` as `active(listening)`."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:95
+msgid "Enable SFTP"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:97
+msgid ""
+"|CL| *disables* the :abbr:`SFTP (SSH File Transfer Protocol)` subsystem "
+"by default due to security considerations. To enable the SFTP subsystem, "
+"perform the following configuration of the :abbr:`SSHD (SSH Daemon)` "
+"service file:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:101
+msgid "Create a systemd drop-in directory for the SSHD service:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:107
+msgid ""
+"Create the following file: "
+":file:`/etc/systemd/system/sshd@.service.d/sftp.conf`"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:110
+msgid "Add the OPTIONS environment variable to the sftp.conf file."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:117
+msgid "Reload systemd configuration:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:123
+msgid "Congratulations! The SFTP subsystem is enabled."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:126
+msgid "Enable root login"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:128
+msgid "To enable root login via SSH, perform the following steps:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:130
+#: ../../reference/bundles/openssh-server.rst:153
+msgid "Create a *ssh* directory in :file:`/etc`, if it does not already exist."
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:136
+#: ../../reference/bundles/openssh-server.rst:159
+msgid ""
+"Create the following file, if it does not already exist: "
+":file:`/etc/ssh/sshd_config`"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:139
+msgid "Set the configuration variable in /etc/ssh/sshd_config"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:146
+msgid "Enable X11-forwarding"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:148
+msgid ""
+"X11 forwarding allows you to securely run graphical applications (i.e., X"
+" clients) over the ssh conection. This will alow for remote gui apps "
+"without the need for full VNC/remotedesktop. To enable X11-forwarding via"
+" SSH, perform the following steps:"
+msgstr ""
+
+#: ../../reference/bundles/openssh-server.rst:162
+msgid "Set the configuration variables."
+msgstr ""
+
