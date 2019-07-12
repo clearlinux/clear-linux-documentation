@@ -53,6 +53,15 @@ help:
 clean:
 	rm -rf $(BUILDDIR)/*
 
+htmlall: 
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html	
+	$(SPHINXBUILD) -b html -D language='de' $(ALLSPHINXOPTS) $(BUILDDIR)/html/de
+
+htmlde:
+	$(SPHINXBUILD) -b html -D language='de' $(ALLSPHINXOPTS) $(BUILDDIR)/html/de 
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/de."
+
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo

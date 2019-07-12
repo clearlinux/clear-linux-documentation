@@ -11,7 +11,7 @@ install:
 # command to run tests
 script: 
   - make py
-  - make html
+  - make htmlall
   #- make linkcheck
 
 deploy:

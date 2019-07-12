@@ -140,8 +140,8 @@ html_context = {
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
     "languages": ( ("English", ""),
-                   ("Mandarin", "/md"),
-                   ("Spanish", "/esp")
+                   ("Mandarin", "/zh_CN"),
+                   ("German", "/de")
                  ),
     "versions": ( ("latest", ""),
                   ("LTS 1", "/lts/v1"),

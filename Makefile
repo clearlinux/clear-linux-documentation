@@ -4,6 +4,12 @@
 all:
 	make -C source html
 
+htmlall:
+	make -C source htmlall
+
+htmlde:
+	make -C source htmlde
+
 html:
 	make -C source html
 
