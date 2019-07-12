@@ -186,7 +186,7 @@ verify, enter the following commands:
     vpaddd (%r8,%rax,1),%ymm0,%ymm0
     vmovdqu %ymm0,(%rcx,%rax,1)
 
-FTT project example
+FFT project example
 *******************
 
 To follow the same approach with a package like FFT, we must use the
