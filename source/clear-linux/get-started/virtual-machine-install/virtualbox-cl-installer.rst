@@ -4,7 +4,7 @@ Install a |CL-ATTR| VM in VirtualBox\*
 ######################################
 
 Oracle\* VirtualBox\* is a type 2 hypervisor. This document explains how to
-create a virtual machine on the `VirtualBox hypervisor`_ with |CL-ATTR| as
+create a virtual machine on the `VirtualBox`_ hypervisor with |CL-ATTR| as
 the guest operating system. These instructions support use of the |CL|
 live-server installer to create |CL| virtual machine (VM).
 
@@ -16,19 +16,18 @@ Prerequisites
 
 Before continuing, assure you have:
 
-#. Enabled virtualization, such as Intel®
-   `Virtualization Technology`_ (Intel® VT), on the host system from
+#. Enabled virtualization, such as
+   `Intel® Virtualization Technology`_ (Intel® VT), on the host system from
    EFI/BIOS.
 
 #. Downloaded and installed |VB| **version 6.0 or greater** from
-   the `official VirtualBox website`_ per the  `appropriate instructions`_
-   for your platform.
+   `VirtualBox`_ using the  `VirtualBox Installation Instructions`_ for your platform.
 
 Download and extract the |CL| installer ISO
 *******************************************
 
 #. Download the :file:`clear-<VERSION>-live-server.iso.xz` of
-   |CL| on the `downloads page`_.
+   |CL| on the `Downloads`_ page.
 
 #. Validate the integrity of the downloaded image by checking the file hash
    and signatures. Refer :ref:`validate-signatures` for detailed steps.
@@ -57,8 +56,7 @@ Create a new |VB| virtual machine
 
 A new :abbr:`VM (Virtual Machine)` needs to be created in |VBM| where |CL|
 will be installed. General instructions for creating a virtual machine and
-details about using different settings are available on the
-`VirtualBox manual section on Creating a VM`_.
+details about using different settings are available in the VirtualBox manual section `Creating Your First Virtual Machine`_.
 
 #. Launch the |VBM| from your host system.
 
@@ -390,18 +388,16 @@ Troubleshooting
 
       bcdedit /set {current} hypervisorlaunchtype Auto
 
-.. _appropriate instructions: https://www.virtualbox.org/manual/ch02.html
+.. _VirtualBox Installation Instructions: https://www.virtualbox.org/manual/ch02.html
 
-.. _official VirtualBox website: https://www.virtualbox.org/wiki/Downloads
+.. _VirtualBox: https://www.virtualbox.org
 
-.. _VirtualBox hypervisor: https://www.virtualbox.org/
+.. _Downloads: https://clearlinux.org/downloads
 
-.. _downloads page: https://clearlinux.org/downloads
-
-.. _`VirtualBox manual section on Creating a VM`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
+.. _`Creating Your First Virtual Machine`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
 
 .. _7zip: http://www.7-zip.org/
 
-.. _Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+.. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 
 .. _VM VirtualBox User Manual: https://docs.oracle.com/cd/E97728_01/E97727/html/settings-system.html

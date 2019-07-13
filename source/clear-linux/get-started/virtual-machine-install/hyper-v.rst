@@ -15,7 +15,7 @@ Please ensure you have enabled `Intel® Virtualization Technology
 Enable Hyper-V
 **************
 
-Please refer to the `Microsoft documentation`_ to enable and configure
+Please refer to `Install Hyper-V on Windows 10`_ to enable and configure
 *Hyper-V* on your machine.
 
 Create a virtual network
@@ -23,7 +23,7 @@ Create a virtual network
 
 Once *Hyper-V* has been enabled on your Windows system you will need to 
 create a virtual network in the **Hyper-V Manager**.  Refer to the
-`Create a Virtual Network documentation`_ to create and configure
+`Create a virtual network`_ documentation to create and configure
 a virtual network.
 
 Create a virtual machine
@@ -31,7 +31,7 @@ Create a virtual machine
 
 #. Download and decompress the latest hyperv disk image
    :file:`clear-XXXXX-hyperv.img.gz`, where XXXXX is the latest 
-   available version of |CL| from our `downloads`_ section.
+   available version of |CL| from our `Downloads`_ page.
 
 #. Create a virtual machine using the **Hyper-V Manager**:
 
@@ -55,6 +55,6 @@ Create a virtual machine
 Your virtual machine running |CL| is ready!
 
 .. _Windows Server Virtualization: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/
-.. _Microsoft documentation: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
-.. _Create A Virtual Network documentation: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network
-.. _downloads: https://cdn.download.clearlinux.org/image/
+.. _Install Hyper-V on Windows 10: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
+.. _Create a virtual network: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network
+.. _Downloads: https://cdn.download.clearlinux.org/image/
