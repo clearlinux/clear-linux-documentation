@@ -3,7 +3,8 @@
 Install |CL-ATTR| on bare metal with live server
 ################################################
 
-These instructions guide you through installing |CL-ATTR| on bare metal from a bootable USB drive using a live server image.
+These instructions guide you through installing |CL-ATTR| on bare metal from
+a bootable USB drive using a live server image.
 
 .. contents::
    :local:
@@ -12,7 +13,7 @@ These instructions guide you through installing |CL-ATTR| on bare metal from a b
 System requirements
 *******************
 
-Assure that your target system supports the installation:
+Assure your target system supports the installation:
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
@@ -61,7 +62,7 @@ Follow these steps to install |CL| on the target system:
 
 #. Reboot the target system.
 
-#. This action launches the |CL| installer boot menu, shown in figure 1.
+#. This action launches the |CL| installer boot menu, shown in Figure 1.
 
    .. figure:: figures/bare-metal-install-server-01.png
       :scale: 100%
@@ -150,8 +151,6 @@ Choose Timezone
 #. In :guilabel:`Select System Timezone`, use :kbd:`Up/Down` arrows
    navigate to the desired timezone.
 
-.. todo: User need only select Enter; can only select Confirm with mouse.
-
 #. Press :kbd:`Enter` to confirm.
 
    .. figure:: figures/bare-metal-install-server-05.png
@@ -203,10 +202,10 @@ Configure Installation Media
 #. From the Main Menu, select :guilabel:`Configure Installation Media`.
 
 #. Choose an installation method:
+
    * `Safe Installation`_
    * `Destructive Installation`_
    * `Advanced Configuration`_
-
 
    .. figure:: figures/bare-metal-install-server-08.png
       :scale: 100%
@@ -215,8 +214,6 @@ Configure Installation Media
       Figure 8: Select Installation Media
 
 #. Select :guilabel:`Rescan Media` to show available installation targets.
-
-.. todo: Revise below section to match the dev-gui-00
 
 Safe Installation
 -----------------
@@ -236,134 +233,24 @@ on it, and accept the `Default partition schema`_.
 
    From the :guilabel:`Select Installation Media` menu, select
    :guilabel:`Enable Encryption` to encrypt the root filesystem for either
-   option above. See also `Disk encryption`_ for more information.
+   option above.
 
-Advanced Configuration
-----------------------
-
-Use this method to manually configure partitions. These must meet
-`Default partition schema`_. You may also choose `Disk encryption`_ during
-configuration of each partition.
-
-.. note::
-
-   `Advanced Configuration` is available in the installer versions 1.2.0 and
-   above.
-
-#. From :guilabel:`Select Installation Media`, shown in Figure 8 above,
-   select :guilabel:`Advanced Configuration`.
-
-#. In :guilabel:`Advanced Configuration`, navigate to :file:`/dev/sda`
-   and then press :kbd:`Enter`.
-
-   .. figure:: figures/bare-metal-install-server-09.png
-      :scale: 100%
-      :alt: Advanced configuration menu
-
-      Figure 9: Advanced configuration menu
-
-#. Choose a partition method:
-
-   * :guilabel:`Auto Partition` Select this option to accept the
-     `Default partition schema`_.
-
-     #. Navigate to and press :guilabel:`Confirm`.
-
-     #. Continue with installation configuration. Jump to `Telemetry`_.
-
-   * `Manual Partition`_ Continue below.
-
-Manual Partition
-----------------
-
-We provide a simple example below.
-
-#. Navigate to the unallocated media (e.g.,`/dev/sda`) until highlighted, as
-   shown in Figure 9.
-
-#. Press :guilabel:`Enter` to edit the partition.
-
-#. The :guilabel:`Partition Setup` menu appears, shown in Figure 10.
-
-   .. note::
-
-      After adding the first partition, select :guilabel:`Free Space` to add another partition.
-
-root partition
---------------
-
-#. We configure the `root` partition as shown in Figure 10.
-   Configuration of the `root` partition varies.
-
-   .. figure:: figures/bare-metal-install-server-10.png
-      :scale: 100%
-      :alt: root partition
-
-      Figure 10: root partition
-
-#. Navigate to :guilabel:`Add` and press :guilabel:`Enter`.
-
-boot partition
---------------
-
-#. We configure the `boot` partition as shown in Figure 11.
-
-   .. figure:: figures/bare-metal-install-server-11.png
-      :scale: 100%
-      :alt: boot partition
-
-      Figure 11: boot partition
-
-#. Navigate to :guilabel:`Add` and press :guilabel:`Enter`.
-
-swap partition
---------------
-
-#. In the :guilabel:`File System` pulldown menu, select `swap`, and
-   enter a label. We enter the minimum required size (e.g., 256M).
-
-   .. figure:: figures/bare-metal-install-server-12.png
-      :scale: 100%
-      :alt: swap partition
-
-      Figure 12: swap partition
-
-#. Navigate to :guilabel:`Add` and press :guilabel:`Enter`.
-
-#. Next, navigate to :guilabel:`Confirm` and press :guilabel:`Enter`,
-   shown in Figure 13.
-
-   Manual partitioning is complete.
-
-   .. figure:: figures/bare-metal-install-server-13.png
-      :scale: 100%
-      :alt: Final configuration of disk partitions
-
-      Figure 13: Final configuration of disk partitions
-
-#. You may skip to the `Telemetry`_ section below.
-
-Disk encryption
-===============
+Enable encryption
+=================
 
 For greater security, disk encryption is supported using LUKS for the
-any partition except `/boot` on |CL|. To encrypt the root partition, see the
-example below. Encryption is optional.
+any partition except `/boot`. This encryption applies to `Safe Installation`
+or `Destructive Installation`. Our example shows how to encrypt the root
+partition.
 
 Encryption Passphrase
 ---------------------
 
 |CL| uses a single passphrase for encrypted partitions. Additional keys may
-be configured post-installation using the ``cryptsetup`` tool.
+be configured post-installation using the `cryptsetup` tool.
 
 #. Optional: Select :guilabel:`[X] Encrypt` to encrypt the root partition,
-   as shown in Figure 14.
-
-   .. figure:: figures/bare-metal-install-server-14.png
-      :scale: 100%
-      :alt: Encrypt partition
-
-      Figure 14: Encrypt partition
+   as shown in Figure 8.
 
 #. The :guilabel:`Encryption Passphrase` dialogue appears.
 
@@ -371,11 +258,11 @@ be configured post-installation using the ``cryptsetup`` tool.
 
       Minimum length is 8 characters. Maximum length is 94 characters.
 
-   .. figure:: figures/bare-metal-install-server-15.png
+   .. figure:: figures/bare-metal-install-server-09.png
       :scale: 100%
       :alt: Encryption Passphrase
 
-      Figure 15: Encryption Passphrase
+      Figure 9: Encryption Passphrase
 
 #. Enter the same passphrase in the first and second field.
 
@@ -384,6 +271,182 @@ be configured post-installation using the ``cryptsetup`` tool.
    .. note::
 
       :guilabel:`Confirm` is only highlighted if passphrases match.
+
+Advanced Configuration
+----------------------
+
+Use this method to manually configure partitions using `cgdisk`.
+Our example uses the `Default partition schema`_. The space you allocate for
+your ``root``, or additional partitions, may vary.
+
+Partition codes:
+
+* ef00 - EFI System
+* 8200 - Linux swap
+* 8300 - Linux filesystem
+
+boot partition
+--------------
+
+#. Select :guilabel:`Advanced Configuration` to launch `cgdisk`.
+
+#. With the free space highlighted in the cgdisk utility, select
+   :guilabel:`[New]`.
+
+   .. figure:: figures/bare-metal-install-server-10.png
+      :scale: 100%
+      :alt: free space
+
+      Figure 10: free space
+
+   .. note::
+
+      The `/boot` partition must be `VFAT(FAT32)`.
+
+#. Where :guilabel:`First sector` appears, press :kbd:`Enter`.
+
+#. For :guilabel:`Size in sectors`, type 150M.
+
+   .. figure:: figures/bare-metal-install-server-11.png
+      :scale: 100%
+      :alt: Size in sectors
+
+      Figure 11: Size in sectors
+
+#. Press `Enter`.
+
+#. Enter the hex code `ef00` and press :kbd:`Enter`.
+
+   .. figure:: figures/bare-metal-install-server-12.png
+      :scale: 100%
+      :alt: CLR_BOOT
+
+      Figure 12: CLR_BOOT
+
+#. Next, enter the label `CLR_BOOT`. This is the EFI boot partition.
+
+   .. figure:: figures/bare-metal-install-server-13.png
+      :scale: 100%
+      :alt: CLR_BOOT
+
+      Figure 13: CLR_BOOT
+
+   .. note::
+
+      Encryption is not allowed on the CLR_BOOT partition.
+
+Now follow the same process to configure remaining partitions.
+
+swap partition
+--------------
+
+#. Use the :kbd:`Up/Down` arrow to select free space.
+
+#. Select :guilabel:`[New]` at bottom and press :kbd:`Enter`.
+
+#. Under :guilabel:`First sector`, press :kbd:`Enter`.
+
+#. For :guilabel:`Size in sectors`, type 256M, and press :kbd:`Enter`.
+
+#. Enter the hex code `8200` and press :kbd:`Enter`.
+
+#. In :guilabel:`Enter new partition name...`, type CLR_SWAP.
+
+#. Press :kbd:`Enter`.
+
+   .. note::
+
+      |CL| allows more than one swap partition.
+
+root partition
+--------------
+
+#. Use the :kbd:`Up/Down` arrow to select free space.
+
+#. Now select :guilabel:`[New]` at bottom and press Enter.
+
+#. Under :guilabel:`First sector`, press Enter.
+
+#. For :guilabel:`Size in sectors`, type in desired size.
+
+   .. note::
+
+      Press :kbd:`Enter` to accept the remaining space available.
+
+#. Press Enter.
+
+#. Enter the hex code `8300` and press :kbd:`Enter`.
+
+#. In :guilabel:`Enter new partition name...`, type: CLR_ROOT.
+   The `/root` partition must be `ext[234]` or `XFS`.
+
+   .. note::
+
+      You may also append the following labels:
+
+      *  `CLR_ROOT_E`: Adds encryption
+      *  `CLR_ROOT_F`: Formats the partition prior to use
+      *  `CLR_ROOT_E_F`: Adds encryption and formats the partition
+
+      If no file system exists, the installer will default to `VFAT(FAT32)`
+      for `/boot`, and `ext4` for all others.
+
+#. Press :kbd:`Enter`.
+
+#. After all partitions are defined, verify your partition
+   configuration is similar to Figure 14.
+
+   .. figure:: figures/bare-metal-install-server-14.png
+      :scale: 100%
+      :alt: Final partition configuration
+
+      Figure 14: Final partition configuration
+
+Additional partitions (optional)
+--------------------------------
+
+#. Use the :kbd:`Up/Down` arrow to select free space.
+
+#. Now select :guilabel:`[New]` at bottom and press Enter.
+
+#. Under :guilabel:`First sector`, press Enter.
+
+#. For :guilabel:`Size in sectors`, type in desired size.
+
+   .. note::
+
+      If you do not specify a size, it will use the remaining space.
+
+#. Press :kbd:`Enter`.
+
+#. Enter the hex code `8300`. Then press :kbd:`Enter`.
+
+#. In :guilabel:`Enter new partition name...`, type: `CLR_MNT_<mount_point>`.
+   For example, replace <mount_point> with `/home`, shown in Figure 15.
+
+   .. note::
+
+      Alternatively, you could create `CLR_MNT_/srv` or other partitions.
+
+   .. figure:: figures/bare-metal-install-server-15.png
+      :scale: 100%
+      :alt: CLR_MNT
+
+      Figure 15: CLR_MNT
+
+Write configuration to disk
+---------------------------
+
+#. When you're satisfied with the partition configuration, press the
+   Right Arrow until :guilabel:`[Write]` is highlighted.
+
+#. Press :kbd:`Enter`.
+
+   You are prompted: "Are you sure you want to write the partition table to disk? (yes or no)"
+
+#. Type "yes" to write this configuration to the target media.
+
+#. Then select :guilabel:`[Quit]`.
 
 Telemetry
 =========
@@ -817,23 +880,29 @@ Finish installation
 Default partition schema
 ========================
 
-To add partitions manually, see `Advanced configuration`_ below, and create
-partitions per requirements in Table 1.
+Create partitions per minimum requirements in Table 1.
 
-.. list-table:: **Table 1. Disk Partition Setup**
-   :widths: 33, 33, 33
+.. list-table:: **Table 1. Default partition schema**
+   :widths: 25, 25, 25, 25
    :header-rows: 1
 
    * - FileSystem
+     - Label
      - Mount Point
      - Minimum size
-   * - ``VFAT``
+
+   * - ``VFAT(FAT32)``
+     - boot
      - /boot
      - 150M
-   * - ``swap``
+
+   * - ``linux-swap``
+     - swap
      -
      - 256MB
-   * - ``root``
+
+   * - ``ext[234] or XFS``
+     - root
      - /
      - *Size depends upon use case/desired bundles.*
 
@@ -856,5 +925,4 @@ entering :guilabel:`Configure Installation Media`:
   - Windows\* OS:  :command:`diskpart`, then :command:`list disk`
   - macOS\* platform: :command:`diskutil list`
 
-.. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _Downloads: https://clearlinux.org/downloads
