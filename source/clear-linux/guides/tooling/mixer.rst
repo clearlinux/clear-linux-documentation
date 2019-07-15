@@ -50,7 +50,7 @@ Prerequisites
 * :command:`mixer` bundle
 
   Add the mixer tool with the :command:`mixer` bundle. Refer to
-  `Install a bundle`_ for more details.
+  :ref:`swupd-guide` for more information on installing bundles.
 
 * Docker\* container
 
@@ -109,7 +109,7 @@ the setup before you create a mix.
    View the `mixer.init man page`_ for more information on mixer
    initialization.
 
-   View the list of `suitable versions`_ from which to mix.
+   View the list of suitable `releases`_ from which to mix.
 
 #. Edit builder.conf.
 
@@ -840,5 +840,4 @@ Related topics
 .. _mixer.init man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.init.1.rst
 .. _mixer.bundle man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.bundle.1.rst
 .. _mixer.build man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.build.1.rst
-.. _suitable versions: https://github.com/clearlinux/clr-bundles/releases
-.. _Install a bundle: https://clearlinux.org/documentation/clear-linux/guides/maintenance/swupd-guide#adding-a-bundle
+.. _releases: https://github.com/clearlinux/clr-bundles/releases
