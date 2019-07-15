@@ -27,7 +27,7 @@ client side for instrumenting your code for debug and analysis.
 
 
 Description
-*************
+***********
 
 Telemetry, one of the key features of |CL|, enables developers to observe and
 proactively address issues in the OS before end users are impacted.
@@ -115,6 +115,7 @@ your needs.
 
 Scenarios
 =========
+
 #. Enable telemetry:
 
    Before probes can generate records, the telemetry client daemons must be
@@ -191,8 +192,8 @@ Enable or Disable Telemetry
 
 #. Opt in to telemetry:
 
-   To opt-in to the telemetry services, simply enter the opt-in command and
-   start the service:
+   To opt-in to the telemetry services, simply enter the opt-in command, which  
+   also starts the service:
 
    .. code-block:: bash
 
@@ -281,6 +282,7 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 
 #. Join the :guilabel:`Stability Enhancement Program` to install and
    enable the telemetrics components.
+
 #. Select the manual installation method with the following settings:
 
    * Set the hostname to :guilabel:`clr-telem-server`,
@@ -473,6 +475,7 @@ Instrument Your Code with the libtelemetry API
 
 Prerequisites
 -------------
+
 Confirm that the telemetrics header file is located on the system at
 :file:`usr/include/telemetry.h`  The `latest version`_ of the file can also be
 found on github for reference, but installing the `telemetry` bundle will
@@ -482,44 +485,45 @@ install the header file that matches your |CL| version.
 
    You must include the following headers in your code to use the API:
 
-   ::
+   .. code-block:: console
 
-    #define _GNU_SOURCE
-    #include <stdlib.h>
-    #include <stdio.h>
-    #include <string.h>
-    #include <telemetry.h>
+      #define _GNU_SOURCE
+      #include <stdlib.h>
+      #include <stdio.h>
+      #include <string.h>
+      #include <telemetry.h>
 
 
    Use the following code to create the variables needed to hold the data for
    the record to be created:
 
-   ::
+   .. code-block:: console
 
-    uint32_t severity = 1;
-    uint32_t payload_version = 1;
-    char classification[30] = "org.clearlinux/hello/world";
-    struct telem_ref *tm_handle = NULL;
-    char *payload;
-    int ret = 0;
+      uint32_t severity = 1;
+      uint32_t payload_version = 1;
+      char classification[30] = "org.clearlinux/hello/world";
+      struct telem_ref *tm_handle = NULL;
+      char *payload;
+      int ret = 0;
 
 
 
    Severity:
-    | Type: uint32_t
-    | Value:  Severity field value. Accepted values are in the range 1-4, with
+    Type: uint32_t
+    Value:  Severity field value. Accepted values are in the range 1-4, with
     1 being the lowest severity, and 4 being the highest severity. Values
-    provided outside of this range are clamped to 1 or 4. [low, med, high, crit]
+    provided outside of this range are clamped to 1 or 4. [low, med, high,
+    crit]
 
    Payload_version:
-    | Type: uint32_t
-    | Value: Payload format version. The only supported value right now is 1,
+    Type: uint32_t
+    Value: Payload format version. The only supported value right now is 1,
     which indicates that the payload is a freely-formatted (unstructured)
     string. Values greater than 1 are reserved for future use.
 
    Classification:
-     | Type: char array
-     | Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the 
+     Type: char array
+     Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the 
      reverse domain to use as a namespace for the probe (e.g. org.clearlinux);
      PROBENAME is the name of the probe; and REST is an arbitrary value that
      the probe should use to classify the record. The maximum length for the
@@ -527,23 +531,23 @@ install the header file that matches your |CL| version.
      than 40 bytes long. Two / delimiters are required.
 
    Tm_handle:
-     | Type: Telem_ref struct pointer
-     | Value:  Struct pointer declared by the caller, The struct is initialized
+     Type: Telem_ref struct pointer
+     Value:  Struct pointer declared by the caller, The struct is initialized
      if the function returns success.
 
    Payload:
-     | Type: char pointer
-     | Value: The payload to set
+     Type: char pointer
+     Value: The payload to set
 
 
 
 #. For this example, we'll set the payload to “hello” by using ``asprintf()``:
 
-   ::
+   .. code-block:: console
 
-       if (asprintf(&payload, "hello\n") < 0) {
-          exit(EXIT_FAILURE);
-          }
+         if (asprintf(&payload, "hello\n") < 0) {
+           exit(EXIT_FAILURE);
+            }
 
 
 
@@ -561,27 +565,27 @@ install the header file that matches your |CL| version.
    version number. The memory needed to store the telemetry record is allocated
    and should be freed with ``tm_free_record()`` when no longer needed.
 
-   ::
+   .. code-block:: console
 
-     if ((ret = tm_create_record(&tm_handle, severity,    classification, payload_version)) < 0) {
-     printf("Failed to create record: %s\n", strerror(-ret));
-     ret = 1;
-     goto fail;
-     }
+      if ((ret = tm_create_record(&tm_handle, severity,    classification, payload_version)) < 0) {
+      printf("Failed to create record: %s\n", strerror(-ret));
+      ret = 1;
+      goto fail;
+      }
 
 #. Set the payload field of a telemetrics record:
 
    The function ``tm_set_payload()`` attaches the provided telemetry record
    data to the telemetry record. The current maximum payload size is 8192b.
 
-   ::
+   .. code-block:: console
 
-     if ((ret = tm_set_payload(tm_handle, payload)) < 0) {
-       printf("Failed to set record payload: %s\n", strerror(-ret));
-       ret = 1;
-       goto fail;
-     }
-     free(payload);
+      if ((ret = tm_set_payload(tm_handle, payload)) < 0) {
+         printf("Failed to set record payload: %s\n", strerror(-ret));
+         ret = 1;
+         goto fail;
+      }
+      free(payload);
 
    The ``free()`` function frees the memory space pointed to by ptr, which
    must have been returned by a previous call to ``malloc()``, ``calloc()``,
@@ -596,77 +600,77 @@ install the header file that matches your |CL| version.
    the program it should be freed with ``tm_free_record()`` when it is no
    longer needed.
 
-   ::
+   .. code-block:: console
 
-     if ((ret = tm_send_record(tm_handle)) < 0) {
-       printf("Failed to send record to daemon: %s\n", strerror(-ret));
-       ret = 1;
-       goto fail;
-     } else {
-       printf("Successfully sent record to daemon.\n");
-       ret = 0;
-     }
-     fail:
-     tm_free_record(tm_handle);
-     tm_handle = NULL;
+      if ((ret = tm_send_record(tm_handle)) < 0) {
+         printf("Failed to send record to daemon: %s\n", strerror(-ret));
+         ret = 1;
+         goto fail;
+      } else {
+         printf("Successfully sent record to daemon.\n");
+         ret = 0;
+      }
+      fail:
+      tm_free_record(tm_handle);
+      tm_handle = NULL;
 
-     return ret;
+      return ret;
 
 
 #. A full sample application with compiling flags:
 
    Create a new file test.c and add the following code:
 
-   ::
+   .. code-block:: console
 
-     #define _GNU_SOURCE
-     #include <stdlib.h>
-     #include <stdio.h>
-     #include <string.h>
-     #include <telemetry.h>
+        #define _GNU_SOURCE
+        #include <stdlib.h>
+        #include <stdio.h>
+        #include <string.h>
+        #include <telemetry.h>
 
-     int main(int argc, char **argv)
-     {
-           uint32_t severity = 1;
-           uint32_t payload_version = 1;
-           char classification[30] = "org.clearlinux/hello/world";
-           struct telem_ref *tm_handle = NULL;
-           char *payload;
+        int main(int argc, char **argv)
+        {
+              uint32_t severity = 1;
+              uint32_t payload_version = 1;
+              char classification[30] = "org.clearlinux/hello/world";
+              struct telem_ref *tm_handle = NULL;
+              char *payload;
 
-           int ret = 0;
+              int ret = 0;
 
-           if (asprintf(&payload, "hello\n") < 0) {
-                   exit(EXIT_FAILURE);
-           }
+              if (asprintf(&payload, "hello\n") < 0) {
+                      exit(EXIT_FAILURE);
+              }
 
-           if ((ret = tm_create_record(&tm_handle, severity, classification, payload_version)) < 0) {
-                   printf("Failed to create record: %s\n", strerror(-ret));
-                   ret = 1;
-                   goto fail;
-           }
+              if ((ret = tm_create_record(&tm_handle, severity, classification, payload_version)) < 0) {
+                      printf("Failed to create record: %s\n", strerror(-ret));
+                      ret = 1;
+                      goto fail;
+              }
 
-           if ((ret = tm_set_payload(tm_handle, payload)) < 0) {
-                   printf("Failed to set record payload: %s\n", strerror(-ret));
-                   ret = 1;
-                   goto fail;
-           }
+              if ((ret = tm_set_payload(tm_handle, payload)) < 0) {
+                      printf("Failed to set record payload: %s\n", strerror(-ret));
+                      ret = 1;
+                      goto fail;
+              }
 
-           free(payload);
+              free(payload);
 
-           if ((ret = tm_send_record(tm_handle)) < 0) {
-                   printf("Failed to send record to daemon: %s\n", strerror(-ret));
-                   ret = 1;
-                   goto fail;
-           } else {
-                   printf("Successfully sent record to daemon.\n");
-                   ret = 0;
-           }
-     fail:
-           tm_free_record(tm_handle);
-           tm_handle = NULL;
+              if ((ret = tm_send_record(tm_handle)) < 0) {
+                      printf("Failed to send record to daemon: %s\n", strerror(-ret));
+                      ret = 1;
+                      goto fail;
+              } else {
+                      printf("Successfully sent record to daemon.\n");
+                      ret = 0;
+              }
+        fail:
+              tm_free_record(tm_handle);
+              tm_handle = NULL;
 
-           return ret;
-      }
+              return ret;
+         }
 
 
 
@@ -716,6 +720,7 @@ customize the configuration, copy the file from
 
 Configuration Options
 ---------------------
+
 The client uses the following configuration options from the config file:
 
 * **server**: This specifies the web server to which telempostd sends the
@@ -776,6 +781,7 @@ The client uses the following configuration options from the config file:
 
 Client Run-time Options
 =======================
+
 The |CL| telemetry client provides an admin tool called :guilabel:`telemctl`
 for managing the telemetry services and probes. The tool is located in
 :file:`/usr/bin`. Running it with no argument results in the following:
