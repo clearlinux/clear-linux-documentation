@@ -140,16 +140,16 @@ html_context = {
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
     "languages": ( ("English", ""),
-                   ("Mandarin", "/zh_CN"),
-                   ("German", "/de")
+                   ("Mandarin", "/clearlinux-rtd/zh_CN"),
+                   ("German", "/clearlinux-rtd/de")
                  ),
-    "versions": ( ("latest", ""),
-                  ("LTS 1", "/lts/v1"),
-                  ("LTS 2", "/lts/v2"),
-                  ("LTS 3", "/lts/v3"),
-                  ("LTS 4", "/lts/v4"),
-                  ("LTS 5", "/lts/v5"),
-                  ("LTS 6", "/lts/v6")
+    "versions": ( ("latest", "/clearlinux-rtd"),
+                  ("LTS 1", "/clearlinux-rtd/lts/v1"),
+                  ("LTS 2", "/clearlinux-rtd/lts/v2"),
+                  ("LTS 3", "/clearlinux-rtd/lts/v3"),
+                  ("LTS 4", "/clearlinux-rtd/lts/v4"),
+                  ("LTS 5", "/clearlinux-rtd/lts/v5"),
+                  ("LTS 6", "/clearlinux-rtd/lts/v6")
                )
 }
 
