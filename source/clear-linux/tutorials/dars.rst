@@ -28,6 +28,10 @@ We recommend you view the latest component versions for each image in the
 distribution, the package version numbers in the |CL|-based containers may
 not be the latest released by |CL|.
 
+.. note::
+
+   The Data Analytics Reference Stack is a collective work, and each piece of software within the work has its own license.  Please see the `terms of use`_ for more details about licensing and usage of the Data Analytics Reference Stack.
+
 
 
 Using the Docker Images
@@ -104,3 +108,4 @@ provided :file:`Dockerfile`.
 .. _DARS with OpenBLAS: https://hub.docker.com/r/clearlinux/stacks-dars-openblas/
 .. _DARS with MKL: https://hub.docker.com/r/clearlinux/stacks-dars-mkl/
 .. _DARS architecture and performance benchmarks: https://clearlinux.org/stacks/data-analytics-stack-v1
+.. _terms of use: https://clearlinux.org/stacks/data-analytics/terms-of-use
