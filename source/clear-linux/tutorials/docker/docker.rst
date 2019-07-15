@@ -3,8 +3,8 @@
 Run Docker\* on |CL-ATTR|
 #########################
 
-|CL-ATTR| supports multiple containerization platforms, including a Docker\*
-solution. |CL| has many `unique features`_ including a minimal default
+|CL-ATTR| supports multiple containerization platforms, including a Docker
+solution. |CL| has many unique features including a minimal default
 installation, which makes it compelling to use as a host for container
 workloads, management, and orchestration.
 
@@ -36,7 +36,7 @@ Before you install any new packages, update |CL| with the following command:
 
 Additionally, you should have:
 
-* A basic understanding of Linux and Docker.
+* A basic understanding of Linux\* and Docker.
 
 * |CL| environment that has transparent network access to the Internet.
   If you are behind a HTTP proxy server, in a corporate setting for example,
@@ -79,7 +79,7 @@ packages to run Docker images as containers.
 Congratulations! At this point, you have a working installation of Docker
 on |CL|. You are ready to start using container images on your system.
 
-Integration with Kata Containers (optional)
+Integration with Kata Containers\* (optional)
 ********************************************
 
 `Kata Containers`_, is an open source project aiming to increase security
@@ -151,7 +151,7 @@ comes preconfigured with Docker. In the example below we will pull and run
 an the official Docker image for nginx, an open source reverse proxy server.
 
 #. First, pull a container image from Docker Hub using the
-   :command:`docker pull` command. Download the latest nginx Docker
+   :command:`docker pull` command. Download the latest nginx\* Docker
    container image by running this command:
 
    .. code-block:: bash
@@ -218,7 +218,6 @@ Related topics
 * `Docker Hub`_
 * `Kata Containers`_
 
-.. _unique features: https://clearlinux.org/features
 
 .. _Docker proxy instructions: https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
 
