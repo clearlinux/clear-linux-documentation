@@ -14,7 +14,7 @@ using a different architecture specialized instruction-set extensions. GCC
 based optimizations to the application code.
 
 In this tutorial we will use FMV on general code and on
-:abbr:`FFT (Fast Fourier Transform)` library code. Upon completing the
+:abbr:`FFT (Fast Fourier Transform)` library code (FFTW). Upon completing the
 tutorial, you will be able to use this technology on your code and use the
 libraries to deploy architecture-based optimizations to your application code.
 
@@ -186,10 +186,10 @@ verify, enter the following commands:
     vpaddd (%r8,%rax,1),%ymm0,%ymm0
     vmovdqu %ymm0,(%rcx,%rax,1)
 
-FFT project example
-*******************
+FFT project example using FFTW
+******************************
 
-To follow the same approach with a package like FFT, we must use the
+To follow the same approach with a package like FFTW, we must use the
 `-fopt-info-vec` flag to get a build log file similar to:
 
 .. code-block:: bash
