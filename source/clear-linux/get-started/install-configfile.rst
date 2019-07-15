@@ -147,12 +147,12 @@ Perform the following steps:
 #. In the console window, log in as root and enter your password.
 
 #. Change directory to :file:`/root` and copy the :file:`clr-installer.yaml`
-   file to a thumb drive.
+   file to a USB thumb drive.
 
    .. code-block:: bash
 
    	  cd /root
-   	  cp clr-installer.yaml
+   	  cp clr-installer.yaml <USB-thumb-drive>
 
 Start the installation on the target with the following steps:
 
