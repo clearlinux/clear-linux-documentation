@@ -10,7 +10,7 @@ Install QEMU-KVM
 ****************
 
 #. Enable the `Intel® Virtualization Technology`_ (Intel® VT) and the
-   `Intel®Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
+   `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the
    host machine’s BIOS.
 
 #. Log in and open a terminal emulator.
@@ -75,7 +75,7 @@ Download and launch the virtual machine
       For example, the |CL| OVMF files work for Ubuntu 18.04 LTS, but not for Ubuntu 19.04 LTS.
       Installing and using the OVMF files for Ubuntu 19.04 LTS resolved the `ASSERT` issue.
 
-#. Download the `QEMU-KVM launcher`_ script from the
+#. Download the `start_qemu.sh`_ script from the
    `image <https://cdn.download.clearlinux.org/image/>`_ directory.  This script
    will launch the |CL| VM and provide console interaction within the same
    terminal emulator window.
@@ -224,7 +224,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 #. Log in as `root` user into the |CL| VM.
 
-#. Follow these steps to `resize the partition`_ of the virtual disk of the VM.
+#. Follow these steps from :ref:`increase-virtual-disk-size` to resize the partition of the virtual disk of the VM.
 
 #. Add GDM to the |CL| VM:
 
@@ -245,7 +245,5 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
-.. _Intel®Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
-.. _QEMU-KVM launcher: https://cdn.download.clearlinux.org/image/start_qemu.sh
-.. _OVMF file: https://cdn.download.clearlinux.org/image/OVMF.fd
-.. _resize the partition: https://clearlinux.org/documentation/clear-linux/guides/maintenance/increase-virtual-disk-size#id8
+.. _Intel® Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
+.. _start_qemu.sh: https://cdn.download.clearlinux.org/image/start_qemu.sh

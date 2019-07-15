@@ -20,7 +20,7 @@ Assure that your target system supports the installation:
 Download the latest |CL| live server image
 ******************************************
 
-Get the latest |CL| installer image from the `downloads page`_. Look for the
+Get the latest |CL| installer image from the `Downloads`_ page. Look for the
 :file:`clear-[version number]-live-server.iso` file.
 
 #. Follow your OS instructions to create a bootable USB drive.
@@ -494,7 +494,7 @@ Proxy
 =====
 
 |CL| automatically attempts to detect proxy settings, as described in
-`Autoproxy`_. If you need to manually assign proxy settings, follow this
+:ref:`autoproxy`. If you need to manually assign proxy settings, follow this
 instruction.
 
 #. From the Advanced options menu, navigate to :guilabel:`Proxy`, and
@@ -857,4 +857,4 @@ entering :guilabel:`Configure Installation Media`:
   - macOS\* platform: :command:`diskutil list`
 
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
-.. _downloads page: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.org/downloads
