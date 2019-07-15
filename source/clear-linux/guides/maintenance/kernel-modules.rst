@@ -56,7 +56,8 @@ If the kernel module you need is already open source (for example, in the Linux
 upstream) and likely to be useful to others, consider submitting a request to
 add or enable it in the |CL| kernel.
 
-Make enhancement requests to the |CL| distribution `on GitHub`_.
+Make enhancement requests to the |CL|
+`Distribution Project <https://github.com/clearlinux/distribution>`_ on GitHub.
 
 .. _kernel-modules-availability-end:
 
@@ -216,6 +217,4 @@ Related topic
 
 * :ref:`kernel-modules-dkms`
 
-
-.. _`on GitHub`: https://github.com/clearlinux/distribution
 .. _`mixer tool`: https://clearlinux.org/features/mixer-tool
