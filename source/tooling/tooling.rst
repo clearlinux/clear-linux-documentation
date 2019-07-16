@@ -1,7 +1,7 @@
 .. _tooling:
 
-Tooling
-#######
+How to Clear
+############
 
 Clear Linux is a little different from other distros. Here are some important tools and concepts for managing your install.
 
