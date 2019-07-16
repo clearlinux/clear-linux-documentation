@@ -18,8 +18,8 @@ Prerequisites
 * Generate and install a user SSH key in the Linux PCs that will connect to
   the VMs in GCP.
 
-Process
-*******
+Setup |CL| VM on GCP
+********************
 
 #. Sign in to your Google\* account on the
    `Google Cloud Console <https://console.cloud.google.com/>`_:

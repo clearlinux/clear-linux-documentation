@@ -14,8 +14,8 @@ Compatible kernels
 ******************
 
 The |CL| provides the following Linux kernels with a respective
-:ref:`bundle <bundles-about>` for VMs. Specific use cases these bundles serve
-are provided along with links to their source code.
+:ref:`bundle <bundles-about>` for VMs. For each bundle, the specific use cases
+and links to the bundle source code are provided.
 
 .. include:: ../../reference/compatible-kernels.rst
    :Start-after: vm-kernels:

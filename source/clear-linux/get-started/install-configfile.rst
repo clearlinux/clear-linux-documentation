@@ -5,7 +5,8 @@ Install using clr-installer and a configuration file
 
 This page explains how to install |CL-ATTR| using the clr-installer tool
 with a configuration file. The configuration file (:file:`clr-installer.yaml`)
-can be used to duplicate the same installation configuration on more machines.
+can be reused to duplicate the same installation configuration on additional
+machines.
 
 .. contents::
    :local:
