@@ -3,7 +3,7 @@
 Kernel development
 ##################
 
-This document shows how to obtain and compile a Linux* kernel source
+This guide shows how to obtain and compile a Linux* kernel source
 using |CL-ATTR| development tooling.
 
 The :ref:`compatible-kernels` available in |CL| aim to be performant and
@@ -15,9 +15,8 @@ specific needs or test new kernel code as a developer.
    :depth: 1
    :backlinks: top
 
-Source RPM (SRPM) files are also available for all |CL| kernels, and can be
-used for development instead. Select this link to view the latest
-`SRPM`_ files.
+`Source RPMs (SRPMS)`_ are also available for all |CL| kernels, and can be
+used for development instead.
 
 Request changes be included with the |CL| kernel
 ************************************************
@@ -432,7 +431,7 @@ Related topics
 
 .. _Distribution Project: https://github.com/clearlinux/distribution/issues/new/choose
 
-.. _SRPM: https://cdn.download.clearlinux.org/current/source/SRPMS/
+.. _Source RPMs (SRPMS): https://cdn.download.clearlinux.org/current/source/SRPMS/
 
 .. _Quilt: http://savannah.nongnu.org/projects/quilt
 
