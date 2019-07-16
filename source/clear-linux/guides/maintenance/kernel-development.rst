@@ -3,29 +3,30 @@
 Kernel development
 ##################
 
-This document shows how to obtain and compile a Linux* kernel source
+This guide shows how to obtain and compile a Linux* kernel source
 using |CL-ATTR| development tooling.
 
-The `kernels available`_  in |CL| aim to be performant and practical. In some
-cases, it may be necessary to modify the kernel to suit your specific needs
-or test new kernel code as a developer.
+The :ref:`compatible-kernels` available in |CL| aim to be performant and
+practical. In some cases, it may be necessary to modify the kernel to suit your
+specific needs or test new kernel code as a developer.
 
 .. contents::
    :local:
    :depth: 1
    :backlinks: top
 
-Source RPM files (SRPM) are also available for all |CL| kernels, and can be
-used for development instead. Select this link to view the latest `source RPM files`_.
+`Source RPMs (SRPMS)`_ are also available for all |CL| kernels, and can be
+used for development instead.
 
 Request changes be included with the |CL| kernel
 ************************************************
 
 If the kernel modification you need is already open source and likely to be
 useful to others, consider submitting a request to include it in the
-|CL| kernels.If your change request is accepted, you do not need to maintain your own modified kernel.
+|CL| kernels.If your change request is accepted, you do not need to maintain
+your own modified kernel.
 
-Make enhancement requests to the |CL| `distribution on GitHub`_ .
+Make enhancement requests to the |CL| `Distribution Project`_ on GitHub.
 
 Set up kernel development environment
 *************************************
@@ -56,7 +57,7 @@ Clone the existing kernel package repository from |CL| as a starting point.
 #. Clone the Linux kernel package from |CL|. Using the
    :command:`make clone_<PACKAGENAME>` command in the
    :file:`clearlinux/` directory clones the package from the
-   `clearlinux-pkgs GitHub`_.
+   `clearlinux-pkgs`_ repo on GitHub.
 
    .. code-block:: bash
 
@@ -73,7 +74,7 @@ Clone the existing kernel package repository from |CL| as a starting point.
 The "linux" package is the kernel that comes with |CL| in the `kernel-native`
 bundle. Alternatively, you can use a different kernel variant as the base for
 modification. For a list of kernel package names which you can clone instead,
-see the `clearlinux-pkgs GitHub`_.
+see the `clearlinux-pkgs`_ repo on GitHub.
 
 .. note::
 
@@ -261,7 +262,7 @@ consider using a patch management tool in addition to Git such as
 
 #. Generate a patch file based on your git commits.
    <n> represents the number of local commits to create patch file.
-   See the `git-format-patch Documentation`_ for detailed information
+   See the `git-format-patch`_ documentation for detailed information
    on using :command:`git format-patch`
 
    .. code-block:: bash
@@ -355,7 +356,7 @@ are persistent and distributed with a customized kernel.
 
 #. Commit and save the changes to the :file:`cmdline` file.
 
-See the `Kernel parameters documentation`_ for a list of available
+See the `kernel parameters`_  documentation for a list of available
 parameters.
 
 Build and install the kernel
@@ -374,7 +375,9 @@ isolate building of packages in a sanitized workspace.
       make build
 
    .. note::
-      The `ccache plugin for mock`_ can be enabled to help speed up any future rebuilds of the kernel package by caching compiler outputs and reusing them.
+      The mock plugin `ccache`_ can be enabled to help speed up any future
+      rebuilds of the kernel package by caching compiler outputs and reusing
+      them.
 
 
 #. The result will be multiple :file:`.rpm` files in the :file:`rpms`
@@ -426,22 +429,18 @@ Related topics
 * :ref:`kernel-modules`
 * :ref:`mixer`
 
-.. _kernels available: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
+.. _Distribution Project: https://github.com/clearlinux/distribution/issues/new/choose
 
-.. _distribution on GitHub: https://github.com/clearlinux/distribution/issues/new/choose
-
-.. _source RPM files: https://cdn.download.clearlinux.org/current/source/SRPMS/
+.. _Source RPMs (SRPMS): https://cdn.download.clearlinux.org/current/source/SRPMS/
 
 .. _Quilt: http://savannah.nongnu.org/projects/quilt
 
-.. _clearlinux-pkgs GitHub: https://github.com/clearlinux-pkgs
+.. _clearlinux-pkgs: https://github.com/clearlinux-pkgs
 
 .. _kernel.org: https://www.kernel.org/
 
-.. _Kernel parameters documentation: https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt
+.. _kernel parameters: https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt
 
-.. _ccache plugin for mock: https://fedoraproject.org/wiki/Mock/Plugin/CCache?rd=Subprojects/Mock/Plugin/CCache
+.. _ccache: https://fedoraproject.org/wiki/Mock/Plugin/CCache?rd=Subprojects/Mock/Plugin/CCache
 
-.. _git-format-patch Documentation: https://git-scm.com/docs/git-format-patch
-
-.. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
+.. _git-format-patch: https://git-scm.com/docs/git-format-patch

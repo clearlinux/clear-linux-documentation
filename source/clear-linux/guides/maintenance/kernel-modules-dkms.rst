@@ -8,11 +8,9 @@ kernel modules that are not part of the Linux source tree, you may need to
 build out-of-tree kernel modules. Use this guide to add kernel modules with
 :abbr:`DKMS (Dynamic Kernel Module System)` or refer to :ref:`kernel-modules`.
 
-
 .. contents:: :local:
    :depth: 1
    :backlinks: top
-
 
 Description
 ***********
@@ -110,7 +108,7 @@ Build, install, and load an out-of-tree module
 Follow the steps in this section if you are an individual user or testing, and
 you need an out-of-tree kernel module that is not available through |CL|. For
 a more scalable and customizable approach, we recommend using the
-`mixer tool`_ to provide a custom kernel and updates.
+:ref:`mixer` tool to provide a custom kernel and updates.
 
 
 Prerequisites
@@ -218,10 +216,10 @@ Here are some additional resources that can be used for reference:
 * DKMS manual page (:command:`man dkms`) shows detailed syntax in the
   DKMS.CONF section.
 
-* `Ubuntu community wiki`_ shows an example where a single package contains
-  multiple modules.
+* Ubuntu community wiki entry for the `Kernel DKMS Package`_ shows an example
+  where a single package contains multiple modules.
 
-* `Sample dkms.conf file`_ in the GitHub\* repository for the DKMS project.
+* Sample `dkms.conf`_ file in the GitHub\* repository for the DKMS project.
 
 .. note::
 
@@ -315,20 +313,14 @@ Examples
 Related topics
 **************
 
-* `Dynamic Kernel Module System (DKMS) project on GitHub <https://github.com/dell/dkms>`_
+* `Dynamic Kernel Module System (DKMS)`_
 
 * `Dell Linux Engineering Dynamic Kernel Module Support: From Theory to Practice <https://www.kernel.org/doc/ols/2004/ols2004v1-pages-187-202.pdf>`_
 
 * `Linux Journal: Exploring Dynamic Kernel Module Support <https://www.linuxjournal.com/article/6896>`_
 
+.. _Dynamic Kernel Module System (DKMS): https://github.com/dell/dkms
 
-.. _`on GitHub`: https://github.com/clearlinux/distribution
+.. _Kernel DKMS Package: https://help.ubuntu.com/community/Kernel/DkmsDriverPackage#Configure_DKMS
 
-.. _`mixer tool`: https://clearlinux.org/features/mixer-tool
-
-.. _`Dynamic Kernel Module System (DKMS)`: https://github.com/dell/dkms
-
-.. _Ubuntu community wiki: https://help.ubuntu.com/community/Kernel/DkmsDriverPackage#Configure_DKMS
-
-.. _Sample dkms.conf file: https://github.com/dell/dkms/blob/master/sample.conf
-
+.. _dkms.conf: https://github.com/dell/dkms/blob/master/sample.conf
