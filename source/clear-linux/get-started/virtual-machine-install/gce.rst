@@ -51,10 +51,10 @@ Process
 #. Create a *Storage Bucket* for hosting the |CL| image source archive
    downloaded in the previous step:
 
-   * Click the *Navigation menu* icon on the upper left screen menu.
+   * Click the :guilabel:`Navigation menu` icon on the upper left screen menu.
 
-   * Select the *Storage* item from the side bar on the left. You will
-     be sent to the Storage Browser tool or the Cloud Storage overview page.
+   * Select the :menuselection:`Storage` item from the side bar on the left. You
+     will be sent to the Storage Browser tool or the Cloud Storage overview page.
 
    .. figure:: figures/gce/01-cloud-storage.png
       :scale: 50 %
@@ -72,12 +72,12 @@ Process
 
       Figure 3: Cloud Storage Browser tool
 
-   * Click the ``CREATE BUCKET`` button to enter the bucket creation tool.
+   * Click the :guilabel:`CREATE BUCKET` button to enter the bucket creation tool.
      The bucket name must be unique because buckets in the Cloud Storage share
      a single global namespace.
 
-     Leave the remaining options set to the defaults, and select the
-     ``Create`` button at the bottom to create a *Bucket*.
+     Leave the remaining options set to the defaults, and click the
+     :guilabel:`Create` button at the bottom to create a *Bucket*.
 
      .. figure:: figures/gce/03-create-bucket.png
         :scale: 50 %
@@ -85,7 +85,7 @@ Process
 
         Figure 4: Set bucket name
 
-#. Once the bucket is created, click the ``Upload files`` button
+#. Once the bucket is created, click the :guilabel:`Upload files` button
    on the Bucket details page to upload the |CL| GCE image archive
    to the named bucket:
 
@@ -109,9 +109,10 @@ Process
 
 #. Browse the Compute Engine Image library page:
 
-   * Click the *Navigation menu* icon on the upper left screen menu.
+   * Click the :guilabel:`Navigation menu` icon on the upper left screen menu.
 
-   * Hover your mouse over the *Compute Engine* menu and select *Images*.
+   * Select the :menuselection:`Compute Engine --> Images` from the side bar on
+     the left.
 
      .. figure:: figures/gce/20-gce-image.png
         :scale: 50 %
@@ -119,7 +120,7 @@ Process
 
         Figure 8: Image library
 
-#. On the Compute Engine Image library page, click the ``[+] CREATE IMAGE``
+#. On the Compute Engine Image library page, click the :guilabel:`[+] CREATE IMAGE`
    menu item to create a custom image:
 
    .. figure:: figures/gce/20-image-library.png
@@ -131,7 +132,7 @@ Process
 #. In the VM image creation page, change the image source type to
    *Cloud Storage file*.
 
-#. Under :guilabel:`Cloud Storage file`, select :guilabel:`Browse`.
+#. Under :guilabel:`Source`, select :guilabel:`Browse`.
 
 #. Locate the :file:`clear-<release number>-gce.tar.gz` file,
    and click :guilabel:`Select`.
@@ -142,7 +143,7 @@ Process
 
       Figure 10: Create image using imported object
 
-   Accept all default options, and click the ``Create`` button
+   Accept all default options, and click the :guilabel:`Create` button
    at the bottom to import the Clear Linux GCE image to the image library.
 
    .. figure:: figures/gce/22-image-list.png
@@ -154,10 +155,10 @@ Process
 #. After the |CL| image is imported, you can launch a VM instance running
    |CL|:
 
-   * Click the *Navigation menu* icon on the upper left screen menu.
+   * Click the :guilabel:`Navigation menu` icon on the upper left screen menu.
 
-   * Hover your mouse over the *Compute Engine* menu group and select
-     the *VM instances* item.
+   * Select :menuselection:`Compute Engine --> VM Instances` from the side bar on
+     the left.
 
    .. figure:: figures/gce/30-vm-instances.png
       :scale: 50 %
@@ -168,7 +169,7 @@ Process
 #. If no VM instance was created in this project, you will be prompted to
    create one.
 
-#. Alternatively, click the ``CREATE INSTANCE`` button on the VM
+#. Alternatively, click the :guilabel:`CREATE INSTANCE` button on the VM
    instances page to create a VM instance.
 
    .. figure:: figures/gce/30-vm-none.png
@@ -183,10 +184,10 @@ Process
 
       Figure 14: VM instances list
 
-   * In :guilabel:`Region`, choose a region based on the
+   * Under :guilabel:`Region`, choose a region based on the
      `Best practices for Compute Engine regions selection`_.
 
-   * Under *Boot disk*, click the ``Change`` button.
+   * Under :guilabel:`Boot disk`, click the :guilabel:`Change` button.
 
      .. figure:: figures/gce/30-create-vm.png
         :scale: 50 %
@@ -194,7 +195,7 @@ Process
 
         Figure 15: Use custom image
 
-   * Select the *Custom images* tab for using Clear Linux OS GCE image.
+   * Select the :menuselection:`Custom images` tab for using Clear Linux OS GCE image.
 
      .. figure:: figures/gce/31-select-boot-disk.png
         :scale: 50 %
@@ -203,7 +204,8 @@ Process
         Figure 16: Select Clear Linux boot disk to create a VM instance
 
    * Scroll down to the bottom of the VM instance creation page,
-     expand the *Management, security, disks, networking, sole tenancy* group.
+     expand the :guilabel:`Management, security, disks, networking, sole tenancy`
+     group.
 
      .. figure:: figures/gce/40-clear-vm-security.png
         :scale: 50 %
@@ -218,7 +220,7 @@ Process
 
         Refer to :ref:`security` for more details.
 
-   * Click the *Security* tab, copy and paste your SSH public key:
+   * Click the :menuselection:`Security` tab, copy and paste your SSH public key:
 
      .. figure:: figures/gce/40-ssh-key.png
         :scale: 50 %
@@ -233,7 +235,7 @@ Process
         because it is an invalid character while creating user accounts in
         |CL|.
 
-   * Click the ``Create`` button to create the |CL| VM.
+   * Click the :guilabel:`Create` button to create the |CL| VM.
 
 #. The Clear Linux VM instance is created and assigned a public IP address:
 

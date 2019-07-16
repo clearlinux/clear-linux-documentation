@@ -60,11 +60,11 @@ details about using different settings are available in the VirtualBox manual se
 
 #. Launch the |VBM| from your host system.
 
-#. Click the *New* button to create a new VM.
+#. Click the :guilabel:`New` button to create a new VM.
 
 #. Choose :guilabel:`Expert mode`.
 
-#. In :guilabel:`Create Virtual Machine`, enter the following settings:
+#. On the :guilabel:`Create Virtual Machine` screen, enter the following settings:
 
    - **Name**: Choose name (e.g. ClearLinuxOS-VM).
    - **Type**: Linux
@@ -82,9 +82,9 @@ details about using different settings are available in the VirtualBox manual se
 
       Figure 2: Create Virtual Machine
 
-#. Select :guilabel:`Create`.
+#. Click :guilabel:`Create`.
 
-#. In :guilabel:`Create Virtual Hard Disk`, select:
+#. On the :guilabel:`Create Virtual Hard Disk` screen, select:
 
    - **File location**
    - **File size**: **32.00 GB**. Adjust size to your needs.
@@ -97,16 +97,16 @@ details about using different settings are available in the VirtualBox manual se
 
       Figure 3: Create Virtual Hard Disk
 
-#. Click *Create*.
+#. Click :guilabel:`Create`.
 
    A new virtual machine will be created and appear in the |VBM|.
 
-#. Click *Settings* to configure the |CL| VM.
+#. Click :guilabel:`Settings` to configure the |CL| VM.
 
-#. In the left-hand menu, navigate to the :guilabel:`System` menu.
+#. In the left-hand menu, navigate to the :menuselection:`System` menu.
 
-#. In the :guilabel:`Motherboard` tab, select the `Chipset` pulldown menu,
-   and then select :guilabel:`ICH9`. See Figure 4.
+#. On the :guilabel:`Motherboard` tab, select the :guilabel:`Chipset` menu, and
+   then select :menuselection:`ICH9`. See Figure 4.
 
    .. note::
 
@@ -131,7 +131,7 @@ details about using different settings are available in the VirtualBox manual se
       machine under Settings > System > Processor for increased
       performance.
 
-#. Select :guilabel:`OK`.
+#. Click :guilabel:`OK`.
 
 Install |CL| on the |VB| VM
 ***************************
@@ -144,15 +144,15 @@ Mount the installation ISO
 The |CL| installer ISO needs to be mounted as a virtual CD-ROM on the VM
 before powering the VM on.
 
-#. From the *ClearLinux-OS* :guilabel:`Settings` at left, select
+#. From the *ClearLinux-OS* :guilabel:`Settings` menu at left, select
    :guilabel:`Storage`.
 
 #. From :guilabel:`Storage Devices`, middle column, click the blue
-   disk labeled *Empty*.
+   disk labeled :guilabel:`Empty`.
 
 #. From the :guilabel:`Attributes` menu, click the blue CD disk next to
-   the *Optical Drive* drop down menu and click *Choose Virtual Optical
-   Disk File...*
+   the :guilabel:`Optical Drive` drop down menu and click
+   :guilabel:`Choose Virtual Optical Disk File...`
 
    .. figure:: figures/vbox/virtualbox-cl-installer-05.png
       :scale: 100%
@@ -169,12 +169,12 @@ before powering the VM on.
 
       Figure 6: Mounting an ISO
 
-#. Select :guilabel:`OK` to exit and return to the main |VBM|.
+#. Click :guilabel:`OK` to exit and return to the main |VBM|.
 
 Install |CL| with live-server installer
 =======================================
 
-#. In the |VBM|, select virtual machine you created and click *Start*.
+#. In the |VBM|, select virtual machine you created and click :guilabel:`Start`.
 
    .. figure:: figures/vbox/virtualbox-cl-installer-07.png
       :scale: 100%
@@ -196,12 +196,12 @@ Install |CL| with live-server installer
    #. In :guilabel:`Configure Installation Media`, navigate top
       VBOX HARDDISK, and then select :guilabel:`Confirm`.
 
-   #. In :guilabel:`Advanced options` > :guilabel:`Manage User`, create an
+   #. In :menuselection:`Advanced options --> Manage User`, create an
       administrative user.
 
    #. Do not install the bundle `desktop-autostart`.
 
-#. When |CL| installation is complete, select :guilabel:`Exit`.
+#. When |CL| installation is complete, click :guilabel:`Exit`.
 
 #. At the prompt, enter:
 
@@ -217,16 +217,18 @@ virtual hard disk.
 
 #. Return to the |VBM|.
 
-#. Click *Settings* to configure the |CL| VM.
+#. Click :guilabel:`Settings` to configure the |CL| VM.
 
-#. From the *VM - Settings* window, navigate to the *Storage* pane from the
-   left-hand side.
+#. From the VM :guilabel:`Settings` window, navigate to the :guilabel:`Storage`
+   pane in the left menu.
 
-#. From the middle *Storage Devices* column, click the blue CD disk labeled
-   *clear-<VERSION>-live-server.iso* under the *Controller: IDE* from.
+#. From the middle :guilabel:`Storage Devices` column, click the blue CD disk
+   labeled :guilabel:`clear-<VERSION>-live-server.iso` under the
+   :guilabel:`Controller: IDE`.
 
-#. From the *Attributes* column at right, in *Optical Drive*, select the
-   blue CD icon beside and click *Remove Disk from Virtual Drive*.
+#. From the :guilabel:`Attributes` column at right, in :guilabel:`Optical Drive`,
+   select the blue CD icon beside and click
+   :guilabel:`Remove Disk from Virtual Drive`.
 
    .. figure:: figures/vbox/virtualbox-cl-installer-08.png
       :scale: 100%
@@ -234,8 +236,8 @@ virtual hard disk.
 
       Figure 8: Remove Disk from Virtual Drive
 
-#. Click *OK* to exit the *VM Settings* menu and return to the main
-   |VBM|.
+#. Click :guilabel:`OK` to exit the :guilabel:`VM Settings` menu and return to
+   the main |VBM|.
 
 Install |VB| Linux Guest Additions
 ==================================
@@ -285,8 +287,9 @@ install script in the **kernel-lts** (Long Term Support) bundle by |CL|.
       sudo swupd bundle-list | grep kernel
       sudo swupd bundle-remove <NON-LTS-KERNEL>
 
-#. In the VM Console top menu, click *Devices*, and select
-   *Insert Guest Additions CD image...* to mount the |VB| driver installation to the |CL| VM.
+#. In the VM Console top menu, click :guilabel:`Devices`, and select
+   :guilabel:`Insert Guest Additions CD image...` to mount the |VB| driver
+   installation to the |CL| VM.
 
    .. figure:: figures/vbox/virtualbox-cl-installer-09.png
       :scale: 100%
@@ -310,7 +313,7 @@ install script in the **kernel-lts** (Long Term Support) bundle by |CL|.
       Successful installation shows: "Guest Additions installation complete".
       If drivers are already installed, don't re-install them.
 
-#. Shut down the system. Select :guilabel:`Machine>ACPI Shutdown`.
+#. Shut down the system. Select :menuselection:`Machine --> ACPI Shutdown`.
 
    .. figure:: figures/vbox/virtualbox-cl-installer-10.png
       :scale: 100%
