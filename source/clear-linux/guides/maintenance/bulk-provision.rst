@@ -41,7 +41,7 @@ Configuration
 =============
 
 #. Install **ICIS** by following the getting started guide on the
-   `ICIS GitHub repository`_.
+   `ICIS`_ GitHub repository.
 
 #. Create an Ister installation file and save it to the
    :file:`static/ister` directory within the web hosting directory for
@@ -116,7 +116,7 @@ Configuration
       location of the Ister configuration file.
 
 #. Write a cloud-init document to customize the instance of the installation
-   according to your requirements. The `cloud-init Read the Docs`_ provides a
+   according to your requirements. The `cloud-init`_ documentation provides a
    guide on how to write a cloud-init document. The guide covers the
    customization options provided by cloud-init after an installation.
 
@@ -158,8 +158,8 @@ Configuration
 **Congratulations!** You have successfully performed a bulk provision of |CL|.
 
 
-.. _ICIS GitHub repository:
+.. _ICIS:
    https://github.com/clearlinux/ister-cloud-init-svc
 
-.. _cloud-init Read the Docs:
+.. _cloud-init:
    https://cloudinit.readthedocs.io

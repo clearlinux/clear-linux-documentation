@@ -33,8 +33,8 @@ C-states aim to reduce power utilization by increasingly reducing clock
 frequency, voltages, and features in each state.
 
 Although C-states can typically be limited or disabled in a system's UEFI or
-BIOS configuration, these settings are overridden when the `intel_idle
-driver`_ is in use.
+BIOS configuration, these settings are overridden when the `intel_idle driver`_
+is in use.
 
 To view the current cpuidle driver run this command in a terminal:
 
@@ -48,7 +48,8 @@ or completely disabled with :command:`idle=poll`.
 
 .. note::
 
-   * :command:`processor.max_cstate=0` is changed to :command:`processor.max_cstate=1` by the kernel to be a valid value.
+   * :command:`processor.max_cstate=0` is changed to :command:`processor.max_cstate=1`
+     by the kernel to be a valid value.
 
    * :command:`intel_idle.max_cstate=0` disables the Intel Idle driver, not set
      it to C-state 0.
@@ -137,8 +138,8 @@ To change the CPU frequency scaling governor:
 
       echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
-The list of all governors can be found in the `Linux kernel documentation on
-CPUFreq Governors`_.
+The list of all governors can be found in the Linux kernel documentation on
+`CPUFreq Governors`_.
 
 .. note::
 
@@ -185,7 +186,7 @@ bundle and add your user account to the power group:
 
 .. _`Intel P-state driver`: https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt
 
-.. _`Linux kernel documentation on CPUFreq Governors`: https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt
+.. _`CPUFreq Governors`: https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt
 
 .. _thermald: https://01.org/linux-thermal-daemon
 
