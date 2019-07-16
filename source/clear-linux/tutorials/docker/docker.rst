@@ -79,8 +79,8 @@ packages to run Docker images as containers.
 Congratulations! At this point, you have a working installation of Docker
 on |CL|. You are ready to start using container images on your system.
 
-Integration with Kata Containers (optional)
-********************************************
+Integration with Kata Containers\* (optional)
+*********************************************
 
 `Kata Containers`_, is an open source project aiming to increase security
 of containers by using a hardware-backed virtual machine container runtime
@@ -93,7 +93,7 @@ More information on installing and using  the *kata-runtime* may be found at :re
 
 .. note::
 
-   The proceeding sections of this tutorial are standard to Docker setup
+   The remaining sections of this tutorial are standard to Docker setup
    and configuration. If you are familiar with Docker basics, you do not
    need to continue reading. The following sections are provided here for
    sake of completeness.
@@ -105,8 +105,8 @@ Additional Docker configuration
 
 Perform additional Docker daemon configuration via a configuration file
 typically located at :file:`/etc/docker/daemon.json`. |CL| features a
-`stateless system`_  so the configuration file :file:`daemon.json` does *NOT*
-exist by default.
+:ref:`stateless` system  so the configuration file :file:`daemon.json` does
+*NOT* exist by default.
 
 #. Create the :file:`daemon.json` by running this command:
 
@@ -148,7 +148,7 @@ Pulling and running an image from Docker Hub
 
 `Docker Hub`_ is a publically available container image repository which
 comes preconfigured with Docker. In the example below we will pull and run
-an the official Docker image for nginx, an open source reverse proxy server.
+an the official Docker image for nginx\*, an open source reverse proxy server.
 
 #. First, pull a container image from Docker Hub using the
    :command:`docker pull` command. Download the latest nginx Docker
@@ -223,8 +223,6 @@ Related topics
 .. _Docker proxy instructions: https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
 
 .. _bundles: https://clearlinux.org/documentation/clear-linux/concepts/bundles-about#related-concepts
-
-.. _stateless system: https://clearlinux.org/features/stateless
 
 .. _Docker documentation on daemon configuration: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
 
