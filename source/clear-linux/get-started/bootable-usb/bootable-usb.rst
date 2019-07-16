@@ -3,8 +3,8 @@
 Create a bootable USB drive
 ###########################
 
-Instructions to create a |CL-ATTR| USB drive vary depending on your operating
-system. Follow the instructions applicable to your system:
+Follow the instructions applicable to your system to create a bootable |CL-ATTR|
+USB drive:
 
 * :ref:`bootable-usb-linux`
 * :ref:`bootable-usb-mac`
@@ -14,7 +14,7 @@ Prerequisites
 *************
 
 * Use an **8GB** or larger USB drive.
-* Download the |CL| live boot image or interactive installer image from the 
+* Download the |CL| live boot image or interactive installer image from the
   `Downloads`_ page.
 
 .. _bootable-usb-linux:

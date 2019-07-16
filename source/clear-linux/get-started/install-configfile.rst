@@ -3,13 +3,16 @@
 Install using clr-installer and a configuration file
 ####################################################
 
-This guide describes how to install |CL-attr| using the clr-installer tool
+This page explains how to install |CL-ATTR| using the clr-installer tool
 with a configuration file. The configuration file (:file:`clr-installer.yaml`)
 can be used to duplicate the same installation configuration on more machines.
 
+.. contents::
+   :local:
+   :depth: 1
 
-System requirements
-*******************
+Prerequisites
+*************
 
 Ensure that your target system supports the installation:
 

@@ -3,15 +3,22 @@
 Check processor and EFI firmware compatibility
 ##############################################
 
-On a system that is currently running a Linux\* operating system, follow the
-instructions below to determine if your system's processor and EFI firmware is
-capable of running |CL-ATTR|. Otherwise,
-:ref:`bare-metal-install-desktop` and then perform the steps
-below.
+Before installing |CL-ATTR|, check your host system's processor and EFI firmware
+compatibility. To check compatibilty, choose one of the following paths:
+
+* From a system with a Linux\* OS installed, follow the instructions to :ref:`check-compatibility-steps`.
+
+* From a non-Linux OS, first :ref:`bare-metal-install-desktop` and then follow
+  the instructions to :ref:`check-compatibility-steps`.
 
 .. note::
    This does not check other system components (for example: storage and
    graphics) for compatibility with |CL|.
+
+.. _check-compatibility-steps:
+
+Check compatibility
+*******************
 
 #. Download the `clear-linux-check-config.sh`_ file.
 
@@ -42,7 +49,7 @@ below.
 
          ./clear-linux-check-config.sh container
 
-   The script will print a list of test results similar to the output below.
+   The script prints a list of test results similar to the output below.
    All items should return a `SUCCESS` status. This example indicates the
    host's processor and EFI firmware support running |CL|.
 
