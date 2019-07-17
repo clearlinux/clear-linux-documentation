@@ -132,7 +132,8 @@ deployment and your security needs.
 Configure and run Kubernetes
 ****************************
 
-This section describes how to configure and run Kubernetes with CRI-O and kata-runtime.
+This section describes how to configure and run Kubernetes with CRI-O and
+kata-runtime.
 
 Configure and run CRI-O + kata-runtime
 ======================================
@@ -150,7 +151,8 @@ Configure and run CRI-O + kata-runtime
        sudo systemctl daemon-reload
        sudo systemctl restart crio
 
-#.  Initialize the master control plane with the command below and follow the displayed instructions to set up `kubectl`:
+#.  Initialize the master control plane with the command below and follow the
+    displayed instructions to set up `kubectl`:
 
     .. code-block:: bash
 
@@ -190,8 +192,8 @@ If you choose the `flannel` add-on, then you must add the following to the
 
    --pod-network-cidr 10.244.0.0/16
 
-Furthermore, if you are using CRI-O and `flannel` and you want to use Kata Containers,
-edit the :file:`/etc/crio/crio.conf` file to add:
+Furthermore, if you are using CRI-O and `flannel` and you want to use
+Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
 
 ..  code-block:: bash
 
@@ -234,7 +236,8 @@ Read the Kubernetes documentation to learn more about:
 Cloud native setup automation (optional)
 ****************************************
 
-Clone the `cloud-native-setup`_ repository on your system and follow the instructions. This repository includes helper scripts to automate configuration.
+Clone the `cloud-native-setup`_ repository on your system and follow the
+instructions. This repository includes helper scripts to automate configuration.
 
 Package configuration customization (optional)
 **********************************************
@@ -258,7 +261,7 @@ following commands:
    sudo cp /usr/share/defaults/crio/crio.conf /etc/crio/
    sudo $EDITOR /etc/crio/crio.conf
 
-Learn more about `Stateless`_ in |CL| and view the |CL| `documentation`_.
+Learn more about :ref:`stateless` in |CL| and view the |CL| `documentation`_.
 
 Proxy configuration (optional)
 ******************************
@@ -398,9 +401,6 @@ Troubleshooting
 
 .. _Joining your nodes: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
 
-.. _Stateless: https://clearlinux.org/features/stateless
-
 .. _documentation: https://clearlinux.org/documentation/clear-linux
 
 .. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup
-
