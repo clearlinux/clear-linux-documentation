@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,39 +65,47 @@ msgid ""
 "containers may not be the latest released by |CL|."
 msgstr ""
 
-#: ../../tutorials/dars.rst:34
+#: ../../tutorials/dars.rst:33
+msgid ""
+"The Data Analytics Reference Stack is a collective work, and each piece "
+"of software within the work has its own license.  Please see the `terms "
+"of use`_ for more details about licensing and usage of the Data Analytics"
+" Reference Stack."
+msgstr ""
+
+#: ../../tutorials/dars.rst:38
 msgid "Using the Docker Images"
 msgstr ""
 
-#: ../../tutorials/dars.rst:36
+#: ../../tutorials/dars.rst:40
 msgid ""
 "To immediately start using the latest stable DARS images, pull directly "
 "from `Docker Hub`_. For this tutorial we'll use the `Dars with MKL`_ "
 "version of the stack."
 msgstr ""
 
-#: ../../tutorials/dars.rst:39
+#: ../../tutorials/dars.rst:43
 msgid "Once you have downloaded the image, you can run it with"
 msgstr ""
 
-#: ../../tutorials/dars.rst:45
+#: ../../tutorials/dars.rst:49
 msgid ""
 "This will launch the image and drop you into a bash shell inside the "
 "container.  You will see output similar to the following:"
 msgstr ""
 
-#: ../../tutorials/dars.rst:66
+#: ../../tutorials/dars.rst:70
 msgid ""
 "The :command:`--ulimit nofile` parameter is currently required in order "
 "to increase the number of open files opened at certain point by the spark"
 " engine."
 msgstr ""
 
-#: ../../tutorials/dars.rst:71
+#: ../../tutorials/dars.rst:75
 msgid "Building DARS Images"
 msgstr ""
 
-#: ../../tutorials/dars.rst:73
+#: ../../tutorials/dars.rst:77
 msgid ""
 "If you choose to build your own DARS container images, you can customize "
 "them as needed. Use the provided Dockerfile as a baseline. To construct "
@@ -106,11 +114,11 @@ msgid ""
 "bundles and installing them by using :ref:`swupd-guide`."
 msgstr ""
 
-#: ../../tutorials/dars.rst:79
+#: ../../tutorials/dars.rst:83
 msgid "First, clone the `DARS repository`_ from GitHub."
 msgstr ""
 
-#: ../../tutorials/dars.rst:85
+#: ../../tutorials/dars.rst:89
 msgid ""
 "Then, inside the DARS directory, run :command:`make` to build OpenBLAS "
 "and MKL images, and run :command:`make baseline` to build the baseline "
@@ -119,7 +127,7 @@ msgid ""
 ":command:`Docker`"
 msgstr ""
 
-#: ../../tutorials/dars.rst:94
+#: ../../tutorials/dars.rst:98
 msgid ""
 "You can use any of the resulting images to launch fully functional "
 "containers.  If you need to customize the containers, you can edit the "

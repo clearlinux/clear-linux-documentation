@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -280,9 +280,9 @@ msgstr ""
 
 #: ../../tooling/swupd-guide.rst:198
 msgid ""
-"|CL| makes it very easy to install, since you only need to add `one "
-"bundle`_ to use `Kata Containers`_: `containers-virt`, despite a number "
-"of dependencies.  Also, check out our tutorial: :ref:`kata`."
+"|CL| makes it very easy to install, since you only need to add one bundle"
+" to use `Kata Containers`_: `containers-virt`_, despite a number of "
+"dependencies.  Also, check out our tutorial: :ref:`kata`."
 msgstr ""
 
 #: ../../tooling/swupd-guide.rst:202
@@ -423,9 +423,7 @@ msgid "Opens the :command:`swupd` man page."
 msgstr ""
 
 #: ../../tooling/swupd-guide.rst:329
-msgid ""
-"Refer to :command:`swupd` `source documentation`_ on GitHub for more "
-"details."
+msgid "Refer to `swupd source documentation`_ on GitHub for more details."
 msgstr ""
 
 #: ../../tooling/swupd-guide.rst:332
@@ -443,4 +441,19 @@ msgstr ""
 #: ../../tooling/swupd-guide.rst:336
 msgid ":ref:`bundles`"
 msgstr ""
+
+#~ msgid ""
+#~ "|CL| makes it very easy to "
+#~ "install, since you only need to "
+#~ "add `one bundle`_ to use `Kata "
+#~ "Containers`_: `containers-virt`, despite a "
+#~ "number of dependencies.  Also, check out"
+#~ " our tutorial: :ref:`kata`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Refer to :command:`swupd` `source "
+#~ "documentation`_ on GitHub for more "
+#~ "details."
+#~ msgstr ""
 

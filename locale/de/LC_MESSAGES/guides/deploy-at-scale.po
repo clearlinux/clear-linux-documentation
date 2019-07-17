@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,11 +50,11 @@ msgid ""
 "deployment."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:28
+#: ../../guides/deploy-at-scale.rst:29
 msgid "Pick a |CL| usage and update strategy"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:30
+#: ../../guides/deploy-at-scale.rst:31
 msgid ""
 "Different business scenarios call for different deployment methodologies."
 " |CL| offers the flexibility to continue consuming the upstream |CL| "
@@ -62,15 +62,15 @@ msgid ""
 "act as your own :abbr:`OSV (Operating System Vendor)`."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:35
+#: ../../guides/deploy-at-scale.rst:36
 msgid "Below is an overview of some considerations."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:38
+#: ../../guides/deploy-at-scale.rst:39
 msgid "Create your own Linux distribution (mix)"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:40
+#: ../../guides/deploy-at-scale.rst:41
 msgid ""
 "This approach forks away from the |CL| upstream and has you act as your "
 "own :abbr:`OSV (Operating System Vendor)` by leveraging the `mixer "
@@ -80,38 +80,38 @@ msgid ""
 "customization*."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:46
+#: ../../guides/deploy-at-scale.rst:47
 msgid ""
-"Development systems which are generating bundles and updates should be "
-"sufficiently performant for the task and separate from the swupd update "
-"webservers which are serving update content to production machines."
+"Development systems that generate bundles and updates should have "
+"sufficient performance for the task and separate from the swupd update "
+"webservers that serve update content to production machines."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:50
+#: ../../guides/deploy-at-scale.rst:51
 msgid ""
-"swupd update webservers which are serving update content to production "
-"machines (see `mixer process`_ for more information) should be "
-"appropriately scaled."
+"swupd update webservers that serve update content to production machines "
+"(see `mixer process`_ for more information) should be appropriately "
+"scaled."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:54
+#: ../../guides/deploy-at-scale.rst:55
 msgid ""
 "Your swupd update server is just like any other web application. |WEB-"
 "SERVER-SCALE|"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:58
+#: ../../guides/deploy-at-scale.rst:59
 msgid "Adopt an agile methodology"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:59
+#: ../../guides/deploy-at-scale.rst:60
 msgid ""
 "The cloud, and other scaled deployments, are all about flexibility and "
 "speed. It only makes sense that any |CL| deployment strategy should "
 "follow suit."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:62
+#: ../../guides/deploy-at-scale.rst:63
 msgid ""
 "Manually rebuilding your own bundles or mix for every release is not "
 "sustainable at a large scale. A |CL| deployment pipeline should be agile "
@@ -121,92 +121,92 @@ msgid ""
 " of software to your endpoints is an important prerequisite."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:69
+#: ../../guides/deploy-at-scale.rst:70
 msgid ""
 "You own the validation and lifecycle of the OS and should treat it like "
 "any other software development lifecycle. Below are some pointers:"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:72
+#: ../../guides/deploy-at-scale.rst:73
 msgid ""
 "Thoroughly understand the custom software packages that you will need to "
 "integrate with |CL| and maintain along with their dependencies."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:75
+#: ../../guides/deploy-at-scale.rst:76
 msgid ""
 "Setup a path to production for building |CL| based images. At minimum "
 "this should include:"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:78
+#: ../../guides/deploy-at-scale.rst:79
 msgid ""
 "A development clr-on-clr environment to test building packages and "
 "bundles for |CL| systems."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:81
+#: ../../guides/deploy-at-scale.rst:82
 msgid "A pre-production environment to deploy |CL| versions to before production"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:84
+#: ../../guides/deploy-at-scale.rst:85
 msgid ""
 "Employ a continuous integration and continuous deployment (CI/CD) "
 "philosophy in order to:"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:87
+#: ../../guides/deploy-at-scale.rst:88
 msgid ""
 "Automatically pull custom packages as they are updated from their "
 "upstream projects or vendors."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:90
+#: ../../guides/deploy-at-scale.rst:91
 msgid ""
 "Generate |CL| bundles and potentially bootable images with your "
 "customizations, if any."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:93
+#: ../../guides/deploy-at-scale.rst:94
 msgid ""
 "Measure against metrics and indicators which are relevant to your "
 "business (e.g. performance, power, etc) from release to release."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:96
+#: ../../guides/deploy-at-scale.rst:97
 msgid ""
 "Integrate with your organization's governance processes, such as change "
 "control."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:100
+#: ../../guides/deploy-at-scale.rst:101
 msgid "Versioning Infrastructure"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:102
+#: ../../guides/deploy-at-scale.rst:103
 msgid ""
 "|CL| version numbers are very important as they apply to the whole "
 "infrastructure stack from OS components to libraries and applications."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:106
+#: ../../guides/deploy-at-scale.rst:107
 msgid ""
 "Good record keeping is important, so you should keep a detailed registry "
 "and history of previously deployed versions and their contents."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:109
+#: ../../guides/deploy-at-scale.rst:110
 msgid ""
 "With a glance at the |CL| version numbers deployed, you should be able to"
 " tell if your Clear systems are patched against a particular security "
 "vulnerability or incorporate a critical new feature."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:114
+#: ../../guides/deploy-at-scale.rst:115
 msgid "Pick an image distribution strategy"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:116
+#: ../../guides/deploy-at-scale.rst:117
 msgid ""
 "Once you have decided on a usage and update strategy, you should "
 "understand *how* |CL| will be deployed to your endpoints. In a large "
@@ -214,56 +214,56 @@ msgid ""
 "automated installations or prebuilt images."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:121
+#: ../../guides/deploy-at-scale.rst:122
 msgid ""
 "There are many well-known ways to install an operating system at scale. "
 "Each have their own benefits, and one may lend itself easier in your "
 "environment depending on the resources available to you."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:125
+#: ../../guides/deploy-at-scale.rst:126
 msgid "See the available :ref:`image-types`."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:127
+#: ../../guides/deploy-at-scale.rst:128
 msgid "Below are some common ways to install |CL| to systems at scale:"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:130
+#: ../../guides/deploy-at-scale.rst:131
 msgid "Baremetal"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:132
+#: ../../guides/deploy-at-scale.rst:133
 msgid ""
 "Preboot Execution Environments (PXE) or other out-of-band booting options"
 " are one way to distribute |CL| to physical baremetal systems on a LAN."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:136
+#: ../../guides/deploy-at-scale.rst:137
 msgid ""
 "This option works well if your customizations are fairly small in size "
 "and infrastructure can be stateless."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:139
+#: ../../guides/deploy-at-scale.rst:140
 msgid ""
 "The |CL| `downloads page`_ offers a live image that can be deployed as a "
 "PXE boot server if one doesn't already exist in your environment. Also "
 "see documentation on how to :ref:`bare-metal-install-server`."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:144
+#: ../../guides/deploy-at-scale.rst:145
 msgid "Cloud Instances or Virtual Machines"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:146
+#: ../../guides/deploy-at-scale.rst:147
 msgid ""
 "Image templates in the form of cloneable disks are an effective way to "
 "distribute |CL| for virtual machine environments, whether on-premises or "
 "hosted by a Cloud Solution Provider (CSP)."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:150
+#: ../../guides/deploy-at-scale.rst:151
 msgid ""
 "When used in concert with cloud VM migration features, this can be a good"
 " option for allowing your applications a degree of high availability and "
@@ -271,24 +271,24 @@ msgid ""
 "or moved between datacenters transparently."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:155
+#: ../../guides/deploy-at-scale.rst:156
 msgid ""
 "The |CL| `downloads page`_ offers example prebuilt VM images and is "
 "readily available on popular CSPs. Also see documentation on how to :ref"
 ":`virtual-machine-install`."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:160
+#: ../../guides/deploy-at-scale.rst:161
 msgid "Containers"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:162
+#: ../../guides/deploy-at-scale.rst:163
 msgid ""
 "Containerization platforms allow images to be pulled from a repository "
 "and deployed repeatedly as isolated containers."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:165
+#: ../../guides/deploy-at-scale.rst:166
 msgid ""
 "Containers with a |CL| image can be a good option to blueprint and ship "
 "your application, including all its dependencies, as an artifact while "
@@ -296,84 +296,84 @@ msgid ""
 "applications."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:170
+#: ../../guides/deploy-at-scale.rst:171
 msgid ""
 "|CL| is capable of running a Docker host, has a container image which can"
 " be pulled from DockerHub, or can be built as a customized container. For"
 " more information visit the `containers page`_."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:175
+#: ../../guides/deploy-at-scale.rst:176
 msgid "Considerations with stateless systems"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:176
+#: ../../guides/deploy-at-scale.rst:177
 msgid ""
 "An important |CL| concept is statelessness and partitioning of system "
 "data from user data. This concept can change the way you think about an "
 "at scale deployment."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:181
+#: ../../guides/deploy-at-scale.rst:182
 msgid "Backup strategy"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:183
+#: ../../guides/deploy-at-scale.rst:184
 msgid ""
 "A |CL| system and its infrastructure should be considered a commodity and"
 " be easily reproducible. Avoid focusing on backing up the operating "
 "system itself or default values."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:187
+#: ../../guides/deploy-at-scale.rst:188
 msgid ""
 "Instead, focus on backing up what's important and unique - the "
 "application and data.  In other words, only focus on backing up critical "
 "areas like `/home`,  `/etc`,  and `/var`."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:192
+#: ../../guides/deploy-at-scale.rst:193
 msgid "Meaningful Logging & Telemetry"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:194
+#: ../../guides/deploy-at-scale.rst:195
 msgid ""
 "Offload logging and telemetry from endpoints to external servers, so it "
 "is persistent and can be accessed on another server when an issue occurs."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:197
+#: ../../guides/deploy-at-scale.rst:198
 msgid ""
 "Remote syslogging in |CL| is available through the `systemd journal-"
 "remote service`_"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:200
+#: ../../guides/deploy-at-scale.rst:201
 msgid ""
-"|CL| offers a `native telemetry solution`_ which can be a powerful tool "
-"for a large deployment to quickly crowdsource issues of interest. Take "
+"|CL| offers a :ref:`telem-guide`, which can be a powerful tool for a "
+"large deployment to quickly crowdsource issues of interest. Take "
 "advantage of this feature with careful consideration of the target "
 "audience and the kind of data that would be valuable, and expose events "
 "appropriately."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:206
+#: ../../guides/deploy-at-scale.rst:207
 msgid ""
 "Your telemetry server is just like any other web application. |WEB-"
 "SERVER-SCALE|"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:210
+#: ../../guides/deploy-at-scale.rst:211
 msgid "Orchestration and Configuration Management"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:212
+#: ../../guides/deploy-at-scale.rst:213
 msgid ""
 "In cloud environments, where systems can be ephemeral, being able to "
 "configure and maintain generic instances is valuable."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:215
+#: ../../guides/deploy-at-scale.rst:216
 msgid ""
 "|CL| offers an efficient cloud-init style solution, `micro-config-"
 "drive`_, through the *os-cloudguest* bundles which allow you to configure"
@@ -383,7 +383,7 @@ msgid ""
 "on bulk provisioning`_ ."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:222
+#: ../../guides/deploy-at-scale.rst:223
 msgid ""
 "A configuration management tool is useful for maintaining consistent "
 "system and application-level configuration. Ansible\\* is offered through"
@@ -391,11 +391,11 @@ msgid ""
 "automation tool."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:228
+#: ../../guides/deploy-at-scale.rst:229
 msgid "Cloud-native applications"
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:230
+#: ../../guides/deploy-at-scale.rst:231
 msgid ""
 "An Infrastructure OS can design for good behavior, but it is ultimately "
 "up to applications to make agile design choices. Applications deployed on"
@@ -403,7 +403,7 @@ msgid ""
 "run. References should be relative and dynamic when possible."
 msgstr ""
 
-#: ../../guides/deploy-at-scale.rst:235
+#: ../../guides/deploy-at-scale.rst:236
 msgid ""
 "The application architecture should incorporate an appropriate tolerance "
 "for infrastructure outages. Don't just keep stateless design as a noted "
@@ -411,4 +411,33 @@ msgid ""
 "and application on new hosts. This naturally minimizes configuration "
 "drift, challenges your monitoring systems, and business continuity plans."
 msgstr ""
+
+#~ msgid ""
+#~ "Development systems which are generating "
+#~ "bundles and updates should be "
+#~ "sufficiently performant for the task and"
+#~ " separate from the swupd update "
+#~ "webservers which are serving update "
+#~ "content to production machines."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "swupd update webservers which are "
+#~ "serving update content to production "
+#~ "machines (see `mixer process`_ for more"
+#~ " information) should be appropriately "
+#~ "scaled."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| offers a `native telemetry "
+#~ "solution`_ which can be a powerful "
+#~ "tool for a large deployment to "
+#~ "quickly crowdsource issues of interest. "
+#~ "Take advantage of this feature with "
+#~ "careful consideration of the target "
+#~ "audience and the kind of data that"
+#~ " would be valuable, and expose events"
+#~ " appropriately."
+#~ msgstr ""
 

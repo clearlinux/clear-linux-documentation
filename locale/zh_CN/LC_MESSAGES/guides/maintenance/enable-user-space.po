@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,15 +93,15 @@ msgid ""
 "development."
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:57
+#: ../../guides/maintenance/enable-user-space.rst:58
 msgid "To update your newly installed OS, run:"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:64
+#: ../../guides/maintenance/enable-user-space.rst:65
 msgid "Add a bundle"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:66
+#: ../../guides/maintenance/enable-user-space.rst:67
 msgid ""
 "Software applications are installed as bundles using the command "
 ":command:`swupd bundle-add`. Experienced Linux* users might compare "
@@ -110,46 +110,54 @@ msgid ""
 "which are integrated stacks of packages."
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:72
+#: ../../guides/maintenance/enable-user-space.rst:73
 msgid ""
 "For example, the `sysadmin-basic` bundle installs the majority of "
 "applications useful to a system administrator. To install it, enter:"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:78
+#: ../../guides/maintenance/enable-user-space.rst:80
 msgid ""
 "View a full list of bundles and packages installed with the `sysadmin-"
-"basic`_ bundle. You can also view `all bundles`_ for |CL|, active or "
+"basic`_ bundle. You can also view all `bundles`_ for |CL|, active or "
 "deprecated."
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:80
+#: ../../guides/maintenance/enable-user-space.rst:83
 msgid ""
 "Expand your knowledge of :command:`swupd` and check out our developer "
 "resources:"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:82
+#: ../../guides/maintenance/enable-user-space.rst:85
 msgid ":ref:`swupd-guide`"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:83
+#: ../../guides/maintenance/enable-user-space.rst:86
 msgid ":ref:`developer-workstation`"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:86
+#: ../../guides/maintenance/enable-user-space.rst:89
 msgid "Next steps"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:88
+#: ../../guides/maintenance/enable-user-space.rst:91
 msgid "Check out our guides and tutorials."
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:90
+#: ../../guides/maintenance/enable-user-space.rst:93
 msgid ":ref:`guides`"
 msgstr ""
 
-#: ../../guides/maintenance/enable-user-space.rst:91
+#: ../../guides/maintenance/enable-user-space.rst:94
 msgid ":ref:`tutorials`"
 msgstr ""
+
+#~ msgid ""
+#~ "View a full list of bundles and"
+#~ " packages installed with the `sysadmin-"
+#~ "basic`_ bundle. You can also view "
+#~ "`all bundles`_ for |CL|, active or "
+#~ "deprecated."
+#~ msgstr ""
 

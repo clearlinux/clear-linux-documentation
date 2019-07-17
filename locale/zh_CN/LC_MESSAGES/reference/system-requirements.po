@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,101 +24,256 @@ msgstr ""
 
 #: ../../reference/system-requirements.rst:6
 msgid ""
-"|CL-ATTR| can run on very minimal hardware. For example, it can run on a "
-"system with a single core CPU, 128MB of memory, and 600MB of disk space."
+"|CL-ATTR| can run on most modern hardware and is capable of running with "
+"modest hardware resources. Out of the box, |CL| can run on a single CPU "
+"core, 1 GB RAM, and 2 GB of disk space."
 msgstr ""
 
-#: ../../reference/system-requirements.rst:9
+#: ../../reference/system-requirements.rst:10
 msgid ""
-"Different use cases and applications will require different "
-"configurations. For general |CL| use, in addition to a supported "
-"processor, the recommended minimum requirements include:"
+"For use cases requiring minimal resources, |CL| :ref:`tooling <tooling>` "
+"can be used to create a highly customized installation that can even run "
+"on a system with a 128MB of memory and 600MB of disk space, for example."
 msgstr ""
 
-#: ../../reference/system-requirements.rst:13
-msgid "Processors:"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:15
-msgid ""
-"|CL-ATTR| can run on any Intel® 64bit processors which support UEFI\\* "
-"and SSE\\* v4.1 streaming SIMD\\* instructions."
+#: ../../reference/system-requirements.rst:16
+msgid "Installer requirements"
 msgstr ""
 
 #: ../../reference/system-requirements.rst:18
-msgid "The following processor families have been verified to run |CL|:"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:20
-msgid "2nd Generation, or later, Intel® Core™ processor family."
-msgstr ""
-
-#: ../../reference/system-requirements.rst:21
-msgid "Intel® Xeon® Processor E3"
+msgid ""
+"The *live desktop* installer requires at least 1 GB of RAM because more "
+"resources are required to run in live mode than after |CL| is installed "
+"onto persistent storage."
 msgstr ""
 
 #: ../../reference/system-requirements.rst:22
-msgid "Intel® Xeon® Processor E5"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:23
-msgid "Intel® Xeon® Processor E7"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:24
 msgid ""
-"Intel® Atom™ processor C2000 product family for servers -- Q3 2013 "
-"version or later."
+"For hardware with less resources, use the *live server* installer because"
+" it has a smaller memory footprint."
 msgstr ""
 
-#: ../../reference/system-requirements.rst:26
-msgid "Intel® Atom™ processor E3800 series -- Q4 2013 version or later."
+#: ../../reference/system-requirements.rst:25
+msgid "See https://clearlinux.org/downloads for more download options."
 msgstr ""
 
-#: ../../reference/system-requirements.rst:28
+#: ../../reference/system-requirements.rst:29
+msgid "System requirements"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:31
 msgid ""
-"To help determine if a processor is supported, you can run a "
-":ref:`compatibility check<compatibility-check>` or go to "
-"http://ark.intel.com and check for these features:"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:32
-msgid "Instruction Set = 64-bit"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:33
-msgid "Instruction Set Extensions = SSSE3"
+"|CL| requires an x86 64-bit processor which supports Intel® Streaming "
+"SIMD Extensions 4.1 (Intel® SSE 4.1), and it requires a system that "
+"supports UEFI."
 msgstr ""
 
 #: ../../reference/system-requirements.rst:34
-msgid "Instruction Set Extensions = SSE 4.1"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:35
-msgid "Instruction Set Extensions = SSE 4.2"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:36
-msgid "Instruction Set Extensions = AES"
-msgstr ""
-
-#: ../../reference/system-requirements.rst:37
-msgid "Instruction Set Extensions = PCLMUL"
+msgid ""
+"The |CL| installer performs a system compatibility check upon booting. To"
+" manually verify system compatibility with |CL|, run the "
+":ref:`compatibility check tool<compatibility-check>` or go to "
+"http://ark.intel.com and check for these features:"
 msgstr ""
 
 #: ../../reference/system-requirements.rst:39
-msgid "Memory: 4GB RAM"
+msgid "Instruction Set:"
 msgstr ""
 
 #: ../../reference/system-requirements.rst:41
-msgid "Hard Disk: 20GB HDD"
+msgid "64-bit"
 msgstr ""
 
 #: ../../reference/system-requirements.rst:43
-msgid "Network: Active Internet connection"
+msgid "Instruction Set Extensions:"
 msgstr ""
 
 #: ../../reference/system-requirements.rst:45
-msgid "Graphics: Intel HD Graphics (required if running a GUI desktop)"
+msgid "Supplemental Streaming SIMD Extension 3 (Intel® SSSE3)"
 msgstr ""
+
+#: ../../reference/system-requirements.rst:46
+msgid "Intel® Streaming SIMD Extensions 4.1 (Intel® SSE 4.1)"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:47
+msgid "Intel® Streaming SIMD Extensions 4.2 (Intel® SSE 4.2)"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:48
+msgid "Intel® Advanced Encryption Standard New Instructions (Intel® AES-NI)"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:49
+msgid "Carry-less Multiplication (PCLMUL)"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:51
+msgid "The following processor families have been verified to run |CL|:"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:53
+msgid "Intel® Core™ Processor Family (2nd generation or greater)"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:54
+msgid "Intel® Xeon® E3-xxxx processor"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:55
+msgid "Intel® Xeon® E5-xxxx processor"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:56
+msgid "Intel® Xeon® E7-xxxx processor"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:57
+msgid "Intel® Atom® processor C Series"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:58
+msgid "Intel® Atom® processor E Series"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:62
+msgid "Recommended configurations"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:64
+msgid "For general |CL| desktop use the recommended minimum requirements include:"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:67
+msgid "Component"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:67
+msgid "Configuration"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:69
+msgid "Processor"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:69
+msgid "Compatible x86 64-bit processor"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:71
+msgid "Memory"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:71
+msgid "4GB RAM"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:73
+msgid "Disk"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:73
+msgid "20 GB"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:75
+msgid "Graphics"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:75
+msgid "Device with openGL support (e.g. Intel HD/UHD Graphics)"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:77
+msgid "Network"
+msgstr ""
+
+#: ../../reference/system-requirements.rst:77
+msgid "Active Internet connection"
+msgstr ""
+
+#~ msgid ""
+#~ "|CL-ATTR| can run on very minimal"
+#~ " hardware. For example, it can run"
+#~ " on a system with a single core"
+#~ " CPU, 128MB of memory, and 600MB "
+#~ "of disk space."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Different use cases and applications "
+#~ "will require different configurations. For "
+#~ "general |CL| use, in addition to a"
+#~ " supported processor, the recommended "
+#~ "minimum requirements include:"
+#~ msgstr ""
+
+#~ msgid "Processors:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL-ATTR| can run on any Intel®"
+#~ " 64bit processors which support UEFI\\* "
+#~ "and SSE\\* v4.1 streaming SIMD\\* "
+#~ "instructions."
+#~ msgstr ""
+
+#~ msgid "2nd Generation, or later, Intel® Core™ processor family."
+#~ msgstr ""
+
+#~ msgid "Intel® Xeon® Processor E3"
+#~ msgstr ""
+
+#~ msgid "Intel® Xeon® Processor E5"
+#~ msgstr ""
+
+#~ msgid "Intel® Xeon® Processor E7"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Intel® Atom™ processor C2000 product "
+#~ "family for servers -- Q3 2013 "
+#~ "version or later."
+#~ msgstr ""
+
+#~ msgid "Intel® Atom™ processor E3800 series -- Q4 2013 version or later."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To help determine if a processor "
+#~ "is supported, you can run a "
+#~ ":ref:`compatibility check<compatibility-check>` or"
+#~ " go to http://ark.intel.com and check "
+#~ "for these features:"
+#~ msgstr ""
+
+#~ msgid "Instruction Set = 64-bit"
+#~ msgstr ""
+
+#~ msgid "Instruction Set Extensions = SSSE3"
+#~ msgstr ""
+
+#~ msgid "Instruction Set Extensions = SSE 4.1"
+#~ msgstr ""
+
+#~ msgid "Instruction Set Extensions = SSE 4.2"
+#~ msgstr ""
+
+#~ msgid "Instruction Set Extensions = AES"
+#~ msgstr ""
+
+#~ msgid "Instruction Set Extensions = PCLMUL"
+#~ msgstr ""
+
+#~ msgid "Memory: 4GB RAM"
+#~ msgstr ""
+
+#~ msgid "Hard Disk: 20GB HDD"
+#~ msgstr ""
+
+#~ msgid "Network: Active Internet connection"
+#~ msgstr ""
+
+#~ msgid "Graphics: Intel HD Graphics (required if running a GUI desktop)"
+#~ msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,88 +24,135 @@ msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:6
 msgid ""
-"This section explains how to run |CL-ATTR| inside a `Windows Server "
+"This page explains how to run |CL-ATTR| inside a `Windows Server "
 "Virtualization`_\\* or **Hyper-V** environment."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/hyper-v.rst:9
-msgid ""
-"Please ensure you have enabled `Intel® Virtualization Technology "
-"<http://www.intel.com/content/www/us/en/virtualization/virtualization-"
-"technology/intel-virtualization-technology.html>`_ (Intel® VT) and "
-"`Intel® Virtualization Technology for Directed I/O "
-"<https://software.intel.com/en-us/articles/intel-virtualization-"
-"technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-"
-"virtualization-of-io-devices>`_ (Intel® VT-d) in your BIOS/UEFI firmware "
-"configuration."
+#: ../../get-started/virtual-machine-install/hyper-v.rst:14
+msgid "Prerequisites"
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:16
-msgid "Enable Hyper-V"
+msgid "Enable `Intel® Virtualization Technology`_ (Intel® VT)"
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:18
 msgid ""
-"Please refer to the `Microsoft documentation`_ to enable and configure "
-"*Hyper-V* on your machine."
+"Enable `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)"
+" in your BIOS/UEFI firmware configuration."
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:22
-msgid "Create a virtual network"
+msgid "Enable Hyper-V"
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:24
 msgid ""
-"Once *Hyper-V* has been enabled on your Windows system you will need to "
-"create a virtual network in the **Hyper-V Manager**.  Refer to the "
-"`Create a Virtual Network documentation`_ to create and configure a "
-"virtual network."
+"Please refer to `Install Hyper-V on Windows 10`_ to enable and configure "
+"*Hyper-V* on your machine."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:28
+msgid "Create a virtual network"
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:30
-msgid "Create a virtual machine"
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/hyper-v.rst:32
 msgid ""
-"Download and decompress the latest hyperv disk image :file:`clear-XXXXX-"
-"hyperv.img.gz`, where XXXXX is the latest available version of |CL| from "
-"our `downloads`_ section."
+"Once *Hyper-V* has been enabled on your Windows system you will need to "
+"create a virtual network in the **Hyper-V Manager**.  Refer to the "
+"`Create a virtual network`_ documentation to create and configure a "
+"virtual network."
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:36
-msgid "Create a virtual machine using the **Hyper-V Manager**:"
+msgid "Create a virtual machine"
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:38
+msgid ""
+"Download and decompress the latest hyperv disk image :file:`clear-XXXXX-"
+"hyperv.img.gz`, where XXXXX is the latest available version of |CL| from "
+"our `Downloads`_ page."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:42
+msgid "Create a virtual machine using the **Hyper-V Manager**:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:44
 msgid "Choose **Generation 2** when prompted to *specify VM generation*."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/hyper-v.rst:39
+#: ../../get-started/virtual-machine-install/hyper-v.rst:45
 msgid ""
 "Choose **Use an existing virtual hard disk** and browse to find the :file"
 ":`clear-XXXX-hyperv.vhdx` file."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/hyper-v.rst:41
+#: ../../get-started/virtual-machine-install/hyper-v.rst:47
 msgid ""
 "When finished, open VM settings, select Firmware Section and in Secure "
 "Boot config, **uncheck** Enable Secure Boot."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/hyper-v.rst:44
+#: ../../get-started/virtual-machine-install/hyper-v.rst:50
 msgid "Currently, |CL| does not boot with `secure boot` enabled."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/hyper-v.rst:47
+#: ../../get-started/virtual-machine-install/hyper-v.rst:53
 msgid "Connect to your new VM and start it. You should see a prompt:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/hyper-v.rst:53
+#: ../../get-started/virtual-machine-install/hyper-v.rst:59
 msgid "Set a root user password."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/hyper-v.rst:55
+#: ../../get-started/virtual-machine-install/hyper-v.rst:61
 msgid "Your virtual machine running |CL| is ready!"
 msgstr ""
+
+#~ msgid ""
+#~ "This section explains how to run "
+#~ "|CL-ATTR| inside a `Windows Server "
+#~ "Virtualization`_\\* or **Hyper-V** environment."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Please ensure you have enabled `Intel®"
+#~ " Virtualization Technology "
+#~ "<http://www.intel.com/content/www/us/en/virtualization"
+#~ "/virtualization-technology/intel-virtualization-"
+#~ "technology.html>`_ (Intel® VT) and `Intel® "
+#~ "Virtualization Technology for Directed I/O "
+#~ "<https://software.intel.com/en-us/articles/intel-"
+#~ "virtualization-technology-for-directed-io-"
+#~ "vt-d-enhancing-intel-platforms-for-"
+#~ "efficient-virtualization-of-io-devices>`_ "
+#~ "(Intel® VT-d) in your BIOS/UEFI firmware"
+#~ " configuration."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Please refer to the `Microsoft "
+#~ "documentation`_ to enable and configure "
+#~ "*Hyper-V* on your machine."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Once *Hyper-V* has been enabled on "
+#~ "your Windows system you will need "
+#~ "to create a virtual network in the"
+#~ " **Hyper-V Manager**.  Refer to the "
+#~ "`Create a Virtual Network documentation`_ "
+#~ "to create and configure a virtual "
+#~ "network."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Download and decompress the latest "
+#~ "hyperv disk image :file:`clear-XXXXX-"
+#~ "hyperv.img.gz`, where XXXXX is the "
+#~ "latest available version of |CL| from"
+#~ " our `downloads`_ section."
+#~ msgstr ""
 

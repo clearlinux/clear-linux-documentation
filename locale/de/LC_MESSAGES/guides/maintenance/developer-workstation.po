@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,139 +58,142 @@ msgid ""
 "Table 1 as a starting point."
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:29
+#: ../../guides/maintenance/developer-workstation.rst:30
 msgid "**Table 1. Developer Profiles**"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:33
+#: ../../guides/maintenance/developer-workstation.rst:34
 msgid "|CL| Bundle"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:34
+#: ../../guides/maintenance/developer-workstation.rst:35
 msgid "*Internet of Things (IoT)*"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:35
+#: ../../guides/maintenance/developer-workstation.rst:36
 msgid "*System Administrator*"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:36
+#: ../../guides/maintenance/developer-workstation.rst:37
 msgid "*Client/Cloud/Web Developer*"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:38
+#: ../../guides/maintenance/developer-workstation.rst:39
 msgid "`editors`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:39
 #: ../../guides/maintenance/developer-workstation.rst:40
 #: ../../guides/maintenance/developer-workstation.rst:41
-#: ../../guides/maintenance/developer-workstation.rst:44
+#: ../../guides/maintenance/developer-workstation.rst:42
 #: ../../guides/maintenance/developer-workstation.rst:45
 #: ../../guides/maintenance/developer-workstation.rst:46
-#: ../../guides/maintenance/developer-workstation.rst:49
+#: ../../guides/maintenance/developer-workstation.rst:47
 #: ../../guides/maintenance/developer-workstation.rst:50
 #: ../../guides/maintenance/developer-workstation.rst:51
-#: ../../guides/maintenance/developer-workstation.rst:55
+#: ../../guides/maintenance/developer-workstation.rst:52
 #: ../../guides/maintenance/developer-workstation.rst:56
-#: ../../guides/maintenance/developer-workstation.rst:60
+#: ../../guides/maintenance/developer-workstation.rst:57
 #: ../../guides/maintenance/developer-workstation.rst:61
-#: ../../guides/maintenance/developer-workstation.rst:65
+#: ../../guides/maintenance/developer-workstation.rst:62
 #: ../../guides/maintenance/developer-workstation.rst:66
-#: ../../guides/maintenance/developer-workstation.rst:69
+#: ../../guides/maintenance/developer-workstation.rst:67
 #: ../../guides/maintenance/developer-workstation.rst:70
 #: ../../guides/maintenance/developer-workstation.rst:71
-#: ../../guides/maintenance/developer-workstation.rst:76
+#: ../../guides/maintenance/developer-workstation.rst:72
+#: ../../guides/maintenance/developer-workstation.rst:77
 msgid "✓"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:43
+#: ../../guides/maintenance/developer-workstation.rst:44
 msgid "`network-basic`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:48
+#: ../../guides/maintenance/developer-workstation.rst:49
 msgid "`openssh-server`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:53
+#: ../../guides/maintenance/developer-workstation.rst:54
 msgid "`webserver-basic`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:58
+#: ../../guides/maintenance/developer-workstation.rst:59
 msgid "`application-server`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:63
+#: ../../guides/maintenance/developer-workstation.rst:64
 msgid "`database-basic`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:68
+#: ../../guides/maintenance/developer-workstation.rst:69
 msgid "`desktop-autostart`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:73
+#: ../../guides/maintenance/developer-workstation.rst:74
 msgid "`dev-utils`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:79
+#: ../../guides/maintenance/developer-workstation.rst:80
 msgid "`swupd` search"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:81
+#: ../../guides/maintenance/developer-workstation.rst:82
 msgid ""
 "We recommend learning about :ref:`swupd <swupd-guide>`, to learn the "
 "commands to search for and add bundles relevant to your project."
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:84
+#: ../../guides/maintenance/developer-workstation.rst:85
 msgid ""
 "The guide provides an :ref:`example <swupd-guide-example-install-bundle>`"
 " that shows you how to:"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:87
+#: ../../guides/maintenance/developer-workstation.rst:88
 msgid "Use `swupd` to search for bundles"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:88
+#: ../../guides/maintenance/developer-workstation.rst:89
 msgid "Use `swupd` to add bundles"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:91
+#: ../../guides/maintenance/developer-workstation.rst:92
 msgid "Core Concepts"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:93
+#: ../../guides/maintenance/developer-workstation.rst:94
 msgid ""
 "We recommend that you understand these core concepts in |CL| *before* "
 "developing your project."
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:96
+#: ../../guides/maintenance/developer-workstation.rst:97
 msgid ":ref:`Bundles <bundles-about>`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:97
+#: ../../guides/maintenance/developer-workstation.rst:98
 msgid ":ref:`Software update <swupd-about>`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:98
+#: ../../guides/maintenance/developer-workstation.rst:99
 msgid ":ref:`Mixer <mixer-about>`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:99
+#: ../../guides/maintenance/developer-workstation.rst:100
 msgid ":ref:`Autospec <autospec-about>`"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:102
+#: ../../guides/maintenance/developer-workstation.rst:103
 msgid "Other resources for developers"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:104
+#: ../../guides/maintenance/developer-workstation.rst:105
 msgid "`Developer Tooling Framework`_ for |CL|"
 msgstr ""
 
-#: ../../guides/maintenance/developer-workstation.rst:105
-msgid "`Bundle definition files`_"
+#: ../../guides/maintenance/developer-workstation.rst:106
+msgid "`Bundle Definition Files`_"
 msgstr ""
+
+#~ msgid "`Bundle definition files`_"
+#~ msgstr ""
 

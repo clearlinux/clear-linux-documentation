@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -242,7 +242,7 @@ msgid ""
 msgstr ""
 
 #: ../../guides/telemetrics/telem-guide.rst:95
-#: ../../guides/telemetrics/telem-guide.rst:362
+#: ../../guides/telemetrics/telem-guide.rst:386
 msgid "Instrument your code with the libtelemetry API"
 msgstr ""
 
@@ -575,11 +575,37 @@ msgid ""
 "from stdin so you can use it in a :file:`heredoc` in scripts."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:365
+#: ../../guides/telemetrics/telem-guide.rst:360
+msgid "Set a static machine id"
+msgstr ""
+
+#: ../../guides/telemetrics/telem-guide.rst:362
+msgid ""
+"The machine id reported by the telemetry client is rotated every three "
+"days for privacy reasons. If you wish to have a static machine id for "
+"testing purposes, you can opt in by creating a file named \"opt-in-"
+"static-machine-id\" in the directory  :file:`/etc/telemetrics/`."
+msgstr ""
+
+#: ../../guides/telemetrics/telem-guide.rst:367
+msgid "Create a directory `telemetrics`."
+msgstr ""
+
+#: ../../guides/telemetrics/telem-guide.rst:374
+msgid ""
+"Create the file and replace the \"unique machine ID\" with your desired "
+"static machine ID."
+msgstr ""
+
+#: ../../guides/telemetrics/telem-guide.rst:383
+msgid "The `machine id` is different than the system hostname."
+msgstr ""
+
+#: ../../guides/telemetrics/telem-guide.rst:389
 msgid "Prerequisites"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:366
+#: ../../guides/telemetrics/telem-guide.rst:390
 msgid ""
 "Confirm that the telemetrics header file is located on the system at "
 ":file:`usr/include/telemetry.h`  The `latest version`_ of the file can "
@@ -587,23 +613,23 @@ msgid ""
 "bundle will install the header file that matches your |CL| version."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:368
+#: ../../guides/telemetrics/telem-guide.rst:392
 msgid "Includes and variables"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:370
+#: ../../guides/telemetrics/telem-guide.rst:394
 msgid ""
 "You will need to include the following headers in your code to use the "
 "API:"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:381
+#: ../../guides/telemetrics/telem-guide.rst:405
 msgid ""
 "Use the following code to create the variables we need to hold the data "
 "for the record we will be creating:"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:396
+#: ../../guides/telemetrics/telem-guide.rst:420
 msgid "Severity:"
 msgstr ""
 
@@ -619,7 +645,7 @@ msgid ""
 "crit]"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:400
+#: ../../guides/telemetrics/telem-guide.rst:424
 msgid "Payload_version:"
 msgstr ""
 
@@ -630,7 +656,7 @@ msgid ""
 "string. Values greater than 1 are reserved for future use."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:404
+#: ../../guides/telemetrics/telem-guide.rst:428
 msgid "Classification:"
 msgstr ""
 
@@ -648,7 +674,7 @@ msgid ""
 "than 40 bytes long. Two / delimiters are required."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:408
+#: ../../guides/telemetrics/telem-guide.rst:432
 msgid "Tm_handle:"
 msgstr ""
 
@@ -662,7 +688,7 @@ msgid ""
 "if the function returns success."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:414
+#: ../../guides/telemetrics/telem-guide.rst:438
 msgid "Payload:"
 msgstr ""
 
@@ -674,11 +700,11 @@ msgstr ""
 msgid "Value: The payload to set"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:416
+#: ../../guides/telemetrics/telem-guide.rst:440
 msgid "For this example, we'll set the payload to “hello” by using ``asprintf()``"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:426
+#: ../../guides/telemetrics/telem-guide.rst:450
 msgid ""
 "The functions ``asprintf()`` and ``vasprintf()`` are analogs of "
 "``sprintf(3)`` and    ``vsprintf(3)``, except that they allocate a string"
@@ -688,11 +714,11 @@ msgid ""
 " is no longer needed."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:428
+#: ../../guides/telemetrics/telem-guide.rst:452
 msgid "Create the new telemetry record"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:430
+#: ../../guides/telemetrics/telem-guide.rst:454
 msgid ""
 "The  function  ``tm_create_record()`` initializes a telemetry record and "
 "sets the severity and classification of that record, as well as the "
@@ -701,17 +727,17 @@ msgid ""
 " needed."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:440
+#: ../../guides/telemetrics/telem-guide.rst:464
 msgid "Set the payload field of a telemetrics record"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:442
+#: ../../guides/telemetrics/telem-guide.rst:466
 msgid ""
 "The function ``tm_set_payload()`` attaches the provided telemetry record "
 "data to the telemetry record. The current maximum payload size is 8192b."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:453
+#: ../../guides/telemetrics/telem-guide.rst:477
 msgid ""
 "The ``free()`` function frees the memory space pointed to by ptr, which "
 "must have been returned by a previous call to ``malloc()``, ``calloc()``,"
@@ -720,11 +746,11 @@ msgid ""
 "is performed."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:455
+#: ../../guides/telemetrics/telem-guide.rst:479
 msgid "Send a record to the telemetrics daemon"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:457
+#: ../../guides/telemetrics/telem-guide.rst:481
 msgid ""
 "The function ``tm_send_record()`` delivers the record to the local "
 "``telemprobd(1)`` service. Since the telemetry record was allocated by "
@@ -732,37 +758,37 @@ msgid ""
 "longer needed."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:476
+#: ../../guides/telemetrics/telem-guide.rst:500
 msgid "Full sample application with compiling flags"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:478
+#: ../../guides/telemetrics/telem-guide.rst:502
 msgid "Create a new file test.c  add the following code."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:533
+#: ../../guides/telemetrics/telem-guide.rst:557
 msgid "Compile with the gcc compiler, using this command:"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:540
+#: ../../guides/telemetrics/telem-guide.rst:564
 msgid "Test to ensure the program is working:"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:549
+#: ../../guides/telemetrics/telem-guide.rst:573
 msgid ""
 "A full example of the `heartbeat probe`_ in C is documented in the source"
 " code."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:552
+#: ../../guides/telemetrics/telem-guide.rst:576
 msgid "Reference"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:559
+#: ../../guides/telemetrics/telem-guide.rst:583
 msgid "The Telemetry API"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:561
+#: ../../guides/telemetrics/telem-guide.rst:585
 msgid ""
 "Installing the ``telemetrics`` bundle includes the libtelemetry C "
 "library, which exposes an API used by the telemprobd and telempostd "
@@ -771,11 +797,11 @@ msgid ""
 "client`_ repository."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:564
+#: ../../guides/telemetrics/telem-guide.rst:588
 msgid "Client Configuration"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:566
+#: ../../guides/telemetrics/telem-guide.rst:590
 msgid ""
 "The telemetry client will look for the configuration file located at "
 ":file:`/etc/telemetrics/telemetrics.conf` and use it if it exists. If the"
@@ -786,27 +812,27 @@ msgid ""
 "edit it."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:569
+#: ../../guides/telemetrics/telem-guide.rst:593
 msgid "Configuration Options"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:570
+#: ../../guides/telemetrics/telem-guide.rst:594
 msgid "The client uses the following configuration options from the config file:"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:572
+#: ../../guides/telemetrics/telem-guide.rst:596
 msgid ""
 "**server**: This specifies the web server to which telempostd sends the "
 "telemetry records."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:573
+#: ../../guides/telemetrics/telem-guide.rst:597
 msgid ""
 "**socket_path**: This specifies the path of the unix domain socket that "
 "the telemprobd listens on for connections from the probes."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:574
+#: ../../guides/telemetrics/telem-guide.rst:598
 msgid ""
 "**spool_dir**: This configuration option is related to spooling. If the "
 "daemon is not able to send the telemetry records to the backend server "
@@ -816,13 +842,13 @@ msgid ""
 "daemon."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:575
+#: ../../guides/telemetrics/telem-guide.rst:599
 msgid ""
 "**record_expiry**: This is the time in minutes after which the records in"
 " the spool directory are deleted by the daemon."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:576
+#: ../../guides/telemetrics/telem-guide.rst:600
 msgid ""
 "**spool_process_time**: This specifies the time interval in seconds that "
 "the daemon waits for before checking the spool directory for records. The"
@@ -834,21 +860,21 @@ msgid ""
 "a maximum of 20 records in a single spool run loop."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:577
+#: ../../guides/telemetrics/telem-guide.rst:601
 msgid ""
 "**rate_limit_enabled**: This determines whether rate-limiting is enabled "
 "or disabled. When enabled, there is a threshold on both records sent "
 "within a window of time, and record bytes sent within a window a time."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:578
+#: ../../guides/telemetrics/telem-guide.rst:602
 msgid ""
 "**record_burst_limit**: This is the maximum amount of records allowed to "
 "be passed by the daemon within the record_window_length of time. If set "
 "to -1, the rate-limiting for record bursts is disabled."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:579
+#: ../../guides/telemetrics/telem-guide.rst:603
 msgid ""
 "**record_window_length**: The time in minutes (0-59) that establishes the"
 " window length for the record_burst_limit. EX: if "
@@ -856,20 +882,20 @@ msgid ""
 "1000 records can be passed within any given fifteen minute window."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:580
+#: ../../guides/telemetrics/telem-guide.rst:604
 msgid ""
 "**byte_burst_limit**: This is the maximum amount of bytes that can be "
 "passed by the daemon within the byte_window_length of time. If set to -1,"
 " the rate-limiting for byte bursts is disabled."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:582
+#: ../../guides/telemetrics/telem-guide.rst:606
 msgid ""
 "**byte_window_length**: This is the time, in minutes (0-59), that "
 "establishes the window length for the byte_burst_limit."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:583
+#: ../../guides/telemetrics/telem-guide.rst:607
 msgid ""
 "**rate_limit_strategy**: This is the strategy chosen once the rate-"
 "limiting threshold has been reached. Currently the options are 'drop' or "
@@ -877,7 +903,7 @@ msgid ""
 "be spooled and sent at a later time."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:584
+#: ../../guides/telemetrics/telem-guide.rst:608
 msgid ""
 "**record_retention_enabled**: When this key is enabled (true) the daemon "
 "saves a copy of the payload on disk from all valid records. To avoid the "
@@ -885,7 +911,7 @@ msgid ""
 "default value for this configuration key is false."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:585
+#: ../../guides/telemetrics/telem-guide.rst:609
 msgid ""
 "**record_server_delivery_enabled**: This key controls the delivery of "
 "records to server; when enabled (default value), the record will be "
@@ -896,18 +922,18 @@ msgid ""
 "only."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:589
+#: ../../guides/telemetrics/telem-guide.rst:613
 msgid ""
 "Configuration options may change as the telemetry client evolves. Please "
 "use the comments in the file itself as the most accurate reference for "
 "configuration."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:595
+#: ../../guides/telemetrics/telem-guide.rst:619
 msgid "Client Run-time Options"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:596
+#: ../../guides/telemetrics/telem-guide.rst:620
 msgid ""
 "The |CL| telemetry client provides an admin tool called "
 ":guilabel:`telemctl` for managing the telemetry services and probes. The "
@@ -915,11 +941,11 @@ msgid ""
 "in the following:"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:615
+#: ../../guides/telemetrics/telem-guide.rst:639
 msgid "start/stop/restart"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:617
+#: ../../guides/telemetrics/telem-guide.rst:641
 msgid ""
 "The commands to start, stop and restart the telemetry services manage all"
 " required services and probes on the system.  There is no need to "
@@ -928,11 +954,11 @@ msgid ""
 "stop** followed by **telemctl start** ."
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:620
+#: ../../guides/telemetrics/telem-guide.rst:644
 msgid "is-active"
 msgstr ""
 
-#: ../../guides/telemetrics/telem-guide.rst:622
+#: ../../guides/telemetrics/telem-guide.rst:646
 msgid ""
 "The `is-active` option reports whether the two client daemons are active."
 " This is useful to verify that the **opt-in** and **opt-out** options "

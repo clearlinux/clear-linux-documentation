@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../../tooling/ister.rst:6
 msgid ""
-"The `ister.py tool`_ is a template-based installer used by |CL-ATTR| to "
+"The `ister.py`_ tool is a template-based installer used by |CL-ATTR| to "
 "produce images for each release. The same ister tool is available for use"
 " in |CL| to create custom images based on an upstream image."
 msgstr ""
@@ -99,27 +99,29 @@ msgstr ""
 
 #: ../../tooling/ister.rst:52
 msgid ""
-"Install the :command:`os-installer` bundle. Refer to `Install a bundle`_ "
-"for more details."
+"Install the :command:`os-installer` bundle. Refer to :ref:`swupd-guide` "
+"for more information on installing bundles."
 msgstr ""
 
 #: ../../tooling/ister.rst:55
-msgid "Download the `ister.py tool`_ and grant it sudo privileges."
+msgid "Download the `ister.py`_ tool and grant it sudo privileges."
 msgstr ""
 
 #: ../../tooling/ister.rst:57
-msgid "Download the JSON configuration file for the desired image:"
-msgstr ""
-
-#: ../../tooling/ister.rst:59
-msgid "`Configuration files for the current release`_"
+msgid ""
+"Download the JSON configuration file for the desired image (located in "
+":file:`config/image/`):"
 msgstr ""
 
 #: ../../tooling/ister.rst:60
+msgid "`Current release`_"
+msgstr ""
+
+#: ../../tooling/ister.rst:61
 msgid "`Previous releases`_ (only after March 2017)"
 msgstr ""
 
-#: ../../tooling/ister.rst:62
+#: ../../tooling/ister.rst:63
 msgid ""
 "For a previous release, navigate to `Previous releases`_, select the "
 "version you want, and find the JSON configuration file under "
@@ -127,40 +129,64 @@ msgid ""
 "``https://cdn.download.clearlinux.org/releases/15700/clear/config/image/``"
 msgstr ""
 
-#: ../../tooling/ister.rst:67
+#: ../../tooling/ister.rst:68
 msgid "Download the “PostNonChroot” script (if applicable)."
 msgstr ""
 
-#: ../../tooling/ister.rst:69
+#: ../../tooling/ister.rst:70
 msgid ""
 "The JSON configuration file for the image may have an accompanying "
 "“PostNonChroot” script that is executed at the end of the image creation "
 "process. If it does, download the script and make it executable."
 msgstr ""
 
-#: ../../tooling/ister.rst:73
+#: ../../tooling/ister.rst:74
 msgid "Edit the JSON configuration file as needed."
 msgstr ""
 
-#: ../../tooling/ister.rst:75
+#: ../../tooling/ister.rst:76
 msgid ""
 "If your configuration file has an accompanying \"PostNonChroot\" script, "
 "change the default path of the script to match your path."
 msgstr ""
 
-#: ../../tooling/ister.rst:78
+#: ../../tooling/ister.rst:79
 msgid "Generate the new image with the following command:"
 msgstr ""
 
-#: ../../tooling/ister.rst:85
+#: ../../tooling/ister.rst:86
 msgid "Related topics"
 msgstr ""
 
-#: ../../tooling/ister.rst:87
+#: ../../tooling/ister.rst:88
 msgid ":ref:`mixer`"
 msgstr ""
 
-#: ../../tooling/ister.rst:88
+#: ../../tooling/ister.rst:89
 msgid ":ref:`bulk-provision`"
 msgstr ""
+
+#~ msgid ""
+#~ "The `ister.py tool`_ is a template-"
+#~ "based installer used by |CL-ATTR| "
+#~ "to produce images for each release. "
+#~ "The same ister tool is available "
+#~ "for use in |CL| to create custom"
+#~ " images based on an upstream image."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Install the :command:`os-installer` bundle."
+#~ " Refer to `Install a bundle`_ for "
+#~ "more details."
+#~ msgstr ""
+
+#~ msgid "Download the `ister.py tool`_ and grant it sudo privileges."
+#~ msgstr ""
+
+#~ msgid "Download the JSON configuration file for the desired image:"
+#~ msgstr ""
+
+#~ msgid "`Configuration files for the current release`_"
+#~ msgstr ""
 

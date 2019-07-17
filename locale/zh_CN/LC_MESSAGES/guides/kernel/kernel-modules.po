@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,137 +85,139 @@ msgid ""
 msgstr ""
 
 #: ../../guides/kernel/kernel-modules.rst:59
-msgid "Make enhancement requests to the |CL| distribution `on GitHub`_."
+msgid ""
+"Make enhancement requests to the |CL| `Distribution Project "
+"<https://github.com/clearlinux/distribution>`_ on GitHub."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:65
+#: ../../guides/kernel/kernel-modules.rst:66
 msgid "Build, install, and load an out-of-tree module"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:67
+#: ../../guides/kernel/kernel-modules.rst:68
 msgid ""
 "Follow the steps in this section if you are an individual user or "
 "testing, and you need an out-of-tree kernel module that is not available "
 "through |CL|. For a more scalable and customizable approach, we recommend"
-" using the `mixer tool`_ to provide a custom kernel and updates."
+" using the :ref:`mixer` to provide a custom kernel and updates."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:74
+#: ../../guides/kernel/kernel-modules.rst:75
 msgid "Prerequisites"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:76
+#: ../../guides/kernel/kernel-modules.rst:77
 msgid "Before you begin, you must:"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:78
+#: ../../guides/kernel/kernel-modules.rst:79
 msgid "Disable Secure Boot."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:79
+#: ../../guides/kernel/kernel-modules.rst:80
 msgid "Disable kernel module integrity checking."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:80
+#: ../../guides/kernel/kernel-modules.rst:81
 msgid "Have a kernel module package in the form of source code."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:81
+#: ../../guides/kernel/kernel-modules.rst:82
 msgid "Rebuild the module against new versions of the Linux kernel."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:85
+#: ../../guides/kernel/kernel-modules.rst:86
 msgid ""
 "Any time the kernel is upgraded on your Clear Linux system, you must "
 "rebuild your out-of-tree modules."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:90
+#: ../../guides/kernel/kernel-modules.rst:91
 msgid "Build and install kernel module"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:92
+#: ../../guides/kernel/kernel-modules.rst:93
 msgid ""
 "Determine which kernel variant is running on |CL|. In the example below, "
 "the *native* kernel is in use."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:100
+#: ../../guides/kernel/kernel-modules.rst:101
 msgid ""
 "Install the kernel dev bundle corresponding to the installed kernel. The "
 "kernel dev bundle contains the kernel headers, which are required for "
 "compiling kernel modules. For example:"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:104
+#: ../../guides/kernel/kernel-modules.rst:105
 msgid "`linux-dev` for developing against the native kernel."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:105
+#: ../../guides/kernel/kernel-modules.rst:106
 msgid "`linux-lts-dev` for developing against the LTS kernel."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:111
+#: ../../guides/kernel/kernel-modules.rst:112
 msgid ""
 "Follow instructions from the kernel module source code to compile the "
 "kernel module. For example:"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:124
+#: ../../guides/kernel/kernel-modules.rst:125
 msgid "Load kernel module"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:126
+#: ../../guides/kernel/kernel-modules.rst:127
 msgid ""
 "Disable Secure Boot in your system's UEFI settings, if you have enabled "
 "it. The loading of new out-of-tree modules modifies the signatures that "
 "Secure Boot relies on for trust."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:130
+#: ../../guides/kernel/kernel-modules.rst:131
 msgid ""
 "Disable signature checking for the kernel by modifying the kernel boot "
 "parameters and reboot the system."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:133
+#: ../../guides/kernel/kernel-modules.rst:134
 msgid ""
 "All kernel modules from |CL| have been signed to enforce kernel security."
 " However, out-of-tree modules break this chain of trust so this mechanism"
 " needs to be disabled."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:142
+#: ../../guides/kernel/kernel-modules.rst:143
 msgid ""
 "Update the boot manager and reboot the system to implement the changed "
 "kernel parameters."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:152
+#: ../../guides/kernel/kernel-modules.rst:153
 msgid ""
 "If successful, the :command:`clr-boot-manager update` command does not "
 "return any console output."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:155
+#: ../../guides/kernel/kernel-modules.rst:156
 msgid ""
 "After rebooting, manually load out-of-tree modules using the "
 ":command:`insmod` command."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:163
+#: ../../guides/kernel/kernel-modules.rst:164
 msgid "Examples"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:168
+#: ../../guides/kernel/kernel-modules.rst:169
 msgid "Optional: Specify module options and aliases"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:170
+#: ../../guides/kernel/kernel-modules.rst:171
 msgid "Use the :command:`modprobe` command to load a module and set options."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:172
+#: ../../guides/kernel/kernel-modules.rst:173
 msgid ""
 ":command:`modprobe` may add or remove more than one module due to module "
 "interdependencies. You can specify which options to use with individual "
@@ -223,7 +225,7 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:180
+#: ../../guides/kernel/kernel-modules.rst:181
 msgid ""
 "All files underneath the :file:`/etc/modprobe.d` directory that end with "
 "the :file:`.conf` extension specify module options to use when loading. "
@@ -232,36 +234,50 @@ msgid ""
 "special requirements."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:185
+#: ../../guides/kernel/kernel-modules.rst:186
 msgid "Learn more about :command:`modprobe` on the modprobe.d manual page:"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:192
+#: ../../guides/kernel/kernel-modules.rst:193
 msgid "Optional: Configure kernel modules to load at boot"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:194
+#: ../../guides/kernel/kernel-modules.rst:195
 msgid ""
 "Use the :file:`/etc/modules-load.d` configuration directory to specify "
 "kernel modules to load automatically at boot."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:201
+#: ../../guides/kernel/kernel-modules.rst:202
 msgid ""
 "All files underneath the :file:`/etc/modules-load.d` directory that end "
 "with the :file:`.conf` extension contain a list of module names of "
 "aliases (one per line) to load at boot."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:205
+#: ../../guides/kernel/kernel-modules.rst:206
 msgid "Learn more about module loading in the modules-load.d manual page:"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:215
+#: ../../guides/kernel/kernel-modules.rst:216
 msgid "Related topic"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules.rst:217
+#: ../../guides/kernel/kernel-modules.rst:218
 msgid ":ref:`kernel-modules-dkms`"
 msgstr ""
+
+#~ msgid "Make enhancement requests to the |CL| distribution `on GitHub`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Follow the steps in this section "
+#~ "if you are an individual user or"
+#~ " testing, and you need an out-"
+#~ "of-tree kernel module that is not "
+#~ "available through |CL|. For a more "
+#~ "scalable and customizable approach, we "
+#~ "recommend using the `mixer tool`_ to "
+#~ "provide a custom kernel and updates."
+#~ msgstr ""
 

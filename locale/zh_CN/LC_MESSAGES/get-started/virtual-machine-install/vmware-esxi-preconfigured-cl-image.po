@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,50 +24,52 @@ msgstr ""
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:6
 msgid ""
+"This page explains how to deploy a preconfigured |CL| VMware :abbr:`VM "
+"(Virtual Machine)` image on a VMware ESXi 6.5 host."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:14
+msgid "Overview"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:16
+msgid ""
 "`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on "
 "top of server hardware.  With VMware ESXi, you can create, configure, "
 "manage, and run |CL-ATTR| virtual machines at scale."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:10
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:20
 msgid ""
-"This section shows you how to deploy a preconfigured |CL| VMware "
-":abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host."
+"We provide a preconfigured |CL| VMware image that can be run on a VMware "
+"ESXi 6.5 host."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:13
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:23
 msgid ""
-"If you would prefer to perform a manual installation of |CL| into a new "
-"VMware ESXi :abbr:`VM (Virtual Machine)` instead, see :ref:`vmware-esxi-"
-"install-cl`."
+"If manuall installation is preferred, refer to :ref:`vmware-esxi-install-"
+"cl`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:19
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:27
 msgid ""
-"VMware also offers a type 2 hypervisor called `VMware Workstation Player`"
-" which is designed for the desktop environment."
+"VMware also offers a type 2 hypervisor designed for the desktop "
+"environment, called `VMware Workstation Player`_. Refer to :ref:`vmw-"
+"player-preconf` or :ref:`vmw-player` for more information."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:22
-msgid "See :ref:`vmw-player-preconf` or see :ref:`vmw-player`."
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:25
-msgid "Install steps:"
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:31
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:32
 msgid "Download the latest |CL| VMware image"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:33
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:34
 msgid ""
 "Get the latest |CL| VMware prebuilt image from the `image`_ repository. "
 "Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use "
 "this command:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:41
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:42
 msgid ""
 "Visit :ref:`image-types` for additional information about all available "
 "|CL| images."
@@ -100,367 +102,419 @@ msgstr ""
 msgid "To decompress a GZ image, enter:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:47
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:48
 msgid "For alternative instructions on other operating systems, see:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:49
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:50
 msgid ":ref:`download-verify-decompress-mac`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:50
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:51
 msgid ":ref:`download-verify-decompress-windows`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:53
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:54
 msgid "Upload the |CL| image to the VMware server"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:55
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:56
 msgid ""
 "Once the |CL| VMware prebuilt image has been downloaded and decompressed "
 "on your local system, it must be uploaded to a datastore on the VMware "
 "ESXi server."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:59
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:60
 msgid ""
-"The steps in this section can also be referenced from the `VMware "
-"documentation on Using the Datastore File Browser`_"
+"The steps in this section can also be referenced from the VMware "
+"documentation `Using Datastore File Browser in the VMware Host Client`_."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:61
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:63
 msgid ""
 "Connect to the VMware ESXi server and login to an account with sufficient"
 " permission to create and manage VMs."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:64
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:66
 msgid ""
 "Under the :guilabel:`Navigator` window on the left side, select "
 ":guilabel:`Storage`. See Figure 1"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:68
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:70
 msgid ""
 "Under the :guilabel:`Datastores` tab, click the :guilabel:`Datastore "
 "browser` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:75
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:77
 msgid "Figure 1: VMware ESXi - Navigator > Storage"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:77
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:79
 msgid ""
 "Click the :guilabel:`Create directory` button and name the directory "
 "`Clear Linux VM`. See Figure 2."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:84
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:86
 msgid "Figure 2: VMware ESXi - Datastore > Create directory"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:86
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:88
 msgid ""
 "Select the newly-created directory and click the :guilabel:`Upload` "
 "button. See Figure 3."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:93
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:95
 msgid "Figure 3: VMware ESXi - Datastore > Upload VMware image"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:95
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:97
 msgid ""
 "Select the decompressed |CL| VMware image file :file:`clear-[version "
 "number]-vmware.vmdk` and upload it."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:99
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:101
 msgid "Convert the |CL| image to an ESXi-supported format"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:101
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:103
 msgid ""
 "Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi "
 "datastore, it must be converted to a format for usable with VMware's ESXi"
 " hypervisor."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:105
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:107
 msgid ""
-"The steps in this section can also be referenced from the `VMware "
-"documentation on Cloning and converting virtual machine disks with "
+"The steps in this section can also be referenced from the VMware "
+"documentation on `Cloning and converting virtual machine disks with "
 "vmkfstools`_"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:107
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:109
 msgid ""
 "SSH into the `vSphere Management Assistant`_  appliance that is managing "
 "the ESXi host or connect to the vSphere hosting using the `vSphere CLI`_."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:112
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:114
 msgid ""
 "If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or "
 ":abbr:`vCLI (vSphere CLI)` configured and available, you can temporarily "
-"enable SSH directly on the ESXi host by referencing the `VMware "
-"documentation on Enable the Secure Shell (SSH)`_ ."
+"enable SSH directly on the ESXi host by following the steps described in "
+"`Enable the Secure Shell (SSH) in the VMware Host Client`_ ."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:116
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:118
 msgid ""
 "As a security best practice, remember to disable SSH access after "
 "following the steps in this section."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:119
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:121
 msgid ""
 "Locate the uploaded image, which is typically found in "
 ":file:`/vmfs/volumes/datastore1`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:122
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:124
 msgid ""
 "Use the :command:`vmkfstools` command to perform the conversion, as shown"
 " below:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:129
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:131
 msgid "Two files should result from this:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:131
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:133
 msgid ":file:`clear-[version number]-esxi-flat.vmdk`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:132
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:134
 msgid ":file:`clear-[version number]-esxi.vmdk`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:134
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:136
 msgid ""
 "The :file:`clear-[version number]-esxi.vmdk` file will be used in the "
 "next section when you create a new VM."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:138
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:140
 msgid "Create and configure a new VM"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:140
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:142
 msgid ""
 "In this section, you will create a new VM, configure its basic parameters"
 " such as number of CPUs, memory size, and then attach the converted |CL| "
 "VMware image. Also, in order to boot |CL|, you must enable UEFI support."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:144
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:146
 msgid ""
 "Under the :guilabel:`Navigator` window, select :guilabel:`Virtual "
 "Machines`. See Figure 4."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:147
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:149
 msgid "In the right window, click the :guilabel:`Create / Register VM` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:153
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:155
 msgid "Figure 4: VMware ESXi - Navigator > Virtual Machines"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:155
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:157
 msgid "On the :guilabel:`Select creation type` step:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:157
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:159
 msgid "Select the :guilabel:`Create a new virtual machine` option. See Figure 5."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:160
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:177
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:188
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:259
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:162
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:179
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:190
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:261
 msgid "Click the :guilabel:`Next` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:166
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:168
 msgid "Figure 5: VMware ESXi - Create a new virtual machine"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:168
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:170
 msgid "On the :guilabel:`Select a name and guest OS` step:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:170
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:172
 msgid "Give the new VM a name in the :guilabel:`Name` field. See Figure 6."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:172
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:174
 msgid ""
 "Set the :guilabel:`Compatability` option to :guilabel:`ESXi 6.5 virtual "
 "machine`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:174
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:176
 msgid "Set the :guilabel:`Guest OS family` option to :guilabel:`Linux`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:175
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:177
 msgid ""
 "Set the :guilabel:`Guest OS version` option to :guilabel:`Other 3.x or "
 "later Linux (64-bit)`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:183
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:185
 msgid "Figure 6: VMware ESXi - Give a name and select guest OS type"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:185
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:187
 msgid "On the :guilabel:`Select storage` step:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:187
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:189
 msgid "Accept the default option."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:190
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:192
 msgid "On the :guilabel:`Customize settings` step:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:192
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:194
 msgid "Click the :guilabel:`Virtual Hardware` button. See Figure 7."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:193
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:195
 msgid ""
 "Expand the :guilabel:`CPU` setting and enable :guilabel:`Hardware "
 "virtualization` by checking :guilabel:`Expose hardware assisted "
 "virtualization to the guest OS`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:201
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:203
 msgid "Figure 7: VMware ESXi - Enable hardware virtualization"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:203
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:205
 msgid ""
 "Remove the default :guilabel:`Hard drive 1` setting by clicking the `X` "
 "icon on the right side. See Figure 8."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:210
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:212
 msgid "Figure 8: VMware ESXi - Remove hard drive"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:212
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:214
 msgid ""
 "Since a preconfigured image will be used, the :guilabel:`CD/DVD Drive 1` "
 "setting will not be needed.  Disable it by unchecking the "
 ":guilabel:`Connect` checkbox. See Figure 9."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:220
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:222
 msgid "Figure 9: VMware ESXi - Disconnect the CD/DVD drive"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:222
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:224
 msgid ""
 "Attach the :file:`clear-[version number]-esxi.vmdk` file that was "
 "converted from the preconfigured |CL| VMware image."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:225
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:227
 msgid ""
 "Click the :guilabel:`Add hard disk` button and select the "
 ":guilabel:`Existing hard drive` option. See Figure 10."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:232
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:234
 msgid "Figure 10: VMware ESXi - Add an existing hard drive"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:234
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:236
 msgid ""
 "Select the converted :file:`clear-[version number]-esxi.vmdk` file. Do "
 "not use the original unconverted :file:`clear-[version "
 "number]-vmware.vmdk` file. See Figure 11."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:242
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:244
 msgid ""
 "Figure 11: VMware ESXi - Select the converted :file:`clear-[version "
 "number]-esxi.vmdk` file"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:245
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:247
 msgid "|CL| needs UEFI support in order to boot.  Enable UEFI boot support."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:247
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:249
 msgid "Click the :guilabel:`VM Options` button. See Figure 12."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:248
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:250
 msgid "Expand the :guilabel:`Boot Options` setting."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:249
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:251
 msgid ""
 "For the :guilabel:`Firmware` setting, click the drop-down list to the "
 "right of it and select the :guilabel:`EFI` option."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:256
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:258
 msgid "Figure 12: VMware ESXi - Set boot firmware to EFI"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:258
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:260
 msgid "Click the :guilabel:`Save` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:260
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:262
 msgid "Click the :guilabel:`Finish` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:263
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:265
 msgid "Power on the VM and boot |CL|"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:265
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:267
 msgid "After configuring the settings above, power on the VM."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:267
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:269
 msgid ""
 "Under the :guilabel:`Navigator` window, select :guilabel:`Virtual "
 "Machines`. See Figure 13."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:269
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:271
 msgid "In the right window, select the newly-created VM."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:270
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:272
 msgid "Click the :guilabel:`Power on` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:271
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:273
 msgid ""
 "Click on the icon representing the VM to bring it into view and maximize "
 "its window."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:278
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:280
 msgid "Figure 13: VMware ESXi - Navigator > Virtual Machines > Power on VM"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:281
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:283
 msgid "Related topics"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:283
+#: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:285
 msgid ":ref:`vmware-esxi-install-cl`"
 msgstr ""
+
+#~ msgid ""
+#~ "This section shows you how to "
+#~ "deploy a preconfigured |CL| VMware "
+#~ ":abbr:`VM (Virtual Machine)` image on a"
+#~ " VMware ESXi 6.5 host."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you would prefer to perform a"
+#~ " manual installation of |CL| into a"
+#~ " new VMware ESXi :abbr:`VM (Virtual "
+#~ "Machine)` instead, see :ref:`vmware-esxi-"
+#~ "install-cl`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "VMware also offers a type 2 "
+#~ "hypervisor called `VMware Workstation Player`"
+#~ " which is designed for the desktop"
+#~ " environment."
+#~ msgstr ""
+
+#~ msgid "See :ref:`vmw-player-preconf` or see :ref:`vmw-player`."
+#~ msgstr ""
+
+#~ msgid "Install steps:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The steps in this section can also"
+#~ " be referenced from the `VMware "
+#~ "documentation on Using the Datastore "
+#~ "File Browser`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The steps in this section can also"
+#~ " be referenced from the `VMware "
+#~ "documentation on Cloning and converting "
+#~ "virtual machine disks with vmkfstools`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If there is no :abbr:`vMA (vSphere "
+#~ "Management Assistant)` appliance or "
+#~ ":abbr:`vCLI (vSphere CLI)` configured and "
+#~ "available, you can temporarily enable "
+#~ "SSH directly on the ESXi host by"
+#~ " referencing the `VMware documentation on"
+#~ " Enable the Secure Shell (SSH)`_ ."
+#~ msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:23
 msgid ""
-"Get the latest |CL| installer image from the `downloads page`_. Look for "
+"Get the latest |CL| installer image from the `Downloads`_ page. Look for "
 "the :file:`clear-[version number]-live-server.iso` file."
 msgstr ""
 
@@ -736,8 +736,8 @@ msgstr ""
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:496
 msgid ""
 "|CL| automatically attempts to detect proxy settings, as described in "
-"`Autoproxy`_. If you need to manually assign proxy settings, follow this "
-"instruction."
+":ref:`autoproxy`. If you need to manually assign proxy settings, follow "
+"this instruction."
 msgstr ""
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:500
@@ -1234,4 +1234,19 @@ msgstr ""
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:857
 msgid "macOS\\* platform: :command:`diskutil list`"
 msgstr ""
+
+#~ msgid ""
+#~ "Get the latest |CL| installer image "
+#~ "from the `downloads page`_. Look for "
+#~ "the :file:`clear-[version number]-live-server.iso`"
+#~ " file."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| automatically attempts to detect "
+#~ "proxy settings, as described in "
+#~ "`Autoproxy`_. If you need to manually"
+#~ " assign proxy settings, follow this "
+#~ "instruction."
+#~ msgstr ""
 

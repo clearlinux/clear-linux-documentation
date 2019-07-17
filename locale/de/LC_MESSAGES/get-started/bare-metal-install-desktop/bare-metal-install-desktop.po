@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,9 +25,9 @@ msgstr ""
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:6
 msgid ""
 "The live desktop allows you to boot |CL-ATTR| in a GNOME desktop without "
-"modifying the host system, offering the chance to explore developing on "
-"|CL|. Better yet, launch the |CL| installer to install on your target "
-"system."
+"modifying the host system, offering you the chance to explore developing "
+"on |CL| or install it. In this document, we show how to install |CL| on a"
+" target system."
 msgstr ""
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:15
@@ -55,327 +55,319 @@ msgid "`Visit our Downloads page`_."
 msgstr ""
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:27
-msgid "Download the file :file:`clear-<release number>-live-desktop.iso`"
+msgid ""
+"Download the file :file:`clear-<release number>-live-desktop.iso`, also "
+"called the |CL| Desktop."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:31
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:32
 msgid "<release-number> is the latest |CL| auto-numbered release."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:33
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:34
 msgid "Follow your OS instructions to create a bootable USB drive."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:35
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:36
 msgid ":ref:`bootable-usb`"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:40
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:41
 msgid "Install from live image"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:42
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:43
 msgid ""
 "After you download and burn the live desktop image on a USB drive, follow"
 " these steps."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:45
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:46
 msgid "Insert the USB drive into an available USB slot."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:47
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:48
 msgid "Power on the system."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:49
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:50
 msgid ""
 "Open the system BIOS setup menu by pressing the :kbd:`F2` key. Your BIOS "
 "setup menu entry point may vary."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:52
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:53
 msgid ""
 "In the setup menu, enable the UEFI boot and set the USB drive as the "
 "first option in the device boot order."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:55
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:56
 msgid "Save these settings, e.g. :kbd:`F10`, and exit."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:57
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:58
 msgid "Reboot the target system."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:59
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:60
 msgid "Select :guilabel:`Clear Linux OS` in the boot menu, shown in Figure 1."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:65
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:66
 msgid "Figure 1: Clear Linux OS in boot menu"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:70
-msgid "Confirm network connection"
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:71
+msgid "Software (optional)"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:72
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:73
 msgid ""
-"Confirm there is a network connection before launching the installer. "
-"Choose a method: `Wired Connection`, or `WiFi Connected`. This guide "
-"shows an example of a **Wired Connection**."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:76
-msgid ""
-"In the upper right of the top menu bar, select the square icon to view "
-"Network settings, shown in Figure 2."
+"Explore |CL| bundles and other software. Double-click the "
+":guilabel:`Software` icon from the Activities menu, shown in Figure 2. "
+"Assure a network connection exists before launching `Software`."
 msgstr ""
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:79
-msgid "Select :guilabel:`Wired Connected` and then :guilabel:`Wired Settings`."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:85
-msgid "Figure 2: Software icon, Network settings"
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:87
 msgid ""
-"View the :guilabel:`Wired` menu to assure that you're target system and "
-"installer are connected to a network."
+"`Software` application is *only intended for exploring* available "
+"bundles, applications, and images. Do not attempt to install them."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:90
-msgid "Optional: Configure Proxy settings."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:92
-msgid "To view :guilabel:`Network Proxy`, select its :guilabel:`Gear` icon."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:94
-msgid "Select from `Automatic`, `Manual` or `Disabled` as desired."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:96
-msgid "Close the dialogue box."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:98
-msgid "Select the :guilabel:`Gear` icon to view Network settings."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:100
-msgid ""
-"If desired, select :guilabel:`Connect automatically`. Select other "
-"options as desired."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:103
-msgid "Select :guilabel:`Apply` button to confirm change to settings."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:106
-msgid "Software"
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:108
-msgid ""
-"Optional: Explore |CL| bundles and other software available. Double-click"
-" the :guilabel:`Software` icon from the Activities menu, shown in Figure "
-"2."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:112
-msgid ""
-"`Sofware` application is *only intended for exploring* available bundles,"
-" applications, and images. Do not attempt to install them."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:115
-msgid "Assure there is a network connection before launching `Software`."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:118
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:83
 msgid "Launch the |CL| installer"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:120
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:85
 msgid ""
-"After the live desktop image boots, find the |CL| icon in the "
-":guilabel:`Activities` menu at left, shown in Figure 3."
+"After the live desktop image boots, scroll over the vertical "
+":guilabel:`Activities` menu at left."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:123
-msgid "Click the icon, :guilabel:`Install Clear Linux OS`."
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:88
+msgid "Click the |CL| penguin icon to launch the installer, shown in Figure 2."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:129
-msgid "Figure 3: Install Clear Linux OS icon"
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:94
+msgid "Figure 2: |CL| installer icon"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:131
-msgid "The installer is launched, as shown in Figure 4."
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:96
+msgid "After the installer is launched, it will appear as shown in Figure 3."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:137
-msgid "Figure 4: |CL| OS Desktop Installer"
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:102
+msgid "Figure 3: |CL| OS Desktop Installer"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:139
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:104
 msgid ""
 "In :guilabel:`Select Language`, select a language from the options, or "
 "type your preferred language in the search bar."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:142
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:107
 msgid "Select :guilabel:`Next`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:148
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:110
+msgid "Checking prerequisites"
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:112
+msgid ""
+"The installer automatically launches :guilabel:`Checking Prerequisites`, "
+"which checks your target system for compatibility and network "
+"connectivity."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:115
+msgid ""
+"After the installer shows `Prerequisites passed`, select :guilabel:`Next`"
+" to proceed with installation."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:122
+msgid "Figure 4: Checking Prerequisites"
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:125
+msgid "Network Proxy (optional)"
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:127
+msgid "Configure :guilabel:`Network Proxy` settings."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:129
+msgid "In the top right menu bar, select the :guilabel:`Power button`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:131
+msgid "Select :guilabel:`Wired Connected` and then :guilabel:`Wired Settings`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:133
+msgid ""
+"In :guilabel:`Network Proxy`, select the :guilabel:`Gear` icon to view "
+"options."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:136
+msgid "Select an option from `Automatic`, `Manual` or `Disabled`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:138
+msgid "Close :guilabel:`Network Proxy`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:140
+msgid "Close :guilabel:`Settings`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:145
 msgid "Minimum installation requirements"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:150
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:147
 msgid ""
 "To fulfill minimum installation requirements, complete the `Required "
 "options`_. We also recommend completing `Advanced options`_."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:155
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:152
 msgid ""
 "The :kbd:`Install` button is only highlighted **after** you complete "
 "`Required options`_."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:158
-msgid "Checkmarks indicate a selection has been made."
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:155
+msgid "Check marks indicate a selection has been made."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:160
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:157
 msgid ""
 "An Internet connection is required. You may want to launch a browser "
 "prior to installation to verify your Internet connection."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:164
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:161
 msgid "|CL| Desktop Installer"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:166
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:163
 msgid ""
 "The |CL| Desktop Installer Main Menu appears as shown in Figure 5. To "
 "meet the minimum requirements, enter values in all submenus for the "
 ":guilabel:`Required options`. After you complete them, your selections "
-"appear below submenus and a checkmark appears at right."
+"appear below submenus and a check mark appears at right."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:175
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:172
 msgid "Figure 5: Clear Linux OS Desktop Installer - Main Menu"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:178
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:175
 msgid "Navigation"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:180
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:177
 msgid "Use the :kbd:`mouse` to navigate or select options."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:182
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:179
 msgid ""
 "Use :kbd:`Tab` key to navigate between :guilabel:`Required options` and "
 ":guilabel:`Advanced options`"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:185
-msgid "Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate submenu list."
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:182
+msgid "Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate the submenus."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:187
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:184
 msgid "Select :kbd:`Confirm`, or :kbd:`Cancel` in submenus."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:190
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:187
 msgid "Required options"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:193
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:190
 msgid "Select Time Zone"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:195
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:192
 msgid ""
 "From the Main Menu, select :guilabel:`Select Time Zone`. `UTC` is "
 "selected by default."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:198
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:195
 msgid ""
 "In :guilabel:`Select Time Zone`, navigate to the desired time zone. Or "
-"start typing the region and then city. (.e.g., "
+"start typing the region and then the city. (.e.g., "
 ":file:`America/Los_Angeles`)."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:202
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:218
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:199
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:215
 msgid "Select :guilabel:`Confirm`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:208
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:205
 msgid "Figure 6: Select System Time Zone"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:211
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:208
 msgid "Select Keyboard"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:213
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:210
 msgid "From the Main Menu, select :guilabel:`Select Keyboard`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:215
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:212
 msgid ""
 "Navigate to your desired keyboard layout. We select \"us\" for the United"
 " States."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:224
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:221
 msgid "Figure 7: Select Keyboard menu"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:227
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:224
 msgid "Select Installation Media"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:229
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:226
 msgid "From the Main Menu, select :guilabel:`Select Installation Media`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:231
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:228
 msgid ""
 "Choose an installation method: `Safe Installation`_ or `Destructive "
 "Installation`_."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:238
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:235
 msgid "Figure 8: Select Installation Media"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:241
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:238
 msgid "Safe Installation"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:242
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:240
 msgid ""
 "Use this method to safely install |CL| on media with available space, or "
 "alongside existing partitions, and accept the `Default partition "
 "schema`_. If enough free space exists, safe installation is allowed."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:248
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:246
 msgid ""
 "|CL| allows installation alongside another OS. Typically, when you boot "
 "your system, you can press an `F key` to view and select a bootable "
@@ -385,173 +377,175 @@ msgid ""
 " |CL|. Be aware of this possible limitation."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:257
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:255
 msgid "Destructive Installation"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:259
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:257
 msgid ""
 "Use this method to destroy the contents of the target device, install "
 "|CL| on it, and accept the `Default partition schema`_."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:262
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:261
 msgid "Disk encryption"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:264
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:263
 msgid ""
 "For greater security, disk encryption is supported using LUKS. Encryption"
 " is optional."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:267
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:266
 msgid ""
 "To encrypt the root partition, select :guilabel:`Enable Encryption`, as "
 "shown in Figure 9."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:274
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:273
 msgid "Figure 9: Enable Encryption"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:276
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:275
 msgid "When :guilabel:`Encryption Passphrase` appears, enter a passphrase."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:282
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:281
 msgid "Figure 10: Encryption Passphrase"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:286
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:285
 msgid "Minimum length is 8 characters. Maximum length is 94 characters."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:288
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:287
 msgid "Enter the same passphrase in the second field."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:290
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:289
 msgid "Select :guilabel:`Confirm` in the dialogue box."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:294
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:293
 msgid ":guilabel:`Confirm` is only highlighted if passphrases match."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:296
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:295
 msgid "Select :guilabel:`Confirm` in submenu."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:299
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:298
 msgid "Manage User"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:301
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:300
 msgid "In Required Options, select :guilabel:`Manage User`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:303
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:302
 msgid "In :guilabel:`User Name`, enter a user name."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:309
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:308
 msgid "Figure 11: Manage User"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:311
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:310
 msgid ""
 "In :guilabel:`Login`, create a login name. It must start with a letter "
 "and can use numbers, hyphens, and underscores. Maximum length is 31 "
 "characters."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:315
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:314
 msgid ""
 "In :guilabel:`Password`, enter a password. Minimum length is 8 "
 "characters. Maximum length is 255 characters."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:318
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:317
 msgid "In :guilabel:`Confirm`, enter the same password."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:322
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:321
 msgid ""
 ":guilabel:`Administrator` rights are selected by default. For security "
 "purposes, the default user must be assigned as an Administrator."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:326
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:394
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:427
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:325
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:391
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:422
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:442
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:461
 msgid "Select :kbd:`Confirm`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:330
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:329
 msgid "Select :guilabel:`Cancel` to return to the Main Menu."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:333
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:332
 msgid "Modify User"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:335
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:334
 msgid "In Manager User, select :guilabel:`Manage User`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:337
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:336
 msgid "Modify user details as desired."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:339
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:338
 msgid "Select :guilabel:`Confirm` to save the changes you made."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:343
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:342
 msgid ""
 "Optional: Select :guilabel:`Cancel` to return to the Main Menu to revert "
 "changes."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:346
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:404
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:429
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:345
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:401
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:424
 msgid "Optional: Skip to `Finish installation`_."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:349
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:348
 msgid "Telemetry"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:351
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:350
 msgid ""
 "Choose whether to participate in `telemetry`. :ref:`telem-guide` is a "
 "|CL| feature that reports failures and crashes to the |CL| development "
 "team for improvements. For more information, see :ref:`telemetry-about`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:355
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:354
 msgid "From :guilabel:`Required Options`, select :guilabel:`Telemetry`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:357
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:356
 msgid "Select :kbd:`Yes`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:363
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:362
 msgid "Figure 12: Enable Telemetry"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:365
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:364
 msgid "If you don't wish to participate, select :kbd:`No`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:368
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:367
 msgid "Advanced options"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:370
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:369
 msgid ""
 "After you complete the `Required options`_, we recommend completing "
 ":guilabel:`Advanced options`--though they're not required. Doing so "
@@ -559,187 +553,384 @@ msgid ""
 "immediately after reboot."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:375
-msgid "`Bundle Selection`_"
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:377
-msgid "`Assign Hostname`_"
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:376
+msgid "You can always add more bundles later with :ref:`swupd-guide`."
 msgstr ""
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:379
-msgid "As for bundles, you can always add more later with :ref:`swupd-guide`."
-msgstr ""
-
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:382
 msgid "Bundle Selection"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:384
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:381
 msgid "On the Advanced menu, select :guilabel:`Bundle Selection`"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:386
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:383
 msgid "Select your desired bundles."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:392
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:389
 msgid "Figure 13: Bundle Selection"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:396
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:393
 msgid "View the bundles that you selected."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:402
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:399
 msgid "Figure 14: Bundle Selections - Advanced Options"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:407
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:404
 msgid "Assign Hostname"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:409
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:406
 msgid "In Advanced Options, select :guilabel:`Assign Hostname`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:411
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:408
 msgid "In :guilabel:`Hostname`, enter the hostname only (excluding the domain)."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:417
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:414
 msgid "Figure 15: Assign Hostname"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:421
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:418
 msgid ""
 "Hostname does not allow empty spaces. Hostname must start with an "
 "alphanumeric character but may also contain hyphens. Maximum length of 63"
 " characters."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:425
-msgid "Navigate to :kbd:`Confirm` until highlighted."
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:427
+msgid "Kernel Configuration"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:432
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:429
+msgid ""
+"In :guilabel:`Kernel Configuration`, navigate to select your desired "
+"kernel. :guilabel:`Native` is selected by default."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:436
+msgid "Figure 16: Kernel Configuration"
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:438
+msgid "To add arguments, enter the argument in :guilabel:`Add Extra Arguments`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:440
+msgid "To remove an argument, enter the argument in :guilabel:`Remove Arguments`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:445
+msgid "Software Updater Configuration"
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:447
+msgid "In Advanced Options, select :guilabel:`Software Updater Configuration`."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:449
+msgid ""
+"In :guilabel:`Mirror URL`, follow the instructions if you wish to specify"
+" a different installation source."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:452
+msgid ""
+":guilabel:`Enable Auto Updates` is selected by default. If you **do not**"
+" wish to enable automatic software updates, uncheck the box."
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:459
+msgid "Figure 17: Software Updater Configuration"
+msgstr ""
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:464
 msgid "Finish installation"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:434
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:466
 msgid ""
 "When you are satisfied with your installation configuration, select "
 ":guilabel:`Install`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:441
-msgid "Figure 16: Finish installation"
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:473
+msgid "Figure 18: Finish installation"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:447
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:480
 msgid ""
 "If you do not enter a selection for all :guilabel:`Required Options`, the"
-" :guilabel:`Install` button remains greyed out, as shown in Figure 17. "
+" :guilabel:`Install` button remains disabled, as shown in Figure 19. "
 "Return to `Required Options`_ and make selections."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:456
-msgid "Figure 17: Required Options - Incomplete"
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:488
+msgid "Figure 19: Required Options - Incomplete"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:458
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:490
 msgid "After installation is complete, select :guilabel:`Exit`."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:460
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:492
 msgid "Shut down the target system."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:462
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:494
 msgid "Remove the USB or any installation media."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:464
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:496
 msgid "Power on your system."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:468
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:500
 msgid ""
 "Allow time for the graphical login to appear. A login prompt shows the "
 "administrative user that you created."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:470
-msgid "Log in as the adminstrative user."
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:502
+msgid "Log in as the administrative user."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:472
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:504
 msgid "Congratulations. You successfully installed |CL|."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:475
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:507
 msgid "Default partition schema"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:477
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:509
 msgid ""
-"Table 1 shows the defult partition schema with the exception of root, "
+"Table 1 shows the default partition schema with the exception of root, "
 "which varies."
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:480
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:512
 msgid "**Table 1. Disk Partition Setup**"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:484
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:516
 msgid "FileSystem"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:485
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:517
 msgid "Mount Point"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:486
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:518
 msgid "Minimum size"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:487
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:519
 msgid "``VFAT``"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:488
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:520
 msgid "/boot"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:489
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:521
 msgid "150M"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:490
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:522
 msgid "``swap``"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:492
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:524
 msgid "256MB"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:493
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:525
 msgid "``root``"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:494
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:526
 msgid "/"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:495
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:527
 msgid "*Size depends upon use case/desired bundles.*"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:498
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:530
 msgid "Next steps"
 msgstr ""
 
-#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:500
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:532
 msgid ":ref:`guides`"
 msgstr ""
+
+#~ msgid ""
+#~ "The live desktop allows you to "
+#~ "boot |CL-ATTR| in a GNOME desktop"
+#~ " without modifying the host system, "
+#~ "offering the chance to explore "
+#~ "developing on |CL|. Better yet, launch"
+#~ " the |CL| installer to install on "
+#~ "your target system."
+#~ msgstr ""
+
+#~ msgid "Download the file :file:`clear-<release number>-live-desktop.iso`"
+#~ msgstr ""
+
+#~ msgid "Confirm network connection"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Confirm there is a network connection"
+#~ " before launching the installer. Choose "
+#~ "a method: `Wired Connection`, or `WiFi"
+#~ " Connected`. This guide shows an "
+#~ "example of a **Wired Connection**."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the upper right of the top "
+#~ "menu bar, select the square icon "
+#~ "to view Network settings, shown in "
+#~ "Figure 2."
+#~ msgstr ""
+
+#~ msgid "Figure 2: Software icon, Network settings"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "View the :guilabel:`Wired` menu to "
+#~ "assure that you're target system and "
+#~ "installer are connected to a network."
+#~ msgstr ""
+
+#~ msgid "Optional: Configure Proxy settings."
+#~ msgstr ""
+
+#~ msgid "To view :guilabel:`Network Proxy`, select its :guilabel:`Gear` icon."
+#~ msgstr ""
+
+#~ msgid "Select from `Automatic`, `Manual` or `Disabled` as desired."
+#~ msgstr ""
+
+#~ msgid "Close the dialogue box."
+#~ msgstr ""
+
+#~ msgid "Select the :guilabel:`Gear` icon to view Network settings."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If desired, select :guilabel:`Connect "
+#~ "automatically`. Select other options as "
+#~ "desired."
+#~ msgstr ""
+
+#~ msgid "Select :guilabel:`Apply` button to confirm change to settings."
+#~ msgstr ""
+
+#~ msgid "Software"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Optional: Explore |CL| bundles and other"
+#~ " software available. Double-click the "
+#~ ":guilabel:`Software` icon from the Activities"
+#~ " menu, shown in Figure 2."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Sofware` application is *only intended "
+#~ "for exploring* available bundles, "
+#~ "applications, and images. Do not attempt"
+#~ " to install them."
+#~ msgstr ""
+
+#~ msgid "Assure there is a network connection before launching `Software`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After the live desktop image boots, "
+#~ "find the |CL| icon in the "
+#~ ":guilabel:`Activities` menu at left, shown "
+#~ "in Figure 3."
+#~ msgstr ""
+
+#~ msgid "Click the icon, :guilabel:`Install Clear Linux OS`."
+#~ msgstr ""
+
+#~ msgid "Figure 3: Install Clear Linux OS icon"
+#~ msgstr ""
+
+#~ msgid "The installer is launched, as shown in Figure 4."
+#~ msgstr ""
+
+#~ msgid "Figure 4: |CL| OS Desktop Installer"
+#~ msgstr ""
+
+#~ msgid "Checkmarks indicate a selection has been made."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The |CL| Desktop Installer Main Menu "
+#~ "appears as shown in Figure 5. To"
+#~ " meet the minimum requirements, enter "
+#~ "values in all submenus for the "
+#~ ":guilabel:`Required options`. After you "
+#~ "complete them, your selections appear "
+#~ "below submenus and a checkmark appears"
+#~ " at right."
+#~ msgstr ""
+
+#~ msgid "Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate submenu list."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In :guilabel:`Select Time Zone`, navigate "
+#~ "to the desired time zone. Or start"
+#~ " typing the region and then city. "
+#~ "(.e.g., :file:`America/Los_Angeles`)."
+#~ msgstr ""
+
+#~ msgid "`Bundle Selection`_"
+#~ msgstr ""
+
+#~ msgid "`Assign Hostname`_"
+#~ msgstr ""
+
+#~ msgid "As for bundles, you can always add more later with :ref:`swupd-guide`."
+#~ msgstr ""
+
+#~ msgid "Navigate to :kbd:`Confirm` until highlighted."
+#~ msgstr ""
+
+#~ msgid "Figure 16: Finish installation"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you do not enter a selection"
+#~ " for all :guilabel:`Required Options`, the"
+#~ " :guilabel:`Install` button remains greyed "
+#~ "out, as shown in Figure 17. Return"
+#~ " to `Required Options`_ and make "
+#~ "selections."
+#~ msgstr ""
+
+#~ msgid "Figure 17: Required Options - Incomplete"
+#~ msgstr ""
+
+#~ msgid "Log in as the adminstrative user."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Table 1 shows the defult partition "
+#~ "schema with the exception of root, "
+#~ "which varies."
+#~ msgstr ""
 
