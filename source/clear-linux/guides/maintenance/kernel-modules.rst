@@ -68,7 +68,7 @@ Build, install, and load an out-of-tree module
 Follow the steps in this section if you are an individual user or testing, and
 you need an out-of-tree kernel module that is not available through |CL|. For
 a more scalable and customizable approach, we recommend using the
-:ref:`mixer` tool to provide a custom kernel and updates.
+:ref:`mixer` to provide a custom kernel and updates.
 
 
 Prerequisites
