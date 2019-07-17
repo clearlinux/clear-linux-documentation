@@ -80,7 +80,7 @@ Congratulations! At this point, you have a working installation of Docker
 on |CL|. You are ready to start using container images on your system.
 
 Integration with Kata Containers\* (optional)
-********************************************
+*********************************************
 
 `Kata Containers`_, is an open source project aiming to increase security
 of containers by using a hardware-backed virtual machine container runtime
