@@ -15,6 +15,5 @@ different.
    mixer-about
    bundles-about
    autospec-about
-   restart
    security
    telemetry-about
