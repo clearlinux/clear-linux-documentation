@@ -3,36 +3,37 @@
 Run preconfigured |CL-ATTR| image as a VMware\* ESXi guest OS
 #############################################################
 
+This page explains how to deploy a preconfigured |CL| VMware
+:abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
 `VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
 of server hardware.  With VMware ESXi, you can create, configure, manage,
 and run |CL-ATTR| virtual machines at scale.
 
-This section shows you how to deploy a preconfigured |CL| VMware 
-:abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host.
+We provide a preconfigured |CL| VMware image that can be run on a VMware ESXi
+6.5 host.
 
-If you would prefer to perform a manual installation of |CL| into a new 
-VMware ESXi :abbr:`VM (Virtual Machine)` instead, see 
-:ref:`vmware-esxi-install-cl`. 
+If manuall installation is preferred, refer to :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
-   VMware also offers a type 2 hypervisor called `VMware Workstation Player`
-   which is designed for the desktop environment.
-
-   See :ref:`vmw-player-preconf` or see :ref:`vmw-player`.
-
-
-Install steps: 
-
-.. contents:: :local:
-    :depth: 1
+   VMware also offers a type 2 hypervisor designed for the desktop environment,
+   called `VMware Workstation Player`_. Refer to :ref:`vmw-player-preconf` or
+   :ref:`vmw-player` for more information.
 
 Download the latest |CL| VMware image
 *************************************
 
 Get the latest |CL| VMware prebuilt image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
-this command: 
+this command:
 
 .. code-block:: bash
 

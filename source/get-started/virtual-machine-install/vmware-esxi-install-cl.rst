@@ -3,34 +3,34 @@
 Install |CL-ATTR| as a VMware\* ESXi guest OS
 #############################################
 
-`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
+This page explains how to create a new :abbr:`VM (Virtual Machine)` and
+manually install |CL-ATTR| on the new VM with VMware ESXi 6.5.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
+`VMware ESXi`_ is a type 1 bare-metal hypervisor that runs directly on top
 of server hardware. With VMware ESXi, you can create, configure, manage, and
-run |CL-ATTR| virtual machines in the cloud.  
+run |CL| virtual machines in the cloud.
 
-This section shows you how to create a new :abbr:`VM (Virtual Machine)` and 
-manually install |CL| into it with VMware ESXi 6.5. 
+Manually installing |CL| on a new VM gives additional configuration flexibility
+during installation. For example: alternate disk sizes, number of partitions,
+pre-installed bundles, etc.
 
-Manually installing |CL| into a new VM provides you some additional 
-configuration flexibility during installation. For example: alternate
-disk sizes, number of partitions, pre-installed bundles, etc. 
-
-If you would prefer to use a preconfigured |CL| VMware image instead, 
-see :ref:`vmware-esxi-preconfigured-cl-image`. 
+If you prefer to use a preconfigured |CL| VMware image instead, refer to
+:ref:`vmware-esxi-preconfigured-cl-image`.
 
 .. note::
 
-  VMware also offers a type 2 hypervisor called `VMware Workstation Player`_ 
-  which is designed for the desktop environment. 
+   VMware also offers a type 2 hypervisor designed for the desktop environment,
+   called `VMware Workstation Player`_. Refer to :ref:`vmw-player-preconf` or
+   :ref:`vmw-player` for more information.
 
-  See :ref:`vmw-player-preconf` or see :ref:`vmw-player`
-  
-  Visit :ref:`image-types` to learn more about all available images.
-
-Install steps: 
-
-.. contents:: :local:
-   :depth: 1
-
+   Visit :ref:`image-types` to learn more about all available images.
 
 Download the latest |CL| installer ISO
 **************************************
