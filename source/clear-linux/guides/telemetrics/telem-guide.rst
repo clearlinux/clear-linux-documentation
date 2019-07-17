@@ -97,9 +97,7 @@ solution and consists of:
    team and is not viewable outside the Intel firewall. To collect your own
    records, you must set up your own telemetry backend server.
 
-
-
-How To Use
+How to use
 **********
 
 From a workflow perspective, the |CL| telemetrics system is straightforward.
@@ -156,7 +154,7 @@ Examples
    :local:
    :depth: 1
 
-Enable or Disable Telemetry
+Enable or disable telemetry
 ===========================
 
 #. Enabling during installation:
@@ -222,7 +220,7 @@ Enable or Disable Telemetry
    telemetry services.
 
 
-Saving Data Locally
+Saving data locally
 ===================
 
 This example requires |CL| to be installed and telemetry to be enabled on the
@@ -273,9 +271,8 @@ Use :command:`-h` or :command:`--help` to view usage options.
    address or fully qualified domain name.
 
 
-
-Set Up a Backend Server to Collect Telemetry Records
-====================================================
+Set up a back-end server to collect telemetry records
+=====================================================
 
 For this example, start with a clean installation of |CL| on a new system
 using the :ref:`bare-metal-install-server` getting started guide and:
@@ -376,7 +373,7 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 
 
 
-Create Records with telem-record-gen
+Create records with telem-record-gen
 ====================================
 
 The telemetrics bundle provides a record generator tool called
@@ -470,7 +467,7 @@ There are three ways to supply the payload to the record.
 
 
 
-Instrument Your Code with the libtelemetry API
+Instrument your code with the libtelemetry API
 ==============================================
 
 Prerequisites
@@ -700,7 +697,7 @@ Reference
    :local:
    :depth: 1
 
-The Telemetry API
+The telemetry API
 =================
 
 Installing the ``telemetrics`` bundle includes the libtelemetry C library,
@@ -708,7 +705,7 @@ which exposes an API used by the telemprobd and telempostd daemons. You can
 use these in your applications as well. The API documentation is found in the
 :file:`telemetry.h` file in `Telemetrics client`_ repository.
 
-Client Configuration
+Client configuration
 ====================
 
 The telemetry client will look for the configuration file located at
@@ -718,7 +715,7 @@ at :file:`/usr/share/defaults telemetrics/telemetrics.conf`. To modify or
 customize the configuration, copy the file from
 :file:`/usr/share/defaults/telemetrics` to :file:`/etc/telemetrics` and edit it.
 
-Configuration Options
+Configuration options
 ---------------------
 
 The client uses the following configuration options from the config file:
@@ -779,7 +776,7 @@ The client uses the following configuration options from the config file:
   	 reference for configuration.
 
 
-Client Run-time Options
+Client run-time options
 =======================
 
 The |CL| telemetry client provides an admin tool called :guilabel:`telemctl`
