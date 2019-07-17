@@ -3,8 +3,12 @@
 Run |CL-ATTR| as a KVM guest OS
 ###############################
 
-This guide explains how to run |CL-ATTR| in a virtualized environment using
+This page explains how to run |CL-ATTR| in a virtualized environment using
 :abbr:`KVM (Kernel-based Virtual Machine)`.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Install QEMU-KVM
 ****************

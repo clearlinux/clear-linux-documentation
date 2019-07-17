@@ -3,25 +3,23 @@
 Install a |CL-ATTR| VM in VirtualBox\*
 ######################################
 
-Oracle\* VirtualBox\* is a type 2 hypervisor. This document explains how to
-create a virtual machine on the `VirtualBox`_ hypervisor with |CL-ATTR| as
-the guest operating system. These instructions support use of the |CL|
-live-server installer to create |CL| virtual machine (VM).
+This page explains how to create a virtual machine on the `VirtualBox`_
+hypervisor with |CL-ATTR| as the guest operating system. These instructions
+support the |CL| live-server installer to create the |CL| virtual machine (VM).
 
-.. contents:: :local:
-    :depth: 1
+.. contents::
+   :local:
+   :depth: 1
 
 Prerequisites
 *************
 
-Before continuing, assure you have:
+#. Enable virtualization, such as `Intel® Virtualization Technology`_
+   (Intel® VT), on the host system from EFI/BIOS.
 
-#. Enabled virtualization, such as
-   `Intel® Virtualization Technology`_ (Intel® VT), on the host system from
-   EFI/BIOS.
-
-#. Downloaded and installed |VB| **version 6.0 or greater** from
-   `VirtualBox`_ using the  `VirtualBox Installation Instructions`_ for your platform.
+#. Download and install |VB| **version 6.0 or greater** from
+   `VirtualBox`_ using the  `VirtualBox Installation Instructions`_ for your
+   platform.
 
 Download and extract the |CL| installer ISO
 *******************************************
@@ -30,7 +28,7 @@ Download and extract the |CL| installer ISO
    |CL| on the `Downloads`_ page.
 
 #. Validate the integrity of the downloaded image by checking the file hash
-   and signatures. Refer :ref:`validate-signatures` for detailed steps.
+   and signatures. Refer to :ref:`validate-signatures` for detailed steps.
 
 #. Decompress the downloaded image.
 

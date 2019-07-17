@@ -3,10 +3,11 @@
 Launch |CL-ATTR| Compute Engine on Google Cloud Platform\*
 ##########################################################
 
-This tutorial walks you through the steps to create a virtual machine
-instance of |CL-ATTR| on `Google Cloud Platform`_ (:abbr:`GCP (Google Cloud Platform)`).
+This page explains the steps to create a virtual machine instance of
+|CL-ATTR| on `Google Cloud Platform`_ (:abbr:`GCP (Google Cloud Platform)`).
 
-.. contents:: :local:
+.. contents::
+   :local:
    :depth: 1
 
 Prerequisites
@@ -17,9 +18,8 @@ Prerequisites
 * Generate and install a user SSH key in the Linux PCs that will connect to
   the VMs in GCP.
 
-
-Process
-*******
+Setup |CL| VM on GCP
+********************
 
 #. Sign in to your Google\* account on the
    `Google Cloud Console <https://console.cloud.google.com/>`_:
@@ -254,8 +254,6 @@ Process
 
 Related topics
 **************
-
-The following tutorials describe a similar process and may be useful references:
 
 * :ref:`azure`
 * :ref:`aws-web`
