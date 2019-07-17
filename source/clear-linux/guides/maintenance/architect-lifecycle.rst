@@ -38,7 +38,8 @@ Description
 
 Coordinated infrastructure is deployed to automate the life-cycle
 of your |CL| derivative. We divide deployment of this infrastucture in two
-parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1. Distro Factory manages the *Release Workflow* while capturing the requirements for
+parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1. Distro
+Factory manages the *Release Workflow* while capturing the requirements for
 maintaining a long-term release cadence.
 
 .. figure:: figures/architect-lifecycle-1.png
@@ -51,7 +52,12 @@ Content workflow
 ****************
 
 The *Content Workflow* (Figure 1) orchestrates the processes used to manage
-the creation of content for the distribution. This includes everything from detecting a new release in a custom software repository to generating RPM package files. The RPM files serve as intermediary artifacts that track software dependencies and provide file-level data consumed in a *Release Workflow*.  The `Watcher Pipeline`_ checks |CL| and a content provider, such as Koji, to determine if a new release is necessary.
+the creation of content for the distribution. This includes everything from
+detecting a new release in a custom software repository to generating RPM
+package files. The RPM files serve as intermediary artifacts that track software
+dependencies and provide file-level data consumed in a *Release Workflow*.  The
+`Watcher Pipeline`_ checks |CL| and a content provider, such as Koji, to
+determine if a new release is necessary.
 
 Release workflow
 ****************
@@ -67,9 +73,10 @@ new releases.
 Implementation
 **************
 
-Distro factory implements the *Release workflow*. To get started on a full implementation, visit |CL| `Distro factory documentation`_.
+Distro factory implements the *Release workflow*. To get started on a full
+implementation, visit |CL| `Distro Factory`_ documentation.
 
-.. _Distro factory documentation: https://github.com/clearlinux/clr-distro-factory/wiki#clear-linux-distro-factory
+.. _Distro Factory: https://github.com/clearlinux/clr-distro-factory/wiki#clear-linux-distro-factory
 
 .. _Release Pipeline: https://github.com/clearlinux/clr-distro-factory/wiki/Release
 

@@ -56,7 +56,8 @@ If the kernel module you need is already open source (for example, in the Linux
 upstream) and likely to be useful to others, consider submitting a request to
 add or enable it in the |CL| kernel.
 
-Make enhancement requests to the |CL| distribution `on GitHub`_.
+Make enhancement requests to the |CL|
+`Distribution Project <https://github.com/clearlinux/distribution>`_ on GitHub.
 
 .. _kernel-modules-availability-end:
 
@@ -67,7 +68,7 @@ Build, install, and load an out-of-tree module
 Follow the steps in this section if you are an individual user or testing, and
 you need an out-of-tree kernel module that is not available through |CL|. For
 a more scalable and customizable approach, we recommend using the
-:ref:`mixer` to provide a custom kernel and updates.
+:ref:`mixer` tool to provide a custom kernel and updates.
 
 
 Prerequisites
@@ -216,5 +217,5 @@ Related topic
 
 * :ref:`kernel-modules-dkms`
 
-
 .. _`on GitHub`: https://github.com/clearlinux/distribution
+

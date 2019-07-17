@@ -3,9 +3,8 @@
 Get started
 ###########
 
-The Get Started section will get you up and running fast with |CL-ATTR|. Use
-these step-by-step instructions to guide you through the installing |CL|
-from a live desktop or to a virtual machine.
+The Get Started section guides you through the requirements and installation of
+|CL-ATTR|. Follow these step-by-step intructions to get started with |CL|, fast.
 
 Pre-install
 ***********

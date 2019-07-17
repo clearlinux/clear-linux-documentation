@@ -24,7 +24,8 @@ responds to this need.
 
 Use Table 1, *Developer Profiles*, to identify the *minimum
 required bundles* to get started developing based on your role or project.
-While your role may not neatly fit in one of these categories, consider using Table 1 as a starting point.
+While your role may not neatly fit in one of these categories, consider using
+Table 1 as a starting point.
 
 .. list-table:: **Table 1. Developer Profiles**
    :widths: 20, 20, 20, 20
@@ -102,8 +103,8 @@ Other resources for developers
 -----------------------------------
 
 * `Developer Tooling Framework`_ for |CL|
-* `Bundle definition files`_
+* `Bundle Definition Files`_
 
-.. _Bundle definition files: https://github.com/clearlinux/clr-bundles
+.. _Bundle Definition Files: https://github.com/clearlinux/clr-bundles
 
 .. _Developer Tooling Framework: https://github.com/clearlinux/common

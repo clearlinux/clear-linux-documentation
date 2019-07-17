@@ -3,14 +3,20 @@
 Use Hyper-V\*
 #############
 
-This section explains how to run |CL-ATTR| inside a
+This page explains how to run |CL-ATTR| inside a
 `Windows Server Virtualization`_\* or **Hyper-V** environment.
 
-Please ensure you have enabled `Intel® Virtualization Technology
-<http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_
-(Intel® VT) and `Intel® Virtualization Technology for Directed I/O
-<https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices>`_
-(Intel® VT-d) in your BIOS/UEFI firmware configuration.
+.. contents::
+   :local:
+   :depth: 1
+
+Prerequisites
+*************
+
+* Enable `Intel® Virtualization Technology`_ (Intel® VT)
+
+* Enable `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in
+  your BIOS/UEFI firmware configuration.
 
 Enable Hyper-V
 **************
@@ -21,7 +27,7 @@ Please refer to `Install Hyper-V on Windows 10`_ to enable and configure
 Create a virtual network
 ************************
 
-Once *Hyper-V* has been enabled on your Windows system you will need to 
+Once *Hyper-V* has been enabled on your Windows system you will need to
 create a virtual network in the **Hyper-V Manager**.  Refer to the
 `Create a virtual network`_ documentation to create and configure
 a virtual network.
@@ -30,7 +36,7 @@ Create a virtual machine
 ************************
 
 #. Download and decompress the latest hyperv disk image
-   :file:`clear-XXXXX-hyperv.img.gz`, where XXXXX is the latest 
+   :file:`clear-XXXXX-hyperv.img.gz`, where XXXXX is the latest
    available version of |CL| from our `Downloads`_ page.
 
 #. Create a virtual machine using the **Hyper-V Manager**:
@@ -58,3 +64,5 @@ Your virtual machine running |CL| is ready!
 .. _Install Hyper-V on Windows 10: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
 .. _Create a virtual network: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network
 .. _Downloads: https://cdn.download.clearlinux.org/image/
+.. _Intel® Virtualization Technology: http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+.. _Intel® Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
