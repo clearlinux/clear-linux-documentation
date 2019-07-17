@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,46 +24,43 @@ msgstr ""
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:6
 msgid ""
-"`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on "
+"This page explains how to create a new :abbr:`VM (Virtual Machine)` and "
+"manually install |CL-ATTR| on the new VM with VMware ESXi 6.5."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:14
+msgid "Overview"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:16
+msgid ""
+"`VMware ESXi`_ is a type 1 bare-metal hypervisor that runs directly on "
 "top of server hardware. With VMware ESXi, you can create, configure, "
-"manage, and run |CL-ATTR| virtual machines in the cloud."
+"manage, and run |CL| virtual machines in the cloud."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:10
+#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:20
 msgid ""
-"This section shows you how to create a new :abbr:`VM (Virtual Machine)` "
-"and manually install |CL| into it with VMware ESXi 6.5."
+"Manually installing |CL| on a new VM gives additional configuration "
+"flexibility during installation. For example: alternate disk sizes, "
+"number of partitions, pre-installed bundles, etc."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:13
+#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:24
 msgid ""
-"Manually installing |CL| into a new VM provides you some additional "
-"configuration flexibility during installation. For example: alternate "
-"disk sizes, number of partitions, pre-installed bundles, etc."
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:17
-msgid ""
-"If you would prefer to use a preconfigured |CL| VMware image instead, see"
-" :ref:`vmware-esxi-preconfigured-cl-image`."
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:22
-msgid ""
-"VMware also offers a type 2 hypervisor called `VMware Workstation "
-"Player`_ which is designed for the desktop environment."
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:25
-msgid "See :ref:`vmw-player-preconf` or see :ref:`vmw-player`"
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:27
-msgid "Visit :ref:`image-types` to learn more about all available images."
+"If you prefer to use a preconfigured |CL| VMware image instead, refer to "
+":ref:`vmware-esxi-preconfigured-cl-image`."
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:29
-msgid "Install steps:"
+msgid ""
+"VMware also offers a type 2 hypervisor designed for the desktop "
+"environment, called `VMware Workstation Player`_. Refer to :ref:`vmw-"
+"player-preconf` or :ref:`vmw-player` for more information."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:33
+msgid "Visit :ref:`image-types` to learn more about all available images."
 msgstr ""
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:36
@@ -474,4 +471,49 @@ msgstr ""
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:289
 msgid ":ref:`vmware-esxi-preconfigured-cl-image`"
 msgstr ""
+
+#~ msgid ""
+#~ "`VMware ESXi`_ is a type 1 "
+#~ "bare-metal hypervisor which runs directly"
+#~ " on top of server hardware. With "
+#~ "VMware ESXi, you can create, configure,"
+#~ " manage, and run |CL-ATTR| virtual"
+#~ " machines in the cloud."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This section shows you how to "
+#~ "create a new :abbr:`VM (Virtual "
+#~ "Machine)` and manually install |CL| into"
+#~ " it with VMware ESXi 6.5."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Manually installing |CL| into a new "
+#~ "VM provides you some additional "
+#~ "configuration flexibility during installation. "
+#~ "For example: alternate disk sizes, "
+#~ "number of partitions, pre-installed "
+#~ "bundles, etc."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you would prefer to use a "
+#~ "preconfigured |CL| VMware image instead, "
+#~ "see :ref:`vmware-esxi-preconfigured-cl-"
+#~ "image`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "VMware also offers a type 2 "
+#~ "hypervisor called `VMware Workstation Player`_"
+#~ " which is designed for the desktop"
+#~ " environment."
+#~ msgstr ""
+
+#~ msgid "See :ref:`vmw-player-preconf` or see :ref:`vmw-player`"
+#~ msgstr ""
+
+#~ msgid "Install steps:"
+#~ msgstr ""
 

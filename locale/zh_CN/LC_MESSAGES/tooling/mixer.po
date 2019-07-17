@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,8 +89,8 @@ msgstr ""
 
 #: ../../tooling/mixer.rst:52
 msgid ""
-"Add the mixer tool with the :command:`mixer` bundle. Refer to `Install a "
-"bundle`_ for more details."
+"Add the mixer tool with the :command:`mixer` bundle. Refer to :ref"
+":`swupd-guide` for more information on installing bundles."
 msgstr ""
 
 #: ../../tooling/mixer.rst:55
@@ -198,7 +198,7 @@ msgid ""
 msgstr ""
 
 #: ../../tooling/mixer.rst:112
-msgid "View the list of `suitable versions`_ from which to mix."
+msgid "View the list of suitable `releases`_ from which to mix."
 msgstr ""
 
 #: ../../tooling/mixer.rst:114
@@ -1071,4 +1071,13 @@ msgstr ""
 #: ../../tooling/mixer.rst:836
 msgid ":ref:`swupd-about`"
 msgstr ""
+
+#~ msgid ""
+#~ "Add the mixer tool with the "
+#~ ":command:`mixer` bundle. Refer to `Install "
+#~ "a bundle`_ for more details."
+#~ msgstr ""
+
+#~ msgid "View the list of `suitable versions`_ from which to mix."
+#~ msgstr ""
 

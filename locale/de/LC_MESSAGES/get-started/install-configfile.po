@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../get-started/install-configfile.rst:4
+msgid "Install using clr-installer and a configuration file"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:6
+msgid ""
+"This page explains how to install |CL-ATTR| using the clr-installer tool "
+"with a configuration file. The configuration file (:file:`clr-"
+"installer.yaml`) can be reused to duplicate the same installation "
+"configuration on additional machines."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:16
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:18
+msgid "Ensure that your target system supports the installation:"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:20
+msgid ":ref:`system-requirements`"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:21
+msgid ":ref:`compatibility-check`"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:24
+msgid "Process"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:26
+msgid ""
+"This guide describes two methods for using a configuration file with the "
+"clr-installer tool. You can use either method to achieve the same goal. "
+"Choose the method that works best for your setup."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:30
+msgid "If you are installing |CL| for the first time, we recommend Example 1."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:32
+msgid "To clone an existing |CL| setup on another system, we recommend Example 2."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:35
+msgid "Example 1"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:37
+msgid ""
+"This method uses a configuration file template to perform a new "
+"installation."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:39
+#: ../../get-started/install-configfile.rst:146
+msgid "Perform the following steps:"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:41
+#: ../../get-started/install-configfile.rst:163
+msgid "Go to `Downloads`_ and download the latest Clear Linux OS Server image."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:43
+#: ../../get-started/install-configfile.rst:165
+msgid ""
+"For example: "
+"https://download.clearlinux.org/releases/30010/clear/clear-30010-live-"
+"server.iso.xz"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:46
+#: ../../get-started/install-configfile.rst:168
+msgid "Follow the instructions to :ref:`bootable-usb` based on your OS."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:48
+#: ../../get-started/install-configfile.rst:170
+msgid "Boot up the USB thumb drive."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:49
+#: ../../get-started/install-configfile.rst:171
+msgid "Select :guilabel:`Clear Linux OS` from the menu."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:50
+#: ../../get-started/install-configfile.rst:172
+msgid "In the console window, log in as root and set a password."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:51
+#: ../../get-started/install-configfile.rst:173
+msgid ""
+"Verify you have a network connection to the Internet and configure proxy "
+"settings if you're working behind a firewall."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:53
+msgid "Download a :file:`live-server.yaml` template."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:55
+msgid "For example:"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:61
+msgid "Edit the template and change the settings as needed."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:63
+msgid "Commonly-changed settings include:"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:67
+msgid ""
+"Under *block-devices*, set “file: \"/dev/sda\"” or enter your preferred "
+"device."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:68
+msgid ""
+"Under *targetMedia*, set the third partition size to “0” to use the "
+"entire disk space."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:69
+msgid "Under *bundles*, add additional bundles as needed."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:70
+msgid ""
+"Delete the *post-install* section unless you have post-installation "
+"scripts."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:71
+msgid ""
+"Under *Version*, set a version number. To use the latest version, set to "
+"“0”."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:73
+msgid ""
+"Commonly-changed settings are shown in lines 15, 34, 37, and 51 below. "
+"See `Installer YAML Syntax`_ for more details."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:134
+#: ../../get-started/install-configfile.rst:177
+msgid "Start the installation with the command:"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:141
+msgid "Example 2"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:143
+msgid ""
+"This method uses a saved configuration file from a previous installation,"
+" which you can use to easily duplicate the installation on additional "
+"machines."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:148
+msgid ""
+"Open a console window on a system where |CL| was installed to retrieve a "
+"copy of the configuration file."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:151
+msgid "In the console window, log in as root and enter your password."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:153
+msgid ""
+"Change directory to :file:`/root` and copy the :file:`clr-installer.yaml`"
+" file to a USB thumb drive."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:161
+msgid "Start the installation on the target with the following steps:"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:175
+msgid ""
+"Plug in and mount the USB thumb drive containing the retrieved :file"
+":`clr-installer.yaml` configuration file."
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:184
+msgid "References"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:186
+msgid "`Clear Linux Installer`_"
+msgstr ""
+
+#: ../../get-started/install-configfile.rst:187
+msgid "`Installer YAML Syntax`_"
+msgstr ""
+

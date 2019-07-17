@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,98 +26,98 @@ msgstr ""
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:6
 msgid ""
-"`VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of"
-" another operating system such as Windows\\* or Linux\\*. With VMware "
+"This page explains how to deploy a pre-configured |CL| VMware image on "
+"`VMware Workstation 14 Player`_."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:14
+msgid "Overview"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:16
+msgid ""
+"VMware Workstation 14 Player is a type 2 hypervisor. It runs on top of "
+"another operating system such as Windows\\* or Linux\\*. With VMware "
 "ESXi, you can create, configure, manage, and run |CL-ATTR| :abbr:`VMs "
 "(Virtual Machines)` on your local system."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:11
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:23
 msgid ""
-"This section shows how to deploy a pre-configured |CL| VMware image on "
-"VMware Workstation 14 Player."
+"Screenshots in this document show VMware Workstation 14 Player for "
+"Windows. Menus and prompts in the Linux version have minor wording "
+"differences."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:14
-msgid "In this tutorial, we perform the following steps:"
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:21
-msgid ""
-"The screenshots on this document show the Windows version of the VMware "
-"Workstation 14 Player. The menus and prompts are similar to those in the "
-"Linux version save some minor wording differences."
-msgstr ""
-
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:26
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:27
 msgid "Install the VMware Workstation Player hypervisor"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:28
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:29
 msgid ""
 "Enable :abbr:`Intel® VT (Intel® Virtualization Technology)` and "
 ":abbr:`Intel® VT-d (Intel® Virtualization Technology for Directed I/O)` "
 "in your system's BIOS."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:32
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:33
 msgid ""
 "`VMware Workstation 14 Player`_ is available for Windows and Linux. "
 "Download your preferred version."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:35
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:36
 msgid ""
 "Depending on which OS you're running, install it by following one of "
 "these instructions:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:38
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:39
 msgid "On supported Linux distros:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:40
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:41
 msgid "Enable a GUI desktop."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:42
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:43
 msgid "Start a terminal emulator."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:44
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:45
 msgid ""
 "Start the installer by issuing the command below and following the guided"
 " steps."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:51
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:52
 msgid "On Windows:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:53
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:54
 msgid "Start the installer."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:54
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:55
 msgid "Follow the setup wizard."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:56
-msgid "For additional help, see the `VMware Workstation Player guide`_."
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:57
+msgid "For additional help, see the `VMware Workstation Player Documentation`_."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:59
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:60
 msgid "Download the latest |CL| VMware image"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:61
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:62
 msgid ""
 "Get the latest |CL| VMware image from the `image`_ repository. Look for "
 ":file:`clear-[version number]-vmware.vmdk.xz`. You can also use this "
 "command:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:69
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:70
 msgid ""
 "Visit :ref:`image-types` for additional information about all available "
 "|CL| images."
@@ -186,86 +186,86 @@ msgstr ""
 msgid "Figure 1: Windows 7-Zip extract file."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:74
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:75
 msgid "We also provide instructions for other operating systems:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:76
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:77
 msgid ":ref:`download-verify-decompress-linux`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:77
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:78
 msgid ":ref:`download-verify-decompress-mac`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:80
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:81
 msgid "Create and configure a new VM"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:82
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:83
 msgid "Start the `VMware Workstation Player` app."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:83
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:84
 msgid ""
 "On the home screen, click :guilabel:`Create a New Virtual Machine`. See "
 "figure 1."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:90
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:91
 msgid "Figure 1: VMware Workstation 14 Player - Create a new virtual machine"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:92
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:93
 msgid ""
 "On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen, "
 "select the :guilabel:`I will install the operating system later` option. "
 "See figure 2."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:100
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:101
 msgid ""
 "Figure 2: VMware Workstation 14 Player - Select install operating system "
 "later."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:103
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:119
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:130
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:229
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:104
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:120
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:131
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:230
 msgid "Click the :guilabel:`Next` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:105
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:106
 msgid ""
 "On the :guilabel:`Select a Guest Operating System` screen, set the "
 ":guilabel:`Guest operating system` setting to :guilabel:`Linux`. See "
 "figure 3."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:113
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:114
 msgid ""
 "Figure 3: VMware Workstation 14 Player - Select guest operating system "
 "type"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:116
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:117
 msgid ""
 "Set :guilabel:`Version` setting to :guilabel:`Other Linux 3.x or later "
 "kernel 64-bit`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:121
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:122
 msgid ""
 "On the :guilabel:`Name the Virtual Machine` screen, give your new VM a "
 "name. See figure 4."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:128
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:129
 msgid "Figure 4: VMware Workstation 14 Player - Name virtual machine"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:132
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:133
 msgid ""
 "On the :guilabel:`Specify Disk Capacity` screen, click the "
 ":guilabel:`Next` button. Keep the default disk settings unchanged. When "
@@ -274,220 +274,252 @@ msgid ""
 "figure 5."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:142
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:143
 msgid "Figure 5: VMware Workstation 14 Player - Set disk capacity"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:144
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:145
 msgid ""
 "On the :guilabel:`Ready to Create Virtual Machine` screen, click the "
 ":guilabel:`Customize Hardware...` button. See figure 6."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:151
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:152
 msgid "Figure 6: VMware Workstation 14 Player - Customize hardware"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:153
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:154
 msgid ""
 "Under the :guilabel:`Device` list, select :guilabel:`Processors`. See "
 "figure 7."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:160
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:161
 msgid "Figure 7: VMware Workstation 14 Player - Set virtualization engine option"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:163
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:164
 msgid ""
 "Under the :guilabel:`Virtualization engine` section, check "
 ":guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:166
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:167
 msgid ""
 "To disconnect the virtual CD/DVD (IDE) since it is not needed, under the "
 ":guilabel:`Device` list, select :guilabel:`New CD/DVD (IDE)`. See figure "
 "8."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:173
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:174
 msgid "Figure 8: VMware Workstation 14 Player - Disconnect CD/DVD (IDE)"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:175
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:176
 msgid ""
 "Under the :guilabel:`Device status` section, uncheck :guilabel:`Connect "
 "at power on`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:178
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:179
 msgid "Click the :guilabel:`Close` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:180
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:257
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:181
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:258
 msgid "Click the :guilabel:`Finish` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:183
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:184
 msgid "Attach the pre-configured |CL| VMware image"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:185
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:186
 msgid ""
 "Move the downloaded and decompressed pre-configured |CL| VMware image "
 "file :file:`clear-[version number]-basic.vmdk` to the directory where "
 "your newly-created VM resides."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:191
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:276
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:192
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:277
 msgid "Depending on the OS, you can typically find the VMware VM files under:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:193
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:278
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:194
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:279
 msgid "On Linux distros: :file:`/home/username/vmware`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:194
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:195
 msgid "On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:196
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:197
 msgid ""
 "On the :guilabel:`VMware Workstation Player` home screen, select your "
 "newly-created VM. See figure 9."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:203
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:204
 msgid "Figure 9: VMware Workstation 14 Player - Edit virtual machine settings"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:205
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:206
 msgid "Click :guilabel:`Edit virtual machine settings`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:207
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:208
 msgid ""
 "To remove the default hard disk, under the :guilabel:`Device` list, "
 "select :guilabel:`Hard Disk (SCSI)`. See figure 10."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:214
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:215
 msgid "Figure 10: VMware Workstation 14 Player - Remove hard drive"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:216
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:217
 msgid "Click the :guilabel:`Remove` button."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:218
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:219
 msgid ""
 "To add a new hard disk and attach the pre-configured |CL| VMware image, "
 "click the :guilabel:`Add...` button. See Figure 11."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:225
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:226
 msgid "Figure 11: VMware Workstation 14 Player - Add new hard drive"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:227
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:228
 msgid ""
 "Under the :guilabel:`Hardware types` section, select :guilabel:`Hard "
 "Disk`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:231
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:232
 msgid "Select your preferred :guilabel:`Virtual disk type`. See figure 12."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:237
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:238
 msgid "Figure 12: VMware Workstation 14 Player - Select virtual disk type"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:239
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:240
 msgid "Select the :guilabel:`Use an existing virtual disk` option. See figure 13."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:245
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:246
 msgid "Figure 13: VMware Workstation 14 Player - Use existing virtual disk"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:247
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:248
 msgid ""
 "Click the :guilabel:`Browse` button and select the pre-configured |CL| "
 "VMware image file. See figure 14."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:254
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:255
 msgid ""
 "Figure 14: VMware Workstation 14 Player - Select ready-made VMware |CL| "
 "image file"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:261
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:262
 msgid ""
 "When asked to convert the existing virtual disk to a newer format, "
 "selecting either option works."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:265
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:266
 msgid "Enable UEFI boot support"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:267
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:268
 msgid ""
 "|CL| needs UEFI support to boot.To enable it, add the following line to "
 "the end of your VM's :file:`.vmx` file:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:279
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:280
 msgid ""
 "On Windows: :file:`C:\\\\Users\\\\username\\\\Documents\\\\Virtual "
 "Machines`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:282
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:283
 msgid "Power on the VM"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:284
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:285
 msgid "After configuring the settings above, power on your |CL| virtual machine."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:286
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:287
 msgid ""
 "On the :guilabel:`VMware Workstation Player` home screen, select your VM."
 " See figure 15."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:293
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:294
 msgid "Figure 15: VMware Workstation 14 Player - Power on virtual machine"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:295
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:296
 msgid "Click :guilabel:`Play virtual machine`."
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:298
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:299
 msgid "Related topics"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:300
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:301
 msgid "For other guides on using the VMWare Player and ESXi, see:"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:302
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:303
 msgid ":ref:`vmw-player`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:303
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:304
 msgid ":ref:`vmware-esxi-install-cl`"
 msgstr ""
 
-#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:304
+#: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:305
 msgid ":ref:`vmware-esxi-preconfigured-cl-image`"
 msgstr ""
+
+#~ msgid ""
+#~ "`VMware Workstation 14 Player`_ is a "
+#~ "type 2 hypervisor. It runs on top"
+#~ " of another operating system such as"
+#~ " Windows\\* or Linux\\*. With VMware "
+#~ "ESXi, you can create, configure, manage,"
+#~ " and run |CL-ATTR| :abbr:`VMs "
+#~ "(Virtual Machines)` on your local "
+#~ "system."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This section shows how to deploy a"
+#~ " pre-configured |CL| VMware image on"
+#~ " VMware Workstation 14 Player."
+#~ msgstr ""
+
+#~ msgid "In this tutorial, we perform the following steps:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The screenshots on this document show"
+#~ " the Windows version of the VMware"
+#~ " Workstation 14 Player. The menus and"
+#~ " prompts are similar to those in "
+#~ "the Linux version save some minor "
+#~ "wording differences."
+#~ msgstr ""
+
+#~ msgid "For additional help, see the `VMware Workstation Player guide`_."
+#~ msgstr ""
 

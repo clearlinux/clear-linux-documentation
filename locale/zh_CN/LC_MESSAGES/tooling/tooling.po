@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Generated-By: Babel 2.7.0\n"
 
 #: ../../tooling/tooling.rst:4
-msgid "Tooling"
+msgid "How to Clear"
 msgstr ""
 
 #: ../../tooling/tooling.rst:6
@@ -27,4 +27,7 @@ msgid ""
 "Clear Linux is a little different from other distros. Here are some "
 "important tools and concepts for managing your install."
 msgstr ""
+
+#~ msgid "Tooling"
+#~ msgstr ""
 

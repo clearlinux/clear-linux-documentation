@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,15 +90,15 @@ msgid ""
 "requirements for maintaining a long-term release cadence."
 msgstr ""
 
-#: ../../guides/maintenance/architect-lifecycle.rst:48
+#: ../../guides/maintenance/architect-lifecycle.rst:49
 msgid "Figure 1: Architect the life-cycle"
 msgstr ""
 
-#: ../../guides/maintenance/architect-lifecycle.rst:51
+#: ../../guides/maintenance/architect-lifecycle.rst:52
 msgid "Content workflow"
 msgstr ""
 
-#: ../../guides/maintenance/architect-lifecycle.rst:53
+#: ../../guides/maintenance/architect-lifecycle.rst:54
 msgid ""
 "The *Content Workflow* (Figure 1) orchestrates the processes used to "
 "manage the creation of content for the distribution. This includes "
@@ -110,11 +110,11 @@ msgid ""
 "necessary."
 msgstr ""
 
-#: ../../guides/maintenance/architect-lifecycle.rst:57
+#: ../../guides/maintenance/architect-lifecycle.rst:63
 msgid "Release workflow"
 msgstr ""
 
-#: ../../guides/maintenance/architect-lifecycle.rst:59
+#: ../../guides/maintenance/architect-lifecycle.rst:65
 msgid ""
 "The *Release Workflow* (Figure 1) gathers the content of the RPMs and "
 "ensures it can be consumed by :ref:`mixer <mixer>`. A content web server "
@@ -125,13 +125,20 @@ msgid ""
 "to create new releases."
 msgstr ""
 
-#: ../../guides/maintenance/architect-lifecycle.rst:68
+#: ../../guides/maintenance/architect-lifecycle.rst:74
 msgid "Implementation"
 msgstr ""
 
-#: ../../guides/maintenance/architect-lifecycle.rst:70
+#: ../../guides/maintenance/architect-lifecycle.rst:76
 msgid ""
 "Distro factory implements the *Release workflow*. To get started on a "
-"full implementation, visit |CL| `Distro factory documentation`_."
+"full implementation, visit |CL| `Distro Factory`_ documentation."
 msgstr ""
+
+#~ msgid ""
+#~ "Distro factory implements the *Release "
+#~ "workflow*. To get started on a "
+#~ "full implementation, visit |CL| `Distro "
+#~ "factory documentation`_."
+#~ msgstr ""
 

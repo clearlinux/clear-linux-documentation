@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -432,7 +432,7 @@ msgstr ""
 #: ../../tooling/autospec.rst:384
 msgid ""
 "The code that makes this possible can be viewed by searching for the "
-"*install:*  target in the `Makefile.common file on GitHub`_."
+"*install:*  target in the `Makefile.common`_ file on GitHub."
 msgstr ""
 
 #: ../../tooling/autospec.rst:387
@@ -486,7 +486,7 @@ msgstr ""
 #: ../../tooling/autospec.rst:429
 msgid ""
 "The code that makes this possible can be viewed by searching for the "
-"*install-local:*  target in the `Makefile.common file on GitHub`_."
+"*install-local:*  target in the `Makefile.common`_  file on GitHub."
 msgstr ""
 
 #: ../../tooling/autospec.rst:432
@@ -573,4 +573,18 @@ msgstr ""
 #: ../../tooling/autospec.rst:504
 msgid ":ref:`Mixer tool <mixer>`"
 msgstr ""
+
+#~ msgid ""
+#~ "The code that makes this possible "
+#~ "can be viewed by searching for the"
+#~ " *install:*  target in the `Makefile.common"
+#~ " file on GitHub`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The code that makes this possible "
+#~ "can be viewed by searching for the"
+#~ " *install-local:*  target in the "
+#~ "`Makefile.common file on GitHub`_."
+#~ msgstr ""
 
