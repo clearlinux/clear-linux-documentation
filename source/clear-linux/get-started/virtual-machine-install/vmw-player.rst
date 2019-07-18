@@ -3,23 +3,26 @@
 Install |CL-ATTR| as a VMware\* Workstation Player guest OS
 ###########################################################
 
+This page explains how to create a new VM and install |CL| on it with the
+VMware Workstation 14 Player hypervisor.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
 `VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of
 another operating system such as Windows\* or Linux\*. With VMware ESXi, you can
 create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)` on
 your local system.
 
-This section shows how to create a new VM and install |CL| into it with the
-VMware Workstation 14 Player hypervisor. Installing |CL| into a new VM
-provides you flexibility when configuring the VM. You can configure the VM's
-size, number of partitions, installed bundles, etc.
+Installing |CL| into a new VM provides you flexibility when configuring the VM.
+You can configure the VM's size, number of partitions, installed bundles, etc.
 
-In this tutorial, we perform the following steps:
-
-.. contents:: :local:
-   :depth: 1
-
-If you prefer to use a pre-configured |CL| VMware image instead,
-see our :ref:`vmw-player-preconf` guide.
+If you prefer to use a pre-configured |CL| VMware image instead, see our
+:ref:`vmw-player-preconf` guide.
 
 VMware offers a type 1 hypervisor called `VMware ESXi`_ designed for the
 cloud environment. For information on how to install |CL| as guest OS on
@@ -27,9 +30,8 @@ it, see :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
-   The screenshots on this document show the Windows version of the
-   VMware Workstation 14 Player. The menus and prompts are similar to those
-   in the Linux version save some minor wording differences.
+   Screenshots in this document show VMware Workstation 14 Player for Windows.
+   Menus and prompts in the Linux version have minor wording differences.
 
 Install the VMware Workstation Player hypervisor
 ************************************************
@@ -60,7 +62,7 @@ Install the VMware Workstation Player hypervisor
      #. Start the installer.
      #. Follow the setup wizard.
 
-For additional help, see the `VMware Workstation Player guide`_.
+For additional help, see the `VMware Workstation Player Documentation`_.
 
 Download the latest |CL| installer ISO
 **************************************
@@ -294,9 +296,7 @@ For other guides on using the VMWare Player and ESXi, see:
 .. _VMware Workstation 14 Player:
    https://www.vmware.com/products/workstation-player.html
 
-.. _VMware Workstation Player guide:
+.. _VMware Workstation Player Documentation:
    https://docs.vmware.com/en/VMware-Workstation-Player/index.html
-
-.. _latest: https://cdn.download.clearlinux.org/image/
 
 .. _image: https://cdn.download.clearlinux.org/image

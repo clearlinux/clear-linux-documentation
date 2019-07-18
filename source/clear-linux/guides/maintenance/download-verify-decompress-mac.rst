@@ -35,7 +35,7 @@ checksum file designated with the suffix `-SHA512SUMS`.
 
    .. code-block:: bash
 
-	  shasum -a512 ./clear-[version number]-[image type].[compression type] | diff ./clear-[version number]-[image type].[compression type]-SHA512SUMS -
+	  shasum -a512 clear-[version number]-[image type].[compression type] | diff clear-[version number]-[image type].[compression type]-SHA512SUMS -
 
 If the checksum of the downloaded image is different than the original
 checksum, the differences will be displayed. Otherwise, an empty output indicates
@@ -44,8 +44,8 @@ a match and your downloaded image is good.
 Decompress the |CL| image
 *************************
 
-We compress all released |CL| images by default with either GNU zip 
-(`.gz`) or xz (`.xz`). The compression type we use depends on the target 
+We compress all released |CL| images by default with either GNU zip
+(`.gz`) or xz (`.xz`). The compression type we use depends on the target
 platform or environment. To decompress the image, follow these steps:
 
 #. Start the Terminal app.

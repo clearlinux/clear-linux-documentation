@@ -11,3 +11,4 @@ Clear Linux - Documentation Sitemap
    clear-linux/guides/guides
    clear-linux/reference/reference
    clear-linux/tutorials/tutorials
+   clear-linux/FAQ/faq

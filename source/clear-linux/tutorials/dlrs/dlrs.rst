@@ -6,7 +6,6 @@ Deep Learning Reference Stack
 This tutorial describes how to run benchmarking workloads for TensorFlow\*,
 PyTorch\*, and Kubeflow in |CL-ATTR| using the Deep Learning Reference Stack.
 
-
 .. contents::
    :local:
    :depth: 1
@@ -26,14 +25,14 @@ The Deep Learning Reference Stack is available in the following versions:
   for Deep Neural Networks (Intel® MKL-DNN) primitives and introduces support
   for Intel® AVX-512 Vector Neural Network Instructions (VNNI).
 * `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using
-  Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) primitives.
+  Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN)
+  primitives.
 * `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture.
 * `PyTorch with OpenBLAS`_, which includes PyTorch with OpenBlas.
 * `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using Intel®
   Math Kernel Library (Intel® MKL) and Intel MKL-DNN.
 
-
-.. note::
+.. important::
 
    To take advantage of the Intel® AVX-512 and VNNI functionality with the Deep
    Learning Reference Stack, you must use the following hardware:
@@ -41,36 +40,41 @@ The Deep Learning Reference Stack is available in the following versions:
    * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
    * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
 
-
 Stack features
 ==============
 
 * Deep Learning Reference Stack `V3.0 release announcement`_.
-* Deep Learning Reference Stack v2.0 including current `PyTorch benchmark results`_.
-* Deep Learning Reference Stack v1.0 including current `TensorFlow benchmark results`_.
-* `Release notes on Github\*`_ for the latest release of Deep Learning Reference Stack.
+* Deep Learning Reference Stack v2.0 including current
+  `PyTorch benchmark results`_.
+* Deep Learning Reference Stack v1.0 including current
+  `TensorFlow benchmark results`_.
+* `Release notes on Github\*`_ for the latest release of Deep Learning Reference
+  Stack.
 
 .. note::
 
-   Performance test results for the Deep Learning Reference Stack were
-   obtained using `runc` as the runtime.
+   The Deep Learning Reference Stack is a collective work, and each piece of software within the work has its own license.  Please see the `terms of use`_ for more details about licensing and usage of the Deep Learning Reference Stack.
+
+
 
 Prerequisites
 =============
 
-* :ref:`Install <bare-metal-install-desktop>` |CL| on your host system.
+* :ref:`Install <bare-metal-install-desktop>` |CL| on your host system
 * :command:`containers-basic` bundle
 * :command:`cloud-native-basic` bundle
 
 In |CL|, :command:`containers-basic` includes Docker\*, which is required for
 TensorFlow and PyTorch benchmarking. Use the :command:`swupd` utility to
-check if :command:`containers-basic` and :command:`cloud-native-basic` are present:
+check if :command:`containers-basic` and :command:`cloud-native-basic` are
+present:
 
 .. code-block:: bash
 
    sudo swupd bundle-list
 
-To install the :command:`containers-basic` or :command:`cloud-native-basic` bundles, enter:
+To install the :command:`containers-basic` or :command:`cloud-native-basic`
+bundles, enter:
 
 .. code-block:: bash
 
@@ -91,10 +95,15 @@ Version compatibility
 
 We validated these steps against the following software package versions:
 
-* |CL| 26240 (Lower version not supported.)
+* |CL| 26240 (Minimum supported version)
 * Docker 18.06.1
 * Kubernetes 1.11.3
 * Go 1.11.12
+
+
+.. note::
+
+   The Deep Learning Reference Stack was developed to provide the best user experience when executed on a |CL| host.  However, as the stack runs in a container environment, you should be able to complete the following sections of this tutorial on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
 
 TensorFlow single and multi-node benchmarks
 *******************************************
@@ -103,6 +112,12 @@ This section describes running the `TensorFlow benchmarks`_ in single node.
 For multi-node testing, replicate these steps for each node. These steps
 provide a template to run other benchmarks, provided that they can invoke
 TensorFlow.
+
+.. note::
+
+   Performance test results for the Deep Learning Reference Stack and for this tutorial were
+   obtained using `runc` as the runtime.
+
 
 #. Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image
    from `Docker Hub`_.
@@ -137,8 +152,8 @@ TensorFlow.
    You can replace the model with one of your choice supported by the
    TensorFlow benchmarks.
 
-   If you are using an FP32 based model, it can be converted to an int8 model using `Intel® quantization tools`_
-   
+   If you are using an FP32 based model, it can be converted to an int8 model
+   using `Intel® quantization tools`_.
 
 PyTorch single and multi-node benchmarks
 ****************************************
@@ -182,6 +197,11 @@ Kubeflow multi-node benchmarks
 The benchmark workload runs in a Kubernetes cluster. The tutorial uses
 `Kubeflow`_ for the Machine Learning workload deployment on three nodes.
 
+.. warning::
+
+   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform must support the Intel® AVX-512 instruction set. Otherwise, an *illegal instruction* error may appear, and you won’t be able to complete this tutorial.
+
+
 Kubernetes setup
 ================
 
@@ -196,12 +216,48 @@ We used `flannel`_ as the network provider for these tests. If you
 prefer a different network layer, refer to the Kubernetes
 `networking documentation`_ for setup.
 
+Kubectl
+=======
+
+You can use kubectl to run commands against your Kubernetes cluster.  Refer to
+the `kubectl overview`_ for details on syntax and operations. Once you have a
+working cluster on Kubernetes, use the following YAML script to start a pod with
+a simple shell script, and keep the pod open.
+
+#. Copy this example.yaml script to your system:
+
+   .. code-block:: console
+
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: example-pod
+        labels:
+          app: ex-pod
+      spec:
+        containers:
+        - name: ex-pod-container
+          image: clearlinux/stacks-dlrs-mkl:latest
+          command: ['/bin/bash', '-c', '--']
+          args: [ "while true; do sleep 30; done" ]
+
+#. Execute the script with kubectl:
+
+   .. code-block:: bash
+
+      kubectl apply –f <path-to-yaml-file>/example.yaml
+
+This script opens a single pod. More robust solutions would create a deployment
+or inject a python script or larger shell script into the container.
+
 Images
 ======
 
-You must add `launcher.py` to the Docker image to include the Deep
+You must add `launcher.py`_ to the Docker image to include the Deep
 Learning Reference Stack and put the benchmarks repo in the correct
-location. From the Docker image, run the following:
+location. Note that this tutorial uses Kubeflow v0.4.0, and cannot guarantee results if you use a different version.
+
+From the Docker image, run the following:
 
 .. code-block:: bash
 
@@ -210,7 +266,7 @@ location. From the Docker image, run the following:
    cp launcher.py /opt
    chmod u+x /opt/*
 
-Your entry point becomes: :file:`/opt/launcher.py`
+Your entry point becomes: :file:`/opt/launcher.py`.
 
 This builds an image that can be consumed directly by TFJob from Kubeflow.
 
@@ -220,9 +276,9 @@ ksonnet\*
 Kubeflow uses ksonnet\* to manage deployments, so you must install it
 before setting up Kubeflow.
 
-ksonnet was added to the :command:`cloud-native-basic` bundle in |CL| version 27550. If
-you are using an older |CL| version (not recommended), you must manually
-install ksonnet as described below.
+ksonnet was added to the :command:`cloud-native-basic` bundle in |CL| version
+27550. If you are using an older |CL| version (not recommended), you must
+manually install ksonnet as described below.
 
 On |CL|, follow these steps:
 
@@ -294,7 +350,8 @@ Run a TFJob
 
       Replace <docker_name> with the image name you specified in previous steps.
 
-#. Generate Kubernetes manifests for the workloads and apply them using these commands:
+#. Generate Kubernetes manifests for the workloads and apply them using these
+   commands:
 
    .. code-block:: bash
 
@@ -372,7 +429,8 @@ A new, blank notebook is displayed, with a cell ready for input.
    :alt: New blank notebook
 
 
-To verify that PyTorch is working, copy the following snippet into the blank cell, and run the cell.
+To verify that PyTorch is working, copy the following snippet into the blank
+cell, and run the cell.
 
 .. code-block:: console
 
@@ -395,6 +453,79 @@ You can continue working in this notebook, or you can download existing
 notebooks to take advantage of the Deep Learning Reference Stack's optimized
 deep learning frameworks. Refer to `Jupyter Notebook`_ for details.
 
+Uninstallation
+**************
+
+To uninstall the Deep Learning Reference Stack, you can choose to stop the container so that it is not using system resources, or you can stop the container and delete it to free storage space.
+
+To stop the container, execute the following from your host system:
+
+#. Find the container's ID
+
+   .. code-block:: bash
+
+      docker container ls
+
+   This will result in output similar to the following:
+
+   .. code-block:: console
+
+      CONTAINER ID        IMAGE                        COMMAND               CREATED             STATUS              PORTS               NAMES
+      e131dc71d339        clearlinux/stacks-dlrs-oss   "/bin/sh -c 'bash'"   23 seconds ago      Up 21 seconds                           oss
+
+#. You can then use the ID or container name to stop the container.  This example uses the name "oss":
+
+   .. code-block:: bash
+
+      docker container stop oss
+
+
+#. Verify that the container is not running
+
+   .. code-block:: bash
+
+      docker container ls
+
+
+#. To delete the container from your system you need to know the Image ID:
+
+   .. code-block:: bash
+
+      docker images
+
+   This command results in output similar to the following:
+
+   .. code-block:: console
+
+      REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
+      clearlinux/stacks-dlrs-oss   latest              82757ec1648a        4 weeks ago         3.43GB
+      clearlinux/stacks-dlrs-mkl   latest              61c178102228        4 weeks ago         2.76GB
+
+#. To remove an image use the image ID:
+
+   .. code-block:: bash
+
+      docker rmi 82757ec1648a
+
+   .. code-block:: console
+
+      # docker rmi 827
+      Untagged: clearlinux/stacks-dlrs-oss:latest
+      Untagged: clearlinux/stacks-dlrs-oss@sha256:381f4b604537b2cb7fb5b583a8a847a50c4ed776f8e677e2354932eb82f18898
+      Deleted: sha256:82757ec1648a906c504e50e43df74ad5fc333deee043dbfe6559c86908fac15e
+      Deleted: sha256:e47ecc039d48409b1c62e5ba874921d7f640243a4c3115bb41b3e1009ecb48e4
+      Deleted: sha256:50c212235d3c33a3c035e586ff14359d03895c7bc701bb5dfd62dbe0e91fb486
+
+
+   Note that you can execute the :command:`docker rmi` command using only the first few characters of the image ID, provided they are unique on the system.
+
+#. Once you have removed the image, you can verify it has been deleted with:
+
+   .. code-block:: bash
+
+       docker images
+
+
 Related topics
 **************
 
@@ -404,7 +535,6 @@ Related topics
 * `Kubeflow`_
 * :ref:`kubernetes` tutorial
 * `Jupyter Notebook`_
-
 
 .. _TensorFlow: https://www.tensorflow.org/
 
@@ -445,6 +575,12 @@ Related topics
 .. _PyTorch benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
 .. _Jupyter Notebook: https://jupyter.org/
+
+.. _kubectl overview: https://kubernetes.io/docs/reference/kubectl/overview/
+
+.. _launcher.py: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow
+
+.. _terms of use: https://clearlinux.org/stacks/deep-learning/terms-of-use
 
 .. _Release notes on Github\*: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
 

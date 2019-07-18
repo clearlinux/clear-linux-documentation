@@ -20,22 +20,22 @@ manually configure the proxies.
 
 Corporate and private networks can be very complex, needing to restrict and
 control network connections for security reasons. The typical side effects
-are limited or blocked connectivity and requiring manual configuration of
-proxies to perform the most mundane tasks such as cloning a repo or checking
+are limited or blocked connectivity, and require manual configuration of
+proxies to perform the most mundane tasks, such as cloning a repo or checking
 for updates. With |CL|, all of the work is done behind the scenes to
 effortlessly use your network and have connections “just work”.
 
-This feature removes massive complications in network connectivity due to
-proxy issues. You can automate tasks like unit testing without worrying
-about the proxy not being set and you can remove unset proxies from the
+This feature removes severe complications with network connectivity due to
+proxy issues. You can automate tasks, such as unit testing, without worrying
+about the proxy not being set, and you can remove unset proxies from the
 equation when dealing with network unavailability across systems.
 
 How it works
 ************
 
-We designed Autoproxy around tools provided by most Linux
+We designed Autoproxy around tools provided by most Linux\*
 distributions with a few minor additions and modifications. We leveraged the
-DHCP and network information provided from systemd and created a
+DHCP and network information obtained from systemd and created a
 PAC-discovery daemon. The daemon uses the information to resolve a URL for a
 PAC file. The daemon then passes the URL into PACrunner\*. PACrunner
 downloads the PAC file and uses the newly implemented Duktape\* engine to
@@ -49,7 +49,7 @@ parse it.
 From that point on, any cURL\* or network requests query PACrunner for the
 correct proxy to use. We modified the cURL library to communicate with
 PACrunner over DBus. However, cURL will ignore PACrunner and run normally if
-no PAC file is loaded or if you set any proxies manually. Thus, your
+no PAC file is loaded or if you manually set any proxies. Thus, your
 environment settings are respected and no time is wasted trying to resolve a
 proxy. All these steps happen in the background with no user interaction.
 

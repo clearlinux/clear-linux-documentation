@@ -3,24 +3,25 @@
 Run pre-configured |CL-ATTR| image as a VMware\* Workstation Player guest OS
 ############################################################################
 
-`VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of
+This page explains how to deploy a pre-configured |CL| VMware image on
+`VMware Workstation 14 Player`_.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
+VMware Workstation 14 Player is a type 2 hypervisor. It runs on top of
 another operating system such as Windows\* or Linux\*. With VMware ESXi, you
 can create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
 on your local system.
 
-This section shows how to deploy a pre-configured |CL| VMware image on
-VMware Workstation 14 Player.
-
-In this tutorial, we perform the following steps:
-
-.. contents:: :local:
-   :depth: 1
-
 .. note::
 
-   The screenshots on this document show the Windows version of the
-   VMware Workstation 14 Player. The menus and prompts are similar to those
-   in the Linux version save some minor wording differences.
+   Screenshots in this document show VMware Workstation 14 Player for Windows.
+   Menus and prompts in the Linux version have minor wording differences.
 
 Install the VMware Workstation Player hypervisor
 ************************************************
@@ -53,7 +54,7 @@ Install the VMware Workstation Player hypervisor
      #. Start the installer.
      #. Follow the setup wizard.
 
-For additional help, see the `VMware Workstation Player guide`_.
+For additional help, see the `VMware Workstation Player Documentation`_.
 
 Download the latest |CL| VMware image
 *************************************
@@ -305,8 +306,7 @@ For other guides on using the VMWare Player and ESXi, see:
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation 14 Player: https://www.vmware.com/products/workstation-player.html
-.. _VMware Workstation Player guide: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
-.. _latest: https://cdn.download.clearlinux.org/image/
+.. _VMware Workstation Player Documentation: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
 .. _image: https://cdn.download.clearlinux.org/image
 
 

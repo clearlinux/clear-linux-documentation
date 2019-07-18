@@ -20,7 +20,7 @@ Assure that your target system supports the installation:
 Download the latest |CL| live server image
 ******************************************
 
-Get the latest |CL| installer image from the `downloads page`_. Look for the
+Get the latest |CL| installer image from the `Downloads`_ page. Look for the
 :file:`clear-[version number]-live-server.iso` file.
 
 #. Follow your OS instructions to create a bootable USB drive.
@@ -48,6 +48,11 @@ Follow these steps to install |CL| on the target system:
 
 #. Open the system BIOS setup menu by pressing the :kbd:`F2` key.
    Your BIOS setup menu entry point may vary.
+
+   .. note::
+      |CL| supports UEFI boot. Some hardware may list UEFI and non-UEFI USB
+      boot entries. In this case, you should select the `UEFI` boot
+      option.
 
 #. In the setup menu, enable the UEFI boot and set the USB drive as the first
    option in the device boot order.
@@ -489,7 +494,7 @@ Proxy
 =====
 
 |CL| automatically attempts to detect proxy settings, as described in
-`Autoproxy`_. If you need to manually assign proxy settings, follow this
+:ref:`autoproxy`. If you need to manually assign proxy settings, follow this
 instruction.
 
 #. From the Advanced options menu, navigate to :guilabel:`Proxy`, and
@@ -852,4 +857,4 @@ entering :guilabel:`Configure Installation Media`:
   - macOS\* platform: :command:`diskutil list`
 
 .. _Autoproxy: https://clearlinux.org/features/autoproxy
-.. _downloads page: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.org/downloads
