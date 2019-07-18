@@ -628,7 +628,7 @@ Default partition schema
 
 Create partitions per minimum requirements in Table 1.
 
-.. list-table:: **Table 1. Disk Partition Setup**
+.. list-table:: **Table 1. Default partition schema**
    :widths: 25, 25, 25, 25
    :header-rows: 1
 
