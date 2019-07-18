@@ -634,15 +634,22 @@ which varies.
    :header-rows: 1
 
    * - FileSystem
+     - Label
      - Mount Point
      - Minimum size
-   * - ``VFAT``
+
+   * - ``VFAT(FAT32)``
+     - boot
      - /boot
      - 150M
-   * - ``swap``
+
+   * - ``linux-swap``
+     - swap
      -
      - 256MB
-   * - ``root``
+
+   * - ``ext[234] or XFS``
+     - root
      - /
      - *Size depends upon use case/desired bundles.*
 
