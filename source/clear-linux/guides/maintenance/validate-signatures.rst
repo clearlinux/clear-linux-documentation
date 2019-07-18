@@ -3,19 +3,28 @@
 Validate signatures
 ###################
 
-|CL-ATTR| offers a way to validate the content of an image or an update. All
+This guide describes how to validate the contents of a |CL-ATTR| image.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
+Validating the contents of an image is a manual process and is the same process
+:ref:`swupd-guide` performs internally.
+
+|CL| offers a way to validate the content of an image or an update. All
 validation of content works by creating and signing a hash. A valid signature
 creates a chain of trust. A broken chain of trust, seen as an invalid
 signature, means the content is not valid.
 
-This guide covers how to validate the contents of an image, which is a manual
-process and is the same process ``swupd`` performs internally to
-validate an update.
 
 .. _image-content-validation:
 
 Image content validation
-========================
+************************
 
 For the outlined steps, the installer image of the latest release of |CL| is
 used for illustrative purposes. You may use any image of |CL| you choose.
@@ -61,21 +70,21 @@ used for illustrative purposes. You may use any image of |CL| you choose.
 
    .. note::
 
-      The `-purpose any` option is required when using OpenSSL 1.1.  If using
-      an earlier version of OpenSSL, omit this option to perform signature
-      validation.  The `openssl version` command may be used to determine the
-      version of OpenSSL in use.
+      The :command:`-purpose any` option is required when using OpenSSL 1.1.
+      If using an earlier version of OpenSSL, omit this option to perform
+      signature validation.  The :command:`openssl version` command may be used
+      to determine the version of OpenSSL in use.
 
-#. The output should contain ``Verification successful``. If the output
-   contains ``bad_signature`` anywhere, then the image is not trustworthy.
+#. The output should contain "Verification successful". If the output
+   contains "bad_signature" anywhere, then the image is not trustworthy.
 
 Update content validation
-=========================
+*************************
 
-``swupd`` validates all update content automatically before applying the
-update content. The process ``swupd`` follows internally is illustrated here
+**swupd** validates all update content automatically before applying the
+update content. The process swupd follows internally is illustrated here
 with manual steps using the latest |CL| release. There is no need to perform
-these steps manually when performing a ``swupd update``.
+these steps manually when performing a :command:`swupd update`.
 
 #. Download the :abbr:`MoM (top-level manifest)`, the signature of the MoM,
    and the Swupd certificate used for signing the signature of the MoM.
@@ -112,10 +121,10 @@ these steps manually when performing a ``swupd update``.
 
    .. note::
 
-      The `-purpose any` option is required when using OpenSSL 1.1.  If using
-      an earlier version of OpenSSL, omit this option to perform signature
-      validation.  The `openssl version` command may be used to determine the
-      version of OpenSSL in use.
+      The :command:`-purpose any` option is required when using OpenSSL 1.1.
+      If using an earlier version of OpenSSL, omit this option to perform
+      signature validation.  The :command:`openssl version` command may be used
+      to determine the version of OpenSSL in use.
 
    .. note::
 
@@ -123,7 +132,7 @@ these steps manually when performing a ``swupd update``.
       MoM is signed directly because it is small in size compared to an image of
       |CL|.
 
-#. The output should contain ``Verification successful``. If the output
-   contains ``bad_signature`` anywhere, then the MoM cannot be trusted.
+#. The output should contain "Verification successful". If the output
+   contains "bad_signature" anywhere, then the MoM cannot be trusted.
    Because the MoM contains a list of hashes for bundle manifests, if the MoM
    cannot be trusted, then the bundle content cannot be trusted.

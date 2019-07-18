@@ -3,15 +3,19 @@
 Add kernel modules manually
 ###########################
 
-Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
-kernel modules that are not part of the Linux source tree, you may need to
-build out-of-tree kernel modules. Use this guide to add kernel modules
-manually, or refer to :ref:`kernel-modules-dkms`.
-
+This guide describes how to add kernel modules manually.
 
 .. contents:: :local:
    :depth: 1
    :backlinks: top
+
+Overview
+********
+
+Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
+kernel modules that are not part of the Linux source tree, you may need to
+build out-of-tree kernel modules. Use this guide to add kernel modules
+manually, or refer to :ref:`kernel-modules-dkms`.
 
 Description
 ***********
@@ -56,8 +60,7 @@ If the kernel module you need is already open source (for example, in the Linux
 upstream) and likely to be useful to others, consider submitting a request to
 add or enable it in the |CL| kernel.
 
-Make enhancement requests to the |CL|
-`Distribution Project <https://github.com/clearlinux/distribution>`_ on GitHub.
+Make enhancement requests to the |CL| 'Distribution Project'_ on GitHub.
 
 .. _kernel-modules-availability-end:
 
@@ -102,8 +105,8 @@ Build and install kernel module
    kernel dev bundle contains the kernel headers, which are required for
    compiling kernel modules. For example:
 
-   * `linux-dev` for developing against the native kernel.
-   * `linux-lts-dev` for developing against the LTS kernel.
+   * :command:`linux-dev` for developing against the native kernel.
+   * :command:`linux-lts-dev` for developing against the LTS kernel.
 
    .. code-block:: bash
 
@@ -217,5 +220,4 @@ Related topic
 
 * :ref:`kernel-modules-dkms`
 
-.. _`on GitHub`: https://github.com/clearlinux/distribution
-
+.. _`Distribution Project`: https://github.com/clearlinux/distribution
