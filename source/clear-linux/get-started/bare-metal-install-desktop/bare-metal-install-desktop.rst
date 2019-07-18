@@ -320,7 +320,7 @@ boot partition
 
 #. Select :guilabel:`New`, as shown in Figure 11X.
 
-   .. figure:: figures/bare-metal-install-server-11X.png
+   .. figure:: figures/bare-metal-install-desktop-11X.png
       :scale: 100%
       :alt: Available target media
 
@@ -338,7 +338,7 @@ boot partition
    * :guilabel:`File system:`             fat32
    * :guilabel:`Label:`                   /boot
 
-   .. figure:: figures/bare-metal-install-server-12X.png
+   .. figure:: figures/bare-metal-install-desktop-12X.png
       :scale: 100%
       :alt: boot partition
 
@@ -360,7 +360,7 @@ swap partition
    * :guilabel:`File system:`             linux-swap
    * :guilabel:`Label:`                   root
 
-   .. figure:: figures/bare-metal-install-server-12X.png
+   .. figure:: figures/bare-metal-install-desktop-13X.png
       :scale: 100%
       :alt: swap partition
 
@@ -390,7 +390,7 @@ root partition
    * :guilabel:`File system:`             linux-swap
    * :guilabel:`Label:`                   root
 
-   .. figure:: figures/bare-metal-install-server-14X.png
+   .. figure:: figures/bare-metal-install-desktop-14X.png
       :scale: 100%
       :alt: root partition
 
@@ -399,7 +399,7 @@ root partition
 #. After all partitions are defined, verify your partition
    configuration is similar to Figure 15X.
 
-   .. figure:: figures/bare-metal-install-server-15X.png
+   .. figure:: figures/bare-metal-install-desktop-15X.png
       :scale: 100%
       :alt: Final partition configuration
 
