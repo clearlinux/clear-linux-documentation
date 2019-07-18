@@ -880,7 +880,7 @@ Finish installation
 Default partition schema
 ========================
 
-Create partitions per default requirements in Table 1.
+Create partitions per requirements in Table 1.
 
 .. list-table:: **Table 1. Default partition schema**
    :widths: 25, 25, 25, 25
