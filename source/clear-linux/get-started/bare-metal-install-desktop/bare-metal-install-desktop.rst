@@ -294,6 +294,126 @@ optional.
 
 #. Select :guilabel:`Confirm` in submenu.
 
+Advanced configuration
+======================
+
+Use this method to manually configure partitions using `gparted`.
+Our example uses the `Default partition schema`_. The space you allocate for
+for your ``root``, or additional partitions, may vary.
+
+boot partition
+--------------
+
+#. Select :guilabel:`Advanced Configuration` to launch `gparted`.
+
+#. Select the available target media.
+
+#. Choose :menuselection:`Device --> Create Partition Table`.
+
+#. In the `Warning` screen, under :guilabel:`Select new partition table type`
+   , select `gpt` from the pull-down menu.
+
+#. Select :guilabel:`Apply`.
+
+#. Right-click the :guilabel:`unallocated` to view the submenu.
+   Alternatively, choose :menuselection:`Partition --> New`.
+
+#. Select :guilabel:`New`, as shown in Figure 11X.
+
+   .. figure:: figures/bare-metal-install-server-11X.png
+      :scale: 100%
+      :alt: Available target media
+
+      Figure 11X: Available target media
+
+   .. note::
+
+      The `/boot` partition must be `VFAT(FAT32)`.
+
+#. In :guilabel:`Create new Partition`, complete the following fields to
+   match Figure 12X. Don't change other default values.
+
+   * :guilabel:`New size:`                150
+   * :guilabel:`Partition name:`          /boot
+   * :guilabel:`File system:`             fat32
+   * :guilabel:`Label:`                   /boot
+
+   .. figure:: figures/bare-metal-install-server-12X.png
+      :scale: 100%
+      :alt: boot partition
+
+      Figure 12X: boot partition
+
+#. Select :guilabel:`Add`.
+
+swap partition
+--------------
+
+#. Right-click the :guilabel:`unallocated` to view the submenu.
+
+#. Select :guilabel:`New`.
+
+#. In :guilabel:`Create new Partition`, complete the following fields to
+   match Figure 13X. Don't change other default values.
+
+   * :guilabel:`Partition name:`
+   * :guilabel:`File system:`             linux-swap
+   * :guilabel:`Label:`                   root
+
+   .. figure:: figures/bare-metal-install-server-12X.png
+      :scale: 100%
+      :alt: swap partition
+
+      Figure 13X: swap partition
+
+#. Select :guilabel:`Add`.
+
+   .. note::
+
+      |CL| allows more than one swap partition.
+
+root partition
+--------------
+
+#. Right-click the :guilabel:`unallocated` to view the submenu.
+
+#. Select :guilabel:`New`.
+
+#. In :guilabel:`Create new Partition`, complete the following fields to
+   match Figure 14X. Don't change other default values.
+
+#. In :guilabel:`New size`, enter the desired size or do not change to
+   accept the *default: remaining size*.
+
+   * :guilabel:`New size:`                *default: remaining size*
+   * :guilabel:`Partition name:`          /
+   * :guilabel:`File system:`             linux-swap
+   * :guilabel:`Label:`                   root
+
+   .. figure:: figures/bare-metal-install-server-14X.png
+      :scale: 100%
+      :alt: root partition
+
+      Figure 14X: root partition
+
+#. After all partitions are defined, verify your partition
+   configuration is similar to Figure 15X.
+
+   .. figure:: figures/bare-metal-install-server-15X.png
+      :scale: 100%
+      :alt: Final partition configuration
+
+      Figure 15X: Final partition configuration
+
+#. Select :guilabel:`Apply All Operations`.
+
+#. A dialogue box appears asking "Are you sure you want to apply the pending
+   operations?"
+
+#. Select :guilabel:`Apply`.
+
+You are returned to installer.
+
 Manage User
 ===========
 
