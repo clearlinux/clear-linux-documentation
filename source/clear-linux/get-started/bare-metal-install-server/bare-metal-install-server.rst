@@ -880,7 +880,7 @@ Finish installation
 Default partition schema
 ========================
 
-Create partitions per minimum requirements in Table 1.
+Create partitions per default requirements in Table 1.
 
 .. list-table:: **Table 1. Default partition schema**
    :widths: 25, 25, 25, 25
@@ -889,12 +889,12 @@ Create partitions per minimum requirements in Table 1.
    * - FileSystem
      - Label
      - Mount Point
-     - Minimum size
+     - Default size
 
    * - ``VFAT(FAT32)``
      - boot
      - /boot
-     - 150M
+     - 150MB
 
    * - ``linux-swap``
      - swap
