@@ -13,7 +13,6 @@ features.
    bundle-commands
    bundles/bundles
    bundles/openssh-server
-   how-to-clear-overview
    collaboration/collaboration
    system-requirements
    image-types
