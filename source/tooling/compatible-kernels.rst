@@ -16,13 +16,6 @@ Kernel native
     described on the :ref:`supported hardware list<system-requirements>`. The
     optimization patches are found in our `Linux`_ GitHub\* repo.
 
-Kernel Container
-    The *kernel-container* bundle contains the kernel used by the
-    Intel® Clear Containers project. This kernel is optimized for
-    fast booting and performs best on |CC| running on the Intel® architectures
-    described on the :ref:`supported hardware list<system-requirements>`.
-    The optimization patches are found in our `Linux-Container`_ GitHub repo.
-
 .. _vm-kernels:
 
 Also compatible with VMs
