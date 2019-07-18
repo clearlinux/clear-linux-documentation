@@ -1,7 +1,7 @@
-.. _download-verify-decompress-linux:
-.. _download-verify-decompress-mac:
-.. _download-verify-decompress-windows:
+.. _download-verify-decompress:
 
+Download, verify, and decompress a |CL-ATTR| image
+##################################################
 
 This guide describes the types of |CL| images available, where to download
 them, how to verify the integrity of an image, and how to decompress it.
@@ -10,14 +10,13 @@ them, how to verify the integrity of an image, and how to decompress it.
    :local:
    :depth: 1
 
-.. _linux-instructions:
-
+.. _download-verify-decompress-linux:
 
 Download, verify, and decompress a |CL-ATTR| image on Linux
-###########################################################
+***********************************************************
 
 Verify the integrity of the |CL| image
-**************************************
+======================================
 
 Before you use a downloaded |CL| image, verify its integrity. This action
 eliminates the small chance of a corrupted image due to download issues. To
@@ -45,7 +44,7 @@ certificate see :ref:`image-content-validation`.
 .. incl-decompress-image:
 
 Decompress the |CL| image
-*************************
+=========================
 
 Released |CL| images are compressed with either GNU zip (*.gz*) or XZ
 (*.xz*). The compression type depends on the target platform or
@@ -68,15 +67,15 @@ environment. To decompress the image, follow these steps:
 
 .. incl-decompress-image-end:
 
-.. _macOS-instructions:
+.. _download-verify-decompress-mac:
 
 Download, verify, and decompress a |CL| image on macOS\*
-########################################################
+********************************************************
 
 .. _verify-mac:
 
 Verify the integrity of the |CL| image
-**************************************
+======================================
 
 Before you use a downloaded |CL| image, verify its integrity. This action
 eliminates the small chance of a corrupted image due to download issues. To
@@ -98,7 +97,7 @@ checksum, the differences will be displayed. Otherwise, an empty output indicate
 a match and your downloaded image is good.
 
 Decompress the |CL| image
-*************************
+=========================
 
 We compress all released |CL| images by default with either GNU zip
 (`.gz`) or xz (`.xz`). The compression type we use depends on the target
@@ -113,15 +112,15 @@ platform or environment. To decompress the image, follow these steps:
       gunzip clear-[version number]-[image type].xz
       gunzip clear-[version number]-[image type].gz
 
-.. _windows-instructions:
+.. _download-verify-decompress-windows:
 
 Download, verify, and decompress a |CL| image on Windows\*
-##########################################################
+**********************************************************
 
 .. _verify-windows:
 
 Verify the integrity of the |CL| image
-**************************************
+======================================
 
 Before you use a downloaded |CL| image, verify its integrity. This action
 eliminates the small chance of a corrupted image due to download issues. To
@@ -141,7 +140,7 @@ checksum file designated with the suffix `-SHA512SUMS`.
     the downloaded checksum file and make sure they match.
 
 Decompress the |CL| image
-*************************
+=========================
 
 Released |CL| images are compressed with either GNU zip (*.gz*) or XZ
 (*.xz*). The compression type depends on the target platform or
@@ -161,7 +160,7 @@ environment. To decompress the image, follow these steps:
 .. _7-Zip: http://www.7-zip.org/
 
 Image types
-###########
+***********
 
 .. include:: ../../reference/image-types.rst
    :start-after: image-types-content:
