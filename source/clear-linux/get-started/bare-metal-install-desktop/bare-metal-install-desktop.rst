@@ -635,12 +635,12 @@ Create partitions per minimum requirements in Table 1.
    * - FileSystem
      - Label
      - Mount Point
-     - Minimum size
+     - Default size
 
    * - ``VFAT(FAT32)``
      - boot
      - /boot
-     - 150M
+     - 150MB
 
    * - ``linux-swap``
      - swap
