@@ -23,7 +23,7 @@ eliminates the small chance of a corrupted image due to download issues. To
 support verification, each released |CL| image has a corresponding SHA512
 checksum file designated with the suffix `-SHA512SUMS`.
 
-#.  Download the corresponding SHA512 checksum file of your |CL| image.
+#.  Download the corresponding SHA512 checksum file of your |CL| `image`_.
 #.  Start a terminal emulator.
 #.  Go to the directory with the downloaded image and checksum files.
 #.  Verify the integrity of the image and compare it to its original checksum
@@ -82,7 +82,7 @@ eliminates the small chance of a corrupted image due to download issues. To
 support verification, each released |CL| image has a corresponding SHA512
 checksum file designated with the suffix `-SHA512SUMS`.
 
-#. Download the corresponding SHA512 checksum file of your |CL| image.
+#. Download the corresponding SHA512 checksum file of your |CL| `image`_.
 #. Start the Terminal app.
 #. Go to the directory with the downloaded image and checksum files.
 #. Verify the integrity of the image and compare it to its original checksum
@@ -127,7 +127,7 @@ eliminates the small chance of a corrupted image due to download issues. To
 support verification, each released |CL| image has a corresponding SHA512
 checksum file designated with the suffix `-SHA512SUMS`.
 
-#.  Download the corresponding SHA512 checksum file of your |CL| image.
+#.  Download the corresponding SHA512 checksum file of your |CL| `image`_.
 #.  Start Command Prompt.
 #.  Go to the directory with the downloaded image and checksum files.
 #.  Get the SHA512 checksum of the image with the command:
@@ -164,3 +164,5 @@ Image types
 
 .. include:: ../../reference/image-types.rst
    :start-after: image-types-content:
+
+.. _image: https://clearlinux.org/downloads
