@@ -12,8 +12,8 @@ them, how to verify the integrity of an image, and how to decompress it.
 
 .. _download-verify-decompress-linux:
 
-Download, verify, and decompress a |CL-ATTR| image on Linux
-***********************************************************
+Linux OS steps
+**************
 
 Verify the integrity of the |CL| image
 ======================================
@@ -69,8 +69,8 @@ environment. To decompress the image, follow these steps:
 
 .. _download-verify-decompress-mac:
 
-Download, verify, and decompress a |CL| image on macOS\*
-********************************************************
+macOS\* steps
+*************
 
 .. _verify-mac:
 
@@ -114,8 +114,8 @@ platform or environment. To decompress the image, follow these steps:
 
 .. _download-verify-decompress-windows:
 
-Download, verify, and decompress a |CL| image on Windows\*
-**********************************************************
+Windows\* OS steps
+******************
 
 .. _verify-windows:
 
