@@ -38,7 +38,7 @@ Download the latest |CL| installer ISO
 Get the latest |CL| installer ISO image from the `image`_ repository.
 Look for :file:`clear-[version number]-installer.iso.xz`.
 
-.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
+.. include:: ../../guides/maintenance/download-verify-decompress.rst
    :Start-after: incl-decompress-image:
    :end-before: incl-decompress-image-end:
 
