@@ -506,23 +506,29 @@ Congratulations. You successfully installed |CL|.
 Default partition schema
 ========================
 
-Table 1 shows the default partition schema with the exception of root,
-which varies.
+Create partitions per requirements in Table 1.
 
-.. list-table:: **Table 1. Disk Partition Setup**
-   :widths: 33, 33, 33
+.. list-table:: **Table 1. Default partition schema**
+   :widths: 25, 25, 25, 25
    :header-rows: 1
 
    * - FileSystem
+     - Label
      - Mount Point
-     - Minimum size
-   * - ``VFAT``
+     - Default size
+
+   * - ``VFAT(FAT32)``
+     - boot
      - /boot
-     - 150M
-   * - ``swap``
+     - 150MB
+
+   * - ``linux-swap``
+     - swap
      -
      - 256MB
-   * - ``root``
+
+   * - ``ext[234] or XFS``
+     - root
      - /
      - *Size depends upon use case/desired bundles.*
 
