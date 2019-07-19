@@ -69,13 +69,12 @@ this command:
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-decompress-windows.rst
+.. include:: ../../guides/maintenance/download-verify-decompress.rst
    :Start-after: verify-windows:
 
 We also provide instructions for other operating systems:
 
 * :ref:`download-verify-decompress-linux`
-* :ref:`download-verify-decompress-mac`
 
 Create and configure a new VM
 *****************************
@@ -307,8 +306,3 @@ For other guides on using the VMWare Player and ESXi, see:
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation 14 Player: https://www.vmware.com/products/workstation-player.html
 .. _VMware Workstation Player Documentation: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
-.. _image: https://cdn.download.clearlinux.org/image
-
-
-
-

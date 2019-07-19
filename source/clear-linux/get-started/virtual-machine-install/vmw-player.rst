@@ -3,10 +3,8 @@
 Install |CL-ATTR| as a VMware\* Workstation Player guest OS
 ###########################################################
 
-`VMware Workstation Player`_ is a type 2 hypervisor. It runs on top of
-Windows\* or Linux\* operating systems. With VMware ESXi, you can
-create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
-on your local system.
+This page explains how to create a new VM and install |CL| on it with the
+VMware Workstation Player hypervisor.
 
 .. contents::
    :local:
@@ -20,9 +18,6 @@ Windows\* or Linux\* operating systems. With VMware ESXi, you can
 create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
 on your local system.
 
-If you prefer to use a pre-configured |CL| VMware image instead,
-see our :ref:`vmw-player-preconf` guide.
-
 VMware offers a type 1 hypervisor called `VMware ESXi`_ designed for the
 cloud environment. For information on how to install |CL| as guest OS on
 it, see :ref:`vmware-esxi-install-cl`.
@@ -32,6 +27,9 @@ it, see :ref:`vmware-esxi-install-cl`.
    The screenshots on this document show the Windows version of the
    VMware Workstation 15 Player. The menus and prompts are similar to those
    in other versions and for the Linux OS save some minor wording differences.
+
+If you prefer to use a pre-configured |CL| VMware image instead,
+see our :ref:`vmw-player-preconf` guide.
 
 Install the VMware Workstation Player hypervisor
 ************************************************
