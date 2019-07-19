@@ -3,7 +3,7 @@
 Data Analytics Reference Stack
 ##############################
 
-This tutorial shows you how to use the Data Analytics Reference Stack
+This guide shows you how to use the Data Analytics Reference Stack
 (DARS), and to optionally build your own images with the baseline Dockerfiles
 provided in the `DARS repository`_. Our assumption is that |CL-ATTR| is the
 host. However, any system that supports Docker\* containers can be used to
@@ -30,15 +30,16 @@ not be the latest released by |CL|.
 
 .. note::
 
-   The Data Analytics Reference Stack is a collective work, and each piece of software within the work has its own license.  Please see the `terms of use`_ for more details about licensing and usage of the Data Analytics Reference Stack.
-
-
+   The Data Analytics Reference Stack is a collective work, and each piece
+   of software within the work has its own license.  Please see the `terms
+   of use`_ for more details about licensing and usage of the Data Analytics
+   Reference Stack.
 
 Using the Docker Images
 ***********************
 
 To immediately start using the latest stable DARS images, pull directly
-from `Docker Hub`_. For this tutorial we'll use the `Dars with MKL`_ version of the stack.
+from `Docker Hub`_. For this guide we'll use the `Dars with MKL`_ version of the stack.
 
 Once you have downloaded the image, you can run it with
 
@@ -98,7 +99,6 @@ Once completed, check the resulting images with :command:`Docker`
 You can use any of the resulting images to launch fully functional
 containers.  If you need to customize the containers, you can edit the
 provided :file:`Dockerfile`.
-
 
 .. _DARS repository:  https://github.com/clearlinux/dockerfiles/tree/master/stacks/dars
 .. _Docker Hub: https://hub.docker.com/
