@@ -32,7 +32,7 @@ support verification, each released |CL| image has a corresponding SHA512
 checksum file designated with the suffix `-SHA512SUMS`.
 
 #.  Download the corresponding SHA512 checksum file of your |CL| `image`_.
-#.  Start a terminal emulator.
+#.  Open a Terminal.
 #.  Go to the directory with the downloaded image and checksum files.
 #.  Verify the integrity of the image and compare it to its original checksum
     with the command:
@@ -58,7 +58,7 @@ Released |CL| images are compressed with either GNU zip (*.gz*) or XZ
 (*.xz*). The compression type depends on the target platform or
 environment. To decompress the image, follow these steps:
 
-#.  Start a terminal emulator.
+#.  Open a Terminal.
 #.  Go to the directory with the downloaded image.
 
     To decompress an XZ image, enter:

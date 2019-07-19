@@ -3,7 +3,8 @@
 Install |CL-ATTR| on bare metal with live server
 ################################################
 
-These instructions guide you through installing |CL-ATTR| on bare metal from a bootable USB drive using a live server image.
+This page explains how to install |CL-ATTR| on bare metal from a bootable USB
+drive using a live server image.
 
 .. contents::
    :local:
@@ -12,7 +13,8 @@ These instructions guide you through installing |CL-ATTR| on bare metal from a b
 System requirements
 *******************
 
-Assure that your target system supports the installation:
+Before installing |CL|, verify that the host system supports the
+installation:
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
@@ -23,11 +25,13 @@ Download the latest |CL| live server image
 Get the latest |CL| installer image from the `Downloads`_ page. Look for the
 :file:`clear-[version number]-live-server.iso` file.
 
+#. Verify and decompress the file per your OS.
+
+   * :ref:`download-verify-decompress`
+
 #. Follow your OS instructions to create a bootable USB drive.
 
    * :ref:`bootable-usb`
-
-#. After downloading the image, verify and decompress the file per your OS.
 
 Install |CL| on your target system
 **********************************
