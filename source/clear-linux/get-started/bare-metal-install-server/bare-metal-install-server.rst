@@ -817,23 +817,29 @@ Finish installation
 Default partition schema
 ========================
 
-To add partitions manually, see `Advanced configuration`_ below, and create
-partitions per requirements in Table 1.
+Create partitions per requirements in Table 1.
 
-.. list-table:: **Table 1. Disk Partition Setup**
-   :widths: 33, 33, 33
+.. list-table:: **Table 1. Default partition schema**
+   :widths: 25, 25, 25, 25
    :header-rows: 1
 
    * - FileSystem
+     - Label
      - Mount Point
-     - Minimum size
-   * - ``VFAT``
+     - Default size
+
+   * - ``VFAT(FAT32)``
+     - boot
      - /boot
-     - 150M
-   * - ``swap``
+     - 150MB
+
+   * - ``linux-swap``
+     - swap
      -
      - 256MB
-   * - ``root``
+
+   * - ``ext[234] or XFS``
+     - root
      - /
      - *Size depends upon use case/desired bundles.*
 
@@ -856,5 +862,4 @@ entering :guilabel:`Configure Installation Media`:
   - Windows\* OS:  :command:`diskpart`, then :command:`list disk`
   - macOS\* platform: :command:`diskutil list`
 
-.. _Autoproxy: https://clearlinux.org/features/autoproxy
 .. _Downloads: https://clearlinux.org/downloads
