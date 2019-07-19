@@ -101,11 +101,7 @@ Build, install, and load an out-of-tree module
 
 Follow the steps in this section if you are an individual user or testing,
 and you need an out-of-tree kernel module that is not available through
-<<<<<<< HEAD
 |CL|. For a more scalable and customizable approach, we recommend using
-=======
-|CL|. For a more scalable and customizable approach, we recommend using the
->>>>>>> 43c2991... Clean-up and testing to resolve conflicts.
 :ref:`mixer` to provide a custom kernel and updates.
 
 Prerequisites
@@ -116,14 +112,8 @@ Before you begin, you must:
 * Disable Secure Boot in UEFI/BIOS. The loading of new out-of-tree modules
   modifies the signatures that Secure Boot relies on for trust.
 
-<<<<<<< HEAD
 * Obtain a kernel module package in the form of source code or
   pre-compiled binaries.
-
-=======
-* Obtain a kernel module package in the form of source code or pre-compiled
-  binaries.
->>>>>>> 43c2991... Clean-up and testing to resolve conflicts.
 
 Obtain kernel module source
 ===========================
