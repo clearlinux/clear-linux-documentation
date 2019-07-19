@@ -3,24 +3,23 @@
 Stateless
 #########
 
-In most operating systems, files can become intermingled with user and system
-data and configurations.
+In most operating systems, user and system data and configuration files can
+become intermingled.
 
 .. figure:: figures/stateless-1.png
-   :scale: 45% 
+   :scale: 45%
    :align: center
    :alt: Stateless: User and system files mixed
 
    Figure 1: Without stateless, user and system files become mixed on the filesystem over time.
 
-|CL-ATTR| has a stateless design philosophy of which the goal is to provide an
+|CL-ATTR| has a stateless design philosophy with the goal to provide an
 :abbr:`OS (operating system)` that functions without excessive user
 configuration or customization. Stateless in this context does *not* mean
 ephemeral or non-persistent.
 
 .. contents:: :local:
-   :depth: 2
-
+   :depth: 1
 
 File-level separation
 *********************
@@ -29,7 +28,7 @@ To accomplish a stateless design the Linux Filesystem Hierarchy is separated
 between user-owned areas and |CL|-owned areas.
 
 .. figure:: figures/stateless-2.png
-   :scale: 45% 
+   :scale: 45%
    :align: center
    :alt: Stateless: User and system files separation
 
@@ -48,10 +47,10 @@ Files under the :file:`/etc/`, :file:`/home`, and :file:`/var` directories are
 owned and managed by the user. A freshly installed |CL| system will only have
 a minimal set of files in the :file:`/etc/` directory and software installed
 by |CL| does not write to :file:`/etc`. This operating assumption allows |CL|
-users to clearly identify the configuration that makes their system unique. 
+users to clearly identify the configuration that makes their system unique.
 
 
-Software Configuration
+Software configuration
 **********************
 
 With stateless separation, default software configurations are read in order
@@ -62,12 +61,12 @@ Default configurations
 ======================
 
 Software in |CL| provides default configuration values so that it is
-immediately functional, whenever it is appropriate to do so. 
+immediately functional, whenever it is appropriate to do so.
 
 |CL| distributed software packages may be directly modified to include default
 configuration values or default configuration files may be provided by |CL|
 under :file:`/usr/share/defaults`. These files can be referenced as templates
-for customization. 
+for customization.
 
 For example, the default configuration that Apache uses when installed can be
 found at :file:`/usr/share/defaults/httpd/httpd.conf` directory.
@@ -81,7 +80,7 @@ modified by the user under :file:`/etc/`. If the configuration file does not
 already exist, it can be created in the appropriate location.
 
 User defined configuration files should contain the minimal set of desired
-changes and rely on default configuration for the rest. 
+changes and rely on default configuration for the rest.
 
 For example, a customized Apache configuration can be used instead by:
 
@@ -136,9 +135,6 @@ Additional information
 **********************
 
 * `stateless man page`_
-
-* `Where is /etc/fstab in Clear Linux? <https://clearlinux.org/news-blogs/where-etcfstab-clear-linux>`_
-
 
 .. _`stateless man page`: https://github.com/clearlinux/clr-man-pages/blob/master/stateless.7.rst
 
