@@ -4,7 +4,7 @@ Set up a LAMP web server on |CL-ATTR|
 #####################################
 
 This tutorial provides instructions on how to set up a
-:abbr:`LAMP (Linux, Apache, MySQL, PHP)` web server on |CL-ATTR| and how
+:abbr:`LAMP (Linux, Apache\*, MySQL, PHP)` web server on |CL-ATTR| and how
 to use phpMyAdmin\* to manage an associated database. Note that this
 tutorial installs MariaDB\*, which is a drop-in replacement for MySQL\*.
 
@@ -75,7 +75,7 @@ Apache software bundle on |CL|.
 Change the default configuration and data directory
 ***************************************************
 
-|CL| is designed to be a `stateless`_ operating system which means that you
+|CL| is designed to be a :ref:`stateless` operating system which means that you
 must create an optional configuration file to override the default values.
 The default location of the Apache configuration file, :file:`httpd.conf`,
 is located in the :file:`/usr/share/defaults/httpd` directory. |CL| can
@@ -502,4 +502,3 @@ Next, add the WordPress components needed to host a WordPress website with :ref:
 
 .. _Apache HTTP Server Project: https://httpd.apache.org/
 .. _phpMyAdmin: https://www.phpmyadmin.net/
-.. _stateless: https://clearlinux.org/features/stateless
