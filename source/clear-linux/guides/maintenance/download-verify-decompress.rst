@@ -3,17 +3,25 @@
 Download, verify, and decompress a |CL-ATTR| image
 ##################################################
 
-This guide describes the types of |CL| images available, where to download
-them, how to verify the integrity of an image, and how to decompress it.
+This guide describes the available types of |CL| images, where to
+download them, how to verify their integrity, and how to decompress them.
+Follow the steps for your OS.
 
 .. contents::
    :local:
    :depth: 1
 
+
+.. include:: ../../reference/image-types.rst
+   :start-after: image-types-content:
+   :end-before: incl-image-filename-end:
+
 .. _download-verify-decompress-linux:
 
 Linux OS steps
 **************
+
+.. _verify-linux:
 
 Verify the integrity of the |CL| image
 ======================================
@@ -83,7 +91,7 @@ support verification, each released |CL| image has a corresponding SHA512
 checksum file designated with the suffix `-SHA512SUMS`.
 
 #. Download the corresponding SHA512 checksum file of your |CL| `image`_.
-#. Start the Terminal app.
+#. Open a Terminal.
 #. Go to the directory with the downloaded image and checksum files.
 #. Verify the integrity of the image and compare it to its original checksum
    with the command:
@@ -103,7 +111,7 @@ We compress all released |CL| images by default with either GNU zip
 (`.gz`) or xz (`.xz`). The compression type we use depends on the target
 platform or environment. To decompress the image, follow these steps:
 
-#. Start the Terminal app.
+#. Open a Terminal.
 #. Go to the directory with the downloaded image.
 #. Use the :command:`gunzip` command to decompress either compression type. For example:
 
@@ -163,6 +171,6 @@ Image types
 ***********
 
 .. include:: ../../reference/image-types.rst
-   :start-after: image-types-content:
+   :start-after: incl-image-filename-end:
 
 .. _image: https://clearlinux.org/downloads
