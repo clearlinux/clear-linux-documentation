@@ -4,7 +4,7 @@ Install |CL-ATTR| as a VMware\* Workstation Player guest OS
 ###########################################################
 
 This page explains how to create a new VM and install |CL| on it with the
-VMware Workstation 14 Player hypervisor.
+VMware Workstation Player hypervisor.
 
 .. contents::
    :local:
@@ -13,16 +13,10 @@ VMware Workstation 14 Player hypervisor.
 Overview
 ********
 
-`VMware Workstation 14 Player`_ is a type 2 hypervisor. It runs on top of
-another operating system such as Windows\* or Linux\*. With VMware ESXi, you can
-create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)` on
-your local system.
-
-Installing |CL| into a new VM provides you flexibility when configuring the VM.
-You can configure the VM's size, number of partitions, installed bundles, etc.
-
-If you prefer to use a pre-configured |CL| VMware image instead, see our
-:ref:`vmw-player-preconf` guide.
+`VMware Workstation Player`_ is a type 2 hypervisor. It runs on top of
+Windows\* or Linux\* operating systems. With VMware ESXi, you can
+create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
+on your local system.
 
 VMware offers a type 1 hypervisor called `VMware ESXi`_ designed for the
 cloud environment. For information on how to install |CL| as guest OS on
@@ -30,8 +24,12 @@ it, see :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
-   Screenshots in this document show VMware Workstation 14 Player for Windows.
-   Menus and prompts in the Linux version have minor wording differences.
+   The screenshots on this document show the Windows version of the
+   VMware Workstation 15 Player. The menus and prompts are similar to those
+   in other versions and for the Linux OS save some minor wording differences.
+
+If you prefer to use a pre-configured |CL| VMware image instead,
+see our :ref:`vmw-player-preconf` guide.
 
 Install the VMware Workstation Player hypervisor
 ************************************************
@@ -40,10 +38,15 @@ Install the VMware Workstation Player hypervisor
    :abbr:`Intel® VT-d (Intel® Virtualization Technology for Directed I/O)` in
    your system's BIOS.
 
-#. `VMware Workstation 14 Player`_ is available for Windows and Linux.
+#. `VMware Workstation Player`_ is available for Windows and Linux.
    Download your preferred version.
 
-#. Install VMware Workstation 14 Player following the instructions
+   .. note::
+
+      By default, selecting download means you receive the latest version
+      of this application. Commands may differ based on the version.
+
+#. Install VMware Workstation Player following the instructions
    appropriate for your system's OS:
 
    * On supported Linux distros:
@@ -64,21 +67,19 @@ Install the VMware Workstation Player hypervisor
 
 For additional help, see the `VMware Workstation Player Documentation`_.
 
-Download the latest |CL| installer ISO
-**************************************
+Download the latest |CL| installer
+**********************************
 
-Get the latest |CL| installer ISO image from the `image`_ repository.
-Look for :file:`clear-[version number]-installer.iso.xz`.
+Get the latest installer with |CL| OS Desktop  from the `downloads`_ page.
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-decompress-windows.rst
+.. include:: ../../guides/maintenance/download-verify-decompress.rst
    :Start-after: verify-windows:
 
-We also provide instructions for other operating systems:
+We also provide instructions for Linux operating systems:
 
 * :ref:`download-verify-decompress-linux`
-* :ref:`download-verify-decompress-mac`
 
 Create and configure a new VM
 *****************************
@@ -90,9 +91,9 @@ Create and configure a new VM
 
    .. figure:: figures/vmw-player/vmw-player-01.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Create a new virtual machine
+      :alt: VMware Workstation Player - Create a new virtual machine
 
-      Figure 1: VMware Workstation 14 Player - Create a new virtual
+      Figure 1: VMware Workstation Player - Create a new virtual
       machine
 
 #. On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen,
@@ -101,9 +102,9 @@ Create and configure a new VM
 
    .. figure:: figures/vmw-player/vmw-player-02.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Select |CL| installer ISO
+      :alt: VMware Workstation Player - Select |CL| installer ISO
 
-      Figure 2: VMware Workstation 14 Player - Select |CL| installer ISO
+      Figure 2: VMware Workstation Player - Select |CL| installer ISO
 
 #. Click the :guilabel:`Browse` button and select the decompressed |CL|
    installer ISO.
@@ -116,13 +117,13 @@ Create and configure a new VM
 
    .. figure:: figures/vmw-player/vmw-player-03.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Select guest operating system type
+      :alt: VMware Workstation Player - Select guest operating system type
 
-      Figure 3: VMware Workstation 14 Player - Select guest operating system
+      Figure 3: VMware Workstation Player - Select guest operating system
       type
 
 #. Set the :guilabel:`Version` setting to
-   :guilabel:`Other Linux 3.x or later kernel 64-bit`.
+   :guilabel:`Other Linux 4.x or later kernel 64-bit`.
 
 #. Click the :guilabel:`Next` button.
 
@@ -131,9 +132,9 @@ Create and configure a new VM
 
    .. figure:: figures/vmw-player/vmw-player-04.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Name virtual machine
+      :alt: VMware Workstation Player - Name virtual machine
 
-      Figure 4: VMware Workstation 14 Player - Name virtual machine
+      Figure 4: VMware Workstation Player - Name virtual machine
 
 #. Click the :guilabel:`Next` button.
 
@@ -142,13 +143,14 @@ Create and configure a new VM
 
    .. figure:: figures/vmw-player/vmw-player-05.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Set disk capacity
+      :alt: VMware Workstation Player - Set disk capacity
 
-      Figure 5: VMware Workstation 14 Player - Set disk capacity
+      Figure 5: VMware Workstation Player - Set disk capacity
 
    .. note::
-      A minimal |CL| installation can exist on 600MB of drive space.
-      See :ref:`system-requirements` for more details.
+
+      For optimal performance with the |CL| Desktop image, we recommend 32GB
+      of drive space. See :ref:`system-requirements` for more details.
 
 #. Click the :guilabel:`Next` button.
 
@@ -157,17 +159,17 @@ Create and configure a new VM
 
    .. figure:: figures/vmw-player/vmw-player-06.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Customize hardware
+      :alt: VMware Workstation Player - Customize hardware
 
-      Figure 6: VMware Workstation 14 Player - Customize hardware
+      Figure 6: VMware Workstation Player - Customize hardware
 
 #. Select :guilabel:`Memory` and set the size to 2GB. See Figure 7.
 
    .. figure:: figures/vmw-player/vmw-player-07.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Set memory size
+      :alt: VMware Workstation Player - Set memory size
 
-      Figure 7: VMware Workstation 14 Player - Set memory size
+      Figure 7: VMware Workstation Player - Set memory size
 
    .. note::
       The |CL| installer ISO needs a minimum of 2GB of RAM.
@@ -180,9 +182,9 @@ Create and configure a new VM
 
    .. figure:: figures/vmw-player/vmw-player-08.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Set virtualization engine option
+      :alt: VMware Workstation Player - Set virtualization engine option
 
-      Figure 8: VMware Workstation 14 Player - Set virtualization engine
+      Figure 8: VMware Workstation Player - Set virtualization engine
       option
 
 #. Under the :guilabel:`Virtualization engine` section,
@@ -200,9 +202,9 @@ Install |CL| into the new VM
 
    .. figure:: figures/vmw-player/vmw-player-09.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Power on virtual machine
+      :alt: VMware Workstation Player - Power on virtual machine
 
-      Figure 9: VMware Workstation 14 Player - Power on virtual machine
+      Figure 9: VMware Workstation Player - Power on virtual machine
 
 #. Follow the :ref:`install-on-target-start` guide to complete the
    installation of |CL|.
@@ -221,66 +223,60 @@ Detach the |CL| installer ISO from the VM
 
    .. figure:: figures/vmw-player/vmw-player-10.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Edit CD/DVD settings
+      :alt: VMware Workstation Player - Edit CD/DVD settings
 
-      Figure 10: VMware Workstation 14 Player - Edit CD/DVD settings
+      Figure 10: VMware Workstation Player - Edit CD/DVD settings
 
-#. Go to :menuselection:`Removable Devices-->CD/DVD (IDE)-->Settings`.
-
-#. On the :guilabel:`Device status` section, uncheck the
-   :guilabel:`Connected` and the :guilabel:`Connect at power on` settings.
-   See Figure 11.
-
-   .. figure:: figures/vmw-player/vmw-player-11.png
-      :scale: 100%
-      :alt: VMware Workstation 14 Player - Disconnect CD/DVD
-
-      Figure 11: VMware Workstation 14 Player - Disconnect CD/DVD
+#. Go to :menuselection:`Removable Devices-->CD/DVD (IDE)-->Disconnect`.
 
 #. Click the :guilabel:`OK` button.
-
-#. To power off the VM, click the :guilabel:`Player` menu. See Figure 12.
-
-   .. figure:: figures/vmw-player/vmw-player-12.png
-      :scale: 100%
-      :alt: VMware Workstation 14 Player - Power off virtual machine
-
-      Figure 12: VMware Workstation 14 Player - Power off virtual machine
-
-#. Go to :guilabel:`Power` and select :guilabel:`Shut Down Guest`.
 
 Enable UEFI boot support
 ************************
 
-|CL| needs UEFI support to boot. To enable UEFI, add the
-following line to the end of your VM's :file:`.vmx` file:
+|CL| needs UEFI support to boot. To enable UEFI:
 
-.. code-block:: console
+#. Power off the VM. click the :guilabel:`Player` menu. See Figure 11.
 
-   firmware = "efi"
-
-.. note::
-
-   Depending on the OS, you can typically find the VMware VM files under:
-
-   * On Linux distros: :file:`/home/username/vmware`
-   * On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`
-
-Power on the VM
-***************
-
-After configuring the settings above, power on your |CL| virtual machine.
-
-#. On the :guilabel:`VMware Workstation Player` home screen, select your 
-   VM. See Figure 13.
-
-   .. figure:: figures/vmw-player/vmw-player-13.png
+   .. figure:: figures/vmw-player/vmw-player-11.png
       :scale: 100%
-      :alt: VMware Workstation 14 Player - Power on virtual machine
+      :alt: VMware Workstation Player - Power off virtual machine
 
-      Figure 13: VMware Workstation 14 Player - Power on virtual machine
+      Figure 11: VMware Workstation Player - Power off virtual machine
+
+#. Go to :guilabel:`Power` and select :guilabel:`Shut Down Guest`.
+
+#. Add the following line to the end of your VM's :file:`.vmx` file:
+
+   .. code-block:: console
+
+      firmware = "efi"
+
+   .. note::
+
+      Depending on the OS, you can typically find the VMware VM files under:
+
+      * On Linux distros: :file:`/home/username/vmware`
+      * On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`
+
+
+#. After configuring the settings above, power on your |CL| virtual machine.
+   On the :guilabel:`VMware Workstation Player` home screen, select your
+   VM. See Figure 9.
 
 #. Click :guilabel:`Play virtual machine`.
+
+#. Install Open VM Tools. You may want to install the `open-vm-tools` in
+   your virtual machine. The Open Virtual Machine Tools (open-vm-tools) are
+   the open source implementation of VMware Tools for Linux guest operating
+   systems. In |CL| you can use the following to install the bundle in your VM
+
+   .. code-block:: console
+
+      sudo swupd bundle-add os-cloudguest-vmware
+      sudo systemctl enable --now open-vm-tools
+
+More information is available on the `VMWare Tools Product Documentation`_ site.
 
 Related topics
 **************
@@ -293,10 +289,12 @@ For other guides on using the VMWare Player and ESXi, see:
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 
-.. _VMware Workstation 14 Player:
+.. _VMware Workstation Player:
    https://www.vmware.com/products/workstation-player.html
 
 .. _VMware Workstation Player Documentation:
    https://docs.vmware.com/en/VMware-Workstation-Player/index.html
 
-.. _image: https://cdn.download.clearlinux.org/image
+.. _downloads: https://clearlinux.org/downloads
+
+.. _VMWare Tools Product Documentation: https://docs.vmware.com/en/VMware-Tools/10.1.0/com.vmware.vsphere.vmwaretools.doc/GUID-8B6EA5B7-453B-48AA-92E5-DB7F061341D1.html
