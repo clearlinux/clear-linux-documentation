@@ -49,7 +49,7 @@ Stack features
   `PyTorch benchmark results`_.
 * Deep Learning Reference Stack v1.0 including current
   `TensorFlow benchmark results`_.
-* `Release notes on Github\*`_ for the latest release of Deep Learning Reference
+* `DLRS Release notes`_  on Github\* for the latest release of Deep Learning Reference
   Stack.
 
 .. note::
@@ -205,21 +205,21 @@ Kubernetes setup
 ================
 
 Follow the instructions in the :ref:`kubernetes` tutorial to get set up on
-|CL|. The Kubernetes community also has
-`instructions for creating a cluster`_.
+|CL|. The Kubernetes community also has instructions for creating a cluster,
+described in `Creating a single control-plane cluster with kubeadm`_.
 
 Kubernetes networking
 =====================
 
 We used `flannel`_ as the network provider for these tests. If you
-prefer a different network layer, refer to the Kubernetes
-`networking documentation`_ for setup.
+prefer a different network layer, refer to the Kubernetes network documentation
+described in `Creating a single control-plane cluster with kubeadm`_ for setup.
 
 Kubectl
 =======
 
 You can use kubectl to run commands against your Kubernetes cluster.  Refer to
-the `kubectl overview`_ for details on syntax and operations. Once you have a
+the `Overview of kubectl`_ for details on syntax and operations. Once you have a
 working cluster on Kubernetes, use the following YAML script to start a pod with
 a simple shell script, and keep the pod open.
 
@@ -297,7 +297,7 @@ Kubeflow
 ========
 
 Once you have Kubernetes running on your nodes, set up `Kubeflow`_ by
-following these instructions from the `quick start guide`_.
+following these instructions from the `Getting Started with Kubeflow`_ guide.
 
 .. code-block:: bash
 
@@ -329,7 +329,7 @@ This creates the CustomResourceDefinition (CRD) endpoint to launch a TFJob.
 Run a TFJob
 ===========
 
-#. Select this link for the `ksonnet registries for deploying TFJobs`_.
+#. Get the ksonnet registries for deploying TFJobs from `dlrs-tfjob`_.
 
 #. Install the TFJob components as follows:
 
@@ -367,8 +367,8 @@ Results of running this guide
 You must parse the logs of the Kubernetes pod to retrieve performance
 data. The pods will still exist post-completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
-benchmark results. More information about `Kubernetes logging`_ is available
-from the Kubernetes community.
+benchmark results. More information about Kubernetes logging is available
+in the Kubernetes `Logging Architecture`_ documentation.
 
 Use Jupyter Notebook
 ********************
@@ -528,7 +528,7 @@ To stop the container, execute the following from your host system:
 Related topics
 **************
 
-* Deep Learning Reference Stack `V3.0 release announcement`_
+* `DLRS V3.0`_ release announcement
 * `TensorFlow benchmarks`_
 * `PyTorch benchmarks`_
 * `Kubeflow`_
@@ -545,13 +545,11 @@ Related topics
 
 .. _PyTorch benchmarks: https://github.com/pytorch/pytorch/blob/master/caffe2/python/convnet_benchmarks.py
 
-.. _instructions for creating a cluster: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
+.. _Creating a single control-plane cluster with kubeadm: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
 
 .. _flannel: https://github.com/coreos/flannel
 
-.. _networking documentation: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
-
-.. _quick start guide: https://www.kubeflow.org/docs/started/getting-started/
+.. _Getting Started with Kubeflow: https://www.kubeflow.org/docs/started/getting-started/
 
 .. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlrs-oss/
 
@@ -563,11 +561,11 @@ Related topics
 
 .. _Intel MKL-DNN-VNNI: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl-vnni
 
-.. _V3.0 release announcement:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
+.. _DLRS V3.0:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
 
-.. _ksonnet registries for deploying TFJobs: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
+.. _dlrs-tfjob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
-.. _Kubernetes logging: https://kubernetes.io/docs/concepts/cluster-administration/logging/
+.. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
 .. _TensorFlow benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack
 
@@ -575,12 +573,12 @@ Related topics
 
 .. _Jupyter Notebook: https://jupyter.org/
 
-.. _kubectl overview: https://kubernetes.io/docs/reference/kubectl/overview/
+.. _Overview of kubectl: https://kubernetes.io/docs/reference/kubectl/overview/
 
 .. _launcher.py: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow
 
 .. _terms of use: https://clearlinux.org/stacks/deep-learning/terms-of-use
 
-.. _Release notes on Github\*: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
+.. _DLRS Release notes: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
 
 .. _Intel® quantization tools:  https://github.com/IntelAI/tools/blob/master/tensorflow_quantization/README.md#quantization-tools

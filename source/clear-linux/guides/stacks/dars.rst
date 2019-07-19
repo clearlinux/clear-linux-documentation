@@ -3,11 +3,12 @@
 Data Analytics Reference Stack
 ##############################
 
-This guide shows you how to use the Data Analytics Reference Stack
-(DARS), and to optionally build your own images with the baseline Dockerfiles
-provided in the `DARS repository`_. Our assumption is that |CL-ATTR| is the
-host. However, any system that supports Docker\* containers can be used to
-follow these steps.
+This guide shows you how to use the :abbr:`DARS (Data Analytics Reference Stack)`,
+and to optionally build your own images with the baseline Dockerfiles provided
+in the `DARS repository`_.
+
+Our assumption is that |CL-ATTR| is the host. However, any system that supports
+Docker\* containers can be used to follow these steps.
 
 .. contents::
    :local:
@@ -24,7 +25,7 @@ The Data Analytics Reference Stack provides two pre-built Docker images, availab
 * A |CL|-derived  `DARS with MKL`_ stack optimized for `MKL`_
 
 We recommend you view the latest component versions for each image in the
-:file:`README` found in the `DARS repository`_.  Because |CL| is a rolling
+:file:`README` found in the `DARS`_ GitHub\* repository.  Because |CL| is a rolling
 distribution, the package version numbers in the |CL|-based containers may
 not be the latest released by |CL|.
 
@@ -35,7 +36,7 @@ not be the latest released by |CL|.
    of use`_ for more details about licensing and usage of the Data Analytics
    Reference Stack.
 
-Using the Docker Images
+Using the Docker images
 ***********************
 
 To immediately start using the latest stable DARS images, pull directly
@@ -72,7 +73,7 @@ The :command:`--ulimit nofile` parameter is currently required in order to
 increase the number of open files opened at certain point by the spark
 engine.
 
-Building DARS Images
+Building DARS images
 ********************
 
 If you choose to build your own DARS container images, you can customize
@@ -81,7 +82,7 @@ images with |CL|, start with a |CL| development platform that
 has the :command:`containers-basic-dev` bundle installed. Learn more about
 bundles and installing them by using :ref:`swupd-guide`.
 
-First, clone the `DARS repository`_ from GitHub.
+First, clone the `DARS`_ GitHub\* repository.
 
 .. code-block:: bash
 
@@ -100,7 +101,7 @@ You can use any of the resulting images to launch fully functional
 containers.  If you need to customize the containers, you can edit the
 provided :file:`Dockerfile`.
 
-.. _DARS repository:  https://github.com/clearlinux/dockerfiles/tree/master/stacks/dars
+.. _DARS:  https://github.com/clearlinux/dockerfiles/tree/master/stacks/dars
 .. _Docker Hub: https://hub.docker.com/
 .. _OpenBLAS: http://www.openblas.net/
 .. _MKL: https://software.intel.com/en-us/mkl

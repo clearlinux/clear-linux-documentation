@@ -133,7 +133,8 @@ with the Greengrass object detection sample.
 Run model optimizer
 -------------------
 
-Follow these instructions for `converting deep learning models to Intermediate Representation using Model Optimizer`_. To optimize either of the sample models described above, run one of the following commands.
+Follow the instructions in the `Model Optimizer Developer Guide`_ for converting
+deep learning models to Intermediate Representation using Model Optimizer. To optimize either of the sample models described above, run one of the following commands.
 
 For classification using BVLC AlexNet model:
 
@@ -298,7 +299,8 @@ configuring the Lambda function for AWS Greengrass.
 Add local resources
 ===================
 
-Refer to the AWS documentation for details about `local resources and access privileges`_.
+Refer to the AWS documentation `Access Local Resources with Lambda Functions and Connectors`_
+for details about local resources and access privileges.
 
 The following table describes the local resources needed for the CPU:
 
@@ -396,7 +398,7 @@ References
 
 .. _greengrass_object_detection_sample_ssd.py: https://github.com/intel/Edge-Analytics-FaaS/blob/v1.0/AWS%20Greengrass/greengrass_object_detection_sample_ssd.py
 
-.. _converting deep learning models to Intermediate Representation using Model Optimizer: https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer
+.. _Model Optimizer Developer Guide: https://software.intel.com/en-us/articles/OpenVINO-ModelOptimizer
 
 .. _AWS Greengrass Developer Guide: https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html
 
@@ -406,7 +408,8 @@ References
 
 .. _Configure the Lambda Function for AWS IoT Greengrass: https://docs.aws.amazon.com/greengrass/latest/developerguide/config-lambda.html
 
-.. _local resources and access privileges: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
+.. _Access Local Resources with Lambda Functions and Connectors: https://docs.aws.amazon.com/greengrass/latest/developerguide/access-local-resources.html
+
 
 .. _deploy the lambda function to AWS Greengrass core device: https://docs.aws.amazon.com/greengrass/latest/developerguide/configs-core.html
 
