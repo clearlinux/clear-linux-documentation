@@ -74,9 +74,8 @@ Get the latest installer with |CL| OS Desktop  from the `downloads`_ page.
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-We also provide instructions for downloading and verifying a Clear Linux ISO:
-
-* :ref:`download-verify-decompress`
+We also provide instructions for downloading and verifying a Clear Linux ISO.
+For more information, refer to :ref:`download-verify-decompress`.
 
 Create and configure a new VM
 *****************************
