@@ -3,10 +3,7 @@
 Telemetrics
 ###########
 
-Telemetrics in |CL-ATTR| is a client and server solution used to collect
-data from running |CL| systems to help quickly identify and fix bugs in the
-OS.  Both client and server are customizable, and an API is available on the
-client side for instrumenting your code for debug and analysis.
+This guide describes the |CL-ATTR| telemetry solution.
 
 .. important::
 
@@ -17,17 +14,22 @@ client side for instrumenting your code for debug and analysis.
 
    The telemetry functionality adheres to `Intel privacy policies`_ regarding
    the collection and use of :abbr:`PII (Personally Identifiable Information)`
-   and is open source. 
-   Specifically, no intentionally identifiable information about the user or
-   system owner is collected.
+   and is open source.
+
+   No intentionally identifiable information about the user or system owner is
+   collected.
 
 .. contents::
    :local:
    :depth: 1
 
+Overview
+********
 
-Description
-***********
+Telemetrics in |CL| is a client and server solution used to collect
+data from running |CL| systems to help quickly identify and fix bugs in the
+OS. Both client and server are customizable, and an API is available on the
+client side for instrumenting your code for debug and analysis.
 
 Telemetry, one of the key features of |CL|, enables developers to observe and
 proactively address issues in the OS before end users are impacted.
@@ -57,7 +59,7 @@ Enabling the client is covered in this guide.
 Architecture
 ============
 
-|CL| telemetry has two fundamental components, which are shown in figure 1:
+|CL| telemetry has two fundamental components, which are shown in Figure 1:
 
 * Client: generates and delivers records to the backend server via the network.
 
@@ -125,7 +127,7 @@ Scenarios
 
 #. Save record data locally:
 
-   You can configure the telemetry client to save records locally.  This is
+   You can configure the telemetry client to save records locally. This is
    convenient when you want instant feedback during a development cycle, or to
    track system issues if you believe there is a machine specific problem. The
    client can be set not to send records at all, or to both keep the records
@@ -141,7 +143,7 @@ Scenarios
 
 #. Instrument your code with the libtelemetry API:
 
-   The ``telemetrics`` bundle includes the libtelemetry C library, which
+   The :command:`telemetrics` bundle includes the libtelemetry C library, which
    exposes an API used by the telemprobd and telempostd daemons. You can use
    these in your applications as well. The API documentation is found in the
    :file:`telemetry.h` file in `Telemetrics client`_ repository.
@@ -228,10 +230,10 @@ system.
 
 To change how records are managed, copy the default
 :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file to
-:file:`/etc/telemetrics/telemetrics.conf` and edit it.  The changes in the
+:file:`/etc/telemetrics/telemetrics.conf` and edit it. The changes in the
 :file:`/etc/telemetrics/telemetrics.conf` file will override the defaults in
 the :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file. You may need
-``root`` permissions to create and edit files in :file:`/etc`. For each
+root permissions to create and edit files in :file:`/etc`. For each
 example, and for any time you make changes to the configuration file, you must
 restart the client daemons to pick up the changes:
 
@@ -249,15 +251,15 @@ Use :command:`-h` or :command:`--help` to view usage options.
 #. Keep a local copy and send records to backend server:
 
    To keep a local copy of the telemetry record and also send it on to the
-   backend server, we will need to change the :guilabel:`
-   record_retention_enabled` configuration key value to :guilabel:`true`.
-
+   backend server, we will need to change the
+   :guilabel:`record_retention_enabled` configuration key value to
+   :guilabel:`true`.
 
 #. Keep all records  -- don't send to backend server:
 
    To keep records on the system without sending them to a backend server, set
    the :guilabel:`record_server_delivery_enabled` key value to
-   :guilabel:`false`.  Note that you will also need to ensure the
+   :guilabel:`false`. Note that you will also need to ensure the
    :guilabel:`record_retention_enabled` configuration key value is set to
    :guilabel:`true` or the system will not keep local copies.
 
@@ -266,9 +268,9 @@ Use :command:`-h` or :command:`--help` to view usage options.
    This assumes you have set up a custom server according to the next example.
 
    The server is identified by the :guilabel:`server` setting, and by default
-   records are sent to the |CL| server :guilabel:`server=https://clr.
-   telemetry.intel.com/v2/collector`.  To change this, you can use an IP
-   address or fully qualified domain name.
+   records are sent to the |CL| server
+   :guilabel:`server=https://clr.telemetry.intel.com/v2/collector`. To change
+   this, you can use an IP address or fully qualified domain name.
 
 
 Set up a back-end server to collect telemetry records
@@ -303,13 +305,13 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 #. Before you install the telemetrics backend with the :file:`deploy.sh` script
    file in the next step, here is an explanation of the options to be specified:
 
-   * *-a install* to perform an install
-   * *-d clr* to install to a |CL| distro
-   * *-H localhost* to set the domain to localhost
+   * :command:`-a install` to perform an install
+   * :command:`-d clr` to install to a |CL| distro
+   * :command:`-H localhost` to set the domain to localhost
 
    .. caution::
       The :file:`deploy.sh` shell script has minimal error checking and makes
-      several changes to your system.  Be sure that the options you define on
+      several changes to your system. Be sure that the options you define on
       the cmdline are correct before proceeding.
 
 #. Run the shell script from the :file:`$HOME/telemetrics-backend/scripts`
@@ -358,26 +360,24 @@ using the :ref:`bare-metal-install-server` getting started guide and:
       passwd: password updated successfully
 
    Enter `postgres` for the current value of the password and then enter a new
-   password, retype it to verify the new password and the
-   :guilabel:`PostgreSQL` database password will be updated.
+   password, retype it to verify the new password and the :guilabel:`PostgreSQL`
+   database password will be updated.
 
 #. After the installation is complete, you can use your web browser to view the
-   new server by opening the browser on the system and typing in ``localhost``
-   in the address bar.  You should see a web page similar to the one shown in
-   figure 1:
+   new server by opening the browser on the system and typing in localhost
+   in the address bar. You should see a web page similar to the one shown in
+   Figure 2 below.
 
    .. figure:: figures/telemetry-backend-1.png
       :alt: Telemetry UI
 
-      Figure 1: :guilabel:`Telemetry UI`
-
-
+      Figure 2: :guilabel:`Telemetry UI`
 
 Create records with telem-record-gen
 ====================================
 
 The telemetrics bundle provides a record generator tool called
-``telem-record-gen``. This tool can be used to create records from shell
+`telem-record-gen`. This tool can be used to create records from shell
 scripts or the command line when writing a probe in C is not desirable.
 Records are sent to the backend server, and can also be echoed to stdout.
 
@@ -470,7 +470,7 @@ Set a static machine id
 
 The machine id reported by the telemetry client is rotated every three days
 for privacy reasons. If you wish to have a static machine id for testing
-purposes, you can opt in by creating a file named "opt-in-static-machine-id"
+purposes, you can opt in by creating a file named `opt-in-static-machine-id`
 in the directory  :file:`/etc/telemetrics/`.
 
 #. Create a directory `telemetrics`.
@@ -489,7 +489,7 @@ in the directory  :file:`/etc/telemetrics/`.
 
 .. note::
 
-   The `machine id` is different than the system hostname.
+   The machine ID is different than the system hostname.
 
 Instrument your code with the libtelemetry API
 ==============================================
@@ -499,8 +499,8 @@ Prerequisites
 
 Confirm that the telemetrics header file is located on the system at
 :file:`usr/include/telemetry.h`  The `latest version`_ of the file can also be
-found on github for reference, but installing the `telemetry` bundle will
-install the header file that matches your |CL| version.
+found on github for reference, but installing the :command:`telemetry` bundle
+will install the header file that matches your |CL| version.
 
 #. Includes and variables:
 
@@ -560,9 +560,8 @@ install the header file that matches your |CL| version.
      Type: char pointer
      Value: The payload to set
 
-
-
-#. For this example, we'll set the payload to “hello” by using ``asprintf()``:
+#. For this example, we'll set the payload to “hello” by using
+   :command:`asprintf()`:
 
    .. code-block:: console
 
@@ -570,21 +569,19 @@ install the header file that matches your |CL| version.
            exit(EXIT_FAILURE);
             }
 
-
-
-   The functions ``asprintf()`` and ``vasprintf()`` are analogs of
-   ``sprintf(3)`` and ``vsprintf(3)``, except that they allocate a string
-   large enough to hold the output including the terminating null byte ('\0'),
-   and return a pointer to it via the first argument.  This pointer should be
-   passed to ``free(3)`` to release the allocated storage when it is no longer
-   needed.
+   The functions :command:`asprintf()` and :command:`vasprintf()` are analogs of
+   :command:`sprintf(3)` and :command:`vsprintf(3)`, except that they allocate a
+   string large enough to hold the output including the terminating null byte
+   ('\0'), and return a pointer to it via the first argument. This pointer
+   should be passed to :command:`free(3)` to release the allocated storage when
+   it is no longer needed.
 
 #. Create the new telemetry record:
 
-   The  function  ``tm_create_record()`` initializes a telemetry record and
+   The  function  :command:`tm_create_record()` initializes a telemetry record and
    sets the severity and classification of that record, as well as the payload
    version number. The memory needed to store the telemetry record is allocated
-   and should be freed with ``tm_free_record()`` when no longer needed.
+   and should be freed with :command:`tm_free_record()` when no longer needed.
 
    .. code-block:: console
 
@@ -596,7 +593,7 @@ install the header file that matches your |CL| version.
 
 #. Set the payload field of a telemetrics record:
 
-   The function ``tm_set_payload()`` attaches the provided telemetry record
+   The function :command:`tm_set_payload()` attaches the provided telemetry record
    data to the telemetry record. The current maximum payload size is 8192b.
 
    .. code-block:: console
@@ -608,17 +605,17 @@ install the header file that matches your |CL| version.
       }
       free(payload);
 
-   The ``free()`` function frees the memory space pointed to by ptr, which
-   must have been returned by a previous call to ``malloc()``, ``calloc()``,
-   or ``realloc()``.  Otherwise, or if ``free(ptr)`` has already been called
-   before, undefined behavior occurs.  If ptr is NULL, no operation is
-   performed.
+   The :command:`free()` function frees the memory space pointed to by `ptr`, which
+   must have been returned by a previous call to :command:`malloc()`,
+   :command:`calloc()`, or :command:`realloc()`. Otherwise, or if
+   :command:`free(ptr)` has already been called before, undefined behavior
+   occurs. If `ptr` is NULL, no operation is performed.
 
 #. Send a record to the telemetrics daemon:
 
-   The function ``tm_send_record()`` delivers the record to the local
-   ``telemprobd(1)`` service. Since the telemetry record was allocated by
-   the program it should be freed with ``tm_free_record()`` when it is no
+   The function :command:`tm_send_record()` delivers the record to the local
+   :command:`telemprobd(1)` service. Since the telemetry record was allocated by
+   the program it should be freed with :command:`tm_free_record()` when it is no
    longer needed.
 
    .. code-block:: console
@@ -640,7 +637,7 @@ install the header file that matches your |CL| version.
 
 #. A full sample application with compiling flags:
 
-   Create a new file test.c and add the following code:
+   Create a new file :file:`test.c` and add the following code:
 
    .. code-block:: console
 
@@ -724,7 +721,7 @@ Reference
 The telemetry API
 =================
 
-Installing the ``telemetrics`` bundle includes the libtelemetry C library,
+Installing the :command:`telemetrics` bundle includes the libtelemetry C library,
 which exposes an API used by the telemprobd and telempostd daemons. You can
 use these in your applications as well. The API documentation is found in the
 :file:`telemetry.h` file in `Telemetrics client`_ repository.
@@ -744,54 +741,63 @@ Configuration options
 
 The client uses the following configuration options from the config file:
 
-* **server**: This specifies the web server to which telempostd sends the
-  telemetry records.
-* **socket_path**: This specifies the path of the unix domain socket on which
-  the telemprobd listens for connections from the probes.
-* **spool_dir**: This configuration option is related to spooling. If the
-  daemon is not able to send the telemetry records to the backend server due
-  to reasons such as the network availability, then it stores the records in
-  a spool directory. This option specifies the path of the spool directory.
-  This directory should be owned by the same user as the daemon.
-* **record_expiry**: This is the time, in minutes, after which the records in
-  the spool directory are deleted by the daemon.
-* **spool_process_time**: This specifies the time interval, in seconds, that
-  the daemon waits for before checking the spool directory for records. The
-  daemon picks up the records in the order of modification date and tries to
-  send the record to the server. It sends a maximum of 10 records at a time.
-  If it was able to send a record successfully, it deletes the record from the
-  spool. If the daemon finds a record older than the "record_expiry" time, then
-  it deletes that record. The daemon looks at a maximum of 20 records in a
-  single spool run loop.
-* **rate_limit_enabled**: This determines whether rate-limiting is enabled
-  or disabled. When enabled, there is a threshold on both records sent within
-  a window of time, and record bytes sent within a window a time.
-* **record_burst_limit**: This is the maximum amount of records allowed to be
-  passed by the daemon within the record_window_length of time. If set to -1,
-  the rate-limiting for record bursts is disabled.
-* **record_window_length**: The time, in minutes (0-59), that establishes the
-  window length for the record_burst_limit. For example, if
-  record_burst_window=1000 and record_window_length=15, then no more than
-  1000 records can be passed within any given fifteen-minute window.
-* **byte_burst_limit**: This is the maximum amount of bytes that can be
-  passed by the daemon within the byte_window_length of time. If set to -1,
-  the rate-limiting for byte bursts is disabled.
-* **byte_window_length**: This is the time, in minutes (0-59), that establishes
-  the window length for the byte_burst_limit.
-* **rate_limit_strategy**: This is the strategy chosen once the rate-limiting
-  threshold has been reached. Currently the options are 'drop' or 'spool', 
-  with spool being the default. If spool is chosen, records will be spooled
-  and sent at a later time.
-* **record_retention_enabled**: When this key is enabled (true) the daemon
-  saves a copy of the payload on disk from all valid records. To avoid the
-  excessive use of disk space only the latest 100 records are kept. The default
-  value for this configuration key is false.
-* **record_server_delivery_enabled**: This key controls the delivery of
-  records to server; when enabled (default value), the record will be posted to
-  the address in the configuration file. If this configuration key is disabled
-  (false), records will not be spooled or posted to backend. This configuration
-  key can be used in combination with record_retention_enabled to keep copies
-  of telemetry records locally only.
+server
+   This specifies the web server to which telempostd sends the telemetry records.
+socket_path
+   This specifies the path of the unix domain socket on which the telemprobd
+   listens for connections from the probes.
+spool_dir
+   This configuration option is related to spooling. If the daemon is not able
+   to send the telemetry records to the backend server due to reasons such as
+   the network availability, then it stores the records in a spool directory.
+   This option specifies the path of the spool directory. This directory should
+   be owned by the same user as the daemon.
+record_expiry
+   This is the time, in minutes, after which the records in the spool directory
+   are deleted by the daemon.
+spool_process_time
+   This specifies the time interval, in seconds, that the daemon waits for
+   before checking the spool directory for records. The daemon picks up the
+   records in the order of modification date and tries to send the record to the
+   server. It sends a maximum of 10 records at a time. If it was able to send a
+   record successfully, it deletes the record from the spool. If the daemon
+   finds a record older than the "record_expiry" time, then it deletes that
+   record. The daemon looks at a maximum of 20 records in a single spool run loop.
+rate_limit_enabled
+   This determines whether rate-limiting is enabled or disabled. When enabled,
+   there is a threshold on both records sent within a window of time, and record
+   bytes sent within a window a time.
+record_burst_limit
+   This is the maximum amount of records allowed to be passed by the daemon
+   within the record_window_length of time. If set to -1, the rate-limiting for
+   record bursts is disabled.
+record_window_length
+   The time, in minutes (0-59), that establishes the window length for the
+   record_burst_limit. For example, if record_burst_window=1000 and
+   record_window_length=15, then no more than 1000 records can be passed within
+   any given fifteen-minute window.
+byte_burst_limit
+   This is the maximum amount of bytes that can be passed by the daemon within
+   the byte_window_length of time. If set to -1, the rate-limiting for byte
+   bursts is disabled.
+byte_window_length
+   This is the time, in minutes (0-59), that establishes the window length for
+   the byte_burst_limit.
+rate_limit_strategy
+   This is the strategy chosen once the rate-limiting threshold has been
+   reached. Currently the options are 'drop' or 'spool', with spool being the
+   default. If spool is chosen, records will be spooled and sent at a later time.
+record_retention_enabled
+   When this key is enabled (true) the daemon saves a copy of the payload on
+   disk from all valid records. To avoid the excessive use of disk space only
+   the latest 100 records are kept. The default value for this configuration key
+   is false.
+record_server_delivery_enabled
+   This key controls the delivery of records to server; when enabled (default
+   value), the record will be posted to the address in the configuration file.
+   If this configuration key is disabled (false), records will not be spooled or
+   posted to backend. This configuration key can be used in combination with
+   record_retention_enabled to keep copies of telemetry records locally only.
 
   .. note::
 
@@ -827,18 +833,18 @@ start/stop/restart
 ------------------
 
 The commands to start, stop and restart the telemetry services manage all
-required services and probes on the system.  There is no need to separately
-start/stop/restart the two client daemons **telemprobd** and **telempostd**.
-The **restart** command option will call **telemctl stop** followed
-by **telemctl start** .
+required services and probes on the system. There is no need to separately
+start/stop/restart the two client daemons telemprobd and telempostd.
+The :command:`restart` command option will call :command:`telemctl stop`
+followed by :command:`telemctl start` .
 
 is-active
 ---------
 
-The `is-active` option reports whether the two client daemons are active. This
-is useful to verify that the **opt-in** and **opt-out** options have taken
-effect, or to ensure that telemetry is functioning on the system. Note that
-both daemons are verified.
+The :command:`is-active` option reports whether the two client daemons are
+active. This is useful to verify that the :command:`opt-in` and
+:command:`opt-out` options have taken effect, or to ensure that telemetry is
+functioning on the system. Note that both daemons are verified.
 
 .. code-block:: bash
 
@@ -848,7 +854,6 @@ both daemons are verified.
 
    telemprobd : active
    telempostd : active
-
 
 
 .. _Telemetrics client: https://github.com/clearlinux/telemetrics-client/

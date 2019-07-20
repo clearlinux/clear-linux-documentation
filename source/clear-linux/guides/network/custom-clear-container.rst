@@ -3,9 +3,13 @@
 Build a custom |CL-ATTR| based Docker container image
 #######################################################
 
-The official base |CL-ATTR| container image is published on Docker\* Hub and
-is updated on a regular basis. This guide contains the steps to build a
-custom container image.
+This guide contains the steps to build a custom container image. The official
+base |CL-ATTR| container image is published on Docker\* Hub and is updated on a
+regular basis.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Prerequisites
 *************
@@ -82,24 +86,25 @@ Build the base container image
       swupd bundle-add containers-basic
       systemctl start docker
 
-#. Use `os-install` to download and install the bundles.
+#. Use :command:`os-install` to download and install the bundles.
 
    .. code-block:: bash
 
       swupd os-install --url https://cdn.download.clearlinux.org/update --statedir "$PWD"/swupd-state --no-boot-update --version 29790 -B os-core-update,editors,network-basic base
 
 
-   The `swupd` example uses the following flags:
+   The swupd example uses the following flags:
 
-   * :command:`os-install` tells `swupd` to download and install.
+   * :command:`os-install` tells swupd to download and install.
    * :command:`-V / --version` specifies the version of the |CL| bundles.
    * :command:`--url` specifies the URL of the bundles repository.
    * :command:`--statedir` specifies the state directory where downloaded bundles
      and any state information are stored.
-   * :command:`--no-boot-update` tells `swupd` to skip updating boot files because
+   * :command:`--no-boot-update` tells swupd to skip updating boot files because
      boot files are not required for a container.
 
-   For more information on `swupd` flags, enter the :command:`swupd os-install -h` command.
+   For more information on swupd flags, enter the :command:`swupd os-install -h`
+   command.
 
    Example output:
 
@@ -138,7 +143,7 @@ Build the base container image
 
    .. note::
 
-      The `WARNING` message is expected and can be ignored.
+      The WARNING message is expected and can be ignored.
 
 #. Create a tarball and compress it.
 
@@ -269,7 +274,7 @@ Example output:
 
 .. note::
 
-   The `WARNING` message can be ignored because systemd does not run inside
+   The WARNING message can be ignored because systemd does not run inside
    a container.
 
 Remove a bundle

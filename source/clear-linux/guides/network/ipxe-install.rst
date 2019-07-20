@@ -1,10 +1,17 @@
 .. _ipxe-install:
 
-Install |CL-ATTR| over the network with iPXE
-############################################
+Install over the network with iPXE
+##################################
 
 This guide describes how to install |CL-ATTR| using :abbr:`PXE (Pre-boot
-Execution Environment)`.
+Execution Environment)` over the network.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
 
 PXE is an industry standard that describes client-server interaction with
 network-boot software and uses the DHCP and TFTP protocols. This guide shows one
@@ -35,7 +42,7 @@ Prerequisites
 Before booting with iPXE, make the following preparations.
 
 Connect the PXE server and PXE clients to a switch on a private network, as
-shown in Figure 2.
+shown in figure 2.
 
 .. figure:: ./figures/network-boot-setup.png
    :alt: Network topology
@@ -63,7 +70,8 @@ Configuration
 
 To set up |CL| using iPXE automatically, use the :file:`configure-ipxe.sh`
 script included with :abbr:`ICIS (Ister Cloud Init Service)`. For additional
-instructions on the script, refer to the guide on the `ICIS GitHub repository`_.
+instructions on the script, refer to the guide on the `ister-cloud-init-svc`_
+GitHub\* repository.
 
 To set up |CL| manually, perform the steps below.
 
@@ -89,7 +97,7 @@ To set up |CL| manually, perform the steps below.
 
       sudo -s
 
-#. Add the `pxe-server` bundle to your |CL| system. The bundle contains all
+#. Add the :command:`pxe-server` bundle to your |CL| system. The bundle contains all
    files needed to run a PXE server.
 
    .. code-block:: bash
@@ -130,8 +138,8 @@ To set up |CL| manually, perform the steps below.
       boot
       EOF
 
-#. The `pxe-server` bundle contains a lightweight web-server known as
-   `nginx`. Create a configuration file for `nginx` to serve |CL| to PXE
+#. The :command:`pxe-server` bundle contains a lightweight web-server known as
+   nginx. Create a configuration file for nginx to serve |CL| to PXE
    clients with the following contents:
 
    .. code-block:: console
@@ -152,18 +160,18 @@ To set up |CL| manually, perform the steps below.
 
    .. note::
 
-      Create a separate `nginx` configuration file to serve network-bootable
-      images on a non-standard port number. This action saves existing `nginx`
+      Create a separate nginx configuration file to serve network-bootable
+      images on a non-standard port number. This action saves existing nginx
       configurations.
 
-#. Start `nginx` and enable the startup on boot option.
+#. Start nginx and enable the startup on boot option.
 
    .. code-block:: bash
 
       sudo systemctl start nginx
       sudo systemctl enable nginx
 
-#. The `pxe-server` bundle contains a lightweight DNS server which
+#. The :command:`pxe-server` bundle contains a lightweight DNS server which
    conflicts with the DNS stub listener provided in `systemd-resolved`.
    Disable the DNS stub listener and temporarily stop `systemd-resolved`.
 
@@ -221,7 +229,7 @@ To set up |CL| manually, perform the steps below.
       sudo echo net.ipv4.ip_forward=1 > /etc/sysctl.d/80-nat-forwarding.conf
       sudo echo 1 > /proc/sys/net/ipv4/ip_forward
 
-#. The `pxe-server` bundle contains iPXE firmware images that allow computers
+#. The :command:`pxe-server` bundle contains iPXE firmware images that allow computers
    without an iPXE implementation to perform an iPXE boot. Create a TFTP
    hosting directory and populate the directory with the iPXE firmware images
    with the following commands:
@@ -231,7 +239,7 @@ To set up |CL| manually, perform the steps below.
       sudo mkdir -p $tftp_root
       sudo ln -sf /usr/share/ipxe/undionly.kpxe $tftp_root/undionly.kpxe
 
-#. The `pxe-server` bundle contains a lightweight TFTP, DNS, and DHCP
+#. The :command:`pxe-server` bundle contains a lightweight TFTP, DNS, and DHCP
    server known as `dnsmasq`. Create a configuration file for `dnsmasq`
    to listen on a dedicated IP address for those functions. PXE clients on
    the private network will use this IP address.
@@ -252,7 +260,7 @@ To set up |CL| manually, perform the steps below.
       tftp-root=$tftp_root
       EOF
 
-#. Add the options to host a DHCP server for PXE clients to the `dnsmasq`
+#. Add the options to host a DHCP server for PXE clients to the :file:`dnsmasq`
    configuration file.
 
    .. code-block:: console
@@ -328,5 +336,5 @@ server that enables PXE clients to boot and install |CL| over the network.
 .. _iPXE:
    http://ipxe.org/
 
-.. _ICIS GitHub repository:
+.. _ister-cloud-init-svc:
    https://github.com/clearlinux/ister-cloud-init-svc
