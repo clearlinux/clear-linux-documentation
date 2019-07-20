@@ -3,19 +3,21 @@
 Combine multiple interfaces with network bonding
 ################################################
 
+This guide describes how to configure systemd to use the :command:`bonding`
+driver.
+
 Network bonding combines multiple network interfaces into a single logical
 interface to provide redundancy and bandwidth aggregation.
 
-|CL-ATTR| includes Linux bonding_ and team_ drivers. This guide describes how
-to configure systemd to use the `bonding` driver.
+|CL-ATTR| includes the Linux `Bonding driver`_ and `Team driver`_ .
 
 The example demonstrates how to:
 
-*  Bond all four ports of a quad-port NIC in `802.3ad` mode.
+*  Bond all four ports of a quad-port NIC in 802.3ad mode.
 
 *  Enable jumbo frames to optimize large data transfers on the local network.
 
-Your NICs and network switch must support `802.3ad` mode and jumbo frames. The
+Your NICs and network switch must support 802.3ad mode and jumbo frames. The
 example explains how to configure your NICs for both features. Your switch may
 require additional configuration. See your switch documentation for details.
 
@@ -54,13 +56,13 @@ require additional configuration. See your switch documentation for details.
       MIIMonitorSec=1s
       LACPTransmitRate=fast
 
-   Refer to the systemd.netdev_ manpage for :file:`30-bond1.netdev` file
+   Refer to the `systemd.netdev`_ manpage for :file:`30-bond1.netdev` file
    syntax. This example is based on Example 9 on the manpage. Modify the
    example for your configuration.
 
 #. Configure the slave interfaces. Create a text file named
    :file:`30-bond1-enp1s0.network`. Assign the slave interfaces to the virtual
-   `bond1` device and use the syntax shown in systemd.network_.
+   `bond1` device and use the syntax shown in `systemd.network`_.
 
    .. code-block:: console
 
@@ -117,16 +119,12 @@ require additional configuration. See your switch documentation for details.
       systemctl restart systemd-networkd
 
    The `MTUBytes` settings do not take effect until you reboot or manually
-   apply the settings with a utility such as `ifconfig`.
+   apply the settings with a utility such as ifconfig.
 
-.. _bonding:
-   https://www.kernel.org/doc/Documentation/networking/bonding.txt
+.. _Bonding driver: https://www.kernel.org/doc/Documentation/networking/bonding.txt
 
-.. _team:
-   https://www.kernel.org/doc/Documentation/networking/team.txt
+.. _Team driver: https://www.kernel.org/doc/Documentation/networking/team.txt
 
-.. _systemd.netdev:
-   https://www.freedesktop.org/software/systemd/man/systemd.netdev.html
+.. _systemd.netdev: https://www.freedesktop.org/software/systemd/man/systemd.netdev.html
 
-.. _systemd.network:
-   https://www.freedesktop.org/software/systemd/man/systemd.network.html
+.. _systemd.network: https://www.freedesktop.org/software/systemd/man/systemd.network.html
