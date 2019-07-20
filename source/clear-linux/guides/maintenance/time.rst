@@ -3,12 +3,13 @@
 Set the time
 ############
 
-|CL-ATTR| uses the `systemd-timesyncd.service` daemon to synchronize time.
-
-This guide describes how to reset the time in your |CL| system when
+This guide describes how to reset the time in your |CL-ATTR| system when
 the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
 
-#. Install the `sysadmin-basic` bundle.
+|CL| uses the `systemd-timesyncd.service` daemon to synchronize time.
+
+
+#. Install the :command:`sysadmin-basic` bundle.
 
    .. code-block:: bash
 
