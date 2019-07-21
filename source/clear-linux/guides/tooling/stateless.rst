@@ -3,8 +3,8 @@
 Stateless
 #########
 
-In most operating systems, user and system data and configuration files can
-become intermingled.
+In most operating systems, user data, system data, and configuration files
+can become intermingled.
 
 .. figure:: figures/stateless-1.png
    :scale: 45%
@@ -86,32 +86,30 @@ For example, a customized Apache configuration can be used instead by:
 
 #. Create the destination directory for the configuration:
 
-   .. code :: bash
+   .. code-block:: bash
 
       sudo mkdir /etc/httpd
 
 #. Copy the default configuration as a reference template:
 
-   .. code :: bash
+   .. code-block:: bash
 
       sudo cp /usr/share/defaults/httpd/httpd.conf /etc/httpd/
 
 #. Make any desired modifications to the configurations:
 
-   .. code :: bash
+   .. code-block:: bash
 
       sudoedit /etc/httpd/httpd.conf
 
 #. Reload the service or reboot the system to pickup any changes:
 
-   .. code :: bash
+   .. code-block:: bash
 
       systemctl daemon-reload httpd && systemctl restart httpd
 
-
 This pattern can be used to modify the configurations of other programs too.
 The `stateless man page`_ has application-specific examples.
-
 
 System reset
 ************
@@ -123,13 +121,13 @@ easily restored by simply deleting everything under :file:`/etc/` and
 Running the commands below effectively performs a system reset as if it was
 just installed:
 
-.. code::
+.. code-block:: bash
 
    sudo rm -rf /etc
    sudo rm -rf /var
 
-In other Linux distributions, this can be a catastrophic action that renders a
-system unable to boot.
+In other Linux distributions, this can be a catastrophic action that renders
+a system unable to boot.
 
 Additional information
 **********************

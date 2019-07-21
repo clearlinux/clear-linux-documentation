@@ -23,12 +23,12 @@ The latest Linux\* codebase
 system to leverage the latest features from the upstream Linux kernel,
 including security fixes.
 
-Automated efective updating
+Automated effective updating
 ============================
 
 |CL| is incrementally updated multiple times per day.
 
-This `Rolling release`_ model allows |CL| to consume the latest security fixes
+This `rolling release`_ model allows |CL| to consume the latest security fixes
 of software packages as soon as they become available. There is no waiting for
 major or minor releases on |CL|.
 
@@ -140,7 +140,7 @@ some examples:
 
 .. _`Security for software update in Clear Linux* OS`: https://clearlinux.org/blogs/security-software-update-clear-linux-os-intel-architecture
 .. _`Recent GNU* C library improvements`: https://clearlinux.org/blogs/recent-gnu-c-library-improvements
-.. _`Rolling release`: https://en.wikipedia.org/wiki/Rolling_release
+.. _`rolling release`: https://en.wikipedia.org/wiki/Rolling_release
 .. _`clrtrust`: https://github.com/clearlinux/clrtrust
 .. _`Address space layout randomization (ASLR)`: https://en.wikipedia.org/wiki/Address_space_layout_randomization
 .. _`Kernel address space layout randomization (KASLR)`: https://lwn.net/Articles/569635/
