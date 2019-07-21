@@ -41,14 +41,8 @@ this command:
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-decompress.rst
-   :Start-after: incl-decompress-image:
-   :end-before: incl-decompress-image-end:
-
-For alternative instructions on other operating systems, see:
-
-* :ref:`download-verify-decompress-mac`
-* :ref:`download-verify-decompress-windows`
+We also provide instructions for downloading and verifying a Clear Linux ISO.
+For more information, refer to :ref:`download-verify-decompress`.
 
 Upload the |CL| image to the VMware server
 ******************************************
