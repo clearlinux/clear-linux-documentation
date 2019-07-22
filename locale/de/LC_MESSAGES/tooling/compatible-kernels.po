@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,28 +45,15 @@ msgid ""
 " optimization patches are found in our `Linux`_ GitHub\\* repo."
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:24
-msgid "Kernel Container"
-msgstr ""
-
-#: ../../tooling/compatible-kernels.rst:20
-msgid ""
-"The *kernel-container* bundle contains the kernel used by the Intel® "
-"Clear Containers project. This kernel is optimized for fast booting and "
-"performs best on |CC| running on the Intel® architectures described on "
-"the :ref:`supported hardware list<system-requirements>`. The optimization"
-" patches are found in our `Linux-Container`_ GitHub repo."
-msgstr ""
-
-#: ../../tooling/compatible-kernels.rst:29
+#: ../../tooling/compatible-kernels.rst:22
 msgid "Also compatible with VMs"
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:39
+#: ../../tooling/compatible-kernels.rst:32
 msgid "Kernel LTS"
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:32
+#: ../../tooling/compatible-kernels.rst:25
 msgid ""
 "The *kernel-lts* bundle focuses on the bare metal platforms but uses the "
 "latest :abbr:`LTS (Long Term Support)` Linux kernel. It is optimized for "
@@ -78,15 +65,15 @@ msgid ""
 "GitHub repo."
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:42
+#: ../../tooling/compatible-kernels.rst:35
 msgid "VM only"
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:54
+#: ../../tooling/compatible-kernels.rst:47
 msgid "Kernel KVM"
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:45
+#: ../../tooling/compatible-kernels.rst:38
 msgid ""
 "The *kernel-kvm* bundle focuses on the Linux :abbr:`KVM (Kernel-based "
 "Virtual Machine)`. It is optimized for fast booting and performs best on "
@@ -99,11 +86,11 @@ msgid ""
 "optimization patches are found in our `Linux-KVM`_ GitHub repo."
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:65
+#: ../../tooling/compatible-kernels.rst:58
 msgid "Kernel Hyper-V\\*"
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:57
+#: ../../tooling/compatible-kernels.rst:50
 msgid ""
 "The *kernel-hyperv* bundle focuses on running Linux on Microsoft\\* "
 "Hyper-V. It is optimized for fast booting and performs best on Virtual "
@@ -116,11 +103,11 @@ msgid ""
 "GitHub repo."
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:78
+#: ../../tooling/compatible-kernels.rst:71
 msgid "Kernel Hyper-V LTS"
 msgstr ""
 
-#: ../../tooling/compatible-kernels.rst:68
+#: ../../tooling/compatible-kernels.rst:61
 msgid ""
 "The *kernel-hyperv-lts* bundle focuses on running Linux on Microsoft "
 "Hyper-V but uses the latest :abbr:`LTS (Long Term Support)` Linux kernel."
@@ -132,4 +119,20 @@ msgid ""
 ":ref:`instructions on using Hyper-V<hyper-v>` for more information. The "
 "optimization patches are found in our `Linux-HyperV-LTS`_ GitHub repo."
 msgstr ""
+
+#~ msgid "Kernel Container"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The *kernel-container* bundle contains "
+#~ "the kernel used by the Intel® "
+#~ "Clear Containers project. This kernel is"
+#~ " optimized for fast booting and "
+#~ "performs best on |CC| running on "
+#~ "the Intel® architectures described on "
+#~ "the :ref:`supported hardware list<system-"
+#~ "requirements>`. The optimization patches are"
+#~ " found in our `Linux-Container`_ "
+#~ "GitHub repo."
+#~ msgstr ""
 

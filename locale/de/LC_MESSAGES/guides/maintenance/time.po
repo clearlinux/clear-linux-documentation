@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,56 +23,72 @@ msgid "Set the time"
 msgstr ""
 
 #: ../../guides/maintenance/time.rst:6
-msgid "|CL-ATTR| uses the `systemd-timesyncd.service` daemon to synchronize time."
-msgstr ""
-
-#: ../../guides/maintenance/time.rst:8
 msgid ""
-"This guide describes how to reset the time in your |CL| system when the "
-"default :abbr:`NTP (Network Time Protocol)` servers cannot be reached."
+"This guide describes how to reset the time in your |CL-ATTR| system when "
+"the default :abbr:`NTP (Network Time Protocol)` servers cannot be "
+"reached."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:11
-msgid "Install the `sysadmin-basic` bundle."
+#: ../../guides/maintenance/time.rst:9
+msgid "|CL| uses the `systemd-timesyncd.service` daemon to synchronize time."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:17
+#: ../../guides/maintenance/time.rst:12
+msgid "Install the :command:`sysadmin-basic` bundle."
+msgstr ""
+
+#: ../../guides/maintenance/time.rst:18
 msgid "Set your time zone. This example uses Los Angeles."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:25
+#: ../../guides/maintenance/time.rst:26
 msgid ""
 "To see a list of time zones, use the command: :command:`timedatectl list-"
 "timezones | grep <locale>`"
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:28
+#: ../../guides/maintenance/time.rst:29
 msgid "Create a :file:`/etc/systemd/` directory."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:34
+#: ../../guides/maintenance/time.rst:35
 msgid ""
 "Create a new file named :file:`/etc/systemd/timesyncd.conf` and enter the"
 " following text."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:43
+#: ../../guides/maintenance/time.rst:44
 msgid "Enable the `systemd-timesyncd` service."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:51
+#: ../../guides/maintenance/time.rst:52
 msgid ""
 "To check the service status, use the :command:`timedatectl status` "
 "command."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:53
+#: ../../guides/maintenance/time.rst:54
 msgid ""
 "To restart the `timesyncd` daemon, enter :command:`systemctl restart "
 "systemd-timesyncd` into your terminal emulator."
 msgstr ""
 
-#: ../../guides/maintenance/time.rst:56
+#: ../../guides/maintenance/time.rst:57
 msgid "**Congratulations!** You successfully set up the time in your |CL| system."
 msgstr ""
+
+#~ msgid ""
+#~ "|CL-ATTR| uses the `systemd-"
+#~ "timesyncd.service` daemon to synchronize time."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This guide describes how to reset "
+#~ "the time in your |CL| system when"
+#~ " the default :abbr:`NTP (Network Time "
+#~ "Protocol)` servers cannot be reached."
+#~ msgstr ""
+
+#~ msgid "Install the `sysadmin-basic` bundle."
+#~ msgstr ""
 

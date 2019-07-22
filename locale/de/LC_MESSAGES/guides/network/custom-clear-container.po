@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,154 +24,193 @@ msgstr ""
 
 #: ../../guides/network/custom-clear-container.rst:6
 msgid ""
-"The official base |CL-ATTR| container image is published on Docker\\* Hub"
-" and is updated on a regular basis. This guide contains the steps to "
-"build a custom container image."
+"This guide contains the steps to build a custom container image. The "
+"official base |CL-ATTR| container image is published on Docker\\* Hub and"
+" is updated on a regular basis."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:11
+#: ../../guides/network/custom-clear-container.rst:15
 msgid "Prerequisites"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:13
+#: ../../guides/network/custom-clear-container.rst:17
 msgid ""
 "You must perform these steps on a |CL| system because the :abbr:`swupd "
 "(software updater)` is used to manage bundles in the container."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:16
+#: ../../guides/network/custom-clear-container.rst:20
 msgid ""
 "You must install the :file:`containers-basic` bundle on the |CL| system "
 "or Docker will not work."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:18
+#: ../../guides/network/custom-clear-container.rst:22
 msgid "You have a basic understanding of Docker."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:21
+#: ../../guides/network/custom-clear-container.rst:25
 msgid "Build the base container image"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:23
+#: ../../guides/network/custom-clear-container.rst:27
 msgid "Log in and get root privileges."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:29
+#: ../../guides/network/custom-clear-container.rst:33
 msgid "Verify Docker is installed and running."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:35
+#: ../../guides/network/custom-clear-container.rst:39
 msgid "If Docker is installed and running, the output is similar to this example:"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:78
+#: ../../guides/network/custom-clear-container.rst:82
 msgid "If Docker is not installed, enter the commands:"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:85
-msgid "Use `os-install` to download and install the bundles."
-msgstr ""
-
-#: ../../guides/network/custom-clear-container.rst:92
-msgid "The `swupd` example uses the following flags:"
-msgstr ""
-
-#: ../../guides/network/custom-clear-container.rst:94
-msgid ":command:`os-install` tells `swupd` to download and install."
-msgstr ""
-
-#: ../../guides/network/custom-clear-container.rst:95
-msgid ":command:`-V / --version` specifies the version of the |CL| bundles."
+#: ../../guides/network/custom-clear-container.rst:89
+msgid "Use :command:`os-install` to download and install the bundles."
 msgstr ""
 
 #: ../../guides/network/custom-clear-container.rst:96
+msgid "The swupd example uses the following flags:"
+msgstr ""
+
+#: ../../guides/network/custom-clear-container.rst:98
+msgid ":command:`os-install` tells swupd to download and install."
+msgstr ""
+
+#: ../../guides/network/custom-clear-container.rst:99
+msgid ":command:`-V / --version` specifies the version of the |CL| bundles."
+msgstr ""
+
+#: ../../guides/network/custom-clear-container.rst:100
 msgid ":command:`--url` specifies the URL of the bundles repository."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:97
+#: ../../guides/network/custom-clear-container.rst:101
 msgid ""
 ":command:`--statedir` specifies the state directory where downloaded "
 "bundles and any state information are stored."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:99
+#: ../../guides/network/custom-clear-container.rst:103
 msgid ""
-":command:`--no-boot-update` tells `swupd` to skip updating boot files "
+":command:`--no-boot-update` tells swupd to skip updating boot files "
 "because boot files are not required for a container."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:102
+#: ../../guides/network/custom-clear-container.rst:106
 msgid ""
-"For more information on `swupd` flags, enter the :command:`swupd os-"
-"install -h` command."
+"For more information on swupd flags, enter the :command:`swupd os-install"
+" -h` command."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:104
-#: ../../guides/network/custom-clear-container.rst:167
-#: ../../guides/network/custom-clear-container.rst:194
-#: ../../guides/network/custom-clear-container.rst:228
-#: ../../guides/network/custom-clear-container.rst:290
+#: ../../guides/network/custom-clear-container.rst:109
+#: ../../guides/network/custom-clear-container.rst:172
+#: ../../guides/network/custom-clear-container.rst:199
+#: ../../guides/network/custom-clear-container.rst:233
+#: ../../guides/network/custom-clear-container.rst:295
 msgid "Example output:"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:141
-msgid "The `WARNING` message is expected and can be ignored."
+#: ../../guides/network/custom-clear-container.rst:146
+msgid "The WARNING message is expected and can be ignored."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:143
+#: ../../guides/network/custom-clear-container.rst:148
 msgid "Create a tarball and compress it."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:150
+#: ../../guides/network/custom-clear-container.rst:155
 msgid "Create the Dockerfile to build the image."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:161
+#: ../../guides/network/custom-clear-container.rst:166
 msgid "Build the |CL| container image."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:188
+#: ../../guides/network/custom-clear-container.rst:193
 msgid "List the newly created |CL| container image."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:201
+#: ../../guides/network/custom-clear-container.rst:206
 msgid "Launch the built |CL| container."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:208
+#: ../../guides/network/custom-clear-container.rst:213
 msgid "Manage bundles in a container"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:210
+#: ../../guides/network/custom-clear-container.rst:215
 msgid ""
 "You can add and remove bundles from a |CL| container using the "
 ":command:`RUN swupd` command in the Dockerfile."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:214
+#: ../../guides/network/custom-clear-container.rst:219
 msgid "Add a bundle"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:216
+#: ../../guides/network/custom-clear-container.rst:221
 msgid ""
 "This example Dockerfile adds the :file:`pxe-server` bundle to an existing"
 " |CL| Docker image:"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:272
+#: ../../guides/network/custom-clear-container.rst:277
 msgid ""
-"The `WARNING` message can be ignored because systemd does not run inside "
-"a container."
+"The WARNING message can be ignored because systemd does not run inside a "
+"container."
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:276
+#: ../../guides/network/custom-clear-container.rst:281
 msgid "Remove a bundle"
 msgstr ""
 
-#: ../../guides/network/custom-clear-container.rst:278
+#: ../../guides/network/custom-clear-container.rst:283
 msgid ""
 "This example Dockerfile removes the :file:`pxe-server` bundle from an "
 "existing |CL| Docker image:"
 msgstr ""
+
+#~ msgid ""
+#~ "The official base |CL-ATTR| container"
+#~ " image is published on Docker\\* Hub"
+#~ " and is updated on a regular "
+#~ "basis. This guide contains the steps "
+#~ "to build a custom container image."
+#~ msgstr ""
+
+#~ msgid "Use `os-install` to download and install the bundles."
+#~ msgstr ""
+
+#~ msgid "The `swupd` example uses the following flags:"
+#~ msgstr ""
+
+#~ msgid ":command:`os-install` tells `swupd` to download and install."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":command:`--no-boot-update` tells `swupd` "
+#~ "to skip updating boot files because "
+#~ "boot files are not required for a"
+#~ " container."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For more information on `swupd` flags,"
+#~ " enter the :command:`swupd os-install "
+#~ "-h` command."
+#~ msgstr ""
+
+#~ msgid "The `WARNING` message is expected and can be ignored."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The `WARNING` message can be ignored "
+#~ "because systemd does not run inside "
+#~ "a container."
+#~ msgstr ""
 
