@@ -244,6 +244,28 @@ set to get a smaller kernel image, which will also be faster to load.
       mixer bundle remove kernel-native
       mixer bundle add kernel-kvm
 
+#. In this case, we will add the `editors` bundle from upstream, but we will
+   remove the `joe` editor.
+
+   .. code-block:: bash
+
+      mixer bundle add editors
+
+      mixer bundle edit editors
+
+#. Use an editor and manually remove `joe` from the bundle definition.
+
+   .. code-block:: bash
+
+      $EDITOR ./local-bundles/editors
+
+#. List the bundles in the mix again to confirm removal.
+
+   .. code-block:: bash
+
+      mixer bundle list  --tree
+
+
 #. Build bundles:
 
    .. code-block:: bash
@@ -337,12 +359,6 @@ The image created in Example 2 is directly bootable in QEMU. In this example,
 we'll boot the image from Example 2 to verify it, and update the image from
 mix version 10 (from which the image was built), to mix version 20.
 
-..  TODO: Accommodate a format bump
-
-.. note::
-
-   Your mix will accommodate a format bump from version 10 to 20.
-
 #. Set up the QEMU environment.
 
    Install the :command:`kvm-host` bundle to your |CL|:
@@ -378,13 +394,20 @@ mix version 10 (from which the image was built), to mix version 20.
       swupd bundle-list
       swupd bundle-list -a
 
-   .. note::
+#. Now we will add the `editors` bundle that we modified.
 
-      You cannot see the curl bundle that you added in Example 2 because
-      your mix is still on version 10.
+   .. code-block:: bash
 
-   Check for updates. You should see that version 20 is available. Use
-   :command:`swupd` to update your mix:
+      swupd bundle add editors
+
+#. Try to start `joe` editor.  It should not appear because we removed it
+   from the original `editors` bundle.
+
+#. Next we will update from version 10 to 20 to capture the newly
+   available bundles.
+
+#. Check to see that version 20 is available. Use :command:`swupd`
+   to update your mix:
 
    .. code-block:: bash
 
@@ -392,7 +415,7 @@ mix version 10 (from which the image was built), to mix version 20.
       swupd update
       swupd bundle-list -a
 
-   Now your mix should be at version 20 and curl is now available. Try using
+#. Now your mix should be at version 20 and curl is now available. Try using
    curl. This will fail because curl is not yet installed:
 
    .. code-block:: console
@@ -413,40 +436,6 @@ mix version 10 (from which the image was built), to mix version 20.
 
       poweroff
 
-Example 4: Edit bundle content
-==============================
-
-This example shows how to list the bundles in your mix and edit the content from a bundle. We will remove the `joe` bundle from the `editors` bundle.
-
-#. List the bundles in a mix. To view the includes, add the `--tree` flag.
-
-   .. code-block:: bash
-
-      mixer bundle list
-
-#. Add the `editors` bundle from upstream.
-
-   .. code-block:: bash
-
-      mixer bundle add editors
-
-#. Make the bundle local before you modify it.
-
-   .. code-block:: bash
-
-      mixer bundle edit editors
-
-#. Use an editor and remove `joe` from the bundle definition.
-
-   .. code-block:: bash
-
-      $EDITOR ./local-bundles/editors
-
-#. List the bundles in the mix again to confirm removal.
-
-   .. code-block:: bash
-
-      mixer bundle list  --tree
 
 .. Example: Create a mix with custom RPM
 .. -------------------------------------
