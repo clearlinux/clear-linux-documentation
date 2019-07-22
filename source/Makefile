@@ -55,7 +55,6 @@ clean:
 
 htmlall: 
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html	
-	$(SPHINXBUILD) -b html -D language='de' $(ALLSPHINXOPTS) $(BUILDDIR)/html/de
 	$(SPHINXBUILD) -b html -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/html/zh_CN 
 
 htmlde:
