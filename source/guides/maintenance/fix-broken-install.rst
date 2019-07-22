@@ -1,20 +1,31 @@
 .. _fix-broken-install:
 
-Fix a broken installation of |CL-ATTR|
-######################################
+Fix a broken installation
+#########################
 
-This guide explains how to fix a broken installation of |CL| using a live
-desktop image on a USB. It's assumed you already installed |CL| on a
-target system, but your operating system does not boot or function properly.
+This guide explains how to fix a broken installation of |CL-ATTR| using a live
+desktop image on a USB.
 
-This process can only verify and fix files that :ref:`swupd<swupd-guide>`
-owns in :file:`/usr`. Files outside of this path, such as /home/, /etc,
-/var, etc., cannot be repaired by this process.
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
+This guide assumes you have installed |CL| on a target system, but the OS
+does not boot or function properly.
+
+The process described in this guide can only verify and fix files that
+:ref:`swupd<swupd-guide>` owns in :file:`/usr`. Files outside of this path, such
+as :file:`/home/`, :file:`/etc`, :file:`/var`, etc., cannot be repaired by this
+process.
 
 Prerequisites
 *************
 
-* :ref:`Download and install the live desktop image on a USB <bare-metal-install-desktop>`
+* Download and install the live desktop image on a USB. See
+  :ref:`bare-metal-install-desktop` for install instructions.
 
 Boot a live desktop image to fix target system
 **********************************************
@@ -30,7 +41,7 @@ Mount root partition, verify, and fix
 
 #. Open a Terminal window.
 
-#. Assure the system is connected to the network.
+#. Ensure the system is connected to the network.
 
 #. Mount the system’s root partition.
 
@@ -40,9 +51,9 @@ Mount root partition, verify, and fix
 
          lsblk
 
-      We'll use `/dev/sda3/` as the root partition example.
+      We'll use :file:`/dev/sda3/` as the root partition example.
 
-   #. Next, mount the partition to the `/mnt` folder.
+   #. Next, mount the partition to the :file:`/mnt` folder.
 
       .. code-block:: bash
 

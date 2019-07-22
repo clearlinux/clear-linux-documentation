@@ -41,14 +41,8 @@ this command:
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
-   :Start-after: incl-decompress-image:
-   :end-before: incl-decompress-image-end:
-
-For alternative instructions on other operating systems, see:
-
-* :ref:`download-verify-decompress-mac`
-* :ref:`download-verify-decompress-windows`
+We also provide instructions for downloading and verifying a Clear Linux ISO.
+For more information, refer to :ref:`download-verify-decompress`.
 
 Upload the |CL| image to the VMware server
 ******************************************
@@ -107,10 +101,10 @@ hypervisor.
 The steps in this section can also be referenced from the VMware documentation on `Cloning and converting virtual machine disks with vmkfstools`_
 
 #. SSH into the `vSphere Management Assistant`_  appliance that is managing
-   the ESXi host or connect to the vSphere hosting using the `vSphere CLI`_. 
-    
+   the ESXi host or connect to the vSphere hosting using the `vSphere CLI`_.
+
    .. note::
-      
+
       If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or :abbr:`vCLI (vSphere CLI)` configured and available, 
       you can temporarily enable SSH directly on the ESXi host by following the
       steps described in `Enable the Secure Shell (SSH) in the VMware Host Client`_ .

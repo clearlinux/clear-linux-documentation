@@ -1,10 +1,17 @@
 .. _hostname:
 
-Modify hostname on |CL-ATTR|
-############################
+Modify hostname
+###############
 
-This guide describes how to modify and view the hostname of your
-|CL-ATTR| system.
+This guide describes how to modify and view the hostname of your |CL-ATTR|
+system.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
 
 By default, |CL| installations have a machine generated name, which is a
 long string of letters and numbers. The generated name is fine for computers
@@ -22,8 +29,8 @@ Set your hostname
 *****************
 
 |CL| uses the :command:`hostnamectl` command to display and modify the machine
-name. :command:`hostnamectl` is part of the **os-core** bundle, which provides
-a basic Linux\* user space and utilities.
+name. :command:`hostnamectl` is part of the :command:`os-core` bundle, which
+provides a basic Linux\* user space and utilities.
 
 This example sets the hostname to *telemetry-test-2-h15*, to identify a
 |CL| telemetry test machine on the second floor at grid location H15.

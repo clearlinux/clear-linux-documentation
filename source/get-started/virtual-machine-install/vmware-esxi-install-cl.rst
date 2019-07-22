@@ -38,14 +38,8 @@ Download the latest |CL| installer ISO
 Get the latest |CL| installer ISO image from the `image`_ repository.
 Look for :file:`clear-[version number]-installer.iso.xz`.
 
-.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
-   :Start-after: incl-decompress-image:
-   :end-before: incl-decompress-image-end:
-
-For alternative instructions on other operating systems, see: 
-
-* :ref:`download-verify-decompress-mac`
-* :ref:`download-verify-decompress-windows`
+We also provide instructions for downloading and verifying a Clear Linux ISO.
+For more information, refer to :ref:`download-verify-decompress`.
 
 Upload the |CL| installer ISO to the VMware server
 **************************************************

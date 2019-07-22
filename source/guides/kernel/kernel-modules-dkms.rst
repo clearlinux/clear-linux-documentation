@@ -3,15 +3,20 @@
 Add kernel modules with DKMS
 ############################
 
-Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
-kernel modules that are not part of the Linux source tree, you may need to
-build out-of-tree kernel modules. Use this guide to add kernel modules with
-:abbr:`DKMS (Dynamic Kernel Module System)` or refer to
-:ref:`kernel-modules`.
+This guide describes how to add kernel modules with
+:abbr:`DKMS (Dynamic Kernel Module System)`.
 
 .. contents:: :local:
    :depth: 1
    :backlinks: top
+
+Overview
+********
+
+Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
+kernel modules that are not part of the Linux source tree, you may need to
+build out-of-tree kernel modules. Use this guide to add kernel modules with
+:abbr:`DKMS (Dynamic Kernel Module System)` or refer to :ref:`kernel-modules`.
 
 Description
 ***********
@@ -34,12 +39,12 @@ Install DKMS
 
 .. _kernel-modules-dkms-install-begin:
 
-The *kernel-native-dkms* bundle provides the :command:`dkms` program and
+The :command:`kernel-native-dkms` bundle provides the :command:`dkms` program and
 Linux kernel headers, which are required for compiling kernel modules.
 
-The *kernel-native-dkms* bundle also:
+The :command:`kernel-native-dkms` bundle also:
 
-* Adds a systemd update trigger
+* Adds a `systemd` update trigger
   (:file:`/usr/lib/systemd/system/dkms-new-kernel.service`) to automatically
   run DKMS to rebuild modules after a kernel upgrade occurs with :ref:`swupd
   update <swupd-guide>`.
@@ -254,8 +259,7 @@ The instructions below show a generic example:
       sudo dkms add -m <MODULE-NAME>
 
 #. Build the kernel module using DKMS. If the build encounters errors,
-   you may
-   need to edit the :file:`dkms.conf` file.
+   you may need to edit the :file:`dkms.conf` file.
 
    .. code-block:: bash
 

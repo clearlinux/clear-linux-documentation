@@ -28,12 +28,21 @@ Network
 
    network/*
 
-
 Kernel
-======
+=======
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
    kernel/*
+
+Stacks
+=======
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   stacks/*
+   stacks/dlrs/*

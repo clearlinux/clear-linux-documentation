@@ -3,18 +3,18 @@
 Install |CL-ATTR| from the live desktop
 #######################################
 
-The live desktop allows you to boot |CL-ATTR| in a GNOME desktop without
-modifying the host system, offering you the chance to explore developing
-on |CL| or install it. In this document, we show how to install |CL| on a
-target system.
+This page explains how to boot the |CL-ATTR| live desktop image, from which
+you can install |CL| or explore without modifying the host system.
 
-.. contents:: :local:
+.. contents::
+   :local:
    :depth: 1
 
 System requirements
 *******************
 
-Assure that your target system supports the installation:
+Before installing |CL|, verify that the host system supports the
+installation:
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
@@ -22,7 +22,7 @@ Assure that your target system supports the installation:
 Preliminary steps
 *****************
 
-#. `Visit our Downloads page`_.
+#. Visit our `Downloads`_ page.
 
 #. Download the file :file:`clear-<release number>-live-desktop.iso`,
    also called the |CL| Desktop.
@@ -30,6 +30,10 @@ Preliminary steps
    .. note::
 
       <release-number> is the latest |CL| auto-numbered release.
+
+#. Verify and decompress the file per your OS.
+
+   * :ref:`download-verify-decompress`
 
 #. Follow your OS instructions to create a bootable USB drive.
 
@@ -72,12 +76,13 @@ Software (optional)
 
 Explore |CL| bundles and other software. Double-click the
 :guilabel:`Software` icon from the Activities menu, shown in Figure 2.
-Assure a network connection exists before launching `Software`.
+Ensure a network connection exists before launching the Software application.
 
 .. note::
 
-   `Software` application is *only intended for exploring* available bundles,
-   applications, and images. Do not attempt to install them.
+   While running the |CL| live desktop image, the Software application is
+   intended only for exploration. Do not attempt to install applications during
+   exploration.
 
 Launch the |CL| installer
 =========================
@@ -517,26 +522,21 @@ Create partitions per requirements in Table 1.
      - Mount Point
      - Default size
 
-   * - ``VFAT(FAT32)``
+   * - **VFAT(FAT32)**
      - boot
      - /boot
      - 150MB
 
-   * - ``linux-swap``
+   * - **linux-swap**
      - swap
      -
      - 256MB
 
-   * - ``ext[234] or XFS``
+   * - **ext[234] or XFS**
      - root
      - /
      - *Size depends upon use case/desired bundles.*
 
-Next steps
-**********
-
-:ref:`guides`
-
-.. _Visit our downloads page: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.org/downloads
 
 
