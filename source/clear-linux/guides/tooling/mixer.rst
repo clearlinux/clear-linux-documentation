@@ -400,14 +400,11 @@ mix version 10 (from which the image was built), to mix version 20.
 
       swupd bundle add editors
 
-#. Try to start `joe` editor.  It should not appear because we removed it
+#. Try to start the `joe` editor.  It should not appear because we removed it
    from the original `editors` bundle.
 
 #. Next we will update from version 10 to 20 to capture the newly
-   available bundles.
-
-#. Check to see that version 20 is available. Use :command:`swupd`
-   to update your mix:
+   available bundles. Use :command:`swupd` to update your mix:
 
    .. code-block:: bash
 
