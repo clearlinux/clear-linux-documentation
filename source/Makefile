@@ -56,11 +56,17 @@ clean:
 htmlall: 
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html	
 	$(SPHINXBUILD) -b html -D language='de' $(ALLSPHINXOPTS) $(BUILDDIR)/html/de
+	$(SPHINXBUILD) -b html -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/html/zh_CN 
 
 htmlde:
 	$(SPHINXBUILD) -b html -D language='de' $(ALLSPHINXOPTS) $(BUILDDIR)/html/de 
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/de."
+
+htmlzh:
+	$(SPHINXBUILD) -b html -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/html/zh_CN 
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/zh_CN."	
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
