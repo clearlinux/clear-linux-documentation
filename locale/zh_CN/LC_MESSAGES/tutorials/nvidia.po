@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,17 +92,18 @@ msgstr ""
 
 #: ../../guides/kernel/kernel-modules-dkms.rst:3
 msgid ""
-"The *kernel-native-dkms* bundle provides the :command:`dkms` program and "
-"Linux kernel headers, which are required for compiling kernel modules."
+"The :command:`kernel-native-dkms` bundle provides the :command:`dkms` "
+"program and Linux kernel headers, which are required for compiling kernel"
+" modules."
 msgstr ""
 
 #: ../../guides/kernel/kernel-modules-dkms.rst:6
-msgid "The *kernel-native-dkms* bundle also:"
+msgid "The :command:`kernel-native-dkms` bundle also:"
 msgstr ""
 
 #: ../../guides/kernel/kernel-modules-dkms.rst:8
 msgid ""
-"Adds a systemd update trigger (:file:`/usr/lib/systemd/system/dkms-new-"
+"Adds a `systemd` update trigger (:file:`/usr/lib/systemd/system/dkms-new-"
 "kernel.service`) to automatically run DKMS to rebuild modules after a "
 "kernel upgrade occurs with :ref:`swupd update <swupd-guide>`."
 msgstr ""
@@ -128,35 +129,35 @@ msgid ""
 "relies on a kernel module."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules-dkms.rst:28
+#: ../../guides/kernel/kernel-modules-dkms.rst:27
 msgid ""
 "Install the :command:`kernel-native-dkms` or :command:`kernel-lts-dkms` "
 "bundle:"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules-dkms.rst:31
+#: ../../guides/kernel/kernel-modules-dkms.rst:30
 msgid ""
 "Determine which kernel variant is running on |CL|. Only the *native* and "
 "*lts* kernels are enabled to build and load out-of-tree kernel modules "
 "with DKMS."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules-dkms.rst:40
+#: ../../guides/kernel/kernel-modules-dkms.rst:39
 msgid "Ensure *.native* or *.lts* is in the kernel name."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules-dkms.rst:42
+#: ../../guides/kernel/kernel-modules-dkms.rst:41
 msgid ""
 "Install the DKMS bundle corresponding to the installed kernel. Use "
 ":command:`kernel-native-dkms` for the native kernel or :command:`kernel-"
 "lts-dkms` for the lts kernel."
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules-dkms.rst:50
+#: ../../guides/kernel/kernel-modules-dkms.rst:49
 msgid "or"
 msgstr ""
 
-#: ../../guides/kernel/kernel-modules-dkms.rst:57
+#: ../../guides/kernel/kernel-modules-dkms.rst:56
 msgid "Update the |CL| bootloader and reboot."
 msgstr ""
 
@@ -417,4 +418,23 @@ msgid ""
 "`NVIDIA Accelerated Linux Graphics Driver Installation Guides "
 "<https://download.nvidia.com/XFree86/Linux-x86_64/>`_"
 msgstr ""
+
+#~ msgid ""
+#~ "The *kernel-native-dkms* bundle provides"
+#~ " the :command:`dkms` program and Linux "
+#~ "kernel headers, which are required for"
+#~ " compiling kernel modules."
+#~ msgstr ""
+
+#~ msgid "The *kernel-native-dkms* bundle also:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Adds a systemd update trigger "
+#~ "(:file:`/usr/lib/systemd/system/dkms-new-kernel.service`)"
+#~ " to automatically run DKMS to rebuild"
+#~ " modules after a kernel upgrade "
+#~ "occurs with :ref:`swupd update <swupd-"
+#~ "guide>`."
+#~ msgstr ""
 
