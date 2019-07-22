@@ -250,7 +250,6 @@ set to get a smaller kernel image, which will also be faster to load.
    .. code-block:: bash
 
       mixer bundle add editors
-
       mixer bundle edit editors
 
 #. Use an editor and manually remove `joe` from the bundle definition.
