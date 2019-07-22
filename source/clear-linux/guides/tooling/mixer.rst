@@ -172,7 +172,7 @@ A mix is created with the following steps:
 
    Deploy update content and images to your update server.
 
-   View the `Example 4: Deploy updates to target`_ for a simple deployment
+   View the `Example 3: Deploy updates to target`_ for a simple deployment
    scenario.
 
 Maintain or modify mix
@@ -330,36 +330,7 @@ set to get a smaller kernel image, which will also be faster to load.
    Look in ~/mixer/update/www/<mix version> to see the update content in your
    workspace.
 
-Example 3: Edit bundle content
-==============================
-
-This example shows how to list the bundles in your mix and edit the content from a bundle. We will remove the `joe` bundle from the `editors` bundle.
-
-#. List the bundles in a mix. To view the includes, add the `--tree` flag.
-
-   .. code-block:: bash
-
-      mixer bundle list
-
-#. Add the `editors` bundle from upstream.
-
-   .. code-block:: bash
-
-      mixer bundle add editors
-
-#. Remove `joe` from its definition.
-
-   .. code-block:: bash
-
-      mixer bundle edit editors
-
-#. List the bundles in the mix again to confirm removal.
-
-   .. code-block:: bash
-
-      mixer bundle list  --tree
-
-Example 4: Deploy updates to target
+Example 3: Deploy updates to target
 ===================================
 
 The image created in Example 2 is directly bootable in QEMU. In this example,
@@ -370,7 +341,7 @@ mix version 10 (from which the image was built), to mix version 20.
 
 .. note::
 
-   Your mix will accommodate a format bump from version 10 to 20 ...
+   Your mix will accommodate a format bump from version 10 to 20.
 
 #. Set up the QEMU environment.
 
@@ -407,13 +378,13 @@ mix version 10 (from which the image was built), to mix version 20.
       swupd bundle-list
       swupd bundle-list -a
 
-   .. note:: 
-      
+   .. note::
+
       You cannot see the curl bundle that you added in Example 2 because
       your mix is still on version 10.
 
-   Check for updates. You should see that version 20 is available. Use swupd to
-   update your mix:
+   Check for updates. You should see that version 20 is available. Use
+   :command:`swupd` to update your mix:
 
    .. code-block:: bash
 
@@ -441,6 +412,41 @@ mix version 10 (from which the image was built), to mix version 20.
    .. code-block:: bash
 
       poweroff
+
+Example 4: Edit bundle content
+==============================
+
+This example shows how to list the bundles in your mix and edit the content from a bundle. We will remove the `joe` bundle from the `editors` bundle.
+
+#. List the bundles in a mix. To view the includes, add the `--tree` flag.
+
+   .. code-block:: bash
+
+      mixer bundle list
+
+#. Add the `editors` bundle from upstream.
+
+   .. code-block:: bash
+
+      mixer bundle add editors
+
+#. Make the bundle local before you modify it.
+
+   .. code-block:: bash
+
+      mixer bundle edit editors
+
+#. Use an editor and remove `joe` from the bundle definition.
+
+   .. code-block:: bash
+
+      $EDITOR ./local-bundles/editors
+
+#. List the bundles in the mix again to confirm removal.
+
+   .. code-block:: bash
+
+      mixer bundle list  --tree
 
 .. Example: Create a mix with custom RPM
 .. -------------------------------------
@@ -580,7 +586,7 @@ A format bump is required when:
   compatible with the previous update scheme
 
 * A package is removed from the update stream and the update must ensure the
-  files associated with that package are removed from the system.
+  files associated with that package are removed from the system
 
 Using a format increment, we make sure pre- and co-requisite changes flow out
 with proper ordering. The updated client will only update to the latest
