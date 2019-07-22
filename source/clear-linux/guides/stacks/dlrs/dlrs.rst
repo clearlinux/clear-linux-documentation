@@ -44,19 +44,19 @@ The Deep Learning Reference Stack is available in the following versions:
 Stack features
 ==============
 
-* Deep Learning Reference Stack `V3.0 release announcement`_.
+* `DLRS V3.0`_  release announcement.
 * Deep Learning Reference Stack v2.0 including current
-  `PyTorch benchmark results`_.
+  `PyTorch benchmark`_.
 * Deep Learning Reference Stack v1.0 including current
-  `TensorFlow benchmark results`_.
-* `DLRS Release notes`_  on Github\* for the latest release of Deep Learning Reference
-  Stack.
+  `TensorFlow benchmark`_ results.
+* `DLRS Release notes`_  on Github\* for the latest release of Deep Learning
+  Reference Stack.
 
 .. note::
 
-   The Deep Learning Reference Stack is a collective work, and each piece of software within the work has its own license.  Please see the `terms of use`_ for more details about licensing and usage of the Deep Learning Reference Stack.
-
-
+   The Deep Learning Reference Stack is a collective work, and each piece of
+   software within the work has its own license.  Please see the `DLRS Terms of Use`_
+   for more details about licensing and usage of the Deep Learning Reference Stack.
 
 Prerequisites
 =============
@@ -104,19 +104,22 @@ We validated these steps against the following software package versions:
 
 .. note::
 
-   The Deep Learning Reference Stack was developed to provide the best user experience when executed on a |CL| host.  However, as the stack runs in a container environment, you should be able to complete the following sections of this guide on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
+   The Deep Learning Reference Stack was developed to provide the best user
+   experience when executed on a |CL| host.  However, as the stack runs in a
+   container environment, you should be able to complete the following sections of this guide on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
 
 TensorFlow single and multi-node benchmarks
 *******************************************
 
-This section describes running the `TensorFlow benchmarks`_ in single node.
+This section describes running the `TensorFlow Benchmarks`_ in single node.
 For multi-node testing, replicate these steps for each node. These steps
 provide a template to run other benchmarks, provided that they can invoke
 TensorFlow.
 
 .. note::
 
-   Performance test results for the Deep Learning Reference Stack and for this guide were obtained using `runc` as the runtime.
+   Performance test results for the Deep Learning Reference Stack and for this
+   guide were obtained using `runc` as the runtime.
 
 #. Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image
    from `Docker Hub`_.
@@ -198,7 +201,9 @@ The benchmark workload runs in a Kubernetes cluster. The guide uses
 
 .. warning::
 
-   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform must support the Intel® AVX-512 instruction set. Otherwise, an *illegal instruction* error may appear, and you won’t be able to complete this guide.
+   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform
+   must support the Intel® AVX-512 instruction set. Otherwise, an
+   *illegal instruction* error may appear, and you won’t be able to complete this guide.
 
 
 Kubernetes setup
@@ -455,7 +460,9 @@ deep learning frameworks. Refer to `Jupyter Notebook`_ for details.
 Uninstallation
 **************
 
-To uninstall the Deep Learning Reference Stack, you can choose to stop the container so that it is not using system resources, or you can stop the container and delete it to free storage space.
+To uninstall the Deep Learning Reference Stack, you can choose to stop the
+container so that it is not using system resources, or you can stop the
+container and delete it to free storage space.
 
 To stop the container, execute the following from your host system:
 
@@ -472,7 +479,8 @@ To stop the container, execute the following from your host system:
       CONTAINER ID        IMAGE                        COMMAND               CREATED             STATUS              PORTS               NAMES
       e131dc71d339        clearlinux/stacks-dlrs-oss   "/bin/sh -c 'bash'"   23 seconds ago      Up 21 seconds                           oss
 
-#. You can then use the ID or container name to stop the container.  This example uses the name "oss":
+#. You can then use the ID or container name to stop the container. This example
+   uses the name "oss":
 
    .. code-block:: bash
 
@@ -529,7 +537,7 @@ Related topics
 **************
 
 * `DLRS V3.0`_ release announcement
-* `TensorFlow benchmarks`_
+* `TensorFlow Benchmarks`_
 * `PyTorch benchmarks`_
 * `Kubeflow`_
 * :ref:`kubernetes` tutorial
@@ -541,7 +549,7 @@ Related topics
 
 .. _Docker Hub: https://hub.docker.com/
 
-.. _TensorFlow benchmarks: https://www.tensorflow.org/guide/performance/benchmarks
+.. _TensorFlow Benchmarks: https://www.tensorflow.org/guide/performance/benchmarks
 
 .. _PyTorch benchmarks: https://github.com/pytorch/pytorch/blob/master/caffe2/python/convnet_benchmarks.py
 
@@ -567,9 +575,9 @@ Related topics
 
 .. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
-.. _TensorFlow benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack
+.. _TensorFlow benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack
 
-.. _PyTorch benchmark results: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
+.. _PyTorch benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
 .. _Jupyter Notebook: https://jupyter.org/
 
@@ -577,7 +585,7 @@ Related topics
 
 .. _launcher.py: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow
 
-.. _terms of use: https://clearlinux.org/stacks/deep-learning/terms-of-use
+.. _DLRS Terms of Use: https://clearlinux.org/stacks/deep-learning/terms-of-use
 
 .. _DLRS Release notes: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
 
