@@ -26,7 +26,7 @@ Request changes be included with the |CL| kernel
 
 If the kernel modification you need is already open source and likely to be
 useful to others, consider submitting a request to include it in the
-|CL| kernels.If your change request is accepted, you do not need to maintain
+|CL| kernels. If your change request is accepted, you do not need to maintain
 your own modified kernel.
 
 Make enhancement requests to the |CL| `Distribution Project`_ on GitHub\*.
