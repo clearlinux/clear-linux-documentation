@@ -264,7 +264,7 @@ Attach the pre-configured |CL| VMware image
 Enable UEFI boot support
 ************************
 
-|CL| needs UEFI support to boot.To enable it, add the
+|CL| needs UEFI support to boot. To enable it, add the
 following line to the end of your VM's :file:`.vmx` file:
 
 .. code-block:: console
