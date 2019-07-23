@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,34 @@ msgstr ""
 msgid ""
 "Clear Linux is a little different from other distros. Here are some "
 "important tools and concepts for managing your install."
+msgstr ""
+
+#: ../../tooling/tooling.rst:18
+msgid "Training"
+msgstr ""
+
+#: ../../tooling/tooling.rst:20
+msgid ""
+"Additional training materials are available in the `how-to-clear`_ "
+"GitHub\\* project to help you get started with |CL| tools."
+msgstr ""
+
+#: ../../tooling/tooling.rst:23
+msgid ""
+"The training helps you create a customized OS that is based on |CL| and "
+"provides complete details on the methods and tools used to create updates"
+" and how to deploy updates to targets."
+msgstr ""
+
+#: ../../tooling/tooling.rst:27
+msgid ""
+"To complete the training, you will need a clean |CL| installation and a "
+"network connection. The project includes all files needed to complete the"
+" exercises."
+msgstr ""
+
+#: ../../tooling/tooling.rst:29
+msgid "`how-to-clear`_ training on GitHub"
 msgstr ""
 
 #~ msgid "Tooling"

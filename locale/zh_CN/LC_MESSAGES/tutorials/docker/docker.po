@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 #: ../../tutorials/docker/docker.rst:6
 msgid ""
 "|CL-ATTR| supports multiple containerization platforms, including a "
-"Docker\\* solution. |CL| has many `unique features`_ including a minimal "
+"Docker solution. |CL| has many unique features including a minimal "
 "default installation, which makes it compelling to use as a host for "
 "container workloads, management, and orchestration."
 msgstr ""
@@ -66,7 +66,7 @@ msgid "Additionally, you should have:"
 msgstr ""
 
 #: ../../tutorials/docker/docker.rst:39
-msgid "A basic understanding of Linux and Docker."
+msgid "A basic understanding of Linux\\* and Docker."
 msgstr ""
 
 #: ../../tutorials/docker/docker.rst:41
@@ -116,7 +116,7 @@ msgid ""
 msgstr ""
 
 #: ../../tutorials/docker/docker.rst:83
-msgid "Integration with Kata Containers (optional)"
+msgid "Integration with Kata Containers\\* (optional)"
 msgstr ""
 
 #: ../../tutorials/docker/docker.rst:85
@@ -136,10 +136,10 @@ msgstr ""
 
 #: ../../tutorials/docker/docker.rst:96
 msgid ""
-"The proceeding sections of this tutorial are standard to Docker setup and"
-" configuration. If you are familiar with Docker basics, you do not need "
-"to continue reading. The following sections are provided here for sake of"
-" completeness."
+"The remaining sections of this tutorial are standard to Docker setup and "
+"configuration. If you are familiar with Docker basics, you do not need to"
+" continue reading. The following sections are provided here for sake of "
+"completeness."
 msgstr ""
 
 #: ../../tutorials/docker/docker.rst:104
@@ -150,8 +150,8 @@ msgstr ""
 msgid ""
 "Perform additional Docker daemon configuration via a configuration file "
 "typically located at :file:`/etc/docker/daemon.json`. |CL| features a "
-"`stateless system`_  so the configuration file :file:`daemon.json` does "
-"*NOT* exist by default."
+":ref:`stateless` system  so the configuration file :file:`daemon.json` "
+"does *NOT* exist by default."
 msgstr ""
 
 #: ../../tutorials/docker/docker.rst:111
@@ -195,14 +195,14 @@ msgstr ""
 msgid ""
 "`Docker Hub`_ is a publically available container image repository which "
 "comes preconfigured with Docker. In the example below we will pull and "
-"run an the official Docker image for nginx, an open source reverse proxy "
-"server."
+"run an the official Docker image for nginx\\*, an open source reverse "
+"proxy server."
 msgstr ""
 
 #: ../../tutorials/docker/docker.rst:153
 msgid ""
 "First, pull a container image from Docker Hub using the :command:`docker "
-"pull` command. Download the latest nginx Docker container image by "
+"pull` command. Download the latest nginx\\* Docker container image by "
 "running this command:"
 msgstr ""
 
@@ -294,4 +294,57 @@ msgstr ""
 #: ../../tutorials/docker/docker.rst:219
 msgid "`Kata Containers`_"
 msgstr ""
+
+#~ msgid ""
+#~ "|CL-ATTR| supports multiple containerization"
+#~ " platforms, including a Docker\\* solution."
+#~ " |CL| has many `unique features`_ "
+#~ "including a minimal default installation, "
+#~ "which makes it compelling to use "
+#~ "as a host for container workloads, "
+#~ "management, and orchestration."
+#~ msgstr ""
+
+#~ msgid "A basic understanding of Linux and Docker."
+#~ msgstr ""
+
+#~ msgid "Integration with Kata Containers (optional)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The proceeding sections of this tutorial"
+#~ " are standard to Docker setup and "
+#~ "configuration. If you are familiar with"
+#~ " Docker basics, you do not need "
+#~ "to continue reading. The following "
+#~ "sections are provided here for sake "
+#~ "of completeness."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Perform additional Docker daemon configuration"
+#~ " via a configuration file typically "
+#~ "located at :file:`/etc/docker/daemon.json`. |CL| "
+#~ "features a `stateless system`_  so the"
+#~ " configuration file :file:`daemon.json` does "
+#~ "*NOT* exist by default."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Docker Hub`_ is a publically available"
+#~ " container image repository which comes "
+#~ "preconfigured with Docker. In the "
+#~ "example below we will pull and run"
+#~ " an the official Docker image for "
+#~ "nginx, an open source reverse proxy "
+#~ "server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "First, pull a container image from "
+#~ "Docker Hub using the :command:`docker "
+#~ "pull` command. Download the latest nginx"
+#~ " Docker container image by running "
+#~ "this command:"
+#~ msgstr ""
 

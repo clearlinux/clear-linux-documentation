@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,39 +19,48 @@ msgstr ""
 "Generated-By: Babel 2.7.0\n"
 
 #: ../../guides/maintenance/fix-broken-install.rst:4
-msgid "Fix a broken installation of |CL-ATTR|"
+msgid "Fix a broken installation"
 msgstr ""
 
 #: ../../guides/maintenance/fix-broken-install.rst:6
 msgid ""
-"This guide explains how to fix a broken installation of |CL| using a live"
-" desktop image on a USB. It's assumed you already installed |CL| on a "
-"target system, but your operating system does not boot or function "
-"properly."
+"This guide explains how to fix a broken installation of |CL-ATTR| using a"
+" live desktop image on a USB."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:10
+#: ../../guides/maintenance/fix-broken-install.rst:14
+msgid "Overview"
+msgstr ""
+
+#: ../../guides/maintenance/fix-broken-install.rst:16
 msgid ""
-"This process can only verify and fix files that :ref:`swupd<swupd-guide>`"
-" owns in :file:`/usr`. Files outside of this path, such as /home/, /etc, "
-"/var, etc., cannot be repaired by this process."
+"This guide assumes you have installed |CL| on a target system, but the OS"
+" does not boot or function properly."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:15
+#: ../../guides/maintenance/fix-broken-install.rst:19
+msgid ""
+"The process described in this guide can only verify and fix files that "
+":ref:`swupd<swupd-guide>` owns in :file:`/usr`. Files outside of this "
+"path, such as :file:`/home/`, :file:`/etc`, :file:`/var`, etc., cannot be"
+" repaired by this process."
+msgstr ""
+
+#: ../../guides/maintenance/fix-broken-install.rst:25
 msgid "Prerequisites"
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:17
+#: ../../guides/maintenance/fix-broken-install.rst:27
 msgid ""
-":ref:`Download and install the live desktop image on a USB <bare-metal-"
-"install-desktop>`"
+"Download and install the live desktop image on a USB. See :ref:`bare-"
+"metal-install-desktop` for install instructions."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:20
+#: ../../guides/maintenance/fix-broken-install.rst:31
 msgid "Boot a live desktop image to fix target system"
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:22
+#: ../../guides/maintenance/fix-broken-install.rst:33
 msgid "Boot the |CL| live desktop image."
 msgstr ""
 
@@ -101,59 +110,96 @@ msgstr ""
 msgid "Figure 1: Clear Linux OS in boot menu"
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:29
+#: ../../guides/maintenance/fix-broken-install.rst:40
 msgid "Mount root partition, verify, and fix"
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:31
+#: ../../guides/maintenance/fix-broken-install.rst:42
 msgid "Open a Terminal window."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:33
-msgid "Assure the system is connected to the network."
+#: ../../guides/maintenance/fix-broken-install.rst:44
+msgid "Ensure the system is connected to the network."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:35
+#: ../../guides/maintenance/fix-broken-install.rst:46
 msgid "Mount the system’s root partition."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:37
+#: ../../guides/maintenance/fix-broken-install.rst:48
 msgid "To find the root partition, run:"
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:43
-msgid "We'll use `/dev/sda3/` as the root partition example."
+#: ../../guides/maintenance/fix-broken-install.rst:54
+msgid "We'll use :file:`/dev/sda3/` as the root partition example."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:45
-msgid "Next, mount the partition to the `/mnt` folder."
+#: ../../guides/maintenance/fix-broken-install.rst:56
+msgid "Next, mount the partition to the :file:`/mnt` folder."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:51
+#: ../../guides/maintenance/fix-broken-install.rst:62
 msgid ""
 "Verify that you mounted the correct root partition by checking for some "
 "files commonly found on |CL| systems."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:59
+#: ../../guides/maintenance/fix-broken-install.rst:70
 msgid "Next, run swupd to fix any issues on the target system."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:65
+#: ../../guides/maintenance/fix-broken-install.rst:76
 msgid ":ref:`Learn more about how swupd works <swupd-guide>`."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:67
+#: ../../guides/maintenance/fix-broken-install.rst:78
 msgid "After the process is complete, unmount the root partition:"
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:73
+#: ../../guides/maintenance/fix-broken-install.rst:84
 msgid ""
 "Reboot the system, remove the live desktop USB drive, and boot into the "
 "repaired system."
 msgstr ""
 
-#: ../../guides/maintenance/fix-broken-install.rst:80
+#: ../../guides/maintenance/fix-broken-install.rst:91
 msgid "**Congratulations!** You successfully restored |CL|."
 msgstr ""
+
+#~ msgid "Fix a broken installation of |CL-ATTR|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This guide explains how to fix a"
+#~ " broken installation of |CL| using a"
+#~ " live desktop image on a USB. "
+#~ "It's assumed you already installed |CL|"
+#~ " on a target system, but your "
+#~ "operating system does not boot or "
+#~ "function properly."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This process can only verify and "
+#~ "fix files that :ref:`swupd<swupd-guide>` "
+#~ "owns in :file:`/usr`. Files outside of"
+#~ " this path, such as /home/, /etc, "
+#~ "/var, etc., cannot be repaired by "
+#~ "this process."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":ref:`Download and install the live "
+#~ "desktop image on a USB <bare-"
+#~ "metal-install-desktop>`"
+#~ msgstr ""
+
+#~ msgid "Assure the system is connected to the network."
+#~ msgstr ""
+
+#~ msgid "We'll use `/dev/sda3/` as the root partition example."
+#~ msgstr ""
+
+#~ msgid "Next, mount the partition to the `/mnt` folder."
+#~ msgstr ""
 
