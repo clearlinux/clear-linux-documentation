@@ -7,6 +7,9 @@ all:
 htmlall:
 	make -C source htmlall
 
+htmlzh:
+	make -C source htmlzh
+
 htmlde:
 	make -C source htmlde
 
