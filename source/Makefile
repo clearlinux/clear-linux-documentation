@@ -187,7 +187,7 @@ changes:
 
 linkcheck:
 	-$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
-	python3 _scripts/_python/linkcheck/parse-link-check.py $(BUILDDIR)/linkcheck
+	-python3 _scripts/_python/linkcheck/parse-link-check.py $(BUILDDIR)/linkcheck
 
 doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
