@@ -139,18 +139,11 @@ html_context = {
     "github_version": "rtd-theme", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
-    "languages": ( ("English", "/clearlinux-rtd"),
-                   ("Mandarin", "/clearlinux-rtd/zh_CN"),
-                   ("German", "/clearlinux-rtd/de")
+    "languages": ( ("English", "/clearlinux"),
+                   ("Chinese", "/clearlinux/zh_CN")
                  ),
-    "versions": ( ("latest", "/clearlinux-rtd"),
-                  ("LTS 1", "/clearlinux-rtd/lts/v1"),
-                  ("LTS 2", "/clearlinux-rtd/lts/v2"),
-                  ("LTS 3", "/clearlinux-rtd/lts/v3"),
-                  ("LTS 4", "/clearlinux-rtd/lts/v4"),
-                  ("LTS 5", "/clearlinux-rtd/lts/v5"),
-                  ("LTS 6", "/clearlinux-rtd/lts/v6")
-               )
+    "versions": ( ("latest", "/clearlinux"),
+                  ("L19.01", "/clearlinux/L19.01"))
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
