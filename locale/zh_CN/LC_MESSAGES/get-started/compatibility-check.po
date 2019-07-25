@@ -4,92 +4,91 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-07-25 11:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../get-started/compatibility-check.rst:4
 msgid "Check processor and EFI firmware compatibility"
-msgstr ""
+msgstr "检查处理器和 EFI 固件的兼容性"
 
 #: ../../get-started/compatibility-check.rst:6
 msgid ""
 "Before installing |CL-ATTR|, check your host system's processor and EFI "
 "firmware compatibility. To check compatibilty, choose one of the "
 "following paths:"
-msgstr ""
+msgstr "安装 |CL-ATTR| 之前，检查主机系统的处理器和 EFI 固件兼容性。要检查兼容性，选择如下途径："
 
 #: ../../get-started/compatibility-check.rst:9
 msgid ""
 "From a system with a Linux\\* OS installed, follow the instructions to "
 ":ref:`check-compatibility-steps`."
-msgstr ""
+msgstr "在安装了 Linux\\* 操作系统的系统中，按照说明 :ref:`check-compatibility-steps`。"
 
 #: ../../get-started/compatibility-check.rst:11
 msgid ""
 "From a non-Linux OS, first :ref:`bare-metal-install-desktop` and then "
 "follow the instructions to :ref:`check-compatibility-steps`."
-msgstr ""
+msgstr "在非 Linux 操作系统中，首先 :ref:`bare-metal-install-desktop`，然后按照说明 :ref:`check-compatibility-steps`。"
 
 #: ../../get-started/compatibility-check.rst:15
 msgid ""
 "This does not check other system components (for example: storage and "
 "graphics) for compatibility with |CL|."
-msgstr ""
+msgstr "该操作不会检查其他系统组件（例如：储存和显卡）与 |CL| 的兼容性。"
 
 #: ../../get-started/compatibility-check.rst:21
 msgid "Check compatibility"
-msgstr ""
+msgstr "检查兼容性"
 
 #: ../../get-started/compatibility-check.rst:23
 msgid "Download the `clear-linux-check-config.sh`_ file."
-msgstr ""
+msgstr "下载 `clear-linux-check-config.sh`_ 文件。"
 
 #: ../../get-started/compatibility-check.rst:25
 msgid "If a browser is not available, use:"
-msgstr ""
+msgstr "如果浏览器不可用，使用："
 
 #: ../../get-started/compatibility-check.rst:31
 msgid "Make the script executable."
-msgstr ""
+msgstr "保证脚本可以运行。"
 
 #: ../../get-started/compatibility-check.rst:37
 msgid "Run the script."
-msgstr ""
+msgstr "运行脚本。"
 
 #: ../../get-started/compatibility-check.rst:39
 msgid ""
 "Check to see if the host's processor and EFI firmware is capable of "
 "running |CL|."
-msgstr ""
+msgstr "检查主机的处理器和 EFI 固件是否可以运行 |CL|。"
 
 #: ../../get-started/compatibility-check.rst:46
 msgid "Check to see if the host is capable of running |CL| in a container."
-msgstr ""
+msgstr "检查主机是否可以在一个容器中运行 |CL|。"
 
 #: ../../get-started/compatibility-check.rst:52
 msgid ""
 "The script prints a list of test results similar to the output below. All"
 " items should return a `SUCCESS` status. This example indicates the "
 "host's processor and EFI firmware support running |CL|."
-msgstr ""
+msgstr "脚本会输出测试结果列表，如下所示。所有项应返回 `SUCCESS` 状态。本例表明主机的处理器和 EFI 固件可以支持运行 |CL|。"
 
 #~ msgid ""
 #~ "On a system that is currently "
 #~ "running a Linux\\* operating system, "
 #~ "follow the instructions below to "
 #~ "determine if your system's processor and"
-#~ " EFI firmware is capable of running"
+#~ " EFI firmware are capable of running"
 #~ " |CL-ATTR|. Otherwise, :ref:`bare-metal-"
 #~ "install-desktop` and then perform the"
 #~ " steps below."
@@ -103,4 +102,5 @@ msgstr ""
 #~ "the host's processor and EFI firmware"
 #~ " support running |CL|."
 #~ msgstr ""
+
 

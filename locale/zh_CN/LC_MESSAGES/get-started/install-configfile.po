@@ -4,23 +4,22 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-07-25 11:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../get-started/install-configfile.rst:4
 msgid "Install using clr-installer and a configuration file"
-msgstr ""
+msgstr "利用 clr-installer 和配置文件安装"
 
 #: ../../get-started/install-configfile.rst:6
 msgid ""
@@ -28,62 +27,62 @@ msgid ""
 "with a configuration file. The configuration file (:file:`clr-"
 "installer.yaml`) can be reused to duplicate the same installation "
 "configuration on additional machines."
-msgstr ""
+msgstr "本页说明如何利用 clr-installer 工具和配置文件安装 |CL-ATTR|。配置文件 (:file:`clr-installer.yaml`) 可以重复使用，在其他机器上复制相同的安装配置。"
 
 #: ../../get-started/install-configfile.rst:16
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../get-started/install-configfile.rst:18
 msgid "Ensure that your target system supports the installation:"
-msgstr ""
+msgstr "确保目标系统支持此安装："
 
 #: ../../get-started/install-configfile.rst:20
 msgid ":ref:`system-requirements`"
-msgstr ""
+msgstr ":ref:`system-requirements`"
 
 #: ../../get-started/install-configfile.rst:21
 msgid ":ref:`compatibility-check`"
-msgstr ""
+msgstr ":ref:`compatibility-check`"
 
 #: ../../get-started/install-configfile.rst:24
 msgid "Process"
-msgstr ""
+msgstr "流程"
 
 #: ../../get-started/install-configfile.rst:26
 msgid ""
 "This guide describes two methods for using a configuration file with the "
 "clr-installer tool. You can use either method to achieve the same goal. "
 "Choose the method that works best for your setup."
-msgstr ""
+msgstr "本指南介绍了利用配置文件和 clr-installer 工具进行安装的两种方法。您可以使用任何一种方法实现同一目标。选择最适合您的方法。"
 
 #: ../../get-started/install-configfile.rst:30
 msgid "If you are installing |CL| for the first time, we recommend Example 1."
-msgstr ""
+msgstr "如果您是首次安装 |CL|，我们推荐例 1。"
 
 #: ../../get-started/install-configfile.rst:32
 msgid "To clone an existing |CL| setup on another system, we recommend Example 2."
-msgstr ""
+msgstr "要在另一系统上克隆现有的 |CL| 配置，我们推荐例 2。"
 
 #: ../../get-started/install-configfile.rst:35
 msgid "Example 1"
-msgstr ""
+msgstr "例 1"
 
 #: ../../get-started/install-configfile.rst:37
 msgid ""
 "This method uses a configuration file template to perform a new "
 "installation."
-msgstr ""
+msgstr "本方法使用配置文件模板执行全新安装。"
 
 #: ../../get-started/install-configfile.rst:39
 #: ../../get-started/install-configfile.rst:146
 msgid "Perform the following steps:"
-msgstr ""
+msgstr "执行以下步骤："
 
 #: ../../get-started/install-configfile.rst:41
 #: ../../get-started/install-configfile.rst:163
 msgid "Go to `Downloads`_ and download the latest Clear Linux OS Server image."
-msgstr ""
+msgstr "转向 `Downloads`_，下载最新的 Clear Linux OS Server 映像。"
 
 #: ../../get-started/install-configfile.rst:43
 #: ../../get-started/install-configfile.rst:165
@@ -91,136 +90,136 @@ msgid ""
 "For example: "
 "https://download.clearlinux.org/releases/30010/clear/clear-30010-live-"
 "server.iso.xz"
-msgstr ""
+msgstr "例如：https://download.clearlinux.org/releases/30010/clear/clear-30010-live-server.iso.xz"
 
 #: ../../get-started/install-configfile.rst:46
 #: ../../get-started/install-configfile.rst:168
 msgid "Follow the instructions to :ref:`bootable-usb` based on your OS."
-msgstr ""
+msgstr "按照说明 :ref:`bootable-usb`，因操作系统而异。"
 
 #: ../../get-started/install-configfile.rst:48
 #: ../../get-started/install-configfile.rst:170
 msgid "Boot up the USB thumb drive."
-msgstr ""
+msgstr "启动 U 盘。"
 
 #: ../../get-started/install-configfile.rst:49
 #: ../../get-started/install-configfile.rst:171
 msgid "Select :guilabel:`Clear Linux OS` from the menu."
-msgstr ""
+msgstr "从菜单中选择 :guilabel:`Clear Linux 操作系统`。"
 
 #: ../../get-started/install-configfile.rst:50
 #: ../../get-started/install-configfile.rst:172
 msgid "In the console window, log in as root and set a password."
-msgstr ""
+msgstr "在控制台窗口中，以 root 用户身份登录，然后设置密码。"
 
 #: ../../get-started/install-configfile.rst:51
 #: ../../get-started/install-configfile.rst:173
 msgid ""
 "Verify you have a network connection to the Internet and configure proxy "
 "settings if you're working behind a firewall."
-msgstr ""
+msgstr "确认拥有互联网连接，配置代理设置（如果使用防火墙）。"
 
 #: ../../get-started/install-configfile.rst:53
 msgid "Download a :file:`live-server.yaml` template."
-msgstr ""
+msgstr "下载 :file:`live-server.yaml` 模板。"
 
 #: ../../get-started/install-configfile.rst:55
 msgid "For example:"
-msgstr ""
+msgstr "例如："
 
 #: ../../get-started/install-configfile.rst:61
 msgid "Edit the template and change the settings as needed."
-msgstr ""
+msgstr "根据需要编辑模板，改变设置。"
 
 #: ../../get-started/install-configfile.rst:63
 msgid "Commonly-changed settings include:"
-msgstr ""
+msgstr "通常改变的设置包括："
 
 #: ../../get-started/install-configfile.rst:67
 msgid ""
 "Under *block-devices*, set “file: \"/dev/sda\"” or enter your preferred "
 "device."
-msgstr ""
+msgstr "在 *块设备* 中，设置 “file: \"/dev/sda\"” 或输入喜欢的设备。"
 
 #: ../../get-started/install-configfile.rst:68
 msgid ""
 "Under *targetMedia*, set the third partition size to “0” to use the "
 "entire disk space."
-msgstr ""
+msgstr "在 *targetMedia* 中，将第三分区大小设置为 “0”，以使用整个磁盘空间。"
 
 #: ../../get-started/install-configfile.rst:69
 msgid "Under *bundles*, add additional bundles as needed."
-msgstr ""
+msgstr "在 *bundle 文件* 部分，根据需要添加其他 bundle 文件。"
 
 #: ../../get-started/install-configfile.rst:70
 msgid ""
 "Delete the *post-install* section unless you have post-installation "
 "scripts."
-msgstr ""
+msgstr "删除*安装后*部分，除非您有安装后脚本。"
 
 #: ../../get-started/install-configfile.rst:71
 msgid ""
 "Under *Version*, set a version number. To use the latest version, set to "
 "“0”."
-msgstr ""
+msgstr "在 *版本* 部分，设置版本号。要使用最新版本，设置为 “0”。"
 
 #: ../../get-started/install-configfile.rst:73
 msgid ""
 "Commonly-changed settings are shown in lines 15, 34, 37, and 51 below. "
 "See `Installer YAML Syntax`_ for more details."
-msgstr ""
+msgstr "通常改变的设置在下面的 15、34、37 和 51 行显示。查看 `Installer YAML Syntax`_ 了解详情。"
 
 #: ../../get-started/install-configfile.rst:134
 #: ../../get-started/install-configfile.rst:177
 msgid "Start the installation with the command:"
-msgstr ""
+msgstr "利用以下命令开始安装："
 
 #: ../../get-started/install-configfile.rst:141
 msgid "Example 2"
-msgstr ""
+msgstr "例 2"
 
 #: ../../get-started/install-configfile.rst:143
 msgid ""
 "This method uses a saved configuration file from a previous installation,"
 " which you can use to easily duplicate the installation on additional "
 "machines."
-msgstr ""
+msgstr "此方法使用此前安装中保存的配置文件，可以轻松利用该文件在其他机器上复制安装。"
 
 #: ../../get-started/install-configfile.rst:148
 msgid ""
 "Open a console window on a system where |CL| was installed to retrieve a "
 "copy of the configuration file."
-msgstr ""
+msgstr "在安装 |CL| 的系统上打开控制台窗口，找到配置文件的副本。"
 
 #: ../../get-started/install-configfile.rst:151
 msgid "In the console window, log in as root and enter your password."
-msgstr ""
+msgstr "在控制台窗口中，以 root 用户身份登录，输入密码。"
 
 #: ../../get-started/install-configfile.rst:153
 msgid ""
 "Change directory to :file:`/root` and copy the :file:`clr-installer.yaml`"
 " file to a USB thumb drive."
-msgstr ""
+msgstr "将目录更改为 :file:`/root`，然后将 :file:`clr-installer.yaml` 文件复制到 U 盘。"
 
 #: ../../get-started/install-configfile.rst:161
 msgid "Start the installation on the target with the following steps:"
-msgstr ""
+msgstr "按照以下步骤在目标设备上开始安装："
 
 #: ../../get-started/install-configfile.rst:175
 msgid ""
 "Plug in and mount the USB thumb drive containing the retrieved :file"
 ":`clr-installer.yaml` configuration file."
-msgstr ""
+msgstr "插入并挂载 U 盘。U 盘中包含找到的 :file:`clr-installer.yaml` 配置文件。"
 
 #: ../../get-started/install-configfile.rst:184
 msgid "References"
-msgstr ""
+msgstr "参考"
 
 #: ../../get-started/install-configfile.rst:186
 msgid "`Clear Linux Installer`_"
-msgstr ""
+msgstr "`Clear Linux Installer`_"
 
 #: ../../get-started/install-configfile.rst:187
 msgid "`Installer YAML Syntax`_"
-msgstr ""
+msgstr "`Installer YAML Syntax`_"
 
