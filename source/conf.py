@@ -139,10 +139,10 @@ html_context = {
     "github_version": "rtd-theme", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
-    "languages": ( ("English", "/clearlinux"),
-                   ("Chinese", "/clearlinux/zh_CN")
+    "languages": ( ("English", "/clearlinux/latest"),
+                   ("Chinese", "/clearlinux/latest/zh_CN")
                  ),
-    "versions": ( ("latest", "/clearlinux"),
+    "versions": ( ("latest", "/clearlinux/latest"),
                   ("L19.01", "/clearlinux/L19.01"))
 }
 
