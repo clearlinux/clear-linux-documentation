@@ -129,7 +129,9 @@ version = current_version = "latest"
 html_theme_options = {
   'style_nav_header_background': '#007ab2',
   'navigation_depth': 4,
-  'display_version': False
+  'display_version': False,
+  'collapse_navigation': False,
+  'sticky_navigation': True
 }
 
 html_context = {

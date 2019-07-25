@@ -22,3 +22,6 @@ deploy:
   on:
     branch: rtd-theme
   local_dir: source/_build/html/
+
+after_deploy:
+  - wget $PUBLISH_URL
