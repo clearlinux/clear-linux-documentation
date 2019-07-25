@@ -149,6 +149,8 @@ on demand.
 
       sudo swupd autoupdate
 
+   Output:
+
    .. code-block:: console
 
       Enabled
@@ -158,6 +160,8 @@ on demand.
    .. code-block:: bash
 
       sudo swupd autoupdate --disable
+
+   Output:
 
    .. code-block:: console
 
@@ -214,7 +218,8 @@ number of dependencies.  Also, check out our tutorial: :ref:`kata`.
 
       Bundle with the best search result:
 
-           containers-virt - Run container applications from Dockerhub in lightweight virtual machines
+      containers-virt - Run container applications from Dockerhub in
+      lightweight virtual machines
 
       This bundle can be installed with:
 
