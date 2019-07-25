@@ -22,8 +22,6 @@ Explore our tutorials to discover what you can do with |CL|!
    kata
    kata_migration
    kubernetes/kubernetes*
-   greengrass
-   dlrs/dlrs
    yubikey-u2f
    nvidia
    nvidia-cuda

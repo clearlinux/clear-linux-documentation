@@ -15,9 +15,9 @@ Description
 
 :command:`swupd` has two main functions:
 
-#. Manages software and replaces APT or YUM, by installing bundles
+#. Manage software and replace APT or YUM, by installing bundles
    rather than packages.
-#. Checks for system updates and installs them.
+#. Check for system updates and install them.
 
 :command:`swupd` manages overlapping dependencies behind the scenes, ensuring
 that all software is compatible across the system. It can be used to verify
@@ -25,27 +25,27 @@ the OS, clean cached files, and fix issues.
 
 :ref:`Bundles <bundles>` contain everything needed to deliver a software
 capability. They are the smallest granularity component that is
-managed by |CL|. A bundle comes with all of its dependencies, rather than
+managed by |CL|. A bundle comes with all of its dependencies rather than
 downloading a cascade of package dependencies when installing a piece of
 software.
 
 Versioning
 ==========
 
-Using package managers to keep track of software version compatibility or
+Using package managers to monitor software version compatibility or
 compare multiple systems on many Linux distributions can be cumbersome.
 
-With |CL| :command:`swupd`, versioning happens at the individual file-level.
+With |CL| :command:`swupd`, versioning happens at the individual file level.
 This means |CL| generates an entirely new OS version with any set of software
-changes to the system (including software downgrades or removals). This
+changes to the system, including software downgrades or removals. This
 rolling release versioning model is similar to :command:`git` internal version
 tracking, where any of the individual file commits are tracked and move the
 pointer forward when changed.
 
 A number that represents the **current** release of the OS describes the
 versions of all the software on the OS. Each build is composed of a specific
-set of bundles made from a particular version of packages. This matters on a
-daily basis to system administrators, who need to determine which of their
+set of bundles made from a particular version of packages. On a daily basis,
+this matters to system administrators who need to determine which of their
 systems do not have the latest security fixes, or which combinations of
 software have been tested. Every release of the same number is guaranteed to
 contain the same versions of software, so there's no ambiguity between two
@@ -59,8 +59,8 @@ checks for updates against a version server. The content server provides the
 file and metadata content for all versions and can be the same as the
 version server. The content url server provides metadata in the form of
 *manifests*, which list and describe file contents, symlinks,
-and directories. Additionally, the actual content is
-provided to clients in the form of archive files.
+and directories. Additionally, the actual content is provided to clients
+in the form of archive files.
 
 Software updates with |CL| are also efficient. Unlike package-based
 distributions, :command:`swupd` only updates files that have changed, rather
@@ -121,7 +121,7 @@ a system is obtained by one of the following methods:
 Bundle search
 =============
 
-:command:`swupd` search downloads manifest data and searches for
+:command:`swupd` searches download manifest data for
 bundles that match the term. Enter only one term, or hyphenated term, per
 search. Use the command :command:`man swupd` to learn more.
 
@@ -187,7 +187,7 @@ on demand.
 
 .. _swupd-guide-example-install-bundle:
 
-Example 2: Find and install Kata\* Containers
+Example 2: Find and install Kata Containers\*
 =============================================
 
 Kata Containers is a popular container implementation. Unlike other
@@ -196,10 +196,10 @@ kernel instance and runs on its own :abbr:`VM (Virtual Machine)` for
 improved security.
 
 |CL| makes it very easy to install, since you only need to add
-`one bundle`_ to use `Kata Containers`_: `containers-virt`, despite a
+one bundle to use `Kata Containers`_: `containers-virt`_, despite a
 number of dependencies.  Also, check out our tutorial: :ref:`kata`.
 
-#. Find the right bundle.
+#. Find the correct bundle.
 
    To return all possible matches for the search string, enter
    :command:`swupd search`, followed by 'kata':
@@ -326,7 +326,7 @@ swupd --help
 man swupd
    Opens the :command:`swupd` man page.
 
-Refer to :command:`swupd` `source documentation`_ on GitHub for more details.
+Refer to `swupd source documentation`_ on GitHub for more details.
 
 Related topics
 **************
@@ -335,11 +335,11 @@ Related topics
 * :ref:`mixer`
 * :ref:`bundles`
 
-.. _source documentation: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
+.. _swupd source documentation: https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst
 
 .. _Kata Containers: https://clearlinux.org/downloads/containers
 
-.. _one bundle: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt
+.. _containers-virt: https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt
 
 .. _Bundle Definition Files: https://github.com/clearlinux/clr-bundles
 

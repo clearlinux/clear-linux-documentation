@@ -3,43 +3,77 @@
 Recommended minimum system requirements
 #######################################
 
-|CL-ATTR| can run on very minimal hardware. For example, it can run on a
-system with a single core CPU, 128MB of memory, and 600MB of disk space.
+|CL-ATTR| can run on most modern hardware and is capable of running with
+modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1
+GB RAM, and 2 GB of disk space.  
 
-Different use cases and applications will require different configurations.
-For general |CL| use, in addition to a supported processor, the recommended
-minimum requirements include:
+For use cases requiring minimal resources, |CL| :ref:`tooling <tooling>` can
+be used to create a highly customized installation that can even run on a
+system with a 128MB of memory and 600MB of disk space, for example.
 
-*  Processors:
 
-   |CL-ATTR| can run on any Intel® 64bit processors which support UEFI\*
-   and SSE\* v4.1 streaming SIMD\* instructions.
+Installer requirements
+**********************
 
-   The following processor families have been verified to run |CL|:
+The *live desktop* installer requires at least 1 GB of RAM because more
+resources are required to run in live mode than after |CL| is installed onto
+persistent storage.
 
-   * 2nd Generation, or later, Intel® Core™ processor family.
-   * Intel® Xeon® Processor E3
-   * Intel® Xeon® Processor E5
-   * Intel® Xeon® Processor E7
-   * Intel® Atom™ processor C2000 product family for servers -- Q3 2013
-     version or later.
-   * Intel® Atom™ processor E3800 series -- Q4 2013 version or later.
+For hardware with less resources, use the *live server* installer because it
+has a smaller memory footprint.
 
-   To help determine if a processor is supported, you can run a
-   :ref:`compatibility check<compatibility-check>` or go to
-   http://ark.intel.com and check for these features:
+See https://clearlinux.org/downloads for more download options.
 
-   * Instruction Set = 64-bit
-   * Instruction Set Extensions = SSSE3
-   * Instruction Set Extensions = SSE 4.1
-   * Instruction Set Extensions = SSE 4.2
-   * Instruction Set Extensions = AES
-   * Instruction Set Extensions = PCLMUL
 
-*  Memory: 4GB RAM
+System requirements
+*******************
 
-*  Hard Disk: 20GB HDD
+|CL| requires an x86 64-bit processor which supports Intel® Streaming SIMD
+Extensions 4.1 (Intel® SSE 4.1), and it requires a system that supports UEFI.
 
-*  Network: Active Internet connection
+The |CL| installer performs a system compatibility check upon booting. To
+manually verify system compatibility with |CL|, run the :ref:`compatibility
+check tool<compatibility-check>` or go to http://ark.intel.com and check for
+these features:
 
-*  Graphics: Intel HD Graphics (required if running a GUI desktop)
+* Instruction Set:
+
+  - 64-bit
+  
+* Instruction Set Extensions:
+
+  - Supplemental Streaming SIMD Extension 3 (Intel® SSSE3)
+  - Intel® Streaming SIMD Extensions 4.1 (Intel® SSE 4.1)
+  - Intel® Streaming SIMD Extensions 4.2 (Intel® SSE 4.2)
+  - Intel® Advanced Encryption Standard New Instructions (Intel® AES-NI)
+  - Carry-less Multiplication (PCLMUL)
+
+The following processor families have been verified to run |CL|:
+
+* Intel® Core™ Processor Family (2nd generation or greater)
+* Intel® Xeon® E3-xxxx processor
+* Intel® Xeon® E5-xxxx processor
+* Intel® Xeon® E7-xxxx processor
+* Intel® Atom® processor C Series
+* Intel® Atom® processor E Series
+
+
+Recommended configurations
+**************************
+
+For general |CL| desktop use the recommended minimum requirements include:
+
+=========    ===============================
+Component    Configuration
+---------    -------------------------------
+Processor    Compatible x86 64-bit processor
+---------    -------------------------------
+Memory       4GB RAM
+---------    -------------------------------
+Disk         20 GB
+---------    -------------------------------
+Graphics     Device with openGL support (e.g. Intel HD/UHD Graphics)
+---------    -------------------------------
+Network      Active Internet connection
+=========    ===============================
+

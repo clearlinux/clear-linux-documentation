@@ -3,12 +3,19 @@
 Use DPDK to send packets between platforms
 ##########################################
 
-This document describes how to send packets between two platforms in the
-simple configuration shown in :ref:`Figure 1 <f1>`. The example uses the
-:abbr:`Data Plane Development Kit (DPDK)`, which is a set of libraries,
-drivers, sample applications, and tools for fast packet processing.
+This guide describes how to send packets between two platforms.
 
-.. _f1:
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
+Figure 1 shows how to send packets between two platforms in a simple
+configuration. The example uses the :abbr:`Data Plane Development Kit (DPDK)`,
+which is a set of libraries, drivers, sample applications, and tools for fast
+packet processing.
 
 .. figure:: ./figures/pktgen_lw3fd.png
    :align: center
@@ -16,18 +23,18 @@ drivers, sample applications, and tools for fast packet processing.
 
    Figure 1: Environment for l3fwd DPDK application
 
-   This example uses the following DPDK components:
+This example uses the following DPDK components:
 
-*  pktgen: Traffic generator. See `pktgen documentation`_ for details.
+*  pktgen: Traffic generator. See `pktgen`_ documentation for details.
 *  l3fwd: Layer 3 forwarding example application. See
-   `l3fwd documentation`_ for details.
+   `l3fwd`_ documentation for details.
 
 Prerequisites
 *************
 
 *  Two platforms using |CL-ATTR| release `13330`_ or higher.
-*  Both images must include the :file:`kernel-native bundle`.
-*  Install the :file:`network-basic-dev` bundle with the command:
+*  Both images must include the :command:`kernel-native` bundle.
+*  Install the :command:`network-basic-dev` bundle with the command:
 
    .. code-block:: bash
 
@@ -107,7 +114,7 @@ NICs to DPDK modules to run DPDK applications.
       sudo modprobe vfio-pci
 
 #. Check the NIC status to determine which network cards are not
-   busy. When another application is using them, the status shows `Active`,
+   busy. When another application is using them, the status shows "Active",
    and those NICs cannot be bound.
 
    .. code-block:: bash
@@ -160,9 +167,7 @@ Set up the physical environment (Platforms A and B)
 ***************************************************
 
 Connect the NICs on Platform A to the NICs on Platform B using the network
-cables as shown in :ref:`Figure 2<f2>`.
-
-.. _f2:
+cables as shown in figure 2.
 
 .. figure:: ./figures/pyshical_net.png
 
@@ -174,7 +179,7 @@ Run l3fwd application (Platform B)
 
 The `l3fwd` application is one of the DPDK examples available when you
 install the :file:`dpdk-dev` bundle. `l3fwd` forwards packets from one
-NIC to another. For details, refer to the `l3fwd documentation`_.
+NIC to another. For details, refer to the `l3fwd`_ documentation.
 
 #. Open the l3fwd example directory.
 
@@ -247,7 +252,7 @@ Run pktgen application (Platform A)
 
       Pktgen> start 0-1
 
-For more details, see the `pktgen documentation`_.
+For more details, see the `pktgen`_ documentation.
 
 Appendix A: Use pass-through for virtual machines
 *************************************************
@@ -343,5 +348,5 @@ machines control the NICs on the host.
 .. _dpdk.org NICs: http://dpdk.org/doc/nics
 .. _pktgen tar package: http://dpdk.org/browse/apps/pktgen-dpdk/refs
 .. _DPDK guide: http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html
-.. _l3fwd documentation: http://dpdk.org/doc/guides/sample_app_ug/l3_forward.html
-.. _pktgen documentation: http://pktgen-dpdk.readthedocs.io/en/latest/index.html
+.. _l3fwd: http://dpdk.org/doc/guides/sample_app_ug/l3_forward.html
+.. _pktgen: http://pktgen-dpdk.readthedocs.io/en/latest/index.html

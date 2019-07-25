@@ -3,36 +3,37 @@
 Run preconfigured |CL-ATTR| image as a VMware\* ESXi guest OS
 #############################################################
 
+This page explains how to deploy a preconfigured |CL| VMware
+:abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
 `VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on top
 of server hardware.  With VMware ESXi, you can create, configure, manage,
 and run |CL-ATTR| virtual machines at scale.
 
-This section shows you how to deploy a preconfigured |CL| VMware 
-:abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host.
+We provide a preconfigured |CL| VMware image that can be run on a VMware ESXi
+6.5 host.
 
-If you would prefer to perform a manual installation of |CL| into a new 
-VMware ESXi :abbr:`VM (Virtual Machine)` instead, see 
-:ref:`vmware-esxi-install-cl`. 
+If manuall installation is preferred, refer to :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
-   VMware also offers a type 2 hypervisor called `VMware Workstation Player`
-   which is designed for the desktop environment.
-
-   See :ref:`vmw-player-preconf` or see :ref:`vmw-player`.
-
-
-Install steps: 
-
-.. contents:: :local:
-    :depth: 1
+   VMware also offers a type 2 hypervisor designed for the desktop environment,
+   called `VMware Workstation Player`_. Refer to :ref:`vmw-player-preconf` or
+   :ref:`vmw-player` for more information.
 
 Download the latest |CL| VMware image
 *************************************
 
 Get the latest |CL| VMware prebuilt image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
-this command: 
+this command:
 
 .. code-block:: bash
 
@@ -40,14 +41,8 @@ this command:
 
 Visit :ref:`image-types` for additional information about all available |CL| images.
 
-.. include:: ../../guides/maintenance/download-verify-decompress-linux.rst
-   :Start-after: incl-decompress-image:
-   :end-before: incl-decompress-image-end:
-
-For alternative instructions on other operating systems, see:
-
-* :ref:`download-verify-decompress-mac`
-* :ref:`download-verify-decompress-windows`
+We also provide instructions for downloading and verifying a Clear Linux ISO.
+For more information, refer to :ref:`download-verify-decompress`.
 
 Upload the |CL| image to the VMware server
 ******************************************
@@ -56,7 +51,8 @@ Once the |CL| VMware prebuilt image has been downloaded and
 decompressed on your local system, it must be uploaded to a datastore 
 on the VMware ESXi server.
 
-The steps in this section can also be referenced from the `VMware documentation on Using the Datastore File Browser`_ 
+The steps in this section can also be referenced from the VMware documentation
+`Using Datastore File Browser in the VMware Host Client`_.
 
 #. Connect to the VMware ESXi server and login to an account with sufficient
    permission to create and manage VMs.
@@ -102,16 +98,16 @@ Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi
 datastore, it must be converted to a format for usable with VMware's ESXi 
 hypervisor. 
 
-The steps in this section can also be referenced from the `VMware documentation on Cloning and converting virtual machine disks with vmkfstools`_
+The steps in this section can also be referenced from the VMware documentation on `Cloning and converting virtual machine disks with vmkfstools`_
 
 #. SSH into the `vSphere Management Assistant`_  appliance that is managing
-   the ESXi host or connect to the vSphere hosting using the `vSphere CLI`_. 
-    
+   the ESXi host or connect to the vSphere hosting using the `vSphere CLI`_.
+
    .. note::
-      
+
       If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or :abbr:`vCLI (vSphere CLI)` configured and available, 
-      you can temporarily enable SSH directly on the ESXi host by referencing
-      the `VMware documentation on Enable the Secure Shell (SSH)`_ .
+      you can temporarily enable SSH directly on the ESXi host by following the
+      steps described in `Enable the Secure Shell (SSH) in the VMware Host Client`_ .
 
       As a security best practice, remember to disable SSH access after following the steps in this section. 
 
@@ -283,11 +279,10 @@ Related topics
 * :ref:`vmware-esxi-install-cl`
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
-.. _VMware documentation on Using the Datastore File Browser: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-7533A767-8396-4844-A3F2-206047D254EA.html
+.. _Using Datastore File Browser in the VMware Host Client: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-7533A767-8396-4844-A3F2-206047D254EA.html
 .. _vSphere Management Assistant: https://www.vmware.com/support/developer/vima/
 .. _vSphere CLI: https://www.vmware.com/support/developer/vcli/
-.. _VMware documentation on Cloning and converting virtual machine disks with vmkfstools: https://kb.vmware.com/kb/1028042 
-.. _VMware documentation on Enable the Secure Shell (SSH): https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-B649CB74-832F-467B-B6A4-8BA67AD5C1F0.html
-.. _VMware documentation on General ESXi Security Recommendations: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.security.doc/GUID-B39474AF-6778-499A-B8AB-E973BE6D4899.html
+.. _Cloning and converting virtual machine disks with vmkfstools: https://kb.vmware.com/kb/1028042
+.. _Enable the Secure Shell (SSH) in the VMware Host Client: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-B649CB74-832F-467B-B6A4-8BA67AD5C1F0.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
 .. _image: https://cdn.download.clearlinux.org/image

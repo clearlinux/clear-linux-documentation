@@ -1,23 +1,29 @@
 .. _nvidia:
 
-Install NVIDIA Drivers
-######################
+Install NVIDIA\* Drivers
+########################
 
-NVIDIA is a manufacture of graphics processing units (GPU), also known as
+NVIDIA manufactures graphics processing units (GPU), also known as
 graphics cards. 
 
-NVIDIA devices on Linux have two popular device driver options: the opensource
-drivers from the `nouveau project`_ or the proprietary drivers published by
-NVIDIA. The nouveau drivers are built into the |CL-ATTR| kernel and are loaded
-automatically at system boot if a compatible card is detected. 
+NVIDIA devices on Linux\* have two popular device driver options: the
+opensource drivers from the `nouveau project`_ or the proprietary drivers
+published by NVIDIA. The nouveau drivers are built into the |CL-ATTR|
+kernel and are loaded automatically at system boot if a compatible card
+is detected. 
 
-These instructions show how to use the proprietary NVIDIA drivers which
+These instructions show how to use the proprietary NVIDIA drivers, which
 require a manual installation.
 
-.. note::
+.. warning::
   
-   Software installed outside of :ref:`swupd <swupd-about>` is not updated with |CL|
-   updates and must be updated and maintained manually.
+   Software installed outside of :ref:`swupd <swupd-about>` is not updated
+   with |CL| updates and must be updated and maintained manually.
+
+   For example, the file :file:`/usr/lib/libGL.so` conflicts between the one
+   provided by the mesa package in |CL| and the one NVIDIA provides. If a |CL|
+   update overwrites these files, a reinstallation of the NVIDIA driver might
+   be required.
 
 
 
@@ -30,7 +36,7 @@ Prerequisites
 *************
 
 * A |CL| system with a desktop installed
-* A NVIDIA device installed
+* An NVIDIA device installed
 
 
 Install DKMS
@@ -90,7 +96,7 @@ Disable the nouveau Driver
 ==========================
 
 The proprietary NVIDIA driver is incompatible with the nouveau driver and
-needs to be disabled before installation can continue.
+must be disabled before installation can continue.
 
 #. Disable the nouveau driver by creating a blacklist file under
    :file:`/etc/modprobe.d` and reboot.
@@ -103,21 +109,24 @@ needs to be disabled before installation can continue.
       
 
 #. Reboot the system and log back in. It is normal for the graphical
-   environment to not start with no NVIDIA driver loaded.
+   environment not to start without the NVIDIA driver loaded.
 
 
 
-Configure the Dynamic Linker
-============================
+
+Configure Alternative Software Paths
+====================================
 
 The NVIDIA installer will be directed to install files under
 :file:`/opt/nvidia` as much as possible to keep its contents isolated from the
-rest of the |CL| system files under :file:`/usr`.  The dynamic linker will
-need to be configured to use the NVIDIA-provided libraries.
+rest of the |CL| system files under :file:`/usr`.  The dynamic linker and X
+server must be configured to use the content under
+:file:`/opt/nvidia`.
 
 
-#. Configure the dynamic linker to look for and cache shared libraries under
-   :file:`/opt/nvidia/lib` and :file:`/opt/nvidia/lib32`.
+#. Configure the dynamic linker to look for and to cache shared libraries under
+   :file:`/opt/nvidia/lib` and :file:`/opt/nvidia/lib32` in addition to the
+   default paths.
 
    .. code-block:: bash
       
@@ -125,7 +134,26 @@ need to be configured to use the NVIDIA-provided libraries.
       
       sudo mkdir /etc/ld.so.conf.d
       printf "/opt/nvidia/lib \n/opt/nvidia/lib32 \n" | sudo tee --append /etc/ld.so.conf.d/nvidia.conf
+
+#. Reload the dynamic linker run-time bindings and library cache. 
+
+   .. code-block:: bash
+
+      sudo ldconfig
+
+#. Create a Xorg configuration file to search for modules under
+   :file:`/opt/nvidia` in addition to the default path.
+
+   .. code-block:: bash
+
+      sudo mkdir -p /etc/X11/xorg.conf.d/
       
+      sudo tee /etc/X11/xorg.conf.d/nvidia-files-opt.conf > /dev/null <<'EOF'
+      Section "Files"
+              ModulePath      "/usr/lib64/xorg/modules"
+              ModulePath      "/opt/nvidia/lib64/xorg/modules"
+      EndSection
+      EOF
 
 
 Install the NVIDIA Drivers
@@ -152,26 +180,31 @@ Install the NVIDIA Drivers
       --utility-prefix=/opt/nvidia \
       --opengl-prefix=/opt/nvidia \
       --compat32-prefix=/opt/nvidia \
-      --compat32-libdir=lib32 \      
+      --compat32-libdir=lib32 \
       --x-prefix=/opt/nvidia \
+      --x-module-path=/opt/nvidia/lib64/xorg/modules \
+      --x-library-path=/opt/nvidia/lib64 \
+      --x-sysconfig-path=/etc/X11/xorg.conf.d \
       --documentation-prefix=/opt/nvidia \
+      --application-profile-path=/etc/nvidia \
       --no-precompiled-interface \
       --no-nvidia-modprobe \
       --no-distro-scripts \
       --force-libglx-indirect \
+      --glvnd-egl-config-path=/etc/glvnd/egl_vendor.d \
+      --egl-external-platform-config-path=/etc/egl/egl_external_platform.d  \
       --dkms \
       --silent
-
 
 #. The graphical interface may automatically start after the NVIDIA driver
    is loaded. Return to the working terminal and log back in if necessary.
 
 
-#. Validate the nvidia kernel modules are loaded.
+#. Confirm that the NVIDIA kernel modules are loaded.
 
    .. code-block:: bash
 
-      lsmod | grep ^nvidia
+      lsmod | grep ^nvidia      
 
 
 #. Run a |CL| system verification to restore files that the NVIDIA installer
@@ -185,7 +218,8 @@ Install the NVIDIA Drivers
 
    The NVIDIA software places some files under the :file:`/usr` subdirectory
    which are not managed by |CL| and conflict with the |CL| stateless design.
-   Although a limited version of :command:`swupd repair` is ran above,
+
+   Although a limited version of :command:`swupd repair` is run above,
    other uses of the :command:`swupd repair` command should be avoided
    with the proprietary NVIDIA drivers installed.
 
@@ -198,12 +232,12 @@ The proprietary NVIDIA drivers are installed manually outside of :ref:`swupd
 
 Updating the NVIDIA drivers follows the same steps as initial installation,
 however the desktop environment must first be stopped so that the drivers are
-not in use.
+not in use. 
 
-#. Follow the steps in `Download the NVIDIA Drivers for Linux`_ section to get
-   the latest NVIDIA drivers.
+#. Follow the steps in the `Download the NVIDIA Drivers for Linux`_ section
+   to get the latest NVIDIA drivers.
 
-#. Temporarily set the default boot target to the *multi-user* which is
+#. Temporarily set the default boot target to the *multi-user*, which is
    a non-graphical runtime.
 
    .. code-block:: bash
@@ -212,9 +246,9 @@ not in use.
 
 
 #. Reboot the system and log back in. It is normal for the graphical
-   environment to not start.
+   environment not to start.
 
-#. Follow the steps in `Install the NVIDIA Drivers`_ section to update
+#. Follow the steps in the `Install the NVIDIA Drivers`_ section to update
    the NVIDIA drivers. This installation will overwrite the previous NVIDIA
    drivers and files.
 
@@ -228,7 +262,7 @@ not in use.
 #. Reboot the system and log back in. 
 
 #. Trigger a flatpak update which will download the runtime corresponding
-   with the new NVIDIA drivers for flatpak apps requiring it.
+   with the new NVIDIA drivers for the flatpak apps that require it.
 
    .. code-block:: bash
 
@@ -239,15 +273,20 @@ Uninstalling the NVIDIA Drivers
 *******************************
 
 The NVIDIA drivers and associated software can be uninstalled and nouveau
-driver restored by: 
+driver restored with the instructions in this section. 
 
-#. Remove the previously created file :file:`/etc/modprobe.d` that
-   prevents nouveau from loading.
+#. Remove the :file:`modprobe.d` file that prevents nouveau from loading.
 
    .. code-block:: bash
 
       sudo rm /etc/modprobe.d/disable-nouveau.conf
 
+
+#. Remove the :file:`xorg.conf.d` file that adds a search path for X modules.
+
+   .. code:: bash
+
+      sudo rm /etc/X11/xorg.conf.d/nvidia-files-opt.conf
 
 #. Run the :command:`sudo /opt/nvidia/bin/nvidia-uninstall`
 
