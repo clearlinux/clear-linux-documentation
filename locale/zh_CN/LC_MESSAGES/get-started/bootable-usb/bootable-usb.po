@@ -4,96 +4,95 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-07-25 11:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:4
 msgid "Create a bootable USB drive"
-msgstr ""
+msgstr "创建可引导 U 盘"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:6
 msgid ""
 "Follow the instructions applicable to your system to create a bootable "
 "|CL-ATTR| USB drive:"
-msgstr ""
+msgstr "按照适用于您的系统的说明创建可引导的 |CL-ATTR| U 盘："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:9
 msgid ":ref:`bootable-usb-linux`"
-msgstr ""
+msgstr ":ref:`bootable-usb-linux`"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:10
 msgid ":ref:`bootable-usb-mac`"
-msgstr ""
+msgstr ":ref:`bootable-usb-mac`"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:11
 msgid ":ref:`bootable-usb-windows`"
-msgstr ""
+msgstr ":ref:`bootable-usb-windows`"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:14
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:16
 msgid "Use an **8GB** or larger USB drive."
-msgstr ""
+msgstr "使用 **8GB** 或更大 U 盘。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:17
 msgid ""
 "Download the |CL| live boot image or interactive installer image from the"
 " `Downloads`_ page."
-msgstr ""
+msgstr "从 `Downloads`_ 页下载 |CL| 实时引导映像或交互式安装程序映像。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:23
 msgid "Create a bootable USB drive on Linux\\*"
-msgstr ""
+msgstr "在 Linux\\* 上创建可引导 U 盘"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:25
 #: ../../get-started/bootable-usb/bootable-usb.rst:108
 #: ../../get-started/bootable-usb/bootable-usb.rst:167
-msgid "Make sure you have have completed all `Prerequisites`_."
-msgstr ""
+msgid "Make sure you have completed all `Prerequisites`_."
+msgstr "确保完成所有 `Prerequisites`_。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:27
 msgid ""
 "Before burning the image onto your USB drive, :ref:`verify and decompress"
 " your image <verify-linux>`."
-msgstr ""
+msgstr "将映像烧录至 U 盘之前，:ref:`verify and decompress your image <verify-linux>`。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:31
 #: ../../get-started/bootable-usb/bootable-usb.rst:114
 #: ../../get-started/bootable-usb/bootable-usb.rst:173
 msgid "Burn the |CL| image onto a USB drive"
-msgstr ""
+msgstr "将 |CL| 映像烧录至 U 盘"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:35
 #: ../../get-started/bootable-usb/bootable-usb.rst:118
 #: ../../get-started/bootable-usb/bootable-usb.rst:177
 msgid "|CAUTION-BACKUP-USB|"
-msgstr ""
+msgstr "|CAUTION-BACKUP-USB|"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:37
 msgid "Open a terminal emulator and get root privilege."
-msgstr ""
+msgstr "打开终端模拟器，获取 root 权限。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:43
 #: ../../get-started/bootable-usb/bootable-usb.rst:122
 msgid "Go to the directory with the decompressed image."
-msgstr ""
+msgstr "转到解压缩映像所在的目录。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:45
 msgid "Plug in the USB drive."
-msgstr ""
+msgstr "插入 U 盘。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:47
 msgid ""
@@ -103,11 +102,11 @@ msgid ""
 "`/dev/sdc`, and `/dev/sdd`) attached, where `/dev/sda` is primary drive. "
 "The remaining are three USB drives. The output also shows the mounted "
 "partitions (under the `MOUNTPOINT` column) for each drive."
-msgstr ""
+msgstr "利用 :command:`lsblk` 命令识别 U 盘。此操作会显示所有连接到系统的驱动器，包括主硬盘。在下面的示例输出中，连接了 4 个驱动器（`/dev/sda`、`/dev/sdb`、`/dev/sdc` 和 `/dev/sdd`），而 `/dev/sda` 为主驱动器。其余三个是 U 盘。输出中还显示了为每个驱动器挂载的分区（在 `MOUNTPOINT` 栏）。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:59
 msgid "Example output:"
-msgstr ""
+msgstr "示例输出："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:82
 msgid ""
@@ -115,117 +114,117 @@ msgid ""
 "some Linux distros automatically mount a USB drive when it is plugged in."
 " Unmount a USB drive with the :command:`umount` command followed by the "
 "device identifier/partition. For example:"
-msgstr ""
+msgstr "在烧录映像之前，必须卸载 U 盘。请注意，某些 Linux 操作系统会在 U 盘插入时自动挂载 U 盘。利用 :command:`umount` 命令卸载 U 盘，命令后面为设备标识符/分区。例如："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:92
 msgid ""
 "Burn the image onto the USB drive. The example below burns an "
 "uncompressed image onto `<your USB device>`:"
-msgstr ""
+msgstr "将映像烧录至 U 盘。下例将未压缩的映像烧录至 `<your USB device>`："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:101
 msgid "|CAUTION-UNMOUNT-USB-PARTITIONS|"
-msgstr ""
+msgstr "|CAUTION-UNMOUNT-USB-PARTITIONS|"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:106
 msgid "Create a bootable USB drive on macOS\\*"
-msgstr ""
+msgstr "在 macOS\\* 上创建可引导 U 盘"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:110
 msgid ""
 "Before burning the image onto your USB drive, :ref:`verify and decompress"
 " your image <verify-mac>`."
-msgstr ""
+msgstr "将映像烧录至 U 盘之前，:ref:`verify and decompress your image <verify-mac>`。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:120
 msgid "Launch the Terminal app."
-msgstr ""
+msgstr "启动终端应用。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:124
 msgid "Plug in a USB drive and get its identifier:"
-msgstr ""
+msgstr "插入 U 盘，获取盘符："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:130
 msgid "This will list available disks and their partitions, as shown in Figure 1."
-msgstr ""
+msgstr "此操作会列出可用磁盘及其分区，如图 1 所示。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:136
 msgid "Figure 1: macOS - Get USB drive identifier"
-msgstr ""
+msgstr "图 1：macOS - 获取 U 盘盘符"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:138
 msgid "Unmount the USB drive identified in the previous step. For example:"
-msgstr ""
+msgstr "卸载上一步中识别的 U 盘。例如："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:144
 msgid ""
 "Burn the image onto the drive using the :command:`dd` command. The "
 "example below burns an uncompressed image onto `<your USB device>`:"
-msgstr ""
+msgstr "利用 :command:`dd` 命令将映像烧录至驱动器。下例将未压缩的映像烧录至 `<your USB device>`："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:151
 msgid ""
 "To speed up the imaging process, add an ‘r’ in front of the disk "
 "identifier. For example `/dev/rdisk2`."
-msgstr ""
+msgstr "为加速映像烧录过程，在盘符前面添加一个 ‘r’。例如 `/dev/rdisk2`。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:154
 msgid "Press :kbd:`<CTL>-T` to check imaging progress."
-msgstr ""
+msgstr "按下 :kbd:`<CTL>-T` 查看映像烧录过程。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:156
 msgid "Eject the USB drive."
-msgstr ""
+msgstr "弹出 U 盘。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:165
 msgid "Create a bootable USB drive on Windows\\*"
-msgstr ""
+msgstr "在 Windows\\* 上创建可引导 U 盘"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:169
 msgid ""
 "Before burning the image onto your USB drive, :ref:`verify and decompress"
 " your image <verify-windows>`."
-msgstr ""
+msgstr "将映像烧录至 U 盘之前，:ref:`verify and decompress your image <verify-windows>`。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:179
 msgid ""
 "Download the `Rufus`_ utility to burn the image onto a USB drive. We use "
 "Rufus 3.5 here. **Only use the latest version of Rufus**."
-msgstr ""
+msgstr "下载 `Rufus`_ 实用程序以便将映像烧录至 U 盘。此处使用 Rufus 3.5。**仅使用最新 Rufus** 版本。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:182
 msgid "Plug in the USB drive and open Rufus."
-msgstr ""
+msgstr "插入 U 盘，打开 Rufus。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:184
 msgid "Under `Boot selection`, click the :guilabel:`SELECT` button."
-msgstr ""
+msgstr "在 `Boot selection` 中，点击 :guilabel:`选择` 按钮。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:186
 msgid "Find and select the previously extracted |CL| image file."
-msgstr ""
+msgstr "找到并选择此前解压缩的 |CL| 映像文件。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:188
 msgid "Click the :guilabel:`START` button. See Figure 2."
-msgstr ""
+msgstr "点击 :guilabel:`启动` 按钮。见图 2。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:194
 msgid "Figure 2: Rufus utility"
-msgstr ""
+msgstr "图 2: Rufus 实用程序"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:196
 msgid ""
 "When the dialogue appears, select :guilabel:`Write in ISO image mode "
 "(Recommended)`. See Figure 3."
-msgstr ""
+msgstr "对话出现时，选择 :guilabel:`以 ISO 映像模式写入（推荐）`。见图 3。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:203
 msgid "Figure 3: ISOHybrid image detected"
-msgstr ""
+msgstr "图 3：检测到 ISOHybrid 映像"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:205
 msgid "Select the Windows taskbar menu for USB and select eject."
-msgstr ""
+msgstr "选择 USB 的 Windows 任务栏菜单并选择“弹出”。"
 
 #~ msgid ""
 #~ "Instructions to create a |CL-ATTR| "
@@ -236,4 +235,5 @@ msgstr ""
 
 #~ msgid "`Download`_ the |CL| live boot image or interactive installer image."
 #~ msgstr ""
+
 
