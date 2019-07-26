@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-25 11:20-0008\n"
+"PO-Revision-Date: 2019-07-26 11:17-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr "浏览至 `20450 > clear > config > image` 目录。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:57
 msgid "Open the :file:`hyperv-config.json` file."
-msgstr "打开 :file:`hyperv-config.json`文件。"
+msgstr "打开 :file:`hyperv-config.json` 文件。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:58
 msgid "Locate the `PartitionLayout` key."
