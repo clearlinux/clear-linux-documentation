@@ -17,6 +17,7 @@ endif
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+ERROROPTS       = -W --keep-going
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
@@ -54,8 +55,8 @@ clean:
 	rm -rf $(BUILDDIR)/*
 
 htmlall: 
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html	
-	$(SPHINXBUILD) -b html -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/html/zh_CN 
+	$(SPHINXBUILD) -b html $(ERROROPTS) $(ALLSPHINXOPTS) $(BUILDDIR)/html	
+	$(SPHINXBUILD) -b html $(ERROROPTS) -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/html/zh_CN 
 
 htmlde:
 	$(SPHINXBUILD) -b html -D language='de' $(ALLSPHINXOPTS) $(BUILDDIR)/html/de 

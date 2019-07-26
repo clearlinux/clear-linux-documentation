@@ -1,5 +1,5 @@
 breathe==4.9.1
-sphinx==1.7.5
+sphinx==1.8
 docutils==0.14
 sphinx_rtd_theme
 sphinx-intl==2.0.0
