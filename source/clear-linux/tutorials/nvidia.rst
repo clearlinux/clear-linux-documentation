@@ -20,8 +20,8 @@ require a manual installation.
    Software installed outside of :ref:`swupd <swupd-about>` is not updated
    with |CL| updates and must be updated and maintained manually.
 
-   For example, the file :file:`/usr/lib/libGL.so` conflicts between the one
-   provided by the mesa package in |CL| and the one NVIDIA provides. If a |CL|
+   For example, the file :file:`/usr/lib/libGL.so` conflicts with the file
+   provided by the mesa package in |CL| and the file NVIDIA provides. If a |CL|
    update overwrites these files, a reinstallation of the NVIDIA driver might
    be required.
 
@@ -58,14 +58,14 @@ Install the appropriate DKMS bundle using the instructions below:
    :end-before: kernel-modules-dkms-install-end:
 
 
-Download and install the NVIDIA Drivers
+Download and install the NVIDIA drivers
 ***************************************
 
 
-Download the NVIDIA Drivers for Linux
+Download the NVIDIA drivers for Linux
 =====================================
 
-#. Identify the model of NVIDIA GPU that is installed.
+#. Identify the NVIDIA GPU model that is installed.
 
    .. code-block:: bash
 
@@ -73,7 +73,7 @@ Download the NVIDIA Drivers for Linux
 
 
 #. Go to the `NVIDIA Driver Downloads website`_ . Search for and download the
-   appropriate driver based on the model of  NVIDIA GPU you have with *Linux
+   appropriate driver based on the NVIDIA GPU model you have with *Linux
    64-bit* selected as the Operating System . 
 
 
@@ -92,7 +92,7 @@ Download the NVIDIA Drivers for Linux
       chmod +x :file:`NVIDIA-Linux-x86_64-<VERSION>.run`
 
 
-Disable the nouveau Driver
+Disable the nouveau driver
 ==========================
 
 The proprietary NVIDIA driver is incompatible with the nouveau driver and
@@ -114,10 +114,10 @@ must be disabled before installation can continue.
 
 
 
-Configure Alternative Software Paths
+Configure alternative software paths
 ====================================
 
-The NVIDIA installer will be directed to install files under
+The NVIDIA installer is directed to install files under
 :file:`/opt/nvidia` as much as possible to keep its contents isolated from the
 rest of the |CL| system files under :file:`/usr`.  The dynamic linker and X
 server must be configured to use the content under
@@ -156,7 +156,7 @@ server must be configured to use the content under
       EOF
 
 
-Install the NVIDIA Drivers
+Install the NVIDIA drivers
 ==========================
 
 
@@ -165,7 +165,7 @@ Install the NVIDIA Drivers
    :command:`CTRL + ALT + F2` or remotely login over SSH. 
 
 
-#. Navigate into the directory where the NVIDIA installer was downloaded.
+#. Navigate to the directory where the NVIDIA installer was downloaded.
 
    .. code-block:: bash
 
@@ -217,14 +217,14 @@ Install the NVIDIA Drivers
 .. note::
 
    The NVIDIA software places some files under the :file:`/usr` subdirectory
-   which are not managed by |CL| and conflict with the |CL| stateless design.
+   that are not managed by |CL| and conflict with the |CL| stateless design.
 
    Although a limited version of :command:`swupd repair` is run above,
    other uses of the :command:`swupd repair` command should be avoided
    with the proprietary NVIDIA drivers installed.
 
 
-Updating the NVIDIA Drivers
+Updating the NVIDIA drivers
 ***************************
 
 The proprietary NVIDIA drivers are installed manually outside of :ref:`swupd
@@ -261,7 +261,7 @@ not in use.
 
 #. Reboot the system and log back in. 
 
-#. Trigger a flatpak update which will download the runtime corresponding
+#. Trigger a flatpak update that will download the runtime corresponding
    with the new NVIDIA drivers for the flatpak apps that require it.
 
    .. code-block:: bash
@@ -269,7 +269,7 @@ not in use.
       flatpak update
 
 
-Uninstalling the NVIDIA Drivers
+Uninstalling the NVIDIA drivers
 *******************************
 
 The NVIDIA drivers and associated software can be uninstalled and nouveau
@@ -293,7 +293,7 @@ driver restored with the instructions in this section.
 #. Follow the prompts on the screen and reboot the system. 
 
 
-Debugging Installation of NVIDIA Drivers 
+Debugging installation of NVIDIA drivers 
 ****************************************
 
 * The NVIDIA driver places installer and uninstaller logs under
