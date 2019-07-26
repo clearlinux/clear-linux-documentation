@@ -3,12 +3,16 @@
 TensorFlow\* machine learning on |CL-ATTR|
 ##########################################
 
-This tutorial will demonstrate the installation and execusion of a TensorFlow\*
+This tutorial demonstrates the installation and execution of a TensorFlow\*
 machine learning example on |CL-ATTR|. It uses a Jupyter\* Notebook and MNIST
 data for handwriting recognition. 
 
-The initial steps will have you set up a Jupyter kernel and run a Notebook
+The initial steps show how to set up a Jupyter kernel and run a Notebook
 on a bare-metal |CL| system.
+
+.. contents:: 
+    :local:
+    :depth: 1
 
 Prerequisites
 *************
@@ -25,10 +29,10 @@ Before you install any new packages, update |CL| with the following command:
 
 Once your system is updated, add the following bundles to your system:
 
-* `machine-learning-web-ui`: This bundle contains the Jupyter application.
+* :file:`machine-learning-web-ui`: This bundle contains the Jupyter application.
 
-* `machine-learning-basic`: This bundle contains TensorFlow and other useful
-  tools.
+* :file:`machine-learning-basic`: This bundle contains TensorFlow and other
+  useful tools.
 
 To install the bundles, run the following commands in your :file:`$HOME`
 directory:
