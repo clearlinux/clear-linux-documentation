@@ -15,7 +15,7 @@ Our documentation is divided into the following sections:
     If you are new to |CL|, get started fast with tutorials for installing |CL|
     on bare metal, in a virtual environment, or as a live image on a USB stick.
 
-:ref:`tooling`
+:ref:`about`
     Clear Linux is a little different from other distros. Here are some
     important tools and concepts for managing your install.
 
@@ -40,7 +40,7 @@ Our documentation is divided into the following sections:
     :hidden:
 
     get-started/get-started
-    tooling/tooling
+    about
     guides/guides
     tutorials/tutorials
     reference/reference

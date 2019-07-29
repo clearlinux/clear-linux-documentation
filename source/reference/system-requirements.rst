@@ -7,7 +7,7 @@ Recommended minimum system requirements
 modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1
 GB RAM, and 2 GB of disk space.  
 
-For use cases requiring minimal resources, |CL| :ref:`tooling <tooling>` can
+For use cases requiring minimal resources, |CL| :ref:`about <about>` can
 be used to create a highly customized installation that can even run on a
 system with a 128MB of memory and 600MB of disk space, for example.
 

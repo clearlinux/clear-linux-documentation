@@ -6,7 +6,7 @@ Setting up proxy
 This tutorial shows you how to configure your system for use behind an
 outbound proxy to access the Internet. 
 
-|CL| :ref:`tooling` applications already benefit from the :ref:`autoproxy`
+|CL| applications already benefit from the :ref:`autoproxy`
 feature. 
 
 .. contents:: 

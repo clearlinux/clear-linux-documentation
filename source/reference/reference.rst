@@ -27,5 +27,5 @@ Clear Linux concepts
    :glob:
 
    ../concepts/*
-   ../tooling/stateless
-   ../tooling/security
+   ../guides/clear/stateless
+   ../guides/clear/security
