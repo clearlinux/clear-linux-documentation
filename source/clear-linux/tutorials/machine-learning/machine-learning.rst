@@ -10,7 +10,7 @@ data for handwriting recognition. 
 The initial steps show how to set up a Jupyter kernel and run a Notebook
 on a bare-metal |CL| system.
 
-.. contents:: 
+.. contents::
     :local:
     :depth: 1
 
@@ -27,7 +27,7 @@ Before you install any new packages, update |CL| with the following command:
 
    sudo swupd update
 
-Once your system is updated, add the following bundles to your system:
+After your system is updated, add the following bundles to your system:
 
 * :file:`machine-learning-web-ui`: This bundle contains the Jupyter application.
 
@@ -43,7 +43,7 @@ directory:
 
    sudo swupd bundle-add machine-learning-basic
 
-Set up a Jupyter notebook
+Set up a Jupyter Notebook
 *************************
 
 With all required packages and libraries installed, set up the file structure
@@ -95,7 +95,7 @@ The files needed are:
 Run the Jupyter machine learning example code
 *********************************************
 
-With |CL|, Jupyter, and TensorFlow installed and configured, we can
+With |CL|, Jupyter, and TensorFlow installed and configured, you can
 run the example code.
 
 #. Go to the :file:`($HOME)/Notebooks` directory and start Jupyter with the
@@ -108,7 +108,7 @@ run the example code.
       jupyter notebook
 
    The Jupyter server starts and opens a web browser showing the Jupyter file
-   manager with a list of files in the current directory, see figure 1.
+   manager with a list of files in the current directory, as shown in figure 1.
 
    .. figure:: figures/machine-learning-1.png
       :alt: Jupyter file manager
@@ -116,15 +116,15 @@ run the example code.
       Figure 1: The Jupyter file manager shows the list of available files.
 
 #. Click on the :file:`Handwriting` directory. The :file:`MNIST_example.ipynb`
-   file created earlier should be listed there, see figure 2.
+   file created earlier should be listed there, as shown in figure 2.
 
    .. figure:: figures/machine-learning-2.png
       :alt: Example file within the Jupyter file manager
 
       Figure 2: The example file within the Jupyter file manager.
 
-#. To run the hand writing example, click on the :file:`MNIST_example.ipynb`
-   file to load the notebook, see figure 3.
+#. To run the handwriting example, click on the :file:`MNIST_example.ipynb`
+   file to load the notebook, as shown in figure 3.
 
    .. figure:: figures/machine-learning-3.png
       :alt: The loaded MNIST_example notebook
@@ -144,15 +144,16 @@ run the example code.
       Figure 4: Output after successfully importing the MNIST data.
 
 
-   After the MNIST data was successfully downloaded and extracted into the
+   After the MNIST data is successfully downloaded and extracted into the
    :file:`mnist` directory within the :file:`($HOME)/Notebooks/Handwriting`
-   directory, four .gz files are present and the four data sets were created:
+   directory, four .gz files are present and the four data sets are created:
    `trainX`, `trainY`, `testX` and `testY`.
 
 #. To inspect the imported data, the function in :guilabel:`In [3]` first
    instructs Jupyter to reshape the data into an array of 28 x 28 images and to
    plot the area in a 28 x 28 grid. Click the |run-cell| button twice to show
-   the first two digits in the `trainX` dataset, see figure 5.
+   the first two digits in the `trainX` dataset. An example is shown in
+   figure 5.
 
    .. figure:: figures/machine-learning-5.png
       :alt: Function to reshape data.
@@ -162,17 +163,17 @@ run the example code.
 
 #. The :guilabel:`In [4]` cell defines the neural network. It provides the
    inputs, defines the hidden layers, runs the training model, and sets up
-   the output layer, see figure 6. Click the |run-cell| button four times to
-   perform these operations.
+   the output layer, as shown in figure 6. Click the |run-cell| button four
+   times to perform these operations.
 
    .. figure:: figures/machine-learning-6.png
       :alt: Defining, building and training the neural network model
 
-      Figure 6: Defining, building and training the neural network model.
+      Figure 6: Defining, building, and training the neural network model.
 
-#. To test the accuracy of the prediction the system makes, select the
+#. To test the accuracy of the prediction that the system makes, select the
    :guilabel:`In [8]` cell and click the |run-cell| button. In this example,
-   the number 6 was predicted with a 99% accuracy, see figure 7.
+   the number 6 was predicted with a 99% accuracy, as shown in figure 7.
 
    .. figure:: figures/machine-learning-7.png
       :alt: Prediction example
@@ -188,7 +189,7 @@ run the example code.
 
 #. To check the accuracy for the whole dataset, select the :guilabel:`In [10]`
    cell and click the |run-cell| button. Our example's accuracy is
-   calculated as 97.17%, see figure 8.
+   calculated as 97.17%, as shown in figure 8.
 
    .. figure:: figures/machine-learning-8.png
       :alt: System's accuracy
