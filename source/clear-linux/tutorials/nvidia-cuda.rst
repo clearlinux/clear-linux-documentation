@@ -1,4 +1,4 @@
-.. _nvidia:
+.. _nvidia-cuda:
 
 Install NVIDIA CUDA Toolkit 
 ###########################
