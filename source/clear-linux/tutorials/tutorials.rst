@@ -24,5 +24,6 @@ Explore our tutorials to discover what you can do with |CL|!
    kubernetes/kubernetes*
    yubikey-u2f
    nvidia
+   nvidia-cuda
    redis
    tutorial-proxy
