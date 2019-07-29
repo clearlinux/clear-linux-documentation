@@ -25,3 +25,4 @@ deploy:
 
 after_deploy:
   - wget $PUBLISH_URL
+  - cat clearlinux-latest
