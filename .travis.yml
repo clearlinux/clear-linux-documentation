@@ -15,13 +15,20 @@ script:
   #- make linkcheck
 
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  target-branch: latestHTML
-  on:
-    branch: rtd-theme
-  local_dir: source/_build/html/
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: latestHTML
+    on:
+      branch: rtd-theme
+    local_dir: source/_build/html/
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: developmentHTML
+    on:
+      branch: development
+    local_dir: source/_build/html/
 
 after_deploy:
   - wget $PUBLISH_URL

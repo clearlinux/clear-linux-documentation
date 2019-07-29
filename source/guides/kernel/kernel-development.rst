@@ -49,7 +49,7 @@ Then make changes to the kernel, build it, and install it.
 Install the |CL| development tooling framework
 ==============================================
 
-.. include:: /clear/autospec.rst
+.. include:: ../clear/autospec.rst
    :start-after: install-tooling-after-header:
    :end-before: install-tooling-end:
 
