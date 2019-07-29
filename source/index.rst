@@ -17,7 +17,7 @@ Our documentation is divided into the following sections:
 
 :ref:`tooling`
     Clear Linux is a little different from other distros. Here are some
-    important tools and concept for managing your install.
+    important tools and concepts for managing your install.
 
 :ref:`guides`
     Guides show how to complete common tasks that help you leverage |CL| native
