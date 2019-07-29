@@ -4,9 +4,18 @@ Install Kata Containers\*
 #########################
 
 This tutorial describes how to install, configure, and run `Kata Containers`_
-on |CL-ATTR|. Kata Containers is an open source project developing a
-lightweight implementation of :abbr:`VMs (Virtual Machines)` that offer the
-speed of containers and the security of VMs.
+on |CL-ATTR|.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Description
+***********
+
+Kata Containers is an open source project developing a lightweight
+implementation of :abbr:`VMs (Virtual Machines)` that offer the speed of
+containers and the security of VMs.
 
 Prerequisites
 *************
