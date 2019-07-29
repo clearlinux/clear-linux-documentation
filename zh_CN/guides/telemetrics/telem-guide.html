@@ -1,0 +1,1781 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Telemetrics &mdash; Documentation for Clear Linux* project</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="关于这些文档" href="../../about.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Architect the life-cycle of Clear Linux* OS" href="../maintenance/architect-lifecycle.html" />
+    <link rel="prev" title="swupd" href="../clear/swupd-guide.html" />
+
+<link rel="stylesheet" href="../../_static/tcs_theme.css" type="text/css" />
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #007ab2" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Clear Linux* Project Docs
+          
+
+          
+            
+            <img src="../../_static/clearlinux.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Clear Linux</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Language Versions</dt>
+        
+          <dd><a href="/clearlinux/latest/guides/telemetrics/telem-guide.html">English</a></dd>
+        
+          <dd><a href="/clearlinux/latest/zh_CN/guides/telemetrics/telem-guide.html">Chinese</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Document Versions</dt>
+        
+          <dd><a href="/clearlinux/latest/guides/telemetrics/telem-guide.html">latest</a></dd>
+        
+          <dd><a href="/clearlinux/L19.01/guides/telemetrics/telem-guide.html">L19.01</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>clearlinux.org links</dt>
+          <dd>
+            <a href="https://www.clearlinux.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/clearlinux/clear-linux-documentation">GitHub</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+  
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/get-started.html">开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/get-started.html#pre-install">安装前</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/compatibility-check.html">检查处理器和 EFI 固件的兼容性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/compatibility-check.html#check-compatibility">检查兼容性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb.html">创建可引导 U 盘</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb.html#create-a-bootable-usb-drive-on-linux">在 Linux* 上创建可引导 U 盘</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb.html#create-a-bootable-usb-drive-on-macos">在 macOS* 上创建可引导 U 盘</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb/bootable-usb.html#create-a-bootable-usb-drive-on-windows">在 Windows* 上创建可引导 U 盘</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/get-started.html#install">安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html">Install Clear Linux* OS from the live desktop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#system-requirements">System requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#preliminary-steps">Preliminary steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#install-from-live-image">Install from live image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#minimum-installation-requirements">Minimum installation requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#cl-desktop-installer">Clear Linux OS Desktop Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#navigation">Navigation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#required-options">Required options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#advanced-options">Advanced options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.html#finish-installation">Finish installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html">Install Clear Linux* OS on bare metal with live server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#system-requirements">System requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#download-the-latest-cl-live-server-image">Download the latest Clear Linux OS live server image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#install-cl-on-your-target-system">Install Clear Linux OS on your target system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#launch-the-cl-installer">Launch the Clear Linux OS Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#minimum-installation-requirements">Minimum installation requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#main-menu">Main Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#navigation">Navigation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#required-options">Required options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#recommended-options">Recommended options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#advanced-options">Advanced options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#finish-installation">Finish installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/install-configfile.html">利用 clr-installer 和配置文件安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#process">流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#references">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/get-started.html#install-in-a-virtual-machine">在虚拟机上安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/gce.html">在 Google Cloud Platform* 上启动 Clear Linux* OS Compute Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/gce.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/gce.html#setup-cl-vm-on-gcp">在 GCP 上安装 Clear Linux OS 虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/gce.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html">使用 Hyper-V*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#enable-hyper-v">启用 Hyper-V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#create-a-virtual-network">创建虚拟网络</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#create-a-virtual-machine">创建虚拟机</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html">运行 Clear Linux* OS，用作 KVM 来宾操作系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#install-qemu-kvm">安装 QEMU-KVM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#download-and-launch-the-virtual-machine">下载并开启虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#ssh-access-into-the-virtual-machine">通过 SSH 访问虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#optional-add-the-gnome-display-manager-gdm">可选：添加 GNOME Display Manager (GDM)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html">在 VirtualBox* 中安装 Clear Linux* OS 虚拟机</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#download-and-extract-the-cl-installer-iso">下载并解压缩 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#create-a-new-vb-virtual-machine">创建新的 VirtualBox 虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#install-cl-on-the-vb-vm">在 VirtualBox 虚拟机上安装 Clear Linux OS。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#troubleshooting">故障排除</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html">安装 Clear Linux* OS 用作 Vmware* Workstation Player 来宾操作系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-the-vmware-workstation-player-hypervisor">安装 VMware Workstation Player 虚拟机管理程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#download-the-latest-cl-installer">下载最新的 Clear Linux OS 安装程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-cl-into-the-new-vm">将 Clear Linux OS 安装至新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#detach-the-cl-installer-iso-from-the-vm">从虚拟机断开 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#enable-uefi-boot-support">启用 UEFI 引导支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html">运行预配置的 Clear Linux* OS 映像，用作 VMware* Workstation Player 来宾操作系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#install-the-vmware-workstation-player-hypervisor">安装 VMware Workstation Player 虚拟机管理程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#download-the-latest-cl-vmware-image">下载最新的 Clear Linux OS VMware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#image-types">映像类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#attach-the-pre-configured-cl-vmware-image">挂载预配置的 Clear Linux OS Vmware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#enable-uefi-boot-support">启用 UEFI 引导支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#power-on-the-vm">开启虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html">安装 Clear Linux* OS，用作 VMware* ESXi 来宾操作系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#download-the-latest-cl-installer-iso">下载最新的 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#upload-the-cl-installer-iso-to-the-vmware-server">将 Clear Linux OS 安装程序 ISO 上传至 VMware 服务器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#install-cl-into-the-new-vm">将 Clear Linux OS 安装至新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl">重新配置虚拟机设置，以引导新安装的 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#power-on-the-vm-and-boot-cl">开启虚拟机，引导 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html">Run preconfigured Clear Linux* OS image as a VMware* ESXi guest OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#download-the-latest-cl-vmware-image">下载最新的 Clear Linux OS VMware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#upload-the-cl-image-to-the-vmware-server">将 Clear Linux OS 映像上传至 VMware 服务器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#convert-the-cl-image-to-an-esxi-supported-format">将 Clear Linux OS 映像转换为 ESXi 支持的格式。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#power-on-the-vm-and-boot-cl">开启虚拟机，引导 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html">增加图像的虚拟磁盘大小</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#determine-the-partition-order-and-sizes-of-the-prebuilt-image">确定预构建映像的分区顺序和大小。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#id2">增加虚拟磁盘大小</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#training">Training</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides.html">Guides</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides.html#clear-linux">Clear Linux</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../clear/autoproxy.html">Autoproxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autoproxy.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autoproxy.html#how-it-works">How it works</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/autospec.html">autospec</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#test-packaged-software">Test packaged software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/compatible-kernels.html">Kernels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/compatible-kernels.html#bare-metal-only">Bare metal only</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/compatible-kernels.html#also-compatible-with-vms">Also compatible with VMs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/compatible-kernels.html#vm-only">VM only</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/debug.html">Debug system</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/debug.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/debug.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/debug.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/ister.html">ister.py image builder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/ister.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/ister.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/ister.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/mixer.html">mixer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/security.html">OS Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-updates">Security in updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-software">Security in software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-system-design">Security in system design</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/stateless.html">Stateless</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#file-level-separation">File-level separation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#software-configuration">Software configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#system-reset">System reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#additional-information">Additional information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/swupd-guide.html">swupd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd-guide.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd-guide.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd-guide.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd-guide.html#quick-reference">Quick reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd-guide.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Telemetrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-use">How to use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides.html#maintenance">Maintenance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/architect-lifecycle.html">Architect the life-cycle of Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#content-workflow">Content Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#release-workflow">Release Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/assign-static-ip.html">Assign a static IP address</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/assign-static-ip.html#identify-which-program-is-managing-the-interface">Identify which program is managing the interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/assign-static-ip.html#using-networkmanager">Using NetworkManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/assign-static-ip.html#using-systemd-networkd">Using systemd-networkd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/bulk-provision.html">Bulk provision</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/bulk-provision.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/bulk-provision.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/bulk-provision.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/cpu-performance.html">CPU Power and Performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#cpu-power-saving-mechanisms">CPU power saving mechanisms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#linux-cpu-clock-frequency-scaling">Linux CPU clock frequency scaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#thermal-management">Thermal management</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/developer-workstation.html">Developer Workstation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/developer-workstation.html#workstation-setup">Workstation Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/developer-workstation.html#swupd-search">swupd search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/developer-workstation.html#core-concepts">Core Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/download-verify-decompress.html">Download, verify, and decompress a Clear Linux* OS image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#linux-os-steps">Linux OS steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#macos-steps">macOS* steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#windows-os-steps">Windows* OS steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#image-types">Image types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/enable-user-space.html">Create and enable a new user space</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#create-a-new-user">Create a new user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#add-the-new-user-to-the-wheel-group">Add the new user to the <em>wheel</em> group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#install-and-update-the-os-software-to-its-current-version">Install and update the OS software to its current version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#add-a-bundle">Add a bundle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/fix-broken-install.html">Fix a broken installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#boot-a-live-desktop-image-to-fix-target-system">Boot a live desktop image to fix target system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#install-from-live-image">Install from live image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#mount-root-partition-verify-and-fix">Mount root partition, verify, and fix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/hostname.html">Modify hostname</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/hostname.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/hostname.html#set-your-hostname">Set your hostname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/hostname.html#view-your-hostname">View your hostname</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html">增加图像的虚拟磁盘大小</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#determine-the-partition-order-and-sizes-of-the-prebuilt-image">确定预构建映像的分区顺序和大小。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#id2">增加虚拟磁盘大小</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/query-upstream.html">Query package info from upstream repository</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#configure-dnf">Configure DNF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#dnf-command-usage-examples">DNF command usage examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/resource-limits.html">Resource limits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/resource-limits.html#system-wide-limits">System-wide limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/resource-limits.html#per-user-limits">Per-user limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/resource-limits.html#service-limits">Service limits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/restart.html">Restart system services after an OS update</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#basic-options">Basic options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#monitor-options">Monitor options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#telemetry">Telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/time.html">Set the time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/validate-signatures.html">Validate signatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/validate-signatures.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/validate-signatures.html#image-content-validation">Image content validation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/validate-signatures.html#update-content-validation">Update content validation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../deploy-at-scale.html">Deploy at Scale</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../deploy-at-scale.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../deploy-at-scale.html#pick-a-usage-and-update-strategy">Pick a usage and update strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../deploy-at-scale.html#pick-an-image-distribution-strategy">Pick an image distribution strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../deploy-at-scale.html#considerations-with-stateless-systems">Considerations with stateless systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides.html#network">Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/custom-clear-container.html">Build a custom Clear Linux* OS based Docker container image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../network/custom-clear-container.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/custom-clear-container.html#build-the-base-container-image">Build the base container image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/custom-clear-container.html#manage-bundles-in-a-container">Manage bundles in a container</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network/dpdk.html">Use DPDK to send packets between platforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#install-dpdk-and-build-l3fwd-example-platform-b">Install dpdk and build l3fwd example (Platform B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#build-pktgen-platform-a">Build pktgen (Platform A)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b">Bind NICs to DPDK kernel drivers (Platforms A and B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#set-hugepages-platforms-a-and-b">Set hugepages (Platforms A and B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#set-up-the-physical-environment-platforms-a-and-b">Set up the physical environment (Platforms A and B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#run-l3fwd-application-platform-b">Run l3fwd application (Platform B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#run-pktgen-application-platform-a">Run pktgen application (Platform A)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/dpdk.html#appendix-a-use-pass-through-for-virtual-machines">Appendix A: Use pass-through for virtual machines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ipxe-install.html">Install over the network with iPXE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../network/ipxe-install.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/ipxe-install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/ipxe-install.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network/network-bonding.html">Combine multiple interfaces with network bonding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/vnc.html">Remote-desktop to a host using VNC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../network/vnc.html#install-the-vnc-server-and-misc-components-on-your-host">Install the VNC server and misc. components on your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/vnc.html#configure-a-vnc-server-start-method-on-your-host">Configure a VNC-server-start method on your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/vnc.html#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system">Install a VNC viewer app and an SSH client on your client system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/vnc.html#establish-a-vnc-connection-to-your-host">Establish a VNC connection to your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/vnc.html#terminate-a-vnc-connection-to-your-host">Terminate a VNC connection to your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/vnc.html#encrypt-vnc-traffic-through-an-ssh-tunnel">Encrypt VNC traffic through an SSH tunnel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides.html#kernel">Kernel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernel/kernel-development.html">Kernel development</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#request-changes-be-included-with-the-cl-kernel">Request changes be included with the Clear Linux OS kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#set-up-kernel-development-environment">Set up kernel development environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#customize-the-linux-kernel-source">Customize the Linux kernel source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#build-and-install-the-kernel">Build and install the kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kernel/kernel-modules.html">Add kernel modules manually</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#kernel-module-availability">Kernel module availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#build-install-and-load-an-out-of-tree-module">Build, install, and load an out-of-tree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#related-topic">Related topic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kernel/kernel-modules-dkms.html">Add kernel modules with DKMS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#kernel-module-availability">Kernel module availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#install-dkms">Install DKMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#build-install-and-load-an-out-of-tree-module">Build, install, and load an out-of-tree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides.html#stacks">Stacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stacks/dars.html">Data Analytics Reference Stack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dars.html#the-data-analytics-reference-stack-release">The Data Analytics Reference Stack release</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dars.html#using-the-docker-images">Using the Docker images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dars.html#building-dars-images">Building DARS images</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../stacks/greengrass.html">Enable AWS Greengrass* and OpenVINO™ toolkit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#supported-platforms">Supported platforms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#install-the-os-on-the-edge-device">Install the OS on the edge device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#configure-aws-greengrass-group">Configure AWS Greengrass group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#create-and-package-lambda-function">Create and package Lambda function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#configure-lambda-function">Configure Lambda function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#deploy-lambda-function">Deploy Lambda function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../stacks/dlrs/dlrs.html">Deep Learning Reference Stack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#tensorflow-single-and-multi-node-benchmarks">TensorFlow single and multi-node benchmarks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#pytorch-single-and-multi-node-benchmarks">PyTorch single and multi-node benchmarks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#kubeflow-multi-node-benchmarks">Kubeflow multi-node benchmarks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#use-jupyter-notebook">Use Jupyter Notebook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#uninstallation">Uninstallation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/wordpress/wordpress.html">WordPress* on Clear Linux* OS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html">Set up a LAMP web server on Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-apache">Install Apache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#change-the-default-configuration-and-data-directory">Change the default configuration and data directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-php">Install PHP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-mariadb">Install MariaDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-phpmyadmin">Install phpMyAdmin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#use-phpmyadmin-to-manage-a-database">Use phpMyAdmin to manage a database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html">Set up WordPress* on a LAMP web server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html#before-you-begin">Before you begin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html#create-a-wordpress-server">Create a WordPress server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/flatpak/flatpak.html">Use Flatpak* to install applications on Clear Linux* OS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/flatpak/flatpak.html#before-you-begin">Before you begin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/flatpak/flatpak.html#install-flatpak-on-your-host-system">Install Flatpak on your host system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/flatpak/flatpak.html#install-and-run-the-libreoffice-flatpak-image">Install and run the LibreOffice Flatpak image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/flatpak/flatpak.html#launch-libreoffice">Launch LibreOffice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/machine-learning/machine-learning.html">TensorFlow* machine learning on Clear Linux* OS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/machine-learning/machine-learning.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/machine-learning/machine-learning.html#set-up-a-jupyter-notebook">Set up a Jupyter notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/machine-learning/machine-learning.html#run-the-jupyter-machine-learning-example-code">Run the Jupyter machine learning example code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/machine-learning/machine-learning.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/docker/docker.html">Run Docker* on Clear Linux* OS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker/docker.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker/docker.html#install-the-containers-basic-bundle">Install the containers-basic bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker/docker.html#integration-with-kata-containers-optional">Integration with Kata Containers* (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker/docker.html#additional-docker-configuration">Additional Docker configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker/docker.html#pulling-and-running-an-image-from-docker-hub">Pulling and running an image from Docker Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker/docker.html#creating-a-docker-swarm-cluster">Creating a Docker swarm cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker/docker.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/azure.html">Run Clear Linux* OS using Microsoft Azure CLI 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/azure.html#install-ms-azure-cli-2-0-on-cl">Install MS Azure CLI 2.0 on Clear Linux OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/azure.html#log-into-your-microsoft-azure-account">Log into your Microsoft Azure account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/azure.html#create-a-ms-azure-resource-group">Create a MS Azure resource group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/azure.html#create-and-log-into-the-cl-virtual-machine">Create and log into the Clear Linux OS virtual machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/azure.html#stop-and-deallocate-the-cl-vm-and-resources">Stop and deallocate the Clear Linux OS VM and resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/azure.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/hadoop.html">Set up a single node cluster with Hadoop*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/hadoop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/hadoop.html#install-apache-hadoop">Install Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/hadoop.html#configure-apache-hadoop">Configure Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/hadoop.html#configure-your-ssh-key">Configure your SSH key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/hadoop.html#run-the-hadoop-daemons">Run the Hadoop daemons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/hadoop.html#run-the-mapreduce-wordcount-example">Run the MapReduce wordcount example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/fmv.html">Use the function multi-version patch generator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#install-and-configure-a-cl-host-on-bare-metal">Install and configure a Clear Linux OS host on bare metal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#detect-loop-vectorization-candidates">Detect loop vectorization candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#generate-the-fmv-patch">Generate the FMV patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#fft-project-example-using-fftw">FFT project example using FFTW</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/aws-web/aws-web.html">Create and launch Clear Linux* OS from Amazon Web Services</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/aws-web/aws-web.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/aws-web/aws-web.html#locate-select-and-launch-the-cl-basic-ami">Locate, select, and launch the Clear Linux OS Basic AMI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/aws-web/aws-web.html#connect-to-your-clear-linux-os-basic-instance">Connect to your Clear Linux OS Basic instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/aws-web/aws-web.html#update-the-cl-instance">Update the Clear Linux OS instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/aws-web/aws-web.html#stop-the-cl-instance">Stop the Clear Linux OS instance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/smb/smb.html">Enable simple file sharing with a Windows* machine using Samba*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb/smb.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb/smb.html#set-up-file-sharing">Set up file sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb/smb.html#map-cl-drive-in-windows">Map Clear Linux OS drive in Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/smb/smb-desktop.html">Connect to Windows* shared location from Clear Linux* OS desktop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb/smb-desktop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb/smb-desktop.html#connect-to-windows-shared-location-with-nautilus">Connect to Windows shared location with Nautilus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/spark.html">Set up a standalone cluster system using Apache* Spark*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/spark.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/spark.html#install-apache-spark">Install Apache Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/spark.html#configure-apache-spark">Configure Apache Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/spark.html#start-the-master-server-and-a-worker-daemon">Start the master server and a worker daemon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/spark.html#run-the-spark-wordcount-example">Run the Spark wordcount example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kata.html">Install Kata Containers*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#id1">Install Kata Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#run-kata-containers">Run Kata Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#more-information-about-docker">More information about Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/kata.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kata_migration.html">Migrate Clear Containers to Kata Containers*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata_migration.html#stop-clear-containers-instances">Stop Clear Containers instances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata_migration.html#manually-migrate-customized-configuration-files">Manually migrate customized configuration files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata_migration.html#enable-kata-containers-as-default">Enable Kata Containers as default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata_migration.html#run-kata-containers">Run Kata Containers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html">Run Kubernetes*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#install-kubernetes-and-cri-runtimes">Install Kubernetes and CRI runtimes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#configure-kubernetes">Configure Kubernetes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#configure-and-run-kubernetes">Configure and run Kubernetes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#configure-and-run-cri-o-kata-runtime">Configure and run CRI-O + kata-runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#install-pod-network-add-on">Install pod network add-on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#use-your-cluster">Use your cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#related-topics">Related topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#cloud-native-setup-automation-optional">Cloud native setup automation (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#package-configuration-customization-optional">Package configuration customization (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#proxy-configuration-optional">Proxy configuration (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#next-steps">Next steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes-bp.html">Kubernetes Best Practices on Clear Linux OS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes-bp.html#use-swupd-to-update-clusters">Use swupd to update clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes-bp.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes-bp.html#update-the-control-plane">Update the control plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes/kubernetes-bp.html#update-worker-nodes">Update worker nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/yubikey-u2f.html">Enable YubiKey U2F Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#enable-linux-udev-rules-for-yubikey">Enable Linux udev rules for YubiKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#enable-u2f-in-mozilla-firefox">Enable U2F in Mozilla Firefox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/nvidia.html">Install NVIDIA* Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#install-dkms">Install DKMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#download-and-install-the-nvidia-drivers">Download and install the NVIDIA drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#download-the-nvidia-drivers-for-linux">Download the NVIDIA drivers for Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#disable-the-nouveau-driver">Disable the nouveau driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#configure-alternative-software-paths">Configure alternative software paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#install-the-nvidia-drivers">Install the NVIDIA drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#updating-the-nvidia-drivers">Updating the NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#uninstalling-the-nvidia-drivers">Uninstalling the NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#debugging-installation-of-nvidia-drivers">Debugging installation of NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/redis.html">Run Redis on Clear Linux* OS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#install-the-redis-bundle">Install the redis bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#start-the-redis-server">Start the redis-server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#example-1-use-the-redis-cli-and-try-commands">Example 1: Use the redis-cli and try commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#example-2-run-the-cl-redis-docker-image">Example 2: Run the Clear Linux OS redis docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/tutorial-proxy.html">Setting up proxy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tutorial-proxy.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tutorial-proxy.html#shells-and-programs-in-a-desktop-session">Shells and programs in a desktop session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/tutorial-proxy.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tutorial-proxy.html#wget">wget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tutorial-proxy.html#system-service-docker">System service (Docker)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tutorial-proxy.html#git-over-ssh">git over ssh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/reference.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/compatible-hardware.html">Compatible Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bundle-commands.html">Useful bundle commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundle-commands.html#additional-information">Additional information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bundles/bundles.html">Available bundles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundles/bundles.html#bundle-list">Bundle list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bundles/openssh-server.html">openssh-server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundles/openssh-server.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundles/openssh-server.html#change-default-port">Change default port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundles/openssh-server.html#enable-sftp">Enable SFTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundles/openssh-server.html#enable-root-login">Enable root login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundles/openssh-server.html#enable-x11-forwarding">Enable X11-forwarding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/collaboration/collaboration.html">Documentation guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#contribution-guidelines">Contribution guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/collaboration/writing-guide.html">Writing guide: Describes the style we use to keep our documents clear and concise.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/collaboration/structure-formatting.html">Structure and formatting guide: Explains how we organize and format content, using reStructuredText and Sphinx.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#contribute-via-github">Contribute via GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/system-requirements.html">建议的最低系统要求</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/system-requirements.html#installer-requirements">安装程序要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/system-requirements.html#id1">系统要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/system-requirements.html#recommended-configurations">建议配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/image-types.html">Clear Linux* OS image types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/reference.html#clear-linux-concepts">Clear Linux concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/autospec-about.html">Autospec</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/autospec-about.html#how-autospec-works">How autospec works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/autospec-about.html#control-files">Control files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/autospec-about.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/bundles-about.html">Bundles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/bundles-about.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/mixer-about.html">Mixer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/mixer-about.html#create-a-mix">Create a mix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/mixer-about.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/swupd-about.html">swupd: software updater</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/swupd-about.html#versioning">Versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/swupd-about.html#updating">Updating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/swupd-about.html#bundles">Bundles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../concepts/telemetry-about.html">Telemetrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/telemetry-about.html#architecture">Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../concepts/telemetry-about.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/stateless.html">Stateless</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#file-level-separation">File-level separation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#software-configuration">Software configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#system-reset">System reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#additional-information">Additional information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/security.html">OS Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-updates">Security in updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-software">Security in software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-system-design">Security in system design</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/faq.html#general">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#why-did-you-make-another-distro">Why did you make another distro?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#can-other-distros-copy-cl-improvements">Can other distros copy Clear Linux OS improvements?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#how-often-do-you-update">How often do you update?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#is-telemetry-required">Is telemetry required?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#what-is-the-default-firewall">What is the default firewall?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#where-are-the-files-that-i-usually-see-under-etc-like-fstab">Where are the files that I usually see under /etc like fstab?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/faq.html#software-packages">Software packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#how-is-software-installed-and-updated">How is software installed and updated?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#does-cl-use-rpms-like-other-distros">Does Clear Linux OS use RPMs like other distros?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#can-i-install-a-software-package-from-another-os-on-cl">Can I install a software package from another OS on Clear Linux OS?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/faq.html#software-availability">Software availability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#what-software-is-available-on-cl">What software is available on Clear Linux OS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#is-google-chrome-available">Is Google* Chrome* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#is-ffmpeg-available">Is FFmpeg available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#is-zfs-available">Is ZFS* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/faq.html#can-you-add-a-driver-that-i-need">Can you add a driver that I need?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Clear Linux* Project Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+<header id="header">
+  <div class="padding-md--left-right">
+
+    <div class="header__site_info">
+           <div class="header__site_info_name">
+             <a href ="https://clearlinux.org"> Clear Linux* Project</a>
+           </div>
+    </div>
+    <nav class="header__menu">
+        <ul class="header__menu_list">
+                         <li class="header__menu_list_item green  ">
+                <a tabindex='1' href="https://clearlinux.org/about">About</a>
+              </li>
+                         <li class="header__menu_list_item purple  ">
+                <a tabindex='1' href="https://clearlinux.org/developer">Developer</a>
+              </li>
+                         <li class="header__menu_list_item blue  ">
+                <a tabindex='1' href="https://clearlinux.org/software">Software</a>
+              </li>
+        </ul>
+    </nav>
+
+  </div>
+
+
+
+</header>
+
+
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../guides.html">Guides</a> &raquo;</li>
+        
+      <li>Telemetrics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/clearlinux/clear-linux-documentation/blob/rtd-theme/source/guides/telemetrics/telem-guide.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="telemetrics">
+<span id="telem-guide"></span><h1>Telemetrics</h1>
+<p>This guide describes the Clear Linux* OS telemetry solution.</p>
+<div class="admonition important">
+<p class="first admonition-title">重要</p>
+<p class="last">Telemetry in Clear Linux OS is <strong>opt-in</strong>. The telemetry client is <strong>not</strong>  active
+and sends <strong>no</strong> data until you explicitly enable it.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>The telemetry functionality adheres to <a class="reference external" href="https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html">Intel privacy policies</a> regarding
+the collection and use of <abbr title="Personally Identifiable Information">PII</abbr>
+and is open source.</p>
+<p class="last">No intentionally identifiable information about the user or system owner is
+collected.</p>
+</div>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><a class="reference internal" href="#overview" id="id6">Overview</a></li>
+<li><a class="reference internal" href="#how-to-use" id="id7">How to use</a></li>
+<li><a class="reference internal" href="#examples" id="id8">Examples</a></li>
+<li><a class="reference internal" href="#reference" id="id9">Reference</a></li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id6">Overview</a></h2>
+<p>Telemetrics in Clear Linux OS is a client and server solution used to collect
+data from running Clear Linux OS systems to help quickly identify and fix bugs in the
+OS. Both client and server are customizable, and an API is available on the
+client side for instrumenting your code for debug and analysis.</p>
+<p>Telemetry, one of the key features of Clear Linux OS, enables developers to observe and
+proactively address issues in the OS before end users are impacted.</p>
+<p>Telemetrics is a combination word made from:</p>
+<ul class="simple">
+<li>Telemetry, which is sensing and reporting data.</li>
+<li>Analytics, which is using visualization and statistical inferencing to make
+sense of the reported data.</li>
+</ul>
+<p>Clear Linux OS telemetry reports system-level debug/crash information using specialized
+probes. The probes monitor system tasks such as swupd, kernel oops, machine
+error checks, and the BIOS error report table for unhandled hardware
+failures. Telemetry enables real-time issue reporting to allow system
+developers to focus quickly on an issue and monitor corrective actions.</p>
+<p>Clear Linux OS telemetry is fully customizable and can be used during software
+development for debugging purposes. You can use the libtelemetry library in
+your code to create custom telemetry records. You can also use the
+telem-record-gen utility in script files for light-touch record creation
+where instrumenting code files doesn’t make sense.</p>
+<p>The Clear Linux OS telemetrics solution is an <strong>opt-in</strong> choice on the client side.
+By default, the telemetry client is disabled until you choose to enable it.
+Enabling the client is covered in this guide.</p>
+<div class="section" id="architecture">
+<h3>Architecture</h3>
+<p>Clear Linux OS telemetry has two fundamental components, which are shown in Figure 1:</p>
+<ul class="simple">
+<li>Client: generates and delivers records to the backend server via the network.</li>
+<li>Backend: receives records sent from the client and displays the cumulative
+content through a specialized web interface.</li>
+</ul>
+<div class="figure" id="id4">
+<img alt="Figure 1, Telemetry Architecture" src="../../_images/telemetry-e2e1.png" />
+<p class="caption"><span class="caption-text">Figure 1: <span class="guilabel">|CL| Telemetry Architecture</span></span></p>
+</div>
+<p>The telemetry client provides the front end of the telemetrics solution and
+includes the following components:</p>
+<ul class="simple">
+<li>telemprobd, which is a daemon that receives and prepares telemetry records
+from probes and spools them to disk.</li>
+<li>telempostd, which is a daemon that manages spooled telemetry records and
+delivers these records according to configurable settings.</li>
+<li>probes, which collect specific types of data from the operating system.</li>
+<li>libtelemetry, which is the API that telemetrics probes use to create records.</li>
+</ul>
+<p>The telemetry backend provides the server-side component of the telemetrics
+solution and consists of:</p>
+<ul class="simple">
+<li>Nginx web server.</li>
+<li>Two Flask apps:<ul>
+<li>Collector, which is an ingestion web app for records received from client
+probes.</li>
+<li>TelemetryUI, which is a web app that exposes different views to visualize
+the telemetry data.</li>
+</ul>
+</li>
+<li>PostgreSQL as the underlying database server.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The default telemetry backend server is hosted by the Intel Clear Linux OS development
+team and is not viewable outside the Intel firewall. To collect your own
+records, you must set up your own telemetry backend server.</p>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-use">
+<h2><a class="toc-backref" href="#id7">How to use</a></h2>
+<p>From a workflow perspective, the Clear Linux OS telemetrics system is straightforward.
+On the client side, the main decisions after installation and enabling
+telemetry involve what to do with the record data generated by the probes.
+You can send the data to the default or a custom backend server, keep the data
+local to the system, or both. The backend server has a more complex setup, but
+once it’s running, it is simple to use and configure.</p>
+<p>This section describes some of the possible scenarios for configuring
+the Clear Linux OS telemetrics system, and suggests which ones make sense according to
+your needs.</p>
+<div class="section" id="scenarios">
+<h3>Scenarios</h3>
+<ol class="arabic">
+<li><p class="first">Enable telemetry:</p>
+<p>Before probes can generate records, the telemetry client daemons must be
+enabled. You can configure the client before enabling by creating a custom
+<code class="file docutils literal notranslate"><span class="pre">telemetrics.conf</span></code> file that you place in the <code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics</span></code>
+directory. If you choose to use the default settings, records will be sent
+to the telemetrics backend server managed by the Clear Linux OS development team at
+Intel.</p>
+</li>
+<li><p class="first">Save record data locally:</p>
+<p>You can configure the telemetry client to save records locally. This is
+convenient when you want instant feedback during a development cycle, or to
+track system issues if you believe there is a machine specific problem. The
+client can be set not to send records at all, or to both keep the records
+locally and send to the backend server.</p>
+</li>
+<li><p class="first">Set up a server to collect data:</p>
+<p>Whether you are managing a network of Clear Linux OS systems or you don’t want to
+send records to the default telemetry server, you can set up a backend
+server to collect your records. The backend server can be installed on any
+Linux system and provides the same dashboard as the default server.</p>
+</li>
+<li><p class="first">Instrument your code with the libtelemetry API:</p>
+<p>The <strong class="command">telemetrics</strong> bundle includes the libtelemetry C library, which
+exposes an API used by the telemprobd and telempostd daemons. You can use
+these in your applications as well. The API documentation is found in the
+<code class="file docutils literal notranslate"><span class="pre">telemetry.h</span></code> file in <a class="reference external" href="https://github.com/clearlinux/telemetrics-client/">Telemetrics client</a> repository.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id8">Examples</a></h2>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><a class="reference internal" href="#enable-or-disable-telemetry" id="id10">Enable or disable telemetry</a></li>
+<li><a class="reference internal" href="#saving-data-locally" id="id11">Saving data locally</a></li>
+<li><a class="reference internal" href="#set-up-a-back-end-server-to-collect-telemetry-records" id="id12">Set up a back-end server to collect telemetry records</a></li>
+<li><a class="reference internal" href="#create-records-with-telem-record-gen" id="id13">Create records with telem-record-gen</a></li>
+<li><a class="reference internal" href="#set-a-static-machine-id" id="id14">Set a static machine id</a></li>
+<li><a class="reference internal" href="#instrument-your-code-with-the-libtelemetry-api" id="id15">Instrument your code with the libtelemetry API</a></li>
+</ul>
+</div>
+<div class="section" id="enable-or-disable-telemetry">
+<h3><a class="toc-backref" href="#id10">Enable or disable telemetry</a></h3>
+<ol class="arabic">
+<li><p class="first">Enabling during installation:</p>
+<p>During the initial installation of Clear Linux OS, you are requested to join the
+stability enhancement program and allow Clear Linux OS to collect anonymous reports to
+improve system stability. If you choose not to join this program, then the
+telemetry software bundle is not added to your system. Choosing to join will
+automatically enable telemetry on your system after installation is
+complete.</p>
+</li>
+<li><p class="first">Enabling after install:</p>
+<p>To start telemetry on your system, run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo telemctl start
+</pre></div>
+</div>
+<p>This enables and starts the <strong class="command">telemprobd</strong> and <strong class="command">telempostd</strong>
+daemons. Your system will begin to send telemetry data to the server defined
+in the file <code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics/telemetrics.conf</span></code>. If this file does not
+exist, the <strong class="command">telemprobd</strong> and <strong class="command">telempostd</strong> daemons will use
+the file <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/telemetrics/telemetrics.conf</span></code>.</p>
+</li>
+<li><p class="first">Disabling after install:</p>
+<p>To disable both of the telemetry daemons, run the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo telemctl stop
+</pre></div>
+</div>
+</li>
+<li><p class="first">Opt in to telemetry:</p>
+<p>To opt-in to the telemetry services, simply enter the opt-in command, which
+also starts the service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo telemctl opt-in
+</pre></div>
+</div>
+<p>This removes the <code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics/opt-out</span></code> file, if it exists, and
+starts the telemetry services.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">To opt-in but not immediately start telemetry services, you must
+run the command <strong class="command">sudo telemctl stop</strong> after the <strong class="command">opt-in</strong>
+command is entered. Once you are ready to start the service, enter the
+command <strong class="command">sudo telemctl start</strong>.</p>
+</div>
+</li>
+<li><p class="first">Opt out of telemetry:</p>
+<p>To stop sending telemetrics data from your system, opt out of the telemetry
+service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo telemctl opt-out
+</pre></div>
+</div>
+<p>This creates the file <code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics/opt-out</span></code> and stops the
+telemetry services.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="saving-data-locally">
+<h3><a class="toc-backref" href="#id11">Saving data locally</a></h3>
+<p>This example requires Clear Linux OS to be installed and telemetry to be enabled on the
+system.</p>
+<p>To change how records are managed, copy the default
+<code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/telemetrics/telemetrics.conf</span></code> file to
+<code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics/telemetrics.conf</span></code> and edit it. The changes in the
+<code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics/telemetrics.conf</span></code> file will override the defaults in
+the <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/telemetrics/telemetrics.conf</span></code> file. You may need
+root permissions to create and edit files in <code class="file docutils literal notranslate"><span class="pre">/etc</span></code>. For each
+example, and for any time you make changes to the configuration file, you must
+restart the client daemons to pick up the changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo telemctl restart
+</pre></div>
+</div>
+<p>The <strong class="command">telemctl journal</strong> command gives you access to features and
+options of the telemetry journal to assist with system analytics and debug.
+<strong class="command">telemctl journal</strong> has a number of options to help filter records.
+Use <strong class="command">-h</strong> or <strong class="command">--help</strong> to view usage options.</p>
+<ol class="arabic">
+<li><p class="first">Keep a local copy and send records to backend server:</p>
+<p>To keep a local copy of the telemetry record and also send it on to the
+backend server, we will need to change the
+<span class="guilabel">record_retention_enabled</span> configuration key value to
+<span class="guilabel">true</span>.</p>
+</li>
+<li><p class="first">Keep all records  – don’t send to backend server:</p>
+<p>To keep records on the system without sending them to a backend server, set
+the <span class="guilabel">record_server_delivery_enabled</span> key value to
+<span class="guilabel">false</span>. Note that you will also need to ensure the
+<span class="guilabel">record_retention_enabled</span> configuration key value is set to
+<span class="guilabel">true</span> or the system will not keep local copies.</p>
+</li>
+<li><p class="first">Keep and send records to custom server:</p>
+<p>This assumes you have set up a custom server according to the next example.</p>
+<p>The server is identified by the <span class="guilabel">server</span> setting, and by default
+records are sent to the Clear Linux OS server
+<span class="guilabel">server=https://clr.telemetry.intel.com/v2/collector</span>. To change
+this, you can use an IP address or fully qualified domain name.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="set-up-a-back-end-server-to-collect-telemetry-records">
+<h3><a class="toc-backref" href="#id12">Set up a back-end server to collect telemetry records</a></h3>
+<p>For this example, start with a clean installation of Clear Linux OS on a new system
+using the <a class="reference internal" href="../../get-started/bare-metal-install-server/bare-metal-install-server.html#bare-metal-install-server"><span class="std std-ref">Install Clear Linux* OS on bare metal with live server</span></a> getting started guide and:</p>
+<ol class="arabic">
+<li><p class="first">Join the <span class="guilabel">Stability Enhancement Program</span> to install and
+enable the telemetrics components.</p>
+</li>
+<li><p class="first">Select the manual installation method with the following settings:</p>
+<ul class="simple">
+<li>Set the hostname to <span class="guilabel">clr-telem-server</span>,</li>
+<li>Create an administrative user named <span class="guilabel">clear</span> and add this user
+to sudoers</li>
+</ul>
+</li>
+<li><p class="first">Log in with your administrative user, from your <code class="file docutils literal notranslate"><span class="pre">$HOME</span></code> directory,
+run <strong class="command">git</strong> to clone the <span class="guilabel">telemetrics-backend</span> repository
+into the <code class="file docutils literal notranslate"><span class="pre">$HOME/telemetrics-backend</span></code> directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/clearlinux/telemetrics-backend</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">You may need to set up the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">https_proxy</span></code> environment variable if
+you have issues reaching github.com.</p>
+</div>
+</li>
+<li><p class="first">Change your current working directory to <code class="file docutils literal notranslate"><span class="pre">telemetrics-backend/scripts</span></code>.</p>
+</li>
+<li><p class="first">Before you install the telemetrics backend with the <code class="file docutils literal notranslate"><span class="pre">deploy.sh</span></code> script
+file in the next step, here is an explanation of the options to be specified:</p>
+<ul class="simple">
+<li><strong class="command">-a install</strong> to perform an install</li>
+<li><strong class="command">-d clr</strong> to install to a Clear Linux OS distro</li>
+<li><strong class="command">-H localhost</strong> to set the domain to localhost</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">警告</p>
+<p class="last">The <code class="file docutils literal notranslate"><span class="pre">deploy.sh</span></code> shell script has minimal error checking and makes
+several changes to your system. Be sure that the options you define on
+the cmdline are correct before proceeding.</p>
+</div>
+</li>
+<li><p class="first">Run the shell script from the <code class="file docutils literal notranslate"><span class="pre">$HOME/telemetrics-backend/scripts</span></code>
+directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./deploy.sh -H localhost -a install -d clr</span>
+</pre></div>
+</div>
+<p>The script starts and lists all the defined options and prompts you for
+the <span class="guilabel">PostgreSQL</span> database password.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Options:</span>
+<span class="go"> host: localhost</span>
+<span class="go"> distro: clr</span>
+<span class="go"> action: install</span>
+<span class="go"> repo: https://github.com/clearlinux/telemetrics-backend</span>
+<span class="go"> source: master</span>
+<span class="go"> type: git</span>
+<span class="go"> DB password: (default: postgres):</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">For the <span class="guilabel">DB password:</span>, press the <kbd class="kbd docutils literal notranslate">Enter</kbd> key to accept the
+default password <cite>postgres</cite>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The <code class="file docutils literal notranslate"><span class="pre">deploy.sh</span></code> script uses <strong class="command">sudo</strong> to run commands and you
+may be prompted to enter your user password at any time while the script
+is executing. If this occurs, enter your user password to execute the
+<strong class="command">sudo</strong> command.</p>
+</div>
+</li>
+<li><p class="first">After all the server components have been installed, you are prompted to
+enter the <span class="guilabel">PostgreSQL</span> database password to change it as
+illustrated below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Enter password for &#39;postgres&#39; user:</span>
+<span class="go">New password:</span>
+<span class="go">Retype new password:</span>
+<span class="go">passwd: password updated successfully</span>
+</pre></div>
+</div>
+<p>Enter <cite>postgres</cite> for the current value of the password and then enter a new
+password, retype it to verify the new password and the <span class="guilabel">PostgreSQL</span>
+database password will be updated.</p>
+</li>
+<li><p class="first">After the installation is complete, you can use your web browser to view the
+new server by opening the browser on the system and typing in localhost
+in the address bar. You should see a web page similar to the one shown in
+Figure 2 below.</p>
+<div class="figure" id="id5">
+<img alt="Telemetry UI" src="../../_images/telemetry-backend-1.png" />
+<p class="caption"><span class="caption-text">Figure 2: <span class="guilabel">Telemetry UI</span></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="create-records-with-telem-record-gen">
+<h3><a class="toc-backref" href="#id13">Create records with telem-record-gen</a></h3>
+<p>The telemetrics bundle provides a record generator tool called
+<cite>telem-record-gen</cite>. This tool can be used to create records from shell
+scripts or the command line when writing a probe in C is not desirable.
+Records are sent to the backend server, and can also be echoed to stdout.</p>
+<p>There are three ways to supply the payload to the record.</p>
+<ol class="arabic">
+<li><p class="first">On the command line, use the <strong class="command">-p &lt;string&gt;</strong> option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>telem-record-gen -c a/b/c -n -o -p <span class="s1">&#39;payload goes here&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">record_format_version: 4</span>
+<span class="go">classification: a/b/c</span>
+<span class="go">severity: 1</span>
+<span class="go">machine_id: FFFFFFFF</span>
+<span class="go">creation_timestamp: 1539023189</span>
+<span class="go">arch: x86_64</span>
+<span class="go">host_type: innotek GmbH|VirtualBox|1.2</span>
+<span class="go">build: 25180</span>
+<span class="go">kernel_version: 4.14.71-404.lts</span>
+<span class="go">payload_format_version: 1</span>
+<span class="go">system_name: clear-linux-os</span>
+<span class="go">board_name: VirtualBox|Oracle Corporation</span>
+<span class="go">cpu_model: Intel(R) Core(TM) i7-4650U CPU @ 1.70GHz</span>
+<span class="go">bios_version: VirtualBox</span>
+<span class="go">event_id: 2236710e4fc11e4a646ce956c7802788</span>
+
+<span class="go">payload goes here</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Specify a file that contains the payload with the option
+<strong class="command">-P path/to/file</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>telem-record-gen -c a/b/c -n -o -P ./payload_file.txt
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">record_format_version: 4</span>
+<span class="go">classification: a/b/c</span>
+<span class="go">severity: 1</span>
+<span class="go">machine_id: FFFFFFFF</span>
+<span class="go">creation_timestamp: 1539023621</span>
+<span class="go">arch: x86_64</span>
+<span class="go">host_type: innotek GmbH|VirtualBox|1.2</span>
+<span class="go">build: 25180</span>
+<span class="go">kernel_version: 4.14.71-404.lts</span>
+<span class="go">payload_format_version: 1</span>
+<span class="go">system_name: clear-linux-os</span>
+<span class="go">board_name: VirtualBox|Oracle Corporation</span>
+<span class="go">cpu_model: Intel(R) Core(TM) i7-4650U CPU @ 1.70GHz</span>
+<span class="go">bios_version: VirtualBox</span>
+<span class="go">event_id: d73d6040afd7693cccdfece479df9795</span>
+
+<span class="go">payload read from file</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If the <strong class="command">-p</strong> or <strong class="command">-P</strong> options are absent, the tool reads
+from stdin so you can use it in a <code class="file docutils literal notranslate"><span class="pre">heredoc</span></code> in scripts.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#telem-record-gen -c a/b/c -n -o &lt;&lt; HEOF</span>
+payload <span class="nb">read</span> from stdin
+HEOF
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">record_format_version: 4</span>
+<span class="go">classification: a/b/c</span>
+<span class="go">severity: 1</span>
+<span class="go">machine_id: FFFFFFFF</span>
+<span class="go">creation_timestamp: 1539023621</span>
+<span class="go">arch: x86_64</span>
+<span class="go">host_type: innotek GmbH|VirtualBox|1.2</span>
+<span class="go">build: 25180</span>
+<span class="go">kernel_version: 4.14.71-404.lts</span>
+<span class="go">payload_format_version: 1</span>
+<span class="go">system_name: clear-linux-os</span>
+<span class="go">board_name: VirtualBox|Oracle Corporation</span>
+<span class="go">cpu_model: Intel(R) Core(TM) i7-4650U CPU @ 1.70GHz</span>
+<span class="go">bios_version: VirtualBox</span>
+<span class="go">event_id: 2f070e8e71679f2b1f28794e3a6c42ee</span>
+
+<span class="go">payload read from stdin</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="set-a-static-machine-id">
+<h3><a class="toc-backref" href="#id14">Set a static machine id</a></h3>
+<p>The machine id reported by the telemetry client is rotated every three days
+for privacy reasons. If you wish to have a static machine id for testing
+purposes, you can opt in by creating a file named <cite>opt-in-static-machine-id</cite>
+in the directory  <code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics/</span></code>.</p>
+<ol class="arabic">
+<li><p class="first">Create a directory <cite>telemetrics</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo mkdir -p /etc/telemetrics
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create the file and replace the “unique machine ID” with your desired
+static machine ID.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;unique machine ID&quot;</span> <span class="p">|</span> sudo tee /etc/telemetrics/opt-in-static-machine-id
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The machine ID is different than the system hostname.</p>
+</div>
+</div>
+<div class="section" id="instrument-your-code-with-the-libtelemetry-api">
+<h3><a class="toc-backref" href="#id15">Instrument your code with the libtelemetry API</a></h3>
+<div class="section" id="prerequisites">
+<h4>Prerequisites</h4>
+<p>Confirm that the telemetrics header file is located on the system at
+<code class="file docutils literal notranslate"><span class="pre">usr/include/telemetry.h</span></code>  The <a class="reference external" href="https://github.com/clearlinux/telemetrics-client/tree/master/src">latest version</a> of the file can also be
+found on github for reference, but installing the <strong class="command">telemetry</strong> bundle
+will install the header file that matches your Clear Linux OS version.</p>
+<ol class="arabic">
+<li><p class="first">Includes and variables:</p>
+<p>You must include the following headers in your code to use the API:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>define _GNU_SOURCE
+<span class="gp">#</span>include &lt;stdlib.h&gt;
+<span class="gp">#</span>include &lt;stdio.h&gt;
+<span class="gp">#</span>include &lt;string.h&gt;
+<span class="gp">#</span>include &lt;telemetry.h&gt;
+</pre></div>
+</div>
+<p>Use the following code to create the variables needed to hold the data for
+the record to be created:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">uint32_t severity = 1;</span>
+<span class="go">uint32_t payload_version = 1;</span>
+<span class="go">char classification[30] = &quot;org.clearlinux/hello/world&quot;;</span>
+<span class="go">struct telem_ref *tm_handle = NULL;</span>
+<span class="go">char *payload;</span>
+<span class="go">int ret = 0;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Severity:</dt>
+<dd><p class="first last">Type: uint32_t
+Value:  Severity field value. Accepted values are in the range 1-4, with
+1 being the lowest severity, and 4 being the highest severity. Values
+provided outside of this range are clamped to 1 or 4. [low, med, high,
+crit]</p>
+</dd>
+<dt>Payload_version:</dt>
+<dd><p class="first last">Type: uint32_t
+Value: Payload format version. The only supported value right now is 1,
+which indicates that the payload is a freely-formatted (unstructured)
+string. Values greater than 1 are reserved for future use.</p>
+</dd>
+<dt>Classification:</dt>
+<dd><p class="first last">Type: char array
+Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the
+reverse domain to use as a namespace for the probe (e.g. org.clearlinux);
+PROBENAME is the name of the probe; and REST is an arbitrary value that
+the probe should use to classify the record. The maximum length for the
+classification string is 122 bytes. Each sub-category may be no longer
+than 40 bytes long. Two / delimiters are required.</p>
+</dd>
+<dt>Tm_handle:</dt>
+<dd><p class="first last">Type: Telem_ref struct pointer
+Value:  Struct pointer declared by the caller, The struct is initialized
+if the function returns success.</p>
+</dd>
+<dt>Payload:</dt>
+<dd><p class="first last">Type: char pointer
+Value: The payload to set</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">For this example, we’ll set the payload to “hello” by using
+<strong class="command">asprintf()</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">if (asprintf(&amp;payload, &quot;hello\n&quot;) &lt; 0) {</span>
+<span class="go">  exit(EXIT_FAILURE);</span>
+<span class="go">   }</span>
+</pre></div>
+</div>
+<p>The functions <strong class="command">asprintf()</strong> and <strong class="command">vasprintf()</strong> are analogs of
+<strong class="command">sprintf(3)</strong> and <strong class="command">vsprintf(3)</strong>, except that they allocate a
+string large enough to hold the output including the terminating null byte
+(‘0’), and return a pointer to it via the first argument. This pointer
+should be passed to <strong class="command">free(3)</strong> to release the allocated storage when
+it is no longer needed.</p>
+</li>
+<li><p class="first">Create the new telemetry record:</p>
+<p>The  function  <strong class="command">tm_create_record()</strong> initializes a telemetry record and
+sets the severity and classification of that record, as well as the payload
+version number. The memory needed to store the telemetry record is allocated
+and should be freed with <strong class="command">tm_free_record()</strong> when no longer needed.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">if ((ret = tm_create_record(&amp;tm_handle, severity,    classification, payload_version)) &lt; 0) {</span>
+<span class="go">printf(&quot;Failed to create record: %s\n&quot;, strerror(-ret));</span>
+<span class="go">ret = 1;</span>
+<span class="go">goto fail;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Set the payload field of a telemetrics record:</p>
+<p>The function <strong class="command">tm_set_payload()</strong> attaches the provided telemetry record
+data to the telemetry record. The current maximum payload size is 8192b.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">if ((ret = tm_set_payload(tm_handle, payload)) &lt; 0) {</span>
+<span class="go">   printf(&quot;Failed to set record payload: %s\n&quot;, strerror(-ret));</span>
+<span class="go">   ret = 1;</span>
+<span class="go">   goto fail;</span>
+<span class="go">}</span>
+<span class="go">free(payload);</span>
+</pre></div>
+</div>
+<p>The <strong class="command">free()</strong> function frees the memory space pointed to by <cite>ptr</cite>, which
+must have been returned by a previous call to <strong class="command">malloc()</strong>,
+<strong class="command">calloc()</strong>, or <strong class="command">realloc()</strong>. Otherwise, or if
+<strong class="command">free(ptr)</strong> has already been called before, undefined behavior
+occurs. If <cite>ptr</cite> is NULL, no operation is performed.</p>
+</li>
+<li><p class="first">Send a record to the telemetrics daemon:</p>
+<p>The function <strong class="command">tm_send_record()</strong> delivers the record to the local
+<strong class="command">telemprobd(1)</strong> service. Since the telemetry record was allocated by
+the program it should be freed with <strong class="command">tm_free_record()</strong> when it is no
+longer needed.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">if ((ret = tm_send_record(tm_handle)) &lt; 0) {</span>
+<span class="go">   printf(&quot;Failed to send record to daemon: %s\n&quot;, strerror(-ret));</span>
+<span class="go">   ret = 1;</span>
+<span class="go">   goto fail;</span>
+<span class="go">} else {</span>
+<span class="go">   printf(&quot;Successfully sent record to daemon.\n&quot;);</span>
+<span class="go">   ret = 0;</span>
+<span class="go">}</span>
+<span class="go">fail:</span>
+<span class="go">tm_free_record(tm_handle);</span>
+<span class="go">tm_handle = NULL;</span>
+
+<span class="go">return ret;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A full sample application with compiling flags:</p>
+<p>Create a new file <code class="file docutils literal notranslate"><span class="pre">test.c</span></code> and add the following code:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>define _GNU_SOURCE
+<span class="gp">#</span>include &lt;stdlib.h&gt;
+<span class="gp">#</span>include &lt;stdio.h&gt;
+<span class="gp">#</span>include &lt;string.h&gt;
+<span class="gp">#</span>include &lt;telemetry.h&gt;
+
+<span class="go">int main(int argc, char **argv)</span>
+<span class="go">{</span>
+<span class="go">      uint32_t severity = 1;</span>
+<span class="go">      uint32_t payload_version = 1;</span>
+<span class="go">      char classification[30] = &quot;org.clearlinux/hello/world&quot;;</span>
+<span class="go">      struct telem_ref *tm_handle = NULL;</span>
+<span class="go">      char *payload;</span>
+
+<span class="go">      int ret = 0;</span>
+
+<span class="go">      if (asprintf(&amp;payload, &quot;hello\n&quot;) &lt; 0) {</span>
+<span class="go">              exit(EXIT_FAILURE);</span>
+<span class="go">      }</span>
+
+<span class="go">      if ((ret = tm_create_record(&amp;tm_handle, severity, classification, payload_version)) &lt; 0) {</span>
+<span class="go">              printf(&quot;Failed to create record: %s\n&quot;, strerror(-ret));</span>
+<span class="go">              ret = 1;</span>
+<span class="go">              goto fail;</span>
+<span class="go">      }</span>
+
+<span class="go">      if ((ret = tm_set_payload(tm_handle, payload)) &lt; 0) {</span>
+<span class="go">              printf(&quot;Failed to set record payload: %s\n&quot;, strerror(-ret));</span>
+<span class="go">              ret = 1;</span>
+<span class="go">              goto fail;</span>
+<span class="go">      }</span>
+
+<span class="go">      free(payload);</span>
+
+<span class="go">      if ((ret = tm_send_record(tm_handle)) &lt; 0) {</span>
+<span class="go">              printf(&quot;Failed to send record to daemon: %s\n&quot;, strerror(-ret));</span>
+<span class="go">              ret = 1;</span>
+<span class="go">              goto fail;</span>
+<span class="go">      } else {</span>
+<span class="go">              printf(&quot;Successfully sent record to daemon.\n&quot;);</span>
+<span class="go">              ret = 0;</span>
+<span class="go">      }</span>
+<span class="go">fail:</span>
+<span class="go">      tm_free_record(tm_handle);</span>
+<span class="go">      tm_handle = NULL;</span>
+
+<span class="go">      return ret;</span>
+<span class="go"> }</span>
+</pre></div>
+</div>
+<p>Compile with the gcc compiler, using this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc test.c -ltelemetry -o test_telem
+</pre></div>
+</div>
+<p>Test to ensure the program is working:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./test_telem
+Successfully sent record to daemon.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">A full example of the <a class="reference external" href="https://github.com/clearlinux/telemetrics-client/tree/master/src/probes/hello.c">heartbeat probe</a> in C is documented in the
+source code.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="reference">
+<h2><a class="toc-backref" href="#id9">Reference</a></h2>
+<div class="contents local topic" id="id3">
+<ul class="simple">
+<li><a class="reference internal" href="#the-telemetry-api" id="id16">The telemetry API</a></li>
+<li><a class="reference internal" href="#client-configuration" id="id17">Client configuration</a></li>
+<li><a class="reference internal" href="#client-run-time-options" id="id18">Client run-time options</a></li>
+</ul>
+</div>
+<div class="section" id="the-telemetry-api">
+<h3><a class="toc-backref" href="#id16">The telemetry API</a></h3>
+<p>Installing the <strong class="command">telemetrics</strong> bundle includes the libtelemetry C library,
+which exposes an API used by the telemprobd and telempostd daemons. You can
+use these in your applications as well. The API documentation is found in the
+<code class="file docutils literal notranslate"><span class="pre">telemetry.h</span></code> file in <a class="reference external" href="https://github.com/clearlinux/telemetrics-client/">Telemetrics client</a> repository.</p>
+</div>
+<div class="section" id="client-configuration">
+<h3><a class="toc-backref" href="#id17">Client configuration</a></h3>
+<p>The telemetry client will look for the configuration file located at
+<code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics/telemetrics.conf</span></code> and use it if it exists. If the
+file does not exist, the client will use the default configuration located
+at <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults</span> <span class="pre">telemetrics/telemetrics.conf</span></code>. To modify or
+customize the configuration, copy the file from
+<code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/telemetrics</span></code> to <code class="file docutils literal notranslate"><span class="pre">/etc/telemetrics</span></code> and edit it.</p>
+<div class="section" id="configuration-options">
+<h4>Configuration options</h4>
+<p>The client uses the following configuration options from the config file:</p>
+<dl class="docutils">
+<dt>server</dt>
+<dd>This specifies the web server to which telempostd sends the telemetry records.</dd>
+<dt>socket_path</dt>
+<dd>This specifies the path of the unix domain socket on which the telemprobd
+listens for connections from the probes.</dd>
+<dt>spool_dir</dt>
+<dd>This configuration option is related to spooling. If the daemon is not able
+to send the telemetry records to the backend server due to reasons such as
+the network availability, then it stores the records in a spool directory.
+This option specifies the path of the spool directory. This directory should
+be owned by the same user as the daemon.</dd>
+<dt>record_expiry</dt>
+<dd>This is the time, in minutes, after which the records in the spool directory
+are deleted by the daemon.</dd>
+<dt>spool_process_time</dt>
+<dd>This specifies the time interval, in seconds, that the daemon waits for
+before checking the spool directory for records. The daemon picks up the
+records in the order of modification date and tries to send the record to the
+server. It sends a maximum of 10 records at a time. If it was able to send a
+record successfully, it deletes the record from the spool. If the daemon
+finds a record older than the “record_expiry” time, then it deletes that
+record. The daemon looks at a maximum of 20 records in a single spool run loop.</dd>
+<dt>rate_limit_enabled</dt>
+<dd>This determines whether rate-limiting is enabled or disabled. When enabled,
+there is a threshold on both records sent within a window of time, and record
+bytes sent within a window a time.</dd>
+<dt>record_burst_limit</dt>
+<dd>This is the maximum amount of records allowed to be passed by the daemon
+within the record_window_length of time. If set to -1, the rate-limiting for
+record bursts is disabled.</dd>
+<dt>record_window_length</dt>
+<dd>The time, in minutes (0-59), that establishes the window length for the
+record_burst_limit. For example, if record_burst_window=1000 and
+record_window_length=15, then no more than 1000 records can be passed within
+any given fifteen-minute window.</dd>
+<dt>byte_burst_limit</dt>
+<dd>This is the maximum amount of bytes that can be passed by the daemon within
+the byte_window_length of time. If set to -1, the rate-limiting for byte
+bursts is disabled.</dd>
+<dt>byte_window_length</dt>
+<dd>This is the time, in minutes (0-59), that establishes the window length for
+the byte_burst_limit.</dd>
+<dt>rate_limit_strategy</dt>
+<dd>This is the strategy chosen once the rate-limiting threshold has been
+reached. Currently the options are ‘drop’ or ‘spool’, with spool being the
+default. If spool is chosen, records will be spooled and sent at a later time.</dd>
+<dt>record_retention_enabled</dt>
+<dd>When this key is enabled (true) the daemon saves a copy of the payload on
+disk from all valid records. To avoid the excessive use of disk space only
+the latest 100 records are kept. The default value for this configuration key
+is false.</dd>
+<dt>record_server_delivery_enabled</dt>
+<dd><blockquote class="first">
+<div>This key controls the delivery of records to server; when enabled (default
+value), the record will be posted to the address in the configuration file.
+If this configuration key is disabled (false), records will not be spooled or
+posted to backend. This configuration key can be used in combination with
+record_retention_enabled to keep copies of telemetry records locally only.</div></blockquote>
+<div class="last admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Configuration options may change as the telemetry client evolves.
+Please use the comments in the file itself as the most accurate
+reference for configuration.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="client-run-time-options">
+<h3><a class="toc-backref" href="#id18">Client run-time options</a></h3>
+<p>The Clear Linux OS telemetry client provides an admin tool called <span class="guilabel">telemctl</span>
+for managing the telemetry services and probes. The tool is located in
+<code class="file docutils literal notranslate"><span class="pre">/usr/bin</span></code>. Running it with no argument results in the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo telemctl
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/usr/bin/telemctl - Control actions for telemetry services</span>
+<span class="go">  stop       Stops all running telemetry services</span>
+<span class="go">  start      Starts all telemetry services</span>
+<span class="go">  restart    Restarts all telemetry services</span>
+<span class="go">  is-active  Checks if telemprobd and telempostd are active</span>
+<span class="go">  opt-in     Opts in to telemetry, and starts telemetry services</span>
+<span class="go">  opt-out    Opts out of telemetry, and stops telemetry services</span>
+<span class="go">  journal    Prints telemetry journal contents. Use -h argument for more</span>
+<span class="go">             options</span>
+</pre></div>
+</div>
+<div class="section" id="start-stop-restart">
+<h4>start/stop/restart</h4>
+<p>The commands to start, stop and restart the telemetry services manage all
+required services and probes on the system. There is no need to separately
+start/stop/restart the two client daemons telemprobd and telempostd.
+The <strong class="command">restart</strong> command option will call <strong class="command">telemctl stop</strong>
+followed by <strong class="command">telemctl start</strong> .</p>
+</div>
+<div class="section" id="is-active">
+<h4>is-active</h4>
+<p>The <strong class="command">is-active</strong> option reports whether the two client daemons are
+active. This is useful to verify that the <strong class="command">opt-in</strong> and
+<strong class="command">opt-out</strong> options have taken effect, or to ensure that telemetry is
+functioning on the system. Note that both daemons are verified.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo telemctl is-active
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">telemprobd : active</span>
+<span class="go">telempostd : active</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../maintenance/architect-lifecycle.html" class="btn btn-neutral float-right" title="Architect the life-cycle of Clear Linux* OS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../clear/swupd-guide.html" class="btn btn-neutral float-left" title="swupd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, many
+      <span class="lastupdated">
+        最后更新于 7月 29, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script type="text/javascript" src="../../_static/tcs_theme.js"></script>
+
+
+
+</body>
+</html>
