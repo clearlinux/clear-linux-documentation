@@ -1070,7 +1070,7 @@ msgid ""
 "Configure the mixer update server. Create and add the following server "
 "configuration content to :file:`/etc/nginx/conf.d/mixer.conf` (sudo "
 "required):"
-msgstr "配置 mixer 更新服务器。创建以下服务器配置内容并将其添加到 :file:`/etc/nginx/conf.d/mixer.conf`（需 sudo 权限）："
+msgstr "配置 mixer 更新服务器。创建以下服务器配置内容并将其添加到 :file:`/etc/nginx/conf.d/mixer.conf` （需 sudo 权限）："
 
 #: ../../tooling/mixer.rst:833
 msgid "Restart the daemon, enable nginx on boot, and start the service."

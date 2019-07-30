@@ -118,7 +118,7 @@ msgstr "`Current release`_"
 
 #: ../../tooling/ister.rst:61
 msgid "`Previous releases`_ (only after March 2017)"
-msgstr "`Previous releases`_（仅 2017 年 3 月后）"
+msgstr "`Previous releases`_ （仅 2017 年 3 月后）"
 
 #: ../../tooling/ister.rst:63
 msgid ""
