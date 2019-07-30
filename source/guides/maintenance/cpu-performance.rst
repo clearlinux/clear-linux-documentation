@@ -169,8 +169,7 @@ by running the command:
 
 .. code:: bash
 
-   sudo systemctl enable thermald
-   sudo systemctl start thermald
+   sudo systemctl enable --now thermald
 
 For more information, see the thermald man page:
 
