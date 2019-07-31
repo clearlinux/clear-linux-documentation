@@ -34,7 +34,7 @@ import shlex
 #]
 
 extensions = [
-    'sphinx.ext.autodoc', 'sphinx.ext.todo'
+    'sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx_sitemap'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -326,3 +326,5 @@ html_add_permalinks = ""
 
 locale_dirs = ['../locale/'] # path for lang-specific po files.
 gettext_compact = False # optional.
+
+html_baseurl = 'https://docs.01.org/clearlinux/'
