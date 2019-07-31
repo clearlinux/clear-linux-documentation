@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-26 11:17-0008\n"
+"PO-Revision-Date: 2019-07-31 12:04-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -101,17 +101,17 @@ msgstr "在主机系统上启动 |VBM|。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:61
 msgid "Click the :guilabel:`New` button to create a new VM."
-msgstr "点击 :guilabel:`新建` 按钮创建一个新虚拟机。"
+msgstr "点击 :guilabel:`New` 按钮创建一个新虚拟机。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:63
 msgid "Choose :guilabel:`Expert mode`."
-msgstr "选择 :guilabel:`专家模式`。"
+msgstr "选择 :guilabel:`Expert mode`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:65
 msgid ""
 "On the :guilabel:`Create Virtual Machine` screen, enter the following "
 "settings:"
-msgstr "在 :guilabel:`创建虚拟机` 屏幕上，输入以下设置："
+msgstr "在 :guilabel:`Create Virtual Machine` 屏幕上，输入以下设置："
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:67
 msgid "**Name**: Choose name (e.g. ClearLinuxOS-VM)."
@@ -138,7 +138,7 @@ msgid ""
 "Later, if you want to change the amount of RAM allocated, power down your"
 " VM. Return to :file:`Settings > System` and change :guilabel:`Base "
 "Memory` to the desired size."
-msgstr "以后如果希望更改分配的 RAM 大小，请关闭虚拟机。返回 :file:`Settings > System` 并将 :guilabel:`基本内存` 更改为想要的大小。"
+msgstr "以后如果希望更改分配的 RAM 大小，请关闭虚拟机。返回 :file:`Settings > System` 并将 :guilabel:`Base Memory` 更改为想要的大小。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:81
 msgid "Figure 2: Create Virtual Machine"
@@ -147,11 +147,11 @@ msgstr "图 2：创建虚拟机"
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:83
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:98
 msgid "Click :guilabel:`Create`."
-msgstr "点击 :guilabel:`创建`。"
+msgstr "点击 :guilabel:`Create`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:85
 msgid "On the :guilabel:`Create Virtual Hard Disk` screen, select:"
-msgstr "在 :guilabel:`创建虚拟硬盘` 屏幕上，选择："
+msgstr "在 :guilabel:`Create Virtual Hard Disk` 屏幕上，选择："
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:87
 msgid "**File location**"
@@ -180,7 +180,7 @@ msgstr "新的虚拟机将创建完成并出现在 |VBM| 中。"
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:102
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:218
 msgid "Click :guilabel:`Settings` to configure the |CL| VM."
-msgstr "点击 :guilabel:`设置` 配置 |CL| 虚拟机。"
+msgstr "点击 :guilabel:`Settings` 配置 |CL| 虚拟机。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:104
 msgid "In the left-hand menu, navigate to the :menuselection:`System` menu."
@@ -190,7 +190,7 @@ msgstr "在左侧菜单中，导航至 :menuselection:`系统` 菜单。"
 msgid ""
 "On the :guilabel:`Motherboard` tab, select the :guilabel:`Chipset` menu, "
 "and then select :menuselection:`ICH9`. See Figure 4."
-msgstr "在 :guilabel:`主板` 标签上，选择 :guilabel:`芯片组` 菜单，然后选择 :menuselection:`ICH9`。参见图 4。"
+msgstr "在 :guilabel:`Motherboard` 标签上，选择 :guilabel:`Chipset` 菜单，然后选择 :menuselection:`ICH9`。参见图 4。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:111
 msgid ""
@@ -200,7 +200,7 @@ msgstr "您可以为虚拟机选择芯片组。查阅 `VM VirtualBox User Manual
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:114
 msgid "In :guilabel:`Enabled Features`, check these boxes:"
-msgstr "在 :guilabel:`已启用功能` 中，选中以下方框："
+msgstr "在 :guilabel:`Enabled Features` 中，选中以下方框："
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:116
 msgid "**Enable I/O APIC**"
@@ -223,7 +223,7 @@ msgstr "默认情况下，只为新的虚拟机分配 1 个虚拟 CPU。可在�
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:132
 msgid "Click :guilabel:`OK`."
-msgstr "点击 :guilabel:`确定`。"
+msgstr "点击 :guilabel:`OK`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:135
 msgid "Install |CL| on the |VB| VM"
@@ -247,20 +247,20 @@ msgstr "|CL| 安装程序 ISO 必须在虚拟机上作为虚拟 CD-ROM 挂载，
 msgid ""
 "From the *ClearLinux-OS* :guilabel:`Settings` menu at left, select "
 ":guilabel:`Storage`."
-msgstr "从左边的 *ClearLinux-OS* :guilabel:`设置` 菜单选择 :guilabel:`存储`。"
+msgstr "从左边的 *ClearLinux-OS* :guilabel:`Settings` 菜单选择 :guilabel:`Storage`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:148
 msgid ""
 "From :guilabel:`Storage Devices`, middle column, click the blue disk "
 "labeled :guilabel:`Empty`."
-msgstr "从 :guilabel:`存储设备` 中间栏上，点击标记为 :guilabel:`空` 的蓝色盘。"
+msgstr "从 :guilabel:`Storage Devices` 中间栏上，点击标记为 :guilabel:`Empty` 的蓝色盘。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:151
 msgid ""
 "From the :guilabel:`Attributes` menu, click the blue CD disk next to the "
 ":guilabel:`Optical Drive` drop down menu and click :guilabel:`Choose "
 "Virtual Optical Disk File...`"
-msgstr "从 :guilabel:`属性` 菜单点击 :guilabel:`光盘驱动器` 下拉菜单旁边的蓝色 CD 盘，然后点击 :guilabel:`选择虚拟光盘文件...`"
+msgstr "从 :guilabel:`Attributes` 菜单点击 :guilabel:`Optical Drive` 下拉菜单旁边的蓝色 CD 盘，然后点击 :guilabel:`Choose Virtual Optical Disk File...`"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:159
 msgid "Figure 5: Choose Virtual Optical Disk Drive"
@@ -270,7 +270,7 @@ msgstr "图 5：选择虚拟光盘驱动器"
 msgid ""
 "Where there appears :guilabel:`Please choose a virtual optical disk "
 "file`, select the ISO file and click *Open*."
-msgstr "显示 :guilabel:`请选择虚拟光盘文件` 后，选择 ISO 文件并点击 *打开*。"
+msgstr "显示 :guilabel:`Please choose a virtual optical disk file` 后，选择 ISO 文件并点击 *打开*。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:168
 msgid "Figure 6: Mounting an ISO"
@@ -278,7 +278,7 @@ msgstr "图 6：挂载 ISO"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:170
 msgid "Click :guilabel:`OK` to exit and return to the main |VBM|."
-msgstr "点击 :guilabel:`确定` 退出，返回主 |VBM|。"
+msgstr "点击 :guilabel:`OK` 退出，返回主 |VBM|。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:173
 msgid "Install |CL| with live-server installer"
@@ -288,7 +288,7 @@ msgstr "利用 live-server 安装程序安装 |CL|"
 msgid ""
 "In the |VBM|, select virtual machine you created and click "
 ":guilabel:`Start`."
-msgstr "在 |VBM| 中，选择您创建的虚拟机，点击 :guilabel:`启动`。"
+msgstr "在 |VBM| 中，选择您创建的虚拟机，点击 :guilabel:`Start`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:181
 msgid "Figure 7: Start the installer"
@@ -304,7 +304,7 @@ msgstr "要从虚拟机控制台窗口释放鼠标光标，按下键盘右边的
 msgid ""
 "When :guilabel:`Clear Linux Installer` in boot manager appears, select "
 ":kbd:`Enter`. Do not install the bundle `desktop-autostart`."
-msgstr "引导管理器中出现 :guilabel:`Clear Linux 安装程序` 时，选择 :kbd:`回车`。不要安装 bundle 文件 `desktop-autostart`。"
+msgstr "引导管理器中出现 :guilabel:`Clear Linux Installer` 时，选择 :kbd:`回车`。不要安装 bundle 文件 `desktop-autostart`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:191
 msgid ""
@@ -316,13 +316,13 @@ msgstr "按照 :ref:`bare-metal-install-server` 中的步骤，将 |CL| 安装�
 msgid ""
 "In :guilabel:`Configure Installation Media`, navigate top VBOX HARDDISK, "
 "and then select :guilabel:`Confirm`."
-msgstr "在 :guilabel:`配置安装介质` 中，导航至顶级 VBOX HARDDISK，然后选择 :guilabel:`确认`。"
+msgstr "在 :guilabel:`Configure Installation Media` 中，导航至顶级 VBOX HARDDISK，然后选择 :guilabel:`Confirm`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:197
 msgid ""
 "In :menuselection:`Advanced options --> Manage User`, create an "
 "administrative user."
-msgstr "在 :menuselection:`高级选项 --> 管理用户` 中，创建一个管理员用户。"
+msgstr "在 :menuselection:`高级选项 --> 管理用户`中，创建一个管理员用户。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:200
 msgid "Do not install the bundle `desktop-autostart`."
@@ -330,7 +330,7 @@ msgstr "不要安装 bundle 文件 `desktop-autostart`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:202
 msgid "When |CL| installation is complete, click :guilabel:`Exit`."
-msgstr "完成 |CL| 安装后，点击 :guilabel:`退出`。"
+msgstr "完成 |CL| 安装后，点击 :guilabel:`Exit`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:204
 msgid "At the prompt, enter:"
@@ -354,21 +354,21 @@ msgstr "返回 |VBM|。"
 msgid ""
 "From the VM :guilabel:`Settings` window, navigate to the "
 ":guilabel:`Storage` pane in the left menu."
-msgstr "从虚拟机 :guilabel:`设置` 窗口，导航至左侧菜单的 :guilabel:`存储` 窗格。"
+msgstr "从虚拟机 :guilabel:`Settings` 窗口，导航至左侧菜单的 :guilabel:`Storage` 窗格。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:223
 msgid ""
 "From the middle :guilabel:`Storage Devices` column, click the blue CD "
 "disk labeled :guilabel:`clear-<VERSION>-live-server.iso` under the "
 ":guilabel:`Controller: IDE`."
-msgstr "从 :guilabel:`存储设备` 中间栏上，点击 :guilabel:`控制器: IDE` 下面标注为 :guilabel:`clear-<VERSION>-live-server.iso` 的蓝色 CD 盘。"
+msgstr "从 :guilabel:`Storage Devices` 中间栏上，点击 :guilabel:`Controller: IDE` 下面标注为 :guilabel:`clear-<VERSION>-live-server.iso` 的蓝色 CD 盘。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:227
 msgid ""
 "From the :guilabel:`Attributes` column on the right, in :guilabel:`Optical "
 "Drive`, select the blue CD icon beside and click :guilabel:`Remove Disk "
 "from Virtual Drive`."
-msgstr "在 :guilabel:`光盘驱动器` 右边的 :guilabel:`属性` 栏中，选择旁边的蓝色 CD 图标，点击 :guilabel:`从虚拟驱动器中取出磁盘`。"
+msgstr "在 :guilabel:`Attributes` 右边的 :guilabel:`Optical Drive` 栏中，选择旁边的蓝色 CD 图标，点击 :guilabel:`Remove Disk from Virtual Drive`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:235
 msgid "Figure 8: Remove Disk from Virtual Drive"
@@ -378,7 +378,7 @@ msgstr "图 8：从虚拟驱动器中取出磁盘"
 msgid ""
 "Click :guilabel:`OK` to exit the :guilabel:`VM Settings` menu and return "
 "to the main |VBM|."
-msgstr "点击 :guilabel:`确定` 退出 :guilabel:`虚拟机设置` 菜单，返回主 |VBM|。"
+msgstr "点击 :guilabel:`OK` 退出 :guilabel:`VM Settings` 菜单，返回主 |VBM|。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:241
 msgid "Install |VB| Linux Guest Additions"
@@ -389,11 +389,11 @@ msgid ""
 "|CL| provides Linux Guest Additions drivers for full compatibility using "
 "an install script in the **kernel-lts** (Long Term Support) bundle by "
 "|CL|."
-msgstr "|CL| 利用其 **kernel-lts** （长期支持） bundle 中的安装脚本为 Linux Guest Additions 驱动程序提供完全的兼容性。"
+msgstr "|CL| 利用其 **kernel-lts**（长期支持）bundle 中的安装脚本为 Linux Guest Additions 驱动程序提供完全的兼容性。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:246
 msgid "From the |VBM| select the |CL| VM, and select :guilabel:`Start`."
-msgstr "从 |VBM| 中选择 |CL| 虚拟机，然后选择 :guilabel:`启动`。"
+msgstr "从 |VBM| 中选择 |CL| 虚拟机，然后选择 :guilabel:`Start`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:248
 msgid "In the VM Console, log in as the administrative user previously created."
@@ -437,7 +437,7 @@ msgid ""
 "In the VM Console top menu, click :guilabel:`Devices`, and select "
 ":guilabel:`Insert Guest Additions CD image...` to mount the |VB| driver "
 "installation to the |CL| VM."
-msgstr "在虚拟机控制台顶级菜单中，点击 :guilabel:`设备`，然后选择 :guilabel:`插入 Guest Additions CD 映像...`，在 |CL| 虚拟机上挂载 |VB| 驱动程序安装。"
+msgstr "在虚拟机控制台顶级菜单中，点击 :guilabel:`Devices`，然后选择 :guilabel:`Insert Guest Additions CD image...`，在 |CL| 虚拟机上挂载 |VB| 驱动程序安装。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:296
 msgid "Figure 9: Insert Guest Additions CD image"
@@ -447,7 +447,7 @@ msgstr "图 9：插入 Guest Additions CD 映像"
 msgid ""
 "If a dialogue appears, \"VBx_GAs_6.0.8... Would you like to run it?\", "
 "select :guilabel:`Cancel`."
-msgstr "如果出现对话 \"VBx_GAs_6.0.8...Would you like to run it?\"，选择 :guilabel:`取消`。"
+msgstr "如果出现对话 \"VBx_GAs_6.0.8...Would you like to run it?\"，选择 :guilabel:`Cancel`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:301
 msgid "Instead, we provide a script to patch and install |VB| drivers on |CL|."
@@ -473,13 +473,13 @@ msgstr "图 10：关闭 VirtualBox 虚拟机"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:322
 msgid "Select :guilabel:`Settings`, :guilabel:`Display`."
-msgstr "选择 :guilabel:`设置`，:guilabel:`显示`。"
+msgstr "选择 :guilabel:`Settings`，:guilabel:`Display`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:324
 msgid ""
 "In :guilabel:`Graphics Controller`, select :guilabel:`VBoxSVGA` to adjust"
 " screen size dynamically."
-msgstr "在 :guilabel:`显卡` 中，选择 :guilabel:`VBoxSVGA`，以便动态调整屏幕大小。"
+msgstr "在 :guilabel:`Graphics Controller` 中，选择 :guilabel:`VBoxSVGA`，以便动态调整屏幕大小。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:331
 msgid "Figure 11: VirtualBox hardware acceleration error"
@@ -487,7 +487,7 @@ msgstr "图 11：VirtualBox 硬件加速错误"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:333
 msgid "In the |VBM|, select :guilabel:`Start`."
-msgstr "在 |VBM| 中，选择 :guilabel:`启动`。"
+msgstr "在 |VBM| 中，选择 :guilabel:`Start`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:335
 msgid "In the VM console, login and verify the |VB| drivers are loaded:"
