@@ -40,7 +40,7 @@ Our documentation is divided into the following sections:
     :hidden:
 
     get-started/get-started
-    tooling/tooling
+    tooling/index
     guides/guides
     tutorials/tutorials
     reference/reference
