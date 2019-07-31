@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-25 11:20-0008\n"
+"PO-Revision-Date: 2019-07-31 12:04-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "安装 |CL-ATTR|，用作 VMware\\* ESXi 来宾操作系统"
 msgid ""
 "This page explains how to create a new :abbr:`VM (Virtual Machine)` and "
 "manually install |CL-ATTR| on the new VM with VMware ESXi 6.5."
-msgstr "本页说明如何创建新的 :abbr:`VM (Virtual Machine)` 以及如何在运行 VMware ESXi 6.5 的新虚拟机上手动安装 |CL-ATTR|。"
+msgstr "本页说明如何创建新的:abbr:`虚拟机 (虚拟机)` 以及如何在运行 VMware ESXi 6.5 的新虚拟机上手动安装 |CL-ATTR|。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:14
 msgid "Overview"
@@ -180,7 +180,7 @@ msgstr "在 :guilabel:`选择名称和来宾操作系统` 步骤："
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:111
 msgid "Give the new VM a name in the :guilabel:`Name` field. See Figure 6."
-msgstr "在 :guilabel:`名称` 字段中为新虚拟机命名 见图 6。"
+msgstr "在 :guilabel:`名称` 字段中为新虚拟机命名。见图 6。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:112
 msgid ""
