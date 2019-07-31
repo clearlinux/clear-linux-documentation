@@ -322,7 +322,7 @@ msgstr "在 :guilabel:`Configure Installation Media` 中，导航至顶级 VBOX 
 msgid ""
 "In :menuselection:`Advanced options --> Manage User`, create an "
 "administrative user."
-msgstr "在 :menuselection:`高级选项 --> 管理用户`中，创建一个管理员用户。"
+msgstr "在 :menuselection:`高级选项 --> 管理用户` 中，创建一个管理员用户。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:200
 msgid "Do not install the bundle `desktop-autostart`."
@@ -389,7 +389,7 @@ msgid ""
 "|CL| provides Linux Guest Additions drivers for full compatibility using "
 "an install script in the **kernel-lts** (Long Term Support) bundle by "
 "|CL|."
-msgstr "|CL| 利用其 **kernel-lts**（长期支持）bundle 中的安装脚本为 Linux Guest Additions 驱动程序提供完全的兼容性。"
+msgstr "|CL| 利用其 **kernel-lts** （长期支持）bundle 中的安装脚本为 Linux Guest Additions 驱动程序提供完全的兼容性。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:246
 msgid "From the |VBM| select the |CL| VM, and select :guilabel:`Start`."

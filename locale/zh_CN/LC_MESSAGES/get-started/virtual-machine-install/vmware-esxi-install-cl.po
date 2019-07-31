@@ -25,7 +25,7 @@ msgstr "安装 |CL-ATTR|，用作 VMware\\* ESXi 来宾操作系统"
 msgid ""
 "This page explains how to create a new :abbr:`VM (Virtual Machine)` and "
 "manually install |CL-ATTR| on the new VM with VMware ESXi 6.5."
-msgstr "本页说明如何创建新的:abbr:`虚拟机 (虚拟机)`以及如何在运行 VMware ESXi 6.5 的新虚拟机上手动安装 |CL-ATTR|。"
+msgstr "本页说明如何创建新的:abbr:`虚拟机 (虚拟机)` 以及如何在运行 VMware ESXi 6.5 的新虚拟机上手动安装 |CL-ATTR|。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:14
 msgid "Overview"
