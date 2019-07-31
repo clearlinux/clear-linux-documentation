@@ -42,6 +42,6 @@ Our documentation is divided into the following sections:
     get-started/get-started
     tooling/index
     guides/guides
-    tutorials/tutorials
-    reference/reference
+    tutorials/index
+    reference/index
     FAQ/faq
