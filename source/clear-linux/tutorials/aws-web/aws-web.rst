@@ -1,11 +1,11 @@
 .. _aws-web:
 
-Create and launch |CL-ATTR| from Amazon Web Services
+Create and launch |CL-ATTR| from Amazon Web Services\*
 ######################################################
 
-This tutorial walks you through creating and launching a |CL|
+This tutorial explains how to create and launch a |CL|
 :abbr:`AMI (Amazon Machine Image)` instance from the
-:abbr:`AWS (Amazon Web Services)` console and complete the following tasks:
+:abbr:`AWS\* (Amazon Web Services)` console and complete the following tasks:
 
 #. Locate and select the |CL| OS Basic AMI in the AWS Marketplace.
 #. Create a new public and private key pair to allow you to connect to your
@@ -13,6 +13,10 @@ This tutorial walks you through creating and launching a |CL|
 #. Launch the new |CL| instance and connect to it.
 #. Update your instance of |CL| using the :command:`swupd` command.
 #. Stop the |CL| instance.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Prerequisites
 *************
@@ -35,7 +39,7 @@ Locate, select, and launch the |CL| Basic AMI
 *********************************************
 
 #. Start from your main AWS services console menu in your browser and select the
-   :guilabel:`EC2` text as shown in figure 1:
+   :guilabel:`EC2` text as shown in Figure 1:
 
    .. figure:: figures/aws-web-1.png
       :scale: 50 %
@@ -46,7 +50,7 @@ Locate, select, and launch the |CL| Basic AMI
    This selection brings up your :guilabel:`EC2 Dashboard` menu.
 
 #. To create a new |CL| instance from the :guilabel:`EC2 Dashboard` menu,
-   select the :guilabel:`Launch Instance` button as shown in figure 2:
+   select the :guilabel:`Launch Instance` button as shown in Figure 2:
 
    .. figure:: figures/aws-web-2.png
       :scale: 50 %
@@ -65,11 +69,11 @@ Locate, select, and launch the |CL| Basic AMI
       :guilabel:`AWS Marketplace` menu item to bring up the search bar to
       :guilabel:`Search AWS Marketplace Products`.
 
-   #. In the search bar, type "clear linux os" and hit the :kbd:`Enter` key to
+   #. In the search bar, type "clear linux os" and press the :kbd:`Enter` key to
       search for and locate the :guilabel:`Clear Linux OS Basic` AMI.
 
-   #. Select the :guilabel:`Clear Linux OS Basic` AMI by clicking on the
-      :guilabel:`Select` button as shown in figure 3:
+   #. Select the :guilabel:`Clear Linux OS Basic` AMI by clicking the
+      :guilabel:`Select` button as shown in Figure 3:
 
       .. figure:: figures/aws-web-3.png
          :scale: 50 %
@@ -78,9 +82,9 @@ Locate, select, and launch the |CL| Basic AMI
          Figure 3: :guilabel:`Step 1: Choose AMI`
 
    #. A pop-up dialog box appears showing you more information about the
-      :guilabel:`Clear Linux OS Basic` AMI along with the pricing details for running
-      |CL| on different platform configurations as shown in figure 4. Select
-      the :guilabel:`Continue` button.
+      :guilabel:`Clear Linux OS Basic` AMI along with the pricing details for
+      running |CL| on different platform configurations as shown in Figure 4.
+      Select the :guilabel:`Continue` button.
 
       .. figure:: figures/aws-web-4.png
          :scale: 50 %
@@ -88,7 +92,7 @@ Locate, select, and launch the |CL| Basic AMI
 
          Figure 4: :guilabel:`Clear Linux OS Basic`
 
-#. The :guilabel:`Choose Instance Type` menu appears as shown in figure 5.
+#. The :guilabel:`Choose Instance Type` menu appears as shown in Figure 5.
 
    .. figure:: figures/aws-web-5.png
       :scale: 50 %
@@ -107,10 +111,10 @@ Locate, select, and launch the |CL| Basic AMI
       :guilabel:`Review and Launch` button if you want to further customize
       this |CL| instance.
 
-#. The :guilabel:`Step 7: Review the Instance Launch` menu, shown in figure 6,
-   allows you to
-   :guilabel:`Cancel` the process, return to the :guilabel:`Previous` screen
-   to change the configuration or :guilabel:`Launch` the instance defined.
+#. The :guilabel:`Step 7: Review the Instance Launch` menu, shown in Figure 6,
+   allows you to :guilabel:`Cancel` the process, return to
+   the :guilabel:`Previous` screen to change the configuration
+   or :guilabel:`Launch` the instance defined.
 
    .. figure:: figures/aws-web-6.png
       :scale: 50 %
@@ -119,7 +123,7 @@ Locate, select, and launch the |CL| Basic AMI
       Figure 6: :guilabel:`Step 7: Review the Instance Launch`
 
    #. Select the :guilabel:`Launch` button. A dialog box appears, as shown in
-      figure 7, asking you to
+      Figure 7, asking you to
       :guilabel:`Select an existing key pair or create a new pair`.
 
       .. figure:: figures/aws-web-7.png
@@ -138,7 +142,7 @@ Locate, select, and launch the |CL| Basic AMI
 
       #. When the file finishes downloading, select the
          :guilabel:`Launch Instances` button to proceed to the
-         :guilabel:`Launch Status` menu shown in figure 8.
+         :guilabel:`Launch Status` menu shown in Figure 8.
 
          .. figure:: figures/aws-web-8.png
             :scale: 50 %
@@ -147,7 +151,7 @@ Locate, select, and launch the |CL| Basic AMI
             Figure 8: :guilabel:`Launch Status`
 
    #. Once the :guilabel:`Launch Status` page changes to what is shown in
-      figure 9, select the :guilabel:`View Instances` button to view your
+      Figure 9, select the :guilabel:`View Instances` button to view your
       :guilabel:`Instances` dashboard.
 
       .. figure:: figures/aws-web-9.png
@@ -156,10 +160,10 @@ Locate, select, and launch the |CL| Basic AMI
 
          Figure 9: :guilabel:`View Instance`
 
-Connect to your Clear Linux OS Basic instance
+Connect to your Clear Linux OS basic instance
 *********************************************
 
-Your :guilabel:`Instances` Dashboard is shown in figure 10 with the new |CL|
+Your :guilabel:`Instances` Dashboard is shown in Figure 10 with the new |CL|
 OS basic instance already selected and in the running state. If there are
 other instances available, they are also listed but not selected.
 
@@ -171,7 +175,7 @@ other instances available, they are also listed but not selected.
 
 #. To connect to your running instance, click the :guilabel:`Connect` button
    located at the top of your dashboard. AWS brings up the pop-up dialog
-   box shown in figure 11 describing how to connect to your running instance.
+   box shown in Figure 11 describing how to connect to your running instance.
 
 .. _fig-aws-web-11:
 
@@ -192,7 +196,7 @@ other instances available, they are also listed but not selected.
       cp Downloads/AWSClearTestKey.pem .
 
 #. Change the attributes of the :file:`AWSClearTestKey.pem` using the
-   :command:`chmod` command as instructed in the dialog box shown in figure
+   :command:`chmod` command as instructed in the dialog box shown in Figure
    11.
 
    .. code-block:: console
@@ -217,7 +221,7 @@ other instances available, they are also listed but not selected.
       ECDSA key fingerprint is SHA256:LrziT5Ar66iBTfia8qmiIsrfBUm/UGam76U8bDR6yJc.
       Are you sure you want to continue connecting (yes/no)?
 
-#. Type `yes` and hit the :kbd:`Enter` key. Another warning is printed to the
+#. Type `yes` and press the :kbd:`Enter` key. Another warning is printed to the
    terminal and you are now at the command prompt of your new |CL| instance.
 
    .. code-block:: console
@@ -229,7 +233,7 @@ Update the |CL| instance
 ************************
 
 Run the :command:`sudo swupd update` command to update the operating
-system as shown in figure 12:
+system as shown in Figure 12:
 
 .. figure:: figures/aws-web-12.png
    :scale: 50 %
@@ -237,12 +241,12 @@ system as shown in figure 12:
 
    Figure 12: :guilabel:`sudo swupd update`
 
-In this example we updated from version 18940 to 19100.
+In this example, we updated from version 18940 to 19100.
 
 Stop the |CL| instance
 **********************
 
-When you are finished using your AWS |CL| instance you need to stop it using
+When you are finished using your AWS |CL| instance, you must stop it using
 the :guilabel:`Instances` dashboard to stop accruing charges. Complete the
 following steps from the :guilabel:`Instances` dashboard to stop your AWS |CL|
 instance from running.
