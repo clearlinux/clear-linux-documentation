@@ -39,9 +39,9 @@ Our documentation is divided into the following sections:
     :maxdepth: 2
     :hidden:
 
-    get-started/get-started
+    get-started/index
     about
-    guides/guides
-    tutorials/tutorials
-    reference/reference
-    FAQ/faq
+    guides/index
+    tutorials/index
+    reference/index
+    FAQ/index
