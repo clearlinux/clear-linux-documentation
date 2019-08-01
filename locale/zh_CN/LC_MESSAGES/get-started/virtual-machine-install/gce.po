@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-26 11:17-0008\n"
+"PO-Revision-Date: 2019-07-31 12:04-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +92,7 @@ msgstr "创建 *存储 Bucket* 以托管上一步下载的 |CL| 映像源档案�
 #: ../../get-started/virtual-machine-install/gce.rst:112
 #: ../../get-started/virtual-machine-install/gce.rst:158
 msgid "Click the :guilabel:`Navigation menu` icon on the upper left screen menu."
-msgstr "点击左上部屏幕菜单中的 :guilabel:`导航菜单` 图标。"
+msgstr "点击左上部屏幕菜单中的 :guilabel:`Navigation menu` 图标。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:56
 msgid ""
@@ -120,13 +120,13 @@ msgid ""
 "Click the :guilabel:`CREATE BUCKET` button to enter the bucket creation "
 "tool. The bucket name must be unique because buckets in the Cloud Storage"
 " share a single global namespace."
-msgstr "点击 :guilabel:`创建 BUCKET` 按钮，进入 bucket 创建工具界面。bucket 的名称必须是唯一的，因为 Cloud Storage 中的所有 bucket 共享一个全局命名空间。"
+msgstr "点击 :guilabel:`CREATE BUCKET` 按钮，进入 bucket 创建工具界面。bucket 的名称必须是唯一的，因为 Cloud Storage 中的所有 bucket 共享一个全局命名空间。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:79
 msgid ""
 "Leave the remaining options set to the defaults, and click the "
 ":guilabel:`Create` button at the bottom to create a *Bucket*."
-msgstr "其余设置选项保留默认值，然后点击底部的 :guilabel:`创建` 按钮创建 *Bucket*。"
+msgstr "其余设置选项保留默认值，然后点击底部的 :guilabel:`Create` 按钮创建 *Bucket*。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:86
 msgid "Figure 4: Set bucket name"
@@ -137,7 +137,7 @@ msgid ""
 "Once the bucket is created, click the :guilabel:`Upload files` button on "
 "the Bucket details page to upload the |CL| GCE image archive to the named"
 " bucket:"
-msgstr "创建 bucket 后，点击 Bucket 详细资料页上的 :guilabel:`上传文件` 按钮将 |CL| GCE 映像档案文件上传至指定的 bucket："
+msgstr "创建 bucket 后，点击 Bucket 详细资料页上的 :guilabel:`Upload files` 按钮将 |CL| GCE 映像档案文件上传至指定的 bucket："
 
 #: ../../get-started/virtual-machine-install/gce.rst:96
 msgid "Figure 5: Cloud Storage bucket"
@@ -183,13 +183,13 @@ msgstr "在虚拟机映像创建页上，将映像源类型更改为 *Cloud Stor
 
 #: ../../get-started/virtual-machine-install/gce.rst:135
 msgid "Under :guilabel:`Source`, select :guilabel:`Browse`."
-msgstr "在 :guilabel:`来源` 中，选择 :guilabel:`浏览`。"
+msgstr "在 :guilabel:`Source` 中，选择 :guilabel:`Browse`。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:137
 msgid ""
 "Locate the :file:`clear-<release number>-gce.tar.gz` file, and click "
 ":guilabel:`Select`."
-msgstr "找到 :file:`clear-<release number>-gce.tar.gz` 文件，然后点击 :guilabel:`选择`。"
+msgstr "找到 :file:`clear-<release number>-gce.tar.gz` 文件，然后点击 :guilabel:`Select`。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:144
 msgid "Figure 10: Create image using imported object"
@@ -199,7 +199,7 @@ msgstr "图 10：利用导入的对象创建映像"
 msgid ""
 "Accept all default options, and click the :guilabel:`Create` button at "
 "the bottom to import the Clear Linux GCE image to the image library."
-msgstr "接受所有默认选项，然后点击底部的 :guilabel:`创建` 按钮，将 Clear Linux GCE 映像导入映像库。"
+msgstr "接受所有默认选项，然后点击底部的 :guilabel:`Create` 按钮，将 Clear Linux GCE 映像导入映像库。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:153
 msgid "Figure 11: Image is created"
@@ -215,7 +215,7 @@ msgstr "|CL| 映像导入后，可以启动一个运行 |CL| 的虚拟机实例�
 msgid ""
 "Select :menuselection:`Compute Engine --> VM Instances` from the side bar"
 " on the left."
-msgstr "从左侧边栏选择 :menuselection:`Compute Engine --> 映像`。"
+msgstr "从左侧边栏选择 :menuselection:`Compute Engine --> VM instances`。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:167
 msgid "Figure 12: VM instances catalog"
@@ -231,7 +231,7 @@ msgstr "如果此项目中没有创建虚拟机实例，系统会提示您创建
 msgid ""
 "Alternatively, click the :guilabel:`CREATE INSTANCE` button on the VM "
 "instances page to create a VM instance."
-msgstr "另外，也可以点击虚拟机实例页上的 :guilabel:`创建实例` 按钮创建虚拟机实例。"
+msgstr "另外，也可以点击虚拟机实例页上的 :guilabel:`CREATE INSTANCE` 按钮创建虚拟机实例。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:179
 msgid "Figure 13: VM creation"
@@ -245,11 +245,11 @@ msgstr "图 14：虚拟机实例列表"
 msgid ""
 "Under :guilabel:`Region`, choose a region based on the `Best practices "
 "for Compute Engine regions selection`_."
-msgstr "在 :guilabel:`区域` 中，根据 `Best practices for Compute Engine regions selection`_ 选择一个区域。"
+msgstr "在 :guilabel:`Region` 中，根据 `Best practices for Compute Engine regions selection`_ 选择一个区域。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:190
 msgid "Under :guilabel:`Boot disk`, click the :guilabel:`Change` button."
-msgstr "在 :guilabel:`引导磁盘` 中，点击 :guilabel:`更改` 按钮。"
+msgstr "在 :guilabel:`Boot disk` 中，点击 :guilabel:`Change` 按钮。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:196
 msgid "Figure 15: Use custom image"
@@ -269,7 +269,7 @@ msgstr "图 16：选择 Clear Linux 引导磁盘创建虚拟机实例"
 msgid ""
 "Scroll down to the bottom of the VM instance creation page, expand the "
 ":guilabel:`Management, security, disks, networking, sole tenancy` group."
-msgstr "向下滚动至虚拟机实例创建页的底部，展开 :guilabel:`管理、安全、磁盘、联网、独占租区` 群组。"
+msgstr "向下滚动至虚拟机实例创建页的底部，展开 :guilabel:`Management, security, disks, networking, sole tenancy` 群组。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:214
 msgid "Figure 17: Set up SSH keys"
@@ -305,7 +305,7 @@ msgstr "分配的用户名来自电子邮件地址 ``@`` 前面的字符，包�
 
 #: ../../get-started/virtual-machine-install/gce.rst:238
 msgid "Click the :guilabel:`Create` button to create the |CL| VM."
-msgstr "点击 :guilabel:`创建` 按钮创建 |CL| 虚拟机。"
+msgstr "点击 :guilabel:`Create` 按钮创建 |CL| 虚拟机。"
 
 #: ../../get-started/virtual-machine-install/gce.rst:240
 msgid "The Clear Linux VM instance is created and assigned a public IP address:"
