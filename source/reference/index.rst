@@ -12,7 +12,6 @@ features.
    compatible-hardware
    bundle-commands
    bundles/bundles
-   bundles/openssh-server
    collaboration/collaboration
    system-requirements
    image-types

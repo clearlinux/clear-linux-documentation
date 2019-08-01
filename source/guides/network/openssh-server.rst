@@ -1,28 +1,37 @@
 .. _openssh-server:
 
-openssh-server
-##############
+Enable and configure SSH service
+################################
 
-The **openssh-server** bundle provides the OpenSSH\* package needed to enable
-an SSH service in |CL-ATTR|. Remote users require an SSH service to be able
-to use an encrypted login shell.
+This guide describes how to set up SSH service.
 
-|CL| enables the `sshd.socket` unit, which will listen on port 22 by default
-and start the OpenSSH service as required. The first time OpenSSH starts, it
+.. contents::
+   :local:
+   :depth: 1
+
+Overview
+********
+
+The :command:`openssh-server` bundle provides the OpenSSH package that
+enables an SSH service in |CL-ATTR|. Remote users require an SSH service to be
+able to use an encrypted login shell.
+
+|CL| enables the `sshd.socket` unit, which listens on port 22 by default
+and starts the OpenSSH service as required. The first time OpenSSH starts, it
 generates the server SSH keys needed for the service.
 
 Prerequisites
 *************
 
-Assure the bundle :file:`openssh-server` is installed.
+Ensure the :command:`openssh-server` bundle is installed.
 
-To check it it's on your host, enter:
+To list all bundles on your host, enter:
 
 .. code-block:: bash
 
    sudo swupd bundle-list
 
-To add it, enter:
+To add the :command:`openssh-server` bundle, enter:
 
 .. code-block:: bash
 
@@ -32,9 +41,9 @@ Change default port
 *******************
 
 Perform the following steps to change the default listening port for the
-OpenSSH service:
+OpenSSH service.
 
-#. Open the sshd.socket file:
+#. Open the :file:`sshd.socket` file:
 
    .. code-block:: bash
 
@@ -53,7 +62,7 @@ OpenSSH service:
       ListenStream=4200
 
 
-   Make sure to include a new line after the last line of text in the sshd.socket file.
+   Make sure to include a new line after the last line of text in the :file:`sshd.socket` file.
 
 #. Verify your changes:
 
@@ -61,7 +70,7 @@ OpenSSH service:
 
       cat /etc/systemd/system/sshd.socket.d/override.conf
 
-   You should see the following output:
+   The following output is displayed:
 
    .. code-block:: console
 
@@ -81,7 +90,7 @@ OpenSSH service:
 
       sudo systemctl restart sshd.socket
 
-#. Confirm the the sshd.socket unit is listening on your new port:
+#. Confirm the sshd.socket unit is listening on your new port:
 
    .. code-block:: bash
 
@@ -95,8 +104,8 @@ Enable SFTP
 ***********
 
 |CL| *disables* the :abbr:`SFTP (SSH File Transfer Protocol)` subsystem by
-default due to security considerations. To enable the SFTP subsystem, perform
-the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
+default due to security considerations. To enable the SFTP subsystem, you must
+configure the :abbr:`SSHD (SSH Daemon)` service file.
 
 #. Create a systemd drop-in directory for the SSHD service:
 
@@ -107,7 +116,7 @@ the following configuration of the :abbr:`SSHD (SSH Daemon)` service file:
 #. Create the following file:
    :file:`/etc/systemd/system/sshd@.service.d/sftp.conf`
 
-#. Add the OPTIONS environment variable to the sftp.conf file.
+#. Add the OPTIONS environment variable to the :file:`sftp.conf` file.
 
    .. code-block:: console
 
@@ -127,7 +136,7 @@ Enable root login
 
 To enable root login via SSH, perform the following steps:
 
-#. Create a *ssh* directory in :file:`/etc`, if it does not already exist.
+#. Create an *ssh* directory in :file:`/etc`, if it does not already exist.
 
    .. code-block:: bash
 
@@ -136,7 +145,7 @@ To enable root login via SSH, perform the following steps:
 #. Create the following file, if it does not already exist:
    :file:`/etc/ssh/sshd_config`
 
-#. Set the configuration variable in /etc/ssh/sshd_config
+#. Set the configuration variable in :file:`/etc/ssh/sshd_config`:
 
    .. code-block:: console
 
@@ -145,12 +154,12 @@ To enable root login via SSH, perform the following steps:
 Enable X11-forwarding
 *********************
 
-X11 forwarding allows you to securely run graphical applications
-(i.e., X clients) over the ssh conection. This will alow for remote gui apps
-without the need for full VNC/remotedesktop. To enable X11-forwarding via
-SSH, perform the following steps:
+X11 forwarding allows you to securely run graphical applications (that is, X
+clients) over the SSH conection. This enables remote GUI apps without the need
+for full VNC or remote desktop setup. To enable X11-forwarding via SSH,
+perform the following steps:
 
-#. Create a *ssh* directory in :file:`/etc`, if it does not already exist.
+#. Create an *ssh* directory in :file:`/etc`, if it does not already exist.
 
    .. code-block:: bash
 
@@ -159,7 +168,7 @@ SSH, perform the following steps:
 #. Create the following file, if it does not already exist:
    :file:`/etc/ssh/sshd_config`
 
-#. Set the configuration variables.
+#. Set the following configuration variables.
 
    .. code-block:: bash
 
