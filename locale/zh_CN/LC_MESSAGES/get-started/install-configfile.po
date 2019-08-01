@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-25 11:20-0008\n"
+"PO-Revision-Date: 2019-07-31 12:04-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +105,7 @@ msgstr "启动 U 盘。"
 #: ../../get-started/install-configfile.rst:49
 #: ../../get-started/install-configfile.rst:171
 msgid "Select :guilabel:`Clear Linux OS` from the menu."
-msgstr "从菜单中选择 :guilabel:`Clear Linux 操作系统`。"
+msgstr "从菜单中选择 :guilabel:`Clear Linux OS`。"
 
 #: ../../get-started/install-configfile.rst:50
 #: ../../get-started/install-configfile.rst:172

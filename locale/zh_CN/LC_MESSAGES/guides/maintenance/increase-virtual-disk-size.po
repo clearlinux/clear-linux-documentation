@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-26 11:17-0008\n"
+"PO-Revision-Date: 2019-07-31 12:04-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:4
 msgid "Increase virtual disk size of an image"
-msgstr "增加图像的虚拟磁盘大小"
+msgstr "增加映像的虚拟磁盘大小"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:6
 msgid ""
@@ -152,7 +152,7 @@ msgstr "打开终端模拟器。"
 msgid ""
 "Add the :command:`storage-utils` bundle to install the :command:`parted` "
 "and :command:`resize2fs` tools."
-msgstr "添加 :command:storage-utils` bundle，安装 :command:`parted` 和 :command:`resize2fs` 工具。"
+msgstr "添加 :command:`storage-utils` bundle，安装 :command:`parted` 和 :command:`resize2fs` 工具。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:108
 msgid "Launch the `parted` tool."
