@@ -3,18 +3,18 @@
 Install |CL-ATTR| from the live desktop
 #######################################
 
-The live desktop allows you to boot |CL-ATTR| in a GNOME desktop without
-modifying the host system, offering the chance to explore developing
-on |CL|. Better yet, launch the |CL| installer to install on your target
-system.
+This page explains how to boot the |CL-ATTR| live desktop image, from which
+you can install |CL| or explore without modifying the host system.
 
-.. contents:: :local:
+.. contents::
+   :local:
    :depth: 1
 
 System requirements
 *******************
 
-Assure that your target system supports the installation:
+Before installing |CL|, verify that the host system supports the
+installation:
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
@@ -22,13 +22,18 @@ Assure that your target system supports the installation:
 Preliminary steps
 *****************
 
-#. `Visit our Downloads page`_.
+#. Visit our `Downloads`_ page.
 
-#. Download the file :file:`clear-<release number>-live-desktop.iso`
+#. Download the file :file:`clear-<release number>-live-desktop.iso`,
+   also called the |CL| Desktop.
 
    .. note::
 
       <release-number> is the latest |CL| auto-numbered release.
+
+#. Verify and decompress the file per your OS.
+
+   * :ref:`download-verify-decompress`
 
 #. Follow your OS instructions to create a bootable USB drive.
 
@@ -66,81 +71,78 @@ these steps.
 
 .. _install-on-target-end:
 
-Confirm network connection
-==========================
+Software (optional)
+===================
 
-Confirm there is a network connection before launching the installer.
-Choose a method: `Wired Connection`, or `WiFi Connected`.
-This guide shows an example of a **Wired Connection**.
-
-#. In the upper right of the top menu bar, select the square icon to view
-   Network settings, shown in Figure 2.
-
-#. Select :guilabel:`Wired Connected` and then :guilabel:`Wired Settings`.
-
-   .. figure:: figures/bare-metal-install-desktop-02.png
-      :scale: 100%
-      :alt: Software icon, Network settings
-
-      Figure 2: Software icon, Network settings
-
-#. View the :guilabel:`Wired` menu to assure that you're target system and
-   installer are connected to a network.
-
-#. Optional: Configure Proxy settings.
-
-   #. To view :guilabel:`Network Proxy`, select its :guilabel:`Gear` icon.
-
-   #. Select from `Automatic`, `Manual` or `Disabled` as desired.
-
-   #. Close the dialogue box.
-
-#. Select the :guilabel:`Gear` icon to view Network settings.
-
-#. If desired, select :guilabel:`Connect automatically`.
-   Select other options as desired.
-
-#. Select :guilabel:`Apply` button to confirm change to settings.
-
-Software
---------
-
-Optional: Explore |CL| bundles and other software available. Double-click the :guilabel:`Software` icon from the Activities menu, shown in Figure 2.
+Explore |CL| bundles and other software. Double-click the
+:guilabel:`Software` icon from the Activities menu, shown in Figure 2.
+Ensure a network connection exists before launching the Software application.
 
 .. note::
 
-   `Sofware` application is *only intended for exploring* available bundles,
-   applications, and images. Do not attempt to install them.
-
-   Assure there is a network connection before launching `Software`.
+   While running the |CL| live desktop image, the Software application is
+   intended only for exploration. Do not attempt to install applications during
+   exploration.
 
 Launch the |CL| installer
 =========================
 
-#. After the live desktop image boots, find the |CL| icon in
-   the :guilabel:`Activities` menu at left, shown in Figure 3.
+#. After the live desktop image boots, scroll over the vertical
+   :guilabel:`Activities` menu at left.
 
-#. Click the icon, :guilabel:`Install Clear Linux OS`.
+#. Click the |CL| penguin icon to launch the installer, shown in Figure 2.
 
    .. figure:: figures/bare-metal-install-desktop-02.png
       :scale: 100%
       :alt: Install Clear Linux OS icon
 
-      Figure 3: Install Clear Linux OS icon
+      Figure 2: |CL| installer icon
 
-#. The installer is launched, as shown in Figure 4.
+#. After the installer is launched, it will appear as shown in Figure 3.
 
-   .. figure:: figures/bare-metal-install-desktop-04.png
+   .. figure:: figures/bare-metal-install-desktop-03.png
       :scale: 100%
       :alt: |CL| Desktop Installer
 
-      Figure 4: |CL| OS Desktop Installer
+      Figure 3: |CL| OS Desktop Installer
 
 #. In :guilabel:`Select Language`, select a language from the options, or
    type your preferred language in the search bar.
 
 #. Select :guilabel:`Next`.
 
+Checking prerequisites
+======================
+
+The installer automatically launches :guilabel:`Checking Prerequisites`,
+which checks your target system for compatibility and network connectivity.
+
+After the installer shows `Prerequisites passed`, select :guilabel:`Next` to
+proceed with installation.
+
+.. figure:: figures/bare-metal-install-desktop-04.png
+   :scale: 100%
+   :alt: Checking Prerequisites
+
+   Figure 4: Checking Prerequisites
+
+Network Proxy (optional)
+------------------------
+
+#. Configure :guilabel:`Network Proxy` settings.
+
+#. In the top right menu bar, select the :guilabel:`Power button`.
+
+#. Select :guilabel:`Wired Connected` and then :guilabel:`Wired Settings`.
+
+   #. In :guilabel:`Network Proxy`, select the :guilabel:`Gear` icon to view
+      options.
+
+   #. Select an option from `Automatic`, `Manual` or `Disabled`.
+
+   #. Close :guilabel:`Network Proxy`.
+
+#. Close :guilabel:`Settings`.
 
 .. _incl-bare-metal-beta-start:
 
@@ -155,7 +157,7 @@ To fulfill minimum installation requirements, complete the
    * The :kbd:`Install` button is only highlighted **after** you complete
      `Required options`_.
 
-   * Checkmarks indicate a selection has been made.
+   * Check marks indicate a selection has been made.
 
    * An Internet connection is required. You may want to launch a browser
      prior to installation to verify your Internet connection.
@@ -166,7 +168,7 @@ To fulfill minimum installation requirements, complete the
 The |CL| Desktop Installer Main Menu appears as shown in Figure 5. To meet
 the minimum requirements, enter values in all submenus for the
 :guilabel:`Required options`. After you complete them, your selections appear
-below submenus and a checkmark appears at right.
+below submenus and a check mark appears at right.
 
 .. figure:: figures/bare-metal-install-desktop-05.png
    :scale: 100%
@@ -182,7 +184,7 @@ Navigation
 * Use :kbd:`Tab` key to navigate between :guilabel:`Required options`
   and :guilabel:`Advanced options`
 
-* Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate submenu list.
+* Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate the submenus.
 
 * Select :kbd:`Confirm`, or :kbd:`Cancel` in submenus.
 
@@ -196,7 +198,7 @@ Select Time Zone
    by default.
 
 #. In :guilabel:`Select Time Zone`, navigate to the desired time zone.
-   Or start typing the region and then city.
+   Or start typing the region and then the city.
    (.e.g., :file:`America/Los_Angeles`).
 
 #. Select :guilabel:`Confirm`.
@@ -239,14 +241,26 @@ Select Installation Media
 
 Safe Installation
 -----------------
+
 Use this method to safely install |CL| on media with available space, or
 alongside existing partitions, and accept the `Default partition schema`_.
 If enough free space exists, safe installation is allowed.
 
+.. note::
+
+   |CL| allows installation alongside another OS. Typically, when you boot
+   your system, you can press an `F key` to view and select a bootable
+   device or partition during the BIOS POST stage. Some BIOSes present the
+   |CL| partition, and you can select and boot it. However, other
+   BIOSes may only show the primary partition, in which case you will not be
+   able boot |CL|. Be aware of this possible limitation.
+
+
 Destructive Installation
 ------------------------
 
-Use this method to destroy the contents of the target device, install |CL| on it, and accept the `Default partition schema`_.
+Use this method to destroy the contents of the target device, install |CL|
+on it, and accept the `Default partition schema`_.
 
 Disk encryption
 ===============
@@ -344,17 +358,15 @@ team for improvements. For more information, see :ref:`telemetry-about`.
 
 #. From :guilabel:`Required Options`, select :guilabel:`Telemetry`.
 
-#. Select :kbd:`Confirm`.
-
-#. If you don't wish to participate, deselect :kbd:`Enable Telemetry`.
-
-#. Select :kbd:`Confirm`.
+#. Select :kbd:`Yes`.
 
    .. figure:: figures/bare-metal-install-desktop-12.png
       :scale: 100%
       :alt: Enable Telemetry
 
       Figure 12: Enable Telemetry
+
+#. If you don't wish to participate, select :kbd:`No`.
 
 Advanced options
 ****************
@@ -364,11 +376,9 @@ After you complete the `Required options`_, we recommend completing
 customizes your development environment, so you're ready to go immediately
 after reboot.
 
-* `Bundle Selection`_
+.. note::
 
-* `Assign Hostname`_
-
-As for bundles, you can always add more later with :ref:`swupd-guide`.
+   You can always add more bundles later with :ref:`swupd-guide`.
 
 Bundle Selection
 ================
@@ -414,11 +424,46 @@ Assign Hostname
       alphanumeric character but may also contain hyphens. Maximum length of
       63 characters.
 
-#. Navigate to :kbd:`Confirm` until highlighted.
-
 #. Select :kbd:`Confirm`.
 
 Optional: Skip to `Finish installation`_.
+
+Kernel Configuration
+====================
+
+#. In :guilabel:`Kernel Configuration`, navigate to select your desired
+   kernel. :guilabel:`Native` is selected by default.
+
+   .. figure:: figures/bare-metal-install-desktop-16.png
+      :scale: 100%
+      :alt: Kernel Configuration
+
+      Figure 16: Kernel Configuration
+
+#. To add arguments, enter the argument in :guilabel:`Add Extra Arguments`.
+
+#. To remove an argument, enter the argument in :guilabel:`Remove Arguments`.
+
+#. Select :kbd:`Confirm`.
+
+Software Updater Configuration
+==============================
+
+#. In Advanced Options, select :guilabel:`Software Updater Configuration`.
+
+#. In :guilabel:`Mirror URL`, follow the instructions if you wish to
+   specify a different installation source.
+
+#. :guilabel:`Enable Auto Updates` is selected by default. If you **do not**
+   wish to enable automatic software updates, uncheck the box.
+
+   .. figure:: figures/bare-metal-install-desktop-17.png
+      :scale: 100%
+      :alt: Software Updater Configuration
+
+      Figure 17: Software Updater Configuration
+
+#. Select :kbd:`Confirm`.
 
 Finish installation
 *******************
@@ -426,26 +471,26 @@ Finish installation
 #. When you are satisfied with your installation configuration, select
    :guilabel:`Install`.
 
-   .. figure:: figures/bare-metal-install-desktop-16.png
+   .. figure:: figures/bare-metal-install-desktop-18.png
       :scale: 100%
       :alt: Assign Hostname
 
-      Figure 16: Finish installation
+      Figure 18: Finish installation
 
    .. note:
 
-      All checkmarks must be visible in :guilabel:`Required Options` for you to select :guilabel:`Install`.
+      All check marks must appear in :guilabel:`Required Options` for the
+      :guilabel:`Install` button to be enabled.
 
 #. If you do not enter a selection for all :guilabel:`Required Options`,
-   the :guilabel:`Install` button remains greyed out, as shown
-   in Figure 17. Return to `Required Options`_ and make selections.
+   the :guilabel:`Install` button remains disabled, as shown
+   in Figure 19. Return to `Required Options`_ and make selections.
 
-
-   .. figure:: figures/bare-metal-install-desktop-17.png
+   .. figure:: figures/bare-metal-install-desktop-19.png
       :scale: 100%
       :alt: Required Options - Incomplete
 
-      Figure 17: Required Options - Incomplete
+      Figure 19: Required Options - Incomplete
 
 #. After installation is complete, select :guilabel:`Exit`.
 
@@ -459,38 +504,39 @@ Finish installation
 
       Allow time for the graphical login to appear. A login prompt shows the administrative user that you created.
 
-#. Log in as the adminstrative user.
+#. Log in as the administrative user.
 
 Congratulations. You successfully installed |CL|.
 
 Default partition schema
 ========================
 
-Table 1 shows the defult partition schema with the exception of root,
-which varies.
+Create partitions per requirements in Table 1.
 
-.. list-table:: **Table 1. Disk Partition Setup**
-   :widths: 33, 33, 33
+.. list-table:: **Table 1. Default partition schema**
+   :widths: 25, 25, 25, 25
    :header-rows: 1
 
    * - FileSystem
+     - Label
      - Mount Point
-     - Minimum size
-   * - ``VFAT``
+     - Default size
+
+   * - **VFAT(FAT32)**
+     - boot
      - /boot
-     - 150M
-   * - ``swap``
+     - 150MB
+
+   * - **linux-swap**
+     - swap
      -
      - 256MB
-   * - ``root``
+
+   * - **ext[234] or XFS**
+     - root
      - /
      - *Size depends upon use case/desired bundles.*
 
-Next steps
-**********
+.. _Downloads: https://clearlinux.org/downloads
 
-:ref:`guides`
-
-.. _Visit our downloads page: https://clearlinux.org/downloads
-.. _Autoproxy: https://clearlinux.org/features/autoproxy
 

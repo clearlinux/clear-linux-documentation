@@ -3,17 +3,19 @@
 Install |CL-ATTR| in a virtual machine
 ######################################
 
-When installing |CL-ATTR| in a VM, consider which kernel to use. This
-document walks you through the available kernel options to help this
-decision. At the end of this document, select the type of installation most
-suitable to your use case.
+This page explains the available kernel options to help you decide which
+kernel to use when installing |CL-ATTR| in a VM.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Compatible kernels
 ******************
 
 The |CL| provides the following Linux kernels with a respective
-:ref:`bundle <bundles-about>` for VMs. Specific use cases these bundles serve
-are provided along with links to their source code.
+:ref:`bundle <bundles-about>` for VMs. For each bundle, the specific use cases
+and links to the bundle source code are provided.
 
 .. include:: ../../reference/compatible-kernels.rst
    :Start-after: vm-kernels:
@@ -21,8 +23,8 @@ are provided along with links to their source code.
 Next steps
 **********
 
-Now that you have read about the |CL| compatible kernels, choose the
-appropriate set of step-by-step instructions to proceed.
+After making a kernel selection, install using the appropriate set of
+installation instructions for your kernel selection.
 
 .. toctree::
    :maxdepth: 1

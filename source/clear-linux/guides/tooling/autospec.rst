@@ -382,7 +382,7 @@ To test an autospec-created package inside a VM:
       make install
 
    The code that makes this possible can be viewed by searching for the
-   *install:*  target in the `Makefile.common file on GitHub`_.
+   *install:*  target in the `Makefile.common`_ file on GitHub.
 
 #. Return to the :file:`~/clearlinux` directory and start the |CL| VM:
 
@@ -427,7 +427,7 @@ To test an autospec created package directly on the |CL| development system:
       make install-local
 
    The code that makes this possible can be viewed by searching for the
-   *install-local:*  target in the `Makefile.common file on GitHub`_.
+   *install-local:*  target in the `Makefile.common`_  file on GitHub.
 
 #. Check that the software is installed as expected and perform any relevant
    tests.
@@ -503,8 +503,7 @@ Related topics
 
 * :ref:`Mixer tool <mixer>`
 
-.. _user-setup script: https://github.com/clearlinux/common/blob/master/user-setup.sh
-.. _`Makefile.common file on GitHub`: https://github.com/clearlinux/common/blob/master/Makefile.common
+.. _`Makefile.common`: https://github.com/clearlinux/common/blob/master/Makefile.common
 .. _autospec README: https://github.com/clearlinux/autospec
 .. _control files: https://github.com/clearlinux/autospec#control-files
 .. _mock wiki: https://github.com/rpm-software-management/mock/wiki

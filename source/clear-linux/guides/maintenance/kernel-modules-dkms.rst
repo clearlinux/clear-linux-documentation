@@ -3,16 +3,20 @@
 Add kernel modules with DKMS
 ############################
 
-Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
-kernel modules that are not part of the Linux source tree, you may need to
-build out-of-tree kernel modules. Use this guide to add kernel modules with
-:abbr:`DKMS (Dynamic Kernel Module System)` or refer to :ref:`kernel-modules`.
-
+This guide describes how to add kernel modules with
+:abbr:`DKMS (Dynamic Kernel Module System)`.
 
 .. contents:: :local:
    :depth: 1
    :backlinks: top
 
+Overview
+********
+
+Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
+kernel modules that are not part of the Linux source tree, you may need to
+build out-of-tree kernel modules. Use this guide to add kernel modules with
+:abbr:`DKMS (Dynamic Kernel Module System)` or refer to :ref:`kernel-modules`.
 
 Description
 ***********
@@ -26,26 +30,21 @@ come from an external source, such as directly from a vendor (out-of-tree).
 the building and installation of kernel modules. DKMS allows |CL| to provide
 hooks that automatically rebuild modules against new kernel versions.
 
-
-
 .. include:: kernel-modules.rst
    :start-after: kernel-modules-availability-begin:
    :end-before: kernel-modules-availability-end:
-
-
-
 
 Install DKMS
 ************
 
 .. _kernel-modules-dkms-install-begin:
 
-The *kernel-native-dkms* bundle provides the :command:`dkms` program and
+The :command:`kernel-native-dkms` bundle provides the :command:`dkms` program and
 Linux kernel headers, which are required for compiling kernel modules.
 
-The *kernel-native-dkms* bundle also:
+The :command:`kernel-native-dkms` bundle also:
 
-* Adds a systemd update trigger
+* Adds a `systemd` update trigger
   (:file:`/usr/lib/systemd/system/dkms-new-kernel.service`) to automatically
   run DKMS to rebuild modules after a kernel upgrade occurs with :ref:`swupd
   update <swupd-guide>`.
@@ -59,11 +58,10 @@ The *kernel-native-dkms* bundle also:
 
 .. warning::
 
-      We recommend that you always review the :command:`swupd update` output
-      to make sure kernel modules were successfully rebuilt against the new
-      kernel. This is especially important for systems where a successful boot
-      relies on a kernel module.
-
+   We recommend that you always review the :command:`swupd update` output
+   to make sure kernel modules were successfully rebuilt against the new
+   kernel. This is especially important for systems where a successful boot
+   relies on a kernel module.
 
 Install the :command:`kernel-native-dkms` or :command:`kernel-lts-dkms`
 bundle:
@@ -101,17 +99,15 @@ bundle:
       sudo clr-boot-manager update
       reboot
 
-
 .. _kernel-modules-dkms-install-end:
 
 Build, install, and load an out-of-tree module
 **********************************************
 
-Follow the steps in this section if you are an individual user or testing, and
-you need an out-of-tree kernel module that is not available through |CL|. For
-a more scalable and customizable approach, we recommend using the
-`mixer tool`_ to provide a custom kernel and updates.
-
+Follow the steps in this section if you are an individual user or testing,
+and you need an out-of-tree kernel module that is not available through
+|CL|. For a more scalable and customizable approach, we recommend using
+:ref:`mixer` to provide a custom kernel and updates.
 
 Prerequisites
 =============
@@ -121,10 +117,8 @@ Before you begin, you must:
 * Disable Secure Boot in UEFI/BIOS. The loading of new out-of-tree modules
   modifies the signatures that Secure Boot relies on for trust.
 
-* Obtain a kernel module package in the form of source code and/or precompiled
-  binaries.
-
-
+* Obtain a kernel module package in the form of source code or
+  pre-compiled binaries.
 
 Obtain kernel module source
 ===========================
@@ -161,7 +155,6 @@ a :file:`dkms.conf` file, described later in this document.
       cd <KERNEL-MODULE-SOURCE>/
       cat README
 
-
 Build kernel module with an existing dkms.conf
 ==============================================
 
@@ -173,8 +166,8 @@ The archive contains the required :file:`dkms.conf` file, and may contain
 a :file:`dkms_source_tree` directory and a :file:`dkms_binaries_only`
 directory.
 
-
-#. Run the :command:`dkms ldtarball` command against the kernel module archive.
+#. Run the :command:`dkms ldtarball` command against the kernel
+   module archive.
 
    .. code-block:: bash
 
@@ -182,8 +175,8 @@ directory.
 
 
    :command:`dkms ldtarball` places the kernel module source under
-   :file:`/usr/src/<MODULE-NAME>-<MODULE-VERSION>/`, builds it if necessary, and
-   adds the module into the DKMS tree.
+   :file:`/usr/src/<MODULE-NAME>-<MODULE-VERSION>/`, builds it if necessary,
+   and adds the module into the DKMS tree.
 
 
 #. Verify the kernel module is detected by checking the output of the
@@ -199,8 +192,6 @@ directory.
    .. code-block:: bash
 
       dkms install -m <MODULE-NAME> -v <MODULE-VERSION>
-
-
 
 Build kernel module without an existing dkms.conf
 =================================================
@@ -218,15 +209,15 @@ Here are some additional resources that can be used for reference:
 * DKMS manual page (:command:`man dkms`) shows detailed syntax in the
   DKMS.CONF section.
 
-* `Ubuntu community wiki`_ shows an example where a single package contains
-  multiple modules.
+* Ubuntu community wiki entry for the `Kernel DKMS Package`_ shows an example
+  where a single package contains multiple modules.
 
-* `Sample dkms.conf file`_ in the GitHub\* repository for the DKMS project.
+* Sample `dkms.conf`_ file in the GitHub\* repository for the DKMS project.
 
 .. note::
 
    :command:`AUTOINSTALL=yes` must be set in the dkms.conf for the module to
-   be automatically recompiled with |CL| updates. 
+   be automatically recompiled with |CL| updates.
 
 The instructions below show a generic example:
 
@@ -261,15 +252,14 @@ The instructions below show a generic example:
       *<PACKAGE_NAME>* and *<PACKAGE_VERSION>* must match the entries in the
       :file:`dkms.conf` file.
 
-
 #. Add the kernel module to the DKMS tree so that it is tracked by DKMS.
 
    .. code-block:: bash
 
       sudo dkms add -m <MODULE-NAME>
 
-#. Build the kernel module using DKMS. If the build encounters errors, you may
-   need to edit the :file:`dkms.conf` file.
+#. Build the kernel module using DKMS. If the build encounters errors,
+   you may need to edit the :file:`dkms.conf` file.
 
    .. code-block:: bash
 
@@ -281,15 +271,13 @@ The instructions below show a generic example:
 
       sudo dkms install -m <MODULE-NAME> -v <MODULE-VERSION>
 
-
-
 Load kernel module
 ==================
 
 By default, DKMS installs modules "in-tree" under :file:`/lib/modules` so the
 :command:`modprobe` command can be used to load them.
 
-#.  Load the installed module with the :command:`modprobe` command.
+#. Load the installed module with the :command:`modprobe` command.
 
     .. code-block:: bash
 
@@ -301,7 +289,6 @@ By default, DKMS installs modules "in-tree" under :file:`/lib/modules` so the
 
       lsmod | grep <MODULE-NAME>
 
-
 Examples
 ********
 
@@ -309,26 +296,17 @@ Examples
    :start-after: kernel-modules-autoload-begin:
    :end-before: kernel-modules-autoload-end:
 
-
-
-
 Related topics
 **************
 
-* `Dynamic Kernel Module System (DKMS) project on GitHub <https://github.com/dell/dkms>`_
+* `Dynamic Kernel Module System (DKMS)`_
 
 * `Dell Linux Engineering Dynamic Kernel Module Support: From Theory to Practice <https://www.kernel.org/doc/ols/2004/ols2004v1-pages-187-202.pdf>`_
 
 * `Linux Journal: Exploring Dynamic Kernel Module Support <https://www.linuxjournal.com/article/6896>`_
 
+.. _Dynamic Kernel Module System (DKMS): https://github.com/dell/dkms
 
-.. _`on GitHub`: https://github.com/clearlinux/distribution
+.. _Kernel DKMS Package: https://help.ubuntu.com/community/Kernel/DkmsDriverPackage#Configure_DKMS
 
-.. _`mixer tool`: https://clearlinux.org/features/mixer-tool
-
-.. _`Dynamic Kernel Module System (DKMS)`: https://github.com/dell/dkms
-
-.. _Ubuntu community wiki: https://help.ubuntu.com/community/Kernel/DkmsDriverPackage#Configure_DKMS
-
-.. _Sample dkms.conf file: https://github.com/dell/dkms/blob/master/sample.conf
-
+.. _dkms.conf: https://github.com/dell/dkms/blob/master/sample.conf

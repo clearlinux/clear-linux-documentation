@@ -3,7 +3,7 @@
 ister.py image builder
 ######################
 
-The `ister.py tool`_ is a template-based installer used by |CL-ATTR| to produce
+The `ister.py`_ tool is a template-based installer used by |CL-ATTR| to produce
 images for each release. The same ister tool is available for use in |CL| to
 create custom images based on an upstream image.
 
@@ -49,14 +49,15 @@ image. Here are some examples:
 Follow these steps to recreate an upstream image based on the image's JSON
 configuration file:
 
-#. Install the :command:`os-installer` bundle. Refer to `Install a bundle`_ for
-   more details.
+#. Install the :command:`os-installer` bundle. Refer to :ref:`swupd-guide` for
+   more information on installing bundles.
 
-#. Download the `ister.py tool`_ and grant it sudo privileges.
+#. Download the `ister.py`_ tool and grant it sudo privileges.
 
-#. Download the JSON configuration file for the desired image:
+#. Download the JSON configuration file for the desired image (located in
+   :file:`config/image/`):
 
-   * `Configuration files for the current release`_
+   * `Current release`_
    * `Previous releases`_ (only after March 2017)
 
    For a previous release, navigate to `Previous releases`_, select the version
@@ -87,7 +88,6 @@ Related topics
 * :ref:`mixer`
 * :ref:`bulk-provision`
 
-.. _ister.py tool: https://github.com/bryteise/ister
-.. _Configuration files for the current release: https://cdn.download.clearlinux.org/current/config/image/
+.. _ister.py: https://github.com/bryteise/ister
+.. _Current release: https://cdn.download.clearlinux.org/current/
 .. _Previous releases: https://cdn.download.clearlinux.org/releases/
-.. _Install a bundle: https://clearlinux.org/documentation/clear-linux/guides/maintenance/swupd-guide#adding-a-bundle

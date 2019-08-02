@@ -7,19 +7,23 @@ This tutorial describes how to install, configure, and run the
 `Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
 kata-runtime.
 
-Kubernetes\* is an open source system for automating deployment, scaling, and
+.. contents::
+   :local:
+   :depth: 1
+
+Description
+***********
+
+Kubernetes is an open source system for automating deployment, scaling, and
 management of containerized applications. It groups containers that make up
 an application into logical units for easy management and discovery.
 
 Kata Containers\* kata-runtime adheres to
-:abbr:`OCI (Open Container Initiative*)` guidelines and work seamlessly with
-Kubernetes. `Kata Containers`_ provide strong isolation for untrusted
+:abbr:`OCI (Open Container Initiative*)` guidelines and works seamlessly with
+Kubernetes. `Kata Containers`_ provides strong isolation for untrusted
 workloads or  multi-tenant scenarios. Kata Containers can be
-allocated on a per-pod basis so you can mix and match both on the same host
+allocated on a per-pod basis, so you can mix and match both on the same host
 to suit your needs.
-
-.. contents:: :local:
-   :depth: 1
 
 Prerequisites
 *************
@@ -132,7 +136,8 @@ deployment and your security needs.
 Configure and run Kubernetes
 ****************************
 
-This section describes how to configure and run Kubernetes with CRI-O and kata-runtime.
+This section describes how to configure and run Kubernetes with CRI-O and
+kata-runtime.
 
 Configure and run CRI-O + kata-runtime
 ======================================
@@ -150,7 +155,8 @@ Configure and run CRI-O + kata-runtime
        sudo systemctl daemon-reload
        sudo systemctl restart crio
 
-#.  Initialize the master control plane with the command below and follow the displayed instructions to set up `kubectl`:
+#.  Initialize the master control plane with the command below and follow the
+    displayed instructions to set up `kubectl`:
 
     .. code-block:: bash
 
@@ -190,8 +196,8 @@ If you choose the `flannel` add-on, then you must add the following to the
 
    --pod-network-cidr 10.244.0.0/16
 
-Furthermore, if you are using CRI-O and `flannel` and you want to use Kata Containers,
-edit the :file:`/etc/crio/crio.conf` file to add:
+Furthermore, if you are using CRI-O and `flannel` and you want to use
+Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
 
 ..  code-block:: bash
 
@@ -234,7 +240,8 @@ Read the Kubernetes documentation to learn more about:
 Cloud native setup automation (optional)
 ****************************************
 
-Clone the `cloud-native-setup`_ repository on your system and follow the instructions. This repository includes helper scripts to automate configuration.
+Clone the `cloud-native-setup`_ repository on your system and follow the
+instructions. This repository includes helper scripts to automate configuration.
 
 Package configuration customization (optional)
 **********************************************
@@ -258,15 +265,16 @@ following commands:
    sudo cp /usr/share/defaults/crio/crio.conf /etc/crio/
    sudo $EDITOR /etc/crio/crio.conf
 
-Learn more about `Stateless`_ in |CL| and view the |CL| `documentation`_.
+Learn more about :ref:`stateless` in |CL| and view the |CL| `documentation`_.
 
 Proxy configuration (optional)
 ******************************
 
 If you use a proxy server, you must set your proxy environment variables and
-create an appropriate proxy configuration file for both CRI-O services. Consult your IT department if you are behind a corporate proxy for
-the appropriate values. Ensure that your local IP is **explicitly included**
-in the environment variable *NO_PROXY*. (Setting *localhost* is not enough.)
+create an appropriate proxy configuration file for both CRI-O services. Consult
+your IT department if you are behind a corporate proxy for the appropriate
+values. Ensure that your local IP is **explicitly included** in the environment
+variable *NO_PROXY*. (Setting *localhost* is not enough.)
 
 If you have already set your proxy environment variables, run the following
 commands as a shell script to configure all of these services in one step:
@@ -301,7 +309,8 @@ Troubleshooting
 
   For example: 100.200.50.20 myhost
 
-  Use the commands :command:`hostname` and :command:`hostname -I` to retrieve them.
+  Use the commands :command:`hostname` and :command:`hostname -I`
+  to retrieve them.
 
 * Images cannot be pulled.
 
@@ -340,8 +349,8 @@ Troubleshooting
 
         sudo touch profile
 
-  #. With a preferred editor, open `profile`, and enter your proxy settings.
-     Example shown below.
+  #. With your preferred editor, open `profile`, and enter your proxy settings.
+     An example is shown below.
 
      .. code-block:: bash
 
@@ -356,7 +365,8 @@ Troubleshooting
 
   #. Save and exit the `profile`.
 
-  #. Run:
+  #. Update your system's environment settings by executing the following
+     command:
 
      .. code-block:: bash
 
@@ -380,6 +390,8 @@ Troubleshooting
      /* Kubernetes with CRI-O + kata-runtime */
      sudo -E kubeadm init --cri-socket=/run/crio/crio.sock
 
+
+
 .. _Kubernetes container orchestration system: https://kubernetes.io/
 
 .. _Kata Containers: https://katacontainers.io/
@@ -398,9 +410,6 @@ Troubleshooting
 
 .. _Joining your nodes: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
 
-.. _Stateless: https://clearlinux.org/features/stateless
-
 .. _documentation: https://clearlinux.org/documentation/clear-linux
 
 .. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup
-

@@ -1,7 +1,7 @@
 .. _faq:
 
-Frequently Asked Questions (FAQ)
-################################
+FAQ
+###
 
 Below is a list of commonly asked questions with answers sourced from the
 |CL-ATTR| team and `Clear Linux community forums`_.

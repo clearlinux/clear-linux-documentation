@@ -10,11 +10,10 @@ different.
 .. toctree::
    :maxdepth: 2
 
-   stateless
+   ../guides/tooling/stateless
    swupd-about
    mixer-about
    bundles-about
    autospec-about
-   restart
-   security
+   ../guides/tooling/security
    telemetry-about

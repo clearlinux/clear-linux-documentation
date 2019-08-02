@@ -22,11 +22,9 @@ Explore our tutorials to discover what you can do with |CL|!
    kata
    kata_migration
    kubernetes/kubernetes*
-   greengrass
-   dlrs/dlrs
    yubikey-u2f
    nvidia
-   dars
+   nvidia-cuda
    redis
    tutorial-proxy
    kernel-boot-params
