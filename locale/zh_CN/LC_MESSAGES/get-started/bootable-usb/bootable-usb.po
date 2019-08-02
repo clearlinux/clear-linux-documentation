@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-25 11:20-0008\n"
+"PO-Revision-Date: 2019-07-31 12:04-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -198,7 +198,7 @@ msgstr "插入 U 盘，打开 Rufus。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:184
 msgid "Under `Boot selection`, click the :guilabel:`SELECT` button."
-msgstr "在 `Boot selection` 中，点击 :guilabel:`选择` 按钮。"
+msgstr "在 `Boot selection` 中，点击 :guilabel:`SELECT` 按钮。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:186
 msgid "Find and select the previously extracted |CL| image file."
@@ -206,7 +206,7 @@ msgstr "找到并选择此前解压缩的 |CL| 映像文件。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:188
 msgid "Click the :guilabel:`START` button. See Figure 2."
-msgstr "点击 :guilabel:`启动` 按钮。见图 2。"
+msgstr "点击 :guilabel:`START` 按钮。见图 2。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:194
 msgid "Figure 2: Rufus utility"
@@ -216,7 +216,7 @@ msgstr "图 2: Rufus 实用程序"
 msgid ""
 "When the dialogue appears, select :guilabel:`Write in ISO image mode "
 "(Recommended)`. See Figure 3."
-msgstr "对话出现时，选择 :guilabel:`以 ISO 映像模式写入（推荐）`。见图 3。"
+msgstr "对话出现时，选择 :guilabel:`Write in ISO image mode (Recommended)`。见图 3。"
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:203
 msgid "Figure 3: ISOHybrid image detected"
