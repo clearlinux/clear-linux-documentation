@@ -4,40 +4,39 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/network/ipxe-install.rst:4
 msgid "Install over the network with iPXE"
-msgstr ""
+msgstr "使用 iPXE 通过网络安装"
 
 #: ../../guides/network/ipxe-install.rst:6
 msgid ""
 "This guide describes how to install |CL-ATTR| using :abbr:`PXE (Pre-boot "
 "Execution Environment)` over the network."
-msgstr ""
+msgstr "本指南介绍如何通过网络使用 :abbr:`PXE (Pre-boot Execution Environment)` 安装 |CL-ATTR|。"
 
 #: ../../guides/network/ipxe-install.rst:14
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../guides/network/ipxe-install.rst:16
 msgid ""
 "PXE is an industry standard that describes client-server interaction with"
 " network-boot software and uses the DHCP and TFTP protocols. This guide "
 "shows one method of using the PXE environment to install |CL|."
-msgstr ""
+msgstr "PXE 是描述客户端-服务器与网络引导软件交互的行业标准，并使用 DHCP 和 TFTP 协议。本指南介绍了一种使用 PXE 环境安装 |CL| 的方法。"
 
 #: ../../guides/network/ipxe-install.rst:20
 msgid ""
@@ -46,78 +45,78 @@ msgid ""
 ":abbr:`AoE (ATA over Ethernet\\*)`, and :abbr:`FCoE (Fiber Channel over "
 "Ethernet\\*)`. iPXE enables network booting on computers with no built-in"
 " PXE support."
-msgstr ""
+msgstr "名为 `iPXE`_ 的 PXE 扩展新增了对 HTTP、:abbr:`iSCSI (Internet Small Computer Systems Interface)`、:abbr:`AoE (ATA over Ethernet\\*)` 和 :abbr:`FCoE (Fiber Channel over Ethernet\\*)` 等协议的支持。iPXE 支持在没有内置 PXE 支持的计算机上使用网络引导。"
 
 #: ../../guides/network/ipxe-install.rst:25
 msgid ""
 "To install |CL| through iPXE, you must create a PXE client. Figure 1 "
 "depicts the flow of information between a PXE server and a PXE client."
-msgstr ""
+msgstr "要通过 iPXE 安装 |CL|，必须创建一个 PXE 客户端。图 1 描述了 PXE 服务器和 PXE 客户端之间的信息流。"
 
 #: ../../guides/network/ipxe-install.rst:31
 msgid "Figure 1: PXE information flow."
-msgstr ""
+msgstr "图 1：PXE 信息流。"
 
 #: ../../guides/network/ipxe-install.rst:35
 msgid ""
 "The |CL| image that boots through the PXE process automatically erases "
 "all data and partitions on the PXE client system and creates 3 new "
 "partitions to install onto."
-msgstr ""
+msgstr "通过 PXE 过程引导的 |CL| 映像会自动擦除 PXE 客户端系统上的所有数据和分区，并创建 3 个新分区来安装该映像。"
 
 #: ../../guides/network/ipxe-install.rst:40
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../guides/network/ipxe-install.rst:42
 msgid "Before booting with iPXE, make the following preparations."
-msgstr ""
+msgstr "使用 iPXE 引导之前，请做好以下准备。"
 
 #: ../../guides/network/ipxe-install.rst:44
 msgid ""
 "Connect the PXE server and PXE clients to a switch on a private network, "
 "as shown in figure 2."
-msgstr ""
+msgstr "将 PXE 服务器和 PXE 客户端连接到专用网络上的交换机，如图 2 所示。"
 
 #: ../../guides/network/ipxe-install.rst:50
 msgid "Figure 2: Network topology."
-msgstr ""
+msgstr "图 2：网络拓扑。"
 
 #: ../../guides/network/ipxe-install.rst:52
 msgid ""
 "Your PXE client must have a boot order where the network boot option is "
 "prioritized before the disk boot option."
-msgstr ""
+msgstr "在 PXE 客户端的引导顺序中，网络引导选项需要优先于磁盘引导选项。"
 
 #: ../../guides/network/ipxe-install.rst:55
 msgid "Your PXE server must have:"
-msgstr ""
+msgstr "PXE 服务器必须："
 
 #: ../../guides/network/ipxe-install.rst:57
 msgid "Ethernet/LAN boot option."
-msgstr ""
+msgstr "具有以太网/局域网引导选项。"
 
 #: ../../guides/network/ipxe-install.rst:58
 msgid "At least two network adapters."
-msgstr ""
+msgstr "具有至少两个网络适配器。"
 
 #: ../../guides/network/ipxe-install.rst:59
 msgid "Connection to a public network."
-msgstr ""
+msgstr "连接到公共网络。"
 
 #: ../../guides/network/ipxe-install.rst:60
 msgid "Secure boot option disabled."
-msgstr ""
+msgstr "禁用安全引导选项。"
 
 #: ../../guides/network/ipxe-install.rst:64
 msgid ""
 "You must disable the secure boot option in the BIOS because the UEFI "
 "binaries used to boot |CL| are not signed."
-msgstr ""
+msgstr "您必须在 BIOS 中禁用安全引导选项，因为用于引导 |CL| 的 UEFI 二进制文件未经签名。"
 
 #: ../../guides/network/ipxe-install.rst:69
 msgid "Configuration"
-msgstr ""
+msgstr "配置"
 
 #: ../../guides/network/ipxe-install.rst:71
 msgid ""
@@ -125,38 +124,38 @@ msgid ""
 "ipxe.sh` script included with :abbr:`ICIS (Ister Cloud Init Service)`. "
 "For additional instructions on the script, refer to the guide on the "
 "`ister-cloud-init-svc`_ GitHub\\* repository."
-msgstr ""
+msgstr "要使用 iPXE 自动设置 |CL|，请使用随 :abbr:`ICIS (Ister Cloud Init Service)` 附带的 :file:`configure-ipxe.sh` 脚本。有关该脚本的其他说明，请参阅 `ister-cloud-init-svc`_ GitHub\\* 存储库中的指南。"
 
 #: ../../guides/network/ipxe-install.rst:76
 msgid "To set up |CL| manually, perform the steps below."
-msgstr ""
+msgstr "要手动设置 |CL|，请执行以下步骤。"
 
 #: ../../guides/network/ipxe-install.rst:78
 msgid "Define the variables used for iPXE boot configuration."
-msgstr ""
+msgstr "定义 iPXE 引导配置使用的变量。"
 
 #: ../../guides/network/ipxe-install.rst:94
 msgid "Log in and get root privilege."
-msgstr ""
+msgstr "登录并获得 root 特权。"
 
 #: ../../guides/network/ipxe-install.rst:100
 msgid ""
 "Add the :command:`pxe-server` bundle to your |CL| system. The bundle "
 "contains all files needed to run a PXE server."
-msgstr ""
+msgstr "将 :command:`pxe-server` 捆绑包添加到 |CL| 系统。该捆绑包含有运行 PXE 服务器所需的所有文件。"
 
 #: ../../guides/network/ipxe-install.rst:107
 msgid ""
 "Download the latest network-bootable release of |CL| and extract the "
 "files."
-msgstr ""
+msgstr "下载 |CL| 的最新网络引导版本，并提取文件。"
 
 #: ../../guides/network/ipxe-install.rst:121
 msgid ""
 "Ensure that the initial ramdisk file is named :file:`initrd` and the "
 "kernel file is named :file:`linux`, which is a symbolic link to the "
 "actual kernel file."
-msgstr ""
+msgstr "确保初始 ramdisk 文件命名为 :file:`initrd`，内核文件命名为 :file:`linux`（这是一个指向实际内核文件的符号链接）。"
 
 #: ../../guides/network/ipxe-install.rst:125
 msgid ""
@@ -164,38 +163,38 @@ msgid ""
 "boot, the iPXE boot script directs the PXE client to download the files "
 "to boot and install |CL|. Use the names previously given to the initial "
 "ramdisk and kernel files."
-msgstr ""
+msgstr "创建包含以下内容的 iPXE 引导脚本。在 iPXE 引导过程中，iPXE 引导脚本会指示 PXE 客户端下载引导和安装 |CL| 所需的文件。使用先前提供给初始 ramdisk 和内核文件的名称。"
 
 #: ../../guides/network/ipxe-install.rst:141
 msgid ""
 "The :command:`pxe-server` bundle contains a lightweight web-server known "
 "as nginx. Create a configuration file for nginx to serve |CL| to PXE "
 "clients with the following contents:"
-msgstr ""
+msgstr ":command:`pxe-server` 捆绑包含一个名为 nginx 的轻量级 Web 服务器。为 nginx 创建一个配置文件，以便 |CL| 为 PXE 客户端提供以下内容："
 
 #: ../../guides/network/ipxe-install.rst:163
 msgid ""
 "Create a separate nginx configuration file to serve network-bootable "
 "images on a non-standard port number. This action saves existing nginx "
 "configurations."
-msgstr ""
+msgstr "创建一个单独的 nginx 配置文件，以便在非标准端口号上提供网络引导映像。此操作会保存现有的 nginx 配置。"
 
 #: ../../guides/network/ipxe-install.rst:167
 msgid "Start nginx and enable the startup on boot option."
-msgstr ""
+msgstr "启动 nginx 并启用引导时启动选项。"
 
 #: ../../guides/network/ipxe-install.rst:174
 msgid ""
 "The :command:`pxe-server` bundle contains a lightweight DNS server which "
 "conflicts with the DNS stub listener provided in `systemd-resolved`. "
 "Disable the DNS stub listener and temporarily stop `systemd-resolved`."
-msgstr ""
+msgstr ":command:`pxe-server` 捆绑包包含一个轻量级 DNS 服务器，该服务器与 `systemd-resolved` 中提供的 DNS 存根侦听器冲突。请禁用 DNS 存根侦听器，并暂时停止 `systemd-resolved`。"
 
 #: ../../guides/network/ipxe-install.rst:188
 msgid ""
 "Assign a static IP address to the network adapter for the private network"
 " and restart `systemd-networkd` with the following commands:"
-msgstr ""
+msgstr "为专用网络的网络适配器分配一个静态 IP 地址，并使用以下命令重新启动 `systemd-networkd`："
 
 #: ../../guides/network/ipxe-install.rst:204
 msgid ""
@@ -203,19 +202,19 @@ msgid ""
 " the private network to the public network. This action makes the PXE "
 "server act as a router. To make these changes persistent during reboots, "
 "save the changes to the firewall with the following commands:"
-msgstr ""
+msgstr "配置 :abbr:`NAT (Network Address Translation)`，将流量从专用网络路由到公共网络。此操作会让 PXE 服务器充当路由器。要使这些更改在重启期间保持不变，请使用以下命令将更改保存到防火墙："
 
 #: ../../guides/network/ipxe-install.rst:220
 msgid ""
 "The firewall masks packets to make them appear as coming from the PXE "
 "server and hides PXE clients from the public network."
-msgstr ""
+msgstr "防火墙会遮掩数据包，使其看起来像来自 PXE 服务器，并对公共网络隐藏 PXE 客户端。"
 
 #: ../../guides/network/ipxe-install.rst:223
 msgid ""
 "Configure the kernel to forward network packets to different interfaces. "
 "Otherwise, NAT will not work."
-msgstr ""
+msgstr "配置内核，将网络数据包转发到不同的接口。否则，NAT 将不起作用。"
 
 #: ../../guides/network/ipxe-install.rst:232
 msgid ""
@@ -223,7 +222,7 @@ msgid ""
 " computers without an iPXE implementation to perform an iPXE boot. Create"
 " a TFTP hosting directory and populate the directory with the iPXE "
 "firmware images with the following commands:"
-msgstr ""
+msgstr ":command:`pxe-server` 捆绑包包含 iPXE 固件映像，这些映像允许没有 iPXE 实现的计算机执行 iPXE 引导。创建一个 TFTP 托管目录，并用以下命令用 iPXE 固件映像填充该目录："
 
 #: ../../guides/network/ipxe-install.rst:242
 msgid ""
@@ -231,65 +230,65 @@ msgid ""
 "DHCP server known as `dnsmasq`. Create a configuration file for `dnsmasq`"
 " to listen on a dedicated IP address for those functions. PXE clients on "
 "the private network will use this IP address."
-msgstr ""
+msgstr ":command:`pxe-server` 捆绑包包含一个名为 `dnsmasq` 的轻量级 TFTP、DNS 和 DHCP 服务器。为 `dnsmasq` 创建一个配置文件，以便监听这些功能的专用 IP 地址。专用网络上的 PXE 客户端将使用此 IP 地址。"
 
 #: ../../guides/network/ipxe-install.rst:253
 msgid ""
 "Add the options to serve iPXE firmware images to PXE clients over TFTP to"
 " the `dnsmasq` configuration file."
-msgstr ""
+msgstr "将通过 TFTP 向 PXE 客户端提供 iPXE 固件映像的选项添加到 `dnsmasq` 配置文件中。"
 
 #: ../../guides/network/ipxe-install.rst:263
 msgid ""
 "Add the options to host a DHCP server for PXE clients to the "
 ":file:`dnsmasq` configuration file."
-msgstr ""
+msgstr "将为 PXE 客户端托管 DHCP 服务器的选项添加到 `dnsmasq` 配置文件中。"
 
 #: ../../guides/network/ipxe-install.rst:285
 msgid "The configuration provides the following important functions:"
-msgstr ""
+msgstr "该配置提供以下重要功能："
 
 #: ../../guides/network/ipxe-install.rst:287
 msgid ""
 "Directs PXE clients without an iPXE implementation to the TFTP server to "
 "acquire architecture-specific iPXE firmware images that allow them to "
 "perform an iPXE boot."
-msgstr ""
+msgstr "将没有 iPXE 实现的 PXE 客户端定向到 TFTP 服务器，以获取特定于体系结构的 iPXE 固件映像，从而允许这些客户端执行 iPXE 引导。"
 
 #: ../../guides/network/ipxe-install.rst:290
 msgid ""
 "Activates only on the network adapter that has an IP address on the "
 "defined subnet."
-msgstr ""
+msgstr "仅在具有指定子网中 IP 地址的网络适配器上激活。"
 
 #: ../../guides/network/ipxe-install.rst:292
 msgid "Directs PXE clients to the DNS server."
-msgstr ""
+msgstr "将 PXE 客户端定向到 DNS 服务器。"
 
 #: ../../guides/network/ipxe-install.rst:293
 msgid "Directs PXE clients to the PXE server for routing via NAT."
-msgstr ""
+msgstr "将 PXE 客户端定向到 PXE 服务器，以便通过 NAT 进行路由。"
 
 #: ../../guides/network/ipxe-install.rst:294
 msgid ""
 "Divides the private network into two pools of IP addresses. One pool is "
 "for network boot and one pool is used after boot. Each pool has their own"
 " lease times."
-msgstr ""
+msgstr "将专用网络分成两个 IP 地址池。一个地址池用于网络引导，一个地址池在引导后使用。每个地址池都有自己的租赁时间。"
 
 #: ../../guides/network/ipxe-install.rst:298
 msgid ""
 "Create a file for `dnsmasq` to record the IP addresses it provides to PXE"
 " clients."
-msgstr ""
+msgstr "为 `dnsmasq` 创建一个文件，记录它向 PXE 客户端提供的 IP 地址。"
 
 #: ../../guides/network/ipxe-install.rst:306
 msgid "Start `dnsmasq` and enable startup on boot."
-msgstr ""
+msgstr "启动 `dnsmasq` 并启用引导时启动。"
 
 #: ../../guides/network/ipxe-install.rst:313
 msgid "Start `systemd-resolved`."
-msgstr ""
+msgstr "启动 `systemd-resolved`。"
 
 #: ../../guides/network/ipxe-install.rst:321
 msgid ""
@@ -297,24 +296,24 @@ msgid ""
 "private network if you use the `dnsmasq` DNS server. The setup creates a "
 "pass-through DNS server that relies on the DNS servers listed in "
 ":file:`/etc/resolv.conf`."
-msgstr ""
+msgstr "如果使用 `dnsmasq` DNS 服务器，`systemd-resolved` 会动态更新专用网络的 DNS 服务器列表。该设置会创建一个直通 DNS 服务器，该服务器依赖于 :file:`/etc/resolv.conf` 中列出的 DNS 服务器。"
 
 #: ../../guides/network/ipxe-install.rst:326
 msgid "Power on the PXE client and watch the client boot and install |CL|."
-msgstr ""
+msgstr "打开 PXE 客户端的电源，观看客户端引导并安装 |CL|。"
 
 #: ../../guides/network/ipxe-install.rst:328
 msgid ""
 "After booting, |CL| automatically partitions the hard drive, installs "
 "itself, updates to the latest version, and reboots."
-msgstr ""
+msgstr "引导后，|CL| 会自动对硬盘分区，自行安装，更新到最新版本，然后重新引导。"
 
 #: ../../guides/network/ipxe-install.rst:332
 msgid ""
 "**Congratulations!** You have successfully installed and configured a PXE"
 " server that enables PXE clients to boot and install |CL| over the "
 "network."
-msgstr ""
+msgstr "**祝贺您！** 您已成功安装并配置了 PXE 服务器，使 PXE 客户端能够通过网络引导并安装 |CL|。"
 
 #~ msgid "Install |CL-ATTR| over the network with iPXE"
 #~ msgstr ""
@@ -402,4 +401,5 @@ msgstr ""
 #~ "server for PXE clients to the "
 #~ "`dnsmasq` configuration file."
 #~ msgstr ""
+
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -513,7 +513,7 @@ msgstr "|VB| 上运行的 |CL| 虚拟机准备就绪，可供开发和探索。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:359
 msgid "Troubleshooting"
-msgstr "故障排除"
+msgstr "故障检修"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:361
 msgid ""

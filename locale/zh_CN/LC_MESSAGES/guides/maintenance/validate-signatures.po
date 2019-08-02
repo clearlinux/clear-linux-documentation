@@ -4,37 +4,36 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/validate-signatures.rst:4
 msgid "Validate signatures"
-msgstr ""
+msgstr "验证签名"
 
 #: ../../guides/maintenance/validate-signatures.rst:7
 msgid "This guide describes how to validate the contents of a |CL-ATTR| image."
-msgstr ""
+msgstr "本指南介绍如何验证 |CL-ATTR| 映像的内容。"
 
 #: ../../guides/maintenance/validate-signatures.rst:14
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../guides/maintenance/validate-signatures.rst:16
 msgid ""
 "Validating the contents of an image is a manual process and is the same "
 "process that :ref:`swupd-guide` performs internally."
-msgstr ""
+msgstr "验证映像内容是一个手动过程，与 :ref:`swupd-guide` 在内部执行的过程相同。"
 
 #: ../../guides/maintenance/validate-signatures.rst:19
 msgid ""
@@ -42,44 +41,44 @@ msgid ""
 "validation of content works by creating and signing a hash. A valid "
 "signature creates a chain of trust. A broken chain of trust, seen as an "
 "invalid signature, means the content is not valid."
-msgstr ""
+msgstr "|CL| 提供了一种验证映像内容或更新内容的方法。所有内容验证都是通过创建哈希以及对哈希签名来实现的。有效的签名会创建一个信任链。信任链断裂被视为无效签名，意味着内容无效。"
 
 #: ../../guides/maintenance/validate-signatures.rst:28
 msgid "Image content validation"
-msgstr ""
+msgstr "映像内容验证"
 
 #: ../../guides/maintenance/validate-signatures.rst:30
 msgid ""
 "In the steps below, we used the installer image of the latest release of "
 "|CL|. You may use any image of |CL| you choose."
-msgstr ""
+msgstr "在下面的步骤中，我们使用了 |CL| 最新版本的安装程序映像。您可以使用您选择的任何 |CL| 映像。"
 
 #: ../../guides/maintenance/validate-signatures.rst:33
 msgid ""
 "Download the image, the signature of the SHA512 sum of the image, and the"
 " |CL| certificate used for signing the SHA512 sum."
-msgstr ""
+msgstr "下载映像、映像 SHA512 总和的签名以及用于对 SHA512 总和签名的 |CL| 证书。"
 
 #: ../../guides/maintenance/validate-signatures.rst:45
 msgid "Generate the SHA256 sum of the |CL| certificate."
-msgstr ""
+msgstr "生成 |CL| 证书的 SHA256 总和。"
 
 #: ../../guides/maintenance/validate-signatures.rst:51
 msgid ""
 "Ensure the generated SHA256 sum of the |CL| certificate matches the "
 "following SHA256 sum to verify the integrity of the certificate."
-msgstr ""
+msgstr "确保生成的 |CL| 证书 SHA256 总和与以下 SHA256 总和匹配，以验证证书的完整性。"
 
 #: ../../guides/maintenance/validate-signatures.rst:58
 msgid "Generate the SHA512 sum of the image and save it to a file."
-msgstr ""
+msgstr "生成映像的 SHA512 总和，并将其保存到文件中。"
 
 #: ../../guides/maintenance/validate-signatures.rst:64
 msgid ""
 "Ensure the signature of the SHA512 sum of the image was created using the"
 " |CL| certificate. This confirms that the image is trusted and has not "
 "been modified."
-msgstr ""
+msgstr "确保使用 |CL| 证书创建了映像 SHA512 总和的签名。这会确认映像是可信的，并且没有经过修改。"
 
 #: ../../guides/maintenance/validate-signatures.rst:74
 #: ../../guides/maintenance/validate-signatures.rst:125
@@ -88,17 +87,17 @@ msgid ""
 " you use an earlier version of OpenSSL, omit this option to perform "
 "signature validation.  The :command:`openssl version` command may be used"
 " to determine the version of OpenSSL in use."
-msgstr ""
+msgstr "使用 OpenSSL 1.1 时，:command:`-purpose any` 选项是必需的。如果使用 OpenSSL 的早期版本，请在执行签名验证时忽略此选项。您可以使用 :command:`openssl version` 命令来确定正在使用的 OpenSSL 的版本。"
 
 #: ../../guides/maintenance/validate-signatures.rst:79
 msgid ""
 "The output should contain \"Verification successful\". If the output "
 "contains \"bad_signature\" anywhere, then the image is not trustworthy."
-msgstr ""
+msgstr "输出应包含 \"Verification successful\"。如果输出在任何地方包含 \"bad_signature\"，则映像不可信。"
 
 #: ../../guides/maintenance/validate-signatures.rst:83
 msgid "Update content validation"
-msgstr ""
+msgstr "更新内容验证"
 
 #: ../../guides/maintenance/validate-signatures.rst:85
 msgid ""
@@ -106,37 +105,37 @@ msgid ""
 "update content. The process swupd follows internally is illustrated here "
 "with manual steps using the latest |CL| release. There is no need to "
 "perform these steps manually when performing a :command:`swupd update`."
-msgstr ""
+msgstr "**swupd** 会在应用更新内容之前自动验证所有更新内容。这里以最新 |CL| 版本为例，通过手动步骤说明 swupd 在内部遵循的过程。执行 :command:`swupd update` 时，不需要手动执行这些步骤。"
 
 #: ../../guides/maintenance/validate-signatures.rst:90
 msgid ""
 "Download the :abbr:`MoM (top-level manifest)`, the signature of the MoM, "
 "and the Swupd certificate used for signing the signature of the MoM."
-msgstr ""
+msgstr "下载 :abbr:`MoM (top-level manifest)`、MoM 签名以及用于对 MoM 签名进行签名的 Swupd 证书。"
 
 #: ../../guides/maintenance/validate-signatures.rst:102
 msgid "Generate the SHA256 sum of the swupd certificate."
-msgstr ""
+msgstr "生成 swupd 证书的 SHA256 总和。"
 
 #: ../../guides/maintenance/validate-signatures.rst:108
 msgid ""
 "Confirm that the generated SHA256 sum of the swupd certificate matches "
 "the SHA256 sum shown below to verify the integrity of the certificate."
-msgstr ""
+msgstr "确认生成的 swupd 证书 SHA256 总和与以下 SHA256 总和匹配，以验证证书的完整性。"
 
 #: ../../guides/maintenance/validate-signatures.rst:115
 msgid ""
 "Confirm that the signature of the MoM was created using the Swupd "
 "certificate. This signature validates the update content is trustworthy "
 "and has not been modified."
-msgstr ""
+msgstr "确认 MoM 签名是使用 Swupd 证书创建的。此签名会验证更新内容是可信的，没有经过修改。"
 
 #: ../../guides/maintenance/validate-signatures.rst:132
 msgid ""
 "The SHA512 sum of the MoM is not generated and then signed. Instead, the "
 "MoM is signed directly because it is small in size compared to an image "
 "of |CL|."
-msgstr ""
+msgstr "系统不会生成 MoM 的 SHA512 总和，也不会对该 SHA512 总和签名。相反，系统直接对 MoM 签名，因为它的大小比 |CL| 映像小。"
 
 #: ../../guides/maintenance/validate-signatures.rst:136
 msgid ""
@@ -144,7 +143,7 @@ msgid ""
 "contains \"bad_signature\" anywhere, then the MoM cannot be trusted. "
 "Because the MoM contains a list of hashes for bundle manifests, if the "
 "MoM cannot be trusted, then the bundle content cannot be trusted."
-msgstr ""
+msgstr "输出应包含 \"Verification successful\"。如果输出在任何地方包含 \"bad_signature\"，则 MoM 不可信。由于 MoM 包含捆绑包清单的哈希列表，因此如果 MoM 不可信，那么捆绑包内容也不可信。"
 
 #~ msgid ""
 #~ "|CL-ATTR| offers a way to validate"
@@ -237,4 +236,5 @@ msgstr ""
 #~ "be trusted, then the bundle content "
 #~ "cannot be trusted."
 #~ msgstr ""
+
 

@@ -4,78 +4,77 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/time.rst:4
 msgid "Set the time"
-msgstr ""
+msgstr "设置时间"
 
 #: ../../guides/maintenance/time.rst:6
 msgid ""
 "This guide describes how to reset the time in your |CL-ATTR| system when "
 "the default :abbr:`NTP (Network Time Protocol)` servers cannot be "
 "reached."
-msgstr ""
+msgstr "本指南介绍当无法访问默认 :abbr:`NTP (Network Time Protocol)` 服务器时如何重置 |CL-ATTR| 系统中的时间。"
 
 #: ../../guides/maintenance/time.rst:9
 msgid "|CL| uses the `systemd-timesyncd.service` daemon to synchronize time."
-msgstr ""
+msgstr "|CL| 使用 `systemd-timesyncd.service` 守护程序来同步时间。"
 
 #: ../../guides/maintenance/time.rst:12
 msgid "Install the :command:`sysadmin-basic` bundle."
-msgstr ""
+msgstr "安装 :command:`sysadmin-basic` 捆绑包。"
 
 #: ../../guides/maintenance/time.rst:18
 msgid "Set your time zone. This example uses Los Angeles."
-msgstr ""
+msgstr "设置时区。此示例中使用了洛杉矶。"
 
 #: ../../guides/maintenance/time.rst:26
 msgid ""
 "To see a list of time zones, use the command: :command:`timedatectl list-"
 "timezones | grep <locale>`"
-msgstr ""
+msgstr "要查看时区列表，请使用 :command:`timedatectl list-timezones | grep <locale>` 命令"
 
 #: ../../guides/maintenance/time.rst:29
 msgid "Create a :file:`/etc/systemd/` directory."
-msgstr ""
+msgstr "创建一个 :file:`/etc/systemd/` 目录。"
 
 #: ../../guides/maintenance/time.rst:35
 msgid ""
 "Create a new file named :file:`/etc/systemd/timesyncd.conf` and enter the"
 " following text."
-msgstr ""
+msgstr "创建一个名为 :file:`/etc/systemd/timesyncd.conf` 的新文件，并输入以下文本。"
 
 #: ../../guides/maintenance/time.rst:44
 msgid "Enable the `systemd-timesyncd` service."
-msgstr ""
+msgstr "启用 `systemd-timesyncd` 服务。"
 
 #: ../../guides/maintenance/time.rst:52
 msgid ""
 "To check the service status, use the :command:`timedatectl status` "
 "command."
-msgstr ""
+msgstr "要检查服务状态，请使用 :command:`timedatectl status` 命令。"
 
 #: ../../guides/maintenance/time.rst:54
 msgid ""
 "To restart the `timesyncd` daemon, enter :command:`systemctl restart "
 "systemd-timesyncd` into your terminal emulator."
-msgstr ""
+msgstr "要重启 `timesyncd` 守护程序，请在终端仿真器中输入 :command:`systemctl restart systemd-timesyncd`。"
 
 #: ../../guides/maintenance/time.rst:57
 msgid "**Congratulations!** You successfully set up the time in your |CL| system."
-msgstr ""
+msgstr "**祝贺您！** 您成功地在 |CL| 系统中设置了时间。"
 
 #~ msgid ""
 #~ "|CL-ATTR| uses the `systemd-"
@@ -91,4 +90,5 @@ msgstr ""
 
 #~ msgid "Install the `sysadmin-basic` bundle."
 #~ msgstr ""
+
 

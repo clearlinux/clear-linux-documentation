@@ -4,45 +4,44 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/guides.rst:4
 msgid "Guides"
-msgstr ""
+msgstr "指南"
 
 #: ../../guides/guides.rst:6
 msgid "The following guides provide step-by-step instructions on using |CL|."
-msgstr ""
+msgstr "以下指南提供了使用 |CL| 的逐步说明。"
 
 #: ../../guides/guides.rst:10
 msgid "As of 22 May 2019 :file:`mixin` is no longer supported."
-msgstr ""
+msgstr "截至 2019 年 5 月 22 日，:file:`mixin` 不再受支持。"
 
 #: ../../guides/guides.rst:13
 msgid "Maintenance"
-msgstr ""
+msgstr "维护"
 
 #: ../../guides/guides.rst:23
 msgid "Network"
-msgstr ""
+msgstr "网络"
 
 #: ../../guides/guides.rst:32
 msgid "Kernel"
-msgstr ""
+msgstr "内核"
 
 #: ../../guides/guides.rst:41
 msgid "Stacks"
-msgstr ""
+msgstr "堆栈"
 

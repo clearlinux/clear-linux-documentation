@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "增加映像的虚拟磁盘大小"
 msgid ""
 "This guide describes how to increase the disk size of your prebuilt |CL-"
 "ATTR| image if you need more capacity."
-msgstr "本指南介绍了在需要更多容量的时候如何增加预构建 |CL-ATTR| 映像的大小。"
+msgstr "本指南介绍在需要更大容量时如何增加预构建的 |CL| 映像的磁盘大小。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:14
 msgid "Determine the partition order and sizes of the prebuilt image"
@@ -35,19 +35,19 @@ msgstr "确定预构建映像的分区顺序和大小。"
 msgid ""
 "|CL| prebuilt images come in different sizes, ranging from 300 MB to 20 "
 "GB."
-msgstr "|CL| 预构建映像大小多样，从 300 MB 至 20 GB 不等。"
+msgstr "|CL| 预构建映像拥有不同的大小，范围从 300 MB 至 20 GB 不等。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:19
 msgid ""
 "There are two methods to find the order and sizes of partitions virtual "
 "disk of your prebuilt |CL| image."
-msgstr "有两种方法可找到预构建 |CL| 映像分区虚拟磁盘的顺序和大小。"
+msgstr "有两种方法可找到预构建 |CL| 映像分区虚拟盘的顺序和大小。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:22
 msgid ""
 "In both examples, the prebuilt Hyper-V image has a disk size of 8.5 GB "
 "with :file:`/dev/sda3` being the partition for the root filesystem (/)"
-msgstr "在两例中，预构建 Hyper-V 映像的磁盘大小为 8.5 GB，:file:`/dev/sda3` 为 root 文件系统 (/) 分区"
+msgstr "在两个例子中，预构建 Hyper-V 映像拥有 8.5 GB 磁盘大小，其中 :file:`/dev/sda3` 为根文件系统 (/) 分区"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:26
 msgid "Checking :command:`lsblk` on the VM"
@@ -57,15 +57,15 @@ msgstr "在虚拟机上检查 :command:`lsblk`"
 msgid ""
 "The first method is to boot up your :abbr:`VM (Virtual Machine)` and "
 "execute the :command:`lsblk` command as shown below:"
-msgstr "第一种方法是引导 :abbr:`VM (Virtual Machine)`，执行 :command:`lsblk` 命令，如下所示："
+msgstr "第一种方法是引导启动您的 :abbr:`VM (Virtual Machine)` 并执行 :command:`lsblk` 命令，如下所示："
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:35
 msgid "An example output of the :command:`lsblk` command:"
-msgstr ":command:`lsblk` 命令的示例输出："
+msgstr ":command:`lsblk` 命令输出结果示例："
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:45
 msgid "An example of this can also be seen in Figure 1."
-msgstr "还可以在图 1 中查看此例。"
+msgstr "还可在图 1 中查看此示例。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:48
 msgid "Checking :file:`config.json` used to build the image"
@@ -77,15 +77,15 @@ msgid ""
 " file used to create prebuilt image, located in the `releases`_ "
 "repository. For example, to find the size of the Hyper-V\\* image version"
 " number 20450, follow these steps:"
-msgstr "第二种方法是确定分区，检查用来创建预构建映像的 :file:`config.json` 文件。该文件在 `releases`_ 存储库中。例如，要发现版本号 20450 的 Hyper-V\\* 映像的大小，请按照如下步骤操作："
+msgstr "第二种方法是确定分区，以检查用来创建预构建映像的 :file:`config.json` 文件，该文件位于 `releases`_ 库。例如，要发现版本号 20450 的 Hyper-V\\* 映像的大小，请遵循如下步骤："
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:55
 msgid "Go to the `releases`_ repository."
-msgstr "转到 `releases`_ 存储库。"
+msgstr "转到 `releases`_ 库。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:56
 msgid "Drill down into the `20450 > clear > config > image` directory."
-msgstr "浏览至 `20450 > clear > config > image` 目录。"
+msgstr "追溯 `20450 > clear > config > image` 目录。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:57
 msgid "Open the :file:`hyperv-config.json` file."
@@ -99,28 +99,28 @@ msgstr "找到 `PartitionLayout` 键。"
 msgid ""
 "The example shows 512 MB for the EFI partition, 32 MB for the swap "
 "partition, and 8 GB for the root partition."
-msgstr "本例显示 DFI 分区为 512 MB，swap 分区为 32 MB，而 root 分区为 8 GB。"
+msgstr "该例子显示 DFI 分区为 512 MB，swap 分区为 32 MB，而根分区为 8 GB。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:80
 msgid "Increase virtual disk size"
-msgstr "增加虚拟磁盘大小"
+msgstr "增加虚拟盘大小"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:81
 msgid ""
 "Once you have determined the disk and partition to be increased, you are "
 "ready to perform the actual increase of the disk, partition, and "
 "filesystem."
-msgstr "一旦确定增加磁盘和分区的大小，实际上则会增加磁盘、分区和文件系统的大小。"
+msgstr "一旦确定增加磁盘和分区的大小，您将执行实际操作增加磁盘、分区和 filesystem 的大小。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:85
 msgid "Power off VM and increase virtual disk size"
-msgstr "关闭虚拟机并增加虚拟磁盘大小："
+msgstr "关闭虚拟机并增加虚拟盘大小"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:87
 msgid ""
 "To increase the virtual disk size for a prebuilt image, perform the steps"
 " below:"
-msgstr "要为预构建映像增加虚拟磁盘大小，请执行以下几个步骤："
+msgstr "要为预构建映像增加虚拟盘大小，请执行如下步骤："
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:90
 msgid "Shut down your VM if it is running."
@@ -130,7 +130,7 @@ msgstr "关闭正在运行的虚拟机。"
 msgid ""
 "Use the process defined by your hypervisor  or cloud provider to increase"
 " the virtual disk size of your |CL| VM."
-msgstr "使用虚拟机管理程序或云提供商定义的流程来增加 |CL| 虚拟机的虚拟磁盘大小。"
+msgstr "使用虚拟机管理程序或云提供商规定的流程或增加 |CL| 虚拟机的虚拟盘大小。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:93
 msgid "Power up the VM."
@@ -138,21 +138,21 @@ msgstr "开启虚拟机。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:97
 msgid "Resize the partition of the virtual disk"
-msgstr "调整虚拟磁盘的分区大小："
+msgstr "调整虚拟盘的分区大小"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:99
 msgid "Log in to an account with root privileges."
-msgstr "登录拥有 root 权限的帐户。"
+msgstr "登录拥有根权限的账户。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:100
 msgid "Open a terminal emulator."
-msgstr "打开终端模拟器。"
+msgstr "打开一个终端模拟器。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:101
 msgid ""
 "Add the :command:`storage-utils` bundle to install the :command:`parted` "
 "and :command:`resize2fs` tools."
-msgstr "添加 :command:`storage-utils` bundle，安装 :command:`parted` 和 :command:`resize2fs` 工具。"
+msgstr "添加 :command:`storage-utils` 捆绑包以安装 :command:`parted` 和 :command:`resize2fs` 工具。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:108
 msgid "Launch the `parted` tool."
@@ -160,11 +160,11 @@ msgstr "启动 `parted` 工具。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:114
 msgid "In the `parted` tool, perform these steps:"
-msgstr "在 `parted` 工具中，执行以下几个步骤："
+msgstr "在 `parted` 工具中，执行如下步骤："
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:116
 msgid "Press :command:`p` to print the partitions table."
-msgstr "按下 :command:`p`，打印分区表。"
+msgstr "按下 :command:`p` 以打印分区表。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:117
 msgid "If the warning message below is displayed, enter :command:`Fix`."
@@ -190,27 +190,27 @@ msgid ""
 "the total size of the disk. When you print the partitions table with the "
 ":command:`p` command, the total disk size is shown after the "
 ":guilabel:`Disk` label."
-msgstr "如果希望一个分区占用剩余的磁盘空间，则输入磁盘的总大小。使用 :command:`p` 命令打印分区表时，在 :guilabel:`Disk` 标签后面会显示总磁盘大小。"
+msgstr "如果希望一个分区占用剩余的盘空间，则输入磁盘的总大小。使用 :command:`p` 命令打印分区表时，:guilabel:`Disk` 标签后面会显示出总磁盘大小。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:139
 msgid "An example of this can be seen in Figure 1."
-msgstr "可以在图 1 中查看此例。"
+msgstr "本步骤示例可在图 1 中查看。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:141
 msgid ""
 "Enter :command:`q` to exit `parted` when you are finished resizing the "
 "image."
-msgstr "调整映像完成后，输入 :command:`q` 退出 `parted`。"
+msgstr "当调整映像完成后，输入 :command:`q` 退出 `parted`。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:144
 msgid ""
 "Figure 1 depicts the described steps  to resize the partition of the "
 "virtual disk from 8.5GB to 20GB."
-msgstr "图 1 介绍了将虚拟磁盘分区从 8.5GB 调整为 20GB 的步骤。"
+msgstr "图 1 描述了将虚拟盘分区从 8.5GB 调整为 20GB 的步骤。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:150
 msgid "Figure 1: Increase root partition size."
-msgstr "图 1：增加 root 分区的大小。"
+msgstr "图 1：增加根分区的大小。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:153
 msgid "Resize the filesystem"
@@ -221,27 +221,27 @@ msgid ""
 "Enter :command:`sudo resize2fs -p /dev/[modified partition name]` where "
 "*[modified partition name]* is the partition that was changed in the "
 "`parted` tool."
-msgstr "输入 :command:`sudo resize2fs -p /dev/[modified partition name]`，其中 *[modified partition name]* 是将在 `parted` 中改变的分区。"
+msgstr "输入 :command:`sudo resize2fs -p /dev/[modified partition name]`，其中 *[modified partition name]* 是在 `parted` 工具中改变的分区。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:159
 msgid "Run the :command:`df -h` to verify that the filesystem size has increased."
-msgstr "运行 :command:`df -h` 确认文件系统大小已增加。"
+msgstr "运行 :command:`df -h`确认 filesystem大小已增加。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:162
 msgid ""
 "Figure 2 depicts the described steps to resize the partition of the "
 "virtual disk from 8.5GB to 20GB."
-msgstr "图 2 介绍了将虚拟磁盘分区从 8.5GB 调整为 20GB 的步骤。"
+msgstr "图 2 描述了虚拟盘分区实现从 8.5GB 调整至 20GB 的步骤。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:169
 msgid "Figure 2: Increase root filesystem size after partition has been expanded."
-msgstr "图 2：扩展分区后增加 root 文件系统大小。"
+msgstr "图 2：扩展分区后增加根 filesystem 大小。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:171
 msgid ""
 "**Congratulations!** You have resized the disk, partition, and "
 "filesystem. At this point, the increase in disk capacity is usable."
-msgstr "**恭喜！** 您已经知道如何调整磁盘、分区和文件系统的大小。此时，增加磁盘容量有用。"
+msgstr "**祝贺您！** 您已经调整磁盘、分区和 filesystem 的大小。此时，盘容量的增加是有用的。"
 
 #~ msgid "Increase virtual disk size of a |CL-ATTR| image"
 #~ msgstr ""

@@ -4,131 +4,130 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:4
 msgid "Install |CL-ATTR| from the live desktop"
-msgstr ""
+msgstr "从实时桌面安装 |CL-ATTR|"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:6
 msgid ""
 "This page explains how to boot the |CL-ATTR| live desktop image, from "
 "which you can install |CL| or explore without modifying the host system."
-msgstr ""
+msgstr "本页介绍如何引导 |CL-ATTR| 实时桌面映像，您可以从该映像安装 |CL| 或查看该映像内容，而不必修改主机系统。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:14
 msgid "System requirements"
-msgstr ""
+msgstr "系统要求"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:16
 msgid ""
 "Before installing |CL|, verify that the host system supports the "
 "installation:"
-msgstr ""
+msgstr "安装 |CL| 之前，请确认主机系统满足安装条件："
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:19
 msgid ":ref:`system-requirements`"
-msgstr ""
+msgstr ":ref:`system-requirements`"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:20
 msgid ":ref:`compatibility-check`"
-msgstr ""
+msgstr ":ref:`compatibility-check`"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:23
 msgid "Preliminary steps"
-msgstr ""
+msgstr "初始步骤"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:25
 msgid "Visit our `Downloads`_ page."
-msgstr ""
+msgstr "访问我们的 `Downloads`_ 页面。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:27
 msgid ""
 "Download the file :file:`clear-<release number>-live-desktop.iso`, also "
 "called the |CL| Desktop."
-msgstr ""
+msgstr "下载 :file:`clear-<release number>-live-desktop.iso` 文件（该文件也称为 |CL| 桌面）。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:32
 msgid "<release-number> is the latest |CL| auto-numbered release."
-msgstr ""
+msgstr "<release-number> 是最新的 |CL| 自动编号版本。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:34
 msgid "Verify and decompress the file per your OS."
-msgstr ""
+msgstr "确认该文件是否适合您的操作系统，然后解压缩。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:36
 msgid ":ref:`download-verify-decompress`"
-msgstr ""
+msgstr ":ref:`download-verify-decompress`"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:38
 msgid "Follow your OS instructions to create a bootable USB drive."
-msgstr ""
+msgstr "按照操作系统说明创建一个可引导的 USB 驱动器。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:40
 msgid ":ref:`bootable-usb`"
-msgstr ""
+msgstr ":ref:`bootable-usb`"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:45
 msgid "Install from live image"
-msgstr ""
+msgstr "从实时映像安装"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:47
 msgid ""
 "After you download and burn the live desktop image on a USB drive, follow"
 " these steps."
-msgstr ""
+msgstr "下载实时桌面映像并将其刻录到 USB 驱动器后，请按照以下步骤操作。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:50
 msgid "Insert the USB drive into an available USB slot."
-msgstr ""
+msgstr "将 USB 驱动器插入可用的 USB 插槽。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:52
 msgid "Power on the system."
-msgstr ""
+msgstr "打开系统电源。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:54
 msgid ""
 "Open the system BIOS setup menu by pressing the :kbd:`F2` key. Your BIOS "
 "setup menu entry point may vary."
-msgstr ""
+msgstr "按 :kbd:`F2` 键打开系统 BIOS 设置菜单。您的 BIOS 设置菜单入口点可能会有所不同。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:57
 msgid ""
 "In the setup menu, enable the UEFI boot and set the USB drive as the "
 "first option in the device boot order."
-msgstr ""
+msgstr "在设置菜单中，启用 UEFI 引导，并在设备引导顺序中将 USB 驱动器设置为第一个选项。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:60
 msgid "Save these settings, e.g. :kbd:`F10`, and exit."
-msgstr ""
+msgstr "保存这些设置，例如按 :kbd:`F10`，然后退出。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:62
 msgid "Reboot the target system."
-msgstr ""
+msgstr "重新引导目标系统。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:64
 msgid "Select :guilabel:`Clear Linux OS` in the boot menu, shown in Figure 1."
-msgstr ""
+msgstr "在引导菜单中选择 :guilabel:`Clear Linux OS`，如图 1 所示。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:70
 msgid "Figure 1: Clear Linux OS in boot menu"
-msgstr ""
+msgstr "图 1：引导菜单中的 Clear Linux OS"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:75
 msgid "Software (optional)"
-msgstr ""
+msgstr "软件（可选）"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:77
 msgid ""
@@ -136,135 +135,135 @@ msgid ""
 ":guilabel:`Software` icon from the Activities menu, shown in Figure 2. "
 "Ensure a network connection exists before launching the Software "
 "application."
-msgstr ""
+msgstr "查看 |CL| 捆绑包内容和其他软件。双击“Activities”菜单中的 :guilabel:`Software` 图标，如图 2 所示。启动软件应用程序之前，请确保存在网络连接。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:83
 msgid ""
 "While running the |CL| live desktop image, the Software application is "
 "intended only for exploration. Do not attempt to install applications "
 "during exploration."
-msgstr ""
+msgstr "运行 |CL| 实时桌面映像时，在软件应用程序中只能查看映像的内容。查看映像内容期间，请勿尝试安装应用程序。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:88
 msgid "Launch the |CL| installer"
-msgstr ""
+msgstr "启动 |CL| 安装程序"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:90
 msgid ""
 "After the live desktop image boots, scroll over the vertical "
 ":guilabel:`Activities` menu at left."
-msgstr ""
+msgstr "实时桌面映像启动后，在左侧垂直方向滚动至 :guilabel:`Activities` 菜单。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:93
 msgid "Click the |CL| penguin icon to launch the installer, shown in Figure 2."
-msgstr ""
+msgstr "点击 |CL| 企鹅图标启动安装程序，如图 2 所示。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:99
 msgid "Figure 2: |CL| installer icon"
-msgstr ""
+msgstr "图 2：|CL| 安装程序图标"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:101
 msgid "After the installer is launched, it will appear as shown in Figure 3."
-msgstr ""
+msgstr "安装程序启动后如图 3 所示。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:107
 msgid "Figure 3: |CL| OS Desktop Installer"
-msgstr ""
+msgstr "图 3：|CL| 操作系统桌面安装程序"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:109
 msgid ""
 "In :guilabel:`Select Language`, select a language from the options, or "
 "type your preferred language in the search bar."
-msgstr ""
+msgstr "在:guilabel:`Select Language` 中，从选项中选择一种语言，或在搜索栏中键入所需的语言。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:112
 msgid "Select :guilabel:`Next`."
-msgstr ""
+msgstr "选择:guilabel:`Next`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:115
 msgid "Checking prerequisites"
-msgstr ""
+msgstr "检查是否满足所有先决条件"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:117
 msgid ""
 "The installer automatically launches :guilabel:`Checking Prerequisites`, "
 "which checks your target system for compatibility and network "
 "connectivity."
-msgstr ""
+msgstr "安装程序会自动启动 :guilabel:`Checking Prerequisites`，检查目标系统的兼容性和网络连接。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:120
 msgid ""
 "After the installer shows `Prerequisites passed`, select :guilabel:`Next`"
 " to proceed with installation."
-msgstr ""
+msgstr "安装程序显示 `Prerequisites passed` 后，选择:guilabel:`Next` 继续安装。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:127
 msgid "Figure 4: Checking Prerequisites"
-msgstr ""
+msgstr "图 4：检查是否满足所有先决条件"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:130
 msgid "Network Proxy (optional)"
-msgstr ""
+msgstr "网络代理（可选）"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:132
 msgid "Configure :guilabel:`Network Proxy` settings."
-msgstr ""
+msgstr "配置 :guilabel:`Network Proxy` 设置。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:134
 msgid "In the top right menu bar, select the :guilabel:`Power button`."
-msgstr ""
+msgstr "在右上角的菜单栏中，选择 :guilabel:`Power button`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:136
 msgid "Select :guilabel:`Wired Connected` and then :guilabel:`Wired Settings`."
-msgstr ""
+msgstr "选择 :guilabel:`Wired Connected`，然后选择 :guilabel:`Wired Settings`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:138
 msgid ""
 "In :guilabel:`Network Proxy`, select the :guilabel:`Gear` icon to view "
 "options."
-msgstr ""
+msgstr "在 :guilabel:`Network Proxy` 中，选择 :guilabel:`Gear` 图标查看选项。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:141
 msgid "Select an option from `Automatic`, `Manual` or `Disabled`."
-msgstr ""
+msgstr "从 `Automatic`、`Manual` 或 `Disabled` 中选择一个选项。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:143
 msgid "Close :guilabel:`Network Proxy`."
-msgstr ""
+msgstr "关闭 :guilabel:`Network Proxy`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:145
 msgid "Close :guilabel:`Settings`."
-msgstr ""
+msgstr "关闭 :guilabel:`Settings`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:150
 msgid "Minimum installation requirements"
-msgstr ""
+msgstr "最低安装要求"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:152
 msgid ""
 "To fulfill minimum installation requirements, complete the `Required "
 "options`_. We also recommend completing `Advanced options`_."
-msgstr ""
+msgstr "要满足最低安装要求，请填写`必填选项`_。我们还建议填写`高级选项`_。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:157
 msgid ""
 "The :kbd:`Install` button is only highlighted **after** you complete "
 "`Required options`_."
-msgstr ""
+msgstr "仅当填写`必填选项`_ 后才会高亮显示:kbd:`安装` 按钮。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:160
 msgid "Check marks indicate a selection has been made."
-msgstr ""
+msgstr "勾选标记表示已选择某个选项。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:162
 msgid ""
 "An Internet connection is required. You may want to launch a browser "
 "prior to installation to verify your Internet connection."
-msgstr ""
+msgstr "安装期间需要能访问 Internet。您可能需要在安装前启动浏览器来确认能否访问 Internet。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:166
 msgid "|CL| Desktop Installer"
-msgstr ""
+msgstr "|CL| 桌面安装程序"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:168
 msgid ""
@@ -272,110 +271,110 @@ msgid ""
 "meet the minimum requirements, enter values in all submenus for the "
 ":guilabel:`Required options`. After you complete them, your selections "
 "appear below submenus and a check mark appears at right."
-msgstr ""
+msgstr "出现 |CL| 桌面安装程序“Main Menu”，如图 5 所示。要满足最低要求，请在:guilabel:`Required options` 的所有子菜单中输入值。输入完成后，所选内容将出现在子菜单下方，且右侧会出现一个勾选标记。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:177
 msgid "Figure 5: Clear Linux OS Desktop Installer - Main Menu"
-msgstr ""
+msgstr "图 5：Clear Linux OS 桌面安装程序 - 主菜单"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:180
 msgid "Navigation"
-msgstr ""
+msgstr "巡航"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:182
 msgid "Use the :kbd:`mouse` to navigate or select options."
-msgstr ""
+msgstr "使用:kbd:`鼠标` 导航或选择选项。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:184
 msgid ""
 "Use :kbd:`Tab` key to navigate between :guilabel:`Required options` and "
 ":guilabel:`Advanced options`"
-msgstr ""
+msgstr "使用 :kbd:`Tab` 键在:guilabel:`Required options` 和:guilabel:`Advanced options` 之间导航"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:187
 msgid "Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate the submenus."
-msgstr ""
+msgstr "使用:kbd:`向上` 或:kbd:`向下` 箭头键在子菜单中导航。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:189
 msgid "Select :kbd:`Confirm`, or :kbd:`Cancel` in submenus."
-msgstr ""
+msgstr "在子菜单中选择:kbd:`确认` 或:kbd:`取消`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:192
 msgid "Required options"
-msgstr ""
+msgstr "必填选项"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:195
 msgid "Select Time Zone"
-msgstr ""
+msgstr "选择时区"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:197
 msgid ""
 "From the Main Menu, select :guilabel:`Select Time Zone`. `UTC` is "
 "selected by default."
-msgstr ""
+msgstr "从“Main Menu”中，选择:guilabel:`Select Time Zone`。默认情况下选择 `UTC`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:200
 msgid ""
 "In :guilabel:`Select Time Zone`, navigate to the desired time zone. Or "
 "start typing the region and then the city. (.e.g., "
 ":file:`America/Los_Angeles`)."
-msgstr ""
+msgstr "在:guilabel:`Select Time Zone` 中，导航到所需时区。或者先键入地区，然后键入城市。（例如 :file:`America/Los_Angeles`）。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:204
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:220
 msgid "Select :guilabel:`Confirm`."
-msgstr ""
+msgstr "选择:guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:210
 msgid "Figure 6: Select System Time Zone"
-msgstr ""
+msgstr "图 6：选择系统时区"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:213
 msgid "Select Keyboard"
-msgstr ""
+msgstr "选择键盘"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:215
 msgid "From the Main Menu, select :guilabel:`Select Keyboard`."
-msgstr ""
+msgstr "从“Main Menu”中，选择:guilabel:`Select Keyboard`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:217
 msgid ""
 "Navigate to your desired keyboard layout. We select \"us\" for the United"
 " States."
-msgstr ""
+msgstr "导航到所需的键盘布局。我们为美国选择 \"us\"。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:226
 msgid "Figure 7: Select Keyboard menu"
-msgstr ""
+msgstr "图 7：选择键盘菜单"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:229
 msgid "Select Installation Media"
-msgstr ""
+msgstr "选择安装媒介"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:231
 msgid "From the Main Menu, select :guilabel:`Select Installation Media`."
-msgstr ""
+msgstr "从“Main Menu”中，选择:guilabel:`Select Installation Media`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:233
 msgid ""
 "Choose an installation method: `Safe Installation`_ or `Destructive "
 "Installation`_."
-msgstr ""
+msgstr "选择安装方法：`Safe Installation`_ 或 `Destructive Installation`_。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:240
 msgid "Figure 8: Select Installation Media"
-msgstr ""
+msgstr "图 8：选择安装媒介"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:243
 msgid "Safe Installation"
-msgstr ""
+msgstr "安全安装"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:245
 msgid ""
 "Use this method to safely install |CL| on media with available space, or "
 "alongside existing partitions, and accept the `Default partition "
 "schema`_. If enough free space exists, safe installation is allowed."
-msgstr ""
+msgstr "使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition schema`_。如果有足够的可用空间，则可以执行安全安装。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:251
 msgid ""
@@ -385,104 +384,104 @@ msgid ""
 "|CL| partition, and you can select and boot it. However, other BIOSes may"
 " only show the primary partition, in which case you will not be able boot"
 " |CL|. Be aware of this possible limitation."
-msgstr ""
+msgstr "|CL| 可与另一个操作系统安装在一起。通常，当您引导系统时，您可以在 BIOS 开机自检阶段按 `F 键` 查看并所选可引导设备或分区。有些 BIOS 提供 |CL| 分区，您可以选择该分区并引导。但是，其他 BIOS 可能只显示主分区，在这种情况下，您将无法引导 |CL|。请注意这一潜在限制。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:260
 msgid "Destructive Installation"
-msgstr ""
+msgstr "破坏性安装"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:262
 msgid ""
 "Use this method to destroy the contents of the target device, install "
 "|CL| on it, and accept the `Default partition schema`_."
-msgstr ""
+msgstr "使用此方法会销毁目标设备上的内容，在目标设备上安装 |CL| 并接受 `Default partition schema`_。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:266
 msgid "Disk encryption"
-msgstr ""
+msgstr "磁盘加密"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:268
 msgid ""
 "For greater security, disk encryption is supported using LUKS. Encryption"
 " is optional."
-msgstr ""
+msgstr "为了提高安全性，支持使用 LUKS 加密磁盘。加密是可选的。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:271
 msgid ""
 "To encrypt the root partition, select :guilabel:`Enable Encryption`, as "
 "shown in Figure 9."
-msgstr ""
+msgstr "要加密根分区，请选择:guilabel:`Enable Encryption`，如图 9 所示。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:278
 msgid "Figure 9: Enable Encryption"
-msgstr ""
+msgstr "图 9：启用加密"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:280
 msgid "When :guilabel:`Encryption Passphrase` appears, enter a passphrase."
-msgstr ""
+msgstr "出现 :guilabel:`Encryption Passphrase` 时，输入密码短语。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:286
 msgid "Figure 10: Encryption Passphrase"
-msgstr ""
+msgstr "图 10：加密密码短语"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:290
 msgid "Minimum length is 8 characters. Maximum length is 94 characters."
-msgstr ""
+msgstr "最小长度为 8 个字符。最大长度为 94 个字符。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:292
 msgid "Enter the same passphrase in the second field."
-msgstr ""
+msgstr "在第二个字段中输入相同的密码短语。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:294
 msgid "Select :guilabel:`Confirm` in the dialogue box."
-msgstr ""
+msgstr "在对话框中选择:guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:298
 msgid ":guilabel:`Confirm` is only highlighted if passphrases match."
-msgstr ""
+msgstr ":guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:300
 msgid "Select :guilabel:`Confirm` in submenu."
-msgstr ""
+msgstr "在子菜单中选择:guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:303
 msgid "Manage User"
-msgstr ""
+msgstr "管理用户"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:305
 msgid "In Required Options, select :guilabel:`Manage User`."
-msgstr ""
+msgstr "在“必填选项”中，选择:guilabel:`Manage User`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:307
 msgid "In :guilabel:`User Name`, enter a user name."
-msgstr ""
+msgstr "在:guilabel:`User Name` 中，输入用户名。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:313
 msgid "Figure 11: Manage User"
-msgstr ""
+msgstr "图 11：管理用户"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:315
 msgid ""
 "In :guilabel:`Login`, create a login name. It must start with a letter "
 "and can use numbers, hyphens, and underscores. Maximum length is 31 "
 "characters."
-msgstr ""
+msgstr "在:guilabel:`Login` 中，创建一个登录名。登录名必须以字母开头，并可以使用数字、连字符和下划线。最大长度为 31 个字符。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:319
 msgid ""
 "In :guilabel:`Password`, enter a password. Minimum length is 8 "
 "characters. Maximum length is 255 characters."
-msgstr ""
+msgstr "在:guilabel:`密码` 中，输入密码。最小长度为 8 个字符。最大长度为 255 个字符。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:322
 msgid "In :guilabel:`Confirm`, enter the same password."
-msgstr ""
+msgstr "在:guilabel:`Confirm` 中，输入相同的密码。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:326
 msgid ""
 ":guilabel:`Administrator` rights are selected by default. For security "
 "purposes, the default user must be assigned as an Administrator."
-msgstr ""
+msgstr "默认情况下会选择 :guilabel:`Administrator` 权限。出于安全考虑，必须将默认用户分配为管理员。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:330
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:396
@@ -490,70 +489,70 @@ msgstr ""
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:447
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:466
 msgid "Select :kbd:`Confirm`."
-msgstr ""
+msgstr "选择:kbd:`确认`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:334
 msgid "Select :guilabel:`Cancel` to return to the Main Menu."
-msgstr ""
+msgstr "选择:guilabel:`Cancel` 会返回“Main Menu”。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:337
 msgid "Modify User"
-msgstr ""
+msgstr "修改用户"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:339
 msgid "In Manager User, select :guilabel:`Manage User`."
-msgstr ""
+msgstr "在“Manager User”中，选择 :guilabel:`Manage User`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:341
 msgid "Modify user details as desired."
-msgstr ""
+msgstr "根据需要修改用户详细信息。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:343
 msgid "Select :guilabel:`Confirm` to save the changes you made."
-msgstr ""
+msgstr "选择:guilabel:`Confirm` 保存所做的更改。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:347
 msgid ""
 "Optional: Select :guilabel:`Cancel` to return to the Main Menu to revert "
 "changes."
-msgstr ""
+msgstr "可选：选择:guilabel:`Cancel` 会不保存更改并返回“Main Menu”。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:350
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:406
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:429
 msgid "Optional: Skip to `Finish installation`_."
-msgstr ""
+msgstr "可选：跳到 `Finish installation`_。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:353
 msgid "Telemetry"
-msgstr ""
+msgstr "遥测技术"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:355
 msgid ""
 "Choose whether to participate in `telemetry`. :ref:`telem-guide` is a "
 "|CL| feature that reports failures and crashes to the |CL| development "
 "team for improvements. For more information, see :ref:`telemetry-about`."
-msgstr ""
+msgstr "选择是否参与`遥测技术`。:ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请参阅 :ref:`telemetry-about`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:359
 msgid "From :guilabel:`Required Options`, select :guilabel:`Telemetry`."
-msgstr ""
+msgstr "从:guilabel:`Required Options` 中选择:guilabel:`Telemetry`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:361
 msgid "Select :kbd:`Yes`."
-msgstr ""
+msgstr "选择 :kbd:`Yes`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:367
 msgid "Figure 12: Enable Telemetry"
-msgstr ""
+msgstr "图 12：启用遥测技术"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:369
 msgid "If you don't wish to participate, select :kbd:`No`."
-msgstr ""
+msgstr "如果不想参加，请选择 :kbd:`No`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:372
 msgid "Advanced options"
-msgstr ""
+msgstr "高级选项"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:374
 msgid ""
@@ -561,231 +560,231 @@ msgid ""
 ":guilabel:`Advanced options`--though they're not required. Doing so "
 "customizes your development environment, so you're ready to go "
 "immediately after reboot."
-msgstr ""
+msgstr "填写完`必填选项`_ 后，我们建议您设置:guilabel:`Advanced options`，尽管它们不是必需的。设置高级选项可以定制开发环境，便于在重启后立即开始使用。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:381
 msgid "You can always add more bundles later with :ref:`swupd-guide`."
-msgstr ""
+msgstr "日后始终可以使用 :ref:`swupd-guide` 添加更多捆绑包。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:384
 msgid "Bundle Selection"
-msgstr ""
+msgstr "捆绑包选择"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:386
 msgid "On the Advanced menu, select :guilabel:`Bundle Selection`"
-msgstr ""
+msgstr "在“Advanced”菜单中，选择 :guilabel:`Bundle Selection`"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:388
 msgid "Select your desired bundles."
-msgstr ""
+msgstr "选择所需的捆绑包。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:394
 msgid "Figure 13: Bundle Selection"
-msgstr ""
+msgstr "图 13：捆绑包选择"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:398
 msgid "View the bundles that you selected."
-msgstr ""
+msgstr "查看已选的捆绑包。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:404
 msgid "Figure 14: Bundle Selections - Advanced Options"
-msgstr ""
+msgstr "图 14：捆绑包选择 - 高级选项"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:409
 msgid "Assign Hostname"
-msgstr ""
+msgstr "分配主机名"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:411
 msgid "In Advanced Options, select :guilabel:`Assign Hostname`."
-msgstr ""
+msgstr "在“高级选项”中，选择:guilabel:`Assign Hostname`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:413
 msgid "In :guilabel:`Hostname`, enter the hostname only (excluding the domain)."
-msgstr ""
+msgstr "在 :guilabel:`Hostname` 中，仅输入主机名（不包括域）。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:419
 msgid "Figure 15: Assign Hostname"
-msgstr ""
+msgstr "图 15：分配主机名"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:423
 msgid ""
 "Hostname does not allow empty spaces. Hostname must start with an "
 "alphanumeric character but may also contain hyphens. Maximum length of 63"
 " characters."
-msgstr ""
+msgstr "主机名不允许有空格。主机名必须以字母数字字符开头，但也可以包含连字符。最大长度为 63 个字符。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:432
 msgid "Kernel Configuration"
-msgstr ""
+msgstr "内核配置"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:434
 msgid ""
 "In :guilabel:`Kernel Configuration`, navigate to select your desired "
 "kernel. :guilabel:`Native` is selected by default."
-msgstr ""
+msgstr "在 :guilabel:`Kernel Configuration` 中，通过导航选择所需的内核。默认情况下会选择 :guilabel:`Native`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:441
 msgid "Figure 16: Kernel Configuration"
-msgstr ""
+msgstr "图 16：内核配置"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:443
 msgid "To add arguments, enter the argument in :guilabel:`Add Extra Arguments`."
-msgstr ""
+msgstr "要添加参数，请在 :guilabel:`Add Extra Arguments` 中输入参数。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:445
 msgid "To remove an argument, enter the argument in :guilabel:`Remove Arguments`."
-msgstr ""
+msgstr "要移除参数，请在 :guilabel:`Remove Arguments` 中输入参数。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:450
 msgid "Software Updater Configuration"
-msgstr ""
+msgstr "软件更新程序配置"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:452
 msgid "In Advanced Options, select :guilabel:`Software Updater Configuration`."
-msgstr ""
+msgstr "在“高级选项”中，选择 :guilabel:`Software Updater Configuration`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:454
 msgid ""
 "In :guilabel:`Mirror URL`, follow the instructions if you wish to specify"
 " a different installation source."
-msgstr ""
+msgstr "在 :guilabel:`Mirror URL` 中，如需指定不同的安装源，请按照说明操作。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:457
 msgid ""
 ":guilabel:`Enable Auto Updates` is selected by default. If you **do not**"
 " wish to enable automatic software updates, uncheck the box."
-msgstr ""
+msgstr "默认情况下会选择 :guilabel:`Enable Auto Updates`。如果不希望启用软件自动更新，请取消选中该框。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:464
 msgid "Figure 17: Software Updater Configuration"
-msgstr ""
+msgstr "图 17：软件更新程序配置"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:469
 msgid "Finish installation"
-msgstr ""
+msgstr "完成安装"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:471
 msgid ""
 "When you are satisfied with your installation configuration, select "
 ":guilabel:`Install`."
-msgstr ""
+msgstr "如对安装配置满意，请选择:guilabel:`Install`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:478
 msgid "Figure 18: Finish installation"
-msgstr ""
+msgstr "图 18：完成安装"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:485
 msgid ""
 "If you do not enter a selection for all :guilabel:`Required Options`, the"
 " :guilabel:`Install` button remains disabled, as shown in Figure 19. "
 "Return to `Required Options`_ and make selections."
-msgstr ""
+msgstr "如果并没有为所有:guilabel:`Required Options` 设置选项，:guilabel:`Install` 按钮将保持禁用状态，如图 19 所示。返回`必填选项`_ 并进行选择。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:493
 msgid "Figure 19: Required Options - Incomplete"
-msgstr ""
+msgstr "图 19：必填选项 - 不完整"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:495
 msgid "After installation is complete, select :guilabel:`Exit`."
-msgstr ""
+msgstr "安装完成后，选择:guilabel:`Exit`。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:497
 msgid "Shut down the target system."
-msgstr ""
+msgstr "关闭目标系统。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:499
 msgid "Remove the USB or any installation media."
-msgstr ""
+msgstr "卸下 USB 或任何安装媒介。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:501
 msgid "Power on your system."
-msgstr ""
+msgstr "打开系统电源。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:505
 msgid ""
 "Allow time for the graphical login to appear. A login prompt shows the "
 "administrative user that you created."
-msgstr ""
+msgstr "等待图形登录窗口显示。登录提示会显示您此前创建的管理用户。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:507
 msgid "Log in as the administrative user."
-msgstr ""
+msgstr "以该管理用户身份登录。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:509
 msgid "Congratulations. You successfully installed |CL|."
-msgstr ""
+msgstr "祝贺您。您已成功安装 |CL|。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:512
 msgid "Default partition schema"
-msgstr ""
+msgstr "默认分区架构"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:514
 msgid "Create partitions per requirements in Table 1."
-msgstr ""
+msgstr "根据表 1 中的要求创建分区。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:516
 msgid "**Table 1. Default partition schema**"
-msgstr ""
+msgstr "**表 1.默认分区架构**"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:520
 msgid "FileSystem"
-msgstr ""
+msgstr "文件系统"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:521
 msgid "Label"
-msgstr ""
+msgstr "标签"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:522
 msgid "Mount Point"
-msgstr ""
+msgstr "挂载点"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:523
 msgid "Default size"
-msgstr ""
+msgstr "默认大小"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:525
-msgid "**VFAT(FAT32)**"
-msgstr ""
+msgid "**VFAT (FAT32)**"
+msgstr "**VFAT (FAT32)**"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:526
 msgid "boot"
-msgstr ""
+msgstr "引导"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:527
 msgid "/boot"
-msgstr ""
+msgstr "/boot"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:528
 msgid "150MB"
-msgstr ""
+msgstr "150MB"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:530
 msgid "**linux-swap**"
-msgstr ""
+msgstr "**linux-swap**"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:531
 msgid "swap"
-msgstr ""
+msgstr "交换"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:533
 msgid "256MB"
-msgstr ""
+msgstr "256MB"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:535
 msgid "**ext[234] or XFS**"
-msgstr ""
+msgstr "**ext[234] 或 XFS**"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:536
 msgid "root"
-msgstr ""
+msgstr "root"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:537
 msgid "/"
-msgstr ""
+msgstr "/"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:538
 msgid "*Size depends upon use case/desired bundles.*"
-msgstr ""
+msgstr "*大小取决于用例/所需的捆绑包。*"
 
 #~ msgid ""
 #~ "The live desktop allows you to "
@@ -1010,4 +1009,5 @@ msgstr ""
 
 #~ msgid ":ref:`guides`"
 #~ msgstr ""
+
 
