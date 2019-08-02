@@ -5,35 +5,38 @@
 
 Welcome to the |CL-ATTR| documentation pages, the source for |CL| documentation.
 
-.. raw:: html
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/JFg-_5xihkE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 Our documentation is divided into the following sections:
 
+
 :ref:`get-started`
-    If you are new to |CL|, get started fast with tutorials for installing |CL|
-    on bare metal, in a virtual environment, or as a live image on a USB stick.
+
+    If you are new to |CL|, get started quickly with step-by-step instructions for installing |CL| on bare metal, in a virtual environment, or as a live image on a USB stick.
 
 :ref:`about`
-    Clear Linux is a little different from other distros. Here are some
-    important tools and concepts for managing your install.
+
+    |CL| is different from other Linux distributions.
+
+    Updates, ease of use, and custom derivatives are a few of the differences this section explains. Orient yourself to these differences and why they matter to you.
 
 :ref:`guides`
-    Guides show how to complete common tasks that help you leverage |CL| native
-    features effectively. From basic system configuration to advanced
-    management of a cloud installation, there is a guide for you.
 
-:ref:`tutorials`
-    |CL| tutorials provide step-by-step instructions on how |CL| features can
-    be used and extended, frequently with third-party tools.
+    Guides cover a range of topics from |CL| features and tooling, to system maintenance, network, and stacks.
+
+:ref:`Use Cases <tutorials>`
+
+    Sample use cases, with step-by-step instructions, show how to set up third-party tools and software with |CL|.
 
 :ref:`reference`
-    Find the detailed information you need to enable your configuration or task
-    in our |CL| reference section.
+
+    The reference section contains supplemental information in support of |CL| configuration, system requirements, and contributions.
 
 :ref:`faq`
-    Refer to our FAQ section to read commonly asked questions and answers.
+
+    The FAQ section provides answers to commonly asked questions about |CL|.
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/JFg-_5xihkE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="padding:10px; background-color: #fff;"></iframe>
 
 .. toctree::
     :maxdepth: 2
