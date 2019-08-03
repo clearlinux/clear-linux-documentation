@@ -174,13 +174,13 @@ msgid ""
 "To fulfill minimum installation requirements, complete the `Required "
 "options`_. While not required, we encourage you to apply the `Recommended"
 " options`_. `Advanced options`_ are optional."
-msgstr "要满足最低安装要求，请填写`Required options`_。我们鼓励您应用 `Recommended options`_，尽管它们并非必需的。`Advanced options`_ 是可选的。"
+msgstr "要满足最低安装要求，请填写 `Required options`_。我们鼓励您应用 `Recommended options`_，尽管它们并非必需的。`Advanced options`_ 是可选的。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:110
 msgid ""
 "The :kbd:`Install` button is **only highlighted after** you complete "
 "`Required options`_."
-msgstr "仅当填写`Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
+msgstr "仅当填写 `Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:114
 msgid "Main Menu"
@@ -343,7 +343,7 @@ msgid ""
 "schema`_. If enough free space exists, safe installation is allowed. See "
 "also `Troubleshooting`_ below."
 msgstr "使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition "
-"schema`_。如果有足够的可用空间，则可以执行安全安装。另请参阅下面的`Troubleshooting`_。"
+"schema`_。如果有足够的可用空间，则可以执行安全安装。另请参阅下面的 `Troubleshooting`_。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:234
 msgid "Destructive Installation"
@@ -360,7 +360,7 @@ msgid ""
 "From the :guilabel:`Select Installation Media` menu, select "
 ":guilabel:`Enable Encryption` to encrypt the root filesystem for either "
 "option above. See also `Disk encryption`_ for more information."
-msgstr "从:guilabel:`Select Installation Media` 菜单中，选择:guilabel:`Enable Encryption` 对上述任一选项的根文件系统进行加密。有关详细信息，另请参阅`Disk encryption`_。"
+msgstr "从:guilabel:`Select Installation Media` 菜单中，选择:guilabel:`Enable Encryption` 对上述任一选项的根文件系统进行加密。有关详细信息，另请参阅 `Disk encryption`_。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:246
 msgid "Advanced Configuration"
@@ -371,7 +371,7 @@ msgid ""
 "Use this method to manually configure partitions. These must meet "
 "`Default partition schema`_. You may also choose `Disk encryption`_ "
 "during configuration of each partition."
-msgstr "使用此方法可手动配置分区。这些分区必须符合`Default partition schema`_。您也可以在配置每个分区时选择`Disk encryption`_。"
+msgstr "使用此方法可手动配置分区。这些分区必须符合 `Default partition schema`_。您也可以在配置每个分区时选择 `Disk encryption`_。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:254
 msgid ""
@@ -411,11 +411,11 @@ msgstr "导航到并按下:guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:276
 msgid "Continue with installation configuration. Jump to `Telemetry`_."
-msgstr "继续安装配置。跳到`Telemetry`_。"
+msgstr "继续安装配置。跳到 `Telemetry`_。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:278
 msgid "`Manual Partition`_ Continue below."
-msgstr "下面继续介绍`Manual Partition`_。"
+msgstr "下面继续介绍 `Manual Partition`_。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:281
 msgid "Manual Partition"
@@ -507,7 +507,7 @@ msgstr "图 13：磁盘分区的最终配置"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:348
 msgid "You may skip to the `Telemetry`_ section below."
-msgstr "您可以跳到下面的`Telemetry`_ 部分。"
+msgstr "您可以跳到下面的 `Telemetry`_ 部分。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:351
 msgid "Disk encryption"
@@ -605,7 +605,7 @@ msgstr "推荐选项"
 msgid ""
 "After you complete the `Required options`_, we highly recommend "
 "completing these selected `Advanced options`_ at minimum:"
-msgstr "设置完`Required options`_ 后，我们强烈建议您至少要设置这些选定的`Advanced options`_："
+msgstr "设置完 `Required options`_ 后，我们强烈建议您至少要设置这些选定的 `Advanced options`_："
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:420
 msgid "`Manage User`_ Assign a new user with administrative rights"

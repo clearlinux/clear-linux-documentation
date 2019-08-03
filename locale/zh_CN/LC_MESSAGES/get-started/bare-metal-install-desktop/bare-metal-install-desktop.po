@@ -243,13 +243,13 @@ msgstr "最低安装要求"
 msgid ""
 "To fulfill minimum installation requirements, complete the `Required "
 "options`_. We also recommend completing `Advanced options`_."
-msgstr "要满足最低安装要求，请填写`Required options`_。我们还建议填写`Advanced options`_。"
+msgstr "要满足最低安装要求，请填写 `Required options`_。我们还建议填写 `Advanced options`_。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:157
 msgid ""
 "The :kbd:`Install` button is only highlighted **after** you complete "
 "`Required options`_."
-msgstr "仅当填写`Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
+msgstr "仅当填写 `Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:160
 msgid "Check marks indicate a selection has been made."
@@ -560,7 +560,7 @@ msgid ""
 ":guilabel:`Advanced options`--though they're not required. Doing so "
 "customizes your development environment, so you're ready to go "
 "immediately after reboot."
-msgstr "填写完`Required options`_ 后，我们建议您设置:guilabel:`Advanced options`，尽管它们不是必需的。设置高级选项可以定制开发环境，便于在重启后立即开始使用。"
+msgstr "填写完 `Required options`_ 后，我们建议您设置:guilabel:`Advanced options`，尽管它们不是必需的。设置高级选项可以定制开发环境，便于在重启后立即开始使用。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:381
 msgid "You can always add more bundles later with :ref:`swupd-guide`."
@@ -678,7 +678,7 @@ msgid ""
 "If you do not enter a selection for all :guilabel:`Required Options`, the"
 " :guilabel:`Install` button remains disabled, as shown in Figure 19. "
 "Return to `Required Options`_ and make selections."
-msgstr "如果并没有为所有:guilabel:`Required Options` 设置选项，:guilabel:`Install` 按钮将保持禁用状态，如图 19 所示。返回`Required options`_ 并进行选择。"
+msgstr "如果并没有为所有:guilabel:`Required Options` 设置选项，:guilabel:`Install` 按钮将保持禁用状态，如图 19 所示。返回 `Required options`_ 并进行选择。"
 
 #: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:493
 msgid "Figure 19: Required Options - Incomplete"
