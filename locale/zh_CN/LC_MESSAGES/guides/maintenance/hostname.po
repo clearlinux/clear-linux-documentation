@@ -78,7 +78,7 @@ msgid ""
 "The most common is the static hostname. Static hostnames must be between "
 "two and 63 characters long, must start and end with a letter or number, "
 "and may contain letters (case-insensitive), numbers, dashes, or dots."
-msgstr "主机名有三种类型，分别是*静态*、*瞬态*和*灵活*主机名。最常见的是静态主机名。静态主机名的长度必须在 2 到 63 个字符之间，必须以字母或数字开头和结尾，并且可以包含字母（不区分大小写）、数字、破折号或点。"
+msgstr "主机名有三种类型，分别是 *静态*、*瞬态* 和 *灵活* 主机名。最常见的是静态主机名。静态主机名的长度必须在 2 到 63 个字符之间，必须以字母或数字开头和结尾，并且可以包含字母（不区分大小写）、数字、破折号或点。"
 
 #: ../../guides/maintenance/hostname.rst:51
 msgid ""

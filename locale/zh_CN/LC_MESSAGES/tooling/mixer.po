@@ -277,7 +277,7 @@ msgstr "查看 `mixer.build man page`_，了解有关构建 bundle 文件的更�
 msgid ""
 "View the `Bundles`_ section for more information on how mixer manages "
 "bundles."
-msgstr "查看 `Bundles`_部分，了解有关 mixer 如何管理 bundle 文件的更多信息。"
+msgstr "查看 `Bundles`_ 部分，了解有关 mixer 如何管理 bundle 文件的更多信息。"
 
 #: ../../tooling/mixer.rst:150
 msgid "Create the update content."
@@ -1069,7 +1069,7 @@ msgid ""
 "Configure the mixer update server. Create and add the following server "
 "configuration content to :file:`/etc/nginx/conf.d/mixer.conf` (sudo "
 "required):"
-msgstr "配置 mixer 更新服务器。创建以下服务器配置内容并将其添加到 :file:`/etc/nginx/conf.d/mixer.conf`（需 sudo 权限）："
+msgstr "配置 mixer 更新服务器。创建以下服务器配置内容并将其添加到 :file:`/etc/nginx/conf.d/mixer.conf` （需 sudo 权限）："
 
 #: ../../tooling/mixer.rst:833
 msgid "Restart the daemon, enable nginx on boot, and start the service."

@@ -155,7 +155,7 @@ msgid ""
 "Ensure that the initial ramdisk file is named :file:`initrd` and the "
 "kernel file is named :file:`linux`, which is a symbolic link to the "
 "actual kernel file."
-msgstr "确保初始 ramdisk 文件命名为 :file:`initrd`，内核文件命名为 :file:`linux`（这是一个指向实际内核文件的符号链接）。"
+msgstr "确保初始 ramdisk 文件命名为 :file:`initrd`，内核文件命名为 :file:`linux` （这是一个指向实际内核文件的符号链接）。"
 
 #: ../../guides/network/ipxe-install.rst:125
 msgid ""

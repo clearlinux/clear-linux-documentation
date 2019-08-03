@@ -881,7 +881,7 @@ msgstr "启动 RealVNC 查看器应用程序。"
 msgid ""
 "Enter `localhost` and the fully-qualified VNC port number.  See Figure 10"
 " for an example."
-msgstr "输入 `localhost 和完全限定的 VNC 端口号。请参阅图 10 的示例。"
+msgstr "输入 `localhost` 和完全限定的 VNC 端口号。请参阅图 10 的示例。"
 
 #: ../../guides/network/vnc.rst:781
 msgid "Figure 10: RealVNC viewer app connecting to `localhost:1234`"

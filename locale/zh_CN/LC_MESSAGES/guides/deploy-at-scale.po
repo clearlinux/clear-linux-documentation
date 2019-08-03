@@ -124,7 +124,7 @@ msgid ""
 "those updates actually make their way to your production can be separate "
 "business decision. However this *ability to frequently roll new versions*"
 " of software to your endpoints is an important prerequisite."
-msgstr "对大规模部署来说，为每个版本手动重建您自己的捆绑包或混合版是不可持续的。|CL| 部署流程应该足够敏捷，能够快速验证和快速生成新版本。是否将这些更新实际应用到生产环境属于独立的业务决策。但是，*是否有能力将新版本软件频繁滚动推出到端点*是一个重要的先决条件。"
+msgstr "对大规模部署来说，为每个版本手动重建您自己的捆绑包或混合版是不可持续的。|CL| 部署流程应该足够敏捷，能够快速验证和快速生成新版本。是否将这些更新实际应用到生产环境属于独立的业务决策。但是，*是否有能力将新版本软件频繁滚动推出到端点* 是一个重要的先决条件。"
 
 #: ../../guides/deploy-at-scale.rst:73
 msgid ""

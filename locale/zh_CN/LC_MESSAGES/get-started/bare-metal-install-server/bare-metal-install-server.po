@@ -174,13 +174,13 @@ msgid ""
 "To fulfill minimum installation requirements, complete the `Required "
 "options`_. While not required, we encourage you to apply the `Recommended"
 " options`_. `Advanced options`_ are optional."
-msgstr "要满足最低安装要求，请填写`必填选项`_。我们鼓励您应用 `Recommended options`_，尽管它们并非必需的。`高级选项`_ 是可选的。"
+msgstr "要满足最低安装要求，请填写`Required options`_。我们鼓励您应用 `Recommended options`_，尽管它们并非必需的。`Advanced options`_ 是可选的。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:110
 msgid ""
 "The :kbd:`Install` button is **only highlighted after** you complete "
 "`Required options`_."
-msgstr "仅当填写`必填选项`_ 后才会高亮显示:kbd:`安装` 按钮。"
+msgstr "仅当填写`Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:114
 msgid "Main Menu"
@@ -330,7 +330,7 @@ msgstr "图 8：选择安装媒介"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:221
 msgid "Select :guilabel:`Rescan Media` to show available installation targets."
-msgstr "选择:guilabel:`Rescan Media`显示可用的安装目标。"
+msgstr "选择:guilabel:`Rescan Media` 显示可用的安装目标。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:226
 msgid "Safe Installation"
@@ -342,7 +342,8 @@ msgid ""
 "alongside existing partitions, and accept the `Default partition "
 "schema`_. If enough free space exists, safe installation is allowed. See "
 "also `Troubleshooting`_ below."
-msgstr "使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition schema`_。如果有足够的可用空间，则可以执行安全安装。另请参阅下面的`Troubleshooting`_。"
+msgstr "使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition "
+"schema`_。如果有足够的可用空间，则可以执行安全安装。另请参阅下面的`Troubleshooting`_。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:234
 msgid "Destructive Installation"
@@ -410,7 +411,7 @@ msgstr "导航到并按下:guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:276
 msgid "Continue with installation configuration. Jump to `Telemetry`_."
-msgstr "继续安装配置。跳到`遥测技术`_。"
+msgstr "继续安装配置。跳到`Telemetry`_。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:278
 msgid "`Manual Partition`_ Continue below."
@@ -506,7 +507,7 @@ msgstr "图 13：磁盘分区的最终配置"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:348
 msgid "You may skip to the `Telemetry`_ section below."
-msgstr "您可以跳到下面的`遥测技术`_ 部分。"
+msgstr "您可以跳到下面的`Telemetry`_ 部分。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:351
 msgid "Disk encryption"
@@ -604,7 +605,7 @@ msgstr "推荐选项"
 msgid ""
 "After you complete the `Required options`_, we highly recommend "
 "completing these selected `Advanced options`_ at minimum:"
-msgstr "设置完`必填选项`_ 后，我们强烈建议您至少要设置这些选定的`高级选项`_："
+msgstr "设置完`Required options`_ 后，我们强烈建议您至少要设置这些选定的`Advanced options`_："
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:420
 msgid "`Manage User`_ Assign a new user with administrative rights"
@@ -677,7 +678,7 @@ msgstr "图 17：配置网络接口"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:464
 msgid "Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom)."
-msgstr "注意：默认情况下会选择 :guilabel:`Automatic / dhcp`（位于底部）。"
+msgstr "注意：默认情况下会选择 :guilabel:`Automatic / dhcp` （位于底部）。"
 
 #: ../../get-started/bare-metal-install-server/bare-metal-install-server.rst:466
 msgid ""

@@ -307,7 +307,7 @@ msgstr "发送数据包。"
 
 #: ../../guides/network/dpdk.rst:255
 msgid "For more details, see the `pktgen`_ documentation."
-msgstr "有关详细信息，请参阅 `pktgen` 文档。"
+msgstr "有关详细信息，请参阅 `pktgen`_ 文档。"
 
 #: ../../guides/network/dpdk.rst:258
 msgid "Appendix A: Use pass-through for virtual machines"

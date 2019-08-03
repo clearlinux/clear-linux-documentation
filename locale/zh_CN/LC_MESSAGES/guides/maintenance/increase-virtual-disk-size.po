@@ -225,7 +225,7 @@ msgstr "输入 :command:`sudo resize2fs -p /dev/[modified partition name]`，其
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:159
 msgid "Run the :command:`df -h` to verify that the filesystem size has increased."
-msgstr "运行 :command:`df -h`确认 filesystem大小已增加。"
+msgstr "运行 :command:`df -h` 确认 filesystem 大小已增加。"
 
 #: ../../guides/maintenance/increase-virtual-disk-size.rst:162
 msgid ""
