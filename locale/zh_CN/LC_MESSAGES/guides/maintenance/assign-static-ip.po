@@ -4,147 +4,146 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/assign-static-ip.rst:4
 msgid "Assign a static IP address"
-msgstr ""
+msgstr "分配静态 IP 地址"
 
 #: ../../guides/maintenance/assign-static-ip.rst:7
 msgid ""
 "This guide explains how to assign a static IP address. This may be "
 "helpful in scenarios such as a network with no DHCP server."
-msgstr ""
+msgstr "本指南介绍如何分配静态 IP 地址。在网络中并无 DHCP 服务器等情况下，此举可能会有帮助。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:15
 msgid "Identify which program is managing the interface"
-msgstr ""
+msgstr "确定哪个程序正在管理接口"
 
 #: ../../guides/maintenance/assign-static-ip.rst:17
 msgid ""
 "New installations of |CL-ATTR| use NetworkManager as the default network "
 "interface manager for all network connections."
-msgstr ""
+msgstr "全新安装的 |CL-ATTR| 使用 NetworkManager 作为所有网络连接的默认网络接口管理器。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:22
 msgid ""
 "The cloud |CL| images continue to use `systemd-networkd` to manage "
 "network connections."
-msgstr ""
+msgstr "云 |CL| 映像继续使用 `systemd-networkd` 来管理网络连接。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:25
 msgid ""
 "In earlier |CL| versions, `systemd-network` was used to manage Ethernet "
 "interfaces and NetworkManager was used for wireless interfaces."
-msgstr ""
+msgstr "在较早的 |CL| 版本中，`systemd-network` 用于管理以太网接口，而 NetworkManager 用于管理无线接口。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:29
 msgid ""
 "Before defining a configuration for assigning a static IP address, verify"
 " which program is managing the network interface."
-msgstr ""
+msgstr "定义分配静态 IP 地址的配置之前，请确认哪个程序正在管理网络接口。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:32
 msgid ""
 "Check the output of :command:`nmcli device` to see if NetworkManager is "
 "managing the device."
-msgstr ""
+msgstr "检查 :command:`nmcli device` 的输出，确认 NetworkManager 是否正在管理设备。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:39
 msgid ""
 "If the STATE column for the device shows *connected* or *disconnected*, "
 "the network configuration is being managed by NetworkManager, then use "
 "the instructions for :ref:`using NetworkManager <nm-static-ip>`."
-msgstr ""
+msgstr "如果设备的 STATE 列显示 *connected* 或 *disconnected*，则网络配置由 NetworkManager 管理，此时请按照 :ref:`using NetworkManager <nm-static-ip>` 中的说明执行操作。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:43
 msgid ""
 "If the STATE column for the device shows *unmanaged*, then check if the "
 "device is being managed by systemd-networkd."
-msgstr ""
+msgstr "如果设备的 STATE 列显示 *unmanaged*，则检查设备是否由 systemd-networkd 管理。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:47
 msgid ""
 "Check the output of :command:`networkctl list` to see if `systemd-"
 "networkd` is managing the device."
-msgstr ""
+msgstr "检查 :command:`networkctl list` 的输出，确认 `systemd-networkd` 是否正在管理设备。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:54
 msgid ""
 "If the SETUP column for the device shows *configured*, the network "
 "configuration is being managed by `systemd-networkd`, then use the "
 "instructions for :ref:`using systemd-networkd <networkd-static-ip>`."
-msgstr ""
+msgstr "如果设备的 SETUP 列显示 *configured*，则网络配置由 `systemd-networkd` 管理，此时请按照 :ref:`using systemd-networkd <networkd-static-ip>` 中的说明执行操作。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:62
 msgid "Using NetworkManager"
-msgstr ""
+msgstr "使用 NetworkManager"
 
 #: ../../guides/maintenance/assign-static-ip.rst:64
 msgid ""
 "Network connections managed by NetworkManager are stored as files with "
 "the :file:`.nmconnection` file extension in the "
 ":file:`/etc/NetworkManager/system-connections/` directory."
-msgstr ""
+msgstr "由 NetworkManager 管理的网络连接在 :file:`/etc/NetworkManager/system-connections/` 目录中存储为扩展名为 :file:`.nmconnection` 的文件。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:68
 msgid ""
 "A few tools exists to aid to manipulate network connections managed by "
 "NetworkManager:"
-msgstr ""
+msgstr "有些工具可协助处理由 NetworkManager 管理的网络连接："
 
 #: ../../guides/maintenance/assign-static-ip.rst:71
 msgid "nmcli - a command-line tool"
-msgstr ""
+msgstr "nmcli - 命令行工具"
 
 #: ../../guides/maintenance/assign-static-ip.rst:73
 msgid ""
 "nmtui - a text user interface that provides a pseudo graphical menu in "
 "the terminal"
-msgstr ""
+msgstr "nmtui - 在终端中提供伪图形菜单的文本用户界面"
 
 #: ../../guides/maintenance/assign-static-ip.rst:76
 msgid "nm-connection-editor - a graphical user interface"
-msgstr ""
+msgstr "nm-connection-editor - 图形用户界面"
 
 #: ../../guides/maintenance/assign-static-ip.rst:78
 msgid ""
 "The method below uses the command line tool nmcli to modify network "
 "connection."
-msgstr ""
+msgstr "下面的方法使用命令行工具 nmcli 修改网络连接。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:82
 msgid "Identify the existing connection name:"
-msgstr ""
+msgstr "找出现有的连接名称："
 
 #: ../../guides/maintenance/assign-static-ip.rst:88
 msgid "Sample output:"
-msgstr ""
+msgstr "示例输出："
 
 #: ../../guides/maintenance/assign-static-ip.rst:95
 msgid ""
 "If a connection does not exist, create it with the :command:`nmcli "
 "connection add` command."
-msgstr ""
+msgstr "如果不存在连接，请使用 :command:`nmcli connection add` 命令创建一个连接。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:99
 msgid ""
 "Modify the connection to use a static IP address. Replace the variables "
 "in brackets with the appropriate values. Replace *[CONNECTION_NAME]* with"
 " the NAME from the command above."
-msgstr ""
+msgstr "修改连接以使用静态 IP 地址。使用合适的值替换括号中的变量。将 *[CONNECTION_NAME]* 替换为上面命令中的 NAME。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:112
 msgid ""
@@ -153,39 +152,39 @@ msgid ""
 " configuration options. For advanced configurations, the "
 ":file:`/etc/NetworkManager/system-connections/*.nmconnection`. can be "
 "edited directly."
-msgstr ""
+msgstr "有关更多配置选项，请参阅 `nmcli developer page <https://developer.gnome.org/NetworkManager/stable/nmcli.html>`_。执行高级配置时，可以直接编辑 :file:`/etc/NetworkManager/system-connections/*.nmconnection`。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:118
 msgid "Restart the NetworkManager server to reload the DNS servers:"
-msgstr ""
+msgstr "重启 NetworkManager 服务器以重新加载 DNS 服务器："
 
 #: ../../guides/maintenance/assign-static-ip.rst:125
 #: ../../guides/maintenance/assign-static-ip.rst:179
 msgid "Verify your static IP address details have been set:"
-msgstr ""
+msgstr "确认静态 IP 地址详细信息是否已设置："
 
 #: ../../guides/maintenance/assign-static-ip.rst:136
 msgid "Using systemd-networkd"
-msgstr ""
+msgstr "使用 systemd-networkd"
 
 #: ../../guides/maintenance/assign-static-ip.rst:138
 msgid ""
 "Network connections managed by systemd-networkd are stored as files with "
 "the :file:`.network` file extension the :file:`/etc/systemd/network/` "
 "directory."
-msgstr ""
+msgstr "由 systemd-networkd 管理的网络连接在 :file:`/etc/systemd/network/` 目录中存储为扩展名为 :file:`.network` 的文件。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:141
 msgid ""
 "Files to manipulate network connections managed by systemd-networkd must "
 "be created manually."
-msgstr ""
+msgstr "用来处理由 systemd-networkd 管理的网络连接的文件必须手动创建。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:144
 msgid ""
 "Create the :file:`/etc/systemd/network` directory if it does not already "
 "exist:"
-msgstr ""
+msgstr "如果 :file:`/etc/systemd/network` 目录尚不存在，请创建该目录："
 
 #: ../../guides/maintenance/assign-static-ip.rst:150
 msgid ""
@@ -193,18 +192,18 @@ msgid ""
 " variables in brackets with the appropriate values. Replace "
 "*[INTERFACE_NAME]* with LINK from the output of the :command:`networkctl "
 "list` command that was run previously."
-msgstr ""
+msgstr "创建一个 :file:`.network` 文件并添加以下内容。使用合适的值替换括号中的变量。将 *[INTERFACE_NAME]* 替换为之前运行的 :command:`networkctl list` 命令输出中的 LINK。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:168
 msgid ""
 "See the `systemd-network man page "
 "<https://www.freedesktop.org/software/systemd/man/systemd.network.html>`_"
 " for more configuration options."
-msgstr ""
+msgstr "有关更多配置选项，请参阅 `systemd-network man page <https://www.freedesktop.org/software/systemd/man/systemd.network.html>`_。"
 
 #: ../../guides/maintenance/assign-static-ip.rst:172
 msgid "Restart the `systemd-networkd` service:"
-msgstr ""
+msgstr "重启 `systemd-networkd` 服务："
 
 #~ msgid ""
 #~ "By default, your |CL-ATTR| system "
@@ -315,4 +314,5 @@ msgstr ""
 
 #~ msgid "Restart the systemd-networkd service:"
 #~ msgstr ""
+
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -98,7 +98,7 @@ msgstr "启用 GUI 桌面："
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:55
 msgid "Start a terminal emulator."
-msgstr "启动终端模拟器。"
+msgstr "启动一个终端模拟器。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:56
 msgid ""
@@ -154,7 +154,7 @@ msgstr "启动 `VMware Workstation Player` 应用。"
 msgid ""
 "On the home screen, click :guilabel:`Create a New Virtual Machine`. See "
 "Figure 1."
-msgstr "在主屏幕上，点击 :guilabel:`创建新虚拟机`。见图 1。"
+msgstr "在主屏幕上，点击 :guilabel:`Create a New Virtual Machine`。见图 1。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:92
 msgid "Figure 1: VMware Workstation Player - Create a new virtual machine"
@@ -165,7 +165,7 @@ msgid ""
 "On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen, "
 "select the :guilabel:`Installer disc image file (iso)` option. See Figure"
 " 2."
-msgstr "在 :guilabel:`欢迎使用“新建虚拟机”向导` 屏幕上，选择 :guilabel:`安装盘映像文件 (iso)` 选项。见图 2。"
+msgstr "在 :guilabel:`Welcome to the New Virtual Machine Wizard` 屏幕上，选择 :guilabel:`Installer disc image file (iso)` 选项。见图 2。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:103
 msgid "Figure 2: VMware Workstation Player - Select |CL| installer ISO"
@@ -175,21 +175,21 @@ msgstr "图 2：VMware Workstation Player - 选择 |CL| 安装程序 ISO"
 msgid ""
 "Click the :guilabel:`Browse` button and select the decompressed |CL| "
 "installer ISO."
-msgstr "点击 :guilabel:`浏览` 按钮，选择解压缩的 |CL| 安装程序 ISO。"
+msgstr "点击 :guilabel:`Browse` 按钮，选择解压缩的 |CL| 安装程序 ISO。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:108
 #: ../../get-started/virtual-machine-install/vmw-player.rst:124
 #: ../../get-started/virtual-machine-install/vmw-player.rst:135
 #: ../../get-started/virtual-machine-install/vmw-player.rst:151
 msgid "Click the :guilabel:`Next` button."
-msgstr "点击 :guilabel:`下一步` 按钮。"
+msgstr "点击 :guilabel:`Next` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:110
 msgid ""
 "On the :guilabel:`Select a Guest Operating System`, set the "
 ":guilabel:`Guest operating system` setting to :guilabel:`Linux`. See "
 "Figure 3."
-msgstr "在 :guilabel:`选择来宾操作系统` 部分，将 :guilabel:`来宾操作系统` 设置为 :guilabel:`Linux`。见图 3。"
+msgstr "在 :guilabel:`Select a Guest Operating System` 部分，将 :guilabel:`Guest operating system` 设置为 :guilabel:`Linux`。见图 3。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:118
 msgid "Figure 3: VMware Workstation Player - Select guest operating system type"
@@ -199,13 +199,13 @@ msgstr "图 3：VMware Workstation Player - 选择来宾操作系统类型"
 msgid ""
 "Set the :guilabel:`Version` setting to :guilabel:`Other Linux 4.x or "
 "later kernel 64-bit`."
-msgstr "将 :guilabel:`版本` 设置为 :guilabel:`其他 Linux 4.x 或更高版本 64 位内核`。"
+msgstr "将 :guilabel:`Version` 设置为 :guilabel:`Other Linux 4.x or later kernel 64-bit`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:126
 msgid ""
 "On the :guilabel:`Name the Virtual Machine` screen, name the new VM. See "
 "Figure 4."
-msgstr "在 :guilabel:`虚拟机命名` 屏幕上，为新虚拟机命名。见图 4。"
+msgstr "在 :guilabel:`Name the Virtual Machine` 屏幕上，为新虚拟机命名。见图 4。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:133
 msgid "Figure 4: VMware Workstation Player - Name virtual machine"
@@ -215,7 +215,7 @@ msgstr "图 4：VMware Workstation Player - 虚拟机命名"
 msgid ""
 "On the :guilabel:`Specify Disk Capacity` screen, set the VM's maximum "
 "disk size. See Figure 5."
-msgstr "在 :guilabel:`指定磁盘容量` 屏幕上，设置虚拟机的最大磁盘空间。见图 5。"
+msgstr "在 :guilabel:`Specify Disk Capacity` 屏幕上，设置虚拟机的最大磁盘空间。见图 5。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:144
 msgid "Figure 5: VMware Workstation Player - Set disk capacity"
@@ -231,7 +231,7 @@ msgstr "为获得 |CL| Desktop 映像的最优性能，我们推荐 32GB 磁盘�
 msgid ""
 "On the :guilabel:`Ready to Create Virtual Machine` screen, click the "
 ":guilabel:`Customize Hardware...` button. See Figure 6."
-msgstr "在 :guilabel:`准备创建虚拟机` 屏幕上，点击 :guilabel:`定制硬件...` 按钮。见图 6。"
+msgstr "在 :guilabel:`Ready to Create Virtual Machine` 屏幕上，点击 :guilabel:`Customize Hardware...` 按钮。见图 6。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:160
 msgid "Figure 6: VMware Workstation Player - Customize hardware"
@@ -239,7 +239,7 @@ msgstr "图 6：VMware Workstation Player - 定制硬件"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:162
 msgid "Select :guilabel:`Memory` and set the size to 2GB. See Figure 7."
-msgstr "选择 :guilabel:`内存`，将大小设置为 2GB。见图 7。"
+msgstr "选择 :guilabel:`Memory`，将大小设置为 2GB。见图 7。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:168
 msgid "Figure 7: VMware Workstation Player - Set memory size"
@@ -257,7 +257,7 @@ msgstr "|CL| 安装程序 ISO 最少需要 2GB 大小的 RAM。完成安装后�
 msgid ""
 "Under the :guilabel:`Device` list, select :guilabel:`Processors`. See "
 "Figure 8."
-msgstr "在 :guilabel:`设备` 列表中，选择 :guilabel:`处理器`。见图 8。"
+msgstr "在 :guilabel:`Device` 列表中，选择 :guilabel:`Processors`。见图 8。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:183
 msgid "Figure 8: VMware Workstation Player - Set virtualization engine option"
@@ -267,15 +267,15 @@ msgstr "图 8：VMware Workstation Player - 设置虚拟化引擎选项"
 msgid ""
 "Under the :guilabel:`Virtualization engine` section, check "
 ":guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`."
-msgstr "在 :guilabel:`虚拟化引擎` 部分，选中 :guilabel:`虚拟化英特尔 VT-x/EPT 或 AMD-V/RVI`。"
+msgstr "在 :guilabel:`Virtualization engine` 部分，选中 :guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:189
 msgid "Click the :guilabel:`Close` button."
-msgstr "点击·:guilabel:`关闭` 按钮。"
+msgstr "点击·:guilabel:`Close` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:191
 msgid "Click the :guilabel:`Finish` button."
-msgstr "点击 :guilabel:`完成` 按钮。"
+msgstr "点击 :guilabel:`Finish` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:194
 msgid "Install |CL| into the new VM"
@@ -285,7 +285,7 @@ msgstr "将 |CL| 安装至新虚拟机"
 msgid ""
 "Select the newly-created VM and click the :guilabel:`Play virtual "
 "machine` button. See Figure 9."
-msgstr "选择新创建的虚拟机，点击 :guilabel:`Play 虚拟机` 按钮。见图 9。"
+msgstr "选择新创建的虚拟机，点击 :guilabel:`Play virtual machine` 按钮。见图 9。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:203
 msgid "Figure 9: VMware Workstation Player - Power on virtual machine"
@@ -329,7 +329,7 @@ msgstr "转到 :menuselection:`可移除设备-->CD/DVD (IDE)-->断开`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:228
 msgid "Click the :guilabel:`OK` button."
-msgstr "点击 :guilabel:`确定` 按钮。"
+msgstr "点击 :guilabel:`OK` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:231
 msgid "Enable UEFI boot support"
@@ -349,7 +349,7 @@ msgstr "图 11：VMware Workstation Player - 关闭虚拟机"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:243
 msgid "Go to :guilabel:`Power` and select :guilabel:`Shut Down Guest`."
-msgstr "转到 :guilabel:`电源`，选择 :guilabel:`关闭来宾`。"
+msgstr "转到 :guilabel:`Power`，选择 :guilabel:`Shut Down Guest`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:245
 msgid "Add the following line to the end of your VM's :file:`.vmx` file:"
@@ -378,7 +378,7 @@ msgstr "配置上述设置后，开启 |CL| 虚拟机。在 :guilabel:`VMware Wo
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:263
 msgid "Click :guilabel:`Play virtual machine`."
-msgstr "点击 :guilabel:`Play 虚拟机`。"
+msgstr "点击 :guilabel:`Play virtual machine`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player.rst:265
 msgid ""

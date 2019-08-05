@@ -4,39 +4,38 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/enable-user-space.rst:4
 msgid "Create and enable a new user space"
-msgstr ""
+msgstr "创建并启用新的用户空间"
 
 #: ../../guides/maintenance/enable-user-space.rst:6
 msgid ""
 "This guide provides steps to complete the following basic setup tasks for"
 " a newly installed |CL-ATTR| system:"
-msgstr ""
+msgstr "本指南提供了为新安装的 |CL-ATTR| 系统完成以下基本设置任务的步骤："
 
 #: ../../guides/maintenance/enable-user-space.rst:14
 msgid "Create a new user"
-msgstr ""
+msgstr "创建新用户"
 
 #: ../../guides/maintenance/enable-user-space.rst:16
 msgid ""
 "To create a new user and set a password for that user, enter the "
 "following commands as a root user:"
-msgstr ""
+msgstr "要创建新用户并为该用户设置密码，请以 root 用户身份输入以下命令："
 
 #: ../../guides/maintenance/enable-user-space.rst:24
 msgid ""
@@ -44,62 +43,62 @@ msgid ""
 " including the password for that user. The :command:`passwd` command "
 "prompts you to enter a new password. Retype the new password for the new "
 "user account just created."
-msgstr ""
+msgstr "将 <userid> 替换为要创建的用户帐户的名称，包括该用户的密码。:command:`passwd` 命令会提示您输入新密码。为刚刚创建的新用户帐户重新键入新密码。"
 
 #: ../../guides/maintenance/enable-user-space.rst:30
 msgid "Add the new user to the *wheel* group"
-msgstr ""
+msgstr "将新用户添加到 *wheel* 组"
 
 #: ../../guides/maintenance/enable-user-space.rst:32
 msgid ""
 "Before logging off as root and logging into your new user account, enable"
 " the :command:`sudo` command for your new <userid>."
-msgstr ""
+msgstr "以 root 用户身份注销并登录到新用户帐户之前，请为新的 <userid> 启用 :command:`sudo` 命令。"
 
 #: ../../guides/maintenance/enable-user-space.rst:35
 msgid ""
 "To be able to execute all applications with root privileges, add the "
 "<userid> to the `wheel group`_."
-msgstr ""
+msgstr "为了能以 root 特权执行所有应用程序，请将 <userid> 添加到 `wheel group`_。"
 
 #: ../../guides/maintenance/enable-user-space.rst:38
 msgid "Add <userid> to the wheel group:"
-msgstr ""
+msgstr "将 <userid> 添加到 wheel 组："
 
 #: ../../guides/maintenance/enable-user-space.rst:44
 msgid "Log out of root and into the new <userid>."
-msgstr ""
+msgstr "以 root 用户身份注销并登录新的 <userid>。"
 
 #: ../../guides/maintenance/enable-user-space.rst:46
 msgid "To log off as root, enter :command:`exit`."
-msgstr ""
+msgstr "要以 root 用户身份注销，请输入 :command:`exit`。"
 
 #: ../../guides/maintenance/enable-user-space.rst:48
 msgid "Enter the new <userid> and the password created earlier."
-msgstr ""
+msgstr "输入之前创建的新 <userid> 和密码。"
 
 #: ../../guides/maintenance/enable-user-space.rst:50
 msgid "You will now be in the home directory of <userid>."
-msgstr ""
+msgstr "您现在将处于 <userid> 主目录中。"
 
 #: ../../guides/maintenance/enable-user-space.rst:53
 msgid "Install and update the OS software to its current version"
-msgstr ""
+msgstr "安装操作系统软件并将其更新到最新版本"
 
 #: ../../guides/maintenance/enable-user-space.rst:55
 msgid ""
 "The |CL| software utility :ref:`swupd <swupd-guide>` allows you to "
 "perform system updates while reaping the benefits of upstream "
 "development."
-msgstr ""
+msgstr "使用 |CL| 软件实用程序 :ref:`swupd <swupd-guide>` 能够执行系统更新，利用上游开发成果。"
 
 #: ../../guides/maintenance/enable-user-space.rst:58
 msgid "To update your newly installed OS, run:"
-msgstr ""
+msgstr "要更新新安装的操作系统，请运行："
 
 #: ../../guides/maintenance/enable-user-space.rst:65
 msgid "Add a bundle"
-msgstr ""
+msgstr "添加捆绑包"
 
 #: ../../guides/maintenance/enable-user-space.rst:67
 msgid ""
@@ -108,50 +107,50 @@ msgid ""
 "to running :command:`apt-get` or :command:`yum install` for package "
 "management. However |CL| manages packages at the level of bundles, which "
 "are integrated stacks of packages."
-msgstr ""
+msgstr "软件应用程序使用 :command:`swupd bundle-add` 命令作为捆绑包安装。经验丰富的 Linux 用户可能会将 swupd 与运行用于包管理的 :command:`apt-get` 或 :command:`yum install` 加以比较。但是 |CL| 在捆绑包（即集成的包堆栈）级别管理包。"
 
 #: ../../guides/maintenance/enable-user-space.rst:73
 msgid ""
 "For example, the :command:`sysadmin-basic` bundle installs the majority "
 "of applications useful to a system administrator. To install it, enter:"
-msgstr ""
+msgstr "例如，:command:`sysadmin-basic` 捆绑包会安装对系统管理员有用的大多数应用程序。要安装它，请输入："
 
 #: ../../guides/maintenance/enable-user-space.rst:80
 msgid ""
 "View a full list of bundles and packages installed with the `sysadmin-"
 "basic`_ bundle. You can also view all `bundles`_ for |CL|, active or "
 "deprecated."
-msgstr ""
+msgstr "查看与 `sysadmin-basic`_ 捆绑包一起安装的捆绑包和软件包完整列表。您还可以查看适用于 |CL| 的所有 `bundles`_，包括活动或弃用的捆绑包。"
 
 #: ../../guides/maintenance/enable-user-space.rst:83
 msgid ""
 "Expand your knowledge of :command:`swupd` and check out our developer "
 "resources:"
-msgstr ""
+msgstr "加深对 :command:`swupd` 的认识，查看我们的开发人员资源："
 
 #: ../../guides/maintenance/enable-user-space.rst:85
 msgid ":ref:`swupd-guide`"
-msgstr ""
+msgstr ":ref:`swupd-guide`"
 
 #: ../../guides/maintenance/enable-user-space.rst:86
 msgid ":ref:`developer-workstation`"
-msgstr ""
+msgstr ":ref:`developer-workstation`"
 
 #: ../../guides/maintenance/enable-user-space.rst:89
 msgid "Next steps"
-msgstr ""
+msgstr "后续步骤"
 
 #: ../../guides/maintenance/enable-user-space.rst:91
 msgid "Check out our guides and tutorials."
-msgstr ""
+msgstr "查看我们的指南和教程。"
 
 #: ../../guides/maintenance/enable-user-space.rst:93
 msgid ":ref:`guides`"
-msgstr ""
+msgstr ":ref:`guides`"
 
 #: ../../guides/maintenance/enable-user-space.rst:94
 msgid ":ref:`tutorials`"
-msgstr ""
+msgstr ":ref:`tutorials`"
 
 #~ msgid ""
 #~ "View a full list of bundles and"
@@ -220,4 +219,5 @@ msgstr ""
 #~ "useful to a system administrator. To "
 #~ "install it, enter:"
 #~ msgstr ""
+
 
