@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -106,7 +106,7 @@ msgstr "利用 :command:`lsblk` 命令识别 U 盘。此操作会显示所有连
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:59
 msgid "Example output:"
-msgstr "示例输出："
+msgstr "结果示例："
 
 #: ../../get-started/bootable-usb/bootable-usb.rst:82
 msgid ""

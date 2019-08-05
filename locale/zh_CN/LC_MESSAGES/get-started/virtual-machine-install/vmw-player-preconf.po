@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgstr "启用 GUI 桌面："
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:43
 msgid "Start a terminal emulator."
-msgstr "启动终端模拟器。"
+msgstr "启动一个终端模拟器。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:45
 msgid ""
@@ -132,7 +132,7 @@ msgid ""
 " eliminates the small chance of a corrupted image due to download issues."
 " To support verification, each released |CL| image has a corresponding "
 "SHA512 checksum file designated with the suffix `-SHA512SUMS`."
-msgstr "使用下载的 |CL| 映像之前，请确认其完整性。本操作消除了由于下载问题导致的罕见映像损坏。为了方便验证，发布的每个 |CL| 映像均有一个相应的 SHA512 校验和文件，后缀为 `-SHA512SUMS`。"
+msgstr "在使用下载的 |CL| 映像之前，请确认其完整性。本操作消除了由于下载错误导致的罕见映像损坏。为支持确认，每个释放的 |CL| 映像均有一个相应的 SHA512 校验和 (checksum) 文件，其指定后缀为 `-SHA512SUMS`。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:11
 msgid "Download the corresponding SHA512 checksum file of your |CL| `image`_."
@@ -144,11 +144,11 @@ msgstr "启动命令提示符。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:13
 msgid "Go to the directory with the downloaded image and checksum files."
-msgstr "转到下载映像和校验和文件所在的目录。"
+msgstr "转到含有下载映像和校验和文件的目录。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:14
 msgid "Get the SHA512 checksum of the image with the command:"
-msgstr "利用以下命令获取该映像的 SHA512 校验和："
+msgstr "利用该命令获取该映像的 SHA512 校验和："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:20
 msgid ""
@@ -158,14 +158,14 @@ msgstr "手动比较该结果与所下载校验和文件中所示的原始校验
 
 #: ../../guides/maintenance/download-verify-decompress.rst:24
 msgid "Decompress the |CL| image"
-msgstr "解压缩 |CL| 映像"
+msgstr "解压 |CL| 映像"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:26
 msgid ""
 "Released |CL| images are compressed with either GNU zip (*.gz*) or XZ "
 "(*.xz*). The compression type depends on the target platform or "
 "environment. To decompress the image, follow these steps:"
-msgstr "发布的 |CL| 映像以 GNU zip (*.gz*) 或 XZ (*.xz*) 格式压缩。压缩类型取决于目标平台或环境。要解压缩映像，应按照以下步骤操作："
+msgstr "释放的 |CL| 映像以 GNU zip (*.gz*) 或 XZ (*.xz*) 格式压缩。压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:30
 msgid "Download and install `7-Zip`_."
@@ -173,17 +173,17 @@ msgstr "下载并安装 `7-Zip`_。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:31
 msgid "Go to the directory with the downloaded image and right-click it."
-msgstr "转到下载映像所在的目录，右键点击该映像。"
+msgstr "转到含有下载映像的目录并右键点击它。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:32
 msgid ""
 "From the pop-up menu, select :guilabel:`7-Zip` and select "
 ":guilabel:`Extract Here` as shown in Figure 1."
-msgstr "从弹出菜单中选择 :guilabel:`7-Zip`，然后选择 :guilabel:`解压缩到此处`，如图 1 所示。"
+msgstr "从弹出菜单中选择 :guilabel:`7-Zip`，然后选择 :guilabel:`Extract Here`，如图 1 所示。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:39
 msgid "Figure 1: Windows 7-Zip extract file."
-msgstr "图 1：Windows 7-Zip 解压缩文件。"
+msgstr "图 1：Windows 7-Zip 提取文件。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:44
 msgid "Image types"
@@ -198,7 +198,7 @@ msgstr "表 1 列出了当前可用的独立于平台的映像。表 2 列出了
 
 #: ../../reference/image-types.rst:6
 msgid "Table 1: Types of platform-independent |CL| images"
-msgstr "表 1: 独立于平台的 |CL| 映像的类型"
+msgstr "表 1：独立于平台的 |CL| 映像类型"
 
 #: ../../reference/image-types.rst:10 ../../reference/image-types.rst:23
 msgid "Image Type"
@@ -214,7 +214,7 @@ msgstr "live-desktop.img 或 live-desktop.iso"
 
 #: ../../reference/image-types.rst:14
 msgid "Image for booting to GNOME\\* desktop to preview or install the OS."
-msgstr "用于引导启动至 GNOME\\* 桌面以便预览或安装操作系统的映像。"
+msgstr "用于引导至 GNOME\\* 桌面进行预览或安装操作系统的映像。"
 
 #: ../../reference/image-types.rst:16
 msgid "live-server.img or live-server.iso"
@@ -222,11 +222,11 @@ msgstr "live-server.img 或 live-server.iso"
 
 #: ../../reference/image-types.rst:17
 msgid "Image for booting to server command prompt to preview or install the OS."
-msgstr "用于引导启动至服务器命令提示符以便预览或安装操作系统的映像。"
+msgstr "用于引导至服务器命令提示符进行预览或安装操作系统的映像。"
 
 #: ../../reference/image-types.rst:19
 msgid "Table 2: Types of platform-specific |CL| images"
-msgstr "表 2: 特定于平台的 |CL| 映像的类型"
+msgstr "表 2：特定于平台的 |CL| 映像类型"
 
 #: ../../reference/image-types.rst:26
 msgid "aws.img"
@@ -242,7 +242,7 @@ msgstr "azure.vhd"
 
 #: ../../reference/image-types.rst:30
 msgid "Virtual Hard Disk for use on Microsoft\\* Azure\\* cloud platform."
-msgstr "用于 Microsoft\\* Azure\\* 云平台的虚拟硬盘。"
+msgstr "适用于 Microsoft\\* Azure\\* 云平台的虚拟硬盘。"
 
 #: ../../reference/image-types.rst:32
 msgid "azure-docker.vhd"
@@ -252,7 +252,7 @@ msgstr "azure-docker.vhd"
 msgid ""
 "Virtual Hard Disk for use on Microsoft Azure cloud platform with "
 "Docker\\* pre-installed."
-msgstr "用于 Microsoft Azure 云平台并预安装 Docker\\* 的虚拟硬盘。"
+msgstr "适用于预装 Docker\\* 的 Microsoft Azure 云平台的虚拟硬盘。"
 
 #: ../../reference/image-types.rst:35
 msgid "azure-machine-learning.vhd"
@@ -262,7 +262,7 @@ msgstr "azure-machine-learning.vhd"
 msgid ""
 "Virtual Hard Disk for use on Microsoft Azure cloud platform with the "
 "`machine-learning-basic` bundle installed."
-msgstr "用于 Microsoft Azure 云平台并安装 `machine-learning-basic` bundle 的虚拟硬盘。"
+msgstr "适用于安装 `machine-learning-basic` 捆绑包 的 Microsoft Azure 云平台的虚拟硬盘。"
 
 #: ../../reference/image-types.rst:38
 msgid "cloudguest.img"
@@ -272,7 +272,7 @@ msgstr "cloudguest.img"
 msgid ""
 "Image with generic cloud guest virtual machine (VM) requirements "
 "installed."
-msgstr "安装一般云来宾虚拟机 (VM) 必备组件的映像。"
+msgstr "安装了通用云来宾虚拟机 (VM) 的映像。"
 
 #: ../../reference/image-types.rst:41
 msgid "gce.tar"
@@ -280,7 +280,7 @@ msgstr "gce.tar"
 
 #: ../../reference/image-types.rst:42
 msgid "Image with the Google Compute Engine (GCE) specific kernel."
-msgstr "拥有 Google Compute Engine (GCE) 特定内核的映像。"
+msgstr "带有 Google 计算引擎 (GCE) 特定内核的映像。"
 
 #: ../../reference/image-types.rst:44
 msgid "hyperv.vhdx"
@@ -290,7 +290,7 @@ msgstr "hyperv.vhdx"
 msgid ""
 "Virtual Hard Disk for use with Microsoft Hyper-V\\* hypervisor. Includes "
 "`optimized kernel`_ for Hyper-V."
-msgstr "适用于 Microsoft Hyper-V\\* 虚拟机管理程序的虚拟硬盘。包括 `optimized kernel`_ for Hyper-V。"
+msgstr "与 Microsoft Hyper-V\\* 虚拟机管理程序一起使用的虚拟硬盘。包括针对 Hyper-V `optimized kernel`_"
 
 #: ../../reference/image-types.rst:47
 msgid "kvm.img"
@@ -300,7 +300,7 @@ msgstr "kvm.img"
 msgid ""
 "Image for booting in a simple VM with start_qemu.sh. Includes `optimized "
 "kernel`_ for KVM."
-msgstr "可利用 start_qemu.sh 引导启动一个简单虚拟机的映像。包括用于虚拟机的 `optimized kernel`_。"
+msgstr "用于使用 start_qemu.sh 在简单虚拟机中引导的映像。包括针对 KVM `optimized kernel`_。"
 
 #: ../../reference/image-types.rst:51
 msgid "kvm-legacy.img"
@@ -310,7 +310,7 @@ msgstr "kvm-legacy.img"
 msgid ""
 "Image for booting in a simple VM using legacy BIOS, if using "
 "start_qemu.sh make sure to remove -bios parameter."
-msgstr "可利用 BIOS 引导启动一个简单虚拟机的映像，如果使用 start_qemu.sh，请确保删除 -bios 参数。"
+msgstr "用于使用传统 BIOS 在简单虚拟机中引导的映像；如果使用 start_qemu.sh，请确保移除 -bios 参数。"
 
 #: ../../reference/image-types.rst:54
 msgid "pxe.tar"
@@ -328,7 +328,7 @@ msgstr "vmware.vmdk"
 msgid ""
 "Virtual Machine Disk for VMware\\* platforms inclduing Player, "
 "Workstation, and ESXi."
-msgstr "用于 VMware\\* 平台包括 Player、Workstation 和 ESXi 的虚拟机硬盘。"
+msgstr "面向包括 Player、Workstation 和 ESXi 在内的 VMware\\* 平台的虚拟机磁盘。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:75
 msgid "We also provide instructions for other operating systems:"
@@ -350,7 +350,7 @@ msgstr "启动 `VMware Workstation Player` 应用。"
 msgid ""
 "On the home screen, click :guilabel:`Create a New Virtual Machine`. See "
 "figure 1."
-msgstr "在主屏幕上，点击 :guilabel:`创建新虚拟机`。见图 1。"
+msgstr "在主屏幕上，点击 :guilabel:`Create a New Virtual Machine`。见图 1。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:90
 msgid "Figure 1: VMware Workstation 14 Player - Create a new virtual machine"
@@ -361,7 +361,7 @@ msgid ""
 "On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen, "
 "select the :guilabel:`I will install the operating system later` option. "
 "See figure 2."
-msgstr "在 :guilabel:`欢迎使用“新建虚拟机”向导` 屏幕上，选择 :guilabel:`稍后安装操作系统` 选项。见图 2。"
+msgstr "在 :guilabel:`Welcome to the New Virtual Machine Wizard` 屏幕上，选择 :guilabel:`I will install the operating system later` 选项。见图 2。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:100
 msgid ""
@@ -374,14 +374,14 @@ msgstr "图 2：VMware Workstation 14 Player - 选择稍后安装操作系统。
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:130
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:229
 msgid "Click the :guilabel:`Next` button."
-msgstr "点击 :guilabel:`下一步` 按钮。"
+msgstr "点击 :guilabel:`Next` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:105
 msgid ""
 "On the :guilabel:`Select a Guest Operating System` screen, set the "
 ":guilabel:`Guest operating system` setting to :guilabel:`Linux`. See "
 "figure 3."
-msgstr "在 :guilabel:`选择来宾操作系统` 屏幕上，将 :guilabel:`来宾操作系统` 设置为 :guilabel:`Linux`。见图 3。"
+msgstr "在 :guilabel:`Select a Guest Operating System` 屏幕上，将 :guilabel:`Guest operating system` 设置为 :guilabel:`Linux`。见图 3。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:113
 msgid ""
@@ -393,13 +393,13 @@ msgstr "图 3：VMware Workstation 14 Player - 选择来宾操作系统类型"
 msgid ""
 "Set :guilabel:`Version` setting to :guilabel:`Other Linux 3.x or later "
 "kernel 64-bit`."
-msgstr "将 :guilabel:`版本` 设置为 :guilabel:`其他 Linux 3.x 或更高版本内核 64 位`。"
+msgstr "将 :guilabel:`Version` 设置为 :guilabel:`Other Linux 3.x or later kernel 64-bit`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:121
 msgid ""
 "On the :guilabel:`Name the Virtual Machine` screen, give your new VM a "
 "name. See figure 4."
-msgstr "在 :guilabel:`虚拟机命名` 屏幕上，为新虚拟机命名。见图 4。"
+msgstr "在 :guilabel:`Name the Virtual Machine` 屏幕上，为新虚拟机命名。见图 4。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:128
 msgid "Figure 4: VMware Workstation 14 Player - Name virtual machine"
@@ -412,7 +412,7 @@ msgid ""
 "we attach the pre-configured |CL| VMware image, we will remove the "
 "default virtual disk and replace it with the pre-configured one. See "
 "figure 5."
-msgstr "在 :guilabel:`指定磁盘容量` 屏幕上，点击 :guilabel:`下一步` 按钮。默认磁盘设置保持不变。挂载预配置的 |CL| VMware 映像时，我们将移除默认虚拟磁盘，用预配置的磁盘来代替。见图 5。"
+msgstr "在 :guilabel:`Specify Disk Capacity` 屏幕上，点击 :guilabel:`Next` 按钮。默认磁盘设置保持不变。挂载预配置的 |CL| VMware 映像时，我们将移除默认虚拟磁盘，用预配置的磁盘来代替。见图 5。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:142
 msgid "Figure 5: VMware Workstation 14 Player - Set disk capacity"
@@ -422,7 +422,7 @@ msgstr "图 5：VMware Workstation 14 Player - 设置磁盘容量"
 msgid ""
 "On the :guilabel:`Ready to Create Virtual Machine` screen, click the "
 ":guilabel:`Customize Hardware...` button. See figure 6."
-msgstr "在 :guilabel:`准备创建虚拟机` 屏幕上，点击 :guilabel:`定制硬件...` 按钮。见图 6。"
+msgstr "在 :guilabel:`Ready to Create Virtual Machine` 屏幕上，点击 :guilabel:`Customize Hardware...` 按钮。见图 6。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:151
 msgid "Figure 6: VMware Workstation 14 Player - Customize hardware"
@@ -432,7 +432,7 @@ msgstr "图 6：VMware Workstation 14 Player - 定制硬件"
 msgid ""
 "Under the :guilabel:`Device` list, select :guilabel:`Processors`. See "
 "figure 7."
-msgstr "在 :guilabel:`设备` 列表中，选择 :guilabel:`处理器`。见图 7。"
+msgstr "在 :guilabel:`Device` 列表中，选择 :guilabel:`Processors`。见图 7。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:160
 msgid "Figure 7: VMware Workstation 14 Player - Set virtualization engine option"
@@ -442,14 +442,14 @@ msgstr "图 7：VMware Workstation 14 Player - 设置虚拟化引擎选项"
 msgid ""
 "Under the :guilabel:`Virtualization engine` section, check "
 ":guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`."
-msgstr "在 :guilabel:`虚拟化引擎` 部分，选中 :guilabel:`虚拟化英特尔 VT-x/EPT 或 AMD-V/RVI`。"
+msgstr "在 :guilabel:`Virtualization engine` 部分，选中 :guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:166
 msgid ""
 "To disconnect the virtual CD/DVD (IDE) since it is not needed, under the "
 ":guilabel:`Device` list, select :guilabel:`New CD/DVD (IDE)`. See figure "
 "8."
-msgstr "如果因不再需要而断开虚拟 CD/DVD (IDE)，请在 :guilabel:`设备` 列表中选择 :guilabel:`新 CD/DVD (IDE)`。见图 8。"
+msgstr "如果因不再需要而断开虚拟 CD/DVD (IDE)，请在 :guilabel:`Device` 列表中选择 :guilabel:`New CD/DVD (IDE)`。见图 8。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:173
 msgid "Figure 8: VMware Workstation 14 Player - Disconnect CD/DVD (IDE)"
@@ -459,16 +459,16 @@ msgstr "图 8：VMware Workstation 14 Player - 断开 CD/DVD (IDE)"
 msgid ""
 "Under the :guilabel:`Device status` section, uncheck :guilabel:`Connect "
 "at power on`."
-msgstr "在 :guilabel:`设备状态` 部分，取消选中 :guilabel:`开机时连接`。"
+msgstr "在 :guilabel:`Device status` 部分，取消选中 :guilabel:`Connect at power on`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:178
 msgid "Click the :guilabel:`Close` button."
-msgstr "点击·:guilabel:`关闭` 按钮。"
+msgstr "点击·:guilabel:`Close` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:180
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:257
 msgid "Click the :guilabel:`Finish` button."
-msgstr "点击 :guilabel:`完成` 按钮。"
+msgstr "点击 :guilabel:`Finish` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:183
 msgid "Attach the pre-configured |CL| VMware image"
@@ -507,13 +507,13 @@ msgstr "图 9: VMware Workstation 14 Player - 编辑虚拟机设置"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:205
 msgid "Click :guilabel:`Edit virtual machine settings`."
-msgstr "点击 :guilabel:`编辑虚拟机设置`。"
+msgstr "点击 :guilabel:`Edit virtual machine settings`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:207
 msgid ""
 "To remove the default hard disk, under the :guilabel:`Device` list, "
 "select :guilabel:`Hard Disk (SCSI)`. See figure 10."
-msgstr "要移除默认硬盘，在 :guilabel:`设备` 列表中选择 :guilabel:`硬盘 (SCSI)`。见图 10."
+msgstr "要移除默认硬盘，在 :guilabel:`Device` 列表中选择 :guilabel:`Hard Disk (SCSI)`。见图 10."
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:214
 msgid "Figure 10: VMware Workstation 14 Player - Remove hard drive"
@@ -521,13 +521,13 @@ msgstr "图 10：VMware Workstation 14 Player - 移除硬盘"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:216
 msgid "Click the :guilabel:`Remove` button."
-msgstr "点击 :guilabel:`移除` 按钮。"
+msgstr "点击 :guilabel:`Remove` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:218
 msgid ""
 "To add a new hard disk and attach the pre-configured |CL| VMware image, "
 "click the :guilabel:`Add...` button. See Figure 11."
-msgstr "要添加新硬盘并挂载预配置的 |CL| VMware 映像，点击 :guilabel:`添加...` 按钮。见图 11。"
+msgstr "要添加新硬盘并挂载预配置的 |CL| VMware 映像，点击 :guilabel:`Add...` 按钮。见图 11。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:225
 msgid "Figure 11: VMware Workstation 14 Player - Add new hard drive"
@@ -537,11 +537,11 @@ msgstr "图 11：VMware Workstation 14 Player - 添加新硬盘"
 msgid ""
 "Under the :guilabel:`Hardware types` section, select :guilabel:`Hard "
 "Disk`."
-msgstr "在 :guilabel:`硬盘类型` 部分，选择 :guilabel:`硬盘`。"
+msgstr "在 :guilabel:`Hardware types` 部分，选择 :guilabel:`Hard Disk`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:231
 msgid "Select your preferred :guilabel:`Virtual disk type`. See figure 12."
-msgstr "选择您喜欢的 :guilabel:`虚拟磁盘类型`。见图 12。"
+msgstr "选择您喜欢的 :guilabel:`Virtual disk type`。见图 12。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:237
 msgid "Figure 12: VMware Workstation 14 Player - Select virtual disk type"
@@ -549,7 +549,7 @@ msgstr "图 12：VMware Workstation 14 Player - 选择虚拟磁盘类型"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:239
 msgid "Select the :guilabel:`Use an existing virtual disk` option. See figure 13."
-msgstr "选择 :guilabel:`使用现有的虚拟磁盘` 选项。见图 13。"
+msgstr "选择 :guilabel:`Use an existing virtual disk` 选项。见图 13。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:245
 msgid "Figure 13: VMware Workstation 14 Player - Use existing virtual disk"
@@ -559,7 +559,7 @@ msgstr "图 13：VMware Workstation 14 Player - 使用现有虚拟磁盘"
 msgid ""
 "Click the :guilabel:`Browse` button and select the pre-configured |CL| "
 "VMware image file. See figure 14."
-msgstr "点击 :guilabel:`浏览` 按钮，选择预配置的 |CL| VMware 映像文件。见图 14。"
+msgstr "点击 :guilabel:`Browse` 按钮，选择预配置的 |CL| VMware 映像文件。见图 14。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:254
 msgid ""
@@ -609,7 +609,7 @@ msgstr "图 15：VMware Workstation 14 Player - 开启虚拟机"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:295
 msgid "Click :guilabel:`Play virtual machine`."
-msgstr "点击 :guilabel:`Play 虚拟机`。"
+msgstr "点击 :guilabel:`Play virtual machine`。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:298
 msgid "Related topics"
