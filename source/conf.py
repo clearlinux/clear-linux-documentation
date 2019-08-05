@@ -142,10 +142,12 @@ html_context = {
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
     "languages": ( ("English", "/clearlinux/latest"),
-                   ("Chinese", "/clearlinux/latest/zh_CN")
+                   ("Future Language Support", "/clearlinux/latest")
+                   #("Chinese", "/clearlinux/latest/zh_CN")
                  ),
     "versions": ( ("latest", "/clearlinux/latest"),
-                  ("L19.01", "/clearlinux/L19.01"))
+                  ("Future LTS Support", "/clearlinux/latest"))
+                  #("L19.01", "/clearlinux/L19.01"))
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
