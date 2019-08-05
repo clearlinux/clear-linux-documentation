@@ -1,7 +1,7 @@
 .. _nvidia:
 
-Install NVIDIA\* Drivers
-########################
+NVIDIA\* Drivers
+################
 
 NVIDIA manufactures graphics processing units (GPU), also known as
 graphics cards. 

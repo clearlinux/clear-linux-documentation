@@ -1,7 +1,7 @@
 .. _yubikey-u2f:
 
-Enable YubiKey U2F Support 
-##########################
+YubiKey\* U2F Support 
+#####################
 
 YubiKey\* is a USB security token manufactured by `Yubico`_. Depending on the
 model, a YubiKey can support different authentication protocols including:

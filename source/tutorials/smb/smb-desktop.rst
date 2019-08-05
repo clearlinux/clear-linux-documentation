@@ -1,7 +1,7 @@
 .. _smb-desktop:
 
-Connect to Windows\* shared location from |CL-ATTR| desktop
-###########################################################
+Samba\* as a client
+###################
 
 This tutorial explains how to access an existing shared drive on
 Windows\* via Server Message Block (SMB) / Common Internet File System (CIFS)

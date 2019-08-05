@@ -47,3 +47,12 @@ Install in a virtual machine
 
    virtual-machine-install/*
    ../../guides/maintenance/increase-virtual-disk-size.rst
+
+Install in the cloud
+********************
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   cloud-install/*

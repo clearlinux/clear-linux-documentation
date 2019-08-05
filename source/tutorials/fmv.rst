@@ -1,7 +1,7 @@
 .. _fmv:
 
-Use the function multi-version patch generator
-##############################################
+Function multi-version patch generator
+######################################
 
 CPU architectures often gain interesting new instructions as they evolve but
 application developers find it difficult to take advantage of those

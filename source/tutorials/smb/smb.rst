@@ -1,7 +1,7 @@
 .. _clear-samba-share-to-Windows:
 
-Enable simple file sharing with a Windows\* machine using Samba\*
-#################################################################
+Samba\* as a host
+#################
 
 This tutorial describes how to enable simple file sharing from a system
 running |CL-ATTR| to a Windows machine using Samba. For more advanced sharing,

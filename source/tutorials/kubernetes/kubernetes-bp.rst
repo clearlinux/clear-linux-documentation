@@ -1,7 +1,7 @@
 .. _kubernetes-bp:
 
-Kubernetes Best Practices on |CL|
-#################################
+Kubernetes\* Best Practices
+###########################
 
 Use swupd to update clusters
 ****************************

@@ -1,7 +1,7 @@
 .. _machine-learning:
 
-TensorFlow\* machine learning on |CL-ATTR|
-##########################################
+TensorFlow\* machine learning
+#############################
 
 This tutorial demonstrates the installation and execution of a TensorFlow\*
 machine learning example on |CL-ATTR|. It uses a Jupyter\* Notebook and MNIST

@@ -1,7 +1,7 @@
 .. _nvidia-cuda:
 
-Install NVIDIA CUDA Toolkit 
-###########################
+NVIDIA\* CUDA Toolkit 
+#####################
 
 NVIDIA is a manufacturer of graphics processing units (GPU), also known as
 graphics cards. 

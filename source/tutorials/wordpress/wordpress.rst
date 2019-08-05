@@ -1,7 +1,7 @@
 .. _wordpress:
 
-WordPress\* on |CL-ATTR|
-########################
+WordPress\*
+###########
 
 This tutorial describes how to setup a web server to host a WordPress\* site on a
 |CL-ATTR| system. The tutorial is split into two sections:

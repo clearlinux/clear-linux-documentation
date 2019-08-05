@@ -1,10 +1,10 @@
 .. _hadoop:
 
-Set up a single node cluster with Hadoop\*
-##########################################
+Apache\* Hadoop\*
+#################
 
 This tutorial walks you through the process of installing, configuring, and
-running Apache\* Hadoop on |CL-ATTR|. The Apache Hadoop software library is a
+running Apache Hadoop on |CL-ATTR|. The Apache Hadoop software library is a
 framework for distributed processing of large data sets across clusters of
 computers using simple programming models. It is designed to scale up from
 single servers to thousands of machines, with each machine offering local
