@@ -66,7 +66,7 @@ Architecture
 * Backend: receives records sent from the client and displays the cumulative
   content through a specialized web interface.
 
-.. figure:: figures/telemetry-e2e.png
+.. figure:: /_figures/telemetrics/telemetry-e2e.png
    :alt: Figure 1, Telemetry Architecture
 
    Figure 1: :guilabel:`|CL| Telemetry Architecture`
@@ -368,7 +368,7 @@ using the :ref:`bare-metal-install-server` getting started guide and:
    in the address bar. You should see a web page similar to the one shown in
    Figure 2 below.
 
-   .. figure:: figures/telemetry-backend-1.png
+   .. figure:: /_figures/telemetrics/telemetry-backend-1.png
       :alt: Telemetry UI
 
       Figure 2: :guilabel:`Telemetry UI`

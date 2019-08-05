@@ -60,7 +60,7 @@ Apache software bundle on |CL|.
    If the service is running, a confirmation message will appear, similar to the
    message shown in figure 1.
 
-   .. figure:: /_figures/web-server-install-1.png
+   .. figure:: /_figures/wordpress/web-server-install-1.png
       :alt: This web server is operational from host.
       :scale: 50%
 
@@ -225,7 +225,7 @@ functionality to your web server, install PHP on your system.
 
 #. Verify that the PHP information screen appears, similar to figure 2:
 
-   .. figure:: /_figures/web-server-install-2.png
+   .. figure:: /_figures/wordpress/web-server-install-2.png
       :alt: PHP information screen
       :width: 600
 
@@ -415,7 +415,7 @@ steps below for setting up a database called "WordPress".
    :ref:`mysql_secure_installation command <set-password>`. Enter your
    credentials and select :guilabel:`Go` to log in:
 
-   .. figure:: /_figures/web-server-install-3.png
+   .. figure:: /_figures/wordpress/web-server-install-3.png
       :alt: phpMyAdmin login page
       :width:     600
 
@@ -424,7 +424,7 @@ steps below for setting up a database called "WordPress".
 #. Verify a successful login by confirming that the main phpMyAdmin page
    displays, as shown in figure 4:
 
-   .. figure:: /_figures/web-server-install-4.png
+   .. figure:: /_figures/wordpress/web-server-install-4.png
       :alt: phpMyAdmin dashboard
       :width:     600
 
@@ -441,7 +441,7 @@ steps below for setting up a database called "WordPress".
 
 #. Click :guilabel:`Create`.
 
-   .. figure:: /_figures/web-server-install-5.png
+   .. figure:: /_figures/wordpress/web-server-install-5.png
       :alt: Databases tab
       :width:     600
 
@@ -452,7 +452,7 @@ steps below for setting up a database called "WordPress".
 
 #. Select the :guilabel:`Privileges` tab. Figure 6 shows its contents.
 
-   .. figure:: /_figures/web-server-install-6.png
+   .. figure:: /_figures/wordpress/web-server-install-6.png
       :alt: Privileges tab
       :width:     600
 
@@ -462,7 +462,7 @@ steps below for setting up a database called "WordPress".
    :guilabel:`Privileges` tab. The `Add user account` page appears, as shown
    in figure 7.
 
-   .. figure:: /_figures/web-server-install-7.png
+   .. figure:: /_figures/wordpress/web-server-install-7.png
       :alt: User accounts tab
       :width:     600
 
@@ -484,7 +484,7 @@ steps below for setting up a database called "WordPress".
 
 If successful, you should see the screen shown in figure 8:
 
-.. figure:: /_figures/web-server-install-8.png
+.. figure:: /_figures/wordpress/web-server-install-8.png
    :alt: User added successfully
    :width:     600
 

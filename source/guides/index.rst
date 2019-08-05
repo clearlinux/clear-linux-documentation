@@ -19,7 +19,6 @@ Clear Linux
    :glob:
 
    clear/*
-   telemetrics/*
 
 Maintenance
 ===========
@@ -29,7 +28,6 @@ Maintenance
    :glob:
 
    maintenance/*
-   deploy-at-scale
 
 Network
 =======

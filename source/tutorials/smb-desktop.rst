@@ -24,7 +24,7 @@ Connect to Windows shared location with Nautilus
 
 #. In :guilabel:`Files`, select :guilabel:`Other Locations`.
 
-   .. figure:: /_figures/smb-desktop-1.png
+   .. figure:: /_figures/samba/smb-desktop-1.png
       :scale: 100%
       :alt: Files, Other Locations
 
@@ -37,7 +37,7 @@ Connect to Windows shared location with Nautilus
 
 	    smb://servername/Share
 
-   .. figure:: /_figures/smb-desktop-2.png
+   .. figure:: /_figures/samba/smb-desktop-2.png
       :scale: 100%
       :alt: Connect to Server
 
@@ -61,7 +61,7 @@ Connect to Windows shared location with Nautilus
 
 #. The server will request authentication, as shown in Figure 3.
 
-   .. figure:: /_figures/smb-desktop-3.png
+   .. figure:: /_figures/samba/smb-desktop-3.png
       :scale: 100%
       :alt: Authentication
 

@@ -41,7 +41,7 @@ Locate, select, and launch the |CL| Basic AMI
 #. Start from your main AWS services console menu in your browser and select the
    :guilabel:`EC2` text as shown in Figure 1:
 
-   .. figure:: /_figures/aws-web-1.png
+   .. figure:: /_figures/aws/aws-web-1.png
       :scale: 50 %
       :alt: AWS Console
 
@@ -52,7 +52,7 @@ Locate, select, and launch the |CL| Basic AMI
 #. To create a new |CL| instance from the :guilabel:`EC2 Dashboard` menu,
    select the :guilabel:`Launch Instance` button as shown in Figure 2:
 
-   .. figure:: /_figures/aws-web-2.png
+   .. figure:: /_figures/aws/aws-web-2.png
       :scale: 50 %
       :alt: EC2 Dashboard
 
@@ -75,7 +75,7 @@ Locate, select, and launch the |CL| Basic AMI
    #. Select the :guilabel:`Clear Linux OS Basic` AMI by clicking the
       :guilabel:`Select` button as shown in Figure 3:
 
-      .. figure:: /_figures/aws-web-3.png
+      .. figure:: /_figures/aws/aws-web-3.png
          :scale: 50 %
          :alt: Step 1: Choose AMI
 
@@ -86,7 +86,7 @@ Locate, select, and launch the |CL| Basic AMI
       running |CL| on different platform configurations as shown in Figure 4.
       Select the :guilabel:`Continue` button.
 
-      .. figure:: /_figures/aws-web-4.png
+      .. figure:: /_figures/aws/aws-web-4.png
          :scale: 50 %
          :alt: Clear Linux OS Basic
 
@@ -94,7 +94,7 @@ Locate, select, and launch the |CL| Basic AMI
 
 #. The :guilabel:`Choose Instance Type` menu appears as shown in Figure 5.
 
-   .. figure:: /_figures/aws-web-5.png
+   .. figure:: /_figures/aws/aws-web-5.png
       :scale: 50 %
       :alt: Choose an Instance Type
 
@@ -116,7 +116,7 @@ Locate, select, and launch the |CL| Basic AMI
    the :guilabel:`Previous` screen to change the configuration
    or :guilabel:`Launch` the instance defined.
 
-   .. figure:: /_figures/aws-web-6.png
+   .. figure:: /_figures/aws/aws-web-6.png
       :scale: 50 %
       :alt: Step 7: Review the Instance Launch
 
@@ -126,7 +126,7 @@ Locate, select, and launch the |CL| Basic AMI
       Figure 7, asking you to
       :guilabel:`Select an existing key pair or create a new pair`.
 
-      .. figure:: /_figures/aws-web-7.png
+      .. figure:: /_figures/aws/aws-web-7.png
          :scale: 50 %
          :alt: Select an existing key pair or create a new pair
 
@@ -144,7 +144,7 @@ Locate, select, and launch the |CL| Basic AMI
          :guilabel:`Launch Instances` button to proceed to the
          :guilabel:`Launch Status` menu shown in Figure 8.
 
-         .. figure:: /_figures/aws-web-8.png
+         .. figure:: /_figures/aws/aws-web-8.png
             :scale: 50 %
             :alt: Launch Status
 
@@ -154,7 +154,7 @@ Locate, select, and launch the |CL| Basic AMI
       Figure 9, select the :guilabel:`View Instances` button to view your
       :guilabel:`Instances` dashboard.
 
-      .. figure:: /_figures/aws-web-9.png
+      .. figure:: /_figures/aws/aws-web-9.png
          :scale: 50 %
          :alt: View Instance
 
@@ -167,7 +167,7 @@ Your :guilabel:`Instances` Dashboard is shown in Figure 10 with the new |CL|
 OS basic instance already selected and in the running state. If there are
 other instances available, they are also listed but not selected.
 
-.. figure:: /_figures/aws-web-10.png
+.. figure:: /_figures/aws/aws-web-10.png
    :scale: 50 %
    :alt: Instance Dashboard
 
@@ -179,7 +179,7 @@ other instances available, they are also listed but not selected.
 
 .. _fig-aws-web-11:
 
-.. figure:: /_figures/aws-web-11.png
+.. figure:: /_figures/aws/aws-web-11.png
    :scale: 50 %
    :alt: Connect to Your Instance
 
@@ -235,7 +235,7 @@ Update the |CL| instance
 Run the :command:`sudo swupd update` command to update the operating
 system as shown in Figure 12:
 
-.. figure:: /_figures/aws-web-12.png
+.. figure:: /_figures/aws/aws-web-12.png
    :scale: 50 %
    :alt: sudo swupd update
 
@@ -259,7 +259,7 @@ instance from running.
 
    Figure 13 illustrates these steps.
 
-   .. figure:: /_figures/aws-web-13.png
+   .. figure:: /_figures/aws/aws-web-13.png
       :scale: 50 %
       :alt: Stop Instance
 
@@ -269,7 +269,7 @@ instance from running.
    your instance will be lost. Select the :guilabel:`Yes, Stop` button to stop
    your |CL| instance.
 
-.. figure:: /_figures/aws-web-14.png
+.. figure:: /_figures/aws/aws-web-14.png
    :scale: 50 %
    :alt: Stop Instances
 

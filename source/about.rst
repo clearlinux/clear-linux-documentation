@@ -56,7 +56,7 @@ The same tools used to build the |CL| are available *in* the OS. These tools can
 be used to create a custom distribution that continues to benefit from upstream
 rolling releases.
 
-.. figure:: /_figures/clear-lifecycle.png
+.. figure:: /_figures/about/clear-lifecycle.png
    :scale: 75%
    :align: center
    :alt: Creating and managing a Clear Linux* OS  version (or derivative)

@@ -43,7 +43,7 @@ Installing using gnome software
 All you need to do is to launch `gnome software`, search for the LibreOffice
 app, and click the install button.
 
-.. figure:: /_figures/01-install-libreoffice.gif
+.. figure:: /_figures/flatpak/01-install-libreoffice.gif
    :alt: install libreoffice step by step
 
    Figure 1: Installing LibreOffice using gnome-software
@@ -81,7 +81,7 @@ A new set of icons will appear in your Gnome applications list titled :guilabel:
 execute the application, highlight the application and click on the :guilabel:`LibreOffice` icon.
 LibreOffice will start normally.
 
-.. figure:: /_figures/02-openlibreoffice.gif
+.. figure:: /_figures/flatpak/02-openlibreoffice.gif
    :alt: Opening LibreOffice app
 
    Figure 2: Select :guilabel:`LibreOffice` app
