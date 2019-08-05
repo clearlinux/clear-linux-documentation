@@ -1,7 +1,7 @@
 .. _docker:
 
-Run Docker\*
-############
+Docker\*
+#########
 
 |CL-ATTR| supports multiple containerization platforms, including a Docker
 solution. |CL| has many unique features including a minimal default

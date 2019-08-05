@@ -92,7 +92,7 @@ The WordPress language option screen appears, as shown in figure 1.
 
 #. Select :guilabel:`English` and click :guilabel:`Continue`.
 
-   .. figure:: figures/wp-install-1.png
+   .. figure:: /_figures/wp-install-1.png
       :alt: WordPress language selection
       :width:     600
 
@@ -102,7 +102,7 @@ The WordPress language option screen appears, as shown in figure 1.
    The WordPress installation continues until the Welcome screen appears, as shown in
    figure 2:
 
-   .. figure:: figures/wp-install-2.png
+   .. figure:: /_figures/wp-install-2.png
       :alt: WordPress welcome screen
       :width:     600
 
@@ -119,7 +119,7 @@ The WordPress language option screen appears, as shown in figure 1.
    * Database host:  localhost
    * Table prefix:   wp\_
 
-   .. figure:: figures/wp-install-3.png
+   .. figure:: /_figures/wp-install-3.png
       :alt: Database connection details
       :width:     600
 
@@ -130,7 +130,7 @@ The WordPress language option screen appears, as shown in figure 1.
    Figure 4 shows the confirmation screen that verifies a successful setup. WordPress
    is connected to the MariaDB database.
 
-   .. figure:: figures/wp-install-4.png
+   .. figure:: /_figures/wp-install-4.png
       :alt: Successful database connection.
       :width:     600
 
@@ -145,7 +145,7 @@ Complete successful login
 Once the installation is complete, you can name your blog and create a WordPress username
 and password. See figure 5.
 
-.. figure:: figures/wp-install-5.png
+.. figure:: /_figures/wp-install-5.png
    :alt: WordPress user creation
    :width:     600
 
@@ -156,7 +156,7 @@ and password. See figure 5.
 #. Click :guilabel:`Install WordPress`.
 #. Verify that the initial login screen appears once the installation is complete. See figure 6:
 
-   .. figure:: figures/wp-install-6.png
+   .. figure:: /_figures/wp-install-6.png
       :alt: WordPress login
       :width:     600
 
@@ -168,7 +168,7 @@ and password. See figure 5.
 
 Figure 7 shows the WordPress dashboard after a successful login:
 
-.. figure:: figures/wp-install-7.png
+.. figure:: /_figures/wp-install-7.png
    :alt: WordPress Dashboard
    :width:     600
 
@@ -179,7 +179,7 @@ You are ready to go!
 To check out your blog as it is seen by the outside world, enter:
 \http://<your_website>/blog on your browser. Figure 8 shows the result:
 
-.. figure:: figures/wp-install-8.png
+.. figure:: /_figures/wp-install-8.png
    :alt: WordPress blog
    :width:     600
 
