@@ -16,7 +16,8 @@ Description
 
 Kubernetes is an open source system for automating deployment, scaling, and
 management of containerized applications. It groups containers that make up
-an application into logical units for easy management and discovery.
+an application into logical units for easy management and discovery. Get up
+and running quickly with our `Cloud native setup automation`_.
 
 Kata Containers\* kata-runtime adheres to
 :abbr:`OCI (Open Container Initiative*)` guidelines and works seamlessly with
@@ -229,6 +230,10 @@ Related topics
 
 Read the Kubernetes documentation to learn more about:
 
+*  Deploying Kubernetes with a `cloud-native-setup`_
+
+*  :ref:`Kubernetes best practices <kubernetes-bp>`
+
 * `Understanding basic Kubernetes architecture`_
 
 * `Deploying an application to your cluster`_
@@ -237,11 +242,12 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
-Cloud native setup automation (optional)
-****************************************
+Cloud native setup automation
+*****************************
 
-Clone the `cloud-native-setup`_ repository on your system and follow the
-instructions. This repository includes helper scripts to automate configuration.
+Optional: Clone the `cloud-native-setup`_ repository on your system and
+follow the instructions. This repository includes helper scripts to automate
+configuration.
 
 Package configuration customization (optional)
 **********************************************
@@ -292,12 +298,6 @@ commands as a shell script to configure all of these services in one step:
    Environment="NO_PROXY=${no_proxy}"
    EOF
    done
-
-Next steps
-**********
-
-:ref:`kubernetes-bp`
-
 
 Troubleshooting
 ***************
@@ -412,4 +412,4 @@ Troubleshooting
 
 .. _documentation: https://clearlinux.org/documentation/clear-linux
 
-.. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup
+.. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples
