@@ -4,34 +4,33 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-12 12:18-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../tutorials/dlrs/dlrs.rst:4
 msgid "Deep Learning Reference Stack"
-msgstr ""
+msgstr "深度学习参考堆栈"
 
 #: ../../tutorials/dlrs/dlrs.rst:6
 msgid ""
 "This tutorial describes how to run benchmarking workloads for "
 "TensorFlow\\*, PyTorch\\*, and Kubeflow in |CL-ATTR| using the Deep "
 "Learning Reference Stack."
-msgstr ""
+msgstr "本教程介绍如何在 |CL-ATTR| 中使用深度学习参考堆栈运行 TensorFlow\\*、PyTorch\\* 和 Kubeflow 基准工作负载。"
 
 #: ../../tutorials/dlrs/dlrs.rst:14
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../tutorials/dlrs/dlrs.rst:16
 msgid ""
@@ -41,11 +40,11 @@ msgid ""
 "flexibility for customized solutions, and enables you to quickly "
 "prototype and deploy Deep Learning workloads. Use this tutorial to run "
 "benchmarking workloads on your solution."
-msgstr ""
+msgstr "我们打造了深度学习参考堆栈来帮助 AI 开发人员在英特尔架构上获得最佳开发体验。此堆栈降低了深度学习软件组件常见的复杂性，为自定义解决方案提供了灵活性，并使您能够快速构建原型并部署深度学习工作负载。使用本教程可在您的解决方案上运行基准工作负载。"
 
 #: ../../tutorials/dlrs/dlrs.rst:22
 msgid "The Deep Learning Reference Stack is available in the following versions:"
-msgstr ""
+msgstr "深度学习参考堆栈有以下版本："
 
 #: ../../tutorials/dlrs/dlrs.rst:24
 msgid ""
@@ -53,68 +52,68 @@ msgid ""
 "Library for Deep Neural Networks (Intel® MKL-DNN) primitives and "
 "introduces support for Intel® AVX-512 Vector Neural Network Instructions "
 "(VNNI)."
-msgstr ""
+msgstr "`Intel MKL-DNN-VNNI`_，它使用面向深度神经网络（英特尔® MKL-DNN）原语的英特尔®数学内核库进行优化，并支持英特尔® AVX-512 矢量神经网络指令 (VNI)。"
 
 #: ../../tutorials/dlrs/dlrs.rst:27
 msgid ""
 "`Intel MKL-DNN`_, which includes the TensorFlow framework optimized using"
 " Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) "
 "primitives."
-msgstr ""
+msgstr "`Intel MKL-DNN`_，它包括使用面向深度神经网络（英特尔® MKL-DNN）原语的英特尔®数学内核库进行优化的 TensorFlow 框架。"
 
 #: ../../tutorials/dlrs/dlrs.rst:30
 msgid "`Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture."
-msgstr ""
+msgstr "`Eigen`_，它包括针对英特尔®架构优化的 `TensorFlow`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:31
 msgid "`PyTorch with OpenBLAS`_, which includes PyTorch with OpenBlas."
-msgstr ""
+msgstr "`PyTorch with OpenBLAS`_，它包括 PyTorch with OpenBlas。"
 
 #: ../../tutorials/dlrs/dlrs.rst:32
 msgid ""
 "`PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using "
 "Intel® Math Kernel Library (Intel® MKL) and Intel MKL-DNN."
-msgstr ""
+msgstr "`PyTorch with Intel MKL-DNN`_，它包括使用英特尔®数学内核库（英特尔® MKL）和英特尔 MKL-DNN 进行优化的 PyTorch。"
 
 #: ../../tutorials/dlrs/dlrs.rst:37
 msgid ""
 "To take advantage of the Intel® AVX-512 and VNNI functionality with the "
 "Deep Learning Reference Stack, you must use the following hardware:"
-msgstr ""
+msgstr "要利用英特尔® AVX-512 和 VNI 功能以及深度学习参考堆栈，您必须使用以下硬件："
 
 #: ../../tutorials/dlrs/dlrs.rst:40
 msgid "Intel® AVX-512 images require an Intel® Xeon® Scalable Platform"
-msgstr ""
+msgstr "英特尔® AVX-512 映像需要使用英特尔®至强®可扩展平台"
 
 #: ../../tutorials/dlrs/dlrs.rst:41
 msgid "VNNI requires a 2nd generation Intel® Xeon® Scalable Platform"
-msgstr ""
+msgstr "VNNI 需要使用第二代英特尔®至强®可扩展平台"
 
 #: ../../tutorials/dlrs/dlrs.rst:44
 msgid "Stack features"
-msgstr ""
+msgstr "堆栈功能和特性"
 
 #: ../../tutorials/dlrs/dlrs.rst:46
 msgid "Deep Learning Reference Stack `V3.0 release announcement`_."
-msgstr ""
+msgstr "深度学习参考堆栈 `V3.0 release announcement`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:47
 msgid ""
 "Deep Learning Reference Stack v2.0 including current `PyTorch benchmark "
 "results`_."
-msgstr ""
+msgstr "深度学习参考堆栈 v2.0，包括最新的 `PyTorch benchmark results`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:49
 msgid ""
 "Deep Learning Reference Stack v1.0 including current `TensorFlow "
 "benchmark results`_."
-msgstr ""
+msgstr "深度学习参考堆栈 v1.0，包括最新的 `TensorFlow benchmark results`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:51
 msgid ""
 "`Release notes on Github\\*`_ for the latest release of Deep Learning "
 "Reference Stack."
-msgstr ""
+msgstr "`Release notes on Github\\*`_，了解深度学习参考堆栈的最新版本。"
 
 #: ../../tutorials/dlrs/dlrs.rst:56
 msgid ""
@@ -122,23 +121,23 @@ msgid ""
 " software within the work has its own license.  Please see the `terms of "
 "use`_ for more details about licensing and usage of the Deep Learning "
 "Reference Stack."
-msgstr ""
+msgstr "深度学习参考堆栈是一项集体成果，成果中的每一个软件都有自己的许可证。有关深度学习参考堆栈的许可和使用的更多详细信息，请参阅 `terms of use`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:61
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../tutorials/dlrs/dlrs.rst:63
 msgid ":ref:`Install <bare-metal-install-desktop>` |CL| on your host system"
-msgstr ""
+msgstr "在主机系统上:ref:`Install <bare-metal-install-desktop>`"
 
 #: ../../tutorials/dlrs/dlrs.rst:64
 msgid ":command:`containers-basic` bundle"
-msgstr ""
+msgstr ":command:`containers-basic` 捆绑包"
 
 #: ../../tutorials/dlrs/dlrs.rst:65
 msgid ":command:`cloud-native-basic` bundle"
-msgstr ""
+msgstr ":command:`cloud-native-basic` 捆绑包"
 
 #: ../../tutorials/dlrs/dlrs.rst:67
 msgid ""
@@ -146,49 +145,49 @@ msgid ""
 "required for TensorFlow and PyTorch benchmarking. Use the "
 ":command:`swupd` utility to check if :command:`containers-basic` and "
 ":command:`cloud-native-basic` are present:"
-msgstr ""
+msgstr "在 |CL| 中，:command:`containers-basic` 包括 TensorFlow 和 PyTorch 基准测试所必需的 Docker\\*。使用 :command:`swupd` 实用程序检查 :command:`containers-basic` 和 :command:`cloud-native-basic` 是否存在："
 
 #: ../../tutorials/dlrs/dlrs.rst:76
 msgid ""
 "To install the :command:`containers-basic` or :command:`cloud-native-"
 "basic` bundles, enter:"
-msgstr ""
+msgstr "要安装 :command:`containers-basic` 或 :command:`cloud-native-basic` 捆绑包，请输入："
 
 #: ../../tutorials/dlrs/dlrs.rst:83
 msgid ""
 "Docker is not started upon installation of the :command:`containers-"
 "basic` bundle. To start Docker, enter:"
-msgstr ""
+msgstr "安装 :command:`containers-basic` 捆绑包后 Docker 不会启动。要启动 Docker，请输入："
 
 #: ../../tutorials/dlrs/dlrs.rst:90
 msgid ""
 "To ensure that Kubernetes is correctly installed and configured, follow "
 "the instructions in :ref:`kubernetes`."
-msgstr ""
+msgstr "要确保正确安装和配置 Kubernetes，请遵循 :ref:`kubernetes` 中的说明。"
 
 #: ../../tutorials/dlrs/dlrs.rst:94
 msgid "Version compatibility"
-msgstr ""
+msgstr "版本兼容性"
 
 #: ../../tutorials/dlrs/dlrs.rst:96
 msgid "We validated these steps against the following software package versions:"
-msgstr ""
+msgstr "我们根据以下软件包版本验证了这些步骤："
 
 #: ../../tutorials/dlrs/dlrs.rst:98
 msgid "|CL| 26240 (Minimum supported version)"
-msgstr ""
+msgstr "|CL| 26240（支持的最低版本）"
 
 #: ../../tutorials/dlrs/dlrs.rst:99
 msgid "Docker 18.06.1"
-msgstr ""
+msgstr "Docker 18.06.1"
 
 #: ../../tutorials/dlrs/dlrs.rst:100
 msgid "Kubernetes 1.11.3"
-msgstr ""
+msgstr "Kubernetes 1.11.3"
 
 #: ../../tutorials/dlrs/dlrs.rst:101
 msgid "Go 1.11.12"
-msgstr ""
+msgstr "Go 1.11.12"
 
 #: ../../tutorials/dlrs/dlrs.rst:106
 msgid ""
@@ -199,11 +198,11 @@ msgid ""
 "comply with the Docker*, Kubernetes* and Go* package versions listed "
 "above. Look for your distribution documentation on how to update packages"
 " and manage Docker services."
-msgstr ""
+msgstr "深度学习参考堆栈是为了在 |CL| 主机上执行时获得最佳用户体验而开发的。但是，该堆栈在容器环境中运行时，您应该能够在其他 Linux* 发行版上完成本教程的以下部分，只要这些发行版满足上面列出的 Docker*、Kubernetes* 和 Go* 软件包版本。查找关于如何更新软件包和管理 Docker 服务的分发版文档。"
 
 #: ../../tutorials/dlrs/dlrs.rst:109
 msgid "TensorFlow single and multi-node benchmarks"
-msgstr ""
+msgstr "TensorFlow 单节点和多节点基准测试"
 
 #: ../../tutorials/dlrs/dlrs.rst:111
 msgid ""
@@ -211,80 +210,80 @@ msgid ""
 "node. For multi-node testing, replicate these steps for each node. These "
 "steps provide a template to run other benchmarks, provided that they can "
 "invoke TensorFlow."
-msgstr ""
+msgstr "本部分介绍在单节点中运行 `TensorFlow benchmarks`_。对于多节点测试，请为每个节点重复这些步骤。这些步骤提供了运行其他基准测试的模板，前提是它们可以调用 TensorFlow。"
 
 #: ../../tutorials/dlrs/dlrs.rst:118
 msgid ""
 "Performance test results for the Deep Learning Reference Stack and for "
 "this tutorial were obtained using `runc` as the runtime."
-msgstr ""
+msgstr "深度学习参考堆栈和本教程的性能测试结果是使用 `runc` 作为运行时获得的。"
 
 #: ../../tutorials/dlrs/dlrs.rst:122
 msgid ""
 "Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image from "
 "`Docker Hub`_."
-msgstr ""
+msgstr "从 `Docker Hub`_ 下载 `Eigen`_ 或 `Intel MKL-DNN`_ Docker 映像。"
 
 #: ../../tutorials/dlrs/dlrs.rst:125 ../../tutorials/dlrs/dlrs.rst:167
 msgid "Run the image with Docker:"
-msgstr ""
+msgstr "使用 Docker 运行映像："
 
 #: ../../tutorials/dlrs/dlrs.rst:134 ../../tutorials/dlrs/dlrs.rst:175
 msgid ""
 "Launching the Docker image with the :command:`-i` argument starts "
 "interactive mode within the container. Enter the following commands in "
 "the running container."
-msgstr ""
+msgstr "使用 :command:`-i` 参数启动 Docker 映像，从而在容器内启动交互模式。在正在运行的容器中输入以下命令。"
 
 #: ../../tutorials/dlrs/dlrs.rst:138
 msgid "Clone the benchmark repository in the container:"
-msgstr ""
+msgstr "克隆容器中的基准测试存储库："
 
 #: ../../tutorials/dlrs/dlrs.rst:144 ../../tutorials/dlrs/dlrs.rst:185
 msgid "Execute the benchmark script:"
-msgstr ""
+msgstr "执行基准测试脚本："
 
 #: ../../tutorials/dlrs/dlrs.rst:152
 msgid ""
 "You can replace the model with one of your choice supported by the "
 "TensorFlow benchmarks."
-msgstr ""
+msgstr "您可以将该模型更换为 TensorFlow 支持的其他模型。"
 
 #: ../../tutorials/dlrs/dlrs.rst:155
 msgid ""
 "If you are using an FP32 based model, it can be converted to an int8 "
 "model using `Intel® quantization tools`_."
-msgstr ""
+msgstr "如果使用基于 FP32 的模型，可以使用 `Intel® quantization tools`_ 将其转换为 int8 模型。"
 
 #: ../../tutorials/dlrs/dlrs.rst:159
 msgid "PyTorch single and multi-node benchmarks"
-msgstr ""
+msgstr "PyTorch 单节点和多节点基准测试"
 
 #: ../../tutorials/dlrs/dlrs.rst:161
 msgid ""
 "This section describes running the `PyTorch benchmarks`_ for Caffe2 in "
 "single node."
-msgstr ""
+msgstr "本部分介绍在单节点中运行针对 Caffe2 的 `PyTorch benchmarks`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:164
 msgid ""
 "Download either the `PyTorch with OpenBLAS`_ or the `PyTorch with Intel "
 "MKL-DNN`_ Docker image from `Docker Hub`_."
-msgstr ""
+msgstr "从 `Docker Hub`_ 下载 `PyTorch with OpenBLAS`_ 或 `PyTorch with Intel MKL-DNN`_ Docker 映像。"
 
 #: ../../tutorials/dlrs/dlrs.rst:179
 msgid "Clone the benchmark repository:"
-msgstr ""
+msgstr "克隆基准测试存储库："
 
 #: ../../tutorials/dlrs/dlrs.rst:195
 msgid "Kubeflow multi-node benchmarks"
-msgstr ""
+msgstr "Kubeflow 多节点基准测试"
 
 #: ../../tutorials/dlrs/dlrs.rst:197
 msgid ""
 "The benchmark workload runs in a Kubernetes cluster. The tutorial uses "
 "`Kubeflow`_ for the Machine Learning workload deployment on three nodes."
-msgstr ""
+msgstr "基准测试工作负载在 Kubernetes 集群中运行。本教程使用 `Kubeflow`_ 在三个节点上部署机器学习工作负载。"
 
 #: ../../tutorials/dlrs/dlrs.rst:202
 msgid ""
@@ -292,33 +291,33 @@ msgid ""
 "platform must support the Intel® AVX-512 instruction set. Otherwise, an "
 "*illegal instruction* error may appear, and you won’t be able to complete"
 " this tutorial."
-msgstr ""
+msgstr "如果选择英特尔® MKL-DNN 或英特尔® MKL-DNN-VNNI 映像，您的平台必须支持英特尔® AVX-512 指令集。否则，可能会出现*非法指令*错误，导致无法完成本教程。"
 
 #: ../../tutorials/dlrs/dlrs.rst:206
 msgid "Kubernetes setup"
-msgstr ""
+msgstr "Kubernetes 设置"
 
 #: ../../tutorials/dlrs/dlrs.rst:208
 msgid ""
 "Follow the instructions in the :ref:`kubernetes` tutorial to get set up "
 "on |CL|. The Kubernetes community also has `instructions for creating a "
 "cluster`_."
-msgstr ""
+msgstr "按照 :ref:`kubernetes` 教程中的说明在 |CL| 上进行设置。Kubernetes 社区也提供了 `instructions for creating a cluster`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:213
 msgid "Kubernetes networking"
-msgstr ""
+msgstr "Kubernetes 网络连接"
 
 #: ../../tutorials/dlrs/dlrs.rst:215
 msgid ""
 "We used `flannel`_ as the network provider for these tests. If you prefer"
 " a different network layer, refer to the Kubernetes `networking "
 "documentation`_ for setup."
-msgstr ""
+msgstr "在这些测试中，我们使用 `flannel`_ 作为网络提供程序。如果青睐不同的网络层，请参阅 Kubernetes `networking documentation`_ 进行设置。"
 
 #: ../../tutorials/dlrs/dlrs.rst:220
 msgid "Kubectl"
-msgstr ""
+msgstr "Kubectl"
 
 #: ../../tutorials/dlrs/dlrs.rst:222
 msgid ""
@@ -326,26 +325,26 @@ msgid ""
 "Refer to the `kubectl overview`_ for details on syntax and operations. "
 "Once you have a working cluster on Kubernetes, use the following YAML "
 "script to start a pod with a simple shell script, and keep the pod open."
-msgstr ""
+msgstr "您可以使用 kubectl 对您的 Kubernetes 集群运行命令。有关语法和操作的详细信息，请参阅 `kubectl overview`_。建立一个 Kubernetes 工作集群后，请使用下面的 YAML 脚本启动一个含有简单 shell 脚本的 Pod，并保持该 Pod 处于打开状态。"
 
 #: ../../tutorials/dlrs/dlrs.rst:227
 msgid "Copy this example.yaml script to your system:"
-msgstr ""
+msgstr "将 example.yaml 脚本复制到您的系统中："
 
 #: ../../tutorials/dlrs/dlrs.rst:244
 msgid "Execute the script with kubectl:"
-msgstr ""
+msgstr "使用 kubectl 执行该脚本："
 
 #: ../../tutorials/dlrs/dlrs.rst:250
 msgid ""
 "This script opens a single pod. More robust solutions would create a "
 "deployment or inject a python script or larger shell script into the "
 "container."
-msgstr ""
+msgstr "该脚本打开一个 Pod。更稳健的解决方案是创建部署，或者将 python 脚本或更大的 shell 脚本注入容器。"
 
 #: ../../tutorials/dlrs/dlrs.rst:254
 msgid "Images"
-msgstr ""
+msgstr "图像"
 
 #: ../../tutorials/dlrs/dlrs.rst:256
 msgid ""
@@ -353,100 +352,100 @@ msgid ""
 "Learning Reference Stack and put the benchmarks repo in the correct "
 "location. Note that this tutorial uses Kubeflow v0.4.0, and cannot "
 "guarantee results if you use a different version."
-msgstr ""
+msgstr "您必须将 `launcher.py`_ 添加到 Docker 映像中，以包含深度学习参考堆栈，并将基准测试存储库放在正确的位置。请注意，本教程使用 Kubeflow v0.4.0。如果使用不同的版本，则不能保证结果。"
 
 #: ../../tutorials/dlrs/dlrs.rst:260
 msgid "From the Docker image, run the following:"
-msgstr ""
+msgstr "从 Docker 映像中，运行以下命令："
 
 #: ../../tutorials/dlrs/dlrs.rst:269
 msgid "Your entry point becomes: :file:`/opt/launcher.py`."
-msgstr ""
+msgstr "您的入口点变成 :file:`/opt/launcher.py`。"
 
 #: ../../tutorials/dlrs/dlrs.rst:271
 msgid "This builds an image that can be consumed directly by TFJob from Kubeflow."
-msgstr ""
+msgstr "这会构建一个可供 TFJob 从 Kubeflow 直接使用的映像。"
 
 #: ../../tutorials/dlrs/dlrs.rst:274
 msgid "ksonnet\\*"
-msgstr ""
+msgstr "ksonnet\\*"
 
 #: ../../tutorials/dlrs/dlrs.rst:276
 msgid ""
 "Kubeflow uses ksonnet\\* to manage deployments, so you must install it "
 "before setting up Kubeflow."
-msgstr ""
+msgstr "Kubeflow 使用 ksonnet\\* 来管理部署，因此您必须在设置 Kubeflow 之前安装它。"
 
 #: ../../tutorials/dlrs/dlrs.rst:279
 msgid ""
 "ksonnet was added to the :command:`cloud-native-basic` bundle in |CL| "
 "version 27550. If you are using an older |CL| version (not recommended), "
 "you must manually install ksonnet as described below."
-msgstr ""
+msgstr "ksonnet 已添加到 |CL| 版本 27550 中的 :command:`cloud-native-basic` 捆绑包中。如果使用的是较旧的 |CL| 版本（不推荐），您必须如下所述手动安装 ksonnet。"
 
 #: ../../tutorials/dlrs/dlrs.rst:283
 msgid "On |CL|, follow these steps:"
-msgstr ""
+msgstr "在 |CL| 上，请按照下列步骤操作："
 
 #: ../../tutorials/dlrs/dlrs.rst:294
 msgid ""
 "After the ksonnet installation is complete, ensure that binary `ks` is "
 "accessible across the environment."
-msgstr ""
+msgstr "ksonnet 安装完成后，确保可在整个环境中访问 `ks` 二进制文件。"
 
 #: ../../tutorials/dlrs/dlrs.rst:298
 msgid "Kubeflow"
-msgstr ""
+msgstr "Kubeflow"
 
 #: ../../tutorials/dlrs/dlrs.rst:300
 msgid ""
 "Once you have Kubernetes running on your nodes, set up `Kubeflow`_ by "
 "following these instructions from the `quick start guide`_."
-msgstr ""
+msgstr "Kubernetes 在节点上运行后，请按照 `quick start guide`_ 中的说明设置 `Kubeflow`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:318
 msgid "Next, deploy the primary package for our purposes: tf-job-operator."
-msgstr ""
+msgstr "接下来，为我们的目的部署主要软件包：tf-job-operator。"
 
 #: ../../tutorials/dlrs/dlrs.rst:328
 msgid ""
 "This creates the CustomResourceDefinition (CRD) endpoint to launch a "
 "TFJob."
-msgstr ""
+msgstr "这将创建 CustomResourceDefinition (CRD) 端点来启动 TFJob。"
 
 #: ../../tutorials/dlrs/dlrs.rst:331
 msgid "Run a TFJob"
-msgstr ""
+msgstr "运行 TFJob"
 
 #: ../../tutorials/dlrs/dlrs.rst:333
 msgid "Select this link for the `ksonnet registries for deploying TFJobs`_."
-msgstr ""
+msgstr "选择 `ksonnet registries for deploying TFJobs`_ 的链接。"
 
 #: ../../tutorials/dlrs/dlrs.rst:335
 msgid "Install the TFJob components as follows:"
-msgstr ""
+msgstr "按照以下步骤安装 TFJob 组件："
 
 #: ../../tutorials/dlrs/dlrs.rst:343
 msgid "Export the image name to use for the deployment:"
-msgstr ""
+msgstr "导出用于部署的映像名称："
 
 #: ../../tutorials/dlrs/dlrs.rst:351
 msgid "Replace <docker_name> with the image name you specified in previous steps."
-msgstr ""
+msgstr "将 <docker_name> 替换为前述步骤中指定的映像名称。"
 
 #: ../../tutorials/dlrs/dlrs.rst:353
 msgid ""
 "Generate Kubernetes manifests for the workloads and apply them using "
 "these commands:"
-msgstr ""
+msgstr "为工作负载生成 Kubernetes 清单，并使用以下命令应用这些清单："
 
 #: ../../tutorials/dlrs/dlrs.rst:363
 msgid "This replicates and deploys three test setups in your Kubernetes cluster."
-msgstr ""
+msgstr "这会在 Kubernetes 集群中复制和部署三个测试设置。"
 
 #: ../../tutorials/dlrs/dlrs.rst:366
 msgid "Results of running this tutorial"
-msgstr ""
+msgstr "运行本教程的结果"
 
 #: ../../tutorials/dlrs/dlrs.rst:368
 msgid ""
@@ -455,11 +454,11 @@ msgid ""
 "‘Completed’ state. You can get the logs from any of the pods to inspect "
 "the benchmark results. More information about `Kubernetes logging`_ is "
 "available from the Kubernetes community."
-msgstr ""
+msgstr "您必须解析 Kubernetes Pod 的日志来检索性能数据。完成后，Pod 仍会存在，并将处于“已完成”状态。您可以从任何一个 Pod 中获取日志来检查基准测试结果。有关 `Kubernetes logging`_ 的更多信息可从 Kubernetes 社区获取。"
 
 #: ../../tutorials/dlrs/dlrs.rst:375
 msgid "Use Jupyter Notebook"
-msgstr ""
+msgstr "使用 Jupyter Notebook"
 
 #: ../../tutorials/dlrs/dlrs.rst:377
 msgid ""
@@ -467,19 +466,19 @@ msgid ""
 "is downloaded, run the Docker image with :command:`-p` to specify the "
 "shared port between the container and the host. This example uses port "
 "8888."
-msgstr ""
+msgstr "本示例使用 `PyTorch with OpenBLAS`_ 容器映像。下载后，使用 :command:`-p` 运行 Docker 映像，以指定容器和主机之间的共享端口。本示例使用端口 8888。"
 
 #: ../../tutorials/dlrs/dlrs.rst:385
 msgid ""
 "After you start the container, launch the Jupyter Notebook. This command "
 "is executed inside the container image."
-msgstr ""
+msgstr "启动容器后，启动 Jupyter Notebook。该命令在容器映像内执行。"
 
 #: ../../tutorials/dlrs/dlrs.rst:392
 msgid ""
 "After the notebook has loaded, you will see output similar to the "
 "following:"
-msgstr ""
+msgstr "加载笔记本后，您将看到类似以下内容的输出："
 
 #: ../../tutorials/dlrs/dlrs.rst:400
 msgid ""
@@ -487,39 +486,39 @@ msgid ""
 "address, start a web browser with the following. If you are not running "
 "the browser on the host system, replace :command:`127.0.0.1` with the IP "
 "address of the host."
-msgstr ""
+msgstr "从您的主机系统或任何可以访问主机 IP 地址的系统，使用以下命令启动 Web 浏览器。如果没有在主机系统上运行浏览器，请将 :command:`127.0.0.1` 更换为主机的 IP 地址。"
 
 #: ../../tutorials/dlrs/dlrs.rst:408
 msgid "Your browser displays the following:"
-msgstr ""
+msgstr "您的浏览器会显示以下内容："
 
 #: ../../tutorials/dlrs/dlrs.rst:414
 msgid "Figure 1: :guilabel:`Jupyter Notebook`"
-msgstr ""
+msgstr "图 1：:guilabel:`Jupyter Notebook`"
 
 #: ../../tutorials/dlrs/dlrs.rst:417
 msgid ""
 "To create a new notebook, click :guilabel:`New` and select "
 ":guilabel:`Python 3`."
-msgstr ""
+msgstr "要创建新笔记本，请点击 :guilabel:`New`，然后选择 :guilabel:`Python 3`。"
 
 #: ../../tutorials/dlrs/dlrs.rst:423
 msgid "Figure 2: Create a new notebook"
-msgstr ""
+msgstr "图 2：创建一个新笔记本"
 
 #: ../../tutorials/dlrs/dlrs.rst:425
 msgid "A new, blank notebook is displayed, with a cell ready for input."
-msgstr ""
+msgstr "此时将显示一个新的空白笔记本，其中有一个单元格可供输入内容。"
 
 #: ../../tutorials/dlrs/dlrs.rst:432
 msgid ""
 "To verify that PyTorch is working, copy the following snippet into the "
 "blank cell, and run the cell."
-msgstr ""
+msgstr "要验证 PyTorch 是否正在工作，请将以下片段复制到空白单元格中，并运行该单元格。"
 
 #: ../../tutorials/dlrs/dlrs.rst:446
 msgid "When you run the cell, your output will look something like this:"
-msgstr ""
+msgstr "运行单元格时，您的输出将如下所示："
 
 #: ../../tutorials/dlrs/dlrs.rst:452
 msgid ""
@@ -527,89 +526,89 @@ msgid ""
 "notebooks to take advantage of the Deep Learning Reference Stack's "
 "optimized deep learning frameworks. Refer to `Jupyter Notebook`_ for "
 "details."
-msgstr ""
+msgstr "您可以继续在此笔记本中工作，也可以下载现有笔记本来利用深度学习参考堆栈的优化深度学习框架。详情请参阅 `Jupyter Notebook`_。"
 
 #: ../../tutorials/dlrs/dlrs.rst:457
 msgid "Uninstallation"
-msgstr ""
+msgstr "卸载"
 
 #: ../../tutorials/dlrs/dlrs.rst:459
 msgid ""
 "To uninstall the Deep Learning Reference Stack, you can choose to stop "
 "the container so that it is not using system resources, or you can stop "
 "the container and delete it to free storage space."
-msgstr ""
+msgstr "要卸载深度学习参考堆栈，您可以选择停止容器以使其不使用系统资源，或者可以停止容器并将其删除以释放存储空间。"
 
 #: ../../tutorials/dlrs/dlrs.rst:461
 msgid "To stop the container, execute the following from your host system:"
-msgstr ""
+msgstr "要停止容器，请从主机系统执行以下操作："
 
 #: ../../tutorials/dlrs/dlrs.rst:463
 msgid "Find the container's ID"
-msgstr ""
+msgstr "找到容器的 ID"
 
 #: ../../tutorials/dlrs/dlrs.rst:469
 msgid "This will result in output similar to the following:"
-msgstr ""
+msgstr "这将产生类似于以下内容的输出："
 
 #: ../../tutorials/dlrs/dlrs.rst:476
 msgid ""
 "You can then use the ID or container name to stop the container.  This "
 "example uses the name \"oss\":"
-msgstr ""
+msgstr "然后，您可以使用 ID 或容器名称来停止容器。本示例使用名称 \"oss\"："
 
 #: ../../tutorials/dlrs/dlrs.rst:483
 msgid "Verify that the container is not running"
-msgstr ""
+msgstr "验证容器未在运行"
 
 #: ../../tutorials/dlrs/dlrs.rst:490
 msgid "To delete the container from your system you need to know the Image ID:"
-msgstr ""
+msgstr "要从系统中删除容器，您需要知道映像 ID："
 
 #: ../../tutorials/dlrs/dlrs.rst:496
 msgid "This command results in output similar to the following:"
-msgstr ""
+msgstr "该命令会产生类似于以下内容的输出："
 
 #: ../../tutorials/dlrs/dlrs.rst:504
 msgid "To remove an image use the image ID:"
-msgstr ""
+msgstr "要移除映像，请使用映像 ID："
 
 #: ../../tutorials/dlrs/dlrs.rst:520
 msgid ""
 "Note that you can execute the :command:`docker rmi` command using only "
 "the first few characters of the image ID, provided they are unique on the"
 " system."
-msgstr ""
+msgstr "请注意，您可以只使用映像 ID 的前几个字符来执行 :command:`docker rmi` 命令，前提是它们在系统上是唯一的。"
 
 #: ../../tutorials/dlrs/dlrs.rst:522
 msgid "Once you have removed the image, you can verify it has been deleted with:"
-msgstr ""
+msgstr "移除映像后，您可以通过以下方式验证它是否已被移除："
 
 #: ../../tutorials/dlrs/dlrs.rst:530
 msgid "Related topics"
-msgstr ""
+msgstr "相关主题"
 
 #: ../../tutorials/dlrs/dlrs.rst:532
 msgid "Deep Learning Reference Stack `V3.0 release announcement`_"
-msgstr ""
+msgstr "深度学习参考堆栈 `V3.0 release announcement`_"
 
 #: ../../tutorials/dlrs/dlrs.rst:533
 msgid "`TensorFlow benchmarks`_"
-msgstr ""
+msgstr "`TensorFlow benchmarks`_"
 
 #: ../../tutorials/dlrs/dlrs.rst:534
 msgid "`PyTorch benchmarks`_"
-msgstr ""
+msgstr "`PyTorch benchmarks`_"
 
 #: ../../tutorials/dlrs/dlrs.rst:535
 msgid "`Kubeflow`_"
-msgstr ""
+msgstr "`Kubeflow`_"
 
 #: ../../tutorials/dlrs/dlrs.rst:536
 msgid ":ref:`kubernetes` tutorial"
-msgstr ""
+msgstr ":ref:`kubernetes` 教程"
 
 #: ../../tutorials/dlrs/dlrs.rst:537
 msgid "`Jupyter Notebook`_"
-msgstr ""
+msgstr "`Jupyter Notebook`_"
 

@@ -4,67 +4,66 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../tooling/security.rst:4
 msgid "OS Security"
-msgstr ""
+msgstr "操作系统安全性"
 
 #: ../../tooling/security.rst:6
 msgid ""
 "|CL-ATTR| aims to make systemic and layered security-conscious decisions "
 "that are both performant and practical. This security philosophy is "
 "rooted within the project's codebase and operating culture."
-msgstr ""
+msgstr "|CL-ATTR| 旨在做出既高效又实用的系统性、分层安全决策。此安全理念根植于项目的代码库和运营文化中。"
 
 #: ../../tooling/security.rst:14
 msgid "Security in updates"
-msgstr ""
+msgstr "更新方面的安全举措"
 
 #: ../../tooling/security.rst:16
 msgid ""
 "The |CL| team believes in the benefits of software security through open "
 "sourcing, incremental updates, and rapidly resolving known security "
 "advisories."
-msgstr ""
+msgstr "|CL| 团队致力于通过开源、增量更新以及快速解决已知的安全建议来提升软件安全。"
 
 #: ../../tooling/security.rst:20
 msgid "The latest Linux\\* codebase"
-msgstr ""
+msgstr "最新的 Linux\\* 代码库"
 
 #: ../../tooling/security.rst:22
 msgid ""
 "|CL| uses the newest version of the Linux kernel which allows the "
 "operating system to leverage the latest features from the upstream Linux "
 "kernel, including security fixes."
-msgstr ""
+msgstr "|CL| 使用最新版本的 Linux 内核，允许操作系统利用上游 Linux 内核的最新功能，包括安全修复。"
 
 #: ../../tooling/security.rst:27
 msgid "Automated effective updating"
-msgstr ""
+msgstr "自动有效更新"
 
 #: ../../tooling/security.rst:29
 msgid "|CL| is incrementally updated multiple times per day."
-msgstr ""
+msgstr "|CL| 每天多次执行增量更新。"
 
 #: ../../tooling/security.rst:31
 msgid ""
 "This `rolling release`_ model allows |CL| to consume the latest security "
 "fixes of software packages as soon as they become available. There is no "
 "waiting for major or minor releases on |CL|."
-msgstr ""
+msgstr "这种 `rolling release`_ 模式便于 |CL| 在软件包的最新安全补丁一经推出就能获得应用。|CL| 不会等待主要或次要版本。"
 
 #: ../../tooling/security.rst:35
 msgid ""
@@ -73,18 +72,18 @@ msgid ""
 " used; not an older copy loaded into memory. |CL| will let you know when "
 "a service needs to be rebooted or do it for your automatically after a "
 "software update, if desired."
-msgstr ""
+msgstr "简单地将更新内容下载到系统上并不会带来多大的效果。重要的是在获得更新内容的同时，还要确保修补后的新副本得到使用，而不是将旧副本加载到内存中。更新软件后，|CL| 会告诉用户某个服务是否需要重新启动，或者在需要时自动重新启动服务。"
 
 #: ../../tooling/security.rst:41
 msgid ""
 "In |CL| updates are delivered automatically, efficiently, and "
 "effectively. For more information about software updates in |CL|, refer "
 "to the :ref:`swupd-guide` guide."
-msgstr ""
+msgstr "在 |CL| 中，更新会自动、高效且有效地交付。有关 |CL| 中软件更新的更多信息，请参阅 :ref:`swupd-guide` 指南。"
 
 #: ../../tooling/security.rst:46
 msgid "Automated CVE scanning and remediation"
-msgstr ""
+msgstr "自动 CVE 扫描和修复"
 
 #: ../../tooling/security.rst:48
 msgid ""
@@ -92,7 +91,7 @@ msgid ""
 "growing exponentially. Repositories of Common Vulnerabilities and "
 "Exposures (CVEs) and their fixes, if known, are published by :abbr:`NIST`"
 " in a National Vulnerability Database \\ |NVD|\\  and at \\ |MITRE|\\  ."
-msgstr ""
+msgstr "软件包和安全漏洞的数量正呈指数级增长。:abbr:`NIST` 会在美国国家漏洞数据库 \\ |NVD|\\ 以及 \\ |MITRE|\\ 推送通用漏洞 (CVE) 存储库及其修复程序（如果已知）。"
 
 #: ../../tooling/security.rst:53
 msgid ""
@@ -100,56 +99,56 @@ msgid ""
 "fixable :abbr:`CVEs (Common Vulnerabilities and Exposures)`. Packages are"
 " automatically scanned against CVEs daily, and security patches are "
 "deployed as soon as they are available."
-msgstr ""
+msgstr "|CL| 采用一种主动但慎重的方法来解决已知且可修复的 :abbr:`CVEs (Common Vulnerabilities and Exposures)`。系统每天都会对照 CVE 扫描软件包，而且相应的安全补丁一经可用即会立即部署。"
 
 #: ../../tooling/security.rst:58
 msgid ""
 "These combined practices minimize the amount of time |CL| systems are "
 "exposed to unnecessary security risk."
-msgstr ""
+msgstr "这些综合实践最大限度减少了 |CL| 系统暴露于不必要的安全风险下的时间。"
 
 #: ../../tooling/security.rst:61
 msgid "Security in software"
-msgstr ""
+msgstr "软件方面的安全举措"
 
 #: ../../tooling/security.rst:64
 msgid "Minimized attack surface"
-msgstr ""
+msgstr "最大限度减少攻击面"
 
 #: ../../tooling/security.rst:66
 msgid ""
 "|CL| removes legacy, unneeded, or redundant standards and components as "
 "much as possible to enable the use of best known security standards. "
 "Below are some examples:"
-msgstr ""
+msgstr "|CL| 会尽可能删除旧的、不需要的或冗余的标准和组件，以便能够使用最广为人知的安全标准。以下是一些例子："
 
 #: ../../tooling/security.rst:70
 msgid ""
 "`RC4`, `SSLv3`, `3DES`, and `SHA-1` ciphers which have had known "
 "vulnerabilities, have been explicitly disabled within many |CL| packages "
 "to avoid their accidental usage."
-msgstr ""
+msgstr "`RC4`、`SSLv3`、`3DES` 和 `SHA-1` 密码存在已知的漏洞，已在许多 |CL| 软件包中明确禁用，以避免意外使用。"
 
 #: ../../tooling/security.rst:74
 msgid ""
 "Services and subsystems which expose sensitive system information have "
 "been removed such as the `finger` and `tcpwrappers`."
-msgstr ""
+msgstr "暴露敏感系统信息的服务和子系统已被删除，如 `finger` 和 `tcpwrappers`。"
 
 #: ../../tooling/security.rst:77
 msgid "`SFTP` has been disabled by default due to security considerations."
-msgstr ""
+msgstr "出于安全考虑，默认情况下已禁用 `SFTP`。"
 
 #: ../../tooling/security.rst:80
 msgid "Verified trust"
-msgstr ""
+msgstr "经过验证的信任措施"
 
 #: ../../tooling/security.rst:82
 msgid ""
 "|CL| encourages the use of secure practices such as encryption and "
 "digital signature verification throughout the system and discourages "
 "blind trust. Below are some examples:"
-msgstr ""
+msgstr "|CL| 鼓励在整个系统中使用加密和数字签名验证等安全措施，并不鼓励盲目信任。以下是一些例子："
 
 #: ../../tooling/security.rst:86
 msgid ""
@@ -157,13 +156,13 @@ msgid ""
 "against the |CL| maintainers' public key for authenticity. More "
 "information about swupd security can be found in the `Security for "
 "software update in Clear Linux* OS`_ blog post."
-msgstr ""
+msgstr "swupd 的所有更新操作都是透明加密的，并对照 |CL| 维护者的公钥进行真实性检查。有关 swupd 安全性的更多信息，请参阅 `Security for software update in Clear Linux* OS`_ 博客文章。"
 
 #: ../../tooling/security.rst:91
 msgid ""
 "Before being built, packages available from |CL| verify checksums and "
 "signatures provided by third party project codebases and maintainers."
-msgstr ""
+msgstr "构建之前，可从 |CL| 获得的软件包会验证由第三方项目代码库和维护者提供的校验和和签名。"
 
 #: ../../tooling/security.rst:94
 msgid ""
@@ -171,24 +170,24 @@ msgid ""
 "to work with well-known Certificate Authorities out of the box. clrtrust "
 "also offers an easy to use command line interface for managing system-"
 "wide chains of trust, instead of ignoring foreign certificates."
-msgstr ""
+msgstr "|CL| 使用一个统一的证书存储库 `clrtrust`_，可以方便地与知名的证书颁发机构配合使用。clrtrust 还提供了一个易于使用的命令行界面来管理整个系统范围内的信任链，而不是忽略外部证书。"
 
 #: ../../tooling/security.rst:100
 msgid "Compiled with secure options"
-msgstr ""
+msgstr "使用安全选项编译"
 
 #: ../../tooling/security.rst:102
 msgid ""
 "While |CL| packages are optimized for performance on Intel® architecture,"
 " security conscious kernel and compiler options are sensibly taken "
 "advantage of. Below are some examples:"
-msgstr ""
+msgstr "虽然 |CL| 软件包针对英特尔架构优化了性能，但也合理使用了强调安全的内核和编译器选项。以下是一些例子："
 
 #: ../../tooling/security.rst:106
 msgid ""
 "Kernels shipped with |CL| are signed and disallow the usage of custom "
 "kernel modules to maintain verifiable system integrity."
-msgstr ""
+msgstr "|CL| 附带的内核经过签名，不允许使用自定义内核模块来维护可验证的系统完整性。"
 
 #: ../../tooling/security.rst:109
 msgid ""
@@ -196,53 +195,53 @@ msgid ""
 "layout randomization (KASLR)`_  are kernel features which defend against "
 "certain memory based attacks. More information about PIE executables can "
 "be found in the `Recent GNU* C library improvements`_ blog post."
-msgstr ""
+msgstr "`Address space layout randomization (ASLR)`_ 和 `Kernel address space layout randomization (KASLR)`_ 这两项内核功能可抵御某些基于内存的攻击。有关 PIE 可执行文件的更多信息可在 `Recent GNU* C library improvements`_ 博客文章中找到。"
 
 #: ../../tooling/security.rst:116
 msgid "Security in system design"
-msgstr ""
+msgstr "系统设计方面的安全举措"
 
 #: ../../tooling/security.rst:118
 msgid ""
 "Simple, yet effective, techniques are used throughout the |CL| system "
 "design to defend against common attack vectors and enable good security "
 "hygiene. Below are some examples:"
-msgstr ""
+msgstr "整个 |CL| 系统设计都使用了简单却有效的技术来防御常见的攻击媒介，并实现良好的安全水平。以下是一些例子："
 
 #: ../../tooling/security.rst:122
 msgid ""
 "Full disk encryption using :abbr:`LUKS (Linux Unified Key Setup)` is "
 "available during installation. Refer to `cryptsetup`_ for additional "
 "information about LUKS."
-msgstr ""
+msgstr "安装期间可使用 :abbr:`LUKS (Linux Unified Key Setup)` 实现全磁盘加密。有关 LUKS 的更多信息，请参阅 `cryptsetup`_。"
 
 #: ../../tooling/security.rst:126
 msgid ""
 "|CL| uses the PAM cracklib module to harden user login and password "
 "security resulting in:"
-msgstr ""
+msgstr "|CL| 使用 PAM cracklib 模块强化用户登录和密码安全，从而使得："
 
 #: ../../tooling/security.rst:129
 msgid ""
 "No default username or root password set out of the box with |CL|, you "
 "will be asked to set your own password immediately."
-msgstr ""
+msgstr "|CL| 一开始并没有现成的默认用户名或 root 密码，系统会要求您立即设置自己的密码。"
 
 #: ../../tooling/security.rst:132
 msgid ""
 "Simple password schemes, which are known to be easily compromised, cannot"
 " be set in |CL|."
-msgstr ""
+msgstr "在 |CL| 中无法设置很容易被猜出的简单密码。"
 
 #: ../../tooling/security.rst:135
 msgid ""
 "A password blacklist, to avoid system passwords being set to passwords "
 "which have been compromised in the past."
-msgstr ""
+msgstr "将过去受过攻击的密码加入密码黑名单，并禁止将系统密码设置为黑名单中的密码。"
 
 #: ../../tooling/security.rst:138
 msgid ""
 "`Tallow`_, a lightweight service which monitors and blocks suspicious SSH"
 " login patterns, is installed with the :command:`openssh-server` bundle."
-msgstr ""
+msgstr "使用 :command:`openssh-server` 捆绑包可安装轻量级服务 `Tallow`_，监视和阻止可疑的 SSH 登录模式。"
 

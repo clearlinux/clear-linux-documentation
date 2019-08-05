@@ -5,10 +5,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
-"Report-Msgid-Bugs-To: \n"
+msgstr "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-29 17:41-0008\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -1141,5 +1140,6 @@ msgstr ":ref:`swupd-about`"
 #~ "that package are removed from the "
 #~ "system."
 #~ msgstr ""
+
 
 

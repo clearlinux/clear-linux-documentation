@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-29 17:41-0008\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -521,7 +521,7 @@ msgid ""
 "Setup of the workspace and tooling used for building source in |CL| is "
 "mostly automated for you with a setup script. It uses tools from the "
 ":command:`os-clr-on-clr` bundle."
-msgstr "在 |CL| 中设置用于构建源代码的工作区和工具主要是通过设置脚本自动执行的。它使用 :command:`os-clr-on-clr` bundle 文件中的工具。"
+msgstr "在 |CL| 中构建源代码所需的工作空间和工具设置操作大多数可通过设置脚本自动执行。该设置脚本使用来自 :command:`os-clr-on-clr` 捆绑包的工具。"
 
 #: ../../tooling/autospec.rst:456
 msgid ""
@@ -529,15 +529,15 @@ msgid ""
 "with the subfolders :file:`Makefile`, :file:`packages`, and "
 ":file:`projects`. The :file:`projects` folder contains the main tools "
 "used for making packages in |CL| :file:`autospec` and :file:`common`."
-msgstr "该设置脚本会在 :file:`clearlinux` 文件夹中创建工作区，同时还会创建子文件夹 :file:`Makefile`、:file:`packages` 和 :file:`projects`。:file:`projects` 文件夹包含用于在 |CL| :file:`autospec` 和 :file:`common` 中创建软件包的主要工具。"
+msgstr "该设置脚本会在 :file:`clearlinux` 文件夹（其中包含 :file:`Makefile`、:file:`packages` 和 :file:`projects` 子文件夹）中创建一个工作空间。:file:`projects` 文件夹包含在 |CL| 中制作软件包的主要工具，即 :file:`autospec` 和 :file:`common`。"
 
 #: ../../tooling/autospec.rst:461
 msgid "Follow these steps to setup the workspace and tooling for building source:"
-msgstr "按照以下步骤设置工作区和工具以构建源代码："
+msgstr "按照以下步骤设置构建代码所需的工作空间和工具："
 
 #: ../../tooling/autospec.rst:463
 msgid "Install the :command:`os-clr-on-clr` bundle:"
-msgstr "安装 :command:`os-clr-on-clr` bundle 文件："
+msgstr "安装 :command:`os-clr-on-clr` 捆绑包："
 
 #: ../../tooling/autospec.rst:469
 msgid "Download the :file:`user-setup.sh` script:"
@@ -545,25 +545,25 @@ msgstr "下载 :file:`user-setup.sh` 脚本："
 
 #: ../../tooling/autospec.rst:475
 msgid "Make :file:`user-setup.sh` executable:"
-msgstr "将 :file:`user-setup.sh` 转换为可执行文件："
+msgstr "制作 :file:`user-setup.sh` 可执行文件："
 
 #: ../../tooling/autospec.rst:481
 msgid "Run the script as an unprivileged user:"
-msgstr "以非特权用户身份运行脚本："
+msgstr "以非特权用户的身份运行脚本："
 
 #: ../../tooling/autospec.rst:487
 msgid ""
 "After the script completes, log out and log in again to complete the "
 "setup process."
-msgstr "脚本完成后，注销并再次登录，完成设置流程。"
+msgstr "脚本完成后，注销并再次登录以完成设置过程。"
 
 #: ../../tooling/autospec.rst:490
 msgid "Set your Git user email and username for the repos on your system:"
-msgstr "为系统上的存储库设置 Git 用户电子邮件和用户名："
+msgstr "在系统上设置存储库的 Git 用户电子邮件和用户名："
 
 #: ../../tooling/autospec.rst:497
 msgid "This global setting is used by |CL| tools that make use of Git."
-msgstr "此全局设置由采用 Git 的 |CL| 工具使用。"
+msgstr "此全局设置由使用 Git 的 |CL| 工具使用。"
 
 #: ../../tooling/autospec.rst:502
 msgid "Related topics"

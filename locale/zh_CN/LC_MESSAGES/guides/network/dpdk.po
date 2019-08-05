@@ -4,31 +4,30 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/network/dpdk.rst:4
 msgid "Use DPDK to send packets between platforms"
-msgstr ""
+msgstr "使用 DPDK 在平台之间发送数据包"
 
 #: ../../guides/network/dpdk.rst:6
 msgid "This guide describes how to send packets between two platforms."
-msgstr ""
+msgstr "本指南介绍如何在两个平台之间发送数据包。"
 
 #: ../../guides/network/dpdk.rst:13
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../guides/network/dpdk.rst:15
 msgid ""
@@ -36,351 +35,351 @@ msgid ""
 "configuration. The example uses the :abbr:`Data Plane Development Kit "
 "(DPDK)`, which is a set of libraries, drivers, sample applications, and "
 "tools for fast packet processing."
-msgstr ""
+msgstr "图 1 显示了如何通过简单的配置在两个平台之间发送数据包。该示例使用了 :abbr:`Data Plane Development Kit (DPDK)`，它是一套用于快速处理数据包的库、驱动程序、示例应用程序和工具。"
 
 #: ../../guides/network/dpdk.rst:24
 msgid "Figure 1: Environment for l3fwd DPDK application"
-msgstr ""
+msgstr "图 1：l3fwd DPDK 应用程序的环境"
 
 #: ../../guides/network/dpdk.rst:26
 msgid "This example uses the following DPDK components:"
-msgstr ""
+msgstr "本示例使用以下 DPDK 组件："
 
 #: ../../guides/network/dpdk.rst:28
 msgid "pktgen: Traffic generator. See `pktgen`_ documentation for details."
-msgstr ""
+msgstr "pktgen：流量生成器。有关详细信息，请参阅 `pktgen`_ 文档。"
 
 #: ../../guides/network/dpdk.rst:29
 msgid ""
 "l3fwd: Layer 3 forwarding example application. See `l3fwd`_ documentation"
 " for details."
-msgstr ""
+msgstr "l3fwd：第 3 层转发示例应用程序。有关详细信息，请参阅 `l3fwd`_ 文档。"
 
 #: ../../guides/network/dpdk.rst:33
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../guides/network/dpdk.rst:35
 msgid "Two platforms using |CL-ATTR| release `13330`_ or higher."
-msgstr ""
+msgstr "两个平台使用 |CL-ATTR| `13330`_ 或更高版本。"
 
 #: ../../guides/network/dpdk.rst:36
 msgid "Both images must include the :command:`kernel-native` bundle."
-msgstr ""
+msgstr "两个映像都必须包含 :command:`kernel-native` 捆绑包。"
 
 #: ../../guides/network/dpdk.rst:37
 msgid "Install the :command:`network-basic-dev` bundle with the command:"
-msgstr ""
+msgstr "使用以下命令安装 :command:`network-basic-dev` 捆绑包："
 
 #: ../../guides/network/dpdk.rst:43
 msgid ""
 "Each platform must have at least one :abbr:`NIC (Network Interface "
 "Card)`. Check the `DPDK project`_ for the list of supported `dpdk.org "
 "NICs`_."
-msgstr ""
+msgstr "每个平台必须至少有一个 :abbr:`NIC (Network Interface Card)`。查阅 `DPDK project`_ 了解受支持的 `dpdk.org NICs`_ 列表。"
 
 #: ../../guides/network/dpdk.rst:46
 msgid "Two network cables."
-msgstr ""
+msgstr "两根网线。"
 
 #: ../../guides/network/dpdk.rst:49
 msgid "Install dpdk and build l3fwd example (Platform B)"
-msgstr ""
+msgstr "安装 dpdk 并构建 l3fwd 示例（平台 B）"
 
 #: ../../guides/network/dpdk.rst:51
 msgid "Change to the :file:`l3fwd` example directory."
-msgstr ""
+msgstr "切换到 :file:`l3fwd` 示例目录。"
 
 #: ../../guides/network/dpdk.rst:57
 msgid "Assign :envvar:`RTE_SDK` variable to the makefiles path."
-msgstr ""
+msgstr "将 :envvar:`RTE_SDK` 变量分配给 makefiles 路径。"
 
 #: ../../guides/network/dpdk.rst:63
 msgid ""
 "Assign :envvar:`RTE_TARGET` variable to the location of the gcc\\* config"
 " file."
-msgstr ""
+msgstr "将 :envvar:`RTE_TARGET` 变量分配给 gcc\\* 配置文件的位置。"
 
 #: ../../guides/network/dpdk.rst:70
 msgid ""
 "Build the `l3fwd` application and add the configuration header to the "
 ":makevar:`CFLAGS` variable."
-msgstr ""
+msgstr "构建 `l3fwd` 应用程序，并将配置头文件添加到 :makevar:`CFLAGS` 变量中。"
 
 #: ../../guides/network/dpdk.rst:79
 msgid "Build pktgen (Platform A)"
-msgstr ""
+msgstr "构建 pktgen（平台 A）"
 
 #: ../../guides/network/dpdk.rst:81
 msgid "Download the `pktgen tar package`_ v3.1.2 or newer."
-msgstr ""
+msgstr "下载 `pktgen tar package`_ v3.1.2 或更高版本。"
 
 #: ../../guides/network/dpdk.rst:83
 msgid "Decompress packages and move to uncompressed source directory."
-msgstr ""
+msgstr "解压缩软件包，并切换到未解压缩的源目录。"
 
 #: ../../guides/network/dpdk.rst:85
 msgid "Assign :envvar:`RTE_SDK` variable to the path where makefiles are located."
-msgstr ""
+msgstr "将 :envvar:`RTE_SDK` 变量分配给 makefiles 所在的路径。"
 
 #: ../../guides/network/dpdk.rst:91
 msgid "Assign :envvar:`RTE_TARGET` to the location of the gcc config file."
-msgstr ""
+msgstr "将 :envvar:`RTE_TARGET` 分配给 gcc 配置文件的位置。"
 
 #: ../../guides/network/dpdk.rst:97
 msgid ""
 "Build the `pktgen` project and set the "
 ":makevar:`CONFIG_RTE_BUILD_SHARED_LIB` variable to \"n\"."
-msgstr ""
+msgstr "构建 `pktgen` 项目，并将 :makevar:`CONFIG_RTE_BUILD_SHARED_LIB` 变量设置为 \"n\"。"
 
 #: ../../guides/network/dpdk.rst:105
 msgid "Bind NICs to DPDK kernel drivers (Platforms A and B)"
-msgstr ""
+msgstr "将网卡绑定到 DPDK 内核驱动程序（平台 A 和平台 B）"
 
 #: ../../guides/network/dpdk.rst:107
 msgid ""
 "The `l3fwd` application uses two NICs. The DPDK includes tools for "
 "binding NICs to DPDK modules to run DPDK applications."
-msgstr ""
+msgstr "`l3fwd` 应用程序使用两个网卡。DPDK 包括将网卡绑定到 DPDK 模块以运行 DPDK 应用程序的工具。"
 
 #: ../../guides/network/dpdk.rst:110
 msgid "Load the DPDK I/O kernel module."
-msgstr ""
+msgstr "加载 DPDK I/O 内核模块。"
 
 #: ../../guides/network/dpdk.rst:116
 msgid ""
 "Check the NIC status to determine which network cards are not busy. When "
 "another application is using them, the status shows \"Active\", and those"
 " NICs cannot be bound."
-msgstr ""
+msgstr "检查网卡状态以确定哪些网卡不忙。另一个应用程序正在使用网卡时，状态显示为 \"Active\"，此时这些网卡无法绑定。"
 
 #: ../../guides/network/dpdk.rst:124
 msgid ""
 "Bind two available NICs. The general syntax for binding is: :command"
 ":`dpdk-devbind --bind=vfio-pci <device-entry>`. A working example is "
 "shown below:"
-msgstr ""
+msgstr "绑定两个可用的网卡。绑定操作的常规语法是 :command:`dpdk-devbind --bind=vfio-pci <device-entry>`。下面显示了一个工作示例："
 
 #: ../../guides/network/dpdk.rst:132
 msgid ""
 "Check the NIC status to verify that the NICs are bound correctly. If "
 "successful, `drv` displays the value `igb_uio`, which confirms that the "
 "NICs are using the DPDK modules."
-msgstr ""
+msgstr "检查网卡状态，验证网卡绑定是否正确。如果绑定成功，`drv` 显示值 `igb_uio`，这确认了网卡正在使用 DPDK 模块。"
 
 #: ../../guides/network/dpdk.rst:138
 msgid "Set hugepages (Platforms A and B)"
-msgstr ""
+msgstr "设置大页（平台 A 和 B）"
 
 #: ../../guides/network/dpdk.rst:140
 msgid ""
 "|CL| supports `hugepages` for the large memory pool allocation used for "
 "packet buffers."
-msgstr ""
+msgstr "|CL| 支持 `hugepages`，即可以分配大内存池，并将其用于数据包缓冲区。"
 
 #: ../../guides/network/dpdk.rst:143
 msgid "Set the number of hugepages."
-msgstr ""
+msgstr "设置大页数量。"
 
 #: ../../guides/network/dpdk.rst:149
 msgid "Allocate pages on NUMA machines."
-msgstr ""
+msgstr "在 NUMA 计算机上分配页面。"
 
 #: ../../guides/network/dpdk.rst:156
 msgid "Make memory available for DPDK."
-msgstr ""
+msgstr "为 DPDK 分配内存。"
 
 #: ../../guides/network/dpdk.rst:162
 msgid ""
 "For more information, refer to the `DPDK guide`_ System Requirements "
 "section."
-msgstr ""
+msgstr "有关详细信息，请参阅 `DPDK guide`_ 系统要求一节。"
 
 #: ../../guides/network/dpdk.rst:167
 msgid "Set up the physical environment (Platforms A and B)"
-msgstr ""
+msgstr "设置物理环境（平台 A 和 B）"
 
 #: ../../guides/network/dpdk.rst:169
 msgid ""
 "Connect the NICs on Platform A to the NICs on Platform B using the "
 "network cables as shown in figure 2."
-msgstr ""
+msgstr "如图 2 所示，使用网线将平台 A 上的网卡连接到平台 B 上的网卡。"
 
 #: ../../guides/network/dpdk.rst:174
 msgid "Figure 2: Physical network environment"
-msgstr ""
+msgstr "图 2：物理网络环境"
 
 #: ../../guides/network/dpdk.rst:178
 msgid "Run l3fwd application (Platform B)"
-msgstr ""
+msgstr "运行 l3fwd 应用程序（平台 B）"
 
 #: ../../guides/network/dpdk.rst:180
 msgid ""
 "The `l3fwd` application is one of the DPDK examples available when you "
 "install the :file:`dpdk-dev` bundle. `l3fwd` forwards packets from one "
 "NIC to another. For details, refer to the `l3fwd`_ documentation."
-msgstr ""
+msgstr "`l3fwd` 应用程序是安装 :file:`dpdk-dev` 捆绑包时可用的 DPDK 示例之一。`l3fwd` 将数据包从一个网卡转发到另一个网卡。有关详细信息，请参阅 `l3fwd`_ 文档。"
 
 #: ../../guides/network/dpdk.rst:184
 msgid "Open the l3fwd example directory."
-msgstr ""
+msgstr "打开 l3fwd 示例目录。"
 
 #: ../../guides/network/dpdk.rst:190
 msgid "**This step is very important.**"
-msgstr ""
+msgstr "**这一步非常重要。**"
 
 #: ../../guides/network/dpdk.rst:192
 msgid "DPDK needs poll mode drivers to operate."
-msgstr ""
+msgstr "DPDK 需要借助轮询模式驱动程序才能运行。"
 
 #: ../../guides/network/dpdk.rst:193
 msgid "Poll mode drivers are shared objects in :file:`/usr/lib64`."
-msgstr ""
+msgstr "轮询模式驱动程序是 :file:`/usr/lib64` 中的共享对象。"
 
 #: ../../guides/network/dpdk.rst:194
 msgid "See the full list of supported NICs at `dpdk.org NICs`_."
-msgstr ""
+msgstr "请在 `dpdk.org NICs`_ 查看受支持的网卡的完整列表。"
 
 #: ../../guides/network/dpdk.rst:195
 msgid ""
 "You must know which kernel module each NIC is using and choose a poll "
 "mode driver that corresponds to your NICs."
-msgstr ""
+msgstr "您必须知道每个网卡使用的是哪个内核模块，并选择与网卡相对应的轮询模式驱动程序。"
 
 #: ../../guides/network/dpdk.rst:198
 msgid ""
 "NIC binding and `pktgen` configuration depends upon network use cases and"
 " available system resources. Use the :command:`-d` flag to set the poll "
 "mode driver."
-msgstr ""
+msgstr "网卡绑定和 `pktgen` 配置取决于网络用例和可用的系统资源。使用 :command:`-d` 标志设置轮询模式驱动程序。"
 
 #: ../../guides/network/dpdk.rst:202
 msgid ""
 "The following example assumes that the NICs use the `e1000` network "
 "driver and the `e1000` poll mode driver. The :file:`librte_pmd_e1000.so` "
 "is located in :file:`/usr/lib64` in |CL|."
-msgstr ""
+msgstr "以下示例假设网卡使用 `e1000` 网络驱动程序和 `e1000` 轮询模式驱动程序。:file:`librte_pmd_e1000.so` 位于 |CL| 中的 :file:`/usr/lib64` 中。"
 
 #: ../../guides/network/dpdk.rst:210
 msgid ""
 "The `l3fwd` application shows port initialization details at startup. "
 "After port 0 initialization completes, `l3fwd` shows a MAC address and "
 "information for port 1."
-msgstr ""
+msgstr "`l3fwd` 应用程序在启动时显示端口初始化详细信息。端口 0 初始化完成后，`l3fwd` 显示端口 1 的 MAC 地址和信息。"
 
 #: ../../guides/network/dpdk.rst:214
 msgid "Save the MAC address for configuring the `pktgen` project."
-msgstr ""
+msgstr "保存该 MAC 地址以配置 `pktgen` 项目。"
 
 #: ../../guides/network/dpdk.rst:217
 msgid "Run pktgen application (Platform A)"
-msgstr ""
+msgstr "运行 pktgen 应用程序（平台 A）"
 
 #: ../../guides/network/dpdk.rst:219
 msgid "`pktgen` is a network traffic generator included in the DPDK."
-msgstr ""
+msgstr "`pktgen` 是 DPDK 中包含的网络流量生成器。"
 
 #: ../../guides/network/dpdk.rst:221
 msgid ""
 "`pktgen` configuration depends upon the network setup and the available "
 "system resources. The following example shows a basic configuration."
-msgstr ""
+msgstr "`pktgen` 配置取决于网络设置和可用的系统资源。以下示例显示了一个基本配置。"
 
 #: ../../guides/network/dpdk.rst:229
 msgid "Enable active colorful output (optional)."
-msgstr ""
+msgstr "启用活动彩色输出（可选）。"
 
 #: ../../guides/network/dpdk.rst:235
 msgid ""
 "Use the MAC addresses shown by the `l3fwd` application during "
 "initialization. The command to set the MAC addresses in `pktgen` has the "
 "format:"
-msgstr ""
+msgstr "使用初始化期间 `l3fwd` 应用程序显示的 MAC 地址。在 `pktgen` 中设置 MAC 地址的命令格式如下："
 
 #: ../../guides/network/dpdk.rst:242 ../../guides/network/dpdk.rst:301
 #: ../../guides/network/dpdk.rst:319
 msgid "Here is a working example:"
-msgstr ""
+msgstr "以下是一个工作示例："
 
 #: ../../guides/network/dpdk.rst:249
 msgid "Send packets."
-msgstr ""
+msgstr "发送数据包。"
 
 #: ../../guides/network/dpdk.rst:255
 msgid "For more details, see the `pktgen`_ documentation."
-msgstr ""
+msgstr "有关详细信息，请参阅 `pktgen`_ 文档。"
 
 #: ../../guides/network/dpdk.rst:258
 msgid "Appendix A: Use pass-through for virtual machines"
-msgstr ""
+msgstr "附录 A：为虚拟机使用直通"
 
 #: ../../guides/network/dpdk.rst:260
 msgid ""
 "This section explains how to set up a virtual environment where virtual "
 "machines control the NICs on the host."
-msgstr ""
+msgstr "本节说明如何设置由虚拟机控制主机上网卡的虚拟环境。"
 
 #: ../../guides/network/dpdk.rst:263
 msgid "Create a new directory and move to it."
-msgstr ""
+msgstr "创建一个新目录并切换到该目录。"
 
 #: ../../guides/network/dpdk.rst:265
 msgid ""
 "Download or create a :file:`start_qemu.sh` script for running a kvm "
 "virtual machine:"
-msgstr ""
+msgstr "下载或创建 :file:`start_qemu.sh` 脚本以运行 kvm 虚拟机："
 
 #: ../../guides/network/dpdk.rst:272
 msgid "Download a bare-metal image of |CL| and rename it as :file:`clear.img`."
-msgstr ""
+msgstr "下载 |CL| 的裸机映像，并将其重命名为 :file:`clear.img`。"
 
 #: ../../guides/network/dpdk.rst:274
 msgid "Look for an Ethernet\\* device entry that contains vendor and device ID:"
-msgstr ""
+msgstr "查找包含供应商和设备 ID 的 Ethernet\\* 设备条目："
 
 #: ../../guides/network/dpdk.rst:280
 msgid "An example output:"
-msgstr ""
+msgstr "示例输出如下："
 
 #: ../../guides/network/dpdk.rst:286
 msgid ""
 "where `03:00.0` is the device entry and `8086:1521` is the `vendor:device"
 " ID`. Record this information, because you need it to unbind the NICs "
 "from a host."
-msgstr ""
+msgstr "其中 `03:00.0` 是设备条目，`8086:1521` 是 `vendor:device ID`。记下此信息，因为后面需要用到它将网卡与主机解除绑定。"
 
 #: ../../guides/network/dpdk.rst:291
 msgid ""
 "Unbind the NICs from the host to do pass-through with virtual machines. "
 "|CL| supports this action. The commands take the format:"
-msgstr ""
+msgstr "解除网卡与主机的绑定，以便与虚拟机进行直通通信。|CL| 支持此类通信。命令采用以下格式："
 
 #: ../../guides/network/dpdk.rst:310
 msgid ""
 "Assign the unbound NICs to the KVM virtual machine (guest). Modify the "
 ":file:`start_qemu.sh` script in `qemu-system-x86_64` arguments, and add "
 "the lines with the host's NICs information in the format:"
-msgstr ""
+msgstr "将未绑定的网卡分配给 KVM 虚拟机（来宾）。修改 `qemu-system-x86_64` 参数中的 :file:`start_qemu.sh` 脚本，并按以下格式添加含有主机网卡信息的行："
 
 #: ../../guides/network/dpdk.rst:326
 msgid ""
 "Add more NUMA machines to the virtual machine by adding lines to the "
 "Makefile boot target in the format:"
-msgstr ""
+msgstr "按照以下格式向 Makefile 引导目标添加行，从而将更多 NUMA 计算机添加到虚拟机："
 
 #: ../../guides/network/dpdk.rst:333
 msgid ""
 "Here is a working example for a virtual machine with 4096 memory and four"
 " CPUs:"
-msgstr ""
+msgstr "下面是一个具有 4096 内存和四个 CPU 的虚拟机的工作示例："
 
 #: ../../guides/network/dpdk.rst:341
 msgid "Each NUMA machine must use the same quantity of memory."
-msgstr ""
+msgstr "每台 NUMA 计算机必须使用相同数量的内存。"
 
 #: ../../guides/network/dpdk.rst:343
 msgid "Run the :file:`start_qemu.sh` script."
-msgstr ""
+msgstr "运行 :file:`start_qemu.sh` 脚本。"
 
 #~ msgid ""
 #~ "This document describes how to send "
@@ -434,4 +433,5 @@ msgstr ""
 
 #~ msgid "For more details, see the `pktgen documentation`_."
 #~ msgstr ""
+
 
