@@ -147,7 +147,7 @@ html_context = {
                    #("Chinese", "/clearlinux/latest/zh_CN")
                  ),
     "versions": ( ("latest", "/clearlinux/latest"),
-                  ("Future LTS Support", "/clearlinux/latest"))
+                  ("Future Version Support", "/clearlinux/latest"))
                   #("L19.01", "/clearlinux/L19.01"))
 }
 
