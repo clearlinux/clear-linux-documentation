@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../tooling/debug.rst:4
+msgid "Debug system"
+msgstr "调试系统"
+
+#: ../../tooling/debug.rst:6
+msgid ""
+"|CL-ATTR| introduces a novel approach to system software debugging using "
+"*clr-debug-info*. On the client side, the |CL| debug system obtains any "
+"necessary debug information on-the-fly over a network during a debugging "
+"session. On the server side, the system curates and compresses debug "
+"information into small pieces for efficient downloading."
+msgstr "|CL-ATTR| 引入了一种使用 *clr-debug-info* 进行系统软件调试的新方法。在客户端，|CL| 调试系统会在调试会话期间通过网络即时获取所有必要的调试信息。在服务器端，系统将调试信息整理并压缩为较小的数据块，方便高效下载。"
+
+#: ../../tooling/debug.rst:12
+msgid ""
+"For developers, this avoids the interruption during debugging that "
+"usually happens when debug information is missing. This can be especially"
+" useful on systems where storage is limited."
+msgstr "对于开发人员，此举可避免调试期间通常在缺少调试信息的情况下所出现的中断问题。对于存储空间有限的系统，此功能尤其实用。"
+
+#: ../../tooling/debug.rst:22
+msgid "Background"
+msgstr "后台"
+
+#: ../../tooling/debug.rst:24
+msgid ""
+"Software that is compiled and packaged for general usage in an operating "
+"system typically only contains components that are used to execute the "
+"program, such as binaries and libraries. Extra developer data, such as "
+"the actual source code and symbol information, are separated and excluded"
+" for efficiency."
+msgstr "为在操作系统中进行一般使用而编译和封装的软件通常仅包含用于执行程序的组件，例如二进制文件和库。为提高效率，其他开发数据则会被分置并排除，例如实际的源代码和符号信息。"
+
+#: ../../tooling/debug.rst:30
+msgid ""
+"The debug information helps relate binary code to human readable source "
+"code lines and variables. Most of the time, this auxiliary information is"
+" not needed; however without it, debugging a program results in limited "
+"visibility."
+msgstr "调试信息有助将二进制代码与人类可读的源代码行和变量进行关联。多数情况下，这些辅助信息并不需要。但如果缺少此类信息，调试程序时便无法提供足够的可见性。"
+
+#: ../../tooling/debug.rst:37
+msgid "Usage"
+msgstr "用途"
+
+#: ../../tooling/debug.rst:39
+msgid ""
+"The clr-debug-info system is integrated into |CL| and seamlessly engages "
+"once installed."
+msgstr "clr-debug-info 系统已集成到 |CL| 并在安装后立即无缝结合。"
+
+#: ../../tooling/debug.rst:42
+msgid "Install the *dev-utils* bundle."
+msgstr "安装 *dev-utils* bundle 文件。"
+
+#: ../../tooling/debug.rst:50
+msgid ""
+"The *telemetrics* and *performance-tools* bundles also include clr-debug-"
+"info."
+msgstr "*telemetrics* 和 *performance-tools* bundle 文件也包含 clr-debug-info。"
+
+#: ../../tooling/debug.rst:54
+msgid ""
+"Start a debugging session against a program using a debugger, such as "
+"GDB. For example, to debug *gnome-control-center* execute the following "
+"command:"
+msgstr "使用调试程序（如 GDB）针对程序启动调试会话。例如，要调试 *gnome-control-center*，请执行以下命令："
+
+#: ../../tooling/debug.rst:62
+msgid ""
+"As you step through the program and debug information is needed, the "
+"clr_debug_daemon obtains it in the background."
+msgstr "单步执行程序且需调试信息时，clr_debug_daemon 便会在后台获取所需信息。"
+
+#: ../../tooling/debug.rst:67
+msgid "Implementation"
+msgstr "实施"
+
+#: ../../tooling/debug.rst:69
+msgid ""
+"The implementation of the |CL| debug system is open source and available "
+"on GitHub at: https://github.com/clearlinux/clr-debug-info/"
+msgstr "|CL| 调试系统的实现为开源程序且可在 GitHub 上的以下位置找到：https://github.com/clearlinux/clr-debug-info/"
+
+#: ../../tooling/debug.rst:76
+msgid "Figure 1: The communication flow of the |CL| debug system"
+msgstr "图 1：|CL| 调试系统的通信流程"
+
+#: ../../tooling/debug.rst:78
+msgid ""
+"The |CL| debug system implements a :abbr:`FUSE (filesystem in userspace)`"
+" filesystem mounted at :file:`/usr/lib/debug` and :file:`/usr/src/debug`."
+" The FUSE filesystem starts automatically. You can verify its status by "
+"executing :command:`systemctl status clr_debug_fuse.service`."
+msgstr "|CL| 调试系统可实现在 :file:`/usr/lib/debug` 和 :file:`/usr/src/debug` 挂载的 :abbr:`FUSE (filesystem in userspace)` 文件系统。FUSE 文件系统会自动启动。可以执行 :command:`systemctl status clr_debug_fuse.service` 来验证状态。"
+
+#: ../../tooling/debug.rst:83
+msgid ""
+"The *clr_debug_daemon* is responsible for fetching the appropriate "
+"package debug content from the server and making it available for any "
+"debugging programs that need it. It is socket activated whenever a "
+"request to the local FUSE filesystem occurs. You can verify its status "
+"with :command:`systemctl status clr_debug_daemon.service`."
+msgstr "*clr_debug_daemon* 负责从服务器获取相应的软件包调试内容，并提供给需要它的所有调试程序。只要对本地 FUSE 文件系统发出请求，便会通过套接字将其激活。可以使用 :command:`systemctl status clr_debug_daemon.service` 来验证状态。"
+
+#: ../../tooling/debug.rst:90
+msgid ""
+"|CL| hosts debuginfo content packaged for consumption by |CL| debug "
+"clients at https://download.clearlinux.org/debuginfo/"
+msgstr "|CL| 存储有专供 |CL| 调试客户端（位于 https://download.clearlinux.org/debuginfo/）使用而封装的调试信息内容"
+
+#~ msgid "Debug System"
+#~ msgstr ""
+
+

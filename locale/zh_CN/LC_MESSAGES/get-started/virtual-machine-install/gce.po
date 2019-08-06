@@ -1,0 +1,448 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../get-started/virtual-machine-install/gce.rst:4
+msgid "Launch |CL-ATTR| Compute Engine on Google Cloud Platform\\*"
+msgstr "在 Google Cloud Platform\\* 上启动 |CL-ATTR| Compute Engine"
+
+#: ../../get-started/virtual-machine-install/gce.rst:6
+msgid ""
+"This page explains the steps to create a virtual machine instance of |CL-"
+"ATTR| on `Google Cloud Platform`_ (:abbr:`GCP (Google Cloud Platform)`)."
+msgstr "本页说明在 `Google Cloud Platform`_ (:abbr:`GCP (Google Cloud Platform)`) 上创建 |CL-ATTR| 虚拟机实例的步骤。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:14
+msgid "Prerequisites"
+msgstr "必备条件"
+
+#: ../../get-started/virtual-machine-install/gce.rst:16
+msgid "Set up a Google account and a GCP billing account."
+msgstr "创建 Google 帐户和 GCP 计费帐户。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:18
+msgid ""
+"Generate and install a user SSH key in the Linux PCs that will connect to"
+" the VMs in GCP."
+msgstr "在 Linux PC 中生成和安装用户 SSH 密钥。该 PC 将连接至 GCP 中的虚拟机。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:22
+msgid "Setup |CL| VM on GCP"
+msgstr "在 GCP 上安装 |CL| 虚拟机"
+
+#: ../../get-started/virtual-machine-install/gce.rst:24
+msgid ""
+"Sign in to your Google\\* account on the `Google Cloud Console "
+"<https://console.cloud.google.com/>`_:"
+msgstr "在 `Google Cloud Console <https://console.cloud.google.com/>`_ 上登录 Google\\* 帐户。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:31
+msgid "Figure 1: Google sign in screen"
+msgstr "图 1：Google 登录屏幕"
+
+#: ../../get-started/virtual-machine-install/gce.rst:33
+msgid ""
+"Google Cloud Platform uses **Projects** to manage resources. Select or "
+"create a new project for hosting the |CL| VM."
+msgstr "Google Cloud Platform 使用 **项目** 管理资源。选择或创建新项目来托管 |CL| 虚拟机。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:38
+msgid ""
+"Refer to the `Quickstart Using a Linux VM "
+"<https://cloud.google.com/compute/docs/quickstart-linux>`_ guide to learn"
+" about the process of creating VM instances on GCP."
+msgstr "请参阅 `Quickstart Using a Linux VM <https://cloud.google.com/compute/docs/quickstart-linux>`_ 指南，了解在 GCP 上创建虚拟机实例的过程。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:42
+msgid ""
+"Navigate to the latest |CL| `release folder "
+"<https://download.clearlinux.org/releases/current/clear/>`_ to view the "
+"currently released :abbr:`GCE (Google Compute Engine\\*)` image, and "
+"download the :file:`clear-<release number>-gce.tar.gz` image archive."
+msgstr "导航至最新的 |CL| `release folder <https://download.clearlinux.org/releases/current/clear/>`_，查看当前发布的 :abbr:`GCE (Google Compute Engine\\*)` 映像，下载 :file:`clear-<release number>-gce.tar.gz` 映像档案文件。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:48
+msgid ""
+"You don't need to uncompress the image archive, the intact file will be "
+"uploaded to the Google Cloud Storage later."
+msgstr "您无需解压缩映像档案文件，完整文件稍后将上传至 Google Cloud Storage。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:51
+msgid ""
+"Create a *Storage Bucket* for hosting the |CL| image source archive "
+"downloaded in the previous step:"
+msgstr "创建 *存储 Bucket* 以托管上一步下载的 |CL| 映像源档案文件："
+
+#: ../../get-started/virtual-machine-install/gce.rst:54
+#: ../../get-started/virtual-machine-install/gce.rst:112
+#: ../../get-started/virtual-machine-install/gce.rst:158
+msgid "Click the :guilabel:`Navigation menu` icon on the upper left screen menu."
+msgstr "点击左上部屏幕菜单中的 :guilabel:`Navigation menu` 图标。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:56
+msgid ""
+"Select the :menuselection:`Storage` item from the sidebar on the left. "
+"You will be sent to the Storage Browser tool or the Cloud Storage "
+"overview page."
+msgstr "从左侧边栏上选择 :menuselection:`存储` 项。此时将您转到 Storage Browser 工具或 Cloud Storage 概览页。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:63
+msgid "Figure 2: Browse Google Cloud Storage"
+msgstr "图 2：浏览 Google Cloud Storage"
+
+#: ../../get-started/virtual-machine-install/gce.rst:66
+msgid ""
+"You may need to create a billing account and link to this project before "
+"you create a bucket."
+msgstr "创建 bucket 之前，最好需要创建一个计费帐户，将其链接至此项目。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:73
+msgid "Figure 3: Cloud Storage Browser tool"
+msgstr "图 3：Cloud Storage 浏览工具"
+
+#: ../../get-started/virtual-machine-install/gce.rst:75
+msgid ""
+"Click the :guilabel:`CREATE BUCKET` button to enter the bucket creation "
+"tool. The bucket name must be unique because buckets in the Cloud Storage"
+" share a single global namespace."
+msgstr "点击 :guilabel:`CREATE BUCKET` 按钮，进入 bucket 创建工具界面。bucket 的名称必须是唯一的，因为 Cloud Storage 中的所有 bucket 共享一个全局命名空间。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:79
+msgid ""
+"Leave the remaining options set to the defaults, and click the "
+":guilabel:`Create` button at the bottom to create a *Bucket*."
+msgstr "其余设置选项保留默认值，然后点击底部的 :guilabel:`Create` 按钮创建 *Bucket*。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:86
+msgid "Figure 4: Set bucket name"
+msgstr "图 4：设置 bucket 名称"
+
+#: ../../get-started/virtual-machine-install/gce.rst:88
+msgid ""
+"Once the bucket is created, click the :guilabel:`Upload files` button on "
+"the Bucket details page to upload the |CL| GCE image archive to the named"
+" bucket:"
+msgstr "创建 bucket 后，点击 Bucket 详细资料页上的 :guilabel:`Upload files` 按钮将 |CL| GCE 映像档案文件上传至指定的 bucket："
+
+#: ../../get-started/virtual-machine-install/gce.rst:96
+msgid "Figure 5: Cloud Storage bucket"
+msgstr "图 5：Cloud Storage bucket"
+
+#: ../../get-started/virtual-machine-install/gce.rst:102
+msgid "Figure 6: Uploading the image source archive file"
+msgstr "图 6：上传映像源档案文件"
+
+#: ../../get-started/virtual-machine-install/gce.rst:108
+msgid "Figure 7: Importing complete"
+msgstr "图 7：导入完成"
+
+#: ../../get-started/virtual-machine-install/gce.rst:110
+msgid "Browse the Compute Engine Image library page:"
+msgstr "浏览 Compute Engine 映像库页："
+
+#: ../../get-started/virtual-machine-install/gce.rst:114
+msgid ""
+"Select the :menuselection:`Compute Engine --> Images` from the side bar "
+"on the left."
+msgstr "从左侧边栏选择 :menuselection:`Compute Engine --> 映像`。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:121
+msgid "Figure 8: Image library"
+msgstr "图 8：映像库"
+
+#: ../../get-started/virtual-machine-install/gce.rst:123
+msgid ""
+"On the Compute Engine Image library page, click the :guilabel:`[+] CREATE"
+" IMAGE` menu item to create a custom image:"
+msgstr "在 Compute Engine 映像库页面，点击 :guilabel:`[+] CREATE IMAGE` 菜单项创建定制映像："
+
+#: ../../get-started/virtual-machine-install/gce.rst:130
+msgid "Figure 9: Create image"
+msgstr "图 9：创建映像"
+
+#: ../../get-started/virtual-machine-install/gce.rst:132
+msgid ""
+"In the VM image creation page, change the image source type to *Cloud "
+"Storage file*."
+msgstr "在虚拟机映像创建页上，将映像源类型更改为 *Cloud Storage 文件*。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:135
+msgid "Under :guilabel:`Source`, select :guilabel:`Browse`."
+msgstr "在 :guilabel:`Source` 中，选择 :guilabel:`Browse`。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:137
+msgid ""
+"Locate the :file:`clear-<release number>-gce.tar.gz` file, and click "
+":guilabel:`Select`."
+msgstr "找到 :file:`clear-<release number>-gce.tar.gz` 文件，然后点击 :guilabel:`Select`。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:144
+msgid "Figure 10: Create image using imported object"
+msgstr "图 10：利用导入的对象创建映像"
+
+#: ../../get-started/virtual-machine-install/gce.rst:146
+msgid ""
+"Accept all default options, and click the :guilabel:`Create` button at "
+"the bottom to import the Clear Linux GCE image to the image library."
+msgstr "接受所有默认选项，然后点击底部的 :guilabel:`Create` 按钮，将 Clear Linux GCE 映像导入映像库。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:153
+msgid "Figure 11: Image is created"
+msgstr "图 11：映像已创建"
+
+#: ../../get-started/virtual-machine-install/gce.rst:155
+msgid ""
+"After the |CL| image is imported, you can launch a VM instance running "
+"|CL|:"
+msgstr "|CL| 映像导入后，可以启动一个运行 |CL| 的虚拟机实例："
+
+#: ../../get-started/virtual-machine-install/gce.rst:160
+msgid ""
+"Select :menuselection:`Compute Engine --> VM Instances` from the side bar"
+" on the left."
+msgstr "从左侧边栏选择 :menuselection:`Compute Engine --> VM instances`。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:167
+msgid "Figure 12: VM instances catalog"
+msgstr "图 12：虚拟机实例目录"
+
+#: ../../get-started/virtual-machine-install/gce.rst:169
+msgid ""
+"If no VM instance was created in this project, you will be prompted to "
+"create one."
+msgstr "如果此项目中没有创建虚拟机实例，系统会提示您创建一个实例。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:172
+msgid ""
+"Alternatively, click the :guilabel:`CREATE INSTANCE` button on the VM "
+"instances page to create a VM instance."
+msgstr "另外，也可以点击虚拟机实例页上的 :guilabel:`CREATE INSTANCE` 按钮创建虚拟机实例。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:179
+msgid "Figure 13: VM creation"
+msgstr "图 13：创建虚拟机"
+
+#: ../../get-started/virtual-machine-install/gce.rst:185
+msgid "Figure 14: VM instances list"
+msgstr "图 14：虚拟机实例列表"
+
+#: ../../get-started/virtual-machine-install/gce.rst:187
+msgid ""
+"Under :guilabel:`Region`, choose a region based on the `Best practices "
+"for Compute Engine regions selection`_."
+msgstr "在 :guilabel:`Region` 中，根据 `Best practices for Compute Engine regions selection`_ 选择一个区域。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:190
+msgid "Under :guilabel:`Boot disk`, click the :guilabel:`Change` button."
+msgstr "在 :guilabel:`Boot disk` 中，点击 :guilabel:`Change` 按钮。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:196
+msgid "Figure 15: Use custom image"
+msgstr "图 15：使用定制映像"
+
+#: ../../get-started/virtual-machine-install/gce.rst:198
+msgid ""
+"Select the :menuselection:`Custom images` tab for using Clear Linux OS "
+"GCE image."
+msgstr "选择 :menuselection:`定制映像` 标签，以使用 Clear Linux OS GCE 映像。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:204
+msgid "Figure 16: Select Clear Linux boot disk to create a VM instance"
+msgstr "图 16：选择 Clear Linux 引导磁盘创建虚拟机实例"
+
+#: ../../get-started/virtual-machine-install/gce.rst:206
+msgid ""
+"Scroll down to the bottom of the VM instance creation page, expand the "
+":guilabel:`Management, security, disks, networking, sole tenancy` group."
+msgstr "向下滚动至虚拟机实例创建页的底部，展开 :guilabel:`Management, security, disks, networking, sole tenancy` 群组。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:214
+msgid "Figure 17: Set up SSH keys"
+msgstr "图 17：设置 SSH 密钥"
+
+#: ../../get-started/virtual-machine-install/gce.rst:217
+msgid ""
+"|CL| does not allow SSH login with a root account by default. As a "
+"result, you must configure the VM instance with your SSH public key, so "
+"that you are able to access it remotely."
+msgstr "|CL| 默认情况下不允许使用 root 帐户进行 SSH 登录。因此，您必须使用 SSH 公共密钥配置虚拟机实例，以便能够远程访问。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:221
+msgid "Refer to :ref:`security` for more details."
+msgstr "请参考 :ref:`security` 了解详情。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:223
+msgid ""
+"Click the :menuselection:`Security` tab, copy and paste your SSH public "
+"key:"
+msgstr "点击 :menuselection:`安全性` 标签，复制并粘贴 SSH 公共密钥："
+
+#: ../../get-started/virtual-machine-install/gce.rst:229
+msgid "Figure 18: Set SSH key for remote login"
+msgstr "图 18：设置 SSH 密钥进行远程登录"
+
+#: ../../get-started/virtual-machine-install/gce.rst:233
+msgid ""
+"The username is assigned from characters preceding ``@`` in the email "
+"address, included in the SSH key. The dot symbol \".\" is not allowed, "
+"because it is an invalid character while creating user accounts in |CL|."
+msgstr "分配的用户名来自电子邮件地址 ``@`` 前面的字符，包含在 SSH 密钥中。不允许使用符号 \".\"，因为在 |CL| 中创建用户帐户时它是无效字符。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:238
+msgid "Click the :guilabel:`Create` button to create the |CL| VM."
+msgstr "点击 :guilabel:`Create` 按钮创建 |CL| 虚拟机。"
+
+#: ../../get-started/virtual-machine-install/gce.rst:240
+msgid "The Clear Linux VM instance is created and assigned a public IP address:"
+msgstr "Clear Linux 虚拟机实例已创建并分配了一个公共 IP 地址："
+
+#: ../../get-started/virtual-machine-install/gce.rst:246
+msgid "Figure 19: Clear Linux VM instance is created and started"
+msgstr "图 19：Clear Linux 虚拟机实例已创建并启动"
+
+#: ../../get-started/virtual-machine-install/gce.rst:248
+msgid ""
+"You can now SSH login to the VM using the IP address obtained in the "
+"previous step, and the username associated with the SSH public key:"
+msgstr "利用上一步获得的 IP 地址以及与 SSH 公共密钥相关联的用户名，您现在可以通过 SSH 登录虚拟机："
+
+#: ../../get-started/virtual-machine-install/gce.rst:255
+msgid "Figure 20: SSH login to Clear Linux VM"
+msgstr "图 20：SSH 登录 Clear Linux 虚拟机"
+
+#: ../../get-started/virtual-machine-install/gce.rst:258
+msgid "Related topics"
+msgstr "相关主题"
+
+#: ../../get-started/virtual-machine-install/gce.rst:260
+msgid ":ref:`azure`"
+msgstr ":ref:`azure`"
+
+#: ../../get-started/virtual-machine-install/gce.rst:261
+msgid ":ref:`aws-web`"
+msgstr ":ref:`aws-web`"
+
+#~ msgid ""
+#~ "This tutorial walks you through the "
+#~ "steps to create a virtual machine "
+#~ "instance of |CL-ATTR| on `Google "
+#~ "Cloud Platform`_ (:abbr:`GCP (Google Cloud "
+#~ "Platform)`)."
+#~ msgstr ""
+
+#~ msgid "Process"
+#~ msgstr ""
+
+#~ msgid "Click the *Navigation menu* icon on the upper left screen menu."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Select the *Storage* item from the "
+#~ "side bar on the left. You will "
+#~ "be sent to the Storage Browser "
+#~ "tool or the Cloud Storage overview "
+#~ "page."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Click the ``CREATE BUCKET`` button to"
+#~ " enter the bucket creation tool. The"
+#~ " bucket name must be unique because"
+#~ " buckets in the Cloud Storage share"
+#~ " a single global namespace."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Leave the remaining options set to "
+#~ "the defaults, and select the ``Create``"
+#~ " button at the bottom to create "
+#~ "a *Bucket*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Once the bucket is created, click "
+#~ "the ``Upload files`` button on the "
+#~ "Bucket details page to upload the "
+#~ "|CL| GCE image archive to the "
+#~ "named bucket:"
+#~ msgstr ""
+
+#~ msgid "Hover your mouse over the *Compute Engine* menu and select *Images*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "On the Compute Engine Image library "
+#~ "page, click the ``[+] CREATE IMAGE`` "
+#~ "menu item to create a custom "
+#~ "image:"
+#~ msgstr ""
+
+#~ msgid "Under :guilabel:`Cloud Storage file`, select :guilabel:`Browse`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Accept all default options, and click"
+#~ " the ``Create`` button at the bottom"
+#~ " to import the Clear Linux GCE "
+#~ "image to the image library."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Hover your mouse over the *Compute "
+#~ "Engine* menu group and select the "
+#~ "*VM instances* item."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Alternatively, click the ``CREATE INSTANCE``"
+#~ " button on the VM instances page "
+#~ "to create a VM instance."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In :guilabel:`Region`, choose a region "
+#~ "based on the `Best practices for "
+#~ "Compute Engine regions selection`_."
+#~ msgstr ""
+
+#~ msgid "Under *Boot disk*, click the ``Change`` button."
+#~ msgstr ""
+
+#~ msgid "Select the *Custom images* tab for using Clear Linux OS GCE image."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Scroll down to the bottom of the"
+#~ " VM instance creation page, expand "
+#~ "the *Management, security, disks, networking,"
+#~ " sole tenancy* group."
+#~ msgstr ""
+
+#~ msgid "Click the *Security* tab, copy and paste your SSH public key:"
+#~ msgstr ""
+
+#~ msgid "Click the ``Create`` button to create the |CL| VM."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following tutorials describe a "
+#~ "similar process and may be useful "
+#~ "references:"
+#~ msgstr ""
+
+

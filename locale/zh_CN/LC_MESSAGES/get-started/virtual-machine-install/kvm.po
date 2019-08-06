@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:4
+msgid "Run |CL-ATTR| as a KVM guest OS"
+msgstr "运行 |CL-ATTR|，用作 KVM 来宾操作系统"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:6
+msgid ""
+"This page explains how to run |CL-ATTR| in a virtualized environment "
+"using :abbr:`KVM (Kernel-based Virtual Machine)`."
+msgstr "本页说明如何利用 :abbr:`KVM (Kernel-based Virtual Machine)` 在虚拟环境中运行 |CL-ATTR|。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:14
+msgid "Install QEMU-KVM"
+msgstr "安装 QEMU-KVM"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:16
+msgid ""
+"Enable the `Intel® Virtualization Technology`_ (Intel® VT) and the "
+"`Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the"
+" host machine’s BIOS."
+msgstr "在主机 BIOS 中启用 `Intel® Virtualization Technology`_ (Intel® VT) 和 `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:20
+msgid "Log in and open a terminal emulator."
+msgstr "登录并打开终端模拟器。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:22
+msgid "Install `QEMU*-KVM` on the host machine. Below are some example distros."
+msgstr "在主机上安装 `QEMU*-KVM`。下面是部分示例操作系统。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:24
+msgid "On |CL|:"
+msgstr "在 |CL| 上："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:30
+#: ../../get-started/virtual-machine-install/kvm.rst:159
+msgid "On Ubuntu\\* 18.04 LTS Desktop:"
+msgstr "在 Ubuntu\\* 18.04 LTS Desktop 上："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:36
+#: ../../get-started/virtual-machine-install/kvm.rst:165
+msgid "On Mint\\* 19.1 “Cinnamon” Desktop:"
+msgstr "在 Mint\\* 19.1 “Cinnamon” Desktop 上："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:42
+#: ../../get-started/virtual-machine-install/kvm.rst:171
+msgid "On Fedora\\* 30 Workstation:"
+msgstr "在 Fedora\\* 30 Workstation 上："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:49
+msgid "Download and launch the virtual machine"
+msgstr "下载并开启虚拟机"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:51
+msgid ""
+"Download the latest pre-built |CL| KVM image file from the `image "
+"<https://cdn.download.clearlinux.org/image/>`_ directory. Look for "
+"``clear-<version>-kvm.img.xz``.  You can also use this command:"
+msgstr "从 `image <https://cdn.download.clearlinux.org/image/>`_ 目录下载最新的预构建 |CL| KVM 映像。查找 ``clear-<version>-kvm.img.xz``。您还可以使用此命令："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:59
+msgid "Uncompress the downloaded image:"
+msgstr "解压缩下载的映像："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:65
+msgid ""
+"Download the 3 OVMF files (`OVMF.fd`, `OVMF_CODE.fd`, `OVMF_VARS.fd`) "
+"that provides UEFI  support for virtual machines."
+msgstr "下载 3 个 OVMF 文件（`OVMF.fd`、`OVMF_CODE.fd`、`OVMF_VARS.fd`），为虚拟机提供 UEFI 支持。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:76
+msgid ""
+"The default OVMF files from |CL| may not work for some distro version(s)."
+" You may get an `ASSERT` in the `debug.log` file when starting the VM. If"
+" that is the case, use the distro-specific-OVMF files instead. For "
+"example, the |CL| OVMF files work for Ubuntu 18.04 LTS, but not for "
+"Ubuntu 19.04 LTS. Installing and using the OVMF files for Ubuntu 19.04 "
+"LTS resolved the `ASSERT` issue."
+msgstr "|CL| 的默认 OVMF 文件可能并不适用于部分操作系统版本。开启虚拟机时，可能会在 `debug.log` 文件中发现 `ASSERT`。如果出现此情况，则改用因操作系统而异的 OVMF 文件。例如，|CL| OVMF 文件适用于 Ubuntu 18.04 LTS，但不适用于 Ubuntu 19.04 LTS。安装和使用适用于 Ubuntu 19.04 LTS 的 OVMF 文件，解决了 `ASSERT` 问题。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:82
+msgid ""
+"Download the `start_qemu.sh`_ script from the `image "
+"<https://cdn.download.clearlinux.org/image/>`_ directory.  This script "
+"will launch the |CL| VM and provide console interaction within the same "
+"terminal emulator window."
+msgstr "从 `image <https://cdn.download.clearlinux.org/image/>`_ 目录下载 `start_qemu.sh`_ 脚本。此脚本将启动 |CL| 虚拟机，并在同一个终端模拟器窗口中提供控制台交互操作。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:91
+msgid "Make the script executable:"
+msgstr "保证脚本可以运行："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:97
+msgid "Start the |CL| KVM virtual machine:"
+msgstr "启动 |CL| KVM 虚拟机："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:103
+msgid "Log in as ``root`` user and set a new password."
+msgstr "以 ``root`` 用户身份登录，设置新密码。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:106
+msgid "SSH access into the virtual machine"
+msgstr "通过 SSH 访问虚拟机"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:108
+msgid ""
+"To interact with the |CL| VM through SSH instead of the console it was "
+"launched from, follow these steps."
+msgstr "要通过 SSH 而非开启虚拟机的控制台与 |CL| 虚拟机进行交互，请按照以下步骤操作："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:111
+msgid "Configure SSH in the |CL| VM to allow root login:"
+msgstr "在 |CL| 虚拟机中配置 SSH，允许 root 登录："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:119
+msgid "Enable and start SSH server in the |CL| VM:"
+msgstr "在 |CL| 虚拟机中启用和启动 SSH 服务器："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:126
+#: ../../get-started/virtual-machine-install/kvm.rst:215
+msgid ""
+"Determine the IP address of the host on which you will launch the VM. "
+"Substitute <ip-addr-of-kvm-host> in the next step with this information."
+msgstr "确认将在其上开启虚拟机的托管主机的 IP 地址。下一步中用此信息代替 <ip-addr-of-kvm-host>。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:133
+msgid "SSH into the |CL| VM using the default port of  `10022`:"
+msgstr "利用默认端口 `10022`，通过 SSH 登录 |CL| 虚拟机："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:140
+msgid "Optional: Add the GNOME Display Manager (GDM)"
+msgstr "可选：添加 GNOME Display Manager (GDM)"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:142
+msgid ""
+"To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these "
+"steps:"
+msgstr "为将 :abbr:`GDM (GNOME Display Manager)` 添加至 |CL| 虚拟机，请按照以下步骤操作："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:144
+msgid "Shutdown the active |CL| VM."
+msgstr "关闭运行的 |CL| 虚拟机。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:150
+msgid ""
+"Install the Spice viewer on the local host or remote system. Below are "
+"some example distros."
+msgstr "在本地主机或远程系统上安装 Spice 查看器。下面是部分示例操作系统。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:153
+msgid "On Clear Linux:"
+msgstr "在 Clear Linux 上："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:177
+msgid ""
+"Modify the :file:`start_qemu.sh` script to increase memory (`-m`), add "
+"graphics driver (`-vga`), and add Spice (`-spice`, `-usb`, and `-device`)"
+" support."
+msgstr "修改 :file:`start_qemu.sh` 脚本，增加内存 (`-m`)，添加显卡驱动程序 (`-vga`) 和 Spice（`-spice`、`-usb` 和 `-device`）支持。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:198
+msgid ""
+"Due to changes in the :file:`start_qemu.sh` script from the previous "
+"step, using the same OVMF files will result in the VM not booting "
+"properly and you end up in the the UEFI shell.  The easiest way to avoid "
+"this is to delete the OVMF files and restore the originals before "
+"relaunching the VM."
+msgstr "由于上一步在 :file:`start_qemu.sh` 脚本中进行了更改，使用同一 OVMF 文件会导致虚拟机不能正常引导，最后进入 UEFI shell 界面。避免这种情况的最简单方法是删除 OVMF 文件，在重启虚拟机前恢复原始文件。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:203
+msgid "Increase the size of the VM by 10GB to accommodate the GDM installation:"
+msgstr "将虚拟机大小增加 10GB 以适应 GDM 安装。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:209
+msgid "Relaunch the |CL| VM:"
+msgstr "重新启动 |CL| 虚拟机："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:222
+msgid ""
+"From the local host or remote system, open a new terminal emulator window"
+" and connect into the |CL| VM using the Spice viewer:"
+msgstr "从本地主机或远程系统上，打开新的终端模拟器窗口，利用 Spice 查看器连接至 |CL| 虚拟机："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:229
+msgid "Log in as `root` user into the |CL| VM."
+msgstr "以 `root` 用户身份登录 |CL| 虚拟机。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:231
+msgid ""
+"Follow these steps from :ref:`increase-virtual-disk-size` to resize the "
+"partition of the virtual disk of the VM."
+msgstr "按照 :ref:`increase-virtual-disk-size` 中的这些步骤，调整虚拟机的虚拟磁盘分区大小。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:233
+msgid "Add GDM to the |CL| VM:"
+msgstr "将 GDM 添加至 |CL| 虚拟机："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:239
+msgid "Reboot the |CL| VM to start GDM:"
+msgstr "重启 |CL| 虚拟机以启动 GDM："
+
+#: ../../get-started/virtual-machine-install/kvm.rst:245
+msgid "Go through the GDM out-of-box experience (OOBE)."
+msgstr "进行 GDM 开箱体验 (OOBE)。"
+
+#: ../../get-started/virtual-machine-install/kvm.rst:247
+msgid ""
+"The default aspect ratio of the GDM GUI for the |CL| VM is 4:3. To change"
+" it, use GDM's `Devices > Displays` setting tool (located at the top-"
+"right corner)."
+msgstr "GDM GUI 针对 |CL| 虚拟机的默认画面比例为 4:3。要改变该比例，请使用 GDM 的 `Devices > Displays` 设置工具（右上角）。"
+
+#~ msgid ""
+#~ "This guide explains how to run "
+#~ "|CL-ATTR| in a virtualized environment "
+#~ "using :abbr:`KVM (Kernel-based Virtual "
+#~ "Machine)`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Enable the `Intel® Virtualization Technology`_"
+#~ " (Intel® VT) and the `Intel®Virtualization"
+#~ " Technology for Directed I/O`_ (Intel® "
+#~ "VT-d) in the host machine’s BIOS."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Download the `QEMU-KVM launcher`_ script"
+#~ " from the `image "
+#~ "<https://cdn.download.clearlinux.org/image/>`_ directory.  "
+#~ "This script will launch the |CL| "
+#~ "VM and provide console interaction "
+#~ "within the same terminal emulator "
+#~ "window."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Follow these steps to `resize the "
+#~ "partition`_ of the virtual disk of "
+#~ "the VM."
+#~ msgstr ""
+
+

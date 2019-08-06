@@ -7,3 +7,6 @@ source/_build
 
 # ignore VS code settings
 .vscode/
+
+# ignore .mo translation files
+*.mo

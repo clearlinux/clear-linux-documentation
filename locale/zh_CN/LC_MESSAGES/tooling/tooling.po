@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../tooling/tooling.rst:4
+msgid "How to Clear"
+msgstr "如何清除"
+
+#: ../../tooling/tooling.rst:6
+msgid ""
+"Clear Linux is a little different from other distros. Here are some "
+"important tools and concepts for managing your install."
+msgstr "Clear Linux 与其他发行版略有不同。以下是一些管理安装的重要工具和概念。"
+
+#: ../../tooling/tooling.rst:18
+msgid "Training"
+msgstr "培训"
+
+#: ../../tooling/tooling.rst:20
+msgid ""
+"Additional training materials are available in the `how-to-clear`_ "
+"GitHub\\* project to help you get started with |CL| tools."
+msgstr "`how-to-clear`_ GitHub\\* 项目中提供了其他培训材料，可帮助您开始使用 |CL| 工具。"
+
+#: ../../tooling/tooling.rst:23
+msgid ""
+"The training helps you create a customized OS that is based on |CL| and "
+"provides complete details on the methods and tools used to create updates"
+" and how to deploy updates to targets."
+msgstr "本培训帮助您创建基于 |CL| 的自定义操作系统，并全面介绍用于创建更新的方法和工具以及如何将更新部署到目标。"
+
+#: ../../tooling/tooling.rst:27
+msgid ""
+"To complete the training, you will need a clean |CL| installation and a "
+"network connection. The project includes all files needed to complete the"
+" exercises."
+msgstr "要完成培训，您需要安装一个干净的 |CL| 并可连接到网络。该项目包括完成练习所需的所有文件。"
+
+#: ../../tooling/tooling.rst:29
+msgid "`how-to-clear`_ training on GitHub"
+msgstr "GitHub 上的 `how-to-clear`_ 培训"
+
+#~ msgid "Tooling"
+#~ msgstr ""
+
+

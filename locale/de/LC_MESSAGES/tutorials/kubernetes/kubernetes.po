@@ -1,0 +1,455 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../tutorials/kubernetes/kubernetes.rst:4
+msgid "Run Kubernetes\\*"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:6
+msgid ""
+"This tutorial describes how to install, configure, and run the "
+"`Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and"
+" kata-runtime."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:10
+msgid ""
+"Kubernetes\\* is an open source system for automating deployment, "
+"scaling, and management of containerized applications. It groups "
+"containers that make up an application into logical units for easy "
+"management and discovery."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:14
+msgid ""
+"Kata Containers\\* kata-runtime adheres to :abbr:`OCI (Open Container "
+"Initiative*)` guidelines and work seamlessly with Kubernetes. `Kata "
+"Containers`_ provide strong isolation for untrusted workloads or  multi-"
+"tenant scenarios. Kata Containers can be allocated on a per-pod basis so "
+"you can mix and match both on the same host to suit your needs."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:25
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:27
+msgid ""
+"This tutorial assumes you have already installed |CL|. For detailed "
+"instructions on installing |CL| on a bare metal system, follow the "
+":ref:`bare metal installation tutorial<bare-metal-install-desktop>`. "
+"Learn about the benefits of having an up-to-date system for cloud "
+"orchestration on the :ref:`swupd-about` page."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:33
+msgid ""
+"Before you install any new packages, update |CL| with the following "
+"command:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:40
+msgid "Install Kubernetes and CRI runtimes"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:42
+msgid ""
+"Kubernetes, a set of supported :abbr:`CRI (Container Runtime Interface)` "
+"runtimes, and networking plugins, are included in the `cloud-native-"
+"basic`_ bundle."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:46
+msgid "To install this framework, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:54
+msgid "For more on networking plugins, see `Install pod network add-on`_."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:57
+msgid "Configure Kubernetes"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:59
+msgid ""
+"This tutorial uses the basic default Kubernetes configuration for "
+"simplicity. You must define your Kubernetes configuration according to "
+"your specific deployment and your security needs."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:63
+msgid "Enable IP forwarding to avoid kubeadm `preflight check`_ errors:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:65
+msgid ""
+"Create (or edit if it exists) the file :file:`/etc/sysctl.d/60-k8s.conf` "
+"and include the following line:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:72
+msgid "Apply the change:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:78
+msgid "Enable the kubelet service:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:84
+msgid "Disable swap using one of the following methods, either:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:86
+msgid "Temporarily:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:94
+msgid "Swap will be enabled at next reboot, causing failures in your cluster."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:97
+msgid "or:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:99
+msgid "Permanently:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:101
+msgid "Mask the swap partition:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:110
+msgid ""
+"On systems with limited resources, some performance degradation may be "
+"observed while swap is disabled."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:113
+msgid "Switch to root to modify the `hosts` file:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:119
+msgid ""
+"Create (or edit if it exists) the hosts file that Kubernetes will read to"
+" locate the master's host:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:126
+msgid "Exit root:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:133
+msgid "Configure and run Kubernetes"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:135
+msgid ""
+"This section describes how to configure and run Kubernetes with CRI-O and"
+" kata-runtime."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:139
+msgid "Configure and run CRI-O + kata-runtime"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:141
+msgid "Enable the CRI-O service:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:147
+msgid "Enter the commands:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:154
+msgid ""
+"Initialize the master control plane with the command below and follow the"
+" displayed instructions to set up `kubectl`:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:161
+msgid "Register kata-runtime as a RuntimeClass handler:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:180
+msgid "Install pod network add-on"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:182
+msgid ""
+"You must choose and install a `pod network add-on`_ to allow your pods to"
+" communicate. Check whether or not your add-on requires special flags "
+"when you initialize the master control plane."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:186
+msgid "**Notes about flannel add-on**"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:188
+msgid ""
+"If you choose the `flannel` add-on, then you must add the following to "
+"the `kubeadm init` command:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:195
+msgid ""
+"Furthermore, if you are using CRI-O and `flannel` and you want to use "
+"Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:204
+msgid "Use your cluster"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:206
+msgid ""
+"Once your master control plane is successfully initialized, instructions "
+"on how to use your cluster and its *IP*, *token*, and *hash* values are "
+"displayed. It is important that you record the cluster values because "
+"they are needed when joining worker nodes to the cluster. Some values "
+"have a valid period. The values are presented in a format similar to:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:216
+msgid "**Congratulations!**"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:218
+msgid ""
+"You've successfully installed and set up Kubernetes in |CL| using CRI-O "
+"and kata-runtime. You are now ready to follow on-screen instructions to "
+"deploy a pod network to the cluster and join worker nodes with the "
+"displayed token and IP information."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:224
+msgid "Related topics"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:226
+msgid "Read the Kubernetes documentation to learn more about:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:228
+msgid "`Understanding basic Kubernetes architecture`_"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:230
+msgid "`Deploying an application to your cluster`_"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:232
+msgid "Installing a `pod network add-on`_"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:234
+msgid "`Joining your nodes`_"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:237
+msgid "Cloud native setup automation (optional)"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:239
+msgid ""
+"Clone the `cloud-native-setup`_ repository on your system and follow the "
+"instructions. This repository includes helper scripts to automate "
+"configuration."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:243
+msgid "Package configuration customization (optional)"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:245
+msgid ""
+"|CL| is a stateless system that looks for user-defined package "
+"configuration files in the :file:`/etc/<package-name>` directory to be "
+"used as default. If user-defined files are not found, |CL| uses the "
+"distribution-provided configuration files for each package."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:250
+msgid ""
+"If you customize any of the default package configuration files, you "
+"**must** store the customized files in the :file:`/etc/` directory. If "
+"you edit any of the distribution-provided default files, your changes "
+"will be lost in the next system update."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:255
+msgid ""
+"For example, to customize CRI-O configuration in your system, run the "
+"following commands:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:264
+msgid ""
+"Learn more about :ref:`stateless` in |CL| and view the |CL| "
+"`documentation`_."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:267
+msgid "Proxy configuration (optional)"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:269
+msgid ""
+"If you use a proxy server, you must set your proxy environment variables "
+"and create an appropriate proxy configuration file for both CRI-O "
+"services. Consult your IT department if you are behind a corporate proxy "
+"for the appropriate values. Ensure that your local IP is **explicitly "
+"included** in the environment variable *NO_PROXY*. (Setting *localhost* "
+"is not enough.)"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:274
+msgid ""
+"If you have already set your proxy environment variables, run the "
+"following commands as a shell script to configure all of these services "
+"in one step:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:292
+msgid "Next steps"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:294
+msgid ":ref:`kubernetes-bp`"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:298
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:300
+msgid "<HOSTNAME> not found in <IP> message."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:302
+msgid ""
+"Your DNS server may not be appropriately configured. Try adding an entry "
+"to the :file:`/etc/hosts` file with your host's IP and Name."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:305
+msgid "For example: 100.200.50.20 myhost"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:307
+msgid ""
+"Use the commands :command:`hostname` and :command:`hostname -I` to "
+"retrieve them."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:309
+msgid "Images cannot be pulled."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:311
+msgid ""
+"You may be behind a proxy server. Try configuring your proxy settings, "
+"using the environment variables *HTTP_PROXY*, *HTTPS_PROXY*, and "
+"*NO_PROXY* as required in your environment."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:315
+msgid "Connection refused error."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:317
+msgid ""
+"If you are behind a proxy server, you may need to add the master's IP to "
+"the environment variable *NO_PROXY*."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:320
+msgid "Connection timed-out or Access Refused errors."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:322
+msgid ""
+"You must ensure that the appropriate proxy settings are available from "
+"the same terminal where you will initialize the control plane. To verify "
+"the proxy settings that Kubernetes will actually use, run the commands:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:332
+msgid ""
+"If the displayed proxy values are different from your assigned values, "
+"the cluster initialization will fail. Contact your IT support team to "
+"learn how to set the proxy variables permanently, and how to make them "
+"available for all the types of access that you will use, such as remote "
+"SSH access."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:337
+msgid ""
+"If the result of the above commands is blank, you may need to add a "
+"``profile`` to the :file:`/etc` directory. To do so, follow these steps."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:340
+msgid "Create a `profile` in :file:`/etc`"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:346
+msgid ""
+"With a preferred editor, open `profile`, and enter your proxy settings. "
+"Example shown below."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:358
+msgid "<master IP> can be obtained by running :command:`ifconfig`."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:360
+msgid "Save and exit the `profile`."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:362
+msgid "Run:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:368
+msgid "To ensure your system isn't running previous session variables, run:"
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:374
+msgid "Continue below while passing `-E` in the command as shown."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:376
+msgid "Missing environment variables."
+msgstr ""
+
+#: ../../tutorials/kubernetes/kubernetes.rst:378
+msgid ""
+"If you are behind a proxy server, pass environment variables by adding "
+"*-E* to the command that initializes the master control plane."
+msgstr ""
+
+#~ msgid ""
+#~ "Learn more about `Stateless`_ in |CL|"
+#~ " and view the |CL| `documentation`_."
+#~ msgstr ""
+

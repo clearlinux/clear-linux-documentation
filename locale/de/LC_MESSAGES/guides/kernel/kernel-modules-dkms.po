@@ -1,0 +1,565 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:4
+msgid "Add kernel modules with DKMS"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:6
+msgid ""
+"This guide describes how to add kernel modules with :abbr:`DKMS (Dynamic "
+"Kernel Module System)`."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:14
+msgid "Overview"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:16
+msgid ""
+"Certain kernel modules are enabled by default in |CL-ATTR|. To use "
+"additional kernel modules that are not part of the Linux source tree, you"
+" may need to build out-of-tree kernel modules. Use this guide to add "
+"kernel modules with :abbr:`DKMS (Dynamic Kernel Module System)` or refer "
+"to :ref:`kernel-modules`."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:22
+msgid "Description"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:24
+msgid ""
+"Kernel modules are additional pieces of software capable of being "
+"inserted into the Linux kernel to add functionality, such as a hardware "
+"driver. Kernel modules may already be part of the Linux source tree (in-"
+"tree) or may come from an external source, such as directly from a vendor"
+" (out-of-tree)."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:29
+msgid ""
+":abbr:`DKMS (Dynamic Kernel Module System)` is a framework that "
+"facilitates the building and installation of kernel modules. DKMS allows "
+"|CL| to provide hooks that automatically rebuild modules against new "
+"kernel versions."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:4
+msgid "Kernel module availability"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:6
+msgid ""
+"|CL| comes with many upstream kernel modules available for use. Using an "
+"existing module is significantly easier to maintain and retains signature"
+" verification of the |CL| kernel. For more information on |CL| security "
+"practices, see the :ref:`security` page."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:11
+msgid ""
+"Before continuing, check if the kernel module you're looking for is "
+"already available in |CL| or submit a request to add the module."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:16
+msgid "Check if the module is already available"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:19
+msgid ""
+"You can search for kernel module file names, which end with the "
+":file:`.ko` file extension, using the :command:`swupd search` command, as"
+" shown in the following example. See :ref:`swupd-guide` for more "
+"information."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:29
+msgid "Submit a request to add the module"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:31
+msgid ""
+"If the kernel module you need is already open source (for example, in the"
+" Linux upstream) and likely to be useful to others, consider submitting a"
+" request to add or enable it in the |CL| kernel."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:35
+msgid "Make enhancement requests to the |CL| 'Distribution Project'_ on GitHub."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:38
+msgid "Install DKMS"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:42
+msgid ""
+"The :command:`kernel-native-dkms` bundle provides the :command:`dkms` "
+"program and Linux kernel headers, which are required for compiling kernel"
+" modules."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:45
+msgid "The :command:`kernel-native-dkms` bundle also:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:47
+msgid ""
+"Adds a `systemd` update trigger (:file:`/usr/lib/systemd/system/dkms-new-"
+"kernel.service`) to automatically run DKMS to rebuild modules after a "
+"kernel upgrade occurs with :ref:`swupd update <swupd-guide>`."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:52
+msgid ""
+"Disables kernel module signature verification by appending a kernel "
+"command-line parameter (:command:`module.sig_unenforce`) from the "
+":file:`/usr/share/kernel/cmdline.d/clr-ignore-mod-sig.conf` file."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:56
+msgid ""
+"Adds a notification to the Message of the Day (MOTD) indicating kernel "
+"module signature verification is disabled."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:61
+msgid ""
+"We recommend that you always review the :command:`swupd update` output to"
+" make sure kernel modules were successfully rebuilt against the new "
+"kernel. This is especially important for systems where a successful boot "
+"relies on a kernel module."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:66
+msgid ""
+"Install the :command:`kernel-native-dkms` or :command:`kernel-lts-dkms` "
+"bundle:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:69
+msgid ""
+"Determine which kernel variant is running on |CL|. Only the *native* and "
+"*lts* kernels are enabled to build and load out-of-tree kernel modules "
+"with DKMS."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:78
+msgid "Ensure *.native* or *.lts* is in the kernel name."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:80
+msgid ""
+"Install the DKMS bundle corresponding to the installed kernel. Use "
+":command:`kernel-native-dkms` for the native kernel or :command:`kernel-"
+"lts-dkms` for the lts kernel."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:88
+msgid "or"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:95
+msgid "Update the |CL| bootloader and reboot."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:105
+msgid "Build, install, and load an out-of-tree module"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:107
+msgid ""
+"Follow the steps in this section if you are an individual user or "
+"testing, and you need an out-of-tree kernel module that is not available "
+"through |CL|. For a more scalable and customizable approach, we recommend"
+" using :ref:`mixer` to provide a custom kernel and updates."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:113
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:115
+msgid "Before you begin, you must:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:117
+msgid ""
+"Disable Secure Boot in UEFI/BIOS. The loading of new out-of-tree modules "
+"modifies the signatures that Secure Boot relies on for trust."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:120
+msgid ""
+"Obtain a kernel module package in the form of source code or pre-compiled"
+" binaries."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:124
+msgid "Obtain kernel module source"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:126
+msgid ""
+"A required :file:`dkms.conf` file inside of the kernel module's source "
+"code directory informs DKMS how the kernel module should be compiled."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:129
+msgid "Kernel modules may come packaged as:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:131
+msgid "Source code without a :file:`dkms.conf` file"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:132
+msgid "Source code with a premade :file:`dkms.conf` file"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:133
+msgid ""
+"Source code with a premade :file:`dkms.conf` file and precompiled module "
+"binaries"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:135
+msgid "Precompiled module binaries only (without source code)"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:137
+msgid ""
+"Of the package types listed above, only precompiled kernel module "
+"binaries will not work, because |CL| requires kernel modules to be built "
+"against the same kernel source tree before they can be loaded. If you are"
+" only able to obtain source code without a :file:`dkms.conf` file, you "
+"must manually create a :file:`dkms.conf` file, described later in this "
+"document."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:143
+msgid "Download the kernel module's source code."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:145
+msgid ""
+"Review the available download options. Some kernel modules provide "
+"separate archives that are specifically enabled for DKMS support."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:148
+msgid ""
+"Review the README documentation, because it often provides required "
+"information to build the module with DKMS support."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:159
+msgid "Build kernel module with an existing dkms.conf"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:161
+msgid ""
+"If the kernel module maintainer packaged the source archive with the "
+":command:`dkms mktarball` command, the entire archive can be passed to "
+"the :command:`dkms ldtarball` which completes many steps for you."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:165
+msgid ""
+"The archive contains the required :file:`dkms.conf` file, and may contain"
+" a :file:`dkms_source_tree` directory and a :file:`dkms_binaries_only` "
+"directory."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:169
+msgid ""
+"Run the :command:`dkms ldtarball` command against the kernel module "
+"archive."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:177
+msgid ""
+":command:`dkms ldtarball` places the kernel module source under "
+":file:`/usr/src/<MODULE-NAME>-<MODULE-VERSION>/`, builds it if necessary,"
+" and adds the module into the DKMS tree."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:182
+msgid ""
+"Verify the kernel module is detected by checking the output of the "
+":command:`dkms status` command."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:190
+msgid "Install the kernel module."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:197
+msgid "Build kernel module without an existing dkms.conf"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:199
+msgid ""
+"If the kernel module source does not contain a :file:`dkms.conf` file or "
+"the :command:`dkms ldtarball` command encounters errors, you must "
+"manually create the file."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:203
+msgid ""
+"Review the kernel module README documentation for guidance on what needs "
+"to be in the :file:`dkms.conf` file, including special variables that may"
+" be required to build successfully."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:207
+msgid "Here are some additional resources that can be used for reference:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:209
+msgid ""
+"DKMS manual page (:command:`man dkms`) shows detailed syntax in the "
+"DKMS.CONF section."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:212
+msgid ""
+"Ubuntu community wiki entry for the `Kernel DKMS Package`_ shows an "
+"example where a single package contains multiple modules."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:215
+msgid "Sample `dkms.conf`_ file in the GitHub\\* repository for the DKMS project."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:219
+msgid ""
+":command:`AUTOINSTALL=yes` must be set in the dkms.conf for the module to"
+" be automatically recompiled with |CL| updates."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:222
+msgid "The instructions below show a generic example:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:224
+msgid ""
+"Create or modify the :file:`dkms.conf` file inside of the extracted "
+"source code directory."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:240
+msgid ""
+"This example identifies a kernel module named *custom_module* with "
+"version *1.0*."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:243
+msgid "Copy the kernel module source code into the :file:`/usr/src/` directory."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:252
+msgid ""
+"*<PACKAGE_NAME>* and *<PACKAGE_VERSION>* must match the entries in the "
+":file:`dkms.conf` file."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:255
+msgid "Add the kernel module to the DKMS tree so that it is tracked by DKMS."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:261
+msgid ""
+"Build the kernel module using DKMS. If the build encounters errors, you "
+"may need to edit the :file:`dkms.conf` file."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:268
+msgid "Install the kernel module using DKMS."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:275
+msgid "Load kernel module"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:277
+msgid ""
+"By default, DKMS installs modules \"in-tree\" under :file:`/lib/modules` "
+"so the :command:`modprobe` command can be used to load them."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:280
+msgid "Load the installed module with the :command:`modprobe` command."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:286
+msgid "Validate the kernel module is loaded."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:293
+msgid "Examples"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:4
+msgid "Optional: Specify module options and aliases"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:6
+msgid "Use the :command:`modprobe` command to load a module and set options."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:8
+msgid ""
+":command:`modprobe` may add or remove more than one module due to module "
+"interdependencies. You can specify which options to use with individual "
+"modules, by using configuration files under the :file:`/etc/modprobe.d` "
+"directory."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:16
+msgid ""
+"All files underneath the :file:`/etc/modprobe.d` directory that end with "
+"the :file:`.conf` extension specify module options to use when loading. "
+"You can use :file:`.conf` files to create convenient aliases for modules "
+"or to override the normal loading behavior altogether for those with "
+"special requirements."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:21
+msgid "Learn more about :command:`modprobe` on the modprobe.d manual page:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:28
+msgid "Optional: Configure kernel modules to load at boot"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:30
+msgid ""
+"Use the :file:`/etc/modules-load.d` configuration directory to specify "
+"kernel modules to load automatically at boot."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:37
+msgid ""
+"All files underneath the :file:`/etc/modules-load.d` directory that end "
+"with the :file:`.conf` extension contain a list of module names of "
+"aliases (one per line) to load at boot."
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules.rst:41
+msgid "Learn more about module loading in the modules-load.d manual page:"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:300
+msgid "Related topics"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:302
+msgid "`Dynamic Kernel Module System (DKMS)`_"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:304
+msgid ""
+"`Dell Linux Engineering Dynamic Kernel Module Support: From Theory to "
+"Practice "
+"<https://www.kernel.org/doc/ols/2004/ols2004v1-pages-187-202.pdf>`_"
+msgstr ""
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:306
+msgid ""
+"`Linux Journal: Exploring Dynamic Kernel Module Support "
+"<https://www.linuxjournal.com/article/6896>`_"
+msgstr ""
+
+#~ msgid "Make enhancement requests to the |CL| distribution `on GitHub`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Follow the steps in this section "
+#~ "if you are an individual user or"
+#~ " testing, and you need an out-"
+#~ "of-tree kernel module that is not "
+#~ "available through |CL|. For a more "
+#~ "scalable and customizable approach, we "
+#~ "recommend using the `mixer tool`_ to "
+#~ "provide a custom kernel and updates."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Ubuntu community wiki`_ shows an "
+#~ "example where a single package contains"
+#~ " multiple modules."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Sample dkms.conf file`_ in the "
+#~ "GitHub\\* repository for the DKMS "
+#~ "project."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Dynamic Kernel Module System (DKMS) "
+#~ "project on GitHub <https://github.com/dell/dkms>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Make enhancement requests to the |CL|"
+#~ " `Distribution Project "
+#~ "<https://github.com/clearlinux/distribution>`_ on GitHub."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The *kernel-native-dkms* bundle provides"
+#~ " the :command:`dkms` program and Linux "
+#~ "kernel headers, which are required for"
+#~ " compiling kernel modules."
+#~ msgstr ""
+
+#~ msgid "The *kernel-native-dkms* bundle also:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Adds a systemd update trigger "
+#~ "(:file:`/usr/lib/systemd/system/dkms-new-kernel.service`)"
+#~ " to automatically run DKMS to rebuild"
+#~ " modules after a kernel upgrade "
+#~ "occurs with :ref:`swupd update <swupd-"
+#~ "guide>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Follow the steps in this section "
+#~ "if you are an individual user or"
+#~ " testing, and you need an out-"
+#~ "of-tree kernel module that is not "
+#~ "available through |CL|. For a more "
+#~ "scalable and customizable approach, we "
+#~ "recommend using the :ref:`mixer` tool to"
+#~ " provide a custom kernel and updates."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Obtain a kernel module package in "
+#~ "the form of source code and/or "
+#~ "precompiled binaries."
+#~ msgstr ""
+

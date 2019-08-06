@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../get-started/get-started.rst:4
+msgid "Get started"
+msgstr "开始使用"
+
+#: ../../get-started/get-started.rst:6
+msgid ""
+"The Get Started section guides you through the requirements and "
+"installation of |CL-ATTR|. Follow these step-by-step intructions to get "
+"started with |CL|, fast."
+msgstr "“开始使用”一节引导用户了解 |CL-ATTR| 的要求并完成安装。逐步按照说明操作，快速开始使用 |CL|。"
+
+#: ../../get-started/get-started.rst:10
+msgid "Pre-install"
+msgstr "安装前"
+
+#: ../../get-started/get-started.rst:12
+msgid "There are a couple of things to take care of before you install."
+msgstr "安装前有一些需要注意的事项。"
+
+#: ../../get-started/get-started.rst:14
+msgid ":ref:`system-requirements`"
+msgstr ":ref:`system-requirements`"
+
+#: ../../get-started/get-started.rst:15
+msgid ":ref:`compatibility-check`"
+msgstr ":ref:`compatibility-check`"
+
+#: ../../get-started/get-started.rst:16
+msgid ":ref:`bootable-usb`"
+msgstr ":ref:`bootable-usb`"
+
+#: ../../get-started/get-started.rst:18
+msgid "When installing |CL-ATTR| in a VM, consider which kernel to use."
+msgstr "在虚拟机上安装 |CL-ATTR| 时，考虑使用哪种内核。"
+
+#: ../../get-started/get-started.rst:20
+msgid ":ref:`Compatible VM kernels <vm-kernels>`"
+msgstr ":ref:`Compatible VM kernels <vm-kernels>`"
+
+#: ../../get-started/get-started.rst:30
+msgid "Install"
+msgstr "安装"
+
+#: ../../get-started/get-started.rst:42
+msgid "Install in a virtual machine"
+msgstr "在虚拟机上安装"
+
+#~ msgid ""
+#~ "The Get Started section will get "
+#~ "you up and running fast with "
+#~ "|CL-ATTR|. Use these step-by-step "
+#~ "instructions to guide you through the"
+#~ " installing |CL| from a live desktop"
+#~ " or to a virtual machine."
+#~ msgstr ""
+
+

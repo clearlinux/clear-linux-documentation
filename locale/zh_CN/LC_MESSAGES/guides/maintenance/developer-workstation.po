@@ -1,0 +1,286 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/maintenance/developer-workstation.rst:4
+msgid "Developer Workstation"
+msgstr "开发人员工作站"
+
+#: ../../guides/maintenance/developer-workstation.rst:6
+msgid ""
+"This guide helps you find the minimum set of bundles needed to start your"
+" |CL-ATTR| development project."
+msgstr "本指南帮助您确定启动您的 |CL-ATTR| 开发项目所需的最小捆绑包集。"
+
+#: ../../guides/maintenance/developer-workstation.rst:9
+msgid ""
+"Before continuing, review the :ref:`swupd <swupd-guide>` guide to learn "
+"more about the swupd tool and how |CL| simplifies software versioning "
+"compared to other Linux\\* distributions."
+msgstr "继续之前，请阅读 :ref:`swupd <swupd-guide>` 指南，详细了解 swupd 工具以及 |CL| 相比其他 Linux\\* 发行版如何简化了软件版本控制。"
+
+#: ../../guides/maintenance/developer-workstation.rst:18
+msgid "Workstation Setup"
+msgstr "工作站设置"
+
+#: ../../guides/maintenance/developer-workstation.rst:20
+msgid ""
+"After installing the minimum set of bundles required to get started, you "
+"can add more bundles relevant to your specific use case."
+msgstr "安装了启动项目所需的最小捆绑包集后，您可以添加更多与您的特定用例相关的捆绑包。"
+
+#: ../../guides/maintenance/developer-workstation.rst:23
+msgid ""
+"To run any process required for |CL| development, you can add the large "
+"bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, given how "
+"many packages this bundle contains, you may want to deploy a leaner OS "
+"with only bundles relevant to your project."
+msgstr "要运行 |CL| 开发所需的任何进程，您可以添加大型捆绑包 :ref:`*os-clr-on-clr* <enable-user-space>`。但是，考虑到该捆绑包含有大量软件包，您可能希望部署一个更精简的操作系统，只包含与您的项目相关的捆绑包。"
+
+#: ../../guides/maintenance/developer-workstation.rst:28
+msgid ""
+"Use Table 1, *Developer Profiles*, to identify the *minimum required "
+"bundles* to get started developing based on your role or project. While "
+"your role may not neatly fit in one of these categories, consider Table 1"
+" as a starting point."
+msgstr "使用表 1 *开发人员配置文件*，根据您的角色或项目确定开始开发所需的*最少捆绑包*。虽然您的角色不一定与表中的类别完全吻合，但不妨在表 1 的基础上确定所需的捆绑包。"
+
+#: ../../guides/maintenance/developer-workstation.rst:33
+msgid "**Table 1. Developer Profiles**"
+msgstr "**表 1.开发人员配置文件**"
+
+#: ../../guides/maintenance/developer-workstation.rst:37
+msgid "|CL| Bundle"
+msgstr "|CL| 捆绑包"
+
+#: ../../guides/maintenance/developer-workstation.rst:38
+msgid "*Internet of Things (IoT)*"
+msgstr "*物联网 (IoT)**"
+
+#: ../../guides/maintenance/developer-workstation.rst:39
+msgid "*System Administrator*"
+msgstr "*系统管理员*"
+
+#: ../../guides/maintenance/developer-workstation.rst:40
+msgid "*Client/Cloud/Web Developer*"
+msgstr "*客户端/云/Web 开发人员*"
+
+#: ../../guides/maintenance/developer-workstation.rst:42
+msgid ":command:`editors`"
+msgstr ":command:`editors`"
+
+#: ../../guides/maintenance/developer-workstation.rst:43
+#: ../../guides/maintenance/developer-workstation.rst:44
+#: ../../guides/maintenance/developer-workstation.rst:45
+#: ../../guides/maintenance/developer-workstation.rst:48
+#: ../../guides/maintenance/developer-workstation.rst:49
+#: ../../guides/maintenance/developer-workstation.rst:50
+#: ../../guides/maintenance/developer-workstation.rst:53
+#: ../../guides/maintenance/developer-workstation.rst:54
+#: ../../guides/maintenance/developer-workstation.rst:55
+#: ../../guides/maintenance/developer-workstation.rst:59
+#: ../../guides/maintenance/developer-workstation.rst:60
+#: ../../guides/maintenance/developer-workstation.rst:64
+#: ../../guides/maintenance/developer-workstation.rst:65
+#: ../../guides/maintenance/developer-workstation.rst:69
+#: ../../guides/maintenance/developer-workstation.rst:70
+#: ../../guides/maintenance/developer-workstation.rst:73
+#: ../../guides/maintenance/developer-workstation.rst:74
+#: ../../guides/maintenance/developer-workstation.rst:75
+#: ../../guides/maintenance/developer-workstation.rst:80
+msgid "✓"
+msgstr "✓"
+
+#: ../../guides/maintenance/developer-workstation.rst:47
+msgid ":command:`network-basic`"
+msgstr ":command:`network-basic`"
+
+#: ../../guides/maintenance/developer-workstation.rst:52
+msgid ":command:`openssh-server`"
+msgstr ":command:`openssh-server`"
+
+#: ../../guides/maintenance/developer-workstation.rst:57
+msgid ":command:`webserver-basic`"
+msgstr ":command:`webserver-basic`"
+
+#: ../../guides/maintenance/developer-workstation.rst:62
+msgid ":command:`application-server`"
+msgstr ":command:`application-server`"
+
+#: ../../guides/maintenance/developer-workstation.rst:67
+msgid ":command:`database-basic`"
+msgstr ":command:`database-basic`"
+
+#: ../../guides/maintenance/developer-workstation.rst:72
+msgid ":command:`desktop-autostart`"
+msgstr ":command:`desktop-autostart`"
+
+#: ../../guides/maintenance/developer-workstation.rst:77
+msgid ":command:`dev-utils`"
+msgstr ":command:`dev-utils`"
+
+#: ../../guides/maintenance/developer-workstation.rst:83
+msgid "swupd search"
+msgstr "swupd 搜索"
+
+#: ../../guides/maintenance/developer-workstation.rst:85
+msgid ""
+"We recommend learning about :ref:`swupd <swupd-guide>`, to learn the "
+"commands to search for and add bundles relevant to your project."
+msgstr "我们建议您学习 :ref:`swupd <swupd-guide>`，了解搜索和添加与您的项目相关的捆绑包所需的命令。"
+
+#: ../../guides/maintenance/developer-workstation.rst:88
+msgid ""
+"The guide provides an :ref:`example <swupd-guide-example-install-bundle>`"
+" that shows you how to:"
+msgstr "本指南提供了一个 :ref:`example <swupd-guide-example-install-bundle>`，向您展示如何："
+
+#: ../../guides/maintenance/developer-workstation.rst:91
+msgid "Use swupd to search for bundles"
+msgstr "使用 swupd 搜索捆绑包"
+
+#: ../../guides/maintenance/developer-workstation.rst:92
+msgid "Use swupd to add bundles"
+msgstr "使用 swupd 添加捆绑包"
+
+#: ../../guides/maintenance/developer-workstation.rst:95
+msgid "Core Concepts"
+msgstr "核心概念"
+
+#: ../../guides/maintenance/developer-workstation.rst:97
+msgid ""
+"We recommend that you understand these core concepts in |CL| *before* "
+"developing your project."
+msgstr "我们建议您在开发项目*之前*先了解 |CL| 中的这些核心概念。"
+
+#: ../../guides/maintenance/developer-workstation.rst:100
+msgid ":ref:`Software update <swupd-guide>`"
+msgstr ":ref:`Software update <swupd-guide>`"
+
+#: ../../guides/maintenance/developer-workstation.rst:101
+msgid ":ref:`Mixer <mixer>`"
+msgstr ":ref:`Mixer <mixer>`"
+
+#: ../../guides/maintenance/developer-workstation.rst:102
+msgid ":ref:`Autospec <autospec>`"
+msgstr ":ref:`Autospec <autospec>`"
+
+#: ../../guides/maintenance/developer-workstation.rst:105
+msgid "Other resources for developers"
+msgstr "开发人员可用的其他资源"
+
+#: ../../guides/maintenance/developer-workstation.rst:107
+msgid "`Developer Tooling Framework`_ for |CL|"
+msgstr "适用于 |CL| 的 `Developer Tooling Framework`_"
+
+#: ../../guides/maintenance/developer-workstation.rst:108
+msgid "`Bundle Definition Files`_"
+msgstr "`Bundle Definition Files`_"
+
+#~ msgid "`Bundle definition files`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*Developer Workstation* helps you find "
+#~ "the :ref:`bundles-about` you need to "
+#~ "start your |CL-ATTR| development "
+#~ "project."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Before continuing, we recommend that you"
+#~ " learn how to use :ref:`swupd "
+#~ "<swupd-guide>`. Visit our :ref:`swupd-"
+#~ "about` page to understand how |CL| "
+#~ "simplifies software versioning compared to "
+#~ "other Linux\\* distributions."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This guide helps you understand the "
+#~ "minimum bundles required to get started."
+#~ " After installing them, you can add"
+#~ " more bundles relevant to your use"
+#~ " case. To run any process required"
+#~ " for |CL| development, you can add"
+#~ " the large bundle :ref:`*os-clr-"
+#~ "on-clr* <enable-user-space>`. However, "
+#~ "given how many packages this bundle "
+#~ "contains, you may want instead to "
+#~ "deploy a leaner OS with only those"
+#~ " bundles relevant to your project. "
+#~ "Developer Workstation responds to this "
+#~ "need."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Use Table 1, *Developer Profiles*, to"
+#~ " identify the *minimum required bundles*"
+#~ " to get started developing based on"
+#~ " your role or project. While your "
+#~ "role may not neatly fit in one "
+#~ "of these categories, consider using "
+#~ "Table 1 as a starting point."
+#~ msgstr ""
+
+#~ msgid "`editors`"
+#~ msgstr ""
+
+#~ msgid "`network-basic`"
+#~ msgstr ""
+
+#~ msgid "`openssh-server`"
+#~ msgstr ""
+
+#~ msgid "`webserver-basic`"
+#~ msgstr ""
+
+#~ msgid "`application-server`"
+#~ msgstr ""
+
+#~ msgid "`database-basic`"
+#~ msgstr ""
+
+#~ msgid "`desktop-autostart`"
+#~ msgstr ""
+
+#~ msgid "`dev-utils`"
+#~ msgstr ""
+
+#~ msgid "`swupd` search"
+#~ msgstr ""
+
+#~ msgid "Use `swupd` to search for bundles"
+#~ msgstr ""
+
+#~ msgid "Use `swupd` to add bundles"
+#~ msgstr ""
+
+#~ msgid ":ref:`Bundles <bundles-about>`"
+#~ msgstr ""
+
+#~ msgid ":ref:`Software update <swupd-about>`"
+#~ msgstr ""
+
+#~ msgid ":ref:`Mixer <mixer-about>`"
+#~ msgstr ""
+
+#~ msgid ":ref:`Autospec <autospec-about>`"
+#~ msgstr ""
+
+

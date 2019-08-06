@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/maintenance/fix-broken-install.rst:4
+msgid "Fix a broken installation"
+msgstr "修复损坏的安装"
+
+#: ../../guides/maintenance/fix-broken-install.rst:6
+msgid ""
+"This guide explains how to fix a broken installation of |CL-ATTR| using a"
+" live desktop image on a USB."
+msgstr "本指南介绍如何使用 USB 上的实时桌面映像修复损坏的 |CL-ATTR| 安装。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:14
+msgid "Overview"
+msgstr "概述"
+
+#: ../../guides/maintenance/fix-broken-install.rst:16
+msgid ""
+"This guide assumes you have installed |CL| on a target system, but the OS"
+" does not boot or function properly."
+msgstr "本指南假设您已经在目标系统上安装了 |CL|，但是操作系统无法正常引导或运行。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:19
+msgid ""
+"The process described in this guide can only verify and fix files that "
+":ref:`swupd<swupd-guide>` owns in :file:`/usr`. Files outside of this "
+"path, such as :file:`/home/`, :file:`/etc`, :file:`/var`, etc., cannot be"
+" repaired by this process."
+msgstr "本指南中介绍的过程只能验证和修复 :ref:`swupd<swupd-guide>` 在 :file:`/usr` 中拥有的文件。此路径之外的文件，如 :file:`/home/`、:file:`/etc`、:file:`/var` 等无法通过此过程修复。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:25
+msgid "Prerequisites"
+msgstr "必备条件"
+
+#: ../../guides/maintenance/fix-broken-install.rst:27
+msgid ""
+"Download and install the live desktop image on a USB. See :ref:`bare-"
+"metal-install-desktop` for install instructions."
+msgstr "下载并在 USB 上安装实时桌面映像。有关安装说明，请参阅 :ref:`bare-metal-install-desktop`。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:31
+msgid "Boot a live desktop image to fix target system"
+msgstr "引导实时桌面映像来修复目标系统"
+
+#: ../../guides/maintenance/fix-broken-install.rst:33
+msgid "Boot the |CL| live desktop image."
+msgstr "引导 |CL| 实时桌面映像。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:4
+msgid "Install from live image"
+msgstr "从实时映像安装"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:6
+msgid ""
+"After you download and burn the live desktop image on a USB drive, follow"
+" these steps."
+msgstr "下载实时桌面映像并将其刻录到 USB 驱动器后，请按照以下步骤操作。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:9
+msgid "Insert the USB drive into an available USB slot."
+msgstr "将 USB 驱动器插入可用的 USB 插槽。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:11
+msgid "Power on the system."
+msgstr "打开系统电源。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:13
+msgid ""
+"Open the system BIOS setup menu by pressing the :kbd:`F2` key. Your BIOS "
+"setup menu entry point may vary."
+msgstr "按 :kbd:`F2` 键打开系统 BIOS 设置菜单。您的 BIOS 设置菜单入口点可能会有所不同。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:16
+msgid ""
+"In the setup menu, enable the UEFI boot and set the USB drive as the "
+"first option in the device boot order."
+msgstr "在设置菜单中，启用 UEFI 引导，并在设备引导顺序中将 USB 驱动器设置为第一个选项。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:19
+msgid "Save these settings, e.g. :kbd:`F10`, and exit."
+msgstr "保存这些设置，例如按 :kbd:`F10`，然后退出。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:21
+msgid "Reboot the target system."
+msgstr "重新引导目标系统。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:23
+msgid "Select :guilabel:`Clear Linux OS` in the boot menu, shown in Figure 1."
+msgstr "在引导菜单中选择 :guilabel:`Clear Linux OS`，如图 1 所示。"
+
+#: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst:29
+msgid "Figure 1: Clear Linux OS in boot menu"
+msgstr "图 1：引导菜单中的 Clear Linux OS"
+
+#: ../../guides/maintenance/fix-broken-install.rst:40
+msgid "Mount root partition, verify, and fix"
+msgstr "挂载根分区，然后验证并修复"
+
+#: ../../guides/maintenance/fix-broken-install.rst:42
+msgid "Open a Terminal window."
+msgstr "打开一个终端窗口。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:44
+msgid "Ensure the system is connected to the network."
+msgstr "确保系统已连接到网络。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:46
+msgid "Mount the system’s root partition."
+msgstr "挂载系统的根分区。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:48
+msgid "To find the root partition, run:"
+msgstr "要查找根分区，请运行："
+
+#: ../../guides/maintenance/fix-broken-install.rst:54
+msgid "We'll use :file:`/dev/sda3/` as the root partition example."
+msgstr "我们将使用 :file:`/dev/sda3/` 作为根分区示例。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:56
+msgid "Next, mount the partition to the :file:`/mnt` folder."
+msgstr "接下来，将分区挂载到 :file:`/mnt` 文件夹。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:62
+msgid ""
+"Verify that you mounted the correct root partition by checking for some "
+"files commonly found on |CL| systems."
+msgstr "通过检查 |CL| 系统上常见的一些文件，验证是否挂载了正确的根分区。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:70
+msgid "Next, run swupd to fix any issues on the target system."
+msgstr "接下来，运行 swupd 来修复目标系统上的任何问题。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:76
+msgid ":ref:`Learn more about how swupd works <swupd-guide>`."
+msgstr ":ref:`Learn more about how swupd works <swupd-guide>`。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:78
+msgid "After the process is complete, unmount the root partition:"
+msgstr "该过程完成后，卸载根分区："
+
+#: ../../guides/maintenance/fix-broken-install.rst:84
+msgid ""
+"Reboot the system, remove the live desktop USB drive, and boot into the "
+"repaired system."
+msgstr "重新引导系统，卸下实时桌面 USB 驱动器，并引导至修复后的系统。"
+
+#: ../../guides/maintenance/fix-broken-install.rst:91
+msgid "**Congratulations!** You successfully restored |CL|."
+msgstr "**祝贺您！** 您已成功恢复 |CL|。"
+
+#~ msgid "Fix a broken installation of |CL-ATTR|"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This guide explains how to fix a"
+#~ " broken installation of |CL| using a"
+#~ " live desktop image on a USB. "
+#~ "It's assumed you already installed |CL|"
+#~ " on a target system, but your "
+#~ "operating system does not boot or "
+#~ "function properly."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This process can only verify and "
+#~ "fix files that :ref:`swupd<swupd-guide>` "
+#~ "owns in :file:`/usr`. Files outside of"
+#~ " this path, such as /home/, /etc, "
+#~ "/var, etc., cannot be repaired by "
+#~ "this process."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":ref:`Download and install the live "
+#~ "desktop image on a USB <bare-"
+#~ "metal-install-desktop>`"
+#~ msgstr ""
+
+#~ msgid "Assure the system is connected to the network."
+#~ msgstr ""
+
+#~ msgid "We'll use `/dev/sda3/` as the root partition example."
+#~ msgstr ""
+
+#~ msgid "Next, mount the partition to the `/mnt` folder."
+#~ msgstr ""
+
+

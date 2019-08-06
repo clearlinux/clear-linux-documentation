@@ -1,0 +1,459 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../tooling/swupd-guide.rst:4
+msgid "swupd"
+msgstr "swupd"
+
+#: ../../tooling/swupd-guide.rst:6
+msgid ""
+":command:`swupd` links a |CL-ATTR| installation with upstream updates and"
+" software."
+msgstr ":command:`swupd` 将 |CL-ATTR| 安装与上游更新和软件进行链接。"
+
+#: ../../tooling/swupd-guide.rst:14
+msgid "Description"
+msgstr "描述"
+
+#: ../../tooling/swupd-guide.rst:16
+msgid ":command:`swupd` has two main functions:"
+msgstr ":command:`swupd` 有两个主要功能："
+
+#: ../../tooling/swupd-guide.rst:18
+msgid ""
+"Manage software and replace APT or YUM, by installing bundles rather than"
+" packages."
+msgstr "通过安装 bundle 文件而非软件包来管理软件并替换 APT 或 YUM。"
+
+#: ../../tooling/swupd-guide.rst:20
+msgid "Check for system updates and install them."
+msgstr "检查是否存在系统更新并进行安装。"
+
+#: ../../tooling/swupd-guide.rst:22
+msgid ""
+":command:`swupd` manages overlapping dependencies behind the scenes, "
+"ensuring that all software is compatible across the system. It can be "
+"used to verify the OS, clean cached files, and fix issues."
+msgstr ":command:`swupd` 可管理后台的重叠依存关系，从而确保所有软件在整个系统中兼容。它可以验证操作系统、清理缓存文件和修复问题。"
+
+#: ../../tooling/swupd-guide.rst:26
+msgid ""
+":ref:`Bundles <bundles>` contain everything needed to deliver a software "
+"capability. They are the smallest granularity component that is managed "
+"by |CL|. A bundle comes with all of its dependencies rather than "
+"downloading a cascade of package dependencies when installing a piece of "
+"software."
+msgstr ":ref:`Bundles <bundles>` 包含提供软件功能所需的一切。它们是 |CL| 管理的最小粒度组件。bundle 文件附带所有依存关系，而非在安装软件时下载一系列软件包依存关系。"
+
+#: ../../tooling/swupd-guide.rst:33
+msgid "Versioning"
+msgstr "版本管理"
+
+#: ../../tooling/swupd-guide.rst:35
+msgid ""
+"Using package managers to monitor software version compatibility or "
+"compare multiple systems on many Linux distributions can be cumbersome."
+msgstr "使用软件包管理器监控软件版本兼容性或比较大量 Linux 发行版上的多个系统可能十分麻烦。"
+
+#: ../../tooling/swupd-guide.rst:38
+msgid ""
+"With |CL| :command:`swupd`, versioning happens at the individual file "
+"level. This means |CL| generates an entirely new OS version with any set "
+"of software changes to the system, including software downgrades or "
+"removals. This rolling release versioning model is similar to "
+":command:`git` internal version tracking, where any of the individual "
+"file commits are tracked and move the pointer forward when changed."
+msgstr "借助 |CL| :command:`swupd`，则可在个别文件级别进行版本管理。也就是说，|CL| 会生成全新的操作系统版本，且附带对系统所做的所有软件更改，其中包括软件降级或删除。此滚动发布版本管理模型类似于 :command:`git` 内部版本跟踪，会跟踪所有单个文件提交并在更改时将指针前移。"
+
+#: ../../tooling/swupd-guide.rst:45
+msgid ""
+"A number that represents the **current** release of the OS describes the "
+"versions of all the software on the OS. Each build is composed of a "
+"specific set of bundles made from a particular version of packages. On a "
+"daily basis, this matters to system administrators who need to determine "
+"which of their systems do not have the latest security fixes, or which "
+"combinations of software have been tested. Every release of the same "
+"number is guaranteed to contain the same versions of software, so there's"
+" no ambiguity between two systems running the same version of |CL|."
+msgstr "表示操作系统 **当前** 版本的数字，描述操作系统上所有软件的版本。每个内部版本均由一组特定的 bundle 文件组成，而这些 bundle 文件则由特定版本的软件包组成。如果系统管理员日常需要确定哪些系统缺少最新安全修复程序，或哪些软件组合已经过测试，这对他们来说十分重要。对于同一数字的每个版本，均可以保证包含相同版本的软件，因此在运行同一版本的 |CL| 的两个系统之间不会产生混淆。"
+
+#: ../../tooling/swupd-guide.rst:55
+msgid "Updating"
+msgstr "更新中"
+
+#: ../../tooling/swupd-guide.rst:57
+msgid ""
+"|CL| enforces regular updating of the OS by default and automatically "
+"checks for updates against a version server. The content server provides "
+"the file and metadata content for all versions and can be the same as the"
+" version server. The content url server provides metadata in the form of "
+"*manifests*, which list and describe file contents, symlinks, and "
+"directories. Additionally, the actual content is provided to clients in "
+"the form of archive files."
+msgstr "|CL| 默认强制定期更新操作系统，并自动对照版本服务器检查是否存在更新。内容服务器提供针对所有版本的文件和元数据内容，并可与版本服务器相同。内容 URL 服务器以 *清单* 形式提供元数据，列出并描述文件内容、符号链接和目录。此外，实际内容还会以存档文件的形式提供给客户端。"
+
+#: ../../tooling/swupd-guide.rst:65
+msgid ""
+"Software updates with |CL| are also efficient. Unlike package-based "
+"distributions, :command:`swupd` only updates files that have changed, "
+"rather than entire packages. For example, it is quite common for an OS "
+"security patch to be as small as 15 KB. Using binary deltas, |CL| is able"
+" to apply only what is needed."
+msgstr "|CL| 的软件更新也十分高效。与基于软件包的发行版不同，:command:`swupd` 只会更新已更改的文件，而非整个软件包。例如，操作系统安全补丁大小经常只有 15 KB。通过使用二进制增量，|CL| 可只应用所需的内容。"
+
+#: ../../tooling/swupd-guide.rst:71
+msgid ""
+"For details on how to generate update content for |CL|, see the "
+":ref:`mixer <mixer>` tool."
+msgstr "有关如何为 |CL| 生成更新内容的详细信息，请参阅 :ref:`mixer <mixer>` 工具。"
+
+#: ../../tooling/swupd-guide.rst:75
+msgid "How it works"
+msgstr "工作原理"
+
+#: ../../tooling/swupd-guide.rst:78
+msgid "Prerequisites"
+msgstr "必备条件"
+
+#: ../../tooling/swupd-guide.rst:80
+msgid "The device is on a well-connected network."
+msgstr "设备网络连接良好。"
+
+#: ../../tooling/swupd-guide.rst:81
+msgid ""
+"The device is able to connect to an update server. The default server is:"
+" http://update.clearlinux.org"
+msgstr "设备可连接到更新服务器。默认服务器地址为：http://update.clearlinux.org"
+
+#: ../../tooling/swupd-guide.rst:85
+msgid "Updates"
+msgstr "更新"
+
+#: ../../tooling/swupd-guide.rst:87
+msgid ""
+"|CL| updates are automatic by default, but can be set to occur only on "
+"demand. :command:`swupd` makes sure that regular updates are simple and "
+"secure. It can also check the validity of currently installed files and "
+"software, and can correct any problems."
+msgstr "|CL| 更新默认自动进行，但也可设为按需进行。:command:`swupd` 可确保定期更新既简单又安全。它还可检查当前已安装文件和软件的有效性，并可更正所有问题。"
+
+#: ../../tooling/swupd-guide.rst:93
+msgid "Manifests"
+msgstr "清单"
+
+#: ../../tooling/swupd-guide.rst:95
+msgid ""
+"The |CL| software update content consists of data and metadata. The data "
+"is the files that end up in the OS. The metadata contains relevant "
+"information to properly provision the data to the OS file system, as well"
+" as update the system and add or remove additional content to the OS."
+msgstr "|CL| 软件更新内容由数据和元数据组成。数据是指操作系统中的文件。元数据包含将数据正确配置到操作系统文件系统、更新系统以及向操作系统添加或删除其他内容所需的相关信息。"
+
+#: ../../tooling/swupd-guide.rst:100
+msgid ""
+"The manifests are mostly long lists of hashes that describe content. Each"
+" bundle gets its own manifest file. There is a master manifest file that "
+"describes all manifests to tie it all together."
+msgstr "清单多为用于描述内容的长哈希列表。每个 bundle 文件均有自己的清单文件。主清单文件描述了所有清单，可以将其绑定在一起。"
+
+#: ../../tooling/swupd-guide.rst:105
+msgid "Fullfiles, packs, and delta packs"
+msgstr "完整文件、数据包和增量包"
+
+#: ../../tooling/swupd-guide.rst:107
+msgid ""
+"To speed up updates and optimize content delivery, update data "
+"provisioned to a system is obtained by one of the following methods:"
+msgstr "要加速更新并优化内容交付，可通过以下方法获取配置到系统的更新数据："
+
+#: ../../tooling/swupd-guide.rst:110
+msgid ""
+"*Fullfiles* are always generated for every file in every release. This "
+"allows any |CL| to obtain the exact copy of the content for each version "
+"directly. This is used if the OS verification needs to replace a single "
+"file, for instance."
+msgstr "在每个版本中，始终会为每个文件生成 *完整文件*。此操作可让所有 |CL| 直接获取每个版本的精确内容副本。例如，如果操作系统验证需替换单个文件，则可使用此操作。"
+
+#: ../../tooling/swupd-guide.rst:115
+msgid ""
+"*Packs* are available for some releases. They combine many files to speed"
+" up the creation of installation media and large updates."
+msgstr "*数据包* 可用于某些版本。它们将大量文件进行组合，从而加速安装介质制作过程，加快大型更新过程。"
+
+#: ../../tooling/swupd-guide.rst:118
+msgid ""
+"*Delta packs* are an optimized version of packs that only contain updates"
+" (binary diffs). They cannot be used without having the original file "
+"content."
+msgstr "*增量包* 是只包含更新（二进制差异）的优化版本的数据包。如果没有原始文件内容，则无法使用。"
+
+#: ../../tooling/swupd-guide.rst:122
+msgid "Bundle search"
+msgstr "bundle 文件搜索"
+
+#: ../../tooling/swupd-guide.rst:124
+msgid ""
+":command:`swupd` searches download manifest data for bundles that match "
+"the term. Enter only one term, or hyphenated term, per search. Use the "
+"command :command:`man swupd` to learn more."
+msgstr ":command:`swupd` 可搜索下载清单数据，查找与此字词匹配的 bundle 文件。每次搜索只输入一个字词或带连字符的字词。使用命令 :command:`man swupd`，了解更多信息。"
+
+#: ../../tooling/swupd-guide.rst:128
+msgid ""
+"Only the base bundle is returned. Bundles can contain other bundles via "
+"includes. For more details, see `Bundle Definition Files`_ and its "
+"subdirectory bundles."
+msgstr "系统只返回基本 bundle 文件。bundle 文件可通过 include 包含其他 bundle 文件。有关更多详细信息，请参阅 `Bundle Definition Files`_ 及其子目录 bundle 文件。"
+
+#: ../../tooling/swupd-guide.rst:132
+msgid ""
+"Bundles that are already installed are marked **(installed)** in search "
+"results."
+msgstr "已安装的 bundle 文件在搜索结果中标记为 **（已安装）**。"
+
+#: ../../tooling/swupd-guide.rst:135
+msgid "Optionally, you can review our `bundles`_ on GitHub\\*."
+msgstr "您可以选择查看 GitHub\\* 上的 `bundles`_。"
+
+#: ../../tooling/swupd-guide.rst:138
+msgid "Examples"
+msgstr "示例"
+
+#: ../../tooling/swupd-guide.rst:141
+msgid "Example 1: Disable and enable automatic updates"
+msgstr "例 1：禁用和启用自动更新"
+
+#: ../../tooling/swupd-guide.rst:143
+msgid ""
+"|CL| updates are automatic by default, but can be set to occur only on "
+"demand."
+msgstr "|CL| 更新默认自动进行，但也可设为按需进行。"
+
+#: ../../tooling/swupd-guide.rst:146
+msgid "Verify your current auto-update setting."
+msgstr "验证当前的自动更新设置。"
+
+#: ../../tooling/swupd-guide.rst:156
+msgid "Disable automatic updates."
+msgstr "禁用自动更新。"
+
+#: ../../tooling/swupd-guide.rst:170
+msgid "Check manually for updates."
+msgstr "手动检查是否存在更新。"
+
+#: ../../tooling/swupd-guide.rst:176
+msgid "Install an update after identifying one that you need."
+msgstr "确定所需的更新后对其进行安装。"
+
+#: ../../tooling/swupd-guide.rst:182
+msgid "Re-enable automatic installs."
+msgstr "再次启用自动安装。"
+
+#: ../../tooling/swupd-guide.rst:191
+msgid "Example 2: Find and install Kata Containers\\*"
+msgstr "例 2：查找并安装 Kata 容器\\*"
+
+#: ../../tooling/swupd-guide.rst:193
+msgid ""
+"Kata Containers is a popular container implementation. Unlike other "
+"container implementations, each Kata Container has its own kernel "
+"instance and runs on its own :abbr:`VM (Virtual Machine)` for improved "
+"security."
+msgstr "Kata 容器是一种常见的容器实现。与其他容器实现不同，每个 Kata 容器均有自己的内核实例，在自己的 :abbr:`VM (Virtual Machine)` 上运行，增强了安全性。"
+
+#: ../../tooling/swupd-guide.rst:198
+msgid ""
+"|CL| makes it very easy to install, since you only need to add one bundle"
+" to use `Kata Containers`_: `containers-virt`_, despite a number of "
+"dependencies.  Also, check out our tutorial: :ref:`kata`."
+msgstr "虽然存在大量依存关系，但由于您只需添加一个 bundle 文件便可使用 `Kata Containers`_ `containers-virt`_，因此 |CL| 大大简化了安装过程。此外，请查阅教程：:ref:`kata`。"
+
+#: ../../tooling/swupd-guide.rst:202
+msgid "Find the correct bundle."
+msgstr "找到正确的 bundle 文件。"
+
+#: ../../tooling/swupd-guide.rst:204
+msgid ""
+"To return all possible matches for the search string, enter "
+":command:`swupd search`, followed by 'kata':"
+msgstr "要返回搜索字符串的所有潜在匹配项，请输入 :command:`swupd search`，后跟“kata”："
+
+#: ../../tooling/swupd-guide.rst:211
+msgid "The output should be similar to:"
+msgstr "输出如下所示："
+
+#: ../../tooling/swupd-guide.rst:229
+msgid ""
+"If your search does not produce results with a specific term, shorten the"
+" search term. For example, use *kube* instead of *kubernetes*."
+msgstr "如果搜索结果中没有带特定字词，则请缩短搜索字词。例如，使用 *kube* 而非 *kubernetes*。"
+
+#: ../../tooling/swupd-guide.rst:232
+msgid "Add the bundle."
+msgstr "添加 bundle 文件。"
+
+#: ../../tooling/swupd-guide.rst:240
+msgid "To add multiple bundles, add a space followed by the bundle name."
+msgstr "要添加多个 bundle 文件，请添加一个空格，后跟 bundle 文件名称。"
+
+#: ../../tooling/swupd-guide.rst:242
+msgid "The output of a successful installation should be similar to:"
+msgstr "成功安装的输出如下所示："
+
+#: ../../tooling/swupd-guide.rst:261
+msgid "Example 3: Verify and correct system file mismatch"
+msgstr "例 3：验证并更正系统文件不匹配错误"
+
+#: ../../tooling/swupd-guide.rst:263
+msgid ""
+":command:`swupd` can determine whether system directories and files have "
+"been added to, overwritten, removed, or modified (e.g., permissions)."
+msgstr ":command:`swupd` 可确定是否已添加、覆盖、删除或修改系统目录和文件（例如权限）。"
+
+#: ../../tooling/swupd-guide.rst:270
+msgid ""
+"All directories that are watched by :command:`swupd` are verified "
+"according to the manifest data. Hash mismatches are flagged as follows:"
+msgstr ":command:`swupd` 所监控的所有目录均会根据清单数据进行验证。哈希不匹配项将按如下方式进行标记："
+
+#: ../../tooling/swupd-guide.rst:287
+msgid ""
+"In this case, Python\\* packages that were installed on top of the "
+"default install were flagged as mismatched. :command:`swupd` can be "
+"directed to ignore or fix issues based on command line options."
+msgstr "在此情况下，安装在默认安装之上的 Python\\* 软件包将被标记为不匹配。:command:`swupd` 可根据命令行选项指令来忽略或修复问题。"
+
+#: ../../tooling/swupd-guide.rst:291
+msgid ""
+":command:`swupd` can correct any issues it detects. Additional directives"
+" can be added including a white list of directories to be ignored."
+msgstr ":command:`swupd` 可更正检测到的所有问题。还可以添加其他指令，其中包括要忽略的目录的白名单。"
+
+#: ../../tooling/swupd-guide.rst:294
+msgid ""
+"The following command repairs issues, removes unknown items, and ignores "
+"files or directories matching :file:`/usr/lib/python`:"
+msgstr "以下命令可修复问题，删除未知项目，忽略匹配 :file:`/usr/lib/python` 的文件或目录："
+
+#: ../../tooling/swupd-guide.rst:302
+msgid "Quick reference"
+msgstr "快速参考"
+
+#: ../../tooling/swupd-guide.rst:305
+msgid "swupd info"
+msgstr "swupd info"
+
+#: ../../tooling/swupd-guide.rst:305
+msgid "Returns the currently installed version and update servers."
+msgstr "返回当前安装的版本和更新服务器。"
+
+#: ../../tooling/swupd-guide.rst:309
+msgid "swupd update <version number>"
+msgstr "swupd update <version number>"
+
+#: ../../tooling/swupd-guide.rst:308
+msgid ""
+"Updates to a specific version or updates to latest version if no "
+"arguments are used."
+msgstr "如果未使用参数，则更新到特定版本或最新版本。"
+
+#: ../../tooling/swupd-guide.rst:312
+msgid "swupd bundle-list [--all]"
+msgstr "swupd bundle-list [--all]"
+
+#: ../../tooling/swupd-guide.rst:312
+msgid "Lists installed bundles."
+msgstr "列出已安装的 bundle 文件。"
+
+#: ../../tooling/swupd-guide.rst:315
+msgid "swupd bundle-add [-b] <search term>"
+msgstr "swupd bundle-add [-b] <search term>"
+
+#: ../../tooling/swupd-guide.rst:315
+msgid "Finds a bundle that contains your search term."
+msgstr "查找包含搜索字词的 bundle 文件。"
+
+#: ../../tooling/swupd-guide.rst:318
+msgid "swupd bundle-add <bundle name>"
+msgstr "swupd bundle-add <bundle name>"
+
+#: ../../tooling/swupd-guide.rst:318
+msgid "Adds a bundle."
+msgstr "添加 bundle 文件。"
+
+#: ../../tooling/swupd-guide.rst:321
+msgid "swupd bundle-remove <bundle name>"
+msgstr "swupd bundle-remove <bundle name>"
+
+#: ../../tooling/swupd-guide.rst:321
+msgid "Removes a bundle."
+msgstr "删除 bundle 文件。"
+
+#: ../../tooling/swupd-guide.rst:324
+msgid "swupd --help"
+msgstr "swupd --help"
+
+#: ../../tooling/swupd-guide.rst:324
+msgid "Lists additional :command:`swupd` commands."
+msgstr "列出其他 :command:`swupd` 命令。"
+
+#: ../../tooling/swupd-guide.rst:327
+msgid "man swupd"
+msgstr "man swupd"
+
+#: ../../tooling/swupd-guide.rst:327
+msgid "Opens the :command:`swupd` man page."
+msgstr "打开 :command:`swupd` 手册页。"
+
+#: ../../tooling/swupd-guide.rst:329
+msgid "Refer to `swupd source documentation`_ on GitHub for more details."
+msgstr "请参阅 GitHub 上的 `swupd source documentation`_，了解更多详细信息。"
+
+#: ../../tooling/swupd-guide.rst:332
+msgid "Related topics"
+msgstr "相关主题"
+
+#: ../../tooling/swupd-guide.rst:334
+msgid ":ref:`autospec`"
+msgstr ":ref:`autospec`"
+
+#: ../../tooling/swupd-guide.rst:335
+msgid ":ref:`mixer`"
+msgstr ":ref:`mixer`"
+
+#: ../../tooling/swupd-guide.rst:336
+msgid ":ref:`bundles`"
+msgstr ":ref:`bundles`"
+
+#~ msgid ""
+#~ "|CL| makes it very easy to "
+#~ "install, since you only need to "
+#~ "add `one bundle`_ to use `Kata "
+#~ "Containers`_: `containers-virt`, despite a "
+#~ "number of dependencies.  Also, check out"
+#~ " our tutorial: :ref:`kata`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Refer to :command:`swupd` `source "
+#~ "documentation`_ on GitHub for more "
+#~ "details."
+#~ msgstr ""
+
+

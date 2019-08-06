@@ -1,0 +1,703 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:4
+msgid "Install a |CL-ATTR| VM in VirtualBox\\*"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:6
+msgid ""
+"This page explains how to create a virtual machine on the `VirtualBox`_ "
+"hypervisor with |CL-ATTR| as the guest operating system. These "
+"instructions support the |CL| live-server installer to create the |CL| "
+"virtual machine (VM)."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:15
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:17
+msgid ""
+"Enable virtualization, such as `Intel® Virtualization Technology`_ "
+"(Intel® VT), on the host system from EFI/BIOS."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:20
+msgid ""
+"Download and install |VB| **version 6.0 or greater** from `VirtualBox`_ "
+"using the  `VirtualBox Installation Instructions`_ for your platform."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:25
+msgid "Download and extract the |CL| installer ISO"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:27
+msgid ""
+"Download the :file:`clear-<VERSION>-live-server.iso.xz` of |CL| on the "
+"`Downloads`_ page."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:30
+msgid ""
+"Validate the integrity of the downloaded image by checking the file hash "
+"and signatures. Refer to :ref:`validate-signatures` for detailed steps."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:33
+msgid "Decompress the downloaded image."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:35
+msgid ""
+"On Windows you can use `7zip`_ to extract the file by right-clicking the "
+"file to *Extract Here* (in the same directory)"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:42
+msgid "Figure 1: 7zip extract here command"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:44
+msgid "On Linux :"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:50
+msgid "Delete the originally downloaded compressed file."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:53
+msgid "Create a new |VB| virtual machine"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:55
+msgid ""
+"A new :abbr:`VM (Virtual Machine)` needs to be created in |VBM| where "
+"|CL| will be installed. General instructions for creating a virtual "
+"machine and details about using different settings are available in the "
+"VirtualBox manual section `Creating Your First Virtual Machine`_."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:59
+msgid "Launch the |VBM| from your host system."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:61
+msgid "Click the :guilabel:`New` button to create a new VM."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:63
+msgid "Choose :guilabel:`Expert mode`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:65
+msgid ""
+"On the :guilabel:`Create Virtual Machine` screen, enter the following "
+"settings:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:67
+msgid "**Name**: Choose name (e.g. ClearLinuxOS-VM)."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:68
+msgid "**Type**: Linux"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:69
+msgid "**Version**: **Linux 2.6 / 3.x / 4.x (64-bit)**"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:70
+msgid "**Hard disk**: `Create a virtual hard disk now`"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:71
+msgid "**Memory size default**: 2048 MB (Adjust appropriately.)"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:74
+msgid ""
+"Later, if you want to change the amount of RAM allocated, power down your"
+" VM. Return to :file:`Settings > System` and change :guilabel:`Base "
+"Memory` to the desired size."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:81
+msgid "Figure 2: Create Virtual Machine"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:83
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:98
+msgid "Click :guilabel:`Create`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:85
+msgid "On the :guilabel:`Create Virtual Hard Disk` screen, select:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:87
+msgid "**File location**"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:88
+msgid "**File size**: **32.00 GB**. Adjust size to your needs."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:89
+msgid "**Hard disk file type**: `VDI (VirtualBox Disk Image)`"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:90
+msgid "**Storage on physical hard disk**:`Dynamically allocated`"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:96
+msgid "Figure 3: Create Virtual Hard Disk"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:100
+msgid "A new virtual machine will be created and appear in the |VBM|."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:102
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:218
+msgid "Click :guilabel:`Settings` to configure the |CL| VM."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:104
+msgid "In the left-hand menu, navigate to the :menuselection:`System` menu."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:106
+msgid ""
+"On the :guilabel:`Motherboard` tab, select the :guilabel:`Chipset` menu, "
+"and then select :menuselection:`ICH9`. See Figure 4."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:111
+msgid ""
+"You can select which chipset will be presented to the virtual machine. "
+"Consult the `VM VirtualBox User Manual`_ for more details."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:114
+msgid "In :guilabel:`Enabled Features`, check these boxes:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:116
+msgid "**Enable I/O APIC**"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:117
+msgid "**Enable EFI (special OSes only)**"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:123
+msgid "Figure 4: Settings > System"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:127
+msgid ""
+"By default, only 1 virtual CPU is allocated to the new VM. Consider "
+"increasing the number of virtual processors allocated to the virtual "
+"machine under Settings > System > Processor for increased performance."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:132
+msgid "Click :guilabel:`OK`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:135
+msgid "Install |CL| on the |VB| VM"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:137
+msgid "|CL| is ready to be installed."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:140
+msgid "Mount the installation ISO"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:142
+msgid ""
+"The |CL| installer ISO needs to be mounted as a virtual CD-ROM on the VM "
+"before powering the VM on."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:145
+msgid ""
+"From the *ClearLinux-OS* :guilabel:`Settings` menu at left, select "
+":guilabel:`Storage`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:148
+msgid ""
+"From :guilabel:`Storage Devices`, middle column, click the blue disk "
+"labeled :guilabel:`Empty`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:151
+msgid ""
+"From the :guilabel:`Attributes` menu, click the blue CD disk next to the "
+":guilabel:`Optical Drive` drop down menu and click :guilabel:`Choose "
+"Virtual Optical Disk File...`"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:159
+msgid "Figure 5: Choose Virtual Optical Disk Drive"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:161
+msgid ""
+"Where there appears :guilabel:`Please choose a virtual optical disk "
+"file`, select the ISO file and click *Open*."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:168
+msgid "Figure 6: Mounting an ISO"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:170
+msgid "Click :guilabel:`OK` to exit and return to the main |VBM|."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:173
+msgid "Install |CL| with live-server installer"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:175
+msgid ""
+"In the |VBM|, select virtual machine you created and click "
+":guilabel:`Start`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:181
+msgid "Figure 7: Start the installer"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:185
+msgid ""
+"To release the mouse cursor from the VM console window, press the right "
+":kbd:`Ctrl` key on the keyboard."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:188
+msgid ""
+"When :guilabel:`Clear Linux Installer` in boot manager appears, select "
+":kbd:`Enter`. Do not install the bundle `desktop-autostart`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:191
+msgid ""
+"Follow the steps in :ref:`bare-metal-install-server` to install |CL| onto"
+" the VM virtual disk. Note:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:194
+msgid ""
+"In :guilabel:`Configure Installation Media`, navigate top VBOX HARDDISK, "
+"and then select :guilabel:`Confirm`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:197
+msgid ""
+"In :menuselection:`Advanced options --> Manage User`, create an "
+"administrative user."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:200
+msgid "Do not install the bundle `desktop-autostart`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:202
+msgid "When |CL| installation is complete, click :guilabel:`Exit`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:204
+msgid "At the prompt, enter:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:211
+msgid "Unmount the ISO"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:213
+msgid ""
+"The |CL| installer ISO needs to be unmounted to allow the VM to boot from"
+" the virtual hard disk."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:216
+msgid "Return to the |VBM|."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:220
+msgid ""
+"From the VM :guilabel:`Settings` window, navigate to the "
+":guilabel:`Storage` pane in the left menu."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:223
+msgid ""
+"From the middle :guilabel:`Storage Devices` column, click the blue CD "
+"disk labeled :guilabel:`clear-<VERSION>-live-server.iso` under the "
+":guilabel:`Controller: IDE`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:227
+msgid ""
+"From the :guilabel:`Attributes` column at right, in :guilabel:`Optical "
+"Drive`, select the blue CD icon beside and click :guilabel:`Remove Disk "
+"from Virtual Drive`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:235
+msgid "Figure 8: Remove Disk from Virtual Drive"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:237
+msgid ""
+"Click :guilabel:`OK` to exit the :guilabel:`VM Settings` menu and return "
+"to the main |VBM|."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:241
+msgid "Install |VB| Linux Guest Additions"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:243
+msgid ""
+"|CL| provides Linux Guest Additions drivers for full compatibility using "
+"an install script in the **kernel-lts** (Long Term Support) bundle by "
+"|CL|."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:246
+msgid "From the |VBM| select the |CL| VM, and select :guilabel:`Start`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:248
+msgid "In the VM Console, log in as the administrative user previously created."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:251
+msgid ""
+"A message may appear: \"A kernel update is available: you may wish to "
+"reboot the system.\""
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:254
+msgid "To update the kernel, enter:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:260
+msgid "At initial login, enter the administrative user's password and continue."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:262
+msgid ""
+"Validate the installed kernel is **kernel-lts** by checking the output of"
+" the :command:`uname -r` command. It should end in **.lts** or "
+"**.lts2018**."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:270
+msgid ""
+"If the running kernel is not **lts**: install the LTS kernel manually, "
+"update the bootloader, and check again:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:280
+msgid ""
+"Remove any kernel bundles that do not end in *-lts* or *kernel-install* "
+"to simplify and avoid conflicts:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:288
+msgid ""
+"In the VM Console top menu, click :guilabel:`Devices`, and select "
+":guilabel:`Insert Guest Additions CD image...` to mount the |VB| driver "
+"installation to the |CL| VM."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:296
+msgid "Figure 9: Insert Guest Additions CD image"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:298
+msgid ""
+"If a dialogue appears, \"VBx_GAs_6.0.8... Would you like to run it?\", "
+"select :guilabel:`Cancel`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:301
+msgid "Instead, we provide a script to patch and install |VB| drivers on |CL|."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:303
+msgid "Open a Terminal and enter the script:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:311
+msgid ""
+"Successful installation shows: \"Guest Additions installation complete\"."
+" If drivers are already installed, don't re-install them."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:314
+msgid "Shut down the system. Select :menuselection:`Machine --> ACPI Shutdown`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:320
+msgid "Figure 10: Powering off a VirtualBox VM"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:322
+msgid "Select :guilabel:`Settings`, :guilabel:`Display`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:324
+msgid ""
+"In :guilabel:`Graphics Controller`, select :guilabel:`VBoxSVGA` to adjust"
+" screen size dynamically."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:331
+msgid "Figure 11: VirtualBox hardware acceleration error"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:333
+msgid "In the |VBM|, select :guilabel:`Start`."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:335
+msgid "In the VM console, login and verify the |VB| drivers are loaded:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:341
+msgid ""
+"You should see drivers loaded with names beginning with **vbox**: (e.g., "
+"vboxvideo, vboxguest)."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:344
+msgid "Add `desktop-autostart` for a full desktop experience."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:350
+msgid "Reboot the VM and log in with the administrative user."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:356
+msgid "The |CL| VM running on |VB| is ready to develop and explore."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:359
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:361
+msgid ""
+"**Problem:** On a Microsoft\\* Windows\\* OS, |VB| encounters an error "
+"when trying to start a VM indicating *VT-X/AMD-v hardware acceleration is"
+" not available on your system.*"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:369
+msgid "Figure 12: VirtualBox hardware acceleration error"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:371
+msgid ""
+"**Solution:** First, double check the `Prerequisites`_ section to make "
+"sure *Hardware accelerated virtualization* extensions have been enabled "
+"in the host system's EFI/BIOS."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:375
+msgid ""
+"*Hardware accelerated virtualization*, may get disabled for |VB| when "
+"another hypervisor, such as *Hyper-V* is enabled."
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:378
+msgid ""
+"To disable *Hyper-V* execute this command in an **Administrator: Command "
+"Prompt or Powershell**, and reboot the system:"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:385
+msgid ""
+"To enable Hyper-V again, execute this command in an **Administrator: "
+"Command Prompt or Powershell**, and reboot the system:"
+msgstr ""
+
+#~ msgid ""
+#~ "Oracle\\* VirtualBox\\* is a type 2 "
+#~ "hypervisor. This document explains how "
+#~ "to create a virtual machine on the"
+#~ " `VirtualBox hypervisor`_ with |CL-ATTR|"
+#~ " as the guest operating system. These"
+#~ " instructions support use of the |CL|"
+#~ " live-server installer to create |CL|"
+#~ " virtual machine (VM)."
+#~ msgstr ""
+
+#~ msgid "Before continuing, assure you have:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Enabled virtualization, such as Intel® "
+#~ "`Virtualization Technology`_ (Intel® VT), on"
+#~ " the host system from EFI/BIOS."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Downloaded and installed |VB| **version "
+#~ "6.0 or greater** from the `official "
+#~ "VirtualBox website`_ per the  `appropriate "
+#~ "instructions`_ for your platform."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Download the :file:`clear-<VERSION>-live-"
+#~ "server.iso.xz` of |CL| on the `downloads"
+#~ " page`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Validate the integrity of the downloaded"
+#~ " image by checking the file hash "
+#~ "and signatures. Refer :ref:`validate-"
+#~ "signatures` for detailed steps."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A new :abbr:`VM (Virtual Machine)` needs"
+#~ " to be created in |VBM| where "
+#~ "|CL| will be installed. General "
+#~ "instructions for creating a virtual "
+#~ "machine and details about using "
+#~ "different settings are available on the"
+#~ " `VirtualBox manual section on Creating "
+#~ "a VM`_."
+#~ msgstr ""
+
+#~ msgid "Click the *New* button to create a new VM."
+#~ msgstr ""
+
+#~ msgid "In :guilabel:`Create Virtual Machine`, enter the following settings:"
+#~ msgstr ""
+
+#~ msgid "Select :guilabel:`Create`."
+#~ msgstr ""
+
+#~ msgid "In :guilabel:`Create Virtual Hard Disk`, select:"
+#~ msgstr ""
+
+#~ msgid "Click *Create*."
+#~ msgstr ""
+
+#~ msgid "Click *Settings* to configure the |CL| VM."
+#~ msgstr ""
+
+#~ msgid "In the left-hand menu, navigate to the :guilabel:`System` menu."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the :guilabel:`Motherboard` tab, select "
+#~ "the `Chipset` pulldown menu, and then"
+#~ " select :guilabel:`ICH9`. See Figure 4."
+#~ msgstr ""
+
+#~ msgid "Select :guilabel:`OK`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From the *ClearLinux-OS* :guilabel:`Settings`"
+#~ " at left, select :guilabel:`Storage`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From :guilabel:`Storage Devices`, middle "
+#~ "column, click the blue disk labeled "
+#~ "*Empty*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From the :guilabel:`Attributes` menu, click"
+#~ " the blue CD disk next to the"
+#~ " *Optical Drive* drop down menu and"
+#~ " click *Choose Virtual Optical Disk "
+#~ "File...*"
+#~ msgstr ""
+
+#~ msgid "Select :guilabel:`OK` to exit and return to the main |VBM|."
+#~ msgstr ""
+
+#~ msgid "In the |VBM|, select virtual machine you created and click *Start*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In :guilabel:`Advanced options` > "
+#~ ":guilabel:`Manage User`, create an "
+#~ "administrative user."
+#~ msgstr ""
+
+#~ msgid "When |CL| installation is complete, select :guilabel:`Exit`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From the *VM - Settings* window, "
+#~ "navigate to the *Storage* pane from "
+#~ "the left-hand side."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From the middle *Storage Devices* "
+#~ "column, click the blue CD disk "
+#~ "labeled *clear-<VERSION>-live-server.iso* under "
+#~ "the *Controller: IDE* from."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "From the *Attributes* column at right,"
+#~ " in *Optical Drive*, select the blue"
+#~ " CD icon beside and click *Remove "
+#~ "Disk from Virtual Drive*."
+#~ msgstr ""
+
+#~ msgid "Click *OK* to exit the *VM Settings* menu and return to the main |VBM|."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the VM Console top menu, click"
+#~ " *Devices*, and select *Insert Guest "
+#~ "Additions CD image...* to mount the "
+#~ "|VB| driver installation to the |CL| "
+#~ "VM."
+#~ msgstr ""
+
+#~ msgid "Shut down the system. Select :guilabel:`Machine>ACPI Shutdown`."
+#~ msgstr ""
+
