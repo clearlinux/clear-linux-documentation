@@ -1,7 +1,7 @@
 .. _tutorial-proxy:
 
-Setting up proxy
-################
+Proxy configuration
+###################
 
 This tutorial shows you how to configure your system for use behind an
 outbound proxy to access the Internet. 

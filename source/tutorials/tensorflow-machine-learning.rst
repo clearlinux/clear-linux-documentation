@@ -1,7 +1,7 @@
 .. _machine-learning:
 
-TensorFlow\* machine learning on |CL-ATTR|
-##########################################
+TensorFlow\* machine learning
+#############################
 
 This tutorial demonstrates the installation and execution of a TensorFlow\*
 machine learning example on |CL-ATTR|. It uses a Jupyter\* Notebook and MNIST
@@ -111,7 +111,7 @@ run the example code.
    manager with a list of files in the current directory, as shown in
    Figure 1.
 
-   .. figure:: figures/machine-learning-1.png
+   .. figure:: /_figures/tensorflow/machine-learning-1.png
       :alt: Jupyter file manager
 
       Figure 1: The Jupyter file manager shows the list of available files.
@@ -119,7 +119,7 @@ run the example code.
 #. Click on the :file:`Handwriting` directory. The :file:`MNIST_example.ipynb`
    file created earlier should be listed there, as shown in Figure 2.
 
-   .. figure:: figures/machine-learning-2.png
+   .. figure:: /_figures/tensorflow/machine-learning-2.png
       :alt: Example file within the Jupyter file manager
 
       Figure 2: The example file within the Jupyter file manager.
@@ -127,7 +127,7 @@ run the example code.
 #. To run the handwriting example, click on the :file:`MNIST_example.ipynb`
    file to load the notebook, as shown in Figure 3.
 
-   .. figure:: figures/machine-learning-3.png
+   .. figure:: /_figures/tensorflow/machine-learning-3.png
       :alt: The loaded MNIST_example notebook
 
       Figure 3: The loaded MNIST_example notebook within the Jupyter file
@@ -139,7 +139,7 @@ run the example code.
 #. Select the :guilabel:`In [2]` cell and click the |run-cell| button to load
    the MNIST data. The successful output is shown on Figure 4.
 
-   .. figure:: figures/machine-learning-4.png
+   .. figure:: /_figures/tensorflow/machine-learning-4.png
       :alt: Successful import of MNIST data
 
       Figure 4: Output after successfully importing the MNIST data.
@@ -156,7 +156,7 @@ run the example code.
    the first two digits in the `trainX` dataset. An example is shown in
    Figure 5.
 
-   .. figure:: figures/machine-learning-5.png
+   .. figure:: /_figures/tensorflow/machine-learning-5.png
       :alt: Function to reshape data.
 
       Figure 5: A function reshapes the data and displays the first two
@@ -167,7 +167,7 @@ run the example code.
    the output layer, as shown in Figure 6. Click the |run-cell| button four
    times to perform these operations.
 
-   .. figure:: figures/machine-learning-6.png
+   .. figure:: /_figures/tensorflow/machine-learning-6.png
       :alt: Defining, building and training the neural network model
 
       Figure 6: Defining, building, and training the neural network model.
@@ -176,7 +176,7 @@ run the example code.
    :guilabel:`In [8]` cell and click the |run-cell| button. In this example,
    the number 6 was predicted with a 99% accuracy, as shown in Figure 7.
 
-   .. figure:: figures/machine-learning-7.png
+   .. figure:: /_figures/tensorflow/machine-learning-7.png
       :alt: Prediction example
 
       Figure 7: The system predicts a number providing the accuracy of the
@@ -192,7 +192,7 @@ run the example code.
    cell and click the |run-cell| button. Our example's accuracy is
    calculated as 97.17%, as shown in Figure 8.
 
-   .. figure:: figures/machine-learning-8.png
+   .. figure:: /_figures/tensorflow/machine-learning-8.png
       :alt: System's accuracy
 
       Figure 8: The system's accuracy for the entire data set.
@@ -245,4 +245,4 @@ Related topics
 .. _MNIST at Wikipedia:
    https://en.wikipedia.org/wiki/MNIST_database
 
-.. |run-cell| image::  ./figures/run-cell-button.png
+.. |run-cell| image::  /_figures/tensorflow/run-cell-button.png

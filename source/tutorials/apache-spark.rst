@@ -1,7 +1,7 @@
   .. _spark:
 
-Set up a standalone cluster system using Apache\* Spark\*
-#########################################################
+Apache\* Spark\*
+################
 
 This tutorial describes how to install, configure, and run Apache Spark on
 |CL-ATTR|. Apache Spark is a fast general-purpose cluster computing system with

@@ -1,7 +1,7 @@
 .. _redis:
 
-Run Redis on |CL-ATTR|
-######################
+Redis\*
+#######
 
 Redis is an in-memory key:value store designed for quick lookups, accessible
 over the network. In this tutorial, you'll install redis and launch a

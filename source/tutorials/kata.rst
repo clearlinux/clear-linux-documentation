@@ -1,7 +1,7 @@
   .. _kata:
 
-Install Kata Containers\*
-#########################
+Kata Containers\*
+#################
 
 This tutorial describes how to install, configure, and run `Kata Containers`_
 on |CL-ATTR|.

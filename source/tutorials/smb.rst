@@ -1,7 +1,7 @@
 .. _clear-samba-share-to-Windows:
 
-Enable simple file sharing with a Windows\* machine using Samba\*
-#################################################################
+Samba\* as a host
+#################
 
 This tutorial describes how to enable simple file sharing from a system
 running |CL-ATTR| to a Windows machine using Samba. For more advanced sharing,
@@ -109,7 +109,7 @@ Map |CL| drive in Windows
 	the Samba user `clearlinuxuser` and the password created with
 	:command:`smbpasswd`. See Figure 1 for details.
 
-	.. figure:: figures/smb-1.png
+	.. figure:: /_figures/samba/smb-1.png
 		:scale: 70%
 		:alt: Map a network drive in Windows Explorer
 
@@ -117,7 +117,7 @@ Map |CL| drive in Windows
 
 When complete, Windows Explorer displays the share drive as shown in Figure 2.
 
-.. figure:: figures/smb-2.png
+.. figure:: /_figures/samba/smb-2.png
 	:scale: 70%
 	:alt: View a share drive in Windows Explorer
 

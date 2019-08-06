@@ -269,7 +269,7 @@ Log into your Microsoft Azure account
 #. Open your browser and enter the page `https://aka.ms/devicelogin` as shown
    in figure 1:
 
-   .. figure:: azure/figures/azure-1.png
+   .. figure:: /_figures/azure/azure-1.png
       :scale: 50 %
       :alt: Microsoft Device Login
 
@@ -280,7 +280,7 @@ Log into your Microsoft Azure account
    session login and will be different each time you log into MS Azure using
    the :command:`az login` command.
 
-   .. figure:: azure/figures/azure-2.png
+   .. figure:: /_figures/azure/azure-2.png
       :scale: 50 %
       :alt: Microsoft Device Login - Azure CLI
 
@@ -294,7 +294,7 @@ Log into your Microsoft Azure account
    have signed into the Microsoft Cross-platform Command Line Interface
    application on your device and you can close the window.
 
-   .. figure:: azure/figures/azure-3.png
+   .. figure:: /_figures/azure/azure-3.png
       :scale: 50 %
       :alt: Microsoft Azure Cross-platform CLI
 

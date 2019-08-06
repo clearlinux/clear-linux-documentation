@@ -42,7 +42,7 @@ Architecture
 		If you want to capture your own records for analysis, you must set up
 		your own backend server.
 
-.. figure:: ../guides/telemetrics/figures/telemetry-e2e.png
+.. figure:: /_figures/telemetrics/telemetry-e2e.png
    :scale: 75%
    :alt: Clear Linux Telemetry Architecture.
 
