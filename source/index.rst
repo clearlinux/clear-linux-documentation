@@ -22,7 +22,7 @@ Our documentation is divided into the following sections:
 
     Guides cover a range of topics from |CL| features and tooling, to system maintenance, network, and stacks.
 
-:ref:`Use Cases <tutorials>`
+:ref:`Use case tutorials <tutorials>`
 
     Sample use cases, with step-by-step instructions, show how to set up third-party tools and software with |CL|.
 
