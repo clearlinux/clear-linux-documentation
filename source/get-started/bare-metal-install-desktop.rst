@@ -63,7 +63,7 @@ these steps.
 
 #. Select :guilabel:`Clear Linux OS` in the boot menu, shown in Figure 1.
 
-   .. figure:: figures/bare-metal-install-desktop-01.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-01.png
       :scale: 100%
       :alt: Clear Linux OS in boot menu
 
@@ -92,7 +92,7 @@ Launch the |CL| installer
 
 #. Click the |CL| penguin icon to launch the installer, shown in Figure 2.
 
-   .. figure:: figures/bare-metal-install-desktop-02.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-02.png
       :scale: 100%
       :alt: Install Clear Linux OS icon
 
@@ -100,7 +100,7 @@ Launch the |CL| installer
 
 #. After the installer is launched, it will appear as shown in Figure 3.
 
-   .. figure:: figures/bare-metal-install-desktop-03.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-03.png
       :scale: 100%
       :alt: |CL| Desktop Installer
 
@@ -120,7 +120,7 @@ which checks your target system for compatibility and network connectivity.
 After the installer shows `Prerequisites passed`, select :guilabel:`Next` to
 proceed with installation.
 
-.. figure:: figures/bare-metal-install-desktop-04.png
+.. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-04.png
    :scale: 100%
    :alt: Checking Prerequisites
 
@@ -170,7 +170,7 @@ the minimum requirements, enter values in all submenus for the
 :guilabel:`Required options`. After you complete them, your selections appear
 below submenus and a check mark appears at right.
 
-.. figure:: figures/bare-metal-install-desktop-05.png
+.. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-05.png
    :scale: 100%
    :alt: Clear Linux OS Desktop Installer - Main Menu
 
@@ -203,7 +203,7 @@ Select Time Zone
 
 #. Select :guilabel:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-desktop-06.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-06.png
       :scale: 100%
       :alt: Select System Timezone
 
@@ -219,7 +219,7 @@ Select Keyboard
 
 #. Select :guilabel:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-desktop-07.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-07.png
       :scale: 100%
       :alt: Select Keyboard menu
 
@@ -233,7 +233,7 @@ Select Installation Media
 #. Choose an installation method: `Safe Installation`_ or
    `Destructive Installation`_.
 
-   .. figure:: figures/bare-metal-install-desktop-08.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-08.png
       :scale: 100%
       :alt: Select Installation Media
 
@@ -271,7 +271,7 @@ optional.
 #. To encrypt the root partition, select :guilabel:`Enable Encryption`,
    as shown in Figure 9.
 
-   .. figure:: figures/bare-metal-install-desktop-09.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-09.png
       :scale: 100%
       :alt: Enable Encryption
 
@@ -279,7 +279,7 @@ optional.
 
 #. When :guilabel:`Encryption Passphrase` appears, enter a passphrase.
 
-   .. figure:: figures/bare-metal-install-desktop-10.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-10.png
       :scale: 100%
       :alt: Encryption Passphrase
 
@@ -306,7 +306,7 @@ Manage User
 
 #. In :guilabel:`User Name`, enter a user name.
 
-   .. figure:: figures/bare-metal-install-desktop-11.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-11.png
       :scale: 100%
       :alt: Manage User
 
@@ -360,7 +360,7 @@ team for improvements. For more information, see :ref:`telemetry-about`.
 
 #. Select :kbd:`Yes`.
 
-   .. figure:: figures/bare-metal-install-desktop-12.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-12.png
       :scale: 100%
       :alt: Enable Telemetry
 
@@ -387,7 +387,7 @@ Bundle Selection
 
 #. Select your desired bundles.
 
-   .. figure:: figures/bare-metal-install-desktop-13.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-13.png
       :scale: 100%
       :alt: Bundle Selection
 
@@ -397,7 +397,7 @@ Bundle Selection
 
 #. View the bundles that you selected.
 
-   .. figure:: figures/bare-metal-install-desktop-14.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-14.png
       :scale: 100%
       :alt: Bundle Selections - Advanced Options
 
@@ -412,7 +412,7 @@ Assign Hostname
 
 #. In :guilabel:`Hostname`, enter the hostname only (excluding the domain).
 
-   .. figure:: figures/bare-metal-install-desktop-15.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-15.png
       :scale: 100%
       :alt: Assign Hostname
 
@@ -434,7 +434,7 @@ Kernel Configuration
 #. In :guilabel:`Kernel Configuration`, navigate to select your desired
    kernel. :guilabel:`Native` is selected by default.
 
-   .. figure:: figures/bare-metal-install-desktop-16.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-16.png
       :scale: 100%
       :alt: Kernel Configuration
 
@@ -457,7 +457,7 @@ Software Updater Configuration
 #. :guilabel:`Enable Auto Updates` is selected by default. If you **do not**
    wish to enable automatic software updates, uncheck the box.
 
-   .. figure:: figures/bare-metal-install-desktop-17.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-17.png
       :scale: 100%
       :alt: Software Updater Configuration
 
@@ -471,7 +471,7 @@ Finish installation
 #. When you are satisfied with your installation configuration, select
    :guilabel:`Install`.
 
-   .. figure:: figures/bare-metal-install-desktop-18.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-18.png
       :scale: 100%
       :alt: Assign Hostname
 
@@ -486,7 +486,7 @@ Finish installation
    the :guilabel:`Install` button remains disabled, as shown
    in Figure 19. Return to `Required Options`_ and make selections.
 
-   .. figure:: figures/bare-metal-install-desktop-19.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-19.png
       :scale: 100%
       :alt: Required Options - Incomplete
 
