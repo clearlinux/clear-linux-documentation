@@ -127,6 +127,7 @@ version = current_version = "latest"
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
+  'canonical_url': 'docs.01.org/clearlinux/',
   'style_nav_header_background': '#007ab2',
   'navigation_depth': 4,
   'display_version': False,
