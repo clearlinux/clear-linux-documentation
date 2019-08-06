@@ -20,7 +20,7 @@ deploy:
     github_token: $GITHUB_TOKEN
     target-branch: latestHTML
     on:
-      branch: rtd-theme
+      branch: master
     local_dir: source/_build/html/
   - provider: pages
     skip_cleanup: true
