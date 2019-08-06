@@ -24,7 +24,7 @@ When installing |CL-ATTR| in a VM, consider which kernel to use.
    :hidden:
 
    compatibility-check
-   bootable-usb/bootable-usb
+   bootable-usb
 
 Install
 *******

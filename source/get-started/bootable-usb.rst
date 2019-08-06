@@ -129,7 +129,7 @@ Burn the |CL| image onto a USB drive
 
    This will list available disks and their partitions, as shown in Figure 1.
 
-   .. figure:: figures/bootable-usb-mac-01.png
+   .. figure:: /_figures/bootable-usb/bootable-usb-mac-01.png
       :scale: 100 %
       :alt: Get USB drive identifier
 
@@ -187,7 +187,7 @@ Burn the |CL| image onto a USB drive
 
 #. Click the :guilabel:`START` button. See Figure 2.
 
-   .. figure:: figures/bootable-usb-windows-02.png
+   .. figure:: /_figures/bootable-usb/bootable-usb-windows-02.png
       :scale: 80 %
       :alt: Rufus utility
 
@@ -196,7 +196,7 @@ Burn the |CL| image onto a USB drive
 #. When the dialogue appears, select
    :guilabel:`Write in ISO image mode (Recommended)`. See Figure 3.
 
-   .. figure:: figures/bootable-usb-windows-03.png
+   .. figure:: /_figures/bootable-usb/bootable-usb-windows-03.png
       :scale: 80 %
       :alt: ISOHybrid image detected
 
