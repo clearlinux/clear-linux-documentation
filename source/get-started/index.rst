@@ -32,8 +32,8 @@ Install
 .. toctree::
    :maxdepth: 1
 
-   bare-metal-install-desktop/bare-metal-install-desktop
-   bare-metal-install-server/bare-metal-install-server
+   bare-metal-install-desktop
+   bare-metal-install-server
    install-configfile
 
 .. _virtual-machine-install:

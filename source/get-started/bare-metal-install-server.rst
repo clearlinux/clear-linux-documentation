@@ -67,7 +67,7 @@ Follow these steps to install |CL| on the target system:
 
 #. This action launches the |CL| installer boot menu, shown in figure 1.
 
-   .. figure:: figures/bare-metal-install-server-01.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-01.png
       :scale: 100%
       :alt: Clear Linux OS Installer boot menu
 
@@ -83,7 +83,7 @@ Launch the |CL| Installer
 #. Follow the onscreen instructions, shown in Figure 2, and
    enter a temporary password.
 
-   .. figure:: figures/bare-metal-install-server-02.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-02.png
       :scale: 100%
       :alt: root login
 
@@ -92,7 +92,7 @@ Launch the |CL| Installer
 #. At the :guilabel:`root` prompt, enter :command:`clr-installer` and
    press :kbd:`Enter`.
 
-   .. figure:: figures/bare-metal-install-server-03.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-03.png
       :scale: 100%
       :alt: clr-installer command
 
@@ -114,7 +114,7 @@ Main Menu
 *********
 The |CL| Installer Main Menu appears as shown in Figure 4.
 
-.. figure:: figures/bare-metal-install-server-04.png
+.. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-04.png
    :scale: 100%
    :alt: Clear Linux OS Installer
 
@@ -158,7 +158,7 @@ Choose Timezone
 
 #. Press :kbd:`Enter` to confirm.
 
-   .. figure:: figures/bare-metal-install-server-05.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-05.png
       :scale: 100%
       :alt: Select System Timezone
 
@@ -175,7 +175,7 @@ Choose Language
 
 #. Press :kbd:`Enter` to confirm.
 
-   .. figure:: figures/bare-metal-install-server-06.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-06.png
       :scale: 100%
       :alt: Select System Language
 
@@ -195,7 +195,7 @@ Configure the Keyboard
 #. Optional: In :guilabel:`Test keyboard`, type text to assure
    that the keys map to your keyboard.
 
-   .. figure:: figures/bare-metal-install-server-07.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-07.png
       :scale: 100%
       :alt: Select Keyboard menu
 
@@ -212,7 +212,7 @@ Configure Installation Media
    * `Advanced Configuration`_
 
 
-   .. figure:: figures/bare-metal-install-server-08.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-08.png
       :scale: 100%
       :alt: Select Installation Media
 
@@ -260,7 +260,7 @@ configuration of each partition.
 #. In :guilabel:`Advanced Configuration`, navigate to :file:`/dev/sda`
    and then press :kbd:`Enter`.
 
-   .. figure:: figures/bare-metal-install-server-09.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-09.png
       :scale: 100%
       :alt: Advanced configuration menu
 
@@ -299,7 +299,7 @@ root partition
 #. We configure the `root` partition as shown in Figure 10.
    Configuration of the `root` partition varies.
 
-   .. figure:: figures/bare-metal-install-server-10.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-10.png
       :scale: 100%
       :alt: root partition
 
@@ -312,7 +312,7 @@ boot partition
 
 #. We configure the `boot` partition as shown in Figure 11.
 
-   .. figure:: figures/bare-metal-install-server-11.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-11.png
       :scale: 100%
       :alt: boot partition
 
@@ -326,7 +326,7 @@ swap partition
 #. In the :guilabel:`File System` pulldown menu, select `swap`, and
    enter a label. We enter the minimum required size (e.g., 256M).
 
-   .. figure:: figures/bare-metal-install-server-12.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-12.png
       :scale: 100%
       :alt: swap partition
 
@@ -339,7 +339,7 @@ swap partition
 
    Manual partitioning is complete.
 
-   .. figure:: figures/bare-metal-install-server-13.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-13.png
       :scale: 100%
       :alt: Final configuration of disk partitions
 
@@ -363,7 +363,7 @@ be configured post-installation using the ``cryptsetup`` tool.
 #. Optional: Select :guilabel:`[X] Encrypt` to encrypt the root partition,
    as shown in Figure 14.
 
-   .. figure:: figures/bare-metal-install-server-14.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-14.png
       :scale: 100%
       :alt: Encrypt partition
 
@@ -375,7 +375,7 @@ be configured post-installation using the ``cryptsetup`` tool.
 
       Minimum length is 8 characters. Maximum length is 94 characters.
 
-   .. figure:: figures/bare-metal-install-server-15.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-15.png
       :scale: 100%
       :alt: Encryption Passphrase
 
@@ -405,7 +405,7 @@ Select your desired option on whether to participate in `telemetry`.
 
 #. Select :kbd:`Enter` to confirm.
 
-   .. figure:: figures/bare-metal-install-server-16.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-16.png
       :scale: 100%
       :alt: Enable Telemetry
 
@@ -455,7 +455,7 @@ interface settings are automatically applied.
 
    .. note:: Multiple network interfaces may appear.
 
-   .. figure:: figures/bare-metal-install-server-17.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-17.png
       :scale: 100%
       :alt: Configure Network Interfaces
 
@@ -466,7 +466,7 @@ interface settings are automatically applied.
    Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select
    :kbd:`Spacebar` to deselect.
 
-   .. figure:: figures/bare-metal-install-server-18.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-18.png
       :scale: 100%
       :alt: Network interface configuration
 
@@ -506,7 +506,7 @@ instruction.
 
 #. Navigate to the field :guilabel:`HTTPS Proxy`.
 
-   .. figure:: figures/bare-metal-install-server-19.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-19.png
       :scale: 100%
       :alt: Configure the network proxy
 
@@ -530,7 +530,7 @@ select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
 A progress bar appears as shown in Figure 20.
 
-.. figure:: figures/bare-metal-install-server-20.png
+.. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-20.png
    :scale: 100%
    :alt: Testing Networking dialogue
 
@@ -552,7 +552,7 @@ Bundle Selection
 
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
 
-   .. figure:: figures/bare-metal-install-server-21.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-21.png
       :scale: 100%
       :alt: Bundle Selection
 
@@ -577,7 +577,7 @@ Add New User
 
 #. Select :guilabel:`Add New User` as shown in Figure 22.
 
-   .. figure:: figures/bare-metal-install-server-22.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-22.png
       :scale: 100%
       :alt: Add New User, User Name
 
@@ -589,7 +589,7 @@ Add New User
 
       The User Name must be alphanumeric and can include spaces, commas, or hyphens. Maximum length is 64 characters.
 
-   .. figure:: figures/bare-metal-install-server-23.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-23.png
       :scale: 100%
       :alt: User Name
 
@@ -634,7 +634,7 @@ Modify / Delete User
 
 #. Select :kbd:`Enter` to modify the user.
 
-   .. figure:: figures/bare-metal-install-server-24.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-24.png
       :scale: 100%
       :alt: Modify User
 
@@ -653,7 +653,7 @@ Modify / Delete User
 #. Optional: In :guilabel:`Modify User`, to delete the user, navigate to
    the :guilabel:`Delete` button and select :kbd:`Enter`.
 
-   .. figure:: figures/bare-metal-install-server-25.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-25.png
       :scale: 100%
       :alt: Delete User
 
@@ -680,7 +680,7 @@ new kernel.
 
 #. Select :kbd:`Enter`.
 
-   .. figure:: figures/bare-metal-install-server-26.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-26.png
       :scale: 100%
       :alt: kernel command line
 
@@ -705,7 +705,7 @@ Kernel Selection
 
 #. To select a different kernel, navigate to it using :guilabel:`Tab`.
 
-   .. figure:: figures/bare-metal-install-server-27.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-27.png
       :scale: 100%
       :alt: Kernel selection
 
@@ -728,7 +728,7 @@ If you have your own custom mirror of |CL|, you can add its URL.
 
 #. Select :kbd:`Confirm`.
 
-   .. figure:: figures/bare-metal-install-server-28.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-28.png
       :scale: 100%
       :alt: Swupd Mirror
 
@@ -749,7 +749,7 @@ Assign Hostname
       alphanumeric character but may also contain hyphens. Maximum length of
       63 characters.
 
-   .. figure:: figures/bare-metal-install-server-29.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-29.png
       :scale: 100%
       :alt: Assign Hostname
 
@@ -772,7 +772,7 @@ shown in Figure 30.
 
 #. Select the desired option.
 
-   .. figure:: figures/bare-metal-install-server-30.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-30.png
       :scale: 100%
       :alt: Automatic OS Updates
 
@@ -788,7 +788,7 @@ Save Configuration Settings
 #. A dialogue box shows the installation configuration was saved to
    :file:`clr-installer.yaml`
 
-   .. figure:: figures/bare-metal-install-server-31.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-31.png
       :scale: 100%
       :alt: Automatic OS Updates
 
@@ -803,7 +803,7 @@ Finish installation
 #. When you are satisfied with your installation configuration, navigate to
    :guilabel:`Install` and select :kbd:`Enter`.
 
-   .. figure:: figures/bare-metal-install-server-32.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-32.png
       :scale: 100%
       :alt: Select Install
 
