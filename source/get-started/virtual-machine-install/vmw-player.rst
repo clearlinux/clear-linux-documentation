@@ -190,55 +190,18 @@ Create and configure a new VM
 
 #. Click the :guilabel:`Finish` button.
 
-Install |CL| into the new VM
-****************************
-
-#. Select the newly-created VM and click the :guilabel:`Play virtual machine`
-   button. See Figure 9.
-
-   .. figure:: figures/vmw-player/vmw-player-09.png
-      :scale: 100%
-      :alt: VMware Workstation Player - Power on virtual machine
-
-      Figure 9: VMware Workstation Player - Power on virtual machine
-
-#. Follow the :ref:`install-on-target-start` guide to complete the
-   installation of |CL|.
-
-#. After the installation completes, reboot the VM. This reboot restarts the
-   |CL| installer.
-
-Detach the |CL| installer ISO from the VM
-*****************************************
-
-#. To enable the mouse pointer so you access VMware Workstation Player's
-   menus, press :kbd:`<CTRL>` + :kbd:`<ALT>` on the keyboard.
-
-#. To disconnect the CD/DVD to stop it from booting the |CL| installer ISO
-   again, click the :guilabel:`Player` menu. See Figure 10.
-
-   .. figure:: figures/vmw-player/vmw-player-10.png
-      :scale: 100%
-      :alt: VMware Workstation Player - Edit CD/DVD settings
-
-      Figure 10: VMware Workstation Player - Edit CD/DVD settings
-
-#. Go to :menuselection:`Removable Devices-->CD/DVD (IDE)-->Disconnect`.
-
-#. Click the :guilabel:`OK` button.
-
 Enable UEFI boot support
 ************************
 
 |CL| needs UEFI support to boot. To enable UEFI:
 
-#. Power off the VM. click the :guilabel:`Player` menu. See Figure 11.
+#. Power off the VM. click the :guilabel:`Player` menu. See Figure 9.
 
-   .. figure:: figures/vmw-player/vmw-player-11.png
+   .. figure:: figures/vmw-player/vmw-player-09.png
       :scale: 100%
       :alt: VMware Workstation Player - Power off virtual machine
 
-      Figure 11: VMware Workstation Player - Power off virtual machine
+      Figure 9: VMware Workstation Player - Power off virtual machine
 
 #. Go to :guilabel:`Power` and select :guilabel:`Shut Down Guest`.
 
@@ -255,24 +218,64 @@ Enable UEFI boot support
       * On Linux distros: :file:`/home/username/vmware`
       * On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`
 
+Install |CL| into the new VM
+****************************
 
-#. After configuring the settings above, power on your |CL| virtual machine.
-   On the :guilabel:`VMware Workstation Player` home screen, select your
-   VM. See Figure 9.
+#. Select the newly-created VM and click the :guilabel:`Play virtual machine`
+   button. See Figure 10.
+
+   .. figure:: figures/vmw-player/vmw-player-10.png
+      :scale: 100%
+      :alt: VMware Workstation Player - Power on virtual machine
+
+      Figure 10: VMware Workstation Player - Power on virtual machine
+
+#. Follow the :ref:`install-on-target-start` guide to complete the
+   installation of |CL|.
+
+#. After the installation completes, reboot the VM. This reboot restarts the
+   |CL| installer.
+
+Detach the |CL| installer ISO from the VM
+*****************************************
+
+#. To enable the mouse pointer so you access VMware Workstation Player's
+   menus, press :kbd:`<CTRL>` + :kbd:`<ALT>` on the keyboard.
+
+#. To disconnect the CD/DVD to stop it from booting the |CL| installer ISO
+   again, click the :guilabel:`Player` menu. See Figure 11.
+
+   .. figure:: figures/vmw-player/vmw-player-11.png
+      :scale: 100%
+      :alt: VMware Workstation Player - Edit CD/DVD settings
+
+      Figure 11: VMware Workstation Player - Edit CD/DVD settings
+
+#. Go to :menuselection:`Removable Devices-->CD/DVD (IDE)-->Disconnect`.
+
+#. Click the :guilabel:`OK` button.
+
+Install open-vm-tools
+*********************
+
+Optional: You may want to install the `open-vm-tools` in your virtual
+machine. The Open Virtual Machine Tools (open-vm-tools) are the open source
+implementation of VMware Tools for Linux\* guest operating systems.
+
+#. Power on your |CL| virtual machine. On the
+   :guilabel:`VMware Workstation Player` home screen, select your VM. See Figure 10.
 
 #. Click :guilabel:`Play virtual machine`.
 
-#. Install Open VM Tools. You may want to install the `open-vm-tools` in
-   your virtual machine. The Open Virtual Machine Tools (open-vm-tools) are
-   the open source implementation of VMware Tools for Linux guest operating
-   systems. In |CL| you can use the following to install the bundle in your VM
+#. In |CL| you can install the bundle, and enable the tools, in your VM.
 
-   .. code-block:: console
+   .. code-block:: bash
 
       sudo swupd bundle-add os-cloudguest-vmware
       sudo systemctl enable --now open-vm-tools
 
-More information is available on the `VMWare Tools Product Documentation`_ site.
+More information is available on the `VMWare Tools Product Documentation`_
+site.
 
 Related topics
 **************
