@@ -33,7 +33,7 @@ This tutorial assumes you have already installed |CL|. For detailed
 instructions on installing |CL| on a bare metal system, follow the
 :ref:`bare metal installation tutorial<bare-metal-install-desktop>`.
 Learn about the benefits of having an up-to-date system for cloud
-orchestration on the :ref:`swupd-about` page.
+orchestration on the :ref:`swupd-guide` page.
 
 Before you install any new packages, update |CL| with the following command:
 

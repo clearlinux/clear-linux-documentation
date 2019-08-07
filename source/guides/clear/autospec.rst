@@ -435,7 +435,7 @@ To test an autospec created package directly on the |CL| development system:
 #. After testing has been completed, the software and any related files must
    be identified and deleted. The :command:`swupd repair --picky`
    command can help restore the state of the :file:`/usr` directory (see
-   :ref:`swupd <swupd-about>`) however any other files must be cleaned up
+   :ref:`swupd <swupd-guide>`) however any other files must be cleaned up
    manually.
 
 

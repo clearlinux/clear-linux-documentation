@@ -846,10 +846,9 @@ Set up a nginx web server for mixer with the following steps:
 Related topics
 **************
 
-* :ref:`About mixer <mixer-about>`
-* :ref:`autospec-about`
+* :ref:`autospec`
 * :ref:`bundles-about`
-* :ref:`swupd-about`
+* :ref:`swupd-guide`
 
 .. _Docker Hub: https://hub.docker.com/r/clearlinux/mixer/tags/
 .. _mixer man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.1.rst

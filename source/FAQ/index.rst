@@ -44,7 +44,7 @@ Is telemetry required?
 The telemetry solution provided by |CL| is entirely optional and customizable.
 It is disabled by default. If you do choose to enable telemetry, the data
 helps the |CL| team proactively identify and resolve bugs. See the
-:ref:`telemetry <telemetry-about>` page for more information.
+:ref:`telemetry <telem-guide>` page for more information.
 
 |
 
@@ -76,7 +76,7 @@ How is software installed and updated?
 ======================================
 
 |CL| provides software in the form of :ref:`bundles <bundles-about>` and
-updates software with :ref:`swupd <swupd-about>`.
+updates software with :ref:`swupd <swupd-guide>`.
 
 :ref:`FlatPak\* <flatpak>` is an application virtualization solution that allows
 more software to be available to |CL| users by augmenting the software |CL|
