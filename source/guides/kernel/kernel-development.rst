@@ -92,7 +92,7 @@ Change the kernel version
 |CL| tends to use the latest kernel available from `kernel.org`_, the Linux
 upstream. The kernel version that will be built can be changed in the
 RPM SPEC file. While most packages in Clear Linux are typically packaged
-using :ref:`autospec-about`, the kernel is not. This means control files
+using :ref:`autospec`, the kernel is not. This means control files
 provided by autospec are not available and changes must be made manually.
 
 #. Open the Linux kernel package RPM SPEC file in an editor.

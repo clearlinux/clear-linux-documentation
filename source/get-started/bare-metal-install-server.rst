@@ -392,9 +392,9 @@ be configured post-installation using the ``cryptsetup`` tool.
 Telemetry
 =========
 
-:ref:`telem-guide` is a |CL| feature that reports failures and crashes to
+Telemetrics is a |CL| feature that reports failures and crashes to
 the |CL| development team for improvements. For more detailed information,
-visit our :ref:`telemetry-about` page.
+visit our :ref:`telem-guide` guide.
 
 Select your desired option on whether to participate in `telemetry`.
 

@@ -17,7 +17,7 @@ require a manual installation.
 
 .. warning::
   
-   Software installed outside of :ref:`swupd <swupd-about>` is not updated
+   Software installed outside of :ref:`swupd <swupd-guide>` is not updated
    with |CL| updates and must be updated and maintained manually.
 
    For example, the file :file:`/usr/lib/libGL.so` conflicts with the file
@@ -228,7 +228,7 @@ Updating the NVIDIA drivers
 ***************************
 
 The proprietary NVIDIA drivers are installed manually outside of :ref:`swupd
-<swupd-about>` and must be updated manually when needed.
+<swupd-guide>` and must be updated manually when needed.
 
 Updating the NVIDIA drivers follows the same steps as initial installation,
 however the desktop environment must first be stopped so that the drivers are

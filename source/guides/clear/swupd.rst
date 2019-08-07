@@ -303,6 +303,8 @@ ignores files or directories matching :file:`/usr/lib/python`:
 
    sudo swupd repair --picky --picky-whitelist=/usr/lib/python
 
+.. _swupd-quick-ref:
+
 Quick reference
 ***************
 
