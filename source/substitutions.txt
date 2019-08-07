@@ -6,15 +6,6 @@
 
 .. |CC| replace:: Clear Containers
 
-.. |CAUTION-BACKUP-USB| replace::
-	Burning an image formats the USB drive, and will destroy all pre-existing
-	content.  Back up your data before proceeding.
-
-.. |CAUTION-UNMOUNT-USB-PARTITIONS| replace::
-	Not fully unmounting the USB drive before burning an image could cause
-	file system checksum errors in it. If this happens, burn the image again
-	ensuring all the USB drive partitions are unmounted first.
-
 .. |VB| replace:: VirtualBox
 
 .. |VBM| replace:: VirtualBox Manager

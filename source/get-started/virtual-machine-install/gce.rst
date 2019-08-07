@@ -53,7 +53,7 @@ Setup |CL| VM on GCP
 
    * Click the :guilabel:`Navigation menu` icon on the upper left screen menu.
 
-   * Select the :menuselection:`Storage` item from the side bar on the left. You
+   * Select the :menuselection:`Storage` item from the sidebar on the left. You
      will be sent to the Storage Browser tool or the Cloud Storage overview page.
 
    .. figure:: figures/gce/01-cloud-storage.png
