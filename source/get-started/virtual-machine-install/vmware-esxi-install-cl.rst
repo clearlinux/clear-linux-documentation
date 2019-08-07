@@ -21,7 +21,7 @@ Manually installing |CL| on a new VM gives additional configuration flexibility
 during installation. For example: alternate disk sizes, number of partitions,
 pre-installed bundles, etc.
 
-If you prefer to use a preconfigured |CL| VMware image instead, refer to
+If you prefer to use a pre-configured |CL| VMware image instead, refer to
 :ref:`vmware-esxi-preconfigured-cl-image`.
 
 .. note::

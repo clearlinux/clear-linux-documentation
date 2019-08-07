@@ -545,8 +545,8 @@ will install the header file that matches your |CL| version.
    Classification:
      Type: char array
      Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the 
-     reverse domain to use as a namespace for the probe (e.g. org.clearlinux);
-     PROBENAME is the name of the probe; and REST is an arbitrary value that
+     reverse domain to use as a namespace for the probe (e.g. org.clearlinux),
+     PROBENAME is the name of the probe, and REST is an arbitrary value that
      the probe should use to classify the record. The maximum length for the
      classification string is 122 bytes. Each sub-category may be no longer
      than 40 bytes long. Two / delimiters are required.

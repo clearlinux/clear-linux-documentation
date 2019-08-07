@@ -1,9 +1,9 @@
 .. _vmware-esxi-preconfigured-cl-image:
 
-Run preconfigured |CL-ATTR| image as a VMware\* ESXi guest OS
-#############################################################
+Run pre-configured |CL-ATTR| image as a VMware\* ESXi guest OS
+##############################################################
 
-This page explains how to deploy a preconfigured |CL| VMware
+This page explains how to deploy a pre-configured |CL| VMware
 :abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host.
 
 .. contents::
@@ -17,7 +17,7 @@ Overview
 of server hardware.  With VMware ESXi, you can create, configure, manage,
 and run |CL-ATTR| virtual machines at scale.
 
-We provide a preconfigured |CL| VMware image that can be run on a VMware ESXi
+We provide a pre-configured |CL| VMware image that can be run on a VMware ESXi
 6.5 host.
 
 If manuall installation is preferred, refer to :ref:`vmware-esxi-install-cl`.
@@ -95,7 +95,7 @@ Convert the |CL| image to an ESXi-supported format
 **************************************************
 
 Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi
-datastore, it must be converted to a format for usable with VMware's ESXi 
+datastore, it must be converted to a format for use with VMware's ESXi 
 hypervisor. 
 
 The steps in this section can also be referenced from the VMware documentation on `Cloning and converting virtual machine disks with vmkfstools`_
@@ -107,7 +107,7 @@ The steps in this section can also be referenced from the VMware documentation o
 
       If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or :abbr:`vCLI (vSphere CLI)` configured and available, 
       you can temporarily enable SSH directly on the ESXi host by following the
-      steps described in `Enable the Secure Shell (SSH) in the VMware Host Client`_ .
+      steps described in `Enable the Secure Shell (SSH) in the VMware Host Client`_.
 
       As a security best practice, remember to disable SSH access after following the steps in this section. 
 
@@ -205,7 +205,7 @@ VMware image. Also, in order to boot |CL|, you must enable UEFI support.
 
       Figure 8: VMware ESXi - Remove hard drive
 
-   #. Since a preconfigured image will be used, 
+   #. Since a pre-configured image will be used, 
       the :guilabel:`CD/DVD Drive 1` setting will not be needed.  Disable it 
       by unchecking the :guilabel:`Connect` checkbox. See Figure 9.
 
@@ -216,7 +216,7 @@ VMware image. Also, in order to boot |CL|, you must enable UEFI support.
       Figure 9: VMware ESXi - Disconnect the CD/DVD drive
 
    #. Attach the :file:`clear-[version number]-esxi.vmdk` file that was
-      converted from the preconfigured |CL| VMware image.
+      converted from the pre-configured |CL| VMware image.
 
       #. Click the :guilabel:`Add hard disk` button and select the
          :guilabel:`Existing hard drive` option. See Figure 10.

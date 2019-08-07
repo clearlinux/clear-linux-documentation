@@ -522,7 +522,7 @@ Create partitions per requirements in Table 1.
      - Mount Point
      - Default size
 
-   * - **VFAT(FAT32)**
+   * - **VFAT (FAT32)**
      - boot
      - /boot
      - 150MB

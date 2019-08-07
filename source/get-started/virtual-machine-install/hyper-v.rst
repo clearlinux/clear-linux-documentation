@@ -27,7 +27,7 @@ Please refer to `Install Hyper-V on Windows 10`_ to enable and configure
 Create a virtual network
 ************************
 
-Once *Hyper-V* has been enabled on your Windows system you will need to
+Once *Hyper-V* has been enabled on your Windows system, you will need to
 create a virtual network in the **Hyper-V Manager**.  Refer to the
 `Create a virtual network`_ documentation to create and configure
 a virtual network.

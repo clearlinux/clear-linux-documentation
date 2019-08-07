@@ -22,7 +22,7 @@ Prerequisites
 Create a bootable USB drive on Linux\*
 **************************************
 
-Make sure you have have completed all `Prerequisites`_.
+Make sure you have completed all `Prerequisites`_.
 
 Before burning the image onto your USB drive,
 :ref:`verify and decompress your image <verify-linux>`.
@@ -32,7 +32,8 @@ Burn the |CL| image onto a USB drive
 
 .. caution::
 
-   |CAUTION-BACKUP-USB|
+   Burning an image formats the USB drive, and will destroy all pre-existing
+   content.  Back up your data before proceeding.
 
 #. Open a terminal emulator and get root privilege.
 
@@ -98,14 +99,16 @@ Burn the |CL| image onto a USB drive
 
 .. caution::
 
-   |CAUTION-UNMOUNT-USB-PARTITIONS|
+   Not fully unmounting the USB drive before burning an image could cause
+   file system checksum errors in it. If this happens, burn the image again,
+   ensuring all the USB drive partitions are unmounted first.
 
 .. _bootable-usb-mac:
 
 Create a bootable USB drive on macOS\*
 **************************************
 
-Make sure you have have completed all `Prerequisites`_.
+Make sure you have completed all `Prerequisites`_.
 
 Before burning the image onto your USB drive,
 :ref:`verify and decompress your image <verify-mac>`.
@@ -115,7 +118,8 @@ Burn the |CL| image onto a USB drive
 
 .. caution::
 
-   |CAUTION-BACKUP-USB|
+   Burning an image formats the USB drive, and will destroy all pre-existing
+   content.  Back up your data before proceeding.
 
 #. Launch the Terminal app.
 
@@ -164,7 +168,7 @@ Burn the |CL| image onto a USB drive
 Create a bootable USB drive on Windows\*
 ****************************************
 
-Make sure you have have completed all `Prerequisites`_.
+Make sure you have completed all `Prerequisites`_.
 
 Before burning the image onto your USB drive,
 :ref:`verify and decompress your image <verify-windows>`.
@@ -174,7 +178,8 @@ Burn the |CL| image onto a USB drive
 
 .. caution::
 
-   |CAUTION-BACKUP-USB|
+   Burning an image formats the USB drive, and will destroy all pre-existing
+   content.  Back up your data before proceeding.
 
 #. Download the `Rufus`_ utility to burn the image onto a USB drive.
    We use Rufus 3.5 here. **Only use the latest version of Rufus**.

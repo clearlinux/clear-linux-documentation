@@ -26,7 +26,7 @@ autospec uses **mock** as a sandbox to run the builds. Visit the `mock wiki`_ fo
 additional information on using mock.
 
 For a general understanding of how an RPM works, visit 
-the `rpm website`_ or the `RPM Packaging Guide`_ .
+the `rpm website`_ or the `RPM Packaging Guide`_.
 
 How it works
 ************
@@ -392,7 +392,7 @@ To test an autospec-created package inside a VM:
       sudo ./start_qemu.sh clear.img
 
 #. A new |CL| VM will launch in the console. Log into the VM as *root* and set
-   a new pasword for the VM.
+   a new password for the VM.
 
 #. Check that the software is installed in the |CL| VM as expected and perform
    any relevant tests.

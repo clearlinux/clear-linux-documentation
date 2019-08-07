@@ -147,7 +147,7 @@ Pulling and running an image from Docker Hub
 ********************************************
 
 `Docker Hub`_ is a publically available container image repository which
-comes preconfigured with Docker. In the example below we will pull and run
+comes pre-configured with Docker. In the example below we will pull and run
 an the official Docker image for nginx\*, an open source reverse proxy server.
 
 #. First, pull a container image from Docker Hub using the
