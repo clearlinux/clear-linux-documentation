@@ -77,12 +77,15 @@ for line in lines:
         if link in whitelist:
             whiteListLines.append("<b>" + strings[0] + "</b>\n<blockquote><a href=\"" + link + "\">[whitelist] " + link + "</a></blockquote>\n")
             numWhiteListMatches += 1
+            print("[White list match] " + link)
         elif "Anchor '" in line:
             anchorLines.append("<b>" + strings[0] + "</b>\n<blockquote><a href=\"" + link + "\">[anchor] " + link + "</a></blockquote>\n")
             numAnchors += 1
+            print("[Anchor not found] " + link)
         else: 
             newLines.append("<b>" + strings[0] + "</b>\n<blockquote><a href=\"" + link + "\">[broken] " + link + "</a></blockquote>\n")
             numBrokenLinks += 1
+            print("[broken link] " + link)
 
 newLines.insert(0,"<h1>" + str(numBrokenLinks + numWhiteListMatches) + " broken links found in Sphinx link check</h1>\n")
 newLines.insert(1,"<h2>" + str(numBrokenLinks) + " unmatched broken links</h2>\n")
