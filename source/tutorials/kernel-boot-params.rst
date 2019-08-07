@@ -31,7 +31,7 @@ view the man pages from a terminal session:
 Updating the boot manager
 *************************
 
-The system must be updated and rebooted each time a changes is made
+The system must be updated and rebooted each time a change is made
 to the boot parameters:
 
 .. code-block:: bash
