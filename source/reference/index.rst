@@ -15,16 +15,3 @@ features.
    collaboration/collaboration
    system-requirements
    image-types
-
-.. _concepts:
-
-Clear Linux concepts
-********************
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   ../concepts/*
-   ../guides/clear/stateless
-   ../guides/clear/security
