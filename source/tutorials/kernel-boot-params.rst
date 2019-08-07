@@ -1,7 +1,7 @@
 .. _kernel_boot_params:
 
-Modify kernel boot parameters
-#############################
+Kernel boot parameters
+######################
 
 Changing kernel boot paramters can drastically change the way the OS behaves,
 so be cautious when doing so. |CL| provides a simple way to do this that is
