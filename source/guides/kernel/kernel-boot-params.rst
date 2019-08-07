@@ -3,7 +3,7 @@
 Kernel boot parameters
 ######################
 
-Changing kernel boot paramters can drastically change the way the OS behaves,
+Changing kernel boot parameters can drastically change the way the OS behaves,
 so be cautious when doing so. |CL| provides a simple way to do this that is
 consistent with its :ref:`stateless` nature. All configuration changes belong
 in the :file:`/etc/kernel/` path. The :command:`clr-boot-manager` generates
@@ -28,7 +28,7 @@ view the man pages from a terminal session:
     :local:
     :depth: 1
 
-Updating the boot manager
+Update the boot manager
 *************************
 
 The system must be updated and rebooted each time a change is made
@@ -63,7 +63,7 @@ Remove the "quiet" kernel boot option:
 
 Update the boot manager and reboot.
 
-Restoring default boot parameters
+Restore default boot parameters
 *********************************
 
 Delete the contents of kernel settings directories to reset boot parameters:
