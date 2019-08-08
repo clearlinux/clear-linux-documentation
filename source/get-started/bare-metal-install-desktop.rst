@@ -354,7 +354,7 @@ Telemetry
 
 Choose whether to participate in `telemetry`. :ref:`telem-guide` is a |CL|
 feature that reports failures and crashes to the |CL| development
-team for improvements. For more information, see :ref:`telemetry-about`.
+team for improvements.
 
 #. From :guilabel:`Required Options`, select :guilabel:`Telemetry`.
 

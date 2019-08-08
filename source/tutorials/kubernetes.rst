@@ -33,7 +33,7 @@ This tutorial assumes you have already installed |CL|. For detailed
 instructions on installing |CL| on a bare metal system, follow the
 :ref:`bare metal installation tutorial<bare-metal-install-desktop>`.
 Learn about the benefits of having an up-to-date system for cloud
-orchestration on the :ref:`swupd-about` page.
+orchestration on the :ref:`swupd-guide` page.
 
 Before you install any new packages, update |CL| with the following command:
 
@@ -271,7 +271,7 @@ following commands:
    sudo cp /usr/share/defaults/crio/crio.conf /etc/crio/
    sudo $EDITOR /etc/crio/crio.conf
 
-Learn more about :ref:`stateless` in |CL| and view the |CL| `documentation`_.
+Learn more about :ref:`stateless` in |CL|.
 
 Proxy configuration (optional)
 ******************************
@@ -396,8 +396,6 @@ Troubleshooting
 
 .. _Kata Containers: https://katacontainers.io/
 
-.. _Software Update documentation: https://clearlinux.org/documentation/clear-linux/concepts/swupd-about#updating
-
 .. _cloud-native-basic: https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic
 
 .. _preflight check: https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/#preflight-checks
@@ -409,7 +407,5 @@ Troubleshooting
 .. _pod network add-on: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
 
 .. _Joining your nodes: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
-
-.. _documentation: https://clearlinux.org/documentation/clear-linux
 
 .. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples

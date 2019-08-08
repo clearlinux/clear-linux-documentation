@@ -45,7 +45,7 @@ Additionally, you should have:
 Install the containers-basic bundle
 ***********************************
 
-Software in |CL| is offered in the form of `bundles`_ to provide a
+Software in |CL| is offered in the form of :ref:`bundles` to provide a
 complete function. The *containers-basic* provides all the required software
 packages to run Docker images as containers.
 
@@ -220,8 +220,6 @@ Related topics
 
 
 .. _Docker proxy instructions: https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
-
-.. _bundles: https://clearlinux.org/documentation/clear-linux/concepts/bundles-about#related-concepts
 
 .. _Docker documentation on daemon configuration: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
 
