@@ -1,7 +1,7 @@
 .. _virtualbox-cl-installer:
 
-Install a |CL-ATTR| VM in VirtualBox\*
-######################################
+|CL-ATTR| on VirtualBox\*
+#########################
 
 This page explains how to create a virtual machine on the `VirtualBox`_
 hypervisor with |CL-ATTR| as the guest operating system. These instructions

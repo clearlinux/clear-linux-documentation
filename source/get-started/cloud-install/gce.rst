@@ -1,7 +1,7 @@
 .. _gce:
 
-Launch |CL-ATTR| Compute Engine on Google Cloud Platform\*
-##########################################################
+|CL-ATTR| on Google Cloud Platform\*
+####################################
 
 This page explains the steps to create a virtual machine instance of
 |CL-ATTR| on `Google Cloud Platform`_ (:abbr:`GCP (Google Cloud Platform)`).
@@ -24,7 +24,7 @@ Setup |CL| VM on GCP
 #. Sign in to your Google\* account on the
    `Google Cloud Console <https://console.cloud.google.com/>`_:
 
-   .. figure:: figures/gce/00-sign-in.png
+   .. figure:: /_figures/gce/00-sign-in.png
       :scale: 50 %
       :alt: Sign in to Google services
 
@@ -53,10 +53,11 @@ Setup |CL| VM on GCP
 
    * Click the :guilabel:`Navigation menu` icon on the upper left screen menu.
 
-   * Select the :menuselection:`Storage` item from the sidebar on the left. You
-     will be sent to the Storage Browser tool or the Cloud Storage overview page.
+   * Select the :menuselection:`Storage` item from the sidebar on the left.
+     You will be sent to the Storage Browser tool or the Cloud Storage
+     overview page.
 
-   .. figure:: figures/gce/01-cloud-storage.png
+   .. figure:: /_figures/gce/01-cloud-storage.png
       :scale: 50 %
       :alt: Browse Google Cloud Storage
 
@@ -66,7 +67,7 @@ Setup |CL| VM on GCP
       You may need to create a billing account and link to this project
       before you create a bucket.
 
-   .. figure:: figures/gce/02-storage-browser.png
+   .. figure:: /_figures/gce/02-storage-browser.png
       :scale: 50 %
       :alt: Cloud Storage Browser tool
 
@@ -79,7 +80,7 @@ Setup |CL| VM on GCP
      Leave the remaining options set to the defaults, and click the
      :guilabel:`Create` button at the bottom to create a *Bucket*.
 
-     .. figure:: figures/gce/03-create-bucket.png
+     .. figure:: /_figures/gce/03-create-bucket.png
         :scale: 50 %
         :alt: Set a unique bucket name
 
@@ -89,19 +90,19 @@ Setup |CL| VM on GCP
    on the Bucket details page to upload the |CL| GCE image archive
    to the named bucket:
 
-   .. figure:: figures/gce/04-bucket-created.png
+   .. figure:: /_figures/gce/04-bucket-created.png
       :scale: 50 %
       :alt: Cloud Storage bucket is available for storing objects
 
       Figure 5: Cloud Storage bucket
 
-   .. figure:: figures/gce/10-image-upload.png
+   .. figure:: /_figures/gce/10-image-upload.png
       :scale: 50 %
       :alt: Uploading the image source archive file
 
       Figure 6: Uploading the image source archive file
 
-   .. figure:: figures/gce/11-bucket-uploaded.png
+   .. figure:: /_figures/gce/11-bucket-uploaded.png
       :scale: 50 %
       :alt: Image archive imported complete
 
@@ -111,19 +112,19 @@ Setup |CL| VM on GCP
 
    * Click the :guilabel:`Navigation menu` icon on the upper left screen menu.
 
-   * Select the :menuselection:`Compute Engine --> Images` from the side bar on
-     the left.
+   * Select the :menuselection:`Compute Engine --> Images` from the side bar
+     on the left.
 
-     .. figure:: figures/gce/20-gce-image.png
+     .. figure:: /_figures/gce/20-gce-image.png
         :scale: 50 %
         :alt: Go to Google Compute Engine Image library
 
         Figure 8: Image library
 
-#. On the Compute Engine Image library page, click the :guilabel:`[+] CREATE IMAGE`
-   menu item to create a custom image:
+#. On the Compute Engine Image library page, click the 
+   :guilabel:`[+] CREATE IMAGE` menu item to create a custom image:
 
-   .. figure:: figures/gce/20-image-library.png
+   .. figure:: /_figures/gce/20-image-library.png
       :scale: 50 %
       :alt: Create a Google Compute Engine image
 
@@ -137,7 +138,7 @@ Setup |CL| VM on GCP
 #. Locate the :file:`clear-<release number>-gce.tar.gz` file,
    and click :guilabel:`Select`.
 
-   .. figure:: figures/gce/21-create-image.png
+   .. figure:: /_figures/gce/21-create-image.png
       :scale: 50 %
       :alt: Create the image using the imported image archive object
 
@@ -146,7 +147,7 @@ Setup |CL| VM on GCP
    Accept all default options, and click the :guilabel:`Create` button
    at the bottom to import the Clear Linux GCE image to the image library.
 
-   .. figure:: figures/gce/22-image-list.png
+   .. figure:: /_figures/gce/22-image-list.png
       :scale: 50 %
       :alt: Clear Linux Compute Engine image is created
 
@@ -157,10 +158,10 @@ Setup |CL| VM on GCP
 
    * Click the :guilabel:`Navigation menu` icon on the upper left screen menu.
 
-   * Select :menuselection:`Compute Engine --> VM Instances` from the side bar on
-     the left.
+   * Select :menuselection:`Compute Engine --> VM Instances` from the side bar
+     on the left.
 
-   .. figure:: figures/gce/30-vm-instances.png
+   .. figure:: /_figures/gce/30-vm-instances.png
       :scale: 50 %
       :alt: Go to VM instances catalog
 
@@ -172,13 +173,13 @@ Setup |CL| VM on GCP
 #. Alternatively, click the :guilabel:`CREATE INSTANCE` button on the VM
    instances page to create a VM instance.
 
-   .. figure:: figures/gce/30-vm-none.png
+   .. figure:: /_figures/gce/30-vm-none.png
       :scale: 50 %
       :alt: Prompt for VM creation
 
       Figure 13: VM creation
 
-   .. figure:: figures/gce/30-vm-catalog.png
+   .. figure:: /_figures/gce/30-vm-catalog.png
       :scale: 50 %
       :alt: List of VM instances
 
@@ -189,7 +190,7 @@ Setup |CL| VM on GCP
 
    * Under :guilabel:`Boot disk`, click the :guilabel:`Change` button.
 
-     .. figure:: figures/gce/30-create-vm.png
+     .. figure:: /_figures/gce/30-create-vm.png
         :scale: 50 %
         :alt: Use custom image while creating Clear Linux VM instance
 
@@ -197,7 +198,7 @@ Setup |CL| VM on GCP
 
    * Select the :menuselection:`Custom images` tab for using Clear Linux OS GCE image.
 
-     .. figure:: figures/gce/31-select-boot-disk.png
+     .. figure:: /_figures/gce/31-select-boot-disk.png
         :scale: 50 %
         :alt: Select Clear Linux boot disk to create a VM instance
 
@@ -207,7 +208,7 @@ Setup |CL| VM on GCP
      expand the :guilabel:`Management, security, disks, networking, sole tenancy`
      group.
 
-     .. figure:: figures/gce/40-clear-vm-security.png
+     .. figure:: /_figures/gce/40-clear-vm-security.png
         :scale: 50 %
         :alt: Clear Linux requires setting up SSH keys
 
@@ -222,7 +223,7 @@ Setup |CL| VM on GCP
 
    * Click the :menuselection:`Security` tab, copy and paste your SSH public key:
 
-     .. figure:: figures/gce/40-ssh-key.png
+     .. figure:: /_figures/gce/40-ssh-key.png
         :scale: 50 %
         :alt: Set SSH key for remote login
 
@@ -239,7 +240,7 @@ Setup |CL| VM on GCP
 
 #. The Clear Linux VM instance is created and assigned a public IP address:
 
-   .. figure:: figures/gce/41-vm-created.png
+   .. figure:: /_figures/gce/41-vm-created.png
       :scale: 50 %
       :alt: Clear Linux VM instance is created and started
 
@@ -248,7 +249,7 @@ Setup |CL| VM on GCP
 #. You can now SSH login to the VM using the IP address obtained in the
    previous step, and the username associated with the SSH public key:
 
-   .. figure:: figures/gce/42-ssh-vm.png
+   .. figure:: /_figures/gce/42-ssh-vm.png
       :scale: 50 %
       :alt: SSH login to the Clear Linux VM
 

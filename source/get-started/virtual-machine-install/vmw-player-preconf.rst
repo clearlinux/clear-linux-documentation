@@ -1,7 +1,7 @@
 .. _vmw-player-preconf:
 
-Run pre-configured |CL-ATTR| image as a VMware\* Workstation Player guest OS
-############################################################################
+|CL-ATTR| on VMware\* Workstation Player (pre-configured image)
+###############################################################
 
 This page explains how to deploy a pre-configured |CL| VMware image on
 `VMware Workstation 14 Player`_.
@@ -13,10 +13,10 @@ This page explains how to deploy a pre-configured |CL| VMware image on
 Overview
 ********
 
-VMware Workstation 14 Player is a type 2 hypervisor. It runs on top of
-another operating system such as Windows\* or Linux\*. With VMware ESXi, you
-can create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
-on your local system.
+VMware Workstation 14 Player is a type 2 hypervisor. It runs on top of another
+operating system such as Windows\* or Linux\*. With VMware ESXi, you can
+create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)` on
+your local system.
 
 .. note::
 

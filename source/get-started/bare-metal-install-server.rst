@@ -1,7 +1,7 @@
 .. _bare-metal-install-server:
 
-Install |CL-ATTR| on bare metal with live server
-################################################
+Install |CL-ATTR| from the live server
+######################################
 
 This page explains how to install |CL-ATTR| on bare metal from a bootable USB
 drive using a live server image.
@@ -587,7 +587,8 @@ Add New User
 
    .. note:
 
-      The User Name must be alphanumeric and can include spaces, commas, or hyphens. Maximum length is 64 characters.
+      The User Name must be alphanumeric and can include spaces, commas, or
+      hyphens. Maximum length is 64 characters.
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-23.png
       :scale: 100%
