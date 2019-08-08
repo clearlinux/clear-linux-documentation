@@ -12,7 +12,7 @@ install:
 script: 
   - make py
   - make htmlall
-  #- make linkcheck
+  - make linkcheck
 
 deploy:
   - provider: pages
