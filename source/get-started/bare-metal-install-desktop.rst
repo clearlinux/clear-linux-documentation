@@ -352,9 +352,9 @@ Optional: Skip to `Finish installation`_.
 Telemetry
 =========
 
-Choose whether to participate in `telemetry`. Telemetry is a |CL|
+Choose whether to participate in `telemetry`. :ref:`telem-guide` is a |CL|
 feature that reports failures and crashes to the |CL| development
-team for improvements. For more information, see :ref:`telem-guide`.
+team for improvements.
 
 #. From :guilabel:`Required Options`, select :guilabel:`Telemetry`.
 

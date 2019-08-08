@@ -9,7 +9,6 @@ Below is a list of commonly asked questions with answers sourced from the
 .. contents:: :local:
     :depth: 2
 
-
 General
 *******
 

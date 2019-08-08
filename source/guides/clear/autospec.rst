@@ -3,10 +3,11 @@
 autospec
 ########
 
-**autospec** is a tool used to assist with the automated creation and maintenance of
-RPM packaging in |CL-ATTR|. Where a standard :abbr:`RPM (RPM Package Manager)` build process using
-:command:`rpmbuild` requires a tarball and :file:`.spec` file to start, autospec
-requires only a tarball and package name to start.
+**autospec** is a tool used to assist with the automated creation and
+maintenance of RPM packaging in |CL-ATTR|. Where a standard
+:abbr:`RPM (RPM Package Manager)` build process using :command:`rpmbuild`
+requires a tarball and :file:`.spec` file to start, autospec requires only a
+tarball and package name to start.
 
 .. contents::
    :local:
