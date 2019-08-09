@@ -1,7 +1,7 @@
 .. _aws-web:
 
-Create and launch |CL-ATTR| from Amazon Web Services\*
-######################################################
+|CL-ATTR| on Amazon Web Services\*
+##################################
 
 This tutorial explains how to create and launch a |CL|
 :abbr:`AMI (Amazon Machine Image)` instance from the
@@ -38,8 +38,8 @@ This tutorial assumes the following statements are true:
 Locate, select, and launch the |CL| Basic AMI
 *********************************************
 
-#. Start from your main AWS services console menu in your browser and select the
-   :guilabel:`EC2` text as shown in Figure 1:
+#. Start from your main AWS services console menu in your browser and select
+   the :guilabel:`EC2` text as shown in Figure 1:
 
    .. figure:: /_figures/aws/aws-web-1.png
       :scale: 50 %
@@ -69,8 +69,8 @@ Locate, select, and launch the |CL| Basic AMI
       :guilabel:`AWS Marketplace` menu item to bring up the search bar to
       :guilabel:`Search AWS Marketplace Products`.
 
-   #. In the search bar, type "clear linux os" and press the :kbd:`Enter` key to
-      search for and locate the :guilabel:`Clear Linux OS Basic` AMI.
+   #. In the search bar, type "clear linux os" and press the :kbd:`Enter` key
+      to search for and locate the :guilabel:`Clear Linux OS Basic` AMI.
 
    #. Select the :guilabel:`Clear Linux OS Basic` AMI by clicking the
       :guilabel:`Select` button as shown in Figure 3:
@@ -212,8 +212,8 @@ other instances available, they are also listed but not selected.
 
       ssh -i "AWSClearTestKey.pem" clear@ec2-34-209-39-184.us-west-2.compute.amazonaws.com
 
-#. A message appears on the terminal stating the authenticity of the host can't
-   be established and prompts you with the message:
+#. A message appears on the terminal stating the authenticity of the host
+   can't be established and prompts you with the message:
 
    .. code-block:: console
 
@@ -221,8 +221,9 @@ other instances available, they are also listed but not selected.
       ECDSA key fingerprint is SHA256:LrziT5Ar66iBTfia8qmiIsrfBUm/UGam76U8bDR6yJc.
       Are you sure you want to continue connecting (yes/no)?
 
-#. Type `yes` and press the :kbd:`Enter` key. Another warning is printed to the
-   terminal and you are now at the command prompt of your new |CL| instance.
+#. Type `yes` and press the :kbd:`Enter` key. Another warning is printed to
+   the terminal and you are now at the command prompt of your new |CL|
+   instance.
 
    .. code-block:: console
 

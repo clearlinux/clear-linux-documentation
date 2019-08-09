@@ -1,7 +1,7 @@
 .. _vmw-player:
 
-Install |CL-ATTR| as a VMware\* Workstation Player guest OS
-###########################################################
+|CL-ATTR| on VMware\* Workstation Player
+########################################
 
 This page explains how to create a new VM and install |CL| on it with the
 VMware Workstation Player hypervisor.

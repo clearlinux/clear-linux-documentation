@@ -1,7 +1,7 @@
 .. _vmware-esxi-preconfigured-cl-image:
 
-Run pre-configured |CL-ATTR| image as a VMware\* ESXi guest OS
-##############################################################
+|CL-ATTR| on VMware\* ESXi (pre-configured image)
+#################################################
 
 This page explains how to deploy a pre-configured |CL| VMware
 :abbr:`VM (Virtual Machine)` image on a VMware ESXi 6.5 host.
