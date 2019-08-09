@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ../../concepts/bundles-about.rst:4
+#: ../../guides/clear/bundles.rst:4
 msgid "Bundles"
 msgstr ""
 
-#: ../../concepts/bundles-about.rst:6
+#: ../../guides/clear/bundles.rst:6
 msgid ""
 "Linux-based operating systems contain the code of several hundred, if not"
 " thousands, of open source projects. To make this manageable, "
@@ -30,7 +30,7 @@ msgid ""
 "the source code of these projects into binaries."
 msgstr ""
 
-#: ../../concepts/bundles-about.rst:11
+#: ../../guides/clear/bundles.rst:11
 msgid ""
 "Many distributions then split the content of these compiled packages into"
 " so-called sub-packages, which are the granularity at which these "
@@ -39,33 +39,51 @@ msgid ""
 "individually or as a set, using tools such as \"yum\" and \"apt-get.\""
 msgstr ""
 
-#: ../../concepts/bundles-about.rst:17
+#: ../../guides/clear/bundles.rst:17
 msgid ""
 "The |CL-ATTR| takes a slightly different approach. While we also use the "
 "concept of packages to manage compiling source code into binaries, we do "
 "not use the package concept to deploy software. Instead, we provide "
 "software \"bundles\" that are installed and managed using :ref:`swupd"
-"<swupd-about>`. Each bundle contains as many or as few open source "
+"<swupd-guide>`. Each bundle contains as many or as few open source "
 "projects needed to provide a complete functionality."
 msgstr ""
 
-#: ../../concepts/bundles-about.rst:24
-msgid "Next steps"
+#: ../../guides/clear/bundles.rst:25
+msgid "Related topics"
 msgstr ""
 
-#: ../../concepts/bundles-about.rst:26
-msgid "To put this concept into practice, see the following resources:"
+#: ../../guides/clear/bundles.rst:27
+msgid ":ref:`swupd-guide`"
 msgstr ""
 
-#: ../../concepts/bundles-about.rst:28
-msgid ":ref:`bundles`"
-msgstr ""
+#~ msgid ""
+#~ "The |CL-ATTR| takes a slightly "
+#~ "different approach. While we also use"
+#~ " the concept of packages to manage"
+#~ " compiling source code into binaries, "
+#~ "we do not use the package concept"
+#~ " to deploy software. Instead, we "
+#~ "provide software \"bundles\" that are "
+#~ "installed and managed using :ref:`swupd"
+#~ "<swupd-about>`. Each bundle contains as "
+#~ "many or as few open source "
+#~ "projects needed to provide a complete"
+#~ " functionality."
+#~ msgstr ""
 
-#: ../../concepts/bundles-about.rst:29
-msgid ":ref:`bundle-commands`"
-msgstr ""
+#~ msgid "Next steps"
+#~ msgstr ""
 
-#: ../../concepts/bundles-about.rst:30
-msgid ":ref:`compatible-kernels`"
-msgstr ""
+#~ msgid "To put this concept into practice, see the following resources:"
+#~ msgstr ""
+
+#~ msgid ":ref:`bundles`"
+#~ msgstr ""
+
+#~ msgid ":ref:`bundle-commands`"
+#~ msgstr ""
+
+#~ msgid ":ref:`compatible-kernels`"
+#~ msgstr ""
 

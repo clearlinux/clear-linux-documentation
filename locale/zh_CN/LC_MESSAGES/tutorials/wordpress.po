@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ../../tutorials/wordpress/wordpress.rst:4
-msgid "WordPress\\* on |CL-ATTR|"
+#: ../../tutorials/wordpress.rst:4
+msgid "WordPress\\*"
 msgstr ""
 
-#: ../../tutorials/wordpress/wordpress.rst:6
+#: ../../tutorials/wordpress.rst:6
 msgid ""
 "This tutorial describes how to setup a web server to host a WordPress\\* "
 "site on a |CL-ATTR| system. The tutorial is split into two sections:"
 msgstr ""
 
-#: ../../tutorials/wordpress/wordpress.rst:9
+#: ../../tutorials/wordpress.rst:9
 msgid ":ref:`web-server-install`"
 msgstr ""
 
-#: ../../tutorials/wordpress/wordpress.rst:11
+#: ../../tutorials/wordpress.rst:11
 msgid ":ref:`wp-install`"
 msgstr ""
 
-#: ../../tutorials/wordpress/wordpress.rst:13
+#: ../../tutorials/wordpress.rst:13
 msgid ""
 "If you already have a |CL| based :abbr:`LAMP (Linux, Apache, MySQL, PHP)`"
 " web server, you can skip ahead to the second section of this tutorial."
 msgstr ""
 
-#: ../../tutorials/wordpress/wordpress.rst:18
+#: ../../tutorials/wordpress.rst:18
 msgid ""
 "This tutorial is for development and testing purposes only. Additional "
 "steps are required to secure production systems. Those steps are beyond "
 "the scope of this tutorial."
 msgstr ""
+
+#~ msgid "WordPress\\* on |CL-ATTR|"
+#~ msgstr ""
 

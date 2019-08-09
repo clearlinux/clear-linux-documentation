@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ../../tutorials/tutorials.rst:4
+#: ../../tutorials/index.rst:4
 msgid "Tutorials"
 msgstr ""
 
-#: ../../tutorials/tutorials.rst:6
+#: ../../tutorials/index.rst:6
 msgid "Explore our tutorials to discover what you can do with |CL|!"
+msgstr ""
+
+#: ../../tutorials/index.rst:15
+msgid "Archive"
+msgstr ""
+
+#: ../../tutorials/index.rst:17
+msgid "Older tutorials that may still be relevant to some users."
 msgstr ""
 

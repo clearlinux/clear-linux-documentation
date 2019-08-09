@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../about.rst:4
+msgid "About"
+msgstr ""
+
+#: ../../about.rst:6
+msgid ""
+"The |CL| delivers a secure, hardware optimized OS. Its easy updates "
+"ensure that software dependencies remain mutually compatible."
+msgstr ""
+
+#: ../../about.rst:9
+msgid ""
+"|CL| does this via custom infrastructure components and process "
+"innovations."
+msgstr ""
+
+#: ../../about.rst:16
+msgid ""
+"For detailed information on these topics, refer to the :ref:`cl-guides` "
+"guides."
+msgstr ""
+
+#: ../../about.rst:20
+msgid "Release Cadence"
+msgstr ""
+
+#: ../../about.rst:22
+msgid ""
+"|CL| updates are based on a rolling release that can occur daily, up to a"
+" few times per week. Each release has a unique version number that "
+"identifies every component in the OS from kernel, to driver, to tool, to "
+"GUI application. Most components are included in entities called "
+"*bundles*."
+msgstr ""
+
+#: ../../about.rst:28
+msgid "Updates"
+msgstr ""
+
+#: ../../about.rst:30
+msgid ""
+"By default, |CL| automatically checks for updates, ensuring that the "
+"latest performance and security fixes are installed as soon as they are "
+"available. :ref:`swupd-guide` is the custom tool designed to manage "
+"updates and bundles."
+msgstr ""
+
+#: ../../about.rst:34
+msgid ""
+"|CL| is :ref:`stateless` to make sure that system components can be "
+"updated without impacting user settings."
+msgstr ""
+
+#: ../../about.rst:39
+msgid "Ease of Use"
+msgstr ""
+
+#: ../../about.rst:41
+msgid "|CL| makes it easier to manage a number of difficult problems."
+msgstr ""
+
+#: ../../about.rst:43
+msgid ""
+":ref:`autoproxy` makes it possible for |CL| tools to operate in some "
+"proxy environments without needing to be configured."
+msgstr ""
+
+#: ../../about.rst:46
+msgid ""
+"Being :ref:`stateless` means that configuration settings are easier to "
+"manage and remain untouched when system sofware is updated."
+msgstr ""
+
+#: ../../about.rst:49
+msgid ""
+":ref:`swupd-guide` simplifies managing software and maintaining "
+"compatibility."
+msgstr ""
+
+#: ../../about.rst:52
+msgid "Custom Derivatives"
+msgstr ""
+
+#: ../../about.rst:54
+msgid ""
+"The same tools used to build the |CL| are available *in* the OS. These "
+"tools can be used to create a custom distribution that continues to "
+"benefit from upstream rolling releases."
+msgstr ""
+
+#: ../../about.rst:63
+msgid ""
+"Figure 1: Creating and managing a Clear Linux\\* OS version (or "
+"derivative)"
+msgstr ""
+
+#: ../../about.rst:66
+msgid "Create"
+msgstr ""
+
+#: ../../about.rst:68
+msgid ""
+"To create a custom distribution you need to understand how to use the "
+":ref:`autospec` and :ref:`mixer` tools."
+msgstr ""
+
+#: ../../about.rst:71
+msgid ""
+"Additional training materials are available in the `how-to-clear`_ "
+"GitHub\\* project to help you get started with |CL| tools."
+msgstr ""
+
+#: ../../about.rst:75
+msgid "Deploy"
+msgstr ""
+
+#: ../../about.rst:77
+msgid "We also provide training on how to :ref:`deploy-at-scale`."
+msgstr ""
+
+#: ../../about.rst:80
+msgid "Administrate"
+msgstr ""
+
+#: ../../about.rst:82
+msgid ""
+"|CL| provides a :ref:`telem-guide` solution for collecting useful "
+"information about a deployment, as well as :ref:`debug` capabilities."
+msgstr ""
+

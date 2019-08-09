@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ../../reference/reference.rst:4
+#: ../../reference/index.rst:4
 msgid "Reference"
 msgstr ""
 
-#: ../../reference/reference.rst:6
+#: ../../reference/index.rst:6
 msgid ""
 "This section provides additional information on the |CL| project and "
 "features."
 msgstr ""
 
-#: ../../reference/reference.rst:24
-msgid "Clear Linux concepts"
-msgstr ""
+#~ msgid "Clear Linux concepts"
+#~ msgstr ""
 

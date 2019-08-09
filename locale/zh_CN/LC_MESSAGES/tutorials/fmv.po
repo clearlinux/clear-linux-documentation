@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Generated-By: Babel 2.7.0\n"
 
 #: ../../tutorials/fmv.rst:4
-msgid "Use the function multi-version patch generator"
+msgid "Function multi-versioning"
 msgstr ""
 
 #: ../../tutorials/fmv.rst:6
@@ -199,5 +199,8 @@ msgstr ""
 #~ " package like FFT, we must use "
 #~ "the `-fopt-info-vec` flag to get"
 #~ " a build log file similar to:"
+#~ msgstr ""
+
+#~ msgid "Use the function multi-version patch generator"
 #~ msgstr ""
 

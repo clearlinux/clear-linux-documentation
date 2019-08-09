@@ -5,27 +5,32 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0152\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans\n"
 "Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
-"Language: zh-Hans\n"
+"Generated-By: Babel 2.7.0\n"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:4
-msgid "Run pre-configured |CL-ATTR| image as a VMware\\* ESXi guest OS"
-msgstr "运行预配置的 |CL-ATTR| 映像，用作 VMware\\* ESXi 来宾操作系统"
+msgid "|CL-ATTR| on VMware\\* ESXi (pre-configured image)"
+msgstr ""
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:6
+#, fuzzy
 msgid ""
-"This page explains how to deploy a preconfigured |CL| VMware :abbr:`VM "
+"This page explains how to deploy a pre-configured |CL| VMware :abbr:`VM "
 "(Virtual Machine)` image on a VMware ESXi 6.5 host."
-msgstr "本页说明如何在 VMware ESXi 6.5 主机上部署预配置的 |CL| VMware :abbr:`VM (Virtual Machine)` 映像。"
+msgstr ""
+"本页说明如何在 VMware ESXi 6.5 主机上部署预配置的 |CL| VMware :abbr:`VM (Virtual "
+"Machine)` 映像。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:14
 msgid "Overview"
@@ -36,12 +41,15 @@ msgid ""
 "`VMware ESXi`_ is a type 1 bare-metal hypervisor which runs directly on "
 "top of server hardware.  With VMware ESXi, you can create, configure, "
 "manage, and run |CL-ATTR| virtual machines at scale."
-msgstr "`VMware ESXi`_ 是一个 1 类裸机虚拟机管理程序，可直接在服务器硬件上运行。利用 VMware ESXi，可以大规模创建、配置、管理和运行 |CL-ATTR| 虚拟机。"
+msgstr ""
+"`VMware ESXi`_ 是一个 1 类裸机虚拟机管理程序，可直接在服务器硬件上运行。利用 VMware "
+"ESXi，可以大规模创建、配置、管理和运行 |CL-ATTR| 虚拟机。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:20
+#, fuzzy
 msgid ""
-"We provide a preconfigured |CL| VMware image that can be run on a VMware "
-"ESXi 6.5 host."
+"We provide a pre-configured |CL| VMware image that can be run on a VMware"
+" ESXi 6.5 host."
 msgstr "我们提供可在 VMware ESXi 6.5 主机上运行的 |CL| VMware 映像。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:23
@@ -55,7 +63,9 @@ msgid ""
 "VMware also offers a type 2 hypervisor designed for the desktop "
 "environment, called `VMware Workstation Player`_. Refer to :ref:`vmw-"
 "player-preconf` or :ref:`vmw-player` for more information."
-msgstr "VMware 还提供一个适用于桌面环境的 2 类虚拟机管理程序，名为 `VMware Workstation Player`_。请参阅 :ref:`vmw-player-preconf` 或 :ref:`vmw-player` 了解更多信息。"
+msgstr ""
+"VMware 还提供一个适用于桌面环境的 2 类虚拟机管理程序，名为 `VMware Workstation Player`_。请参阅 :ref"
+":`vmw-player-preconf` 或 :ref:`vmw-player` 了解更多信息。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:32
 msgid "Download the latest |CL| VMware image"
@@ -66,7 +76,9 @@ msgid ""
 "Get the latest |CL| VMware prebuilt image from the `image`_ repository. "
 "Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use "
 "this command:"
-msgstr "从 `image`_ 存储库中获取最新的 |CL| VMware 预构建映像。查找 :file:`clear-[version number]-vmware.vmdk.xz`。还可以使用以下命令："
+msgstr ""
+"从 `image`_ 存储库中获取最新的 |CL| VMware 预构建映像。查找 :file:`clear-[version "
+"number]-vmware.vmdk.xz`。还可以使用以下命令："
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:42
 msgid ""
@@ -78,7 +90,9 @@ msgstr "访问 :ref:`image-types`，了解关于所有 |CL| 映像的其他信�
 msgid ""
 "We also provide instructions for downloading and verifying a Clear Linux "
 "ISO. For more information, refer to :ref:`download-verify-decompress`."
-msgstr "我们还提供关于下载和验证 Clear Linux ISO 的说明。欲了解详情，请参阅 :ref:`download-verify-decompress`。"
+msgstr ""
+"我们还提供关于下载和验证 Clear Linux ISO 的说明。欲了解详情，请参阅 :ref:`download-verify-"
+"decompress`。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:48
 msgid "Upload the |CL| image to the VMware server"
@@ -95,7 +109,9 @@ msgstr "在本地系统下载并解压缩 |CL| VMware 预构建映像后，必�
 msgid ""
 "The steps in this section can also be referenced from the VMware "
 "documentation `Using Datastore File Browser in the VMware Host Client`_."
-msgstr "有关本节中的步骤，还可以参考 VMware 文档 `Using Datastore File Browser in the VMware Host Client`_。"
+msgstr ""
+"有关本节中的步骤，还可以参考 VMware 文档 `Using Datastore File Browser in the VMware Host"
+" Client`_。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:57
 msgid ""
@@ -152,30 +168,40 @@ msgstr "将 |CL| 映像转换为 ESXi 支持的格式。"
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:97
 msgid ""
 "Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi "
-"datastore, it must be converted to a format for use with VMware's ESXi"
-" hypervisor."
-msgstr "|CL| VMware 预构建映像上传至 VMware ESXi 数据存储后，必须将其转换为 VMware's ESXi 虚拟机管理程序可以使用的格式。"
+"datastore, it must be converted to a format for use with VMware's ESXi "
+"hypervisor."
+msgstr ""
+"|CL| VMware 预构建映像上传至 VMware ESXi 数据存储后，必须将其转换为 VMware's ESXi "
+"虚拟机管理程序可以使用的格式。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:101
 msgid ""
 "The steps in this section can also be referenced from the VMware "
 "documentation on `Cloning and converting virtual machine disks with "
 "vmkfstools`_"
-msgstr "有关本节中的步骤，还可以参考 VMware 文档 `Cloning and converting virtual machine disks with vmkfstools`_"
+msgstr ""
+"有关本节中的步骤，还可以参考 VMware 文档 `Cloning and converting virtual machine disks "
+"with vmkfstools`_"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:103
 msgid ""
 "SSH into the `vSphere Management Assistant`_  appliance that is managing "
 "the ESXi host or connect to the vSphere hosting using the `vSphere CLI`_."
-msgstr "通过 SSH 连接到 `vSphere Management Assistant`_ 设备，利用 `vSphere CLI`_ 管理 ESXi 主机或连接到 vSphere 主机托管。"
+msgstr ""
+"通过 SSH 连接到 `vSphere Management Assistant`_ 设备，利用 `vSphere CLI`_ 管理 ESXi "
+"主机或连接到 vSphere 主机托管。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:108
+#, fuzzy
 msgid ""
 "If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or "
 ":abbr:`vCLI (vSphere CLI)` configured and available, you can temporarily "
 "enable SSH directly on the ESXi host by following the steps described in "
-"`Enable the Secure Shell (SSH) in the VMware Host Client`_ ."
-msgstr "如果没有配置或可用的 :abbr:`vMA (vSphere Management Assistant)` 设备或 :abbr:`vCLI (vSphere CLI)`，则可以按照 `在 VMware 主机客户端启用 Secure Shell (SSH)`_ 中所述步骤直接在 ESXi 主机上临时启用 SSH。"
+"`Enable the Secure Shell (SSH) in the VMware Host Client`_."
+msgstr ""
+"如果没有配置或可用的 :abbr:`vMA (vSphere Management Assistant)` 设备或 :abbr:`vCLI "
+"(vSphere CLI)`，则可以按照 `在 VMware 主机客户端启用 Secure Shell (SSH)`_ 中所述步骤直接在 ESXi"
+" 主机上临时启用 SSH。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:112
 msgid ""
@@ -222,7 +248,9 @@ msgid ""
 "In this section, you will create a new VM, configure its basic parameters"
 " such as number of CPUs, memory size, and then attach the converted |CL| "
 "VMware image. Also, in order to boot |CL|, you must enable UEFI support."
-msgstr "本节中，您会创建新虚拟机，配置基本参数，如 CPU 数量、内存大小，然后挂载转换后的 |CL| VMware 映像。而且，为了引导 |Cl|，必须启用 UEFI 支持。"
+msgstr ""
+"本节中，您会创建新虚拟机，配置基本参数，如 CPU 数量、内存大小，然后挂载转换后的 |CL| VMware 映像。而且，为了引导 "
+"|Cl|，必须启用 UEFI 支持。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:140
 msgid ""
@@ -279,7 +307,9 @@ msgstr "将 :guilabel:`Guest OS family` 选项设置为 :guilabel:`Linux`。"
 msgid ""
 "Set the :guilabel:`Guest OS version` option to :guilabel:`Other 3.x or "
 "later Linux (64-bit)`."
-msgstr "将 :guilabel:`Guest OS version` 选项设置为 :guilabel:`Other 3.x or later Linux (64-bit)`。"
+msgstr ""
+"将 :guilabel:`Guest OS version` 选项设置为 :guilabel:`Other 3.x or later Linux "
+"(64-bit)`。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:179
 msgid "Figure 6: VMware ESXi - Give a name and select guest OS type"
@@ -306,7 +336,9 @@ msgid ""
 "Expand the :guilabel:`CPU` setting and enable :guilabel:`Hardware "
 "virtualization` by checking :guilabel:`Expose hardware assisted "
 "virtualization to the guest OS`."
-msgstr "展开 :guilabel:`CPU` 设置，选中 :guilabel:`Hardware virtualization` 启用 :guilabel:`Expose hardware assisted virtualization to the guest OS`。"
+msgstr ""
+"展开 :guilabel:`CPU` 设置，选中 :guilabel:`Hardware virtualization` 启用 "
+":guilabel:`Expose hardware assisted virtualization to the guest OS`。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:197
 msgid "Figure 7: VMware ESXi - Enable hardware virtualization"
@@ -323,27 +355,35 @@ msgid "Figure 8: VMware ESXi - Remove hard drive"
 msgstr "图 8：VMware ESXi - 移除硬盘"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:208
+#, fuzzy
 msgid ""
-"Since a preconfigured image will be used, the :guilabel:`CD/DVD Drive 1` "
-"setting will not be needed.  Disable it by unchecking the "
+"Since a pre-configured image will be used, the :guilabel:`CD/DVD Drive 1`"
+" setting will not be needed.  Disable it by unchecking the "
 ":guilabel:`Connect` checkbox. See Figure 9."
-msgstr "由于要使用预配置映像，所以不再需要 :guilabel:`CD/DVD Drive 1` 设置。取消选中 :guilabel:`Connect` 复选框禁用该设置。见图 9。"
+msgstr ""
+"由于要使用预配置映像，所以不再需要 :guilabel:`CD/DVD Drive 1` 设置。取消选中 :guilabel:`Connect` "
+"复选框禁用该设置。见图 9。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:216
 msgid "Figure 9: VMware ESXi - Disconnect the CD/DVD drive"
 msgstr "图 9：VMware ESXi - 断开 CD/DVD 驱动器"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:218
+#, fuzzy
 msgid ""
 "Attach the :file:`clear-[version number]-esxi.vmdk` file that was "
-"converted from the preconfigured |CL| VMware image."
-msgstr "挂载 :file:`clear-[version number]-esxi.vmdk` 文件。该文件从预配置的 |CL| VMware 映像转换而来。"
+"converted from the pre-configured |CL| VMware image."
+msgstr ""
+"挂载 :file:`clear-[version number]-esxi.vmdk` 文件。该文件从预配置的 |CL| VMware "
+"映像转换而来。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:221
 msgid ""
 "Click the :guilabel:`Add hard disk` button and select the "
 ":guilabel:`Existing hard drive` option. See Figure 10."
-msgstr "点击 :guilabel:`Add hard disk` 按钮，选择 :guilabel:`Existing hard drive` 选项。见图 10。"
+msgstr ""
+"点击 :guilabel:`Add hard disk` 按钮，选择 :guilabel:`Existing hard drive` 选项。见图 "
+"10。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:228
 msgid "Figure 10: VMware ESXi - Add an existing hard drive"
@@ -354,7 +394,9 @@ msgid ""
 "Select the converted :file:`clear-[version number]-esxi.vmdk` file. Do "
 "not use the original unconverted :file:`clear-[version "
 "number]-vmware.vmdk` file. See Figure 11."
-msgstr "选择已转换的 :file:`clear-[version number]-esxi.vmdk` 文件。不要使用最初未转换的 :file:`clear-[version number]-vmware.vmdk` 文件。见图 11。"
+msgstr ""
+"选择已转换的 :file:`clear-[version number]-esxi.vmdk` 文件。不要使用最初未转换的 "
+":file:`clear-[version number]-vmware.vmdk` 文件。见图 11。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:238
 msgid ""
@@ -517,4 +559,6 @@ msgstr ":ref:`vmware-esxi-install-cl`"
 #~ msgid ":ref:`download-verify-decompress-windows`"
 #~ msgstr ""
 
+#~ msgid "Run pre-configured |CL-ATTR| image as a VMware\\* ESXi guest OS"
+#~ msgstr "运行预配置的 |CL-ATTR| 映像，用作 VMware\\* ESXi 来宾操作系统"
 

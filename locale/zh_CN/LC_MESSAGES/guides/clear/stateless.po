@@ -5,76 +5,83 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0152\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans\n"
 "Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
-"Language: zh-Hans\n"
+"Generated-By: Babel 2.7.0\n"
 
-#: ../../tooling/stateless.rst:4
+#: ../../guides/clear/stateless.rst:4
 msgid "Stateless"
 msgstr "无状态"
 
-#: ../../tooling/stateless.rst:6
+#: ../../guides/clear/stateless.rst:6
 msgid ""
 "In most operating systems, user data, system data, and configuration "
 "files can become intermingled."
 msgstr "在大多数操作系统中，用户数据、系统数据和配置文件可能会混杂在一起。"
 
-#: ../../tooling/stateless.rst:14
+#: ../../guides/clear/stateless.rst:14
 msgid ""
 "Figure 1: Without stateless, user and system files become mixed on the "
 "filesystem over time."
 msgstr "图 1：如果不使用无状态设计，用户和系统文件会随着时间的推移在文件系统中混杂在一起。"
 
-#: ../../tooling/stateless.rst:16
+#: ../../guides/clear/stateless.rst:16
 msgid ""
 "|CL-ATTR| has a stateless design philosophy with the goal to provide an "
 ":abbr:`OS (operating system)` that functions without excessive user "
 "configuration or customization. Stateless in this context does *not* mean"
 " ephemeral or non-persistent."
-msgstr "|CL-ATTR| 使用无状态设计理念，目的是打造一个无需过多用户配置或自定义的 `OS (operating system)`。在这种情况下，无状态并*不*意味着短暂或不持久。"
+msgstr ""
+"|CL-ATTR| 使用无状态设计理念，目的是打造一个无需过多用户配置或自定义的 `OS (operating "
+"system)`。在这种情况下，无状态并*不*意味着短暂或不持久。"
 
-#: ../../tooling/stateless.rst:25
+#: ../../guides/clear/stateless.rst:25
 msgid "File-level separation"
 msgstr "文件级隔离"
 
-#: ../../tooling/stateless.rst:27
+#: ../../guides/clear/stateless.rst:27
 msgid ""
 "To accomplish a stateless design the Linux Filesystem Hierarchy is "
 "separated between user-owned areas and |CL|-owned areas."
 msgstr "为了实现无状态设计，Linux 文件系统层次结构在用户拥有的区域和 |CL| 拥有的区域之间是隔离的。"
 
-#: ../../tooling/stateless.rst:35
+#: ../../guides/clear/stateless.rst:35
 msgid ""
 "Figure 2: With stateless, user and system files are separated on the "
 "filesystem."
 msgstr "图 2：使用无状态设计时，用户和系统文件在文件系统上是隔离的。"
 
-#: ../../tooling/stateless.rst:38
+#: ../../guides/clear/stateless.rst:38
 msgid "System areas"
 msgstr "系统区域"
 
-#: ../../tooling/stateless.rst:39
+#: ../../guides/clear/stateless.rst:39
+#, fuzzy
 msgid ""
 "File under the :file:`/usr` directory are managed by |CL| as system "
 "files. Files written under the :file:`/usr` directory by users can get "
-"removed through system updates with :ref:`swupd <swupd-about>`.This "
+"removed through system updates with :ref:`swupd <swupd-guide>`. This "
 "operating assumption allows |CL| to verify and maintain integrity of "
 "system files."
-msgstr ":file:`/usr` 目录下的文件作为系统文件由 |CL| 管理。用户在 :file:`/usr` 目录下写入的文件可以使用 :ref:`swupd <swupd-about>` 通过系统更新来移除。此操作假设允许 |CL| 验证和维护系统文件的完整性。"
+msgstr ""
+":file:`/usr` 目录下的文件作为系统文件由 |CL| 管理。用户在 :file:`/usr` 目录下写入的文件可以使用 "
+":ref:`swupd <swupd-about>` 通过系统更新来移除。此操作假设允许 |CL| 验证和维护系统文件的完整性。"
 
-#: ../../tooling/stateless.rst:45
+#: ../../guides/clear/stateless.rst:45
 msgid "User areas"
 msgstr "用户区域"
 
-#: ../../tooling/stateless.rst:46
+#: ../../guides/clear/stateless.rst:46
 msgid ""
 "Files under the :file:`/etc/`, :file:`/home`, and :file:`/var` "
 "directories are owned and managed by the user. A freshly installed |CL| "
@@ -82,114 +89,121 @@ msgid ""
 "directory and software installed by |CL| does not write to :file:`/etc`. "
 "This operating assumption allows |CL| users to clearly identify the "
 "configuration that makes their system unique."
-msgstr ":file:`/etc/`、:file:`/home` 和 :file:`/var` 目录下的文件由用户拥有和管理。新安装的 |CL| 系统在 :file:`/etc/` 目录中只有极少量的文件，并且 |CL| 安装的软件不会写入 :file:`/etc`。此操作假设允许 |CL| 用户清楚地识别其系统的独特配置。"
+msgstr ""
+":file:`/etc/`、:file:`/home` 和 :file:`/var` 目录下的文件由用户拥有和管理。新安装的 |CL| 系统在 "
+":file:`/etc/` 目录中只有极少量的文件，并且 |CL| 安装的软件不会写入 :file:`/etc`。此操作假设允许 |CL| "
+"用户清楚地识别其系统的独特配置。"
 
-#: ../../tooling/stateless.rst:54
+#: ../../guides/clear/stateless.rst:54
 msgid "Software configuration"
 msgstr "软件配置"
 
-#: ../../tooling/stateless.rst:56
+#: ../../guides/clear/stateless.rst:56
 msgid ""
 "With stateless separation, default software configurations are read in "
 "order from predefined source code, |CL| provided defaults, and user-"
 "provided configuration."
 msgstr "在无状态隔离的情况下，默认软件配置从预定义的源代码、|CL| 提供的默认值和用户提供的配置中按顺序读取。"
 
-#: ../../tooling/stateless.rst:61
+#: ../../guides/clear/stateless.rst:61
 msgid "Default configurations"
 msgstr "默认配置"
 
-#: ../../tooling/stateless.rst:63
+#: ../../guides/clear/stateless.rst:63
 msgid ""
 "Software in |CL| provides default configuration values so that it is "
 "immediately functional, whenever it is appropriate to do so."
 msgstr "|CL| 中的软件会提供默认配置值，以便在适当的时候立即运行。"
 
-#: ../../tooling/stateless.rst:66
+#: ../../guides/clear/stateless.rst:66
 msgid ""
 "|CL| distributed software packages may be directly modified to include "
 "default configuration values or default configuration files may be "
 "provided by |CL| under :file:`/usr/share/defaults`. These files can be "
 "referenced as templates for customization."
-msgstr "|CL| 分布的软件包可以直接修改以包括默认配置值，或者默认配置文件可以由 |CL| 在 :file:`/usr/share/defaults` 中提供。这些文件可以作为自定义模板引用。"
+msgstr ""
+"|CL| 分布的软件包可以直接修改以包括默认配置值，或者默认配置文件可以由 |CL| 在 :file:`/usr/share/defaults` "
+"中提供。这些文件可以作为自定义模板引用。"
 
-#: ../../tooling/stateless.rst:71
+#: ../../guides/clear/stateless.rst:71
 msgid ""
 "For example, the default configuration that Apache uses when installed "
 "can be found at :file:`/usr/share/defaults/httpd/httpd.conf` directory."
-msgstr "例如，Apache 安装后使用的默认配置可以在 :file:`/usr/share/defaults/httpd/httpd.conf` 目录中找到。"
+msgstr ""
+"例如，Apache 安装后使用的默认配置可以在 :file:`/usr/share/defaults/httpd/httpd.conf` "
+"目录中找到。"
 
-#: ../../tooling/stateless.rst:76
+#: ../../guides/clear/stateless.rst:76
 msgid "Overriding configurations"
 msgstr "覆盖配置"
 
-#: ../../tooling/stateless.rst:78
+#: ../../guides/clear/stateless.rst:78
 msgid ""
 "If a configuration needs to be changed, the appropriate file should be "
 "modified by the user under :file:`/etc/`. If the configuration file does "
 "not already exist, it can be created in the appropriate location."
 msgstr "如果需要更改配置，用户应在 :file:`/etc/` 下修改适当的文件。如果配置文件不存在，可以在适当的位置创建。"
 
-#: ../../tooling/stateless.rst:82
+#: ../../guides/clear/stateless.rst:82
 msgid ""
 "User defined configuration files should contain the minimal set of "
 "desired changes and rely on default configuration for the rest."
 msgstr "用户定义的配置文件应该包含尽可能少的更改，其余则依赖默认配置。"
 
-#: ../../tooling/stateless.rst:85
+#: ../../guides/clear/stateless.rst:85
 msgid "For example, a customized Apache configuration can be used instead by:"
 msgstr "例如，可以使用自定义 Apache 配置，具体方式是："
 
-#: ../../tooling/stateless.rst:87
+#: ../../guides/clear/stateless.rst:87
 msgid "Create the destination directory for the configuration:"
 msgstr "为配置创建目标目录："
 
-#: ../../tooling/stateless.rst:93
+#: ../../guides/clear/stateless.rst:93
 msgid "Copy the default configuration as a reference template:"
 msgstr "复制默认配置作为参考模板："
 
-#: ../../tooling/stateless.rst:99
+#: ../../guides/clear/stateless.rst:99
 msgid "Make any desired modifications to the configurations:"
 msgstr "对配置进行任何所需的修改："
 
-#: ../../tooling/stateless.rst:105
+#: ../../guides/clear/stateless.rst:105
 msgid "Reload the service or reboot the system to pickup any changes:"
 msgstr "重新加载服务或重新启动系统以获取任何更改："
 
-#: ../../tooling/stateless.rst:111
+#: ../../guides/clear/stateless.rst:111
 msgid ""
 "This pattern can be used to modify the configurations of other programs "
 "too. The `stateless man page`_ has application-specific examples."
 msgstr "这种模式也可以用来修改其他程序的配置。`stateless man page`_ 提供了特定于应用程序的示例。"
 
-#: ../../tooling/stateless.rst:115
+#: ../../guides/clear/stateless.rst:115
 msgid "System reset"
 msgstr "系统重置"
 
-#: ../../tooling/stateless.rst:117
+#: ../../guides/clear/stateless.rst:117
 msgid ""
 "Once advantage of the stateless design is that the system defaults can be"
 " easily restored by simply deleting everything under :file:`/etc/` and "
 ":file:`/var`."
 msgstr "无状态设计的一个优点是，只需删除 :file:`/etc/` 和 :file:`/var` 下的所有内容，就可以轻松恢复系统默认值。"
 
-#: ../../tooling/stateless.rst:121
+#: ../../guides/clear/stateless.rst:121
 msgid ""
 "Running the commands below effectively performs a system reset as if it "
 "was just installed:"
 msgstr "运行以下命令可以有效地执行系统重置，重置后系统就像刚刚安装一样："
 
-#: ../../tooling/stateless.rst:129
+#: ../../guides/clear/stateless.rst:129
 msgid ""
 "In other Linux distributions, this can be a catastrophic action that "
 "renders a system unable to boot."
 msgstr "在其他 Linux 发行版中，此操作有可能造成灾难性后果，导致系统无法启动。"
 
-#: ../../tooling/stateless.rst:133
+#: ../../guides/clear/stateless.rst:133
 msgid "Additional information"
 msgstr "附加说明"
 
-#: ../../tooling/stateless.rst:135
+#: ../../guides/clear/stateless.rst:135
 msgid "`stateless man page`_"
 msgstr "`stateless man page`_"
 

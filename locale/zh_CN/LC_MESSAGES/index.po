@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,67 +28,117 @@ msgid ""
 "documentation."
 msgstr ""
 
-#: ../../index.rst:12
+#: ../../index.rst:8
 msgid "Our documentation is divided into the following sections:"
 msgstr ""
 
-#: ../../index.rst:15
+#: ../../index.rst:11
 msgid ":ref:`get-started`"
 msgstr ""
 
-#: ../../includes/get-started.txt:1
+#: ../../index.rst:13
 msgid ""
-"If you are new to |CL|, get started fast with tutorials for installing "
-"|CL| on bare metal, in a virtual environment, or as a live image on a USB"
-" stick."
+"If you are new to |CL|, get started quickly with step-by-step "
+"instructions for installing |CL| on bare metal, in a virtual environment,"
+" or as a live image on a USB stick."
+msgstr ""
+
+#: ../../index.rst:17
+msgid ":ref:`about`"
 msgstr ""
 
 #: ../../index.rst:19
-msgid ":ref:`tooling`"
+msgid "|CL| is different from other Linux distributions."
 msgstr ""
 
-#: ../../index.rst:18
+#: ../../index.rst:21
 msgid ""
-"Clear Linux is a little different from other distros. Here are some "
-"important tools and concept for managing your install."
+"Updates, ease of use, and custom derivatives are a few of the differences"
+" this section explains. Orient yourself to these differences and why they"
+" matter to you."
 msgstr ""
 
-#: ../../index.rst:24
+#: ../../index.rst:29
 msgid ":ref:`guides`"
-msgstr ""
-
-#: ../../index.rst:22
-msgid ""
-"Guides show how to complete common tasks that help you leverage |CL| "
-"native features effectively. From basic system configuration to advanced "
-"management of a cloud installation, there is a guide for you."
-msgstr ""
-
-#: ../../index.rst:28
-msgid ":ref:`tutorials`"
-msgstr ""
-
-#: ../../index.rst:27
-msgid ""
-"|CL| tutorials provide step-by-step instructions on how |CL| features can"
-" be used and extended, frequently with third-party tools."
-msgstr ""
-
-#: ../../index.rst:32
-msgid ":ref:`reference`"
 msgstr ""
 
 #: ../../index.rst:31
 msgid ""
-"Find the detailed information you need to enable your configuration or "
-"task in our |CL| reference section."
+"Guides cover a range of topics from |CL| features and tooling, to system "
+"maintenance, network, and stacks."
 msgstr ""
 
-#: ../../index.rst:35
+#: ../../index.rst:34
+msgid ":ref:`Use case tutorials <tutorials>`"
+msgstr ""
+
+#: ../../index.rst:36
+msgid ""
+"Sample use cases, with step-by-step instructions, show how to set up "
+"third-party tools and software with |CL|."
+msgstr ""
+
+#: ../../index.rst:39
+msgid ":ref:`reference`"
+msgstr ""
+
+#: ../../index.rst:41
+msgid ""
+"This section provides additional reference information on the |CL| "
+"project."
+msgstr ""
+
+#: ../../index.rst:43
 msgid ":ref:`faq`"
 msgstr ""
 
-#: ../../index.rst:35
-msgid "Refer to our FAQ section to read commonly asked questions and answers."
+#: ../../index.rst:45
+msgid "The FAQ section provides answers to commonly asked questions about |CL|."
 msgstr ""
+
+#~ msgid ""
+#~ "If you are new to |CL|, get "
+#~ "started fast with tutorials for "
+#~ "installing |CL| on bare metal, in "
+#~ "a virtual environment, or as a "
+#~ "live image on a USB stick."
+#~ msgstr ""
+
+#~ msgid ":ref:`tooling`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Clear Linux is a little different "
+#~ "from other distros. Here are some "
+#~ "important tools and concept for managing"
+#~ " your install."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Guides show how to complete common "
+#~ "tasks that help you leverage |CL| "
+#~ "native features effectively. From basic "
+#~ "system configuration to advanced management"
+#~ " of a cloud installation, there is"
+#~ " a guide for you."
+#~ msgstr ""
+
+#~ msgid ":ref:`tutorials`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| tutorials provide step-by-step "
+#~ "instructions on how |CL| features can"
+#~ " be used and extended, frequently "
+#~ "with third-party tools."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Find the detailed information you need"
+#~ " to enable your configuration or task"
+#~ " in our |CL| reference section."
+#~ msgstr ""
+
+#~ msgid "Refer to our FAQ section to read commonly asked questions and answers."
+#~ msgstr ""
 

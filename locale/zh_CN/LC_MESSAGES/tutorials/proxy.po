@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,104 +18,110 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ../../tutorials/tutorial-proxy.rst:4
-msgid "Setting up proxy"
+#: ../../tutorials/proxy.rst:4
+msgid "Proxy configuration"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:6
+#: ../../tutorials/proxy.rst:6
 msgid ""
 "This tutorial shows you how to configure your system for use behind an "
 "outbound proxy to access the Internet."
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:9
-msgid ""
-"|CL| :ref:`tooling` applications already benefit from the "
-":ref:`autoproxy` feature."
+#: ../../tutorials/proxy.rst:9
+msgid "|CL| applications already benefit from the :ref:`autoproxy` feature."
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:17
+#: ../../tutorials/proxy.rst:17
 msgid "Prerequisites"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:19
+#: ../../tutorials/proxy.rst:19
 msgid ""
 "This tutorial assumes you have installed |CL| on your host system. For "
 "detailed instructions on installing |CL| on a bare metal system, visit "
 "the :ref:`bare metal installation guide <bare-metal-install-desktop>`."
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:24
+#: ../../tutorials/proxy.rst:24
 msgid "Shells and programs in a desktop session"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:27
+#: ../../tutorials/proxy.rst:27
 msgid "Terminal"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:29
+#: ../../tutorials/proxy.rst:29
 msgid "Add the following to your ~/.bashrc:"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:45
+#: ../../tutorials/proxy.rst:45
 msgid "wget"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:47
+#: ../../tutorials/proxy.rst:47
 msgid "Run this command to enable downloading from websites from the terminal:"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:59
+#: ../../tutorials/proxy.rst:59
 msgid "System service (Docker)"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:61
+#: ../../tutorials/proxy.rst:61
 msgid ""
 "For Docker (and other services that use systemd), you can follow these "
 "steps to configure and check proxy settings:"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:65
+#: ../../tutorials/proxy.rst:65
 msgid "Be sure to use :command:`sudo`, as you will need elevated permissions."
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:67
+#: ../../tutorials/proxy.rst:67
 msgid ""
 "Create :file:`/etc/systemd/system/docker.service.d` directory to host "
 "configuration information for the Docker service."
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:70
+#: ../../tutorials/proxy.rst:70
 msgid ""
 "Create :file:`/etc/systemd/system/docker.service.d/http-proxy.conf` and "
 "add:"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:78
+#: ../../tutorials/proxy.rst:78
 msgid "Load the changes and restart the service:"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:85
+#: ../../tutorials/proxy.rst:85
 msgid "Verify that changes have loaded:"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:97
+#: ../../tutorials/proxy.rst:97
 msgid ""
 "This process enables the ability to successfully run ``docker pull``. "
 "Containers themselves must be configured independently."
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:101
+#: ../../tutorials/proxy.rst:101
 msgid "git over ssh"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:103
+#: ../../tutorials/proxy.rst:103
 msgid "Add the following to your :file:`~/.ssh/config`:"
 msgstr ""
 
-#: ../../tutorials/tutorial-proxy.rst:114
+#: ../../tutorials/proxy.rst:114
 msgid ""
 "Though netcat is included with Clear Linux, it is not the BSD version, "
 "which is the one usually used to enable git over ssh."
 msgstr ""
+
+#~ msgid "Setting up proxy"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| :ref:`tooling` applications already "
+#~ "benefit from the :ref:`autoproxy` feature."
+#~ msgstr ""
 
