@@ -13,15 +13,16 @@ This page explains how to deploy a pre-configured |CL| VMware image on
 Overview
 ********
 
-VMware Workstation 14 Player is a type 2 hypervisor. It runs on top of another
-operating system such as Windows\* or Linux\*. With VMware ESXi, you can
-create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)` on
-your local system.
+VMware Workstation 14 Player is a type 2 hypervisor. For example, it runs on
+top of Windows\* or Linux\* operating system. With VMware ESXi, you
+can create, configure, manage, and run |CL-ATTR|
+:abbr:`VMs (Virtual Machines)` on your local system.
 
 .. note::
 
-   Screenshots in this document show VMware Workstation 14 Player for Windows.
-   Menus and prompts in the Linux version have minor wording differences.
+   Screenshots in this document show VMware Workstation 14 Player for
+   Windows. Menus and prompts in the Linux version have minor wording
+   differences.
 
 Install the VMware Workstation Player hypervisor
 ************************************************
@@ -59,7 +60,7 @@ For additional help, see the `VMware Workstation Player Documentation`_.
 Download the latest |CL| VMware image
 *************************************
 
-Get the latest |CL| VMware image from the `image`_ repository.
+Get the latest |CL| VMware image from the `image repository`_.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
 this command:
 
@@ -301,6 +302,7 @@ For other guides on using the VMWare Player and ESXi, see:
 * :ref:`vmware-esxi-install-cl`
 * :ref:`vmware-esxi-preconfigured-cl-image`
 
+.. _image repository: https://cdn.download.clearlinux.org/image/
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation 14 Player: https://www.vmware.com/products/workstation-player.html
 .. _VMware Workstation Player Documentation: https://docs.vmware.com/en/VMware-Workstation-Player/index.html
