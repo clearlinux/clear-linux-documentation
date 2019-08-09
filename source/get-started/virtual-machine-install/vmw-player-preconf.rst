@@ -61,20 +61,18 @@ Download the latest |CL| VMware image
 
 Get the latest |CL| VMware image from the `image`_ repository.
 Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use
-this command: 
+this command:
 
 .. code-block:: bash
 
    curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep vmware)
 
-Visit :ref:`image-types` for additional information about all available |CL| images.
+Decompress and verify the |CL| image
+************************************
 
-.. include:: ../../guides/maintenance/download-verify-decompress.rst
-   :Start-after: verify-windows:
-
-We also provide instructions for other operating systems:
-
-* :ref:`download-verify-decompress-linux`
+Visit :ref:`download-verify-decompress` and follow the instructions for your
+Windows\* or Linux\* environment. Visit :ref:`image-types` for additional
+information about all available |CL| images.
 
 Create and configure a new VM
 *****************************
