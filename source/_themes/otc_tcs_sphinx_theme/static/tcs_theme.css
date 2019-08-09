@@ -232,6 +232,10 @@ th,td {
     /*top: 35px;*/
 }
 
+.header__menu_list_item.yellow > a::before {
+    color: #ffdf4d;
+}
+
 .header__menu_list_item.green > a::before {
     color: #009B93;
 }

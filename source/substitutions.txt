@@ -2,7 +2,7 @@
 
 .. |CL-ATTR| replace:: Clear Linux* OS
 
-.. |CL-PRJ| replace:: Clear Linux* project
+.. |CL-PRJ| replace:: Clear Linux* Project
 
 .. |CC| replace:: Clear Containers
 
