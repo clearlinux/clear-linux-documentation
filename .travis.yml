@@ -12,6 +12,8 @@ install:
 script: 
   - make py
   - make htmlall
+
+before_deploy:
   - make linkcheck
 
 deploy:
