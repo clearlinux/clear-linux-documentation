@@ -67,8 +67,8 @@ this command:
 
    curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images | grep vmware)
 
-Decompress and verify the |CL| image
-************************************
+Decompress and verify the image
+*******************************
 
 Visit :ref:`download-verify-decompress` and follow the instructions for your
 Windows\* or Linux\* environment. Visit :ref:`image-types` for additional
