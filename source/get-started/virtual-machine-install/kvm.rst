@@ -1,7 +1,7 @@
 .. _kvm:
 
-Run |CL-ATTR| as a KVM guest OS
-###############################
+|CL-ATTR| on KVM
+################
 
 This page explains how to run |CL-ATTR| in a virtualized environment using
 :abbr:`KVM (Kernel-based Virtual Machine)`.

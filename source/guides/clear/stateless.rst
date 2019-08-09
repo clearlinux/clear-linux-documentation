@@ -38,7 +38,7 @@ System areas
 ============
 File under the :file:`/usr` directory are managed by |CL| as system files.
 Files written under the :file:`/usr` directory by users can get removed
-through system updates with :ref:`swupd <swupd-about>`. This operating
+through system updates with :ref:`swupd <swupd-guide>`. This operating
 assumption allows |CL| to verify and maintain integrity of system files.
 
 User areas

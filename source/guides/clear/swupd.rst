@@ -303,6 +303,8 @@ ignores files or directories matching :file:`/usr/lib/python`:
 
    sudo swupd repair --picky --picky-whitelist=/usr/lib/python
 
+.. _swupd-quick-ref:
+
 Quick reference
 ***************
 
@@ -316,7 +318,7 @@ swupd update <version number>
 swupd bundle-list [--all]
    Lists installed bundles.
 
-swupd bundle-add [-b] <search term>
+swupd bundle <search term>
    Finds a bundle that contains your search term.
 
 swupd bundle-add <bundle name>

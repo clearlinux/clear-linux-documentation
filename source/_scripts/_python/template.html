@@ -8,7 +8,8 @@
 </head>
 
 <body>
-  <table id="bundletable">
+  <div class="wy-table-responsive">
+  <table class="colwidths-given docutils">
 
     <thead>
       <tr>
@@ -23,10 +24,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
+
       {% for d in data %}
       {% if d.url %}
       <tr id="bundle">
@@ -50,6 +48,7 @@
       {% endfor %}
     </tbody>
   </table>
+</div>
 </body>
 
 </html>

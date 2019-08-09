@@ -1,7 +1,7 @@
 .. _vmware-esxi-install-cl:
 
-Install |CL-ATTR| as a VMware\* ESXi guest OS
-#############################################
+|CL-ATTR| on VMware\* ESXi
+##########################
 
 This page explains how to create a new :abbr:`VM (Virtual Machine)` and
 manually install |CL-ATTR| on the new VM with VMware ESXi 6.5.

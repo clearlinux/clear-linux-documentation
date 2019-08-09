@@ -1,7 +1,7 @@
 .. _hyper-v:
 
-Use Hyper-V\*
-#############
+|CL-ATTR| on Microsoft Hyper-V\*
+################################
 
 This page explains how to run |CL-ATTR| inside a
 `Windows Server Virtualization`_\* or **Hyper-V** environment.
@@ -64,5 +64,5 @@ Your virtual machine running |CL| is ready!
 .. _Install Hyper-V on Windows 10: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
 .. _Create a virtual network: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network
 .. _Downloads: https://cdn.download.clearlinux.org/image/
-.. _Intel® Virtualization Technology: http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
-.. _Intel® Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
+.. _`Intel® Virtualization Technology`: http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
+.. _`Intel® Virtualization Technology for Directed I/O`: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices

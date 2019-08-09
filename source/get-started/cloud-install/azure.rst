@@ -1,7 +1,7 @@
 .. _azure:
 
-Run |CL-ATTR| using Microsoft Azure CLI 2.0
-###########################################
+|CL-ATTR| on Microsoft Azure
+############################
 
 |CL-ATTR| is available for you to use in the Microsoft* Azure* marketplace and
 is offered with three different images, also known as a

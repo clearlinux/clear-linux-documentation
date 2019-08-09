@@ -9,7 +9,6 @@ Below is a list of commonly asked questions with answers sourced from the
 .. contents:: :local:
     :depth: 2
 
-
 General
 *******
 
@@ -44,7 +43,7 @@ Is telemetry required?
 The telemetry solution provided by |CL| is entirely optional and customizable.
 It is disabled by default. If you do choose to enable telemetry, the data
 helps the |CL| team proactively identify and resolve bugs. See the
-:ref:`telemetry <telemetry-about>` page for more information.
+:ref:`telem-guide` guide for more information.
 
 |
 
@@ -75,8 +74,8 @@ Software packages
 How is software installed and updated?
 ======================================
 
-|CL| provides software in the form of :ref:`bundles <bundles-about>` and
-updates software with :ref:`swupd <swupd-about>`.
+|CL| provides software in the form of :ref:`bundles-guide` and
+updates software with :ref:`swupd <swupd-guide>`.
 
 :ref:`FlatPak\* <flatpak>` is an application virtualization solution that allows
 more software to be available to |CL| users by augmenting the software |CL|
@@ -90,7 +89,7 @@ bundles whenever possible.
 Does |CL| use RPMs like other distros?
 ======================================
 
-|CL| provides software in the form of :ref:`bundles <bundles-about>`. The RPM
+|CL| provides software in the form of :ref:`bundles-guide`. The RPM
 format is used as an intermediary step for packaging and determining software
 dependencies at OS build time.
 
@@ -118,7 +117,7 @@ What software is available on |CL|?
 ===================================
 
 Available software can be found in the `Software Store`_, through the GNOME\*
-Software application on the desktop, or by using :ref:`swupd search <bundle-commands>`.
+Software application on the desktop, or by using :ref:`swupd search <swupd-quick-ref>`.
 
 |
 
