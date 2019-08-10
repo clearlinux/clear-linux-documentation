@@ -24,8 +24,7 @@ Create a bootable USB drive on Linux\*
 
 Make sure you have completed all `Prerequisites`_.
 
-Before burning the image onto your USB drive,
-:ref:`verify and decompress your image <verify-linux>`.
+Before burning the image onto your USB drive, :ref:`verify-linux` on Linux.
 
 Burn the |CL| image onto a USB drive
 ====================================
@@ -110,8 +109,7 @@ Create a bootable USB drive on macOS\*
 
 Make sure you have completed all `Prerequisites`_.
 
-Before burning the image onto your USB drive,
-:ref:`verify and decompress your image <verify-mac>`.
+Before burning the image onto your USB drive, :ref:`verify-mac` on macOS.
 
 Burn the |CL| image onto a USB drive
 ====================================
@@ -170,8 +168,7 @@ Create a bootable USB drive on Windows\*
 
 Make sure you have completed all `Prerequisites`_.
 
-Before burning the image onto your USB drive,
-:ref:`verify and decompress your image <verify-windows>`.
+Before burning the image onto your USB drive, :ref:`verify-windows` on Windows.
 
 Burn the |CL| image onto a USB drive
 ====================================
