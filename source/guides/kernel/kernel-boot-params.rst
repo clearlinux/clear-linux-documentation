@@ -74,3 +74,8 @@ Delete the contents of kernel settings directories to reset boot parameters:
    sudo rm /etc/kernel/cmdline-removal.d/*
 
 Update the boot manager and reboot.
+
+Related topics
+**************
+
+* :ref:`kernel-modules`
