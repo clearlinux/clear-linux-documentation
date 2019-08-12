@@ -273,6 +273,10 @@ th,td {
     margin-bottom: 10px;
 }
 
+div.admonition ul {
+  margin-top: 20px;
+}
+
 div#trademarks {
     color: gray;
 }
