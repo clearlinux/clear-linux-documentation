@@ -18,30 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ../../reference/bundles/bundles.rst:4
-msgid "Available bundles"
+#: ../../tutorials/index.rst:4
+msgid "Tutorials"
 msgstr ""
 
-#: ../../reference/bundles/bundles.rst:6
-msgid ""
-"This document provides a current list of available bundles. View the "
-"`clr-bundles repo`_ on GitHub\\*, or select the bundle :file:`Name` for "
-"more details."
+#: ../../tutorials/index.rst:6
+msgid "Explore our tutorials to discover what you can do with |CL|!"
 msgstr ""
 
-#: ../../reference/bundles/bundles.rst:9
-msgid ""
-"To learn more about how |CL-ATTR| uses bundles for software deployment, "
-"visit :ref:`bundles-guide`."
+#: ../../tutorials/index.rst:15
+msgid "Archive"
 msgstr ""
 
-#: ../../reference/bundles/bundles.rst:13
-msgid "Bundle list"
+#: ../../tutorials/index.rst:17
+msgid "Older tutorials that may still be relevant to some users."
 msgstr ""
-
-#~ msgid ""
-#~ "To learn more about how |CL-ATTR|"
-#~ " uses bundles for software deployment, "
-#~ "visit :ref:`bundles-about`."
-#~ msgstr ""
 

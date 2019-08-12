@@ -5,21 +5,23 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0152\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans\n"
 "Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
-"Language: zh-Hans\n"
+"Generated-By: Babel 2.7.0\n"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:4
-msgid "Use Hyper-V\\*"
-msgstr "使用 Hyper-V\\*"
+msgid "|CL-ATTR| on Microsoft Hyper-V\\*"
+msgstr ""
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:6
 msgid ""
@@ -39,7 +41,9 @@ msgstr "启用 `Intel® Virtualization Technology`_ (Intel® VT)"
 msgid ""
 "Enable `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)"
 " in your BIOS/UEFI firmware configuration."
-msgstr "在 BIOS/UEFI 固件配置中启用 `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)。"
+msgstr ""
+"在 BIOS/UEFI 固件配置中启用 `Intel® Virtualization Technology for Directed I/O`_ "
+"(Intel® VT-d)。"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:22
 msgid "Enable Hyper-V"
@@ -61,7 +65,9 @@ msgid ""
 "create a virtual network in the **Hyper-V Manager**.  Refer to the "
 "`Create a virtual network`_ documentation to create and configure a "
 "virtual network."
-msgstr "在 Windows 系统上启用 *Hyper-V*后，需要在 **Hyper-V Manager** 中创建虚拟网络。请参阅 `Create a virtual network`_ 文档以创建和配置虚拟网络。"
+msgstr ""
+"在 Windows 系统上启用 *Hyper-V*后，需要在 **Hyper-V Manager** 中创建虚拟网络。请参阅 `Create a "
+"virtual network`_ 文档以创建和配置虚拟网络。"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:36
 msgid "Create a virtual machine"
@@ -72,7 +78,9 @@ msgid ""
 "Download and decompress the latest hyperv disk image :file:`clear-XXXXX-"
 "hyperv.img.gz`, where XXXXX is the latest available version of |CL| from "
 "our `Downloads`_ page."
-msgstr "下载和解压缩最新的 hyperv 磁盘映像 :file:`clear-XXXXX-hyperv.img.gz`，其中 XXXXX 是 `Downloads`_ 页上的最新可用 |CL| 版本。"
+msgstr ""
+"下载和解压缩最新的 hyperv 磁盘映像 :file:`clear-XXXXX-hyperv.img.gz`，其中 XXXXX 是 "
+"`Downloads`_ 页上的最新可用 |CL| 版本。"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:42
 msgid "Create a virtual machine using the **Hyper-V Manager**:"
@@ -155,4 +163,6 @@ msgstr "运行 |CL| 的虚拟机已准备就绪！"
 #~ " our `downloads`_ section."
 #~ msgstr ""
 
+#~ msgid "Use Hyper-V\\*"
+#~ msgstr "使用 Hyper-V\\*"
 

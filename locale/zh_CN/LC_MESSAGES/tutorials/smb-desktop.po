@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../tutorials/smb-desktop.rst:4
+msgid "Samba\\* as a client"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:6
+msgid ""
+"This tutorial explains how to access an existing shared drive on "
+"Windows\\* via Server Message Block (SMB) / Common Internet File System "
+"(CIFS) from the |CL| GNOME desktop.  CIFS filesystem is generally used to"
+" access shared storage locations, or share files."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:12
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:14
+msgid "You have already `set up a shared location on Windows`_"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:17
+msgid "Connect to Windows shared location with Nautilus"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:19
+msgid "From the desktop, select :guilabel:`Files` from the application menu."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:23
+msgid "GNOME Files is also known as `Nautilus`."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:25
+msgid "In :guilabel:`Files`, select :guilabel:`Other Locations`."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:31
+msgid "Figure 1: Files, Other Locations"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:33
+msgid ""
+"In the lower taskbar, beside :guilabel:`Connect to Server`, enter the "
+"file-sharing address using the Windows sharing schema:"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:44
+msgid "Figure 2: Connect to Server"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:46
+msgid ""
+"Optional: If there are issues with DNS, you can use an IP address in "
+"place of the `servername` above. You must still specify the share."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:49
+msgid ""
+"Optional: On the Windows machine, in a CLI, retrieve the IP address by "
+"entering the command:"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:58
+msgid "If using the IP address, assure that it is accessible and secure."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:60
+msgid "Select :guilabel:`Connect`."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:62
+msgid "The server will request authentication, as shown in Figure 3."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:68
+msgid "Figure 3: Authentication"
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:70
+msgid ""
+"Log in with the same Windows system credentials for which you granted "
+"access to the share."
+msgstr ""
+
+#: ../../tutorials/smb-desktop.rst:73
+msgid ""
+"Select the appropriate checkbox to save your credentials. Consider "
+"carefully the security risks as a result of your selection."
+msgstr ""
+
+#~ msgid "Connect to Windows\\* shared location from |CL-ATTR| desktop"
+#~ msgstr ""
+

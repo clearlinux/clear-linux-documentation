@@ -1,0 +1,1347 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans\n"
+"Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../get-started/bare-metal-install-server.rst:4
+#, fuzzy
+msgid "Install |CL-ATTR| from the live server"
+msgstr "使用实时服务器将 |CL-ATTR| 安装在裸机上"
+
+#: ../../get-started/bare-metal-install-server.rst:6
+msgid ""
+"This page explains how to install |CL-ATTR| on bare metal from a bootable"
+" USB drive using a live server image."
+msgstr "本页介绍如何使用实时服务器映像从可引导 USB 驱动器将 |CL-ATTR| 安装到裸机上。"
+
+#: ../../get-started/bare-metal-install-server.rst:14
+msgid "System requirements"
+msgstr "系统要求"
+
+#: ../../get-started/bare-metal-install-server.rst:16
+msgid ""
+"Before installing |CL|, verify that the host system supports the "
+"installation:"
+msgstr "安装 |CL| 之前，请确认主机系统满足安装条件："
+
+#: ../../get-started/bare-metal-install-server.rst:19
+msgid ":ref:`system-requirements`"
+msgstr ":ref:`system-requirements`"
+
+#: ../../get-started/bare-metal-install-server.rst:20
+msgid ":ref:`compatibility-check`"
+msgstr ":ref:`compatibility-check`"
+
+#: ../../get-started/bare-metal-install-server.rst:23
+msgid "Download the latest |CL| live server image"
+msgstr "下载最新的 |CL| 实时服务器映像"
+
+#: ../../get-started/bare-metal-install-server.rst:25
+msgid ""
+"Get the latest |CL| installer image from the `Downloads`_ page. Look for "
+"the :file:`clear-[version number]-live-server.iso` file."
+msgstr ""
+"从 `Downloads`_ 页面获取最新的 |CL| 安装程序映像。查找 :file:`clear-[version number]-live-"
+"server.iso` 文件。"
+
+#: ../../get-started/bare-metal-install-server.rst:28
+msgid "Verify and decompress the file per your OS."
+msgstr "确认该文件是否适合您的操作系统，然后解压缩。"
+
+#: ../../get-started/bare-metal-install-server.rst:30
+msgid ":ref:`download-verify-decompress`"
+msgstr ":ref:`download-verify-decompress`"
+
+#: ../../get-started/bare-metal-install-server.rst:32
+msgid "Follow your OS instructions to create a bootable USB drive."
+msgstr "按照操作系统说明创建一个可引导的 USB 驱动器。"
+
+#: ../../get-started/bare-metal-install-server.rst:34
+msgid ":ref:`bootable-usb`"
+msgstr ":ref:`bootable-usb`"
+
+#: ../../get-started/bare-metal-install-server.rst:37
+msgid "Install |CL| on your target system"
+msgstr "在目标系统上安装 |CL|"
+
+#: ../../get-started/bare-metal-install-server.rst:39
+msgid ""
+"Ensure that your system is configured to boot UEFI. The installation "
+"method described below requires a wired Internet connection with DHCP."
+msgstr "确保您的系统已配置为引导 UEFI。下述安装方法需要通过有线 Internet 连接与 DHCP 服务器通信。"
+
+#: ../../get-started/bare-metal-install-server.rst:44
+msgid ""
+"Alternatively, you can install |CL| over a wireless connection by first "
+"using `nmtui`. Follow the `nmtui` instructions shown in Figure 2."
+msgstr "或者，您也可以首先使用 `nmtui`，然后通过无线连接安装 |CL|。按照图 2 所示的 `nmtui` 说明执行操作。"
+
+#: ../../get-started/bare-metal-install-server.rst:47
+msgid "Follow these steps to install |CL| on the target system:"
+msgstr "按照以下步骤在目标系统上安装 |CL|："
+
+#: ../../get-started/bare-metal-install-server.rst:49
+msgid "Insert the USB drive into an available USB slot."
+msgstr "将 USB 驱动器插入可用的 USB 插槽。"
+
+#: ../../get-started/bare-metal-install-server.rst:51
+msgid "Power on the system."
+msgstr "打开系统电源。"
+
+#: ../../get-started/bare-metal-install-server.rst:53
+msgid ""
+"Open the system BIOS setup menu by pressing the :kbd:`F2` key. Your BIOS "
+"setup menu entry point may vary."
+msgstr "按 :kbd:`F2` 键打开系统 BIOS 设置菜单。您的 BIOS 设置菜单入口点可能会有所不同。"
+
+#: ../../get-started/bare-metal-install-server.rst:57
+msgid ""
+"|CL| supports UEFI boot. Some hardware may list UEFI and non-UEFI USB "
+"boot entries. In this case, you should select the `UEFI` boot option."
+msgstr "|CL| 支持 UEFI 引导。某些硬件可能会列出 UEFI 和非 UEFI USB 引导条目。在这种情况下，您应该选择 `UEFI` 引导选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:61
+msgid ""
+"In the setup menu, enable the UEFI boot and set the USB drive as the "
+"first option in the device boot order."
+msgstr "在设置菜单中，启用 UEFI 引导，并在设备引导顺序中将 USB 驱动器设置为第一个选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:64
+msgid "Save these settings and exit."
+msgstr "保存这些设置并退出。"
+
+#: ../../get-started/bare-metal-install-server.rst:66
+msgid "Reboot the target system."
+msgstr "重新引导目标系统。"
+
+#: ../../get-started/bare-metal-install-server.rst:68
+msgid "This action launches the |CL| installer boot menu, shown in figure 1."
+msgstr "此操作会启动 |CL| 安装程序引导菜单，如图 1 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:74
+msgid "Figure 1: Clear Linux OS Installer boot menu"
+msgstr "图 1：Clear Linux OS 安装程序引导菜单"
+
+#: ../../get-started/bare-metal-install-server.rst:76
+msgid "With :guilabel:`Clear Linux OS` highlighted, select :kbd:`Enter`."
+msgstr "在 :guilabel:`Clear Linux OS` 高亮显示的情况下，选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:79
+msgid "Launch the |CL| Installer"
+msgstr "启动 |CL| 安装程序"
+
+#: ../../get-started/bare-metal-install-server.rst:81
+msgid "At the :guilabel:`login` prompt, enter :command:`root`."
+msgstr "在 :guilabel:`login` 提示符下，输入 :command:`root`。"
+
+#: ../../get-started/bare-metal-install-server.rst:83
+msgid ""
+"Follow the onscreen instructions, shown in Figure 2, and enter a "
+"temporary password."
+msgstr "如图 2 所示，按照屏幕说明执行操作，并输入临时密码。"
+
+#: ../../get-started/bare-metal-install-server.rst:90
+msgid "Figure 2: root login"
+msgstr "图 2：root 登录"
+
+#: ../../get-started/bare-metal-install-server.rst:92
+msgid ""
+"At the :guilabel:`root` prompt, enter :command:`clr-installer` and press "
+":kbd:`Enter`."
+msgstr "在 :guilabel:`root` 提示符下，输入 :command:`clr-installer`，然后按 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:99
+msgid "Figure 3: clr-installer command"
+msgstr "图 3：clr-installer 命令"
+
+#: ../../get-started/bare-metal-install-server.rst:102
+msgid "Minimum installation requirements"
+msgstr "最低安装要求"
+
+#: ../../get-started/bare-metal-install-server.rst:104
+msgid ""
+"To fulfill minimum installation requirements, complete the `Required "
+"options`_. While not required, we encourage you to apply the `Recommended"
+" options`_. `Advanced options`_ are optional."
+msgstr ""
+"要满足最低安装要求，请填写 `Required options`_。我们鼓励您应用 `Recommended "
+"options`_，尽管它们并非必需的。`Advanced options`_ 是可选的。"
+
+#: ../../get-started/bare-metal-install-server.rst:110
+msgid ""
+"The :kbd:`Install` button is **only highlighted after** you complete "
+"`Required options`_."
+msgstr "仅当填写 `Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
+
+#: ../../get-started/bare-metal-install-server.rst:114
+msgid "Main Menu"
+msgstr "主菜单"
+
+#: ../../get-started/bare-metal-install-server.rst:115
+msgid "The |CL| Installer Main Menu appears as shown in Figure 4."
+msgstr "出现 |CL| 安装程序“Main Menu”，如图 4 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:121
+msgid "Figure 4: Clear Linux OS Installer"
+msgstr "图 4：Clear Linux OS 安装程序"
+
+#: ../../get-started/bare-metal-install-server.rst:123
+msgid ""
+"The |CL| Installer Main Menu has two tabs: :guilabel:`[R] Required "
+"options` and :guilabel:`[A] Advanced options`. Navigate between tabs "
+"using the arrow these shortcut keys:"
+msgstr ""
+"|CL| 安装程序“Main Menu”有两个选项卡，即 :guilabel:`[R] Required options` 和 "
+":guilabel:`[A] Advanced options`。使用以下快捷键可在这两个选项卡之间切换："
+
+#: ../../get-started/bare-metal-install-server.rst:127
+msgid ":kbd:`Shift+A` for :guilabel:`[A] Advanced options`"
+msgstr "使用 :kbd:`Shift+A` 可切换到 :guilabel:`[A] Advanced options`"
+
+#: ../../get-started/bare-metal-install-server.rst:128
+msgid ":kbd:`Shift+R` for :guilabel:`[R] Required options`"
+msgstr "使用 :kbd:`Shift+R` 可切换到 :guilabel:`[R] Required options`"
+
+#: ../../get-started/bare-metal-install-server.rst:130
+msgid ""
+"To meet the minimum requirements, enter your choices in the "
+":guilabel:`Required options`. After confirmation, your selections appear "
+"beside the :guilabel:`>>` chevron, below the menu options."
+msgstr ""
+"要满足最低要求，请在:guilabel:`Required options` 中输入您的设置。确认后，您选择的设置会出现在菜单选项下的 "
+":guilabel:`>>` 标志旁边。"
+
+#: ../../get-started/bare-metal-install-server.rst:135
+msgid "Navigation"
+msgstr "巡航"
+
+#: ../../get-started/bare-metal-install-server.rst:137
+msgid "Select :kbd:`Tab` or :kbd:`Up/Down` arrows to highlight your choice."
+msgstr "选择 :kbd:`Tab` 或:kbd:`向上/向下` 箭头会高亮显示您选择的内容。"
+
+#: ../../get-started/bare-metal-install-server.rst:139
+msgid "Select :kbd:`Enter` or :kbd:`Spacebar` to confirm your choice."
+msgstr "选择 :kbd:`Enter` 或:kbd:`空格键` 可确认您选择的内容。"
+
+#: ../../get-started/bare-metal-install-server.rst:141
+msgid "Select :kbd:`Cancel` or :kbd:`Esc` to cancel your choice."
+msgstr "选择:kbd:`取消` 或 :kbd:`Esc` 可取消您选择的内容。"
+
+#: ../../get-started/bare-metal-install-server.rst:144
+msgid "Required options"
+msgstr "必填选项"
+
+#: ../../get-started/bare-metal-install-server.rst:147
+msgid "Choose Timezone"
+msgstr "选择时区"
+
+#: ../../get-started/bare-metal-install-server.rst:149
+msgid ""
+"From the Main Menu, navigate to :guilabel:`Choose Timezone`. `UTC` is the"
+" default."
+msgstr "从“Main Menu”中，导航到 :guilabel:`Choose Timezone`。默认情况下会选择 `UTC`。"
+
+#: ../../get-started/bare-metal-install-server.rst:152
+#: ../../get-started/bare-metal-install-server.rst:172
+#: ../../get-started/bare-metal-install-server.rst:189
+#: ../../get-started/bare-metal-install-server.rst:681
+msgid "Select :kbd:`Enter`."
+msgstr "选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:154
+msgid ""
+"In :guilabel:`Select System Timezone`, use :kbd:`Up/Down` arrows navigate"
+" to the desired timezone."
+msgstr "在 :guilabel:`Select System Timezone` 中，使用:kbd:`向上/向下` 箭头可导航到所需时区。"
+
+#: ../../get-started/bare-metal-install-server.rst:159
+#: ../../get-started/bare-metal-install-server.rst:176
+msgid "Press :kbd:`Enter` to confirm."
+msgstr "按 :kbd:`Enter` 进行确认。"
+
+#: ../../get-started/bare-metal-install-server.rst:165
+msgid "Figure 5: Select System Timezone"
+msgstr "图 5：选择系统时区"
+
+#: ../../get-started/bare-metal-install-server.rst:168
+msgid "Choose Language"
+msgstr "选择语言"
+
+#: ../../get-started/bare-metal-install-server.rst:170
+msgid "From the Main Menu, navigate to :guilabel:`Choose Language`."
+msgstr "从“Main Menu”中，导航到 :guilabel:`Choose Language`。"
+
+#: ../../get-started/bare-metal-install-server.rst:174
+msgid "In :guilabel:`Select System Language`, navigate to your desired language."
+msgstr "在 :guilabel:`Select System Language` 中，导航到所需的语言。"
+
+#: ../../get-started/bare-metal-install-server.rst:182
+msgid "Figure 6: Select System Language"
+msgstr "图 6：选择系统语言"
+
+#: ../../get-started/bare-metal-install-server.rst:185
+msgid "Configure the Keyboard"
+msgstr "配置键盘"
+
+#: ../../get-started/bare-metal-install-server.rst:187
+msgid "From the Main Menu, select :guilabel:`Configure the Keyboard`."
+msgstr "从“Main Menu”中，选择 :guilabel:`Configure the Keyboard`。"
+
+#: ../../get-started/bare-metal-install-server.rst:191
+msgid "In :guilabel:`Select Keyboard`, navigate to the desired option."
+msgstr "在:guilabel:`Select Keyboard` 中，导航到所需的选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:193
+msgid "Select :kbd:`Enter` to :kbd:`Confirm`."
+msgstr "选择 :kbd:`Enter` 进行:kbd:`确认`。"
+
+#: ../../get-started/bare-metal-install-server.rst:195
+msgid ""
+"Optional: In :guilabel:`Test keyboard`, type text to assure that the keys"
+" map to your keyboard."
+msgstr "可选：在 :guilabel:`Test keyboard` 中，键入文本以确保按键映射到您的键盘。"
+
+#: ../../get-started/bare-metal-install-server.rst:202
+msgid "Figure 7: Select Keyboard menu"
+msgstr "图 7：选择键盘菜单"
+
+#: ../../get-started/bare-metal-install-server.rst:205
+msgid "Configure Installation Media"
+msgstr "配置安装媒介"
+
+#: ../../get-started/bare-metal-install-server.rst:207
+msgid "From the Main Menu, select :guilabel:`Configure Installation Media`."
+msgstr "从“Main Menu”中，选择:guilabel:`Configure Installation Media`。"
+
+#: ../../get-started/bare-metal-install-server.rst:209
+msgid ""
+"Choose an installation method: * `Safe Installation`_ * `Destructive "
+"Installation`_ * `Advanced Configuration`_"
+msgstr ""
+"选择安装方法：* `Safe Installation`_ * `Destructive Installation`_ * `Advanced "
+"Configuration`_"
+
+#: ../../get-started/bare-metal-install-server.rst:219
+msgid "Figure 8: Select Installation Media"
+msgstr "图 8：选择安装媒介"
+
+#: ../../get-started/bare-metal-install-server.rst:221
+msgid "Select :guilabel:`Rescan Media` to show available installation targets."
+msgstr "选择:guilabel:`Rescan Media` 显示可用的安装目标。"
+
+#: ../../get-started/bare-metal-install-server.rst:226
+msgid "Safe Installation"
+msgstr "安全安装"
+
+#: ../../get-started/bare-metal-install-server.rst:228
+msgid ""
+"Use this method to safely install |CL| on media with available space, or "
+"alongside existing partitions, and accept the `Default partition "
+"schema`_. If enough free space exists, safe installation is allowed. See "
+"also `Troubleshooting`_ below."
+msgstr ""
+"使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition "
+"schema`_。如果有足够的可用空间，则可以执行安全安装。另请参阅下面的 `Troubleshooting`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:234
+msgid "Destructive Installation"
+msgstr "破坏性安装"
+
+#: ../../get-started/bare-metal-install-server.rst:236
+msgid ""
+"Use this method to destroy the contents of the target device, install "
+"|CL| on it, and accept the `Default partition schema`_."
+msgstr "使用此方法会销毁目标设备上的内容，在目标设备上安装 |CL| 并接受 `Default partition schema`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:241
+msgid ""
+"From the :guilabel:`Select Installation Media` menu, select "
+":guilabel:`Enable Encryption` to encrypt the root filesystem for either "
+"option above. See also `Disk encryption`_ for more information."
+msgstr ""
+"从:guilabel:`Select Installation Media` 菜单中，选择:guilabel:`Enable "
+"Encryption` 对上述任一选项的根文件系统进行加密。有关详细信息，另请参阅 `Disk encryption`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:246
+msgid "Advanced Configuration"
+msgstr "高级配置"
+
+#: ../../get-started/bare-metal-install-server.rst:248
+msgid ""
+"Use this method to manually configure partitions. These must meet "
+"`Default partition schema`_. You may also choose `Disk encryption`_ "
+"during configuration of each partition."
+msgstr ""
+"使用此方法可手动配置分区。这些分区必须符合 `Default partition schema`_。您也可以在配置每个分区时选择 `Disk "
+"encryption`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:254
+msgid ""
+"`Advanced Configuration` is available in the installer versions 1.2.0 and"
+" above."
+msgstr "`Advanced Configuration` 在 1.2.0 和更高版本安装程序中可用。"
+
+#: ../../get-started/bare-metal-install-server.rst:257
+msgid ""
+"From :guilabel:`Select Installation Media`, shown in Figure 8 above, "
+"select :guilabel:`Advanced Configuration`."
+msgstr ""
+"如上图 8 所示，从:guilabel:`Select Installation Media` 中，选择 :guilabel:`Advanced "
+"Configuration`。"
+
+#: ../../get-started/bare-metal-install-server.rst:260
+msgid ""
+"In :guilabel:`Advanced Configuration`, navigate to :file:`/dev/sda` and "
+"then press :kbd:`Enter`."
+msgstr ""
+"在 :guilabel:`Advanced Configuration` 中，导航到 :file:`/dev/sda`，然后按 "
+":kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:267
+msgid "Figure 9: Advanced configuration menu"
+msgstr "图 9：高级配置菜单"
+
+#: ../../get-started/bare-metal-install-server.rst:269
+msgid "Choose a partition method:"
+msgstr "选择一种分区方法："
+
+#: ../../get-started/bare-metal-install-server.rst:271
+msgid ""
+":guilabel:`Auto Partition` Select this option to accept the `Default "
+"partition schema`_."
+msgstr ":guilabel:`Auto Partition` 选择此选项会接受 `Default partition schema`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:274
+msgid "Navigate to and press :guilabel:`Confirm`."
+msgstr "导航到并按下:guilabel:`Confirm`。"
+
+#: ../../get-started/bare-metal-install-server.rst:276
+msgid "Continue with installation configuration. Jump to `Telemetry`_."
+msgstr "继续安装配置。跳到 `Telemetry`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:278
+msgid "`Manual Partition`_ Continue below."
+msgstr "下面继续介绍 `Manual Partition`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:281
+msgid "Manual Partition"
+msgstr "手动分区"
+
+#: ../../get-started/bare-metal-install-server.rst:283
+msgid "We provide a simple example below."
+msgstr "下面我们提供一个简单的例子。"
+
+#: ../../get-started/bare-metal-install-server.rst:285
+msgid ""
+"Navigate to the unallocated media (e.g.,`/dev/sda`) until highlighted, as"
+" shown in Figure 9."
+msgstr "导航到未分配的媒介（例如 `/dev/sda`），直到其高亮显示，如图 9 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:288
+msgid "Press :guilabel:`Enter` to edit the partition."
+msgstr "按 :guilabel:`Enter` 编辑该分区。"
+
+#: ../../get-started/bare-metal-install-server.rst:290
+msgid "The :guilabel:`Partition Setup` menu appears, shown in Figure 10."
+msgstr "出现 :guilabel:`Partition Setup` 菜单，如图 10 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:294
+msgid ""
+"After adding the first partition, select :guilabel:`Free Space` to add "
+"another partition."
+msgstr "添加第一个分区后，选择 :guilabel:`Free Space` 添加另一个分区。"
+
+#: ../../get-started/bare-metal-install-server.rst:297
+msgid "root partition"
+msgstr "根分区"
+
+#: ../../get-started/bare-metal-install-server.rst:299
+msgid ""
+"We configure the `root` partition as shown in Figure 10. Configuration of"
+" the `root` partition varies."
+msgstr "如图 10 所示，现在配置 `root` 分区。`root` 分区的配置各不相同。"
+
+#: ../../get-started/bare-metal-install-server.rst:306
+msgid "Figure 10: root partition"
+msgstr "图 10：根分区"
+
+#: ../../get-started/bare-metal-install-server.rst:308
+#: ../../get-started/bare-metal-install-server.rst:321
+#: ../../get-started/bare-metal-install-server.rst:335
+msgid "Navigate to :guilabel:`Add` and press :guilabel:`Enter`."
+msgstr "导航到 :guilabel:`Add`，然后按 :guilabel:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:311
+msgid "boot partition"
+msgstr "引导分区"
+
+#: ../../get-started/bare-metal-install-server.rst:313
+msgid "We configure the `boot` partition as shown in Figure 11."
+msgstr "如图 11 所示，现在配置 `boot` 分区。"
+
+#: ../../get-started/bare-metal-install-server.rst:319
+msgid "Figure 11: boot partition"
+msgstr "图 11：引导分区"
+
+#: ../../get-started/bare-metal-install-server.rst:324
+msgid "swap partition"
+msgstr "交换分区"
+
+#: ../../get-started/bare-metal-install-server.rst:326
+msgid ""
+"In the :guilabel:`File System` pulldown menu, select `swap`, and enter a "
+"label. We enter the minimum required size (e.g., 256M)."
+msgstr "在 :guilabel:`File System` 下拉菜单中，选择 `swap`，然后输入一个标签。我们输入系统要求的最小大小（例如 256M）。"
+
+#: ../../get-started/bare-metal-install-server.rst:333
+msgid "Figure 12: swap partition"
+msgstr "图 12：交换分区"
+
+#: ../../get-started/bare-metal-install-server.rst:337
+msgid ""
+"Next, navigate to :guilabel:`Confirm` and press :guilabel:`Enter`, shown "
+"in Figure 13."
+msgstr "接下来，导航到:guilabel:`Confirm`，然后按 :guilabel:`Enter`，如图 13 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:340
+msgid "Manual partitioning is complete."
+msgstr "现在完成了手动分区设置。"
+
+#: ../../get-started/bare-metal-install-server.rst:346
+msgid "Figure 13: Final configuration of disk partitions"
+msgstr "图 13：磁盘分区的最终配置"
+
+#: ../../get-started/bare-metal-install-server.rst:348
+msgid "You may skip to the `Telemetry`_ section below."
+msgstr "您可以跳到下面的 `Telemetry`_ 部分。"
+
+#: ../../get-started/bare-metal-install-server.rst:351
+msgid "Disk encryption"
+msgstr "磁盘加密"
+
+#: ../../get-started/bare-metal-install-server.rst:353
+msgid ""
+"For greater security, disk encryption is supported using LUKS for the any"
+" partition except `/boot` on |CL|. To encrypt the root partition, see the"
+" example below. Encryption is optional."
+msgstr ""
+"为了进一步增强安全，支持使用 LUKS 对 |CL| 上除 `/boot` "
+"以外的任何分区进行磁盘加密。要加密根分区，请参阅下面的示例。加密是可选的。"
+
+#: ../../get-started/bare-metal-install-server.rst:358
+msgid "Encryption Passphrase"
+msgstr "加密密码"
+
+#: ../../get-started/bare-metal-install-server.rst:360
+msgid ""
+"|CL| uses a single passphrase for encrypted partitions. Additional keys "
+"may be configured post-installation using the ``cryptsetup`` tool."
+msgstr "|CL| 使用单一密码短语加密分区。安装后可以使用 ``cryptsetup`` 工具配置其他密钥。"
+
+#: ../../get-started/bare-metal-install-server.rst:363
+msgid ""
+"Optional: Select :guilabel:`[X] Encrypt` to encrypt the root partition, "
+"as shown in Figure 14."
+msgstr "可选：选择 :guilabel:`[X] Encrypt` 可加密根分区，如图 14 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:370
+msgid "Figure 14: Encrypt partition"
+msgstr "图 14：加密分区"
+
+#: ../../get-started/bare-metal-install-server.rst:372
+msgid "The :guilabel:`Encryption Passphrase` dialogue appears."
+msgstr "出现 :guilabel:`Encryption Passphrase` 对话框。"
+
+#: ../../get-started/bare-metal-install-server.rst:376
+msgid "Minimum length is 8 characters. Maximum length is 94 characters."
+msgstr "最小长度为 8 个字符。最大长度为 94 个字符。"
+
+#: ../../get-started/bare-metal-install-server.rst:382
+msgid "Figure 15: Encryption Passphrase"
+msgstr "图 15：加密密码短语"
+
+#: ../../get-started/bare-metal-install-server.rst:384
+msgid "Enter the same passphrase in the first and second field."
+msgstr "在第一个和第二个字段中输入相同的密码短语。"
+
+#: ../../get-started/bare-metal-install-server.rst:386
+msgid "Navigate to :guilabel:`Confirm` and press :kbd:`Enter`."
+msgstr "导航到:guilabel:`Confirm`，然后按 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:390
+msgid ":guilabel:`Confirm` is only highlighted if passphrases match."
+msgstr ":guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
+
+#: ../../get-started/bare-metal-install-server.rst:393
+msgid "Telemetry"
+msgstr "遥测技术"
+
+#: ../../get-started/bare-metal-install-server.rst:395
+#, fuzzy
+msgid ""
+":ref:`telem-guide` is a |CL| feature that reports failures and crashes to"
+" the |CL| development team for improvements."
+msgstr ""
+":ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请访问我们的 "
+":ref:`telemetry-about` 页面。"
+
+#: ../../get-started/bare-metal-install-server.rst:398
+#, fuzzy
+msgid "Select your desired option on whether to participate in telemetry."
+msgstr "根据是否要参与`遥测技术`，选择所需的选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:400
+msgid ""
+"In the Main Menu, navigate to :guilabel:`Telemetry` and select "
+":kbd:`Enter`."
+msgstr "在“Main Menu”中，导航到:guilabel:`Telemetry`，并选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:403
+msgid "Select :kbd:`Tab` to highlight your choice."
+msgstr "选择 :kbd:`Tab` 高亮显示所需的选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:405
+msgid "Select :kbd:`Enter` to confirm."
+msgstr "选择 :kbd:`Enter` 进行确认。"
+
+#: ../../get-started/bare-metal-install-server.rst:411
+msgid "Figure 16: Enable Telemetry"
+msgstr "图 16：启用遥测技术"
+
+#: ../../get-started/bare-metal-install-server.rst:414
+msgid "Recommended options"
+msgstr "推荐选项"
+
+#: ../../get-started/bare-metal-install-server.rst:416
+msgid ""
+"After you complete the `Required options`_, we highly recommend "
+"completing these selected `Advanced options`_ at minimum:"
+msgstr "设置完 `Required options`_ 后，我们强烈建议您至少要设置这些选定的 `Advanced options`_："
+
+#: ../../get-started/bare-metal-install-server.rst:419
+msgid "`Manage User`_ Assign a new user with administrative rights"
+msgstr "`管理用户`_ 分配具有管理权限的新用户"
+
+#: ../../get-started/bare-metal-install-server.rst:420
+msgid "`Assign Hostname`_ Simplify your development environment"
+msgstr "`分配主机名`_ 可简化您的开发环境"
+
+#: ../../get-started/bare-metal-install-server.rst:423
+msgid "Skip to finish installation"
+msgstr "跳到完成安装界面"
+
+#: ../../get-started/bare-metal-install-server.rst:425
+msgid ""
+"After selecting values for all :guilabel:`Required options`, you may skip"
+" to `Finish installation`_."
+msgstr "设置完所有:guilabel:`Required options` 后，您可以跳到 `Finish installation`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:428
+msgid ""
+"Otherwise, continue below. In the Main Menu, select :guilabel:`Advanced "
+"options` for additional configuration."
+msgstr "当然，您也可继续完成以下设置。在“Main Menu”中，选择:guilabel:`Advanced options` 执行附加配置。"
+
+#: ../../get-started/bare-metal-install-server.rst:432
+msgid "Advanced options"
+msgstr "高级选项"
+
+#: ../../get-started/bare-metal-install-server.rst:435
+msgid "Configure Network Interfaces"
+msgstr "配置网络接口"
+
+#: ../../get-started/bare-metal-install-server.rst:437
+msgid ""
+"By default, |CL| is configured to automatically detect the host network "
+"interface using DHCP. However, if you want to use a static IP address or "
+"if you do not have a DHCP server on your network, follow these "
+"instructions to manually configure the network interface. Otherwise, "
+"default network interface settings are automatically applied."
+msgstr ""
+"默认情况下，|CL| 配置为使用 DHCP 自动检测主机网络接口。但是，如果要使用静态 IP 地址，或者如果网络上没有 DHCP "
+"服务器，请按照以下说明手动配置网络接口。否则，系统将自动应用默认网络接口设置。"
+
+#: ../../get-started/bare-metal-install-server.rst:445
+msgid "If DHCP is available, no user selection may be required."
+msgstr "如果 DHCP 可用，可能不需要由用户选择这些设置。"
+
+#: ../../get-started/bare-metal-install-server.rst:447
+msgid ""
+"Navigate to :guilabel:`Configure Network Interfaces` and select "
+":kbd:`Enter`."
+msgstr "导航到 :guilabel:`Configure Network Interfaces`，然后选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:450
+msgid "Navigate to the network :guilabel:`interface` you wish to change."
+msgstr "导航到希望更改的网络 :guilabel:`interface`。"
+
+#: ../../get-started/bare-metal-install-server.rst:452
+msgid ""
+"When the desired :guilabel:`interface` is highlighted, select "
+":guilabel:`Enter` to edit."
+msgstr "当所需的 :guilabel:`interface` 高亮显示时，选择 :guilabel:`Enter` 进行编辑。"
+
+#: ../../get-started/bare-metal-install-server.rst:455
+msgid "Multiple network interfaces may appear."
+msgstr "可能会出现多个网络接口。"
+
+#: ../../get-started/bare-metal-install-server.rst:461
+msgid "Figure 17: Configure Network Interfaces"
+msgstr "图 17：配置网络接口"
+
+#: ../../get-started/bare-metal-install-server.rst:463
+msgid "Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom)."
+msgstr "注意：默认情况下会选择 :guilabel:`Automatic / dhcp` （位于底部）。"
+
+#: ../../get-started/bare-metal-install-server.rst:465
+msgid ""
+"Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and "
+"select :kbd:`Spacebar` to deselect."
+msgstr "可选：导航到 :guilabel:`Automatic / dhcp` 复选框，然后按:kbd:`空格键` 取消选择现有设置。"
+
+#: ../../get-started/bare-metal-install-server.rst:472
+msgid "Figure 18: Network interface configuration"
+msgstr "图 18：网络接口配置"
+
+#: ../../get-started/bare-metal-install-server.rst:474
+msgid ""
+"Navigate to the appropriate fields and assign the desired network "
+"configuration."
+msgstr "导航到适当的字段，并分配所需的网络配置。"
+
+#: ../../get-started/bare-metal-install-server.rst:477
+msgid "To save settings, navigate to :guilabel:`Confirm` and select :kbd:`Enter`."
+msgstr "要保存设置，请导航到:guilabel:`Confirm`，然后选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:482
+msgid ""
+"To revert to previous settings, navigate to the :guilabel:`Cancel` and "
+"select :kbd:`Enter`."
+msgstr "要恢复以前的设置，请导航到:guilabel:`Cancel`，然后选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:485
+msgid ""
+"Upon confirming network configuration, the :guilabel:`Testing Networking`"
+" dialogue appears. Assure the result shows success. If a failure occurs, "
+"your changes will not be saved."
+msgstr ""
+"确认网络配置后，将出现 :guilabel:`Testing Networking` "
+"对话框。确保结果显示测试成功。如果测试失败，则不会保存您所做的更改。"
+
+#: ../../get-started/bare-metal-install-server.rst:489
+msgid ""
+"Upon confirmation, you are returned to :guilabel:`Network interface` "
+"settings."
+msgstr "确认后，您将返回到 :guilabel:`Network interface` 设置。"
+
+#: ../../get-started/bare-metal-install-server.rst:492
+msgid "Navigate to and select :guilabel:`Main Menu`."
+msgstr "导航到并选择 :guilabel:`Main Menu`。"
+
+#: ../../get-started/bare-metal-install-server.rst:494
+#: ../../get-started/bare-metal-install-server.rst:522
+#: ../../get-started/bare-metal-install-server.rst:543
+#: ../../get-started/bare-metal-install-server.rst:567
+#: ../../get-started/bare-metal-install-server.rst:668
+#: ../../get-started/bare-metal-install-server.rst:698
+#: ../../get-started/bare-metal-install-server.rst:718
+#: ../../get-started/bare-metal-install-server.rst:737
+#: ../../get-started/bare-metal-install-server.rst:762
+msgid "Optional: Skip to `Finish installation`_."
+msgstr "可选：跳到 `Finish installation`_。"
+
+#: ../../get-started/bare-metal-install-server.rst:497
+msgid "Proxy"
+msgstr "代理"
+
+#: ../../get-started/bare-metal-install-server.rst:499
+msgid ""
+"|CL| automatically attempts to detect proxy settings, as described in "
+":ref:`autoproxy`. If you need to manually assign proxy settings, follow "
+"this instruction."
+msgstr "如 :ref:`autoproxy` 中所述，|CL| 会自动尝试检测代理设置。如果需要手动分配代理设置，请按照以下说明操作。"
+
+#: ../../get-started/bare-metal-install-server.rst:503
+msgid ""
+"From the Advanced options menu, navigate to :guilabel:`Proxy`, and select"
+" :kbd:`Enter`."
+msgstr "从“高级选项”菜单中，导航到 :guilabel:`Proxy`，并选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:506
+msgid "Navigate to the field :guilabel:`HTTPS Proxy`."
+msgstr "导航到 :guilabel:`HTTPS Proxy` 字段。"
+
+#: ../../get-started/bare-metal-install-server.rst:512
+msgid "Figure 19: Configure the network proxy"
+msgstr "图 19：配置网络代理"
+
+#: ../../get-started/bare-metal-install-server.rst:514
+msgid ""
+"Enter the desired proxy address and port using conventional syntax, such "
+"as: \\http://address:port."
+msgstr "使用常规语法（例如 \\http://address:port）输入所需的代理地址和端口。"
+
+#: ../../get-started/bare-metal-install-server.rst:517
+msgid "Navigate to :guilabel:`Confirm` and select :kbd:`Enter`."
+msgstr "导航到:guilabel:`Confirm`，然后选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:519
+msgid ""
+"To revert to previous settings, navigate to :guilabel:`Cancel` and select"
+" :guilabel:`Cancel`."
+msgstr "要恢复以前的设置，请导航到:guilabel:`Cancel`，然后选择:guilabel:`Cancel`。"
+
+#: ../../get-started/bare-metal-install-server.rst:525
+msgid "Test Network Settings"
+msgstr "测试网络设置"
+
+#: ../../get-started/bare-metal-install-server.rst:527
+msgid ""
+"To manually assure network connectivity before installing |CL|, select "
+":guilabel:`Test Network Settings` and select :guilabel:`Enter`."
+msgstr ""
+"要在安装 |CL| 之前手动确保网络连通，请选择 :guilabel:`Test Network Settings`，然后选择 "
+":guilabel:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:530
+msgid "A progress bar appears as shown in Figure 20."
+msgstr "出现一个进度条，如图 20 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:536
+msgid "Figure 20: Testing Networking dialogue"
+msgstr "图 20：测试网络连接对话框"
+
+#: ../../get-started/bare-metal-install-server.rst:540
+msgid ""
+"Any changes made to network settings are automatically tested during "
+"configuration."
+msgstr "对网络设置所做的任何更改都会在配置过程中自动测试。"
+
+#: ../../get-started/bare-metal-install-server.rst:546
+msgid "Bundle Selection"
+msgstr "捆绑包选择"
+
+#: ../../get-started/bare-metal-install-server.rst:548
+msgid "On the Advanced menu, select :guilabel:`Bundle Selection`"
+msgstr "在“Advanced”菜单中，选择 :guilabel:`Bundle Selection`"
+
+#: ../../get-started/bare-metal-install-server.rst:550
+msgid "Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows."
+msgstr "使用 :kbd:`Tab` 或:kbd:`向上/向下` 箭头导航到所需的捆绑包。"
+
+#: ../../get-started/bare-metal-install-server.rst:552
+msgid "Select :kbd:`Spacebar` to select the checkbox for each desired bundle."
+msgstr "按:kbd:`空格键` 选择所需的每个捆绑包对应的复选框。"
+
+#: ../../get-started/bare-metal-install-server.rst:558
+msgid "Figure 21: Bundle Selection"
+msgstr "图 21：捆绑包选择"
+
+#: ../../get-started/bare-metal-install-server.rst:560
+msgid ""
+"Optional: To start developing with |CL|, we recommend adding :file:`os-"
+"clr-on-clr`."
+msgstr "可选：要开始使用 |CL| 开展开发工作，我们建议添加 :file:`os-clr-on-clr`。"
+
+#: ../../get-started/bare-metal-install-server.rst:563
+msgid "Navigate to and select :kbd:`Confirm`."
+msgstr "导航到并选择:kbd:`确认`。"
+
+#: ../../get-started/bare-metal-install-server.rst:565
+msgid "You are returned to the :guilabel:`Advanced options` menu."
+msgstr "您将返回到:guilabel:`Advanced options` 菜单。"
+
+#: ../../get-started/bare-metal-install-server.rst:570
+msgid "Manage User"
+msgstr "管理用户"
+
+#: ../../get-started/bare-metal-install-server.rst:573
+msgid "Add New User"
+msgstr "添加新用户"
+
+#: ../../get-started/bare-metal-install-server.rst:575
+msgid "In Advanced Options, select :guilabel:`Manage User`."
+msgstr "在“高级选项”中，选择:guilabel:`Manage User`。"
+
+#: ../../get-started/bare-metal-install-server.rst:577
+msgid "Select :guilabel:`Add New User` as shown in Figure 22."
+msgstr "选择 :guilabel:`Add New User`，如图 22 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:583
+msgid "Figure 22: Add New User"
+msgstr "图 22：添加新用户"
+
+#: ../../get-started/bare-metal-install-server.rst:585
+msgid "Optional: Enter a :guilabel:`User Name`."
+msgstr "可选：输入一个:guilabel:`User Name`。"
+
+#: ../../get-started/bare-metal-install-server.rst:596
+msgid "Figure 23: User Name"
+msgstr "图 23：用户名"
+
+#: ../../get-started/bare-metal-install-server.rst:598
+msgid "Enter a :guilabel:`Login`."
+msgstr "输入一个:guilabel:`Login`。"
+
+#: ../../get-started/bare-metal-install-server.rst:602
+msgid ""
+"The User Login must be alphanumeric and can include hyphens and "
+"underscores. Maximum length is 31 characters."
+msgstr "用户登录名必须是字母数字字符，并且可以包括连字符和下划线。最大长度为 31 个字符。"
+
+#: ../../get-started/bare-metal-install-server.rst:604
+msgid "Enter a :guilabel:`Password`."
+msgstr "输入一个:guilabel:`Password`。"
+
+#: ../../get-started/bare-metal-install-server.rst:610
+msgid "In :guilabel:`Confirm`, enter the same password."
+msgstr "在:guilabel:`Confirm` 中，输入相同的密码。"
+
+#: ../../get-started/bare-metal-install-server.rst:612
+msgid ""
+"Optional: Navigate to the :guilabel:`Administrative` checkbox and select "
+":kbd:`Spacebar` to assign administrative rights to the user."
+msgstr "可选：导航到 :guilabel:`Administrative` 复选框，然后按:kbd:`空格键` 为用户分配管理权限。"
+
+#: ../../get-started/bare-metal-install-server.rst:617
+msgid "Selecting this option enables sudo privileges for the user."
+msgstr "选择此选项将为用户启用 sudo 特权。"
+
+#: ../../get-started/bare-metal-install-server.rst:619
+#: ../../get-started/bare-metal-install-server.rst:696
+#: ../../get-started/bare-metal-install-server.rst:729
+#: ../../get-started/bare-metal-install-server.rst:760
+msgid "Select :kbd:`Confirm`."
+msgstr "选择:kbd:`确认`。"
+
+#: ../../get-started/bare-metal-install-server.rst:623
+msgid "If desired, select :guilabel:`Reset` to reset the form."
+msgstr "如果需要，选择 :guilabel:`Reset` 来重置表单。"
+
+#: ../../get-started/bare-metal-install-server.rst:625
+msgid "In :guilabel:`Manage User`, navigate to :guilabel:`Confirm`."
+msgstr "在:guilabel:`Manage User` 中，导航到:guilabel:`Confirm`。"
+
+#: ../../get-started/bare-metal-install-server.rst:627
+msgid "With :guilabel:`Confirm` highlighted, select :kbd:`Enter`."
+msgstr "在:guilabel:`Confirm` 高亮显示的情况下，选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:630
+msgid "Modify / Delete User"
+msgstr "修改/删除用户"
+
+#: ../../get-started/bare-metal-install-server.rst:632
+msgid ""
+"In :guilabel:`Manage User`, navigate to the user you wish to modify until"
+" highlighted, as shown in Figure 24."
+msgstr "在:guilabel:`Manage User` 中，导航到要修改的用户，直到其高亮显示，如图 24 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:635
+msgid "Select :kbd:`Enter` to modify the user."
+msgstr "选择 :kbd:`Enter` 修改该用户。"
+
+#: ../../get-started/bare-metal-install-server.rst:641
+msgid "Figure 24: Modify User"
+msgstr "图 24：修改用户"
+
+#: ../../get-started/bare-metal-install-server.rst:643
+msgid "Modify user details as desired."
+msgstr "根据需要修改用户详细信息。"
+
+#: ../../get-started/bare-metal-install-server.rst:645
+#: ../../get-started/bare-metal-install-server.rst:664
+#: ../../get-started/bare-metal-install-server.rst:758
+msgid "Navigate to :kbd:`Confirm` until highlighted."
+msgstr "导航到:kbd:`确认`，直到其高亮显示。"
+
+#: ../../get-started/bare-metal-install-server.rst:649
+msgid "Optional: Select :guilabel:`Reset` to rest the form."
+msgstr "可选：选择 :guilabel:`Reset` 可重置表单。"
+
+#: ../../get-started/bare-metal-install-server.rst:651
+msgid "Select :guilabel:`Confirm` to save the changes you made."
+msgstr "选择:guilabel:`Confirm` 保存所做的更改。"
+
+#: ../../get-started/bare-metal-install-server.rst:653
+msgid ""
+"Optional: In :guilabel:`Modify User`, to delete the user, navigate to the"
+" :guilabel:`Delete` button and select :kbd:`Enter`."
+msgstr ""
+"可选：在 :guilabel:`Modify User` 中，要删除用户，请导航到 :guilabel:`Delete` 按钮，然后选择 "
+":kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:660
+msgid "Figure 25: Delete User"
+msgstr "图 25：删除用户"
+
+#: ../../get-started/bare-metal-install-server.rst:662
+msgid "You are returned to :guilabel:`Manage User`."
+msgstr "您将返回到:guilabel:`Manage User`。"
+
+#: ../../get-started/bare-metal-install-server.rst:666
+msgid "Select :guilabel:`Enter` to complete :guilabel:`Manage User` options."
+msgstr "选择 :guilabel:`Enter` 设置:guilabel:`Manage User` 选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:671
+msgid "Kernel Command Line"
+msgstr "内核命令行"
+
+#: ../../get-started/bare-metal-install-server.rst:673
+msgid ""
+"For advanced users, |CL| provides the ability to add or remove kernel "
+"arguments. If you want to append a new argument, enter the argument here."
+" This argument will be used every time you install or update a new "
+"kernel."
+msgstr "|CL| 为高级用户提供了添加或移除内核参数的功能。如果要附加一个新参数，请在此处输入该参数。每当安装或更新新内核时，都会使用此参数。"
+
+#: ../../get-started/bare-metal-install-server.rst:678
+msgid ""
+"In Advanced Options, select :guilabel:`Tab` to highlight "
+":guilabel:`Kernel Command Line`."
+msgstr "在“高级选项”中，选择 :guilabel:`Tab` 高亮显示 :guilabel:`Kernel Command Line`。"
+
+#: ../../get-started/bare-metal-install-server.rst:687
+msgid "Figure 26: kernel command line"
+msgstr "图 26：内核命令行"
+
+#: ../../get-started/bare-metal-install-server.rst:689
+msgid "Choose from the following options."
+msgstr "从下列选项中选择。"
+
+#: ../../get-started/bare-metal-install-server.rst:691
+msgid "To add arguments, enter the argument in :guilabel:`Add Extra Arguments`."
+msgstr "要添加参数，请在 :guilabel:`Add Extra Arguments` 中输入参数。"
+
+#: ../../get-started/bare-metal-install-server.rst:693
+msgid "To remove an argument, enter the argument in :guilabel:`Remove Arguments`."
+msgstr "要移除参数，请在 :guilabel:`Remove Arguments` 中输入参数。"
+
+#: ../../get-started/bare-metal-install-server.rst:701
+msgid "Kernel Selection"
+msgstr "内核选择"
+
+#: ../../get-started/bare-metal-install-server.rst:703
+msgid ""
+"Select a kernel option. By default, the latest kernel release is "
+"selected. Native kernel is shown in Figure 27."
+msgstr "选择一个内核选项。默认情况下会选择最新的内核版本。图 27 中显示了原生内核。"
+
+#: ../../get-started/bare-metal-install-server.rst:706
+msgid "To select a different kernel, navigate to it using :guilabel:`Tab`."
+msgstr "要选择不同的内核，请使用 :guilabel:`Tab` 导航到该内核。"
+
+#: ../../get-started/bare-metal-install-server.rst:712
+msgid "Figure 27: Kernel selection"
+msgstr "图 27：内核选择"
+
+#: ../../get-started/bare-metal-install-server.rst:714
+msgid "Select :kbd:`Spacebar` to select the desired option."
+msgstr "按:kbd:`空格键` 选择所需的选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:716
+msgid "Navigate to :kbd:`Confirm` and select :kbd:`Enter`."
+msgstr "导航到:kbd:`确认`，然后选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:721
+msgid "Swupd Mirror"
+msgstr "Swupd 镜像"
+
+#: ../../get-started/bare-metal-install-server.rst:723
+msgid "If you have your own custom mirror of |CL|, you can add its URL."
+msgstr "如果拥有自己的自定义 |CL| 镜像，您可以添加它的 URL。"
+
+#: ../../get-started/bare-metal-install-server.rst:725
+msgid "In Advanced Options, select :guilabel:`Swupd Mirror`."
+msgstr "在“高级选项”中，选择 :guilabel:`Swupd Mirror`。"
+
+#: ../../get-started/bare-metal-install-server.rst:727
+msgid "To add a local swupd mirror, enter a valid URL in :guilabel:`Mirror URL:`"
+msgstr "要添加本地 swupd 镜像，请在 :guilabel:`Mirror URL:` 中输入有效的 URL"
+
+#: ../../get-started/bare-metal-install-server.rst:735
+msgid "Figure 28: Swupd Mirror"
+msgstr "图 28：Swupd 镜像"
+
+#: ../../get-started/bare-metal-install-server.rst:740
+msgid "Assign Hostname"
+msgstr "分配主机名"
+
+#: ../../get-started/bare-metal-install-server.rst:742
+msgid "In Advanced Options, select :guilabel:`Assign Hostname`."
+msgstr "在“高级选项”中，选择:guilabel:`Assign Hostname`。"
+
+#: ../../get-started/bare-metal-install-server.rst:744
+msgid "In :guilabel:`Hostname`, enter the hostname only (excluding the domain)."
+msgstr "在 :guilabel:`Hostname` 中，仅输入主机名（不包括域）。"
+
+#: ../../get-started/bare-metal-install-server.rst:748
+msgid ""
+"Hostname does not allow empty spaces. Hostname must start with an "
+"alphanumeric character but may also contain hyphens. Maximum length of 63"
+" characters."
+msgstr "主机名不允许有空格。主机名必须以字母数字字符开头，但也可以包含连字符。最大长度为 63 个字符。"
+
+#: ../../get-started/bare-metal-install-server.rst:756
+msgid "Figure 29: Assign Hostname"
+msgstr "图 29：分配主机名"
+
+#: ../../get-started/bare-metal-install-server.rst:765
+msgid "Automatic OS Updates"
+msgstr "自动更新操作系统"
+
+#: ../../get-started/bare-metal-install-server.rst:767
+msgid ""
+"Automatical OS updates are enabled by default. In the rare case that you "
+"need to disable automatic software updates, follow the onscreen "
+"instructions, shown in Figure 30."
+msgstr "默认情况下会启用操作系统自动更新。在极少数情况下，您可能需要禁用自动软件更新，这时可按照屏幕说明进行操作，如图 30 所示。"
+
+#: ../../get-started/bare-metal-install-server.rst:771
+msgid "In Advanced Options, select :guilabel:`Automatic OS Updates`."
+msgstr "在“高级选项”中，选择 :guilabel:`Automatic OS Updates`。"
+
+#: ../../get-started/bare-metal-install-server.rst:773
+msgid "Select the desired option."
+msgstr "选择所需选项。"
+
+#: ../../get-started/bare-metal-install-server.rst:779
+msgid "Figure 30: Automatic OS Updates"
+msgstr "图 30：操作系统自动更新"
+
+#: ../../get-started/bare-metal-install-server.rst:781
+msgid "You are returned to the :guilabel:`Main Menu`."
+msgstr "您将返回到 :guilabel:`Main Menu`。"
+
+#: ../../get-started/bare-metal-install-server.rst:784
+msgid "Save Configuration Settings"
+msgstr "保存配置设置"
+
+#: ../../get-started/bare-metal-install-server.rst:786
+msgid "In Advanced Options, select :guilabel:`Save Configuration Settings`."
+msgstr "在“高级选项”中，选择 :guilabel:`Save Configuration Settings`。"
+
+#: ../../get-started/bare-metal-install-server.rst:788
+msgid ""
+"A dialogue box shows the installation configuration was saved to :file"
+":`clr-installer.yaml`"
+msgstr "对话框显示安装配置已保存到 :file:`clr-installer.yaml`"
+
+#: ../../get-started/bare-metal-install-server.rst:795
+msgid "Figure 31: Automatic OS Updates"
+msgstr "图 31：操作系统自动更新"
+
+#: ../../get-started/bare-metal-install-server.rst:797
+msgid ""
+"Use the :file:`clr-installer.yaml` file to install |CL|, with the same "
+"configuration, on multiple targets."
+msgstr "使用 :file:`clr-installer.yaml` 文件时，可以使用相同的配置将 |CL| 安装到多个目标。"
+
+#: ../../get-started/bare-metal-install-server.rst:801
+msgid "Finish installation"
+msgstr "完成安装"
+
+#: ../../get-started/bare-metal-install-server.rst:803
+msgid ""
+"When you are satisfied with your installation configuration, navigate to "
+":guilabel:`Install` and select :kbd:`Enter`."
+msgstr "如对安装配置满意，请导航到:guilabel:`Install`，然后选择 :kbd:`Enter`。"
+
+#: ../../get-started/bare-metal-install-server.rst:810
+msgid "Figure 32: Select Install"
+msgstr "图 32：选择安装"
+
+#: ../../get-started/bare-metal-install-server.rst:812
+msgid "Select :guilabel:`reboot`."
+msgstr "选择 :guilabel:`reboot`。"
+
+#: ../../get-started/bare-metal-install-server.rst:816
+msgid ""
+"If you do not assign an administrative user, upon rebooting, enter `root`"
+" and set the root password immediately."
+msgstr "如果没有分配管理用户，重启后，请输入 `root` 并立即设置 root 密码。"
+
+#: ../../get-started/bare-metal-install-server.rst:819
+msgid "When the system reboots, remove any installation media present."
+msgstr "当系统重启时，移除所有存在的安装媒介。"
+
+#: ../../get-started/bare-metal-install-server.rst:822
+msgid "Default partition schema"
+msgstr "默认分区架构"
+
+#: ../../get-started/bare-metal-install-server.rst:824
+msgid "Create partitions per requirements in Table 1."
+msgstr "根据表 1 中的要求创建分区。"
+
+#: ../../get-started/bare-metal-install-server.rst:826
+msgid "**Table 1. Default partition schema**"
+msgstr "**表 1.默认分区架构**"
+
+#: ../../get-started/bare-metal-install-server.rst:830
+msgid "FileSystem"
+msgstr "文件系统"
+
+#: ../../get-started/bare-metal-install-server.rst:831
+msgid "Label"
+msgstr "标签"
+
+#: ../../get-started/bare-metal-install-server.rst:832
+msgid "Mount Point"
+msgstr "挂载点"
+
+#: ../../get-started/bare-metal-install-server.rst:833
+msgid "Default size"
+msgstr "默认大小"
+
+#: ../../get-started/bare-metal-install-server.rst:835
+msgid "``VFAT(FAT32)``"
+msgstr "``VFAT(FAT32)``"
+
+#: ../../get-started/bare-metal-install-server.rst:836
+msgid "boot"
+msgstr "引导"
+
+#: ../../get-started/bare-metal-install-server.rst:837
+msgid "/boot"
+msgstr "/boot"
+
+#: ../../get-started/bare-metal-install-server.rst:838
+msgid "150MB"
+msgstr "150MB"
+
+#: ../../get-started/bare-metal-install-server.rst:840
+msgid "``linux-swap``"
+msgstr "``linux-swap``"
+
+#: ../../get-started/bare-metal-install-server.rst:841
+msgid "swap"
+msgstr "交换"
+
+#: ../../get-started/bare-metal-install-server.rst:843
+msgid "256MB"
+msgstr "256MB"
+
+#: ../../get-started/bare-metal-install-server.rst:845
+msgid "``ext[234] or XFS``"
+msgstr "``ext[234] 或 XFS``"
+
+#: ../../get-started/bare-metal-install-server.rst:846
+msgid "root"
+msgstr "root"
+
+#: ../../get-started/bare-metal-install-server.rst:847
+msgid "/"
+msgstr "/"
+
+#: ../../get-started/bare-metal-install-server.rst:848
+msgid "*Size depends upon use case/desired bundles.*"
+msgstr "*大小取决于用例/所需的捆绑包。*"
+
+#: ../../get-started/bare-metal-install-server.rst:851
+msgid "Troubleshooting"
+msgstr "故障检修"
+
+#: ../../get-started/bare-metal-install-server.rst:854
+msgid "For Configure Installation Media"
+msgstr "配置安装媒介时"
+
+#: ../../get-started/bare-metal-install-server.rst:856
+msgid ""
+"If a warning message appears that no media or space is available after "
+"entering :guilabel:`Configure Installation Media`:"
+msgstr "如果在进入:guilabel:`Configure Installation Media` 界面后出现警告消息，指出没有媒介或空间："
+
+#: ../../get-started/bare-metal-install-server.rst:859
+msgid "Verify that target media has enough free space."
+msgstr "确认目标媒介上有足够的可用空间。"
+
+#: ../../get-started/bare-metal-install-server.rst:861
+msgid "Confirm the USB is properly connected to and mounted on target media."
+msgstr "确认 USB 已正确连接并挂载在目标媒介上。"
+
+#: ../../get-started/bare-metal-install-server.rst:863
+msgid "Review the size of existing partitions on the target media:"
+msgstr "查看目标媒介上现有分区的大小："
+
+#: ../../get-started/bare-metal-install-server.rst:865
+msgid "Linux\\* OS: :command:`lsblk -a`"
+msgstr "Linux\\* OS：:command:`lsblk -a`"
+
+#: ../../get-started/bare-metal-install-server.rst:866
+msgid "Windows\\* OS:  :command:`diskpart`, then :command:`list disk`"
+msgstr "Windows\\* OS：:command:`diskpart`，然后执行 :command:`list disk`"
+
+#: ../../get-started/bare-metal-install-server.rst:867
+msgid "macOS\\* platform: :command:`diskutil list`"
+msgstr "macOS\\* 平台：:command:`diskutil list`"
+
+#~ msgid ""
+#~ "Get the latest |CL| installer image "
+#~ "from the `downloads page`_. Look for "
+#~ "the :file:`clear-[version number]-live-server.iso`"
+#~ " file."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| automatically attempts to detect "
+#~ "proxy settings, as described in "
+#~ "`Autoproxy`_. If you need to manually"
+#~ " assign proxy settings, follow this "
+#~ "instruction."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "These instructions guide you through "
+#~ "installing |CL-ATTR| on bare metal "
+#~ "from a bootable USB drive using a"
+#~ " live server image."
+#~ msgstr ""
+
+#~ msgid "Assure that your target system supports the installation:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After downloading the image, verify and"
+#~ " decompress the file per your OS."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To add partitions manually, see "
+#~ "`Advanced configuration`_ below, and create"
+#~ " partitions per requirements in Table "
+#~ "1."
+#~ msgstr ""
+
+#~ msgid "**Table 1. Disk Partition Setup**"
+#~ msgstr ""
+
+#~ msgid "Minimum size"
+#~ msgstr ""
+
+#~ msgid "``VFAT``"
+#~ msgstr ""
+
+#~ msgid "150M"
+#~ msgstr ""
+
+#~ msgid "``swap``"
+#~ msgstr ""
+
+#~ msgid "``root``"
+#~ msgstr ""
+

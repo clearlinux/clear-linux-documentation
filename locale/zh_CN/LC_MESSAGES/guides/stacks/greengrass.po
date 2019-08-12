@@ -4,15 +4,16 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0152\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_Hans\n"
+"Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ../../guides/stacks/greengrass.rst:4
 msgid "Enable AWS Greengrass\\* and OpenVINO™ toolkit"
-msgstr ""
+msgstr "启用 AWS Greengrass\\* 和 OpenVINO™ 工具包"
 
 #: ../../guides/stacks/greengrass.rst:6
 msgid ""
@@ -30,19 +31,19 @@ msgstr ""
 
 #: ../../guides/stacks/greengrass.rst:9
 msgid "Set up the Intel® edge device with |CL-ATTR|"
-msgstr ""
+msgstr "使用 |CL-ATTR| 设置英特尔®边缘设备"
 
 #: ../../guides/stacks/greengrass.rst:10
 msgid ""
 "Install the OpenVINO™ toolkit and Amazon Web Services\\* (AWS\\*) "
 "Greengrass\\* software stacks"
-msgstr ""
+msgstr "安装 OpenVINO™ 工具包和 Amazon Web Services\\* (AWS\\*) Greengrass\\* 软件堆栈"
 
 #: ../../guides/stacks/greengrass.rst:12
 msgid ""
 "Use AWS Greengrass\\* and AWS Lambda\\* to deploy the FaaS samples from "
 "the cloud"
-msgstr ""
+msgstr "使用 AWS Greengrass\\* 和 AWS Lambda\\* 从云中部署 FaaS 示例"
 
 #: ../../guides/stacks/greengrass.rst:20
 msgid "Overview"
@@ -60,36 +61,42 @@ msgid ""
 "optimized deep learning libraries on Intel® IoT edge devices with "
 "accelerators."
 msgstr ""
+"硬件加速的功能即服务 (FaaS) 有助于云开发人员在搭载加速器的英特尔® IoT 边缘设备（CPU、集成 GPU、英特尔® FPGA 和英特尔®"
+" Movidius™ 技术）上部署推理功能 "
+"[1]。这些功能使用容器化环境，为开发人员提供了出色的体验，有助于开发人员将可视化分析从云安全地迁移到边缘。硬件加速的 FaaS "
+"支持在搭载加速器的英特尔® IoT 边缘设备上访问经过优化的深度学习库，实现业界最佳性能。"
 
 #: ../../guides/stacks/greengrass.rst:32
 msgid "Supported platforms"
-msgstr ""
+msgstr "支持的平台"
 
 #: ../../guides/stacks/greengrass.rst:34
 msgid "Operating System: |CL| latest release"
-msgstr ""
+msgstr "操作系统：|CL| 最新版本"
 
 #: ../../guides/stacks/greengrass.rst:35
+#, fuzzy
 msgid "Hardware:       Intel® core platforms (that support inference on CPU only)"
-msgstr ""
+msgstr "硬件：英特尔®酷睿™平台（本教程仅支持 CPU 推理。）"
 
 #: ../../guides/stacks/greengrass.rst:38
 msgid "Sample description"
-msgstr ""
+msgstr "示例说明"
 
 #: ../../guides/stacks/greengrass.rst:40
+#, fuzzy
 msgid ""
 "The AWS Greengrass samples are located at `Edge-Analytics-FaaS`_. This "
 "guide uses the 1.0 version of the source code."
-msgstr ""
+msgstr "AWS Greengrass 示例位于 `Edge-Analytics-FaaS`_ 中。本教程使用 1.0 版本的源代码。"
 
 #: ../../guides/stacks/greengrass.rst:43
 msgid "|CL| provides the following AWS Greengrass samples:"
-msgstr ""
+msgstr "|CL| 提供以下 AWS Greengrass 示例："
 
 #: ../../guides/stacks/greengrass.rst:45
 msgid "`greengrass_classification_sample.py`_"
-msgstr ""
+msgstr "`greengrass_classification_sample.py`_"
 
 #: ../../guides/stacks/greengrass.rst:47
 msgid ""
@@ -97,10 +104,12 @@ msgid ""
 " networks such as AlexNet and GoogLeNet and publishes top-10 results on "
 "AWS\\* IoT Cloud every second."
 msgstr ""
+"此 AWS Greengrass 示例使用 AlexNet 和 GoogLeNet 等分类网络对视频流进行分类，并每秒在 AWS\\* IoT "
+"云上发布前十名结果。"
 
 #: ../../guides/stacks/greengrass.rst:51
 msgid "`greengrass_object_detection_sample_ssd.py`_"
-msgstr ""
+msgstr "`greengrass_object_detection_sample_ssd.py`_"
 
 #: ../../guides/stacks/greengrass.rst:53
 msgid ""
@@ -110,20 +119,24 @@ msgid ""
 "detection outputs such as class label, class confidence, and bounding box"
 " coordinates on AWS IoT Cloud every second."
 msgstr ""
+"此 AWS Greengrass 示例会检测视频流中的对象，并使用单步多框检测 (SSD) 网络（例如 SSD Squeezenet、SSD "
+"Mobilenet 和 SSD300）对它们进行分类。此示例每秒在 AWS IoT 云上发布检测输出，如类标签、类置信度和边界框坐标。"
 
 #: ../../guides/stacks/greengrass.rst:61
 msgid "Install the OS on the edge device"
-msgstr ""
+msgstr "在边缘设备上安装操作系统"
 
 #: ../../guides/stacks/greengrass.rst:63
 msgid ""
 "Start with a clean installation of |CL| on a new system, using the :ref"
 ":`bare-metal-install-desktop`, found in :ref:`get-started`."
 msgstr ""
+"使用 :ref:`get-started` 中的 :ref:`bare-metal-install-desktop`，在新系统上安装干净的 "
+"|CL|。"
 
 #: ../../guides/stacks/greengrass.rst:67
 msgid "Create user accounts"
-msgstr ""
+msgstr "创建用户帐户"
 
 #: ../../guides/stacks/greengrass.rst:69
 msgid ""
@@ -131,64 +144,69 @@ msgid ""
 "administrative user in |CL| and create a user account for the Greengrass "
 "services to use ( see Greengrass user below)."
 msgstr ""
+"安装 |CL| 后，创建两个用户帐户。在 |CL| 中创建一个管理用户，并为要使用的 Greengrass 服务创建一个用户帐户（请参阅下面的 "
+"Greengrass 用户）。"
 
 #: ../../guides/stacks/greengrass.rst:73
 msgid ""
 "Create a new user and set a password for that user. Enter the following "
 "commands as ``root``:"
-msgstr ""
+msgstr "创建新用户并为该用户设置密码。以 ``root`` 用户身份输入以下命令："
 
 #: ../../guides/stacks/greengrass.rst:81
+#, fuzzy
 msgid ""
 "Next, enable the :command:`sudo` command for your new <userid>. Add "
 "<userid> to the `wheel` group:"
-msgstr ""
+msgstr "接下来，为新的 ``<userid>`` 启用 :command:`sudo` 命令。将 ``<userid>`` 添加到 *wheel* 组："
 
 #: ../../guides/stacks/greengrass.rst:88
 msgid "Create a :file:`/etc/fstab` file."
-msgstr ""
+msgstr "创建一个 :file:`/etc/fstab` 文件。"
 
 #: ../../guides/stacks/greengrass.rst:96
 msgid ""
 "By default, |CL| does not create an :file:`/etc/fstab` file. You must "
 "create this file before the Greengrass service runs."
-msgstr ""
+msgstr "默认情况下，|CL| 不会创建 :file:`/etc/fstab` 文件。您必须在 Greengrass 服务运行之前创建此文件。"
 
 #: ../../guides/stacks/greengrass.rst:100
 msgid "Add required bundles"
-msgstr ""
+msgstr "添加所需的捆绑包"
 
 #: ../../guides/stacks/greengrass.rst:102
 msgid ""
 "Use the :command:`swupd` software updater utility to add the prerequisite"
 " bundles for the OpenVINO software stack:"
-msgstr ""
+msgstr "使用 :command:`swupd` 软件更新程序实用程序添加 OpenVINO 软件堆栈必备的软件包："
 
 #: ../../guides/stacks/greengrass.rst:111
 msgid "Learn more about how to :ref:`swupd-guide`."
-msgstr ""
+msgstr "详细了解如何 :ref:`swupd-guide`。"
 
 #: ../../guides/stacks/greengrass.rst:113
 msgid ""
 "The :command:`computer-vision-basic` bundle installs the OpenVINO™ "
 "toolkit, and the sample models optimized for Intel® edge platforms."
-msgstr ""
+msgstr ":command:`computer-vision-basic` 捆绑包会安装 OpenVINO™ 工具包以及针对英特尔®边缘平台优化的示例模型。"
 
 #: ../../guides/stacks/greengrass.rst:117
 msgid "Convert deep learning models"
-msgstr ""
+msgstr "转换深度学习模型"
 
 #: ../../guides/stacks/greengrass.rst:120
 msgid "Locate sample models"
-msgstr ""
+msgstr "找到示例模型"
 
 #: ../../guides/stacks/greengrass.rst:122
+#, fuzzy
 msgid ""
 "There are two types of provided models that can be used in conjunction "
 "with AWS Greengrass for this guide: classification or object detection."
-msgstr ""
+msgstr "本教程中提供了两种可以与 AWS Greengrass 配合使用的模型：分类和对象检测。"
 
 #: ../../guides/stacks/greengrass.rst:125
+#, fuzzy
 msgid ""
 "To complete this guide using an image classification model, download the "
 "BVLC AlexNet model files `bvlc_alexnet.caffemodel`_ and "
@@ -196,8 +214,12 @@ msgid ""
 ":file:`/usr/share/openvino/models`. Any custom pre-trained classification"
 " models can be used with the classification sample."
 msgstr ""
+"要使用图像分类模型完成本教程，请将 BVLC AlexNet 模型文件 `bvlc_alexnet.caffemodel`_ 和 "
+"`deploy.prototxt`_ 下载到 :file:`/usr/share/openvino/models` 处的默认 "
+"model_location。预先训练的任何自定义分类模型都可与分类示例配合使用。"
 
 #: ../../guides/stacks/greengrass.rst:131
+#, fuzzy
 msgid ""
 "For object detection, the sample models optimized for Intel® edge "
 "platforms are included with the computer-vision-basic bundle installation"
@@ -205,10 +227,13 @@ msgid ""
 "example; you may also use a custom SSD model with the Greengrass object "
 "detection sample."
 msgstr ""
+"对于对象检测，安装 computer-vision-basic 捆绑包时会在 :file:`/usr/share/openvino/models`"
+" 处附带针对英特尔®边缘平台优化的示例模型。这些模型作为示例提供；但是，您也可以将自定义 SSD 模型与 Greengrass "
+"对象检测示例结合使用。"
 
 #: ../../guides/stacks/greengrass.rst:137
 msgid "Run model optimizer"
-msgstr ""
+msgstr "运行模型优化器"
 
 #: ../../guides/stacks/greengrass.rst:139
 msgid ""
@@ -220,33 +245,39 @@ msgstr ""
 
 #: ../../guides/stacks/greengrass.rst:143
 msgid "For classification using BVLC AlexNet model:"
-msgstr ""
+msgstr "对于使用 BVLC AlexNet 模型的分类："
 
 #: ../../guides/stacks/greengrass.rst:152
 msgid "For object detection using SqueezeNetSSD-5Class model:"
-msgstr ""
+msgstr "对于使用 SqueezeNetSSD-5Class 模型的对象检测："
 
 #: ../../guides/stacks/greengrass.rst:161
 msgid "In these examples:"
-msgstr ""
+msgstr "在这些示例中："
 
 #: ../../guides/stacks/greengrass.rst:163
+#, fuzzy
 msgid "`<model_location>` is :file:`/usr/share/openvino/models`."
-msgstr ""
+msgstr "``<model_location>`` 是 :file:`/usr/share/openvino/models`。"
 
 #: ../../guides/stacks/greengrass.rst:165
+#, fuzzy
 msgid "`<data_type>` is FP32 or FP16, depending on target device."
-msgstr ""
+msgstr "``<data_type>`` 是 FP32 或 FP16，具体取决于目标设备。"
 
 #: ../../guides/stacks/greengrass.rst:167
+#, fuzzy
 msgid ""
 "`<output_dir>` is the directory where the Intermediate Representation "
 "(IR) is stored. IR contains .xml format corresponding to the network "
 "structure and .bin format corresponding to weights. This .xml file should"
 " be passed to :command:`<PARAM_MODEL_XML>`."
 msgstr ""
+"``<output_dir>`` 是存储中间表示 (IR) 的目录。IR 包含与网络结构对应的 .xml 格式以及与权重对应的 .bin 格式。此"
+" .xml 文件应传递给 :command:`<PARAM_MODEL_XML>`。"
 
 #: ../../guides/stacks/greengrass.rst:172
+#, fuzzy
 msgid ""
 "In the BVLC AlexNet model, the prototxt defines the input shape with "
 "batch size 10 by default. In order to use any other batch size, the "
@@ -254,10 +285,13 @@ msgid ""
 "optimizer. For example, to use batch size 1, you must provide: "
 "`--input_shape [1,3,227,227]`"
 msgstr ""
+"在 BVLC AlexNet 模型中，默认情况下，prototxt 会定义批处理大小为 10 "
+"的输入形状。要使用任何其他批处理大小，必须将整个输入形状作为参数提供给模型优化器。例如，要使用批处理大小 1，您必须提供 "
+"``--input_shape [1,3,227,227]``"
 
 #: ../../guides/stacks/greengrass.rst:180
 msgid "Configure AWS Greengrass group"
-msgstr ""
+msgstr "配置 AWS Greengrass 组"
 
 #: ../../guides/stacks/greengrass.rst:182
 msgid ""
@@ -265,12 +299,16 @@ msgid ""
 " and install AWS Greengrass core software to establish the connection "
 "between cloud and edge."
 msgstr ""
+"对于每个英特尔®边缘平台，您必须创建一个新的 AWS Greengrass 组，并安装 AWS Greengrass "
+"核心软件，以在云和边缘之间建立连接。"
 
 #: ../../guides/stacks/greengrass.rst:186
 msgid ""
 "To create an AWS Greengrass group, follow the instructions in `Configure "
 "AWS IoT Greengrass on AWS IoT`_."
 msgstr ""
+"要创建 AWS Greengrass 组，请按照 `Configure AWS IoT Greengrass on AWS IoT`_ "
+"中的说明执行操作。"
 
 #: ../../guides/stacks/greengrass.rst:189
 msgid ""
@@ -279,39 +317,45 @@ msgid ""
 "8(b), download the x86_64 Ubuntu\\* configuration of the AWS Greengrass "
 "core software."
 msgstr ""
+"要在边缘平台上安装和配置 AWS Greengrass 核心，请按照 `Start AWS Greengrass on the Core "
+"Device`_ 中的说明执行操作。在步骤 8(b) 中，下载 AWS Greengrass 核心软件的 x86_64 Ubuntu\\* 配置。"
 
 #: ../../guides/stacks/greengrass.rst:196
+#, fuzzy
 msgid ""
 "You do not need to run the :file:`cgroupfs-mount.sh` script in step #6 of"
 " Module 1 of the `AWS Greengrass Developer Guide`_ because this is "
 "enabled already in |CL|."
 msgstr ""
+"您不需要在 `AWS Greengrass developer guide`_ 模块 1 的步骤 6 中运行 :file:`cgroupfs-"
+"mount.sh` 脚本，因为它已经在 |CL| 中启用。"
 
 #: ../../guides/stacks/greengrass.rst:200
 msgid ""
 "Be sure to download both the security resources and the AWS Greengrass "
 "core software."
-msgstr ""
+msgstr "请务必下载安全资源和 AWS Greengrass 核心软件。"
 
 #: ../../guides/stacks/greengrass.rst:205
 msgid "Security certificates are linked to your AWS account."
-msgstr ""
+msgstr "安全证书会链接到您的 AWS 帐户。"
 
 #: ../../guides/stacks/greengrass.rst:209
 msgid "Create and package Lambda function"
-msgstr ""
+msgstr "创建并打包 Lambda 函数"
 
 #: ../../guides/stacks/greengrass.rst:211
+#, fuzzy
 msgid ""
 "Complete steps 1-4 of the AWS Greengrass guide at `Create and Package a "
 "Lambda Function`_."
-msgstr ""
+msgstr "在 `Create and Package a Lambda Function`_ 中完成 AWS Greengrass 教程的步骤 1-4。"
 
 #: ../../guides/stacks/greengrass.rst:216
 msgid ""
 "This creates the tarball needed to create the AWS Greengrass environment "
 "on the edge device."
-msgstr ""
+msgstr "这会创建必要的 tarball，以便在边缘设备上创建 AWS Greengrass 环境。"
 
 #: ../../guides/stacks/greengrass.rst:220
 msgid ""
@@ -319,14 +363,16 @@ msgid ""
 "classification or object detection Greengrass sample from `Edge-"
 "Analytics-Faas`_:"
 msgstr ""
+"在步骤 5 中，将 :file:`greengrassHelloWorld.py` 替换为 `Edge-Analytics-Faas`_ "
+"中的分类或对象检测 Greengrass 示例："
 
 #: ../../guides/stacks/greengrass.rst:223
 msgid "Classification: `greengrass_classification_sample.py`_"
-msgstr ""
+msgstr "分类：`greengrass_classification_sample.py`_"
 
 #: ../../guides/stacks/greengrass.rst:225
 msgid "Object Detection: `greengrass_object_detection_sample_ssd.py`_"
-msgstr ""
+msgstr "对象检测：`greengrass_object_detection_sample_ssd.py`_"
 
 #: ../../guides/stacks/greengrass.rst:227
 msgid ""
@@ -334,141 +380,148 @@ msgid ""
 "folders from the previous step into "
 ":file:`greengrass_sample_python_lambda.zip`."
 msgstr ""
+"将所选的 Greengrass 示例以及从上一步提取的 Greengrass SDK 文件夹压缩到 "
+":file:`greengrass_sample_python_lambda.zip`。"
 
 #: ../../guides/stacks/greengrass.rst:230
 msgid "The zip should contain:"
-msgstr ""
+msgstr "压缩包应包含："
 
 #: ../../guides/stacks/greengrass.rst:232
 msgid "greengrasssdk"
-msgstr ""
+msgstr "greengrasssdk"
 
 #: ../../guides/stacks/greengrass.rst:234
 msgid "greengrass classification or object detection sample"
-msgstr ""
+msgstr "greengrass 分类或对象检测示例"
 
 #: ../../guides/stacks/greengrass.rst:236
 msgid "For example:"
-msgstr ""
+msgstr "例如："
 
 #: ../../guides/stacks/greengrass.rst:243
 msgid ""
 "Return to the AWS documentation section called `Create and Package a "
 "Lambda Function`_ and complete the procedure."
-msgstr ""
+msgstr "返回名为 `Create and Package a Lambda Function`_ 的 AWS 文档部分，并完成步骤。"
 
 #: ../../guides/stacks/greengrass.rst:248
 msgid ""
 "In step 9(a) of the AWS documentation, while uploading the zip file, make"
 " sure to name the handler to one of the following, depending on the AWS "
 "Greengrass sample you are using:"
-msgstr ""
+msgstr "在 AWS 文档的步骤 9(a) 中，上传 Zip 文件，并确保根据使用的 AWS Greengrass 示例将处理程序命名为以下名称之一："
 
 #: ../../guides/stacks/greengrass.rst:252
 msgid "greengrass_object_detection_sample_ssd.function_handler"
-msgstr ""
+msgstr "greengrass_object_detection_sample_ssd.function_handler"
 
 #: ../../guides/stacks/greengrass.rst:253
 msgid "greengrass_classification_sample.function_handler"
-msgstr ""
+msgstr "greengrass_classification_sample.function_handler"
 
 #: ../../guides/stacks/greengrass.rst:257
 msgid "Configure Lambda function"
-msgstr ""
+msgstr "配置 Lambda 函数"
 
 #: ../../guides/stacks/greengrass.rst:259
 msgid ""
 "After creating the Greengrass group and the Lambda function, start "
 "configuring the Lambda function for AWS Greengrass."
-msgstr ""
+msgstr "创建 Greengrass 组和 Lambda 函数后，开始为 AWS Greengrass 配置 Lambda 函数。"
 
 #: ../../guides/stacks/greengrass.rst:262
 msgid ""
 "Follow steps 1-8 in `Configure the Lambda Function for AWS IoT "
 "Greengrass`_ in the AWS documentation."
 msgstr ""
+"按照 AWS 文档中 `Configure the Lambda Function for AWS IoT Greengrass`_ 中的步骤 "
+"1-8 执行操作。"
 
 #: ../../guides/stacks/greengrass.rst:265
 msgid ""
 "In addition to the details mentioned in step 8, change the Memory limit "
 "to 2048 MB to accommodate large input video streams."
-msgstr ""
+msgstr "除了步骤 8 中提到的细节之外，将内存限制更改为 2048 MB，以容纳较大的输入视频流。"
 
 #: ../../guides/stacks/greengrass.rst:268
 msgid ""
 "Add the following environment variables as key-value pairs when editing "
 "the Lambda configuration and click on update:"
-msgstr ""
+msgstr "编辑 Lambda 配置时，添加以下环境变量作为键值对，然后点击更新："
 
 #: ../../guides/stacks/greengrass.rst:271
 msgid "**Table 1.  Environment variables: Lambda configuration**"
-msgstr ""
+msgstr "**表 1.环境变量：Lambda 配置**"
 
 #: ../../guides/stacks/greengrass.rst:275
 msgid "Key"
-msgstr ""
+msgstr "键"
 
 #: ../../guides/stacks/greengrass.rst:276
 msgid "Value"
-msgstr ""
+msgstr "值"
 
 #: ../../guides/stacks/greengrass.rst:277
 msgid "PARAM_MODEL_XML"
-msgstr ""
+msgstr "PARAM_MODEL_XML"
 
 #: ../../guides/stacks/greengrass.rst:278
+#, fuzzy
 msgid ""
 "<MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and contains "
 "IR.xml, the Intermediate Representation file from Intel® Model Optimizer."
 " For this guide, <MODEL_DIR> should be set to "
 "'/usr/share/openvino/models' or one of its subdirectories."
 msgstr ""
+"<MODEL_DIR>/<IR.xml>，其中 <MODEL_DIR> 是用户指定的，包含来自英特尔®模型优化器的中间表示文件 "
+"IR.xml。在本教程中，<MODEL_DIR> 应设置为 '/usr/share/openvino/models' 或其某个子目录。"
 
 #: ../../guides/stacks/greengrass.rst:282
 msgid "PARAM_INPUT_SOURCE"
-msgstr ""
+msgstr "PARAM_INPUT_SOURCE"
 
 #: ../../guides/stacks/greengrass.rst:283
 msgid "<DATA_DIR>/input.webm to be specified by user. Holds both input and"
-msgstr ""
+msgstr "<DATA_DIR>由用户指定的 /input.webm。保存输入和"
 
 #: ../../guides/stacks/greengrass.rst:284
 msgid "output data. For webcam, set PARAM_INPUT_SOURCE to ‘/dev/video0’"
-msgstr ""
+msgstr "输出数据。对于网络摄像头，请将 PARAM_INPUT_SOURCE 设置为 ‘/dev/video0’"
 
 #: ../../guides/stacks/greengrass.rst:285
 msgid "PARAM_DEVICE"
-msgstr ""
+msgstr "PARAM_DEVICE"
 
 #: ../../guides/stacks/greengrass.rst:286
 msgid "\"CPU\""
-msgstr ""
+msgstr "\"CPU\""
 
 #: ../../guides/stacks/greengrass.rst:287
 msgid "PARAM_CPU_EXTENSION_PATH"
-msgstr ""
+msgstr "PARAM_CPU_EXTENSION_PATH"
 
 #: ../../guides/stacks/greengrass.rst:288
 msgid "/usr/lib64/libcpu_extension.so"
-msgstr ""
+msgstr "/usr/lib64/libcpu_extension.so"
 
 #: ../../guides/stacks/greengrass.rst:289
 msgid "PARAM_OUTPUT_DIRECTORY"
-msgstr ""
+msgstr "PARAM_OUTPUT_DIRECTORY"
 
 #: ../../guides/stacks/greengrass.rst:290
 msgid "<DATA_DIR> to be specified by user. Holds both input and output data"
-msgstr ""
+msgstr "<DATA_DIR> 由用户指定。保存输入和输出数据"
 
 #: ../../guides/stacks/greengrass.rst:292
 msgid "PARAM_NUM_TOP_RESULTS"
-msgstr ""
+msgstr "PARAM_NUM_TOP_RESULTS"
 
 #: ../../guides/stacks/greengrass.rst:293
 msgid ""
 "User specified for classification sample. (e.g. 1 for top-1 result, 5 for"
 " top-5 results)"
-msgstr ""
+msgstr "为分类示例指定的用户。（例如，1 为 前 1 名结果，5 为前 5 名结果）"
 
 #: ../../guides/stacks/greengrass.rst:296
 msgid ""
@@ -476,106 +529,115 @@ msgid ""
 "Lambda function by completing the procedure in `Configure the Lambda "
 "Function for AWS IoT Greengrass`_."
 msgstr ""
+"完成 `Configure the Lambda Function for AWS IoT Greengrass`_ "
+"中的步骤，添加订阅以进行订阅或发布来自 AWS Greengrass Lambda 函数的消息。"
 
 #: ../../guides/stacks/greengrass.rst:301
+#, fuzzy
 msgid ""
 "The optional topic filter field is the topic mentioned inside the Lambda "
 "function. In this guide, sample topics include the following: "
 ":command:`openvino/ssd` or :command:`openvino/classification`"
 msgstr ""
+"可选主题过滤器字段是 Lambda 函数中提到的主题。在本教程中，示例主题包括以下 :command:`openvino/ssd` 或 "
+":command:`openvino/classification`"
 
 #: ../../guides/stacks/greengrass.rst:305
 msgid "Add local resources"
-msgstr ""
+msgstr "添加本地资源"
 
 #: ../../guides/stacks/greengrass.rst:307
+#, fuzzy
 msgid ""
 "Refer to the AWS documentation `Access Local Resources with Lambda "
 "Functions and Connectors`_ for details about local resources and access "
 "privileges."
-msgstr ""
+msgstr "有关 `local resources and access privileges`_ 的详细信息，请参阅 AWS 文档。"
 
 #: ../../guides/stacks/greengrass.rst:310
 msgid "The following table describes the local resources needed for the CPU:"
-msgstr ""
+msgstr "下表列出了 CPU 所需的本地资源："
 
 #: ../../guides/stacks/greengrass.rst:312
 msgid "**Local resources**"
-msgstr ""
+msgstr "**本地资源**"
 
 #: ../../guides/stacks/greengrass.rst:316
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: ../../guides/stacks/greengrass.rst:317
 msgid "Resource type"
-msgstr ""
+msgstr "资源类型"
 
 #: ../../guides/stacks/greengrass.rst:318
 msgid "Local path"
-msgstr ""
+msgstr "本地路径"
 
 #: ../../guides/stacks/greengrass.rst:319
 msgid "Access"
-msgstr ""
+msgstr "访问"
 
 #: ../../guides/stacks/greengrass.rst:321
 msgid "ModelDir"
-msgstr ""
+msgstr "ModelDir"
 
 #: ../../guides/stacks/greengrass.rst:322
 #: ../../guides/stacks/greengrass.rst:332
 msgid "Volume"
-msgstr ""
+msgstr "卷"
 
 #: ../../guides/stacks/greengrass.rst:323
 msgid "<MODEL_DIR> to be specified by user"
-msgstr ""
+msgstr "<MODEL_DIR> 由用户指定"
 
 #: ../../guides/stacks/greengrass.rst:324
 #: ../../guides/stacks/greengrass.rst:329
 msgid "Read-Only"
-msgstr ""
+msgstr "只读"
 
 #: ../../guides/stacks/greengrass.rst:326
 msgid "Webcam"
-msgstr ""
+msgstr "网络摄像头"
 
 #: ../../guides/stacks/greengrass.rst:327
 msgid "Device"
-msgstr ""
+msgstr "设备"
 
 #: ../../guides/stacks/greengrass.rst:328
 msgid "/dev/video0"
-msgstr ""
+msgstr "/dev/video0"
 
 #: ../../guides/stacks/greengrass.rst:331
 msgid "DataDir"
-msgstr ""
+msgstr "DataDir"
 
 #: ../../guides/stacks/greengrass.rst:333
 msgid "<DATA_DIR> to be specified by user. Holds both input and output data."
-msgstr ""
+msgstr "<DATA_DIR> 由用户指定。保存输入和输出数据。"
 
 #: ../../guides/stacks/greengrass.rst:335
 msgid "Read and Write"
-msgstr ""
+msgstr "读取和写入"
 
 #: ../../guides/stacks/greengrass.rst:338
 msgid "Deploy Lambda function"
-msgstr ""
+msgstr "部署 Lambda 函数"
 
 #: ../../guides/stacks/greengrass.rst:340
+#, fuzzy
 msgid ""
 "Refer to the AWS documentation `Deploy Cloud Configurations to an AWS IoT"
 " Greengrass Core Device`_ for instructions on how to deploy the lambda "
 "function to AWS Greengrass core device. Select *Deployments* on the group"
 " page and follow the instructions."
 msgstr ""
+"有关如何`deploy the lambda function to AWS Greengrass core device`_ 的说明，请参阅 "
+"AWS 文档。在组页面上选择 *Deployments*，并按照说明执行操作。"
 
 #: ../../guides/stacks/greengrass.rst:344
 msgid "Output consumption"
-msgstr ""
+msgstr "输出的使用"
 
 #: ../../guides/stacks/greengrass.rst:346
 msgid ""
@@ -584,10 +646,12 @@ msgid ""
 "interval defined by the variable :command:`reporting_interval` in the AWS"
 " Greengrass samples."
 msgstr ""
+"使用输出时有四种可用选项。这些选项用于按 AWS Greengrass 示例中 :command:`reporting_interval` "
+"变量定义的间隔，报告、流式传输、上传或存储推理输出。"
 
 #: ../../guides/stacks/greengrass.rst:350
 msgid "IoT cloud output:"
-msgstr ""
+msgstr "IoT 云输出："
 
 #: ../../guides/stacks/greengrass.rst:352
 msgid ""
@@ -601,6 +665,11 @@ msgid ""
 "cloud. For SSD object detection, detection results such as bounding box "
 "coordinates of objects, class label, and class confidence are published."
 msgstr ""
+"在 AWS Greengrass 示例中，默认情况下使用 :command:`enable_iot_cloud_output` "
+"变量启用此选项。您可以使用它来验证在边缘设备上运行的 lambda。它支持使用 lambda 中指定的订阅主题向 IoT "
+"云发布消息。（例如，主题可能包括用于分类示例的 :command:`openvino/classification` 以及用于对象检测示例的 "
+":command:`openvino/ssd`。） 对于分类，具有类标签的前 1 名结果会发布到 IoT 云。对于 SSD "
+"对象检测，则发布对象的边界框坐标、类标签和类置信度等检测结果。"
 
 #: ../../guides/stacks/greengrass.rst:362
 msgid ""
@@ -610,7 +679,7 @@ msgstr ""
 
 #: ../../guides/stacks/greengrass.rst:366
 msgid "Kinesis streaming:"
-msgstr ""
+msgstr "Kinesis 流式传输："
 
 #: ../../guides/stacks/greengrass.rst:368
 msgid ""
@@ -620,10 +689,13 @@ msgid ""
 "push processed data to the cloud. You must set up and specify Kinesis "
 "stream name, Kinesis shard, and AWS region in the AWS Greengrass samples."
 msgstr ""
+":command:`enable_kinesis_output` 设置为 True 时，此选项支持使用 Kinesis [3] "
+"流将推理输出从边缘设备流式传输到云。边缘设备充当数据生产者，并将处理后的数据不断推送到云中。您必须在 AWS Greengrass "
+"示例中设置和指定 Kinesis 流名称、Kinesis shard 和 AWS 区域。"
 
 #: ../../guides/stacks/greengrass.rst:375
 msgid "Cloud storage using AWS S3 bucket:"
-msgstr ""
+msgstr "使用 AWS S3 存储桶的云存储："
 
 #: ../../guides/stacks/greengrass.rst:377
 msgid ""
@@ -633,10 +705,13 @@ msgid ""
 "Greengrass samples to store the JPEG images. The images are named using "
 "the timestamp and uploaded to S3."
 msgstr ""
+"将 :command:`enable_s3_jpeg_output` 变量设置为 True 时，它允许在 AWS S3 "
+"存储桶中上传和存储已处理的帧（jpeg 格式）。您必须在 AWS Greengrass 示例中设置和指定用来存储 JPEG 图像的 S3 "
+"存储桶名称。这些映像使用时间戳命名，并上传到 S3。"
 
 #: ../../guides/stacks/greengrass.rst:383
 msgid "Local storage:"
-msgstr ""
+msgstr "本地存储："
 
 #: ../../guides/stacks/greengrass.rst:385
 msgid ""
@@ -645,20 +720,43 @@ msgid ""
 " images are named using the timestamp and stored in a directory specified"
 " by :command:`PARAM_OUTPUT_DIRECTORY`."
 msgstr ""
+"将 :command:`enable_s3_jpeg_output` 变量设置为 True 时，它允许在边缘设备上存储已处理的帧（jpeg "
+"格式）。这些映像使用时间戳命名，并存储在由 :command:`PARAM_OUTPUT_DIRECTORY` 指定的目录中。"
 
 #: ../../guides/stacks/greengrass.rst:391
 msgid "References"
-msgstr ""
+msgstr "参考"
 
 #: ../../guides/stacks/greengrass.rst:393
 msgid "AWS Greengrass: https://aws.amazon.com/greengrass/"
-msgstr ""
+msgstr "AWS Greengrass：https://aws.amazon.com/greengrass/"
 
 #: ../../guides/stacks/greengrass.rst:394
 msgid "AWS Lambda: https://aws.amazon.com/lambda/"
-msgstr ""
+msgstr "AWS Lambda：https://aws.amazon.com/lambda/"
 
 #: ../../guides/stacks/greengrass.rst:395
 msgid "AWS Kinesis: https://aws.amazon.com/kinesis/"
-msgstr ""
+msgstr "AWS Kinesis：https://aws.amazon.com/kinesis/"
+
+#~ msgid "This tutorial demonstrates how to:"
+#~ msgstr "本教程演示了如何："
+
+#~ msgid "Refer to the following topics:"
+#~ msgstr "请参阅以下主题："
+
+#~ msgid ""
+#~ "Follow these instructions for `converting "
+#~ "deep learning models to Intermediate "
+#~ "Representation using Model Optimizer`_. To "
+#~ "optimize either of the sample models "
+#~ "described above, run one of the "
+#~ "following commands."
+#~ msgstr ""
+#~ "按照 `converting deep learning models to"
+#~ " Intermediate Representation using Model "
+#~ "Optimizer`_ 中的说明执行操作。要优化上述任一示例模型，请运行以下命令之一。"
+
+#~ msgid "Follow the instructions here to `view the output on IoT cloud`_."
+#~ msgstr "按照这里的说明`view the output on IoT cloud`_。"
 
