@@ -31,7 +31,7 @@
         <td class="bundlename" id="bundle"><a href="{{d.url}}">{{d.title}}</a></td>
         <td class="bundledesc">{{d.data_desc}} <br />
           {% if d.include_list %}
-          <p>Includes bundle(s):
+          <p class="bundledesc">Includes bundle(s):
             {% for include in d.include_list %}
             <li>{{include}}</li>
             {% endfor %}
