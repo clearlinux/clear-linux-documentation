@@ -4,8 +4,8 @@ Build a custom |CL-ATTR| based Docker container image
 #######################################################
 
 This guide contains the steps to build a custom container image. The official
-base |CL-ATTR| container image is published on Docker\* Hub and is updated on a
-regular basis.
+base |CL-ATTR| container image is published on Docker\* Hub and is updated on
+a regular basis.
 
 .. contents::
    :local:
@@ -324,3 +324,4 @@ Example output:
    Removing intermediate container 7694989e97de
    Successfully built ec23189ef954
    Successfully tagged my-clearlinux-remove-pxe-server-bundle:latest
+
