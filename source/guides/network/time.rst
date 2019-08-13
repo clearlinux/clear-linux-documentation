@@ -1,7 +1,7 @@
 .. _time:
 
-Set the time
-############
+Set system time
+###############
 
 This guide describes how to reset the time in your |CL-ATTR| system when
 the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
