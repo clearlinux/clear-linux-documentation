@@ -27,9 +27,9 @@ def extractor(lines):
         includes = PATTERN3.findall(i)
 
         if title:
-            bundle_title = title.groups(0)[0].decode('utf-8').strip()
+            bundle_title = title.groups(0)[0].strip()
         if desc:
-            data_desc = desc.groups(0)[0].decode('utf-8').strip()
+            data_desc = desc.groups(0)[0].strip()
         if url:
             url = os.path.join(GITHUB_BASE, bundle_title)
         if includes:
