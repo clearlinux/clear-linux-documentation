@@ -1,6 +1,9 @@
 ---
 name: Modify document
 about: Modify a document for the Clear Linux* Project
+title: ''
+labels: P2
+assignees: ''
 
 ---
 
