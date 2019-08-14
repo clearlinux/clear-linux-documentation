@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Bundles in Clear Linux* OS</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 
 <body>
@@ -31,11 +32,13 @@
         <td class="bundlename" id="bundle"><a href="{{d.url}}">{{d.title}}</a></td>
         <td class="bundledesc">{{d.data_desc}} <br />
           {% if d.include_list %}
-          <p>Includes bundle(s):
-            {% for include in d.include_list %}
-            <li>{{include}}</li>
-            {% endfor %}
-          </p>
+          <div class="bundledesc">Includes bundle(s):
+            <ul>
+              {% for include in d.include_list %}
+              <li>{{include}}</li>
+              {% endfor %}
+            </ul>
+          </div>
           {% endif %}
         </td>
       </tr>
