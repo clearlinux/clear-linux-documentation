@@ -284,3 +284,9 @@ div.admonition ul {
 div#trademarks {
     color: gray;
 }
+
+
+#clear-docs-search {
+  background: url(/_static/mag-glass.png) right no-repeat;
+  background-size: 15px 15px;
+}
