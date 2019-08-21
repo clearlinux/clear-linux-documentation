@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-21 11:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../get-started/index.rst:4
 msgid "Get started"
@@ -68,7 +67,7 @@ msgstr "在虚拟机上安装"
 
 #: ../../get-started/index.rst:52
 msgid "Deploy to the cloud"
-msgstr ""
+msgstr "部署到云"
 
 #~ msgid ""
 #~ "The Get Started section will get "
@@ -78,4 +77,5 @@ msgstr ""
 #~ " installing |CL| from a live desktop"
 #~ " or to a virtual machine."
 #~ msgstr ""
+
 
