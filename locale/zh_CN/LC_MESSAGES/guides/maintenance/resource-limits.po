@@ -126,7 +126,7 @@ msgid ""
 " Limit directives. See `process properties section of the systemd.exec "
 "man page "
 "<https://www.freedesktop.org/software/systemd/man/systemd.exec.html>`_."
-msgstr "可以在相应的单元文件或配置放置目录中使用资源限制指令来控制各个 systemd 服务的资源限制。请参见 `systemd.exec 手册页的进程属性一节<https://www.freedesktop.org/software/systemd/man/systemd.exec.html>`_。"
+msgstr "可以在相应的单元文件或配置放置目录中使用资源限制指令来控制各个 systemd 服务的资源限制。请参见 `process properties section of the systemd.exec man page <https://www.freedesktop.org/software/systemd/man/systemd.exec.html>`_。"
 
 #: ../../guides/maintenance/resource-limits.rst:103
 msgid ""
