@@ -3,10 +3,17 @@
 Kernel boot parameters
 ######################
 
-Changing kernel boot parameters can drastically change the way the OS behaves,
-so be cautious when doing so. |CL| provides a simple way to do this that is
-consistent with its :ref:`stateless` nature. All configuration changes belong
-in the :file:`/etc/kernel/` path. The :command:`clr-boot-manager` generates
+Kernel boot parameters are used to turn features on or off and change
+the way the kernel behaves. Changing kernel boot parameters can drastically
+change the way the OS behaves, so be cautious when doing so.
+
+See kernel.org for a `list of valid boot parameters`_.
+
+.. _list of valid boot parameters: https://www.kernel.org/doc/Documentation/admin-guide/kernel-parameters.txt
+
+|CL| provides a simple way to do this that is consistent with
+its :ref:`stateless` nature. All configuration changes belong in
+the :file:`/etc/kernel/` path. The :command:`clr-boot-manager` generates
 boot entries, so we'll use it to run an update each time we change a boot
 parameter. 
 
