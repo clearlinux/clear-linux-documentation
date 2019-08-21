@@ -1,0 +1,565 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:4
+msgid "Add kernel modules with DKMS"
+msgstr "使用 DKMS 添加内核模块"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:6
+msgid ""
+"This guide describes how to add kernel modules with :abbr:`DKMS (Dynamic "
+"Kernel Module System)`."
+msgstr "本指南介绍如何使用 :abbr:`DKMS (Dynamic Kernel Module System)` 添加内核模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:14
+msgid "Overview"
+msgstr "概述"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:16
+msgid ""
+"Certain kernel modules are enabled by default in |CL-ATTR|. To use "
+"additional kernel modules that are not part of the Linux source tree, you"
+" may need to build out-of-tree kernel modules. Use this guide to add "
+"kernel modules with :abbr:`DKMS (Dynamic Kernel Module System)` or refer "
+"to :ref:`kernel-modules`."
+msgstr "某些内核模块在 |CL-ATTR| 中默认启用。要使用不属于 Linux 源代码树的其他内核模块，您可能需要构建树外内核模块。按照本指南使用 :abbr:`DKMS (Dynamic Kernel Module System)` 添加内核模块，或参阅 :ref:`kernel-modules`。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:22
+msgid "Description"
+msgstr "描述"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:24
+msgid ""
+"Kernel modules are additional pieces of software capable of being "
+"inserted into the Linux kernel to add functionality, such as a hardware "
+"driver. Kernel modules may already be part of the Linux source tree (in-"
+"tree) or may come from an external source, such as directly from a vendor"
+" (out-of-tree)."
+msgstr "内核模块是能够插入到 Linux 内核中以增加功能的附加软件，例如硬件驱动程序。内核模块可能已经是 Linux 源代码树的一部分（树内），也可能来自外部来源，例如直接来自供应商（树外）。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:29
+msgid ""
+":abbr:`DKMS (Dynamic Kernel Module System)` is a framework that "
+"facilitates the building and installation of kernel modules. DKMS allows "
+"|CL| to provide hooks that automatically rebuild modules against new "
+"kernel versions."
+msgstr ":abbr:`DKMS (Dynamic Kernel Module System)` 是一个便于构建和安装内核模块的框架。DKMS 允许 |CL| 提供钩子，为新版本内核自动重新构建模块。"
+
+#: ../../guides/kernel/kernel-modules.rst:4
+msgid "Kernel module availability"
+msgstr "内核模块可用性"
+
+#: ../../guides/kernel/kernel-modules.rst:6
+msgid ""
+"|CL| comes with many upstream kernel modules available for use. Using an "
+"existing module is significantly easier to maintain and retains signature"
+" verification of the |CL| kernel. For more information on |CL| security "
+"practices, see the :ref:`security` page."
+msgstr "|CL| 附带了许多上游内核模块以备使用。使用现有模块时，维护和保留 |CL| 内核的签名验证要容易得多。有关 |CL| 安全实践的更多信息，请参阅 :ref:`security` 页面。"
+
+#: ../../guides/kernel/kernel-modules.rst:11
+msgid ""
+"Before continuing, check if the kernel module you're looking for is "
+"already available in |CL| or submit a request to add the module."
+msgstr "继续之前，请检查您正在寻找的内核模块是否已经在 |CL| 中可用，或者提交添加该模块的请求。"
+
+#: ../../guides/kernel/kernel-modules.rst:16
+msgid "Check if the module is already available"
+msgstr "检查模块是否已经可用"
+
+#: ../../guides/kernel/kernel-modules.rst:19
+msgid ""
+"You can search for kernel module file names, which end with the "
+":file:`.ko` file extension, using the :command:`swupd search` command, as"
+" shown in the following example. See :ref:`swupd-guide` for more "
+"information."
+msgstr "您可以使用 :command:`swupd search` 命令搜索以 :file:`.ko` 文件扩展名结尾的内核模块文件名，如下例所示。有关详细信息，请参阅 :ref:`swupd-guide`。"
+
+#: ../../guides/kernel/kernel-modules.rst:29
+msgid "Submit a request to add the module"
+msgstr "提交添加模块的请求"
+
+#: ../../guides/kernel/kernel-modules.rst:31
+msgid ""
+"If the kernel module you need is already open source (for example, in the"
+" Linux upstream) and likely to be useful to others, consider submitting a"
+" request to add or enable it in the |CL| kernel."
+msgstr "如果您需要的内核模块已经开源（例如在 Linux 上游），并且可能对其他人也有用，可考虑提交在 |CL| 内核中添加或启用该模块的请求。"
+
+#: ../../guides/kernel/kernel-modules.rst:35
+msgid "Make enhancement requests to the |CL| 'Distribution Project'_ on GitHub."
+msgstr "向 GitHub 上的 |CL| 'Distribution Project'_ 提出增强请求。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:38
+msgid "Install DKMS"
+msgstr "安装 DKMS"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:42
+msgid ""
+"The :command:`kernel-native-dkms` bundle provides the :command:`dkms` "
+"program and Linux kernel headers, which are required for compiling kernel"
+" modules."
+msgstr ":command:`kernel-native-dkms` 捆绑包提供了 :command:`dkms` 程序和 Linux 内核头文件，它们是编译内核模块所必需的。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:45
+msgid "The :command:`kernel-native-dkms` bundle also:"
+msgstr ":command:`kernel-native-dkms` 捆绑包还会："
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:47
+msgid ""
+"Adds a `systemd` update trigger (:file:`/usr/lib/systemd/system/dkms-new-"
+"kernel.service`) to automatically run DKMS to rebuild modules after a "
+"kernel upgrade occurs with :ref:`swupd update <swupd-guide>`."
+msgstr "添加 `systemd` update trigger (:file:`/usr/lib/systemd/system/dkms-new-kernel.service`)，用来在使用 :ref:`swupd update <swupd-guide>` 升级内核后自动运行 DKMS 来重新构建模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:52
+msgid ""
+"Disables kernel module signature verification by appending a kernel "
+"command-line parameter (:command:`module.sig_unenforce`) from the "
+":file:`/usr/share/kernel/cmdline.d/clr-ignore-mod-sig.conf` file."
+msgstr "通过附加来自 :file:`/usr/share/kernel/cmdline.d/clr-ignore-mod-sig.conf` 文件的内核命令行参数 (:command:`module.sig_unenforce`)，禁用内核模块签名验证。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:56
+msgid ""
+"Adds a notification to the Message of the Day (MOTD) indicating kernel "
+"module signature verification is disabled."
+msgstr "向每日消息 (MOTD) 添加一条通知，指示内核模块签名验证已禁用。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:61
+msgid ""
+"We recommend that you always review the :command:`swupd update` output to"
+" make sure kernel modules were successfully rebuilt against the new "
+"kernel. This is especially important for systems where a successful boot "
+"relies on a kernel module."
+msgstr "我们建议您始终查看 :command:`swupd update` 输出，确保为新内核成功重新构建了内核模块。这对引导是否成功有赖于内核模块的系统尤其重要。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:66
+msgid ""
+"Install the :command:`kernel-native-dkms` or :command:`kernel-lts-dkms` "
+"bundle:"
+msgstr "安装 :command:`kernel-native-dkms` 或 :command:`kernel-lts-dkms` 捆绑包："
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:69
+msgid ""
+"Determine which kernel variant is running on |CL|. Only the *native* and "
+"*lts* kernels are enabled to build and load out-of-tree kernel modules "
+"with DKMS."
+msgstr "确定 |CL| 上运行的内核变体。只有 *native* 和 *lts* 内核能够使用 DKMS 构建和加载树外内核模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:78
+msgid "Ensure *.native* or *.lts* is in the kernel name."
+msgstr "确保内核名称中含有 *.native* 或 *.lts*。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:80
+msgid ""
+"Install the DKMS bundle corresponding to the installed kernel. Use "
+":command:`kernel-native-dkms` for the native kernel or :command:`kernel-"
+"lts-dkms` for the lts kernel."
+msgstr "安装与已安装内核相对应的 DKMS 捆绑包。为 native 内核使用 :command:`kernel-native-dkms`，或者为 lts 内核使用 :command:`kernel-lts-dkms`。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:88
+msgid "or"
+msgstr "或者"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:95
+msgid "Update the |CL| bootloader and reboot."
+msgstr "更新 |CL| 引导加载程序并重启。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:105
+msgid "Build, install, and load an out-of-tree module"
+msgstr "构建、安装和加载树外模块"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:107
+msgid ""
+"Follow the steps in this section if you are an individual user or "
+"testing, and you need an out-of-tree kernel module that is not available "
+"through |CL|. For a more scalable and customizable approach, we recommend"
+" using :ref:`mixer` to provide a custom kernel and updates."
+msgstr "如果您是个人用户或测试人员，并且您需要 |CL| 并未提供的树外内核模块，请按照本节中的步骤操作。如需使用可扩展性和可自定义性更好的方法，我们建议使用 :ref:`mixer` 来提供自定义内核和更新。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:113
+msgid "Prerequisites"
+msgstr "必备条件"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:115
+msgid "Before you begin, you must:"
+msgstr "开始之前，您必须："
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:117
+msgid ""
+"Disable Secure Boot in UEFI/BIOS. The loading of new out-of-tree modules "
+"modifies the signatures that Secure Boot relies on for trust."
+msgstr "在 UEFI/BIOS 中禁用安全引导。加载新的树外模块会修改安全引导所依赖的信任签名。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:120
+msgid ""
+"Obtain a kernel module package in the form of source code or pre-compiled"
+" binaries."
+msgstr "获取以源代码或预编译二进制形式存在的内核模块包。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:124
+msgid "Obtain kernel module source"
+msgstr "获取内核模块源代码"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:126
+msgid ""
+"A required :file:`dkms.conf` file inside of the kernel module's source "
+"code directory informs DKMS how the kernel module should be compiled."
+msgstr "内核模块源代码目录中必需的 :file:`dkms.conf` 文件将指示 DKMS 应该如何编译内核模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:129
+msgid "Kernel modules may come packaged as:"
+msgstr "内核模块可以打包为："
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:131
+msgid "Source code without a :file:`dkms.conf` file"
+msgstr "不含 :file:`dkms.conf` 文件的源代码"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:132
+msgid "Source code with a premade :file:`dkms.conf` file"
+msgstr "含预制作的 :file:`dkms.conf` 文件的源代码"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:133
+msgid ""
+"Source code with a premade :file:`dkms.conf` file and precompiled module "
+"binaries"
+msgstr "含预制作的 :file:`dkms.conf` 文件和预编译的模块二进制的源代码"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:135
+msgid "Precompiled module binaries only (without source code)"
+msgstr "只有预编译的模块二进制（不含源代码）"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:137
+msgid ""
+"Of the package types listed above, only precompiled kernel module "
+"binaries will not work, because |CL| requires kernel modules to be built "
+"against the same kernel source tree before they can be loaded. If you are"
+" only able to obtain source code without a :file:`dkms.conf` file, you "
+"must manually create a :file:`dkms.conf` file, described later in this "
+"document."
+msgstr "在上面列出的包类型中，只有预编译的内核模块二进制文件不起作用，因为 |CL| 要求在加载内核模块之前根据同一内核源代码树进行构建。如果只能获取不含 :file:`dkms.conf` 文件的源代码，则必须手动创建 :file:`dkms.conf` 文件，本文档稍后将对此进行介绍。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:143
+msgid "Download the kernel module's source code."
+msgstr "下载内核模块的源代码。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:145
+msgid ""
+"Review the available download options. Some kernel modules provide "
+"separate archives that are specifically enabled for DKMS support."
+msgstr "查看可用的下载选项。一些内核模块提供单独的归档文件来专门支持 DKMS。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:148
+msgid ""
+"Review the README documentation, because it often provides required "
+"information to build the module with DKMS support."
+msgstr "查看自述文件，因为它通常提供在支持 DKMS 的情况下构建模块所需的信息。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:159
+msgid "Build kernel module with an existing dkms.conf"
+msgstr "使用现有的 dkms.conf 构建内核模块"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:161
+msgid ""
+"If the kernel module maintainer packaged the source archive with the "
+":command:`dkms mktarball` command, the entire archive can be passed to "
+"the :command:`dkms ldtarball` which completes many steps for you."
+msgstr "如果内核模块维护者使用 :command:`dkms mktarball` 命令打包了源代码归档文件，则整个归档文件可以传递给 :command:`dkms ldtarball`，由后者来完成许多步骤。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:165
+msgid ""
+"The archive contains the required :file:`dkms.conf` file, and may contain"
+" a :file:`dkms_source_tree` directory and a :file:`dkms_binaries_only` "
+"directory."
+msgstr "归档文件包含必需的 :file:`dkms.conf` 文件，并可能包含 :file:`dkms_source_tree` 目录和 :file:`dkms_binaries_only` 目录。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:169
+msgid ""
+"Run the :command:`dkms ldtarball` command against the kernel module "
+"archive."
+msgstr "对内核模块归档文件运行 :command:`dkms ldtarball` 命令。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:177
+msgid ""
+":command:`dkms ldtarball` places the kernel module source under "
+":file:`/usr/src/<MODULE-NAME>-<MODULE-VERSION>/`, builds it if necessary,"
+" and adds the module into the DKMS tree."
+msgstr ":command:`dkms ldtarball` 会将内核模块源代码放在 :file:`/usr/src/<MODULE-NAME>-<MODULE-VERSION>/` 下，在必要时构建它，以及将模块添加到 DKMS 树。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:182
+msgid ""
+"Verify the kernel module is detected by checking the output of the "
+":command:`dkms status` command."
+msgstr "检查 :command:`dkms status` 命令的输出，确认已检测到的内核模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:190
+msgid "Install the kernel module."
+msgstr "安装内核模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:197
+msgid "Build kernel module without an existing dkms.conf"
+msgstr "在没有现成的 dkms.conf 的情况下构建内核模块"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:199
+msgid ""
+"If the kernel module source does not contain a :file:`dkms.conf` file or "
+"the :command:`dkms ldtarball` command encounters errors, you must "
+"manually create the file."
+msgstr "如果内核模块源代码中不含 :file:`dkms.conf` 文件或 :command:`dkms ldtarball` 命令遇到错误，则必须手动创建该文件。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:203
+msgid ""
+"Review the kernel module README documentation for guidance on what needs "
+"to be in the :file:`dkms.conf` file, including special variables that may"
+" be required to build successfully."
+msgstr "查看内核模块自述文件，了解 :file:`dkms.conf` 文件中需要哪些内容，包括成功构建所需的特殊变量。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:207
+msgid "Here are some additional resources that can be used for reference:"
+msgstr "以下是一些可供参考的其他资源："
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:209
+msgid ""
+"DKMS manual page (:command:`man dkms`) shows detailed syntax in the "
+"DKMS.CONF section."
+msgstr "DKMS 手册页 (:command:`man dkms`) 会显示 DKMS.CONF 部分的详细语法。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:212
+msgid ""
+"Ubuntu community wiki entry for the `Kernel DKMS Package`_ shows an "
+"example where a single package contains multiple modules."
+msgstr "`Kernel DKMS Package`_ 的 Ubuntu 社区 wiki 条目会显示单个包含有多个模块的示例。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:215
+msgid "Sample `dkms.conf`_ file in the GitHub\\* repository for the DKMS project."
+msgstr "DKMS 项目 GitHub\\* 存储库中的 `dkms.conf`_ file 示例文件。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:219
+msgid ""
+":command:`AUTOINSTALL=yes` must be set in the dkms.conf for the module to"
+" be automatically recompiled with |CL| updates."
+msgstr "对于要在 |CL| 更新时自动重新编译的模块，必须在 dkms.conf 中设置 :command:`AUTOINSTALL=yes`。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:222
+msgid "The instructions below show a generic example:"
+msgstr "以下说明介绍了一个通用示例："
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:224
+msgid ""
+"Create or modify the :file:`dkms.conf` file inside of the extracted "
+"source code directory."
+msgstr "在提取的源代码目录中创建或修改 :file:`dkms.conf` 文件。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:240
+msgid ""
+"This example identifies a kernel module named *custom_module* with "
+"version *1.0*."
+msgstr "本示例中的内核模块名称为 *custom_module*，版本为 *1.0*。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:243
+msgid "Copy the kernel module source code into the :file:`/usr/src/` directory."
+msgstr "将内核模块源代码复制到 :file:`/usr/src/` 目录中。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:252
+msgid ""
+"*<PACKAGE_NAME>* and *<PACKAGE_VERSION>* must match the entries in the "
+":file:`dkms.conf` file."
+msgstr "*<PACKAGE_NAME>* 和 *<PACKAGE_VERSION>* 必须与 :file:`dkms.conf` 文件中的条目匹配。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:255
+msgid "Add the kernel module to the DKMS tree so that it is tracked by DKMS."
+msgstr "将内核模块添加到 DKMS 树中，以便由 DKMS 跟踪。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:261
+msgid ""
+"Build the kernel module using DKMS. If the build encounters errors, you "
+"may need to edit the :file:`dkms.conf` file."
+msgstr "使用 DKMS 构建内核模块。如果构建时遇到错误，您可能需要编辑 :file:`dkms.conf` 文件。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:268
+msgid "Install the kernel module using DKMS."
+msgstr "使用 DKMS 安装内核模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:275
+msgid "Load kernel module"
+msgstr "加载内核模块"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:277
+msgid ""
+"By default, DKMS installs modules \"in-tree\" under :file:`/lib/modules` "
+"so the :command:`modprobe` command can be used to load them."
+msgstr "默认情况下，DKMS 会将模块 \"in-tree\" 安装在 :file:`/lib/modules` 下，以便可以使用 :command:`modprobe` 命令加载它们。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:280
+msgid "Load the installed module with the :command:`modprobe` command."
+msgstr "使用 :command:`modprobe` 命令加载已安装的模块。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:286
+msgid "Validate the kernel module is loaded."
+msgstr "验证内核模块是否已加载。"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:293
+msgid "Examples"
+msgstr "示例"
+
+#: ../../guides/kernel/kernel-modules.rst:4
+msgid "Optional: Specify module options and aliases"
+msgstr "可选：指定模块选项和别名"
+
+#: ../../guides/kernel/kernel-modules.rst:6
+msgid "Use the :command:`modprobe` command to load a module and set options."
+msgstr "使用 :command:`modprobe` 命令加载模块并设置选项。"
+
+#: ../../guides/kernel/kernel-modules.rst:8
+msgid ""
+":command:`modprobe` may add or remove more than one module due to module "
+"interdependencies. You can specify which options to use with individual "
+"modules, by using configuration files under the :file:`/etc/modprobe.d` "
+"directory."
+msgstr ":command:`modprobe` 可能会因为模块相互依赖关系添加或移除多个模块。您可以使用 :file:`/etc/modprobe.d` 目录下的配置文件来指定各个模块要使用的选项。"
+
+#: ../../guides/kernel/kernel-modules.rst:16
+msgid ""
+"All files underneath the :file:`/etc/modprobe.d` directory that end with "
+"the :file:`.conf` extension specify module options to use when loading. "
+"You can use :file:`.conf` files to create convenient aliases for modules "
+"or to override the normal loading behavior altogether for those with "
+"special requirements."
+msgstr ":file:`/etc/modprobe.d` 目录下以 :file:`.conf` 扩展名结尾的所有文件会指定加载时要使用的模块选项。您可以使用 :file:`.conf` 文件为模块创建方便使用的别名，或者为有特殊要求的模块完全覆盖正常的加载行为。"
+
+#: ../../guides/kernel/kernel-modules.rst:21
+msgid "Learn more about :command:`modprobe` on the modprobe.d manual page:"
+msgstr "参阅 modprobe.d 手册页详细了解 :command:`modprobe`："
+
+#: ../../guides/kernel/kernel-modules.rst:28
+msgid "Optional: Configure kernel modules to load at boot"
+msgstr "可选：配置引导时要加载的内核模块"
+
+#: ../../guides/kernel/kernel-modules.rst:30
+msgid ""
+"Use the :file:`/etc/modules-load.d` configuration directory to specify "
+"kernel modules to load automatically at boot."
+msgstr "使用 :file:`/etc/modules-load.d` 配置目录指定引导时自动加载的内核模块。"
+
+#: ../../guides/kernel/kernel-modules.rst:37
+msgid ""
+"All files underneath the :file:`/etc/modules-load.d` directory that end "
+"with the :file:`.conf` extension contain a list of module names of "
+"aliases (one per line) to load at boot."
+msgstr ":file:`/etc/modules-load.d` 目录下以 :file:`.conf` 扩展名结尾的所有文件包含引导时要加载的模块别名列表（每行一个）。"
+
+#: ../../guides/kernel/kernel-modules.rst:41
+msgid "Learn more about module loading in the modules-load.d manual page:"
+msgstr "参阅 modules-load.d 手册页详细了解模块加载："
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:300
+msgid "Related topics"
+msgstr "相关主题"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:302
+msgid "`Dynamic Kernel Module System (DKMS)`_"
+msgstr "`Dynamic Kernel Module System (DKMS)`_"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:304
+msgid ""
+"`Dell Linux Engineering Dynamic Kernel Module Support: From Theory to "
+"Practice "
+"<https://www.kernel.org/doc/ols/2004/ols2004v1-pages-187-202.pdf>`_"
+msgstr "`Dell Linux Engineering Dynamic Kernel Module Support: From Theory to Practice <https://www.kernel.org/doc/ols/2004/ols2004v1-pages-187-202.pdf>`_"
+
+#: ../../guides/kernel/kernel-modules-dkms.rst:306
+msgid ""
+"`Linux Journal: Exploring Dynamic Kernel Module Support "
+"<https://www.linuxjournal.com/article/6896>`_"
+msgstr "`Linux Journal: Exploring Dynamic Kernel Module Support <https://www.linuxjournal.com/article/6896>`_"
+
+#~ msgid "Make enhancement requests to the |CL| distribution `on GitHub`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Follow the steps in this section "
+#~ "if you are an individual user or"
+#~ " testing, and you need an out-"
+#~ "of-tree kernel module that is not "
+#~ "available through |CL|. For a more "
+#~ "scalable and customizable approach, we "
+#~ "recommend using the `mixer tool`_ to "
+#~ "provide a custom kernel and updates."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Ubuntu community wiki`_ shows an "
+#~ "example where a single package contains"
+#~ " multiple modules."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Sample dkms.conf file`_ in the "
+#~ "GitHub\\* repository for the DKMS "
+#~ "project."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Dynamic Kernel Module System (DKMS) "
+#~ "project on GitHub <https://github.com/dell/dkms>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Make enhancement requests to the |CL|"
+#~ " `Distribution Project "
+#~ "<https://github.com/clearlinux/distribution>`_ on GitHub."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The *kernel-native-dkms* bundle provides"
+#~ " the :command:`dkms` program and Linux "
+#~ "kernel headers, which are required for"
+#~ " compiling kernel modules."
+#~ msgstr ""
+
+#~ msgid "The *kernel-native-dkms* bundle also:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Adds a systemd update trigger "
+#~ "(:file:`/usr/lib/systemd/system/dkms-new-kernel.service`)"
+#~ " to automatically run DKMS to rebuild"
+#~ " modules after a kernel upgrade "
+#~ "occurs with :ref:`swupd update <swupd-"
+#~ "guide>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Follow the steps in this section "
+#~ "if you are an individual user or"
+#~ " testing, and you need an out-"
+#~ "of-tree kernel module that is not "
+#~ "available through |CL|. For a more "
+#~ "scalable and customizable approach, we "
+#~ "recommend using the :ref:`mixer` tool to"
+#~ " provide a custom kernel and updates."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Obtain a kernel module package in "
+#~ "the form of source code and/or "
+#~ "precompiled binaries."
+#~ msgstr ""
+
+

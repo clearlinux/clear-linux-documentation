@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bundles in Clear Linux* OS</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+  <div class="wy-table-responsive">
+  <table class="colwidths-given docutils">
+
+    <thead>
+      <tr>
+        <th></th>
+        <th style="text-align:right; font-family:IntelClear-Regular,Helvetica,Arial; font-style:italic">
+          Updated: {{ now.strftime('%x %H:%M') }} UTC
+        </th>
+      </tr>
+      <tr>
+        <th> Name</th>
+        <th> Description</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for d in data %}
+      {% if d.url %}
+      <tr id="bundle">
+        <td class="bundlename" id="bundle"><a href="{{d.url}}">{{d.title}}</a></td>
+        <td class="bundledesc">{{d.data_desc}} <br />
+          {% if d.include_list %}
+          <div class="bundledesc">Includes bundle(s):
+            <ul>
+              {% for include in d.include_list %}
+              <li>{{include}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr id="pundle">
+        <td class="bundlename"><a href="{{d.purl}}">{{d.title}}</a></td>
+        <td class="bundledesc"> {{d.pun_desc}} </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+language: python
+
+python:
+  - "3.6"
+
+# command to install dependencies
+install: 
+  - pip3 install -q -r requirements.txt
+  - pip3 install -q -r source/_scripts/_python/requirements.txt
+
+# command to run tests
+script: 
+  - make py
+  - make htmlall
+
+before_deploy:
+  - make linkcheck
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: latestHTML
+    on:
+      branch: master
+    local_dir: source/_build/html/
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: developmentHTML
+    on:
+      branch: development
+    local_dir: source/_build/html/
+
+after_deploy:
+  - wget $PUBLISH_URL
+  - cat clearlinux-latest

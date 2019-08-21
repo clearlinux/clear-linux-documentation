@@ -1,0 +1,574 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../tutorials/wordpress/web-server-install.rst:4
+msgid "Set up a LAMP web server on |CL-ATTR|"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:6
+msgid ""
+"This tutorial provides instructions on how to set up a :abbr:`LAMP "
+"(Linux, Apache\\*, MySQL, PHP)` web server on |CL-ATTR| and how to use "
+"phpMyAdmin\\* to manage an associated database. Note that this tutorial "
+"installs MariaDB\\*, which is a drop-in replacement for MySQL\\*."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:11
+msgid ""
+"In order to create a web server using |CL| as the host OS, your host "
+"system must be running |CL|. This tutorial assumes you have installed "
+"|CL| on your host system. For detailed instructions on installing |CL| on"
+" a bare metal system, visit :ref:`bare-metal-install-desktop`."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:16
+msgid "This tutorial covers:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:22
+msgid "Install Apache"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:24
+msgid ""
+"Apache is an open source HTTP web server application that can run on "
+"several operating systems, including |CL|. Go to the `Apache HTTP Server "
+"Project`_ for more information."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:29
+msgid "Install the web-server-basic bundle"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:31
+msgid ""
+"The **web-server-basic** bundle contains the packages needed to install "
+"the Apache software bundle on |CL|."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:36
+msgid ""
+"Before you install new packages, update the |CL| with the following "
+"console command:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:43
+msgid "To install the bundle, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:50
+msgid "To start the Apache service, enter the following commands:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:57
+msgid ""
+"To verify that the Apache server application is running, open a web "
+"browser and navigate to: \\http://localhost."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:60
+msgid ""
+"If the service is running, a confirmation message will appear, similar to"
+" the message shown in figure 1."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:67
+msgid "`Figure 1: Confirmation that the Apache service is running.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:71
+msgid ""
+"The :file:`index.html` file is located in the :file:`/var/www/html` "
+"directory of your host system. You will copy this file into a new "
+"location after you modify the configuration in the next step."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:76
+msgid "Change the default configuration and data directory"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:78
+msgid ""
+"|CL| is designed to be a :ref:`stateless` operating system which means "
+"that you must create an optional configuration file to override the "
+"default values. The default location of the Apache configuration file, "
+":file:`httpd.conf`, is located in the :file:`/usr/share/defaults/httpd` "
+"directory. |CL| can override this directory as part of the stateless "
+"paradigm. This default :file:`.conf` file includes the following "
+"directives that allow for additional locations of configuration "
+"definitions:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:94
+msgid ""
+"In this section you will define your own httpd.conf file to override the "
+"default values, and define a custom DocumentRoot for your web server."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:97
+msgid "Create the directory structure for :file:`/etc/httpd/conf.d`."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:103
+msgid ""
+"Create and open the :file:`httpd.conf` file in your new "
+":file:`/etc/httpd/conf.d` directory."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:110
+msgid ""
+"Add the ``DocumentRoot`` variable to :file:`httpd.conf`. Copy the content"
+" listed below into the new :file:`/etc/httpd/conf.d/httpd.conf` file."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:128
+msgid ""
+"Create a new ``DocumentRoot`` directory structure and copy the "
+":file:`index.html` file from :file:`/var/www/html` directory to "
+":file:`/var/www/tutorial`."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:138
+msgid ""
+"To ensure a successful setup, edit the new :file:`index.html` file with "
+"an obvious change."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:145
+msgid "For example, we changed the default message"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:147
+msgid "\"It works!\""
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:149
+msgid "to"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:151
+msgid "\"It works from its new location!\""
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:153
+#: ../../tutorials/wordpress/web-server-install.rst:171
+msgid "Stop and then restart ``httpd.service``."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:160
+msgid ""
+"Go to \\http://localhost to view the new screen. You should see your "
+"updated default message from step 5."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:163
+msgid ""
+"Change the configuration back to the default :file:`/var/www/html` "
+"location. To do this, edit the :file:`/etc/httpd/conf.d/httpd.conf` file "
+"again and replace any instance of /var/www/tutorial with /var/www/html."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:178
+msgid ""
+"Go to \\http://localhost and verify that you can see the default screen "
+"again."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:181
+msgid "Optionally, remove the /var/www/tutorial directory you previously created."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:189
+msgid "Install PHP"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:191
+msgid ""
+"An Apache installation allows you to display static web pages. Enabling "
+"PHP allows you to generate and display dynamic web pages. To add this "
+"functionality to your web server, install PHP on your system."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:195
+msgid "To get the php components, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:201
+msgid "To enable PHP, enter the following commands:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:209
+msgid "After restarting the Apache service, test your PHP installation."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:211
+msgid ""
+"Create and open a file named :file:`phpinfo.php` in the "
+":file:`/var/www/html/` directory using a text editor."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:218
+msgid "Add the following line to the file:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:224
+msgid "Go to \\http://localhost/phpinfo.php."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:226
+msgid "Verify that the PHP information screen appears, similar to figure 2:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:232
+msgid "`Figure 2: The PHP information screen.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:234
+msgid ""
+"If the PHP information screen is displayed, you have successfully "
+"installed the PHP components and are now ready to add your database "
+"application to complete your LAMP server implementation."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:239
+msgid "Install MariaDB"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:241
+msgid ""
+"Install MariaDB to store content. MariaDB is a drop-in replacement for "
+"MySQL and is available in the database-basic |CL| bundle."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:244
+msgid "To install the database-basic bundle, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:250
+msgid "To start MariaDB after it is installed, enter the following commands:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:257
+msgid "To check the status of MariaDB, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:263
+msgid "Press :kbd:`Ctrl` + :kbd:`c` or :kbd:`q` to exit."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:266
+msgid "Security hardening"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:268
+msgid ""
+"With the MariaDB service running, we can perform some basic security "
+"hardening."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:271
+msgid "To add a basic layer of security, enter the following command:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:277
+msgid "Respond to the questions that appear in the script below."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:281
+msgid "Our suggested responses follow each question."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:287
+msgid ""
+"In order to secure MariaDB, we need the current password for the root "
+"user. For a newly installed MariaDB without a set root password, the "
+"password is blank. Thus, press enter to continue."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:299
+msgid ""
+"Set the root password to prevent unauthorized MariaDB root user logins. "
+"To set a root password, type 'y'."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:306
+msgid "Type the desired password for the root user."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:312
+msgid "Re-type the desired password for the root user."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:322
+msgid ""
+"By default, a MariaDB installation includes an anonymous user that allows"
+" anyone to log in to MariaDB without a user account. This anonymous user "
+"is intended only for testing and for a smoother installation. To remove "
+"the anonymous user and make your database more secure, type 'y'."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:332
+msgid ""
+"Normally, root should only be allowed to connect from the 'localhost'. "
+"This ensures that someone cannot guess the root password from the "
+"network. To block any remote root login, type 'y'."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:341
+msgid ""
+"By default, MariaDB includes a database named 'test' which anyone can "
+"access. This database is also intended only for testing and should be "
+"removed. To remove the test database, type 'y'."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:353
+msgid ""
+"Reloading the privilege tables ensures all changes made so far take "
+"effect immediately. To reload the privilege tables, type 'y'."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:362
+msgid ""
+"All done!  If you've completed all of the above steps, your MariaDB "
+"installation should now be secure."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:365
+msgid "Thanks for using MariaDB!"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:367
+msgid ""
+"The MariaDB installation is complete, and we can now install phpMyAdmin "
+"to manage the databases."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:371
+msgid "Install phpMyAdmin"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:373
+msgid ""
+"The web-based tool phpMyAdmin is a straightforward way to manage MySQL or"
+" MariaDB databases. Visit the `phpMyAdmin`_ website for the complete "
+"discussion regarding phpMyAdmin, its documentation, the latest downloads,"
+" and other useful information."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:378
+msgid "In this tutorial, we use the latest English version of phpMyAdmin."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:380
+msgid ""
+"Download the :file:`phpMyAdmin-<version>-english.tar.gz` file to your "
+":file:`~/Downloads` directory. Here, <version> refers to the current "
+"version available at https://www.phpmyadmin.net/downloads."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:386
+msgid "This example downloads and uses version 4.6.4."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:388
+msgid ""
+"Once the file has been successfully downloaded and verified, decompress "
+"the file and directories into the Apache web server document root "
+"directory. Use the following commands:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:397
+msgid ""
+"To keep things simple, rename the newly created "
+":file:`phpMyAdmin-4.6.4-english` directory to :file:`phpMyAdmin` with the"
+" following command:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:406
+msgid "Use phpMyAdmin to manage a database"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:408
+msgid ""
+"You can use the phpMyAdmin web-based tool to manage your databases. "
+"Follow the steps below for setting up a database called \"WordPress\"."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:411
+msgid ""
+"Verify that a successful installation of all LAMP server components by "
+"going to \\http://localhost/phpMyAdmin. See figure 3."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:414
+msgid ""
+"Log in with your root userid and the password you set up when you ran the"
+" :ref:`mysql_secure_installation command <set-password>`. Enter your "
+"credentials and select :guilabel:`Go` to log in:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:422
+msgid "`Figure 3: The phpMyAdmin login page.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:424
+msgid ""
+"Verify a successful login by confirming that the main phpMyAdmin page "
+"displays, as shown in figure 4:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:431
+msgid "`Figure 4: The phpMyAdmin dashboard.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:433
+msgid ""
+"Set up a database by selecting the :guilabel:`Databases` tab, as shown in"
+" figure 5."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:436
+msgid ""
+"Enter `WordPress` in the text field below the :guilabel:`Create database`"
+" label."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:439
+msgid ""
+"Select the :guilabel:`utf8_unicode_ci` option from the "
+":guilabel:`Collation` drop-down menu beside the text field."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:442
+msgid "Click :guilabel:`Create`."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:448
+msgid "`Figure 5: The Databases tab.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:450
+msgid ""
+"Set up user permissions by selecting the :guilabel:`WordPress` database "
+"located in the left panel. See figure 6."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:453
+msgid "Select the :guilabel:`Privileges` tab. Figure 6 shows its contents."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:459
+msgid "`Figure 6: The Privileges tab.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:461
+msgid ""
+"Click :guilabel:`Add user account` located at the bottom of the "
+":guilabel:`Privileges` tab. The `Add user account` page appears, as shown"
+" in figure 7."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:469
+msgid "`Figure 7: The User accounts tab.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:471
+msgid ""
+"Enter the following information in the corresponding fields that appear "
+"in figure 7 above:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:474
+msgid "User name: wordpressuser"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:476
+msgid "Password: wp-example"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:478
+msgid "Re-type: wp-example"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:480
+msgid ""
+"In the `Database for user account` section, select :guilabel:`Grant all "
+"privileges on database “WordPress”.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:483
+msgid "At the bottom of the page, click :guilabel:`Go`."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:485
+msgid "If successful, you should see the screen shown in figure 8:"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:491
+msgid "`Figure 8: The user wordpressuser is successfully added.`"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:493
+msgid "**Congratulations!**"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:495
+msgid ""
+"You have now created a fully functional LAMP server along with a "
+"WordPress\\*-ready database using |CL|."
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:499
+msgid "Next steps"
+msgstr ""
+
+#: ../../tutorials/wordpress/web-server-install.rst:501
+msgid ""
+"Next, add the WordPress components needed to host a WordPress website "
+"with :ref:`wp-install`."
+msgstr ""
+
+#~ msgid ""
+#~ "This tutorial provides instructions on "
+#~ "how to set up a :abbr:`LAMP "
+#~ "(Linux, Apache, MySQL, PHP)` web server"
+#~ " on |CL-ATTR| and how to use"
+#~ " phpMyAdmin\\* to manage an associated "
+#~ "database. Note that this tutorial "
+#~ "installs MariaDB\\*, which is a drop-"
+#~ "in replacement for MySQL\\*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| is designed to be a "
+#~ "`stateless`_ operating system which means "
+#~ "that you must create an optional "
+#~ "configuration file to override the "
+#~ "default values. The default location of"
+#~ " the Apache configuration file, "
+#~ ":file:`httpd.conf`, is located in the "
+#~ ":file:`/usr/share/defaults/httpd` directory. |CL| "
+#~ "can override this directory as part "
+#~ "of the stateless paradigm. This default"
+#~ " :file:`.conf` file includes the following"
+#~ " directives that allow for additional "
+#~ "locations of configuration definitions:"
+#~ msgstr ""
+

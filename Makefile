@@ -4,8 +4,23 @@
 all:
 	make -C source html
 
+htmlall:
+	make -C source htmlall
+
+htmlzh:
+	make -C source htmlzh
+
+htmlde:
+	make -C source htmlde
+
 html:
 	make -C source html
+
+linkcheck:
+	make -C source linkcheck
+
+py:
+	make -C source py
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"

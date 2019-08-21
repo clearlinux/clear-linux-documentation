@@ -1,0 +1,272 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:4
+msgid "Download, verify, and decompress a |CL-ATTR| image on macOS\\*"
+msgstr "在 macOS\\* 上下载、验证和解压缩 |CL-ATTR| 映像"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:6
+msgid ""
+"This guide describes the types of |CL| images available, where to "
+"download them, how to verify the integrity of an image, and how to "
+"decompress it."
+msgstr "本指南介绍可用 |CL| 映像的类型、从哪里下载它们、如何验证映像的完整性以及如何解压缩映像。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:9
+msgid "Instructions for other operating systems are available:"
+msgstr "适用于其他操作系统的说明如下："
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:11
+msgid ":ref:`download-verify-decompress-linux`"
+msgstr ":ref:`download-verify-decompress-linux`"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:12
+msgid ":ref:`download-verify-decompress-windows`"
+msgstr ":ref:`download-verify-decompress-windows`"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:15
+msgid "Image types"
+msgstr "映像类型"
+
+#: ../../reference/image-types.rst:3
+msgid ""
+"|CL-ATTR| offers many types of `images`_ for different platforms and "
+"environments."
+msgstr "|CL-ATTR| 为不同平台和环境提供多种类型的 `images`_。"
+
+#: ../../reference/image-types.rst:7
+msgid "The naming convention of a |CL| image filename is:"
+msgstr "|CL| 映像文件名的命名约定是："
+
+#: ../../reference/image-types.rst:13
+msgid "The *[version number]* field specifies the version number."
+msgstr "*[version number]* 字段指定版本号。"
+
+#: ../../reference/image-types.rst:15
+msgid ""
+"The *[image type]* field specifies the type of image and its "
+"corresponding file format."
+msgstr "*[image type]* 字段指定映像类型及其相应的文件格式。"
+
+#: ../../reference/image-types.rst:18
+msgid ""
+"The *[compression type]* field specifies the compression type. Two types "
+"of compressions are used: GNU\\* zip (*.gz*) and XZ (*.xz*)."
+msgstr "*[compression type]* 字段指定压缩类型。使用的压缩类型有两种：GNU\\* zip (*.gz*) 和 XZ (*.xz*)。"
+
+#: ../../reference/image-types.rst:23
+msgid ""
+"Table 1 lists the currently available images that are platform "
+"independent. Table 2 lists the currently available images that are "
+"platform specific."
+msgstr "表 1 列出了当前可用的独立于平台的映像。表 2 列出了当前可用的特定于平台的映像。"
+
+#: ../../reference/image-types.rst:26
+msgid "Table 1: Types of platform-independent |CL| images"
+msgstr "表 1：独立于平台的 |CL| 映像类型"
+
+#: ../../reference/image-types.rst:30 ../../reference/image-types.rst:43
+msgid "Image Type"
+msgstr "映像类型"
+
+#: ../../reference/image-types.rst:31 ../../reference/image-types.rst:44
+msgid "Description"
+msgstr "描述"
+
+#: ../../reference/image-types.rst:33
+msgid "live-desktop.img or live-desktop.iso"
+msgstr "live-desktop.img 或 live-desktop.iso"
+
+#: ../../reference/image-types.rst:34
+msgid "Image for booting to GNOME\\* desktop to preview or install the OS."
+msgstr "用于引导至 GNOME\\* 桌面进行预览或安装操作系统的映像。"
+
+#: ../../reference/image-types.rst:36
+msgid "live-server.img or live-server.iso"
+msgstr "live-server.img 或 live-server.iso"
+
+#: ../../reference/image-types.rst:37
+msgid "Image for booting to server command prompt to preview or install the OS."
+msgstr "用于引导至服务器命令提示符进行预览或安装操作系统的映像。"
+
+#: ../../reference/image-types.rst:39
+msgid "Table 2: Types of platform-specific |CL| images"
+msgstr "表 2：特定于平台的 |CL| 映像类型"
+
+#: ../../reference/image-types.rst:46
+msgid "aws.img"
+msgstr "aws.img"
+
+#: ../../reference/image-types.rst:47
+msgid "Image suitable for use with Amazon\\* AWS\\*."
+msgstr "适用于 Amazon\\* AWS\\* 的映像。"
+
+#: ../../reference/image-types.rst:49
+msgid "azure.vhd"
+msgstr "azure.vhd"
+
+#: ../../reference/image-types.rst:50
+msgid "Virtual Hard Disk for use on Microsoft\\* Azure\\* cloud platform."
+msgstr "适用于 Microsoft\\* Azure\\* 云平台的虚拟硬盘。"
+
+#: ../../reference/image-types.rst:52
+msgid "azure-docker.vhd"
+msgstr "azure-docker.vhd"
+
+#: ../../reference/image-types.rst:53
+msgid ""
+"Virtual Hard Disk for use on Microsoft Azure cloud platform with "
+"Docker\\* pre-installed."
+msgstr "适用于预装 Docker\\* 的 Microsoft Azure 云平台的虚拟硬盘。"
+
+#: ../../reference/image-types.rst:55
+msgid "azure-machine-learning.vhd"
+msgstr "azure-machine-learning.vhd"
+
+#: ../../reference/image-types.rst:56
+msgid ""
+"Virtual Hard Disk for use on Microsoft Azure cloud platform with the "
+"`machine-learning-basic` bundle installed."
+msgstr "适用于安装 `machine-learning-basic` 捆绑包 的 Microsoft Azure 云平台的虚拟硬盘。"
+
+#: ../../reference/image-types.rst:58
+msgid "cloudguest.img"
+msgstr "cloudguest.img"
+
+#: ../../reference/image-types.rst:59
+msgid ""
+"Image with generic cloud guest virtual machine (VM) requirements "
+"installed."
+msgstr "安装了通用云来宾虚拟机 (VM) 的映像。"
+
+#: ../../reference/image-types.rst:61
+msgid "gce.tar"
+msgstr "gce.tar"
+
+#: ../../reference/image-types.rst:62
+msgid "Image with the Google Compute Engine (GCE) specific kernel."
+msgstr "带有 Google 计算引擎 (GCE) 特定内核的映像。"
+
+#: ../../reference/image-types.rst:64
+msgid "hyperv.vhdx"
+msgstr "hyperv.vhdx"
+
+#: ../../reference/image-types.rst:65
+msgid ""
+"Virtual Hard Disk for use with Microsoft Hyper-V\\* hypervisor. Includes "
+"`optimized kernel`_ for Hyper-V."
+msgstr "与 Microsoft Hyper-V\\* 虚拟机管理程序一起使用的虚拟硬盘。包括针对 Hyper-V `optimized kernel`_"
+
+#: ../../reference/image-types.rst:67
+msgid "kvm.img"
+msgstr "kvm.img"
+
+#: ../../reference/image-types.rst:68
+msgid ""
+"Image for booting in a simple VM with start_qemu.sh. Includes `optimized "
+"kernel`_ for KVM."
+msgstr "用于使用 start_qemu.sh 在简单虚拟机中引导的映像。包括针对 KVM `optimized kernel`_。"
+
+#: ../../reference/image-types.rst:71
+msgid "kvm-legacy.img"
+msgstr "kvm-legacy.img"
+
+#: ../../reference/image-types.rst:72
+msgid ""
+"Image for booting in a simple VM using legacy BIOS, if using "
+"start_qemu.sh make sure to remove -bios parameter."
+msgstr "用于使用传统 BIOS 在简单虚拟机中引导的映像；如果使用 start_qemu.sh，请确保移除 -bios 参数。"
+
+#: ../../reference/image-types.rst:74
+msgid "pxe.tar"
+msgstr "pxe.tar"
+
+#: ../../reference/image-types.rst:75
+msgid "Image suitable for use with PXE server."
+msgstr "适用于 PXE 服务器的映像。"
+
+#: ../../reference/image-types.rst:77
+msgid "vmware.vmdk"
+msgstr "vmware.vmdk"
+
+#: ../../reference/image-types.rst:78
+msgid ""
+"Virtual Machine Disk for VMware\\* platforms inclduing Player, "
+"Workstation, and ESXi."
+msgstr "面向包括 Player、Workstation 和 ESXi 在内的 VMware\\* 平台的虚拟机磁盘。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:23
+msgid "Verify the integrity of the |CL| image"
+msgstr "确认 |CL| 映像的完整性。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:25
+msgid ""
+"Before you use a downloaded |CL| image, verify its integrity. This action"
+" eliminates the small chance of a corrupted image due to download issues."
+" To support verification, each released |CL| image has a corresponding "
+"SHA512 checksum file designated with the suffix `-SHA512SUMS`."
+msgstr "在使用下载的 |CL| 映像之前，请确认其完整性。本操作消除了由于下载错误导致的罕见映像损坏。为支持确认，每个释放的 |CL| 映像均有一个相应的 SHA512 校验和 (checksum) 文件，其指定后缀为 `-SHA512SUMS`。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:30
+msgid "Download the corresponding SHA512 checksum file of your |CL| image."
+msgstr "下载与您的 |CL| 映像相应的 SHA512 校验和文件。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:31
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:51
+msgid "Start the Terminal app."
+msgstr "启动终端应用程序。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:32
+msgid "Go to the directory with the downloaded image and checksum files."
+msgstr "转到含有下载映像和校验和文件的目录。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:33
+msgid ""
+"Verify the integrity of the image and compare it to its original checksum"
+" with the command:"
+msgstr "验证映像的完整性，并使用以下命令将其与原始校验和进行比较："
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:40
+msgid ""
+"If the checksum of the downloaded image is different than the original "
+"checksum, the differences will be displayed. Otherwise, an empty output "
+"indicates a match and your downloaded image is good."
+msgstr "如果下载的映像的校验和与原始校验和不同，将显示差异。否则，空输出表示校验和匹配，说明下载的映像完好。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:45
+msgid "Decompress the |CL| image"
+msgstr "解压 |CL| 映像"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:47
+msgid ""
+"We compress all released |CL| images by default with either GNU zip "
+"(`.gz`) or xz (`.xz`). The compression type we use depends on the target "
+"platform or environment. To decompress the image, follow these steps:"
+msgstr "默认情况下，我们使用 GNU zip (`.gz`) 或 xz (`.xz`) 压缩所有发布的 |CL| 映像。我们使用的压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:52
+msgid "Go to the directory with the downloaded image."
+msgstr "转到下载映像所在的目录。"
+
+#: ../../guides/maintenance/download-verify-decompress-mac.rst:53
+msgid ""
+"Use the :command:`gunzip` command to decompress either compression type. "
+"For example:"
+msgstr "使用 :command:`gunzip` command 命令解压缩任一种压缩类型。例如："
+

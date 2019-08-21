@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
-SCRIPTDIR     = scripts/_python
+SCRIPTDIR     = _scripts/_python
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -17,6 +17,7 @@ endif
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+ERROROPTS       = -W --keep-going
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
@@ -48,9 +49,24 @@ help:
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
+	@echo "  py         to trigger an update of bundle content"
 
 clean:
 	rm -rf $(BUILDDIR)/*
+
+htmlall: 
+	$(SPHINXBUILD) -b html $(ERROROPTS) $(ALLSPHINXOPTS) $(BUILDDIR)/html	
+	$(SPHINXBUILD) -b html $(ERROROPTS) -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/html/zh_CN 
+
+htmlde:
+	$(SPHINXBUILD) -b html -D language='de' $(ALLSPHINXOPTS) $(BUILDDIR)/html/de 
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/de."
+
+htmlzh:
+	$(SPHINXBUILD) -b html -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/html/zh_CN 
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html/zh_CN."	
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
@@ -172,7 +188,7 @@ changes:
 
 linkcheck:
 	-$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
-	python3 scripts/_python/linkcheck/parse-link-check.py $(BUILDDIR)/linkcheck
+	-python3 _scripts/_python/linkcheck/parse-link-check.py $(BUILDDIR)/linkcheck
 
 doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest

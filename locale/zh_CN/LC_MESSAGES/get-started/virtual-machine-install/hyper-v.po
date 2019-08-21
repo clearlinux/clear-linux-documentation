@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans\n"
+"Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:4
+msgid "|CL-ATTR| on Microsoft Hyper-V\\*"
+msgstr ""
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:6
+msgid ""
+"This page explains how to run |CL-ATTR| inside a `Windows Server "
+"Virtualization`_\\* or **Hyper-V** environment."
+msgstr "本页说明如何在 `Windows Server Virtualization`_\\* 或 **Hyper-V** 环境中运行 |CL-ATTR|。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:14
+msgid "Prerequisites"
+msgstr "必备条件"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:16
+msgid "Enable `Intel® Virtualization Technology`_ (Intel® VT)"
+msgstr "启用 `Intel® Virtualization Technology`_ (Intel® VT)"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:18
+msgid ""
+"Enable `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)"
+" in your BIOS/UEFI firmware configuration."
+msgstr ""
+"在 BIOS/UEFI 固件配置中启用 `Intel® Virtualization Technology for Directed I/O`_ "
+"(Intel® VT-d)。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:22
+msgid "Enable Hyper-V"
+msgstr "启用 Hyper-V"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:24
+msgid ""
+"Please refer to `Install Hyper-V on Windows 10`_ to enable and configure "
+"*Hyper-V* on your machine."
+msgstr "请参阅 `Install Hyper-V on Windows 10`_ 以在机器上启用和配置 *Hyper-V*。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:28
+msgid "Create a virtual network"
+msgstr "创建虚拟网络"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:30
+msgid ""
+"Once *Hyper-V* has been enabled on your Windows system, you will need to "
+"create a virtual network in the **Hyper-V Manager**.  Refer to the "
+"`Create a virtual network`_ documentation to create and configure a "
+"virtual network."
+msgstr ""
+"在 Windows 系统上启用 *Hyper-V*后，需要在 **Hyper-V Manager** 中创建虚拟网络。请参阅 `Create a "
+"virtual network`_ 文档以创建和配置虚拟网络。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:36
+msgid "Create a virtual machine"
+msgstr "创建虚拟机"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:38
+msgid ""
+"Download and decompress the latest hyperv disk image :file:`clear-XXXXX-"
+"hyperv.img.gz`, where XXXXX is the latest available version of |CL| from "
+"our `Downloads`_ page."
+msgstr ""
+"下载和解压缩最新的 hyperv 磁盘映像 :file:`clear-XXXXX-hyperv.img.gz`，其中 XXXXX 是 "
+"`Downloads`_ 页上的最新可用 |CL| 版本。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:42
+msgid "Create a virtual machine using the **Hyper-V Manager**:"
+msgstr "利用 **Hyper-V Manager** 创建虚拟机："
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:44
+msgid "Choose **Generation 2** when prompted to *specify VM generation*."
+msgstr "提示 *指定虚拟机世代* 时选择 **第 2 代**。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:45
+msgid ""
+"Choose **Use an existing virtual hard disk** and browse to find the :file"
+":`clear-XXXX-hyperv.vhdx` file."
+msgstr "选择 **使用现有虚拟硬盘**，找到 :file:`clear-XXXX-hyperv.vhdx` 文件。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:47
+msgid ""
+"When finished, open VM settings, select Firmware Section and in Secure "
+"Boot config, **uncheck** Enable Secure Boot."
+msgstr "完成后，打开虚拟机设置，选择“固件选择”，在“安全引导配置”中 **取消选中**“启用安全引导”。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:50
+msgid "Currently, |CL| does not boot with `secure boot` enabled."
+msgstr "现在，|CL| 不会通过启用 `secure boot` 来引导。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:53
+msgid "Connect to your new VM and start it. You should see a prompt:"
+msgstr "连接至新虚拟机并将其启动。系统显示提示："
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:59
+msgid "Set a root user password."
+msgstr "设置 root 用户密码。"
+
+#: ../../get-started/virtual-machine-install/hyper-v.rst:61
+msgid "Your virtual machine running |CL| is ready!"
+msgstr "运行 |CL| 的虚拟机已准备就绪！"
+
+#~ msgid ""
+#~ "This section explains how to run "
+#~ "|CL-ATTR| inside a `Windows Server "
+#~ "Virtualization`_\\* or **Hyper-V** environment."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Please ensure you have enabled `Intel®"
+#~ " Virtualization Technology "
+#~ "<http://www.intel.com/content/www/us/en/virtualization"
+#~ "/virtualization-technology/intel-virtualization-"
+#~ "technology.html>`_ (Intel® VT) and `Intel® "
+#~ "Virtualization Technology for Directed I/O "
+#~ "<https://software.intel.com/en-us/articles/intel-"
+#~ "virtualization-technology-for-directed-io-"
+#~ "vt-d-enhancing-intel-platforms-for-"
+#~ "efficient-virtualization-of-io-devices>`_ "
+#~ "(Intel® VT-d) in your BIOS/UEFI firmware"
+#~ " configuration."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Please refer to the `Microsoft "
+#~ "documentation`_ to enable and configure "
+#~ "*Hyper-V* on your machine."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Once *Hyper-V* has been enabled on "
+#~ "your Windows system you will need "
+#~ "to create a virtual network in the"
+#~ " **Hyper-V Manager**.  Refer to the "
+#~ "`Create a Virtual Network documentation`_ "
+#~ "to create and configure a virtual "
+#~ "network."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Download and decompress the latest "
+#~ "hyperv disk image :file:`clear-XXXXX-"
+#~ "hyperv.img.gz`, where XXXXX is the "
+#~ "latest available version of |CL| from"
+#~ " our `downloads`_ section."
+#~ msgstr ""
+
+#~ msgid "Use Hyper-V\\*"
+#~ msgstr "使用 Hyper-V\\*"
+

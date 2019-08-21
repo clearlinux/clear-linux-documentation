@@ -1,0 +1,1148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/network/vnc.rst:4
+msgid "Remote-desktop to a host using VNC"
+msgstr "使用 VNC 通过远程桌面连接到主机"
+
+#: ../../guides/network/vnc.rst:6
+msgid ""
+"This guide describes how to use :abbr:`VNC (Virtual Network Computing)` "
+"to connect to a remote |CL-ATTR| host."
+msgstr "本指南介绍如何使用 :abbr:`VNC (Virtual Network Computing)` 连接到远程 |CL-ATTR| 主机。"
+
+#: ../../guides/network/vnc.rst:9
+msgid ""
+"VNC is a client-server GUI-based tool that allows you to connect via "
+"remote-desktop to your |CL| host."
+msgstr "VNC 是一个基于 GUI 的客户端-服务器工具，使用它可以通过远程桌面连接到 |CL| 主机。"
+
+#: ../../guides/network/vnc.rst:17
+msgid "Install the VNC server and misc. components on your host"
+msgstr "在主机上安装 VNC 服务器和其他组件"
+
+#: ../../guides/network/vnc.rst:19
+msgid "To configure VNC to work on your |CL| host, install these bundles:"
+msgstr "要配置 VNC，使其能在 |CL| 主机上正常工作，请安装以下捆绑包："
+
+#: ../../guides/network/vnc.rst:21
+msgid ""
+":command:`desktop-autostart`: Installs :abbr:`GDM (Gnome Desktop "
+"Manager)`, sets it to start automatically on boot, and installs TigerVNC "
+"Viewer."
+msgstr ":command:`desktop-autostart`：安装 :abbr:`GDM (Gnome Desktop Manager)`，将其设置为在引导时自动启动，并安装 TigerVNC 查看器。"
+
+#: ../../guides/network/vnc.rst:23
+msgid ":command:`vnc-server`: Installs the TigerVNC server."
+msgstr ":command:`vnc-server`：安装 TigerVNC 服务器。"
+
+#: ../../guides/network/vnc.rst:25
+msgid "Follow these steps:"
+msgstr "遵照这些步骤操作："
+
+#: ../../guides/network/vnc.rst:27
+msgid "Log into your |CL| host and get root privileges."
+msgstr "登录 |CL| 主机并获得 root 特权。"
+
+#: ../../guides/network/vnc.rst:33
+msgid "Install the |CL| bundles."
+msgstr "安装 |CL| 捆绑包。"
+
+#: ../../guides/network/vnc.rst:39
+msgid "Reboot your |CL| host."
+msgstr "重新引导 |CL| 主机。"
+
+#: ../../guides/network/vnc.rst:42
+msgid "Configure a VNC-server-start method on your host"
+msgstr "在主机上配置 VNC-server-start 方法"
+
+#: ../../guides/network/vnc.rst:44
+msgid ""
+"There are three methods you can use to configure and start the VNC server"
+" on your |CL| host:"
+msgstr "有三种方法可以用来在 |CL| 主机上配置和启动 VNC 服务器："
+
+#: ../../guides/network/vnc.rst:47
+msgid "Table 1: VNC-server-start Configuration Methods"
+msgstr "表 1：VNC-server-start 配置方法"
+
+#: ../../guides/network/vnc.rst:51
+msgid "Attribute"
+msgstr "属性"
+
+#: ../../guides/network/vnc.rst:52 ../../guides/network/vnc.rst:90
+msgid "Method 1: Manually start a VNC session"
+msgstr "方法 1：手动启动 VNC 会话"
+
+#: ../../guides/network/vnc.rst:53 ../../guides/network/vnc.rst:151
+msgid "Method 2: Automatically start a VNC session via a systemd service script"
+msgstr "方法 2：通过 systemd 服务脚本自动启动 VNC 会话"
+
+#: ../../guides/network/vnc.rst:54
+msgid "Method 3: Create multi-user logins with authentication through GDM"
+msgstr "方法 3：通过 GDM 身份验证创建多用户登录"
+
+#: ../../guides/network/vnc.rst:55
+msgid "Description"
+msgstr "描述"
+
+#: ../../guides/network/vnc.rst:56
+msgid ""
+"This is the traditional method where you SSH into the |CL| host, manually"
+" start a VNC session to get a display ID, and connect to it by supplying "
+"the display ID."
+msgstr "这里使用的是传统方法，即通过 SSH 登录 |CL| 主机，手动启动 VNC 会话以获取显示 ID，并通过提供显示 ID 来连接到它。"
+
+#: ../../guides/network/vnc.rst:59
+msgid ""
+"The system administrator sets up a systemd service script for you with a "
+"pre-assigned display ID.  You make a VNC connection and supply your pre-"
+"assigned display ID."
+msgstr "系统管理员使用预先分配的显示 ID 来设置 systemd 服务脚本。建立一个 VNC 连接，并提供预先分配的显示 ID。"
+
+#: ../../guides/network/vnc.rst:62
+msgid ""
+"The system adminstrator configures GDM to accept connection requests. "
+"When you make a VNC connection to the |CL| host, you see the GDM login "
+"screen and authenticate as if you are local."
+msgstr "系统管理员将 GDM 配置为接受连接请求。与 |CL| 主机建立 VNC 连接时，您会看到 GDM 登录屏幕，并像本地用户一样进行身份验证。"
+
+#: ../../guides/network/vnc.rst:65
+msgid "Who configures VNC settings?"
+msgstr "谁来配置 VNC 设置？"
+
+#: ../../guides/network/vnc.rst:66 ../../guides/network/vnc.rst:70
+#: ../../guides/network/vnc.rst:74 ../../guides/network/vnc.rst:75
+msgid "You"
+msgstr "您"
+
+#: ../../guides/network/vnc.rst:67 ../../guides/network/vnc.rst:68
+msgid "System adminstrator"
+msgstr "*系统管理员*"
+
+#: ../../guides/network/vnc.rst:69
+msgid "Who starts VNC session?"
+msgstr "谁来启动 VNC 会话？"
+
+#: ../../guides/network/vnc.rst:71 ../../guides/network/vnc.rst:72
+msgid "Set to start automatically on boot by system administrator"
+msgstr "设置为由系统管理员在引导时自动启动"
+
+#: ../../guides/network/vnc.rst:73
+msgid "Who ends VNC sesssion?"
+msgstr "谁来终止 VNC 会话？"
+
+#: ../../guides/network/vnc.rst:76
+msgid "System administrator can disable VNC service altogether"
+msgstr "系统管理员可以完全禁用 VNC 服务"
+
+#: ../../guides/network/vnc.rst:77
+msgid "Requires VNC password to authenticate?"
+msgstr "是否需要提供 VNC 密码以执行身份验证？"
+
+#: ../../guides/network/vnc.rst:78 ../../guides/network/vnc.rst:79
+msgid "Yes"
+msgstr "是"
+
+#: ../../guides/network/vnc.rst:80
+msgid "No.  Use |CL| account username and password through GDM"
+msgstr "不需要。通过 GDM 使用 |CL| 帐户用户名和密码"
+
+#: ../../guides/network/vnc.rst:83
+msgid ""
+"Although all three methods can coexist on the same |CL| host, we "
+"recommend you pick a method that suits your needs."
+msgstr "虽然这三种方法可以在同一个 |CL| 主机上共存，但我们建议您选择一种适合您的需求的方法。"
+
+#: ../../guides/network/vnc.rst:86
+msgid ""
+"For simplicity, the rest of this guide refers to these methods as Method "
+"1, Method 2, and Method 3."
+msgstr "为简单起见，本指南的其余部分将这些方法称为方法 1、方法 2 和方法 3。"
+
+#: ../../guides/network/vnc.rst:92
+msgid ""
+"You (and each user) must perform these steps to initialize your VNC "
+"settings."
+msgstr "您（和每个用户）必须执行这些步骤来初始化 VNC 设置。"
+
+#: ../../guides/network/vnc.rst:94
+msgid "Log in."
+msgstr "登录。"
+
+#: ../../guides/network/vnc.rst:95 ../../guides/network/vnc.rst:554
+msgid "Open a terminal emulator."
+msgstr "打开一个终端模拟器。"
+
+#: ../../guides/network/vnc.rst:96
+msgid ""
+"Start VNC with the :command:`vncserver` command.  Since this is your "
+"first time starting VNC, it adds default configuration files and asks you"
+" to set a VNC password."
+msgstr "使用 :command:`vncserver` 命令启动 VNC。由于这是您第一次启动 VNC，它会添加默认配置文件，并要求您设置 VNC 密码。"
+
+#: ../../guides/network/vnc.rst:104 ../../guides/network/vnc.rst:429
+msgid "Example output:"
+msgstr "结果示例："
+
+#: ../../guides/network/vnc.rst:122
+msgid ""
+"Upon completion, you can find the default configuration files and the "
+"password file hidden in the :file:`.vnc` directory in your home "
+"directory."
+msgstr "完成后，您可以在主目录中的 :file:`.vnc` 目录中找到隐藏的默认配置文件和密码文件。"
+
+#: ../../guides/network/vnc.rst:125
+msgid ""
+"A VNC session starts and shows a unique display ID, which is the number "
+"following the hostname and the colon \":\".  In the above example, the "
+"display ID is 2.  In a later step, you will supply the display ID to your"
+" VNC viewer app for connection."
+msgstr "VNC 会话启动并显示一个唯一的显示 ID，该 ID 是主机名和冒号 \":\" 后面的数字。在上面的例子中，显示 ID 是 2。在稍后的步骤中，您将向 VNC 查看器应用程序提供显示 ID 以建立连接。"
+
+#: ../../guides/network/vnc.rst:130
+msgid ""
+"Kill the active VNC session for the time being with the "
+":command:`vncserver -kill :[display ID]` command.  Substitute [display "
+"ID] with your active VNC session display ID.  For example:"
+msgstr "使用 :command:`vncserver -kill :[display ID]` 命令暂时终止活动的 VNC 会话。使用您的活动 VNC 会话显示 ID 替换 [display ID]。例如："
+
+#: ../../guides/network/vnc.rst:140
+msgid ""
+"If you do not recall the active session display ID, use the "
+":command:`vncserver -list` command to find it."
+msgstr "如果您不记得活动会话显示 ID，请使用 :command:`vncserver -list` 命令查找它。"
+
+#: ../../guides/network/vnc.rst:143
+msgid "Optional configurations:"
+msgstr "可选配置："
+
+#: ../../guides/network/vnc.rst:145
+msgid ""
+"To customize settings such as screen size, security type, etc., modify "
+"the :file:`$HOME/.vnc/config` file."
+msgstr "要自定义屏幕大小、安全类型等设置，请修改 :file:`$HOME/.vnc/config` 文件。"
+
+#: ../../guides/network/vnc.rst:147
+msgid ""
+"To customize the applications to run at startup, modify the "
+":file:`$HOME/.vnc/xstartup` file."
+msgstr "要自定义启动时运行的应用程序，请修改 :file:`$HOME/.vnc/xstartup` 文件。"
+
+#: ../../guides/network/vnc.rst:153
+msgid ""
+"To configure VNC for this method, you must have root privileges.  You "
+"will set up a systemd service file for all intended VNC users with their "
+"own preassigned unique display ID."
+msgstr "要使用此方法配置 VNC，您必须具有 root 特权。您将为所有潜在的 VNC 用户设置一个 systemd 服务文件，而且这些用户拥有自己预先指定的唯一显示 ID。"
+
+#: ../../guides/network/vnc.rst:157 ../../guides/network/vnc.rst:243
+msgid "Log in and get root privileges."
+msgstr "登录并获得 root 特权。"
+
+#: ../../guides/network/vnc.rst:163
+msgid ""
+"Make sure the user accounts already exist.  Use the following command to "
+"list all users."
+msgstr "确保用户帐户已经存在。使用以下命令列出所有用户。"
+
+#: ../../guides/network/vnc.rst:171 ../../guides/network/vnc.rst:249
+msgid "Create the path :file:`/etc/systemd/system`."
+msgstr "创建路径 :file:`/etc/systemd/system`。"
+
+#: ../../guides/network/vnc.rst:177
+msgid ""
+"Create a systemd service script file :file:`vncserver@:[X].service`, "
+"where [X] is the display ID, for each user in :file:`/etc/systemd/system`"
+" Each user must be assigned a unique display ID.  Be sure the correct "
+"username is entered in the :guilabel:`User` field. The example below "
+"shows user vnc-user-b who is assigned the display ID 5."
+msgstr "创建 systemd 服务脚本文件 :file:`vncserver@:[X].service`，其中 [X] 是显示 ID。对于 :file:`/etc/systemd/system` 中的每个用户，必须为每个用户分配一个唯一的显示 ID。请确保在 :guilabel:`User` 字段中输入正确的用户名。以下示例显示了用户 vnc-user-b 已分配了显示 ID 5。"
+
+#: ../../guides/network/vnc.rst:205
+msgid ""
+"Have each user log into their account and set a VNC password with the "
+":command:`vncpasswd` command before proceeding to the next step."
+msgstr "让每个用户登录他们的帐户，并使用 :command:`vncpasswd` 命令设置 VNC 密码，然后继续下一步。"
+
+#: ../../guides/network/vnc.rst:208
+msgid ""
+"Start the VNC service script and set it to start automatically on boot "
+"for each user.  Replace the [X] with the display ID."
+msgstr "启动 VNC 服务脚本，并为每个用户将其设置在引导时自动启动。使用显示 ID 替换 [X]。"
+
+#: ../../guides/network/vnc.rst:217
+msgid "After starting the services, verify they are running."
+msgstr "启动服务后，确认它们是否正在运行。"
+
+#: ../../guides/network/vnc.rst:223
+msgid ""
+"The example below shows 2 VNC sessions that were successfully started for"
+" users vnc-user-b with display ID 5 and vnc-user-c with display ID 6."
+msgstr "以下示例显示了已成功为显示 ID 为 5 的用户 vnc-user-b 以及显示 ID 为 6 的用户 vnc-user-c 启动两个 VNC 会话。"
+
+#: ../../guides/network/vnc.rst:235
+msgid "Method 3: Multi-user logins with authentication through GDM"
+msgstr "方法 3：通过 GDM 身份验证实现多用户登录"
+
+#: ../../guides/network/vnc.rst:237
+msgid ""
+"For this method, VNC is configured as a systemd service that listens on "
+"port 5900 and GDM is configured to accept access requests from VNC. When "
+"you make a VNC connection to your |CL| host, you are presented with the "
+"GDM login screen and you authenticate as if you are local.  You must have"
+" root privileges to perform this configuration."
+msgstr "使用此方法时，系统将 VNC 配置为监听端口 5900 的 systemd 服务，并将 GDM 配置为接受来自 VNC 的访问请求。与 |CL| 主机建立 VNC 连接时，您会看到 GDM 登录屏幕，并像本地用户一样进行身份验证。您必须具有 root 特权才能执行此配置。"
+
+#: ../../guides/network/vnc.rst:255
+msgid "Create a systemd socket file :file:`xvnc.socket` and add the following:"
+msgstr "创建 systemd 套接字文件 :file:`xvnc.socket`，并添加以下内容："
+
+#: ../../guides/network/vnc.rst:273
+msgid "Create a systemd service file :file:`xvnc@.service` and add the following:"
+msgstr "创建 systemd 服务文件 :file:`xvnc@.service`，并添加以下内容："
+
+#: ../../guides/network/vnc.rst:290
+msgid "Create the path :file:`/etc/gdm`."
+msgstr "创建路径 :file:`/etc/gdm`。"
+
+#: ../../guides/network/vnc.rst:297
+msgid "Create a GDM :file:`custom.conf` file and add the following:"
+msgstr "创建一个 GDM :file:`custom.conf` 文件，并添加以下内容："
+
+#: ../../guides/network/vnc.rst:309
+msgid "Start the VNC socket script and set it to start automatically on boot."
+msgstr "启动 VNC 套接字脚本，并将其设置为在引导时自动启动。"
+
+#: ../../guides/network/vnc.rst:317
+msgid "After starting the socket, verify it is running."
+msgstr "启动套接字后，确认它是否正在运行。"
+
+#: ../../guides/network/vnc.rst:323
+msgid "The example below shows the xvnc.socket is running."
+msgstr "下面的示例显示 xvnc.socket 正在运行。"
+
+#: ../../guides/network/vnc.rst:332
+msgid "See the vncserver Man page for additional information."
+msgstr "有关更多信息，请参阅 vncserver 手册页。"
+
+#: ../../guides/network/vnc.rst:335
+msgid "Install a VNC viewer app and an SSH client on your client system"
+msgstr "在客户端系统上安装一个 VNC 查看器应用程序和一个 SSH 客户端"
+
+#: ../../guides/network/vnc.rst:337
+msgid ""
+"You need a VNC viewer app on your client system to connect to your |CL| "
+"host. An SSH client is only needed if you chose to use Method 1 or you "
+"plan to encrypt your VNC traffic, which is discussed later in this guide."
+msgstr "客户端系统上需要具有 VNC 查看器应用程序才能连接到 |CL| 主机。仅当选择使用方法 1 或打算加密 VNC 流量（这将在本指南后文讨论）时才需要 SSH 客户端。"
+
+#: ../../guides/network/vnc.rst:341
+msgid "Perform the steps below to add these apps to your client system."
+msgstr "执行以下步骤将这些应用程序添加到客户端系统。"
+
+#: ../../guides/network/vnc.rst:344
+msgid "Install a VNC viewer app"
+msgstr "安装一个 VNC 查看器应用程序"
+
+#: ../../guides/network/vnc.rst:346
+msgid "On |CL|:"
+msgstr "在 |CL| 上："
+
+#: ../../guides/network/vnc.rst:352
+msgid "On Ubuntu\\*, Mint\\*:"
+msgstr "在 Ubuntu\\*、Mint\\* 上："
+
+#: ../../guides/network/vnc.rst:358
+msgid "On Fedora\\*:"
+msgstr "在 Fedora\\* 上："
+
+#: ../../guides/network/vnc.rst:364
+msgid "On Windows\\*:"
+msgstr "在 Windows\\* 上："
+
+#: ../../guides/network/vnc.rst:366
+msgid "Install `RealVNC for Windows`_"
+msgstr "安装 `RealVNC for Windows`_"
+
+#: ../../guides/network/vnc.rst:368
+msgid "On macOS\\*:"
+msgstr "在 macOS\\* 上："
+
+#: ../../guides/network/vnc.rst:370
+msgid "Install `RealVNC for macOS`_"
+msgstr "安装 `RealVNC for macOS`_"
+
+#: ../../guides/network/vnc.rst:373
+msgid "Install an SSH client"
+msgstr "安装一个 SSH 客户端"
+
+#: ../../guides/network/vnc.rst:375
+msgid ""
+"On most Linux distros (|CL|, Ubuntu, Mint, Fedora, etc.) and macOS, SSH "
+"is built-in so you don't need to install it."
+msgstr "大多数 Linux 发行版（|CL|、Ubuntu、Mint、Fedora 等）和 macOS 都内置了 SSH，因此无需进行安装。"
+
+#: ../../guides/network/vnc.rst:377
+msgid "On Windows, you can install `Putty`_."
+msgstr "在 Windows 上，您可以安装 `Putty`_。"
+
+#: ../../guides/network/vnc.rst:380
+msgid "Establish a VNC connection to your host"
+msgstr "与主机建立 VNC 连接"
+
+#: ../../guides/network/vnc.rst:382
+msgid ""
+"Depending on the VNC-server-configuration method chosen, use the "
+"appropriate VNC connection:"
+msgstr "根据所选的 VNC-server-configuration 方法，使用适当的 VNC 连接："
+
+#: ../../guides/network/vnc.rst:385
+msgid ""
+"If you chose Method 1, you must take a few extra steps by using SSH to "
+"connect to your |CL| host and then manually launching VNC."
+msgstr "如果选择方法 1，必须采取一些额外的步骤，即使用 SSH 连接到 |CL| 主机，然后手动启动 VNC。"
+
+#: ../../guides/network/vnc.rst:388
+msgid ""
+"If you chose Method 2, get your preassigned VNC display ID from your "
+"system administrator first and then proceed to the :ref:`connect-to-vnc-"
+"session` section below."
+msgstr "如果选择了方法 2，请先从系统管理员处获取预先分配的 VNC 显示 ID，然后转到下面的 :ref:`connect-to-vnc-session` 一节。"
+
+#: ../../guides/network/vnc.rst:392
+msgid "If you chose Method 3, proceed to the :ref:`connect-to-vnc-session` below."
+msgstr "如果选择了方法 3，请转到下面的 :ref:`connect-to-vnc-session`。"
+
+#: ../../guides/network/vnc.rst:396
+msgid "SSH into your host and launch VNC"
+msgstr "使用 SSH 连接到主机并启动 VNC"
+
+#: ../../guides/network/vnc.rst:398
+msgid "SSH into your |CL| host"
+msgstr "使用 SSH 连接到 |CL| 主机"
+
+#: ../../guides/network/vnc.rst:400
+msgid "On Linux distros and macOS:"
+msgstr "在 Linux 发行版和 macOS 上："
+
+#: ../../guides/network/vnc.rst:406
+msgid "On Windows:"
+msgstr "在 Windows 上："
+
+#: ../../guides/network/vnc.rst:408 ../../guides/network/vnc.rst:725
+msgid "Launch Putty."
+msgstr "启动 Putty。"
+
+#: ../../guides/network/vnc.rst:409 ../../guides/network/vnc.rst:728
+msgid ""
+"Under the :guilabel:`Category` section, select :guilabel:`Session`. See "
+"Figure 1."
+msgstr "在 :guilabel:`Category` 部分下，选择 :guilabel:`Session`。请参阅图 1。"
+
+#: ../../guides/network/vnc.rst:411 ../../guides/network/vnc.rst:730
+msgid ""
+"Enter the IP address of your |CL| host in the :guilabel:`Host Name (or IP"
+" address)` field."
+msgstr "在 :guilabel:`Host Name (or IP address)` 字段中输入 |CL| 主机的 IP 地址。"
+
+#: ../../guides/network/vnc.rst:413 ../../guides/network/vnc.rst:732
+msgid "Set the :guilabel:`Connection type` option to :guilabel:`SSH`."
+msgstr "将 :guilabel:`Connection type` 选项设置为 :guilabel:`SSH`。"
+
+#: ../../guides/network/vnc.rst:414 ../../guides/network/vnc.rst:754
+msgid "Click the :guilabel:`Open` button."
+msgstr "点击 :guilabel:`Open` 按钮。"
+
+#: ../../guides/network/vnc.rst:420
+msgid "Figure 1: Putty - configure SSH session settings"
+msgstr "图 1：Putty - 配置 SSH 会话设置"
+
+#: ../../guides/network/vnc.rst:422
+msgid "Log in with your |CL| username and password. Do not use your VNC password."
+msgstr "使用您的 |CL| 用户名和密码登录。不要使用您的 VNC 密码。"
+
+#: ../../guides/network/vnc.rst:423
+msgid "Start a VNC session."
+msgstr "启动一个 VNC 会话。"
+
+#: ../../guides/network/vnc.rst:438
+msgid ""
+"Take note of the generated display ID because you will input it into the "
+"VNC viewer app to establish the connection.  The above example shows the "
+"display ID is 3."
+msgstr "记下生成的显示 ID，稍后需要将它输入到 VNC 查看器应用程序来建立连接。上述示例中显示的显示 ID 为 3。"
+
+#: ../../guides/network/vnc.rst:444
+msgid ""
+"VNC automatically picks a unique display ID unless you specify one. To "
+"specify a display ID, enter a unique number that is not already in use "
+"after the colon.  For example:"
+msgstr "除非自行指定，否则 VNC 会自动选择唯一的显示 ID。要指定显示 ID，请在冒号后输入尚未使用的唯一数字。例如："
+
+#: ../../guides/network/vnc.rst:452
+msgid ""
+"You can now end the SSH connection by logging out.  This does not "
+"terminate your active VNC session."
+msgstr "现在，您可以通过注销来终止 SSH 连接。这不会终止您的活动 VNC 会话。"
+
+#: ../../guides/network/vnc.rst:458
+msgid "Connect to your VNC session"
+msgstr "连接到 VNC 会话"
+
+#: ../../guides/network/vnc.rst:460
+msgid ""
+"For Method 1 and Method 2, you must connect to a specific active session "
+"or display ID using one of two options:"
+msgstr "使用方法 1 和方法 2 时，您必须使用以下两个选项之一连接到特定的活动会话或显示 ID："
+
+#: ../../guides/network/vnc.rst:463
+msgid ""
+"Use a fully-qualified VNC port number, which consists of the default VNC "
+"server port (5900) plus the display ID"
+msgstr "使用完全限定的 VNC 端口号，该端口号由默认 VNC 服务器端口 (5900) 加上显示 ID 组成"
+
+#: ../../guides/network/vnc.rst:465
+msgid "Use the display ID"
+msgstr "使用显示 ID"
+
+#: ../../guides/network/vnc.rst:467
+msgid ""
+"For example, if the display ID is 3, it can be specified as 5903 or just "
+"as 3. For Method 3, VNC does not expect a display ID.  Use 5900. For "
+"simplicity, the instructions below use the fully-qualified VNC port "
+"number."
+msgstr "例如，如果显示 ID 为 3，可以指定为 5903 或 3。使用方法 3 时，VNC 不期望显示 ID。使用 5900。为简单起见，以下说明使用完全限定的 VNC 端口号。"
+
+#: ../../guides/network/vnc.rst:471 ../../guides/network/vnc.rst:763
+msgid "**On Linux distros:**"
+msgstr "**在 Linux 发行版上：**"
+
+#: ../../guides/network/vnc.rst:473
+msgid "Open a terminal emulator and enter:"
+msgstr "打开终端仿真器并输入："
+
+#: ../../guides/network/vnc.rst:479 ../../guides/network/vnc.rst:508
+msgid "Enter your credentials."
+msgstr "输入您的凭证。"
+
+#: ../../guides/network/vnc.rst:481 ../../guides/network/vnc.rst:510
+msgid ""
+"For Method 1 and Method 2, enter your VNC password.  No username is "
+"required."
+msgstr "使用方法 1 和方法 2 时，请输入您的 VNC 密码。不需要输入用户名。"
+
+#: ../../guides/network/vnc.rst:483 ../../guides/network/vnc.rst:512
+msgid "For Method 3, enter your |CL| account username and password through GDM."
+msgstr "使用方法 3 时，通过 GDM 输入您的 |CL| 帐户用户名和密码。"
+
+#: ../../guides/network/vnc.rst:488 ../../guides/network/vnc.rst:517
+msgid ""
+"With Method 3, you cannot remotely log into your |CL| host through VNC if"
+" you are logged in locally and vice versa."
+msgstr "使用方法 3 时，如果已在本地登录，则不能通过 VNC 远程登录 |CL| 主机，反之亦然。"
+
+#: ../../guides/network/vnc.rst:491
+msgid "**On Windows and macOS using RealVNC app:**"
+msgstr "**在使用 RealVNC 应用程序的 Windows 和 macOS 上：**"
+
+#: ../../guides/network/vnc.rst:493
+msgid "Start the RealVNC viewer app. See Figure 2."
+msgstr "启动 RealVNC 查看器应用程序。见图 2。"
+
+#: ../../guides/network/vnc.rst:494
+msgid ""
+"Enter the IP address of the |CL| host and the fully-qualified VNC port "
+"number."
+msgstr "输入 |CL| 主机的 IP 地址和完全限定的 VNC 端口号。"
+
+#: ../../guides/network/vnc.rst:497
+msgid ""
+"The following screenshot shows connecting to |CL| host 192.168.25.54 with"
+" a fully-qualified VNC port number 5902."
+msgstr "以下屏幕截图显示使用完全限定的 VNC 端口号 5902 连接到 |CL| 主机 192.168.25.54。"
+
+#: ../../guides/network/vnc.rst:504
+msgid "Figure 2: RealVNC Viewer"
+msgstr "图 2：RealVNC 查看器"
+
+#: ../../guides/network/vnc.rst:506
+msgid "Press the :kbd:`Enter` key."
+msgstr "按 :kbd:`Enter` 键。"
+
+#: ../../guides/network/vnc.rst:521
+msgid "Optional: Configure RealVNC Image Quality"
+msgstr "可选：配置 RealVNC 图像质量"
+
+#: ../../guides/network/vnc.rst:523
+msgid ""
+"To increase the RealVNC viewer image quality, manually change the "
+":guilabel:`ColorLevel` value. Follow these steps:"
+msgstr "要提高 RealVNC 查看器的图像质量，请手动更改 :guilabel:`ColorLevel` 值。遵照这些步骤操作："
+
+#: ../../guides/network/vnc.rst:526
+msgid ""
+"Right-click a connection node and select :guilabel:`Properties...`. See "
+"Figure 3."
+msgstr "右键点击连接节点并选择 :guilabel:`Properties...`。请参阅图 3。"
+
+#: ../../guides/network/vnc.rst:533
+msgid "Figure 3: RealVNC Viewer - change connection node properties"
+msgstr "图 3：RealVNC 查看器 - 更改连接节点属性"
+
+#: ../../guides/network/vnc.rst:535
+msgid "Select the :guilabel:`Expert` tab. See Figure 4."
+msgstr "选择 :guilabel:`Expert` 选项卡。见图 4。"
+
+#: ../../guides/network/vnc.rst:537
+msgid ""
+"Select the :guilabel:`ColorLevel` setting and change it to your preferred"
+" setting."
+msgstr "选择 :guilabel:`ColorLevel` 设置，并将其更改为您的首选设置。"
+
+#: ../../guides/network/vnc.rst:544
+msgid "Figure 4: RealVNC Viewer - change :guilabel:`ColorLevel`"
+msgstr "图 4：RealVNC 查看器 - 更改 :guilabel:`ColorLevel`"
+
+#: ../../guides/network/vnc.rst:547
+msgid "Terminate a VNC connection to your host"
+msgstr "终止与主机的 VNC 连接"
+
+#: ../../guides/network/vnc.rst:549
+msgid ""
+"For Method 1 and Method 2, once started, a VNC session remains active on "
+"your |CL| host even if you close your VNC viewer app. If you want to "
+"truly terminate an active VNC session, follow these steps:"
+msgstr "使用方法 1 和方法 2 时，VNC 会话一旦启动，即会在 |CL| 主机上保持活动状态，即便关闭了 VNC 查看器应用程序也是如此。如果要真正终止活动的 VNC 会话，请按照下列步骤操作："
+
+#: ../../guides/network/vnc.rst:553
+msgid "SSH into your |CL| host."
+msgstr "使用 SSH 连接到 |CL| 主机。"
+
+#: ../../guides/network/vnc.rst:555
+msgid ""
+"Find the active VNC session display ID with the command "
+":command:`vncserver -list`."
+msgstr "使用 :command:`vncserver -list` 命令查找活动的 VNC 会话显示 ID。"
+
+#: ../../guides/network/vnc.rst:562
+msgid ""
+"Terminate it with the :command:`vncserver -kill` command followed by a "
+"colon and the display ID."
+msgstr "使用 :command:`vncserver -kill` 命令且后跟冒号和显示 ID 来终止 VNC 会话。"
+
+#: ../../guides/network/vnc.rst:569
+msgid ""
+"For Method 3, only the system administrator can stop and disable the VNC "
+"service by using these commands:"
+msgstr "使用方法 3 时，只有系统管理员可以使用以下命令停止和禁用 VNC 服务："
+
+#: ../../guides/network/vnc.rst:579
+msgid "Encrypt VNC traffic through an SSH tunnel"
+msgstr "通过 SSH 隧道加密 VNC 流量"
+
+#: ../../guides/network/vnc.rst:581
+msgid ""
+"By default, VNC traffic is not encrypted.  Figure 6 shows an example "
+"warning from RealVNC Viewer."
+msgstr "默认情况下，VNC 流量不加密。图 6 显示了 RealVNC 查看器的警告示例。"
+
+#: ../../guides/network/vnc.rst:588
+msgid "Figure 6: RealVNC Viewer - Connection not encrypted warning"
+msgstr "图 6：RealVNC 查看器 - 连接未加密警告"
+
+#: ../../guides/network/vnc.rst:590
+msgid ""
+"To add security, VNC traffic can be routed through an SSH tunnel. This is"
+" accomplished by following these steps:"
+msgstr "为了增加安全性，VNC 流量可以通过 SSH 隧道路由。这是通过以下步骤实现的："
+
+#: ../../guides/network/vnc.rst:593
+msgid ""
+"Configure the VNC server to only accept connection from localhost by "
+"adding the :command:`-localhost` option."
+msgstr "通过添加 :command:`-localhost` 选项，将 VNC 服务器配置为仅接受来自 localhost 的连接。"
+
+#: ../../guides/network/vnc.rst:595
+msgid ""
+"Set up an SSH tunnel between your client system and your |CL| host. Your "
+"client system will forward traffic from the localhost (the client) "
+"destined for a specified fully-qualified VNC port number (on the client) "
+"to your |CL| host with the same port number."
+msgstr "在您的客户端系统和您的 |CL| 主机之间设置一个 SSH 隧道。您的客户端系统将从 localhost（客户端）将发往（客户端上）指定的完全限定 VNC 端口号的流量转发到 |CL| 主机上相同的端口号。"
+
+#: ../../guides/network/vnc.rst:599
+msgid ""
+"The VNC viewer app on your client system will now connect to localhost, "
+"instead of the IP address of your |CL| host."
+msgstr "客户端系统上的 VNC 查看器应用程序现在将连接到 localhost，而不是 |CL| 主机的 IP 地址。"
+
+#: ../../guides/network/vnc.rst:603
+msgid "Configure VNC to only accept connection from localhost"
+msgstr "将 VNC 配置为仅接受来自 localhost 的连接"
+
+#: ../../guides/network/vnc.rst:605
+msgid "For Method 1:"
+msgstr "使用方法 1 时："
+
+#: ../../guides/network/vnc.rst:607
+msgid ""
+"Edit the :file:`config` file located in :file:`$HOME/.vnc` and uncomment "
+"the `# localhost` line.  It should look like this:"
+msgstr "编辑 :file:`$HOME/.vnc` 中的 :file:`config` 文件，并将 `# localhost` 行注释掉。编辑后的内容应该如下所示："
+
+#: ../../guides/network/vnc.rst:623
+msgid "If an active session exists, kill it, and then restart it."
+msgstr "如果存在活动会话，请将其终止，然后重新启动。"
+
+#: ../../guides/network/vnc.rst:625
+msgid "For Method 2:"
+msgstr "使用方法 2 时："
+
+#: ../../guides/network/vnc.rst:627
+msgid ""
+"Edit the systemd service script :file:`vncserver@:[X].service` located in"
+" :file:`/etc/systemd/system` and add :command:`-localhost` to the "
+"`ExecStart` line. The example below uses vncserver@:5.service:"
+msgstr "编辑 :file:`/etc/systemd/system` 中的 systemd 服务脚本 :file:`vncserver@:[X].service`，并将 :command:`-localhost` 添加到 `ExecStart` 行。以下示例使用 vncserver@:5.service："
+
+#: ../../guides/network/vnc.rst:649
+msgid "Restart the service script:"
+msgstr "重新启动服务脚本："
+
+#: ../../guides/network/vnc.rst:656
+msgid "For Method 3:"
+msgstr "使用方法 3 时："
+
+#: ../../guides/network/vnc.rst:658
+msgid "No change is needed to the :file:`xvnc@service` script."
+msgstr "不需要更改 :file:`xvnc@service` 脚本。"
+
+#: ../../guides/network/vnc.rst:660
+msgid ""
+"After you have restarted your VNC session, you can verify that it only "
+"accepts connections from localhost by using the :command:`netstat` "
+"command like this:"
+msgstr "重新启动 VNC 会话后，您可以使用以下 :command:`netstat` 命令验证它是否只接受来自 localhost 的连接："
+
+#: ../../guides/network/vnc.rst:670
+msgid ""
+"Add the |CL| :command:`network-basic` bundle to get the "
+":command:`netstat` command."
+msgstr "添加 |CL| :command:`network-basic` 捆绑包以获得 :command:`netstat` 命令。"
+
+#: ../../guides/network/vnc.rst:673
+msgid ""
+"Figure 7 shows two VNC sessions (5901 and 5905) accepting connections "
+"from any host as specified by the `0.0.0.0`'s.  This is before the "
+":command:`-localhost` option was used."
+msgstr "图 7 显示了两个 VNC 会话（5901 和 5905），它们接受来自由 `0.0.0.0` 指定的任何主机的连接。这是在使用 :command:`-localhost` 选项之前的情况。"
+
+#: ../../guides/network/vnc.rst:681
+msgid "Figure 7: VNC sessions (5901 and 5905) accepting connections from any host"
+msgstr "图 7：VNC 会话（5901 和 5905）接受来自任何主机的连接"
+
+#: ../../guides/network/vnc.rst:683
+msgid ""
+"Figure 8 shows two VNC sessions (5901 and 5905) only accepting "
+"connections from localhost as specified by `127.0.0.1`'s. This is after "
+"the :command:`-localhost` option was used."
+msgstr "图 8 显示了两个 VNC 会话（5901 和 5905），它们只接受来自由 `127.0.0.1` 指定的 localhost 的连接。这是在使用 :command:`-localhost` 选项之后的情况。"
+
+#: ../../guides/network/vnc.rst:691
+msgid ""
+"Figure 8: VNC sessions (5901 and 5905) only accepting connections from "
+"localhost"
+msgstr "图 8：VNC 会话（5901 和 5905）仅接受来自 localhost 的连接"
+
+#: ../../guides/network/vnc.rst:694
+msgid "Set up an SSH tunnel from your client system to your |CL| host"
+msgstr "设置从客户端系统到 |CL| 主机的 SSH 隧道"
+
+#: ../../guides/network/vnc.rst:696
+msgid "**On Linux distros and macOS:**"
+msgstr "**在 Linux 发行版和 macOS 上：**"
+
+#: ../../guides/network/vnc.rst:698 ../../guides/network/vnc.rst:765
+msgid "Open terminal emulator and enter:"
+msgstr "打开终端仿真器并输入："
+
+#: ../../guides/network/vnc.rst:705 ../../guides/network/vnc.rst:755
+msgid "Enter your |CL| account password (not your VNC password)."
+msgstr "输入 |CL| 帐户密码（不是 VNC 密码）。"
+
+#: ../../guides/network/vnc.rst:709
+msgid ""
+"`-L` specifies that [client port number] on the localhost (on the client "
+"side) is forwarded to [fully-qualified VNC port number] (on the server "
+"side)."
+msgstr "`-L` 指定（客户端侧）localhost 上的 [client port number] 会转发到（服务器侧）[fully-qualified VNC port number]。"
+
+#: ../../guides/network/vnc.rst:712
+msgid ""
+"Replace `[client port number]` with an available client port number (for "
+"example: 1234). For simplicity, you can make the `[client port number]` "
+"the same as the `[fully-qualified VNC port number]`."
+msgstr "将 `[client port number]` 替换为可用的客户端端口号（例如：1234）。为简单起见，您可以将 `[client port number]` 设置为与 `[fully-qualified VNC port number]` 相同。"
+
+#: ../../guides/network/vnc.rst:715
+msgid ""
+"Replace `[fully-qualified VNC port number]` with 5900 (default VNC port) "
+"plus the display ID.  For example, if the display ID is 2, the fully-"
+"qualified VNC port number is is 5902."
+msgstr "将 `[fully-qualified VNC port number]` 替换为 5900（默认 VNC 端口）加上显示 ID。例如，如果显示 ID 为 2，则完全限定的 VNC 端口号为 5902。"
+
+#: ../../guides/network/vnc.rst:718
+msgid "`-N` tells SSH to only forward ports and not execute a remote command."
+msgstr "`-N` 指示 SSH 只转发端口，不执行远程命令。"
+
+#: ../../guides/network/vnc.rst:720
+msgid "`-f` tells SSH to go into the background before command execution."
+msgstr "`-f` 指示 SSH 在命令执行前进入后台。"
+
+#: ../../guides/network/vnc.rst:721
+msgid "`-l` specifies the username to log in as."
+msgstr "`-l` 指定登录的用户名。"
+
+#: ../../guides/network/vnc.rst:723
+msgid "**On Windows:**"
+msgstr "**在 Windows 上：**"
+
+#: ../../guides/network/vnc.rst:726
+msgid "Specify the |CL| VNC host to connect to."
+msgstr "指定要连接到的 |CL| VNC 主机。"
+
+#: ../../guides/network/vnc.rst:734
+msgid "Configure the SSH tunnel.  See Figure 9 for an example."
+msgstr "配置 SSH 隧道。请参阅图 9 的示例。"
+
+#: ../../guides/network/vnc.rst:736
+msgid ""
+"Under the :guilabel:`Category` section, go to :guilabel:`Connection` > "
+":guilabel:`SSH` > :guilabel:`Tunnels`."
+msgstr "在 :guilabel:`Category` 部分下，转到 :guilabel:`Connection` > :guilabel:`SSH` > :guilabel:`Tunnels`。"
+
+#: ../../guides/network/vnc.rst:739
+msgid ""
+"In the :guilabel:`Source port` field, enter an available client port "
+"number (for example: 1234). For simplicity, you can make the `Source "
+"port` the same as the fully-qualified VNC port number."
+msgstr "在 :guilabel:`Source port` 字段中，输入可用的客户端端口号（例如：1234）。为简单起见，您可以将 `Source port` 设置为与完全限定的 VNC 端口号相同。"
+
+#: ../../guides/network/vnc.rst:743
+msgid ""
+"In the :guilabel:`Destination` field, enter `localhost:` plus the fully-"
+"qualified VNC port number."
+msgstr "在 :guilabel:`Destination` 字段中，输入 `localhost:` 加上完全限定的 VNC 端口号。"
+
+#: ../../guides/network/vnc.rst:746
+msgid "Click the :guilabel:`Add` button."
+msgstr "点击 :guilabel:`Add` 按钮。"
+
+#: ../../guides/network/vnc.rst:752
+msgid "Figure 9: Putty - configure SSH tunnel"
+msgstr "图 9：Putty - 配置 SSH 隧道"
+
+#: ../../guides/network/vnc.rst:758
+msgid "Connect to a VNC session through an SSH tunnel"
+msgstr "通过 SSH 隧道连接到 VNC 会话"
+
+#: ../../guides/network/vnc.rst:760
+msgid ""
+"After you have set up an SSH tunnel, follow these instructions to connect"
+" to your VNC session."
+msgstr "设置 SSH 隧道后，请按照以下说明连接到您的 VNC 会话。"
+
+#: ../../guides/network/vnc.rst:771
+msgid "**On Windows and macOS using `RealVNC`:**"
+msgstr "**在使用 `RealVNC` 的 Windows 和 macOS 上：**"
+
+#: ../../guides/network/vnc.rst:773
+msgid "Start the RealVNC viewer app."
+msgstr "启动 RealVNC 查看器应用程序。"
+
+#: ../../guides/network/vnc.rst:774
+msgid ""
+"Enter `localhost` and the fully-qualified VNC port number.  See Figure 10"
+" for an example."
+msgstr "输入 `localhost` 和完全限定的 VNC 端口号。请参阅图 10 的示例。"
+
+#: ../../guides/network/vnc.rst:781
+msgid "Figure 10: RealVNC viewer app connecting to `localhost:1234`"
+msgstr "图 10：连接至 `localhost:1234` 的 RealVNC 查看器应用程序"
+
+#: ../../guides/network/vnc.rst:785
+msgid ""
+"RealVNC will still warn that the connection is not encrypted even though "
+"its traffic is going through the SSH tunnel.  You can ignore this "
+"warning."
+msgstr "即使流量通过 SSH 隧道传输，RealVNC 仍会警告连接未加密。您可以忽略此警告。"
+
+#~ msgid "Remote-desktop to a |CL-ATTR| host using VNC"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":abbr:`VNC (Virtual Network Computing)` is "
+#~ "a client-server GUI-based tool "
+#~ "that allows you to connect via "
+#~ "remote-desktop to your |CL-ATTR| "
+#~ "host."
+#~ msgstr ""
+
+#~ msgid "This guide shows you how to:"
+#~ msgstr ""
+
+#~ msgid "Install the VNC server and misc. components on your |CL| host."
+#~ msgstr ""
+
+#~ msgid "Configure a VNC-server-start method on your |CL| host."
+#~ msgstr ""
+
+#~ msgid "Install a VNC viewer app and an SSH client on your client system."
+#~ msgstr ""
+
+#~ msgid "Establish a VNC connection to your |CL| host."
+#~ msgstr ""
+
+#~ msgid "Terminate a VNC connection to your |CL| host."
+#~ msgstr ""
+
+#~ msgid "Encrypt VNC traffic through an SSH tunnel."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`desktop-autostart`: Installs :abbr:`GDM "
+#~ "(Gnome Desktop Manager)`, sets it to "
+#~ "start automatically on boot, and "
+#~ "installs TigerVNC Viewer."
+#~ msgstr ""
+
+#~ msgid "`vnc-server`: Installs the TigerVNC server."
+#~ msgstr ""
+
+#~ msgid "`Method 1`: Manually start a VNC session"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Method 2`: Automatically start a VNC"
+#~ " session via a systemd service script"
+#~ msgstr ""
+
+#~ msgid "`Method 3`: Create multi-user logins with authentication through GDM"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For simplicity, the rest of this "
+#~ "guide refers to these methods as "
+#~ "`Method 1`, `Method 2`, and `Method "
+#~ "3`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Upon completion, you can find the "
+#~ "default configuration files and the "
+#~ "password file hidden in the `.vnc` "
+#~ "directory in your home directory."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Also, a VNC session starts and "
+#~ "shows a unique display ID, which "
+#~ "is the number following the hostname "
+#~ "and the colon `:`.  In the above"
+#~ " example, the display ID is 2.  "
+#~ "In a later step, you will supply"
+#~ " the display ID to your VNC "
+#~ "viewer app for connection."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Create a systemd service script file "
+#~ ":file:`vncserver@:[X].service`, where [X] is "
+#~ "the display ID, for each user in"
+#~ " :file:`/etc/systemd/system` Each user must "
+#~ "be assigned a unique display ID.  "
+#~ "Be sure the correct username is "
+#~ "entered in the `User` field. The "
+#~ "example below shows user `vnc-user-b`"
+#~ " who is assigned the display ID "
+#~ "`5`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The example below shows 2 VNC "
+#~ "sessions that were successfully started "
+#~ "for users `vnc-user-b` with display "
+#~ "ID 5 and `vnc-user-c` with display"
+#~ " ID 6."
+#~ msgstr ""
+
+#~ msgid "See the `vncserver` Man page for additional information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You need a VNC viewer app on "
+#~ "your client system to connect to "
+#~ "your |CL| host. An SSH client is"
+#~ " only needed if you chose to "
+#~ "use `Method 1` or you plan to "
+#~ "encrypt your VNC traffic, which is "
+#~ "discussed later in this guide."
+#~ msgstr ""
+
+#~ msgid "On Ubuntu, Mint:"
+#~ msgstr ""
+
+#~ msgid "On Fedora:"
+#~ msgstr ""
+
+#~ msgid "On macOS:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you chose `Method 1`, you must"
+#~ " take a few extra steps by "
+#~ "using SSH to connect to your |CL|"
+#~ " host and then manually launching "
+#~ "VNC."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you chose `Method 2`, get your"
+#~ " preassigned VNC display ID from your"
+#~ " system administrator first and then "
+#~ "proceed to the :ref:`connect-to-vnc-"
+#~ "session` section below."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you chose `Method 3`, proceed "
+#~ "to the :ref:`connect-to-vnc-session` "
+#~ "below."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For `Method 1` and `Method 2`, you"
+#~ " must connect to a specific active"
+#~ " session or display ID using one "
+#~ "of two options:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For example, if the display ID is"
+#~ " 3, it can be specified as "
+#~ "`5903` or just as `3`. For `Method"
+#~ " 3`, VNC does not expect a "
+#~ "display ID.  Use `5900`. For simplicity,"
+#~ " the instructions below use the "
+#~ "fully-qualified VNC port number."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For `Method 1` and `Method 2`, "
+#~ "enter your VNC password.  No username"
+#~ " is required."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For `Method 3`, enter your |CL| "
+#~ "account username and password through "
+#~ "GDM."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "With `Method 3`, you cannot remotely "
+#~ "log into your |CL| host through "
+#~ "VNC if you are logged in locally"
+#~ " and vice versa."
+#~ msgstr ""
+
+#~ msgid "**On Windows and macOS using `RealVNC` app:**"
+#~ msgstr ""
+
+#~ msgid "`Optional: Configure RealVNC Image Quality`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To increase the RealVNC viewer image "
+#~ "quality, manually change the `ColorLevel` "
+#~ "value. Follow these steps:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For `Method 1` and `Method 2`, "
+#~ "once started, a VNC session remains "
+#~ "active on your |CL| host even if"
+#~ " you close your VNC viewer app. "
+#~ "If you want to truly terminate an"
+#~ " active VNC session, follow these "
+#~ "steps:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For `Method 3`, only the system "
+#~ "administrator can stop and disable the"
+#~ " VNC service by using these commands:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Configure the VNC server to only "
+#~ "accept connection from localhost by "
+#~ "adding the `-localhost` option."
+#~ msgstr ""
+
+#~ msgid "For `Method 1`:"
+#~ msgstr ""
+
+#~ msgid "For `Method 2`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Edit the systemd service script "
+#~ ":file:`vncserver@:[X].service` located in "
+#~ ":file:`/etc/systemd/system` and add `-localhost` "
+#~ "to the `ExecStart` line. The example "
+#~ "below uses vncserver@:5.service:"
+#~ msgstr ""
+
+#~ msgid "For `Method 3`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Add the |CL| `network-basic` bundle "
+#~ "to get the :command:`netstat` command."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Figure 7 shows two VNC sessions "
+#~ "(5901 and 5905) accepting connections "
+#~ "from any host as specified by the"
+#~ " `0.0.0.0`'s.  This is before the "
+#~ "`-localhost` option was used."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Figure 8 shows two VNC sessions "
+#~ "(5901 and 5905) only accepting "
+#~ "connections from localhost as specified "
+#~ "by `127.0.0.1`'s. This is after the "
+#~ "`-localhost` option was used."
+#~ msgstr ""
+
+

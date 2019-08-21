@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../reference/compatible-hardware.rst:4
+msgid "Compatible Hardware"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:6
+msgid ""
+"This document describes hardware that has been tested and confirmed as "
+"compatible with |CL-ATTR|. This list is not comprehensive and will "
+"continue to grow."
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:10
+msgid "**Table 1. Compatible Hardware**"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:14
+msgid "Processor SKU"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:15
+msgid "Platform"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:17
+#: ../../reference/compatible-hardware.rst:98
+#: ../../reference/compatible-hardware.rst:110
+msgid "Intel® Core™ i5-6260U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:20
+msgid "Intel® Core™ i5-6560U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:21
+msgid "Dell XPS\\* 13 9350"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:23
+#: ../../reference/compatible-hardware.rst:92
+msgid "Intel® Celeron® J3455"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:24
+msgid "NUC6CAYS"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:26
+#: ../../reference/compatible-hardware.rst:65
+msgid "Intel® Core™ i5-4250U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:29
+#: ../../reference/compatible-hardware.rst:101
+#: ../../reference/compatible-hardware.rst:107
+msgid "Intel® Core™ i7-5557U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:32
+msgid "Intel® Core™ i9-7900X"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:33
+msgid "Gigabyte\\* X299"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:35
+msgid "Intel® Core™ i3-4130"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:36
+msgid "Lenovo Thinkserver\\* TS140"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:38
+msgid "Intel® Core™ i7-7567U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:39
+msgid "NUC7i7BNH"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:41
+msgid "Intel® Core™ i7-8809G"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:42
+msgid "NUC8i7HVK"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:44
+msgid "Intel® Core™ i5-7260U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:45
+msgid "NUC7i5BNH"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:47
+msgid "Intel® Core™ i7-8650U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:48
+msgid "NUC7i7DNKE"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:50
+msgid "Intel® Core™ i5-7300U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:51
+msgid "NUC7i5DNHE"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:53
+msgid "Intel® Xeon® Gold 6138"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:56
+msgid "Intel® Xeon® E5-2699A v4"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:57
+msgid "Dell PowerEdge\\* R630"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:59
+msgid "Intel® Xeon® E5-2620 v3"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:62
+msgid "Intel® Core™ i5-6600"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:63
+msgid "Gigabyte\\* Z170X-UD5"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:66
+msgid "D54250WYK"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:68
+msgid "Intel® Xeon® E5-2699 v3"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:69
+msgid "S2600WT2"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:71
+msgid "Intel® Atom™ J3455"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:72
+#: ../../reference/compatible-hardware.rst:93
+msgid "NUC6CAYB"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:74
+msgid "Intel® Xeon® Bronze 3104"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:75
+msgid "0W23H8"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:77
+msgid "Intel® Atom™ C2750"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:78
+msgid "SuperMicro\\* A1SAi"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:80
+msgid "Intel® Atom™ E3825"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:81
+msgid "CircuitCo MinnowBoard MAX\\*"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:83
+msgid "Intel® Core™ i7-8700"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:84
+msgid "Gigabyte\\* H370 WIFI"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:86
+msgid "Intel® Core™ i7-3667U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:87
+msgid "Lenovo ThinkPad\\* X1 Carbon laptop"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:89
+msgid "Intel® Core™ i5-4210U"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:90
+msgid "Dell XPS\\* 13 laptop"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:95
+msgid "Intel® Core™ i7-4790"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:96
+msgid "Gigabyte\\* desktop"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:99
+msgid "NUC6I6SYH"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:102
+msgid "NUC5I7RYH"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:104
+msgid "Intel® Core™ i7-4700MQ"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:105
+msgid "Lenovo ThinkPad\\* T540p"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:108
+msgid "NUC5I7RYB"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:111
+msgid "NUC6I5SYH"
+msgstr ""
+
+#: ../../reference/compatible-hardware.rst:113
+msgid "\\* Other names and brands may be claimed as the property of others."
+msgstr ""
+

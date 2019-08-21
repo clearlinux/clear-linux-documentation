@@ -1,6 +1,9 @@
 ---
 name: New document
 about: Request a new document for the Clear Linux* project
+title: ''
+labels: P2
+assignees: ''
 
 ---
 

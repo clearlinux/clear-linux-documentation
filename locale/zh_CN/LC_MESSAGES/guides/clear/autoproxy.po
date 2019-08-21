@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../tooling/autoproxy.rst:4
+msgid "Autoproxy"
+msgstr "Autoproxy"
+
+#: ../../tooling/autoproxy.rst:6
+msgid ""
+"Autoproxy is provided to enable |CL-ATTR| to work smoothly behind a "
+"corporate proxy."
+msgstr "借助 Autoproxy，|CL-ATTR| 可在公司代理服务器后平稳运行。"
+
+#: ../../tooling/autoproxy.rst:14
+msgid "Description"
+msgstr "描述"
+
+#: ../../tooling/autoproxy.rst:16
+msgid ""
+"Autoproxy tries to detect a Proxy Auto-Config (PAC) script and use it to "
+"automatically resolve the proxy needed for a given connection. With "
+"Autoproxy, you can use |CL| inside any proxy environment without having "
+"to manually configure the proxies."
+msgstr "Autoproxy 会尝试检测代理自动配置 (PAC) 脚本，并使用其自动解析给定连接所需的代理。使用 Autoproxy，可以在任意代理环境下使用 |CL|，而无需手动配置代理。"
+
+#: ../../tooling/autoproxy.rst:21
+msgid ""
+"Corporate and private networks can be very complex, needing to restrict "
+"and control network connections for security reasons. The typical side "
+"effects are limited or blocked connectivity, and require manual "
+"configuration of proxies to perform the most mundane tasks, such as "
+"cloning a repo or checking for updates. With |CL|, all of the work is "
+"done behind the scenes to effortlessly use your network and have "
+"connections “just work”."
+msgstr "公司和专用网络可能非常复杂，因此出于安全原因需限制和控制网络连接。常见的负面效果是限制或阻止连接，且需手动配置代理以执行最普通的任务，例如克隆存储库或检查是否存在更新。通过 |CL|，所有工作便可在后台完成，以便轻松使用网络并使连接“正常工作”。"
+
+#: ../../tooling/autoproxy.rst:28
+msgid ""
+"This feature removes severe complications with network connectivity due "
+"to proxy issues. You can automate tasks, such as unit testing, without "
+"worrying about the proxy not being set, and you can remove unset proxies "
+"from the equation when dealing with network unavailability across "
+"systems."
+msgstr "此功能可消除因代理问题所导致的极端复杂的网络连接难题。可以自动执行任务（例如单元测试），而无需担心代理未设置，并可在处理跨系统的网络不可用问题时将未设置代理这一因素排除在外。"
+
+#: ../../tooling/autoproxy.rst:34
+msgid "How it works"
+msgstr "工作原理"
+
+#: ../../tooling/autoproxy.rst:36
+msgid ""
+"We designed Autoproxy around tools provided by most Linux\\* "
+"distributions with a few minor additions and modifications. We leveraged "
+"the DHCP and network information obtained from systemd and created a PAC-"
+"discovery daemon. The daemon uses the information to resolve a URL for a "
+"PAC file. The daemon then passes the URL into PACrunner\\*. PACrunner "
+"downloads the PAC file and uses the newly implemented Duktape\\* engine "
+"to parse it."
+msgstr "我们围绕多数 Linux\\* 发行版提供的工具设计了 Autoproxy，同时还进行了一些小修小补。我们利用从系统获取的 DHCP 和网络信息，创建了 PAC 发现守护程序。该守护程序使用此信息来解析 PAC 文件的 URL。然后，守护程序将此 URL 传入 PACrunner\\*。PACrunner 下载 PAC 文件，使用新实现的 Duktape\\* 引擎来对其进行解析。"
+
+#: ../../tooling/autoproxy.rst:47
+msgid "Figure 1: Autoproxy Flow"
+msgstr "图 1：Autoproxy 流程"
+
+#: ../../tooling/autoproxy.rst:49
+msgid ""
+"From that point on, any cURL\\* or network requests query PACrunner for "
+"the correct proxy to use. We modified the cURL library to communicate "
+"with PACrunner over DBus. However, cURL will ignore PACrunner and run "
+"normally if no PAC file is loaded or if you manually set any proxies. "
+"Thus, your environment settings are respected and no time is wasted "
+"trying to resolve a proxy. All these steps happen in the background with "
+"no user interaction."
+msgstr "此后，所有 cURL\\* 或网络请求均会查询 PACrunner 以使用正确的代理。我们修改了 cURL 库以通过 DBus 与 PACrunner 进行通信。但是，如果未加载 PAC 文件或手动设置代理，cURL 则会忽略 PACrunner 并正常运行。如此一来，环境设置便会得以应用，且不会浪费时间来尝试解析代理。所有这些步骤均在后台执行，而无需用户介入。"
+
+#: ../../tooling/autoproxy.rst:57
+msgid "Troubleshooting"
+msgstr "故障检修"
+
+#: ../../tooling/autoproxy.rst:59
+msgid ""
+"Autoproxy allows |CL| to operate seamlessly behind a proxy because "
+":ref:`swupd <swupd-guide>` and other |CL| tools are implemented on top of"
+" libcurl. Tools that do not use libcurl, like git, must be configured "
+"independently."
+msgstr "Autoproxy 允许 |CL| 在代理后无缝运行，因为 :ref:`swupd <swupd-guide>` 和其他 |CL| 工具的实现均基于 libcurl。不使用 libcurl 的工具（例如 git）则须单独配置。"
+
+#: ../../tooling/autoproxy.rst:64
+msgid ""
+"If you are familiar with PAC files and WPAD, you can use "
+":command:`pacdiscovery` and :command:`FindProxyForURL` to troubleshoot "
+"problems with autproxy."
+msgstr "如果熟悉 PAC 文件和 WPAD，则可使用 :command:`pacdiscovery` 和 :command:`FindProxyForURL`，通过 Autoproxy 进行故障排除。"
+
+#: ../../tooling/autoproxy.rst:70
+msgid "Learn more about WPAD, PAC files, and PAC functions at `findproxyforurl`_."
+msgstr "访问 `findproxyforurl`_，了解有关 WPAD、PAC 文件和 PAC 的更多信息。"
+
+#: ../../tooling/autoproxy.rst:74
+msgid "Run :command:`pacdiscovery` with no arguments to indicate"
+msgstr "不带参数运行 :command:`pacdiscovery`，可以明确"
+
+#: ../../tooling/autoproxy.rst:76
+msgid "if there is a problem resolving the :command:`WPAD` host name resolution:"
+msgstr "解析 :command:`WPAD` 主机名时是否出现问题："
+
+#: ../../tooling/autoproxy.rst:87
+msgid "or if the :command:`pacrunner` service is disabled (masked)."
+msgstr "或是是否已禁用（已屏蔽）:command:`pacrunner` 服务。"
+
+#: ../../tooling/autoproxy.rst:98
+msgid "Unmask the :command:`pacrunner` service by running:"
+msgstr "运行以下命令取消屏蔽 :command:`pacrunner` 服务："
+
+#: ../../tooling/autoproxy.rst:104
+msgid ""
+":command:`FindProxyForURL` with :command:`busctl` can also indicate if "
+"the :command:`pacrunner.service` is masked."
+msgstr ":command:`FindProxyForURL` 和 :command:`busctl`，也可以明确是否已屏蔽 :command:`pacrunner.service`。"
+
+#: ../../tooling/autoproxy.rst:117
+msgid ""
+":command:`FindProxyForURL` returns the URL and port of the proxy server "
+"when an external URL and host are provided as arguments."
+msgstr ":command:`FindProxyForURL` 会在外部 URL 和主机作为参数提供时，返回代理服务器的 URL 和端口。"
+
+#: ../../tooling/autoproxy.rst:129
+msgid ""
+"If a proxy server is not avialable, or if :command:`pacrunner` is running"
+" without a PAC file, :command:`FindProxyForURL` will return \"DIRECT\"."
+msgstr "如果无代理服务器或是 :command:`pacrunner` 正在运行但不带 PAC 文件，:command:`FindProxyForURL` 则会返回 \"DIRECT\"。"
+
+#: ../../tooling/autoproxy.rst:141
+msgid ""
+"Once :command:`pacdiscovery` is able to look up :command:`WPAD`, restart "
+"the :command:`pacrunner` service:"
+msgstr ":command:`pacdiscovery` 可查找 :command:`WPAD` 后，立即重新启动 :command:`pacrunner` 服务："
+
+#: ../../tooling/autoproxy.rst:151
+msgid ""
+"A \"domain\" or \"search\" entry in :file:`/etc/resolv.conf` is required "
+"for short name lookups to resolve. The :file:`resolv.conf` man page has "
+"additional details."
+msgstr ":file:`/etc/resolv.conf` 中的 \"domain\" 或 \"search\" 条目是查找短名称以便进行解析所必需的条目。:File:`resolv.conf` 手册页包含其他详细信息。"
+

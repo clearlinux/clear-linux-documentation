@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../reference/bundles/bundles.rst:4
+msgid "Available bundles"
+msgstr ""
+
+#: ../../reference/bundles/bundles.rst:6
+msgid ""
+"This document provides a current list of available bundles. View the "
+"`clr-bundles repo`_ on GitHub\\*, or select the bundle :file:`Name` for "
+"more details."
+msgstr ""
+
+#: ../../reference/bundles/bundles.rst:9
+msgid ""
+"To learn more about how |CL-ATTR| uses bundles for software deployment, "
+"visit :ref:`bundles-guide`."
+msgstr ""
+
+#: ../../reference/bundles/bundles.rst:13
+msgid "Bundle list"
+msgstr ""
+
+#~ msgid ""
+#~ "To learn more about how |CL-ATTR|"
+#~ " uses bundles for software deployment, "
+#~ "visit :ref:`bundles-about`."
+#~ msgstr ""
+
