@@ -4,97 +4,96 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-21 11:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../index.rst:4
 msgid "|CL-PRJ|"
-msgstr ""
+msgstr "|CL-PRJ|"
 
 #: ../../index.rst:6
 msgid ""
 "Welcome to the |CL-ATTR| documentation pages, the source for |CL| "
 "documentation."
-msgstr ""
+msgstr "Welcome to the |CL-ATTR| documentation pages, the source for |CL| documentation."
 
 #: ../../index.rst:8
 msgid "Our documentation is divided into the following sections:"
-msgstr ""
+msgstr "Our documentation is divided into the following sections:"
 
 #: ../../index.rst:11
 msgid ":ref:`get-started`"
-msgstr ""
+msgstr ":ref:`get-started`"
 
 #: ../../index.rst:13
 msgid ""
 "If you are new to |CL|, get started quickly with step-by-step "
 "instructions for installing |CL| on bare metal, in a virtual environment,"
 " or as a live image on a USB stick."
-msgstr ""
+msgstr "If you are new to |CL|, get started quickly with step-by-step instructions for installing |CL| on bare metal, in a virtual environment, or as a live image on a USB stick."
 
 #: ../../index.rst:17
 msgid ":ref:`about`"
-msgstr ""
+msgstr ":ref:`about`"
 
 #: ../../index.rst:19
-msgid "|CL| is different from other Linux distributions."
-msgstr ""
+msgid "|CL| is different from other Linux* distributions."
+msgstr "|CL| is different from other Linux* distributions."
 
 #: ../../index.rst:21
 msgid ""
 "Updates, ease of use, and custom derivatives are a few of the differences"
 " this section explains. Orient yourself to these differences and why they"
 " matter to you."
-msgstr ""
+msgstr "Updates, ease of use, and custom derivatives are a few of the differences this section explains. Orient yourself to these differences and why they matter to you."
 
 #: ../../index.rst:29
 msgid ":ref:`guides`"
-msgstr ""
+msgstr ":ref:`guides`"
 
 #: ../../index.rst:31
 msgid ""
 "Guides cover a range of topics from |CL| features and tooling, to system "
 "maintenance, network, and stacks."
-msgstr ""
+msgstr "Guides cover a range of topics from |CL| features and tooling, to system maintenance, network, and stacks."
 
 #: ../../index.rst:34
 msgid ":ref:`Use case tutorials <tutorials>`"
-msgstr ""
+msgstr ":ref:`Use case tutorials <tutorials>`"
 
 #: ../../index.rst:36
 msgid ""
 "Sample use cases, with step-by-step instructions, show how to set up "
 "third-party tools and software with |CL|."
-msgstr ""
+msgstr "Sample use cases, with step-by-step instructions, show how to set up third-party tools and software with |CL|."
 
 #: ../../index.rst:39
 msgid ":ref:`reference`"
-msgstr ""
+msgstr ":ref:`reference`"
 
 #: ../../index.rst:41
 msgid ""
 "This section provides additional reference information on the |CL| "
 "project."
-msgstr ""
+msgstr "This section provides additional reference information on the |CL| project."
 
 #: ../../index.rst:43
 msgid ":ref:`faq`"
-msgstr ""
+msgstr ":ref:`faq`"
 
 #: ../../index.rst:45
 msgid "The FAQ section provides answers to commonly asked questions about |CL|."
-msgstr ""
+msgstr "The FAQ section provides answers to commonly asked questions about |CL|."
 
 #~ msgid ""
 #~ "If you are new to |CL|, get "
@@ -141,4 +140,5 @@ msgstr ""
 
 #~ msgid "Refer to our FAQ section to read commonly asked questions and answers."
 #~ msgstr ""
+
 

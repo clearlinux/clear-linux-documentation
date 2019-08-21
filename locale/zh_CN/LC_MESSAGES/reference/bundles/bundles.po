@@ -4,44 +4,44 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-08-21 11:09-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../reference/bundles/bundles.rst:4
 msgid "Available bundles"
-msgstr ""
+msgstr "可用的捆绑包"
 
 #: ../../reference/bundles/bundles.rst:6
 msgid ""
 "This document provides a current list of available bundles. View the "
 "`clr-bundles repo`_ on GitHub\\*, or select the bundle :file:`Name` for "
 "more details."
-msgstr ""
+msgstr "本文档提供了可用捆绑包的当前列表。有关更多详细信息，请查看 GitHub\\* 上的 `clr-bundles repo`_，或者选择 :file:`Name` 捆绑包。"
 
 #: ../../reference/bundles/bundles.rst:9
 msgid ""
 "To learn more about how |CL-ATTR| uses bundles for software deployment, "
 "visit :ref:`bundles-guide`."
-msgstr ""
+msgstr "要了解有关 |CL-ATTR| 如何使用捆绑包进行软件部署的更多信息，请参见 :ref:`bundles-guide`。"
 
 #: ../../reference/bundles/bundles.rst:13
 msgid "Bundle list"
-msgstr ""
+msgstr "捆绑包列表"
 
 #~ msgid ""
 #~ "To learn more about how |CL-ATTR|"
 #~ " uses bundles for software deployment, "
 #~ "visit :ref:`bundles-about`."
 #~ msgstr ""
+
 
