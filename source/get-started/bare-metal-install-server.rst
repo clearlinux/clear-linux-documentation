@@ -345,6 +345,8 @@ swap partition
 
       Figure 13: Final configuration of disk partitions
 
+.. TODO: Check if more than one swap is available. 
+
 #. You may skip to the `Telemetry`_ section below.
 
 Disk encryption
