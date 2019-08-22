@@ -3,8 +3,8 @@
 Deep Learning Reference Stack
 #############################
 
-This guide describes how to run benchmarking workloads for TensorFlow\*,
-PyTorch\*, and Kubeflow in |CL-ATTR| using the Deep Learning Reference Stack.
+This guide gives examples for using the Deep Learning Reference stack to run real-world usecases, as well as benchmarking workloads for TensorFlow\*,
+PyTorch\*, and Kubeflow\* in |CL-ATTR|.
 
 .. contents::
    :local:
@@ -35,7 +35,7 @@ The Deep Learning Reference Stack is available in the following versions:
 
 .. important::
 
-   To take advantage of the Intel® AVX-512 and VNNI functionality with the Deep
+   To take advantage of the Intel® AVX-512 and VNNI functionality (including the MKL-DNN releases)  with the Deep
    Learning Reference Stack, you must use the following hardware:
 
    * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
@@ -44,7 +44,8 @@ The Deep Learning Reference Stack is available in the following versions:
 Stack features
 ==============
 
-* `DLRS V3.0`_  release announcement.
+* `DLRS V4.0`_ release announcement, including benchmark results.
+* `DLRS V3.0`_ release announcement.
 * Deep Learning Reference Stack v2.0 including current
   `PyTorch benchmark`_.
 * Deep Learning Reference Stack v1.0 including current
@@ -366,14 +367,227 @@ Run a TFJob
 
 This replicates and deploys three test setups in your Kubernetes cluster.
 
-Results of running this guide
-=============================
+Results of running this section
+===============================
 
 You must parse the logs of the Kubernetes pod to retrieve performance
 data. The pods will still exist post-completion and will be in
 ‘Completed’ state. You can get the logs from any of the pods to inspect the
 benchmark results. More information about Kubernetes logging is available
 in the Kubernetes `Logging Architecture`_ documentation.
+
+
+TensorFlow Training (TFJob) with Kubeflow and DLRS
+**************************************************
+
+A `TFJob`_  is Kubeflow's custom resource used to run TensorFlow training jobs on Kubernetes. This example shows how to use a TFJob within the DLRS container.
+
+Pre-requisites:
+
+* A running :ref:`kubernetes` cluster
+
+#. Deploying Kubeflow with kfctl/kustomize in |CL|
+
+.. note::
+
+   This example proposes a Kubeflow installation with the binary kfctl maintained by `Arrikto`_. Please download the `kfctl tarball`_ to complete the following steps
+
+#. Download, untar and add to your PATH if necessary
+
+   .. code-block:: bash
+
+      KFCTL_URL="https://github.com/kubeflow/kubeflow/releases/download/v0.6.1/kfctl_v0.6.1_linux.tar.gz"
+      wget -P ${KFCTL_URL} ${KFCTL_PATH}
+      tar -C ${KFCTL_PATH} -xvf ${KFCTL_PATH}/kfctl_v${kfctl_ver}_linux.tar.gz
+      export PATH=$PATH:${KFCTL_PATH}
+
+#. Install `MetalLB`_
+
+   .. code-block:: bash
+
+      kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
+
+#. Install Kubeflow resource and TFJob operators
+
+   .. code-block:: bash
+
+      # Env variables needed for your deployment
+      export KFAPP="<your choice of application directory name>"
+      export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_existing_arrikto.yaml"
+
+      kfctl init ${KFAPP} --config=${CONFIG} -V
+      cd ${KFAPP}
+
+      # deploy Kubeflow:
+      kfctl generate k8s -V
+      kfctl apply k8s -V
+
+#. List the resources
+
+   Deployment takes around 15 minutes (or more depending on the hardware) to be ready to use. After that you can use kubectl to list all the Kubeflow resources deployed and monitor their status.
+
+   .. code-block:: bash
+
+      kubectl get pods -n kubeflow
+
+Submitting TFJobs
+=================
+TODO:  FIND LINKS TO JOBS
+We provide several TFJob examples that use the Deep Learning Reference Stack as the base image for creating the containers to run training workloads in your Kubernetes cluster.
+
+
+Customizing a TFJob
+===================
+
+A TFJob is a resource with a YAML representation like the one below. Edit to use the DLRS image containing the code to be executed and modify the command for your own training code.
+
+If you'd like to modify the number and type of replicas, resources, persistent volumes and environment variables, please refer to the `Kubeflow documentation`_
+
+.. code-block:: console
+
+      apiVersion: kubeflow.org/v1beta2
+      kind: TFJob
+      metadata:
+        generateName: tfjob
+        namespace: kubeflow
+      spec:
+        tfReplicaSpecs:
+          PS:
+            replicas: 1
+            restartPolicy: OnFailure
+            template:
+              spec:
+                containers:
+                - name: tensorflow
+                  image: dlrs-image
+                  command:
+                    - python
+                    - -m
+                    - trainer.task
+                    - --batch_size=32
+                    - --training_steps=1000
+          Worker:
+            replicas: 3
+            restartPolicy: OnFailure
+            template:
+              spec:
+                containers:
+                - name: tensorflow
+                  image: dlrs-image
+                  command:
+                    - python
+                    - -m
+                    - trainer.task
+                    - --batch_size=32
+                    - --training_steps=1000
+          Master:
+                replicas: 1
+                restartPolicy: OnFailure
+                template:
+                  spec:
+                    containers:
+                    - name: tensorflow
+                      image: dlrs-image
+                      command:
+                        - python
+                        - -m
+                        - trainer.task
+                        - --batch_size=32
+                        - --training_steps=1000
+
+For more information, please refer to:
+* `Distributed TensorFlow`_
+* `TFJobs`_
+
+
+Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack
+**************************************************************************
+
+`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster.  Seldon Core is supported in the `DLRS V4.0`_ release.
+
+Pre-requisites
+==============
+* A running :ref:`kubernetes` cluster
+
+.. note::
+
+   Instead of using Arrikto's configuration manifest as shown  in the preceeding example, you should use the manifest provided by `Istio`_, for this example, as Seldon deployments depend on it.
+
+#. Install deployment tools
+
+   .. code-block:: bash
+
+      INSTALL_DIR=$HOME/install_dir
+      BIN_DIR=${INSTALL_DIR}/bin
+      SRC_DIR=${INSTALL_DIR}/source
+      export PATH=${BIN_DIR}:$PATH
+
+      mkdir -p ${BIN_DIR} && mkdir ${SRC_DIR}
+      cd ${SRC_DIR}
+
+#. Install Helm*
+
+   .. code-block:: bash
+
+      wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz && tar xf helm-v2.14.3-linux-amd64.tar.gz
+      mv linux-amd64/helm ${BIN_DIR}/helm
+
+
+#. Clean the environment
+
+   .. code-block:: bash
+
+      rm -rf ${SRC_DIR}/*
+
+#. Prepare the DLRS image
+
+   The DLRS base image needs to be rebuilt with the `Dockerfile_openvino_base`_  to add Seldon and the OpenVINO inference engine.
+
+   .. code-block:: bash
+
+      docker build -f Dockerfile_openvino_base -t dlrs_openvino_base:0.1 .
+
+#. Mount pre-trained models into a persistent volume
+
+   This will also apply all PV manifests to the cluster
+
+   .. code-block:: bash
+
+      kubectl apply -f storage/pv-volume.yaml
+      kubectl apply -f storage/model-store-pvc.yaml
+      kubectl apply -f storage/pv-pod.yaml
+
+#. Start a shell for the container used as pv:
+
+   .. code-block:: bash
+
+      kubectl exec -it hostpath-pvc -- /bin/bash
+
+#. Save pre-trained models
+
+   Now that you're inside the running container, fetch your pre-trained models and save them at `/opt/ml`
+
+   .. code-block:: bash
+
+      root@hostpath-pvc:/# cd /opt/ml
+      root@hostpath-pvc:/# # Copy your models here
+      root@hostpath-pvc:/# # exit
+
+#. Deploy the model server
+
+   Now you're ready to deploy the model server using the Helm chart provided.
+
+   .. code-block:: bash
+
+       helm install -- name=seldonov-model-server \
+          --namespace kubeflow \
+          --set openvino.image=dlrs_openvino_base:0.1 \
+          --set openvino.model.path=/opt/ml/<models_directory> \
+          --set openvino.model.name=<model_name> \
+          --set openvino.model.input=data \
+          --set openvino.model.output=prob
+          dlrs-seldon/helm/seldon-model-server
+
 
 Use Jupyter Notebook
 ********************
@@ -571,6 +785,8 @@ Related topics
 
 .. _DLRS V3.0:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
 
+.. _DLRS V4.0: https://clearlinux.org/news-blogs/deep-learning-reference-stack-v4
+
 .. _dlrs-tfjob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
 .. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
@@ -588,5 +804,24 @@ Related topics
 .. _DLRS Terms of Use: https://clearlinux.org/stacks/deep-learning/terms-of-use
 
 .. _DLRS Release notes: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
+
+.. _Seldon Core: https://docs.seldon.io/projects/seldon-core/en/latest/
+
+.. _Istio: https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_k8s_istio.yaml
+
+.. _Dockerfile_openvino_base: https://github.intel.com/verticals/usecases/blob/master/kubeflow/dlrs-seldon/docker/Dockerfile_openvino_base
+
+.. _TFJob: https://www.kubeflow.org/docs/components/tftraining
+
+.. _Arrikto: https://www.kubeflow.org/docs/started/k8s/kfctl-existing-arrikto/
+
+.. _kfctl tarball: https://github.com/kubeflow/kubeflow/releases/download/v0.6.1/kfctl_v0.6.1_linux.tar.gz
+
+.. _MetalLB: https://metallb.universe.tf/
+
+.. _Kubeflow documentation: https://www.kubeflow.org/docs/components/tftraining/#what-is-tfjob
+
+.. _Distributed TensorFlow: https://www.tensorflow.org/deploy/distributed
+.. _TFJobs:  https://www.kubeflow.org/docs/components/tftraining/
 
 .. _Intel® quantization tools:  https://github.com/IntelAI/tools/blob/master/tensorflow_quantization/README.md#quantization-tools
