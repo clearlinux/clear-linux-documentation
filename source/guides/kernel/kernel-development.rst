@@ -422,11 +422,21 @@ testing. For a more scalable and customizable approach, consider using the
 
       rpm2cpio linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
 
+#. Optionally, increase the bootloader timeout to make interrupting the boot
+   process and choosing a different kernel easier.This can be helpful to if
+   you encounter a kernel that does not boot gracefully.
+   
+   .. code-block:: bash
 
-#. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
+      sudo clr-boot-manager set-timeout 20
+
+
+#. Update the |CL| boot manager to use the new kernel using
+   :command:`clr-boot-manager` and reboot.
 
    .. code-block:: bash
 
+      sudo clr-boot-manager update
       sudo clr-boot-manager list-kernels
       sudo clr-boot-manager set-kernel org.clearlinux.<TARGET>.<VERSION>-<RELEASE>
 
