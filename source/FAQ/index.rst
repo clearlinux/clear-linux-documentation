@@ -132,6 +132,21 @@ on GitHub: https://github.com/clearlinux/distribution/issues/422
 
 |
 
+Is Microsoft\* Visual Studio Code\* available?
+==============================================
+
+Visual Studio Code is currently available in |CL| `through a FlatPak.
+<https://clearlinux.org/software?search_api_fulltext=vscode>`_ 
+
+Packaging a version of Visual Studio Code natively in |CL| is a work in
+progress.
+
+A discussion on manually installing and maintaining Visual Studio Code can be
+found on the community forums:
+https://community.clearlinux.org/t/need-native-support-for-vs-code-through-swupd/
+
+|
+
 Is FFmpeg available?
 ====================
 
