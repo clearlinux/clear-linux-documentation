@@ -500,6 +500,27 @@ For more information, please refer to:
 * `TFJobs`_
 
 
+PyTorch Training (PyTorch Job) with Kubeflow and DLRS
+*****************************************************
+
+A `PyTorch Job`_ is Kubeflow's custom resource used to run PyTorch training jobs on Kubernetes. This example builds on the framework set up in the previous example.
+
+Pre-requisites:
+
+* A running :ref:`kubernetes` cluster
+* Please follow steps 1 - 5 of the previous example to set up your environment.
+
+
+Submitting PyTorch Jobs
+=======================
+TODO:  FIND LINKS TO JOBS
+We provide several PyToch Job examples that use the Deep Learning Reference Stack as the base image for creating the container(s) that will run training workloads in your Kubernetes cluster.
+Select one form the list below:
+
+
+
+
+
 Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack
 **************************************************************************
 
@@ -746,6 +767,30 @@ To stop the container, execute the following from your host system:
 
        docker images
 
+Compiling AIXPRT with OpenMP on DLRS
+************************************
+
+To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file.AIXPRT utilizes
+build configuration files, so to build AIXPRT on the image, copy, the build files from the base image, this can be done by adding these commands
+to the end of the stacks-tensorflow-mkl dockerfile:
+
+   .. code-block:: console
+      COPY --from=base /dldt/inference-engine/bin/intel64/Release/ /usr/local/lib/openvino/tools/
+      COPY --from=base /dldt/ /dldt/
+      COPY ./airxprt/ /workspace/aixprt/
+      RUN ./aixprt/install_deps.sh
+      RUN ./aixprt/install_aixprt.sh
+
+
+AIXPRT requires OpenCV. On |CL|, the OpenCV bundle also installs the DLDT components. To use AIXPRT in the DLRS environment you need to either remove the shared libraries for DLDT from :file:`/usr/lib64` before you run the tests, or ensure that the DLDT components in the :file:`/usr/local/lib` are being used for AIXPRT.  This can be achieved using adding LD_LIBRARY_PATH environment variable before testing.
+
+   .. code-block:: bash
+
+      export LD_LIBRARY_PATH=/usr/local/lib
+
+
+The updates to the AIXPRT community edition have been captured in the diff file :file:`compile_AIXPRT_source.sh.patch`. The core of these changes relate to the version of model files(2019_R1) we download from the `OpenCV open model zoo`_ and location of the build files, which in our case is `/dldt`. Please refer to the patch files and make changes as necessary to the compile_AIXPRT_source.sh file as required for your environment.
+
 
 Related topics
 **************
@@ -809,7 +854,7 @@ Related topics
 
 .. _Istio: https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_k8s_istio.yaml
 
-.. _Dockerfile_openvino_base: https://github.intel.com/verticals/usecases/blob/master/kubeflow/dlrs-seldon/docker/Dockerfile_openvino_base
+.. _Dockerfile_openvino_base: TBD
 
 .. _TFJob: https://www.kubeflow.org/docs/components/tftraining
 
@@ -825,3 +870,7 @@ Related topics
 .. _TFJobs:  https://www.kubeflow.org/docs/components/tftraining/
 
 .. _Intel® quantization tools:  https://github.com/IntelAI/tools/blob/master/tensorflow_quantization/README.md#quantization-tools
+
+.. _OpenCV open model zoo: https://github.com/opencv/open_model_zoo
+
+.. _PyTorch Job: https://www.kubeflow.org/docs/components/pytorch/
