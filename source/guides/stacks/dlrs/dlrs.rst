@@ -775,6 +775,7 @@ build configuration files, so to build AIXPRT on the image, copy, the build file
 to the end of the stacks-tensorflow-mkl dockerfile:
 
    .. code-block:: console
+
       COPY --from=base /dldt/inference-engine/bin/intel64/Release/ /usr/local/lib/openvino/tools/
       COPY --from=base /dldt/ /dldt/
       COPY ./airxprt/ /workspace/aixprt/
