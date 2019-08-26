@@ -432,8 +432,9 @@ Pre-requisites:
 
 Submitting TFJobs
 =================
-TODO:  FIND LINKS TO JOBS
-We provide several TFJob examples that use the Deep Learning Reference Stack as the base image for creating the containers to run training workloads in your Kubernetes cluster.
+
+We provide several `DLRS TFJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the containers to run training workloads in your Kubernetes cluster.
+
 
 
 Customizing a TFJob
@@ -513,8 +514,8 @@ Pre-requisites:
 
 Submitting PyTorch Jobs
 =======================
-TODO:  FIND LINKS TO JOBS
-We provide several PyToch Job examples that use the Deep Learning Reference Stack as the base image for creating the container(s) that will run training workloads in your Kubernetes cluster.
+
+We provide several `DLRS PytorchJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the container(s) that will run training workloads in your Kubernetes cluster.
 Select one form the list below:
 
 
@@ -1006,7 +1007,7 @@ Related topics
 
 .. _Istio: https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_k8s_istio.yaml
 
-.. _Dockerfile_openvino_base: TBD
+.. _Dockerfile_openvino_base: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/kubeflow/dlrs-seldon/docker/Dockerfile_openvino_base
 
 .. _TFJob: https://www.kubeflow.org/docs/components/tftraining
 
@@ -1034,3 +1035,7 @@ Related topics
 .. _OpenVINO TensorFlow Model page: https://docs.openvinotoolkit.org/latest/_docs_MO_DG_prepare_model_convert_model_Convert_Model_From_TensorFlow.html
 
 .. _dldt: https://github.com/opencv/dldt
+
+.. _DLRS TFJob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
+
+.. _DLRS PytorchJob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-pytorchjob
