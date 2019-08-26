@@ -127,8 +127,8 @@ msgid ""
 msgstr "要使用 |CL| 构建映像，请从安装了 :command:`containers-basic-dev` 捆绑包的 |CL| 开发平台开始。使用 :ref:`swupd-guide` 了解有关捆绑包和安装捆绑包的更多信息。"
 
 #: ../../guides/stacks/dars.rst:89
+msgstr "Clone the `Data Analytics Reference Stack`_ GitHub\\* repository."
 msgid "Clone the `Data Analytics Reference Stack`_ GitHub\\* repository."
-msgstr "数据分析参考堆栈版本"
 
 #: ../../guides/stacks/dars.rst:95
 msgid ""

@@ -370,7 +370,7 @@ msgstr "例如："
 msgid ""
 "Return to the AWS documentation section called `Create and Package a "
 "Lambda Function`_ and complete the procedure."
-msgstr "返回名为`Create and Package a Lambda Function`_ 的 AWS 文档部分，并完成步骤。"
+msgstr "返回名为 `Create and Package a Lambda Function`_ 的 AWS 文档部分，并完成步骤。"
 
 #: ../../guides/stacks/greengrass.rst:248
 msgid ""
@@ -401,7 +401,7 @@ msgstr "创建 Greengrass 组和 Lambda 函数后，开始为 AWS Greengrass 配
 msgid ""
 "Follow steps 1-8 in `Configure the Lambda Function for AWS IoT "
 "Greengrass`_ in the AWS documentation."
-msgstr "按照 AWS 文档中`Configure the Lambda Function for AWS IoT Greengrass`_ 中的步骤 1-8 执行操作。"
+msgstr "按照 AWS 文档中 `Configure the Lambda Function for AWS IoT Greengrass`_ 中的步骤 1-8 执行操作。"
 
 
 #: ../../guides/stacks/greengrass.rst:265

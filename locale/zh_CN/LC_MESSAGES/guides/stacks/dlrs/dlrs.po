@@ -134,7 +134,7 @@ msgstr "必备条件"
 
 #: ../../guides/stacks/dlrs/dlrs.rst:64
 msgid ":ref:`Install <bare-metal-install-desktop>` |CL| on your host system"
-msgstr "在主机系统上:ref:`Install <bare-metal-install-desktop>`"
+msgstr "在主机系统上 :ref:`Install <bare-metal-install-desktop>` |CL|"
 
 #: ../../guides/stacks/dlrs/dlrs.rst:65
 msgid ":command:`containers-basic` bundle"

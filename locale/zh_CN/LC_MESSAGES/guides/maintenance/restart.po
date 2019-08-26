@@ -129,7 +129,7 @@ msgid ""
 "below, :command:`clr-service-restart` displays a complete list of system "
 "services that require a restart. Use both options to verify that all "
 "desired daemons are restarted."
-msgstr "如果同时传递两个选项（:option:`-a` 和 :command:`-n`），:command:`clr-service-restart` 会显示需要重启的系统服务的完整清单。使用这两个选项可确认所有所需的守护程序都已重启。"
+msgstr "如果同时传递两个选项（:command:`-a` 和 :command:`-n`），:command:`clr-service-restart` 会显示需要重启的系统服务的完整清单。使用这两个选项可确认所有所需的守护程序都已重启。"
 
 
 #: ../../guides/maintenance/restart.rst:94
