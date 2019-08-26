@@ -121,7 +121,7 @@ Burn the |CL| image onto a USB drive
 
 #. Launch the Terminal app.
 
-#. Go to the directory with the decompressed image.
+#. Change directory to where the decompressed image is saved.
 
 #. Plug in a USB drive and get its identifier:
 
@@ -144,16 +144,16 @@ Burn the |CL| image onto a USB drive
       diskutil umountDisk /dev/disk2
 
 #. Burn the image onto the drive using the :command:`dd` command.
-   The example below burns an uncompressed image onto `<your USB device>`:
+   This example uses `./`, your current directory, and it shows how to burn an uncompressed image onto `<your USB device>`:
 
    .. code-block:: bash
 
       sudo dd if=./clear-[version number]-[image type] of=<your USB device> bs=4m
 
-   To speed up the imaging process, add an ‘r’ in front of the disk identifier.
-   For example `/dev/rdisk2`.
+   To accelerate the imaging process, add an ‘r’ before the disk identifier.
+   Example: `sudo dd if=./clear-30800-live-server of=/dev/rdisk2 bs=4m`.
 
-   Press :kbd:`<CTL>-T` to check imaging progress.
+   Press :kbd:`<CTRL>-T` to check imaging progress.
 
 #. Eject the USB drive.
 
