@@ -36,6 +36,7 @@
 .wy-side-nav-search input[type=text] {
     border-radius: 0px;
     padding: 0px 0px;
+    padding-left: 20px;
     box-shadow: none;
     border: 0;
     outline: 0;
@@ -283,4 +284,10 @@ div.admonition ul {
 
 div#trademarks {
     color: gray;
+}
+
+
+#clear-docs-search {
+  background: url(./mag-glass.png) left no-repeat;
+  background-size: 15px 15px;
 }
