@@ -5,23 +5,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-26 11:48-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:4
 msgid "|CL-ATTR| on VMware\\* ESXi"
-msgstr ""
+msgstr "VMware\\* ESXi 上的 |CL-ATTR|"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:6
 msgid ""
@@ -38,9 +37,8 @@ msgid ""
 "`VMware ESXi`_ is a type 1 bare-metal hypervisor that runs directly on "
 "top of server hardware. With VMware ESXi, you can create, configure, "
 "manage, and run |CL| virtual machines in the cloud."
-msgstr ""
-"`VMware ESXi`_ 是一个 1 类裸机虚拟机管理程序，可直接在服务器硬件上运行。利用 VMware "
-"ESXi，可以在云端创建、配置、管理和运行 |CL| 虚拟机。"
+msgstr "`VMware ESXi`_ 是一个 1 类裸机虚拟机管理程序，可直接在服务器硬件上运行。利用 VMware ESXi，可以在云端创建、配置、管理和运行 |CL| 虚拟机。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:20
 msgid ""
@@ -50,7 +48,6 @@ msgid ""
 msgstr "安装期间，在新的虚拟机上手动安装 |CL| 提高了配置灵活性。例如，备用磁盘空间、分区数量、预安装 bundle 等。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:24
-#, fuzzy
 msgid ""
 "If you prefer to use a pre-configured |CL| VMware image instead, refer to"
 " :ref:`vmware-esxi-preconfigured-cl-image`."
@@ -61,9 +58,8 @@ msgid ""
 "VMware also offers a type 2 hypervisor designed for the desktop "
 "environment, called `VMware Workstation Player`_. Refer to :ref:`vmw-"
 "player-preconf` or :ref:`vmw-player` for more information."
-msgstr ""
-"VMware 还提供一个适用于桌面环境的 2 类虚拟机管理程序，名为 `VMware Workstation Player`_。请参阅 :ref"
-":`vmw-player-preconf` 或 :ref:`vmw-player` 了解更多信息。"
+msgstr "VMware 还提供一个适用于桌面环境的 2 类虚拟机管理程序，名为 `VMware Workstation Player`_。请参阅 :ref:`vmw-player-preconf` 或 :ref:`vmw-player` 了解更多信息。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:33
 msgid "Visit :ref:`image-types` to learn more about all available images."
@@ -77,17 +73,15 @@ msgstr "下载最新的 |CL| 安装程序 ISO"
 msgid ""
 "Get the latest |CL| installer ISO image from the `image`_ repository. "
 "Look for :file:`clear-[version number]-installer.iso.xz`."
-msgstr ""
-"从 `image`_ 存储库中获取最新的 |CL| 安装程序 ISO。寻找 :file:`clear-[version "
-"number]-installer.iso.xz`。"
+msgstr "从 `image`_ 存储库中获取最新的 |CL| 安装程序 ISO。寻找 :file:`clear-[version number]-installer.iso.xz`。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:41
 msgid ""
 "We also provide instructions for downloading and verifying a Clear Linux "
 "ISO. For more information, refer to :ref:`download-verify-decompress`."
-msgstr ""
-"我们还提供关于下载和验证 Clear Linux ISO 的说明。欲了解详情，请参阅 :ref:`download-verify-"
-"decompress`。"
+msgstr "我们还提供关于下载和验证 Clear Linux ISO 的说明。欲了解详情，请参阅 :ref:`download-verify-decompress`。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:45
 msgid "Upload the |CL| installer ISO to the VMware server"
@@ -139,9 +133,8 @@ msgstr "图 3：VMware ESXi - 数据存储 > 上传 ISO"
 msgid ""
 "Select the decompressed |CL| installer ISO file :file:`clear-[version "
 "number]-installer.iso` and upload it."
-msgstr ""
-"选择解压缩的 |CL| 安装程序 ISO 文件 :file:`clear-[version number]-installer.iso` "
-"并将其上传。"
+msgstr "选择解压缩的 |CL| 安装程序 ISO 文件 :file:`clear-[version number]-installer.iso` 并将其上传。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:82
 msgid "Create and configure a new VM"
@@ -193,7 +186,7 @@ msgstr "在 :guilabel:`Select a name and guest OS` 步骤："
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:111
 msgid "Give the new VM a name in the :guilabel:`Name` field. See Figure 6."
-msgstr "在 :guilabel:`Name` 字段中为新虚拟机命名。见图 6。"
+msgstr "在 :guilabel:`Name` 字段中为新虚拟机命名 见图 6。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:112
 msgid ""
@@ -209,9 +202,8 @@ msgstr "将 :guilabel:`Guest OS family` 选项设置为 :guilabel:`Linux`。"
 msgid ""
 "Set the :guilabel:`Guest OS version` option to :guilabel:`Other 3.x or "
 "later Linux (64-bit)`."
-msgstr ""
-"将 :guilabel:`Guest OS version` 选项设置为 :guilabel:`Other 3.x or later Linux "
-"(64-bit)`。"
+msgstr "将 :guilabel:`Guest OS version` 选项设置为 :guilabel:`Other 3.x or later Linux (64-bit)`。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:121
 msgid "Figure 6: VMware ESXi - Give a name and select guest OS type"
@@ -238,9 +230,8 @@ msgid ""
 "Expand the :guilabel:`CPU` setting and enable :guilabel:`Hardware "
 "virtualization` by checking :guilabel:`Expose hardware assisted "
 "virtualization to the guest OS`."
-msgstr ""
-"展开 :guilabel:`CPU` 设置，选中 :guilabel:`Hardware virtualization` 启用 "
-":guilabel:`Expose hardware assisted virtualization to the guest OS`。"
+msgstr "展开 :guilabel:`CPU` 设置，选中 :guilabel:`Hardware virtualization` 启用 :guilabel:`Expose hardware assisted virtualization to the guest OS`。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:138
 msgid "Figure 7: VMware ESXi - Enable hardware virtualization"
@@ -260,9 +251,8 @@ msgid ""
 "You can reduce the memory size after the installation completes if you "
 "want, because a minimum |CL| installation can function on as little as "
 "128MB of RAM. See :ref:`system-requirements` for more details."
-msgstr ""
-"|CL| 安装程序 ISO 需要至少 2GB 的 RAM 才能正常运行。如果需要，可以在安装完成后减少内存，因为 |CL| 最小安装可以在仅有 "
-"128MB RAM 的情况下运行。请查看 :ref:`system-requirements` 了解详情。"
+msgstr "|CL| 安装程序 ISO 需要至少 2GB 的 RAM 才能正常运行。如果需要，可以在安装完成后减少内存，因为 |CL| 最小安装可以在仅有 128MB RAM 的情况下运行。请查看 :ref:`system-requirements` 了解详情。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:155
 msgid "Set :guilabel:`Hard disk 1` to the desired capacity. See Figure 9."
@@ -285,10 +275,8 @@ msgid ""
 ":guilabel:`Datastore ISO file` option.  Then select the |CL| installer "
 "ISO :file:`clear-[version number]-installer.iso` that you previously "
 "uploaded to the VMware server. See Figure 10."
-msgstr ""
-"挂载 |CL| 安装程序 ISO。对于 :guilabel:`CD/DVD Drive 1` 设置，点击其右侧下拉列表，选择 "
-":guilabel:`Datastore ISO file` 选项。然后，选择此前上传至 VMware 服务器的 |CL| 安装程序 ISO "
-":file:`clear-[version number]-installer.iso`。见图 10。"
+msgstr "挂载 |CL| 安装程序 ISO。对于 :guilabel:`CD/DVD Drive 1` 设置，点击其右侧下拉列表，选择 :guilabel:`Datastore ISO file` 选项。然后，选择此前上传至 VMware 服务器的 |CL| 安装程序 ISO :file:`clear-[version number]-installer.iso`。见图 10。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:177
 msgid "Figure 10: VMware ESXi - Set CD/DVD to boot installer ISO"
@@ -364,9 +352,8 @@ msgid ""
 "Click the :guilabel:`Actions` button - located on the top-right corner of"
 " the VM's windows - and go to the :guilabel:`Power` setting and select "
 "the :guilabel:`Power off` option. See Figure 12."
-msgstr ""
-"点击 :guilabel:`Actions` 按钮（按钮位于虚拟机窗口的右上角），转到 :guilabel:`Power` 设置，然后选择 "
-":guilabel:`Power off` 选项。见图 12。"
+msgstr "点击 :guilabel:`Actions` 按钮（按钮位于虚拟机窗口的右上角），转到 :guilabel:`Power` 设置，然后选择 :guilabel:`Power off` 选项。见图 12。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-install-cl.rst:222
 msgid "Figure 12: VMware ESXi - Actions > Power off"
@@ -542,4 +529,5 @@ msgstr ":ref:`vmware-esxi-preconfigured-cl-image`"
 
 #~ msgid "Install |CL-ATTR| as a VMware\\* ESXi guest OS"
 #~ msgstr "安装 |CL-ATTR|，用作 VMware\\* ESXi 来宾操作系统"
+
 
