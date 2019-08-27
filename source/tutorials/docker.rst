@@ -56,18 +56,11 @@ packages to run Docker images as containers.
 
       sudo swupd bundle-add containers-basic
 
-#. Start the Docker daemon through systemd manager by running this command:
+#. Enable and start the Docker daemon through systemd manager by running this command:
 
    .. code-block:: bash
 
-      sudo systemctl start docker
-
-   If you want Docker to start automatically on boot, enable the
-   systemd service by running this command:
-
-   .. code-block:: bash
-
-      sudo systemctl enable docker
+      sudo systemctl enable --now docker
 
 #. Finally, verify :command:`docker` has been installed by running this
    command and checking the version output for both *client* and *server*:
