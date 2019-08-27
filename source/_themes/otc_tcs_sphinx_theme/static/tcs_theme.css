@@ -291,3 +291,16 @@ div#trademarks {
   background: url(./mag-glass.png) left no-repeat;
   background-size: 15px 15px;
 }
+
+.pending-delete-status {
+  color:#ce2029; 
+}
+
+.active-status {
+  color:#358ccb;
+}
+
+.wip-status {
+  color:#59ca6b;
+}
+
