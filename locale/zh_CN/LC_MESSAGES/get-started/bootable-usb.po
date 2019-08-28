@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 17:23-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0208\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../get-started/bootable-usb.rst:4
 msgid "Create a bootable USB drive"
@@ -47,7 +46,7 @@ msgstr "必备条件"
 
 #: ../../get-started/bootable-usb.rst:16
 msgid "Use an **8GB** or larger USB drive."
-msgstr "使用 **8GB** 或更大 U 盘。"
+msgstr "使用 **8 GB** 或以上的 U 盘。"
 
 #: ../../get-started/bootable-usb.rst:17
 msgid ""
@@ -65,11 +64,10 @@ msgid "Make sure you have completed all `Prerequisites`_."
 msgstr "确保完成所有 `Prerequisites`_。"
 
 #: ../../get-started/bootable-usb.rst:27
-#, fuzzy
 msgid ""
 "Before burning the image onto your USB drive, :ref:`verify-linux` on "
 "Linux."
-msgstr "将映像烧录至 U 盘之前，:ref:`verify and decompress your image <verify-linux>`。"
+msgstr "将映像烧录至 U 盘之前，:ref:`verify-linux`。"
 
 #: ../../get-started/bootable-usb.rst:30 ../../get-started/bootable-usb.rst:115
 #: ../../get-started/bootable-usb.rst:174
@@ -81,7 +79,7 @@ msgstr "将 |CL| 映像烧录至 U 盘"
 msgid ""
 "Burning an image formats the USB drive, and will destroy all pre-existing"
 " content.  Back up your data before proceeding."
-msgstr ""
+msgstr "烧录映像会格式化 U 盘，清除所有已经存在的内容。在继续操作前请备份数据。"
 
 #: ../../get-started/bootable-usb.rst:37
 msgid "Open a terminal emulator and get root privilege."
@@ -103,10 +101,8 @@ msgid ""
 "`/dev/sdc`, and `/dev/sdd`) attached, where `/dev/sda` is primary drive. "
 "The remaining are three USB drives. The output also shows the mounted "
 "partitions (under the `MOUNTPOINT` column) for each drive."
-msgstr ""
-"利用 :command:`lsblk` 命令识别 U 盘。此操作会显示所有连接到系统的驱动器，包括主硬盘。在下面的示例输出中，连接了 4 "
-"个驱动器（`/dev/sda`、`/dev/sdb`、`/dev/sdc` 和 `/dev/sdd`），而 `/dev/sda` "
-"为主驱动器。其余三个是 U 盘。输出中还显示了为每个驱动器挂载的分区（在 `MOUNTPOINT` 栏）。"
+msgstr "利用 :command:`lsblk` 命令识别 U 盘。此操作会显示所有连接到系统的驱动器，包括主硬盘。在下面的示例输出中，连接了 4 个驱动器（`/dev/sda`、`/dev/sdb`、`/dev/sdc` 和 `/dev/sdd`），而 `/dev/sda` 为主驱动器。其余三个是 U 盘。输出中还显示了为每个驱动器挂载的分区（在 `MOUNTPOINT` 栏）。"
+
 
 #: ../../get-started/bootable-usb.rst:59
 msgid "Example output:"
@@ -118,9 +114,8 @@ msgid ""
 "some Linux distros automatically mount a USB drive when it is plugged in."
 " Unmount a USB drive with the :command:`umount` command followed by the "
 "device identifier/partition. For example:"
-msgstr ""
-"在烧录映像之前，必须卸载 U 盘。请注意，某些 Linux 操作系统会在 U 盘插入时自动挂载 U 盘。利用 :command:`umount` "
-"命令卸载 U 盘，命令后面为设备标识符/分区。例如："
+msgstr "在烧录映像之前，必须卸载 U 盘。请注意，某些 Linux 操作系统会在 U 盘插入时自动挂载 U 盘。利用 :command:`umount` 命令卸载 U 盘，命令后面为设备标识符/分区。例如："
+
 
 #: ../../get-started/bootable-usb.rst:92
 msgid ""
@@ -133,16 +128,15 @@ msgid ""
 "Not fully unmounting the USB drive before burning an image could cause "
 "file system checksum errors in it. If this happens, burn the image again,"
 " ensuring all the USB drive partitions are unmounted first."
-msgstr ""
+msgstr "如果烧录映像前不完全卸载 U 盘，则会导致文件系统校验和错误。如果发生此情况，请再次烧录映像，确保首先卸载所有 U 盘分区。"
 
 #: ../../get-started/bootable-usb.rst:108
 msgid "Create a bootable USB drive on macOS\\*"
 msgstr "在 macOS\\* 上创建可引导 U 盘"
 
 #: ../../get-started/bootable-usb.rst:112
-#, fuzzy
 msgid "Before burning the image onto your USB drive, :ref:`verify-mac` on macOS."
-msgstr "将映像烧录至 U 盘之前，:ref:`verify and decompress your image <verify-mac>`。"
+msgstr "将映像烧录至 U 盘之前，:ref:`verify-mac`。"
 
 #: ../../get-started/bootable-usb.rst:122
 msgid "Launch the Terminal app."
@@ -189,11 +183,10 @@ msgid "Create a bootable USB drive on Windows\\*"
 msgstr "在 Windows\\* 上创建可引导 U 盘"
 
 #: ../../get-started/bootable-usb.rst:171
-#, fuzzy
 msgid ""
 "Before burning the image onto your USB drive, :ref:`verify-windows` on "
 "Windows."
-msgstr "将映像烧录至 U 盘之前，:ref:`verify and decompress your image <verify-windows>`。"
+msgstr "将映像烧录至 U 盘之前，:ref:`verify-windows`。"
 
 #: ../../get-started/bootable-usb.rst:181
 msgid ""
@@ -250,4 +243,5 @@ msgstr "选择 USB 的 Windows 任务栏菜单并选择“弹出”。"
 
 #~ msgid "|CAUTION-UNMOUNT-USB-PARTITIONS|"
 #~ msgstr "|CAUTION-UNMOUNT-USB-PARTITIONS|"
+
 

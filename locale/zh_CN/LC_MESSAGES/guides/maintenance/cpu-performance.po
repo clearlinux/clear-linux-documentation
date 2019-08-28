@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgid ""
 " core(s) on a processor to temporarily operate at a higher than rated CPU"
 " clock frequency to accommodate demanding workloads if the CPU is under "
 "defined power and thermal thresholds."
-msgstr "部分现代英特尔 CPU 上采用了 `Intel® Turbo Boost Technology`_，该技术可在 CPU 未超出指定功率和热阈值时，支持处理器上的核心暂时以高于额定 CPU 时钟频率的频率工作。"
+msgstr "部分现代英特尔 CPU 上采用了 `英特尔® 睿频加速技术`_，该技术可在 CPU 未超出指定功率和热阈值时，支持处理器上的核心暂时以高于额定 CPU 时钟频率的频率工作。"
 
 #: ../../guides/maintenance/cpu-performance.rst:89
 msgid ""
@@ -311,5 +311,6 @@ msgstr "添加新组后，您必须注销并重新登录，然后新组才能生
 #~ " log out and log back in for"
 #~ " the new group to take affect."
 #~ msgstr ""
+
 
 

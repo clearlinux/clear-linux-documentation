@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../guides/clear/swupd.rst:4
 msgid "swupd"
@@ -61,9 +60,8 @@ msgid ""
 "by |CL|. A bundle comes with all of its dependencies rather than "
 "downloading a cascade of package dependencies when installing a piece of "
 "software."
-msgstr ""
-":ref:`Bundles <bundles>` 包含提供软件功能所需的一切。它们是 |CL| 管理的最小粒度组件。bundle "
-"文件附带所有依存关系，而非在安装软件时下载一系列软件包依存关系。"
+msgstr ":ref:`Bundles <bundles>` 包含提供软件功能所需的一切。它们是 |CL| 管理的最小粒度组件。bundle 文件附带所有依存关系，而非在安装软件时下载一系列软件包依存关系。"
+
 
 #: ../../guides/clear/swupd.rst:33
 msgid "Versioning"
@@ -83,10 +81,8 @@ msgid ""
 "removals. This rolling release versioning model is similar to "
 ":command:`git` internal version tracking, where any of the individual "
 "file commits are tracked and move the pointer forward when changed."
-msgstr ""
-"借助 |CL| :command:`swupd`，则可在个别文件级别进行版本管理。也就是说，|CL| "
-"会生成全新的操作系统版本，且附带对系统所做的所有软件更改，其中包括软件降级或删除。此滚动发布版本管理模型类似于 :command:`git` "
-"内部版本跟踪，会跟踪所有单个文件提交并在更改时将指针前移。"
+msgstr "借助 |CL| :command:`swupd`，则可在个别文件级别进行版本管理。也就是说，|CL| 会生成全新的操作系统版本，且附带对系统所做的所有软件更改，其中包括软件降级或删除。此滚动发布版本管理模型类似于 :command:`git` 内部版本跟踪，会跟踪所有单个文件提交并在更改时将指针前移。"
+
 
 #: ../../guides/clear/swupd.rst:45
 msgid ""
@@ -98,10 +94,8 @@ msgid ""
 "combinations of software have been tested. Every release of the same "
 "number is guaranteed to contain the same versions of software, so there's"
 " no ambiguity between two systems running the same version of |CL|."
-msgstr ""
-"表示操作系统 **当前** 版本的数字，描述操作系统上所有软件的版本。每个内部版本均由一组特定的 bundle 文件组成，而这些 bundle "
-"文件则由特定版本的软件包组成。如果系统管理员日常需要确定哪些系统缺少最新安全修复程序，或哪些软件组合已经过测试，这对他们来说十分重要。对于同一数字的每个版本，均可以保证包含相同版本的软件，因此在运行同一版本的"
-" |CL| 的两个系统之间不会产生混淆。"
+msgstr "表示操作系统 **当前** 版本的数字，描述操作系统上所有软件的版本。每个内部版本均由一组特定的 bundle 文件组成，而这些 bundle 文件则由特定版本的软件包组成。如果系统管理员日常需要确定哪些系统缺少最新安全修复程序，或哪些软件组合已经过测试，这对他们来说十分重要。对于同一数字的每个版本，均可以保证包含相同版本的软件，因此在运行同一版本的 |CL| 的两个系统之间不会产生混淆。"
+
 
 #: ../../guides/clear/swupd.rst:55
 msgid "Updating"
@@ -116,9 +110,8 @@ msgid ""
 "*manifests*, which list and describe file contents, symlinks, and "
 "directories. Additionally, the actual content is provided to clients in "
 "the form of archive files."
-msgstr ""
-"|CL| 默认强制定期更新操作系统，并自动对照版本服务器检查是否存在更新。内容服务器提供针对所有版本的文件和元数据内容，并可与版本服务器相同。内容"
-" URL 服务器以 *清单* 形式提供元数据，列出并描述文件内容、符号链接和目录。此外，实际内容还会以存档文件的形式提供给客户端。"
+msgstr "|CL| 默认强制定期更新操作系统，并自动对照版本服务器检查是否存在更新。内容服务器提供针对所有版本的文件和元数据内容，并可与版本服务器相同。内容 URL 服务器以 *清单* 形式提供元数据，列出并描述文件内容、符号链接和目录。此外，实际内容还会以存档文件的形式提供给客户端。"
+
 
 #: ../../guides/clear/swupd.rst:65
 msgid ""
@@ -127,9 +120,8 @@ msgid ""
 "rather than entire packages. For example, it is quite common for an OS "
 "security patch to be as small as 15 KB. Using binary deltas, |CL| is able"
 " to apply only what is needed."
-msgstr ""
-"|CL| 的软件更新也十分高效。与基于软件包的发行版不同，:command:`swupd` "
-"只会更新已更改的文件，而非整个软件包。例如，操作系统安全补丁大小经常只有 15 KB。通过使用二进制增量，|CL| 可只应用所需的内容。"
+msgstr "|CL| 的软件更新也十分高效。与基于软件包的发行版不同，:command:`swupd` 只会更新已更改的文件，而非整个软件包。例如，操作系统安全补丁大小经常只有 15 KB。通过使用二进制增量，|CL| 可只应用所需的内容。"
+
 
 #: ../../guides/clear/swupd.rst:71
 msgid ""
@@ -165,9 +157,8 @@ msgid ""
 "demand. :command:`swupd` makes sure that regular updates are simple and "
 "secure. It can also check the validity of currently installed files and "
 "software, and can correct any problems."
-msgstr ""
-"|CL| 更新默认自动进行，但也可设为按需进行。:command:`swupd` "
-"可确保定期更新既简单又安全。它还可检查当前已安装文件和软件的有效性，并可更正所有问题。"
+msgstr "|CL| 更新默认自动进行，但也可设为按需进行。:command:`swupd` 可确保定期更新既简单又安全。它还可检查当前已安装文件和软件的有效性，并可更正所有问题。"
+
 
 #: ../../guides/clear/swupd.rst:93
 msgid "Manifests"
@@ -179,9 +170,8 @@ msgid ""
 "is the files that end up in the OS. The metadata contains relevant "
 "information to properly provision the data to the OS file system, as well"
 " as update the system and add or remove additional content to the OS."
-msgstr ""
-"|CL| "
-"软件更新内容由数据和元数据组成。数据是指操作系统中的文件。元数据包含将数据正确配置到操作系统文件系统、更新系统以及向操作系统添加或删除其他内容所需的相关信息。"
+msgstr "|CL| 软件更新内容由数据和元数据组成。数据是指操作系统中的文件。元数据包含将数据正确配置到操作系统文件系统、更新系统以及向操作系统添加或删除其他内容所需的相关信息。"
+
 
 #: ../../guides/clear/swupd.rst:100
 msgid ""
@@ -206,9 +196,8 @@ msgid ""
 "allows any |CL| to obtain the exact copy of the content for each version "
 "directly. This is used if the OS verification needs to replace a single "
 "file, for instance."
-msgstr ""
-"在每个版本中，始终会为每个文件生成 *完整文件*。此操作可让所有 |CL| "
-"直接获取每个版本的精确内容副本。例如，如果操作系统验证需替换单个文件，则可使用此操作。"
+msgstr "在每个版本中，始终会为每个文件生成 *完整文件*。此操作可让所有 |CL| 直接获取每个版本的精确内容副本。例如，如果操作系统验证需替换单个文件，则可使用此操作。"
+
 
 #: ../../guides/clear/swupd.rst:115
 msgid ""
@@ -232,18 +221,16 @@ msgid ""
 ":command:`swupd` searches download manifest data for bundles that match "
 "the term. Enter only one term, or hyphenated term, per search. Use the "
 "command :command:`man swupd` to learn more."
-msgstr ""
-":command:`swupd` 可搜索下载清单数据，查找与此字词匹配的 bundle 文件。每次搜索只输入一个字词或带连字符的字词。使用命令 "
-":command:`man swupd`，了解更多信息。"
+msgstr ":command:`swupd` 可搜索下载清单数据，查找与此字词匹配的 bundle 文件。每次搜索只输入一个字词或带连字符的字词。使用命令 :command:`man swupd`，了解更多信息。"
+
 
 #: ../../guides/clear/swupd.rst:128
 msgid ""
 "Only the base bundle is returned. Bundles can contain other bundles via "
 "includes. For more details, see `Bundle Definition Files`_ and its "
 "subdirectory bundles."
-msgstr ""
-"系统只返回基本 bundle 文件。bundle 文件可通过 include 包含其他 bundle 文件。有关更多详细信息，请参阅 "
-"`Bundle Definition Files`_ 及其子目录 bundle 文件。"
+msgstr "系统只返回基本 bundle 文件。bundle 文件可通过 include 包含其他 bundle 文件。有关更多详细信息，请参阅 `Bundle Definition Files`_ 及其子目录 bundle 文件。"
+
 
 #: ../../guides/clear/swupd.rst:132
 msgid ""
@@ -275,7 +262,7 @@ msgstr "验证当前的自动更新设置。"
 
 #: ../../guides/clear/swupd.rst:152 ../../guides/clear/swupd.rst:164
 msgid "Output:"
-msgstr ""
+msgstr "示例："
 
 #: ../../guides/clear/swupd.rst:158
 msgid "Disable automatic updates."
@@ -303,18 +290,16 @@ msgid ""
 "container implementations, each Kata Container has its own kernel "
 "instance and runs on its own :abbr:`VM (Virtual Machine)` for improved "
 "security."
-msgstr ""
-"Kata 容器是一种常见的容器实现。与其他容器实现不同，每个 Kata 容器均有自己的内核实例，在自己的 :abbr:`VM (Virtual "
-"Machine)` 上运行，增强了安全性。"
+msgstr "Kata 容器是一种常见的容器实现。与其他容器实现不同，每个 Kata 容器均有自己的内核实例，在自己的 :abbr:`VM (Virtual Machine)` 上运行，增强了安全性。"
+
 
 #: ../../guides/clear/swupd.rst:202
 msgid ""
 "|CL| makes it very easy to install, since you only need to add one bundle"
 " to use `Kata Containers`_: `containers-virt`_, despite a number of "
 "dependencies.  Also, check out our tutorial: :ref:`kata`."
-msgstr ""
-"虽然存在大量依存关系，但由于您只需添加一个 bundle 文件便可使用 `Kata Containers`_ `containers-"
-"virt`_，因此 |CL| 大大简化了安装过程。此外，请查阅教程：:ref:`kata`。"
+msgstr "虽然存在大量依存关系，但由于您只需添加一个 bundle 文件便可使用 `Kata Containers`_ `containers-virt`_，因此 |CL| 大大简化了安装过程。此外，请查阅教程：:ref:`kata`。"
+
 
 #: ../../guides/clear/swupd.rst:206
 msgid "Find the correct bundle."
@@ -369,9 +354,8 @@ msgid ""
 "In this case, Python\\* packages that were installed on top of the "
 "default install were flagged as mismatched. :command:`swupd` can be "
 "directed to ignore or fix issues based on command line options."
-msgstr ""
-"在此情况下，安装在默认安装之上的 Python\\* 软件包将被标记为不匹配。:command:`swupd` "
-"可根据命令行选项指令来忽略或修复问题。"
+msgstr "在此情况下，安装在默认安装之上的 Python\\* 软件包将被标记为不匹配。:command:`swupd` 可根据命令行选项指令来忽略或修复问题。"
+
 
 #: ../../guides/clear/swupd.rst:296
 msgid ""
@@ -416,9 +400,8 @@ msgid "Lists installed bundles."
 msgstr "列出已安装的 bundle 文件。"
 
 #: ../../guides/clear/swupd.rst:322
-#, fuzzy
 msgid "swupd bundle <search term>"
-msgstr "swupd bundle-add [-b] <search term>"
+msgstr "swupd bundle <search term>"
 
 #: ../../guides/clear/swupd.rst:322
 msgid "Finds a bundle that contains your search term."
@@ -490,4 +473,5 @@ msgstr ":ref:`bundles`"
 #~ "documentation`_ on GitHub for more "
 #~ "details."
 #~ msgstr ""
+
 

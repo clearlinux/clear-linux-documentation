@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -1144,5 +1144,6 @@ msgstr "即使流量通过 SSH 隧道传输，RealVNC 仍会警告连接未加�
 #~ "by `127.0.0.1`'s. This is after the "
 #~ "`-localhost` option was used."
 #~ msgstr ""
+
 
 

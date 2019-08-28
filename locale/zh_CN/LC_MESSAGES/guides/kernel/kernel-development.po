@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../guides/kernel/kernel-development.rst:4
 msgid "Kernel development"
@@ -38,9 +37,8 @@ msgid ""
 "The :ref:`compatible-kernels` available in |CL| aim to be performant and "
 "practical. In some cases, it may be necessary to modify the kernel to "
 "suit your specific needs or test new kernel code as a developer."
-msgstr ""
-"|CL| 中的 :ref:`compatible-kernels` "
-"追求高效和实用。在某些情况下，您可能需要根据自身的具体需求修改内核，而开发人员也可能需要修改内核来测试新的内核代码。"
+msgstr "|CL| 中的 :ref:`compatible-kernels` 追求高效和实用。在某些情况下，您可能需要根据自身的具体需求修改内核，而开发人员也可能需要修改内核来测试新的内核代码。"
+
 
 #: ../../guides/kernel/kernel-development.rst:21
 msgid ""
@@ -53,15 +51,13 @@ msgid "Request changes be included with the |CL| kernel"
 msgstr "|CL| 内核中包含了请求变更"
 
 #: ../../guides/kernel/kernel-development.rst:27
-#, fuzzy
 msgid ""
 "If the kernel modification you need is already open source and likely to "
 "be useful to others, consider submitting a request to include it in the "
 "|CL| kernels. If your change request is accepted, you do not need to "
 "maintain your own modified kernel."
-msgstr ""
-"如果您需要的内核修改已经开源，并且可能对其他人也有用，请考虑提交一个请求，将其包含在 |CL| "
-"内核中。如果您的变更请求被接受，则不需要维护自己修改过的内核。"
+msgstr "如果您需要的内核修改已经开源，并且可能对其他人也有用，请考虑提交一个请求，将其包含在 |CL| 内核中。如果您的变更请求被接受，则不需要维护自己修改过的内核。"
+
 
 #: ../../guides/kernel/kernel-development.rst:32
 msgid ""
@@ -106,9 +102,8 @@ msgid ""
 "Setup of the workspace and tooling used for building source in |CL| is "
 "mostly automated for you with a setup script. It uses tools from the "
 ":command:`os-clr-on-clr` bundle."
-msgstr ""
-"在 |CL| 中构建源代码所需的工作空间和工具设置操作大多数可通过设置脚本自动执行。该设置脚本使用来自 :command:`os-clr-on-"
-"clr` 捆绑包的工具。"
+msgstr "在 |CL| 中构建源代码所需的工作空间和工具设置操作大多数可通过设置脚本自动执行。该设置脚本使用来自 :command:`os-clr-on-clr` 捆绑包的工具。"
+
 
 #: ../../guides/clear/autospec.rst:7
 msgid ""
@@ -116,10 +111,8 @@ msgid ""
 "with the subfolders :file:`Makefile`, :file:`packages`, and "
 ":file:`projects`. The :file:`projects` folder contains the main tools "
 "used for making packages in |CL| :file:`autospec` and :file:`common`."
-msgstr ""
-"该设置脚本会在 :file:`clearlinux` 文件夹（其中包含 :file:`Makefile`、:file:`packages` 和 "
-":file:`projects` 子文件夹）中创建一个工作空间。:file:`projects` 文件夹包含在 |CL| "
-"中制作软件包的主要工具，即 :file:`autospec` 和 :file:`common`。"
+msgstr "该设置脚本会在 :file:`clearlinux` 文件夹（其中包含 :file:`Makefile`、:file:`packages` 和 :file:`projects` 子文件夹）中创建一个工作空间。:file:`projects` 文件夹包含在 |CL| 中制作软件包的主要工具，即 :file:`autospec` 和 :file:`common`。"
+
 
 #: ../../guides/clear/autospec.rst:12
 msgid "Follow these steps to setup the workspace and tooling for building source:"
@@ -170,9 +163,8 @@ msgid ""
 "Clone the Linux kernel package from |CL|. Using the :command:`make "
 "clone_<PACKAGENAME>` command in the :file:`clearlinux/` directory clones "
 "the package from the `clearlinux-pkgs`_ repo on GitHub."
-msgstr ""
-"从 |CL| 克隆 Linux 内核包。在 :file:`clearlinux/` 目录下使用 :command:`make "
-"clone_<PACKAGENAME>` 命令，从 GitHub 上的 `clearlinux-pkgs`_ 存储库克隆内核包。"
+msgstr "从 |CL| 克隆 Linux 内核包。在 :file:`clearlinux/` 目录下使用 :command:`make clone_<PACKAGENAME>` 命令，从 GitHub 上的 `clearlinux-pkgs`_ 存储库克隆内核包。"
+
 
 #: ../../guides/kernel/kernel-development.rst:71
 msgid "Navigate into the cloned package directory."
@@ -184,26 +176,22 @@ msgid ""
 ":`kernel-native` bundle. Alternatively, you can use a different kernel "
 "variant as the base for modification. For a list of kernel package names "
 "which you can clone instead, see the `clearlinux-pkgs`_ repo on GitHub."
-msgstr ""
-"\"linux\" 包是 :command:`kernel-native` 捆绑包中随 |CL| "
-"附带的内核。您也可以使用不同的内核变体，并在其基础上进行修改。有关可以克隆的内核包名称列表，请参阅 GitHub 上的 `clearlinux-"
-"pkgs`_ 存储库。"
+msgstr "\"linux\" 包是 :command:`kernel-native` 捆绑包中随 |CL| 附带的内核。您也可以使用不同的内核变体，并在其基础上进行修改。有关可以克隆的内核包名称列表，请参阅 GitHub 上的 `clearlinux-pkgs`_ 存储库。"
+
 
 #: ../../guides/kernel/kernel-development.rst:85
 msgid ""
 "The latest version of the |CL| kernel package is pulled as a starting "
 "point. An older version can pulled by switching to different git tag by "
 "using :command:`git checkout tag/<TAG_NAME>`."
-msgstr ""
-"一开始先提取 |CL| 内核包的最新版本。此外可以使用 :command:`git checkout "
-"tag/<TAG_NAME>`，并通过切换到不同的 git 标签来提取旧版本。"
+msgstr "一开始先提取 |CL| 内核包的最新版本。此外可以使用 :command:`git checkout tag/<TAG_NAME>`，并通过切换到不同的 git 标签来提取旧版本。"
+
 
 #: ../../guides/kernel/kernel-development.rst:90
 msgid "Change the kernel version"
 msgstr "更改内核版本"
 
 #: ../../guides/kernel/kernel-development.rst:92
-#, fuzzy
 msgid ""
 "|CL| tends to use the latest kernel available from `kernel.org`_, the "
 "Linux upstream. The kernel version that will be built can be changed in "
@@ -211,10 +199,8 @@ msgid ""
 "packaged using :ref:`autospec`, the kernel is not. This means control "
 "files provided by autospec are not available and changes must be made "
 "manually."
-msgstr ""
-"|CL| 倾向于使用来自 Linux 上游 `kernel.org`_ 的最新内核。在 RPM SPEC 文件中可以更改将构建的内核版本。虽然 "
-"Clear Linux 中的大多数包通常使用 :ref:`autospec-about` 打包，但内核不是。这意味着 autospec "
-"提供的控制文件不可用，必须手动进行更改。"
+msgstr "|CL| 倾向于使用来自 Linux 上游 `kernel.org`_ 的最新内核。在 RPM SPEC 文件中可以更改将构建的内核版本。虽然 Clear Linux 中的大多数包通常使用 :ref:`autospec` 打包，但内核不是。这意味着 autospec 提供的控制文件不可用，必须手动进行更改。"
+
 
 #: ../../guides/kernel/kernel-development.rst:98
 #: ../../guides/kernel/kernel-development.rst:294
@@ -413,9 +399,8 @@ msgid ""
 "number of local commits to create patch file. See the `git-format-patch`_"
 " documentation for detailed information on using :command:`git format-"
 "patch`"
-msgstr ""
-"基于您的 git 提交生成补丁文件。<n>表示要创建补丁文件的本地提交数量。有关使用 :command:`git format-patch` "
-"的详细信息，请参阅 `git-format-patch`_ 文档"
+msgstr "基于您的 git 提交生成补丁文件。<n>表示要创建补丁文件的本地提交数量。有关使用 :command:`git format-patch` 的详细信息，请参阅 `git-format-patch`_ 文档"
+
 
 #: ../../guides/kernel/kernel-development.rst:280
 msgid ""
@@ -433,9 +418,8 @@ msgid ""
 " definitions and append your patch file name. Ensure the patch number "
 "does not collide with an existing patch. In this example, the patch file "
 "is called :file:`2001-my-patch-for-driver-A.patch`"
-msgstr ""
-"找到包含现有补丁变量定义的 SPEC 文件部分，并附加补丁文件名。确保补丁编号不与现有补丁冲突。本例中的补丁文件名为 :file:`2001"
-"-my-patch-for-driver-A.patch`"
+msgstr "找到包含现有补丁变量定义的 SPEC 文件部分，并附加补丁文件名。确保补丁编号不与现有补丁冲突。本例中的补丁文件名为 :file:`2001-my-patch-for-driver-A.patch`"
+
 
 #: ../../guides/kernel/kernel-development.rst:323
 msgid ""
@@ -540,9 +524,8 @@ msgid ""
 " machine for testing. This approach works well for individual development"
 " or testing. For a more scalable and customizable approach, consider "
 "using the :ref:`mixer` to provide a custom kernel with updates."
-msgstr ""
-"内核 RPM 捆绑包也可以手动安装在本地计算机上进行测试。此方法对于个人开发或测试非常有效。如需使用可扩展性和可自定义性更好的方法，可考虑使用 "
-":ref:`mixer` 为自定义内核提供更新。"
+msgstr "内核 RPM 捆绑包也可以手动安装在本地计算机上进行测试。此方法对于个人开发或测试非常有效。如需使用可扩展性和可自定义性更好的方法，可考虑使用 :ref:`mixer` 为自定义内核提供更新。"
+
 
 #: ../../guides/kernel/kernel-development.rst:410
 msgid ""
@@ -666,4 +649,5 @@ msgstr ":ref:`mixer`"
 #~ "Linux kernel source code`_ and are "
 #~ "in the kernel source working directory."
 #~ msgstr ""
+
 

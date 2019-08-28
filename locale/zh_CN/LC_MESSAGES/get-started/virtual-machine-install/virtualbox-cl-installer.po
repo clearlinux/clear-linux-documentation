@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 17:23-0700\n"
-"PO-Revision-Date: 2019-08-26 11:48-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: \n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -46,7 +46,7 @@ msgstr "在主机系统上从 EFI/BIOS 启用虚拟化功能，例如 `Intel® V
 msgid ""
 "Download and install |VB| **version 6.0 or later** from `VirtualBox`_ "
 "using the  `VirtualBox Installation Instructions`_ for your platform."
-msgstr "利用适用于您的平台的 `VirtualBox Installation Instructions`_ 从 `VirtualBox`_ 下 载并安装 |VB| **6.0 或更高版本**"
+msgstr "使用适用于您的平台的 `VirtualBox Installation Instructions`_，从 `VirtualBox`_ 下载并安装 |VB| **6.0 或更高版本。**"
 
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:25

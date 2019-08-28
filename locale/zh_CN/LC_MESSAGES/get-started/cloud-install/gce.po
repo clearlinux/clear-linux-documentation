@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-26 11:48-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -104,7 +104,7 @@ msgid ""
 "Select the :menuselection:`Storage` item from the sidebar on the left. "
 "You will be sent to the Storage Browser tool or the Cloud Storage "
 "overview page."
-msgstr "从左侧边栏上选择 :menuselection:`存储` 项。此时将您转到 Storage Browser 工具或 Cloud Storage 概览页。"
+msgstr "从左侧边栏上选择 :menuselection:`存储` 项。此时页面将转至 Storage Browser 工具或 Cloud Storage 概览页。"
 
 
 #: ../../get-started/cloud-install/gce.rst:64

@@ -5,22 +5,20 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../get-started/bare-metal-install-server.rst:4
-#, fuzzy
 msgid "Install |CL-ATTR| from the live server"
 msgstr "使用实时服务器将 |CL-ATTR| 安装在裸机上"
 
@@ -56,9 +54,8 @@ msgstr "下载最新的 |CL| 实时服务器映像"
 msgid ""
 "Get the latest |CL| installer image from the `Downloads`_ page. Look for "
 "the :file:`clear-[version number]-live-server.iso` file."
-msgstr ""
-"从 `Downloads`_ 页面获取最新的 |CL| 安装程序映像。查找 :file:`clear-[version number]-live-"
-"server.iso` 文件。"
+msgstr "从 `Downloads`_ 页面获取最新的 |CL| 安装程序映像。查找 :file:`clear-[version number]-live-server.iso` 文件。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:28
 msgid "Verify and decompress the file per your OS."
@@ -179,15 +176,14 @@ msgid ""
 "To fulfill minimum installation requirements, complete the `Required "
 "options`_. While not required, we encourage you to apply the `Recommended"
 " options`_. `Advanced options`_ are optional."
-msgstr ""
-"要满足最低安装要求，请填写 `Required options`_。我们鼓励您应用 `Recommended "
-"options`_，尽管它们并非必需的。`Advanced options`_ 是可选的。"
+msgstr "要满足最低安装要求，请填写 `Required options`_。我们建议您选择 `Recommended options`_ （非必选）。`Advanced options`_ 为可选项 。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:110
 msgid ""
 "The :kbd:`Install` button is **only highlighted after** you complete "
 "`Required options`_."
-msgstr "仅当填写 `Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
+msgstr "仅当填写 `Required options`_ 后才会高亮显示:kbd:` 安装`按钮。"
 
 #: ../../get-started/bare-metal-install-server.rst:114
 msgid "Main Menu"
@@ -206,9 +202,8 @@ msgid ""
 "The |CL| Installer Main Menu has two tabs: :guilabel:`[R] Required "
 "options` and :guilabel:`[A] Advanced options`. Navigate between tabs "
 "using the arrow these shortcut keys:"
-msgstr ""
-"|CL| 安装程序“Main Menu”有两个选项卡，即 :guilabel:`[R] Required options` 和 "
-":guilabel:`[A] Advanced options`。使用以下快捷键可在这两个选项卡之间切换："
+msgstr "|CL| 安装程序“Main Menu”有两个选项卡，即 :guilabel:`[R] Required options` 和 :guilabel:`[A] Advanced options`。使用以下快捷键可在这两个选项卡之间切换："
+
 
 #: ../../get-started/bare-metal-install-server.rst:127
 msgid ":kbd:`Shift+A` for :guilabel:`[A] Advanced options`"
@@ -223,9 +218,8 @@ msgid ""
 "To meet the minimum requirements, enter your choices in the "
 ":guilabel:`Required options`. After confirmation, your selections appear "
 "beside the :guilabel:`>>` chevron, below the menu options."
-msgstr ""
-"要满足最低要求，请在:guilabel:`Required options` 中输入您的设置。确认后，您选择的设置会出现在菜单选项下的 "
-":guilabel:`>>` 标志旁边。"
+msgstr "要满足最低要求，请在:guilabel:`Required options` 中输入您的设置。确认后，您选择的设置会出现在菜单选项下的 :guilabel:`>>` 标志旁边。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:135
 msgid "Navigation"
@@ -333,9 +327,8 @@ msgstr "从“Main Menu”中，选择:guilabel:`Configure Installation Media`�
 msgid ""
 "Choose an installation method: * `Safe Installation`_ * `Destructive "
 "Installation`_ * `Advanced Configuration`_"
-msgstr ""
-"选择安装方法：* `Safe Installation`_ * `Destructive Installation`_ * `Advanced "
-"Configuration`_"
+msgstr "选择安装方法：* `Safe Installation`_ * `Destructive Installation`_ * `Advanced Configuration`_"
+
 
 #: ../../get-started/bare-metal-install-server.rst:219
 msgid "Figure 8: Select Installation Media"
@@ -355,9 +348,8 @@ msgid ""
 "alongside existing partitions, and accept the `Default partition "
 "schema`_. If enough free space exists, safe installation is allowed. See "
 "also `Troubleshooting`_ below."
-msgstr ""
-"使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition "
-"schema`_。如果有足够的可用空间，则可以执行安全安装。另请参阅下面的 `Troubleshooting`_。"
+msgstr "使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition schema`_。如果有足够的可用空间，则可以执行安全安装。另请参阅下面的 `Troubleshooting`_。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:234
 msgid "Destructive Installation"
@@ -374,9 +366,8 @@ msgid ""
 "From the :guilabel:`Select Installation Media` menu, select "
 ":guilabel:`Enable Encryption` to encrypt the root filesystem for either "
 "option above. See also `Disk encryption`_ for more information."
-msgstr ""
-"从:guilabel:`Select Installation Media` 菜单中，选择:guilabel:`Enable "
-"Encryption` 对上述任一选项的根文件系统进行加密。有关详细信息，另请参阅 `Disk encryption`_。"
+msgstr "从:guilabel:`Select Installation Media` 菜单中，选择:guilabel:`Enable Encryption` 对上述任一选项的根文件系统进行加密。有关详细信息，另请参阅 `Disk encryption`_。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:246
 msgid "Advanced Configuration"
@@ -387,9 +378,8 @@ msgid ""
 "Use this method to manually configure partitions. These must meet "
 "`Default partition schema`_. You may also choose `Disk encryption`_ "
 "during configuration of each partition."
-msgstr ""
-"使用此方法可手动配置分区。这些分区必须符合 `Default partition schema`_。您也可以在配置每个分区时选择 `Disk "
-"encryption`_。"
+msgstr "使用此方法可手动配置分区。这些分区必须符合 `Default partition schema`_。您也可以在配置每个分区时选择 `Disk encryption`_。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:254
 msgid ""
@@ -401,17 +391,15 @@ msgstr "`Advanced Configuration` 在 1.2.0 和更高版本安装程序中可用�
 msgid ""
 "From :guilabel:`Select Installation Media`, shown in Figure 8 above, "
 "select :guilabel:`Advanced Configuration`."
-msgstr ""
-"如上图 8 所示，从:guilabel:`Select Installation Media` 中，选择 :guilabel:`Advanced "
-"Configuration`。"
+msgstr "如上图 8 所示，从:guilabel:`Select Installation Media` 中，选择 :guilabel:`Advanced Configuration`。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:260
 msgid ""
 "In :guilabel:`Advanced Configuration`, navigate to :file:`/dev/sda` and "
 "then press :kbd:`Enter`."
-msgstr ""
-"在 :guilabel:`Advanced Configuration` 中，导航到 :file:`/dev/sda`，然后按 "
-":kbd:`Enter`。"
+msgstr "在 :guilabel:`Advanced Configuration` 中，导航到 :file:`/dev/sda`，然后按 :kbd:`Enter`。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:267
 msgid "Figure 9: Advanced configuration menu"
@@ -540,9 +528,8 @@ msgid ""
 "For greater security, disk encryption is supported using LUKS for the any"
 " partition except `/boot` on |CL|. To encrypt the root partition, see the"
 " example below. Encryption is optional."
-msgstr ""
-"为了进一步增强安全，支持使用 LUKS 对 |CL| 上除 `/boot` "
-"以外的任何分区进行磁盘加密。要加密根分区，请参阅下面的示例。加密是可选的。"
+msgstr "为了进一步增强安全，支持使用 LUKS 对 |CL| 上除 `/boot` 以外的任何分区进行磁盘加密。要加密根分区，请参阅下面的示例。加密是可选的。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:358
 msgid "Encryption Passphrase"
@@ -593,16 +580,13 @@ msgid "Telemetry"
 msgstr "遥测技术"
 
 #: ../../get-started/bare-metal-install-server.rst:395
-#, fuzzy
 msgid ""
 ":ref:`telem-guide` is a |CL| feature that reports failures and crashes to"
 " the |CL| development team for improvements."
-msgstr ""
-":ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请访问我们的 "
-":ref:`telemetry-about` 页面。"
+msgstr ":ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请访问我们的页面。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:398
-#, fuzzy
 msgid "Select your desired option on whether to participate in telemetry."
 msgstr "根据是否要参与`遥测技术`，选择所需的选项。"
 
@@ -673,9 +657,8 @@ msgid ""
 "if you do not have a DHCP server on your network, follow these "
 "instructions to manually configure the network interface. Otherwise, "
 "default network interface settings are automatically applied."
-msgstr ""
-"默认情况下，|CL| 配置为使用 DHCP 自动检测主机网络接口。但是，如果要使用静态 IP 地址，或者如果网络上没有 DHCP "
-"服务器，请按照以下说明手动配置网络接口。否则，系统将自动应用默认网络接口设置。"
+msgstr "默认情况下，|CL| 配置为使用 DHCP 自动检测主机网络接口。但是，如果要使用静态 IP 地址，或者如果网络上没有 DHCP 服务器，请按照以下说明手动配置网络接口。否则，系统将自动应用默认网络接口设置。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:445
 msgid "If DHCP is available, no user selection may be required."
@@ -740,9 +723,8 @@ msgid ""
 "Upon confirming network configuration, the :guilabel:`Testing Networking`"
 " dialogue appears. Assure the result shows success. If a failure occurs, "
 "your changes will not be saved."
-msgstr ""
-"确认网络配置后，将出现 :guilabel:`Testing Networking` "
-"对话框。确保结果显示测试成功。如果测试失败，则不会保存您所做的更改。"
+msgstr "确认网络配置后，将出现 :guilabel:`Testing Networking` 对话框。确保结果显示测试成功。如果测试失败，则不会保存您所做的更改。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:489
 msgid ""
@@ -815,9 +797,8 @@ msgstr "测试网络设置"
 msgid ""
 "To manually assure network connectivity before installing |CL|, select "
 ":guilabel:`Test Network Settings` and select :guilabel:`Enter`."
-msgstr ""
-"要在安装 |CL| 之前手动确保网络连通，请选择 :guilabel:`Test Network Settings`，然后选择 "
-":guilabel:`Enter`。"
+msgstr "要在安装 |CL| 之前手动确保网络连通，请选择 :guilabel:`Test Network Settings`，然后选择 :guilabel:`Enter`。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:530
 msgid "A progress bar appears as shown in Figure 20."
@@ -982,9 +963,8 @@ msgstr "选择:guilabel:`Confirm` 保存所做的更改。"
 msgid ""
 "Optional: In :guilabel:`Modify User`, to delete the user, navigate to the"
 " :guilabel:`Delete` button and select :kbd:`Enter`."
-msgstr ""
-"可选：在 :guilabel:`Modify User` 中，要删除用户，请导航到 :guilabel:`Delete` 按钮，然后选择 "
-":kbd:`Enter`。"
+msgstr "可选：在 :guilabel:`Modify User` 中，要删除用户，请导航到 :guilabel:`Delete` 按钮，然后选择 :kbd:`Enter`。"
+
 
 #: ../../get-started/bare-metal-install-server.rst:660
 msgid "Figure 25: Delete User"
@@ -1344,4 +1324,5 @@ msgstr "macOS\\* 平台：:command:`diskutil list`"
 
 #~ msgid "``root``"
 #~ msgstr ""
+
 
