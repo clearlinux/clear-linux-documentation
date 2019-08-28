@@ -583,7 +583,7 @@ msgstr "遥测技术"
 msgid ""
 ":ref:`telem-guide` is a |CL| feature that reports failures and crashes to"
 " the |CL| development team for improvements."
-msgstr ":ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请访问我们的 :ref:`telemetry-about` 页面。"
+msgstr ":ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请访问我们的页面。"
 
 
 #: ../../get-started/bare-metal-install-server.rst:398

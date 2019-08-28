@@ -539,7 +539,7 @@ msgid ""
 "Choose whether to participate in `telemetry`. :ref:`telem-guide` is a "
 "|CL| feature that reports failures and crashes to the |CL| development "
 "team for improvements."
-msgstr "选择是否参与`遥测技术`。:ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请参阅 :ref:`telemetry-about`。"
+msgstr "选择是否参与`遥测技术`。:ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请参阅。"
 
 
 #: ../../get-started/bare-metal-install-desktop.rst:359
