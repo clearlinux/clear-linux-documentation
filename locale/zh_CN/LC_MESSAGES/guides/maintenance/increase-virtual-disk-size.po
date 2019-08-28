@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -313,5 +313,6 @@ msgstr "**祝贺您！** 您已经调整磁盘、分区和 filesystem 的大小�
 #~ " point, the increase in disk capacity"
 #~ " is usable."
 #~ msgstr ""
+
 
 

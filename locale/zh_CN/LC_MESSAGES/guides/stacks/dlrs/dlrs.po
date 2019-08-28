@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-26 11:48-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -117,7 +117,7 @@ msgstr "深度学习参考堆栈 v1.0，包括最新的 `TensorFlow benchmark re
 msgid ""
 "`DLRS Release notes`_  on Github\\* for the latest release of Deep "
 "Learning Reference Stack."
-msgstr "`DLRS Release notes`_  on Github\\*，了解深度学习参考堆栈的最新版本。"
+msgstr "`DLRS Release notes`_ on Github\\*，了解深度学习参考堆栈的最新版本。"
 
 #: ../../guides/stacks/dlrs/dlrs.rst:57
 msgid ""

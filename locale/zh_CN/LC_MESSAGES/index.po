@@ -25,11 +25,11 @@ msgstr "|CL-PRJ|"
 msgid ""
 "Welcome to the |CL-ATTR| documentation pages, the source for |CL| "
 "documentation."
-msgstr "Welcome to the |CL-ATTR| documentation pages, the source for |CL| documentation."
+msgstr "欢迎来到 |CL-ATTR| 文档页面中，源 |CL| 文件。"
 
 #: ../../index.rst:8
 msgid "Our documentation is divided into the following sections:"
-msgstr "Our documentation is divided into the following sections:"
+msgstr "我们的文档分为以下几个部分："
 
 #: ../../index.rst:11
 msgid ":ref:`get-started`"
@@ -40,7 +40,7 @@ msgid ""
 "If you are new to |CL|, get started quickly with step-by-step "
 "instructions for installing |CL| on bare metal, in a virtual environment,"
 " or as a live image on a USB stick."
-msgstr "If you are new to |CL|, get started quickly with step-by-step instructions for installing |CL| on bare metal, in a virtual environment, or as a live image on a USB stick."
+msgstr "如果你是新的 |CL|，得到与一步一步的指示迅速启动安装 |CL| 在裸机上，在虚拟环境中，或作为一个 USB 记忆棒的实时图像。"
 
 #: ../../index.rst:17
 msgid ":ref:`about`"
@@ -48,14 +48,14 @@ msgstr ":ref:`about`"
 
 #: ../../index.rst:19
 msgid "|CL| is different from other Linux* distributions."
-msgstr "|CL| is different from other Linux* distributions."
+msgstr "|CL| 从其他 Linux* 版本不同。"
 
 #: ../../index.rst:21
 msgid ""
 "Updates, ease of use, and custom derivatives are a few of the differences"
 " this section explains. Orient yourself to these differences and why they"
 " matter to you."
-msgstr "Updates, ease of use, and custom derivatives are a few of the differences this section explains. Orient yourself to these differences and why they matter to you."
+msgstr "更新，易用性和定制衍生品是一些本节介绍的差异。确定自己的方位这些差异，以及为什么他们不管你。"
 
 #: ../../index.rst:29
 msgid ":ref:`guides`"
@@ -65,7 +65,7 @@ msgstr ":ref:`guides`"
 msgid ""
 "Guides cover a range of topics from |CL| features and tooling, to system "
 "maintenance, network, and stacks."
-msgstr "Guides cover a range of topics from |CL| features and tooling, to system maintenance, network, and stacks."
+msgstr "指南涵盖了一系列从 |CL| 功能和工具主题 |CL|，系统维护，网络和堆栈。"
 
 #: ../../index.rst:34
 msgid ":ref:`Use case tutorials <tutorials>`"
@@ -75,7 +75,7 @@ msgstr ":ref:`Use case tutorials <tutorials>`"
 msgid ""
 "Sample use cases, with step-by-step instructions, show how to set up "
 "third-party tools and software with |CL|."
-msgstr "Sample use cases, with step-by-step instructions, show how to set up third-party tools and software with |CL|."
+msgstr "样品使用的情况下，用一步一步的指示，说明如何建立第三方工具和软件 |CL|。"
 
 #: ../../index.rst:39
 msgid ":ref:`reference`"
@@ -85,7 +85,7 @@ msgstr ":ref:`reference`"
 msgid ""
 "This section provides additional reference information on the |CL| "
 "project."
-msgstr "This section provides additional reference information on the |CL| project."
+msgstr "本节提供有关该 |CL| 项目的其他参考信息 |CL|。"
 
 #: ../../index.rst:43
 msgid ":ref:`faq`"
@@ -93,7 +93,7 @@ msgstr ":ref:`faq`"
 
 #: ../../index.rst:45
 msgid "The FAQ section provides answers to commonly asked questions about |CL|."
-msgstr "The FAQ section provides answers to commonly asked questions about |CL|."
+msgstr "常见问题解答部分提供了有关常见问题 |CL|。"
 
 #~ msgid ""
 #~ "If you are new to |CL|, get "

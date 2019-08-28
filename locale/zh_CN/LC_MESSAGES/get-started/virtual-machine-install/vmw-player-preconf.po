@@ -5,23 +5,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:4
 msgid "|CL-ATTR| on VMware\\* Workstation Player (pre-configured image)"
-msgstr ""
+msgstr "VMware\\* Workstation Player (pre-configured image) 上的 |CL-ATTR|"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:6
 msgid ""
@@ -34,16 +33,13 @@ msgid "Overview"
 msgstr "概述"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:16
-#, fuzzy
 msgid ""
 "VMware Workstation 14 Player is a type 2 hypervisor. For example, it runs"
 " on top of Windows\\* or Linux\\* operating system. With VMware ESXi, you"
 " can create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual "
 "Machines)` on your local system."
-msgstr ""
-"VMware Workstation 14 Player 是一个 2 类虚拟机管理程序。它在另一操作系统之上运行，如 Windows\\* 或 "
-"Linux\\*。利用 VMware ESXi，可以在本地系统上创建、配置、管理和运行 |CL-ATTR| :abbr:`VMs (Virtual"
-" Machines)`。"
+msgstr "VMware Workstation 14 Player 是一个类型 2 的管理程序。例如，它可以运行在 Windows\\* 之上或 Linux\\* 操作系统。使用 VMware ESXi，可以创建，配置，管理和本地系统上运行 |CL-ATTR| :abbr:`VMs (Virtual Machines)`。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:23
 msgid ""
@@ -61,9 +57,8 @@ msgid ""
 "Enable :abbr:`Intel® VT (Intel® Virtualization Technology)` and "
 ":abbr:`Intel® VT-d (Intel® Virtualization Technology for Directed I/O)` "
 "in your system's BIOS."
-msgstr ""
-"在系统 BIOS 中启用 :abbr:`Intel® VT (Intel® Virtualization Technology)` 和 "
-":abbr:`Intel® VT-d (Intel® Virtualization Technology for Directed I/O)`。"
+msgstr "在系统 BIOS 中启用 :abbr:`Intel® VT (Intel® Virtualization Technology)` 和 :abbr:`Intel® VT-d (Intel® Virtualization Technology for Directed I/O)`。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:34
 msgid ""
@@ -116,26 +111,23 @@ msgid "Download the latest |CL| VMware image"
 msgstr "下载最新的 |CL| VMware 映像"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:63
-#, fuzzy
 msgid ""
 "Get the latest |CL| VMware image from the `image repository`_. Look for "
 ":file:`clear-[version number]-vmware.vmdk.xz`. You can also use this "
 "command:"
-msgstr ""
-"从 `image`_ 存储库中获取最新的 |CL| VMware 映像。查找 :file:`clear-[version "
-"number]-vmware.vmdk.xz`。还可以使用以下命令："
+msgstr "获得从 `image repository`_ 中的最新 |CL| VMware 映像。寻找 :file:`clear-[version number]-vmware.vmdk.xz`。您也可以使用这个命令："
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:72
-#, fuzzy
 msgid "Decompress and verify the image"
-msgstr "解压 |CL| 映像"
+msgstr "解压缩并验证图像"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:74
 msgid ""
 "Visit :ref:`download-verify-decompress` and follow the instructions for "
 "your Windows\\* or Linux\\* environment. Visit :ref:`image-types` for "
 "additional information about all available |CL| images."
-msgstr ""
+msgstr "访问 :ref:`download-verify-decompress` 然后按照说明为您的 Windows\\* 和 Linux\\* 环境。访问 :ref:`image-types` 有关的所有可用 |CL| 映像的附加信息。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:79
 msgid "Create and configure a new VM"
@@ -160,9 +152,8 @@ msgid ""
 "On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen, "
 "select the :guilabel:`I will install the operating system later` option. "
 "See figure 2."
-msgstr ""
-"在 :guilabel:`Welcome to the New Virtual Machine Wizard` 屏幕上，选择 "
-":guilabel:`I will install the operating system later` 选项。见图 2。"
+msgstr "在 :guilabel:`Welcome to the New Virtual Machine Wizard` 屏幕上，选择 :guilabel:`I will install the operating system later` 选项。见图 2。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:99
 msgid ""
@@ -182,9 +173,8 @@ msgid ""
 "On the :guilabel:`Select a Guest Operating System` screen, set the "
 ":guilabel:`Guest operating system` setting to :guilabel:`Linux`. See "
 "figure 3."
-msgstr ""
-"在 :guilabel:`Select a Guest Operating System` 屏幕上，将 :guilabel:`Guest "
-"operating system` 设置为 :guilabel:`Linux`。见图 3。"
+msgstr "在 :guilabel:`Select a Guest Operating System` 屏幕上，将 :guilabel:`Guest operating system` 设置为 :guilabel:`Linux`。见图 3。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:112
 msgid ""
@@ -196,9 +186,8 @@ msgstr "图 3：VMware Workstation 14 Player - 选择来宾操作系统类型"
 msgid ""
 "Set :guilabel:`Version` setting to :guilabel:`Other Linux 3.x or later "
 "kernel 64-bit`."
-msgstr ""
-"将 :guilabel:`Version` 设置为 :guilabel:`Other Linux 3.x or later kernel "
-"64-bit`。"
+msgstr "将 :guilabel:`Version` 设置为 :guilabel:`Other Linux 3.x or later kernel 64-bit`。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:120
 msgid ""
@@ -217,9 +206,8 @@ msgid ""
 "we attach the pre-configured |CL| VMware image, we will remove the "
 "default virtual disk and replace it with the pre-configured one. See "
 "figure 5."
-msgstr ""
-"在 :guilabel:`Specify Disk Capacity` 屏幕上，点击 :guilabel:`Next` "
-"按钮。默认磁盘设置保持不变。挂载预配置的 |CL| VMware 映像时，我们将移除默认虚拟磁盘，用预配置的磁盘来代替。见图 5。"
+msgstr "在 :guilabel:`Specify Disk Capacity` 屏幕上，点击 :guilabel:`Next` 按钮。默认磁盘设置保持不变。挂载预配置的 |CL| VMware 映像时，我们将移除默认虚拟磁盘，用预配置的磁盘来代替。见图 5。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:141
 msgid "Figure 5: VMware Workstation 14 Player - Set disk capacity"
@@ -229,9 +217,8 @@ msgstr "图 5：VMware Workstation 14 Player - 设置磁盘容量"
 msgid ""
 "On the :guilabel:`Ready to Create Virtual Machine` screen, click the "
 ":guilabel:`Customize Hardware...` button. See figure 6."
-msgstr ""
-"在 :guilabel:`Ready to Create Virtual Machine` 屏幕上，点击 :guilabel:`Customize"
-" Hardware...` 按钮。见图 6。"
+msgstr "在 :guilabel:`Ready to Create Virtual Machine` 屏幕上，点击 :guilabel:`Customize Hardware...` 按钮。见图 6。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:150
 msgid "Figure 6: VMware Workstation 14 Player - Customize hardware"
@@ -251,18 +238,16 @@ msgstr "图 7：VMware Workstation 14 Player - 设置虚拟化引擎选项"
 msgid ""
 "Under the :guilabel:`Virtualization engine` section, check "
 ":guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`."
-msgstr ""
-"在 :guilabel:`Virtualization engine` 部分，选中 :guilabel:`Virtualize Intel "
-"VT-x/EPT or AMD-V/RVI`。"
+msgstr "在 :guilabel:`Virtualization engine` 部分，选中 :guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:165
 msgid ""
 "To disconnect the virtual CD/DVD (IDE) since it is not needed, under the "
 ":guilabel:`Device` list, select :guilabel:`New CD/DVD (IDE)`. See figure "
 "8."
-msgstr ""
-"如果因不再需要而断开虚拟 CD/DVD (IDE)，请在 :guilabel:`Device` 列表中选择 :guilabel:`New "
-"CD/DVD (IDE)`。见图 8。"
+msgstr "如果因不再需要而断开虚拟 CD/DVD (IDE)，请在 :guilabel:`Device` 列表中选择 :guilabel:`New CD/DVD (IDE)`。见图 8。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:172
 msgid "Figure 8: VMware Workstation 14 Player - Disconnect CD/DVD (IDE)"
@@ -292,9 +277,8 @@ msgid ""
 "Move the downloaded and decompressed pre-configured |CL| VMware image "
 "file :file:`clear-[version number]-basic.vmdk` to the directory where "
 "your newly-created VM resides."
-msgstr ""
-"将下载和解压缩的预配置 |CL| VMware 映像文件 :file:`clear-[version number]-basic.vmdk` "
-"移动至新建虚拟机所在的目录。"
+msgstr "将下载和解压缩的预配置 |CL| VMware 映像文件 :file:`clear-[version number]-basic.vmdk` 移动至新建虚拟机所在的目录。"
+
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:190
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:275
@@ -393,7 +377,6 @@ msgid "Enable UEFI boot support"
 msgstr "启用 UEFI 引导支持"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:266
-#, fuzzy
 msgid ""
 "|CL| needs UEFI support to boot. To enable it, add the following line to "
 "the end of your VM's :file:`.vmx` file:"
@@ -690,4 +673,5 @@ msgstr ":ref:`vmware-esxi-preconfigured-cl-image`"
 
 #~ msgid ":ref:`download-verify-decompress-linux`"
 #~ msgstr ":ref:`download-verify-decompress-linux`"
+
 

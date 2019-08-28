@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-21 11:09-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgid ""
 " eliminates the small chance of a corrupted image due to download issues."
 " To support verification, each released |CL| image has a corresponding "
 "SHA512 checksum file designated with the suffix `-SHA512SUMS`."
-msgstr "在使用下载的 |CL| 映像之前，请确认其完整性。本操作消除了由于下载错误导致的罕见映像损坏。为支持确认，发布的每个 |CL| 映像均有相应的 SHA512 校验和 (checksum) 文件，其指定后缀为 `-SHA512SUMS`。"
+msgstr "在使用下载的 |CL| 映像之前，请确认其完整性。本操作消除了由于下载错误导致的罕见映像损坏。为支持确认，每个释放的 |CL| 映像均有一个相应的 SHA512 校验和 (checksum) 文件，其指定后缀为 `-SHA512SUMS`。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:34
 #: ../../guides/maintenance/download-verify-decompress.rst:93
@@ -118,7 +118,7 @@ msgstr "有关映像验证（包括检查证书）的更深入讨论，请参阅
 #: ../../guides/maintenance/download-verify-decompress.rst:108
 #: ../../guides/maintenance/download-verify-decompress.rst:151
 msgid "Decompress the |CL| image"
-msgstr "解压缩 |CL| 映像"
+msgstr "解压 |CL| 映像"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:57
 #: ../../guides/maintenance/download-verify-decompress.rst:153
@@ -126,7 +126,7 @@ msgid ""
 "Released |CL| images are compressed with either GNU zip (*.gz*) or XZ "
 "(*.xz*). The compression type depends on the target platform or "
 "environment. To decompress the image, follow these steps:"
-msgstr "发布的 |CL| 映像以 GNU zip (*.gz*) 或 XZ (*.xz*) 格式压缩。压缩类型取决于目标平台或环境。要解压缩映像，请执行以下步骤："
+msgstr "释放的 |CL| 映像以 GNU zip (*.gz*) 或 XZ (*.xz*) 格式压缩。压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:62
 #: ../../guides/maintenance/download-verify-decompress.rst:115
@@ -135,11 +135,11 @@ msgstr "转到下载映像所在的目录。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:64
 msgid "To decompress an XZ image, enter:"
-msgstr "要解压缩 XZ 映像，输入："
+msgstr "要解压 XZ 映像，输入："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:70
 msgid "To decompress a GZ image, enter:"
-msgstr "要解压缩 GZ 映像，输入："
+msgstr "要解压 GZ 映像，输入："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:81
 msgid "macOS\\* steps"
@@ -157,13 +157,13 @@ msgid ""
 "We compress all released |CL| images by default with either GNU zip "
 "(`.gz`) or xz (`.xz`). The compression type we use depends on the target "
 "platform or environment. To decompress the image, follow these steps:"
-msgstr "默认情况下，我们使用 GNU zip (`.gz`) 或 xz (`.xz`) 压缩所有发布的 |CL| 映像。我们使用的压缩类型取决于目标平台或环境。要解压缩映像，请执行以下步骤："
+msgstr "默认情况下，我们使用 GNU zip (`.gz`) 或 xz (`.xz`) 压缩所有发布的 |CL| 映像。我们使用的压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:116
 msgid ""
 "Use the :command:`gunzip` command to decompress either compression type. "
 "For example:"
-msgstr "使用 :command:`gunzip` 命令解压缩任一种压缩类型。例如："
+msgstr "使用 :command:`gunzip` command 命令解压缩任一种压缩类型。例如："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:126
 msgid "Windows\\* OS steps"

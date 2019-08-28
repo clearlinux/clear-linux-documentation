@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../get-started/bare-metal-install-desktop.rst:4
 msgid "Install |CL-ATTR| from the live desktop"
@@ -137,9 +136,8 @@ msgid ""
 ":guilabel:`Software` icon from the Activities menu, shown in Figure 2. "
 "Ensure a network connection exists before launching the Software "
 "application."
-msgstr ""
-"查看 |CL| 捆绑包内容和其他软件。双击“Activities”菜单中的 :guilabel:`Software` 图标，如图 2 "
-"所示。启动软件应用程序之前，请确保存在网络连接。"
+msgstr "查看 |CL| 捆绑包内容和其他软件。双击“Activities”菜单中的 :guilabel:`Software` 图标，如图 2 所示。启动软件应用程序之前，请确保存在网络连接。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:83
 msgid ""
@@ -275,9 +273,8 @@ msgid ""
 "meet the minimum requirements, enter values in all submenus for the "
 ":guilabel:`Required options`. After you complete them, your selections "
 "appear below submenus and a check mark appears at right."
-msgstr ""
-"出现 |CL| 桌面安装程序“Main Menu”，如图 5 所示。要满足最低要求，请在:guilabel:`Required options` "
-"的所有子菜单中输入值。输入完成后，所选内容将出现在子菜单下方，且右侧会出现一个勾选标记。"
+msgstr "出现 |CL| 桌面安装程序“Main Menu”，如图 5 所示。要满足最低要求，请在:guilabel:`Required options` 的所有子菜单中输入值。输入完成后，所选内容将出现在子菜单下方，且右侧会出现一个勾选标记。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:177
 msgid "Figure 5: Clear Linux OS Desktop Installer - Main Menu"
@@ -295,9 +292,8 @@ msgstr "使用:kbd:`鼠标` 导航或选择选项。"
 msgid ""
 "Use :kbd:`Tab` key to navigate between :guilabel:`Required options` and "
 ":guilabel:`Advanced options`"
-msgstr ""
-"使用 :kbd:`Tab` 键在:guilabel:`Required options` 和:guilabel:`Advanced "
-"options` 之间导航"
+msgstr "使用 :kbd:`Tab` 键在:guilabel:`Required options` 和:guilabel:`Advanced options` 之间导航"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:187
 msgid "Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate the submenus."
@@ -326,9 +322,8 @@ msgid ""
 "In :guilabel:`Select Time Zone`, navigate to the desired time zone. Or "
 "start typing the region and then the city. (.e.g., "
 ":file:`America/Los_Angeles`)."
-msgstr ""
-"在:guilabel:`Select Time Zone` 中，导航到所需时区。或者先键入地区，然后键入城市。（例如 "
-":file:`America/Los_Angeles`）。"
+msgstr "在:guilabel:`Select Time Zone` 中，导航到所需时区。或者先键入地区，然后键入城市。（例如 :file:`America/Los_Angeles`）。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:204
 #: ../../get-started/bare-metal-install-desktop.rst:220
@@ -384,9 +379,8 @@ msgid ""
 "Use this method to safely install |CL| on media with available space, or "
 "alongside existing partitions, and accept the `Default partition "
 "schema`_. If enough free space exists, safe installation is allowed."
-msgstr ""
-"使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition "
-"schema`_。如果有足够的可用空间，则可以执行安全安装。"
+msgstr "使用此方法可将 |CL| 安全地安装在具有可用空间的媒介上，或者将其与现有分区安装在一起，并接受 `Default partition schema`_。如果有足够的可用空间，则可以执行安全安装。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:251
 msgid ""
@@ -396,10 +390,8 @@ msgid ""
 "|CL| partition, and you can select and boot it. However, other BIOSes may"
 " only show the primary partition, in which case you will not be able boot"
 " |CL|. Be aware of this possible limitation."
-msgstr ""
-"|CL| 可与另一个操作系统安装在一起。通常，当您引导系统时，您可以在 BIOS 开机自检阶段按 `F 键` 查看并所选可引导设备或分区。有些 "
-"BIOS 提供 |CL| 分区，您可以选择该分区并引导。但是，其他 BIOS 可能只显示主分区，在这种情况下，您将无法引导 "
-"|CL|。请注意这一潜在限制。"
+msgstr "|CL| 可与另一个操作系统安装在一起。通常，当您引导系统时，您可以在 BIOS 开机自检阶段按 `F 键` 查看并所选可引导设备或分区。有些 BIOS 提供 |CL| 分区，您可以选择该分区并引导。但是，其他 BIOS 可能只显示主分区，在这种情况下，您将无法引导 |CL|。请注意这一潜在限制。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:260
 msgid "Destructive Installation"
@@ -543,14 +535,12 @@ msgid "Telemetry"
 msgstr "遥测技术"
 
 #: ../../get-started/bare-metal-install-desktop.rst:355
-#, fuzzy
 msgid ""
 "Choose whether to participate in `telemetry`. :ref:`telem-guide` is a "
 "|CL| feature that reports failures and crashes to the |CL| development "
 "team for improvements."
-msgstr ""
-"选择是否参与`遥测技术`。:ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| "
-"开发团队报告故障和崩溃以备改进。有关详细信息，请参阅 :ref:`telemetry-about`。"
+msgstr "选择是否参与`遥测技术`。:ref:`telem-guide` 是 |CL| 的一项功能，用来向 |CL| 开发团队报告故障和崩溃以备改进。有关详细信息，请参阅 :ref:`telemetry-about`。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:359
 msgid "From :guilabel:`Required Options`, select :guilabel:`Telemetry`."
@@ -578,9 +568,8 @@ msgid ""
 ":guilabel:`Advanced options`--though they're not required. Doing so "
 "customizes your development environment, so you're ready to go "
 "immediately after reboot."
-msgstr ""
-"填写完 `Required options`_ 后，我们建议您设置:guilabel:`Advanced "
-"options`，尽管它们不是必需的。设置高级选项可以定制开发环境，便于在重启后立即开始使用。"
+msgstr "填写完 `Required options`_ 后，我们建议您设置:guilabel:`Advanced options`，尽管它们不是必需的。设置高级选项可以定制开发环境，便于在重启后立即开始使用。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:381
 msgid "You can always add more bundles later with :ref:`swupd-guide`."
@@ -641,9 +630,8 @@ msgstr "内核配置"
 msgid ""
 "In :guilabel:`Kernel Configuration`, navigate to select your desired "
 "kernel. :guilabel:`Native` is selected by default."
-msgstr ""
-"在 :guilabel:`Kernel Configuration` 中，通过导航选择所需的内核。默认情况下会选择 "
-":guilabel:`Native`。"
+msgstr "在 :guilabel:`Kernel Configuration` 中，通过导航选择所需的内核。默认情况下会选择 :guilabel:`Native`。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:441
 msgid "Figure 16: Kernel Configuration"
@@ -700,9 +688,8 @@ msgid ""
 "If you do not enter a selection for all :guilabel:`Required Options`, the"
 " :guilabel:`Install` button remains disabled, as shown in Figure 19. "
 "Return to `Required Options`_ and make selections."
-msgstr ""
-"如果并没有为所有:guilabel:`Required Options` 设置选项，:guilabel:`Install` "
-"按钮将保持禁用状态，如图 19 所示。返回 `Required options`_ 并进行选择。"
+msgstr "如果并没有为所有:guilabel:`Required Options` 设置选项，:guilabel:`Install` 按钮将保持禁用状态，如图 19 所示。返回 `Required options`_ 并进行选择。"
+
 
 #: ../../get-started/bare-metal-install-desktop.rst:493
 msgid "Figure 19: Required Options - Incomplete"
@@ -1033,4 +1020,5 @@ msgstr "*大小取决于用例/所需的捆绑包。*"
 
 #~ msgid ":ref:`guides`"
 #~ msgstr ""
+
 

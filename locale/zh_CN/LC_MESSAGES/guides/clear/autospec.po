@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../guides/clear/autospec.rst:4
 msgid "autospec"
@@ -30,10 +29,8 @@ msgid ""
 "(RPM Package Manager)` build process using :command:`rpmbuild` requires a"
 " tarball and :file:`.spec` file to start, autospec requires only a "
 "tarball and package name to start."
-msgstr ""
-"**autospec** 是在 |CL-ATTR| 中协助自动创建和维护 RPM 封装的工具。其中，使用 :command:`rpmbuild` "
-"的标准 :abbr:`RPM (RPM Package Manager)` 构建流程需要 tarball 和 :file:`.spec` "
-"文件才能启动，而 autospec 只需 tarball 和软件包名称便可启动。"
+msgstr "**autospec** 是在 |CL-ATTR| 中协助自动创建和维护 RPM 封装的工具。其中，使用 :command:`rpmbuild` 的标准 :abbr:`RPM (RPM Package Manager)` 构建流程需要 tarball 和 :file:`.spec` 文件才能启动，而 autospec 只需 tarball 和软件包名称便可启动。"
+
 
 #: ../../guides/clear/autospec.rst:17
 msgid "Description"
@@ -47,10 +44,8 @@ msgid ""
 " build failures until it has a complete and valid :file:`.spec` file. If "
 "needed, you can influence the behavior of autospec and customize the "
 "build by providing optional `control files`_ to the autospec tool."
-msgstr ""
-"autospec 工具通过分析源代码和 :file:`Makefile` 信息来尝试推断 :file:`.spec` "
-"文件的要求。它会根据从构建失败中发现的新信息不断运行更新后的内部版本，直到它具有完整有效的 :file:`.spec` 文件。如有必要，可以在 "
-"autospec 工具中增加可选的 `control files`_，影响 autospec 的行为，定制内部版本。"
+msgstr "autospec 工具通过分析源代码和 :file:`Makefile` 信息来尝试推断 :file:`.spec` 文件的要求。它会根据从构建失败中发现的新信息不断运行更新后的内部版本，直到它具有完整有效的 :file:`.spec` 文件。如有必要，可以在 autospec 工具中增加可选的 `control files`_，影响 autospec 的行为，定制内部版本。"
+
 
 #: ../../guides/clear/autospec.rst:26
 msgid ""
@@ -59,7 +54,6 @@ msgid ""
 msgstr "autospec 使用 **模拟** 作为沙箱运行内部版本。访问 `mock wiki`_，了解有关使用模拟的其他信息。"
 
 #: ../../guides/clear/autospec.rst:29
-#, fuzzy
 msgid ""
 "For a general understanding of how an RPM works, visit the `rpm website`_"
 " or the `RPM Packaging Guide`_."
@@ -144,10 +138,8 @@ msgid ""
 "and/or editing control files to resolve issues, which may include "
 "dependencies or exclusions. See `autospec README`_ for more information "
 "on control files."
-msgstr ""
-"否则，autospec "
-"会停止构建，以供用户检查，纠正错误。修复源代码问题和/或编辑控制文件，响应构建过程输出，从而解决问题。这些问题可能包括依存关系或排除项。查看 "
-"`autospec README`_，了解有关控制文件的更多信息。"
+msgstr "否则，autospec 会停止构建，以供用户检查，纠正错误。修复源代码问题和/或编辑控制文件，响应构建过程输出，从而解决问题。这些问题可能包括依存关系或排除项。查看 `autospec README`_，了解有关控制文件的更多信息。"
+
 
 #: ../../guides/clear/autospec.rst:81
 msgid "The user resumes the process at step 1 after errors are resolved."
@@ -165,9 +157,8 @@ msgid ""
 "on new information discovered from build failures, until it has a valid "
 ":file:`.spec`. If no build errors occur, RPM packages are successfully "
 "built."
-msgstr ""
-"执行完这些步骤后，autospec 根据从构建失败中发现的新信息继续重新构建软件包，直到它具有有效的 "
-":file:`.spec`。如果未出现构建错误，则会成功构建 RPM 包。"
+msgstr "执行完这些步骤后，autospec 根据从构建失败中发现的新信息继续重新构建软件包，直到它具有有效的 :file:`.spec`。如果未出现构建错误，则会成功构建 RPM 包。"
+
 
 #: ../../guides/clear/autospec.rst:91
 msgid "Examples"
@@ -233,18 +224,15 @@ msgid ""
 "automatically generate an RPM package using the autospec tool. You must "
 "pass the URL to the source tarball and the NAME of the RPM you wish to "
 "create:"
-msgstr ""
-"导航到 autospec 工作区并构建 helloclear RPM。:file:`Makefile` 提供 :command:`make "
-"autospecnew`，可以使用 autospec 工具自动生成 RPM 包。必须将 URL 传递给源 tarball 以及待创建 RPM 的 "
-"NAME："
+msgstr "导航到 autospec 工作区并构建 helloclear RPM。:file:`Makefile` 提供 :command:`make autospecnew`，可以使用 autospec 工具自动生成 RPM 包。必须将 URL 传递给源 tarball 以及待创建 RPM 的 NAME："
+
 
 #: ../../guides/clear/autospec.rst:151
 msgid ""
 "The resulting RPMs are in :file:`./packages/helloclear/rpms`. Build logs "
 "and additional RPMs are in :file:`./packages/helloclear/results`."
-msgstr ""
-"生成的 RPM 位于 :file:`./packages/helloclear/rpms`。构建日志和其他 RPM 则位于 "
-":file:`./packages/helloclear/results`。"
+msgstr "生成的 RPM 位于 :file:`./packages/helloclear/rpms`。构建日志和其他 RPM 则位于 :file:`./packages/helloclear/results`。"
+
 
 #: ../../guides/clear/autospec.rst:155
 msgid "Example 3: Generate a new spec file with a pre-defined package"
@@ -291,9 +279,8 @@ msgid ""
 "that autospec is unable to resolve. In this example, you will add a "
 "missing license and dependencies so autospec can complete a successful "
 "build."
-msgstr ""
-"本例介绍如何修改控制文件，纠正 autospec 无法进行解析的构建问题。在本例中，您会添加缺少的许可证和依存关系，以便 autospec "
-"成功完成构建。"
+msgstr "本例介绍如何修改控制文件，纠正 autospec 无法进行解析的构建问题。在本例中，您会添加缺少的许可证和依存关系，以便 autospec 成功完成构建。"
+
 
 #: ../../guides/clear/autospec.rst:205
 msgid "Navigate to the autospec workspace:"
@@ -326,9 +313,8 @@ msgid ""
 "Add one or more valid license identifiers from the `SPDX License List "
 "<https://spdx.org/licenses/>`_. In the example below, two different "
 "licenses are appropriate based on the opae-sdk project licensing:"
-msgstr ""
-"添加一个或多个来自 `SPDX License List <https://spdx.org/licenses/>`_ "
-"的有效许可证标识符。在下例中，根据 opae-sdk 项目许可，有两个不同的许可证适用："
+msgstr "添加一个或多个来自 `SPDX License List <https://spdx.org/licenses/>`_ 的有效许可证标识符。在下例中，根据 opae-sdk 项目许可，有两个不同的许可证适用："
+
 
 #: ../../guides/clear/autospec.rst:251
 msgid "Run autospec again:"
@@ -353,9 +339,8 @@ msgid ""
 "Search the spec files of upstream |CL| packages to see if the json-c "
 "library is available. In this case, it does exist and we'll add the "
 "json-c 'dev' package into the buildreq_add:"
-msgstr ""
-"搜索上游 |CL| 软件包的规格文件，查看 json-c 库是否可用。在本例中，此库不存在，我们需要将 json-c 'dev’ 软件包添加到 "
-"buildreq_add："
+msgstr "搜索上游 |CL| 软件包的规格文件，查看 json-c 库是否可用。在本例中，此库不存在，我们需要将 json-c 'dev’ 软件包添加到 buildreq_add："
+
 
 #: ../../guides/clear/autospec.rst:293
 msgid ""
@@ -369,9 +354,8 @@ msgid ""
 "Search the spec files of upstream |CL| packages to see if the libuuid "
 "library is available. In this case, it exists in the util-linux package, "
 "so we'll add util-linux-dev package into the buildreq_add:"
-msgstr ""
-"搜索上游 |CL| 软件包的规格文件，查看 libuuid 库是否可用。在本例中，此库存在于 util-linux 软件包中，因此需要将 "
-"util-linux-dev 软件包添加到 buildreq_add："
+msgstr "搜索上游 |CL| 软件包的规格文件，查看 libuuid 库是否可用。在本例中，此库存在于 util-linux 软件包中，因此需要将 util-linux-dev 软件包添加到 buildreq_add："
+
 
 #: ../../guides/clear/autospec.rst:306
 msgid ""
@@ -384,9 +368,8 @@ msgid ""
 "If you need a dependency that does not exist in the |CL| repo, you must "
 "first build it manually (see `Example 2: Build a new RPM`_), then add the"
 " repo so that autospec knows the package exists. For example:"
-msgstr ""
-"如需 |CL| 存储库中不存在的某一依存关系，则须首先对其进行手动构建（请参阅 `Example 2: Build a new "
-"RPM`_），然后添加此存储库，以便 autospec 了解存在此软件包。例如："
+msgstr "如需 |CL| 存储库中不存在的某一依存关系，则须首先对其进行手动构建（请参阅 `Example 2: Build a new RPM`_），然后添加此存储库，以便 autospec 了解存在此软件包。例如："
+
 
 #: ../../guides/clear/autospec.rst:325
 msgid ""
@@ -404,9 +387,8 @@ msgid ""
 "After software has been packaged with autospec, the resulting RPMs can be"
 " tested for functionality before being integrated and deployed into a "
 "|CL| image with the :ref:`Mixer tool <mixer>`."
-msgstr ""
-"使用 autospec 封装软件后，可对生成的 RPM 进行功能测试，然后再用 :ref:`Mixer tool <mixer>` "
-"将其集成和部署到 |CL| 映像。"
+msgstr "使用 autospec 封装软件后，可对生成的 RPM 进行功能测试，然后再用 :ref:`Mixer tool <mixer>` 将其集成和部署到 |CL| 映像。"
+
 
 #: ../../guides/clear/autospec.rst:336
 msgid ""
@@ -429,9 +411,8 @@ msgid ""
 "The |CL| development tooling includes a method to install RPMs into a "
 "|CL| virtual machine running on the KVM hypervisor. Using a :abbr:`VM "
 "(Virtual Machine)` allows testing in a completely isolated environment."
-msgstr ""
-"|CL| 开发工具包括将 RPM 安装到 |CL| 虚拟机（在 KVM 管理程序上运行）的方法。使用 :abbr:`VM (Virtual "
-"Machine)`，可在完全隔离的环境下进行测试。"
+msgstr "|CL| 开发工具包括将 RPM 安装到 |CL| 虚拟机（在 KVM 管理程序上运行）的方法。使用 :abbr:`VM (Virtual Machine)`，可在完全隔离的环境下进行测试。"
+
 
 #: ../../guides/clear/autospec.rst:351
 msgid "To test an autospec-created package inside a VM:"
@@ -442,9 +423,8 @@ msgid ""
 "Download the |CL| KVM image into the :file:`~/clearlinux` directory as "
 ":file:`clear.img`. The location and name :file:`clear.img.xz` is "
 "important for the tooling to work:"
-msgstr ""
-"将 |CL| KVM 映像下载到 :file:`~/clearlinux` 目录，即 :file:`clear.img`。其位置和名称 "
-":file:`clear.img.xz` 对于工具运行都十分重要："
+msgstr "将 |CL| KVM 映像下载到 :file:`~/clearlinux` 目录，即 :file:`clear.img`。其位置和名称 :file:`clear.img.xz` 对于工具运行都十分重要："
+
 
 #: ../../guides/clear/autospec.rst:362
 msgid "Extract the downloaded |CL| KVM image:"
@@ -461,9 +441,8 @@ msgid ""
 "Run :command:`make install` from the package's autospec directory. The "
 ":command:`make install` command mounts the downloaded |CL| KVM image and "
 "installs the autospec-created RPM into it:"
-msgstr ""
-"在此软件包的 autospec 目录中运行 :command:`make install`。:command:`make install` "
-"命令可挂载已下载的 |CL| KVM 映像并将 autospec 创建的 RPM 安装到其中："
+msgstr "在此软件包的 autospec 目录中运行 :command:`make install`。:command:`make install` 命令可挂载已下载的 |CL| KVM 映像并将 autospec 创建的 RPM 安装到其中："
+
 
 #: ../../guides/clear/autospec.rst:385
 msgid ""
@@ -504,9 +483,8 @@ msgid ""
 "Extracting an RPM directly onto a system  offers quicker testing; however"
 " conflicts may occur and responsibility to remove the software after "
 "testing is up to the developer."
-msgstr ""
-"|CL| 开发工具还包括将 autospec 创建的 RPM 从本地解压缩到 |CL| 开发系统进行测试的方法。将 RPM "
-"直接解压缩到系统中，可以加速测试过程，但可能发生冲突。同时，测试后删除软件的责任也取决于开发人员。"
+msgstr "|CL| 开发工具还包括将 autospec 创建的 RPM 从本地解压缩到 |CL| 开发系统进行测试的方法。将 RPM 直接解压缩到系统中，可以加速测试过程，但可能发生冲突。同时，测试后删除软件的责任也取决于开发人员。"
+
 
 #: ../../guides/clear/autospec.rst:419
 msgid ""
@@ -519,9 +497,8 @@ msgid ""
 "Run :command:`make install-local` from the package's autospec directory. "
 "The :command:`make install-local` command extracts the RPM directly onto "
 "the filesystem of the running |CL| system:"
-msgstr ""
-"在此软件包的 autospec 目录中运行 :command:`make install-local`。:command:`make "
-"install-local` 命令会将 RPM 直接解压缩到正在运行的 |CL| 系统的文件系统中："
+msgstr "在此软件包的 autospec 目录中运行 :command:`make install-local`。:command:`make install-local` 命令会将 RPM 直接解压缩到正在运行的 |CL| 系统的文件系统中："
+
 
 #: ../../guides/clear/autospec.rst:430
 msgid ""
@@ -536,15 +513,13 @@ msgid ""
 msgstr "确保该软件已正常安装，然后完成所有相关测试。"
 
 #: ../../guides/clear/autospec.rst:436
-#, fuzzy
 msgid ""
 "After testing has been completed, the software and any related files must"
 " be identified and deleted. The :command:`swupd repair --picky` command "
 "can help restore the state of the :file:`/usr` directory (see :ref:`swupd"
 " <swupd-guide>`) however any other files must be cleaned up manually."
-msgstr ""
-"测试完成后，必须发现并删除该软件和所有相关文件。:command:`swupd repair --picky` 命令有助于还原 "
-":file:`/usr` 目录的状态（请参阅 :ref:`swupd <swupd-about>`），但所有其他文件均须手动清理。"
+msgstr "测试完成后，必须发现并删除该软件和所有相关文件。:command:`swupd repair --picky` 命令有助于还原 :file:`/usr` 目录的状态（请参阅 :ref:`swupd <swupd-guide>`），但所有其他文件均须手动清理。"
+
 
 #: ../../guides/clear/autospec.rst:444
 msgid "References"
@@ -565,9 +540,8 @@ msgid ""
 "Setup of the workspace and tooling used for building source in |CL| is "
 "mostly automated for you with a setup script. It uses tools from the "
 ":command:`os-clr-on-clr` bundle."
-msgstr ""
-"在 |CL| 中构建源代码所需的工作空间和工具设置操作大多数可通过设置脚本自动执行。该设置脚本使用来自 :command:`os-clr-on-"
-"clr` 捆绑包的工具。"
+msgstr "在 |CL| 中构建源代码所需的工作空间和工具设置操作大多数可通过设置脚本自动执行。该设置脚本使用来自 :command:`os-clr-on-clr` 捆绑包的工具。"
+
 
 #: ../../guides/clear/autospec.rst:457
 msgid ""
@@ -575,10 +549,8 @@ msgid ""
 "with the subfolders :file:`Makefile`, :file:`packages`, and "
 ":file:`projects`. The :file:`projects` folder contains the main tools "
 "used for making packages in |CL| :file:`autospec` and :file:`common`."
-msgstr ""
-"该设置脚本会在 :file:`clearlinux` 文件夹（其中包含 :file:`Makefile`、:file:`packages` 和 "
-":file:`projects` 子文件夹）中创建一个工作空间。:file:`projects` 文件夹包含在 |CL| "
-"中制作软件包的主要工具，即 :file:`autospec` 和 :file:`common`。"
+msgstr "该设置脚本会在 :file:`clearlinux` 文件夹（其中包含 :file:`Makefile`、:file:`packages` 和 :file:`projects` 子文件夹）中创建一个工作空间。:file:`projects` 文件夹包含在 |CL| 中制作软件包的主要工具，即 :file:`autospec` 和 :file:`common`。"
+
 
 #: ../../guides/clear/autospec.rst:462
 msgid "Follow these steps to setup the workspace and tooling for building source:"
@@ -635,4 +607,5 @@ msgstr ":ref:`Mixer tool <mixer>`"
 #~ " *install-local:*  target in the "
 #~ "`Makefile.common file on GitHub`_."
 #~ msgstr ""
+
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0008\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -205,7 +205,7 @@ msgid ""
 "With a glance at the |CL| version numbers deployed, you should be able to"
 " tell if your Clear systems are patched against a particular security "
 "vulnerability or incorporate a critical new feature."
-msgstr "只要看一眼所部署的 |CL| 版本号，您就应该知道您的 Clear Linux 操作系统是否为特定安全漏洞打上了补丁或者是否纳入了重要的新功能。"
+msgstr "只要看一眼所部署的 |CL| 版本号，您就应该知道您的 Clear Linux OS 是否为特定安全漏洞打上了补丁或者是否纳入了重要的新功能。"
 
 #: ../../guides/deploy-at-scale.rst:117
 msgid "Pick an image distribution strategy"
@@ -598,5 +598,6 @@ msgstr "应用程序架构应该针对基础设施中断具有适当的容错能
 #~ " endpoints see the `documentation on "
 #~ "bulk provisioning`_ ."
 #~ msgstr ""
+
 
 

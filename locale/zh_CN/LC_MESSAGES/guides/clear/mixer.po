@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+msgstr "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../guides/clear/mixer.rst:4
 msgid "mixer"
@@ -30,9 +29,8 @@ msgid ""
 "then consumed by swupd on a downstream client. The same mixer tool is "
 "available as part of |CL| to create your own customized update content "
 "and releases."
-msgstr ""
-"**mixer** 是 |CL-ATTR| 团队用于生成官方更新内容和版本的工具。mixer 生成的更新内容随后会在下游客户端上供 swupd "
-"使用。该 mixer 工具也可以成为 |CL| 功能，用来创建自己的定制更新内容和版本。"
+msgstr "**mixer** 是 |CL-ATTR| 团队用于生成官方更新内容和版本的工具。mixer 生成的更新内容随后会在下游客户端上供 swupd 使用。该 mixer 工具也可以成为 |CL| 功能，用来创建自己的定制更新内容和版本。"
+
 
 #: ../../guides/clear/mixer.rst:16
 msgid "Description"
@@ -72,11 +70,8 @@ msgid ""
 "produced by mixer is then published to a web server and consumed by "
 "clients via swupd. Refer to :ref:`swupd <swupd-guide>` for additional "
 "information regarding updates and update content."
-msgstr ""
-"mixer "
-"生成的更新内容包括各种操作系统内容、更新元数据和完整映像。操作系统内容包括所有更新文件，以及用于提升更新性能的零包和增量包。作为清单存储的更新元数据则描述了更新的所有"
-" bundle 文件信息。mixer 生成的更新内容随后会发布到 Web 服务器，然后由客户端通过 swupd 使用。请参阅 "
-":ref:`swupd <swupd-guide>`，了解有关更新和更新内容的其他信息。"
+msgstr "mixer 生成的更新内容包括各种操作系统内容、更新元数据和完整映像。操作系统内容包括所有更新文件，以及用于提升更新性能的零包和增量包。作为清单存储的更新元数据则描述了更新的所有 bundle 文件信息。mixer 生成的更新内容随后会发布到 Web 服务器，然后由客户端通过 swupd 使用。请参阅 :ref:`swupd <swupd-guide>`，了解有关更新和更新内容的其他信息。"
+
 
 #: ../../guides/clear/mixer.rst:32
 msgid "How it works"
@@ -98,9 +93,8 @@ msgstr ":command:`mixer` bundle 文件"
 msgid ""
 "Add the mixer tool with the :command:`mixer` bundle. Refer to :ref"
 ":`swupd-guide` for more information on installing bundles."
-msgstr ""
-"通过 :command:`mixer` bundle 文件添加 mixer 工具。请参阅 :ref:`swupd-guide`，了解有关安装 "
-"bundle 文件的更多信息。"
+msgstr "通过 :command:`mixer` bundle 文件添加 mixer 工具。请参阅 :ref:`swupd-guide`，了解有关安装 bundle 文件的更多信息。"
+
 
 #: ../../guides/clear/mixer.rst:48
 msgid "Docker\\* container"
@@ -113,10 +107,8 @@ msgid ""
 "automatically perform downstream format bumps when the upstream releases "
 "a format bump. See `Format version`_ for additional information regarding"
 " format bumps."
-msgstr ""
-"默认情况下，mixer 会在 Docker "
-"容器中运行所有构建命令，确保使用正确的工具版本。此外，此操作还会在上游发布新的时间戳时允许定制组合自动执行下游时间戳转换。请参阅 `Format "
-"version`_，了解有关时间戳转换的其他信息。"
+msgstr "默认情况下，mixer 会在 Docker 容器中运行所有构建命令，确保使用正确的工具版本。此外，此操作还会在上游发布新的时间戳时允许定制组合自动执行下游时间戳转换。请参阅 `Format version`_，了解有关时间戳转换的其他信息。"
+
 
 #: ../../guides/clear/mixer.rst:56
 msgid "Refer to `Configure and enable Docker`_ for instruction."
@@ -180,9 +172,8 @@ msgid ""
 " a basic directory structure. The workspace is simply an empty folder "
 "from which you execute the mixer commands. Each mix uses its own separate"
 " workspace."
-msgstr ""
-"mixer 工具使用简易工作区包含基本目录结构中的所有输入和输出。此工作区只是一个空文件夹，可以在此文件夹中执行 mixer "
-"命令。每个组合均使用自己的独立工作区。"
+msgstr "mixer 工具使用简易工作区包含基本目录结构中的所有输入和输出。此工作区只是一个空文件夹，可以在此文件夹中执行 mixer 命令。每个组合均使用自己的独立工作区。"
+
 
 #: ../../guides/clear/mixer.rst:90
 msgid "Initialize the workspace and mix."
@@ -196,10 +187,8 @@ msgid ""
 "latest upstream version and starts with the minimum set of bundles. Your "
 "first custom mix version number starts at 10. Alternatively, you can "
 "select other versions or bundle sets from which to start."
-msgstr ""
-"创建组合前，必须显式初始化 mixer 工作区。初始化期间，系统将配置 mixer "
-"工作区并定义组合基础。默认情况下，组合以最新的上游版本为基础创建，一开始只包含最少的 bundle 文件。第一个定制组合版本号以 10 "
-"开始。也可以选择要从中启动的其他版本或 bundle 文件集。"
+msgstr "创建组合前，必须显式初始化 mixer 工作区。初始化期间，系统将配置 mixer 工作区并定义组合基础。默认情况下，组合以最新的上游版本为基础创建，一开始只包含最少的 bundle 文件。第一个定制组合版本号以 10 开始。也可以选择要从中启动的其他版本或 bundle 文件集。"
+
 
 #: ../../guides/clear/mixer.rst:99
 msgid ""
@@ -227,9 +216,8 @@ msgid ""
 ":file:`builder.conf` tells the mixer tool how to configure the mix. For "
 "example, it allows you to configure where mixer output is located and "
 "where swupd update content will be located."
-msgstr ""
-"mixer 工具根据 :file:`builder.conf` 知道如何配置组合。例如，可以配置 mixer 输出的所在位置以及 swupd "
-"更新内容的所在位置。"
+msgstr "mixer 工具根据 :file:`builder.conf` 知道如何配置组合。例如，可以配置 mixer 输出的所在位置以及 swupd 更新内容的所在位置。"
+
 
 #: ../../guides/clear/mixer.rst:113
 msgid ""
@@ -265,9 +253,8 @@ msgid ""
 "scratch. If the RPMs are not built on |CL|, make sure your configuration "
 "and toolchain builds them correctly for |CL|. Otherwise there is no "
 "guarantee they will be compatible."
-msgstr ""
-"转到 :ref:`autospec<autospec>` 指南，了解如何从头构建 RPM。如果未在 |CL| 上构建 "
-"RPM，则请确保配置和工具链会为 |CL| 正确构建 RPM，否则便无法保证其兼容。"
+msgstr "转到 :ref:`autospec<autospec>` 指南，了解如何从头构建 RPM。如果未在 |CL| 上构建 RPM，则请确保配置和工具链会为 |CL| 正确构建 RPM，否则便无法保证其兼容。"
+
 
 #: ../../guides/clear/mixer.rst:133
 msgid ""
@@ -284,9 +271,8 @@ msgid ""
 "Add, edit, or remove bundles that will be part of your content and build "
 "them. mixer automatically updates the :file:`mixbundles` file when you "
 "update the bundles in your mix."
-msgstr ""
-"添加、编辑或删除将纳入内容的 bundle 文件并对其进行构建。更新组合中的 bundle 文件时，mixer 会自动更新 "
-":file:`mixbundles` 文件。"
+msgstr "添加、编辑或删除将纳入内容的 bundle 文件并对其进行构建。更新组合中的 bundle 文件时，mixer 会自动更新 :file:`mixbundles` 文件。"
+
 
 #: ../../guides/clear/mixer.rst:142
 msgid ""
@@ -341,9 +327,8 @@ msgid ""
 ":ref:`ister` tool. In this step you can specify which bundles you want "
 "*preinstalled* in the image. Users can later install other bundles "
 "available in your mix."
-msgstr ""
-"mixer 使用 :ref:`ister` 工具从更新后的内容创建可引导映像。在此步骤中，可以指定要在映像中*预安装*的 bundle "
-"文件。随后，用户可以安装组合中的其他 bundle 文件。"
+msgstr "mixer 使用 :ref:`ister` 工具从更新后的内容创建可引导映像。在此步骤中，可以指定要在映像中*预安装*的 bundle 文件。随后，用户可以安装组合中的其他 bundle 文件。"
+
 
 #: ../../guides/clear/mixer.rst:171
 msgid "Make update available."
@@ -417,18 +402,16 @@ msgid ""
 "upstream |CL| version, with minimum bundles. In the initialization "
 "output, be aware that your initial mix version is set to 10 and that the "
 "minimum bundles have been added."
-msgstr ""
-"在 mixer 工作区中，根据最新的上游 |CL| 版本生成初始组合，包含最少的 bundle 文件。在初始化输出中，请注意初始组合版本已设为 "
-"10，添加了最少的 bundle 文件。"
+msgstr "在 mixer 工作区中，根据最新的上游 |CL| 版本生成初始组合，包含最少的 bundle 文件。在初始化输出中，请注意初始组合版本已设为 10，添加了最少的 bundle 文件。"
+
 
 #: ../../guides/clear/mixer.rst:219
 msgid ""
 "Edit :file:`builder.conf` to set the value of CONTENTURL and VERSIONURL "
 "to the IP address of  the nginx\\* server you set up in the prerequisite "
 "`Set up a nginx web server for mixer`_. For example:"
-msgstr ""
-"编辑 :file:`builder.conf`，将 CONTENTURL 和 VERSIONURL 的值设为在前提条件 `Set up a "
-"nginx web server for mixer`_ 中所设 nginx\\* 服务器的 IP 地址。例如："
+msgstr "编辑 :file:`builder.conf`，将 CONTENTURL 和 VERSIONURL 的值设为在前提条件 `Set up a nginx web server for mixer`_ 中所设 nginx\\* 服务器的 IP 地址。例如："
+
 
 #: ../../guides/clear/mixer.rst:229
 msgid "Example 2: Create a simple mix"
@@ -448,9 +431,8 @@ msgid ""
 " used on a bare metal system instead of a VM. So we will modify the "
 "default bundle set to get a smaller kernel image, which will also be "
 "faster to load."
-msgstr ""
-"我们可以使用初始化期间添加的默认 bundle 文件，但其中包括 :command:`native-kernel` bundle 文件，而此 "
-"bundle 文件主要用于裸机系统而非虚拟机。因此，我们要修改默认的 bundle 文件集，缩小内核映像，提高加载速度。"
+msgstr "我们可以使用初始化期间添加的默认 bundle 文件，但其中包括 :command:`native-kernel` bundle 文件，而此 bundle 文件主要用于裸机系统而非虚拟机。因此，我们要修改默认的 bundle 文件集，缩小内核映像，提高加载速度。"
+
 
 #: ../../guides/clear/mixer.rst:240
 msgid "Update bundles in mix:"
@@ -478,9 +460,8 @@ msgstr "构建 bundle 文件："
 msgid ""
 "Look in ~/mixer/update/image/<mix version>/full for the full chroot after"
 " the :command:`build` command completes."
-msgstr ""
-":command:`build` 命令完成后，在 ~/mixer/update/image/<mix version>/full 中查找完整 "
-"chroot。"
+msgstr ":command:`build` 命令完成后，在 ~/mixer/update/image/<mix version>/full 中查找完整 chroot。"
+
 
 #: ../../guides/clear/mixer.rst:277
 msgid ""
@@ -507,18 +488,16 @@ msgid ""
 "include all of the bundles you want preinstalled in the image. If this is"
 " the first time creating an image, first get a copy of the :file"
 ":`release-image-config.json` template file:"
-msgstr ""
-"配置映像。编辑映像的 ister 配置文件，包含要在映像中预安装的所有 bundle 文件。如果是首次创建映像，则需首先获取 :file"
-":`release-image-config.json` 模板文件的副本："
+msgstr "配置映像。编辑映像的 ister 配置文件，包含要在映像中预安装的所有 bundle 文件。如果是首次创建映像，则需首先获取 :file:`release-image-config.json` 模板文件的副本："
+
 
 #: ../../guides/clear/mixer.rst:299
 msgid ""
 "For this example, edit :file:`release-image-config.json` so that the root"
 " partition size is \"5G\" and replace the \"kernel-native\" bundle with "
 "\"kernel-kvm\"."
-msgstr ""
-"在本例中，编辑 :file:`release-image-config.json`，使 root 分区的大小为 \"5G\"，同时将 "
-"\"kernel-native\" bundle 文件更换为 \"kernel-kvm\"。"
+msgstr "在本例中，编辑 :file:`release-image-config.json`，使 root 分区的大小为 \"5G\"，同时将 \"kernel-native\" bundle 文件更换为 \"kernel-kvm\"。"
+
 
 #: ../../guides/clear/mixer.rst:319
 msgid "Build the image."
@@ -560,9 +539,8 @@ msgid ""
 "example, we'll boot the image from Example 2 to verify it, and update the"
 " image from mix version 10 (from which the image was built), to mix "
 "version 20."
-msgstr ""
-"在例 2 中创建的映像可以在 QEMU 中直接引导。在本例中，我们会引导例 2 中的映像，对其进行验证，然后将映像从组合版本 "
-"10（原始映像）更新到组合版本 20。"
+msgstr "在例 2 中创建的映像可以在 QEMU 中直接引导。在本例中，我们会引导例 2 中的映像，对其进行验证，然后将映像从组合版本 10（原始映像）更新到组合版本 20。"
+
 
 #: ../../guides/clear/mixer.rst:361
 msgid "Set up the QEMU environment."
@@ -646,9 +624,8 @@ msgid ""
 " configuration for the mixer tool. The items of primary interest are "
 "CONTENTURL and VERSIONURL, which will be used by systems updating against"
 " your custom content."
-msgstr ""
-"mixer 初始化过程中会创建 :file:`builder.conf`。文件中包含 mixer 工具的基本配置。其中的主要项目为 "
-"CONTENTURL 和 VERSIONURL。系统会根据定制内容使用这些项目。"
+msgstr "mixer 初始化过程中会创建 :file:`builder.conf`。文件中包含 mixer 工具的基本配置。其中的主要项目为 CONTENTURL 和 VERSIONURL。系统会根据定制内容使用这些项目。"
+
 
 #: ../../guides/clear/mixer.rst:487
 msgid ""
@@ -675,9 +652,8 @@ msgid ""
 "if you do not provide the path to an existing one, and signs the "
 ":file:`Manifest.MoM` file to provide security for the updated content you"
 " create."
-msgstr ""
-"设置 mixer 存储证书文件的路径。该文件用于签署内容并进行验证。如果不提供现有证书文件的路径，mixer 则会自动生成证书，同时会签署 "
-":file:`Manifest.MoM` 文件，为创建的更新内容提供安全保障。"
+msgstr "设置 mixer 存储证书文件的路径。该文件用于签署内容并进行验证。如果不提供现有证书文件的路径，mixer 则会自动生成证书，同时会签署 :file:`Manifest.MoM` 文件，为创建的更新内容提供安全保障。"
+
 
 #: ../../guides/clear/mixer.rst:500
 msgid ""
@@ -748,9 +724,8 @@ msgid ""
 "Sets the path where mixer stores the local bundle definition files. The "
 "bundle definition files include any new, original bundles you create, "
 "along with any edited versions of upstream bundles."
-msgstr ""
-"设置 mixer 存储本地 bundle 定义文件的路径。bundle 定义文件包括用户创建的所有原创新 bundle 文件，还有上游 "
-"bundle 文件的编辑版本。"
+msgstr "设置 mixer 存储本地 bundle 定义文件的路径。bundle 定义文件包括用户创建的所有原创新 bundle 文件，还有上游 bundle 文件的编辑版本。"
+
 
 #: ../../guides/clear/mixer.rst:536
 msgid "`SERVER_STATE_DIR`"
@@ -771,9 +746,8 @@ msgid ""
 "Sets the path for the mix version and upstream version's two state files:"
 " :file:`mixversion` and :file:`upstreamversion`. mixer creates both files"
 " for you when you set up the workspace."
-msgstr ""
-"设置组合版本以及上游版本的两个状态文件的路径：:file:`mixversion` 和 "
-":file:`upstreamversion`。设置工作区时，mixer 会为您创建这两个文件。"
+msgstr "设置组合版本以及上游版本的两个状态文件的路径：:file:`mixversion` 和 :file:`upstreamversion`。设置工作区时，mixer 会为您创建这两个文件。"
+
 
 #: ../../guides/clear/mixer.rst:544
 msgid "`YUM_CONF`"
@@ -807,10 +781,8 @@ msgid ""
 " set as the `Format` variable in the :file:`mixer.state` file. Variables "
 "in the :file:`mixer.state` are used by mixer between executions and "
 "should not be manually changed."
-msgstr ""
-"操作系统的兼容版本通过操作系统 *兼容性时间戳* "
-"进行跟踪。某一时间戳的各版本操作系统均完全兼容，并可更新到该时间戳中的任意其他版本。兼容性时间戳在 :file:`mixer.state` "
-"文件中作为 `Format` 变量进行设置。:file:`mixer.state` 中的变量由 mixer 在执行间隔使用，且不应手动更改。"
+msgstr "操作系统的兼容版本通过操作系统 *兼容性时间戳* 进行跟踪。某一时间戳的各版本操作系统均完全兼容，并可更新到该时间戳中的任意其他版本。兼容性时间戳在 :file:`mixer.state` 文件中作为 `Format` 变量进行设置。:file:`mixer.state` 中的变量由 mixer 在执行间隔使用，且不应手动更改。"
+
 
 #: ../../guides/clear/mixer.rst:563
 msgid ""
@@ -818,10 +790,8 @@ msgid ""
 " level. If `Format` increments to a new epoch (a \"format bump\"), the OS"
 " has changed in such a way that updating from build A in format X to "
 "build B in format Y will not work."
-msgstr ""
-"format bump 会改变 house 的基础，创建一个新层级。如果 `Format` 递增至新的阶段（ \"format "
-"bump\"），操作系统会以这种方式发生改变：从 format X 构成的 build A 更新至 format Y 构成的 build B "
-"将无法完成。"
+msgstr "format bump 会改变 house 的基础，创建一个新层级。如果 `Format` 递增至新的阶段（ \"format bump\"），操作系统会以这种方式发生改变：从 format X 构成的 build A 更新至 format Y 构成的 build B 将无法完成。"
+
 
 #: ../../guides/clear/mixer.rst:568
 msgid "A format bump is required when:"
@@ -846,9 +816,8 @@ msgid ""
 "latest release in its respective format version, unless overridden by "
 "command line flags. In this way, we can guarantee that all clients update"
 " to the final version in their given format."
-msgstr ""
-"使用 Format "
-"增量可以确保必需进行的更改和同时需要进行的更改以正确的顺序进行。除非使用命令行标志覆盖，否则更新后的客户端只会更新采用各自时间戳格式版本的最新版本。如此一来，便可确保所有客户端均更新采用给定时间戳格式的最终版本。"
+msgstr "使用 Format 增量可以确保必需进行的更改和同时需要进行的更改以正确的顺序进行。除非使用命令行标志覆盖，否则更新后的客户端只会更新采用各自时间戳格式版本的最新版本。如此一来，便可确保所有客户端均更新采用给定时间戳格式的最终版本。"
+
 
 #: ../../guides/clear/mixer.rst:582
 msgid ""
@@ -856,9 +825,8 @@ msgid ""
 "content built in the next format. Only after reaching the final release "
 "in the old format can a client continue to update to releases in the new "
 "format."
-msgstr ""
-"给定时间戳格式 *必须* "
-"包含理解以下一个时间戳格式构建的内容所需的所有更改。仅当达到采用旧时间戳格式的最终版本后，客户端才能继续更新到采用新时间戳格式的版本。"
+msgstr "给定时间戳格式 *必须* 包含理解以下一个时间戳格式构建的内容所需的所有更改。仅当达到采用旧时间戳格式的最终版本后，客户端才能继续更新到采用新时间戳格式的版本。"
+
 
 #: ../../guides/clear/mixer.rst:584
 msgid ""
@@ -878,28 +846,24 @@ msgid ""
 "VERSIONS_PATH variable in :file:`builder.conf`. :file:`mixbundles` is "
 "automatically created when the mix is initiated. mixer will refresh the "
 "file each time you change the bundles in the mix."
-msgstr ""
-"mixer 将有关 bundle 文件的信息存储在名为 :file:`mixbundles` 的平面文件中。此文件所在的路径是通过文件 "
-":`builder.conf` 中的 VERSIONS_PATH 变量设置的。启动组合时会自动创建 "
-":file:`mixbundles`。每次更改组合中的 bundle 文件时，mixer 均会刷新此文件。"
+msgstr "mixer 将有关 bundle 文件的信息存储在名为 :file:`mixbundles` 的平面文件中。此文件所在的路径是通过文件 :`builder.conf` 中的 VERSIONS_PATH 变量设置的。启动组合时会自动创建 :file:`mixbundles`。每次更改组合中的 bundle 文件时，mixer 均会刷新此文件。"
+
 
 #: ../../guides/clear/mixer.rst:595
 msgid ""
 "Bundles can include other bundles. Nested bundles can themselves include "
 "other bundles. If you see an unexpected bundle in your mix, it is likely "
 "a nested bundle in one of the bundles you explicitly added."
-msgstr ""
-"bundle 文件可以包括其他 bundle 文件。嵌套的 bundle 文件自身可以包含其他 bundle 文件。如果在组合中发现不应该纳入的 "
-"bundle 文件，则可能是先前显式添加的一个 bundle 文件中的嵌套 bundle 文件。"
+msgstr "bundle 文件可以包括其他 bundle 文件。嵌套的 bundle 文件自身可以包含其他 bundle 文件。如果在组合中发现不应该纳入的 bundle 文件，则可能是先前显式添加的一个 bundle 文件中的嵌套 bundle 文件。"
+
 
 #: ../../guides/clear/mixer.rst:599
 msgid ""
 "A bundle will fill into one of two categories: upstream or local. "
 "Upstream bundles are those provided by |CL|. Local bundles are either "
 "modified upstream bundles or new local bundles."
-msgstr ""
-"bundle 文件分为两大类：上游或本地。上游 bundle 文件是 |CL| 提供的 bundle 文件。本地 bundle "
-"文件则要么是修改后的上游 bundle 文件，要么是新的本地 bundle 文件。"
+msgstr "bundle 文件分为两大类：上游或本地。上游 bundle 文件是 |CL| 提供的 bundle 文件。本地 bundle 文件则要么是修改后的上游 bundle 文件，要么是新的本地 bundle 文件。"
+
 
 #: ../../guides/clear/mixer.rst:603
 msgid "Upstream bundles"
@@ -913,18 +877,16 @@ msgid ""
 "This directory is simply a mirror for mixer to use. mixer will "
 "automatically delete the contents of this directory before repopulating "
 "it on-the-fly if a new version must be downloaded."
-msgstr ""
-"mixer 会自动下载和缓存上游 bundle 定义文件。这些定义文件存储在工作区的 upstream-bundles "
-"目录中。请勿修改此目录中的文件。此目录只是供 mixer 使用的镜像。如果必须下载新版本，mixer 则会在动态重新填充之前自动删除该目录的内容。"
+msgstr "mixer 会自动下载和缓存上游 bundle 定义文件。这些定义文件存储在工作区的 upstream-bundles 目录中。请勿修改此目录中的文件。此目录只是供 mixer 使用的镜像。如果必须下载新版本，mixer 则会在动态重新填充之前自动删除该目录的内容。"
+
 
 #: ../../guides/clear/mixer.rst:612
 msgid ""
 "The mixer tool automatically caches the bundles for the |CL| version "
 "configured in the :file:`upstreamversion` file. mixer also cleans up old "
 "versions once they are no longer needed."
-msgstr ""
-"mixer 工具会自动缓存在 :file:`upstreamversion` 文件中配置的 |CL| 版 bundle 文件。此外，mixer "
-"还会在旧版本无需再使用后立即将其清除。"
+msgstr "mixer 工具会自动缓存在 :file:`upstreamversion` 文件中配置的 |CL| 版 bundle 文件。此外，mixer 还会在旧版本无需再使用后立即将其清除。"
+
 
 #: ../../guides/clear/mixer.rst:617
 msgid "Local bundles"
@@ -936,10 +898,8 @@ msgid ""
 "upstream bundles. Local bundle definition files are stored in the local-"
 "bundles directory in the workspace. The LOCAL_BUNDLE_DIR variable sets "
 "the path of this directory in the :file:`builder.conf` file."
-msgstr ""
-"本地 bundle 文件是您创建的 bundle 文件，或是上游 bundle 文件的编辑版本。本地 bundle 定义文件存储在工作区的 "
-"local-bundles 目录中。此目录的路径是通过 :file:`builder.conf` 文件中的 LOCAL_BUNDLE_DIR "
-"变量设置的。"
+msgstr "本地 bundle 文件是您创建的 bundle 文件，或是上游 bundle 文件的编辑版本。本地 bundle 定义文件存储在工作区的 local-bundles 目录中。此目录的路径是通过 :file:`builder.conf` 文件中的 LOCAL_BUNDLE_DIR 变量设置的。"
+
 
 #: ../../guides/clear/mixer.rst:623
 msgid ""
@@ -948,10 +908,8 @@ msgid ""
 "precedence over any upstream bundles that have the same name. This "
 "precedence enables you to copy upstream bundles locally, and edit into a "
 "local variation."
-msgstr ""
-"*mixer 始终会先检查本地 bundle 文件，然后再检查上游 bundle 文件。* 因此，local-bundles 目录中的 "
-"bundle 文件始终优先于同名的上游 bundle 文件。利用此优先特性，可以将上游 bundle 文件复制到本地，然后进行编辑，变为本地 "
-"bundle 文件。"
+msgstr "*mixer 始终会先检查本地 bundle 文件，然后再检查上游 bundle 文件。* 因此，local-bundles 目录中的 bundle 文件始终优先于同名的上游 bundle 文件。利用此优先特性，可以将上游 bundle 文件复制到本地，然后进行编辑，变为本地 bundle 文件。"
+
 
 #: ../../guides/clear/mixer.rst:630
 msgid "Bundle configuration"
@@ -963,9 +921,8 @@ msgid ""
 "add a bundle to a mix, to create a new bundle for a mix, or to remove a "
 "bundle from a mix. View the `mixer.bundle man page`_ for a full list of "
 "commands and more information on configuring bundles in a mix."
-msgstr ""
-"mixer 提供命令来配置组合的 bundle 文件，例如将 bundle 文件添加到组合中，为组合创建新的 bundle 文件，或从组合中删除 "
-"bundle 文件。查看 `mixer.bundle man page`_，获取完整的命令列表，了解配置组合中的 bundle 文件的更多信息。"
+msgstr "mixer 提供命令来配置组合的 bundle 文件，例如将 bundle 文件添加到组合中，为组合创建新的 bundle 文件，或从组合中删除 bundle 文件。查看 `mixer.bundle man page`_，获取完整的命令列表，了解配置组合中的 bundle 文件的更多信息。"
+
 
 #: ../../guides/clear/mixer.rst:637
 msgid ""
@@ -980,9 +937,8 @@ msgid ""
 "remove the bundle from the mix. The local bundle definition file will "
 "still remain. To completely remove a bundle, including its local bundle "
 "definition file, use the :command:`--local` flag."
-msgstr ""
-"从组合中删除 bundle 文件：默认情况下，删除 bundle 文件只会从组合中删除 bundle 文件。本地 bundle "
-"定义文件仍会保留。要彻底删除 bundle 文件（包括它的本地 bundle 定义文件），请使用 :command:`--local` 标志。"
+msgstr "从组合中删除 bundle 文件：默认情况下，删除 bundle 文件只会从组合中删除 bundle 文件。本地 bundle 定义文件仍会保留。要彻底删除 bundle 文件（包括它的本地 bundle 定义文件），请使用 :command:`--local` 标志。"
+
 
 #: ../../guides/clear/mixer.rst:646
 msgid ""
@@ -1018,9 +974,8 @@ msgid ""
 "By default, mixer automatically pulls a Docker container for mixing if "
 "one does not already exist. If you need to troubleshoot the mixer "
 "container, it may be useful to manually pull a mixer Docker container."
-msgstr ""
-"默认情况下，如果没有 Docker 容器，mixer 则会自动拉取 Docker 容器以创建组合。如需对 mixer "
-"容器进行故障排除，则可尝试手动拉取 mixer Docker 容器。"
+msgstr "默认情况下，如果没有 Docker 容器，mixer 则会自动拉取 Docker 容器以创建组合。如需对 mixer 容器进行故障排除，则可尝试手动拉取 mixer Docker 容器。"
+
 
 #: ../../guides/clear/mixer.rst:678
 msgid ""
@@ -1030,11 +985,8 @@ msgid ""
 "version of the mixer Docker container is named after the associated |CL| "
 "upstream format version. Refer to `Format version`_ for additional "
 "information on upstream format versions."
-msgstr ""
-"mixer Docker 容器的版本可在 Docker Hub 上的 `clearlinux/mixer repo "
-"<https://hub.docker.com/r/clearlinux/mixer/tags/>`_ 标签下找到。每个版本的 mixer "
-"Docker 容器均以关联的 |CL| 上游时间戳格式版本来命名。请参阅 `Format "
-"version`_，了解有关上游时间戳格式版本的其他信息。"
+msgstr "mixer Docker 容器的版本可在 Docker Hub 上的 `clearlinux/mixer repo <https://hub.docker.com/r/clearlinux/mixer/tags/>`_ 标签下找到。每个版本的 mixer Docker 容器均以关联的 |CL| 上游时间戳格式版本来命名。请参阅 `Format version`_，了解有关上游时间戳格式版本的其他信息。"
+
 
 #: ../../guides/clear/mixer.rst:684
 msgid "Use the following steps to manually pull a mixer Docker container:"
@@ -1045,9 +997,8 @@ msgid ""
 "Find the version of the container you need by viewing the tags for the "
 "`clearlinux/mixer repo "
 "<https://hub.docker.com/r/clearlinux/mixer/tags/>`_ on Docker Hub."
-msgstr ""
-"查看 Docker Hub 上的 `clearlinux/mixer repo "
-"<https://hub.docker.com/r/clearlinux/mixer/tags/>`_ 标签，查找所需版本的容器。"
+msgstr "查看 Docker Hub 上的 `clearlinux/mixer repo <https://hub.docker.com/r/clearlinux/mixer/tags/>`_ 标签，查找所需版本的容器。"
+
 
 #: ../../guides/clear/mixer.rst:690
 msgid "Pull the latest container version:"
@@ -1073,9 +1024,8 @@ msgstr "创建 Docker 守护程序代理配置目录："
 msgid ""
 "Create :file:`/etc/systemd/system/docker.service.d/http-proxy.conf` and "
 "add the following using your own proxy values:"
-msgstr ""
-"创建 :file:`/etc/systemd/system/docker.service.d/http-proxy.conf` "
-"并用自己的代理值添加以下内容："
+msgstr "创建 :file:`/etc/systemd/system/docker.service.d/http-proxy.conf` 并用自己的代理值添加以下内容："
+
 
 #: ../../guides/clear/mixer.rst:724
 msgid "Reload the Docker daemon:"
@@ -1159,9 +1109,8 @@ msgid ""
 "Configure the mixer update server. Create and add the following server "
 "configuration content to :file:`/etc/nginx/conf.d/mixer.conf` (sudo "
 "required):"
-msgstr ""
-"配置 mixer 更新服务器。创建以下服务器配置内容并将其添加到 :file:`/etc/nginx/conf.d/mixer.conf` （需 "
-"sudo 权限）："
+msgstr "配置 mixer 更新服务器。创建以下服务器配置内容并将其添加到 :file:`/etc/nginx/conf.d/mixer.conf` （需 sudo 权限）："
+
 
 #: ../../guides/clear/mixer.rst:833
 msgid "Restart the daemon, enable nginx on boot, and start the service."
@@ -1178,19 +1127,16 @@ msgid "Related topics"
 msgstr "相关主题"
 
 #: ../../guides/clear/mixer.rst:849
-#, fuzzy
 msgid ":ref:`autospec`"
-msgstr ":ref:`autospec-about`"
+msgstr ":ref:`autospec`"
 
 #: ../../guides/clear/mixer.rst:850
-#, fuzzy
 msgid ":ref:`bundles-guide`"
-msgstr ":ref:`bundles-about`"
+msgstr ":ref:`bundles-guide`"
 
 #: ../../guides/clear/mixer.rst:851
-#, fuzzy
 msgid ":ref:`swupd-guide`"
-msgstr ":ref:`swupd-about`"
+msgstr ":ref:`swupd-guide`"
 
 #~ msgid ""
 #~ "Add the mixer tool with the "
@@ -1234,4 +1180,5 @@ msgstr ":ref:`swupd-about`"
 
 #~ msgid ":ref:`About mixer <mixer-about>`"
 #~ msgstr ":ref:`About mixer <mixer-about>`"
+
 

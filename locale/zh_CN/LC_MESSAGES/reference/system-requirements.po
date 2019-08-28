@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-02 16:09-0152\n"
+"PO-Revision-Date: 2019-08-28 15:20-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../reference/system-requirements.rst:4
 msgid "Recommended minimum system requirements"
@@ -28,19 +27,16 @@ msgid ""
 "|CL-ATTR| can run on most modern hardware and is capable of running with "
 "modest hardware resources. Out of the box, |CL| can run on a single CPU "
 "core, 1 GB RAM, and 2 GB of disk space."
-msgstr ""
-"|CL-ATTR| 可以在大多数现代硬件上运行，而且能够在占用最少硬件资源的情况下运行。默认情况下，|CL| 可以在单核 CPU、1 GB RAM"
-" 和 2 GB 硬盘空间配置下运行。"
+msgstr "|CL-ATTR| 可以在大多数现代硬件上运行，而且能够在占用最少硬件资源的情况下运行。默认情况下，|CL| 可以在单核 CPU、1 GB RAM 和 2 GB 硬盘空间配置下运行。"
+
 
 #: ../../reference/system-requirements.rst:10
-#, fuzzy
 msgid ""
 "For use cases requiring minimal resources, |CL| :ref:`about <about>` can "
 "be used to create a highly customized installation that can even run on a"
 " system with a 128MB of memory and 600MB of disk space, for example."
-msgstr ""
-"对于需要最少资源的使用情况，可利用 |CL| :ref:`tooling <tooling>` 创建一个高度定制的安装，甚至可以在包含 128MB"
-" 内存和 600MB 磁盘空间的系统上运行。"
+msgstr "对于需要最少资源的使用情况，可利用 |CL| :ref:`about <about>` 创建一个高度定制的安装，甚至可以在包含 128MB 内存和 600MB 磁盘空间的系统上运行。"
+
 
 #: ../../reference/system-requirements.rst:16
 msgid "Installer requirements"
@@ -72,9 +68,8 @@ msgid ""
 "|CL| requires an x86 64-bit processor which supports Intel® Streaming "
 "SIMD Extensions 4.1 (Intel® SSE 4.1), and it requires a system that "
 "supports UEFI."
-msgstr ""
-"|CL| 需要 x86 64 位处理器，支持 Intel® Streaming SIMD Extensions 4.1 (Intel® SSE "
-"4.1)，而且它要求采用支持 UEFI 的系统。"
+msgstr "|CL| 需要 x86 64 位处理器，支持 Intel® Streaming SIMD Extensions 4.1 (Intel® SSE 4.1)，而且它要求采用支持 UEFI 的系统。"
+
 
 #: ../../reference/system-requirements.rst:34
 msgid ""
@@ -82,9 +77,8 @@ msgid ""
 " manually verify system compatibility with |CL|, run the "
 ":ref:`compatibility check tool<compatibility-check>` or go to "
 "http://ark.intel.com and check for these features:"
-msgstr ""
-"|CL| 安装程序在引导时执行系统兼容性检查。要手动确认 |CL| 的系统兼容性，需要运行 :ref:`compatibility check "
-"tool<compatibility-check>` 或转到 http://ark.intel.com 查看这些功能："
+msgstr "|CL| 安装程序在引导时执行系统兼容性检查。要手动确认 |CL| 的系统兼容性，需要运行 :ref:`compatibility check tool<compatibility-check>` 或转到 http://ark.intel.com 查看这些功能："
+
 
 #: ../../reference/system-requirements.rst:39
 msgid "Instruction Set:"
@@ -286,4 +280,5 @@ msgstr "有效的互联网连接"
 
 #~ msgid "Graphics: Intel HD Graphics (required if running a GUI desktop)"
 #~ msgstr ""
+
 
