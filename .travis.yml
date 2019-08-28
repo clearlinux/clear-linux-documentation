@@ -15,6 +15,7 @@ script:
 
 before_deploy:
   - make linkcheck
+  - tar -zcvf clearlinux-docs-zh-CN.tar.gz -C source/_build/html/zh_CN .
 
 deploy:
   - provider: pages
@@ -31,6 +32,13 @@ deploy:
     on:
       branch: development
     local_dir: source/_build/html/
+  - provider: releases
+    skip_cleanup: true
+    api_key: $GITHUB_TOKEN
+    file: clearlinux-docs-zh-CN.tar.gz
+    on:
+      tags: true
+
 
 after_deploy:
   - wget $PUBLISH_URL
