@@ -37,7 +37,7 @@ msgid ""
 "The telemetry functionality adheres to `Intel privacy policies`_ "
 "regarding the collection and use of :abbr:`PII (Personally Identifiable "
 "Information)` and is open source."
-msgstr "遥测功能遵从涉及收集和使用 :abbr:`PII (Personally Identifiable Information)` 的 `Intel privacy policies <https://www.intel.cn/content/www/cn/zh/privacy/intel-privacy-notice.html>`_，同时也是开源功能。"
+msgstr "遥测功能遵从涉及收集和使用 :abbr:`PII (Personally Identifiable Information)` 的 `英特尔隐私条款 <https://www.intel.cn/content/www/cn/zh/privacy/intel-privacy-notice.html>`_，同时也是开源功能。"
 
 
 #: ../../guides/clear/telemetrics.rst:19
