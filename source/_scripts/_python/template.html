@@ -39,6 +39,8 @@
             <span class="active-status">{{d.status}}</span>
             {% elif d.status=="WIP" %}
             <span class="wip-status">{{d.status}}</span>
+            {% elif d.status=="Deprecated"%}
+            <span class="deprecated-status">{{d.status}}</span>
             {% else %}
             <span>{{d.status}}</span>
             {% endif %}
