@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 17:23-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: \n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -46,7 +46,7 @@ msgstr "在主机系统上从 EFI/BIOS 启用虚拟化功能，例如 `Intel® V
 msgid ""
 "Download and install |VB| **version 6.0 or later** from `VirtualBox`_ "
 "using the  `VirtualBox Installation Instructions`_ for your platform."
-msgstr "使用适用于您的平台的 `VirtualBox Installation Instructions`_，从 `VirtualBox`_ 下载并安装 |VB| **6.0 或更高版本。**"
+msgstr "使用适用于您的平台的 `VirtualBox Installation Instructions`_，从 `VirtualBox`_ 下载并安装 |VB| 6.0 或更高版本。"
 
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:25
@@ -120,23 +120,23 @@ msgstr "在 :guilabel:`Create Virtual Machine` 屏幕上，输入以下设置：
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:67
 msgid "**Name**: Choose name (e.g. ClearLinuxOS-VM)."
-msgstr "**名称**：选择名称（例如 ClearLinuxOS-VM）。"
+msgstr "名称：选择名称（例如 ClearLinuxOS-VM）。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:68
 msgid "**Type**: Linux"
-msgstr "**类型**：Linux"
+msgstr "类型：Linux"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:69
 msgid "**Version**: **Linux 2.6 / 3.x / 4.x (64-bit)**"
-msgstr "**版本**：**Linux 2.6 / 3.x / 4.x（64 位）**"
+msgstr "版本：Linux 2.6 / 3.x / 4.x（64 位）"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:70
 msgid "**Hard disk**: `Create a virtual hard disk now`"
-msgstr "**硬盘**：`Create a virtual hard disk now`"
+msgstr "硬盘： `Create a virtual hard disk now`"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:71
 msgid "**Memory size default**: 2048 MB (Adjust appropriately.)"
-msgstr "**默认内存大小**：2048 MB（进行相应调整。）"
+msgstr "默认内存大小：2048 MB（进行相应调整。）"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:74
 msgid ""
@@ -165,15 +165,15 @@ msgstr "**文件位置**"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:88
 msgid "**File size**: **32.00 GB**. Adjust size to your needs."
-msgstr "**文件大小**：**32.00 GB**。根据需要调整大小。"
+msgstr "文件大小：32.00 GB。根据需要调整大小。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:89
 msgid "**Hard disk file type**: `VDI (VirtualBox Disk Image)`"
-msgstr "**硬盘文件类型**：`VDI (VirtualBox Disk Image)`"
+msgstr "硬盘文件类型： `VDI (VirtualBox Disk Image)`"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:90
 msgid "**Storage on physical hard disk**: `Dynamically allocated`"
-msgstr "**物理硬盘存储**: `Dynamically allocated`"
+msgstr "物理硬盘存储: `Dynamically allocated`"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:96
 msgid "Figure 3: Create Virtual Hard Disk"
@@ -278,7 +278,7 @@ msgstr "图 5：选择虚拟光盘驱动器"
 msgid ""
 "Where there appears :guilabel:`Please choose a virtual optical disk "
 "file`, select the ISO file and click *Open*."
-msgstr "显示 :guilabel:`Please choose a virtual optical disk file` 后，选择 ISO 文件并点击 *打开*。"
+msgstr "显示 :guilabel:`Please choose a virtual optical disk file` 后，选择 ISO 文件并点击打开。"
 
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:168
@@ -491,7 +491,7 @@ msgstr "图 10：关闭 VirtualBox 虚拟机"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:322
 msgid "Select :guilabel:`Settings`, :guilabel:`Display`."
-msgstr "选择 :guilabel:`Settings`，:guilabel:`Display`。"
+msgstr "选择 :guilabel:`Settings`， :guilabel:`Display`。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:324
 msgid ""
@@ -538,7 +538,7 @@ msgid ""
 "**Problem:** On a Microsoft\\* Windows\\* OS, |VB| encounters an error "
 "when trying to start a VM indicating *VT-X/AMD-v hardware acceleration is"
 " not available on your system.*"
-msgstr "**问题：** 在 Microsoft\\* Windows\\* 操作系统上，尝试开启虚拟机时 |VB| 发生错误，出现消息：*系统不支持 VT-X/AMD-v 硬件加速。*"
+msgstr "问题： 在 Microsoft\\* Windows\\* 操作系统上，尝试开启虚拟机时 |VB| 发生错误，出现消息：系统不支持 VT-X/AMD-v 硬件加速。"
 
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:369
@@ -550,26 +550,26 @@ msgid ""
 "**Solution:** First, double check the `Prerequisites`_ section to make "
 "sure *Hardware accelerated virtualization* extensions have been enabled "
 "in the host system's EFI/BIOS."
-msgstr "**解决方法：** 首先仔细检查 `Prerequisites`_ 部分，确保主机系统的 EFI/BIOS 中启用了 *经过硬件加速的虚拟化* 扩展。"
+msgstr "解决方法：首先仔细检查 `Prerequisites`_ 部分，确保主机系统的 EFI/BIOS 中启用了经过硬件加速的虚拟化扩展。"
 
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:375
 msgid ""
 "*Hardware accelerated virtualization*, may get disabled for |VB| when "
 "another hypervisor, such as *Hyper-V* is enabled."
-msgstr "启用另一个管理程序（如 *Hyper-V*）后，|VB| 应禁用*经过硬件加速的虚拟化*。"
+msgstr "启用另一个管理程序（如 *Hyper-V*）后，|VB| 应禁用经过硬件加速的虚拟化。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:378
 msgid ""
 "To disable *Hyper-V* execute this command in an **Administrator: Command "
 "Prompt or Powershell**, and reboot the system:"
-msgstr "要禁用 *Hyper-V*，在**管理员：命令提示符或 Powershell** 中执行此命令，然后重启系统："
+msgstr "要禁用 *Hyper-V*，在管理员：命令提示符或 Powershell 中执行此命令，然后重启系统："
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:385
 msgid ""
 "To enable Hyper-V again, execute this command in an **Administrator: "
 "Command Prompt or Powershell**, and reboot the system:"
-msgstr "要再次启用 Hyper-V，在**管理员：命令提示符或 Powershell** 中执行此命令，然后重启系统："
+msgstr "要再次启用 Hyper-V，在管理员：命令提示符或 Powershell 中执行此命令，然后重启系统："
 
 #~ msgid "Install a |CL-ATTR| VM in VirtualBox\\*"
 #~ msgstr "在 VirtualBox\\* 中安装 |CL-ATTR| 虚拟机"

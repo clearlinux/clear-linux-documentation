@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -112,7 +112,7 @@ msgid ""
 "P-states, also known as *Intel SpeedStep® technology* on Intel processors"
 " or *Cool'n'Quiet* on AMD processors, are states entered while the CPU is"
 " active and executing instructions."
-msgstr "P 状态（在英特尔处理器上也称为 *Intel SpeedStep® 技术*，而在 AMD 处理器上也称为 *Cool'n'Quiet*）是 CPU 处于活动中且正在执行指令时进入的状态。"
+msgstr "P 状态（在英特尔处理器上也称为 Intel SpeedStep® 技术，而在 AMD 处理器上也称为 Cool'n'Quiet）是 CPU 处于活动中且正在执行指令时进入的状态。"
 
 #: ../../guides/maintenance/cpu-performance.rst:76
 msgid ""
@@ -192,7 +192,7 @@ msgid ""
 "this may sound wasteful at first, it is important to remember that power "
 "utilization does not increase significantly simply because of a locked "
 "clock frequency without a workload."
-msgstr "|CL| 将 CPU 调速程序设置为*性能*，要求 CPU 以最大时钟频率运行。换句话说，CPU 进入 P 状态 P0。虽然这一开始听起来可能有点浪费，但请记住，在没有工作负载的情况下锁定时钟频率并不会导致功耗显著增加。"
+msgstr "|CL| 将 CPU 调速程序设置为性能，要求 CPU 以最大时钟频率运行。换句话说，CPU 进入 P 状态 P0。虽然这一开始听起来可能有点浪费，但请记住，在没有工作负载的情况下锁定时钟频率并不会导致功耗显著增加。"
 
 #: ../../guides/maintenance/cpu-performance.rst:130
 msgid ""
@@ -212,7 +212,7 @@ msgstr "禁止 |CL| 强制使用某些功率和性能设置："
 msgid ""
 "Change the governor. In the example below, the governor is set to "
 "*performance*:"
-msgstr "更改调速程序。在以下示例中，调速程序设置为*性能*："
+msgstr "更改调速程序。在以下示例中，调速程序设置为性能："
 
 #: ../../guides/maintenance/cpu-performance.rst:151
 msgid ""
@@ -224,7 +224,7 @@ msgstr "所有调速程序的列表可以在有关 `CPUFreq Governors`_ 的 Linu
 msgid ""
 "The intel_pstate driver only supports *performance* and *powersave* "
 "governors."
-msgstr "intel_pstate 驱动程序仅支持*性能*和*节能*调速程序。"
+msgstr "intel_pstate 驱动程序仅支持性能和节能调速程序。"
 
 #: ../../guides/maintenance/cpu-performance.rst:159
 msgid "Thermal management"

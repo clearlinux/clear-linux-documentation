@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -871,7 +871,7 @@ msgstr "设置 SSH 隧道后，请按照以下说明连接到您的 VNC 会话�
 
 #: ../../guides/network/vnc.rst:771
 msgid "**On Windows and macOS using `RealVNC`:**"
-msgstr "**在使用 `RealVNC` 的 Windows 和 macOS 上：**"
+msgstr "在使用 `RealVNC` 的 Windows 和 macOS 上："
 
 #: ../../guides/network/vnc.rst:773
 msgid "Start the RealVNC viewer app."

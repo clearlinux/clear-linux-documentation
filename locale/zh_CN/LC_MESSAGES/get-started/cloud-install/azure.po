@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,15 @@ msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Language: zh-Hans\n"
 
 #: ../../get-started/cloud-install/azure.rst:4
-msgid "|CL-ATTR| on Microsoft* Azure*"
-msgstr "基于 Microsoft* Azure* 的 |CL-ATTR|"
+msgid "|CL-ATTR| on Microsoft Azure"
+msgstr "基于 Microsoft Azure 的 |CL-ATTR|"
 
 #: ../../get-started/cloud-install/azure.rst:6
 msgid ""
 "|CL-ATTR| is available for you to use in the Microsoft* Azure* "
 "marketplace and is offered with three different images, also known as a "
 ":abbr:`SKU (Stock Keeping Unit)`."
-msgstr "|CL-ATTR| 在 Microsoft* Azure* Marketplace 中提供，并且具有三个不同的映像（也称为 :abbr:`SKU（库存单位）`）。"
+msgstr "|CL-ATTR| 在 Microsoft Azure Marketplace 中提供，并且具有三个不同的映像（也称为 :abbr:`SKU（库存单位）`）。"
 
 #: ../../get-started/cloud-install/azure.rst:10
 msgid ""
@@ -152,7 +152,7 @@ msgstr "安装脚本将开始，并在执行期间多次提示您提供信息。
 msgid ""
 "The console output from the script displays your username instead of the "
 "**[user]** variable shown on this tutorial."
-msgstr "脚本的控制台输出会显示您的用户名，而非本教程中显示的 **[user]** 变量。"
+msgstr "脚本的控制台输出会显示您的用户名，而非本教程中显示的 [user] 变量。"
 
 #: ../../get-started/cloud-install/azure.rst:122
 msgid ""
@@ -223,7 +223,7 @@ msgstr "打开浏览器并访问图 1 中显示的页面 `https://aka.ms/devicel
 
 #: ../../get-started/cloud-install/azure.rst:276
 msgid "Figure 1: :guilabel:`Microsoft Device Login`"
-msgstr "图 1：:guilabel:`Microsoft Device Login`"
+msgstr "图 1： :guilabel:`Microsoft Device Login`"
 
 #: ../../get-started/cloud-install/azure.rst:278
 msgid ""
@@ -235,7 +235,7 @@ msgstr "输入代码 `BQ9MG442B` 以对设备进行身份验证，如图 2 中�
 
 #: ../../get-started/cloud-install/azure.rst:287
 msgid "Figure 2: :guilabel:`Microsoft Device Login - Azure CLI`"
-msgstr "图 2：:guilabel:`Microsoft Device Login - Azure CLI`"
+msgstr "图 2： :guilabel:`Microsoft Device Login - Azure CLI`"
 
 #: ../../get-started/cloud-install/azure.rst:289
 msgid ""
@@ -253,7 +253,7 @@ msgstr "使用现有 Microsoft Azure 帐户凭据登录。完成后，浏览器�
 
 #: ../../get-started/cloud-install/azure.rst:301
 msgid "Figure 3: :guilabel:`Microsoft Azure Cross-platform CLI`"
-msgstr "图 3：:guilabel:`Microsoft Azure Cross-platform CLI`"
+msgstr "图 3： :guilabel:`Microsoft Azure Cross-platform CLI`"
 
 #: ../../get-started/cloud-install/azure.rst:303
 msgid ""
@@ -336,7 +336,7 @@ msgid ""
 "If you have already defined your public/private SSH key pair and they are"
 " stored in your :file:`$HOME/.ssh` directory, you do not need to include "
 "the *--generate-ssh-keys* option."
-msgstr "如果您已定义了 SSH 公钥/私钥对，并且它们存储在 :file:`$HOME/.ssh` 目录中，则不需要包括 *--generate-ssh-keys* 选项。"
+msgstr "如果您已定义了 SSH 公钥/私钥对，并且它们存储在 :file:`$HOME/.ssh` 目录中，则不需要包括 --generate-ssh-keys 选项。"
 
 #: ../../get-started/cloud-install/azure.rst:395
 msgid ""

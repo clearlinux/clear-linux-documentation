@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -176,11 +176,11 @@ msgstr "图 3：|CL| 操作系统桌面安装程序"
 msgid ""
 "In :guilabel:`Select Language`, select a language from the options, or "
 "type your preferred language in the search bar."
-msgstr "在:guilabel:`Select Language` 中，从选项中选择一种语言，或在搜索栏中键入所需的语言。"
+msgstr "在 :guilabel:`Select Language` 中，从选项中选择一种语言，或在搜索栏中键入所需的语言。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:112
 msgid "Select :guilabel:`Next`."
-msgstr "选择:guilabel:`Next`。"
+msgstr "选择 :guilabel:`Next`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:115
 msgid "Checking prerequisites"
@@ -197,7 +197,7 @@ msgstr "安装程序会自动启动 :guilabel:`Checking Prerequisites`，检查�
 msgid ""
 "After the installer shows `Prerequisites passed`, select :guilabel:`Next`"
 " to proceed with installation."
-msgstr "安装程序显示 `Prerequisites passed` 后，选择:guilabel:`Next` 继续安装。"
+msgstr "安装程序显示 `Prerequisites passed` 后，选择 :guilabel:`Next` 继续安装。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:127
 msgid "Figure 4: Checking Prerequisites"
@@ -273,7 +273,7 @@ msgid ""
 "meet the minimum requirements, enter values in all submenus for the "
 ":guilabel:`Required options`. After you complete them, your selections "
 "appear below submenus and a check mark appears at right."
-msgstr "出现 |CL| 桌面安装程序“Main Menu”，如图 5 所示。要满足最低要求，请在:guilabel:`Required options` 的所有子菜单中输入值。输入完成后，所选内容将出现在子菜单下方，且右侧会出现一个勾选标记。"
+msgstr "出现 |CL| 桌面安装程序“Main Menu”，如图 5 所示。要满足最低要求，请在 :guilabel:`Required options` 的所有子菜单中输入值。输入完成后，所选内容将出现在子菜单下方，且右侧会出现一个勾选标记。"
 
 
 #: ../../get-started/bare-metal-install-desktop.rst:177
@@ -292,7 +292,7 @@ msgstr "使用:kbd:`鼠标` 导航或选择选项。"
 msgid ""
 "Use :kbd:`Tab` key to navigate between :guilabel:`Required options` and "
 ":guilabel:`Advanced options`"
-msgstr "使用 :kbd:`Tab` 键在:guilabel:`Required options` 和:guilabel:`Advanced options` 之间导航"
+msgstr "使用 :kbd:`Tab` 键在 :guilabel:`Required options` 和 :guilabel:`Advanced options` 之间导航"
 
 
 #: ../../get-started/bare-metal-install-desktop.rst:187
@@ -315,20 +315,20 @@ msgstr "选择时区"
 msgid ""
 "From the Main Menu, select :guilabel:`Select Time Zone`. `UTC` is "
 "selected by default."
-msgstr "从“Main Menu”中，选择:guilabel:`Select Time Zone`。默认情况下选择 `UTC`。"
+msgstr "从“Main Menu”中，选择 :guilabel:`Select Time Zone`。默认情况下选择 `UTC`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:200
 msgid ""
 "In :guilabel:`Select Time Zone`, navigate to the desired time zone. Or "
 "start typing the region and then the city. (.e.g., "
 ":file:`America/Los_Angeles`)."
-msgstr "在:guilabel:`Select Time Zone` 中，导航到所需时区。或者先键入地区，然后键入城市。（例如 :file:`America/Los_Angeles`）。"
+msgstr "在 :guilabel:`Select Time Zone` 中，导航到所需时区。或者先键入地区，然后键入城市。（例如 :file:`America/Los_Angeles`）。"
 
 
 #: ../../get-started/bare-metal-install-desktop.rst:204
 #: ../../get-started/bare-metal-install-desktop.rst:220
 msgid "Select :guilabel:`Confirm`."
-msgstr "选择:guilabel:`Confirm`。"
+msgstr "选择 :guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:210
 msgid "Figure 6: Select System Time Zone"
@@ -340,7 +340,7 @@ msgstr "选择键盘"
 
 #: ../../get-started/bare-metal-install-desktop.rst:215
 msgid "From the Main Menu, select :guilabel:`Select Keyboard`."
-msgstr "从“Main Menu”中，选择:guilabel:`Select Keyboard`。"
+msgstr "从“Main Menu”中，选择 :guilabel:`Select Keyboard`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:217
 msgid ""
@@ -358,7 +358,7 @@ msgstr "选择安装媒介"
 
 #: ../../get-started/bare-metal-install-desktop.rst:231
 msgid "From the Main Menu, select :guilabel:`Select Installation Media`."
-msgstr "从“Main Menu”中，选择:guilabel:`Select Installation Media`。"
+msgstr "从“Main Menu”中，选择 :guilabel:`Select Installation Media`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:233
 msgid ""
@@ -417,7 +417,7 @@ msgstr "为了提高安全性，支持使用 LUKS 加密磁盘。加密是可选
 msgid ""
 "To encrypt the root partition, select :guilabel:`Enable Encryption`, as "
 "shown in Figure 9."
-msgstr "要加密根分区，请选择:guilabel:`Enable Encryption`，如图 9 所示。"
+msgstr "要加密根分区，请选择 :guilabel:`Enable Encryption`，如图 9 所示。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:278
 msgid "Figure 9: Enable Encryption"
@@ -441,15 +441,15 @@ msgstr "在第二个字段中输入相同的密码短语。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:294
 msgid "Select :guilabel:`Confirm` in the dialogue box."
-msgstr "在对话框中选择:guilabel:`Confirm`。"
+msgstr "在对话框中选择 :guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:298
 msgid ":guilabel:`Confirm` is only highlighted if passphrases match."
-msgstr ":guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
+msgstr " :guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:300
 msgid "Select :guilabel:`Confirm` in submenu."
-msgstr "在子菜单中选择:guilabel:`Confirm`。"
+msgstr "在子菜单中选择 :guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:303
 msgid "Manage User"
@@ -457,11 +457,11 @@ msgstr "管理用户"
 
 #: ../../get-started/bare-metal-install-desktop.rst:305
 msgid "In Required Options, select :guilabel:`Manage User`."
-msgstr "在“必填选项”中，选择:guilabel:`Manage User`。"
+msgstr "在“必填选项”中，选择 :guilabel:`Manage User`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:307
 msgid "In :guilabel:`User Name`, enter a user name."
-msgstr "在:guilabel:`User Name` 中，输入用户名。"
+msgstr "在 :guilabel:`User Name` 中，输入用户名。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:313
 msgid "Figure 11: Manage User"
@@ -472,17 +472,17 @@ msgid ""
 "In :guilabel:`Login`, create a login name. It must start with a letter "
 "and can use numbers, hyphens, and underscores. Maximum length is 31 "
 "characters."
-msgstr "在:guilabel:`Login` 中，创建一个登录名。登录名必须以字母开头，并可以使用数字、连字符和下划线。最大长度为 31 个字符。"
+msgstr "在 :guilabel:`Login` 中，创建一个登录名。登录名必须以字母开头，并可以使用数字、连字符和下划线。最大长度为 31 个字符。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:319
 msgid ""
 "In :guilabel:`Password`, enter a password. Minimum length is 8 "
 "characters. Maximum length is 255 characters."
-msgstr "在:guilabel:`密码` 中，输入密码。最小长度为 8 个字符。最大长度为 255 个字符。"
+msgstr "在 :guilabel:`密码` 中，输入密码。最小长度为 8 个字符。最大长度为 255 个字符。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:322
 msgid "In :guilabel:`Confirm`, enter the same password."
-msgstr "在:guilabel:`Confirm` 中，输入相同的密码。"
+msgstr "在 :guilabel:`Confirm` 中，输入相同的密码。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:326
 msgid ""
@@ -500,7 +500,7 @@ msgstr "选择:kbd:`确认`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:334
 msgid "Select :guilabel:`Cancel` to return to the Main Menu."
-msgstr "选择:guilabel:`Cancel` 会返回“Main Menu”。"
+msgstr "选择 :guilabel:`Cancel` 会返回“Main Menu”。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:337
 msgid "Modify User"
@@ -516,13 +516,13 @@ msgstr "根据需要修改用户详细信息。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:343
 msgid "Select :guilabel:`Confirm` to save the changes you made."
-msgstr "选择:guilabel:`Confirm` 保存所做的更改。"
+msgstr "选择 :guilabel:`Confirm` 保存所做的更改。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:347
 msgid ""
 "Optional: Select :guilabel:`Cancel` to return to the Main Menu to revert "
 "changes."
-msgstr "可选：选择:guilabel:`Cancel` 会不保存更改并返回“Main Menu”。"
+msgstr "可选：选择 :guilabel:`Cancel` 会不保存更改并返回“Main Menu”。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:350
 #: ../../get-started/bare-metal-install-desktop.rst:406
@@ -544,7 +544,7 @@ msgstr "选择是否参与`遥测技术`。:ref:`telem-guide` 是 |CL| 的一项
 
 #: ../../get-started/bare-metal-install-desktop.rst:359
 msgid "From :guilabel:`Required Options`, select :guilabel:`Telemetry`."
-msgstr "从:guilabel:`Required Options` 中选择:guilabel:`Telemetry`。"
+msgstr "从 :guilabel:`Required Options` 中选择 :guilabel:`Telemetry`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:361
 msgid "Select :kbd:`Yes`."
@@ -568,7 +568,7 @@ msgid ""
 ":guilabel:`Advanced options`--though they're not required. Doing so "
 "customizes your development environment, so you're ready to go "
 "immediately after reboot."
-msgstr "填写完 `Required options`_ 后，我们建议您设置:guilabel:`Advanced options`，尽管它们不是必需的。设置高级选项可以定制开发环境，便于在重启后立即开始使用。"
+msgstr "填写完 `Required options`_ 后，我们建议您设置 :guilabel:`Advanced options`，尽管它们不是必需的。设置高级选项可以定制开发环境，便于在重启后立即开始使用。"
 
 
 #: ../../get-started/bare-metal-install-desktop.rst:381
@@ -605,7 +605,7 @@ msgstr "分配主机名"
 
 #: ../../get-started/bare-metal-install-desktop.rst:411
 msgid "In Advanced Options, select :guilabel:`Assign Hostname`."
-msgstr "在“高级选项”中，选择:guilabel:`Assign Hostname`。"
+msgstr "在“高级选项”中，选择 :guilabel:`Assign Hostname`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:413
 msgid "In :guilabel:`Hostname`, enter the hostname only (excluding the domain)."
@@ -677,7 +677,7 @@ msgstr "完成安装"
 msgid ""
 "When you are satisfied with your installation configuration, select "
 ":guilabel:`Install`."
-msgstr "如对安装配置满意，请选择:guilabel:`Install`。"
+msgstr "如对安装配置满意，请选择 :guilabel:`Install`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:478
 msgid "Figure 18: Finish installation"
@@ -688,7 +688,7 @@ msgid ""
 "If you do not enter a selection for all :guilabel:`Required Options`, the"
 " :guilabel:`Install` button remains disabled, as shown in Figure 19. "
 "Return to `Required Options`_ and make selections."
-msgstr "如果并没有为所有:guilabel:`Required Options` 设置选项，:guilabel:`Install` 按钮将保持禁用状态，如图 19 所示。返回 `Required options`_ 并进行选择。"
+msgstr "如果并没有为所有 :guilabel:`Required Options` 设置选项， :guilabel:`Install` 按钮将保持禁用状态，如图 19 所示。返回 `Required options`_ 并进行选择。"
 
 
 #: ../../get-started/bare-metal-install-desktop.rst:493
@@ -697,7 +697,7 @@ msgstr "图 19：必填选项 - 不完整"
 
 #: ../../get-started/bare-metal-install-desktop.rst:495
 msgid "After installation is complete, select :guilabel:`Exit`."
-msgstr "安装完成后，选择:guilabel:`Exit`。"
+msgstr "安装完成后，选择 :guilabel:`Exit`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:497
 msgid "Shut down the target system."

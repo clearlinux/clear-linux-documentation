@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -55,7 +55,7 @@ msgid ""
 ":command:`disallow` options for restarting system services. When a "
 "software update occurs, :command:`clr-service-restart` consults the "
 "whitelist to see if a service daemon is allowed to be restarted or not."
-msgstr ":command:`clr-service-restart` 会实现一个白名单，以确定哪些守护程序可以重启。系统管理员可以使用 *allow* 或 *disallow* 选项自定义重启系统服务时使用的默认 |CL| 操作系统白名单。执行软件更新时，:command:`clr-service-restart` 会查阅该白名单，确认是否允许重启某个服务守护程序。有关详细信息，请参阅选项部分。"
+msgstr ":command:`clr-service-restart` 会实现一个白名单，以确定哪些守护程序可以重启。系统管理员可以使用 :command:`allow` 或 :command:`disallow` 选项自定义重启系统服务时使用的默认 |CL| 操作系统白名单。执行软件更新时，:command:`clr-service-restart` 会查阅该白名单，确认是否允许重启某个服务守护程序。有关详细信息，请参阅选项部分。"
 
 
 #: ../../guides/maintenance/restart.rst:35
@@ -66,7 +66,7 @@ msgstr "基本选项"
 msgid ""
 ":command:`clr-service-restart` has three basic options: :command:`allow`,"
 " :command:`disallow`, and :command:`default`."
-msgstr ":command:`clr-service-restart` 具有三个基本选项：command:`allow`、:command:`disallow` 和 :command:`default`。"
+msgstr ":command:`clr-service-restart` 具有三个基本选项： :command:`allow`、:command:`disallow` 和 :command:`default`。"
 
 #: ../../guides/maintenance/restart.rst:41
 msgid "allow"
@@ -79,7 +79,7 @@ msgid ""
 "symlink in :file:`/etc/clr-service-restart` as a record. The example "
 "below tells :command:`clr-service-restart` to restart the *tallow* daemon"
 " after an OS software update."
-msgstr ":command:`allow` 选项标识操作系统软件更新后要重启的守护程序。:command:`clr-service-restart` 守护程序会在 :file:`/etc/clr-service-restart` 中创建一个符号链接作为记录。下面的示例指示 :command:`clr-service-restart` 在操作系统软件更新后重启 *tallow* 守护程序。"
+msgstr ":command:`allow` 选项标识操作系统软件更新后要重启的守护程序。:command:`clr-service-restart` 守护程序会在 :file:`/etc/clr-service-restart` 中创建一个符号链接作为记录。下面的示例指示 :command:`clr-service-restart` 在操作系统软件更新后重启 tallow 守护程序。"
 
 
 #: ../../guides/maintenance/restart.rst:54
@@ -95,11 +95,11 @@ msgid ""
 ":file:`/dev/null` as a record. The example below tells :command:`clr-"
 "service-restart` not to restart the *rngd* daemon after an OS software "
 "update."
-msgstr ":command:`disallow` 选项指示 :command:`clr-service-restart` 不要重启指定的守护程序，即使操作系统默认允许重启该守护程序。:command:`clr-service-restart` 守护程序会在 :file:`/etc/clr-service-restart` 中创建一个指向 :file:`/dev/null` 的符号链接作为记录。下面的示例指示 :command:`clr-service-restart` 在操作系统软件更新后不要重启 *rngd* 守护程序。"
+msgstr ":command:`disallow` 选项指示 :command:`clr-service-restart` 不要重启指定的守护程序，即使操作系统默认允许重启该守护程序。:command:`clr-service-restart` 守护程序会在 :file:`/etc/clr-service-restart` 中创建一个指向 :file:`/dev/null` 的符号链接作为记录。下面的示例指示 :command:`clr-service-restart` 在操作系统软件更新后不要重启 rngd 守护程序。"
 
 #: ../../guides/maintenance/restart.rst:68
 msgid "default"
-msgstr "IKEv1"
+msgstr "默认"
 
 #: ../../guides/maintenance/restart.rst:70
 msgid ""
@@ -108,12 +108,12 @@ msgid ""
 "service-restart`. The example below  tells :command:`clr-service-restart`"
 " to restart *rngd* automatically again, because *rngd* is whitelisted for"
 " automatic service restarts by default in |CL|."
-msgstr ":command:`default` 选项指示 :command:`clr-service-restart` 恢复使用操作系统默认设置，并删除 :file:`/etc/clr-service-restart` 中的任何符号链接。下面的示例指示 :command:`clr-service-restart` 重新自动重启 *rngd*，因为 |CL| 默认将 *rngd* 加入了自动重启服务白名单。"
+msgstr ":command:`default` 选项指示 :command:`clr-service-restart` 恢复使用操作系统默认设置，并删除 :file:`/etc/clr-service-restart` 中的任何符号链接。下面的示例指示 :command:`clr-service-restart` 重新自动重启 rngd，因为 |CL| 默认将 rngd 加入了自动重启服务白名单。"
 
 
 #: ../../guides/maintenance/restart.rst:81
 msgid "Monitor options"
-msgstr "的监控选项"
+msgstr "尽快选项"
 
 #: ../../guides/maintenance/restart.rst:83
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,7 @@ msgstr "具备使用 :ref:`swupd <swupd-guide>` 维护 |CL| 构建环境的经�
 
 #: ../../guides/maintenance/architect-lifecycle.rst:24
 msgid "Familiarity with |CL| architecture and reuse of its content in releases"
-msgstr "熟悉 |CL| 架构，熟悉如何在不同版本中重用其内容"
+msgstr "熟悉 |CL| 架构，以及如何在不同版本中重复使用其内容"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:27
 msgid "Description"
@@ -80,7 +80,7 @@ msgid ""
 "Coordinated infrastructure is deployed to automate the life-cycle of your"
 " |CL| derivative. We divide deployment of this infrastucture in two "
 "parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1."
-msgstr "部署协调基础设施，将 |CL| 衍生版的生命周期自动化。我们将该基础设施的部署分为两部分，即*内容工作流程*和*版本工作流程*，如图 1 所示。"
+msgstr "部署协调基础设施，将 |CL| 衍生版的生命周期自动化。我们将该基础设施的部署分为两部分，即内容工作流程*和*版本工作流程，如图 1 所示。"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:44
 msgid "Figure 1: Architect the life-cycle"

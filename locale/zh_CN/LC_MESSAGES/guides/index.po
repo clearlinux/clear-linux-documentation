@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -28,7 +28,7 @@ msgstr "以下指南提供了使用 |CL| 的逐步说明。"
 
 #: ../../guides/index.rst:10
 msgid "As of 22 May 2019 :file:`mixin` is no longer supported."
-msgstr "截至 2019 年 5 月 22 日，:file:`mixin` 不再受支持。"
+msgstr "2019 年 5 月 22 日起将不再支持 :file:`mixin`。"
 
 #: ../../guides/index.rst:15
 msgid "Clear Linux"

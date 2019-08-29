@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -40,7 +40,7 @@ msgid ""
 ":abbr:`OS (operating system)` that functions without excessive user "
 "configuration or customization. Stateless in this context does *not* mean"
 " ephemeral or non-persistent."
-msgstr "|CL-ATTR| 使用无状态设计理念，目的是打造一个无需过多用户配置或自定义的 `OS (operating system)`。在这种情况下，无状态并*不*意味着短暂或不持久。"
+msgstr "|CL-ATTR| 使用无状态设计理念，目的是打造一个无需过多用户配置或自定义的 `OS (operating system)`。在这种情况下，无状态并不意味着短暂或不持久。"
 
 
 #: ../../guides/clear/stateless.rst:25
@@ -70,7 +70,7 @@ msgid ""
 "removed through system updates with :ref:`swupd <swupd-guide>`. This "
 "operating assumption allows |CL| to verify and maintain integrity of "
 "system files."
-msgstr ":file:`/usr` 目录下的文件由用户拥有和管理。:ref:`swupd <swupd-guide>` 此操作假设允许 |CL| 用户清楚地识别其系统的独特配置。"
+msgstr ":file:`/usr` 目录下的文件由用户拥有和管理。用户在 :file:`/usr` 目录下编写的文件可以通过 :ref:`swupd <swupd-guide>` 系统更新删除。此操作假设允许 |CL| 用户清楚地识别其系统的独特配置。"
 
 
 #: ../../guides/clear/stateless.rst:45
