@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -51,7 +51,7 @@ msgstr "autospec 工具通过分析源代码和 :file:`Makefile` 信息来尝试
 msgid ""
 "autospec uses **mock** as a sandbox to run the builds. Visit the `mock "
 "wiki`_ for additional information on using mock."
-msgstr "autospec 使用 **模拟** 作为沙箱运行内部版本。访问 `mock wiki`_，了解有关使用模拟的其他信息。"
+msgstr "autospec 使用模拟作为沙箱运行内部版本。访问 `mock wiki`_，了解有关使用模拟的其他信息。"
 
 #: ../../guides/clear/autospec.rst:29
 msgid ""
@@ -411,7 +411,7 @@ msgid ""
 "The |CL| development tooling includes a method to install RPMs into a "
 "|CL| virtual machine running on the KVM hypervisor. Using a :abbr:`VM "
 "(Virtual Machine)` allows testing in a completely isolated environment."
-msgstr "|CL| 开发工具包括将 RPM 安装到 |CL| 虚拟机（在 KVM 管理程序上运行）的方法。使用 :abbr:`VM (Virtual Machine)`，可在完全隔离的环境下进行测试。"
+msgstr "|CL| 开发工具包括将 RPM 安装到 |CL| 虚拟机（在 KVM 管理程序上运行）的方法。使用 :abbr:`虚拟机`，可在完全隔离的环境下进行测试。"
 
 
 #: ../../guides/clear/autospec.rst:351

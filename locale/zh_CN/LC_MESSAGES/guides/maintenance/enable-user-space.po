@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "将 <userid> 替换为要创建的用户帐户的名称，包括该用�
 
 #: ../../guides/maintenance/enable-user-space.rst:30
 msgid "Add the new user to the *wheel* group"
-msgstr "将新用户添加到 *wheel* 组"
+msgstr "将新用户添加到 wheel 组"
 
 #: ../../guides/maintenance/enable-user-space.rst:32
 msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -300,7 +300,7 @@ msgid ""
 "platform must support the Intel® AVX-512 instruction set. Otherwise, an "
 "*illegal instruction* error may appear, and you won’t be able to complete"
 " this guide."
-msgstr "如果选择英特尔® MKL-DNN 或英特尔® MKL-DNN-VNNI 映像，您的平台必须支持英特尔® AVX-512 指令集。否则，可能会出现*非法指令*错误，导致无法完成本教程。"
+msgstr "如果选择英特尔® MKL-DNN 或英特尔® MKL-DNN-VNNI 映像，您的平台必须支持英特尔® AVX-512 指令集。否则，可能会出现非法指令错误，导致无法完成本教程。"
 
 
 #: ../../guides/stacks/dlrs/dlrs.rst:210
@@ -514,7 +514,7 @@ msgstr "您的浏览器会显示以下内容："
 
 #: ../../guides/stacks/dlrs/dlrs.rst:418
 msgid "Figure 1: :guilabel:`Jupyter Notebook`"
-msgstr "图 1：:guilabel:`Jupyter Notebook`"
+msgstr "图 1： :guilabel:`Jupyter Notebook`"
 
 #: ../../guides/stacks/dlrs/dlrs.rst:421
 msgid ""

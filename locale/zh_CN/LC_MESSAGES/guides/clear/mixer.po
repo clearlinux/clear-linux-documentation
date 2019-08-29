@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -58,7 +58,7 @@ msgid ""
 "will be part of your update. You can select content from each of these "
 "sources to make a unique combination of functionality for your custom "
 "update content, known as a **mix**."
-msgstr "使用 mixer 工具，可以选择将来自这些源的哪些内容纳入更新。可以从这些源选择内容，从而为定制更新内容创建独特的功能组合（即**组合**）。"
+msgstr "使用 mixer 工具，可以选择将来自这些源的哪些内容纳入更新。可以从这些源选择内容，从而为定制更新内容创建独特的功能组合（即组合）。"
 
 #: ../../guides/clear/mixer.rst:27
 msgid ""
@@ -311,7 +311,7 @@ msgstr "零包是从组合版本 0（无）变为刚刚为其构建内容的组�
 msgid ""
 "A delta-pack provides the content *delta* between a `PAST_VERSION` to a "
 "`MIX_VERSION` that allows the transition from one mix version to another."
-msgstr "增量包可提供 `PAST_VERSION` 与 `MIX_VERSION` 之间的*增量*内容，允许从一个组合版本变为另一版本。"
+msgstr "增量包可提供 `PAST_VERSION` 与 `MIX_VERSION` 之间的增量内容，允许从一个组合版本变为另一版本。"
 
 #: ../../guides/clear/mixer.rst:162
 msgid "View :ref:`swupd-guide`  for more information on update content."
@@ -327,7 +327,7 @@ msgid ""
 ":ref:`ister` tool. In this step you can specify which bundles you want "
 "*preinstalled* in the image. Users can later install other bundles "
 "available in your mix."
-msgstr "mixer 使用 :ref:`ister` 工具从更新后的内容创建可引导映像。在此步骤中，可以指定要在映像中*预安装*的 bundle 文件。随后，用户可以安装组合中的其他 bundle 文件。"
+msgstr "mixer 使用 :ref:`ister` 工具从更新后的内容创建可引导映像。在此步骤中，可以指定要在映像中预安装的 bundle 文件。随后，用户可以安装组合中的其他 bundle 文件。"
 
 
 #: ../../guides/clear/mixer.rst:171
@@ -767,7 +767,7 @@ msgstr "yum 配置文件将 chroot-builder 指向 RPM 的存储位置。"
 
 #: ../../guides/clear/mixer.rst:550
 msgid "**Table 1**: *Variables in builder.conf*"
-msgstr "**表 1**：*builder.conf 中的变量*"
+msgstr "表 1：builder.conf 中的变量"
 
 #: ../../guides/clear/mixer.rst:554
 msgid "Format version"
@@ -781,7 +781,7 @@ msgid ""
 " set as the `Format` variable in the :file:`mixer.state` file. Variables "
 "in the :file:`mixer.state` are used by mixer between executions and "
 "should not be manually changed."
-msgstr "操作系统的兼容版本通过操作系统 *兼容性时间戳* 进行跟踪。某一时间戳的各版本操作系统均完全兼容，并可更新到该时间戳中的任意其他版本。兼容性时间戳在 :file:`mixer.state` 文件中作为 `Format` 变量进行设置。:file:`mixer.state` 中的变量由 mixer 在执行间隔使用，且不应手动更改。"
+msgstr "操作系统的兼容版本通过操作系统兼容性时间戳进行跟踪。某一时间戳的各版本操作系统均完全兼容，并可更新到该时间戳中的任意其他版本。兼容性时间戳在 :file:`mixer.state` 文件中作为 `Format` 变量进行设置。:file:`mixer.state` 中的变量由 mixer 在执行间隔使用，且不应手动更改。"
 
 
 #: ../../guides/clear/mixer.rst:563
@@ -825,7 +825,7 @@ msgid ""
 "content built in the next format. Only after reaching the final release "
 "in the old format can a client continue to update to releases in the new "
 "format."
-msgstr "给定时间戳格式 *必须* 包含理解以下一个时间戳格式构建的内容所需的所有更改。仅当达到采用旧时间戳格式的最终版本后，客户端才能继续更新到采用新时间戳格式的版本。"
+msgstr "给定时间戳格式必须包含理解以下一个时间戳格式构建的内容所需的所有更改。仅当达到采用旧时间戳格式的最终版本后，客户端才能继续更新到采用新时间戳格式的版本。"
 
 
 #: ../../guides/clear/mixer.rst:584
@@ -846,7 +846,7 @@ msgid ""
 "VERSIONS_PATH variable in :file:`builder.conf`. :file:`mixbundles` is "
 "automatically created when the mix is initiated. mixer will refresh the "
 "file each time you change the bundles in the mix."
-msgstr "mixer 将有关 bundle 文件的信息存储在名为 :file:`mixbundles` 的平面文件中。此文件所在的路径是通过文件 :`builder.conf` 中的 VERSIONS_PATH 变量设置的。启动组合时会自动创建 :file:`mixbundles`。每次更改组合中的 bundle 文件时，mixer 均会刷新此文件。"
+msgstr "mixer 将有关 bundle 文件的信息存储在名为 :file:`mixbundles` 的平面文件中。此文件所在的路径是通过文件 :file:`builder.conf` 中的 VERSIONS_PATH 变量设置的。启动组合时会自动创建 :file:`mixbundles`。每次更改组合中的 bundle 文件时，mixer 均会刷新此文件。"
 
 
 #: ../../guides/clear/mixer.rst:595

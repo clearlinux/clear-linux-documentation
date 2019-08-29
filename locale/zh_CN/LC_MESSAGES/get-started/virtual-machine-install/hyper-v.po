@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -63,7 +63,7 @@ msgid ""
 "create a virtual network in the **Hyper-V Manager**.  Refer to the "
 "`Create a virtual network`_ documentation to create and configure a "
 "virtual network."
-msgstr "在 Windows 系统上启用 *Hyper-V*后，需要在 **Hyper-V Manager** 中创建虚拟网络。请参阅 `Create a virtual network`_ 文档以创建和配置虚拟网络。"
+msgstr "在 Windows 系统上启用 *Hyper-V* 后，需要在 **Hyper-V Manager** 中创建虚拟网络。请参阅 `Create a virtual network`_ 文档以创建和配置虚拟网络。"
 
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:36
@@ -84,19 +84,19 @@ msgstr "利用 **Hyper-V Manager** 创建虚拟机："
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:44
 msgid "Choose **Generation 2** when prompted to *specify VM generation*."
-msgstr "提示 *指定虚拟机世代* 时选择 **第 2 代**。"
+msgstr "提示指定虚拟机世代时选择第 2 代。"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:45
 msgid ""
 "Choose **Use an existing virtual hard disk** and browse to find the :file"
 ":`clear-XXXX-hyperv.vhdx` file."
-msgstr "选择 **使用现有虚拟硬盘**，找到 :file:`clear-XXXX-hyperv.vhdx` 文件。"
+msgstr "选择使用现有虚拟硬盘，找到 :file:`clear-XXXX-hyperv.vhdx` 文件。"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:47
 msgid ""
 "When finished, open VM settings, select Firmware Section and in Secure "
 "Boot config, **uncheck** Enable Secure Boot."
-msgstr "完成后，打开虚拟机设置，选择“固件选择”，在“安全引导配置”中 **取消选中**“启用安全引导”。"
+msgstr "完成后，打开虚拟机设置，选择“固件选择”，在“安全引导配置”中取消选中“启用安全引导”。"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:50
 msgid "Currently, |CL| does not boot with `secure boot` enabled."

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr "本教程使用有资格享受 AWS 免费套餐的 |CL| AMI t2.micro 实
 
 #: ../../get-started/cloud-install/aws-web.rst:39
 msgid "Locate, select, and launch the |CL| Basic AMI"
-msgstr "找到并选择 |CL| 基本 AMI，然后启动它"
+msgstr "查找、选择并启动 Clear Linux OS 基本 AMI"
 
 #: ../../get-started/cloud-install/aws-web.rst:41
 msgid ""
@@ -95,7 +95,7 @@ msgstr "在浏览器中从 AWS 服务控制台主菜单开始，然后选择图 
 
 #: ../../get-started/cloud-install/aws-web.rst:48
 msgid "Figure 1: :guilabel:`AWS Console`"
-msgstr "图 1：:guilabel:`AWS Console`"
+msgstr "图 1： :guilabel:`AWS Console`"
 
 #: ../../get-started/cloud-install/aws-web.rst:50
 msgid "This selection brings up your :guilabel:`EC2 Dashboard` menu."
@@ -109,7 +109,7 @@ msgstr "要从 :guilabel:`EC2 Dashboard` 菜单创建新的 |CL| 实例，请选
 
 #: ../../get-started/cloud-install/aws-web.rst:59
 msgid "Figure 2: :guilabel:`EC2 Dashboard`"
-msgstr "图 2：:guilabel:`EC2 Dashboard`"
+msgstr "图 2： :guilabel:`EC2 Dashboard`"
 
 #: ../../get-started/cloud-install/aws-web.rst:61
 msgid ""
@@ -144,7 +144,7 @@ msgstr "通过点击图 3 中所示的 :guilabel:`Select` 按钮，选择 :guila
 
 #: ../../get-started/cloud-install/aws-web.rst:82
 msgid "Figure 3: :guilabel:`Step 1: Choose AMI`"
-msgstr "图 3：:guilabel:`Step 1: Choose AMI`"
+msgstr "图 3： :guilabel:`Step 1: Choose AMI`"
 
 #: ../../get-started/cloud-install/aws-web.rst:84
 msgid ""
@@ -156,7 +156,7 @@ msgstr "此时将出现一个弹出对话框，其中显示有关 :guilabel:`Cle
 
 #: ../../get-started/cloud-install/aws-web.rst:93
 msgid "Figure 4: :guilabel:`Clear Linux OS Basic`"
-msgstr "图 4：:guilabel:`Clear Linux OS Basic`"
+msgstr "图 4： :guilabel:`Clear Linux OS Basic`"
 
 #: ../../get-started/cloud-install/aws-web.rst:95
 msgid "The :guilabel:`Choose Instance Type` menu appears as shown in Figure 5."
@@ -164,7 +164,7 @@ msgstr "此时将出现图 5 中所示的 :guilabel:`Choose Instance Type` 菜�
 
 #: ../../get-started/cloud-install/aws-web.rst:101
 msgid "Figure 5: :guilabel:`Choose an Instance Type`"
-msgstr "图 5：:guilabel:`Choose an Instance Type`"
+msgstr "图 5： :guilabel:`Choose an Instance Type`"
 
 #: ../../get-started/cloud-install/aws-web.rst:103
 msgid ""
@@ -186,22 +186,22 @@ msgid ""
 "6, allows you to :guilabel:`Cancel` the process, return to the "
 ":guilabel:`Previous` screen to change the configuration or "
 ":guilabel:`Launch` the instance defined."
-msgstr "图 6 中所示的 :guilabel:`Step 7: Review the Instance Launch` 菜单可用于:guilabel:`Cancel` 进程，以及返回到 :guilabel:`Previous` 屏幕以更改配置，或者可用于:guilabel:`Launch` 已定义的实例。"
+msgstr "图 6 中所示的 :guilabel:`Step 7: Review the Instance Launch` 菜单可用于 :guilabel:`Cancel` 进程，以及返回到 :guilabel:`Previous` 屏幕以更改配置，或者可用于 :guilabel:`Launch` 已定义的实例。"
 
 #: ../../get-started/cloud-install/aws-web.rst:123
 msgid "Figure 6: :guilabel:`Step 7: Review the Instance Launch`"
-msgstr "图 6：:guilabel:`Step 7: Review the Instance Launch`"
+msgstr "图 6： :guilabel:`Step 7: Review the Instance Launch`"
 
 #: ../../get-started/cloud-install/aws-web.rst:125
 msgid ""
 "Select the :guilabel:`Launch` button. A dialog box appears, as shown in "
 "Figure 7, asking you to :guilabel:`Select an existing key pair or create "
 "a new pair`."
-msgstr "选择 :guilabel:`Launch` 按钮。此时将出现图 7 中所示的对话框，要求您:guilabel:`Select an existing key pair or create a new pair`。"
+msgstr "选择 :guilabel:`Launch` 按钮。此时将出现图 7 中所示的对话框，要求您 :guilabel:`Select an existing key pair or create a new pair`。"
 
 #: ../../get-started/cloud-install/aws-web.rst:133
 msgid "Figure 7: :guilabel:`Select an existing key pair or create a new pair`"
-msgstr "图 7：:guilabel:`Select an existing key pair or create a new pair`"
+msgstr "图 7： :guilabel:`Select an existing key pair or create a new pair`"
 
 #: ../../get-started/cloud-install/aws-web.rst:135
 msgid "Select the :guilabel:`Create a new key pair` option."
@@ -227,18 +227,18 @@ msgstr "文件下载完成后，选择 :guilabel:`Launch Instances` 按钮以转
 
 #: ../../get-started/cloud-install/aws-web.rst:151
 msgid "Figure 8: :guilabel:`Launch Status`"
-msgstr "图 8：:guilabel:`Launch Status`"
+msgstr "图 8： :guilabel:`Launch Status`"
 
 #: ../../get-started/cloud-install/aws-web.rst:153
 msgid ""
 "Once the :guilabel:`Launch Status` page changes to what is shown in "
 "Figure 9, select the :guilabel:`View Instances` button to view your "
 ":guilabel:`Instances` dashboard."
-msgstr ":guilabel:`Launch Status` 页面变为图 9 中所示的页面后，选择 :guilabel:`View Instances` 按钮以显示 :guilabel:`Instances` 仪表板。"
+msgstr " :guilabel:`Launch Status` 页面变为图 9 中所示的页面后，选择 :guilabel:`View Instances` 按钮以显示 :guilabel:`Instances` 仪表板。"
 
 #: ../../get-started/cloud-install/aws-web.rst:161
 msgid "Figure 9: :guilabel:`View Instance`"
-msgstr "图 9：:guilabel:`View Instance`"
+msgstr "图 9： :guilabel:`View Instance`"
 
 #: ../../get-started/cloud-install/aws-web.rst:164
 msgid "Connect to your Clear Linux* OS basic instance"
@@ -250,11 +250,11 @@ msgid ""
 "|CL| OS basic instance already selected and in the running state. If "
 "there are other instances available, they are also listed but not "
 "selected."
-msgstr "图 10 中显示了 :guilabel:`Instances` 仪表板和已选择并处于运行状态的新的 |CL| 操作系统基本实例。如果有其他实例可用，则也会列出这些实例，但未选择这些实例。"
+msgstr "图 10 中显示了 :guilabel:`Instances` 仪表板和已选择并处于运行状态的新的 |CL| 操作系统基本实例。同时也会显示其他可用的实例（如有），但不会选择这些实例。"
 
 #: ../../get-started/cloud-install/aws-web.rst:174
 msgid "Figure 10: :guilabel:`Instance Dashboard`"
-msgstr "图 10：:guilabel:`Instance Dashboard`"
+msgstr "图 10： :guilabel:`Instance Dashboard`"
 
 #: ../../get-started/cloud-install/aws-web.rst:176
 msgid ""
@@ -266,7 +266,7 @@ msgstr "要连接到正在运行的实例，请点击位于仪表板顶部的 :g
 
 #: ../../get-started/cloud-install/aws-web.rst:186
 msgid "Figure 11: :guilabel:`Connect to Your Instance`"
-msgstr "图 11：:guilabel:`Connect to Your Instance`"
+msgstr "图 11： :guilabel:`Connect to Your Instance`"
 
 #: ../../get-started/cloud-install/aws-web.rst:188
 msgid ""
@@ -320,7 +320,7 @@ msgstr "运行图 12 中显示的 :command:`sudo swupd update` 命令以更新�
 
 #: ../../get-started/cloud-install/aws-web.rst:243
 msgid "Figure 12: :guilabel:`sudo swupd update`"
-msgstr "图 12：:guilabel:`sudo swupd update`"
+msgstr "图 12： :guilabel:`sudo swupd update`"
 
 #: ../../get-started/cloud-install/aws-web.rst:245
 msgid "In this example, we updated from version 18940 to 19100."
@@ -356,7 +356,7 @@ msgstr "图 13 说明了这些步骤。"
 
 #: ../../get-started/cloud-install/aws-web.rst:267
 msgid "Figure 13: :guilabel:`Stop Instance`"
-msgstr "图 13：:guilabel:`Stop Instance`"
+msgstr "图 13： :guilabel:`Stop Instance`"
 
 #: ../../get-started/cloud-install/aws-web.rst:269
 msgid ""
@@ -367,7 +367,7 @@ msgstr "此时将出现一个弹出对话框，警告实例的任何临时存储
 
 #: ../../get-started/cloud-install/aws-web.rst:277
 msgid "Figure 14: :guilabel:`Stop Instances`"
-msgstr "图 14：:guilabel:`Stop Instances`"
+msgstr "图 14： :guilabel:`Stop Instances`"
 
 #: ../../get-started/cloud-install/aws-web.rst:279
 msgid ""

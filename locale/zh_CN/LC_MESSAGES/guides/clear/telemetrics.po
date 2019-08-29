@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -30,14 +30,14 @@ msgstr "本指南描述了 |CL-ATTR| 遥测解决方案。"
 msgid ""
 "Telemetry in |CL| is **opt-in**. The telemetry client is **not**  active "
 "and sends **no** data until you explicitly enable it."
-msgstr "|CL| 中的遥测为 **opt-in**。遥测客户端 **未** 处于活动状态，且在您将其显式启用之前 **不** 发送任何数据。"
+msgstr "|CL| 中的遥测为 **opt-in**。遥测客户端未处于活动状态，且在您将其显式启用之前不发送任何数据。"
 
 #: ../../guides/clear/telemetrics.rst:15
 msgid ""
 "The telemetry functionality adheres to `Intel privacy policies`_ "
 "regarding the collection and use of :abbr:`PII (Personally Identifiable "
 "Information)` and is open source."
-msgstr "遥测功能遵从涉及收集和使用 :abbr:`PII (Personally Identifiable Information)` 的 `Intel privacy policies`_，同时也是开源功能。"
+msgstr "遥测功能遵从涉及收集和使用 :abbr:`PII (Personally Identifiable Information)` 的 `Chinese text for privacy policy <https://www.intel.cn/content/www/cn/zh/privacy/intel-privacy-notice.html>`_，同时也是开源功能。"
 
 
 #: ../../guides/clear/telemetrics.rst:19
@@ -105,7 +105,7 @@ msgid ""
 "The |CL| telemetrics solution is an **opt-in** choice on the client side."
 " By default, the telemetry client is disabled until you choose to enable "
 "it. Enabling the client is covered in this guide."
-msgstr "|CL| 遥测解决方案是客户端上的一个 **选择启用** 选项。默认情况下，禁用遥测客户端，直到用户选择将其启用。本指南介绍如何启用客户端。"
+msgstr "|CL| 遥测解决方案是客户端上的一个选择启用选项。默认情况下，禁用遥测客户端，直到用户选择将其启用。本指南介绍如何启用客户端。"
 
 #: ../../guides/clear/telemetrics.rst:60
 msgid "Architecture"
@@ -131,7 +131,7 @@ msgstr "后端：接收客户端发来的记录，通过专门的 Web 界面显�
 
 #: ../../guides/clear/telemetrics.rst:72
 msgid "Figure 1: :guilabel:`|CL| Telemetry Architecture`"
-msgstr "图 1：:guilabel:`|CL| Telemetry Architecture`"
+msgstr "图 1： :guilabel:`|CL| Telemetry Architecture`"
 
 #: ../../guides/clear/telemetrics.rst:74
 msgid ""
@@ -567,7 +567,7 @@ msgid ""
 "Enter `postgres` for the current value of the password and then enter a "
 "new password, retype it to verify the new password and the "
 ":guilabel:`PostgreSQL` database password will be updated."
-msgstr "输入此密码的当前值 `postgres`，然后输入新密码。接着，再次输入此密码进行验证，:guilabel:`PostgreSQL` 数据库密码随即更新。"
+msgstr "输入此密码的当前值 `postgres`，然后输入新密码。接着，再次输入此密码进行验证， :guilabel:`PostgreSQL` 数据库密码随即更新。"
 
 
 #: ../../guides/clear/telemetrics.rst:366
@@ -580,7 +580,7 @@ msgstr "安装完成后，可以打开系统浏览器，在地址栏中输入 lo
 
 #: ../../guides/clear/telemetrics.rst:374
 msgid "Figure 2: :guilabel:`Telemetry UI`"
-msgstr "图 2：:guilabel:`Telemetry UI`"
+msgstr "图 2： :guilabel:`Telemetry UI`"
 
 #: ../../guides/clear/telemetrics.rst:377
 msgid "Create records with telem-record-gen"
@@ -658,7 +658,7 @@ msgid ""
 "also be found on github for reference, but installing the "
 ":command:`telemetry` bundle will install the header file that matches "
 "your |CL| version."
-msgstr "确认遥测头文件位于系统上的 :file:`usr/include/telemetry.h`。此文件的 `latest version`_ 也可在 Github 上找到，以供参考，但安装 :command: `telemetry` bundle 文件会安装匹配 |CL| 版本的头文件。"
+msgstr "确认遥测头文件位于系统上的 :file:`usr/include/telemetry.h`。此文件的 `latest version`_ 也可在 Github 上找到，以供参考，但安装 :command:`telemetry` bundle 文件会安装匹配 |CL| 版本的头文件。"
 
 
 #: ../../guides/clear/telemetrics.rst:505
@@ -796,7 +796,7 @@ msgid ""
 " :command:`telemprobd(1)` service. Since the telemetry record was "
 "allocated by the program it should be freed with "
 ":command:`tm_free_record()` when it is no longer needed."
-msgstr "函数 :command:`tm_send_record()` 向本地 :command:`telemprobd(1)` 服务提供记录。由于遥测记录是程序分配的，因此不再需要时，应通过 :command:‘tm_free_record()’ 释放。"
+msgstr "函数 :command:`tm_send_record()` 向本地 :command:`telemprobd(1)` 服务提供记录。由于遥测记录是程序分配的，因此不再需要时，应通过 :command:`tm_free_record()` 释放。"
 
 
 #: ../../guides/clear/telemetrics.rst:638

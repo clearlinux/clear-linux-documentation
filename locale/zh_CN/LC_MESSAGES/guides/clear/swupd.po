@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -94,7 +94,7 @@ msgid ""
 "combinations of software have been tested. Every release of the same "
 "number is guaranteed to contain the same versions of software, so there's"
 " no ambiguity between two systems running the same version of |CL|."
-msgstr "表示操作系统 **当前** 版本的数字，描述操作系统上所有软件的版本。每个内部版本均由一组特定的 bundle 文件组成，而这些 bundle 文件则由特定版本的软件包组成。如果系统管理员日常需要确定哪些系统缺少最新安全修复程序，或哪些软件组合已经过测试，这对他们来说十分重要。对于同一数字的每个版本，均可以保证包含相同版本的软件，因此在运行同一版本的 |CL| 的两个系统之间不会产生混淆。"
+msgstr "表示操作系统当前版本的数字，描述操作系统上所有软件的版本。每个内部版本均由一组特定的 bundle 文件组成，而这些 bundle 文件则由特定版本的软件包组成。如果系统管理员日常需要确定哪些系统缺少最新安全修复程序，或哪些软件组合已经过测试，这对他们来说十分重要。对于同一数字的每个版本，均可以保证包含相同版本的软件，因此在运行同一版本的 |CL| 的两个系统之间不会产生混淆。"
 
 
 #: ../../guides/clear/swupd.rst:55
@@ -110,7 +110,7 @@ msgid ""
 "*manifests*, which list and describe file contents, symlinks, and "
 "directories. Additionally, the actual content is provided to clients in "
 "the form of archive files."
-msgstr "|CL| 默认强制定期更新操作系统，并自动对照版本服务器检查是否存在更新。内容服务器提供针对所有版本的文件和元数据内容，并可与版本服务器相同。内容 URL 服务器以 *清单* 形式提供元数据，列出并描述文件内容、符号链接和目录。此外，实际内容还会以存档文件的形式提供给客户端。"
+msgstr "|CL| 默认强制定期更新操作系统，并自动对照版本服务器检查是否存在更新。内容服务器提供针对所有版本的文件和元数据内容，并可与版本服务器相同。内容 URL 服务器以清单形式提供元数据，列出并描述文件内容、符号链接和目录。此外，实际内容还会以存档文件的形式提供给客户端。"
 
 
 #: ../../guides/clear/swupd.rst:65
@@ -196,21 +196,21 @@ msgid ""
 "allows any |CL| to obtain the exact copy of the content for each version "
 "directly. This is used if the OS verification needs to replace a single "
 "file, for instance."
-msgstr "在每个版本中，始终会为每个文件生成 *完整文件*。此操作可让所有 |CL| 直接获取每个版本的精确内容副本。例如，如果操作系统验证需替换单个文件，则可使用此操作。"
+msgstr "在每个版本中，始终会为每个文件生成完整文件。此操作可让所有 |CL| 直接获取每个版本的精确内容副本。例如，如果操作系统验证需替换单个文件，则可使用此操作。"
 
 
 #: ../../guides/clear/swupd.rst:115
 msgid ""
 "*Packs* are available for some releases. They combine many files to speed"
 " up the creation of installation media and large updates."
-msgstr "*数据包* 可用于某些版本。它们将大量文件进行组合，从而加速安装介质制作过程，加快大型更新过程。"
+msgstr "数据包可用于某些版本。它们将大量文件进行组合，从而加速安装介质制作过程，加快大型更新过程。"
 
 #: ../../guides/clear/swupd.rst:118
 msgid ""
 "*Delta packs* are an optimized version of packs that only contain updates"
 " (binary diffs). They cannot be used without having the original file "
 "content."
-msgstr "*增量包* 是只包含更新（二进制差异）的优化版本的数据包。如果没有原始文件内容，则无法使用。"
+msgstr "增量包是只包含更新（二进制差异）的优化版本的数据包。如果没有原始文件内容，则无法使用。"
 
 #: ../../guides/clear/swupd.rst:122
 msgid "Bundle search"
@@ -236,7 +236,7 @@ msgstr "系统只返回基本 bundle 文件。bundle 文件可通过 include 包
 msgid ""
 "Bundles that are already installed are marked **(installed)** in search "
 "results."
-msgstr "已安装的 bundle 文件在搜索结果中标记为 **（已安装）**。"
+msgstr "已安装的 bundle 文件在搜索结果中标记为（已安装）。"
 
 #: ../../guides/clear/swupd.rst:135
 msgid "Optionally, you can review our `bundles`_ on GitHub\\*."
@@ -290,7 +290,7 @@ msgid ""
 "container implementations, each Kata Container has its own kernel "
 "instance and runs on its own :abbr:`VM (Virtual Machine)` for improved "
 "security."
-msgstr "Kata 容器是一种常见的容器实现。与其他容器实现不同，每个 Kata 容器均有自己的内核实例，在自己的 :abbr:`VM (Virtual Machine)` 上运行，增强了安全性。"
+msgstr "Kata 容器是一种常见的容器实现。与其他容器实现不同，每个 Kata 容器均有自己的内核实例，在自己的 :abbr:`虚拟机` 上运行，增强了安全性。"
 
 
 #: ../../guides/clear/swupd.rst:202
@@ -319,7 +319,7 @@ msgstr "输出如下所示："
 msgid ""
 "If your search does not produce results with a specific term, shorten the"
 " search term. For example, use *kube* instead of *kubernetes*."
-msgstr "如果搜索结果中没有带特定字词，则请缩短搜索字词。例如，使用 *kube* 而非 *kubernetes*。"
+msgstr "如果未出现包含特定字词的搜索结果，请缩短搜索字词后重试。例如，使用 *kube* 而非 *kubernetes*。"
 
 #: ../../guides/clear/swupd.rst:237
 msgid "Add the bundle."

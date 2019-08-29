@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid ""
 "This guide describes how to reset the time in your |CL-ATTR| system when "
 "the default :abbr:`NTP (Network Time Protocol)` servers cannot be "
 "reached."
-msgstr "本指南介绍当无法访问默认 :abbr:`NTP (Network Time Protocol)` 服务器时如何重置 |CL-ATTR| 系统中的时间。"
+msgstr "本指南介绍了当无法访问默认 :abbr:`NTP (Network Time Protocol)` 服务器时，如何重置 |CL-ATTR| 系统中的时间。"
 
 #: ../../guides/maintenance/time.rst:9
 msgid "|CL| uses the `systemd-timesyncd.service` daemon to synchronize time."
@@ -74,7 +74,7 @@ msgstr "要重启 `timesyncd` 守护程序，请在终端仿真器中输入 :com
 
 #: ../../guides/maintenance/time.rst:57
 msgid "**Congratulations!** You successfully set up the time in your |CL| system."
-msgstr "**祝贺您！** 您成功地在 |CL| 系统中设置了时间。"
+msgstr "祝贺您！您成功地在 |CL| 系统中设置了时间。"
 
 #~ msgid ""
 #~ "|CL-ATTR| uses the `systemd-"

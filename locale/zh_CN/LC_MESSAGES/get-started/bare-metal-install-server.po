@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -218,7 +218,7 @@ msgid ""
 "To meet the minimum requirements, enter your choices in the "
 ":guilabel:`Required options`. After confirmation, your selections appear "
 "beside the :guilabel:`>>` chevron, below the menu options."
-msgstr "要满足最低要求，请在:guilabel:`Required options` 中输入您的设置。确认后，您选择的设置会出现在菜单选项下的 :guilabel:`>>` 标志旁边。"
+msgstr "要满足最低要求，请在 :guilabel:`Required options` 中输入您的设置。确认后，您选择的设置会出现在菜单选项下的 :guilabel:`>>` 标志旁边。"
 
 
 #: ../../get-started/bare-metal-install-server.rst:135
@@ -299,7 +299,7 @@ msgstr "从“Main Menu”中，选择 :guilabel:`Configure the Keyboard`。"
 
 #: ../../get-started/bare-metal-install-server.rst:191
 msgid "In :guilabel:`Select Keyboard`, navigate to the desired option."
-msgstr "在:guilabel:`Select Keyboard` 中，导航到所需的选项。"
+msgstr "在 :guilabel:`Select Keyboard` 中，导航到所需的选项。"
 
 #: ../../get-started/bare-metal-install-server.rst:193
 msgid "Select :kbd:`Enter` to :kbd:`Confirm`."
@@ -321,13 +321,13 @@ msgstr "配置安装媒介"
 
 #: ../../get-started/bare-metal-install-server.rst:207
 msgid "From the Main Menu, select :guilabel:`Configure Installation Media`."
-msgstr "从“Main Menu”中，选择:guilabel:`Configure Installation Media`。"
+msgstr "从“Main Menu”中，选择 :guilabel:`Configure Installation Media`。"
 
 #: ../../get-started/bare-metal-install-server.rst:209
 msgid ""
 "Choose an installation method: * `Safe Installation`_ * `Destructive "
 "Installation`_ * `Advanced Configuration`_"
-msgstr "选择安装方法：* `Safe Installation`_ * `Destructive Installation`_ * `Advanced Configuration`_"
+msgstr "选择安装方法： * `Safe Installation`_ * `Destructive Installation`_ * `Advanced Configuration`_"
 
 
 #: ../../get-started/bare-metal-install-server.rst:219
@@ -336,7 +336,7 @@ msgstr "图 8：选择安装媒介"
 
 #: ../../get-started/bare-metal-install-server.rst:221
 msgid "Select :guilabel:`Rescan Media` to show available installation targets."
-msgstr "选择:guilabel:`Rescan Media` 显示可用的安装目标。"
+msgstr "选择 :guilabel:`Rescan Media` 显示可用的安装目标。"
 
 #: ../../get-started/bare-metal-install-server.rst:226
 msgid "Safe Installation"
@@ -366,7 +366,7 @@ msgid ""
 "From the :guilabel:`Select Installation Media` menu, select "
 ":guilabel:`Enable Encryption` to encrypt the root filesystem for either "
 "option above. See also `Disk encryption`_ for more information."
-msgstr "从:guilabel:`Select Installation Media` 菜单中，选择:guilabel:`Enable Encryption` 对上述任一选项的根文件系统进行加密。有关详细信息，另请参阅 `Disk encryption`_。"
+msgstr "从 :guilabel:`Select Installation Media` 菜单中，选择 :guilabel:`Enable Encryption` 对上述任一选项的根文件系统进行加密。有关详细信息，另请参阅 `Disk encryption`_。"
 
 
 #: ../../get-started/bare-metal-install-server.rst:246
@@ -391,7 +391,7 @@ msgstr "`Advanced Configuration` 在 1.2.0 和更高版本安装程序中可用�
 msgid ""
 "From :guilabel:`Select Installation Media`, shown in Figure 8 above, "
 "select :guilabel:`Advanced Configuration`."
-msgstr "如上图 8 所示，从:guilabel:`Select Installation Media` 中，选择 :guilabel:`Advanced Configuration`。"
+msgstr "如上图 8 所示，从 :guilabel:`Select Installation Media` 中，选择 :guilabel:`Advanced Configuration`。"
 
 
 #: ../../get-started/bare-metal-install-server.rst:260
@@ -413,11 +413,11 @@ msgstr "选择一种分区方法："
 msgid ""
 ":guilabel:`Auto Partition` Select this option to accept the `Default "
 "partition schema`_."
-msgstr ":guilabel:`Auto Partition` 选择此选项会接受 `Default partition schema`_。"
+msgstr " :guilabel:`Auto Partition` 选择此选项会接受 `Default partition schema`_。"
 
 #: ../../get-started/bare-metal-install-server.rst:274
 msgid "Navigate to and press :guilabel:`Confirm`."
-msgstr "导航到并按下:guilabel:`Confirm`。"
+msgstr "导航到并按下 :guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-server.rst:276
 msgid "Continue with installation configuration. Jump to `Telemetry`_."
@@ -505,7 +505,7 @@ msgstr "图 12：交换分区"
 msgid ""
 "Next, navigate to :guilabel:`Confirm` and press :guilabel:`Enter`, shown "
 "in Figure 13."
-msgstr "接下来，导航到:guilabel:`Confirm`，然后按 :guilabel:`Enter`，如图 13 所示。"
+msgstr "接下来，导航到 :guilabel:`Confirm`，然后按 :guilabel:`Enter`，如图 13 所示。"
 
 #: ../../get-started/bare-metal-install-server.rst:340
 msgid "Manual partitioning is complete."
@@ -569,11 +569,11 @@ msgstr "在第一个和第二个字段中输入相同的密码短语。"
 
 #: ../../get-started/bare-metal-install-server.rst:386
 msgid "Navigate to :guilabel:`Confirm` and press :kbd:`Enter`."
-msgstr "导航到:guilabel:`Confirm`，然后按 :kbd:`Enter`。"
+msgstr "导航到 :guilabel:`Confirm`，然后按 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:390
 msgid ":guilabel:`Confirm` is only highlighted if passphrases match."
-msgstr ":guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
+msgstr " :guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
 
 #: ../../get-started/bare-metal-install-server.rst:393
 msgid "Telemetry"
@@ -594,7 +594,7 @@ msgstr "根据是否要参与`遥测技术`，选择所需的选项。"
 msgid ""
 "In the Main Menu, navigate to :guilabel:`Telemetry` and select "
 ":kbd:`Enter`."
-msgstr "在“Main Menu”中，导航到:guilabel:`Telemetry`，并选择 :kbd:`Enter`。"
+msgstr "在“Main Menu”中，导航到 :guilabel:`Telemetry`，并选择 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:403
 msgid "Select :kbd:`Tab` to highlight your choice."
@@ -634,13 +634,13 @@ msgstr "跳到完成安装界面"
 msgid ""
 "After selecting values for all :guilabel:`Required options`, you may skip"
 " to `Finish installation`_."
-msgstr "设置完所有:guilabel:`Required options` 后，您可以跳到 `Finish installation`_。"
+msgstr "设置完所有 :guilabel:`Required options` 后，您可以跳到 `Finish installation`_。"
 
 #: ../../get-started/bare-metal-install-server.rst:428
 msgid ""
 "Otherwise, continue below. In the Main Menu, select :guilabel:`Advanced "
 "options` for additional configuration."
-msgstr "当然，您也可继续完成以下设置。在“Main Menu”中，选择:guilabel:`Advanced options` 执行附加配置。"
+msgstr "当然，您也可继续完成以下设置。在“Main Menu”中，选择 :guilabel:`Advanced options` 执行附加配置。"
 
 #: ../../get-started/bare-metal-install-server.rst:432
 msgid "Advanced options"
@@ -710,13 +710,13 @@ msgstr "导航到适当的字段，并分配所需的网络配置。"
 
 #: ../../get-started/bare-metal-install-server.rst:477
 msgid "To save settings, navigate to :guilabel:`Confirm` and select :kbd:`Enter`."
-msgstr "要保存设置，请导航到:guilabel:`Confirm`，然后选择 :kbd:`Enter`。"
+msgstr "要保存设置，请导航到 :guilabel:`Confirm`，然后选择 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:482
 msgid ""
 "To revert to previous settings, navigate to the :guilabel:`Cancel` and "
 "select :kbd:`Enter`."
-msgstr "要恢复以前的设置，请导航到:guilabel:`Cancel`，然后选择 :kbd:`Enter`。"
+msgstr "要恢复以前的设置，请导航到 :guilabel:`Cancel`，然后选择 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:485
 msgid ""
@@ -781,13 +781,13 @@ msgstr "使用常规语法（例如 \\http://address:port）输入所需的代�
 
 #: ../../get-started/bare-metal-install-server.rst:517
 msgid "Navigate to :guilabel:`Confirm` and select :kbd:`Enter`."
-msgstr "导航到:guilabel:`Confirm`，然后选择 :kbd:`Enter`。"
+msgstr "导航到 :guilabel:`Confirm`，然后选择 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:519
 msgid ""
 "To revert to previous settings, navigate to :guilabel:`Cancel` and select"
 " :guilabel:`Cancel`."
-msgstr "要恢复以前的设置，请导航到:guilabel:`Cancel`，然后选择:guilabel:`Cancel`。"
+msgstr "要恢复以前的设置，请导航到 :guilabel:`Cancel`，然后选择 :guilabel:`Cancel`。"
 
 #: ../../get-started/bare-metal-install-server.rst:525
 msgid "Test Network Settings"
@@ -846,7 +846,7 @@ msgstr "导航到并选择:kbd:`确认`。"
 
 #: ../../get-started/bare-metal-install-server.rst:565
 msgid "You are returned to the :guilabel:`Advanced options` menu."
-msgstr "您将返回到:guilabel:`Advanced options` 菜单。"
+msgstr "您将返回到 :guilabel:`Advanced options` 菜单。"
 
 #: ../../get-started/bare-metal-install-server.rst:570
 msgid "Manage User"
@@ -858,7 +858,7 @@ msgstr "添加新用户"
 
 #: ../../get-started/bare-metal-install-server.rst:575
 msgid "In Advanced Options, select :guilabel:`Manage User`."
-msgstr "在“高级选项”中，选择:guilabel:`Manage User`。"
+msgstr "在“高级选项”中，选择 :guilabel:`Manage User`。"
 
 #: ../../get-started/bare-metal-install-server.rst:577
 msgid "Select :guilabel:`Add New User` as shown in Figure 22."
@@ -870,7 +870,7 @@ msgstr "图 22：添加新用户"
 
 #: ../../get-started/bare-metal-install-server.rst:585
 msgid "Optional: Enter a :guilabel:`User Name`."
-msgstr "可选：输入一个:guilabel:`User Name`。"
+msgstr "可选：输入一个 :guilabel:`User Name`。"
 
 #: ../../get-started/bare-metal-install-server.rst:596
 msgid "Figure 23: User Name"
@@ -878,7 +878,7 @@ msgstr "图 23：用户名"
 
 #: ../../get-started/bare-metal-install-server.rst:598
 msgid "Enter a :guilabel:`Login`."
-msgstr "输入一个:guilabel:`Login`。"
+msgstr "输入一个 :guilabel:`Login`。"
 
 #: ../../get-started/bare-metal-install-server.rst:602
 msgid ""
@@ -888,11 +888,11 @@ msgstr "用户登录名必须是字母数字字符，并且可以包括连字符
 
 #: ../../get-started/bare-metal-install-server.rst:604
 msgid "Enter a :guilabel:`Password`."
-msgstr "输入一个:guilabel:`Password`。"
+msgstr "输入一个 :guilabel:`Password`。"
 
 #: ../../get-started/bare-metal-install-server.rst:610
 msgid "In :guilabel:`Confirm`, enter the same password."
-msgstr "在:guilabel:`Confirm` 中，输入相同的密码。"
+msgstr "在 :guilabel:`Confirm` 中，输入相同的密码。"
 
 #: ../../get-started/bare-metal-install-server.rst:612
 msgid ""
@@ -917,11 +917,11 @@ msgstr "如果需要，选择 :guilabel:`Reset` 来重置表单。"
 
 #: ../../get-started/bare-metal-install-server.rst:625
 msgid "In :guilabel:`Manage User`, navigate to :guilabel:`Confirm`."
-msgstr "在:guilabel:`Manage User` 中，导航到:guilabel:`Confirm`。"
+msgstr "在 :guilabel:`Manage User` 中，导航到 :guilabel:`Confirm`。"
 
 #: ../../get-started/bare-metal-install-server.rst:627
 msgid "With :guilabel:`Confirm` highlighted, select :kbd:`Enter`."
-msgstr "在:guilabel:`Confirm` 高亮显示的情况下，选择 :kbd:`Enter`。"
+msgstr "在 :guilabel:`Confirm` 高亮显示的情况下，选择 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:630
 msgid "Modify / Delete User"
@@ -931,7 +931,7 @@ msgstr "修改/删除用户"
 msgid ""
 "In :guilabel:`Manage User`, navigate to the user you wish to modify until"
 " highlighted, as shown in Figure 24."
-msgstr "在:guilabel:`Manage User` 中，导航到要修改的用户，直到其高亮显示，如图 24 所示。"
+msgstr "在 :guilabel:`Manage User` 中，导航到要修改的用户，直到其高亮显示，如图 24 所示。"
 
 #: ../../get-started/bare-metal-install-server.rst:635
 msgid "Select :kbd:`Enter` to modify the user."
@@ -957,7 +957,7 @@ msgstr "可选：选择 :guilabel:`Reset` 可重置表单。"
 
 #: ../../get-started/bare-metal-install-server.rst:651
 msgid "Select :guilabel:`Confirm` to save the changes you made."
-msgstr "选择:guilabel:`Confirm` 保存所做的更改。"
+msgstr "选择 :guilabel:`Confirm` 保存所做的更改。"
 
 #: ../../get-started/bare-metal-install-server.rst:653
 msgid ""
@@ -972,11 +972,11 @@ msgstr "图 25：删除用户"
 
 #: ../../get-started/bare-metal-install-server.rst:662
 msgid "You are returned to :guilabel:`Manage User`."
-msgstr "您将返回到:guilabel:`Manage User`。"
+msgstr "您将返回到 :guilabel:`Manage User`。"
 
 #: ../../get-started/bare-metal-install-server.rst:666
 msgid "Select :guilabel:`Enter` to complete :guilabel:`Manage User` options."
-msgstr "选择 :guilabel:`Enter` 设置:guilabel:`Manage User` 选项。"
+msgstr "选择 :guilabel:`Enter` 设置 :guilabel:`Manage User` 选项。"
 
 #: ../../get-started/bare-metal-install-server.rst:671
 msgid "Kernel Command Line"
@@ -1064,7 +1064,7 @@ msgstr "分配主机名"
 
 #: ../../get-started/bare-metal-install-server.rst:742
 msgid "In Advanced Options, select :guilabel:`Assign Hostname`."
-msgstr "在“高级选项”中，选择:guilabel:`Assign Hostname`。"
+msgstr "在“高级选项”中，选择 :guilabel:`Assign Hostname`。"
 
 #: ../../get-started/bare-metal-install-server.rst:744
 msgid "In :guilabel:`Hostname`, enter the hostname only (excluding the domain)."
@@ -1140,7 +1140,7 @@ msgstr "完成安装"
 msgid ""
 "When you are satisfied with your installation configuration, navigate to "
 ":guilabel:`Install` and select :kbd:`Enter`."
-msgstr "如对安装配置满意，请导航到:guilabel:`Install`，然后选择 :kbd:`Enter`。"
+msgstr "如对安装配置满意，请导航到 :guilabel:`Install`，然后选择 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:810
 msgid "Figure 32: Select Install"
@@ -1244,7 +1244,7 @@ msgstr "配置安装媒介时"
 msgid ""
 "If a warning message appears that no media or space is available after "
 "entering :guilabel:`Configure Installation Media`:"
-msgstr "如果在进入:guilabel:`Configure Installation Media` 界面后出现警告消息，指出没有媒介或空间："
+msgstr "如果在进入 :guilabel:`Configure Installation Media` 界面后出现警告消息，指出没有媒介或空间："
 
 #: ../../get-started/bare-metal-install-server.rst:859
 msgid "Verify that target media has enough free space."

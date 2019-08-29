@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 17:23-0700\n"
-"PO-Revision-Date: 2019-08-28 15:20-0008\n"
+"PO-Revision-Date: 2019-08-29 15:49-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -46,7 +46,7 @@ msgstr "必备条件"
 
 #: ../../get-started/bootable-usb.rst:16
 msgid "Use an **8GB** or larger USB drive."
-msgstr "使用 **8 GB** 或以上的 U 盘。"
+msgstr "使用 8 GB 或以上的 U 盘。"
 
 #: ../../get-started/bootable-usb.rst:17
 msgid ""
@@ -192,7 +192,7 @@ msgstr "将映像烧录至 U 盘之前，:ref:`verify-windows`。"
 msgid ""
 "Download the `Rufus`_ utility to burn the image onto a USB drive. We use "
 "Rufus 3.5 here. **Only use the latest version of Rufus**."
-msgstr "下载 `Rufus`_ 实用程序以便将映像烧录至 U 盘。此处使用 Rufus 3.5。**仅使用最新 Rufus** 版本。"
+msgstr "下载 `Rufus`_ 实用程序以便将映像烧录至 U 盘。此处使用 Rufus 3.5。仅使用最新 Rufus 版本。"
 
 #: ../../get-started/bootable-usb.rst:184
 msgid "Plug in the USB drive and open Rufus."
