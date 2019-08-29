@@ -77,9 +77,9 @@ How is software installed and updated?
 |CL| provides software in the form of :ref:`bundles-guide` and
 updates software with :ref:`swupd <swupd-guide>`.
 
-:ref:`FlatPak\* <flatpak>` is an application virtualization solution that allows
-more software to be available to |CL| users by augmenting the software |CL|
-packages natively with software available through FlatPak.
+:ref:`FlatPak\* <flatpak-tutorial>` is an application virtualization solution
+that allows more software to be available to |CL| users by augmenting the
+software |CL| packages natively with software available through FlatPak.
 
 Our goal is to have software packaged natively and made available through
 bundles whenever possible.
