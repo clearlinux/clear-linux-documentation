@@ -333,10 +333,6 @@ swap partition
 
 #. Press :kbd:`Enter`.
 
-   .. note::
-
-      |CL| allows more than one swap partition.
-
 root partition
 --------------
 
