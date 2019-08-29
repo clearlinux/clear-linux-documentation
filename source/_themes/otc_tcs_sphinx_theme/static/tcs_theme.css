@@ -292,10 +292,6 @@ div#trademarks {
   background-size: 15px 15px;
 }
 
-.pending-delete-status {
-  color:#ce2029; 
-}
-
 .active-status {
   color:#358ccb;
 }
@@ -304,3 +300,10 @@ div#trademarks {
   color:#59ca6b;
 }
 
+.deprecated-status {
+  color:#f94f24;
+}
+
+.pending-delete-status {
+  color:#ce2029; 
+}
