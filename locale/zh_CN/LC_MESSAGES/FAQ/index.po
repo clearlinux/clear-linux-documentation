@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"POT-Creation-Date: 2019-08-29 17:26-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,30 +197,54 @@ msgid ""
 msgstr ""
 
 #: ../../FAQ/index.rst:136
-msgid "Is FFmpeg available?"
+msgid "Is Microsoft\\* Visual Studio Code\\* available?"
 msgstr ""
 
 #: ../../FAQ/index.rst:138
+msgid ""
+"Yes. Find the CLI command for installing `VS Code`_ and other FlatPak "
+"apps in the `software store`_. Installing FlatPak apps is also covered in"
+" our :ref:`tutorial <flatpak>`."
+msgstr ""
+
+#: ../../FAQ/index.rst:142
+msgid ""
+"The |CL| team is working on a natively packaged version of Visual Studio "
+"Code for future release."
+msgstr ""
+
+#: ../../FAQ/index.rst:145
+msgid ""
+"Join a community forum discussion about manually installing and "
+"maintaining Visual Studio Code: https://community.clearlinux.org/t/need-"
+"native-support-for-vs-code-through-swupd/"
+msgstr ""
+
+#: ../../FAQ/index.rst:153
+msgid "Is FFmpeg available?"
+msgstr ""
+
+#: ../../FAQ/index.rst:155
 msgid ""
 "`FFmpeg`_ is a multimedia software suite, which is commonly used for "
 "various media encoding/decoding, streaming, and playback."
 msgstr ""
 
-#: ../../FAQ/index.rst:141
+#: ../../FAQ/index.rst:158
 msgid ""
 "|CL| does not distribute FFmpeg due to well-known licensing and legal "
 "complexities (See https://www.ffmpeg.org/legal.html and "
 "http://blog.pkh.me/p/13-the-ffmpeg-libav-situation.html)."
 msgstr ""
 
-#: ../../FAQ/index.rst:145
+#: ../../FAQ/index.rst:162
 msgid ""
 "Read more in the |CL| repository, including discussion of an alternative "
 "hardware-based solution: "
 "https://github.com/clearlinux/distribution/issues/429."
 msgstr ""
 
-#: ../../FAQ/index.rst:149
+#: ../../FAQ/index.rst:166
 msgid ""
 "While |CL| cannot distribute FFmpeg, a manual solution to build and "
 "install FFmpeg under :file:`/usr/local` has been shared on the community "
@@ -228,29 +252,29 @@ msgid ""
 "firefox-including-ffmpeg-install."
 msgstr ""
 
-#: ../../FAQ/index.rst:156
+#: ../../FAQ/index.rst:173
 msgid "Is ZFS\\* available?"
 msgstr ""
 
-#: ../../FAQ/index.rst:158
+#: ../../FAQ/index.rst:175
 msgid ""
 "ZFS is not available with |CL| because of copyright and licensing "
 "complexities. BTRFS is an alternative filesystem that is available in "
 "|CL| natively."
 msgstr ""
 
-#: ../../FAQ/index.rst:162
+#: ../../FAQ/index.rst:179
 msgid ""
 "A user on GitHub notes that the ZFS kernel module can be compiled, built,"
 " and installed manually: "
 "https://github.com/clearlinux/distribution/issues/631"
 msgstr ""
 
-#: ../../FAQ/index.rst:168
+#: ../../FAQ/index.rst:185
 msgid "Can you add a driver that I need?"
 msgstr ""
 
-#: ../../FAQ/index.rst:170
+#: ../../FAQ/index.rst:187
 msgid ""
 "If a kernel module is available as part of the Linux kernel source tree "
 "but not enabled in the |CL| kernels, in many cases the |CL| team will "
@@ -258,7 +282,7 @@ msgid ""
 "https://github.com/clearlinux/distribution/issues"
 msgstr ""
 
-#: ../../FAQ/index.rst:175
+#: ../../FAQ/index.rst:192
 msgid ""
 "The |CL| team does not typically add out-of-tree kernel modules as a "
 "matter of practice because of the maintenance overhead. If the driver was"
@@ -266,7 +290,7 @@ msgid ""
 " merge it for similar reasons."
 msgstr ""
 
-#: ../../FAQ/index.rst:180
+#: ../../FAQ/index.rst:197
 msgid ""
 "Kernel modules can be individually built and installed on |CL|. See the "
 ":ref:`kernel modules <kernel-modules>` page for more information."
