@@ -5,17 +5,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"POT-Creation-Date: 2019-08-29 17:26-0700\n"
+"PO-Revision-Date: 2019-08-29 15:49-0152\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hans\n"
 "Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
-"Language: zh-Hans\n"
+"Generated-By: Babel 2.7.0\n"
 
 #: ../../get-started/cloud-install/aws-web.rst:4
 msgid "|CL-ATTR| on Amazon Web Services\\*"
@@ -26,7 +28,9 @@ msgid ""
 "This tutorial explains how to create and launch a |CL| :abbr:`AMI (Amazon"
 " Machine Image)` instance from the :abbr:`AWS\\* (Amazon Web Services)` "
 "console and complete the following tasks:"
-msgstr "本教程介绍如何通过 :abbr:`AWS\\* (Amazon Web Services)` 控制台创建和启动 |CL| :abbr:`AMI (Amazon Machine Image)` 实例以及完成以下任务："
+msgstr ""
+"本教程介绍如何通过 :abbr:`AWS\\* (Amazon Web Services)` 控制台创建和启动 |CL| :abbr:`AMI "
+"(Amazon Machine Image)` 实例以及完成以下任务："
 
 #: ../../get-started/cloud-install/aws-web.rst:10
 msgid "Locate and select the |CL| OS Basic AMI in the AWS Marketplace."
@@ -81,7 +85,9 @@ msgid ""
 "This tutorial uses a |CL| AMI t2.micro instance that is eligible for the "
 "AWS free tier. To learn more about AWS and setting up an account, visit "
 "the AWS website at http://aws.amazon.com."
-msgstr "本教程使用有资格享受 AWS 免费套餐的 |CL| AMI t2.micro 实例。要了解有关 AWS 和设置帐户的更多信息，请访问 AWS 网站，网址为：http://aws.amazon.com。"
+msgstr ""
+"本教程使用有资格享受 AWS 免费套餐的 |CL| AMI t2.micro 实例。要了解有关 AWS 和设置帐户的更多信息，请访问 AWS "
+"网站，网址为：http://aws.amazon.com。"
 
 #: ../../get-started/cloud-install/aws-web.rst:39
 msgid "Locate, select, and launch the |CL| Basic AMI"
@@ -105,7 +111,9 @@ msgstr "选择此选项将调出 :guilabel:`EC2 Dashboard` 菜单。"
 msgid ""
 "To create a new |CL| instance from the :guilabel:`EC2 Dashboard` menu, "
 "select the :guilabel:`Launch Instance` button as shown in Figure 2:"
-msgstr "要从 :guilabel:`EC2 Dashboard` 菜单创建新的 |CL| 实例，请选择图 2 中所示的 :guilabel:`Launch Instance` 按钮："
+msgstr ""
+"要从 :guilabel:`EC2 Dashboard` 菜单创建新的 |CL| 实例，请选择图 2 中所示的 :guilabel:`Launch"
+" Instance` 按钮："
 
 #: ../../get-started/cloud-install/aws-web.rst:59
 msgid "Figure 2: :guilabel:`EC2 Dashboard`"
@@ -121,26 +129,34 @@ msgstr "选择此选项将转到 :guilabel:`Step 1: Choose an Amazon Machine Ima
 msgid ""
 "To find the :guilabel:`Clear Linux OS Basic` AMI in the :guilabel:`Step "
 "1: Choose an Amazon Machine Image (AMI)` menu, do the following:"
-msgstr "要在 :guilabel:`Step 1: Choose an Amazon Machine Image (AMI)` 菜单中找到 :guilabel:`Clear Linux OS Basic` AMI，请执行以下操作："
+msgstr ""
+"要在 :guilabel:`Step 1: Choose an Amazon Machine Image (AMI)` 菜单中找到 "
+":guilabel:`Clear Linux OS Basic` AMI，请执行以下操作："
 
 #: ../../get-started/cloud-install/aws-web.rst:68
 msgid ""
 "In the lefthand navigation window, select the :guilabel:`AWS Marketplace`"
 " menu item to bring up the search bar to :guilabel:`Search AWS "
 "Marketplace Products`."
-msgstr "在左侧导航窗口中，选择 :guilabel:`AWS Marketplace` 菜单项以调出搜索栏并转到 :guilabel:`Search AWS Marketplace Products`。"
+msgstr ""
+"在左侧导航窗口中，选择 :guilabel:`AWS Marketplace` 菜单项以调出搜索栏并转到 :guilabel:`Search "
+"AWS Marketplace Products`。"
 
 #: ../../get-started/cloud-install/aws-web.rst:72
 msgid ""
 "In the search bar, type \"clear linux os\" and press the :kbd:`Enter` key"
 " to search for and locate the :guilabel:`Clear Linux OS Basic` AMI."
-msgstr "在搜索栏中键入 \"clear linux os\" 并按 :kbd:`Enter` 键，以搜索并找到 :guilabel:`Clear Linux OS Basic` AMI。"
+msgstr ""
+"在搜索栏中键入 \"clear linux os\" 并按 :kbd:`Enter` 键，以搜索并找到 :guilabel:`Clear "
+"Linux OS Basic` AMI。"
 
 #: ../../get-started/cloud-install/aws-web.rst:75
 msgid ""
 "Select the :guilabel:`Clear Linux OS Basic` AMI by clicking the "
 ":guilabel:`Select` button as shown in Figure 3:"
-msgstr "通过点击图 3 中所示的 :guilabel:`Select` 按钮，选择 :guilabel:`Clear Linux OS Basic` AMI："
+msgstr ""
+"通过点击图 3 中所示的 :guilabel:`Select` 按钮，选择 :guilabel:`Clear Linux OS Basic` "
+"AMI："
 
 #: ../../get-started/cloud-install/aws-web.rst:82
 msgid "Figure 3: :guilabel:`Step 1: Choose AMI`"
@@ -152,7 +168,9 @@ msgid ""
 ":guilabel:`Clear Linux OS Basic` AMI along with the pricing details for "
 "running |CL| on different platform configurations as shown in Figure 4. "
 "Select the :guilabel:`Continue` button."
-msgstr "此时将出现一个弹出对话框，其中显示有关 :guilabel:`Clear Linux OS Basic` AMI 的更多信息以及使用图 4 中所示的不同平台配置运行 |CL| 的定价详细信息。选择 :guilabel:`Continue` 按钮。"
+msgstr ""
+"此时将出现一个弹出对话框，其中显示有关 :guilabel:`Clear Linux OS Basic` AMI 的更多信息以及使用图 4 "
+"中所示的不同平台配置运行 |CL| 的定价详细信息。选择 :guilabel:`Continue` 按钮。"
 
 #: ../../get-started/cloud-install/aws-web.rst:93
 msgid "Figure 4: :guilabel:`Clear Linux OS Basic`"
@@ -171,14 +189,18 @@ msgid ""
 "Select the :guilabel:`t2.micro` type by clicking the box on the left side"
 " of the instance and then select the :guilabel:`Review and Launch` button"
 " to move to the :guilabel:`Step 7: Review the Instance Launch` menu."
-msgstr "通过点击实例左侧的框来选择 :guilabel:`t2.micro` 类型，然后选择 :guilabel:`Review and Launch` 按钮以转到 :guilabel:`Step 7: Review the Instance Launch` 菜单。"
+msgstr ""
+"通过点击实例左侧的框来选择 :guilabel:`t2.micro` 类型，然后选择 :guilabel:`Review and Launch` "
+"按钮以转到 :guilabel:`Step 7: Review the Instance Launch` 菜单。"
 
 #: ../../get-started/cloud-install/aws-web.rst:109
 msgid ""
 "You can configure the instance details, add additional storage, add tags,"
 " and configure the security group before selecting the :guilabel:`Review "
 "and Launch` button if you want to further customize this |CL| instance."
-msgstr "如果要进一步自定义该 |CL| 实例，您可以在选择 :guilabel:`Review and Launch` 按钮之前配置实例详细信息，添加其他存储，添加标记以及配置安全组。"
+msgstr ""
+"如果要进一步自定义该 |CL| 实例，您可以在选择 :guilabel:`Review and Launch` "
+"按钮之前配置实例详细信息，添加其他存储，添加标记以及配置安全组。"
 
 #: ../../get-started/cloud-install/aws-web.rst:114
 msgid ""
@@ -186,7 +208,10 @@ msgid ""
 "6, allows you to :guilabel:`Cancel` the process, return to the "
 ":guilabel:`Previous` screen to change the configuration or "
 ":guilabel:`Launch` the instance defined."
-msgstr "图 6 中所示的 :guilabel:`Step 7: Review the Instance Launch` 菜单可用于 :guilabel:`Cancel` 进程，以及返回到 :guilabel:`Previous` 屏幕以更改配置，或者可用于 :guilabel:`Launch` 已定义的实例。"
+msgstr ""
+"图 6 中所示的 :guilabel:`Step 7: Review the Instance Launch` 菜单可用于 "
+":guilabel:`Cancel` 进程，以及返回到 :guilabel:`Previous` 屏幕以更改配置，或者可用于 "
+":guilabel:`Launch` 已定义的实例。"
 
 #: ../../get-started/cloud-install/aws-web.rst:123
 msgid "Figure 6: :guilabel:`Step 7: Review the Instance Launch`"
@@ -197,7 +222,9 @@ msgid ""
 "Select the :guilabel:`Launch` button. A dialog box appears, as shown in "
 "Figure 7, asking you to :guilabel:`Select an existing key pair or create "
 "a new pair`."
-msgstr "选择 :guilabel:`Launch` 按钮。此时将出现图 7 中所示的对话框，要求您 :guilabel:`Select an existing key pair or create a new pair`。"
+msgstr ""
+"选择 :guilabel:`Launch` 按钮。此时将出现图 7 中所示的对话框，要求您 :guilabel:`Select an "
+"existing key pair or create a new pair`。"
 
 #: ../../get-started/cloud-install/aws-web.rst:133
 msgid "Figure 7: :guilabel:`Select an existing key pair or create a new pair`"
@@ -216,14 +243,18 @@ msgid ""
 "Select the :guilabel:`Download Key Pair` button to download the "
 ":file:`AWSClearTestKey.pem` to your browser's defined :file:`Downloads` "
 "directory."
-msgstr "选择 :guilabel:`Download Key Pair` 按钮，以将 :file:`AWSClearTestKey.pem` 下载到浏览器中定义的 :file:`Downloads` 目录。"
+msgstr ""
+"选择 :guilabel:`Download Key Pair` 按钮，以将 :file:`AWSClearTestKey.pem` "
+"下载到浏览器中定义的 :file:`Downloads` 目录。"
 
 #: ../../get-started/cloud-install/aws-web.rst:143
 msgid ""
 "When the file finishes downloading, select the :guilabel:`Launch "
 "Instances` button to proceed to the :guilabel:`Launch Status` menu shown "
 "in Figure 8."
-msgstr "文件下载完成后，选择 :guilabel:`Launch Instances` 按钮以转到图 8 中所示的 :guilabel:`Launch Status` 菜单。"
+msgstr ""
+"文件下载完成后，选择 :guilabel:`Launch Instances` 按钮以转到图 8 中所示的 :guilabel:`Launch "
+"Status` 菜单。"
 
 #: ../../get-started/cloud-install/aws-web.rst:151
 msgid "Figure 8: :guilabel:`Launch Status`"
@@ -234,14 +265,16 @@ msgid ""
 "Once the :guilabel:`Launch Status` page changes to what is shown in "
 "Figure 9, select the :guilabel:`View Instances` button to view your "
 ":guilabel:`Instances` dashboard."
-msgstr " :guilabel:`Launch Status` 页面变为图 9 中所示的页面后，选择 :guilabel:`View Instances` 按钮以显示 :guilabel:`Instances` 仪表板。"
+msgstr ""
+" :guilabel:`Launch Status` 页面变为图 9 中所示的页面后，选择 :guilabel:`View Instances` "
+"按钮以显示 :guilabel:`Instances` 仪表板。"
 
 #: ../../get-started/cloud-install/aws-web.rst:161
 msgid "Figure 9: :guilabel:`View Instance`"
 msgstr "图 9： :guilabel:`View Instance`"
 
 #: ../../get-started/cloud-install/aws-web.rst:164
-msgid "Connect to your Clear Linux* OS basic instance"
+msgid "Connect to your Clear Linux OS basic instance"
 msgstr "连接到 Clear Linux* 操作系统基本实例"
 
 #: ../../get-started/cloud-install/aws-web.rst:166
@@ -250,7 +283,9 @@ msgid ""
 "|CL| OS basic instance already selected and in the running state. If "
 "there are other instances available, they are also listed but not "
 "selected."
-msgstr "图 10 中显示了 :guilabel:`Instances` 仪表板和已选择并处于运行状态的新的 |CL| 操作系统基本实例。同时也会显示其他可用的实例（如有），但不会选择这些实例。"
+msgstr ""
+"图 10 中显示了 :guilabel:`Instances` 仪表板和已选择并处于运行状态的新的 |CL| "
+"操作系统基本实例。同时也会显示其他可用的实例（如有），但不会选择这些实例。"
 
 #: ../../get-started/cloud-install/aws-web.rst:174
 msgid "Figure 10: :guilabel:`Instance Dashboard`"
@@ -262,7 +297,9 @@ msgid ""
 " located at the top of your dashboard. AWS brings up the pop-up dialog "
 "box shown in Figure 11 describing how to connect to your running "
 "instance."
-msgstr "要连接到正在运行的实例，请点击位于仪表板顶部的 :guilabel:`Connect` 按钮。AWS 将调出图 11 中显示的弹出对话框，该对话框说明了如何连接到正在运行的实例。"
+msgstr ""
+"要连接到正在运行的实例，请点击位于仪表板顶部的 :guilabel:`Connect` 按钮。AWS 将调出图 11 "
+"中显示的弹出对话框，该对话框说明了如何连接到正在运行的实例。"
 
 #: ../../get-started/cloud-install/aws-web.rst:186
 msgid "Figure 11: :guilabel:`Connect to Your Instance`"
@@ -285,7 +322,9 @@ msgid ""
 "Change the attributes of the :file:`AWSClearTestKey.pem` using the "
 ":command:`chmod` command as instructed in the dialog box shown in Figure "
 "11."
-msgstr "按照图 11 中显示的对话框中的说明使用 :command:`chmod` 命令更改 :file:`AWSClearTestKey.pem` 的属性。"
+msgstr ""
+"按照图 11 中显示的对话框中的说明使用 :command:`chmod` 命令更改 :file:`AWSClearTestKey.pem` "
+"的属性。"
 
 #: ../../get-started/cloud-install/aws-web.rst:206
 msgid ""
@@ -293,7 +332,10 @@ msgid ""
 "shown in :ref:`figure 11<fig-aws-web-11>`. Paste the copied text into "
 "your terminal, change the text before the `@` sign to the username "
 "`clear`, and press the :kbd:`Enter` key to execute the command."
-msgstr "复制 :ref:`图 11<fig-aws-web-11>` 中显示的 :guilabel:`Example:` 一节中突出显示的文本。将复制的文本粘贴到终端中，将 `@` 符号前面的文本更改为用户名 `clear`，然后按 :kbd:`Enter` 键以执行命令。"
+msgstr ""
+"复制 :ref:`图 11<fig-aws-web-11>` 中显示的 :guilabel:`Example:` "
+"一节中突出显示的文本。将复制的文本粘贴到终端中，将 `@` 符号前面的文本更改为用户名 `clear`，然后按 :kbd:`Enter` "
+"键以执行命令。"
 
 #: ../../get-started/cloud-install/aws-web.rst:215
 msgid ""
@@ -336,7 +378,9 @@ msgid ""
 "using the :guilabel:`Instances` dashboard to stop accruing charges. "
 "Complete the following steps from the :guilabel:`Instances` dashboard to "
 "stop your AWS |CL| instance from running."
-msgstr "完成使用 AWS |CL| 实例后，您必须使用 :guilabel:`Instances` 仪表板停止该实例以使费用停止增加。从 :guilabel:`Instances` 仪表板完成以下步骤以使 AWS |CL| 实例停止运行。"
+msgstr ""
+"完成使用 AWS |CL| 实例后，您必须使用 :guilabel:`Instances` 仪表板停止该实例以使费用停止增加。从 "
+":guilabel:`Instances` 仪表板完成以下步骤以使 AWS |CL| 实例停止运行。"
 
 #: ../../get-started/cloud-install/aws-web.rst:255
 msgid "Select the :guilabel:`Actions` button to bring up a pull-down menu."
@@ -374,7 +418,9 @@ msgid ""
 "Congratulations! You are up and running with |CL| on AWS. To see what you"
 " can do with your |CL| instance, visit our :ref:`tutorials <tutorials>` "
 "section for examples on using your |CL| system."
-msgstr "恭喜！您已启动并运行基于 AWS 的 |CL|。要查看可对 |CL| 实例执行的操作，请参见 :ref:`教程<tutorials>` 一节了解有关使用 |CL| 系统的示例。"
+msgstr ""
+"恭喜！您已启动并运行基于 AWS 的 |CL|。要查看可对 |CL| 实例执行的操作，请参见 :ref:`教程<tutorials>` "
+"一节了解有关使用 |CL| 系统的示例。"
 
 #~ msgid "Create and launch |CL-ATTR| from Amazon Web Services"
 #~ msgstr ""
@@ -517,5 +563,4 @@ msgstr "恭喜！您已启动并运行基于 AWS 的 |CL|。要查看可对 |CL|
 #~ " :guilabel:`Instances` dashboard to stop "
 #~ "your AWS |CL| instance from running."
 #~ msgstr ""
-
 

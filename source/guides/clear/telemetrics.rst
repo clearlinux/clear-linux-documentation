@@ -12,9 +12,8 @@ This guide describes the |CL-ATTR| telemetry solution.
 
 .. note::
 
-   The telemetry functionality adheres to `Intel privacy policies`_ regarding
-   the collection and use of :abbr:`PII (Personally Identifiable Information)`
-   and is open source.
+   The telemetry functionality adheres to `Intel privacy policies <https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html>`_
+   regarding the collection and use of :abbr:`PII (Personally Identifiable Information)` and is open source.
 
    No intentionally identifiable information about the user or system owner is
    collected.
@@ -859,4 +858,3 @@ functioning on the system. Note that both daemons are verified.
 .. _Telemetrics client: https://github.com/clearlinux/telemetrics-client/
 .. _latest version: https://github.com/clearlinux/telemetrics-client/tree/master/src
 .. _heartbeat probe: https://github.com/clearlinux/telemetrics-client/tree/master/src/probes/hello.c
-.. _Intel privacy policies: https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
