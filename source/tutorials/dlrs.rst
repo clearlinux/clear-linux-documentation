@@ -799,7 +799,7 @@ the host system, replace :command:`127.0.0.1` with the IP address of the host.
 Your browser displays the following:
 
 .. figure:: ../_figures/stacks/dlrs-fig-1.png
-   :scale: 50 %
+   :scale: 50%
    :alt: Jupyter Notebook
 
 Figure 1: :guilabel:`Jupyter Notebook`
