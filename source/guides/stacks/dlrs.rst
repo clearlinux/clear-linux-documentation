@@ -798,8 +798,8 @@ the host system, replace :command:`127.0.0.1` with the IP address of the host.
 
 Your browser displays the following:
 
-.. figure:: ../_figures/stacks/dlrs-fig-1.png
-   :scale: 50 %
+.. figure:: ../../_figures/stacks/dlrs-fig-1.png
+   :scale: 50%
    :alt: Jupyter Notebook
 
 Figure 1: :guilabel:`Jupyter Notebook`
@@ -807,7 +807,7 @@ Figure 1: :guilabel:`Jupyter Notebook`
 
 To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
 
-.. figure:: ../_figures/stacks/dlrs-fig-2.png
+.. figure:: ../../_figures/stacks/dlrs-fig-2.png
    :scale: 50%
    :alt: Create a new notebook
 
@@ -815,7 +815,7 @@ Figure 2: Create a new notebook
 
 A new, blank notebook is displayed, with a cell ready for input.
 
-.. figure:: ../_figures/stacks/dlrs-fig-3.png
+.. figure:: ../../_figures/stacks/dlrs-fig-3.png
    :scale: 50%
    :alt: New blank notebook
 
@@ -830,7 +830,7 @@ cell, and run the cell.
    x = torch.rand(5, 3)
    print(x)
 
-.. figure:: ../_figures/stacks/dlrs-fig-4.png
+.. figure:: ../../_figures/stacks/dlrs-fig-4.png
    :scale: 50%
    :alt: Sample code snippet
 
