@@ -836,7 +836,7 @@ cell, and run the cell.
 
 When you run the cell, your output will look something like this:
 
-.. figure:: ../_figures/stacks/dlrs-fig-5.png
+.. figure:: ../../_figures/stacks/dlrs-fig-5.png
    :scale: 50%
    :alt: code output
 
