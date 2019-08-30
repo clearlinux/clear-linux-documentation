@@ -34,7 +34,7 @@ msgstr "|CL| 中的遥测为 **opt-in**。遥测客户端未处于活动状态�
 
 #: ../../guides/clear/telemetrics.rst:15
 msgid ""
-"The telemetry functionality adheres to `Intel privacy policies`_ "
+"The telemetry functionality adheres to `Intel privacy policies <https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html>`_"
 "regarding the collection and use of :abbr:`PII (Personally Identifiable "
 "Information)` and is open source."
 msgstr "遥测功能遵从涉及收集和使用 :abbr:`PII (Personally Identifiable Information)` 的 `英特尔隐私条款 <https://www.intel.cn/content/www/cn/zh/privacy/intel-privacy-notice.html>`_，同时也是开源功能。"
