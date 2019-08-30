@@ -12,8 +12,8 @@ This guide describes the |CL-ATTR| telemetry solution.
 
 .. note::
 
-   The telemetry functionality adheres to `Intel privacy policies <https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html>`_ regarding
-   the collection and use of :abbr:`PII (Personally Identifiable Information)`
+   The telemetry functionality adheres to `Intel privacy policies <https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html>`_
+   regarding the collection and use of :abbr:`PII (Personally Identifiable Information)`
    and is open source.
 
    No intentionally identifiable information about the user or system owner is
