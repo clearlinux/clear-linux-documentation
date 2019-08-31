@@ -77,9 +77,9 @@ How is software installed and updated?
 |CL| provides software in the form of :ref:`bundles-guide` and
 updates software with :ref:`swupd <swupd-guide>`.
 
-:ref:`FlatPak\* <flatpak>` is an application virtualization solution that allows
-more software to be available to |CL| users by augmenting the software |CL|
-packages natively with software available through FlatPak.
+:ref:`Flatpak\* <flatpak-tutorial>` is an application virtualization solution
+that allows more software to be available to |CL| users by augmenting the
+software |CL| packages natively with software available through Flatpak.
 
 Our goal is to have software packaged natively and made available through
 bundles whenever possible.
@@ -135,9 +135,9 @@ on GitHub: https://github.com/clearlinux/distribution/issues/422
 Is Microsoft\* Visual Studio Code\* available?
 ==============================================
 
-Yes. Find the CLI command for installing `VS Code`_ and other FlatPak apps in
-the `software store`_. Installing FlatPak apps is also covered in our
-:ref:`tutorial <flatpak>`. 
+Yes. Find the CLI command for installing `VS Code`_ and other Flatpak apps in
+the `software store`_. Installing Flatpak apps is also covered in our
+:ref:`tutorial <flatpak-tutorial>`. 
 
 The |CL| team is working on a natively packaged version of Visual Studio Code
 for future release.
