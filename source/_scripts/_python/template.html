@@ -31,7 +31,7 @@
       <tr id="bundle">
         <td class="bundlename" id="bundle"><a href="{{d.url}}">{{d.title}}</a></td>
         <td class="bundledesc">{{d.data_desc}} <br />
-          
+
           <div> Status:
             {% if d.status=="Pending-Delete" %}
             <span class="pending-delete-status">{{d.status}}</span>
@@ -39,7 +39,7 @@
             <span class="active-status">{{d.status}}</span>
             {% elif d.status=="WIP" %}
             <span class="wip-status">{{d.status}}</span>
-            {% elif d.status=="Deprecated"%}
+            {% elif d.status=="Deprecated" %}
             <span class="deprecated-status">{{d.status}}</span>
             {% else %}
             <span>{{d.status}}</span>
