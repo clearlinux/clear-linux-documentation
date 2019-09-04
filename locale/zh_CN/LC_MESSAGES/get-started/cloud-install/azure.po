@@ -18,7 +18,7 @@ msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Language: zh-Hans\n"
 
 #: ../../get-started/cloud-install/azure.rst:4
-msgid "|CL-ATTR| on Microsoft Azure"
+msgid "|CL-ATTR| on Microsoft* Azure*"
 msgstr "基于 Microsoft* Azure* 的 |CL-ATTR|"
 
 #: ../../get-started/cloud-install/azure.rst:6
