@@ -140,7 +140,7 @@ msgstr "将映像烧录至 U 盘之前，在 macOS 上 :ref:`verify-mac`。"
 
 #: ../../get-started/bootable-usb.rst:122
 msgid "Launch the Terminal app."
-msgstr "将映像烧录至 U 盘之前，在 Linux 上 :ref:`verify-linux` 。启动终端应用。"
+msgstr "启动终端应用。"
 
 #: ../../get-started/bootable-usb.rst:126
 msgid "Plug in a USB drive and get its identifier:"
