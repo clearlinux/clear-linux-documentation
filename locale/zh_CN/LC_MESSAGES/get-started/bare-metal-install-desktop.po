@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -251,7 +251,7 @@ msgstr "要满足最低安装要求，请填写 `Required options`_。我们还�
 msgid ""
 "The :kbd:`Install` button is only highlighted **after** you complete "
 "`Required options`_."
-msgstr "仅当填写 `Required options`_ 后才会高亮显示:kbd:`安装` 按钮。"
+msgstr "仅当填写 `Required options`_ 后才会高亮显示 :kbd:`安装` 按钮。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:160
 msgid "Check marks indicate a selection has been made."
@@ -286,7 +286,7 @@ msgstr "巡航"
 
 #: ../../get-started/bare-metal-install-desktop.rst:182
 msgid "Use the :kbd:`mouse` to navigate or select options."
-msgstr "使用:kbd:`鼠标` 导航或选择选项。"
+msgstr "使用 :kbd:`鼠标` 导航或选择选项。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:184
 msgid ""
@@ -297,11 +297,11 @@ msgstr "使用 :kbd:`Tab` 键在 :guilabel:`Required options` 和 :guilabel:`Adv
 
 #: ../../get-started/bare-metal-install-desktop.rst:187
 msgid "Use :kbd:`Up` or :kbd:`Down` arrow keys to navigate the submenus."
-msgstr "使用:kbd:`向上` 或:kbd:`向下` 箭头键在子菜单中导航。"
+msgstr "使用 :kbd:`向上` 或 :kbd:`向下` 箭头键在子菜单中导航。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:189
 msgid "Select :kbd:`Confirm`, or :kbd:`Cancel` in submenus."
-msgstr "在子菜单中选择:kbd:`确认` 或:kbd:`取消`。"
+msgstr "在子菜单中选择 :kbd:`确认` 或 :kbd:`取消`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:192
 msgid "Required options"
@@ -496,7 +496,7 @@ msgstr "默认情况下会选择 :guilabel:`Administrator` 权限。出于安全
 #: ../../get-started/bare-metal-install-desktop.rst:447
 #: ../../get-started/bare-metal-install-desktop.rst:466
 msgid "Select :kbd:`Confirm`."
-msgstr "选择:kbd:`确认`。"
+msgstr "选择 :kbd:`确认`。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:334
 msgid "Select :guilabel:`Cancel` to return to the Main Menu."

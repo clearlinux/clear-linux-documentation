@@ -5,19 +5,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 17:26-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0152\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/resource-limits.rst:4
 msgid "Resource limits"
@@ -25,7 +23,7 @@ msgstr "资源限制"
 
 #: ../../guides/maintenance/resource-limits.rst:6
 msgid ""
-"Linux systems employ limiting or quota mechanisms to provide quality of "
+"Linux* systems employ limiting or quota mechanisms to provide quality of "
 "service for system resources and contain rogue processes."
 msgstr "Linux* 系统使用限制机制或配额机制为系统资源提供服务质量，并且包含异常进程。"
 
@@ -84,9 +82,7 @@ msgid ""
 "If needed permanently, the value can be set by creating a "
 ":file:`/etc/sysctl.d/*.conf` file (see :command:`man sysctl.d` for "
 "details). For example:"
-msgstr ""
-"如果需要永久值，可以通过创建 :file:`/etc/sysctl.d/*.conf` 文件来设置值（有关详细信息，请参见 "
-":command:`man sysctl.d`）。例如："
+msgstr "如果需要永久值，可以通过创建 :file:`/etc/sysctl.d/*.conf` 文件来设置值（有关详细信息，请参见 :command:`man sysctl.d`）。例如："
 
 #: ../../guides/maintenance/resource-limits.rst:73
 msgid "Per-user limits"
@@ -97,9 +93,7 @@ msgid ""
 "For processes not managed by systemd, resource limits can be set for PAM "
 "logins on a per-user basis with upper and lower limits in the "
 ":file:`/etc/security/limits.conf` file."
-msgstr ""
-"对于不由 systemd 管理的进程，可以在 :file:`/etc/security/limits.conf` 文件中使用上限和下限基于用户为 "
-"PAM 登录设置资源限制。"
+msgstr "对于不由 systemd 管理的进程，可以在 :file:`/etc/security/limits.conf` 文件中使用上限和下限基于用户为 PAM 登录设置资源限制。"
 
 #: ../../guides/maintenance/resource-limits.rst:79
 msgid ""
@@ -123,10 +117,7 @@ msgid ""
 "control group (cgroup) "
 "<https://www.kernel.org/doc/Documentation/cgroup-v2.txt>`_ Linux cgroups "
 "associate related process groups and provide resource accounting."
-msgstr ""
-"使用 systemd 单元启动的服务的资源限制不遵循正常用户限制，因为进程在单独的 `Linux 控制组 (cgroup) "
-"<https://www.kernel.org/doc/Documentation/cgroup-v2.txt>`_ 中启动，Linux "
-"cgroup 将相关的进程组相关联并提供资源计帐。"
+msgstr "使用 systemd 单元启动的服务的资源限制不遵循正常用户限制，因为进程在单独的 `Linux 控制组 (cgroup) <https://www.kernel.org/doc/Documentation/cgroup-v2.txt>`_ 中启动，Linux cgroup 将相关的进程组相关联并提供资源计帐。"
 
 #: ../../guides/maintenance/resource-limits.rst:98
 msgid ""
@@ -135,17 +126,12 @@ msgid ""
 " Limit directives. See `process properties section of the systemd.exec "
 "man page "
 "<https://www.freedesktop.org/software/systemd/man/systemd.exec.html>`_."
-msgstr ""
-"可以在相应的单元文件或配置放置目录中使用资源限制指令来控制各个 systemd 服务的资源限制。请参见 `process properties "
-"section of the systemd.exec man page "
-"<https://www.freedesktop.org/software/systemd/man/systemd.exec.html>`_。"
+msgstr "可以在相应的单元文件或配置放置目录中使用资源限制指令来控制各个 systemd 服务的资源限制。请参见 `process properties section of the systemd.exec man page <https://www.freedesktop.org/software/systemd/man/systemd.exec.html>`_。"
 
 #: ../../guides/maintenance/resource-limits.rst:103
 msgid ""
 "Resource limits for all systemd services can be controlled with a file in"
 " the :file:`/etc/systemd/system.conf.d/` directory. For example, to have "
 "no restriction on the number of open files:"
-msgstr ""
-"可以使用 :file:`/etc/systemd/system.conf.d/` 目录中的文件来控制所有 systemd "
-"服务的资源限制。例如，要禁用对最大打开文件数的限制："
+msgstr "可以使用 :file:`/etc/systemd/system.conf.d/` 目录中的文件来控制所有 systemd 服务的资源限制。例如，要禁用对最大打开文件数的限制："
 

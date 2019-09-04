@@ -5,23 +5,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 17:26-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0152\n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
 "Language-Team: zh-Hans\n"
-"Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:4
 msgid "Download, verify, and decompress a |CL-ATTR| image"
-msgstr "下载、验证并解压缩 |CL-ATTR| 映像"
+msgstr "下载、验证并解压缩 |CL-ATTR| 映像，"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:6
 msgid ""
@@ -30,51 +28,41 @@ msgid ""
 " Follow the steps for your OS."
 msgstr "本指南介绍可用的 |CL| 映像类型，从何处下载这些映像，如何验证这些映像的完整性以及如何解压缩这些影响。遵循适用您的操作系统的步骤。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:3
-#: <included from
+#: ../../reference/image-types.rst:3
 msgid ""
 "|CL-ATTR| offers many types of `images`_ for different platforms and "
 "environments."
 msgstr "|CL-ATTR| 为不同平台和环境提供多种类型的 `images`_。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:7
-#: <included from
+#: ../../reference/image-types.rst:7
 msgid "The naming convention of a |CL| image filename is:"
 msgstr "|CL| 映像文件名的命名约定是："
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:13
-#: <included from
+#: ../../reference/image-types.rst:13
 msgid "The *[version number]* field specifies the version number."
 msgstr "*[version number]* 字段指定版本号。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:15
-#: <included from
+#: ../../reference/image-types.rst:15
 msgid ""
 "The *[image type]* field specifies the type of image and its "
 "corresponding file format."
 msgstr "*[image type]* 字段指定映像类型及其相应的文件格式。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:18
-#: <included from
+#: ../../reference/image-types.rst:18
 msgid ""
 "The *[compression type]* field specifies the compression type. Two types "
 "of compressions are used: GNU\\* zip (*.gz*) and XZ (*.xz*)."
 msgstr "*[compression type]* 字段指定压缩类型。使用的压缩类型有两种：GNU\\* zip (*.gz*) 和 XZ (*.xz*)。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:22
-msgid "Linux OS steps"
+msgid "Linux* OS steps"
 msgstr "Linux* 操作系统步骤"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:27
 #: ../../guides/maintenance/download-verify-decompress.rst:86
 #: ../../guides/maintenance/download-verify-decompress.rst:131
 msgid "Verify the integrity of the |CL| image"
-msgstr "确认 |CL| 映像的完整性。"
+msgstr "确认 |CL| 映像的完整性"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:29
 #: ../../guides/maintenance/download-verify-decompress.rst:88
@@ -84,9 +72,7 @@ msgid ""
 " eliminates the small chance of a corrupted image due to download issues."
 " To support verification, each released |CL| image has a corresponding "
 "SHA512 checksum file designated with the suffix `-SHA512SUMS`."
-msgstr ""
-"在使用下载的 |CL| 映像之前，请确认其完整性。本操作消除了由于下载错误导致的罕见映像损坏。为支持确认，每个释放的 |CL| 映像均有一个相应的"
-" SHA512 校验和 (checksum) 文件，其指定后缀为 `-SHA512SUMS`。"
+msgstr "在使用下载的 |CL| 映像之前，请确认其完整性。本操作消除了由于下载错误导致的罕见映像损坏。为支持确认，每个释放的 |CL| 映像均有一个相应的 SHA512 校验和 (checksum) 文件，其指定后缀为 `-SHA512SUMS`。"
 
 #: ../../guides/maintenance/download-verify-decompress.rst:34
 #: ../../guides/maintenance/download-verify-decompress.rst:93
@@ -140,9 +126,7 @@ msgid ""
 "Released |CL| images are compressed with either GNU zip (*.gz*) or XZ "
 "(*.xz*). The compression type depends on the target platform or "
 "environment. To decompress the image, follow these steps:"
-msgstr ""
-"释放的 |CL| 映像以 GNU zip (*.gz*) 或 XZ (*.xz*) "
-"格式压缩。压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
+msgstr "释放的 |CL| 映像以 GNU zip (*.gz*) 或 XZ (*.xz*) 格式压缩。压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:62
 #: ../../guides/maintenance/download-verify-decompress.rst:115
@@ -173,9 +157,7 @@ msgid ""
 "We compress all released |CL| images by default with either GNU zip "
 "(`.gz`) or xz (`.xz`). The compression type we use depends on the target "
 "platform or environment. To decompress the image, follow these steps:"
-msgstr ""
-"默认情况下，我们使用 GNU zip (`.gz`) 或 xz (`.xz`) 压缩所有发布的 |CL| "
-"映像。我们使用的压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
+msgstr "默认情况下，我们使用 GNU zip (`.gz`) 或 xz (`.xz`) 压缩所有发布的 |CL| 映像。我们使用的压缩类型取决于目标平台或环境。要解压映像，应遵循这些步骤："
 
 #: ../../guides/maintenance/download-verify-decompress.rst:116
 msgid ""
@@ -223,206 +205,142 @@ msgstr "图 1：Windows 7-Zip 提取文件。"
 msgid "Image types"
 msgstr "映像类型"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:3
-#: <included from
+#: ../../reference/image-types.rst:3
 msgid ""
 "Table 1 lists the currently available images that are platform "
 "independent. Table 2 lists the currently available images that are "
 "platform specific."
 msgstr "表 1 列出了当前可用的独立于平台的映像。表 2 列出了当前可用的特定于平台的映像。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:6
-#: <included from
+#: ../../reference/image-types.rst:6
 msgid "Table 1: Types of platform-independent |CL| images"
 msgstr "表 1：独立于平台的 |CL| 映像类型"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:10
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:23
-#: <included from
+#: ../../reference/image-types.rst:10 ../../reference/image-types.rst:23
 msgid "Image Type"
 msgstr "映像类型"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:11
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:24
-#: <included from
+#: ../../reference/image-types.rst:11 ../../reference/image-types.rst:24
 msgid "Description"
 msgstr "描述"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:13
-#: <included from
+#: ../../reference/image-types.rst:13
 msgid "live-desktop.img or live-desktop.iso"
 msgstr "live-desktop.img 或 live-desktop.iso"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:14
-#: <included from
+#: ../../reference/image-types.rst:14
 msgid "Image for booting to GNOME\\* desktop to preview or install the OS."
 msgstr "用于引导至 GNOME\\* 桌面进行预览或安装操作系统的映像。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:16
-#: <included from
+#: ../../reference/image-types.rst:16
 msgid "live-server.img or live-server.iso"
 msgstr "live-server.img 或 live-server.iso"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:17
-#: <included from
+#: ../../reference/image-types.rst:17
 msgid "Image for booting to server command prompt to preview or install the OS."
 msgstr "用于引导至服务器命令提示符进行预览或安装操作系统的映像。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:19
-#: <included from
+#: ../../reference/image-types.rst:19
 msgid "Table 2: Types of platform-specific |CL| images"
 msgstr "表 2：特定于平台的 |CL| 映像类型"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:26
-#: <included from
+#: ../../reference/image-types.rst:26
 msgid "aws.img"
 msgstr "aws.img"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:27
-#: <included from
+#: ../../reference/image-types.rst:27
 msgid "Image suitable for use with Amazon\\* AWS\\*."
 msgstr "适用于 Amazon\\* AWS\\* 的映像。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:29
-#: <included from
+#: ../../reference/image-types.rst:29
 msgid "azure.vhd"
 msgstr "azure.vhd"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:30
-#: <included from
+#: ../../reference/image-types.rst:30
 msgid "Virtual Hard Disk for use on Microsoft\\* Azure\\* cloud platform."
 msgstr "适用于 Microsoft\\* Azure\\* 云平台的虚拟硬盘。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:32
-#: <included from
+#: ../../reference/image-types.rst:32
 msgid "azure-docker.vhd"
 msgstr "azure-docker.vhd"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:33
-#: <included from
+#: ../../reference/image-types.rst:33
 msgid ""
 "Virtual Hard Disk for use on Microsoft Azure cloud platform with "
 "Docker\\* pre-installed."
 msgstr "适用于预装 Docker\\* 的 Microsoft Azure 云平台的虚拟硬盘。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:35
-#: <included from
+#: ../../reference/image-types.rst:35
 msgid "azure-machine-learning.vhd"
 msgstr "azure-machine-learning.vhd"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:36
-#: <included from
+#: ../../reference/image-types.rst:36
 msgid ""
 "Virtual Hard Disk for use on Microsoft Azure cloud platform with the "
 "`machine-learning-basic` bundle installed."
 msgstr "适用于安装 `machine-learning-basic` 捆绑包 的 Microsoft Azure 云平台的虚拟硬盘。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:38
-#: <included from
+#: ../../reference/image-types.rst:38
 msgid "cloudguest.img"
 msgstr "cloudguest.img"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:39
-#: <included from
+#: ../../reference/image-types.rst:39
 msgid ""
 "Image with generic cloud guest virtual machine (VM) requirements "
 "installed."
 msgstr "安装了通用云来宾虚拟机 (VM) 的映像。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:41
-#: <included from
+#: ../../reference/image-types.rst:41
 msgid "gce.tar"
 msgstr "gce.tar"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:42
-#: <included from
+#: ../../reference/image-types.rst:42
 msgid "Image with the Google Compute Engine (GCE) specific kernel."
 msgstr "带有 Google 计算引擎 (GCE) 特定内核的映像。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:44
-#: <included from
+#: ../../reference/image-types.rst:44
 msgid "hyperv.vhdx"
 msgstr "hyperv.vhdx"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:45
-#: <included from
+#: ../../reference/image-types.rst:45
 msgid ""
 "Virtual Hard Disk for use with Microsoft Hyper-V\\* hypervisor. Includes "
 "`optimized kernel`_ for Hyper-V."
 msgstr "与 Microsoft Hyper-V\\* 虚拟机管理程序一起使用的虚拟硬盘。包括针对 Hyper-V `optimized kernel`_"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:47
-#: <included from
+#: ../../reference/image-types.rst:47
 msgid "kvm.img"
 msgstr "kvm.img"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:48
-#: <included from
+#: ../../reference/image-types.rst:48
 msgid ""
 "Image for booting in a simple VM with start_qemu.sh. Includes `optimized "
 "kernel`_ for KVM."
 msgstr "用于使用 start_qemu.sh 在简单虚拟机中引导的映像。包括针对 KVM `optimized kernel`_。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:51
-#: <included from
+#: ../../reference/image-types.rst:51
 msgid "kvm-legacy.img"
 msgstr "kvm-legacy.img"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:52
-#: <included from
+#: ../../reference/image-types.rst:52
 msgid ""
 "Image for booting in a simple VM using legacy BIOS, if using "
 "start_qemu.sh make sure to remove -bios parameter."
 msgstr "用于使用传统 BIOS 在简单虚拟机中引导的映像；如果使用 start_qemu.sh，请确保移除 -bios 参数。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:54
-#: <included from
+#: ../../reference/image-types.rst:54
 msgid "pxe.tar"
 msgstr "pxe.tar"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:55
-#: <included from
+#: ../../reference/image-types.rst:55
 msgid "Image suitable for use with PXE server."
 msgstr "适用于 PXE 服务器的映像。"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:57
-#: <included from
+#: ../../reference/image-types.rst:57
 msgid "vmware.vmdk"
 msgstr "vmware.vmdk"
 
-#: ../../reference/image-types.rst
-#: /mnt/c/Users/KPUTNAM/Documents/_OTC_TCS/work_dir/git_repos/kp-clear/source/guides/maintenance/download-verify-decompress.rst>:58
-#: <included from
+#: ../../reference/image-types.rst:58
 msgid ""
 "Virtual Machine Disk for VMware\\* platforms inclduing Player, "
 "Workstation, and ESXi."

@@ -5,19 +5,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 17:26-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0152\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../guides/clear/telemetrics.rst:4
 msgid "Telemetrics"
@@ -35,57 +34,52 @@ msgstr "|CL| 中的遥测为 **opt-in**。遥测客户端未处于活动状态�
 
 #: ../../guides/clear/telemetrics.rst:15
 msgid ""
-"The telemetry functionality adheres to `Intel privacy policies "
-"<https://www.intel.com/content/www/us/en/privacy/intel-privacy-"
-"notice.html>`_ regarding the collection and use of :abbr:`PII (Personally"
-" Identifiable Information)` and is open source."
-msgstr ""
-"遥测功能遵从涉及收集和使用 :abbr:`PII (Personally Identifiable Information)` 的 "
-"`英特尔隐私条款 <https://www.intel.cn/content/www/cn/zh/privacy/intel-privacy-"
-"notice.html>`_，同时也是开源功能。"
+"The telemetry functionality adheres to `Intel privacy policies`_ "
+"regarding the collection and use of :abbr:`PII (Personally Identifiable "
+"Information)` and is open source."
+msgstr "遥测功能遵从涉及收集和使用 :abbr:`PII (Personally Identifiable Information)` 的 `英特尔隐私条款 <https://www.intel.cn/content/www/cn/zh/privacy/intel-privacy-notice.html>`_，同时也是开源功能。"
 
-#: ../../guides/clear/telemetrics.rst:18
+
+#: ../../guides/clear/telemetrics.rst:19
 msgid ""
 "No intentionally identifiable information about the user or system owner "
 "is collected."
 msgstr "系统不会蓄意收集涉及用户或系统所有者的可识别身份的信息。"
 
-#: ../../guides/clear/telemetrics.rst:26
+#: ../../guides/clear/telemetrics.rst:27
 msgid "Overview"
 msgstr "概述"
 
-#: ../../guides/clear/telemetrics.rst:28
+#: ../../guides/clear/telemetrics.rst:29
 msgid ""
 "Telemetrics in |CL| is a client and server solution used to collect data "
 "from running |CL| systems to help quickly identify and fix bugs in the "
 "OS. Both client and server are customizable, and an API is available on "
 "the client side for instrumenting your code for debug and analysis."
-msgstr ""
-"|CL| 中的遥测是用于收集来自正在运行的 |CL| "
-"系统的数据的客户端/服务器解决方案，有助于快速确定和修复操作系统中的错误。客户端和服务器均可定制，而客户端则可使用 API "
-"检测代码，进行调试和分析。"
+msgstr "|CL| 中的遥测是用于收集来自正在运行的 |CL| 系统的数据的客户端/服务器解决方案，有助于快速确定和修复操作系统中的错误。客户端和服务器均可定制，而客户端则可使用 API 检测代码，进行调试和分析。"
 
-#: ../../guides/clear/telemetrics.rst:33
+
+#: ../../guides/clear/telemetrics.rst:34
 msgid ""
 "Telemetry, one of the key features of |CL|, enables developers to observe"
 " and proactively address issues in the OS before end users are impacted."
 msgstr "借助遥测这一 |CL| 的主要功能，开发人员可在最终用户受到影响之前观察并主动解决操作系统中存在的问题。"
 
-#: ../../guides/clear/telemetrics.rst:36
+#: ../../guides/clear/telemetrics.rst:37
 msgid "Telemetrics is a combination word made from:"
 msgstr "遥测 (Telemetrics) 是由以下项组成的组合词："
 
-#: ../../guides/clear/telemetrics.rst:38
+#: ../../guides/clear/telemetrics.rst:39
 msgid "Telemetry, which is sensing and reporting data."
 msgstr "遥测 (Telemetry)，即感知和报告数据。"
 
-#: ../../guides/clear/telemetrics.rst:39
+#: ../../guides/clear/telemetrics.rst:40
 msgid ""
 "Analytics, which is using visualization and statistical inferencing to "
 "make sense of the reported data."
 msgstr "分析 (Analytics)，即使用可视化和统计推理探究报告数据的意义。"
 
-#: ../../guides/clear/telemetrics.rst:42
+#: ../../guides/clear/telemetrics.rst:43
 msgid ""
 "|CL| telemetry reports system-level debug/crash information using "
 "specialized probes. The probes monitor system tasks such as swupd, kernel"
@@ -93,113 +87,111 @@ msgid ""
 "unhandled hardware failures. Telemetry enables real-time issue reporting "
 "to allow system developers to focus quickly on an issue and monitor "
 "corrective actions."
-msgstr ""
-"|CL| 遥测使用专用探针来报告系统级调试/崩溃信息。探针可监控系统任务，例如 swupd、内核 oops、机器错误检查以及未处理硬件故障的 "
-"BIOS 错误报告表。遥测可以实时报告问题，以便系统开发人员快速关注问题并监控更正措施。"
+msgstr "|CL| 遥测使用专用探针来报告系统级调试/崩溃信息。探针可监控系统任务，例如 swupd、内核 oops、机器错误检查以及未处理硬件故障的 BIOS 错误报告表。遥测可以实时报告问题，以便系统开发人员快速关注问题并监控更正措施。"
 
-#: ../../guides/clear/telemetrics.rst:48
+
+#: ../../guides/clear/telemetrics.rst:49
 msgid ""
 "|CL| telemetry is fully customizable and can be used during software "
 "development for debugging purposes. You can use the libtelemetry library "
 "in your code to create custom telemetry records. You can also use the "
 "telem-record-gen utility in script files for light-touch record creation "
 "where instrumenting code files doesn't make sense."
-msgstr ""
-"|CL| 遥测支持完全定制，可在软件开发期间用于调试。可以在代码中使用 libtelemetry 库来创建定制遥测记录。还可以在脚本文件中使用 "
-"telem-record-gen 实用程序创建轻触记录，其中检测代码文件并无作用。"
+msgstr "|CL| 遥测支持完全定制，可在软件开发期间用于调试。可以在代码中使用 libtelemetry 库来创建定制遥测记录。还可以在脚本文件中使用 telem-record-gen 实用程序创建轻触记录，其中检测代码文件并无作用。"
 
-#: ../../guides/clear/telemetrics.rst:54
+
+#: ../../guides/clear/telemetrics.rst:55
 msgid ""
 "The |CL| telemetrics solution is an **opt-in** choice on the client side."
 " By default, the telemetry client is disabled until you choose to enable "
 "it. Enabling the client is covered in this guide."
 msgstr "|CL| 遥测解决方案是客户端上的一个选择启用选项。默认情况下，禁用遥测客户端，直到用户选择将其启用。本指南介绍如何启用客户端。"
 
-#: ../../guides/clear/telemetrics.rst:59
+#: ../../guides/clear/telemetrics.rst:60
 msgid "Architecture"
 msgstr "体系架构"
 
-#: ../../guides/clear/telemetrics.rst:61
+#: ../../guides/clear/telemetrics.rst:62
 msgid ""
 "|CL| telemetry has two fundamental components, which are shown in Figure "
 "1:"
 msgstr "|CL| 遥测有两大基本组件，如图 1 所示："
 
-#: ../../guides/clear/telemetrics.rst:63
+#: ../../guides/clear/telemetrics.rst:64
 msgid ""
 "Client: generates and delivers records to the backend server via the "
 "network."
 msgstr "客户端：通过网络生成记录并将其传送到后端服务器。"
 
-#: ../../guides/clear/telemetrics.rst:65
+#: ../../guides/clear/telemetrics.rst:66
 msgid ""
 "Backend: receives records sent from the client and displays the "
 "cumulative content through a specialized web interface."
 msgstr "后端：接收客户端发来的记录，通过专门的 Web 界面显示累积的内容。"
 
-#: ../../guides/clear/telemetrics.rst:71
+#: ../../guides/clear/telemetrics.rst:72
 msgid "Figure 1: :guilabel:`|CL| Telemetry Architecture`"
 msgstr "图 1： :guilabel:`|CL| Telemetry Architecture`"
 
-#: ../../guides/clear/telemetrics.rst:73
+#: ../../guides/clear/telemetrics.rst:74
 msgid ""
 "The telemetry client provides the front end of the telemetrics solution "
 "and includes the following components:"
 msgstr "遥测客户端提供遥测解决方案的前端，同时还包括以下组件："
 
-#: ../../guides/clear/telemetrics.rst:76
+#: ../../guides/clear/telemetrics.rst:77
 msgid ""
 "telemprobd, which is a daemon that receives and prepares telemetry "
 "records from probes and spools them to disk."
 msgstr "telemprobd 是一个守护程序，用于接收并准备探针的遥测记录，并将其假脱机至磁盘。"
 
-#: ../../guides/clear/telemetrics.rst:78
+#: ../../guides/clear/telemetrics.rst:79
 msgid ""
 "telempostd, which is a daemon that manages spooled telemetry records and "
 "delivers these records according to configurable settings."
 msgstr "telempostd 是一个守护程序，根据可配置设置管理假脱机的遥测记录并提供这些记录。"
 
-#: ../../guides/clear/telemetrics.rst:80
+#: ../../guides/clear/telemetrics.rst:81
 msgid "probes, which collect specific types of data from the operating system."
 msgstr "probes，从操作系统收集特定类型的数据。"
 
-#: ../../guides/clear/telemetrics.rst:81
+#: ../../guides/clear/telemetrics.rst:82
 msgid ""
 "libtelemetry, which is the API that telemetrics probes use to create "
 "records."
 msgstr "libtelemetry，遥测探针用于创建记录的 API。"
 
-#: ../../guides/clear/telemetrics.rst:83
+#: ../../guides/clear/telemetrics.rst:84
 msgid ""
 "The telemetry backend provides the server-side component of the "
 "telemetrics solution and consists of:"
 msgstr "遥测后端提供遥测解决方案的服务器端组件且包括："
 
-#: ../../guides/clear/telemetrics.rst:86
+#: ../../guides/clear/telemetrics.rst:87
 msgid "Nginx web server."
 msgstr "Nginx Web 服务器。"
 
-#: ../../guides/clear/telemetrics.rst:87
+#: ../../guides/clear/telemetrics.rst:88
 msgid "Two Flask apps:"
 msgstr "两个 Flask 应用："
 
-#: ../../guides/clear/telemetrics.rst:89
+#: ../../guides/clear/telemetrics.rst:90
 msgid ""
 "Collector, which is an ingestion web app for records received from client"
 " probes."
 msgstr "Collector，针对从客户端探针所接收记录的接入式网络应用。"
 
-#: ../../guides/clear/telemetrics.rst:91
+#: ../../guides/clear/telemetrics.rst:92
 msgid ""
 "TelemetryUI, which is a web app that exposes different views to visualize"
 " the telemetry data."
 msgstr "TelemetryUI，通过不同视图实现遥测数据可视化的网络应用。"
 
-#: ../../guides/clear/telemetrics.rst:93
+#: ../../guides/clear/telemetrics.rst:94
 msgid "PostgreSQL as the underlying database server."
 msgstr "PostgreSQL 作为底层数据库服务器。"
 
-#: ../../guides/clear/telemetrics.rst:97
+#: ../../guides/clear/telemetrics.rst:98
 msgid ""
 "The default telemetry backend server is hosted by the Intel |CL| "
 "development team and is not viewable outside the Intel firewall. To "
@@ -207,11 +199,11 @@ msgid ""
 "server."
 msgstr "默认遥测后端服务器由英特尔 |CL| 开发团队托管，且无法在英特尔防火墙之外查看。要收集个人记录，必须设置自己的遥测后端服务器。"
 
-#: ../../guides/clear/telemetrics.rst:102
+#: ../../guides/clear/telemetrics.rst:103
 msgid "How to use"
 msgstr "使用方法"
 
-#: ../../guides/clear/telemetrics.rst:104
+#: ../../guides/clear/telemetrics.rst:105
 msgid ""
 "From a workflow perspective, the |CL| telemetrics system is "
 "straightforward. On the client side, the main decisions after "
@@ -220,26 +212,25 @@ msgid ""
 "custom backend server, keep the data local to the system, or both. The "
 "backend server has a more complex setup, but once it's running, it is "
 "simple to use and configure."
-msgstr ""
-"从工作流角度来看，|CL| "
-"遥测系统非常简单。在客户端，安装和启用遥测技术之后的主要决策涉及如何处理探针生成的记录数据。可以将数据发送到默认或定制后端服务器，也可将此数据保留在系统本地，或同时执行二者。后端服务器的设置更为复杂，但一旦运行，它就极易使用和配置。"
+msgstr "从工作流角度来看，|CL| 遥测系统非常简单。在客户端，安装和启用遥测技术之后的主要决策涉及如何处理探针生成的记录数据。可以将数据发送到默认或定制后端服务器，也可将此数据保留在系统本地，或同时执行二者。后端服务器的设置更为复杂，但一旦运行，它就极易使用和配置。"
 
-#: ../../guides/clear/telemetrics.rst:111
+
+#: ../../guides/clear/telemetrics.rst:112
 msgid ""
 "This section describes some of the possible scenarios for configuring the"
 " |CL| telemetrics system, and suggests which ones make sense according to"
 " your needs."
 msgstr "本节介绍配置 |CL| 遥测系统的部分潜在场景，并根据需求提供有意义的建议。"
 
-#: ../../guides/clear/telemetrics.rst:116
+#: ../../guides/clear/telemetrics.rst:117
 msgid "Scenarios"
 msgstr "场景"
 
-#: ../../guides/clear/telemetrics.rst:118
+#: ../../guides/clear/telemetrics.rst:119
 msgid "Enable telemetry:"
 msgstr "启用遥测技术："
 
-#: ../../guides/clear/telemetrics.rst:120
+#: ../../guides/clear/telemetrics.rst:121
 msgid ""
 "Before probes can generate records, the telemetry client daemons must be "
 "enabled. You can configure the client before enabling by creating a "
@@ -247,16 +238,14 @@ msgid ""
 ":file:`/etc/telemetrics` directory. If you choose to use the default "
 "settings, records will be sent to the telemetrics backend server managed "
 "by the |CL| development team at Intel."
-msgstr ""
-"必须启用遥测客户端守护程序，探针才能生成记录。创建定制 :file:`telemetrics.conf` 文件，将其存储在 "
-":file:`/etc/telemetrics` 目录中，可以在启用前配置客户端。如果选择使用默认设置，则会将记录发送到英特尔 |CL| "
-"开发团队所管理的遥测后端服务器。"
+msgstr "必须启用遥测客户端守护程序，探针才能生成记录。创建定制 :file:`telemetrics.conf` 文件，将其存储在 :file:`/etc/telemetrics` 目录中，可以在启用前配置客户端。如果选择使用默认设置，则会将记录发送到英特尔 |CL| 开发团队所管理的遥测后端服务器。"
 
-#: ../../guides/clear/telemetrics.rst:127
+
+#: ../../guides/clear/telemetrics.rst:128
 msgid "Save record data locally:"
 msgstr "本地保存记录数据："
 
-#: ../../guides/clear/telemetrics.rst:129
+#: ../../guides/clear/telemetrics.rst:130
 msgid ""
 "You can configure the telemetry client to save records locally. This is "
 "convenient when you want instant feedback during a development cycle, or "
@@ -265,49 +254,46 @@ msgid ""
 "keep the records locally and send to the backend server."
 msgstr "可以配置遥测客户端，在本地保存记录。在开发周期中需要即时反馈或是认为存在特定于计算机的问题以便跟踪系统问题时，此功能非常方便。可以将客户端设为完全不发送记录，或是将记录保存在本地并发送到后端服务器。"
 
-#: ../../guides/clear/telemetrics.rst:135
+#: ../../guides/clear/telemetrics.rst:136
 msgid "Set up a server to collect data:"
 msgstr "设置服务器以收集数据："
 
-#: ../../guides/clear/telemetrics.rst:137
+#: ../../guides/clear/telemetrics.rst:138
 msgid ""
 "Whether you are managing a network of |CL| systems or you don't want to "
 "send records to the default telemetry server, you can set up a backend "
 "server to collect your records. The backend server can be installed on "
 "any Linux system and provides the same dashboard as the default server."
-msgstr ""
-"无论是管理 |CL| 系统网络，还是不想将记录发送到默认遥测服务器，均可设置后端服务器来收集个人记录。后端服务器可安装在任意 Linux "
-"系统上，并为您提供与默认服务器相同的控制台。"
+msgstr "无论是管理 |CL| 系统网络，还是不想将记录发送到默认遥测服务器，均可设置后端服务器来收集个人记录。后端服务器可安装在任意 Linux 系统上，并为您提供与默认服务器相同的控制台。"
 
-#: ../../guides/clear/telemetrics.rst:143
+
+#: ../../guides/clear/telemetrics.rst:144
 msgid "Instrument your code with the libtelemetry API:"
 msgstr "通过 libtelemetry API 检测代码："
 
-#: ../../guides/clear/telemetrics.rst:145
+#: ../../guides/clear/telemetrics.rst:146
 msgid ""
 "The :command:`telemetrics` bundle includes the libtelemetry C library, "
 "which exposes an API used by the telemprobd and telempostd daemons. You "
 "can use these in your applications as well. The API documentation is "
 "found in the :file:`telemetry.h` file in `Telemetrics client`_ "
 "repository."
-msgstr ""
-":command:`telemetrics` bundle 文件包括 libtelemetry C 库，可以提供 telemprobd 和 "
-"telempostd 守护程序所用的 API。同时，也可以在应用程序中使用这些守护程序。相关 API 文档位于 `Telemetrics "
-"client`_ 存储库的 :file:`telemetry.h` 文件中。"
+msgstr ":command:`telemetrics` bundle 文件包括 libtelemetry C 库，可以提供 telemprobd 和 telempostd 守护程序所用的 API。同时，也可以在应用程序中使用这些守护程序。相关 API 文档位于 `Telemetrics client`_ 存储库的 :file:`telemetry.h` 文件中。"
 
-#: ../../guides/clear/telemetrics.rst:152
+
+#: ../../guides/clear/telemetrics.rst:153
 msgid "Examples"
 msgstr "示例"
 
-#: ../../guides/clear/telemetrics.rst:159
+#: ../../guides/clear/telemetrics.rst:160
 msgid "Enable or disable telemetry"
 msgstr "启用或禁用遥测"
 
-#: ../../guides/clear/telemetrics.rst:161
+#: ../../guides/clear/telemetrics.rst:162
 msgid "Enabling during installation:"
 msgstr "在安装期间启用："
 
-#: ../../guides/clear/telemetrics.rst:163
+#: ../../guides/clear/telemetrics.rst:164
 msgid ""
 "During the initial installation of |CL|, you are requested to join the "
 "stability enhancement program and allow |CL| to collect anonymous reports"
@@ -315,19 +301,18 @@ msgid ""
 "then the telemetry software bundle is not added to your system. Choosing "
 "to join will automatically enable telemetry on your system after "
 "installation is complete."
-msgstr ""
-"在初始安装 |CL| 期间，系统会要求加入稳定性增强计划，允许 |CL| 收集匿名报告，提高系统稳定性。如果选择不加入此计划，则不会将遥测软件 "
-"bundle 文件添加到系统中。选择加入此计划，则会在安装完成后自动在系统上启用遥测技术。"
+msgstr "在初始安装 |CL| 期间，系统会要求加入稳定性增强计划，允许 |CL| 收集匿名报告，提高系统稳定性。如果选择不加入此计划，则不会将遥测软件 bundle 文件添加到系统中。选择加入此计划，则会在安装完成后自动在系统上启用遥测技术。"
 
-#: ../../guides/clear/telemetrics.rst:170
+
+#: ../../guides/clear/telemetrics.rst:171
 msgid "Enabling after install:"
 msgstr "安装后启用："
 
-#: ../../guides/clear/telemetrics.rst:172
+#: ../../guides/clear/telemetrics.rst:173
 msgid "To start telemetry on your system, run the following command:"
 msgstr "要在系统上启动遥测，请运行以下命令："
 
-#: ../../guides/clear/telemetrics.rst:178
+#: ../../guides/clear/telemetrics.rst:179
 msgid ""
 "This enables and starts the :command:`telemprobd` and "
 ":command:`telempostd` daemons. Your system will begin to send telemetry "
@@ -335,73 +320,69 @@ msgid ""
 ":file:`/etc/telemetrics/telemetrics.conf`. If this file does not exist, "
 "the :command:`telemprobd` and :command:`telempostd` daemons will use the "
 "file :file:`/usr/share/defaults/telemetrics/telemetrics.conf`."
-msgstr ""
-"此命令将启用并启动 :command:`telemprobd` 和 :command:`telempostd` "
-"守护程序。系统随即开始将遥测数据发送到文件 :file:`/etc/telemetrics/telemetrics.conf` "
-"中所定义的服务器。如果此文件不存在，:command:`telemprobd` 和 :command:`telempostd` "
-"守护程序则会使用文件 :file:`/usr/share/defaults/telemetrics/telemetrics.conf`。"
+msgstr "此命令将启用并启动 :command:`telemprobd` 和 :command:`telempostd` 守护程序。系统随即开始将遥测数据发送到文件 :file:`/etc/telemetrics/telemetrics.conf` 中所定义的服务器。如果此文件不存在，:command:`telemprobd` 和 :command:`telempostd` 守护程序则会使用文件 :file:`/usr/share/defaults/telemetrics/telemetrics.conf`。"
 
-#: ../../guides/clear/telemetrics.rst:184
+
+#: ../../guides/clear/telemetrics.rst:185
 msgid "Disabling after install:"
 msgstr "安装后禁用："
 
-#: ../../guides/clear/telemetrics.rst:186
+#: ../../guides/clear/telemetrics.rst:187
 msgid "To disable both of the telemetry daemons, run the following command:"
 msgstr "要禁用这两个遥测守护程序，请运行以下命令："
 
-#: ../../guides/clear/telemetrics.rst:192
+#: ../../guides/clear/telemetrics.rst:193
 msgid "Opt in to telemetry:"
 msgstr "选择启用遥测技术："
 
-#: ../../guides/clear/telemetrics.rst:194
+#: ../../guides/clear/telemetrics.rst:195
 msgid ""
 "To opt-in to the telemetry services, simply enter the opt-in command, "
 "which also starts the service:"
 msgstr "要选择启用遥测服务，只需输入选择启用命令，也会启动服务："
 
-#: ../../guides/clear/telemetrics.rst:201
+#: ../../guides/clear/telemetrics.rst:202
 msgid ""
 "This removes the :file:`/etc/telemetrics/opt-out` file, if it exists, and"
 " starts the telemetry services."
 msgstr "此操作将删除 :file:`/etc/telemetrics/opt-out` 文件（如果存在）并启动遥测服务。"
 
-#: ../../guides/clear/telemetrics.rst:206
+#: ../../guides/clear/telemetrics.rst:207
 msgid ""
 "To opt-in but not immediately start telemetry services, you must run the "
 "command :command:`sudo telemctl stop` after the :command:`opt-in` command"
 " is entered. Once you are ready to start the service, enter the command "
 ":command:`sudo telemctl start`."
-msgstr ""
-"要选择启用而非立即启动遥测服务，则需在输入 :command:`opt-in` 命令后运行命令 :command:`sudo telemctl "
-"stop`。准备好启动服务后，输入命令 :command:`sudo telemctl start`。"
+msgstr "要选择启用而非立即启动遥测服务，则需在输入 :command:`opt-in` 命令后运行命令 :command:`sudo telemctl stop`。准备好启动服务后，输入命令 :command:`sudo telemctl start`。"
 
-#: ../../guides/clear/telemetrics.rst:211
+
+#: ../../guides/clear/telemetrics.rst:212
 msgid "Opt out of telemetry:"
 msgstr "选择禁用遥测技术："
 
-#: ../../guides/clear/telemetrics.rst:213
+#: ../../guides/clear/telemetrics.rst:214
 msgid ""
 "To stop sending telemetrics data from your system, opt out of the "
 "telemetry service:"
 msgstr "要停止发送来自系统的遥测数据，请选择禁用遥测服务："
 
-#: ../../guides/clear/telemetrics.rst:220
+#: ../../guides/clear/telemetrics.rst:221
 msgid ""
 "This creates the file :file:`/etc/telemetrics/opt-out` and stops the "
 "telemetry services."
 msgstr "此操作将创建文件 :file:`/etc/telemetrics/opt-out` 并停止遥测服务。"
 
-#: ../../guides/clear/telemetrics.rst:225
+#: ../../guides/clear/telemetrics.rst:226
 msgid "Saving data locally"
 msgstr "本地保存数据"
 
-#: ../../guides/clear/telemetrics.rst:227
+#: ../../guides/clear/telemetrics.rst:228
 msgid ""
 "This example requires |CL| to be installed and telemetry to be enabled on"
 " the system."
 msgstr "本例要求安装 |CL| 并在系统上启用遥测技术。"
 
-#: ../../guides/clear/telemetrics.rst:230
+#: ../../guides/clear/telemetrics.rst:231
 msgid ""
 "To change how records are managed, copy the default "
 ":file:`/usr/share/defaults/telemetrics/telemetrics.conf` file to "
@@ -412,199 +393,184 @@ msgid ""
 ":file:`/etc`. For each example, and for any time you make changes to the "
 "configuration file, you must restart the client daemons to pick up the "
 "changes:"
-msgstr ""
-"要更改记录的管理方式，请将默认的 :file:`/usr/share/defaults/telemetrics/telemetrics.conf`"
-" 文件复制到 :file:`/etc/telemetrics/telemetrics.conf` "
-"并对其进行编辑。:file:`/etc/telemetrics/telemetrics.conf` 文件中的更改会覆盖 "
-":file:`/usr/share/defaults/telemetrics/telemetrics.conf` 文件中的默认值。您可能需要 "
-"root 权限才能在 :file:`/etc` 中创建和编辑文件。在每个示例中，每次对配置文件进行更改时，均需重新启动客户端守护程序才能接受更改："
+msgstr "要更改记录的管理方式，请将默认的 :file:`/usr/share/defaults/telemetrics/telemetrics.conf` 文件复制到 :file:`/etc/telemetrics/telemetrics.conf` 并对其进行编辑。:file:`/etc/telemetrics/telemetrics.conf` 文件中的更改会覆盖 :file:`/usr/share/defaults/telemetrics/telemetrics.conf` 文件中的默认值。您可能需要 root 权限才能在 :file:`/etc` 中创建和编辑文件。在每个示例中，每次对配置文件进行更改时，均需重新启动客户端守护程序才能接受更改："
 
-#: ../../guides/clear/telemetrics.rst:244
+
+#: ../../guides/clear/telemetrics.rst:245
 msgid ""
 "The :command:`telemctl journal` command gives you access to features and "
 "options of the telemetry journal to assist with system analytics and "
 "debug. :command:`telemctl journal` has a number of options to help filter"
 " records. Use :command:`-h` or :command:`--help` to view usage options."
-msgstr ""
-"使用 :command:`telemctl journal` "
-"命令可以访问遥测日志的各项功能和选项，有助于进行系统分析和调试。:command:`telemctl journal` "
-"提供众多选项来协助过滤记录。使用 :command:`-h` 或 :command:`--help` 查看使用情况选项。"
+msgstr "使用 :command:`telemctl journal` 命令可以访问遥测日志的各项功能和选项，有助于进行系统分析和调试。:command:`telemctl journal` 提供众多选项来协助过滤记录。使用 :command:`-h` 或 :command:`--help` 查看使用情况选项。"
 
-#: ../../guides/clear/telemetrics.rst:250
+
+#: ../../guides/clear/telemetrics.rst:251
 msgid "Keep a local copy and send records to backend server:"
 msgstr "保留本地副本并将记录发送到后端服务器："
 
-#: ../../guides/clear/telemetrics.rst:252
+#: ../../guides/clear/telemetrics.rst:253
 msgid ""
 "To keep a local copy of the telemetry record and also send it on to the "
 "backend server, we will need to change the "
 ":guilabel:`record_retention_enabled` configuration key value to "
 ":guilabel:`true`."
-msgstr ""
-"要保留遥测记录的本地副本并将其发送到后端服务器，需将 :guilabel:`record_retention_enabled` 配置键值更改为 "
-":guilabel:`true`。"
+msgstr "要保留遥测记录的本地副本并将其发送到后端服务器，需将 :guilabel:`record_retention_enabled` 配置键值更改为 :guilabel:`true`。"
 
-#: ../../guides/clear/telemetrics.rst:257
+
+#: ../../guides/clear/telemetrics.rst:258
 msgid "Keep all records  -- don't send to backend server:"
 msgstr "保留所有记录 - 不发送到后端服务器："
 
-#: ../../guides/clear/telemetrics.rst:259
+#: ../../guides/clear/telemetrics.rst:260
 msgid ""
 "To keep records on the system without sending them to a backend server, "
 "set the :guilabel:`record_server_delivery_enabled` key value to "
 ":guilabel:`false`. Note that you will also need to ensure the "
 ":guilabel:`record_retention_enabled` configuration key value is set to "
 ":guilabel:`true` or the system will not keep local copies."
-msgstr ""
-"要保留系统上的记录而不将其发送到后端服务器，请将 :guilabel:`record_server_delivery_enabled` 键值设为 "
-":guilabel:`false`。请注意，您可能还需确保 :guilabel:`record_retention_enabled` "
-"配置键值已设为 :guilabel:`true`，否则系统不会保留本地副本。"
+msgstr "要保留系统上的记录而不将其发送到后端服务器，请将 :guilabel:`record_server_delivery_enabled` 键值设为 :guilabel:`false`。请注意，您可能还需确保 :guilabel:`record_retention_enabled` 配置键值已设为 :guilabel:`true`，否则系统不会保留本地副本。"
 
-#: ../../guides/clear/telemetrics.rst:265
+
+#: ../../guides/clear/telemetrics.rst:266
 msgid "Keep and send records to custom server:"
 msgstr "保留记录并将其发送到定制服务器："
 
-#: ../../guides/clear/telemetrics.rst:267
+#: ../../guides/clear/telemetrics.rst:268
 msgid ""
 "This assumes you have set up a custom server according to the next "
 "example."
 msgstr "此操作假设您已根据下例设置了定制服务器。"
 
-#: ../../guides/clear/telemetrics.rst:269
+#: ../../guides/clear/telemetrics.rst:270
 msgid ""
 "The server is identified by the :guilabel:`server` setting, and by "
 "default records are sent to the |CL| server "
 ":guilabel:`server=https://clr.telemetry.intel.com/v2/collector`. To "
 "change this, you can use an IP address or fully qualified domain name."
-msgstr ""
-"此服务器通过 :guilabel:`server` 设置确定，且默认将记录发送到 |CL| 服务器 "
-":guilabel:`server=https://clr.telemetry.intel.com/v2/collector`。要更改此设置，可使用"
-" IP 地址或完全限定域名。"
+msgstr "此服务器通过 :guilabel:`server` 设置确定，且默认将记录发送到 |CL| 服务器 :guilabel:`server=https://clr.telemetry.intel.com/v2/collector`。要更改此设置，可使用 IP 地址或完全限定域名。"
 
-#: ../../guides/clear/telemetrics.rst:276
+
+#: ../../guides/clear/telemetrics.rst:277
 msgid "Set up a back-end server to collect telemetry records"
 msgstr "设置后端服务器以收集遥测记录"
 
-#: ../../guides/clear/telemetrics.rst:278
+#: ../../guides/clear/telemetrics.rst:279
 msgid ""
 "For this example, start with a clean installation of |CL| on a new system"
 " using the :ref:`bare-metal-install-server` getting started guide and:"
 msgstr "在本例中，请先使用 :ref:`bare-metal-install-server` 入门指南和以下内容在新系统上完整安装 |CL|："
 
-#: ../../guides/clear/telemetrics.rst:281
+#: ../../guides/clear/telemetrics.rst:282
 msgid ""
 "Join the :guilabel:`Stability Enhancement Program` to install and enable "
 "the telemetrics components."
 msgstr "加入 :guilabel:`Stability Enhancement Program`，安装和启用遥测组件。"
 
-#: ../../guides/clear/telemetrics.rst:284
+#: ../../guides/clear/telemetrics.rst:285
 msgid "Select the manual installation method with the following settings:"
 msgstr "选择采用以下设置的手动安装方法："
 
-#: ../../guides/clear/telemetrics.rst:286
+#: ../../guides/clear/telemetrics.rst:287
 msgid "Set the hostname to :guilabel:`clr-telem-server`,"
 msgstr "将主机名设为 :guilabel:`clr-telem-server`。"
 
-#: ../../guides/clear/telemetrics.rst:287
+#: ../../guides/clear/telemetrics.rst:288
 msgid ""
 "Create an administrative user named :guilabel:`clear` and add this user "
 "to sudoers"
 msgstr "创建名为 :guilabel:`clear` 的管理用户并将其添加到 sudo 用户组"
 
-#: ../../guides/clear/telemetrics.rst:290
+#: ../../guides/clear/telemetrics.rst:291
 msgid ""
 "Log in with your administrative user, from your :file:`$HOME` directory, "
 "run :command:`git` to clone the :guilabel:`telemetrics-backend` "
 "repository into the :file:`$HOME/telemetrics-backend` directory:"
-msgstr ""
-"以管理用户身份登录，在 :file:`$HOME` 目录中运行 :command:`git`，将 :guilabel:`telemetrics-"
-"backend` 存储库克隆到 :file:`$HOME/telemetrics-backend` 目录："
+msgstr "以管理用户身份登录，在 :file:`$HOME` 目录中运行 :command:`git`，将 :guilabel:`telemetrics-backend` 存储库克隆到 :file:`$HOME/telemetrics-backend` 目录："
 
-#: ../../guides/clear/telemetrics.rst:300
+
+#: ../../guides/clear/telemetrics.rst:301
 msgid ""
 "You may need to set up the :envvar:`https_proxy` environment variable if "
 "you have issues reaching github.com."
 msgstr "如果访问 github.com 时出现问题，则最好设置 :envvar:`https_proxy` 环境变量。"
 
-#: ../../guides/clear/telemetrics.rst:303
+#: ../../guides/clear/telemetrics.rst:304
 msgid ""
 "Change your current working directory to :file:`telemetrics-"
 "backend/scripts`."
 msgstr "将当前工作目录更改为 :file:`telemetrics-backend/scripts`。"
 
-#: ../../guides/clear/telemetrics.rst:304
+#: ../../guides/clear/telemetrics.rst:305
 msgid ""
 "Before you install the telemetrics backend with the :file:`deploy.sh` "
 "script file in the next step, here is an explanation of the options to be"
 " specified:"
 msgstr "在下一步利用 :file:`deploy.sh` 脚本文件安装遥测后端之前，请查看此处关于指定选项的说明："
 
-#: ../../guides/clear/telemetrics.rst:307
+#: ../../guides/clear/telemetrics.rst:308
 msgid ":command:`-a install` to perform an install"
 msgstr ":command:`-a install` 用于安装"
 
-#: ../../guides/clear/telemetrics.rst:308
+#: ../../guides/clear/telemetrics.rst:309
 msgid ":command:`-d clr` to install to a |CL| distro"
 msgstr ":command:`-d clr` 用于安装到 |CL| 发行版"
 
-#: ../../guides/clear/telemetrics.rst:309
+#: ../../guides/clear/telemetrics.rst:310
 msgid ":command:`-H localhost` to set the domain to localhost"
 msgstr ":command:`-H localhost` 用于将域设为 localhost"
 
-#: ../../guides/clear/telemetrics.rst:312
+#: ../../guides/clear/telemetrics.rst:313
 msgid ""
 "The :file:`deploy.sh` shell script has minimal error checking and makes "
 "several changes to your system. Be sure that the options you define on "
 "the cmdline are correct before proceeding."
-msgstr ""
-":file:`deploy.sh` shell "
-"脚本附带小规模错误检查机制，并可对系统进行某些更改。在继续操作之前，请确保您在命令行上定义的选项正确无误。"
+msgstr ":file:`deploy.sh` shell 脚本附带小规模错误检查机制，并可对系统进行某些更改。在继续操作之前，请确保您在命令行上定义的选项正确无误。"
 
-#: ../../guides/clear/telemetrics.rst:316
+
+#: ../../guides/clear/telemetrics.rst:317
 msgid ""
 "Run the shell script from the :file:`$HOME/telemetrics-backend/scripts` "
 "directory:"
 msgstr "在 :file:`$HOME/telemetrics-backend/scripts` 目录中运行此 shell 脚本："
 
-#: ../../guides/clear/telemetrics.rst:325
+#: ../../guides/clear/telemetrics.rst:326
 msgid ""
 "The script starts and lists all the defined options and prompts you for "
 "the :guilabel:`PostgreSQL` database password."
 msgstr "此脚本将启动并列出所有已定义的选项并提示输入 :guilabel:`PostgreSQL` 数据库密码。"
 
-#: ../../guides/clear/telemetrics.rst:339
+#: ../../guides/clear/telemetrics.rst:340
 msgid ""
 "For the :guilabel:`DB password:`, press the :kbd:`Enter` key to accept "
 "the default password `postgres`."
 msgstr "对于 :guilabel:`DB password:`，请按 :kbd:`Enter` 键接受默认密码 `postgres`。"
 
-#: ../../guides/clear/telemetrics.rst:344
+#: ../../guides/clear/telemetrics.rst:345
 msgid ""
 "The :file:`deploy.sh` script uses :command:`sudo` to run commands and you"
 " may be prompted to enter your user password at any time while the script"
 " is executing. If this occurs, enter your user password to execute the "
 ":command:`sudo` command."
-msgstr ""
-":file:`deploy.sh` 脚本使用 :command:`sudo` "
-"运行命令，而系统在执行脚本时则随时可能会提示您输入用户密码。如果出现此情况，请输入用户密码，执行 :command:`sudo` 命令。"
+msgstr ":file:`deploy.sh` 脚本使用 :command:`sudo` 运行命令，而系统在执行脚本时则随时可能会提示您输入用户密码。如果出现此情况，请输入用户密码，执行 :command:`sudo` 命令。"
 
-#: ../../guides/clear/telemetrics.rst:350
+
+#: ../../guides/clear/telemetrics.rst:351
 msgid ""
 "After all the server components have been installed, you are prompted to "
 "enter the :guilabel:`PostgreSQL` database password to change it as "
 "illustrated below:"
 msgstr "所有服务器组件均已安装后，系统将提示输入 :guilabel:`PostgreSQL` 数据库密码，如下所示对其进行更改："
 
-#: ../../guides/clear/telemetrics.rst:361
+#: ../../guides/clear/telemetrics.rst:362
 msgid ""
 "Enter `postgres` for the current value of the password and then enter a "
 "new password, retype it to verify the new password and the "
 ":guilabel:`PostgreSQL` database password will be updated."
-msgstr ""
-"输入此密码的当前值 `postgres`，然后输入新密码。接着，再次输入此密码进行验证， :guilabel:`PostgreSQL` "
-"数据库密码随即更新。"
+msgstr "输入此密码的当前值 `postgres`，然后输入新密码。接着，再次输入此密码进行验证， :guilabel:`PostgreSQL` 数据库密码随即更新。"
 
-#: ../../guides/clear/telemetrics.rst:365
+
+#: ../../guides/clear/telemetrics.rst:366
 msgid ""
 "After the installation is complete, you can use your web browser to view "
 "the new server by opening the browser on the system and typing in "
@@ -612,139 +578,133 @@ msgid ""
 "one shown in Figure 2 below."
 msgstr "安装完成后，可以打开系统浏览器，在地址栏中输入 localhost，使用 Web 浏览器查看新服务器。您应看到下面图 2 所示的网页。"
 
-#: ../../guides/clear/telemetrics.rst:373
+#: ../../guides/clear/telemetrics.rst:374
 msgid "Figure 2: :guilabel:`Telemetry UI`"
 msgstr "图 2： :guilabel:`Telemetry UI`"
 
-#: ../../guides/clear/telemetrics.rst:376
+#: ../../guides/clear/telemetrics.rst:377
 msgid "Create records with telem-record-gen"
 msgstr "使用 telem-record-gen 创建记录"
 
-#: ../../guides/clear/telemetrics.rst:378
+#: ../../guides/clear/telemetrics.rst:379
 msgid ""
 "The telemetrics bundle provides a record generator tool called `telem-"
 "record-gen`. This tool can be used to create records from shell scripts "
 "or the command line when writing a probe in C is not desirable. Records "
 "are sent to the backend server, and can also be echoed to stdout."
-msgstr ""
-"遥测 bundle 文件提供名为 `telem-record-gen` 的记录生成器工具。无法以 C 语言编写探针时，便可使用此工具从 shell"
-" 脚本或命令行创建记录。记录将发送到后端服务器，同时还可返回 stdout。"
+msgstr "遥测 bundle 文件提供名为 `telem-record-gen` 的记录生成器工具。无法以 C 语言编写探针时，便可使用此工具从 shell 脚本或命令行创建记录。记录将发送到后端服务器，同时还可返回 stdout。"
 
-#: ../../guides/clear/telemetrics.rst:383
+
+#: ../../guides/clear/telemetrics.rst:384
 msgid "There are three ways to supply the payload to the record."
 msgstr "有三种方法可将有效负载提供给记录。"
 
-#: ../../guides/clear/telemetrics.rst:385
+#: ../../guides/clear/telemetrics.rst:386
 msgid "On the command line, use the :command:`-p <string>` option:"
 msgstr "在命令行中，使用 :command:`-p <string>` 选项："
 
-#: ../../guides/clear/telemetrics.rst:411
+#: ../../guides/clear/telemetrics.rst:412
 msgid ""
 "Specify a file that contains the payload with the option :command:`-P "
 "path/to/file`."
 msgstr "通过 :command:`-P path/to/file` 选项指定包含此有效负载的文件。"
 
-#: ../../guides/clear/telemetrics.rst:438
+#: ../../guides/clear/telemetrics.rst:439
 msgid ""
 "If the :command:`-p` or :command:`-P` options are absent, the tool reads "
 "from stdin so you can use it in a :file:`heredoc` in scripts."
-msgstr ""
-"如果不使用 :command:`-p` 或 :command:`-P` 选项，此工具则会从 stdin 读取，以便您在脚本的 "
-":file:`heredoc` 中使用。"
+msgstr "如果不使用 :command:`-p` 或 :command:`-P` 选项，此工具则会从 stdin 读取，以便您在脚本的 :file:`heredoc` 中使用。"
 
-#: ../../guides/clear/telemetrics.rst:468
+
+#: ../../guides/clear/telemetrics.rst:469
 msgid "Set a static machine id"
 msgstr "设置静态计算机 ID"
 
-#: ../../guides/clear/telemetrics.rst:470
+#: ../../guides/clear/telemetrics.rst:471
 msgid ""
 "The machine id reported by the telemetry client is rotated every three "
 "days for privacy reasons. If you wish to have a static machine id for "
 "testing purposes, you can opt in by creating a file named `opt-in-static-"
 "machine-id` in the directory  :file:`/etc/telemetrics/`."
-msgstr ""
-"出于隐私，遥测客户端报告的计算机 ID 每三天轮换一次。如果希望获得测试用的静态计算机 ID，则可在 "
-":file:`/etc/telemetrics/` 目录中创建名为 `opt-in-static-machine-id` 的文件来选择启用。"
+msgstr "出于隐私，遥测客户端报告的计算机 ID 每三天轮换一次。如果希望获得测试用的静态计算机 ID，则可在 :file:`/etc/telemetrics/` 目录中创建名为 `opt-in-static-machine-id` 的文件来选择启用。"
 
-#: ../../guides/clear/telemetrics.rst:475
+
+#: ../../guides/clear/telemetrics.rst:476
 msgid "Create a directory `telemetrics`."
 msgstr "创建 `telemetrics` 目录。"
 
-#: ../../guides/clear/telemetrics.rst:482
+#: ../../guides/clear/telemetrics.rst:483
 msgid ""
 "Create the file and replace the \"unique machine ID\" with your desired "
 "static machine ID."
 msgstr "创建文件并将 \"unique machine ID\" 替换为所需的静态计算机 ID。"
 
-#: ../../guides/clear/telemetrics.rst:491
+#: ../../guides/clear/telemetrics.rst:492
 msgid "The machine ID is different than the system hostname."
 msgstr "该计算机 ID 不同于系统主机名。"
 
-#: ../../guides/clear/telemetrics.rst:494
+#: ../../guides/clear/telemetrics.rst:495
 msgid "Instrument your code with the libtelemetry API"
 msgstr "通过 libtelemetry API 检测代码"
 
-#: ../../guides/clear/telemetrics.rst:497
+#: ../../guides/clear/telemetrics.rst:498
 msgid "Prerequisites"
 msgstr "必备条件"
 
-#: ../../guides/clear/telemetrics.rst:499
+#: ../../guides/clear/telemetrics.rst:500
 msgid ""
 "Confirm that the telemetrics header file is located on the system at "
 ":file:`usr/include/telemetry.h`  The `latest version`_ of the file can "
 "also be found on github for reference, but installing the "
 ":command:`telemetry` bundle will install the header file that matches "
 "your |CL| version."
-msgstr ""
-"确认遥测头文件位于系统上的 :file:`usr/include/telemetry.h`。此文件的 `latest version`_ 也可在 "
-"Github 上找到，以供参考，但安装 :command:`telemetry` bundle 文件会安装匹配 |CL| 版本的头文件。"
+msgstr "确认遥测头文件位于系统上的 :file:`usr/include/telemetry.h`。此文件的 `latest version`_ 也可在 Github 上找到，以供参考，但安装 :command:`telemetry` bundle 文件会安装匹配 |CL| 版本的头文件。"
 
-#: ../../guides/clear/telemetrics.rst:504
+
+#: ../../guides/clear/telemetrics.rst:505
 msgid "Includes and variables:"
 msgstr "include 与变量："
 
-#: ../../guides/clear/telemetrics.rst:506
+#: ../../guides/clear/telemetrics.rst:507
 msgid "You must include the following headers in your code to use the API:"
 msgstr "必须在代码中包含以下标头才能使用 API："
 
-#: ../../guides/clear/telemetrics.rst:517
+#: ../../guides/clear/telemetrics.rst:518
 msgid ""
 "Use the following code to create the variables needed to hold the data "
 "for the record to be created:"
 msgstr "使用下述代码创建所需变量，以容纳用于创建记录的数据："
 
-#: ../../guides/clear/telemetrics.rst:536
+#: ../../guides/clear/telemetrics.rst:537
 msgid "Severity:"
 msgstr "严重性："
 
-#: ../../guides/clear/telemetrics.rst:532
+#: ../../guides/clear/telemetrics.rst:533
 msgid ""
 "Type: uint32_t Value:  Severity field value. Accepted values are in the "
 "range 1-4, with 1 being the lowest severity, and 4 being the highest "
 "severity. Values provided outside of this range are clamped to 1 or 4. "
 "[low, med, high, crit]"
-msgstr ""
-"类型：uint32_t 值：“严重性”字段值。可接受值介于 1-4 之间，其中 1 表示严重性最低，4 则表示严重性最高。超出此范围的值将被限定为"
-" 1 或 4。[low, med, high, crit]"
+msgstr "类型：uint32_t 值：“严重性”字段值。可接受值介于 1-4 之间，其中 1 表示严重性最低，4 则表示严重性最高。超出此范围的值将被限定为 1 或 4。[low, med, high, crit]"
 
-#: ../../guides/clear/telemetrics.rst:542
+
+#: ../../guides/clear/telemetrics.rst:543
 msgid "Payload_version:"
 msgstr "Payload_version："
 
-#: ../../guides/clear/telemetrics.rst:539
+#: ../../guides/clear/telemetrics.rst:540
 msgid ""
 "Type: uint32_t Value: Payload format version. The only supported value "
 "right now is 1, which indicates that the payload is a freely-formatted "
 "(unstructured) string. Values greater than 1 are reserved for future use."
-msgstr ""
-"类型：uint32_t 值：有效负载格式版本。目前唯一支持的值为 1，表示有效负载为自由格式化（非结构化）的字符串。大于 1 "
-"的值将保留以供未来使用。"
+msgstr "类型：uint32_t 值：有效负载格式版本。目前唯一支持的值为 1，表示有效负载为自由格式化（非结构化）的字符串。大于 1 的值将保留以供未来使用。"
 
-#: ../../guides/clear/telemetrics.rst:551
+
+#: ../../guides/clear/telemetrics.rst:552
 msgid "Classification:"
 msgstr "分类："
 
-#: ../../guides/clear/telemetrics.rst:545
+#: ../../guides/clear/telemetrics.rst:546
 msgid ""
 "Type: char array Value: It should have the form, DOMAIN/PROBENAME/REST: "
 "DOMAIN is the reverse domain to use as a namespace for the probe (e.g. "
@@ -753,36 +713,34 @@ msgid ""
 "maximum length for the classification string is 122 bytes. Each sub-"
 "category may be no longer than 40 bytes long. Two / delimiters are "
 "required."
-msgstr ""
-"类型：字符数组值：它应采用 DOMAIN/PROBENAME/REST 形式：DOMAIN 是用作探针命名空间的反向域（例如 "
-"org.clearlinux），PROBENAME 是探针的名称，REST 则是探针用于对记录进行分类的任意值。分类字符串的最大长度为 122 "
-"个字节。每个子类别的长度不超过 40 个字节。需使用两个斜线 (/) 分隔符。"
+msgstr "类型：字符数组值：它应采用 DOMAIN/PROBENAME/REST 形式：DOMAIN 是用作探针命名空间的反向域（例如 org.clearlinux），PROBENAME 是探针的名称，REST 则是探针用于对记录进行分类的任意值。分类字符串的最大长度为 122 个字节。每个子类别的长度不超过 40 个字节。需使用两个斜线 (/) 分隔符。"
 
-#: ../../guides/clear/telemetrics.rst:556
+
+#: ../../guides/clear/telemetrics.rst:557
 msgid "Tm_handle:"
 msgstr "Tm_handle："
 
-#: ../../guides/clear/telemetrics.rst:554
+#: ../../guides/clear/telemetrics.rst:555
 msgid ""
 "Type: Telem_ref struct pointer Value:  Struct pointer declared by the "
 "caller, The struct is initialized if the function returns success."
 msgstr "类型：Telem_ref 结构指针值：调用者声明的结构指针。如果函数返回成功，则初始化此结构。"
 
-#: ../../guides/clear/telemetrics.rst:560
+#: ../../guides/clear/telemetrics.rst:561
 msgid "Payload:"
 msgstr "有效负载："
 
-#: ../../guides/clear/telemetrics.rst:559
+#: ../../guides/clear/telemetrics.rst:560
 msgid "Type: char pointer Value: The payload to set"
 msgstr "类型：结构指针值：要设置的有效负载"
 
-#: ../../guides/clear/telemetrics.rst:562
+#: ../../guides/clear/telemetrics.rst:563
 msgid ""
 "For this example, we'll set the payload to “hello” by using "
 ":command:`asprintf()`:"
 msgstr "在本例中，我们使用 :command:`asprintf()` 将有效负载设为“hello”："
 
-#: ../../guides/clear/telemetrics.rst:571
+#: ../../guides/clear/telemetrics.rst:572
 msgid ""
 "The functions :command:`asprintf()` and :command:`vasprintf()` are "
 "analogs of :command:`sprintf(3)` and :command:`vsprintf(3)`, except that "
@@ -790,112 +748,102 @@ msgid ""
 "terminating null byte ('\\0'), and return a pointer to it via the first "
 "argument. This pointer should be passed to :command:`free(3)` to release "
 "the allocated storage when it is no longer needed."
-msgstr ""
-"函数 :command:`asprintf()` 和 :command:`vasprintf()` 与 :command:`sprintf(3)`"
-" 和 :command:`vsprintf(3)` 类似，除了它们分配一个足够大的字符串来容纳包括终止空字节 ('\\0') "
-"在内的输出，并通过第一个自变量向其返回一个指针。该指针应传递给 :command:`free(3)`，以便在不再需要时释放已分配的存储空间。"
+msgstr "函数 :command:`asprintf()` 和 :command:`vasprintf()` 与 :command:`sprintf(3)` 和 :command:`vsprintf(3)` 类似，除了它们分配一个足够大的字符串来容纳包括终止空字节 ('\\0') 在内的输出，并通过第一个自变量向其返回一个指针。该指针应传递给 :command:`free(3)`，以便在不再需要时释放已分配的存储空间。"
 
-#: ../../guides/clear/telemetrics.rst:578
+
+#: ../../guides/clear/telemetrics.rst:579
 msgid "Create the new telemetry record:"
 msgstr "创建新的遥测记录："
 
-#: ../../guides/clear/telemetrics.rst:580
+#: ../../guides/clear/telemetrics.rst:581
 msgid ""
 "The  function  :command:`tm_create_record()` initializes a telemetry "
 "record and sets the severity and classification of that record, as well "
 "as the payload version number. The memory needed to store the telemetry "
 "record is allocated and should be freed with :command:`tm_free_record()` "
 "when no longer needed."
-msgstr ""
-"函数 :command:`tm_create_record()` "
-"可初始化遥测记录并设置此记录的严重性和分类，以及有效负载版本号。存储遥测记录所需的内存已分配，且应在不再需要时通过 "
-":command:`tm_free_record()` 来释放。"
+msgstr "函数 :command:`tm_create_record()` 可初始化遥测记录并设置此记录的严重性和分类，以及有效负载版本号。存储遥测记录所需的内存已分配，且应在不再需要时通过 :command:`tm_free_record()` 来释放。"
 
-#: ../../guides/clear/telemetrics.rst:593
+
+#: ../../guides/clear/telemetrics.rst:594
 msgid "Set the payload field of a telemetrics record:"
 msgstr "设置遥测记录的有效负载字段："
 
-#: ../../guides/clear/telemetrics.rst:595
+#: ../../guides/clear/telemetrics.rst:596
 msgid ""
 "The function :command:`tm_set_payload()` attaches the provided telemetry "
 "record data to the telemetry record. The current maximum payload size is "
 "8192b."
 msgstr "函数 :command:`tm_set_payload()` 可将所提供的遥测记录数据附加到遥测记录中。当前最大有效负载大小为 8192b。"
 
-#: ../../guides/clear/telemetrics.rst:607
+#: ../../guides/clear/telemetrics.rst:608
 msgid ""
 "The :command:`free()` function frees the memory space pointed to by "
 "`ptr`, which must have been returned by a previous call to "
 ":command:`malloc()`, :command:`calloc()`, or :command:`realloc()`. "
 "Otherwise, or if :command:`free(ptr)` has already been called before, "
 "undefined behavior occurs. If `ptr` is NULL, no operation is performed."
-msgstr ""
-"函数 :command:`free()` 可释放 `ptr` 指向的内存空间，而 ptr 必须通过先前对 "
-":command:`malloc()`、:command:`calloc()` 或 :command:`realloc()` "
-"的调用返还。否则（或者如果此前曾调用 :command:`free(ptr)`），则会出现未定义的行为。如果 ‘ptr’ "
-"为空，则不会执行任何操作。"
+msgstr "函数 :command:`free()` 可释放 `ptr` 指向的内存空间，而 ptr 必须通过先前对 :command:`malloc()`、:command:`calloc()` 或 :command:`realloc()` 的调用返还。否则（或者如果此前曾调用 :command:`free(ptr)`），则会出现未定义的行为。如果 ‘ptr’ 为空，则不会执行任何操作。"
 
-#: ../../guides/clear/telemetrics.rst:613
+
+#: ../../guides/clear/telemetrics.rst:614
 msgid "Send a record to the telemetrics daemon:"
 msgstr "将记录发送到遥测守护程序："
 
-#: ../../guides/clear/telemetrics.rst:615
+#: ../../guides/clear/telemetrics.rst:616
 msgid ""
 "The function :command:`tm_send_record()` delivers the record to the local"
 " :command:`telemprobd(1)` service. Since the telemetry record was "
 "allocated by the program it should be freed with "
 ":command:`tm_free_record()` when it is no longer needed."
-msgstr ""
-"函数 :command:`tm_send_record()` 向本地 :command:`telemprobd(1)` "
-"服务提供记录。由于遥测记录是程序分配的，因此不再需要时，应通过 :command:`tm_free_record()` 释放。"
+msgstr "函数 :command:`tm_send_record()` 向本地 :command:`telemprobd(1)` 服务提供记录。由于遥测记录是程序分配的，因此不再需要时，应通过 :command:`tm_free_record()` 释放。"
 
-#: ../../guides/clear/telemetrics.rst:637
+
+#: ../../guides/clear/telemetrics.rst:638
 msgid "A full sample application with compiling flags:"
 msgstr "带编译标志的完整示例应用程序："
 
-#: ../../guides/clear/telemetrics.rst:639
+#: ../../guides/clear/telemetrics.rst:640
 msgid "Create a new file :file:`test.c` and add the following code:"
 msgstr "创建新文件 :file:`test.c` 并添加如下代码："
 
-#: ../../guides/clear/telemetrics.rst:694
+#: ../../guides/clear/telemetrics.rst:695
 msgid "Compile with the gcc compiler, using this command:"
 msgstr "使用以下命令通过 gcc 编译器进行编译："
 
-#: ../../guides/clear/telemetrics.rst:701
+#: ../../guides/clear/telemetrics.rst:702
 msgid "Test to ensure the program is working:"
 msgstr "测试以确保程序正在运行："
 
-#: ../../guides/clear/telemetrics.rst:710
+#: ../../guides/clear/telemetrics.rst:711
 msgid ""
 "A full example of the `heartbeat probe`_ in C is documented in the source"
 " code."
 msgstr "源代码中记录了以 C 语言编写的 `heartbeat probe`_ 的完整示例。"
 
-#: ../../guides/clear/telemetrics.rst:714
+#: ../../guides/clear/telemetrics.rst:715
 msgid "Reference"
 msgstr "参考"
 
-#: ../../guides/clear/telemetrics.rst:721
+#: ../../guides/clear/telemetrics.rst:722
 msgid "The telemetry API"
 msgstr "遥测 API"
 
-#: ../../guides/clear/telemetrics.rst:723
+#: ../../guides/clear/telemetrics.rst:724
 msgid ""
 "Installing the :command:`telemetrics` bundle includes the libtelemetry C "
 "library, which exposes an API used by the telemprobd and telempostd "
 "daemons. You can use these in your applications as well. The API "
 "documentation is found in the :file:`telemetry.h` file in `Telemetrics "
 "client`_ repository."
-msgstr ""
-"安装 :command:`telemetrics` bundle 文件包括 libtelemetry C 库，可以提供 telemprobd 和 "
-"telempostd 守护程序所用的 API。同时，也可以在应用程序中使用这些守护程序。相关 API 文档位于 `Telemetrics "
-"client`_ 存储库的 :file:`telemetry.h` 文件中。"
+msgstr "安装 :command:`telemetrics` bundle 文件包括 libtelemetry C 库，可以提供 telemprobd 和 telempostd 守护程序所用的 API。同时，也可以在应用程序中使用这些守护程序。相关 API 文档位于 `Telemetrics client`_ 存储库的 :file:`telemetry.h` 文件中。"
 
-#: ../../guides/clear/telemetrics.rst:729
+
+#: ../../guides/clear/telemetrics.rst:730
 msgid "Client configuration"
 msgstr "客户端配置"
 
-#: ../../guides/clear/telemetrics.rst:731
+#: ../../guides/clear/telemetrics.rst:732
 msgid ""
 "The telemetry client will look for the configuration file located at "
 ":file:`/etc/telemetrics/telemetrics.conf` and use it if it exists. If the"
@@ -904,46 +852,42 @@ msgid ""
 "modify or customize the configuration, copy the file from "
 ":file:`/usr/share/defaults/telemetrics` to :file:`/etc/telemetrics` and "
 "edit it."
-msgstr ""
-"遥测客户端会查找位于 :file:`/etc/telemetrics/telemetrics.conf` "
-"中的配置文件。如果存在，则会使用。如果此文件不存在，客户端则会使用位于 :file:`/usr/share/defaults "
-"telemetrics/telemetrics.conf` 的默认配置。要修改或定制配置，请将此文件从 "
-":file:`/usr/share/defaults/telemetrics` 复制到 :file:`/etc/telemetrics` "
-"并对其进行编辑。"
+msgstr "遥测客户端会查找位于 :file:`/etc/telemetrics/telemetrics.conf` 中的配置文件。如果存在，则会使用。如果此文件不存在，客户端则会使用位于 :file:`/usr/share/defaults telemetrics/telemetrics.conf` 的默认配置。要修改或定制配置，请将此文件从 :file:`/usr/share/defaults/telemetrics` 复制到 :file:`/etc/telemetrics` 并对其进行编辑。"
 
-#: ../../guides/clear/telemetrics.rst:739
+
+#: ../../guides/clear/telemetrics.rst:740
 msgid "Configuration options"
 msgstr "配置选项"
 
-#: ../../guides/clear/telemetrics.rst:741
+#: ../../guides/clear/telemetrics.rst:742
 msgid "The client uses the following configuration options from the config file:"
 msgstr "客户端使用配置文件中的以下配置选项："
 
-#: ../../guides/clear/telemetrics.rst:743
+#: ../../guides/clear/telemetrics.rst:744
 msgid "server"
 msgstr "服务器"
 
-#: ../../guides/clear/telemetrics.rst:744
+#: ../../guides/clear/telemetrics.rst:745
 msgid ""
 "This specifies the web server to which telempostd sends the telemetry "
 "records."
 msgstr "此选项指定接收 telempostd 发送的遥测记录的网络服务器。"
 
-#: ../../guides/clear/telemetrics.rst:746
+#: ../../guides/clear/telemetrics.rst:747
 msgid "socket_path"
 msgstr "socket_path"
 
-#: ../../guides/clear/telemetrics.rst:746
+#: ../../guides/clear/telemetrics.rst:747
 msgid ""
 "This specifies the path of the unix domain socket on which the telemprobd"
 " listens for connections from the probes."
 msgstr "此选项指定 telemprobd 在其上侦听探针连接的 unix 域套接字路径。"
 
-#: ../../guides/clear/telemetrics.rst:752
+#: ../../guides/clear/telemetrics.rst:753
 msgid "spool_dir"
 msgstr "spool_dir"
 
-#: ../../guides/clear/telemetrics.rst:749
+#: ../../guides/clear/telemetrics.rst:750
 msgid ""
 "This configuration option is related to spooling. If the daemon is not "
 "able to send the telemetry records to the backend server due to reasons "
@@ -952,21 +896,21 @@ msgid ""
 "directory should be owned by the same user as the daemon."
 msgstr "此配置选项与假脱机相关。如果守护程序因网络可用性等原因无法将遥测记录发送到后端服务器，则会将记录存储在假脱机目录中。此选项指定了假脱机目录的路径。此目录的所有者应与守护程序的所有者为同一用户。"
 
-#: ../../guides/clear/telemetrics.rst:755
+#: ../../guides/clear/telemetrics.rst:756
 msgid "record_expiry"
 msgstr "record_expiry"
 
-#: ../../guides/clear/telemetrics.rst:755
+#: ../../guides/clear/telemetrics.rst:756
 msgid ""
 "This is the time, in minutes, after which the records in the spool "
 "directory are deleted by the daemon."
 msgstr "此选项为时间选项（以分钟为单位）。超过此时间后，守护程序会删除假脱机目录中的记录。"
 
-#: ../../guides/clear/telemetrics.rst:763
+#: ../../guides/clear/telemetrics.rst:764
 msgid "spool_process_time"
 msgstr "spool_process_time"
 
-#: ../../guides/clear/telemetrics.rst:758
+#: ../../guides/clear/telemetrics.rst:759
 msgid ""
 "This specifies the time interval, in seconds, that the daemon waits for "
 "before checking the spool directory for records. The daemon picks up the "
@@ -976,102 +920,96 @@ msgid ""
 "the daemon finds a record older than the \"record_expiry\" time, then it "
 "deletes that record. The daemon looks at a maximum of 20 records in a "
 "single spool run loop."
-msgstr ""
-"此选项指定了在检查假脱机目录是否存在记录之前，守护程序等待的时间间隔（以秒为单位）。守护程序将按修改日期顺序选取记录，并尝试将记录发送到服务器。它一次最多可发送"
-" 10 条记录。如果无法成功发送记录，则会从假脱机目录中删除此记录。如果守护程序找到早于 \"record_expiry\" "
-"时间的记录，则会删除此记录。守护程序在单个假脱机运行循环中最多会查找 20 条记录。"
+msgstr "此选项指定了在检查假脱机目录是否存在记录之前，守护程序等待的时间间隔（以秒为单位）。守护程序将按修改日期顺序选取记录，并尝试将记录发送到服务器。它一次最多可发送 10 条记录。如果无法成功发送记录，则会从假脱机目录中删除此记录。如果守护程序找到早于 \"record_expiry\" 时间的记录，则会删除此记录。守护程序在单个假脱机运行循环中最多会查找 20 条记录。"
 
-#: ../../guides/clear/telemetrics.rst:767
+
+#: ../../guides/clear/telemetrics.rst:768
 msgid "rate_limit_enabled"
 msgstr "rate_limit_enabled"
 
-#: ../../guides/clear/telemetrics.rst:766
+#: ../../guides/clear/telemetrics.rst:767
 msgid ""
 "This determines whether rate-limiting is enabled or disabled. When "
 "enabled, there is a threshold on both records sent within a window of "
 "time, and record bytes sent within a window a time."
 msgstr "此选项将确定是启用还是禁用速率限制。启用后，在某一时间窗口内发送的两个记录均有一个阈值，同时记录在一个窗口内一次发送的字节数。"
 
-#: ../../guides/clear/telemetrics.rst:771
+#: ../../guides/clear/telemetrics.rst:772
 msgid "record_burst_limit"
 msgstr "record_burst_limit"
 
-#: ../../guides/clear/telemetrics.rst:770
+#: ../../guides/clear/telemetrics.rst:771
 msgid ""
 "This is the maximum amount of records allowed to be passed by the daemon "
 "within the record_window_length of time. If set to -1, the rate-limiting "
 "for record bursts is disabled."
 msgstr "此选项是指守护程序在 record_window_length 时间内允许传递的最大记录数。如果将其设为 -1，则会禁用针对记录突发的速率限制。"
 
-#: ../../guides/clear/telemetrics.rst:776
+#: ../../guides/clear/telemetrics.rst:777
 msgid "record_window_length"
 msgstr "record_window_length"
 
-#: ../../guides/clear/telemetrics.rst:774
+#: ../../guides/clear/telemetrics.rst:775
 msgid ""
 "The time, in minutes (0-59), that establishes the window length for the "
 "record_burst_limit. For example, if record_burst_window=1000 and "
 "record_window_length=15, then no more than 1000 records can be passed "
 "within any given fifteen-minute window."
-msgstr ""
-"此选项为时间选项（以分钟为单位 (0-59)），用于设定 record_burst_limit 的窗口长度。例如：如果 "
-"record_burst_window = 1000 且 record_window_length = 15，则在任意给定的 15 "
-"分钟窗口内可传递的记录数不会超过 1,000 条。"
+msgstr "此选项为时间选项（以分钟为单位 (0-59)），用于设定 record_burst_limit 的窗口长度。例如：如果 record_burst_window = 1000 且 record_window_length = 15，则在任意给定的 15 分钟窗口内可传递的记录数不会超过 1,000 条。"
 
-#: ../../guides/clear/telemetrics.rst:780
+
+#: ../../guides/clear/telemetrics.rst:781
 msgid "byte_burst_limit"
 msgstr "byte_burst_limit"
 
-#: ../../guides/clear/telemetrics.rst:779
+#: ../../guides/clear/telemetrics.rst:780
 msgid ""
 "This is the maximum amount of bytes that can be passed by the daemon "
 "within the byte_window_length of time. If set to -1, the rate-limiting "
 "for byte bursts is disabled."
 msgstr "此选项是指守护程序在 byte_window_length 时间内可传递的最大字节数。如果将其设为 -1，则会禁用针对字节突发的速率限制。"
 
-#: ../../guides/clear/telemetrics.rst:783
+#: ../../guides/clear/telemetrics.rst:784
 msgid "byte_window_length"
 msgstr "byte_window_length"
 
-#: ../../guides/clear/telemetrics.rst:783
+#: ../../guides/clear/telemetrics.rst:784
 msgid ""
 "This is the time, in minutes (0-59), that establishes the window length "
 "for the byte_burst_limit."
 msgstr "此选项为时间选项（以分钟为单位 (0-59)），用于设定 byte_burst_limit 的窗口长度。"
 
-#: ../../guides/clear/telemetrics.rst:787
+#: ../../guides/clear/telemetrics.rst:788
 msgid "rate_limit_strategy"
 msgstr "rate_limit_strategy"
 
-#: ../../guides/clear/telemetrics.rst:786
+#: ../../guides/clear/telemetrics.rst:787
 msgid ""
 "This is the strategy chosen once the rate-limiting threshold has been "
 "reached. Currently the options are 'drop' or 'spool', with spool being "
 "the default. If spool is chosen, records will be spooled and sent at a "
 "later time."
-msgstr ""
-"此选项是指在达到速率限制阈值后所选择的策略。目前，选项为“drop”或“spool”，其中 spool 为默认值。如果选择 "
-"spool，则会对记录进行假脱机并在以后发送。"
+msgstr "此选项是指在达到速率限制阈值后所选择的策略。目前，选项为“drop”或“spool”，其中 spool 为默认值。如果选择 spool，则会对记录进行假脱机并在以后发送。"
 
-#: ../../guides/clear/telemetrics.rst:792
+
+#: ../../guides/clear/telemetrics.rst:793
 msgid "record_retention_enabled"
 msgstr "record_retention_enabled"
 
-#: ../../guides/clear/telemetrics.rst:790
+#: ../../guides/clear/telemetrics.rst:791
 msgid ""
 "When this key is enabled (true) the daemon saves a copy of the payload on"
 " disk from all valid records. To avoid the excessive use of disk space "
 "only the latest 100 records are kept. The default value for this "
 "configuration key is false."
-msgstr ""
-"启用此键 (true) 后，守护程序会在磁盘上保存所有有效记录中有效负载的副本。为避免过多使用磁盘空间，系统仅保留最近的 100 "
-"条记录。此配置键的默认值为 false。"
+msgstr "启用此键 (true) 后，守护程序会在磁盘上保存所有有效记录中有效负载的副本。为避免过多使用磁盘空间，系统仅保留最近的 100 条记录。此配置键的默认值为 false。"
 
-#: ../../guides/clear/telemetrics.rst:806
+
+#: ../../guides/clear/telemetrics.rst:807
 msgid "record_server_delivery_enabled"
 msgstr "record_server_delivery_enabled"
 
-#: ../../guides/clear/telemetrics.rst:795
+#: ../../guides/clear/telemetrics.rst:796
 msgid ""
 "This key controls the delivery of records to server; when enabled "
 "(default value), the record will be posted to the address in the "
@@ -1079,61 +1017,55 @@ msgid ""
 "records will not be spooled or posted to backend. This configuration key "
 "can be used in combination with record_retention_enabled to keep copies "
 "of telemetry records locally only."
-msgstr ""
-"此键控制向服务器传送记录；启用（默认值）后，会将记录发送到配置文件中所列的地址。如果禁用此配置键 "
-"(false)，则不会对记录进行假脱机或将记录发布到后端。此配置键可与 record_retention_enabled "
-"搭配使用，仅在本地保留遥测记录的副本。"
+msgstr "此键控制向服务器传送记录；启用（默认值）后，会将记录发送到配置文件中所列的地址。如果禁用此配置键 (false)，则不会对记录进行假脱机或将记录发布到后端。此配置键可与 record_retention_enabled 搭配使用，仅在本地保留遥测记录的副本。"
 
-#: ../../guides/clear/telemetrics.rst:803
+
+#: ../../guides/clear/telemetrics.rst:804
 msgid ""
 "Configuration options may change as the telemetry client evolves. Please "
 "use the comments in the file itself as the most accurate reference for "
 "configuration."
 msgstr "随着遥测客户端的发展，配置选项可能会发生变化。请使用文件自身所附带的注释，作为最准确的配置参考。"
 
-#: ../../guides/clear/telemetrics.rst:809
+#: ../../guides/clear/telemetrics.rst:810
 msgid "Client run-time options"
 msgstr "客户端运行时选项"
 
-#: ../../guides/clear/telemetrics.rst:811
+#: ../../guides/clear/telemetrics.rst:812
 msgid ""
 "The |CL| telemetry client provides an admin tool called "
 ":guilabel:`telemctl` for managing the telemetry services and probes. The "
 "tool is located in :file:`/usr/bin`. Running it with no argument results "
 "in the following:"
-msgstr ""
-"|CL| 遥测客户端提供名为 :guilabel:`telemctl` 的管理工具，可用于管理遥测服务和探针。此工具位于 "
-":file:`/usr/bin`。如果不带参数运行此工具，则会导致如下情况："
+msgstr "|CL| 遥测客户端提供名为 :guilabel:`telemctl` 的管理工具，可用于管理遥测服务和探针。此工具位于 :file:`/usr/bin`。如果不带参数运行此工具，则会导致如下情况："
 
-#: ../../guides/clear/telemetrics.rst:832
+
+#: ../../guides/clear/telemetrics.rst:833
 msgid "start/stop/restart"
 msgstr "start/stop/restart"
 
-#: ../../guides/clear/telemetrics.rst:834
+#: ../../guides/clear/telemetrics.rst:835
 msgid ""
 "The commands to start, stop and restart the telemetry services manage all"
 " required services and probes on the system. There is no need to "
 "separately start/stop/restart the two client daemons telemprobd and "
 "telempostd. The :command:`restart` command option will call "
 ":command:`telemctl stop` followed by :command:`telemctl start` ."
-msgstr ""
-"用于启动、停止和重新启动遥测服务的命令可以管理系统上所有必要的服务和探针。无需单独启动/停止/重新启动两个客户端守护程序 telemprobd 和"
-" telempostd。:command:`restart` 命令选项将调用 :command:`telemctl stop`，然后调用 "
-":command:`telemctl start`。"
+msgstr "用于启动、停止和重新启动遥测服务的命令可以管理系统上所有必要的服务和探针。无需单独启动/停止/重新启动两个客户端守护程序 telemprobd 和 telempostd。:command:`restart` 命令选项将调用 :command:`telemctl stop`，然后调用 :command:`telemctl start`。"
 
-#: ../../guides/clear/telemetrics.rst:841
+
+#: ../../guides/clear/telemetrics.rst:842
 msgid "is-active"
 msgstr "is-active"
 
-#: ../../guides/clear/telemetrics.rst:843
+#: ../../guides/clear/telemetrics.rst:844
 msgid ""
 "The :command:`is-active` option reports whether the two client daemons "
 "are active. This is useful to verify that the :command:`opt-in` and "
 ":command:`opt-out` options have taken effect, or to ensure that telemetry"
 " is functioning on the system. Note that both daemons are verified."
-msgstr ""
-":command:`is-active` 选项报告这两个客户端守护程序是否处于活动状态。这有助于验证 :command:`opt-in` 和 "
-":command:`opt-out` 选项是否生效，或确保遥测正在系统上运行。请注意，系统会对两个守护程序都进行验证。"
+msgstr ":command:`is-active` 选项报告这两个客户端守护程序是否处于活动状态。这有助于验证 :command:`opt-in` 和 :command:`opt-out` 选项是否生效，或确保遥测正在系统上运行。请注意，系统会对两个守护程序都进行验证。"
+
 
 #~ msgid ""
 #~ "Telemetrics in |CL-ATTR| is a "
@@ -1846,4 +1778,5 @@ msgstr ""
 #~ " the system. Note that both daemons"
 #~ " are verified."
 #~ msgstr ""
+
 

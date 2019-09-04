@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -35,7 +35,7 @@ msgid ""
 "For use cases requiring minimal resources, |CL| :ref:`about <about>` can "
 "be used to create a highly customized installation that can even run on a"
 " system with a 128MB of memory and 600MB of disk space, for example."
-msgstr "对于需要最少资源的使用情况，可利用 |CL| :ref:`about <about>` 创建一个高度定制的安装，甚至可以在包含 128MB 内存和 600MB 磁盘空间的系统上运行。"
+msgstr "对于需要最少资源的使用情况，可利用 |CL| :ref:`关于 <about>` 创建一个高度定制的安装，甚至可以在包含 128MB 内存和 600MB 磁盘空间的系统上运行。"
 
 
 #: ../../reference/system-requirements.rst:16

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -20,7 +20,7 @@ msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:4
 msgid "|CL-ATTR| on VMware\\* Workstation Player (pre-configured image)"
-msgstr "VMware\\* Workstation Player (pre-configured image) 上的 |CL-ATTR|"
+msgstr "VMware\\* Workstation Player （预配置映像）上的 |CL-ATTR|"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:6
 msgid ""
@@ -115,19 +115,19 @@ msgid ""
 "Get the latest |CL| VMware image from the `image repository`_. Look for "
 ":file:`clear-[version number]-vmware.vmdk.xz`. You can also use this "
 "command:"
-msgstr "获得从 `image repository`_ 中的最新 |CL| VMware 映像。寻找 :file:`clear-[version number]-vmware.vmdk.xz`。您也可以使用这个命令："
+msgstr "从 `image repository`_ 中获取最新的 |CL| VMware 映像。寻找 :file:`clear-[version number]-vmware.vmdk.xz`。您也可以使用这个命令："
 
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:72
 msgid "Decompress and verify the image"
-msgstr "解压缩并验证图像"
+msgstr "解压缩并验证映像"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:74
 msgid ""
 "Visit :ref:`download-verify-decompress` and follow the instructions for "
 "your Windows\\* or Linux\\* environment. Visit :ref:`image-types` for "
 "additional information about all available |CL| images."
-msgstr "访问 :ref:`download-verify-decompress` 然后按照说明为您的 Windows\\* 和 Linux\\* 环境。访问 :ref:`image-types` 有关的所有可用 |CL| 映像的附加信息。"
+msgstr "访问 :ref:`download-verify-decompress` 然后按照 Windows\\* 和 Linux\\* 环境的说明进行操作。访问 :ref:`image-types` 有关的所有可用 |CL| 映像的附加信息。"
 
 #: ../../get-started/virtual-machine-install/vmw-player-preconf.rst:79
 msgid "Create and configure a new VM"
