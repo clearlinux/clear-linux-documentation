@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-21 11:09-0008\n"
+"PO-Revision-Date: 2019-09-04 16:15-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "|CL-PRJ|"
 msgid ""
 "Welcome to the |CL-ATTR| documentation pages, the source for |CL| "
 "documentation."
-msgstr "欢迎来到 |CL-ATTR| 文档页面中，源 |CL| 文件。"
+msgstr "欢迎来到 |CL-ATTR| 文档页面，这是 |CL| 文档的资料来源。"
 
 #: ../../index.rst:8
 msgid "Our documentation is divided into the following sections:"
@@ -40,7 +40,7 @@ msgid ""
 "If you are new to |CL|, get started quickly with step-by-step "
 "instructions for installing |CL| on bare metal, in a virtual environment,"
 " or as a live image on a USB stick."
-msgstr "如果你是新的 |CL|，得到与一步一步的指示迅速启动安装 |CL| 在裸机上，在虚拟环境中，或作为一个 USB 记忆棒的实时图像。"
+msgstr "如果您刚开始使用 |CL|，请按照详细的步骤说明来快速将 |CL| 安装在裸机上、安装在虚拟环境中或将 Clear Linux OS 实时映像烧录至 U 盘。"
 
 #: ../../index.rst:17
 msgid ":ref:`about`"
@@ -55,7 +55,7 @@ msgid ""
 "Updates, ease of use, and custom derivatives are a few of the differences"
 " this section explains. Orient yourself to these differences and why they"
 " matter to you."
-msgstr "更新，易用性和定制衍生品是一些本节介绍的差异。确定自己的方位这些差异，以及为什么他们不管你。"
+msgstr "本页面将解释更新、易用性和自定义衍生工具的一些区别。您可了解这些差异以及其重要性。"
 
 #: ../../index.rst:29
 msgid ":ref:`guides`"
@@ -65,7 +65,7 @@ msgstr ":ref:`guides`"
 msgid ""
 "Guides cover a range of topics from |CL| features and tooling, to system "
 "maintenance, network, and stacks."
-msgstr "指南涵盖了一系列从 |CL| 功能和工具主题 |CL|，系统维护，网络和堆栈。"
+msgstr "指南页面涵盖了从 |CL| 功能和工具到系统维护、网络和堆栈的一系列主题。"
 
 #: ../../index.rst:34
 msgid ":ref:`Use case tutorials <tutorials>`"
@@ -75,7 +75,7 @@ msgstr ":ref:`Use case tutorials <tutorials>`"
 msgid ""
 "Sample use cases, with step-by-step instructions, show how to set up "
 "third-party tools and software with |CL|."
-msgstr "样品使用的情况下，用一步一步的指示，说明如何建立第三方工具和软件 |CL|。"
+msgstr "通过分步说明的示例用例，来介绍如何使用 |CL| 设置第三方工具和软件。"
 
 #: ../../index.rst:39
 msgid ":ref:`reference`"
@@ -85,7 +85,7 @@ msgstr ":ref:`reference`"
 msgid ""
 "This section provides additional reference information on the |CL| "
 "project."
-msgstr "本节提供有关该 |CL| 项目的其他参考信息 |CL|。"
+msgstr "本页面提供了有关 |CL| Project 的其他参考信息。"
 
 #: ../../index.rst:43
 msgid ":ref:`faq`"
@@ -93,7 +93,7 @@ msgstr ":ref:`faq`"
 
 #: ../../index.rst:45
 msgid "The FAQ section provides answers to commonly asked questions about |CL|."
-msgstr "常见问题解答部分提供了有关常见问题 |CL|。"
+msgstr "FAQ 页面提供了有关 |CL| 的常见问题与解答。"
 
 #~ msgid ""
 #~ "If you are new to |CL|, get "

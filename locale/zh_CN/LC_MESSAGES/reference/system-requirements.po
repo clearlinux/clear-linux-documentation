@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-09-03 17:24-0008\n"
+"PO-Revision-Date: 2019-09-04 16:00-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -77,7 +77,7 @@ msgid ""
 " manually verify system compatibility with |CL|, run the "
 ":ref:`compatibility check tool<compatibility-check>` or go to "
 "http://ark.intel.com and check for these features:"
-msgstr "|CL| 安装程序在引导时执行系统兼容性检查。要手动确认 |CL| 的系统兼容性，需要运行 :ref:`compatibility check tool<compatibility-check>` 或转到 http://ark.intel.com 查看这些功能："
+msgstr "|CL| 安装程序在引导时执行系统兼容性检查。要手动确认 |CL| 的系统兼容性，需要运行 :ref:`检查兼容性的工具<compatibility-check>` 或转到 http://ark.intel.com 查看这些功能："
 
 
 #: ../../reference/system-requirements.rst:39

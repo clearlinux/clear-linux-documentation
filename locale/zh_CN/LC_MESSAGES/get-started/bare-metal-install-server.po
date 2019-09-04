@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-09-03 17:24-0008\n"
+"PO-Revision-Date: 2019-09-04 16:00-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -413,7 +413,7 @@ msgstr "选择一种分区方法："
 msgid ""
 ":guilabel:`Auto Partition` Select this option to accept the `Default "
 "partition schema`_."
-msgstr " :guilabel:`Auto Partition` 选择此选项会接受 `Default partition schema`_。"
+msgstr ":guilabel:`Auto Partition` 选择此选项会接受 `Default partition schema`_。"
 
 #: ../../get-started/bare-metal-install-server.rst:274
 msgid "Navigate to and press :guilabel:`Confirm`."
@@ -573,7 +573,7 @@ msgstr "导航到 :guilabel:`Confirm`，然后按 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:390
 msgid ":guilabel:`Confirm` is only highlighted if passphrases match."
-msgstr " :guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
+msgstr ":guilabel:`Confirm` 仅在两个密码短语匹配时高亮显示。"
 
 #: ../../get-started/bare-metal-install-server.rst:393
 msgid "Telemetry"
