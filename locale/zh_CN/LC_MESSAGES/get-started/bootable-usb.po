@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 17:23-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -67,7 +67,7 @@ msgstr "确保完成所有 `Prerequisites`_。"
 msgid ""
 "Before burning the image onto your USB drive, :ref:`verify-linux` on "
 "Linux."
-msgstr "将映像烧录至 U 盘之前，:ref:`verify-linux`。"
+msgstr "将映像烧录至 U 盘之前，在 Linux 上 :ref:`verify-linux`。"
 
 #: ../../get-started/bootable-usb.rst:30 ../../get-started/bootable-usb.rst:115
 #: ../../get-started/bootable-usb.rst:174
@@ -136,7 +136,7 @@ msgstr "在 macOS\\* 上创建可引导 U 盘"
 
 #: ../../get-started/bootable-usb.rst:112
 msgid "Before burning the image onto your USB drive, :ref:`verify-mac` on macOS."
-msgstr "将映像烧录至 U 盘之前，:ref:`verify-mac`。"
+msgstr "将映像烧录至 U 盘之前，在 macOS 上 :ref:`verify-mac`。"
 
 #: ../../get-started/bootable-usb.rst:122
 msgid "Launch the Terminal app."
@@ -186,7 +186,7 @@ msgstr "在 Windows\\* 上创建可引导 U 盘"
 msgid ""
 "Before burning the image onto your USB drive, :ref:`verify-windows` on "
 "Windows."
-msgstr "将映像烧录至 U 盘之前，:ref:`verify-windows`。"
+msgstr "将映像烧录至 U 盘之前，在 Windows 上 :ref:`verify-windows`。"
 
 #: ../../get-started/bootable-usb.rst:181
 msgid ""

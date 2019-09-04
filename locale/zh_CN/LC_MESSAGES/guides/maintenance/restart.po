@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -113,7 +113,7 @@ msgstr ":command:`default` 选项指示 :command:`clr-service-restart` 恢复使
 
 #: ../../guides/maintenance/restart.rst:81
 msgid "Monitor options"
-msgstr "尽快选项"
+msgstr "监控选项"
 
 #: ../../guides/maintenance/restart.rst:83
 msgid ""

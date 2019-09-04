@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -424,11 +424,11 @@ msgid ""
 "If you chose Method 2, get your preassigned VNC display ID from your "
 "system administrator first and then proceed to the :ref:`connect-to-vnc-"
 "session` section below."
-msgstr "如果选择了方法 2，请先从系统管理员处获取预先分配的 VNC 显示 ID，然后转到下面的 :ref:`connect-to-vnc-session` 一节。"
+msgstr "如果选择方法 2，请先从系统管理员处获取预先分配的 VNC 显示 ID，然后转到下面的 :ref:`connect-to-vnc-session` 一节。"
 
 #: ../../guides/network/vnc.rst:392
 msgid "If you chose Method 3, proceed to the :ref:`connect-to-vnc-session` below."
-msgstr "如果选择了方法 3，请转到下面的 :ref:`connect-to-vnc-session`。"
+msgstr "如果选择方法 3，请转到下面的 :ref:`connect-to-vnc-session`。"
 
 #: ../../guides/network/vnc.rst:396
 msgid "SSH into your host and launch VNC"

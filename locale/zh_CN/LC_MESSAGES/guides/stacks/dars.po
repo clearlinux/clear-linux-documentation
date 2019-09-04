@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -77,7 +77,7 @@ msgid ""
 "of software within the work has its own license.  Please see the `DARS "
 "Terms of Use`_ for more details about licensing and usage of the Data "
 "Analytics Reference Stack."
-msgstr "数据分析参考堆栈是一项集体成果，成果中的每一个软件都有自己的许可证。有关数据分析参考堆栈的许可和使用的更多详细信息，请参阅 `terms of use`_。"
+msgstr "数据分析参考堆栈是一项集体成果，成果中的每一个软件都有自己的许可证。有关数据分析参考堆栈的许可和使用的更多详细信息，请参阅 `DARS Terms of Use`_。"
 
 
 #: ../../guides/stacks/dars.rst:42

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-12 12:18-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -122,7 +122,7 @@ msgstr "解析 :command:`WPAD` 主机名时是否出现问题："
 
 #: ../../tooling/autoproxy.rst:87
 msgid "or if the :command:`pacrunner` service is disabled (masked)."
-msgstr "或是是否已禁用（已屏蔽）:command:`pacrunner` 服务。"
+msgstr "或是是否已禁用（已屏蔽） :command:`pacrunner` 服务。"
 
 #: ../../tooling/autoproxy.rst:98
 msgid "Unmask the :command:`pacrunner` service by running:"

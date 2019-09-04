@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-08-29 15:49-0008\n"
+"PO-Revision-Date: 2019-09-03 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -183,7 +183,7 @@ msgstr "要满足最低安装要求，请填写 `Required options`_。我们建�
 msgid ""
 "The :kbd:`Install` button is **only highlighted after** you complete "
 "`Required options`_."
-msgstr "仅当填写 `Required options`_ 后才会高亮显示:kbd:` 安装`按钮。"
+msgstr "仅当填写 `Required options`_ 后才会高亮显示 :kbd:` 安装`按钮。"
 
 #: ../../get-started/bare-metal-install-server.rst:114
 msgid "Main Menu"
@@ -227,15 +227,15 @@ msgstr "巡航"
 
 #: ../../get-started/bare-metal-install-server.rst:137
 msgid "Select :kbd:`Tab` or :kbd:`Up/Down` arrows to highlight your choice."
-msgstr "选择 :kbd:`Tab` 或:kbd:`向上/向下` 箭头会高亮显示您选择的内容。"
+msgstr "选择 :kbd:`Tab` 或 :kbd:`向上/向下` 箭头会高亮显示您选择的内容。"
 
 #: ../../get-started/bare-metal-install-server.rst:139
 msgid "Select :kbd:`Enter` or :kbd:`Spacebar` to confirm your choice."
-msgstr "选择 :kbd:`Enter` 或:kbd:`空格键` 可确认您选择的内容。"
+msgstr "选择 :kbd:`Enter` 或 :kbd:`空格键` 可确认您选择的内容。"
 
 #: ../../get-started/bare-metal-install-server.rst:141
 msgid "Select :kbd:`Cancel` or :kbd:`Esc` to cancel your choice."
-msgstr "选择:kbd:`取消` 或 :kbd:`Esc` 可取消您选择的内容。"
+msgstr "选择 :kbd:`取消` 或 :kbd:`Esc` 可取消您选择的内容。"
 
 #: ../../get-started/bare-metal-install-server.rst:144
 msgid "Required options"
@@ -262,7 +262,7 @@ msgstr "选择 :kbd:`Enter`。"
 msgid ""
 "In :guilabel:`Select System Timezone`, use :kbd:`Up/Down` arrows navigate"
 " to the desired timezone."
-msgstr "在 :guilabel:`Select System Timezone` 中，使用:kbd:`向上/向下` 箭头可导航到所需时区。"
+msgstr "在 :guilabel:`Select System Timezone` 中，使用 :kbd:`向上/向下` 箭头可导航到所需时区。"
 
 #: ../../get-started/bare-metal-install-server.rst:159
 #: ../../get-started/bare-metal-install-server.rst:176
@@ -303,7 +303,7 @@ msgstr "在 :guilabel:`Select Keyboard` 中，导航到所需的选项。"
 
 #: ../../get-started/bare-metal-install-server.rst:193
 msgid "Select :kbd:`Enter` to :kbd:`Confirm`."
-msgstr "选择 :kbd:`Enter` 进行:kbd:`确认`。"
+msgstr "选择 :kbd:`Enter` 进行 :kbd:`确认`。"
 
 #: ../../get-started/bare-metal-install-server.rst:195
 msgid ""
@@ -696,7 +696,7 @@ msgstr "注意：默认情况下会选择 :guilabel:`Automatic / dhcp` （位于
 msgid ""
 "Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and "
 "select :kbd:`Spacebar` to deselect."
-msgstr "可选：导航到 :guilabel:`Automatic / dhcp` 复选框，然后按:kbd:`空格键` 取消选择现有设置。"
+msgstr "可选：导航到 :guilabel:`Automatic / dhcp` 复选框，然后按 :kbd:`空格键` 取消选择现有设置。"
 
 #: ../../get-started/bare-metal-install-server.rst:472
 msgid "Figure 18: Network interface configuration"
@@ -824,11 +824,11 @@ msgstr "在“Advanced”菜单中，选择 :guilabel:`Bundle Selection`"
 
 #: ../../get-started/bare-metal-install-server.rst:550
 msgid "Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows."
-msgstr "使用 :kbd:`Tab` 或:kbd:`向上/向下` 箭头导航到所需的捆绑包。"
+msgstr "使用 :kbd:`Tab` 或 :kbd:`向上/向下` 箭头导航到所需的捆绑包。"
 
 #: ../../get-started/bare-metal-install-server.rst:552
 msgid "Select :kbd:`Spacebar` to select the checkbox for each desired bundle."
-msgstr "按:kbd:`空格键` 选择所需的每个捆绑包对应的复选框。"
+msgstr "按 :kbd:`空格键` 选择所需的每个捆绑包对应的复选框。"
 
 #: ../../get-started/bare-metal-install-server.rst:558
 msgid "Figure 21: Bundle Selection"
@@ -842,7 +842,7 @@ msgstr "可选：要开始使用 |CL| 开展开发工作，我们建议添加 :f
 
 #: ../../get-started/bare-metal-install-server.rst:563
 msgid "Navigate to and select :kbd:`Confirm`."
-msgstr "导航到并选择:kbd:`确认`。"
+msgstr "导航到并选择 :kbd:`确认`。"
 
 #: ../../get-started/bare-metal-install-server.rst:565
 msgid "You are returned to the :guilabel:`Advanced options` menu."
@@ -898,7 +898,7 @@ msgstr "在 :guilabel:`Confirm` 中，输入相同的密码。"
 msgid ""
 "Optional: Navigate to the :guilabel:`Administrative` checkbox and select "
 ":kbd:`Spacebar` to assign administrative rights to the user."
-msgstr "可选：导航到 :guilabel:`Administrative` 复选框，然后按:kbd:`空格键` 为用户分配管理权限。"
+msgstr "可选：导航到 :guilabel:`Administrative` 复选框，然后按 :kbd:`空格键` 为用户分配管理权限。"
 
 #: ../../get-started/bare-metal-install-server.rst:617
 msgid "Selecting this option enables sudo privileges for the user."
@@ -909,7 +909,7 @@ msgstr "选择此选项将为用户启用 sudo 特权。"
 #: ../../get-started/bare-metal-install-server.rst:729
 #: ../../get-started/bare-metal-install-server.rst:760
 msgid "Select :kbd:`Confirm`."
-msgstr "选择:kbd:`确认`。"
+msgstr "选择 :kbd:`确认`。"
 
 #: ../../get-started/bare-metal-install-server.rst:623
 msgid "If desired, select :guilabel:`Reset` to reset the form."
@@ -949,7 +949,7 @@ msgstr "根据需要修改用户详细信息。"
 #: ../../get-started/bare-metal-install-server.rst:664
 #: ../../get-started/bare-metal-install-server.rst:758
 msgid "Navigate to :kbd:`Confirm` until highlighted."
-msgstr "导航到:kbd:`确认`，直到其高亮显示。"
+msgstr "导航到 :kbd:`确认`，直到其高亮显示。"
 
 #: ../../get-started/bare-metal-install-server.rst:649
 msgid "Optional: Select :guilabel:`Reset` to rest the form."
@@ -1032,11 +1032,11 @@ msgstr "图 27：内核选择"
 
 #: ../../get-started/bare-metal-install-server.rst:714
 msgid "Select :kbd:`Spacebar` to select the desired option."
-msgstr "按:kbd:`空格键` 选择所需的选项。"
+msgstr "按 :kbd:`空格键` 选择所需的选项。"
 
 #: ../../get-started/bare-metal-install-server.rst:716
 msgid "Navigate to :kbd:`Confirm` and select :kbd:`Enter`."
-msgstr "导航到:kbd:`确认`，然后选择 :kbd:`Enter`。"
+msgstr "导航到 :kbd:`确认`，然后选择 :kbd:`Enter`。"
 
 #: ../../get-started/bare-metal-install-server.rst:721
 msgid "Swupd Mirror"
