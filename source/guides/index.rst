@@ -14,7 +14,7 @@ The following guides provide step-by-step instructions on using |CL|.
 Clear Linux
 ===========
 
-.. toctree:: 
+.. toctree::
    :maxdepth: 1
    :glob:
 

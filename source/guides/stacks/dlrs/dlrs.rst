@@ -1,4 +1,4 @@
-.. _dlrs:
+.. _dlrs2:
 
 Deep Learning Reference Stack
 #############################
