@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"PO-Revision-Date: 2019-09-04 17:24-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -81,7 +81,7 @@ msgstr "使用 autospec 工具之前，必须先在 |CL| 中完成构建源代�
 msgid ""
 "Refer to `Setup environment to build source`_ for instructions on "
 "completing the setup."
-msgstr "请参阅 `Setup environment to build source`_，了解有关完成此设置的说明。"
+msgstr "请参阅 `设置环境以构建源代码`_，了解有关完成此设置的说明。"
 
 #: ../../guides/clear/autospec.rst:51
 msgid "Create an RPM"
