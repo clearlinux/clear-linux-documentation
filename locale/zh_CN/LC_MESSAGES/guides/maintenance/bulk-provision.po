@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"PO-Revision-Date: 2019-09-05 12:07-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -72,7 +72,7 @@ msgid ""
 "of performing network boots of |CL|. Please refer to our :ref:`guide on "
 "how to perform an iPXE boot<ipxe-install>` using :abbr:`NAT (network "
 "address translation)` for details."
-msgstr "执行批量供应之前，请确认您的 PXE 服务器能够从网络引导 |CL|。有关详细信息，请参阅我们的 :ref:`如何执行 iPEX 引导 的指南<ipxe-install>` :abbr:`(使用 NAT)`。"
+msgstr "执行批量供应之前，请确认您的 PXE 服务器能够从网络引导 |CL|。有关详细信息，请参阅我们的 :ref:`如何执行 iPEX 引导 的指南<ipxe-install>` （使用 :abbr:`NAT (network address translation)`）。"
 
 
 #: ../../guides/maintenance/bulk-provision.rst:40

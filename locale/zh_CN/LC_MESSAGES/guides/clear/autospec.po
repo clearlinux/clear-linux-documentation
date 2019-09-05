@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-09-04 17:24-0008\n"
+"PO-Revision-Date: 2019-09-05 12:07-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -166,7 +166,7 @@ msgstr "示例"
 
 #: ../../guides/clear/autospec.rst:93
 msgid "Complete `Setup environment to build source`_ before using these examples."
-msgstr "在使用这些示例之前，请先完成 `Setup environment to build source`_。"
+msgstr "在使用这些示例之前，请先完成 `设置环境以构建源代码`_。"
 
 #: ../../guides/clear/autospec.rst:100
 msgid "Example 1: Build RPM with an existing spec file"

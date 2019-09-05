@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"PO-Revision-Date: 2019-09-05 12:07-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -183,7 +183,7 @@ msgstr "要满足最低安装要求，请填写 `Required options`_。我们建�
 msgid ""
 "The :kbd:`Install` button is **only highlighted after** you complete "
 "`Required options`_."
-msgstr "仅当填写 `Required options`_ 后才会高亮显示 :kbd:` 安装`按钮。"
+msgstr "仅当填写 `Required options`_ 后才会高亮显示 :kbd:`安装` 按钮。"
 
 #: ../../get-started/bare-metal-install-server.rst:114
 msgid "Main Menu"
@@ -223,7 +223,7 @@ msgstr "要满足最低要求，请在 :guilabel:`Required options` 中输入您
 
 #: ../../get-started/bare-metal-install-server.rst:135
 msgid "Navigation"
-msgstr "巡航"
+msgstr "导航"
 
 #: ../../get-started/bare-metal-install-server.rst:137
 msgid "Select :kbd:`Tab` or :kbd:`Up/Down` arrows to highlight your choice."

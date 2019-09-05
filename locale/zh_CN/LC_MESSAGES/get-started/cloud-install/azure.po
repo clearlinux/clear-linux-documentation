@@ -18,15 +18,15 @@ msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Language: zh-Hans\n"
 
 #: ../../get-started/cloud-install/azure.rst:4
-msgid "|CL-ATTR| on Microsoft* Azure*"
-msgstr "基于 Microsoft* Azure* 的 |CL-ATTR|"
+msgid "|CL-ATTR| on Microsoft Azure"
+msgstr "Microsoft* Azure* 的 |CL-ATTR|"
 
 #: ../../get-started/cloud-install/azure.rst:6
 msgid ""
 "|CL-ATTR| is available for you to use in the Microsoft* Azure* "
 "marketplace and is offered with three different images, also known as a "
 ":abbr:`SKU (Stock Keeping Unit)`."
-msgstr "|CL-ATTR| 在 Microsoft Azure Marketplace 中提供，并且具有三个不同的映像（也称为 :abbr:`SKU（库存单位）`）。"
+msgstr "|CL-ATTR| 在 Microsoft* Azure* Marketplace 中提供，并且具有三个不同的映像（也称为 :abbr:`SKU（库存单位）`）。"
 
 #: ../../get-started/cloud-install/azure.rst:10
 msgid ""
