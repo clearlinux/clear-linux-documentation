@@ -48,7 +48,7 @@ msgstr ":ref:`about`"
 
 #: ../../index.rst:19
 msgid "|CL| is different from other Linux distributions."
-msgstr "|CL| 从其他 Linux 版本不同。"
+msgstr "|CL| 与其他的 Linux 分发版不同。"
 
 #: ../../index.rst:21
 msgid ""

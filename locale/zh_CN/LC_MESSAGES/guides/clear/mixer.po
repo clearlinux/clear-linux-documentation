@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 14:33-0700\n"
-"PO-Revision-Date: 2019-09-04 17:24-0008\n"
+"PO-Revision-Date: 2019-09-05 12:07-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
@@ -150,7 +150,7 @@ msgstr "为了让 swupd 使用您的组合，组合的更新内容需在 Web 服
 msgid ""
 "Refer to `Set up a nginx web server for mixer`_ for an simple example of "
 "setting up an update location."
-msgstr "请参阅 `Set up a nginx web server for mixer`_，查看设置更新位置的简单示例。"
+msgstr "请参阅 `为 mixer 设置 Nginx Web 服务器`_，查看设置更新位置的简单示例。"
 
 #: ../../guides/clear/mixer.rst:78
 msgid "Mix setup"
