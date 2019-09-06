@@ -39,7 +39,7 @@ msgstr "必备条件"
 msgid ""
 "Enable virtualization, such as `Intel® Virtualization Technology`_ "
 "(Intel® VT), on the host system from EFI/BIOS."
-msgstr "在主机系统上从 EFI/BIOS 启用虚拟化功能，例如 `Intel® Virtualization Technology`_ （英特尔® VT）。"
+msgstr "在主机系统上从 EFI/BIOS 启用虚拟化功能，例如 `Intel® Virtualization Technology`_ （英特尔® 虚拟化技术）。"
 
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:20
