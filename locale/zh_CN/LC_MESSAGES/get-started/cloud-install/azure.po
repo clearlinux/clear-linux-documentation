@@ -19,7 +19,7 @@ msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 
 #: ../../get-started/cloud-install/azure.rst:4
 msgid "|CL-ATTR| on Microsoft Azure"
-msgstr "Microsoft* Azure* 的 |CL-ATTR|"
+msgstr "Microsoft* Azure* 上的 |CL-ATTR|"
 
 #: ../../get-started/cloud-install/azure.rst:6
 msgid ""
