@@ -72,7 +72,7 @@ msgid ""
 "of performing network boots of |CL|. Please refer to our :ref:`guide on "
 "how to perform an iPXE boot<ipxe-install>` using :abbr:`NAT (network "
 "address translation)` for details."
-msgstr "执行批量供应之前，请确认您的 PXE 服务器能够从网络引导 |CL|。有关详细信息，请参阅我们的 :ref:`如何执行 iPEX 引导 的指南<ipxe-install>` （使用 :abbr:`NAT (network address translation)`）。"
+msgstr "执行批量供应之前，请确认您的 PXE 服务器能够从网络引导 |CL|。有关详细信息，请参阅我们的 :ref:`如何执行 iPEX 引导的指南<ipxe-install>` （使用 :abbr:`NAT (network address translation)`）。"
 
 
 #: ../../guides/maintenance/bulk-provision.rst:40
