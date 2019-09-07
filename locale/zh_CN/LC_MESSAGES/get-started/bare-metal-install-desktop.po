@@ -478,7 +478,7 @@ msgstr "在 :guilabel:`Login` 中，创建一个登录名。登录名必须以�
 msgid ""
 "In :guilabel:`Password`, enter a password. Minimum length is 8 "
 "characters. Maximum length is 255 characters."
-msgstr "在 :guilabel:`密码` 中，输入密码。最小长度为 8 个字符。最大长度为 255 个字符。"
+msgstr "在 :guilabel:`Password` 中，输入密码。最小长度为 8 个字符。最大长度为 255 个字符。"
 
 #: ../../get-started/bare-metal-install-desktop.rst:322
 msgid "In :guilabel:`Confirm`, enter the same password."

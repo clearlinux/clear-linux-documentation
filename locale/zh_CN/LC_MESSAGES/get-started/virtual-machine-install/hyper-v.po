@@ -34,13 +34,13 @@ msgstr "必备条件"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:16
 msgid "Enable `Intel® Virtualization Technology`_ (Intel® VT)"
-msgstr "启用 `Intel® Virtualization Technology`_ (Intel® VT)"
+msgstr "启用 `Intel® Virtualization Technology`_ (英特尔® 虚拟化技术)"
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:18
 msgid ""
 "Enable `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)"
 " in your BIOS/UEFI firmware configuration."
-msgstr "在 BIOS/UEFI 固件配置中启用 `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)。"
+msgstr "在 BIOS/UEFI 固件配置中启用 `Intel® Virtualization Technology for Directed I/O`_ (英特尔® 定向I/O虚拟化技术)。"
 
 
 #: ../../get-started/virtual-machine-install/hyper-v.rst:22

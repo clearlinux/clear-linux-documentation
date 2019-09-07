@@ -46,7 +46,7 @@ msgid ""
 msgstr "在主机系统上从 EFI/BIOS 启用虚拟化功能，例如 `Intel® "
 "Virtualization Technology <https://www.intel.cn/content/www/cn/zh/"
 "virtualization/virtualization-technology/"
-"intel-virtualization-technology.html>`_ （英特尔® VT）。"
+"intel-virtualization-technology.html>`_ （英特尔® 虚拟化技术）。"
 
 #: ../../get-started/virtual-machine-install/virtualbox-cl-installer.rst:20
 msgid ""

@@ -37,7 +37,7 @@ msgid ""
 "Enable the `Intel® Virtualization Technology`_ (Intel® VT) and the "
 "`Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the"
 " host machine’s BIOS."
-msgstr "在主机 BIOS 中启用 `Intel® Virtualization Technology`_ (Intel® VT) 和 `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)。"
+msgstr "在主机 BIOS 中启用 `Intel® Virtualization Technology`_ (英特尔® 虚拟化技术) 和 `Intel® Virtualization Technology for Directed I/O`_ (英特尔® 定向I/O虚拟化技术)。"
 
 
 #: ../../get-started/virtual-machine-install/kvm.rst:20
