@@ -14,7 +14,7 @@ support the |CL| live-server installer to create the |CL| virtual machine (VM).
 Prerequisites
 *************
 
-#. Enable virtualization, such as `Intel® Virtualization Technology`_
+#. Enable virtualization, such as `Intel® Virtualization Technology <https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_
    (Intel® VT), on the host system from EFI/BIOS.
 
 #. Download and install |VB| **version 6.0 or later** from
