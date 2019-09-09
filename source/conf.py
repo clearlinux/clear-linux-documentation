@@ -143,7 +143,7 @@ html_context = {
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
     "languages": ( ("English", "/clearlinux/latest"),
-                   ("Future Language Support", "/clearlinux/latest")
+                   ("简体中文 (Simplified Chinese)", "/clearlinux/latest/zh_CN")
                    #("Chinese", "/clearlinux/latest/zh_CN")
                  ),
     "versions": ( ("latest", "/clearlinux/latest"),
