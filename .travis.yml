@@ -16,7 +16,7 @@ script:
 before_deploy:
   - make linkcheck
   # only deploy the latest tagged release of Simplified Chinese docs
-  - wget https://github.com/clearlinux/clear-linux-documentation/releases/latest/download/clearlinux-docs-zh-CN.tar.gz
+  - wget https://github.com/clearlinux/clear-linux-documentation-zh-CN/releases/latest/download/clearlinux-docs-zh-CN.tar.gz
   - mkdir source/_build/html/zh_CN
   - tar xvzf clearlinux-docs-zh-CN.tar.gz -C source/_build/html/zh_CN
 
