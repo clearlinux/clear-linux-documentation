@@ -76,8 +76,8 @@ Download and launch the virtual machine
       The default OVMF files from |CL| may not work for some distro version(s).
       You may get an `ASSERT` in the `debug.log` file when starting the VM.
       If that is the case, use the distro-specific-OVMF files instead.
-      For example, the |CL| OVMF files work for Ubuntu 18.04 LTS, but not for Ubuntu 19.04 LTS.
-      Installing and using the OVMF files for Ubuntu 19.04 LTS resolved the `ASSERT` issue.
+      For example, the |CL| OVMF files work for Ubuntu 18.04 LTS, but not for Ubuntu 19.04.
+      Installing and using the OVMF files for Ubuntu 19.04 resolved the `ASSERT` issue.
 
 #. Download the `start_qemu.sh`_ script from the
    `image <https://cdn.download.clearlinux.org/image/>`_ directory.  This script
