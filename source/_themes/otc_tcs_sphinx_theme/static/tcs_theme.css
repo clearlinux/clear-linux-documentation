@@ -3,8 +3,13 @@
 /* make the page width fill the window */
 .wy-nav-content {
    max-width: none;
+   background: linear-gradient(white 58px, #f2f4f5 58px 100%);
+   padding-top: 10px;
 }
 
+.wy-nav-content-wrap .wy-nav-content {
+  padding-top: 10px;
+}
 
 .wy-nav-side {
    background: #007ab2;
@@ -41,7 +46,7 @@
     border: 0;
     outline: 0;
     background: transparent;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     color: white;
 }
 
