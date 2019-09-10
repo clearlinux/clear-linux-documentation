@@ -14,8 +14,8 @@ scenarios such as a network with no DHCP server.
 Identify which program is managing the interface
 ************************************************
 
-New installations of |CL-ATTR| use NetworkManager as the default network interface
-manager for all network connections.
+New installations of |CL-ATTR| use NetworkManager as the default network
+interface manager for all network connections.
 
 .. note:: 
 
@@ -26,8 +26,8 @@ manager for all network connections.
      interfaces and NetworkManager was used for wireless interfaces.
 
 
-Before defining a configuration for assigning a static IP address, verify which
-program is managing the network interface.
+Before defining a configuration for assigning a static IP address, verify
+which program is managing the network interface.
 
 #. Check the output of :command:`nmcli device` to see if NetworkManager is
    managing the device.
