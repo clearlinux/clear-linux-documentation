@@ -102,7 +102,6 @@ We validated these steps against the following software package versions:
 * Kubernetes 1.11.3
 * Go 1.11.12
 
-
 .. note::
 
    The Deep Learning Reference Stack was developed to provide the best user
