@@ -19,6 +19,10 @@ to:
 
 #. Stop and deallocate the |CL| VM and resources.
 
+.. contents::
+   :local:
+   :depth: 1
+
 Description
 ***********
 
