@@ -55,4 +55,3 @@ Stacks
    :glob:
 
    stacks/*
-   stacks/dlrs/*
