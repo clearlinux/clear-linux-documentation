@@ -173,6 +173,7 @@ Enable or disable telemetry
 
    .. code-block:: bash
 
+      sudo telemctl opt-in
       sudo telemctl start
 
    This enables and starts the :command:`telemprobd` and :command:`telempostd`
