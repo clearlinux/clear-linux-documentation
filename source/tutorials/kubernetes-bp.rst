@@ -3,43 +3,47 @@
 Kubernetes\* Best Practices
 ###########################
 
-Use swupd to update clusters
-****************************
-
 This tutorial shows you how to manage your Kubernetes cluster while using
 :command:`swupd` to update |CL-ATTR|.
 
-In our tutorial :ref:`kubernetes`, we explain how to set up a Kubernetes
-cluster on |CL| using `kubeadm`. `Kubeadm documentation`_ often builds on the
-assumption that the distribution uses a traditional package manager (e.g.,
-RPM/DEB).
 
-In contrast, |CL| uses `swupd` to update the OS, which in this case updates
+.. contents::
+   :local:
+   :depth: 1
+
+Description
+***********
+
+In our :ref:`kubernetes` tutorial, we explain how to set up a Kubernetes
+cluster on |CL| using `kubeadm`. `Kubeadm documentation`_ often builds on the
+assumption that the distribution uses a traditional package manager, such as
+RPM/DEB.
+
+However, |CL| uses `swupd` to update the OS, which in this case updates
 all of the kubernetes node and client binaries simultaneously, as part of
 the `cloud-native-basic` bundle (e.g., kubectl, kubeadm, kubelet). Running
 :command:`sudo swupd update` requires special care to ensure the OS
 incorporates the latest Kubernetes upgrades.
 
-This document describes best practices to manage cluster upgrades with
-`kubeadm` on a |CL|-based cluster.
+This tutorial also describes the best practices for managing cluster upgrades
+with kubeadm on a |CL|-based cluster.
 
 Prerequisites
 *************
 
-Assure that you:
-
-* Completed :ref:`kubernetes`
-* Installed the bundle `cloud-native-basic`
+* Complete the :ref:`kubernetes` tutorial
+* Install the bundle `cloud-native-basic`
 
 .. note::
 
-   Other Linux\* distros shown in Kubernetes upgrade documentation reflect
-   `apt-get update`, `apt-mark hold kubeadm`, and similar commands; however, such commands **are not valid** on |CL|.
+   Other Linux\* distros shown in the Kubernetes upgrade documentation use the
+   `apt-get update`, `apt-mark hold kubeadm`, and similar commands. These
+   commands **are not valid** on |CL|.
 
 Update the control plane
 ************************
 
-#. Read kubernetes documentation `before you begin`_.
+#. Read the kubernetes documentation `before you begin`_.
 
 #. On your master node, run the command:
 
@@ -49,9 +53,13 @@ Update the control plane
 
    .. note::
 
-      If the minor version of Kubernetes changes, |CL| shows a message-of-the-day, or `motd`. When the `motd` appears, you **must postpone** a kubelet restart on master and nodes until the control plane is properly updated. :command:`swupd update` does not restart services automatically unless explicitly configured to do so.
+      If the minor version of Kubernetes changes, |CL| shows a message-of-the-
+      day, or `motd`. When the motd appears, you **must postpone** a kubelet
+      restart on master and nodes until the control plane is properly updated.
+      :command:`swupd update` does not restart services automatically unless
+      explicitly configured to do so.
 
-#. Now follow these instructions in kubernetes documentation.
+#. Now follow these instructions from the kubernetes documentation.
 
    * `Upgrade control plane`_
    * `Drain control plane node`_
@@ -66,7 +74,7 @@ Update worker nodes
 
       sudo swupd update
 
-#. Now follow these instructions in kubernetes documentation:
+#. Now follow these instructions from the kubernetes documentation:
 
    * `Drain node`_
    * `Update kubelet configuration`_
@@ -89,4 +97,3 @@ Update worker nodes
 .. _Kubeadmn documentation: https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/
 
 .. _before you begin: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-13/#before-you-begin
-
