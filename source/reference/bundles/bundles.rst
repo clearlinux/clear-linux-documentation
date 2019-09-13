@@ -15,4 +15,7 @@ Bundle list
 .. raw:: html
    :file: bundles.html.txt
 
+
+Another silly test!
+
 .. _clr-bundles repo: https://github.com/clearlinux/clr-bundles/tree/master/bundles
