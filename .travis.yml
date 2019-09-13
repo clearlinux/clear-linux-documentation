@@ -26,14 +26,14 @@ deploy:
     github_token: $GITHUB_TOKEN
     target-branch: latestHTML
     on:
-      branch: master
+      branch: publish
     local_dir: source/_build/html/
   - provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
     target-branch: developmentHTML
     on:
-      branch: development
+      branch: master
     local_dir: source/_build/html/
   - provider: releases
     skip_cleanup: true
