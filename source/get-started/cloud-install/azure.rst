@@ -3,21 +3,9 @@
 |CL-ATTR| on Microsoft\* Azure\*
 ################################
 
-The Azure :abbr:`CLI (Command Line Interface)` offers the ability to create and
-manage resources in MS Azure from the command line. In this tutorial you learn
-to:
-
-#. Install the latest MS Azure CLI on your |CL| machine.
-
-#. Log into MS Azure using the CLI 2.0 interface.
-
-#. Create a MS Azure resource group.
-
-#. Locate the |CL| images.
-
-#. Create and log into the |CL| virtual machine.
-
-#. Stop and deallocate the |CL| VM and resources.
+This tutorial shows how to install and use the Azure :abbr:`CLI (Command Line
+Interface)` on |CL|. The Azure CLI offers the ability to create and
+manage resources in MS Azure from the command line.
 
 .. contents::
    :local:
@@ -40,10 +28,10 @@ is offered with three different images, also known as a
 * |CL| Machine-learning - This SKU comes pre-loaded with popular open source
   tools for developing machine learning applications.
 
-You can access these images directly from your MS Azure dashboard through the
-`Azure portal`_ or by using the MS Azure CLI 2.0. If you do not already have an
-account set up with MS Azure, you can sign up for a `MS Azure free account`_
-to access the |CL| :abbr:`VM (Virtual Machine)` images.
+Sign in at the `Azure portal`_ to access these images from the Azure dashboard,
+or use the MS Azure CLI 2.0. If you do not already have an account set up with
+MS Azure, you can sign up for a `MS Azure free account`_ to access the
+|CL| :abbr:`VM (Virtual Machine)` images.
 
 Prerequisites
 *************
@@ -299,7 +287,7 @@ Log into your Microsoft Azure account
 #. Once you enter the authentication code, the website displays a screen to
    enter your existing Microsoft Azure credentials.
 
-#. Log in with your existing MS Azure account credentials. Once complete, the
+#. Log in with your existing MS Azure account credentials. The
    browser screen shows you have signed into the Microsoft Cross-platform
    Command Line Interface application on your device, as shown in figure 3.
    You can close the page.
