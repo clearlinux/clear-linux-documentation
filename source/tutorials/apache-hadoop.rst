@@ -3,33 +3,41 @@
 Apache\* Hadoop\*
 #################
 
-This tutorial walks you through the process of installing, configuring, and
-running Apache Hadoop on |CL-ATTR|. The Apache Hadoop software library is a
-framework for distributed processing of large data sets across clusters of
-computers using simple programming models. It is designed to scale up from
-single servers to thousands of machines, with each machine offering local
-computation and storage.
+This tutorial explains the process of installing, configuring, and
+running Apache Hadoop on |CL-ATTR|.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Description
+***********
+
+The Apache Hadoop software library is a framework for distributed processing
+of large data sets across clusters of computers using simple programming
+models. It is designed to scale up from single servers to thousands of
+machines, with each machine offering local computation and storage.
 
 Prerequisites
 *************
 
-Before following this tutorial, you should follow the
+Before following this tutorial, follow the
 :ref:`bare-metal-install-desktop` to ensure you have installed |CL|.
 
-Before you install any new packages, update |CL| with the following command:
+Before installing any new packages, update |CL| with the following command:
 
 .. code-block:: bash
 
    sudo swupd update
 
-For the purposes of this tutorial, we will install Hadoop in a single machine
+For this tutorial, you will install Hadoop in a single machine
 running both the master and slave daemons.
 
 Install Apache Hadoop
 *********************
 
-Apache Hadoop is included in the `big-data-basic` bundle. To install the
-framework, enter the following command:
+Apache Hadoop is included in the :command:`big-data-basic` bundle. To install
+the framework, enter the following command:
 
 .. code-block:: bash
 
@@ -51,21 +59,19 @@ Configure Apache Hadoop
 
       $ sudo cp /usr/share/defaults/hadoop/* /etc/hadoop
 
-   .. note:: Since |CL| is a stateless system, you should never modify the
+   .. note:: Since |CL| is a stateless system, never modify the
       files under the :file:`/usr/share/defaults` directory. The software
       updater will overwrite those files.
 
-Once all the configuration files are in :file:`/etc/hadoop`, we must edit
-them to fit our needs. The `NameNode` server is the master server. It manages
-the namespace of the files system and regulates the clients' access to files.
-The first file we edit, :file:`/etc/hadoop/core-site.xml`, informs the Hadoop
-daemon where `NameNode` is running.
+   Once all the configuration files are in :file:`/etc/hadoop`, edit them to
+   fit your needs. The `NameNode` server is the master server that manages the
+   namespace of the files' system and regulates the clients' access to files.
+   The first file to be edited, :file:`/etc/hadoop/core-site.xml`, informs the
+   Hadoop daemon where `NameNode` is running. In this tutorial, `NameNode` runs
+   in the `localhost`.
 
-In this tutorial, our `NameNode` runs in our `localhost`. Follow these steps
-to set it up correctly:
-
-#. Open the :file:`/etc/hadoop/core-site.xml` file using the editor of your
-   choice and modify the file as follows:
+#. Open the :file:`/etc/hadoop/core-site.xml` file using any editor and modify
+   the file as follows:
 
    .. code-block:: xml
 
@@ -81,8 +87,8 @@ to set it up correctly:
 #. Edit the :file:`/etc/hadoop/hdfs-site.xml` file. This file configures the
    :abbr:`HDFS (Hadoop Distributed File System)` daemons. This configuration
    includes the list of permitted and excluded data nodes and the size of
-   said blocks. In this example, we are setting the number of block
-   replication to 1 from the default of 3 as follows:
+   those blocks. For this example, set the number of block replication to 1
+   from the default of 3 as follows:
 
    .. code-block:: xml
       :emphasize-lines: 6
@@ -164,10 +170,10 @@ Configure your SSH key
 Run the Hadoop daemons
 **********************
 
-With all the configuration files properly edited, we are ready to start the
+With all the configuration files properly edited, you are ready to start the
 daemons.
 
-When we format the `NameNode` server, it formats the meta-data related to
+When you format the `NameNode` server, it formats the metadata related to
 data nodes. Thus, all the information on the data nodes is lost and the nodes
 can be reused for new data.
 
@@ -183,7 +189,7 @@ can be reused for new data.
 
       sudo start-dfs.sh
 
-#. The console output should be similar to:
+   The console output should be similar to:
 
    .. code-block:: console
 
@@ -193,7 +199,7 @@ can be reused for new data.
       SHA256:97e+7TnomsS9W7GjFPjzY75HGBp+f1y6sA+ZFcOPIPU.
       Are you sure you want to continue connecting (yes/no)?
 
-   Enter `yes` to continue.
+#. Enter `yes` to continue.
 
 #. Start the `YARN` daemons `ResourceManager` and `NodeManager` with the
    following command:
@@ -208,7 +214,7 @@ can be reused for new data.
 
       sudo jps
 
-#. The console output should be similar to:
+   The console output should be similar to:
 
    .. code-block:: console
 
@@ -240,7 +246,7 @@ Run the MapReduce wordcount example
 
       sudo hadoop jar /usr/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.8.0.jar wordcount input output
 
-#. Read output file "part-r-00000". This file contains the number of times
+#. Read the output file "part-r-00000". This file contains the number of times
    each word appears in the file.
 
    .. code-block:: bash
@@ -249,8 +255,7 @@ Run the MapReduce wordcount example
 
 **Congratulations!**
 
-You successfully installed and setup a single node Hadoop cluster.
+You have successfully installed and setup a single node Hadoop cluster.
 Additionally, you ran a simple wordcount example.
 
 Your single node Hadoop cluster is up and running!
-
