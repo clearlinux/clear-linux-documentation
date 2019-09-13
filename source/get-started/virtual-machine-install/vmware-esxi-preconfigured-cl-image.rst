@@ -285,4 +285,4 @@ Related topics
 .. _Cloning and converting virtual machine disks with vmkfstools: https://kb.vmware.com/kb/1028042
 .. _Enable the Secure Shell (SSH) in the VMware Host Client: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.html.hostclient.doc/GUID-B649CB74-832F-467B-B6A4-8BA67AD5C1F0.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
-.. _image: https://cdn.download.clearlinux.org/image
+.. _image: https://cdn.download.clearlinux.org/image/
