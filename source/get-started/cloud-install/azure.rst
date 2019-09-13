@@ -1,9 +1,20 @@
 .. _azure:
 
-|CL-ATTR| on Microsoft Azure
-############################
+|CL-ATTR| on Microsoft\* Azure\*
+################################
 
-|CL-ATTR| is available for you to use in the Microsoft* Azure* marketplace and
+This tutorial shows how to install and use the Azure :abbr:`CLI (Command Line
+Interface)` on |CL|. The Azure CLI offers the ability to create and
+manage resources in MS Azure from the command line.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Description
+***********
+
+|CL| is available for you to use in the Microsoft Azure marketplace and
 is offered with three different images, also known as a
 :abbr:`SKU (Stock Keeping Unit)`.
 
@@ -17,26 +28,13 @@ is offered with three different images, also known as a
 * |CL| Machine-learning - This SKU comes pre-loaded with popular open source
   tools for developing machine learning applications.
 
-You can access these images directly from your MS Azure dashboard through the
-`Azure portal`_ or by using the MS Azure :abbr:`CLI (Command Line Interface)`
-2.0. If you do not already have an account set up with MS Azure, you can sign
-up for a `MS Azure free account`_ to access the |CL|
-:abbr:`VM(Virtual Machine)` images.
+Sign in at the `Azure portal`_ to access these images from the Azure dashboard,
+or use the MS Azure CLI 2.0. If you do not already have an account set up with
+MS Azure, you can sign up for a `MS Azure free account`_ to access the
+|CL| :abbr:`VM (Virtual Machine)` images.
 
-The Azure CLI offers the ability to create and manage resources in MS Azure
-from the command line. In this tutorial you learn to:
-
-#. Install the latest MS Azure CLI on your |CL| machine.
-
-#. Log into MS Azure using the CLI 2.0 interface.
-
-#. Create a MS Azure resource group.
-
-#. Locate the |CL| images.
-
-#. Create and log into the |CL| virtual machine.
-
-#. Stop and deallocate the |CL| VM and resources.
+Prerequisites
+*************
 
 To use the MS Azure CLI 2.0 on your |CL| system, your system must have the
 following packages installed:
@@ -47,7 +45,7 @@ following packages installed:
 
 * OpenSSL 1.0.2
 
-You can check to see what versions you have installed on your system by
+You can check to see which versions you have installed on your system by
 running the individual commands as follows:
 
 .. code-block:: bash
@@ -119,18 +117,18 @@ Install MS Azure CLI 2.0 on |CL|
 
       ===> In what directory would you like to place the install? (leave blank to use '/home/[user]/lib/azure-cli'):
 
-   Press the :kbd:`Enter` key to accept the default or you can chose another
-   directory to install the MS Azure CLI 2.0 tools into.
+   Press the :kbd:`Enter` key to accept the default or chose another
+   directory in which to install the MS Azure CLI 2.0 tools.
 
    .. code-block:: console
 
       ===> In what directory would you like to place the 'az' executable? (leave blank to use '/home/[user]/bin'):
 
-   Press the :kbd:`Enter` key to accept the default or you can chose another
-   directory to install the :command:`az` executable in.
+   Press the :kbd:`Enter` key to accept the default or chose another
+   directory in which to install the :command:`az` executable.
 
-#. The installation downloads and builds all required tools and when complete
-   prompts you with:
+#. The installation downloads and builds all the required tools. When it is
+   complete, it prompts you:
 
    .. code-block:: console
 
@@ -157,7 +155,7 @@ Install MS Azure CLI 2.0 on |CL|
       -- Installation successful.
       -- Run the CLI with /home/[user]/bin/az --help
 
-#. The installation program finishes and you must restart your shell for
+#. When the installation program finishes, you must restart your shell for
    the changes to take effect. When the installation is successful, run the
    following command to restart your shell.
 
@@ -286,13 +284,13 @@ Log into your Microsoft Azure account
 
       Figure 2: :guilabel:`Microsoft Device Login - Azure CLI`
 
-#. Once you enter the authentication code, the website changes to a screen to
+#. Once you enter the authentication code, the website displays a screen to
    enter your existing Microsoft Azure credentials.
 
-#. Log in with your existing MS Azure account credentials. Once complete, the
-   browser screen changes again as shown in figure 3. The screen shows you
-   have signed into the Microsoft Cross-platform Command Line Interface
-   application on your device and you can close the window.
+#. Log in with your existing MS Azure account credentials. The
+   browser screen shows you have signed into the Microsoft Cross-platform
+   Command Line Interface application on your device, as shown in figure 3.
+   You can close the page.
 
    .. figure:: /_figures/azure/azure-3.png
       :scale: 50 %
@@ -310,7 +308,7 @@ To learn more about MS Azure resource groups, visit the
 `Azure Resource Manager overview`_ for an overview and detailed description
 of resources within MS Azure.
 
-#. To create our new resource group, run the :command:`az group create ...`
+#. To create a new resource group, run the :command:`az group create ...`
    command shown below to create a resource group named `ClearResourceGroup`
    using the `-n` parameter and locate it in the `westus` region using the
    `-l` parameter.
@@ -372,7 +370,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
       image, you can use the version label `latest` when specifying an image.
 
 #. The information shown in the `Urn` column lists the
-   `Publisher:Offer:Sku:Version` for each image available and this is the
+   `Publisher:Offer:Sku:Version` for each image available. This is the
    information we want to create the |CL| Basic VM. Since we are creating a
    |CL| Basic VM, highlight the `clear-linux-project:clear-linux-os:basic:`
    string and copy it to your clipboard. Use the label
@@ -392,7 +390,7 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
       are stored in your :file:`$HOME/.ssh` directory, you do not need to
       include the *--generate-ssh-keys* option.
 
-   Your output from this command will look similar to this output, where
+   The output from this command will look similar to this output, where
    [user] is your user name:
 
    .. code-block:: console
@@ -436,7 +434,8 @@ For this tutorial, we are using the |CL| Basic SKU for our VM.
 
    You are now logged into your new |CL| VM as [user], where [user] is your
    user name. To check which software bundles are included with
-   this VM image, run the :command:`sudo swupd bundle-list` command inside the VM:
+   this VM image, run the :command:`sudo swupd bundle-list` command inside the
+   VM:
 
    .. code-block:: bash
 
@@ -505,10 +504,8 @@ incurring charges for them, you must deallocate the resources as well.
 
       az vm deallocate --resource-group ClearResourceGroup --name ClearVM
 
-**Congratulations!**
-
-You are up and running with |CL| on MS Azure using the Azure
-CLI 2.0 command line tools.
+**Congratulations!** You are up and running with |CL| on MS Azure using the
+Azure CLI 2.0 command line tools.
 
 Next steps
 **********
