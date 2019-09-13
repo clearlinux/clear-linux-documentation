@@ -7,7 +7,7 @@ This guide describes the |CL-ATTR| telemetry solution.
 
 .. important::
 
-   Telemetry in |CL| is **opt-in**. The telemetry client is **not**  active
+   Telemetry in |CL| is **opt-in**. The telemetry client is **not** active
    and sends **no** data until you explicitly enable it.
 
 .. note::
@@ -163,24 +163,27 @@ Enable or disable telemetry
    During the initial installation of |CL|, you are requested to join the
    stability enhancement program and allow |CL| to collect anonymous reports to
    improve system stability. If you choose not to join this program, then the
-   telemetry software bundle is not added to your system. Choosing to join will
-   automatically enable telemetry on your system after installation is
-   complete.
+   telemetry software bundle is not added to your system. If you do choose to
+   join the program, the installer will automatically enable telemetry on your
+   system by installing the telemetrics bundle, creating the file
+   :file:`/etc/telemetrics/opt-in`, and enabling the telemtrics systemd
+   services to run after installation is complete and the system is restarted.
 
 #. Enabling after install:
 
-   To start telemetry on your system, run the following command:
+   To install telemetry on your system, run the following commands:
 
    .. code-block:: bash
 
+      sudo swupd bundle-add telemetrics
       sudo telemctl opt-in
       sudo telemctl start
 
-   This enables and starts the :command:`telemprobd` and :command:`telempostd`
-   daemons. Your system will begin to send telemetry data to the server defined
-   in the file :file:`/etc/telemetrics/telemetrics.conf`. If this file does not
-   exist, the :command:`telemprobd` and :command:`telempostd` daemons will use
-   the file :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
+   This installs the necassary software, enables telemetry by creating the file
+   :file:`/etc/telemetrics/opt-in`, and starts the :command:`telemprobd` and
+   :command:`telempostd` daemons. Your system will begin to send telemetry data to the server defined in the file :file:`/etc/telemetrics/telemetrics.conf`. If this file does not exist, the :command:`telemprobd` and
+   :command:`telempostd` daemons will use the file
+   :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
 
 #. Disabling after install:
 
@@ -192,22 +195,16 @@ Enable or disable telemetry
 
 #. Opt in to telemetry:
 
-   To opt-in to the telemetry services, simply enter the opt-in command, which  
-   also starts the service:
+   To opt-in to the telemetry services, simply enter the opt-in command:
 
    .. code-block:: bash
 
       sudo telemctl opt-in
+      sudo telemctl start
 
-   This removes the :file:`/etc/telemetrics/opt-out` file, if it exists, and
-   starts the telemetry services.
-
-   .. note::
-
-      To opt-in but not immediately start telemetry services, you must
-      run the command :command:`sudo telemctl stop` after the :command:`opt-in`
-      command is entered. Once you are ready to start the service, enter the
-      command :command:`sudo telemctl start`.
+   This creates the :file:`/etc/telemetrics/opt-in` file, if it doesn't already
+   exist. You will need to explicitly start the telemetry services after you
+   have opted in.
 
 #. Opt out of telemetry:
 
@@ -218,7 +215,7 @@ Enable or disable telemetry
 
       sudo telemctl opt-out
 
-   This creates the file :file:`/etc/telemetrics/opt-out` and stops the
+   This removes the file :file:`/etc/telemetrics/opt-in` and stops the
    telemetry services.
 
 
@@ -360,8 +357,8 @@ using the :ref:`bare-metal-install-server` getting started guide and:
       passwd: password updated successfully
 
    Enter `postgres` for the current value of the password and then enter a new
-   password, retype it to verify the new password and the :guilabel:`PostgreSQL`
-   database password will be updated.
+   password, retype it to verify the new password and the
+   :guilabel:`PostgreSQL` database password will be updated.
 
 #. After the installation is complete, you can use your web browser to view the
    new server by opening the browser on the system and typing in localhost
@@ -721,10 +718,10 @@ Reference
 The telemetry API
 =================
 
-Installing the :command:`telemetrics` bundle includes the libtelemetry C library,
-which exposes an API used by the telemprobd and telempostd daemons. You can
-use these in your applications as well. The API documentation is found in the
-:file:`telemetry.h` file in `Telemetrics client`_ repository.
+Installing the :command:`telemetrics` bundle includes the libtelemetry C
+library, which exposes an API used by the telemprobd and telempostd daemons.
+You can use these in your applications as well. The API documentation is found
+in the :file:`telemetry.h` file in `Telemetrics client`_ repository.
 
 Client configuration
 ====================
@@ -734,7 +731,8 @@ The telemetry client will look for the configuration file located at
 file does not exist, the client will use the default configuration located
 at :file:`/usr/share/defaults telemetrics/telemetrics.conf`. To modify or
 customize the configuration, copy the file from
-:file:`/usr/share/defaults/telemetrics` to :file:`/etc/telemetrics` and edit it.
+:file:`/usr/share/defaults/telemetrics` to :file:`/etc/telemetrics` and edit
+it.
 
 Configuration options
 ---------------------
@@ -742,7 +740,8 @@ Configuration options
 The client uses the following configuration options from the config file:
 
 server
-   This specifies the web server to which telempostd sends the telemetry records.
+   This specifies the web server to which telempostd sends the telemetry
+   records.
 socket_path
    This specifies the path of the unix domain socket on which the telemprobd
    listens for connections from the probes.
@@ -758,15 +757,16 @@ record_expiry
 spool_process_time
    This specifies the time interval, in seconds, that the daemon waits for
    before checking the spool directory for records. The daemon picks up the
-   records in the order of modification date and tries to send the record to the
-   server. It sends a maximum of 10 records at a time. If it was able to send a
-   record successfully, it deletes the record from the spool. If the daemon
-   finds a record older than the "record_expiry" time, then it deletes that
-   record. The daemon looks at a maximum of 20 records in a single spool run loop.
+   records in the order of modification date and tries to send the record to
+   the server. It sends a maximum of 10 records at a time. If it was able to
+   send a record successfully, it deletes the record from the spool. If the
+   daemon finds a record older than the "record_expiry" time, then it deletes
+   that record. The daemon looks at a maximum of 20 records in a single spool
+   run loop.
 rate_limit_enabled
    This determines whether rate-limiting is enabled or disabled. When enabled,
-   there is a threshold on both records sent within a window of time, and record
-   bytes sent within a window a time.
+   there is a threshold on both records sent within a window of time, and
+   record bytes sent within a window a time.
 record_burst_limit
    This is the maximum amount of records allowed to be passed by the daemon
    within the record_window_length of time. If set to -1, the rate-limiting for
@@ -786,17 +786,18 @@ byte_window_length
 rate_limit_strategy
    This is the strategy chosen once the rate-limiting threshold has been
    reached. Currently the options are 'drop' or 'spool', with spool being the
-   default. If spool is chosen, records will be spooled and sent at a later time.
+   default. If spool is chosen, records will be spooled and sent at a later
+   time.
 record_retention_enabled
    When this key is enabled (true) the daemon saves a copy of the payload on
    disk from all valid records. To avoid the excessive use of disk space only
-   the latest 100 records are kept. The default value for this configuration key
-   is false.
+   the latest 100 records are kept. The default value for this configuration
+   key is false.
 record_server_delivery_enabled
    This key controls the delivery of records to server; when enabled (default
    value), the record will be posted to the address in the configuration file.
-   If this configuration key is disabled (false), records will not be spooled or
-   posted to backend. This configuration key can be used in combination with
+   If this configuration key is disabled (false), records will not be spooled
+   or posted to backend. This configuration key can be used in combination with
    record_retention_enabled to keep copies of telemetry records locally only.
 
   .. note::
