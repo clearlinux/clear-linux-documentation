@@ -79,7 +79,7 @@ Prerequisites
 
 * The device is on a well-connected network.
 * The device is able to connect to an update server. The default server is:
-  http://update.clearlinux.org
+  https://cdn.download.clearlinux.org/update/
 
 Updates
 =======

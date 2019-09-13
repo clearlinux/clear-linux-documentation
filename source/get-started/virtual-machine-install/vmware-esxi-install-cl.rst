@@ -285,4 +285,4 @@ Related topics
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
-.. _image: https://cdn.download.clearlinux.org/image
+.. _image: https://cdn.download.clearlinux.org/image/

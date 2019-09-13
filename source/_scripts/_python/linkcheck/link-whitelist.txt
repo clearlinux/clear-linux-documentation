@@ -12,3 +12,4 @@ https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html
 http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
 https://software.intel.com/en-us/mkl
 https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html
+https://www.nvidia.com/download/index.aspx
