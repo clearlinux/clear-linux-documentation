@@ -13,6 +13,9 @@ running Apache Hadoop on |CL-ATTR|.
 Description
 ***********
 
+For this tutorial, you will install Hadoop in a single machine
+running both the master and slave daemons.
+
 The Apache Hadoop software library is a framework for distributed processing
 of large data sets across clusters of computers using simple programming
 models. It is designed to scale up from single servers to thousands of
@@ -21,17 +24,10 @@ machines, with each machine offering local computation and storage.
 Prerequisites
 *************
 
-Before following this tutorial, follow the
-:ref:`bare-metal-install-desktop` to ensure you have installed |CL|.
+* :ref:`bare-metal-install-desktop`
 
-Before installing any new packages, update |CL| with the following command:
+* In |CL|, run :command:`swupd update`
 
-.. code-block:: bash
-
-   sudo swupd update
-
-For this tutorial, you will install Hadoop in a single machine
-running both the master and slave daemons.
 
 Install Apache Hadoop
 *********************
