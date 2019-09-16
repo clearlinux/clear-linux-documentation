@@ -170,7 +170,7 @@ single node.
 
    .. code-block:: bash
 
-      docker run --name <image name>  --rm -i -t <clearlinux/stacks-dlrs-TYPE> bash
+      docker run --name <image name>  --rm -i -t <clearlinux/stacks-pytorch-TYPE> bash
 
    .. note::
 
@@ -966,7 +966,7 @@ Related topics
 
 .. _Docker Hub: https://hub.docker.com/
 
-.. _TensorFlow Benchmarks: https://www.tensorflow.org/guide/performance/benchmarks
+.. _TensorFlow Benchmarks: https://github.com/tensorflow/benchmarks
 
 .. _PyTorch benchmarks: https://github.com/pytorch/pytorch/blob/master/caffe2/python/convnet_benchmarks.py
 
