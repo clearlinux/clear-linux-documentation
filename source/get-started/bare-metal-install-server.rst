@@ -65,7 +65,7 @@ Follow these steps to install |CL| on the target system:
 
 #. Reboot the target system.
 
-#. This action launches the |CL| installer boot menu, shown in figure 1.
+#. This action launches the |CL| installer boot menu, shown in Figure 1.
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-01.png
       :scale: 100%
@@ -209,8 +209,7 @@ Configure Installation Media
 #. Choose an installation method:
    * `Safe Installation`_
    * `Destructive Installation`_
-   * `Advanced Configuration`_
-
+   * `Advanced Installation`_
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-08.png
       :scale: 100%
@@ -219,8 +218,6 @@ Configure Installation Media
       Figure 8: Select Installation Media
 
 #. Select :guilabel:`Rescan Media` to show available installation targets.
-
-.. todo: Revise below section to match the dev-gui-00
 
 Safe Installation
 -----------------
@@ -242,110 +239,183 @@ on it, and accept the `Default partition schema`_.
    :guilabel:`Enable Encryption` to encrypt the root filesystem for either
    option above. See also `Disk encryption`_ for more information.
 
-Advanced Configuration
-----------------------
+Advanced Installation
+---------------------
 
-Use this method to manually configure partitions. These must meet
-`Default partition schema`_. You may also choose `Disk encryption`_ during
-configuration of each partition.
+Use this method to manually configure partitions using `cgdisk`.
+This example uses the `Default partition schema`_. The space you allocate for
+your ``root``, or additional partitions, may vary.
 
-.. note::
-
-   `Advanced Configuration` is available in the installer versions 1.2.0 and
-   above.
-
-#. From :guilabel:`Select Installation Media`, shown in Figure 8 above,
-   select :guilabel:`Advanced Configuration`.
-
-#. In :guilabel:`Advanced Configuration`, navigate to :file:`/dev/sda`
-   and then press :kbd:`Enter`.
+#. Navigate to :guilabel:`Advanced Installation` and press :kbd:`Spacebar`.
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-09.png
       :scale: 100%
-      :alt: Advanced configuration menu
+      :alt: Advanced installation
 
-      Figure 9: Advanced configuration menu
+      Figure 9: Advanced installation
 
-#. Choose a partition method:
+#. If no target media appears, select :kbd:`Rescan Media`.
 
-   * :guilabel:`Auto Partition` Select this option to accept the
-     `Default partition schema`_.
+#. Navigate to :guilabel:`Partition` and and press :kbd:`Spacebar`
+   to launch `cgdisk`.
 
-     #. Navigate to and press :guilabel:`Confirm`.
+Partition codes
+---------------
 
-     #. Continue with installation configuration. Jump to `Telemetry`_.
-
-   * `Manual Partition`_ Continue below.
-
-Manual Partition
-----------------
-
-We provide a simple example below.
-
-#. Navigate to the unallocated media (e.g.,`/dev/sda`) until highlighted, as
-   shown in Figure 9.
-
-#. Press :guilabel:`Enter` to edit the partition.
-
-#. The :guilabel:`Partition Setup` menu appears, shown in Figure 10.
-
-   .. note::
-
-      After adding the first partition, select :guilabel:`Free Space` to add another partition.
-
-root partition
---------------
-
-#. We configure the `root` partition as shown in Figure 10.
-   Configuration of the `root` partition varies.
-
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-10.png
-      :scale: 100%
-      :alt: root partition
-
-      Figure 10: root partition
-
-#. Navigate to :guilabel:`Add` and press :guilabel:`Enter`.
+* ef00 - EFI System
+* 8200 - Linux swap
+* 8300 - Linux filesystem
 
 boot partition
 --------------
 
-#. We configure the `boot` partition as shown in Figure 11.
+#. With the free space highlighted in the cgdisk utility, select
+   :guilabel:`[New]`.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-10.png
+      :scale: 100%
+      :alt: Select New
+
+      Figure 10: Select New
+
+   .. note::
+
+      The `/boot` partition must be `VFAT(FAT32)`.
+
+#. Where :guilabel:`First sector` appears, press :kbd:`Enter`.
+
+#. For :guilabel:`Size in sectors`, type 150M.
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-11.png
       :scale: 100%
-      :alt: boot partition
+      :alt: Size in sectors
 
-      Figure 11: boot partition
+      Figure 11: Size in sectors
 
-#. Navigate to :guilabel:`Add` and press :guilabel:`Enter`.
+#. Press `Enter`.
+
+#. Enter the hex code `ef00` and press :kbd:`Enter`.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-12.png
+      :scale: 100%
+      :alt: `ef00` partition code
+
+      Figure 12: `ef00` partition code
+
+#. For the partition name, enter `CLR_BOOT`, the EFI boot partition.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-13.png
+      :scale: 100%
+      :alt: CLR_BOOT
+
+      Figure 13: CLR_BOOT
+
+   .. note::
+
+      Encryption is not allowed on the CLR_BOOT partition.
+
+Now follow the same process to configure the remaining partitions.
 
 swap partition
 --------------
 
-#. In the :guilabel:`File System` pulldown menu, select `swap`, and
-   enter a label. We enter the minimum required size (e.g., 256M).
+#. Use the :kbd:`Up/Down` arrow to select free space.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-12.png
+#. Select :guilabel:`[New]` at bottom and press :kbd:`Enter`.
+
+#. Under :guilabel:`First sector`, press :kbd:`Enter`.
+
+#. For :guilabel:`Size in sectors`, type 256M, and press :kbd:`Enter`.
+
+#. Enter the hex code `8200` and press :kbd:`Enter`.
+
+#. In :guilabel:`Enter new partition name...`, type CLR_SWAP.
+
+#. Press :kbd:`Enter`.
+
+root partition
+--------------
+
+#. Use the :kbd:`Up/Down` arrow to select free space.
+
+#. Select :guilabel:`[New]` at bottom and press Enter.
+
+#. Under :guilabel:`First sector`, press Enter.
+
+#. For :guilabel:`Size in sectors`, type in desired size.
+   Optionally, press :kbd:`Enter` to use the remaining space available.
+
+#. Press Enter.
+
+#. Enter the hex code `8300` and press :kbd:`Enter`.
+
+#. In :guilabel:`Enter new partition name...`, type: CLR_ROOT.
+   The `/root` partition must be `ext[234]` or `XFS`.
+   If no filesystem exists, the installer will default to `VFAT(FAT32)`
+   for `/boot`, and `ext4` for all others.
+
+   .. note::
+
+      You may also append the following labels:
+
+      *  `CLR_ROOT_E`: Adds encryption
+      *  `CLR_ROOT_F`: Formats the partition prior to use
+      *  `CLR_ROOT_E_F`: Adds encryption and formats the partition
+
+#. Press :kbd:`Enter`.
+
+#. After all partitions are defined, verify that your partition
+   configuration is similar to Figure 14.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-14.png
       :scale: 100%
-      :alt: swap partition
+      :alt: Final partition configuration
 
-      Figure 12: swap partition
+      Figure 14: Final partition configuration
 
-#. Navigate to :guilabel:`Add` and press :guilabel:`Enter`.
+Additional partitions (optional)
+--------------------------------
 
-#. Next, navigate to :guilabel:`Confirm` and press :guilabel:`Enter`,
-   shown in Figure 13.
+#. Use the :kbd:`Up/Down` arrow to select free space.
 
-   Manual partitioning is complete.
+#. Now select :guilabel:`[New]` at bottom and press Enter.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-13.png
+#. Under :guilabel:`First sector`, press Enter.
+
+#. For :guilabel:`Size in sectors`, type in desired size.
+
+   .. note::
+
+      If you do not specify a size, it will use the remaining space.
+
+#. Press :kbd:`Enter`.
+
+#. Enter the hex code `8300`. Then press :kbd:`Enter`.
+
+#. In :guilabel:`Enter new partition name...`, type: `CLR_MNT_<mount_point>`.
+   For example, replace <mount_point> with `/home`, shown in Figure 15.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-15.png
       :scale: 100%
-      :alt: Final configuration of disk partitions
+      :alt: CLR_MNT
 
-      Figure 13: Final configuration of disk partitions
+      Figure 15: CLR_MNT
 
-#. You may skip to the `Telemetry`_ section below.
+#. Alternatively, you may create `CLR_MNT_/srv` or other partitions.
+   Use of the `_E` or `_F` **must** precede `_MNT`.
+
+Write configuration to disk
+---------------------------
+
+#. When you're satisfied with the partition configuration, press the
+   Right Arrow until :guilabel:`[Write]` is highlighted.
+
+#. Press :kbd:`Enter`.
+
+#. When the prompt appears asking if you want to write the partition table
+   to disk, type "yes".
+
+#. Finally, select :guilabel:`[Quit]`.
 
 Disk encryption
 ===============
@@ -360,26 +430,26 @@ Encryption Passphrase
 |CL| uses a single passphrase for encrypted partitions. Additional keys may
 be configured post-installation using the ``cryptsetup`` tool.
 
-#. Optional: Select :guilabel:`[X] Encrypt` to encrypt the root partition,
-   as shown in Figure 14.
+#. Optional: Select :guilabel:`[X] Enable encryption` to encrypt the root
+   partition, as shown in Figure 16.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-14.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-16.png
       :scale: 100%
       :alt: Encrypt partition
 
-      Figure 14: Encrypt partition
+      Figure 16: Encrypt partition
 
-#. The :guilabel:`Encryption Passphrase` dialogue appears.
+#. The :guilabel:`Encryption Passphrase` dialog appears.
 
    .. note::
 
       Minimum length is 8 characters. Maximum length is 94 characters.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-15.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-17.png
       :scale: 100%
       :alt: Encryption Passphrase
 
-      Figure 15: Encryption Passphrase
+      Figure 17: Encryption Passphrase
 
 #. Enter the same passphrase in the first and second field.
 
@@ -404,11 +474,11 @@ Select your desired option on whether to participate in telemetry.
 
 #. Select :kbd:`Enter` to confirm.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-16.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-18.png
       :scale: 100%
       :alt: Enable Telemetry
 
-      Figure 16: Enable Telemetry
+      Figure 18: Enable Telemetry
 
 Recommended options
 *******************
@@ -454,22 +524,22 @@ interface settings are automatically applied.
 
    .. note:: Multiple network interfaces may appear.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-17.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-19.png
       :scale: 100%
       :alt: Configure Network Interfaces
 
-      Figure 17: Configure Network Interfaces
+      Figure 19: Configure Network Interfaces
 
 #. Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom).
 
    Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select
    :kbd:`Spacebar` to deselect.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-18.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-20.png
       :scale: 100%
       :alt: Network interface configuration
 
-      Figure 18: Network interface configuration
+      Figure 20: Network interface configuration
 
 #. Navigate to the appropriate fields and assign the desired
    network configuration.
@@ -483,7 +553,7 @@ interface settings are automatically applied.
       and select :kbd:`Enter`.
 
 #. Upon confirming network configuration, the :guilabel:`Testing Networking`
-   dialogue appears. Assure the result shows success. If a failure occurs,
+   dialog appears. Assure the result shows success. If a failure occurs,
    your changes will not be saved.
 
 #. Upon confirmation, you are returned to :guilabel:`Network interface`
@@ -505,11 +575,11 @@ instruction.
 
 #. Navigate to the field :guilabel:`HTTPS Proxy`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-19.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-21.png
       :scale: 100%
       :alt: Configure the network proxy
 
-      Figure 19: Configure the network proxy
+      Figure 21: Configure the network proxy
 
 #. Enter the desired proxy address and port using conventional syntax,
    such as: \http://address:port.
@@ -527,13 +597,13 @@ Test Network Settings
 To manually assure network connectivity before installing |CL|,
 select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
-A progress bar appears as shown in Figure 20.
+A progress bar appears as shown in Figure 22.
 
-.. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-20.png
+.. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-22.png
    :scale: 100%
-   :alt: Testing Networking dialogue
+   :alt: Testing Networking dialog
 
-   Figure 20: Testing Networking dialogue
+   Figure 22: Testing Networking dialog
 
 .. note::
 
@@ -551,11 +621,11 @@ Bundle Selection
 
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-21.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-23.png
       :scale: 100%
       :alt: Bundle Selection
 
-      Figure 21: Bundle Selection
+      Figure 23: Bundle Selection
 
 #. Optional: To start developing with |CL|, we recommend
    adding :file:`os-clr-on-clr`.
@@ -574,13 +644,13 @@ Add New User
 
 #. In Advanced Options, select :guilabel:`Manage User`.
 
-#. Select :guilabel:`Add New User` as shown in Figure 22.
+#. Select :guilabel:`Add New User` as shown in Figure 24.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-22.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-24.png
       :scale: 100%
       :alt: Add New User, User Name
 
-      Figure 22: Add New User
+      Figure 24: Add New User
 
 #. Optional: Enter a :guilabel:`User Name`.
 
@@ -589,11 +659,11 @@ Add New User
       The User Name must be alphanumeric and can include spaces, commas, or
       hyphens. Maximum length is 64 characters.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-23.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-25.png
       :scale: 100%
       :alt: User Name
 
-      Figure 23: User Name
+      Figure 25: User Name
 
 #. Enter a :guilabel:`Login`.
 
@@ -630,15 +700,15 @@ Modify / Delete User
 --------------------
 
 #. In :guilabel:`Manage User`, navigate to the user you wish
-   to modify until highlighted, as shown in Figure 24.
+   to modify until highlighted, as shown in Figure 26.
 
 #. Select :kbd:`Enter` to modify the user.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-24.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-26.png
       :scale: 100%
       :alt: Modify User
 
-      Figure 24: Modify User
+      Figure 26: Modify User
 
 #. Modify user details as desired.
 
@@ -653,11 +723,11 @@ Modify / Delete User
 #. Optional: In :guilabel:`Modify User`, to delete the user, navigate to
    the :guilabel:`Delete` button and select :kbd:`Enter`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-25.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-27.png
       :scale: 100%
       :alt: Delete User
 
-      Figure 25: Delete User
+      Figure 27: Delete User
 
 You are returned to :guilabel:`Manage User`.
 
@@ -680,11 +750,11 @@ new kernel.
 
 #. Select :kbd:`Enter`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-26.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-28.png
       :scale: 100%
-      :alt: kernel command line
+      :alt: Kernel Command Line
 
-      Figure 26: kernel command line
+      Figure 28: Kernel Command Line
 
 #. Choose from the following options.
 
@@ -701,15 +771,15 @@ Kernel Selection
 ================
 
 #. Select a kernel option. By default, the latest kernel release is
-   selected. Native kernel is shown in Figure 27.
+   selected. Native kernel is shown in Figure 29.
 
 #. To select a different kernel, navigate to it using :guilabel:`Tab`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-27.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-29.png
       :scale: 100%
       :alt: Kernel selection
 
-      Figure 27: Kernel selection
+      Figure 29 Kernel selection
 
 #. Select :kbd:`Spacebar` to select the desired option.
 
@@ -728,11 +798,11 @@ If you have your own custom mirror of |CL|, you can add its URL.
 
 #. Select :kbd:`Confirm`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-28.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-30.png
       :scale: 100%
       :alt: Swupd Mirror
 
-      Figure 28: Swupd Mirror
+      Figure 30: Swupd Mirror
 
 Optional: Skip to `Finish installation`_.
 
@@ -749,11 +819,11 @@ Assign Hostname
       alphanumeric character but may also contain hyphens. Maximum length of
       63 characters.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-29.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-31.png
       :scale: 100%
       :alt: Assign Hostname
 
-      Figure 29: Assign Hostname
+      Figure 31: Assign Hostname
 
 #. Navigate to :kbd:`Confirm` until highlighted.
 
@@ -766,17 +836,17 @@ Automatic OS Updates
 
 Automatical OS updates are enabled by default. In the rare case that you
 need to disable automatic software updates, follow the onscreen instructions,
-shown in Figure 30.
+shown in Figure 32.
 
 #. In Advanced Options, select :guilabel:`Automatic OS Updates`.
 
 #. Select the desired option.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-30.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-32.png
       :scale: 100%
       :alt: Automatic OS Updates
 
-      Figure 30: Automatic OS Updates
+      Figure 32: Automatic OS Updates
 
 You are returned to the :guilabel:`Main Menu`.
 
@@ -785,14 +855,14 @@ Save Configuration Settings
 
 #. In Advanced Options, select :guilabel:`Save Configuration Settings`.
 
-#. A dialogue box shows the installation configuration was saved to
+#. A dialog box shows the installation configuration was saved to
    :file:`clr-installer.yaml`
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-31.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-33.png
       :scale: 100%
       :alt: Automatic OS Updates
 
-      Figure 31: Automatic OS Updates
+      Figure 33: Automatic OS Updates
 
 #. Use the :file:`clr-installer.yaml` file to install |CL|, with the same
    configuration, on multiple targets.
@@ -803,11 +873,11 @@ Finish installation
 #. When you are satisfied with your installation configuration, navigate to
    :guilabel:`Install` and select :kbd:`Enter`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-32.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-34.png
       :scale: 100%
       :alt: Select Install
 
-      Figure 32: Select Install
+      Figure 34: Select Install
 
 #. Select :guilabel:`reboot`.
 
