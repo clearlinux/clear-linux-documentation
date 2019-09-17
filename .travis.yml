@@ -35,6 +35,13 @@ deploy:
     on:
       branch: master
     local_dir: source/_build/html/
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: developmentHTML
+    on:
+      branch: development
+    local_dir: source/_build/html/
   - provider: releases
     skip_cleanup: true
     api_key: $GITHUB_TOKEN
