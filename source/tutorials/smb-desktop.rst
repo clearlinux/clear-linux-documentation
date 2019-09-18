@@ -5,8 +5,12 @@ Samba\* as a client
 
 This tutorial explains how to access an existing shared drive on
 Windows\* via Server Message Block (SMB) / Common Internet File System (CIFS)
-from the |CL| GNOME desktop.  CIFS filesystem is generally used to access
+from the |CL| GNOME\* desktop.  A CIFS filesystem is generally used to access
 shared storage locations, or share files.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Prerequisites
 *************
@@ -59,7 +63,7 @@ Connect to Windows shared location with Nautilus
 
 #. Select :guilabel:`Connect`.
 
-#. The server will request authentication, as shown in Figure 3.
+   The server requests authentication, as shown in Figure 3.
 
    .. figure:: /_figures/samba/smb-desktop-3.png
       :scale: 100%
