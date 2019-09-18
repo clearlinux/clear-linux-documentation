@@ -45,11 +45,12 @@ error checks, and the BIOS error report table for unhandled hardware
 failures. Telemetry enables real-time issue reporting to allow system
 developers to focus quickly on an issue and monitor corrective actions.
 
-|CL| telemetry is fully customizable and can be used during software
+|CL| telemetry is fully customizable and can also be used during software
 development for debugging purposes. You can use the libtelemetry library in
 your code to create custom telemetry records. You can also use the
 telem-record-gen utility in script files for light-touch record creation
-where instrumenting code files doesn't make sense.
+where instrumenting code files doesn't make sense. For more information on
+configuring the telemetry client, refer to section `Client Configuration`_.
 
 The |CL| telemetrics solution is an **opt-in** choice on the client side.
 By default, the telemetry client is disabled until you choose to enable it.
@@ -112,17 +113,20 @@ This section describes some of the possible scenarios for configuring
 the |CL| telemetrics system, and suggests which ones make sense according to
 your needs.
 
+For more information on configuring the telemetry client,refer to section 
+`Client Configuration`_.
+
 Scenarios
 =========
 
 #. Enable telemetry:
 
-   Before probes can generate records, the telemetry client daemons must be
-   enabled. You can configure the client before enabling by creating a custom
+   You must opt-in and start telemetry before probes can generate records. You
+   can configure the client before starting telemetry by creating a custom
    :file:`telemetrics.conf` file that you place in the :file:`/etc/telemetrics`
-   directory. If you choose to use the default settings, records will be sent
-   to the telemetrics backend server managed by the |CL| development team at
-   Intel.
+   directory. If you choose to use the built-in default settings, records will
+   be sent to the telemetrics backend server managed by the |CL| development
+   team at Intel. 
 
 #. Save record data locally:
 
@@ -181,9 +185,7 @@ Enable or disable telemetry
 
    This installs the necassary software, enables telemetry by creating the file
    :file:`/etc/telemetrics/opt-in`, and starts the :command:`telemprobd` and
-   :command:`telempostd` daemons. Your system will begin to send telemetry data to the server defined in the file :file:`/etc/telemetrics/telemetrics.conf`. If this file does not exist, the :command:`telemprobd` and
-   :command:`telempostd` daemons will use the file
-   :file:`/usr/share/defaults/telemetrics/telemetrics.conf`.
+   :command:`telempostd` daemons. Your system will begin to send telemetry data to the backend server.
 
 #. Disabling after install:
 
@@ -228,11 +230,12 @@ system.
 To change how records are managed, copy the default
 :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file to
 :file:`/etc/telemetrics/telemetrics.conf` and edit it. The changes in the
-:file:`/etc/telemetrics/telemetrics.conf` file will override the defaults in
-the :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file. You may need
-root permissions to create and edit files in :file:`/etc`. For each
-example, and for any time you make changes to the configuration file, you must
-restart the client daemons to pick up the changes:
+:file:`/etc/telemetrics/telemetrics.conf` file will override the built-in 
+defaults referenced in the
+:file:`/usr/share/defaults/telemetrics/telemetrics.conf` file.
+You will need root permissions to create and edit files in :file:`/etc`. For
+each example, and for any time you make changes to the configuration file, you
+must restart the client daemons to pick up the changes:
 
 .. code-block:: bash
 
@@ -495,7 +498,7 @@ Prerequisites
 -------------
 
 Confirm that the telemetrics header file is located on the system at
-:file:`usr/include/telemetry.h`  The `latest version`_ of the file can also be
+:file:`usr/include/telemetry.h`. The `latest version`_ of the file can also be
 found on github for reference, but installing the :command:`telemetry` bundle
 will install the header file that matches your |CL| version.
 
@@ -728,16 +731,32 @@ Client configuration
 
 The telemetry client will look for the configuration file located at
 :file:`/etc/telemetrics/telemetrics.conf` and use it if it exists. If the
-file does not exist, the client will use the default configuration located
-at :file:`/usr/share/defaults telemetrics/telemetrics.conf`. To modify or
+file does not exist, the client will use the default configuration defined 
+at build time. There is a sample configuration file located at
+:file:`/usr/share/defaults telemetrics/telemetrics.conf` and represents the
+default values that are used when the programs are built. To modify or
 customize the configuration, copy the file from
-:file:`/usr/share/defaults/telemetrics` to :file:`/etc/telemetrics` and edit
-it.
+:file:`/usr/share/defaults/telemetrics/telemetrics.conf` to the file 
+:file:`/etc/telemetrics/telemetrics.conf` and edit it to add your
+customizations.
+
+.. code-block:: bash
+
+   sudo mkdir -p /etc/telemetrics
+   cp /usr/share/defaults/telemetrics/telemetrics.conf /etc/telemetrics/telemetrics.conf
+
+.. note::
+
+   Telemetrics configuration is a layered mechanism since the defaults are 
+   defined at build time and each field can be overwritten individually. 
+   Therefore you only need to add the specific field that you want to change
+   from the default value to your customized value in the 
+   :file:`/etc/telemetrics/telemetrics.conf` file.
 
 Configuration options
 ---------------------
 
-The client uses the following configuration options from the config file:
+The client can use the following configuration options from the config file:
 
 server
    This specifies the web server to which telempostd sends the telemetry
@@ -803,7 +822,7 @@ record_server_delivery_enabled
   .. note::
 
   	 Configuration options may change as the telemetry client evolves.
-  	 Please use the comments in the file itself as the most accurate
+  	 Please use the comments in the default file itself as the most accurate
   	 reference for configuration.
 
 
