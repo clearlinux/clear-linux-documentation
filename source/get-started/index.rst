@@ -24,7 +24,7 @@ When installing |CL-ATTR| in a VM, consider which kernel to use.
    :hidden:
 
    compatibility-check
-   bootable-usb/bootable-usb
+   bootable-usb
 
 Install
 *******
@@ -32,8 +32,8 @@ Install
 .. toctree::
    :maxdepth: 1
 
-   bare-metal-install-desktop/bare-metal-install-desktop
-   bare-metal-install-server/bare-metal-install-server
+   bare-metal-install-desktop
+   bare-metal-install-server
    install-configfile
 
 .. _virtual-machine-install:
@@ -47,3 +47,12 @@ Install in a virtual machine
 
    virtual-machine-install/*
    ../../guides/maintenance/increase-virtual-disk-size.rst
+
+Deploy to the cloud
+********************
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   cloud-install/*

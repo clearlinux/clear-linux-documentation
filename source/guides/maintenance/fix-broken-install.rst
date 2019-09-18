@@ -32,7 +32,7 @@ Boot a live desktop image to fix target system
 
 #. Boot the |CL| live desktop image.
 
-.. include:: ../../get-started/bare-metal-install-desktop/bare-metal-install-desktop.rst
+.. include:: ../../get-started/bare-metal-install-desktop.rst
    :start-after: install-on-target-start:
    :end-before: install-on-target-end:
 

@@ -4,38 +4,37 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/cpu-performance.rst:4
 msgid "CPU Power and Performance"
-msgstr ""
+msgstr "CPU 功率和性能"
 
 #: ../../guides/maintenance/cpu-performance.rst:6
 msgid "This guide explains the CPU power and performance mechanisms in |CL-ATTR|."
-msgstr ""
+msgstr "本指南介绍 |CL-ATTR| 中的 CPU 功率和性能机制。"
 
 #: ../../guides/maintenance/cpu-performance.rst:13
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../guides/maintenance/cpu-performance.rst:15
 msgid ""
 "Modern x86 :abbr:`CPUs (central processing units)` employ a number of "
 "features and technologies to balance performance, energy, and thermal "
 "efficiencies."
-msgstr ""
+msgstr "现代 x86 :abbr:`CPUs (central processing units)` 采用多种功能和技术来平衡性能、能耗和热效率。"
 
 #: ../../guides/maintenance/cpu-performance.rst:18
 msgid ""
@@ -44,45 +43,45 @@ msgid ""
 "return to a low energy idle state. It is important to understand and "
 "evaluate all of these technologies when troubleshooting or considering "
 "changing the defaults."
-msgstr ""
+msgstr "默认情况下，|CL| 优先考虑发挥 CPU 最佳性能，其理念是程序执行得越快，CPU 就能越快返回低功耗空闲状态。排除故障或考虑更改默认值时，了解和评估所有这些技术至关重要。"
 
 #: ../../guides/maintenance/cpu-performance.rst:28
 msgid "CPU power saving mechanisms"
-msgstr ""
+msgstr "CPU 节能机制"
 
 #: ../../guides/maintenance/cpu-performance.rst:30
 msgid ""
 "C-states and P-states are both CPU power saving mechanisms that are "
 "entered under different operating conditions. The tradeoff is a slightly "
 "longer time to exit these states when the CPU is needed once again."
-msgstr ""
+msgstr "C 状态和 P 状态都属于 CPU 节能机制，CPU 会在不同工况下进入这些机制。权衡的结果是，当再次需要用到 CPU 时，退出这些状态的时间会稍微长一点。"
 
 #: ../../guides/maintenance/cpu-performance.rst:37
 msgid "C-states (idle states)"
-msgstr ""
+msgstr "C 状态（空闲状态）"
 
 #: ../../guides/maintenance/cpu-performance.rst:39
 msgid ""
 "C-states are hardware sleep states that are entered when it is determined"
 " that the CPU is idle and not executing instructions."
-msgstr ""
+msgstr "C 状态是硬件睡眠状态，当系统确定 CPU 空闲且未执行指令时便会进入该状态。"
 
 #: ../../guides/maintenance/cpu-performance.rst:42
 msgid ""
 "C-states aim to reduce power utilization by increasingly reducing clock "
 "frequency, voltages, and features in each state."
-msgstr ""
+msgstr "在 C 状态下，系统通过不断降低每个状态下的时钟频率、电压和功能来降低功耗。"
 
 #: ../../guides/maintenance/cpu-performance.rst:45
 msgid ""
 "Although C-states can typically be limited or disabled in a system's UEFI"
 " or BIOS configuration, these settings are overridden when the "
 "`intel_idle driver`_ is in use."
-msgstr ""
+msgstr "虽然在系统的 UEFI 或 BIOS 配置中通常可以限制或禁用 C 状态，但使用 `intel_idle driver`_ 时，这些设置会被覆盖。"
 
 #: ../../guides/maintenance/cpu-performance.rst:49
 msgid "To view the current cpuidle driver run this command in a terminal:"
-msgstr ""
+msgstr "要查看当前的 cpuidle 驱动程序，请在终端中运行以下命令："
 
 #: ../../guides/maintenance/cpu-performance.rst:55
 msgid ""
@@ -90,46 +89,46 @@ msgid ""
 "boot parameter by adding :command:`processor.max_cstate=N "
 "intel_idle.max_cstate=N` or completely disabled with "
 ":command:`idle=poll`."
-msgstr ""
+msgstr "故障排除时，可以通过添加 :command:`processor.max_cstate=N intel_idle.max_cstate=N` 来使用内核命令行引导参数限制 C 状态，或者使用 :command:`idle=poll` 完全禁用 C 状态。"
 
 #: ../../guides/maintenance/cpu-performance.rst:61
 msgid ""
 ":command:`processor.max_cstate=0` is changed to "
 ":command:`processor.max_cstate=1` by the kernel to be a valid value."
-msgstr ""
+msgstr "内核会将 :command:`processor.max_cstate=0` 改为 :command:`processor.max_cstate=1`，以使其成为有效值。"
 
 #: ../../guides/maintenance/cpu-performance.rst:64
 msgid ""
 ":command:`intel_idle.max_cstate=0` disables the Intel Idle driver, not "
 "set it to C-state 0."
-msgstr ""
+msgstr ":command:`intel_idle.max_cstate=0` 会禁用英特尔 Idle 空闲驱动程序，而不是将其设置为 C 状态 0。"
 
 #: ../../guides/maintenance/cpu-performance.rst:70
 msgid "P-states (performance states)"
-msgstr ""
+msgstr "P 状态（性能状态）"
 
 #: ../../guides/maintenance/cpu-performance.rst:72
 msgid ""
 "P-states, also known as *Intel SpeedStep® technology* on Intel processors"
 " or *Cool'n'Quiet* on AMD processors, are states entered while the CPU is"
 " active and executing instructions."
-msgstr ""
+msgstr "P 状态（在英特尔处理器上也称为 Intel SpeedStep® 技术，而在 AMD 处理器上也称为 Cool'n'Quiet）是 CPU 处于活动中且正在执行指令时进入的状态。"
 
 #: ../../guides/maintenance/cpu-performance.rst:76
 msgid ""
 "P-states aim to reduce power utilization by adjusting CPU clock frequency"
 " and voltages based on CPU demand."
-msgstr ""
+msgstr "P 状态会根据 CPU 需求调整 CPU 时钟频率和电压，以此来降低功耗。"
 
 #: ../../guides/maintenance/cpu-performance.rst:79
 msgid ""
 "P-states can typically be limited or disabled in a system's firmware "
 "(UEFI/BIOS)."
-msgstr ""
+msgstr "在系统固件 (UEFI/BIOS) 中通常可以限制或禁用 P 状态。"
 
 #: ../../guides/maintenance/cpu-performance.rst:82
 msgid "Turbo boost"
-msgstr ""
+msgstr "睿频加速技术"
 
 #: ../../guides/maintenance/cpu-performance.rst:84
 msgid ""
@@ -137,24 +136,24 @@ msgid ""
 " core(s) on a processor to temporarily operate at a higher than rated CPU"
 " clock frequency to accommodate demanding workloads if the CPU is under "
 "defined power and thermal thresholds."
-msgstr ""
+msgstr "部分现代英特尔 CPU 上采用了 `英特尔® 睿频加速技术`_，该技术可在 CPU 未超出指定功率和热阈值时，支持处理器上的核心暂时以高于额定 CPU 时钟频率的频率工作。"
 
 #: ../../guides/maintenance/cpu-performance.rst:89
 msgid ""
 "Turbo boost is an extension of P-states. As such, changing or limiting "
 "C-states or P-states impact the ability of a process to enter Turbo "
 "boost."
-msgstr ""
+msgstr "睿频加速技术是对 P 状态的扩展。因此，改变或限制 C 状态或 P 状态会影响 CPU 使用睿频加速技术。"
 
 #: ../../guides/maintenance/cpu-performance.rst:92
 msgid ""
 "Turbo boost can be disabled in a system's UEFI or BIOS. Turbo boost can "
 "also be disabled within |CL| with the command:"
-msgstr ""
+msgstr "睿频加速技术可以在系统的 UEFI 或 BIOS 中禁用。睿频加速技术也可以在 |CL| 中使用以下命令禁用："
 
 #: ../../guides/maintenance/cpu-performance.rst:100
 msgid "Linux CPU clock frequency scaling"
-msgstr ""
+msgstr "Linux CPU 时钟频率缩放"
 
 #: ../../guides/maintenance/cpu-performance.rst:102
 msgid ""
@@ -162,11 +161,11 @@ msgid ""
 "-states-section>` and :ref:`P-states <P-states-section>` via CPU drivers "
 "and governors that provide algorithms that define how and when to enter "
 "these states."
-msgstr ""
+msgstr "Linux 中的 CPUFreq 子系统允许操作系统通过 CPU 驱动程序和调速程序控制 :ref:`C-states <c-states-section>` 和 :ref:`P-states <P-states-section>`，因为这些驱动程序和调速程序提供了相应算法，可以定义如何以及何时进入这些状态。"
 
 #: ../../guides/maintenance/cpu-performance.rst:108
 msgid "Scaling driver"
-msgstr ""
+msgstr "缩放驱动程序"
 
 #: ../../guides/maintenance/cpu-performance.rst:110
 msgid ""
@@ -174,17 +173,17 @@ msgid ""
 "modern Intel processors from the Sandy Bridge generation or newer. Other "
 "processors may default to the :command:`acpi-cpufreq*` driver which reads"
 " values from the systems UEFI or BIOS."
-msgstr ""
+msgstr "对于 Sandy Bridge 这一代或更新一代的现代英特尔处理器，Linux 使用 `Intel P-state driver`_ 和 :command:`intel_pstate`。对于其他处理器，可能默认使用从系统 UEFI 或 BIOS 读取值的 :command:`acpi-cpufreq*` 驱动程序。"
 
 #: ../../guides/maintenance/cpu-performance.rst:115
 msgid ""
 "To view the current CPU frequency scaling driver run this command in a "
 "terminal:"
-msgstr ""
+msgstr "要查看当前的 CPU 频率缩放驱动程序，请在终端中运行以下命令："
 
 #: ../../guides/maintenance/cpu-performance.rst:122
 msgid "Scaling governor"
-msgstr ""
+msgstr "缩放调速程序"
 
 #: ../../guides/maintenance/cpu-performance.rst:124
 msgid ""
@@ -193,43 +192,43 @@ msgid ""
 "this may sound wasteful at first, it is important to remember that power "
 "utilization does not increase significantly simply because of a locked "
 "clock frequency without a workload."
-msgstr ""
+msgstr "|CL| 将 CPU 调速程序设置为性能，要求 CPU 以最大时钟频率运行。换句话说，CPU 进入 P 状态 P0。虽然这一开始听起来可能有点浪费，但请记住，在没有工作负载的情况下锁定时钟频率并不会导致功耗显著增加。"
 
 #: ../../guides/maintenance/cpu-performance.rst:130
 msgid ""
 "To view the current CPU frequency scaling governor run this command in a "
 "terminal:"
-msgstr ""
+msgstr "要查看当前的 CPU 频率缩放调速程序，请在终端中运行以下命令："
 
 #: ../../guides/maintenance/cpu-performance.rst:136
 msgid "To change the CPU frequency scaling governor:"
-msgstr ""
+msgstr "要更改 CPU 频率缩放调速程序："
 
 #: ../../guides/maintenance/cpu-performance.rst:138
 msgid "Disable |CL| enforcement of certain power and performance settings:"
-msgstr ""
+msgstr "禁止 |CL| 强制使用某些功率和性能设置："
 
 #: ../../guides/maintenance/cpu-performance.rst:144
 msgid ""
 "Change the governor. In the example below, the governor is set to "
 "*performance*:"
-msgstr ""
+msgstr "更改调速程序。在以下示例中，调速程序设置为性能："
 
 #: ../../guides/maintenance/cpu-performance.rst:151
 msgid ""
 "The list of all governors can be found in the Linux kernel documentation "
 "on `CPUFreq Governors`_."
-msgstr ""
+msgstr "所有调速程序的列表可以在有关 `CPUFreq Governors`_ 的 Linux 内核文档中找到。"
 
 #: ../../guides/maintenance/cpu-performance.rst:156
 msgid ""
 "The intel_pstate driver only supports *performance* and *powersave* "
 "governors."
-msgstr ""
+msgstr "intel_pstate 驱动程序仅支持性能和节能调速程序。"
 
 #: ../../guides/maintenance/cpu-performance.rst:159
 msgid "Thermal management"
-msgstr ""
+msgstr "散热管理"
 
 #: ../../guides/maintenance/cpu-performance.rst:161
 msgid ""
@@ -237,18 +236,18 @@ msgid ""
 "overheating of platforms. When temperature thresholds are exceeded, "
 "thermald forces a C-state by inserting CPU sleep cycles and adjusts "
 "available cooling methods. This can be especially desirable for laptops."
-msgstr ""
+msgstr "`thermald`_ 是一个用于防止平台过热的 Linux 散热管理守护程序。当超过温度阈值时，thermald 会通过插入 CPU 睡眠循环强制 CPU 进入 C 状态，并调整可用的散热方法。这对笔记本电脑来说尤其有效。"
 
 #: ../../guides/maintenance/cpu-performance.rst:166
 msgid ""
 "By default, thermald is disabled in |CL| and starts automatically if "
 "battery power is detected. thermald can be manually enabled using the "
 "systemd service by running the command:"
-msgstr ""
+msgstr "默认情况下，thermald 在 |CL| 中被禁用。如果检测到电池供电，它会自动启动。通过运行以下命令，可以使用 systemd 服务手动启用 thermald："
 
 #: ../../guides/maintenance/cpu-performance.rst:175
 msgid "For more information, see the thermald man page:"
-msgstr ""
+msgstr "有关详细信息，请参阅 thermald 手册页："
 
 #: ../../guides/maintenance/cpu-performance.rst:181
 msgid ""
@@ -256,13 +255,13 @@ msgid ""
 "temperatures from thermald. To use ThermalMonitor, add the :command"
 ":`desktop-apps-extras` bundle and add your user account to the power "
 "group:"
-msgstr ""
+msgstr "`ThermalMonitor`_ 是一个 GUI 应用程序，可以直观地绘制和记录来自 thermald 的温度数据。要使用 ThermalMonitor，请添加 :command:`desktop-apps-extras` 捆绑包，并将您的用户帐户添加到 power 组："
 
 #: ../../guides/maintenance/cpu-performance.rst:194
 msgid ""
 "After adding a new group, you must log out and log back in for the new "
 "group to take effect."
-msgstr ""
+msgstr "添加新组后，您必须注销并重新登录，然后新组才能生效。"
 
 #~ msgid ""
 #~ "The list of all governors can be"
@@ -312,4 +311,6 @@ msgstr ""
 #~ " log out and log back in for"
 #~ " the new group to take affect."
 #~ msgstr ""
+
+
 

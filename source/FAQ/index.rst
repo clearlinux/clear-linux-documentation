@@ -9,7 +9,6 @@ Below is a list of commonly asked questions with answers sourced from the
 .. contents:: :local:
     :depth: 2
 
-
 General
 *******
 
@@ -44,7 +43,7 @@ Is telemetry required?
 The telemetry solution provided by |CL| is entirely optional and customizable.
 It is disabled by default. If you do choose to enable telemetry, the data
 helps the |CL| team proactively identify and resolve bugs. See the
-:ref:`telemetry <telemetry-about>` page for more information.
+:ref:`telem-guide` guide for more information.
 
 |
 
@@ -75,12 +74,12 @@ Software packages
 How is software installed and updated?
 ======================================
 
-|CL| provides software in the form of :ref:`bundles <bundles-about>` and
-updates software with :ref:`swupd <swupd-about>`.
+|CL| provides software in the form of :ref:`bundles-guide` and
+updates software with :ref:`swupd <swupd-guide>`.
 
-:ref:`FlatPak\* <flatpak>` is an application virtualization solution that allows
-more software to be available to |CL| users by augmenting the software |CL|
-packages natively with software available through FlatPak.
+:ref:`Flatpak\* <flatpak-tutorial>` is an application virtualization solution
+that allows more software to be available to |CL| users by augmenting the
+software |CL| packages natively with software available through Flatpak.
 
 Our goal is to have software packaged natively and made available through
 bundles whenever possible.
@@ -90,7 +89,7 @@ bundles whenever possible.
 Does |CL| use RPMs like other distros?
 ======================================
 
-|CL| provides software in the form of :ref:`bundles <bundles-about>`. The RPM
+|CL| provides software in the form of :ref:`bundles-guide`. The RPM
 format is used as an intermediary step for packaging and determining software
 dependencies at OS build time.
 
@@ -118,7 +117,7 @@ What software is available on |CL|?
 ===================================
 
 Available software can be found in the `Software Store`_, through the GNOME\*
-Software application on the desktop, or by using :ref:`swupd search <bundle-commands>`.
+Software application on the desktop, or by using :ref:`swupd search <swupd-quick-ref>`.
 
 |
 
@@ -130,6 +129,23 @@ copyright and licensing complexities.
 
 A discussion on manually installing and maintaining Google Chrome can be found
 on GitHub: https://github.com/clearlinux/distribution/issues/422
+
+|
+
+Is Microsoft\* Visual Studio Code\* available?
+==============================================
+
+Yes. Find the CLI command for installing `VS Code`_ and other Flatpak apps in
+the `software store`_. Installing Flatpak apps is also covered in our
+:ref:`tutorial <flatpak-tutorial>`. 
+
+The |CL| team is working on a natively packaged version of Visual Studio Code
+for future release.
+
+Join a community forum discussion about manually installing and maintaining
+Visual Studio Code: https://community.clearlinux.org/t/need-native-support-for-vs-code-through-swupd/
+
+.. _VS Code: https://clearlinux.org/software?search_api_fulltext=vscode
 
 |
 

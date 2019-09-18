@@ -15,7 +15,7 @@ Description
 ***********
 
 |CL| is a rolling release and produces an average of 10 releases per week using the
-ister tool. With each release we produce multiple
+ister tool. With each release, we produce multiple
 :ref:`image types for different environments <image-types>` and use cases such
 as installers, Hyper-V, KVM, or VMWare.
 

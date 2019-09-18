@@ -1,0 +1,448 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../get-started/cloud-install/azure.rst:4
+msgid "|CL-ATTR| on Microsoft Azure"
+msgstr "Microsoft* Azure* 上的 |CL-ATTR|"
+
+#: ../../get-started/cloud-install/azure.rst:6
+msgid ""
+"|CL-ATTR| is available for you to use in the Microsoft* Azure* "
+"marketplace and is offered with three different images, also known as a "
+":abbr:`SKU (Stock Keeping Unit)`."
+msgstr "|CL-ATTR| 在 Microsoft* Azure* Marketplace 中提供，并且具有三个不同的映像（也称为 :abbr:`SKU（库存单位）`）。"
+
+#: ../../get-started/cloud-install/azure.rst:10
+msgid ""
+"|CL| Basic - This SKU consists of a bare-bones system which can be used "
+"as a starting point for those wanting to explore and build out a system "
+"with additional software bundles of their choosing."
+msgstr "|CL| 基本 - 此 SKU 包含仅具有基本功能的系统，对于想要探索并使用所选的其他软件捆绑包构建系统的用户来说，此 SKU 可用作起点。"
+
+#: ../../get-started/cloud-install/azure.rst:14
+msgid ""
+"|CL| Containers - This SKU comes with the containers-basic software "
+"bundle already installed."
+msgstr "|CL| 容器 - 此 SKU 附带已安装的 containers-basic 软件捆绑包。"
+
+#: ../../get-started/cloud-install/azure.rst:17
+msgid ""
+"|CL| Machine-learning - This SKU comes pre-loaded with popular open "
+"source tools for developing machine learning applications."
+msgstr "|CL| 机器学习 - 此 SKU 预加载了用于开发机器学习应用程序的流行开源工具。"
+
+#: ../../get-started/cloud-install/azure.rst:20
+msgid ""
+"You can access these images directly from your MS Azure dashboard through"
+" the `Azure portal`_ or by using the MS Azure :abbr:`CLI (Command Line "
+"Interface)` 2.0. If you do not already have an account set up with MS "
+"Azure, you can sign up for a `MS Azure free account`_ to access the |CL| "
+":abbr:`VM(Virtual Machine)` images."
+msgstr "您可以直接从 Microsoft Azure 仪表板通过 `Azure 门户`_ 访问这些映像，也可以使用 Microsoft Azure :abbr:`CLI（命令行接口）` 2.0 来访问。如果您尚未设置 Microsoft Azure 帐户，您可以注册 `Microsoft Azure 免费帐户`_ 以访问 |CL| :abbr:`VM（虚拟机）` 映像。"
+
+#: ../../get-started/cloud-install/azure.rst:26
+msgid ""
+"The Azure CLI offers the ability to create and manage resources in MS "
+"Azure from the command line. In this tutorial you learn to:"
+msgstr "Azure CLI 提供了通过命令行在 Microsoft Azure 中创建和管理资源的功能。在本教程中，您将学习："
+
+#: ../../get-started/cloud-install/azure.rst:29
+msgid "Install the latest MS Azure CLI on your |CL| machine."
+msgstr "在 |CL| 计算机上安装最新 Microsoft Azure CLI。"
+
+#: ../../get-started/cloud-install/azure.rst:31
+msgid "Log into MS Azure using the CLI 2.0 interface."
+msgstr "使用 CLI 2.0 接口登录到 Microsoft Azure。"
+
+#: ../../get-started/cloud-install/azure.rst:33
+msgid "Create a MS Azure resource group."
+msgstr "创建 Microsoft Azure 资源组。"
+
+#: ../../get-started/cloud-install/azure.rst:35
+msgid "Locate the |CL| images."
+msgstr "找到 |CL| 映像。"
+
+#: ../../get-started/cloud-install/azure.rst:37
+msgid "Create and log into the |CL| virtual machine."
+msgstr "创建 |CL| 虚拟机并登录到该虚拟机。"
+
+#: ../../get-started/cloud-install/azure.rst:39
+msgid "Stop and deallocate the |CL| VM and resources."
+msgstr "停止并取消分配 |CL| 虚拟机和资源。"
+
+#: ../../get-started/cloud-install/azure.rst:41
+msgid ""
+"To use the MS Azure CLI 2.0 on your |CL| system, your system must have "
+"the following packages installed:"
+msgstr "要在 |CL| 系统中使用 Microsoft Azure CLI 2.0，您的系统必须已安装了以下软件包："
+
+#: ../../get-started/cloud-install/azure.rst:44
+msgid "Python 2.7 or later"
+msgstr "Python 2.7 或更高版本"
+
+#: ../../get-started/cloud-install/azure.rst:46
+msgid "libffi"
+msgstr "libffi"
+
+#: ../../get-started/cloud-install/azure.rst:48
+msgid "OpenSSL 1.0.2"
+msgstr "OpenSSL 1.0.2"
+
+#: ../../get-started/cloud-install/azure.rst:50
+msgid ""
+"You can check to see what versions you have installed on your system by "
+"running the individual commands as follows:"
+msgstr "您可以通过运行如下所示的各个命令来检查系统中已安装的版本："
+
+#: ../../get-started/cloud-install/azure.rst:78
+msgid ""
+"If you do not have these packages installed on your |CL| system, install "
+"the sysadmin-basic software bundle using the :command:`swupd` command:"
+msgstr "如果您的 |CL| 系统中尚未安装这些软件包，请使用 :command:`swupd` 命令安装 sysadmin-basic 软件捆绑包："
+
+#: ../../get-started/cloud-install/azure.rst:87
+msgid ""
+"These instructions are for installing the MS Azure CLI 2.0 tools on a "
+"|CL| system. If you are installing the CLI on another platform, follow "
+"the instructions in the `MS Azure Install Azure CLI tutorial`_ for your "
+"specific operating system."
+msgstr "这些说明与在 |CL| 系统中安装 Microsoft Azure CLI 2.0 工具相关。如果要在其他平台上安装 CLI，请遵循 `Microsoft Azure 安装 Azure CLI 教程`_ 中针对您的特定操作系统的说明。"
+
+#: ../../get-started/cloud-install/azure.rst:93
+msgid "Install MS Azure CLI 2.0 on |CL|"
+msgstr "在 |CL| 中安装 Microsoft Azure CLI 2.0"
+
+#: ../../get-started/cloud-install/azure.rst:95
+msgid ""
+"To install the MS Azure CLI 2.0 on |CL|, use the :command:`curl` command "
+"as follows:"
+msgstr "要在 |CL| 中安装 Microsoft Azure CLI 2.0，请按如下所示使用 :command:`curl` 命令："
+
+#: ../../get-started/cloud-install/azure.rst:102
+msgid ""
+"If you get an error message from :command:`curl` related to the -L "
+"parameter or an error message is generated that includes the text "
+"\"Object Moved\", use the full URL instead of the aka.ms redirect "
+"address:"
+msgstr "如果从 :command:`curl` 收到与 -L 参数相关的错误消息，或者生成了包含文本 \"Object Moved\" 的错误消息，请使用完整 URL，而不要使用 aka.ms 重定向地址："
+
+#: ../../get-started/cloud-install/azure.rst:110
+msgid ""
+"The installation script begins and prompts you several times during "
+"execution for information."
+msgstr "安装脚本将开始，并在执行期间多次提示您提供信息。"
+
+#: ../../get-started/cloud-install/azure.rst:115
+msgid ""
+"The console output from the script displays your username instead of the "
+"**[user]** variable shown on this tutorial."
+msgstr "脚本的控制台输出会显示您的用户名，而非本教程中显示的 [user] 变量。"
+
+#: ../../get-started/cloud-install/azure.rst:122
+msgid ""
+"Press the :kbd:`Enter` key to accept the default or you can chose another"
+" directory to install the MS Azure CLI 2.0 tools into."
+msgstr "按 :kbd:`Enter` 键以接受默认目录，或者也可以选择将 Microsoft Azure CLI 2.0 工具安装到其他目录。"
+
+#: ../../get-started/cloud-install/azure.rst:129
+msgid ""
+"Press the :kbd:`Enter` key to accept the default or you can chose another"
+" directory to install the :command:`az` executable in."
+msgstr "按 :kbd:`Enter` 键以接受默认目录，或者也可以选择将 :command:`az` 可执行文件安装到其他目录。"
+
+#: ../../get-started/cloud-install/azure.rst:132
+msgid ""
+"The installation downloads and builds all required tools and when "
+"complete prompts you with:"
+msgstr "安装过程会下载并生成所有所需的工具，并在完成后提示以下消息："
+
+#: ../../get-started/cloud-install/azure.rst:139
+msgid "Type :kbd:`Y` and press the :kbd:`Enter` key to allow this modification."
+msgstr "键入 :kbd:`Y` 并按 :kbd:`Enter` 键以允许此修改。"
+
+#: ../../get-started/cloud-install/azure.rst:145
+msgid ""
+"Press the :kbd:`Enter` key to accept the default or enter the pathname to"
+" your :file:`.bashrc` file. The installation completes with the final "
+"output shown below:"
+msgstr "按 :kbd:`Enter` 键以接受默认路径名称，或者将路径名称输入到 :file:`.bashrc` 文件中。安装过程将完成，最终输出如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:160
+msgid ""
+"The installation program finishes and you must restart your shell for the"
+" changes to take effect. When the installation is successful, run the "
+"following command to restart your shell."
+msgstr "安装程序将完成，您必须重新启动 shell 以使更改生效。如果安装成功，请运行以下命令以重新启动 shell。"
+
+#: ../../get-started/cloud-install/azure.rst:168
+msgid ""
+"With the MS Azure CLI 2.0 executable successfully built and installed, "
+"run the :command:`az` command."
+msgstr "已成功生成并安装 Microsoft Azure CLI 2.0 可执行文件后，运行 :command:`az` 命令。"
+
+#: ../../get-started/cloud-install/azure.rst:175
+msgid "The output from the :command:`az` command is shown below:"
+msgstr ":command:`az` 命令的输出如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:254
+msgid "Log into your Microsoft Azure account"
+msgstr "登录到您的 Microsoft Azure 帐户"
+
+#: ../../get-started/cloud-install/azure.rst:256
+msgid ""
+"With the :command:`az` command properly installed and functional, login "
+"to your MS Azure account using the :command:`az login` command shown "
+"below:"
+msgstr ":command:`az` 命令已正确安装并且正常工作后，使用如下所示的 :command:`az login` 命令登录到您的 Microsoft Azure 帐户："
+
+#: ../../get-started/cloud-install/azure.rst:263
+msgid "The output from this command is:"
+msgstr "该命令的输出如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:269
+msgid ""
+"Open your browser and enter the page `https://aka.ms/devicelogin` as "
+"shown in figure 1:"
+msgstr "打开浏览器并访问图 1 中显示的页面 `https://aka.ms/devicelogin`："
+
+#: ../../get-started/cloud-install/azure.rst:276
+msgid "Figure 1: :guilabel:`Microsoft Device Login`"
+msgstr "图 1： :guilabel:`Microsoft Device Login`"
+
+#: ../../get-started/cloud-install/azure.rst:278
+msgid ""
+"Enter the code `BQ9MG442B` to authenticate your device as shown in figure"
+" 2. The code `BQ9MG442B` is a random authentication code generated for "
+"each session login and will be different each time you log into MS Azure "
+"using the :command:`az login` command."
+msgstr "输入代码 `BQ9MG442B` 以对设备进行身份验证，如图 2 中所示。代码 `BQ9MG442B` 是为每次会话登录生成的随机身份验证代码，每次使用 :command:`az login` 命令登录到 Microsoft Azure 时生成的代码都不相同。"
+
+#: ../../get-started/cloud-install/azure.rst:287
+msgid "Figure 2: :guilabel:`Microsoft Device Login - Azure CLI`"
+msgstr "图 2： :guilabel:`Microsoft Device Login - Azure CLI`"
+
+#: ../../get-started/cloud-install/azure.rst:289
+msgid ""
+"Once you enter the authentication code, the website changes to a screen "
+"to enter your existing Microsoft Azure credentials."
+msgstr "输入身份验证代码后，网站将变为用于输入现有 Microsoft Azure 凭据的屏幕。"
+
+#: ../../get-started/cloud-install/azure.rst:292
+msgid ""
+"Log in with your existing MS Azure account credentials. Once complete, "
+"the browser screen changes again as shown in figure 3. The screen shows "
+"you have signed into the Microsoft Cross-platform Command Line Interface "
+"application on your device and you can close the window."
+msgstr "使用现有 Microsoft Azure 帐户凭据登录。完成后，浏览器屏幕将再次改变，如图 3 中所示。该屏幕显示您已在设备上登录到 Microsoft 跨平台命令行接口应用程序，您可以关闭窗口。"
+
+#: ../../get-started/cloud-install/azure.rst:301
+msgid "Figure 3: :guilabel:`Microsoft Azure Cross-platform CLI`"
+msgstr "图 3： :guilabel:`Microsoft Azure Cross-platform CLI`"
+
+#: ../../get-started/cloud-install/azure.rst:303
+msgid ""
+"The MS Azure CLI 2.0 interface is now active using your existing MS Azure"
+" account credentials."
+msgstr "Microsoft Azure CLI 2.0 接口现在处于活动状态，并且正在使用现有 Microsoft Azure 帐户凭据。"
+
+#: ../../get-started/cloud-install/azure.rst:307
+msgid "Create a MS Azure resource group"
+msgstr "创建 Microsoft Azure 资源组"
+
+#: ../../get-started/cloud-install/azure.rst:309
+msgid ""
+"To learn more about MS Azure resource groups, visit the `Azure Resource "
+"Manager overview`_ for an overview and detailed description of resources "
+"within MS Azure."
+msgstr "要了解有关 Microsoft Azure 资源组的更多信息，请参见 `Azure 资源管理器概述`_ 以查看 Microsoft Azure 中的资源的概述和详细说明。"
+
+#: ../../get-started/cloud-install/azure.rst:313
+msgid ""
+"To create our new resource group, run the :command:`az group create ...` "
+"command shown below to create a resource group named `ClearResourceGroup`"
+" using the `-n` parameter and locate it in the `westus` region using the "
+"`-l` parameter."
+msgstr "要创建新的资源组，请运行如下所示的 :command:`az group create ...` 命令，以使用 `-n` 参数创建名为 `ClearResourceGroup` 的资源组并使用 `-l` 参数将该资源组放置在 `westus` 区域中。"
+
+#: ../../get-started/cloud-install/azure.rst:322
+msgid ""
+"When the command has completed, the output from this command is similar "
+"to the following:"
+msgstr "命令完成后，该命令的输出如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:339
+msgid "Create and log into the |CL| virtual machine"
+msgstr "创建 |CL| 虚拟机并登录到该虚拟机"
+
+#: ../../get-started/cloud-install/azure.rst:341
+msgid "For this tutorial, we are using the |CL| Basic SKU for our VM."
+msgstr "在本教程中，我们对虚拟机使用 |CL| 基本 SKU。"
+
+#: ../../get-started/cloud-install/azure.rst:343
+msgid ""
+"To locate the available |CL| Basic VM SKU images in the MS Azure "
+"marketplace, run the :command:`az vm image ...` command:"
+msgstr "要在 Microsoft Azure Marketplace 中找到可用的 |CL| 基本虚拟机 SKU 映像，请运行 :command:`az vm image ...` 命令："
+
+#: ../../get-started/cloud-install/azure.rst:350
+msgid ""
+"This command may take some time to finish. The output lists all available"
+" |CL| Basic images available in the Microsoft Azure marketplace as shown "
+"below:"
+msgstr "完成该命令可能需要一些时间。输出列出了 Microsoft Azure Marketplace 中提供的所有可用 |CL| 基本映像，如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:370
+msgid ""
+"The output list shows current offerings. New versions are added to the MS"
+" Azure marketplace all the time. To reference the latest version of an "
+"image, you can use the version label `latest` when specifying an image."
+msgstr "输出列表显示了当前产品。新版本始终添加到 Microsoft Azure Marketplace。要引用映像的最新版本，您可以在指定映像时使用版本标签 `latest`。"
+
+#: ../../get-started/cloud-install/azure.rst:374
+msgid ""
+"The information shown in the `Urn` column lists the "
+"`Publisher:Offer:Sku:Version` for each image available and this is the "
+"information we want to create the |CL| Basic VM. Since we are creating a "
+"|CL| Basic VM, highlight the `clear-linux-project:clear-linux-os:basic:` "
+"string and copy it to your clipboard. Use the label `latest` instead of "
+"referencing a specific version."
+msgstr "`Urn` 列中显示的信息列出了每个可用映像的 `Publisher:Offer:Sku:Version`，创建 |CL| 基本虚拟机时需要这些信息。由于我们要创建 |CL| 基本虚拟机，因此突出显示 `clear-linux-project:clear-linux-os:basic:` 字符串并将其复制到剪贴板。请使用标签 `latest`，而不要引用特定版本。"
+
+#: ../../get-started/cloud-install/azure.rst:381
+msgid ""
+"Create the new |CL| Basic VM. Run the :command:`az vm create ...` command"
+" using the URN `:clear-linux-project:clear-linux-os:basic:latest` that we"
+" copied to the clipboard on the previous step."
+msgstr "创建新的 |CL| 基本虚拟机。使用在上一步复制到剪贴板的 URN `:clear-linux-project:clear-linux-os:basic:latest` 运行 :command:`az vm create ...` 命令。"
+
+#: ../../get-started/cloud-install/azure.rst:391
+msgid ""
+"If you have already defined your public/private SSH key pair and they are"
+" stored in your :file:`$HOME/.ssh` directory, you do not need to include "
+"the *--generate-ssh-keys* option."
+msgstr "如果您已定义了 SSH 公钥/私钥对，并且它们存储在 :file:`$HOME/.ssh` 目录中，则不需要包括 --generate-ssh-keys 选项。"
+
+#: ../../get-started/cloud-install/azure.rst:395
+msgid ""
+"Your output from this command will look similar to this output, where "
+"[user] is your user name:"
+msgstr "该命令的输出类似于以下输出，其中 [user] 是您的用户名："
+
+#: ../../get-started/cloud-install/azure.rst:416
+msgid "Take note of the public IP address from the output."
+msgstr "记下输出中的公共 IP 地址。"
+
+#: ../../get-started/cloud-install/azure.rst:418
+msgid ""
+"Login into the new |CL| Basic VM, run the :command:`ssh` command with the"
+" public IP address obtained from the previous step as shown:"
+msgstr "登录到新的 |CL| 基本虚拟机，使用在上一步获取的公共 IP 地址运行 :command:`ssh` 命令，如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:425
+msgid ""
+"You may see the following message about the authenticity of the host. If "
+"this appears, type `yes` to proceed connecting to your new |CL| VM."
+msgstr "您可能会看到以下有关主机可靠性的消息。如果出现此消息，请键入 `yes` 以继续连接到新的 |CL| 虚拟机。"
+
+#: ../../get-started/cloud-install/azure.rst:437
+msgid ""
+"You are now logged into your new |CL| VM as [user], where [user] is your "
+"user name. To check which software bundles are included with this VM "
+"image, run the :command:`sudo swupd bundle-list` command inside the VM:"
+msgstr "您现在已经以 [user] 身份登录到新的 |CL| 虚拟机，其中 [user] 是您的用户名。要检查该虚拟机映像包含哪些软件捆绑包，请在虚拟机中运行 :command:`sudo swupd bundle-list` 命令："
+
+#: ../../get-started/cloud-install/azure.rst:445
+msgid "The output shown should be similar to:"
+msgstr "显示的输出如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:467
+msgid ""
+"When you are finished using your new |CL| VM, type :command:`exit` to "
+"close the :command:`SSH` terminal and logout."
+msgstr "完成使用新的 |CL| 虚拟机后，键入 :command:`exit` 以关闭 :command:`SSH` 终端并注销。"
+
+#: ../../get-started/cloud-install/azure.rst:471
+msgid "Stop and deallocate the |CL| VM and resources"
+msgstr "停止并取消分配 |CL| 虚拟机和资源"
+
+#: ../../get-started/cloud-install/azure.rst:473
+msgid ""
+"When you finish using your new |CL| instance, you must stop the VM and "
+"deallocate the resources in your resource group. If you only stop a VM, "
+"the OS image shuts down but the resources associated with it in your "
+"resource group remain allocated and incurring charges. For instance, if "
+"you stop and then later start the VM using the :command:`az vm start...` "
+"without deallocating the resources, the IP address is retained and you "
+"can access the VM using that same IP address. To release the resources "
+"associated with the VM and stop incurring charges for them, you must "
+"deallocate the resources as well."
+msgstr "完成使用新的 |CL| 实例后，您必须停止并取消分配资源组中的虚拟机和资源。如果仅停止虚拟机，则操作系统映像将关闭，但资源组中与该虚拟机关联的资源将保持已分配并产生费用。例如，如果您停止虚拟机但未取消分配资源，然后使用 :command:`az vm start...` 启动该虚拟机，则 IP 地址会保留，并且您可以使用该 IP 地址访问虚拟机。要释放与虚拟机关联的资源并使它们停止产生费用，您还必须取消分配这些资源。"
+
+#: ../../get-started/cloud-install/azure.rst:482
+msgid ""
+"At the command prompt, enter the :command:`az vm stop...` command as "
+"follows:"
+msgstr "在命令提示符中，输入 :command:`az vm stop...` 命令，如下所示："
+
+#: ../../get-started/cloud-install/azure.rst:489
+msgid "This will stop the VM and then output text similar to:"
+msgstr "该命令将停止虚拟机，然后输出如下所示的文本："
+
+#: ../../get-started/cloud-install/azure.rst:501
+msgid ""
+"Once the VM stops, deallocate the VM resources to stop incurring charges "
+"for the |CL| instance. Enter the following command:"
+msgstr "虚拟机停止后，取消分配虚拟机资源以使 |CL| 实例停止产生费用。输入以下命令："
+
+#: ../../get-started/cloud-install/azure.rst:508
+msgid "**Congratulations!**"
+msgstr "**恭喜！**"
+
+#: ../../get-started/cloud-install/azure.rst:510
+msgid ""
+"You are up and running with |CL| on MS Azure using the Azure CLI 2.0 "
+"command line tools."
+msgstr "您已使用 Azure CLI 2.0 命令行工具启动并运行基于 Microsoft Azure 的 |CL|。"
+
+#: ../../get-started/cloud-install/azure.rst:514
+msgid "Next steps"
+msgstr "后续步骤"
+
+#: ../../get-started/cloud-install/azure.rst:516
+msgid ""
+"To see use cases you can fulfill with your |CL| instance, visit our "
+":ref:`tutorials <tutorials>` section."
+msgstr "要查看使用 |CL| 实例可实现的用例，请参见 :ref:`教程<tutorials>` 一节。"
+
+#: ../../get-started/cloud-install/azure.rst:519
+msgid ""
+"For additional information visit the |CL| `Azure Partner Mini Case "
+"Study`_ and the `Azure Partner Datasheet`_."
+msgstr "有关其他信息，请访问 |CL| `Azure 合作伙伴小型案例研究`_ 和 `Azure 合作伙伴数据表`_。"
+
+#: ../../get-started/cloud-install/azure.rst:522
+msgid ""
+"To learn more about the MS Azure CLI 2.0 tool and options that are "
+"available, visit the `MS Azure documentation and tutorials`_ website."
+msgstr "要了解有关 Microsoft Azure CLI 2.0 工具和可用选项的更多信息，请访问 `Microsoft Azure 文档和教程`_ 网站。"
+
+#~ msgid "Run |CL-ATTR| using Microsoft Azure CLI 2.0"
+#~ msgstr ""
+
+

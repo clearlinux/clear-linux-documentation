@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/clear/bundles.rst:4
+msgid "Bundles"
+msgstr "bundle 文件"
+
+#: ../../guides/clear/bundles.rst:6
+msgid ""
+"Linux-based operating systems contain the code of several hundred, if not"
+" thousands, of open source projects. To make this manageable, "
+"distributions use a concept called \"packages\" to configure and compile "
+"the source code of these projects into binaries."
+msgstr "基于 Linux 的操作系统包含数百甚至数千个开源项目的代码。为了便于管理，发行版使用了一个名为 \"packages\" 的概念来配置这些项目的源代码并将其编译成二进制代码。"
+
+#: ../../guides/clear/bundles.rst:11
+msgid ""
+"Many distributions then split the content of these compiled packages into"
+" so-called sub-packages, which are the granularity at which these "
+"distributions deploy their software. With those kinds of distributions, "
+"system administrators can then install and update sub-packages "
+"individually or as a set, using tools such as \"yum\" and \"apt-get.\""
+msgstr "许多发行版随后将这些编译包的内容分成所谓的子包，这些子包是这些发行版部署其软件的粒度。借助这些类型的发行版，系统管理员就可以使用 \"yum\" 和 \"apt-get.\" 等工具单独或按组安装和更新子包。"
+
+#: ../../guides/clear/bundles.rst:17
+msgid ""
+"The |CL-ATTR| takes a slightly different approach. While we also use the "
+"concept of packages to manage compiling source code into binaries, we do "
+"not use the package concept to deploy software. Instead, we provide "
+"software \"bundles\" that are installed and managed using :ref:`swupd"
+"<swupd-guide>`. Each bundle contains as many or as few open source "
+"projects needed to provide a complete functionality."
+msgstr "|CL-ATTR| 采用的方法稍有不同。虽然我们也使用包的概念来管理将源代码编译成二进制代码的事宜，但是我们不使用包的概念来部署软件。相反，我们提供软件 \"bundles\"，它是使用 :ref:`swupd<swupd-guide>` 进行安装和管理的。每个捆绑包都包含或多或少的开源项目以提供完整功能。"
+
+#: ../../guides/clear/bundles.rst:25
+msgid "Related topics"
+msgstr "相关主题"
+
+#: ../../guides/clear/bundles.rst:27
+msgid ":ref:`swupd-guide`"
+msgstr ":ref:`swupd-guide`"
+
+#~ msgid ""
+#~ "The |CL-ATTR| takes a slightly "
+#~ "different approach. While we also use"
+#~ " the concept of packages to manage"
+#~ " compiling source code into binaries, "
+#~ "we do not use the package concept"
+#~ " to deploy software. Instead, we "
+#~ "provide software \"bundles\" that are "
+#~ "installed and managed using :ref:`swupd"
+#~ "<swupd-about>`. Each bundle contains as "
+#~ "many or as few open source "
+#~ "projects needed to provide a complete"
+#~ " functionality."
+#~ msgstr ""
+
+#~ msgid "Next steps"
+#~ msgstr ""
+
+#~ msgid "To put this concept into practice, see the following resources:"
+#~ msgstr ""
+
+#~ msgid ":ref:`bundles`"
+#~ msgstr ""
+
+#~ msgid ":ref:`bundle-commands`"
+#~ msgstr ""
+
+#~ msgid ":ref:`compatible-kernels`"
+#~ msgstr ""
+
+

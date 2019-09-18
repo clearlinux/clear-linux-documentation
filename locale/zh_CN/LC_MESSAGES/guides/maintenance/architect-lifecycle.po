@@ -4,92 +4,91 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:4
 msgid "Architect the life-cycle of |CL-ATTR|"
-msgstr ""
+msgstr "设计 |CL-ATTR| 生命周期"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:6
 msgid ""
 "This guide describes the basic, recommended infrastructure and workflow "
 "for maintaining a |CL-ATTR| derivative."
-msgstr ""
+msgstr "本指南介绍了推荐的基本基础设施以及维护 |CL-ATTR| 衍生版的工作流程。"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:14
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:16
 msgid ""
 "A repository with software RPM artifacts and a CI/CD system with a |CL| "
 "machine for building `mixes`"
-msgstr ""
+msgstr "一个包含软件 RPM 对象的存储库，以及一个含有 |CL| 计算机的 CI/CD 系统，用于构建 `mixes`"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:19
 msgid "Experience using :ref:`mixer <mixer>` to create a |CL|-based distro"
-msgstr ""
+msgstr "具备使用 :ref:`mixer <mixer>` 创建基于 |CL| 的发行版的经验"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:21
 msgid ""
 "Experience using :ref:`swupd <swupd-guide>` for maintaining the |CL| "
 "build environment"
-msgstr ""
+msgstr "具备使用 :ref:`swupd <swupd-guide>` 维护 |CL| 构建环境的经验"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:24
 msgid "Familiarity with |CL| architecture and reuse of its content in releases"
-msgstr ""
+msgstr "熟悉 |CL| 架构，以及如何在不同版本中重复使用其内容"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:27
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:29
 msgid "Maintaining a |CL| derivative requires:"
-msgstr ""
+msgstr "维护 |CL| 衍生版需要："
 
 #: ../../guides/maintenance/architect-lifecycle.rst:31
 msgid "Monitoring upstream |CL| for new releases"
-msgstr ""
+msgstr "监控上游 |CL| 新版本"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:32
 msgid "Building software packages and staging"
-msgstr ""
+msgstr "构建软件包和模拟环境"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:33
 msgid "Employing CI/CD automation for building releases"
-msgstr ""
+msgstr "采用 CI/CD 自动化来构建版本"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:34
 msgid "Integrating Quality Assurance for testing and validation"
-msgstr ""
+msgstr "集成质量保证以开展测试和验证"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:36
 msgid ""
 "Coordinated infrastructure is deployed to automate the life-cycle of your"
 " |CL| derivative. We divide deployment of this infrastucture in two "
 "parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1."
-msgstr ""
+msgstr "部署协调基础设施，将 |CL| 衍生版的生命周期自动化。我们将该基础设施的部署分为两部分，即内容工作流程*和*版本工作流程，如图 1 所示。"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:44
 msgid "Figure 1: Architect the life-cycle"
-msgstr ""
+msgstr "图 1：设计生命周期"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:47
 msgid "Content Workflow"
-msgstr ""
+msgstr "内容工作流程"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:49
 msgid ""
@@ -101,11 +100,11 @@ msgid ""
 "consumed in a Release Workflow.  The `Watcher Pipeline`_ checks |CL| and "
 "a content provider, such as Koji, to determine if a new release is "
 "necessary."
-msgstr ""
+msgstr "内容工作流程（图 1）编排用于管理分发内容创建的各个流程。这包括从在自定义软件库中检测新版本到生成 RPM 包文件在内的一切工作。RPM 文件充当中间对象，负责跟踪各个软件依赖项，并提供版本工作流程中使用的文件级数据。`Watcher Pipeline`_ 检查 |CL| 和内容提供商，如 Koji，以确定是否需要新版本。"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:58
 msgid "Release Workflow"
-msgstr ""
+msgstr "版本工作流程"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:60
 msgid ""
@@ -116,18 +115,18 @@ msgid ""
 "enables these derivatives to incorporate |CL| content into their own "
 "custom content. The Watcher Pipeline triggers the Release Pipeline to "
 "create new releases."
-msgstr ""
+msgstr "版本工作流程（图 1）收集 RPM 的内容，并确保其可由 :ref:`mixer <mixer>` 使用。内容 Web 服务器托管 |CL| 衍生版，目标系统会连接到该服务器来更新它们的操作系统。作为该工具链的组成部分，`Release Pipeline`_ 允许这些衍生版将 |CL| 内容整合到自己的自定义内容中。Watcher Pipeline 会触发 Release Pipeline 创建新版本。"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:69
 msgid "Implementation"
-msgstr ""
+msgstr "实施"
 
 #: ../../guides/maintenance/architect-lifecycle.rst:71
 msgid ""
 "The |CL| Distro Factory manages the Release Workflow. For detailed "
 "information about Distro Factory deployment, refer to the `clr-distro-"
 "factory`_ GitHub\\* repo."
-msgstr ""
+msgstr "|CL| 发行版工厂管理版本工作流程。有关发行版工厂部署的详细信息，请参阅 `clr-distro-factory`_ GitHub\\* 存储库。"
 
 #~ msgid ""
 #~ "Distro factory implements the *Release "
@@ -204,4 +203,6 @@ msgstr ""
 #~ "full implementation, visit |CL| `Distro "
 #~ "Factory`_ documentation."
 #~ msgstr ""
+
+
 

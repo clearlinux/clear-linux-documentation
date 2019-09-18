@@ -4,7 +4,7 @@ pages:
   script:
   - apk --no-cache add python3
   - python3 -m ensurepip
-  - pip3 install sphinx==1.7.5 docutils==0.14 sphinx_rtd_theme breathe==4.9.1 sphinxcontrib-plantuml sphinx-intl==2.0.0
+  - pip3 install sphinx==1.8.0 docutils==0.14 sphinx_rtd_theme breathe==4.9.1 sphinxcontrib-plantuml sphinx-intl==2.0.0 sphinx-sitemap==1.0.2
   - apk --no-cache add make
   - apk --no-cache add doxygen
   - apk --no-cache add graphviz

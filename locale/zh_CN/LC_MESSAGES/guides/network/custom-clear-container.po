@@ -4,108 +4,107 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/network/custom-clear-container.rst:4
 msgid "Build a custom |CL-ATTR| based Docker container image"
-msgstr ""
+msgstr "根据 Docker 容器映像构建一个自定义 |CL-ATTR|"
 
 #: ../../guides/network/custom-clear-container.rst:6
 msgid ""
 "This guide contains the steps to build a custom container image. The "
 "official base |CL-ATTR| container image is published on Docker\\* Hub and"
 " is updated on a regular basis."
-msgstr ""
+msgstr "本指南包含构建自定义容器映像的步骤。官方基础版 |CL-ATTR| 容器映像发布在 Docker\\* Hub 上，而且会定期更新。"
 
 #: ../../guides/network/custom-clear-container.rst:15
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../guides/network/custom-clear-container.rst:17
 msgid ""
 "You must perform these steps on a |CL| system because the :abbr:`swupd "
 "(software updater)` is used to manage bundles in the container."
-msgstr ""
+msgstr "您必须在 |CL| 系统上执行这些步骤，因为系统使用 :abbr:`swupd (software updater)` 管理容器中的捆绑包。"
 
 #: ../../guides/network/custom-clear-container.rst:20
 msgid ""
 "You must install the :file:`containers-basic` bundle on the |CL| system "
 "or Docker will not work."
-msgstr ""
+msgstr "您必须在 |CL| 系统上安装 :file:`containers-basic` 捆绑包，否则 Docker 将无法运行。"
 
 #: ../../guides/network/custom-clear-container.rst:22
 msgid "You have a basic understanding of Docker."
-msgstr ""
+msgstr "您需要对 Docker 有基本了解。"
 
 #: ../../guides/network/custom-clear-container.rst:25
 msgid "Build the base container image"
-msgstr ""
+msgstr "构建基础容器映像"
 
 #: ../../guides/network/custom-clear-container.rst:27
 msgid "Log in and get root privileges."
-msgstr ""
+msgstr "登录并获得 root 特权。"
 
 #: ../../guides/network/custom-clear-container.rst:33
 msgid "Verify Docker is installed and running."
-msgstr ""
+msgstr "确认 Docker 已安装且正在运行。"
 
 #: ../../guides/network/custom-clear-container.rst:39
 msgid "If Docker is installed and running, the output is similar to this example:"
-msgstr ""
+msgstr "如果 Docker 已安装且正在运行，输出类似于以下示例："
 
 #: ../../guides/network/custom-clear-container.rst:82
 msgid "If Docker is not installed, enter the commands:"
-msgstr ""
+msgstr "如果 Docker 未安装，请输入以下命令："
 
 #: ../../guides/network/custom-clear-container.rst:89
 msgid "Use :command:`os-install` to download and install the bundles."
-msgstr ""
+msgstr "使用 :command:`os-install` 下载并安装捆绑包。"
 
 #: ../../guides/network/custom-clear-container.rst:96
 msgid "The swupd example uses the following flags:"
-msgstr ""
+msgstr "swupd 示例使用以下标志："
 
 #: ../../guides/network/custom-clear-container.rst:98
 msgid ":command:`os-install` tells swupd to download and install."
-msgstr ""
+msgstr ":command:`os-install` 指示 swupd 执行下载和安装。"
 
 #: ../../guides/network/custom-clear-container.rst:99
 msgid ":command:`-V / --version` specifies the version of the |CL| bundles."
-msgstr ""
+msgstr ":command:`-V / --version` 指定 |CL| 捆绑包版本。"
 
 #: ../../guides/network/custom-clear-container.rst:100
 msgid ":command:`--url` specifies the URL of the bundles repository."
-msgstr ""
+msgstr ":command:`--url` 指定捆绑包存储库的 URL。"
 
 #: ../../guides/network/custom-clear-container.rst:101
 msgid ""
 ":command:`--statedir` specifies the state directory where downloaded "
 "bundles and any state information are stored."
-msgstr ""
+msgstr ":command:`--statedir` 指定用来存储下载的捆绑包和任何状态信息的状态目录。"
 
 #: ../../guides/network/custom-clear-container.rst:103
 msgid ""
 ":command:`--no-boot-update` tells swupd to skip updating boot files "
 "because boot files are not required for a container."
-msgstr ""
+msgstr ":command:`--no-boot-update` 指示 swupd 跳过更新引导文件，因为容器不需要引导文件。"
 
 #: ../../guides/network/custom-clear-container.rst:106
 msgid ""
 "For more information on swupd flags, enter the :command:`swupd os-install"
 " -h` command."
-msgstr ""
+msgstr "有关 swupd 标志的详细信息，请输入 :command:`swupd os-install -h` 命令。"
 
 #: ../../guides/network/custom-clear-container.rst:109
 #: ../../guides/network/custom-clear-container.rst:172
@@ -113,67 +112,67 @@ msgstr ""
 #: ../../guides/network/custom-clear-container.rst:233
 #: ../../guides/network/custom-clear-container.rst:295
 msgid "Example output:"
-msgstr ""
+msgstr "结果示例："
 
 #: ../../guides/network/custom-clear-container.rst:146
 msgid "The WARNING message is expected and can be ignored."
-msgstr ""
+msgstr "警告消息是意料之中的，可以忽略。"
 
 #: ../../guides/network/custom-clear-container.rst:148
 msgid "Create a tarball and compress it."
-msgstr ""
+msgstr "创建一个 tarball 并压缩它。"
 
 #: ../../guides/network/custom-clear-container.rst:155
 msgid "Create the Dockerfile to build the image."
-msgstr ""
+msgstr "创建 Dockerfile 来构建映像。"
 
 #: ../../guides/network/custom-clear-container.rst:166
 msgid "Build the |CL| container image."
-msgstr ""
+msgstr "构建 |CL| 容器映像。"
 
 #: ../../guides/network/custom-clear-container.rst:193
 msgid "List the newly created |CL| container image."
-msgstr ""
+msgstr "列出新创建的 |CL| 容器映像。"
 
 #: ../../guides/network/custom-clear-container.rst:206
 msgid "Launch the built |CL| container."
-msgstr ""
+msgstr "启动已构建的 |CL| 容器。"
 
 #: ../../guides/network/custom-clear-container.rst:213
 msgid "Manage bundles in a container"
-msgstr ""
+msgstr "管理容器中的捆绑包"
 
 #: ../../guides/network/custom-clear-container.rst:215
 msgid ""
 "You can add and remove bundles from a |CL| container using the "
 ":command:`RUN swupd` command in the Dockerfile."
-msgstr ""
+msgstr "您可以使用 Dockerfile 中的 :command:`RUN swupd` 命令在 |CL| 容器中添加和移除捆绑包。"
 
 #: ../../guides/network/custom-clear-container.rst:219
 msgid "Add a bundle"
-msgstr ""
+msgstr "添加捆绑包"
 
 #: ../../guides/network/custom-clear-container.rst:221
 msgid ""
 "This example Dockerfile adds the :file:`pxe-server` bundle to an existing"
 " |CL| Docker image:"
-msgstr ""
+msgstr "本示例 Dockerfile 将 :file:`pxe-server` 捆绑添加到现有 |CL| Docker 映像："
 
 #: ../../guides/network/custom-clear-container.rst:277
 msgid ""
 "The WARNING message can be ignored because systemd does not run inside a "
 "container."
-msgstr ""
+msgstr "警告消息可以忽略，因为 systemd 不在容器内运行。"
 
 #: ../../guides/network/custom-clear-container.rst:281
 msgid "Remove a bundle"
-msgstr ""
+msgstr "移除捆绑包"
 
 #: ../../guides/network/custom-clear-container.rst:283
 msgid ""
 "This example Dockerfile removes the :file:`pxe-server` bundle from an "
 "existing |CL| Docker image:"
-msgstr ""
+msgstr "本示例 Dockerfile 从现有的 |CL| Docker 映像中移除 :file:`pxe-server` 捆绑包："
 
 #~ msgid ""
 #~ "The official base |CL-ATTR| container"
@@ -213,4 +212,6 @@ msgstr ""
 #~ "because systemd does not run inside "
 #~ "a container."
 #~ msgstr ""
+
+
 

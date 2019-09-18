@@ -1,0 +1,270 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/network/openssh-server.rst:4
+msgid "Enable and configure SSH service"
+msgstr "启用并配置 SSH 服务"
+
+#: ../../guides/network/openssh-server.rst:6
+msgid "This guide describes how to set up SSH service."
+msgstr "本指南介绍如何设置 SSH 服务。"
+
+#: ../../guides/network/openssh-server.rst:13
+msgid "Overview"
+msgstr "概述"
+
+#: ../../guides/network/openssh-server.rst:15
+msgid ""
+"The :command:`openssh-server` bundle provides the OpenSSH package that "
+"enables an SSH service in |CL-ATTR|. Remote users require an SSH service "
+"to be able to use an encrypted login shell."
+msgstr ":command:`openssh-server` 捆绑包提供了用于在 |CL-ATTR| 中启用 SSH 服务的 OpenSSH 软件包。远程用户需要 SSH 服务才能使用加密登录 shell。"
+
+#: ../../guides/network/openssh-server.rst:19
+msgid ""
+"|CL| enables the `sshd.socket` unit, which listens on port 22 by default "
+"and starts the OpenSSH service as required. The first time OpenSSH "
+"starts, it generates the server SSH keys needed for the service."
+msgstr "|CL| 将启用 `sshd.socket` 单元，该单元默认侦听端口 22 并根据需要启动 OpenSSH 服务。OpenSSH 首次启动时，它会生成服务所需的服务器 SSH 密钥。"
+
+#: ../../guides/network/openssh-server.rst:24
+msgid "Prerequisites"
+msgstr "必备条件"
+
+#: ../../guides/network/openssh-server.rst:26
+msgid "Ensure the :command:`openssh-server` bundle is installed."
+msgstr "确保已安装 :command:`openssh-server` 捆绑包。"
+
+#: ../../guides/network/openssh-server.rst:28
+msgid "To list all bundles on your host, enter:"
+msgstr "要列出主机上的所有捆绑包，请输入："
+
+#: ../../guides/network/openssh-server.rst:34
+msgid "To add the :command:`openssh-server` bundle, enter:"
+msgstr "要添加 :command:`openssh-server` 捆绑包，请输入："
+
+#: ../../guides/network/openssh-server.rst:41
+msgid "Change default port"
+msgstr "更改默认端口"
+
+#: ../../guides/network/openssh-server.rst:43
+msgid ""
+"Perform the following steps to change the default listening port for the "
+"OpenSSH service."
+msgstr "执行以下步骤以更改 OpenSSH 服务的默认侦听端口。"
+
+#: ../../guides/network/openssh-server.rst:46
+msgid "Open the :file:`sshd.socket` file:"
+msgstr "打开 :file:`sshd.socket` 文件："
+
+#: ../../guides/network/openssh-server.rst:52
+msgid ""
+"Add the `[Socket]` section and `ListenStream` option to the sshd.socket "
+"file as shown below. The first `ListenStream` entry removes the |CL| "
+"default listen port value. The second `ListenStream` entry sets the new "
+"default listen port value. In this example, we set the new default port "
+"to 4200:"
+msgstr "将 `[Socket]` 部分和 `ListenStream` 选项添加到 sshd.socket 文件中，如下所示。第一个 `ListenStream` 条目用于删除 |CL| 默认侦听端口值。第二个 `ListenStream` 条目用于设置新的默认侦听端口值。在此示例中，我们将新的默认端口设置为 4200："
+
+#: ../../guides/network/openssh-server.rst:65
+msgid ""
+"Make sure to include a new line after the last line of text in the "
+":file:`sshd.socket` file."
+msgstr "务必在 :file:`sshd.socket` 文件中的最后一行文本之后包含一个新行。"
+
+#: ../../guides/network/openssh-server.rst:67
+msgid "Verify your changes:"
+msgstr "验证所做更改："
+
+#: ../../guides/network/openssh-server.rst:73
+msgid "The following output is displayed:"
+msgstr "将显示以下输出："
+
+#: ../../guides/network/openssh-server.rst:81
+msgid "Reload the systemd daemon configurations:"
+msgstr "重新加载 systemd 守护程序配置："
+
+#: ../../guides/network/openssh-server.rst:87
+msgid "Restart the sshd.socket unit:"
+msgstr "重新启动 sshd.socket 单元："
+
+#: ../../guides/network/openssh-server.rst:93
+msgid "Confirm the sshd.socket unit is listening on your new port:"
+msgstr "确认 sshd.socket 单元正在侦听新端口："
+
+#: ../../guides/network/openssh-server.rst:101
+msgid "Output should show :guilabel:`Active:` as `active(listening)`."
+msgstr "输出应该将 :guilabel:`Active:` 显示为 `active(listening)`。"
+
+#: ../../guides/network/openssh-server.rst:104
+msgid "Enable SFTP"
+msgstr "启用 SFTP"
+
+#: ../../guides/network/openssh-server.rst:106
+msgid ""
+"|CL| *disables* the :abbr:`SFTP (SSH File Transfer Protocol)` subsystem "
+"by default due to security considerations. To enable the SFTP subsystem, "
+"you must configure the :abbr:`SSHD (SSH Daemon)` service file."
+msgstr "出于安全考虑，|CL| 默认禁用 :abbr:`SFTP（SSH 文件传输协议）` 子系统。要启用 SFTP 子系统，您必须配置 :abbr:`SSHD（SSH 守护程序）` 服务文件。"
+
+#: ../../guides/network/openssh-server.rst:110
+msgid "Create a systemd drop-in directory for the SSHD service:"
+msgstr "为 SSHD 服务创建 systemd 放置目录："
+
+#: ../../guides/network/openssh-server.rst:116
+msgid ""
+"Create the following file: "
+":file:`/etc/systemd/system/sshd@.service.d/sftp.conf`"
+msgstr "创建以下文件：:file:`/etc/systemd/system/sshd@.service.d/sftp.conf`"
+
+#: ../../guides/network/openssh-server.rst:119
+msgid "Add the OPTIONS environment variable to the :file:`sftp.conf` file."
+msgstr "将 OPTIONS 环境变量添加到 :file:`sftp.conf` 文件中。"
+
+#: ../../guides/network/openssh-server.rst:126
+msgid "Reload systemd configuration:"
+msgstr "重新加载 systemd 配置："
+
+#: ../../guides/network/openssh-server.rst:132
+msgid "Congratulations! The SFTP subsystem is enabled."
+msgstr "恭喜！SFTP 子系统已启用。"
+
+#: ../../guides/network/openssh-server.rst:135
+msgid "Enable root login"
+msgstr "启用 root 登录"
+
+#: ../../guides/network/openssh-server.rst:137
+msgid "To enable root login via SSH, perform the following steps:"
+msgstr "要通过 SSH 启用 root 登录，请执行以下步骤："
+
+#: ../../guides/network/openssh-server.rst:139
+#: ../../guides/network/openssh-server.rst:162
+msgid "Create an *ssh* directory in :file:`/etc`, if it does not already exist."
+msgstr "在 :file:`/etc` 中创建 *ssh* 目录（如果尚未存在）。"
+
+#: ../../guides/network/openssh-server.rst:145
+#: ../../guides/network/openssh-server.rst:168
+msgid ""
+"Create the following file, if it does not already exist: "
+":file:`/etc/ssh/sshd_config`"
+msgstr "创建以下文件（如果尚未存在）：:file:`/etc/ssh/sshd_config`"
+
+#: ../../guides/network/openssh-server.rst:148
+msgid "Set the configuration variable in :file:`/etc/ssh/sshd_config`:"
+msgstr "在 :file:`/etc/ssh/sshd_config` 中设置配置变量："
+
+#: ../../guides/network/openssh-server.rst:155
+msgid "Enable X11-forwarding"
+msgstr "启用 X11 转发"
+
+#: ../../guides/network/openssh-server.rst:157
+msgid ""
+"X11 forwarding allows you to securely run graphical applications (that "
+"is, X clients) over the SSH conection. This enables remote GUI apps "
+"without the need for full VNC or remote desktop setup. To enable "
+"X11-forwarding via SSH, perform the following steps:"
+msgstr "使用 X11 转发可以通过 SSH 连接安全地运行图形应用程序（即 X 客户端）。这使得无需完整 VNC 或远程桌面设置便可启用远程 GUI 应用程序。要通过 SSH 启用 X11 转发，请执行以下步骤："
+
+#: ../../guides/network/openssh-server.rst:171
+msgid "Set the following configuration variables."
+msgstr "设置以下配置变量。"
+
+#~ msgid "openssh-server"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The **openssh-server** bundle provides "
+#~ "the OpenSSH\\* package needed to enable"
+#~ " an SSH service in |CL-ATTR|. "
+#~ "Remote users require an SSH service "
+#~ "to be able to use an encrypted "
+#~ "login shell."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| enables the `sshd.socket` unit, "
+#~ "which will listen on port 22 by"
+#~ " default and start the OpenSSH "
+#~ "service as required. The first time "
+#~ "OpenSSH starts, it generates the server"
+#~ " SSH keys needed for the service."
+#~ msgstr ""
+
+#~ msgid "Assure the bundle :file:`openssh-server` is installed."
+#~ msgstr ""
+
+#~ msgid "To check it it's on your host, enter:"
+#~ msgstr ""
+
+#~ msgid "To add it, enter:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Perform the following steps to change"
+#~ " the default listening port for the"
+#~ " OpenSSH service:"
+#~ msgstr ""
+
+#~ msgid "Open the sshd.socket file:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Make sure to include a new line"
+#~ " after the last line of text in"
+#~ " the sshd.socket file."
+#~ msgstr ""
+
+#~ msgid "You should see the following output:"
+#~ msgstr ""
+
+#~ msgid "Confirm the the sshd.socket unit is listening on your new port:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| *disables* the :abbr:`SFTP (SSH "
+#~ "File Transfer Protocol)` subsystem by "
+#~ "default due to security considerations. "
+#~ "To enable the SFTP subsystem, perform"
+#~ " the following configuration of the "
+#~ ":abbr:`SSHD (SSH Daemon)` service file:"
+#~ msgstr ""
+
+#~ msgid "Add the OPTIONS environment variable to the sftp.conf file."
+#~ msgstr ""
+
+#~ msgid "Create a *ssh* directory in :file:`/etc`, if it does not already exist."
+#~ msgstr ""
+
+#~ msgid "Set the configuration variable in /etc/ssh/sshd_config"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "X11 forwarding allows you to securely"
+#~ " run graphical applications (i.e., X "
+#~ "clients) over the ssh conection. This"
+#~ " will alow for remote gui apps "
+#~ "without the need for full "
+#~ "VNC/remotedesktop. To enable X11-forwarding "
+#~ "via SSH, perform the following steps:"
+#~ msgstr ""
+
+#~ msgid "Set the configuration variables."
+#~ msgstr ""
+
+

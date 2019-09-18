@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Generated-By: Babel 2.7.0\n"
 
 #: ../../tutorials/redis.rst:4
-msgid "Run Redis on |CL-ATTR|"
+msgid "Redis\\*"
 msgstr ""
 
 #: ../../tutorials/redis.rst:6
@@ -180,4 +180,7 @@ msgstr ""
 #: ../../tutorials/redis.rst:207
 msgid "Learn to :ref:`docker`."
 msgstr ""
+
+#~ msgid "Run Redis on |CL-ATTR|"
+#~ msgstr ""
 

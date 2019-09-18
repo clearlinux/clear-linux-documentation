@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -102,5 +102,6 @@ msgstr "脚本会输出测试结果列表，如下所示。所有项应返回 `S
 #~ "the host's processor and EFI firmware"
 #~ " support running |CL|."
 #~ msgstr ""
+
 
 

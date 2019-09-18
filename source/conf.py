@@ -34,7 +34,7 @@ import shlex
 #]
 
 extensions = [
-    'sphinx.ext.autodoc', 'sphinx.ext.todo'
+    'sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx_sitemap'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -54,7 +54,7 @@ master_doc = 'index'
 # General information about the project.
 #project = u'Clear Linux* project'
 project = u'Clear Linux* Project Docs'
-copyright = u'2019, many'
+copyright = u'2019.'
 author = u'many'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -127,6 +127,7 @@ version = current_version = "latest"
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
+  'canonical_url': 'docs.01.org/clearlinux/',
   'style_nav_header_background': '#007ab2',
   'navigation_depth': 4,
   'display_version': False,
@@ -138,14 +139,16 @@ html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "clearlinux", # Username
     "github_repo": "clear-linux-documentation", # Repo name
-    "github_version": "rtd-theme", # Version
+    "github_version": "master", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
     "languages": ( ("English", "/clearlinux/latest"),
-                   ("Chinese", "/clearlinux/latest/zh_CN")
+                   ("简体中文 (Simplified Chinese)", "/clearlinux/latest/zh_CN")
+                   #("Chinese", "/clearlinux/latest/zh_CN")
                  ),
     "versions": ( ("latest", "/clearlinux/latest"),
-                  ("L19.01", "/clearlinux/L19.01"))
+                  ("Future versions", "/clearlinux/latest"))
+                  #("L19.01", "/clearlinux/L19.01"))
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -165,7 +168,7 @@ html_logo = '_images/clearlinux.png'
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = None
+html_favicon = '_images/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -317,7 +320,7 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 # If true, generates permalinks on the HTML output.
-html_add_permalinks = ""
+#html_add_permalinks = ""
 
 #suppresses warnings for options that aren't referenced
 #suppress_warnings = ["ref.option"]
@@ -326,3 +329,5 @@ html_add_permalinks = ""
 
 locale_dirs = ['../locale/'] # path for lang-specific po files.
 gettext_compact = False # optional.
+
+html_baseurl = 'https://docs.01.org/clearlinux/'

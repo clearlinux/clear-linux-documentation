@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 12:18-0700\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Generated-By: Babel 2.7.0\n"
 
 #: ../../tutorials/yubikey-u2f.rst:4
-msgid "Enable YubiKey U2F Support"
+msgid "YubiKey\\* Support"
 msgstr ""
 
 #: ../../tutorials/yubikey-u2f.rst:6
@@ -156,4 +156,7 @@ msgstr ""
 #: ../../tutorials/yubikey-u2f.rst:121
 msgid "|CL| :ref:`security`"
 msgstr ""
+
+#~ msgid "Enable YubiKey U2F Support"
+#~ msgstr ""
 

@@ -4,51 +4,50 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/network/network-bonding.rst:4
 msgid "Combine multiple interfaces with network bonding"
-msgstr ""
+msgstr "使用网络捆绑聚合多个接口"
 
 #: ../../guides/network/network-bonding.rst:6
 msgid ""
 "This guide describes how to configure systemd to use the "
 ":command:`bonding` driver."
-msgstr ""
+msgstr "本指南介绍如何配置 systemd 以使用 :command:`bonding` 驱动程序。"
 
 #: ../../guides/network/network-bonding.rst:9
 msgid ""
 "Network bonding combines multiple network interfaces into a single "
 "logical interface to provide redundancy and bandwidth aggregation."
-msgstr ""
+msgstr "网络捆绑是指将多个网络接口组合成一个逻辑接口，从而提供冗余和带宽聚合。"
 
 #: ../../guides/network/network-bonding.rst:12
 msgid "|CL-ATTR| includes the Linux `Bonding driver`_ and `Team driver`_ ."
-msgstr ""
+msgstr "|CL-ATTR| 包含 Linux `Bonding driver`_ 和 `Team driver`_。"
 
 #: ../../guides/network/network-bonding.rst:14
 msgid "The example demonstrates how to:"
-msgstr ""
+msgstr "该示例演示了如何："
 
 #: ../../guides/network/network-bonding.rst:16
 msgid "Bond all four ports of a quad-port NIC in 802.3ad mode."
-msgstr ""
+msgstr "在 802.3ad 模式下，捆绑四端口网卡的所有四个端口。"
 
 #: ../../guides/network/network-bonding.rst:18
 msgid "Enable jumbo frames to optimize large data transfers on the local network."
-msgstr ""
+msgstr "启用巨型帧来优化本地网络上的大量数据传输。"
 
 #: ../../guides/network/network-bonding.rst:20
 msgid ""
@@ -56,46 +55,46 @@ msgid ""
 "The example explains how to configure your NICs for both features. Your "
 "switch may require additional configuration. See your switch "
 "documentation for details."
-msgstr ""
+msgstr "您的网卡和网络交换机必须支持 802.3ad 模式和巨型帧。该示例解释了如何为这两种功能配置网卡。您的交换机可能需要额外的配置。查阅交换器文档以了解详细信息。"
 
 #: ../../guides/network/network-bonding.rst:26
 msgid "You must run all commands in this guide as root."
-msgstr ""
+msgstr "您必须以 root 用户身份运行本指南中的所有命令。"
 
 #: ../../guides/network/network-bonding.rst:28
 msgid "Log in and get root privileges."
-msgstr ""
+msgstr "登录并获得 root 特权。"
 
 #: ../../guides/network/network-bonding.rst:34
 msgid "Create the :file:`/etc/systemd/network` directory."
-msgstr ""
+msgstr "创建 :file:`/etc/systemd/network` 目录。"
 
 #: ../../guides/network/network-bonding.rst:40
 msgid ""
 "The :file:`/etc/systemd/network` directory contains configuration files "
 "and network settings for the virtual device and its underlying physical "
 "interfaces."
-msgstr ""
+msgstr ":file:`/etc/systemd/network` 目录包含虚拟设备及其底层物理接口的配置文件和网络设置。"
 
 #: ../../guides/network/network-bonding.rst:44
 msgid ""
 "Configure systemd to create a virtual network device called `bond1`. Use "
 "a text editor to create a file named :file:`30-bond1.netdev`."
-msgstr ""
+msgstr "将 systemd 配置为创建一个名为 `bond1` 的虚拟网络设备。使用文本编辑器创建一个名为 :file:`30-bond1.netdev` 的文件。"
 
 #: ../../guides/network/network-bonding.rst:59
 msgid ""
 "Refer to the `systemd.netdev`_ manpage for :file:`30-bond1.netdev` file "
 "syntax. This example is based on Example 9 on the manpage. Modify the "
 "example for your configuration."
-msgstr ""
+msgstr "有关 :file:`30-bond1.netdev` 文件语法，请参阅 `systemd.netdev`_ 手册页。本示例基于手册页上的示例 9。根据您的配置修改示例。"
 
 #: ../../guides/network/network-bonding.rst:63
 msgid ""
 "Configure the slave interfaces. Create a text file named "
 ":file:`30-bond1-enp1s0.network`. Assign the slave interfaces to the "
 "virtual `bond1` device and use the syntax shown in `systemd.network`_."
-msgstr ""
+msgstr "配置从属接口。创建一个名为 :file:`30-bond1-enp1s0.network` 的文本文件。将从属接口分配给虚拟 `bond1` 设备，并使用 `systemd.network`_ 中所示的语法。"
 
 #: ../../guides/network/network-bonding.rst:78
 msgid ""
@@ -103,57 +102,57 @@ msgid ""
 "`bond1`. The example uses a wildcard match because the NIC names are in "
 "the range `enp1s0f0-enp1s0f3`. If your NIC names are not wildcard-"
 "compatible, create a separate :file:`.network` file for each NIC."
-msgstr ""
+msgstr "本示例将四端口网卡的所有四个端口捆绑为 `bond1` 从属接口。本示例使用通配符匹配，因为网卡名称在 `enp1s0f0-enp1s0f3` 范围内。如果网卡名称不兼容通配符，请为每个网卡创建一个单独的 :file:`.network` 文件。"
 
 #: ../../guides/network/network-bonding.rst:83
 msgid ""
 "For best results, do not assign addresses or DHCP support to the "
 "individual NICs."
-msgstr ""
+msgstr "为了获得最佳效果，请勿为单个网卡分配地址或 DHCP 支持。"
 
 #: ../../guides/network/network-bonding.rst:86
 msgid ""
 "The `MTUBytes` setting enables jumbo frames of up to 9000 bytes. Your "
 "switch may require additional configuration to support this setting."
-msgstr ""
+msgstr "`MTUBytes` 设置支持高达 9000 字节的巨型帧。您的交换机可能需要额外的配置来支持此设置。"
 
 #: ../../guides/network/network-bonding.rst:89
 msgid "Configure the bonded interface in a file named :file:`30-bond1.network`."
-msgstr ""
+msgstr "在名为 :file:`30-bond1.network` 的文件中配置捆绑接口。"
 
 #: ../../guides/network/network-bonding.rst:103
 msgid "`bond1` is a virtual interface with no physical link status."
-msgstr ""
+msgstr "`bond1` 是一个没有物理链路状态的虚拟接口。"
 
 #: ../../guides/network/network-bonding.rst:105
 msgid ""
 "`BindCarrier` indicates that the `bond1` link status is determined by the"
 " status of the listed slave devices."
-msgstr ""
+msgstr "`BindCarrier` 表示 `bond1` 链路状态由所列从属设备的状态决定。"
 
 #: ../../guides/network/network-bonding.rst:108
 msgid ""
 "`Address` contains an IP address that you assign to the logical "
 "interface. DHCP bonded interfaces are complex and outside the scope of "
 "this example."
-msgstr ""
+msgstr "`Address` 包含分配给逻辑接口的一个 IP 地址。DHCP 捆绑接口十分复杂，不在本示例的讨论范围内。"
 
 #: ../../guides/network/network-bonding.rst:111
 msgid ""
 "`MTUBytes` must be set to 9000 on all slave interfaces and on the bonded "
 "interface for successful jumbo frames operation. If `MTUBytes` is not the"
 " same on all interfaces, then the lowest value is used."
-msgstr ""
+msgstr "要成功处理巨型帧，所有从属接口和捆绑接口上的 `MTUBytes` 必须设置为 9000。如果所有接口上的 `MTUBytes` 设置并不相同，将使用这些设置中的最小值。"
 
 #: ../../guides/network/network-bonding.rst:115
 msgid "Apply the new network configuration with the command:"
-msgstr ""
+msgstr "使用以下命令应用新的网络配置："
 
 #: ../../guides/network/network-bonding.rst:121
 msgid ""
 "The `MTUBytes` settings do not take effect until you reboot or manually "
 "apply the settings with a utility such as ifconfig."
-msgstr ""
+msgstr "除非重启或使用 ifconfig 等实用程序手动应用设置，否则 `MTUBytes` 设置不会生效。"
 
 #~ msgid ""
 #~ "|CL-ATTR| includes Linux bonding_ and"
@@ -197,4 +196,6 @@ msgstr ""
 #~ "apply the settings with a utility "
 #~ "such as `ifconfig`."
 #~ msgstr ""
+
+
 

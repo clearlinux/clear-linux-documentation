@@ -7,25 +7,27 @@
 msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
-"Language: zh-Hans\n"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:4
-msgid "Run pre-configured |CL-ATTR| image as a VMware\\* ESXi guest OS"
-msgstr "运行预配置的 |CL-ATTR| 映像，用作 VMware\\* ESXi 来宾操作系统"
+msgid "|CL-ATTR| on VMware\\* ESXi (pre-configured image)"
+msgstr "VMware\\* ESXi（预配置映像）上的 |CL-ATTR|"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:6
 msgid ""
-"This page explains how to deploy a preconfigured |CL| VMware :abbr:`VM "
+"This page explains how to deploy a pre-configured |CL| VMware :abbr:`VM "
 "(Virtual Machine)` image on a VMware ESXi 6.5 host."
 msgstr "本页说明如何在 VMware ESXi 6.5 主机上部署预配置的 |CL| VMware :abbr:`VM (Virtual Machine)` 映像。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:14
 msgid "Overview"
@@ -38,10 +40,11 @@ msgid ""
 "manage, and run |CL-ATTR| virtual machines at scale."
 msgstr "`VMware ESXi`_ 是一个 1 类裸机虚拟机管理程序，可直接在服务器硬件上运行。利用 VMware ESXi，可以大规模创建、配置、管理和运行 |CL-ATTR| 虚拟机。"
 
+
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:20
 msgid ""
-"We provide a preconfigured |CL| VMware image that can be run on a VMware "
-"ESXi 6.5 host."
+"We provide a pre-configured |CL| VMware image that can be run on a VMware"
+" ESXi 6.5 host."
 msgstr "我们提供可在 VMware ESXi 6.5 主机上运行的 |CL| VMware 映像。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:23
@@ -57,6 +60,7 @@ msgid ""
 "player-preconf` or :ref:`vmw-player` for more information."
 msgstr "VMware 还提供一个适用于桌面环境的 2 类虚拟机管理程序，名为 `VMware Workstation Player`_。请参阅 :ref:`vmw-player-preconf` 或 :ref:`vmw-player` 了解更多信息。"
 
+
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:32
 msgid "Download the latest |CL| VMware image"
 msgstr "下载最新的 |CL| VMware 映像"
@@ -67,6 +71,7 @@ msgid ""
 "Look for :file:`clear-[version number]-vmware.vmdk.xz`. You can also use "
 "this command:"
 msgstr "从 `image`_ 存储库中获取最新的 |CL| VMware 预构建映像。查找 :file:`clear-[version number]-vmware.vmdk.xz`。还可以使用以下命令："
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:42
 msgid ""
@@ -79,6 +84,7 @@ msgid ""
 "We also provide instructions for downloading and verifying a Clear Linux "
 "ISO. For more information, refer to :ref:`download-verify-decompress`."
 msgstr "我们还提供关于下载和验证 Clear Linux ISO 的说明。欲了解详情，请参阅 :ref:`download-verify-decompress`。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:48
 msgid "Upload the |CL| image to the VMware server"
@@ -97,6 +103,7 @@ msgid ""
 "documentation `Using Datastore File Browser in the VMware Host Client`_."
 msgstr "有关本节中的步骤，还可以参考 VMware 文档 `Using Datastore File Browser in the VMware Host Client`_。"
 
+
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:57
 msgid ""
 "Connect to the VMware ESXi server and login to an account with sufficient"
@@ -107,13 +114,13 @@ msgstr "连接 VMware ESXi 服务器，登录拥有充分权限的帐户，以�
 msgid ""
 "Under the :guilabel:`Navigator` window on the left side, select "
 ":guilabel:`Storage`. See Figure 1"
-msgstr "在左侧的 :guilabel:`浏览器` 窗口中，选择 :guilabel:`存储`。见图 1"
+msgstr "在左侧的 :guilabel:`Navigator` 窗口中，选择 :guilabel:`Storage`。见图 1"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:64
 msgid ""
 "Under the :guilabel:`Datastores` tab, click the :guilabel:`Datastore "
 "browser` button."
-msgstr "在 :guilabel:`数据存储` 标签下，点击 :guilabel:`数据存储浏览器` 按钮。"
+msgstr "在 :guilabel:`Datastores` 标签下，点击 :guilabel:`Datastore browser` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:71
 msgid "Figure 1: VMware ESXi - Navigator > Storage"
@@ -123,7 +130,7 @@ msgstr "图 1：VMware ESXi - 浏览器 > 存储"
 msgid ""
 "Click the :guilabel:`Create directory` button and name the directory "
 "`Clear Linux VM`. See Figure 2."
-msgstr "点击 :guilabel:`创建目录` 按钮，将目录命名为 `Clear Linux VM`。见图 2。"
+msgstr "点击 :guilabel:`Create directory` 按钮，将目录命名为 `Clear Linux VM`。见图 2。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:80
 msgid "Figure 2: VMware ESXi - Datastore > Create directory"
@@ -133,7 +140,7 @@ msgstr "图 2：VMware ESXi - 数据存储 > 创建目录"
 msgid ""
 "Select the newly-created directory and click the :guilabel:`Upload` "
 "button. See Figure 3."
-msgstr "选择新建目录，点击 :guilabel:`上传` 按钮。见图 3。"
+msgstr "选择新建目录，点击 :guilabel:`Upload` 按钮。见图 3。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:89
 msgid "Figure 3: VMware ESXi - Datastore > Upload VMware image"
@@ -152,9 +159,10 @@ msgstr "将 |CL| 映像转换为 ESXi 支持的格式。"
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:97
 msgid ""
 "Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi "
-"datastore, it must be converted to a format for use with VMware's ESXi"
-" hypervisor."
+"datastore, it must be converted to a format for use with VMware's ESXi "
+"hypervisor."
 msgstr "|CL| VMware 预构建映像上传至 VMware ESXi 数据存储后，必须将其转换为 VMware's ESXi 虚拟机管理程序可以使用的格式。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:101
 msgid ""
@@ -163,19 +171,22 @@ msgid ""
 "vmkfstools`_"
 msgstr "有关本节中的步骤，还可以参考 VMware 文档 `Cloning and converting virtual machine disks with vmkfstools`_"
 
+
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:103
 msgid ""
 "SSH into the `vSphere Management Assistant`_  appliance that is managing "
 "the ESXi host or connect to the vSphere hosting using the `vSphere CLI`_."
 msgstr "通过 SSH 连接到 `vSphere Management Assistant`_ 设备，利用 `vSphere CLI`_ 管理 ESXi 主机或连接到 vSphere 主机托管。"
 
+
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:108
 msgid ""
 "If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or "
 ":abbr:`vCLI (vSphere CLI)` configured and available, you can temporarily "
 "enable SSH directly on the ESXi host by following the steps described in "
-"`Enable the Secure Shell (SSH) in the VMware Host Client`_ ."
+"`Enable the Secure Shell (SSH) in the VMware Host Client`_."
 msgstr "如果没有配置或可用的 :abbr:`vMA (vSphere Management Assistant)` 设备或 :abbr:`vCLI (vSphere CLI)`，则可以按照 `在 VMware 主机客户端启用 Secure Shell (SSH)`_ 中所述步骤直接在 ESXi 主机上临时启用 SSH。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:112
 msgid ""
@@ -224,15 +235,16 @@ msgid ""
 "VMware image. Also, in order to boot |CL|, you must enable UEFI support."
 msgstr "本节中，您会创建新虚拟机，配置基本参数，如 CPU 数量、内存大小，然后挂载转换后的 |CL| VMware 映像。而且，为了引导 |Cl|，必须启用 UEFI 支持。"
 
+
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:140
 msgid ""
 "Under the :guilabel:`Navigator` window, select :guilabel:`Virtual "
 "Machines`. See Figure 4."
-msgstr "在 :guilabel:`浏览器` 窗口中，选择 :guilabel:`虚拟机`。见图 4。"
+msgstr "在 :guilabel:`Navigator` 窗口中，选择 :guilabel:`Virtual Machines`。见图 4。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:143
 msgid "In the right window, click the :guilabel:`Create / Register VM` button."
-msgstr "在右侧窗口中，点击 :guilabel:`创建 / 注册虚拟机` 按钮。"
+msgstr "在右侧窗口中，点击 :guilabel:`Create / Register VM` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:149
 msgid "Figure 4: VMware ESXi - Navigator > Virtual Machines"
@@ -240,18 +252,18 @@ msgstr "图 4：VMware ESXi - 浏览器 > 虚拟机"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:151
 msgid "On the :guilabel:`Select creation type` step:"
-msgstr "在 :guilabel:`选择创建类型` 步骤："
+msgstr "在 :guilabel:`Select creation type` 步骤："
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:153
 msgid "Select the :guilabel:`Create a new virtual machine` option. See Figure 5."
-msgstr "选择 :guilabel:`创建新虚拟机` 选项。见图 5。"
+msgstr "选择 :guilabel:`Create a new virtual machine` 选项。见图 5。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:156
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:173
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:184
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:255
 msgid "Click the :guilabel:`Next` button."
-msgstr "点击 :guilabel:`下一步` 按钮。"
+msgstr "点击 :guilabel:`Next` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:162
 msgid "Figure 5: VMware ESXi - Create a new virtual machine"
@@ -259,27 +271,28 @@ msgstr "图 5：VMware ESXi - 创建新虚拟机"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:164
 msgid "On the :guilabel:`Select a name and guest OS` step:"
-msgstr "在 :guilabel:`选择名称和来宾操作系统` 步骤："
+msgstr "在 :guilabel:`Select a name and guest OS` 步骤："
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:166
 msgid "Give the new VM a name in the :guilabel:`Name` field. See Figure 6."
-msgstr "在 :guilabel:`名称` 字段中为新虚拟机命名。见图 6。"
+msgstr "在 :guilabel:`Name` 字段中为新虚拟机命名。见图 6。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:168
 msgid ""
 "Set the :guilabel:`Compatability` option to :guilabel:`ESXi 6.5 virtual "
 "machine`."
-msgstr "将 :guilabel:`兼容性` 选项设置为 :guilabel:`ESXi 6.5 虚拟机`。"
+msgstr "将 :guilabel:`Compatability` 选项设置为 :guilabel:`ESXi 6.5 virtual machine`。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:170
 msgid "Set the :guilabel:`Guest OS family` option to :guilabel:`Linux`."
-msgstr "将 :guilabel:`来宾操作系统系列` 选项设置为 :guilabel:`Linux`。"
+msgstr "将 :guilabel:`Guest OS family` 选项设置为 :guilabel:`Linux`。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:171
 msgid ""
 "Set the :guilabel:`Guest OS version` option to :guilabel:`Other 3.x or "
 "later Linux (64-bit)`."
-msgstr "将 :guilabel:`来宾操作系统版本` 选项设置为 :guilabel:`其他 3.x 或更高 Linux 版本（64 位）`。"
+msgstr "将 :guilabel:`Guest OS version` 选项设置为 :guilabel:`Other 3.x or later Linux (64-bit)`。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:179
 msgid "Figure 6: VMware ESXi - Give a name and select guest OS type"
@@ -287,7 +300,7 @@ msgstr "图 6：VMware ESXi - 命名并选择来宾操作系统类型"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:181
 msgid "On the :guilabel:`Select storage` step:"
-msgstr "在 :guilabel:`选择存储` 步骤："
+msgstr "在 :guilabel:`Select storage` 步骤："
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:183
 msgid "Accept the default option."
@@ -295,18 +308,19 @@ msgstr "接受默认选项。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:186
 msgid "On the :guilabel:`Customize settings` step:"
-msgstr "在 :guilabel:`定制设置` 步骤："
+msgstr "在 :guilabel:`Customize settings` 步骤："
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:188
 msgid "Click the :guilabel:`Virtual Hardware` button. See Figure 7."
-msgstr "点击 :guilabel:`虚拟硬件` 按钮。见图 7。"
+msgstr "点击 :guilabel:`Virtual Hardware` 按钮。见图 7。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:189
 msgid ""
 "Expand the :guilabel:`CPU` setting and enable :guilabel:`Hardware "
 "virtualization` by checking :guilabel:`Expose hardware assisted "
 "virtualization to the guest OS`."
-msgstr "展开 :guilabel:`CPU` 设置，选中 :guilabel:`在来宾操作系统中显示经过硬件辅助实现的虚拟化功能` 启用 :guilabel:`硬件虚拟化`。"
+msgstr "展开 :guilabel:`CPU` 设置，选中 :guilabel:`Hardware virtualization` 启用 :guilabel:`Expose hardware assisted virtualization to the guest OS`。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:197
 msgid "Figure 7: VMware ESXi - Enable hardware virtualization"
@@ -316,7 +330,7 @@ msgstr "图 7：VMware ESXi - 启用硬件虚拟化"
 msgid ""
 "Remove the default :guilabel:`Hard drive 1` setting by clicking the `X` "
 "icon on the right side. See Figure 8."
-msgstr "点击右侧的 `X` 图标，移除默认 :guilabel:`硬盘 1` 设置。见图 8。"
+msgstr "点击右侧的 `X` 图标，移除默认 :guilabel:`Hard drive 1` 设置。见图 8。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:206
 msgid "Figure 8: VMware ESXi - Remove hard drive"
@@ -324,10 +338,11 @@ msgstr "图 8：VMware ESXi - 移除硬盘"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:208
 msgid ""
-"Since a preconfigured image will be used, the :guilabel:`CD/DVD Drive 1` "
-"setting will not be needed.  Disable it by unchecking the "
+"Since a pre-configured image will be used, the :guilabel:`CD/DVD Drive 1`"
+" setting will not be needed.  Disable it by unchecking the "
 ":guilabel:`Connect` checkbox. See Figure 9."
-msgstr "由于要使用预配置映像，所以不再需要 :guilabel:`CD/DVD 驱动器 1` 设置。取消选中 :guilabel:`连接` 复选框禁用该设置。见图 9。"
+msgstr "由于要使用预配置映像，所以不再需要 :guilabel:`CD/DVD Drive 1` 设置。取消选中 :guilabel:`Connect` 复选框禁用该设置。见图 9。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:216
 msgid "Figure 9: VMware ESXi - Disconnect the CD/DVD drive"
@@ -336,14 +351,16 @@ msgstr "图 9：VMware ESXi - 断开 CD/DVD 驱动器"
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:218
 msgid ""
 "Attach the :file:`clear-[version number]-esxi.vmdk` file that was "
-"converted from the preconfigured |CL| VMware image."
+"converted from the pre-configured |CL| VMware image."
 msgstr "挂载 :file:`clear-[version number]-esxi.vmdk` 文件。该文件从预配置的 |CL| VMware 映像转换而来。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:221
 msgid ""
 "Click the :guilabel:`Add hard disk` button and select the "
 ":guilabel:`Existing hard drive` option. See Figure 10."
-msgstr "点击 :guilabel:`添加硬盘` 按钮，选择 :guilabel:`现有硬盘驱动器` 选项。见图 10。"
+msgstr "点击 :guilabel:`Add hard disk` 按钮，选择 :guilabel:`Existing hard drive` 选项。见图 10。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:228
 msgid "Figure 10: VMware ESXi - Add an existing hard drive"
@@ -355,6 +372,7 @@ msgid ""
 "not use the original unconverted :file:`clear-[version "
 "number]-vmware.vmdk` file. See Figure 11."
 msgstr "选择已转换的 :file:`clear-[version number]-esxi.vmdk` 文件。不要使用最初未转换的 :file:`clear-[version number]-vmware.vmdk` 文件。见图 11。"
+
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:238
 msgid ""
@@ -368,17 +386,17 @@ msgstr "|CL| 需要 UEFI 支持才可以引导。启用 UEFI 引导支持。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:243
 msgid "Click the :guilabel:`VM Options` button. See Figure 12."
-msgstr "点击 :guilabel:`虚拟机选项` 按钮。见图 12。"
+msgstr "点击 :guilabel:`VM Options` 按钮。见图 12。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:244
 msgid "Expand the :guilabel:`Boot Options` setting."
-msgstr "展开 :guilabel:`引导选项` 设置。"
+msgstr "展开 :guilabel:`Boot Options` 设置。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:245
 msgid ""
 "For the :guilabel:`Firmware` setting, click the drop-down list to the "
 "right of it and select the :guilabel:`EFI` option."
-msgstr "对于 :guilabel:`固件` 设置，点击其右侧的下拉列表，选择 :guilabel:`EFI` 选项。"
+msgstr "对于 :guilabel:`Firmware` 设置，点击其右侧的下拉列表，选择 :guilabel:`EFI` 选项。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:252
 msgid "Figure 12: VMware ESXi - Set boot firmware to EFI"
@@ -386,11 +404,11 @@ msgstr "图 12：VMware ESXi - 将引导固件设置为 EFI"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:254
 msgid "Click the :guilabel:`Save` button."
-msgstr "点击 :guilabel:`保存` 按钮。"
+msgstr "点击 :guilabel:`Save` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:256
 msgid "Click the :guilabel:`Finish` button."
-msgstr "点击 :guilabel:`完成` 按钮。"
+msgstr "点击 :guilabel:`Finish` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:259
 msgid "Power on the VM and boot |CL|"
@@ -404,7 +422,7 @@ msgstr "配置上述设置后，开启虚拟机。"
 msgid ""
 "Under the :guilabel:`Navigator` window, select :guilabel:`Virtual "
 "Machines`. See Figure 13."
-msgstr "在 :guilabel:`浏览器` 窗口中，选择 :guilabel:`虚拟机`。见图 13。"
+msgstr "在 :guilabel:`Navigator` 窗口中，选择 :guilabel:`Virtual Machines`。见图 13。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:265
 msgid "In the right window, select the newly-created VM."
@@ -412,7 +430,7 @@ msgstr "在右侧窗口中，选择新创建的虚拟机。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:266
 msgid "Click the :guilabel:`Power on` button."
-msgstr "点击 :guilabel:`开机` 按钮。"
+msgstr "点击 :guilabel:`Power on` 按钮。"
 
 #: ../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.rst:267
 msgid ""
@@ -516,5 +534,8 @@ msgstr ":ref:`vmware-esxi-install-cl`"
 
 #~ msgid ":ref:`download-verify-decompress-windows`"
 #~ msgstr ""
+
+#~ msgid "Run pre-configured |CL-ATTR| image as a VMware\\* ESXi guest OS"
+#~ msgstr "运行预配置的 |CL-ATTR| 映像，用作 VMware\\* ESXi 来宾操作系统"
 
 

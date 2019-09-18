@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 11:17-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../tooling/ister.rst:4
+msgid "ister.py image builder"
+msgstr "ister.py image builder"
+
+#: ../../tooling/ister.rst:6
+msgid ""
+"The `ister.py`_ tool is a template-based installer used by |CL-ATTR| to "
+"produce images for each release. The same ister tool is available for use"
+" in |CL| to create custom images based on an upstream image."
+msgstr "`ister.py`_ 工具是 |CL-ATTR| 使用的一款基于模板的安装程序，可以生成每个版本的映像。|CL| 中也可以使用该款 ister 工具，可以根据上游映像定制创建映像。"
+
+#: ../../tooling/ister.rst:15
+msgid "Description"
+msgstr "描述"
+
+#: ../../tooling/ister.rst:17
+msgid ""
+"|CL| is a rolling release and produces an average of 10 releases per week"
+" using the ister tool. With each release, we produce multiple :ref:`image "
+"types for different environments <image-types>` and use cases such as "
+"installers, Hyper-V, KVM, or VMWare."
+msgstr "|CL| 是一个滚动发行版本，使用该款 ister 工具每周平均生成 10 个版本。针对每个版本，我们均会生成多个 :ref:`image types for different environments <image-types>` 和用例，如安装程序、Hyper-V、KVM 或 VMWare。"
+
+#: ../../tooling/ister.rst:22
+msgid ""
+"Each image has a JSON configuration file that is used by ister to "
+"generate the image. These JSON configuration files describe the image "
+"type, partitions, version, and bundles that will be preinstalled by "
+"default with the image. For each image type we produce, the corresponding"
+" JSON configuration file for the image also is published."
+msgstr "每个映像均有一个 JSON 配置文件。ister 使用配置文件生成映像。这些 JSON 配置文件描述了默认情况下预安装映像的映像类型、分区、版本和 bundle 文件。针对所生成的每种映像类型，同时还会发布映像的相应 JSON 配置文件。"
+
+#: ../../tooling/ister.rst:28
+msgid ""
+"The :ref:`mixer<mixer>` tool also uses ister to build images for your "
+"custom mix. Like upstream images, a JSON configuration file is defined "
+"for the image, which ister uses to generate the image. Refer to the "
+":ref:`mixer<mixer>` guide for instructions on using ister to build an "
+"image for a custom mix."
+msgstr ":ref:`mixer<mixer>` 工具也用 ister 为定制组合构建映像。与上游映像一样，系统会为该映像定义 ister 用于生成映像的 JSON 配置文件。请参阅 :ref:`mixer<mixer>` 指南，查看使用 ister 为定制组合构建映像的说明。"
+
+#: ../../tooling/ister.rst:34
+msgid "Examples"
+msgstr "示例"
+
+#: ../../tooling/ister.rst:37
+msgid "Recreate an upstream image"
+msgstr "重新创建上游映像"
+
+#: ../../tooling/ister.rst:39
+msgid ""
+"The published configuration files for upstream images may be used to "
+"recreate an image. Here are some examples:"
+msgstr "上游映像的已发布配置文件可用于重新创建映像。部分示例如下："
+
+#: ../../tooling/ister.rst:42
+msgid ""
+"Use an older version of |CL| and the image is no longer available (only "
+"after March 2017)."
+msgstr "不再提供旧版 |CL| 和映像（仅 2017 年 3 月后）。"
+
+#: ../../tooling/ister.rst:44
+msgid "Customize the partitions of an image."
+msgstr "定制映像的分区。"
+
+#: ../../tooling/ister.rst:45
+msgid "Customize the bundles preinstalled in an image."
+msgstr "定制映像中预安装的 bundle 文件。"
+
+#: ../../tooling/ister.rst:46
+msgid "Run your own post installation script."
+msgstr "运行自己的安装后脚本。"
+
+#: ../../tooling/ister.rst:49
+msgid ""
+"Follow these steps to recreate an upstream image based on the image's "
+"JSON configuration file:"
+msgstr "按照以下步骤，根据映像的 JSON 配置文件重新创建上游映像："
+
+#: ../../tooling/ister.rst:52
+msgid ""
+"Install the :command:`os-installer` bundle. Refer to :ref:`swupd-guide` "
+"for more information on installing bundles."
+msgstr "安装 :command:`os-installer` bundle 文件。请参阅 :ref:`swupd-guide`，了解有关安装 bundle 文件的更多信息。"
+
+#: ../../tooling/ister.rst:55
+msgid "Download the `ister.py`_ tool and grant it sudo privileges."
+msgstr "下载 `ister.py`_ 工具并为其授予 sudo 权限。"
+
+#: ../../tooling/ister.rst:57
+msgid ""
+"Download the JSON configuration file for the desired image (located in "
+":file:`config/image/`):"
+msgstr "下载所需映像的 JSON 配置文件（位于 :file:`config/image/`）："
+
+#: ../../tooling/ister.rst:60
+msgid "`Current release`_"
+msgstr "`Current release`_"
+
+#: ../../tooling/ister.rst:61
+msgid "`Previous releases`_ (only after March 2017)"
+msgstr "`Previous releases`_ （仅 2017 年 3 月后）"
+
+#: ../../tooling/ister.rst:63
+msgid ""
+"For a previous release, navigate to `Previous releases`_, select the "
+"version you want, and find the JSON configuration file under "
+":file:`/clear/config/image`. For example: "
+"``https://cdn.download.clearlinux.org/releases/15700/clear/config/image/``"
+msgstr "针对先前版本，请导航到 `Previous releases`_，选择所需版本，然后在 :file:`/clear/config/image` 下找到 JSON 配置文件。例如：``https://cdn.download.clearlinux.org/releases/15700/clear/config/image/``"
+
+#: ../../tooling/ister.rst:68
+msgid "Download the “PostNonChroot” script (if applicable)."
+msgstr "下载“PostNonChroot”脚本（如果适用）。"
+
+#: ../../tooling/ister.rst:70
+msgid ""
+"The JSON configuration file for the image may have an accompanying "
+"“PostNonChroot” script that is executed at the end of the image creation "
+"process. If it does, download the script and make it executable."
+msgstr "此映像的 JSON 配置文件可能附带“PostNonChroot”脚本，在映像创建过程结束时执行。如果是，则下载此脚本，将其转换为可执行文件。"
+
+#: ../../tooling/ister.rst:74
+msgid "Edit the JSON configuration file as needed."
+msgstr "按需编辑 JSON 配置文件。"
+
+#: ../../tooling/ister.rst:76
+msgid ""
+"If your configuration file has an accompanying \"PostNonChroot\" script, "
+"change the default path of the script to match your path."
+msgstr "如果此配置文件附带 \"PostNonChroot\" 脚本，则将此脚本的默认路径更改为您的路径。"
+
+#: ../../tooling/ister.rst:79
+msgid "Generate the new image with the following command:"
+msgstr "用以下命令生成新映像："
+
+#: ../../tooling/ister.rst:86
+msgid "Related topics"
+msgstr "相关主题"
+
+#: ../../tooling/ister.rst:88
+msgid ":ref:`mixer`"
+msgstr ":ref:`mixer`"
+
+#: ../../tooling/ister.rst:89
+msgid ":ref:`bulk-provision`"
+msgstr ":ref:`bulk-provision`"
+
+#~ msgid ""
+#~ "The `ister.py tool`_ is a template-"
+#~ "based installer used by |CL-ATTR| "
+#~ "to produce images for each release. "
+#~ "The same ister tool is available "
+#~ "for use in |CL| to create custom"
+#~ " images based on an upstream image."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Install the :command:`os-installer` bundle."
+#~ " Refer to `Install a bundle`_ for "
+#~ "more details."
+#~ msgstr ""
+
+#~ msgid "Download the `ister.py tool`_ and grant it sudo privileges."
+#~ msgstr ""
+
+#~ msgid "Download the JSON configuration file for the desired image:"
+#~ msgstr ""
+
+#~ msgid "`Configuration files for the current release`_"
+#~ msgstr ""
+
+
+

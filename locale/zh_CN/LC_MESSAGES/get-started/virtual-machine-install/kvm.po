@@ -7,19 +7,20 @@
 msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-31 12:04-0008\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh-Hans\n"
 "Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
-"Language: zh-Hans\n"
 
 #: ../../get-started/virtual-machine-install/kvm.rst:4
-msgid "Run |CL-ATTR| as a KVM guest OS"
-msgstr "运行 |CL-ATTR|，用作 KVM 来宾操作系统"
+msgid "|CL-ATTR| on KVM"
+msgstr "KVM 上的 |CL-ATTR|"
 
 #: ../../get-started/virtual-machine-install/kvm.rst:6
 msgid ""
@@ -36,7 +37,8 @@ msgid ""
 "Enable the `Intel® Virtualization Technology`_ (Intel® VT) and the "
 "`Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d) in the"
 " host machine’s BIOS."
-msgstr "在主机 BIOS 中启用 `Intel® Virtualization Technology`_ (Intel® VT) 和 `Intel® Virtualization Technology for Directed I/O`_ (Intel® VT-d)。"
+msgstr "在主机 BIOS 中启用 `Intel® Virtualization Technology`_ (英特尔® 虚拟化技术) 和 `Intel® Virtualization Technology for Directed I/O`_ (英特尔® 定向I/O虚拟化技术)。"
+
 
 #: ../../get-started/virtual-machine-install/kvm.rst:20
 msgid "Log in and open a terminal emulator."
@@ -76,6 +78,7 @@ msgid ""
 "``clear-<version>-kvm.img.xz``.  You can also use this command:"
 msgstr "从 `image <https://cdn.download.clearlinux.org/image/>`_ 目录下载最新的预构建 |CL| KVM 映像。查找 ``clear-<version>-kvm.img.xz``。您还可以使用此命令："
 
+
 #: ../../get-started/virtual-machine-install/kvm.rst:59
 msgid "Uncompress the downloaded image:"
 msgstr "解压缩下载的映像："
@@ -96,6 +99,7 @@ msgid ""
 "LTS resolved the `ASSERT` issue."
 msgstr "|CL| 的默认 OVMF 文件可能并不适用于部分操作系统版本。开启虚拟机时，可能会在 `debug.log` 文件中发现 `ASSERT`。如果出现此情况，则改用因操作系统而异的 OVMF 文件。例如，|CL| OVMF 文件适用于 Ubuntu 18.04 LTS，但不适用于 Ubuntu 19.04 LTS。安装和使用适用于 Ubuntu 19.04 LTS 的 OVMF 文件，解决了 `ASSERT` 问题。"
 
+
 #: ../../get-started/virtual-machine-install/kvm.rst:82
 msgid ""
 "Download the `start_qemu.sh`_ script from the `image "
@@ -103,6 +107,7 @@ msgid ""
 "will launch the |CL| VM and provide console interaction within the same "
 "terminal emulator window."
 msgstr "从 `image <https://cdn.download.clearlinux.org/image/>`_ 目录下载 `start_qemu.sh`_ 脚本。此脚本将启动 |CL| 虚拟机，并在同一个终端模拟器窗口中提供控制台交互操作。"
+
 
 #: ../../get-started/virtual-machine-install/kvm.rst:91
 msgid "Make the script executable:"
@@ -176,6 +181,7 @@ msgid ""
 " support."
 msgstr "修改 :file:`start_qemu.sh` 脚本，增加内存 (`-m`)，添加显卡驱动程序 (`-vga`) 和 Spice（`-spice`、`-usb` 和 `-device`）支持。"
 
+
 #: ../../get-started/virtual-machine-install/kvm.rst:198
 msgid ""
 "Due to changes in the :file:`start_qemu.sh` script from the previous "
@@ -184,6 +190,7 @@ msgid ""
 "this is to delete the OVMF files and restore the originals before "
 "relaunching the VM."
 msgstr "由于上一步在 :file:`start_qemu.sh` 脚本中进行了更改，使用同一 OVMF 文件会导致虚拟机不能正常引导，最后进入 UEFI shell 界面。避免这种情况的最简单方法是删除 OVMF 文件，在重启虚拟机前恢复原始文件。"
+
 
 #: ../../get-started/virtual-machine-install/kvm.rst:203
 msgid "Increase the size of the VM by 10GB to accommodate the GDM installation:"
@@ -228,6 +235,7 @@ msgid ""
 "right corner)."
 msgstr "GDM GUI 针对 |CL| 虚拟机的默认画面比例为 4:3。要改变该比例，请使用 GDM 的 `Devices > Displays` 设置工具（右上角）。"
 
+
 #~ msgid ""
 #~ "This guide explains how to run "
 #~ "|CL-ATTR| in a virtualized environment "
@@ -257,5 +265,8 @@ msgstr "GDM GUI 针对 |CL| 虚拟机的默认画面比例为 4:3。要改变该
 #~ "partition`_ of the virtual disk of "
 #~ "the VM."
 #~ msgstr ""
+
+#~ msgid "Run |CL-ATTR| as a KVM guest OS"
+#~ msgstr "运行 |CL-ATTR|，用作 KVM 来宾操作系统"
 
 

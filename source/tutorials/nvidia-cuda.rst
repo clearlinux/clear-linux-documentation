@@ -1,7 +1,7 @@
 .. _nvidia-cuda:
 
-Install NVIDIA CUDA Toolkit 
-###########################
+NVIDIA\* CUDA Toolkit 
+#####################
 
 NVIDIA is a manufacturer of graphics processing units (GPU), also known as
 graphics cards. 
@@ -15,7 +15,7 @@ These instructions show how to install the CUDA Toolkit on |CL| after the
 
 .. note::
   
-   Software installed outside of :ref:`swupd <swupd-about>` is not updated with |CL|
+   Software installed outside of :ref:`swupd <swupd-guide>` is not updated with |CL|
    updates and must be updated and maintained manually.
 
 

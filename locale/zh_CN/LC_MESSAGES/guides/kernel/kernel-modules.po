@@ -4,31 +4,30 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/kernel/kernel-modules.rst:4
 msgid "Add kernel modules manually"
-msgstr ""
+msgstr "手动添加内核模块"
 
 #: ../../guides/kernel/kernel-modules.rst:6
 msgid "This guide describes how to add kernel modules manually."
-msgstr ""
+msgstr "本指南介绍如何手动添加内核模块。"
 
 #: ../../guides/kernel/kernel-modules.rst:13
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../guides/kernel/kernel-modules.rst:15
 msgid ""
@@ -36,11 +35,11 @@ msgid ""
 "additional kernel modules that are not part of the Linux source tree, you"
 " may need to build out-of-tree kernel modules. Use this guide to add "
 "kernel modules manually, or refer to :ref:`kernel-modules-dkms`."
-msgstr ""
+msgstr "某些内核模块在 |CL-ATTR| 中默认启用。要使用不属于 Linux 源代码树的其他内核模块，您可能需要构建树外内核模块。请使用本指南手动添加内核模块，或参阅 :ref:`kernel-modules-dkms`。"
 
 #: ../../guides/kernel/kernel-modules.rst:21
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: ../../guides/kernel/kernel-modules.rst:23
 msgid ""
@@ -49,11 +48,11 @@ msgid ""
 "driver. Kernel modules may already be part of the Linux source tree (in-"
 "tree) or may come from an external source, such as directly from a vendor"
 " (out-of-tree)."
-msgstr ""
+msgstr "内核模块是能够插入到 Linux 内核中以增加功能的附加软件，例如硬件驱动程序。内核模块可能已经是 Linux 源代码树的一部分（树内），也可能来自外部来源，例如直接来自供应商（树外）。"
 
 #: ../../guides/kernel/kernel-modules.rst:32
 msgid "Kernel module availability"
-msgstr ""
+msgstr "内核模块可用性"
 
 #: ../../guides/kernel/kernel-modules.rst:34
 msgid ""
@@ -61,17 +60,17 @@ msgid ""
 "existing module is significantly easier to maintain and retains signature"
 " verification of the |CL| kernel. For more information on |CL| security "
 "practices, see the :ref:`security` page."
-msgstr ""
+msgstr "|CL| 附带了许多上游内核模块以备使用。使用现有模块时，维护和保留 |CL| 内核的签名验证要容易得多。有关 |CL| 安全实践的更多信息，请参阅 :ref:`security` 页面。"
 
 #: ../../guides/kernel/kernel-modules.rst:39
 msgid ""
 "Before continuing, check if the kernel module you're looking for is "
 "already available in |CL| or submit a request to add the module."
-msgstr ""
+msgstr "继续之前，请检查您正在寻找的内核模块是否已经在 |CL| 中可用，或者提交添加该模块的请求。"
 
 #: ../../guides/kernel/kernel-modules.rst:44
 msgid "Check if the module is already available"
-msgstr ""
+msgstr "检查模块是否已经可用"
 
 #: ../../guides/kernel/kernel-modules.rst:47
 msgid ""
@@ -79,26 +78,26 @@ msgid ""
 ":file:`.ko` file extension, using the :command:`swupd search` command, as"
 " shown in the following example. See :ref:`swupd-guide` for more "
 "information."
-msgstr ""
+msgstr "您可以使用 :command:`swupd search` 命令搜索以 :file:`.ko` 文件扩展名结尾的内核模块文件名，如下例所示。有关详细信息，请参阅 :ref:`swupd-guide`。"
 
 #: ../../guides/kernel/kernel-modules.rst:57
 msgid "Submit a request to add the module"
-msgstr ""
+msgstr "提交添加模块的请求"
 
 #: ../../guides/kernel/kernel-modules.rst:59
 msgid ""
 "If the kernel module you need is already open source (for example, in the"
 " Linux upstream) and likely to be useful to others, consider submitting a"
 " request to add or enable it in the |CL| kernel."
-msgstr ""
+msgstr "如果您需要的内核模块已经开源（例如在 Linux 上游），并且可能对其他人也有用，可考虑提交在 |CL| 内核中添加或启用该模块的请求。"
 
 #: ../../guides/kernel/kernel-modules.rst:63
 msgid "Make enhancement requests to the |CL| 'Distribution Project'_ on GitHub."
-msgstr ""
+msgstr "向 GitHub 上的 |CL| 'Distribution Project'_ 提出增强请求。"
 
 #: ../../guides/kernel/kernel-modules.rst:69
 msgid "Build, install, and load an out-of-tree module"
-msgstr ""
+msgstr "构建、安装和加载树外模块"
 
 #: ../../guides/kernel/kernel-modules.rst:71
 msgid ""
@@ -106,122 +105,122 @@ msgid ""
 "testing, and you need an out-of-tree kernel module that is not available "
 "through |CL|. For a more scalable and customizable approach, we recommend"
 " using the :ref:`mixer` to provide a custom kernel and updates."
-msgstr ""
+msgstr "如果您是个人用户或测试人员，并且您需要 |CL| 并未提供的树外内核模块，请按照本节中的步骤操作。如需使用可扩展性和可自定义性更好的方法，我们建议使用 :ref:`mixer` 来提供自定义内核和更新。"
 
 #: ../../guides/kernel/kernel-modules.rst:78
 msgid "Prerequisites"
-msgstr ""
+msgstr "必备条件"
 
 #: ../../guides/kernel/kernel-modules.rst:80
 msgid "Before you begin, you must:"
-msgstr ""
+msgstr "开始之前，您必须："
 
 #: ../../guides/kernel/kernel-modules.rst:82
 msgid "Disable Secure Boot."
-msgstr ""
+msgstr "禁用安全引导。"
 
 #: ../../guides/kernel/kernel-modules.rst:83
 msgid "Disable kernel module integrity checking."
-msgstr ""
+msgstr "禁用内核模块完整性检查。"
 
 #: ../../guides/kernel/kernel-modules.rst:84
 msgid "Have a kernel module package in the form of source code."
-msgstr ""
+msgstr "有一个以源代码形式存在的内核模块包。"
 
 #: ../../guides/kernel/kernel-modules.rst:85
 msgid "Rebuild the module against new versions of the Linux kernel."
-msgstr ""
+msgstr "针对新版本 Linux 内核重新构建模块。"
 
 #: ../../guides/kernel/kernel-modules.rst:89
 msgid ""
 "Any time the kernel is upgraded on your Clear Linux system, you must "
 "rebuild your out-of-tree modules."
-msgstr ""
+msgstr "每当在 Clear Linux 系统上升级内核时，您都必须重新构建树外模块。"
 
 #: ../../guides/kernel/kernel-modules.rst:94
 msgid "Build and install kernel module"
-msgstr ""
+msgstr "构建和安装内核模块"
 
 #: ../../guides/kernel/kernel-modules.rst:96
 msgid ""
 "Determine which kernel variant is running on |CL|. In the example below, "
 "the *native* kernel is in use."
-msgstr ""
+msgstr "确定 |CL| 上正在运行的内核变体。下面的示例中使用了原生内核。"
 
 #: ../../guides/kernel/kernel-modules.rst:104
 msgid ""
 "Install the kernel dev bundle corresponding to the installed kernel. The "
 "kernel dev bundle contains the kernel headers, which are required for "
 "compiling kernel modules. For example:"
-msgstr ""
+msgstr "安装与已安装内核相对应的内核开发捆绑包。内核开发捆绑包含编译内核模块所需的内核头文件。例如："
 
 #: ../../guides/kernel/kernel-modules.rst:108
 msgid ":command:`linux-dev` for developing against the native kernel."
-msgstr ""
+msgstr ":command:`linux-dev` 用于针对原生内核进行开发。"
 
 #: ../../guides/kernel/kernel-modules.rst:109
 msgid ":command:`linux-lts-dev` for developing against the LTS kernel."
-msgstr ""
+msgstr ":command:`linux-lts-dev` 用于针对 LTS 内核进行开发。"
 
 #: ../../guides/kernel/kernel-modules.rst:115
 msgid ""
 "Follow instructions from the kernel module source code to compile the "
 "kernel module. For example:"
-msgstr ""
+msgstr "按照内核模块源代码中的说明编译内核模块。例如："
 
 #: ../../guides/kernel/kernel-modules.rst:128
 msgid "Load kernel module"
-msgstr ""
+msgstr "加载内核模块"
 
 #: ../../guides/kernel/kernel-modules.rst:130
 msgid ""
 "Disable Secure Boot in your system's UEFI settings, if you have enabled "
 "it. The loading of new out-of-tree modules modifies the signatures that "
 "Secure Boot relies on for trust."
-msgstr ""
+msgstr "如果安全引导已启用，请在系统的 UEFI 设置中禁用安全引导。加载新的树外模块会修改安全引导所依赖的信任签名。"
 
 #: ../../guides/kernel/kernel-modules.rst:134
 msgid ""
 "Disable signature checking for the kernel by modifying the kernel boot "
 "parameters and reboot the system."
-msgstr ""
+msgstr "修改内核引导参数禁用内核签名检查，然后重启系统。"
 
 #: ../../guides/kernel/kernel-modules.rst:137
 msgid ""
 "All kernel modules from |CL| have been signed to enforce kernel security."
 " However, out-of-tree modules break this chain of trust so this mechanism"
 " needs to be disabled."
-msgstr ""
+msgstr "|CL| 中的所有内核模块都已签名以加强内核安全。但是，树外模块打破了信任链，因此需要禁用该机制。"
 
 #: ../../guides/kernel/kernel-modules.rst:146
 msgid ""
 "Update the boot manager and reboot the system to implement the changed "
 "kernel parameters."
-msgstr ""
+msgstr "更新引导管理器并重启系统，以实现修改后的内核参数。"
 
 #: ../../guides/kernel/kernel-modules.rst:156
 msgid ""
 "If successful, the :command:`clr-boot-manager update` command does not "
 "return any console output."
-msgstr ""
+msgstr "如果修改成功，:command:`clr-boot-manager update` 命令不会返回任何控制台输出。"
 
 #: ../../guides/kernel/kernel-modules.rst:159
 msgid ""
 "After rebooting, manually load out-of-tree modules using the "
 ":command:`insmod` command."
-msgstr ""
+msgstr "重启后，使用 :command:`insmod` 命令手动加载树外模块。"
 
 #: ../../guides/kernel/kernel-modules.rst:167
 msgid "Examples"
-msgstr ""
+msgstr "示例"
 
 #: ../../guides/kernel/kernel-modules.rst:172
 msgid "Optional: Specify module options and aliases"
-msgstr ""
+msgstr "可选：指定模块选项和别名"
 
 #: ../../guides/kernel/kernel-modules.rst:174
 msgid "Use the :command:`modprobe` command to load a module and set options."
-msgstr ""
+msgstr "使用 :command:`modprobe` 命令加载模块并设置选项。"
 
 #: ../../guides/kernel/kernel-modules.rst:176
 msgid ""
@@ -229,7 +228,7 @@ msgid ""
 "interdependencies. You can specify which options to use with individual "
 "modules, by using configuration files under the :file:`/etc/modprobe.d` "
 "directory."
-msgstr ""
+msgstr ":command:`modprobe` 可能会因为模块相互依赖关系添加或移除多个模块。您可以使用 :file:`/etc/modprobe.d` 目录下的配置文件来指定各个模块要使用的选项。"
 
 #: ../../guides/kernel/kernel-modules.rst:184
 msgid ""
@@ -238,40 +237,40 @@ msgid ""
 "You can use :file:`.conf` files to create convenient aliases for modules "
 "or to override the normal loading behavior altogether for those with "
 "special requirements."
-msgstr ""
+msgstr ":file:`/etc/modprobe.d` 目录下以 :file:`.conf` 扩展名结尾的所有文件会指定加载时要使用的模块选项。您可以使用 :file:`.conf` 文件为模块创建方便使用的别名，或者为有特殊要求的模块完全覆盖正常的加载行为。"
 
 #: ../../guides/kernel/kernel-modules.rst:189
 msgid "Learn more about :command:`modprobe` on the modprobe.d manual page:"
-msgstr ""
+msgstr "参阅 modprobe.d 手册页详细了解 :command:`modprobe`："
 
 #: ../../guides/kernel/kernel-modules.rst:196
 msgid "Optional: Configure kernel modules to load at boot"
-msgstr ""
+msgstr "可选：配置引导时要加载的内核模块"
 
 #: ../../guides/kernel/kernel-modules.rst:198
 msgid ""
 "Use the :file:`/etc/modules-load.d` configuration directory to specify "
 "kernel modules to load automatically at boot."
-msgstr ""
+msgstr "使用 :file:`/etc/modules-load.d` 配置目录指定引导时自动加载的内核模块。"
 
 #: ../../guides/kernel/kernel-modules.rst:205
 msgid ""
 "All files underneath the :file:`/etc/modules-load.d` directory that end "
 "with the :file:`.conf` extension contain a list of module names of "
 "aliases (one per line) to load at boot."
-msgstr ""
+msgstr ":file:`/etc/modules-load.d` 目录下以 :file:`.conf` 扩展名结尾的所有文件包含引导时要加载的模块别名列表（每行一个）。"
 
 #: ../../guides/kernel/kernel-modules.rst:209
 msgid "Learn more about module loading in the modules-load.d manual page:"
-msgstr ""
+msgstr "参阅 modules-load.d 手册页详细了解模块加载："
 
 #: ../../guides/kernel/kernel-modules.rst:219
 msgid "Related topic"
-msgstr ""
+msgstr "相关主题"
 
 #: ../../guides/kernel/kernel-modules.rst:221
 msgid ":ref:`kernel-modules-dkms`"
-msgstr ""
+msgstr ":ref:`kernel-modules-dkms`"
 
 #~ msgid "Make enhancement requests to the |CL| distribution `on GitHub`_."
 #~ msgstr ""
@@ -298,4 +297,6 @@ msgstr ""
 
 #~ msgid "`linux-lts-dev` for developing against the LTS kernel."
 #~ msgstr ""
+
+
 

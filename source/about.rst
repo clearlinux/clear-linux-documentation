@@ -19,8 +19,8 @@ For detailed information on these topics, refer to the :ref:`cl-guides` guides.
 Release Cadence
 ***************
 
-|CL| updates are based on a rolling release that can occur daily but usually
-occurs a few times per week. Each release has a unique version number that
+|CL| updates are based on a rolling release that can occur daily, up to a few
+times per week. Each release has a unique version number that
 identifies every component in the OS from kernel, to driver, to tool, to GUI
 application. Most components are included in entities called *bundles*.
 
@@ -46,8 +46,7 @@ Ease of Use
 * Being :ref:`stateless` means that configuration settings are easier to manage
   and remain untouched when system sofware is updated.
 
-* :ref:`swupd-guide` also makes it easy to manage software and maintain
-  compatibility.
+* :ref:`swupd-guide` simplifies managing software and maintaining compatibility.
 
 Custom Derivatives
 ******************
@@ -56,7 +55,7 @@ The same tools used to build the |CL| are available *in* the OS. These tools can
 be used to create a custom distribution that continues to benefit from upstream
 rolling releases.
 
-.. figure:: /_figures/clear-lifecycle.png
+.. figure:: /_figures/about/clear-lifecycle.png
    :scale: 75%
    :align: center
    :alt: Creating and managing a Clear Linux* OS  version (or derivative)

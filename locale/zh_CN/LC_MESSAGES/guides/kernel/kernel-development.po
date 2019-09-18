@@ -4,166 +4,171 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh-Hans\n"
+"Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../guides/kernel/kernel-development.rst:4
 msgid "Kernel development"
-msgstr ""
+msgstr "内核开发"
 
 #: ../../guides/kernel/kernel-development.rst:6
 msgid ""
 "This guide shows how to obtain and compile a Linux\\* kernel source using"
 " |CL-ATTR| development tooling."
-msgstr ""
+msgstr "本指南介绍了如何使用 |CL-ATTR| 开发工具获取和编译 Linux\\* 内核源代码。"
 
 #: ../../guides/kernel/kernel-development.rst:15
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../guides/kernel/kernel-development.rst:17
 msgid ""
 "The :ref:`compatible-kernels` available in |CL| aim to be performant and "
 "practical. In some cases, it may be necessary to modify the kernel to "
 "suit your specific needs or test new kernel code as a developer."
-msgstr ""
+msgstr "|CL| 中的 :ref:`compatible-kernels` 追求高效和实用。在某些情况下，您可能需要根据自身的具体需求修改内核，而开发人员也可能需要修改内核来测试新的内核代码。"
+
 
 #: ../../guides/kernel/kernel-development.rst:21
 msgid ""
 "`Source RPMs (SRPMS)`_ are also available for all |CL| kernels, and can "
 "be used for development instead."
-msgstr ""
+msgstr "所有 |CL| 内核也提供了 `Source RPMs (SRPMS)`_，它可用于开发目的。"
 
 #: ../../guides/kernel/kernel-development.rst:25
 msgid "Request changes be included with the |CL| kernel"
-msgstr ""
+msgstr "|CL| 内核中包含了请求变更"
 
 #: ../../guides/kernel/kernel-development.rst:27
 msgid ""
 "If the kernel modification you need is already open source and likely to "
 "be useful to others, consider submitting a request to include it in the "
-"|CL| kernels.If your change request is accepted, you do not need to "
+"|CL| kernels. If your change request is accepted, you do not need to "
 "maintain your own modified kernel."
-msgstr ""
+msgstr "如果您需要的内核修改已经开源，并且可能对其他人也有用，请考虑提交一个请求，将其包含在 |CL| 内核中。如果您的变更请求被接受，则不需要维护自己修改过的内核。"
+
 
 #: ../../guides/kernel/kernel-development.rst:32
 msgid ""
 "Make enhancement requests to the |CL| `Distribution Project`_ on "
 "GitHub\\*."
-msgstr ""
+msgstr "向 GitHub\\* 上的 |CL| `Distribution Project`_ 提出增强请求。"
 
 #: ../../guides/kernel/kernel-development.rst:35
 msgid "Set up kernel development environment"
-msgstr ""
+msgstr "设置内核开发环境"
 
 #: ../../guides/kernel/kernel-development.rst:37
 msgid ""
 "In some cases, it may be necessary to modify the kernel to suit your "
 "specific needs or to test new kernel code."
-msgstr ""
+msgstr "在某些情况下，您可能需要根据自身的具体需求或者为了测试新的内核代码而修改内核。"
 
 #: ../../guides/kernel/kernel-development.rst:40
 msgid "You can build and install a custom kernel; however you must:"
-msgstr ""
+msgstr "您可以构建和安装自定义内核；但是，您必须："
 
 #: ../../guides/kernel/kernel-development.rst:42
 msgid "Disable Secure Boot"
-msgstr ""
+msgstr "禁用安全引导"
 
 #: ../../guides/kernel/kernel-development.rst:43
 msgid "Maintain any updates to the kernel going forward"
-msgstr ""
+msgstr "在以后维护任何内核更新"
 
 #: ../../guides/kernel/kernel-development.rst:45
 msgid ""
 "To create a custom kernel, start with the |CL| development environment. "
 "Then make changes to the kernel, build it, and install it."
-msgstr ""
+msgstr "要创建自定义内核，请先从 |CL| 开发环境开始。然后修改、构建和安装内核。"
 
 #: ../../guides/kernel/kernel-development.rst:50
 msgid "Install the |CL| development tooling framework"
-msgstr ""
+msgstr "安装 |CL| 开发工具框架"
 
-#: ../../tooling/autospec.rst:3
+#: ../../guides/clear/autospec.rst:3
 msgid ""
 "Setup of the workspace and tooling used for building source in |CL| is "
 "mostly automated for you with a setup script. It uses tools from the "
 ":command:`os-clr-on-clr` bundle."
-msgstr ""
+msgstr "在 |CL| 中构建源代码所需的工作空间和工具设置操作大多数可通过设置脚本自动执行。该设置脚本使用来自 :command:`os-clr-on-clr` 捆绑包的工具。"
 
-#: ../../tooling/autospec.rst:7
+
+#: ../../guides/clear/autospec.rst:7
 msgid ""
 "The setup script creates a workspace in the :file:`clearlinux` folder, "
 "with the subfolders :file:`Makefile`, :file:`packages`, and "
 ":file:`projects`. The :file:`projects` folder contains the main tools "
 "used for making packages in |CL| :file:`autospec` and :file:`common`."
-msgstr ""
+msgstr "该设置脚本会在 :file:`clearlinux` 文件夹（其中包含 :file:`Makefile`、:file:`packages` 和 :file:`projects` 子文件夹）中创建一个工作空间。:file:`projects` 文件夹包含在 |CL| 中制作软件包的主要工具，即 :file:`autospec` 和 :file:`common`。"
 
-#: ../../tooling/autospec.rst:12
+
+#: ../../guides/clear/autospec.rst:12
 msgid "Follow these steps to setup the workspace and tooling for building source:"
-msgstr ""
+msgstr "按照以下步骤设置构建代码所需的工作空间和工具："
 
-#: ../../tooling/autospec.rst:14
+#: ../../guides/clear/autospec.rst:14
 msgid "Install the :command:`os-clr-on-clr` bundle:"
-msgstr ""
+msgstr "安装 :command:`os-clr-on-clr` 捆绑包："
 
-#: ../../tooling/autospec.rst:20
+#: ../../guides/clear/autospec.rst:20
 msgid "Download the :file:`user-setup.sh` script:"
-msgstr ""
+msgstr "下载 :file:`user-setup.sh` 脚本："
 
-#: ../../tooling/autospec.rst:26
+#: ../../guides/clear/autospec.rst:26
 msgid "Make :file:`user-setup.sh` executable:"
-msgstr ""
+msgstr "制作 :file:`user-setup.sh` 可执行文件："
 
-#: ../../tooling/autospec.rst:32
+#: ../../guides/clear/autospec.rst:32
 msgid "Run the script as an unprivileged user:"
-msgstr ""
+msgstr "以非特权用户的身份运行脚本："
 
-#: ../../tooling/autospec.rst:38
+#: ../../guides/clear/autospec.rst:38
 msgid ""
 "After the script completes, log out and log in again to complete the "
 "setup process."
-msgstr ""
+msgstr "脚本完成后，注销并再次登录以完成设置过程。"
 
-#: ../../tooling/autospec.rst:41
+#: ../../guides/clear/autospec.rst:41
 msgid "Set your Git user email and username for the repos on your system:"
-msgstr ""
+msgstr "在系统上设置存储库的 Git 用户电子邮件和用户名："
 
-#: ../../tooling/autospec.rst:48
+#: ../../guides/clear/autospec.rst:48
 msgid "This global setting is used by |CL| tools that make use of Git."
-msgstr ""
+msgstr "此全局设置由使用 Git 的 |CL| 工具使用。"
 
 #: ../../guides/kernel/kernel-development.rst:57
 msgid "Clone the kernel package"
-msgstr ""
+msgstr "克隆内核包"
 
 #: ../../guides/kernel/kernel-development.rst:59
 msgid ""
 "Clone the existing kernel package repository from |CL| as a starting "
 "point."
-msgstr ""
+msgstr "首先从 |CL| 克隆现有的内核包存储库。"
 
 #: ../../guides/kernel/kernel-development.rst:61
 msgid ""
 "Clone the Linux kernel package from |CL|. Using the :command:`make "
 "clone_<PACKAGENAME>` command in the :file:`clearlinux/` directory clones "
 "the package from the `clearlinux-pkgs`_ repo on GitHub."
-msgstr ""
+msgstr "从 |CL| 克隆 Linux 内核包。在 :file:`clearlinux/` 目录下使用 :command:`make clone_<PACKAGENAME>` 命令，从 GitHub 上的 `clearlinux-pkgs`_ 存储库克隆内核包。"
+
 
 #: ../../guides/kernel/kernel-development.rst:71
 msgid "Navigate into the cloned package directory."
-msgstr ""
+msgstr "导航到克隆的内核包目录。"
 
 #: ../../guides/kernel/kernel-development.rst:78
 msgid ""
@@ -171,219 +176,222 @@ msgid ""
 ":`kernel-native` bundle. Alternatively, you can use a different kernel "
 "variant as the base for modification. For a list of kernel package names "
 "which you can clone instead, see the `clearlinux-pkgs`_ repo on GitHub."
-msgstr ""
+msgstr "\"linux\" 包是 :command:`kernel-native` 捆绑包中随 |CL| 附带的内核。您也可以使用不同的内核变体，并在其基础上进行修改。有关可以克隆的内核包名称列表，请参阅 GitHub 上的 `clearlinux-pkgs`_ 存储库。"
+
 
 #: ../../guides/kernel/kernel-development.rst:85
 msgid ""
 "The latest version of the |CL| kernel package is pulled as a starting "
 "point. An older version can pulled by switching to different git tag by "
 "using :command:`git checkout tag/<TAG_NAME>`."
-msgstr ""
+msgstr "一开始先提取 |CL| 内核包的最新版本。此外可以使用 :command:`git checkout tag/<TAG_NAME>`，并通过切换到不同的 git 标签来提取旧版本。"
+
 
 #: ../../guides/kernel/kernel-development.rst:90
 msgid "Change the kernel version"
-msgstr ""
+msgstr "更改内核版本"
 
 #: ../../guides/kernel/kernel-development.rst:92
 msgid ""
 "|CL| tends to use the latest kernel available from `kernel.org`_, the "
 "Linux upstream. The kernel version that will be built can be changed in "
 "the RPM SPEC file. While most packages in Clear Linux are typically "
-"packaged using :ref:`autospec-about`, the kernel is not. This means "
-"control files provided by autospec are not available and changes must be "
-"made manually."
-msgstr ""
+"packaged using :ref:`autospec`, the kernel is not. This means control "
+"files provided by autospec are not available and changes must be made "
+"manually."
+msgstr "|CL| 倾向于使用来自 Linux 上游 `kernel.org`_ 的最新内核。在 RPM SPEC 文件中可以更改将构建的内核版本。虽然 Clear Linux 中的大多数包通常使用 :ref:`autospec` 打包，但内核不是。这意味着 autospec 提供的控制文件不可用，必须手动进行更改。"
+
 
 #: ../../guides/kernel/kernel-development.rst:98
 #: ../../guides/kernel/kernel-development.rst:294
 msgid "Open the Linux kernel package RPM SPEC file in an editor."
-msgstr ""
+msgstr "在编辑器中打开 Linux 内核包 RPM SPEC 文件。"
 
 #: ../../guides/kernel/kernel-development.rst:104
 msgid ""
 "Modify the Version, Release, and Source0 URL entries at the top of the "
 "file to change the version of Linux kernel that will be compiled."
-msgstr ""
+msgstr "修改文件顶部的 Version、Release 和 Source0 URL 条目，以更改将要编译的 Linux 内核版本。"
 
 #: ../../guides/kernel/kernel-development.rst:107
 msgid ""
 "A list of current and available kernel release can be found on "
 "`kernel.org`_."
-msgstr ""
+msgstr "当前和可用内核版本的列表可在 `kernel.org`_ 上找到。"
 
 #: ../../guides/kernel/kernel-development.rst:126
 msgid ""
 "Consider changing the Name from *linux* in the RPM spec file to easily "
 "identify a modified kernel."
-msgstr ""
+msgstr "考虑在 RPM 规范文件中将 Name 从 *linux* 更改为更易于识别的名称，以便轻松识别修改后的内核。"
 
 #: ../../guides/kernel/kernel-development.rst:129
 msgid ""
 "Consider changing the ktarget from *native* in the RPM spec file to "
 "easily identify a modified kernel."
-msgstr ""
+msgstr "考虑在 RPM 规范文件中将 ktarget 从 *native* 更改为更易于识别的名称，以便轻松识别修改后的内核。"
 
 #: ../../guides/kernel/kernel-development.rst:132
 msgid "Commit and save the changes to the file."
-msgstr ""
+msgstr "提交并保存对文件的更改。"
 
 #: ../../guides/kernel/kernel-development.rst:137
 msgid "Pull a copy of the Linux kernel source code"
-msgstr ""
+msgstr "提取一份 Linux 内核源代码副本"
 
 #: ../../guides/kernel/kernel-development.rst:139
 msgid "Obtain a local copy of the source code to make modifications against."
-msgstr ""
+msgstr "获取源代码的本地副本进行修改。"
 
 #: ../../guides/kernel/kernel-development.rst:141
 msgid ""
 "Run make sources to pull the kernel source code specified in the RPM SPEC"
 " file. In the example, it downloads the :file:`linux-4.20.8.tar.xz` file."
-msgstr ""
+msgstr "运行源代码制作操作，提取在 RPM SPEC 文件中指定的内核源代码。本例中下载了 :file:`linux-4.20.8.tar.xz` 文件。"
 
 #: ../../guides/kernel/kernel-development.rst:149
 msgid ""
 "Extract the kernel source code archive. This will create a working copy "
 "of the Linux source that you can modify."
-msgstr ""
+msgstr "提取内核源代码存档。这将创建一个可以修改的 Linux 源代码工作副本。"
 
 #: ../../guides/kernel/kernel-development.rst:156
 msgid ""
 "Navigate to the extracted directory. In this example, it has been "
 "extracted into a :file:`linux-4.20.8` directory."
-msgstr ""
+msgstr "导航到提取的目录。本例中将源代码提取到了 :file:`linux-4.20.8` 目录。"
 
 #: ../../guides/kernel/kernel-development.rst:165
 msgid "Customize the Linux kernel source"
-msgstr ""
+msgstr "自定义 Linux 内核源代码"
 
 #: ../../guides/kernel/kernel-development.rst:167
 msgid ""
 "After the kernel sources have been obtained, customizations to the kernel"
 " configuration or source code can be made for inclusion with the kernel "
 "build. These customizations are optional."
-msgstr ""
+msgstr "获得内核源代码后，可以自定义内核配置或源代码，将其包含在内核构建中。这些自定义是可选的。"
 
 #: ../../guides/kernel/kernel-development.rst:172
 msgid "Modify kernel configuration"
-msgstr ""
+msgstr "修改内核配置"
 
 #: ../../guides/kernel/kernel-development.rst:174
 msgid ""
 "The kernel source has many configuration options available to pick "
 "support for different hardware and software features."
-msgstr ""
+msgstr "内核源代码提供了许多配置选项，可支持不同的硬件和软件功能。"
 
 #: ../../guides/kernel/kernel-development.rst:177
 msgid ""
 "These configuration values must be provided in the :file:`.config` file "
 "at compile time. You will need to make modifications to the "
 ":file:`.config` file, and include it in the kernel package."
-msgstr ""
+msgstr "编译时必须在 :file:`.config` 文件中提供这些配置值。您需要修改 :file:`.config` 文件，并将其包含在内核包中。"
 
 #: ../../guides/kernel/kernel-development.rst:182
 #: ../../guides/kernel/kernel-development.rst:238
 msgid ""
 "Make sure you have followed the steps to :ref:`pull-copy-kernel-source` "
 "and are in the kernel source working directory."
-msgstr ""
+msgstr "请确保您已经执行了 :ref:`pull-copy-kernel-source` 中的步骤，而且处于内核源代码工作目录下。"
 
 #: ../../guides/kernel/kernel-development.rst:186
 msgid ""
 "If you have an existing :file:`.config` file from an old kernel, copy it "
 "into the working directory as :file:`.config` for comparison. Otherwise, "
 "use the |CL| kernel configuration file as template"
-msgstr ""
+msgstr "如果您目前有一个来自旧内核的 :file:`.config` 文件，请将其复制到工作目录中进行比较。否则，请使用 |CL| 内核配置文件作为模板"
 
 #: ../../guides/kernel/kernel-development.rst:195
 msgid ""
 "Make any desired changes to the :file:`.config` using a kernel "
 "configuration tool. Below are some popular options:"
-msgstr ""
+msgstr "使用内核配置工具对 :file:`.config` 执行所需的更改。以下是一些常用选项："
 
 #: ../../guides/kernel/kernel-development.rst:198
 msgid ""
 ":command:`$EDITOR .config` - the .config file can be directly edited for "
 "simple changes with names that are already known."
-msgstr ""
+msgstr ":command:`$EDITOR .config` - 可以直接编辑 .config 文件，对已知的名称进行简单更改。"
 
 #: ../../guides/kernel/kernel-development.rst:201
 msgid ""
 ":command:`make config` - a text-based tool that asks questions one-by-one"
 " to decide configuration options."
-msgstr ""
+msgstr ":command:`make config` - 一个基于文本的工具，通过逐步提问的方式决定配置选项。"
 
 #: ../../guides/kernel/kernel-development.rst:204
 msgid ""
 ":command:`make menuconfig` - a terminal user interface that provides "
 "menus to decide configuration options."
-msgstr ""
+msgstr ":command:`make menuconfig` - 一个终端用户界面，通过提供菜单来决定配置选项。"
 
 #: ../../guides/kernel/kernel-development.rst:207
 msgid ""
 ":command:`make xconfig` - a graphical user interface that provides tree "
 "views to decide configuration options."
-msgstr ""
+msgstr ":command:`make xconfig` - 一个图形用户界面，通过提供树视图来决定配置选项。"
 
 #: ../../guides/kernel/kernel-development.rst:211
 msgid ""
 "More configuration tools can be found by looking at the make help: "
 ":command:`make help | grep config`"
-msgstr ""
+msgstr "使用 :command:`make help | grep config` 命令查看 make help 可以找到更多配置工具"
 
 #: ../../guides/kernel/kernel-development.rst:214
 msgid "Commit and save the changes to the :file:`.config` file."
-msgstr ""
+msgstr "提交更改并将其保存到 :file:`.config` 文件。"
 
 #: ../../guides/kernel/kernel-development.rst:216
 msgid ""
 "Copy the :file:`.config` file from the kernel source directory into the "
 "kernel package directory as :file:`config` for inclusion in the build."
-msgstr ""
+msgstr "将 :file:`.config` 文件从内核源代码目录复制到内核包目录，以便将 :file:`.config` 包含在构建中。"
 
 #: ../../guides/kernel/kernel-development.rst:224
 msgid "Modify kernel source code"
-msgstr ""
+msgstr "修改内核源代码"
 
 #: ../../guides/kernel/kernel-development.rst:226
 msgid ""
 "Changes to kernel code are applied with patch files. Patch files are "
 "formatted git commits that can be applied to the main source code."
-msgstr ""
+msgstr "对内核代码的更改通过补丁文件应用。补丁文件是格式化的 git 提交，可以应用于主源代码。"
 
 #: ../../guides/kernel/kernel-development.rst:229
 msgid ""
 "You will need to obtain a copy of the source code, make modifications, "
 "generate patch file(s), and add them to the RPM SPEC file for inclusion "
 "during the kernel build."
-msgstr ""
+msgstr "您需要获得源代码的副本，进行修改，生成补丁文件，然后将它们添加到 RPM SPEC 文件中，以便在内核构建期间包含在内。"
 
 #: ../../guides/kernel/kernel-development.rst:233
 msgid ""
 "If you have a large number of patches or a more complex workflow, "
 "consider using a patch management tool in addition to Git such as "
 "`Quilt`_."
-msgstr ""
+msgstr "如果有大量补丁或工作流程十分复杂，可考虑在 Git 之外使用 `Quilt`_ 之类补丁管理工具。"
 
 #: ../../guides/kernel/kernel-development.rst:242
 msgid ""
 "Initialize the kernel source directory as a new git repo and create a "
 "commit with all the existing source files to begin tracking changes."
-msgstr ""
+msgstr "将内核源代码目录初始化为新的 git 存储库，并使用所有现有源文件创建一个提交，以开始跟踪更改。"
 
 #: ../../guides/kernel/kernel-development.rst:252
 msgid ""
 "Apply patches provided by the |CL| kernel package to the kernel source in"
 " the working directory."
-msgstr ""
+msgstr "将 |CL| 内核包提供的补丁应用于工作目录中的内核源代码。"
 
 #: ../../guides/kernel/kernel-development.rst:260
 msgid "Make any of your desired code changes to the Linux source code files."
-msgstr ""
+msgstr "对 Linux 源代码文件执行所需的代码更改。"
 
 #: ../../guides/kernel/kernel-development.rst:263
 msgid "Track and commit your changes to the local git repo."
-msgstr ""
+msgstr "跟踪您的更改，并将其提交到本地 git 存储库。"
 
 #: ../../guides/kernel/kernel-development.rst:271
 msgid ""
@@ -391,17 +399,18 @@ msgid ""
 "number of local commits to create patch file. See the `git-format-patch`_"
 " documentation for detailed information on using :command:`git format-"
 "patch`"
-msgstr ""
+msgstr "基于您的 git 提交生成补丁文件。<n>表示要创建补丁文件的本地提交数量。有关使用 :command:`git format-patch` 的详细信息，请参阅 `git-format-patch`_ 文档"
+
 
 #: ../../guides/kernel/kernel-development.rst:280
 msgid ""
 "Copy the patch files from the patches directory in the linux source tree "
 "to the RPM build directory."
-msgstr ""
+msgstr "将补丁文件从 Linux 源代码树中的补丁目录复制到 RPM 构建目录。"
 
 #: ../../guides/kernel/kernel-development.rst:288
 msgid "Navigate back to the RPM build directory."
-msgstr ""
+msgstr "导航回 RPM 构建目录。"
 
 #: ../../guides/kernel/kernel-development.rst:300
 msgid ""
@@ -409,104 +418,105 @@ msgid ""
 " definitions and append your patch file name. Ensure the patch number "
 "does not collide with an existing patch. In this example, the patch file "
 "is called :file:`2001-my-patch-for-driver-A.patch`"
-msgstr ""
+msgstr "找到包含现有补丁变量定义的 SPEC 文件部分，并附加补丁文件名。确保补丁编号不与现有补丁冲突。本例中的补丁文件名为 :file:`2001-my-patch-for-driver-A.patch`"
+
 
 #: ../../guides/kernel/kernel-development.rst:323
 msgid ""
 "Locate the section of the SPEC file further down that contains patch "
 "application and append your patch file number used in the step above. In "
 "this example, patch2001 is added."
-msgstr ""
+msgstr "进一步深入查找含有补丁应用程序的 SPEC 文件部分，并附加在上面步骤中使用的补丁文件编号。本例中添加了 patch2001。"
 
 #: ../../guides/kernel/kernel-development.rst:342
 msgid "Commit and save the changes to the RPM SPEC file."
-msgstr ""
+msgstr "提交并保存对 RPM SPEC 文件的更改。"
 
 #: ../../guides/kernel/kernel-development.rst:345
 msgid "Modify kernel boot parameters"
-msgstr ""
+msgstr "修改内核引导参数"
 
 #: ../../guides/kernel/kernel-development.rst:346
 msgid ""
 "The kernel boot options are passed from the bootloader to the kernel with"
 " command-line parameters."
-msgstr ""
+msgstr "内核引导选项通过命令行参数从引导加载程序传递到内核。"
 
 #: ../../guides/kernel/kernel-development.rst:349
 msgid ""
 "While temporary changes can be made to kernel parameters on a running "
 "system or on a during boot, you can also modify the default parameters "
 "that are persistent and distributed with a customized kernel."
-msgstr ""
+msgstr "虽然可以在正在运行的系统上或在引导过程中对内核参数进行临时更改，但您也可以修改随自定义内核分发并持久存在的默认参数。"
 
 #: ../../guides/kernel/kernel-development.rst:354
 msgid "Open the kernel :file:`cmdline` file in an editor."
-msgstr ""
+msgstr "在编辑器中打开内核 :file:`cmdline` 文件。"
 
 #: ../../guides/kernel/kernel-development.rst:361
 msgid ""
 "Make any desired change to the kernel parameters. For example, you can "
 "remove the :command:`quiet` parameter to see more verbose output of "
 "kernel log messages during the boot process."
-msgstr ""
+msgstr "对内核参数执行所需的更改。例如，您可以移除 :command:`quiet` 参数，以便在引导过程中查看更详细的内核日志消息输出。"
 
 #: ../../guides/kernel/kernel-development.rst:365
 msgid "Commit and save the changes to the :file:`cmdline` file."
-msgstr ""
+msgstr "提交更改并将其保存到 :file:`cmdline` 文件。"
 
 #: ../../guides/kernel/kernel-development.rst:367
 msgid ""
 "See the `kernel parameters`_  documentation for a list of available "
 "parameters."
-msgstr ""
+msgstr "有关可用参数的列表，请参阅 `kernel parameters`_ 文档。"
 
 #: ../../guides/kernel/kernel-development.rst:371
 msgid "Build and install the kernel"
-msgstr ""
+msgstr "构建并安装内核"
 
 #: ../../guides/kernel/kernel-development.rst:372
 msgid ""
 "After changes have been made to the kernel source and RPM SPEC file, the "
 "kernel is ready to be compiled and packaged into an RPM."
-msgstr ""
+msgstr "更改内核源代码和 RPM SPEC 文件后，内核就可以编译并打包成 RPM。"
 
 #: ../../guides/kernel/kernel-development.rst:375
 msgid ""
 "The |CL| development tooling makes use of :command:`mock` environments to"
 " isolate building of packages in a sanitized workspace."
-msgstr ""
+msgstr "|CL| 开发工具使用 :command:`mock` 环境来在净化的工作区中隔离内核包构建工作。"
 
 #: ../../guides/kernel/kernel-development.rst:378
 msgid ""
 "Start the compilation process by issuing the :command:`make build` "
 "command. This process is typically resource intensive and will take a "
 "while."
-msgstr ""
+msgstr "发出 :command:`make build` 命令启动编译过程。此过程通常会占用大量资源，而且需要一段时间。"
 
 #: ../../guides/kernel/kernel-development.rst:386
 msgid ""
 "The mock plugin `ccache`_ can be enabled to help speed up any future "
 "rebuilds of the kernel package by caching compiler outputs and reusing "
 "them."
-msgstr ""
+msgstr "您可以启用 mock 插件 `ccache`_，通过缓存并重用编译器输出来加快日后执行的内核包重新构建速度。"
 
 #: ../../guides/kernel/kernel-development.rst:391
 msgid ""
 "The result will be multiple :file:`.rpm` files in the :file:`rpms` "
 "directory as output."
-msgstr ""
+msgstr "编译后会在 :file:`rpms` 目录中输出多个 :file:`.rpm` 文件。"
 
 #: ../../guides/kernel/kernel-development.rst:398
 msgid ""
 "The kernel RPM will be named "
 ":file:`linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm`"
-msgstr ""
+msgstr "内核 RPM 将命名为 :file:`linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm`"
 
 #: ../../guides/kernel/kernel-development.rst:402
 msgid ""
 "The kernel RPM file can be input to the :ref:`mixer` to create a custom "
 "bundle and mix of |CL|."
-msgstr ""
+msgstr "内核 RPM 文件可以输入到 :ref:`mixer`，以创建自定义捆绑包和 |CL| 混合版。"
 
 #: ../../guides/kernel/kernel-development.rst:405
 msgid ""
@@ -514,33 +524,34 @@ msgid ""
 " machine for testing. This approach works well for individual development"
 " or testing. For a more scalable and customizable approach, consider "
 "using the :ref:`mixer` to provide a custom kernel with updates."
-msgstr ""
+msgstr "内核 RPM 捆绑包也可以手动安装在本地计算机上进行测试。此方法对于个人开发或测试非常有效。如需使用可扩展性和可自定义性更好的方法，可考虑使用 :ref:`mixer` 为自定义内核提供更新。"
+
 
 #: ../../guides/kernel/kernel-development.rst:410
 msgid ""
 "Install the kernel onto the local system by extracting the RPM with the "
 ":command:`rpm2cpio` command."
-msgstr ""
+msgstr "使用 :command:`rpm2cpio` 命令提取 RPM，将内核安装到本地系统上。"
 
 #: ../../guides/kernel/kernel-development.rst:418
 msgid "Update the |CL| boot manager using :command:`clr-boot-manager` and reboot."
-msgstr ""
+msgstr "使用 :command:`clr-boot-manager` 命令更新 |CL| 引导管理器，然后重启。"
 
 #: ../../guides/kernel/kernel-development.rst:428
 msgid "After a reboot, verify the customized kernel is running."
-msgstr ""
+msgstr "重启后，确认自定义内核是否正在运行。"
 
 #: ../../guides/kernel/kernel-development.rst:435
 msgid "Related topics"
-msgstr ""
+msgstr "相关主题"
 
 #: ../../guides/kernel/kernel-development.rst:437
 msgid ":ref:`kernel-modules`"
-msgstr ""
+msgstr ":ref:`kernel-modules`"
 
 #: ../../guides/kernel/kernel-development.rst:438
 msgid ":ref:`mixer`"
-msgstr ""
+msgstr ":ref:`mixer`"
 
 #~ msgid ""
 #~ "This document shows how to obtain "
@@ -638,4 +649,5 @@ msgstr ""
 #~ "Linux kernel source code`_ and are "
 #~ "in the kernel source working directory."
 #~ msgstr ""
+
 

@@ -3,10 +3,11 @@
 autospec
 ########
 
-**autospec** is a tool used to assist with the automated creation and maintenance of
-RPM packaging in |CL-ATTR|. Where a standard :abbr:`RPM (RPM Package Manager)` build process using
-:command:`rpmbuild` requires a tarball and :file:`.spec` file to start, autospec
-requires only a tarball and package name to start.
+**autospec** is a tool used to assist with the automated creation and
+maintenance of RPM packaging in |CL-ATTR|. Where a standard
+:abbr:`RPM (RPM Package Manager)` build process using :command:`rpmbuild`
+requires a tarball and :file:`.spec` file to start, autospec requires only a
+tarball and package name to start.
 
 .. contents::
    :local:
@@ -26,7 +27,7 @@ autospec uses **mock** as a sandbox to run the builds. Visit the `mock wiki`_ fo
 additional information on using mock.
 
 For a general understanding of how an RPM works, visit 
-the `rpm website`_ or the `RPM Packaging Guide`_ .
+the `rpm website`_ or the `RPM Packaging Guide`_.
 
 How it works
 ************
@@ -392,7 +393,7 @@ To test an autospec-created package inside a VM:
       sudo ./start_qemu.sh clear.img
 
 #. A new |CL| VM will launch in the console. Log into the VM as *root* and set
-   a new pasword for the VM.
+   a new password for the VM.
 
 #. Check that the software is installed in the |CL| VM as expected and perform
    any relevant tests.
@@ -435,7 +436,7 @@ To test an autospec created package directly on the |CL| development system:
 #. After testing has been completed, the software and any related files must
    be identified and deleted. The :command:`swupd repair --picky`
    command can help restore the state of the :file:`/usr` directory (see
-   :ref:`swupd <swupd-about>`) however any other files must be cleaned up
+   :ref:`swupd <swupd-guide>`) however any other files must be cleaned up
    manually.
 
 
