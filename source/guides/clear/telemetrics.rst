@@ -113,7 +113,7 @@ This section describes some of the possible scenarios for configuring
 the |CL| telemetrics system, and suggests which ones make sense according to
 your needs.
 
-For more information on configuring the telemetry client,refer to section 
+For more information on configuring the telemetry client, refer to section 
 `Client Configuration`_.
 
 Scenarios
@@ -499,7 +499,7 @@ Prerequisites
 
 Confirm that the telemetrics header file is located on the system at
 :file:`usr/include/telemetry.h`. The `latest version`_ of the file can also be
-found on github for reference, but installing the :command:`telemetry` bundle
+found on github for reference, but installing the :command:`telemetrics` bundle
 will install the header file that matches your |CL| version.
 
 #. Includes and variables:
