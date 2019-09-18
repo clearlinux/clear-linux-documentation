@@ -4,7 +4,7 @@
 Database Reference Stack
 ########################
 
-This guide covers the hardware and installation requirements for using the :abbr:`DBRS (Database Reference Stack)`, and provides getting started configuration examples.  Any OS that supports Docker\* containers can be used with DBRS. The steps in this guide use |CL-ATTR| as the host system.
+This guide covers the hardware and installation requirements for using the :abbr:`DBRS (Database Reference Stack)`, and provides getting started configuration examples. The steps in this guide use |CL-ATTR| as the host system.
 
 
 
@@ -22,7 +22,7 @@ Stack Features
 
 Current supported  database applications are Cassandra* and Redis*.
 
-DBRS with Cassandra can be deployed as a standalone container or inside Kubernetes*.
+DBRS with Cassandra can be deployed as a standalone container or inside a Kubernetes* cluster.
 
 The Redis stack application is enabled for a multinode Kubernetes environment, using AEP persistent memory DIMM in fsdax mode for storage.
 
