@@ -312,9 +312,9 @@ Our example uses the `Default partition schema`_. The space you allocate for
 
    .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-11.png
       :scale: 100%
-      :alt: Advanced Disk Partitioning
+      :alt: Advanced Installation
 
-      Figure 11: Advanced Disk Partitioning
+      Figure 11: Advanced Installation
 
 boot partition
 --------------
@@ -359,7 +359,7 @@ boot partition
 swap partition
 --------------
 
-#. With :guilabel:`unallocated` selected, select from the menu
+#. With :guilabel:`unallocated` highlighted, select from the menu
    :menuselection:`Partition --> New`.
 
 #. In :guilabel:`Create new Partition`, complete the following fields to
@@ -381,7 +381,7 @@ swap partition
 root partition
 --------------
 
-#. With :guilabel:`unallocated` selected, select from the menu
+#. With :guilabel:`unallocated` highlighted, select from the menu
    :menuselection:`Partition --> New`.
 
 #. In :guilabel:`Create new Partition`, complete the following fields to
