@@ -24,6 +24,7 @@ libraries with language-specific bindings for Python\*, Perl\*, Ruby, and more.
 
 Prerequisites
 *************
+
 * Install the :command:`redis-native` bundle in |CL|
 * Install the :command:`containers-basic` bundle in |CL| (only required in
   Example 2)
