@@ -189,7 +189,7 @@ Once installed, we run the script
    ./build-cassandra-pmem.sh
 
 
-At the completion of the build you will have a file called :file:`cassandra-pmem-build.tar.gz`. Place this file in the same directory with the Dockerfile  to build the docker image.
+At the completion of the build you will have a file called :file:`cassandra-pmem-build.tar.gz`. Place this file in the same directory with the Dockerfile  to build the Docker image.
 
 Build the Docker container
 ==========================
@@ -201,7 +201,7 @@ To build the Docker image, run the Dockerfile in the same directory with the :fi
    docker build --force-rm --no-cache -f Dockerfile -t $build_image_name .
 
 
-Once it completes, the docker image is ready to be used.
+Once it completes, the Docker image is ready to be used.
 
 Deploy Cassandra PMEM as a standalone container
 ===============================================
@@ -287,11 +287,11 @@ When using `fsdax` mode cassandra-pmem creates a pool file on the pmem mountpoin
 
 Where
 * `pmem_path` is the path to the pool file, which should include the path itself and the file name
-* `pool_size` is the size of the pool file in bytes. If you are using the docker images provided here you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
+* `pool_size` is the size of the pool file in bytes. If you are using the `Docker image`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
 
 Is important to note that when creating the filesystem in the pmem device certain amount of space of the device is used by the filesystem metadata so the pool_size should be smaller than the total pmem namespace size.
 
-When using the docker image provided here, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
+When using the `Docker image`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
 
 devdax
 ------
@@ -344,7 +344,7 @@ Where
 * pmem_path is the `devdax` device.
 * pool_size=0 indicates to use the entire `devdax` device.
 
-When using the docker image provided here, the file `jvm.options` is automatically populated.
+When using the `Docker image`_, the file `jvm.options` is automatically populated.
 
 
 Run the DBRS Container
@@ -602,4 +602,4 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _known issue: https://github.com/spotahome/redis-operator/issues/176
 
-.. _ Docker image:
+.. _Docker image:
