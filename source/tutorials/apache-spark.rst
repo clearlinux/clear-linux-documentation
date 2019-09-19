@@ -32,9 +32,9 @@ Prerequisites
 
 * Before installing any new packages, update |CL| with the following command:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      sudo swupd update
+     sudo swupd update
 
 Install Apache Spark
 ********************
