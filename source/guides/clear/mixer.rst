@@ -22,11 +22,18 @@ mixer uses the following sources as inputs to generate update content:
 * Locally-defined bundles with upstream RPM packages
 
 Using the mixer tool, you select which set of content from these sources
-will be part of your update. You can select content from each of these sources to make a unique combination of functionality for your custom update content, known as a **mix**.
+will be part of your update. You can select content from each of these sources
+to make a unique combination of functionality for your custom update content,
+known as a **mix**.
 
 The update content that mixer generates consists of various pieces of OS
-content, update metadata, as well as a complete image. The OS content
-includes all files in an update, as well as zero- and delta-packs for improved update performance. The update metadata, stored as manifests, describes all of the bundle information for the update. Update content produced by mixer is then published to a web server and consumed by clients via swupd. Refer to :ref:`swupd <swupd-guide>` for additional information regarding updates and update content.
+content, update metadata, as well as a complete image. The OS content includes
+all files in an update, as well as zero- and delta-packs for improved update
+performance. The update metadata, stored as manifests, describes all of the
+bundle information for the update. Update content produced by mixer is then
+published to a web server and consumed by clients via swupd. Refer
+to :ref:`swupd <swupd-guide>` for additional information regarding updates and
+update content.
 
 How it works
 ************
@@ -92,8 +99,8 @@ the setup before you create a mix.
    Before you create a mix, you must explicitly initialize the mixer workspace.
    During initialization, the mixer workspace is configured and the base for
    your mix is defined. By default, your mix is based on the latest
-   upstream version and starts with the minimum set of bundles. Your first custom
-   mix version number starts at 10. Alternatively, you can select other
+   upstream version and starts with the minimum set of bundles. Your first
+   custom mix version number starts at 10. Alternatively, you can select other
    versions or bundle sets from which to start.
 
    Initialization creates the directory structure within the workspace and adds
@@ -580,10 +587,13 @@ release in its respective format version, unless overridden by command line
 flags. In this way, we can guarantee that all clients update to the final
 version in their given format.
 
-The given format *must* contain all the changes needed to understand the content built in the next format. Only after reaching the final release in the old format can a client continue to update to releases in the new format.
+The given format *must* contain all the changes needed to understand the
+content built in the next format. Only after reaching the final release in the
+old format can a client continue to update to releases in the new format.
 
 The format version is incremented only when a compatibility breakage is
-introduced. Normal updates, such as updating a software package, do not require a format increment.
+introduced. Normal updates, such as updating a software package, do not
+require a format increment.
 
 .. rst-class:: content-collapse
 
@@ -591,14 +601,18 @@ Bundles
 =======
 
 mixer stores information about the bundles included in a mix in a flat file
-named :file:`mixbundles`, which is located in the path set by the VERSIONS_PATH variable in :file:`builder.conf`. :file:`mixbundles` is automatically created when the mix is initiated. mixer will refresh the file each time you change the bundles in the mix.
+named :file:`mixbundles`, which is located in the path set by the
+VERSIONS_PATH variable in :file:`builder.conf`. :file:`mixbundles` is
+automatically created when the mix is initiated. mixer will refresh the file
+each time you change the bundles in the mix.
 
 Bundles can include other bundles. Nested bundles can themselves include
 other bundles. If you see an unexpected bundle in your mix, it is likely a
 nested bundle in one of the bundles you explicitly added.
 
 A bundle will fill into one of two categories: upstream or local. Upstream
-bundles are those provided by |CL|. Local bundles are either modified upstream bundles or new local bundles.
+bundles are those provided by |CL|. Local bundles are either modified upstream
+bundles or new local bundles.
 
 Upstream bundles
 ----------------
@@ -619,7 +633,8 @@ Local bundles
 
 Local bundles are bundles that you create, or are edited versions of upstream
 bundles. Local bundle definition files are stored in the local-bundles
-directory in the workspace. The LOCAL_BUNDLE_DIR variable sets the path of this directory in the :file:`builder.conf` file.
+directory in the workspace. The LOCAL_BUNDLE_DIR variable sets the path of this
+directory in the :file:`builder.conf` file.
 
 *mixer always checks for local bundles first and the upstream bundles
 second.* So bundles in the local-bundles directory will always take
@@ -642,10 +657,12 @@ file in your favorite editor, making the desired edits, and saving your changes.
 
    Removing bundles from a mix: By default, removing a bundle will only
    remove the bundle from the mix. The local bundle definition file will
-   still remain. To completely remove a bundle, including its local bundle definition file, use the :command:`--local` flag.
+   still remain. To completely remove a bundle, including its local bundle
+   definition file, use the :command:`--local` flag.
 
    If you remove the bundle definition file for a local, edited version of an
-   upstream bundle in a mix, the mix reverts to reference the original upstream version of the bundle.
+   upstream bundle in a mix, the mix reverts to reference the original upstream
+   version of the bundle.
 
 .. rst-class:: content-collapse
 
@@ -819,7 +836,8 @@ Set up a nginx web server for mixer with the following steps:
       sudo cp -f /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
 
 #. Configure the mixer update server. Create and add the following server
-   configuration content to :file:`/etc/nginx/conf.d/mixer.conf` (sudo required):
+   configuration content to
+   :file:`/etc/nginx/conf.d/mixer.conf` (sudo required):
 
    .. code-block:: console
 
