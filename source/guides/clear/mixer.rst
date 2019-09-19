@@ -440,7 +440,8 @@ mix version 10 (from which the image was built), to mix version 20.
 References
 **********
 
-Reference the `mixer man page`_ for details regarding mixer commands and options.
+Reference the `mixer man page`_ for details regarding mixer commands and
+options.
 
 .. contents::
    :local:
@@ -451,10 +452,10 @@ Reference the `mixer man page`_ for details regarding mixer commands and options
 builder.conf
 ============
 
-mixer initialization creates a :file:`builder.conf` that stores the basic
-configuration for the mixer tool. The items of primary interest are CONTENTURL
-and VERSIONURL, which will be used by systems updating against your custom
-content.
+When mixer is initialized, it creates a :file:`builder.conf` that stores the
+basic configuration for the mixer tool. The items of primary interest are
+CONTENTURL and VERSIONURL, which will be used by systems updating against your
+custom content.
 
 .. code-block:: console
 
@@ -590,7 +591,7 @@ Bundles
 =======
 
 mixer stores information about the bundles included in a mix in a flat file
-called :file:`mixbundles`, which is located in the path set by the VERSIONS_PATH variable in :file:`builder.conf`. :file:`mixbundles` is automatically created when the mix is initiated. mixer will refresh the file each time you change the bundles in the mix.
+named :file:`mixbundles`, which is located in the path set by the VERSIONS_PATH variable in :file:`builder.conf`. :file:`mixbundles` is automatically created when the mix is initiated. mixer will refresh the file each time you change the bundles in the mix.
 
 Bundles can include other bundles. Nested bundles can themselves include
 other bundles. If you see an unexpected bundle in your mix, it is likely a
