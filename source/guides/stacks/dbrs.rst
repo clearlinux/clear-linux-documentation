@@ -600,8 +600,6 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _cassandra-pmem-helm: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dbrs/cassandra/cassandra-pmem-helm
 
-.. _pmem-csi: https://github.com/intel/pmem-CSI
-
 .. _helm: https://helm.sh/
 
 .. _Github repository: https://github.com/pmem/pmem-redis
