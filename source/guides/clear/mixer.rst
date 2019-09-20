@@ -96,12 +96,12 @@ the setup before you create a mix.
 
 #. Initialize the workspace and mix.
 
-   Before you create a mix, you must explicitly initialize the mixer workspace.
-   During initialization, the mixer workspace is configured and the base for
-   your mix is defined. By default, your mix is based on the latest
-   upstream version and starts with the minimum set of bundles. Your first
-   custom mix version number starts at 10. Alternatively, you can select other
-   versions or bundle sets from which to start.
+   Before you create a mix, you must explicitly initialize the mixer
+   workspace. During initialization, the mixer workspace is configured and
+   the base for your mix is defined. By default, your mix is based on the
+   latest upstream version and starts with the minimum set of bundles. Your
+   first    custom mix version number starts at 10. Alternatively, you can
+   select other versions or bundle sets from which to start.
 
    Initialization creates the directory structure within the workspace and adds
    the :file:`builder.conf` file, which is used to configure the mixer tool.
