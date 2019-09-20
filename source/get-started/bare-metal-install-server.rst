@@ -354,14 +354,6 @@ root partition
    If no filesystem exists, the installer will default to `VFAT(FAT32)`
    for `/boot`, and `ext4` for all others.
 
-   .. note::
-
-      You may also append the following labels:
-
-      *  `CLR_ROOT_E`: Adds encryption
-      *  `CLR_ROOT_F`: Formats the partition prior to use
-      *  `CLR_ROOT_E_F`: Adds encryption and formats the partition
-
 #. Press :kbd:`Enter`.
 
 #. After all partitions are defined, verify that your partition
@@ -402,7 +394,6 @@ Additional partitions (optional)
       Figure 15: CLR_MNT
 
 #. Alternatively, you may create `CLR_MNT_/srv` or other partitions.
-   Use of the `_E` or `_F` **must** precede `_MNT`.
 
 Write configuration to disk
 ---------------------------
