@@ -4,7 +4,16 @@ Apache\* Spark\*
 ################
 
 This tutorial describes how to install, configure, and run Apache Spark on
-|CL-ATTR|. Apache Spark is a fast general-purpose cluster computing system with
+|CL-ATTR| on a single machine running the master daemon and a worker daemon.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Description
+***********
+
+Apache Spark is a fast, general-purpose cluster computing system with
 the following features:
 
 *  Provides high-level APIs in Java\*, Scala\*, Python\*, and R\*.
@@ -12,27 +21,26 @@ the following features:
 *  Supports high-level tools including Spark SQL, MLlib, GraphX, and Spark
    Streaming.
 
-In this tutorial, you will install Spark on a single machine running the
-master daemon and a worker daemon.
 
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| on your host system.
-For detailed instructions on installing |CL| on a bare metal system, visit
-the :ref:`bare metal installation guide <bare-metal-install-desktop>`.
+* |CL| installed on your host system.
 
-Before you install any new packages, update |CL| with the following command:
+  For detailed instructions on installing |CL| on a bare metal system, visit
+  the :ref:`bare metal installation guide <bare-metal-install-desktop>`.
 
-.. code-block:: bash
+* Before installing any new packages, update |CL| with the following command:
 
-   sudo swupd update
+  .. code-block:: bash
+
+     sudo swupd update
 
 Install Apache Spark
 ********************
 
-Apache Spark is included in the :file:`big-data-basic` bundle. To install the
-framework, enter:
+Apache Spark is included in the :command:`big-data-basic` bundle. To install the
+framework, run the following command:
 
 .. code-block:: bash
 
@@ -41,14 +49,14 @@ framework, enter:
 Configure Apache Spark
 **********************
 
-#. Create the configuration directory with the command:
+#. Create the configuration directory:
 
    .. code-block:: bash
 
       sudo mkdir /etc/spark
 
 #. Copy the default templates from :file:`/usr/share/defaults/spark` to
-   :file:`/etc/spark` with the command:
+   :file:`/etc/spark`:
 
    .. code-block:: bash
 
@@ -58,8 +66,7 @@ Configure Apache Spark
       files under the :file:`/usr/share/defaults` directory. The software
       updater overwrites those files.
 
-
-#. Copy the template files below to create custom configuration files:
+#. Copy the template files shown below to create custom configuration files:
 
    .. code-block:: bash
 
@@ -80,7 +87,8 @@ Configure Apache Spark
       view information needed later in this tutorial.
 
 #. Edit the :file:`/etc/spark/spark-defaults.conf` file and update the
-   `spark.master` variable with the `SPARK_MASTER_HOST` address and port `7077`.
+   :envvar:`spark.master` variable with the `SPARK_MASTER_HOST` address and port
+   `7077`.
 
    .. code-block:: bash
 
@@ -89,14 +97,14 @@ Configure Apache Spark
 Start the master server and a worker daemon
 *******************************************
 
-#. Start the master server using:
+#. Start the master server:
 
    .. code-block:: bash
 
       sudo /usr/share/apache-spark/sbin/./start-master.sh
 
 #. Start one worker daemon and connect it to the master using the
-   `spark.master` variable defined earlier:
+   :envvar:`spark.master` variable defined earlier:
 
    .. code-block:: bash
 
@@ -130,5 +138,5 @@ Run the Spark wordcount example
 
 **Congratulations!**
 
-You successfully installed and set up a standalone Apache Spark cluster.
-Additionally, you ran a simple wordcount example.
+You have successfully installed and set up a standalone Apache Spark cluster,
+and ran a simple wordcount example.
