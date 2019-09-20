@@ -31,16 +31,16 @@ Add the following to your ~/.bashrc:
 
 .. code-block:: bash
 
-    export http_proxy=http://your.http-proxy.url:port
-    export https_proxy=http://your.https-proxy.url:port
-    export ftp_proxy=http://your.ftp-proxy.url:port
-    export socks_proxy=http://your.socks-proxy.url:port
-    export no_proxy=".your-company-domain.com,localhost"
-    export HTTP_PROXY=$http_proxy
-    export HTTPS_PROXY=$https_proxy
-    export FTP_PROXY=$ftp_proxy
-    export SOCKS_PROXY=$socks_proxy
-    export NO_PROXY=$no_proxy
+   export http_proxy=http://your.http-proxy.url:port
+   export https_proxy=http://your.https-proxy.url:port
+   export ftp_proxy=http://your.ftp-proxy.url:port
+   export socks_proxy=http://your.socks-proxy.url:port
+   export no_proxy=".your-company-domain.com,localhost"
+   export HTTP_PROXY=$http_proxy
+   export HTTPS_PROXY=$https_proxy
+   export FTP_PROXY=$ftp_proxy
+   export SOCKS_PROXY=$socks_proxy
+   export NO_PROXY=$no_proxy
 
 wget
 ====
@@ -49,12 +49,12 @@ Run the following command to enable downloading from websites from the terminal:
 
 .. code-block:: bash
 
-    echo >> ~/.wgetrc <<EOF
-    http_proxy = your.http-proxy.url:port
-    https_proxy = your.https-proxy.url:port
-    ftp_proxy = your.http-proxy.url:port
-    no_proxy = your-company-domain.com, localhost
-    EOF
+   echo >> ~/.wgetrc <<EOF
+   http_proxy = your.http-proxy.url:port
+   https_proxy = your.https-proxy.url:port
+   ftp_proxy = your.http-proxy.url:port
+   no_proxy = your-company-domain.com, localhost
+   EOF
 
 System service (Docker\*)
 =========================
@@ -64,36 +64,36 @@ configure and check proxy settings.
 
 .. note::
 
-    Be sure to use :command:`sudo`, as you will need elevated permissions.
+   Use :command:`sudo`, as you will need elevated permissions.
 
 #. Create the :file:`/etc/systemd/system/docker.service.d` directory to host
    configuration information for the Docker service.
 
-#. Create the :file:`/etc/systemd/system/docker.service.d/http-proxy.conf` and
-   add the following lines:
+#. Create the :file:`/etc/systemd/system/docker.service.d/http-proxy.conf`
+   and add the following lines:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        [Service]
-        Environment="HTTP_PROXY=http://your.http-proxy.url:port/"
-        Environment="HTTPS_PROXY=http://your.https-proxy.url:port/"
+      [Service]
+      Environment="HTTP_PROXY=http://your.http-proxy.url:port/"
+      Environment="HTTPS_PROXY=http://your.https-proxy.url:port/"
 
 #. Load the changes and restart the service.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        sudo systemctl daemon-reload
-        sudo systemctl restart docker
+      sudo systemctl daemon-reload
+      sudo systemctl restart docker
 
 #. Verify that changes have loaded.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        systemctl show --property=Environment docker
+      systemctl show --property=Environment docker
 
-    .. code-block:: console
+   .. code-block:: console
 
-        Environment=HTTP_PROXY=http://your.http-proxy.url:port/ HTTPS_PROXY=http://your.https-proxy.url:port/
+      Environment=HTTP_PROXY=http://your.http-proxy.url:port/ HTTPS_PROXY=http://your.https-proxy.url:port/
 
 .. note::
 
@@ -107,12 +107,12 @@ Add the following to your :file:`~/.ssh/config`:
 
 .. code-block:: bash
 
-    host github.com
+   host github.com
         port 22
         user git
         ProxyCommand connect-proxy -S your.ssh-proxy.url:port %h %p
 
 .. note::
 
-    Though netcat is included with |CL|, it is not the BSD version,
-    which is the one usually used to enable git over ssh.
+   Though netcat is included with |CL|, it is not the BSD version,
+   which is the one usually used to enable git over ssh.
