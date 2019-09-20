@@ -4,7 +4,7 @@
 Database Reference Stack
 ########################
 
-This guide covers the hardware and installation requirements for using the :abbr:`DBRS (Database Reference Stack)`, and provides getting started configuration examples. The steps in this guide use |CL-ATTR| as the host system.
+This guide covers the hardware and installation requirements for using the :abbr:`DBRS (Database Reference Stack)` and provides getting started configuration examples. The steps in this guide use |CL-ATTR| as the host system.
 
 
 
@@ -20,7 +20,7 @@ The Database Reference Stack is integrated, highly-performant, open source, and 
 Stack Features
 ==============
 
-Current supported  database applications are Cassandra* and Redis*.
+Current supported  database applications are Cassandra* and Redis* which have been enabled for `Intel Optane DC PMM`_.
 
 DBRS with Cassandra can be deployed as a standalone container or inside a Kubernetes* cluster.
 
@@ -48,7 +48,7 @@ Hardware configuration used in stacks development
 * Intel SSD DC S5600 Series 960GB 2.5in SATA Drive
 * 64 GB RAM - Distributed in 4x 16 GB DDR4 DIMM's
 * 2x Intel Optane DC Persistent Memory 256GB Module
-* 1-1-1 Layout 8 AEP : 1 RAM ratio
+* 1-1-1 Layout 8 Optane : 1 RAM ratio
 
 
 .. list-table:: **Table 1. IMC**
@@ -85,9 +85,9 @@ Firmware configuration
 
 .. important::
 
-   When updating DCPMM FW, all DCPMM samples must be in the same mode (you cannot mix 1LM and 2LM samples).
+   When updating DCPMM Firmware, all DCPMM parts must be in the same mode (you cannot mix 1LM and 2LM parts).
 
-The latest firmware download for the Intel Server System S2600WF Family is avaliable at the `Intel Download Center`_
+The latest firmware download for the Intel Server System S2600WF Family is available at the `Intel Download Center`_
 
 Firmware Update Steps
 =====================
@@ -165,7 +165,13 @@ Configuration Steps
 Running DBRS with Cassandra
 ***************************
 
-DBRS with Cassandra can be deployed as a standalone container or inside Kubernetes. Instructions for both cases is included here. Note that you can use the released `Docker image`_.  These instructions are to provide a baseline for creating your own container image.
+DBRS with Cassandra can be deployed as a standalone container or inside Kubernetes. Instructions for both cases is included here. Note that you can use the released `Docker image with Cassandra`_.  These instructions are to provide a baseline for creating your own container image. If you are using the released image, skip this section.
+
+.. important::
+
+   At the initial release of DBRS, Cassandra is considered to be Engineering Preview release quality and may not be suitable for production release.  Please take this into consideration when planning your project.
+
+
 
 Build the DBRS with Cassandra container
 =======================================
@@ -174,6 +180,11 @@ To build the container with Cassandra, you must build cassandra-pmem, and then b
 
 Build cassandra-pmem
 ====================
+
+.. important::
+
+   At the initial release of DBRS, the pmem-csi driver is considered to be Engineering Preview release quality and may not be suitable for production release.  Please take this into consideration when planning your project.
+
 
 In the `DBRS github repository`_, there is a file called `build-cassandra-pmem.sh`_, which handles all the requirements for compiling cassandra-pmem for Dockerfile usage. The dependencies for this build can be installed with :command:`swupd`.
 
@@ -211,7 +222,7 @@ Requirements
 
 To deploy Cassandra PMEM, you must meet the following requirements
 
-* PMEM memory must be configured in `devdax` or `fsdax`  mode. The container image is able to handle both modes and depending on the PMEM mode, the mount points inside the container must be different.
+* PMEM memory must be configured in `devdax` or `fsdax`    mode. The container image is able to handle both modes and depending on the PMEM mode, the mount points inside the container must be different.
 * In order to make available `devdax` pmem devices inside the container you must use the `--device` directive. Internally the container always uses :command:`/dev/dax0.0`, so the mapping should be: :command:`--device=/dev/<host-device>:/dev/dax0.0`
 * In a similar fashion for `fsdax` we need the device to be mapped to :command:`/mnt/pmem` inside the container: :command:`--mount type=bind,source=<source-mount-point>,target=/mnt/pmem`
 
@@ -219,7 +230,7 @@ To deploy Cassandra PMEM, you must meet the following requirements
 Preparing PMEM for container use
 --------------------------------
 
-The cassandra-pmem image is capable of using both `fsdax` and `devdax`, the necessary steps to configure the PMEM to work with cassandra are documented here.
+The cassandra-pmem image is capable of using both `fsdax`   and `devdax`, the necessary steps to configure the PMEM to work with cassandra are documented here.
 
 fsdax
 -----
@@ -287,11 +298,11 @@ When using `fsdax` mode cassandra-pmem creates a pool file on the pmem mountpoin
 
 Where
 * `pmem_path` is the path to the pool file, which should include the path itself and the file name
-* `pool_size` is the size of the pool file in bytes. If you are using the `Docker image`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
+* `pool_size` is the size of the pool file in bytes. If you are using the `Docker image with Cassandra`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
 
 Is important to note that when creating the filesystem in the pmem device certain amount of space of the device is used by the filesystem metadata so the pool_size should be smaller than the total pmem namespace size.
 
-When using the `Docker image`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
+When using the `Docker image with Cassandra`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
 
 devdax
 ------
@@ -344,7 +355,7 @@ Where
 * pmem_path is the `devdax` device.
 * pool_size=0 indicates to use the entire `devdax` device.
 
-When using the `Docker image`_, the file `jvm.options` is automatically populated.
+When using the `Docker image with Cassandra`_, the file `jvm.options` is automatically populated.
 
 
 Run the DBRS Container
@@ -372,7 +383,7 @@ Container Configuration
 Using environment variables
 ---------------------------
 
-By default the container listens on the primary container IP address, but if required, some parameters can be provided as environment variables using `--env`.
+The container listens on the primary container IP address, but if required, some parameters can be provided as environment variables using `--env`.
 
 * `CASSANDRA_CLUSTER_NAME`  Cassandra cluster name, by default `Cassandra Cluster`
 * `CASSANDRA_LISTEN_ADDRESS`  Cassandra listen address
@@ -464,19 +475,19 @@ Requirements
 
 * A Kubernetes cluster with `pmem-csi`_ enabled
 
-* The Kubernetes cluster must have `helm`_ and `tiller`_ installed
+* The Kubernetes cluster must have `helm`_ and tiller installed
 
 * PMEM hardware
 
 .. important::
 
-   When selecting the `fsdax` pool file size, it is important to consider that when requesting a volume, certain amount of space is used by the filesystem metadata on that volume. Therefore the available space turns out to be less than total amount specified, taking this into consideration the size of the fsdax pool file should be ~2G less than the total volume size requested.
+   When selecting the `fsdax` pool file size, it is important to consider that when requesting a volume, certain amount of space is used by the filesystem metadata on that volume and the available space turns out to be less than total amount specified. Taking this into consideration the size of the fsdax pool file should be ~2G less than the total volume size requested.
 
 
 Configuration
 =============
 
-In order to configure the Cassandra PMEM cluster some variables and values are provided. This values are set on :file:`test/cassandra-pmem-helm/values.yaml`, and can be modified according to your specific needs. A summary of those parameters is shown below:
+In order to configure the Cassandra PMEM cluster some variables and values are provided. These values are set in :file:`test/cassandra-pmem-helm/values.yaml`, and can be modified according to your specific needs. A summary of those parameters is shown below:
 
 
 * clusterName:  The cluster Name set across all deployed nodes
@@ -519,16 +530,22 @@ Eventually all the given nodes will be shown as running using :command:`kubectl 
 Running DBRS with Redis
 ***********************
 
-The Redis stack application is enabled for a multinode Kubernetes environment using AEP persistent memory DIMMs in fsdax mode for storage.
+The Redis stack application is enabled for a multinode Kubernetes environment using Intel Optane DCPMM persistent memory DIMMs in fsdax mode for storage.
 
 The source code used for this application can be found in the `Github repository`_
 
-The following examples will use the Redis enabled DBRS image from Docker Hub.
+The following examples will use the `Docker image with Redis`_.  You can also build your own image with Docker by using the :file:`Dockerfile` and running with this command
+
+.. code-block:: bash
+
+   docker build --force-rm --no-cache -f Dockerfile -t ${DOCKER_IMAGE} .
+
+
 
 Single node
 ===========
 
-Prior to starting the container, you will need to have the AEP module in fsdax with a file system and mounted in `/mnt/dax0` as shown above.
+Prior to starting the container, you will need to have the Intel Optane DCPMM module in fsdax with a file system and mounted in `/mnt/dax0` as shown above.
 
 Use the following to start the container, replacing ${DOCKER_IMAGE} with the name of the image you are using.
 
@@ -538,17 +555,20 @@ Use the following to start the container, replacing ${DOCKER_IMAGE} with the nam
 
 
 
+
 Redis Operator in a Kubernetes cluster
 ======================================
 
-We are Using source code from the `Redis operator`_ .
+After setting up :ref:`kubernetes` in |CL|, you will need to enable it to support DCPMM using the pmem-cls driver.  To install the driver follow the instructions in the `pmem-csi`_ repository.
+
+We are using source code from the `Redis operator`_ .
 
 .. note::
 
    If you already have a redis-operator, you will need to delete it before installing a new one.
 
 
-.. TODO:  follow up on installation instructions
+
 
 After installing the operator you are ready to deploy redisfailover instances using a yaml file, like this `example for persistent memory`_. You can download it and change the source of the image to reflect your environment. We have named our yaml `redis-failover.yml`
 
@@ -566,15 +586,6 @@ To start a redisfailover instance in Kubernetes run the following
 
 
 
-
-
-
-
-
-
-
-
-
 .. _Intel Download Center: https://downloadcenter.intel.com/download/28695/Intel-Server-Board-S2600WF-Family-BIOS-and-Firmware-Update-Package-for-UEFI
 
 .. _Quick Start Guide: https://software.intel.com/en-us/articles/quick-start-guide-configure-intel-optane-dc-persistent-memory-on-linux
@@ -583,16 +594,15 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _Configure, Manage, and Profile: https://software.intel.com/en-us/articles/configure-manage-and-profile-intel-optane-dc-persistent-memory-modules
 
-.. _DBRS github repository:
+.. _DBRS github repository: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dbrs
 
-.. _build-cassandra-pmem.sh:
+.. _build-cassandra-pmem.sh: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dbrs/cassandra/scripts/
 
-.. _cassandra-pmem-helm:
+.. _cassandra-pmem-helm: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dbrs/cassandra/cassandra-pmem-helm
 
 .. _pmem-csi: https://github.com/intel/pmem-CSI
 
 .. _helm: https://helm.sh/
-.. _tiller: https://helm.sh/
 
 .. _Github repository: https://github.com/pmem/pmem-redis
 
@@ -602,4 +612,10 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _known issue: https://github.com/spotahome/redis-operator/issues/176
 
-.. _Docker image:
+.. _Docker image with Cassandra: https://hub.docker.com/r/clearlinux/stacks-dbrs-cassandra
+
+.. _Docker image with Redis: https://hub.docker.com/r/clearlinux/stacks-dbrs-redis
+
+.. _Intel Optane DC PMM: https://www.intel.com/content/www/us/en/architecture-and-technology/optane-technology/optane-for-data-centers.html
+
+.. _pmem-csi: https://github.com/intel/pmem-csi/blob/release-0.5/README.md
