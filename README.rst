@@ -70,8 +70,8 @@ external dependenices and all supported languages.
 Additional help
 ***************
 
-Cleaing up
-==========
+Cleaning up
+===========
 
 When testing changes in the documentation, make sure to remove the previous
 build before building again by running ``make clean``:
