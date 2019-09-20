@@ -356,11 +356,16 @@ root partition
 
    .. note::
 
-      You may also append the following labels:
+      You may also append `_F` to the partition name to force the formatting.
 
-      *  `CLR_ROOT_E`: Adds encryption
-      *  `CLR_ROOT_F`: Formats the partition prior to use
-      *  `CLR_ROOT_E_F`: Adds encryption and formats the partition
+      *  `CLR_ROOT_F`: Force the formatting of the root partition prior to
+          use.
+
+      *  `CLR_F_SWAP`: Force the formatting of the swap partition prior to
+          use; helpful when re-using a partition for swap which was previously formatted for a file system.
+
+      *  `CLR_F_MNT_/data`: Force the formatting of the extra data
+          partition prior to use
 
 #. Press :kbd:`Enter`.
 
@@ -401,8 +406,11 @@ Additional partitions (optional)
 
       Figure 15: CLR_MNT
 
+   .. note::
+
+      If formatting is desired, the `_F` **must precede** `_MNT`.
+
 #. Alternatively, you may create `CLR_MNT_/srv` or other partitions.
-   Use of the `_E` or `_F` **must** precede `_MNT`.
 
 Write configuration to disk
 ---------------------------
