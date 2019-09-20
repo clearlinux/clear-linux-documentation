@@ -4,9 +4,9 @@ Redis\*
 #######
 
 In this tutorial, you'll install :abbr:`Redis (REmote DIctionary Server)`
-and launch a `Redis-server` on |CL-ATTR|, plus learn a few basic Redis commands.
-We also invite you to pull our `Clear Linux Redis instance`_ on dockerhub\* for
-application or infrastructure development.
+and launch a `Redis-server` on |CL-ATTR|. We invite you to pull our
+`Clear Linux Redis instance`_ on dockerhub\* for application or
+infrastructure development.
 
 .. contents::
    :local:
@@ -15,8 +15,7 @@ application or infrastructure development.
 Description
 ***********
 
-Redis is an in-memory key:value store designed for quick lookups, and is
-accessible over the network. While the `redis data structure store`_ can serve
+Redis is an in-memory key:value store designed for quick lookups, accessible over a network. While the `redis data structure store`_ can serve
 as a NoSQL database for a web application, it's also easy to integrate into an
 existing stack. For example, you could use the Redis caching layer for
 real-time responses on a leaderboard in a gaming app. Redis offers many client
@@ -44,7 +43,7 @@ In |CL|, find Redis in the :command:`redis-native` bundle.
 
    .. note::
 
-   If the bundle already exists, no action is required.
+      If the bundle already exists, no action is required.
 
 Start the Redis-server
 **********************
@@ -88,8 +87,8 @@ By default, Redis runs on port 6379.
 The Redis-server is now ready to use on |CL|. Try some of the examples shown
 below.
 
-Example 1: Use the redis-cli and try commands
-*********************************************
+Example 1: Use the redis-cli and commands
+*****************************************
 
 One advantage of Redis over other NoSQL databases is that developers can
 easily access data structures like lists, sets, sorted sets, strings, and
@@ -193,7 +192,7 @@ After your Redis-server is running, try some basic commands.
 
 
 Example 2: Run the |CL| Redis Docker\* image
-******************************************
+********************************************
 
 We also provide a `Clear Linux Redis instance`_, which is
 updated continuously and maintained by |CL| development.
