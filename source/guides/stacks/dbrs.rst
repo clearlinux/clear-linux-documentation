@@ -1,12 +1,10 @@
 .. _dbrs:
 
-
 Database Reference Stack
 ########################
 
-This guide covers the hardware and installation requirements for using the :abbr:`DBRS (Database Reference Stack)` and provides getting started configuration examples. The steps in this guide use |CL-ATTR| as the host system.
-
-
+This guide describes the hardware and installation requirements for using the
+:abbr:`DBRS (Database Reference Stack)`, along with getting started configuration examples, using |CL-ATTR| as the host system.
 
 .. contents::
    :local:
@@ -15,31 +13,36 @@ This guide covers the hardware and installation requirements for using the :abbr
 Overview
 ********
 
-The Database Reference Stack is integrated, highly-performant, open source, and optimized for 2nd generation Intel® Xeon® Scalable Processors and Intel® Optane™ DC Persistent Memory. This open source community release is part of an effort to ensure developers have easy access to the features and functionality of Intel Platforms.
+The Database Reference Stack is integrated, highly-performant, open source,
+and optimized for 2nd generation Intel® Xeon® Scalable Processors and Intel®
+Optane™ DC Persistent Memory. This open source community release is part of
+an effort to ensure developers have easy access to the features and
+functionality of Intel Platforms.
 
 Stack Features
 ==============
 
-Current supported  database applications are Cassandra* and Redis* which have been enabled for `Intel Optane DC PMM`_.
+Current supported  database applications are Cassandra* and Redis*, which
+have been enabled for `Intel Optane DC PMM`_.
 
-DBRS with Cassandra can be deployed as a standalone container or inside a Kubernetes* cluster.
+DBRS with Cassandra can be deployed as a standalone container or inside a
+Kubernetes* cluster.
 
-The Redis stack application is enabled for a multinode Kubernetes environment, using AEP persistent memory DIMM in fsdax mode for storage.
-
-
+The Redis stack application is enabled for a multinode Kubernetes
+environment, using AEP persistent memory DIMM in fsdax mode for storage.
 
 Hardware Requirements
 *********************
 
 * Intel Xeon Scalable Platform with Intel C620 chipset series
-* 2nd Gen Intel Xeon Scalable processor CPU (Intel Optane DC PMM-enabled stepping) Provides cache & memory control.  Intel Optane DC persistent memory works only on systems powered by 2nd Generation Intel Xeon Platinum or Gold processors.
+* 2nd Gen Intel Xeon Scalable processor CPU (Intel Optane DC PMM-enabled stepping) Provides cache & memory control.  Intel Optane DC persistent memory works only on systems powered by 2nd Generation Intel® Xeon® Platinum or Gold processors.
 * BIOS with Reference Code
 * Intel Optane DC persistent memory
 
 Hardware configuration used in stacks development
 =================================================
 
-* Intel Server System R2208WFTZSR
+* Intel® Server System R2208WFTZSR
 * BIOS with Reference Code
   * BIOS ID: SE5C620.86B.0D.01.0438.032620191658
   * BMC Firmware: 1.94.6b42b91d
@@ -76,10 +79,6 @@ Hardware configuration used in stacks development
      -
      - 16 GB DRAM
 
-
-
-
-
 Firmware configuration
 **********************
 
@@ -87,7 +86,7 @@ Firmware configuration
 
    When updating DCPMM Firmware, all DCPMM parts must be in the same mode (you cannot mix 1LM and 2LM parts).
 
-The latest firmware download for the Intel Server System S2600WF Family is available at the `Intel Download Center`_
+The latest firmware download for the Intel® Server System S2600WF Family is available at the `Intel Download Center`_
 
 Firmware Update Steps
 =====================
@@ -165,7 +164,11 @@ Configuration Steps
 Running DBRS with Cassandra
 ***************************
 
-DBRS with Cassandra can be deployed as a standalone container or inside Kubernetes. Instructions for both cases is included here. Note that you can use the released `Docker image with Cassandra`_.  These instructions are to provide a baseline for creating your own container image. If you are using the released image, skip this section.
+DBRS with Cassandra can be deployed as a standalone container or inside
+Kubernetes\*. Instructions for both cases is included here. Note that you can
+use the released `Docker image with Cassandra`_ (Docker\* examples below).
+These instructions provide a baseline for creating your own container image.
+If you are using the released image, skip this section.
 
 .. important::
 
