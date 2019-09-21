@@ -26,7 +26,7 @@ will be part of your update. You can select content from each of these sources t
 
 The update content that mixer generates consists of various pieces of OS
 content, update metadata, as well as a complete image. The OS content
-includes all files in an update, as well as zero- and delta-packs for improved update performance. The update metadata, stored as manifests, describes all of the bundle information for the update. Update content produced by mixer is then published to a web server and consumed by clients via swupd. Refer to :ref:`swupd <swupd-guide>` for additional information regarding updates and update content.
+includes all files in an update, as well as zero- and delta-packs for improved update performance. The update metadata, stored as manifests, describes all of the bundle information for the update. Update content produced by mixer is then published to a web server and consumed by clients via :command:`swupd`. Refer to :ref:`swupd <swupd-guide>` for additional information regarding updates and update content.
 
 How it works
 ************
@@ -42,7 +42,7 @@ Prerequisites
 
 * :command:`mixer` bundle
 
-  Add the mixer tool with the :command:`mixer` bundle. Refer to
+  Add the mixer tool by installing the :command:`mixer` bundle. Refer to
   :ref:`swupd-guide` for more information on installing bundles.
 
 * Docker\* container
@@ -67,9 +67,7 @@ Prerequisites
 
 * Location to host the update content and images
 
-  In order for swupd to make use of your mix, the update content for your mix
-  must be hosted on a web server. Your mix will be configured with an update
-  location URL, which swupd will use to pull down updates.
+  In order for :command:`swupd` to make use of your mix, the update content for your mix must be hosted on a web server. Your mix will be configured with an update location URL, which :command:`swupd` will use to pull down updates.
 
   Refer to `Set up a nginx web server for mixer`_ for an simple example of
   setting up an update location.
@@ -107,11 +105,9 @@ the setup before you create a mix.
 #. Edit builder.conf.
 
    :file:`builder.conf` tells the mixer tool how to configure the mix. For
-   example, it allows you to configure where mixer output is located and where
-   swupd update content will be located.
+   example, it allows you to configure where mixer output is located and where swupd update content will be located.
 
-   At minimum, set the URL of your update server so your custom OS knows where
-   to get update content.
+   At minimum, set the URL of your update server so your custom OS knows where to get update content.
 
    Refer to the `builder.conf`_ section for more information.
 
@@ -172,7 +168,7 @@ A mix is created with the following steps:
 
    Deploy update content and images to your update server.
 
-   View the `Example 3: Deploy updates to target`_ for a simple deployment
+   View the `Example 5: Deploy updates to target`_ for a simple deployment
    scenario.
 
 Maintain or modify mix
@@ -195,47 +191,76 @@ use:
 Complete all `Prerequisites`_ before using these examples.
 
 Example 1: Mix set up
-======================
+=====================
 
-This example shows the basic steps for the first-time setup of 
+This example shows the basic steps for the first-time setup of
 mixer for a new mix.
 
-#. Create an empty directory to use as a workspace for mixer:
+#. Create a directory to use as a workspace for mixer:
 
    .. code-block:: bash
 
       mkdir ~/mixer
 
-#. In your mixer workspace, generate an initial mix based on the latest upstream
-   |CL| version, with minimum bundles. In the initialization output, be aware 
-   that your initial mix version is set to 10 and that the minimum bundles have 
-   been added.
+#. In your mixer workspace, generate an initial mix based on the latest
+   upstream |CL| version, with minimum bundles. In the initialization
+   output, be aware that your initial mix version is set to 10 and that the
+   minimum bundles have been added.
 
    .. code-block:: bash
 
       cd ~/mixer
       mixer init
 
-#. Edit :file:`builder.conf` to set the value of CONTENTURL and VERSIONURL to
-   the IP address of  the nginx\* server you set up in the prerequisite
-   `Set up a nginx web server for mixer`_. For example:
+   .. note::
+
+      If you want to add all upstream bundles in your mix,
+      initialize your mix as shown below.
+
+   .. code-block:: bash
+
+      mixer init --all-upstream
+
+#. Look up your IP address:
+
+   .. code-block:: bash
+
+      networkctl status
+
+#. Copy the IP “Address”, from above, for the next step.
+
+   .. note::
+
+      In this example, we put `mixer` and `nginx` on the same system. In a production environment, they would likely reside on different systems.
+
+#. Edit :file:`builder.conf`.  Paste the IP address from the previous step
+   as the value after \http:// for CONTENTURL and VERSIONURL. For example:
 
    .. code-block:: console
 
       CONTENTURL="http://192.168.25.52"
       VERSIONURL="http://192.168.25.52"
 
+#. `Set up a nginx web server for mixer`_.
+
+
 Example 2: Create a simple mix
 ==============================
 
 This example shows how to create a simple custom mix using upstream content.
-We'll create an image for a QEMU virtual machine that we can use later to test
-our mix.
+We'll create an image for a QEMU virtual machine that we can use later to
+test our mix.
 
-We can use the default bundles that were added during initialization, but these
-include the :command:`native-kernel` bundle that is intended to be used on a
-bare metal system instead of a VM. So we will modify the default bundle
-set to get a smaller kernel image, which will also be faster to load.
+We can use the default bundles that were added during initialization, but
+these include the :command:`native-kernel` bundle that is intended to be
+used on a bare metal system instead of a VM. So we will modify the default
+bundle set to get a smaller kernel image, which will also be faster to load.
+
+The only bundles available to :command:`swupd` for a given release are those
+that were added to the mix during build time. A mix doesn’t automatically
+inherit upstream bundles.
+
+#. Assure that you have run `mixer init`, shown in Example 1.
 
 #. Update bundles in mix:
 
@@ -244,8 +269,11 @@ set to get a smaller kernel image, which will also be faster to load.
       mixer bundle remove kernel-native
       mixer bundle add kernel-kvm
 
+   .. note::
+      The mixer bundle commands operate on the bundle description files but not on the bundle contents. To remove bundle contents and their tracking completely, follow `Example 6: Remove a bundle from client system`_, Advanced.
+
 #. In this case, we will add the `editors` bundle from upstream, but we will
-   remove the `joe` editor.
+   remove the :command:`joe` editor.
 
    .. code-block:: bash
 
@@ -258,12 +286,11 @@ set to get a smaller kernel image, which will also be faster to load.
 
       $EDITOR ./local-bundles/editors
 
-#. List the bundles in the mix again to confirm removal.
+#. List the bundles in the mix again to confirm removal of :command:`joe`.
 
    .. code-block:: bash
 
       mixer bundle list  --tree
-
 
 #. Build bundles:
 
@@ -271,50 +298,100 @@ set to get a smaller kernel image, which will also be faster to load.
 
       mixer build bundles
 
-   Look in ~/mixer/update/image/<mix version>/full for the full chroot after the
-   :command:`build` command completes.
-
-#. Build update content. Browse to your \http://localhost site and you'll see
-   the web page is now up, but with no update content. Build the update content:
+#. First, browse to web server from Example 1. The web page appears yet
+   has no update content. Build the update content:
 
    .. code-block:: bash
 
       mixer build update
 
-   Refresh your \http://localhost site and now you can see the update
+   After that is completed, on your web server, you can see the update
    content for mix version 10.
 
-   Look in ~/mixer/update/www/<mix version> to see the update content in your
-   workspace.
+Example 3: Create an update for your mix
+========================================
 
-#. Configure image. Edit the ister configuration file for your image to include
-   all of the bundles you want preinstalled in the image. If this is the first
-   time creating an image, first get a copy of the
+Next, let’s create a new version of the mix. We’ll add a new bundle.
+
+#. Create a new version of your mix, for the live image to
+   update to. Increment your mix version by 10:
+
+   .. code-block:: bash
+
+      mixer versions update
+
+#. Add the upstream :command:`curl` bundle to version 20 of the mix:
+
+   .. code-block:: bash
+
+      mixer bundle add curl
+
+#. Build your next mix version that incorporates the new bundle.
+
+   .. code-block:: bash
+
+      mixer build bundles
+      mixer build update
+
+#. Optionally, you can build delta-packs, which help reduce client update
+   time:
+
+   .. code-block:: bash
+
+      mixer build delta-packs --from 10 --to 20
+
+Refresh your web server to see the update content for mix version 20.
+
+You can also look in ~/mixer/update/www/<mix version> to see the update
+content in your workspace.
+
+
+Example 4: Build an image
+=========================
+
+This example shows how to build a bootable image containing the
+:command:`kernel-kvm`, :command:`os-core`, and the :command:`os-core-update`
+bundles from Example 2. Underneath, mixer uses `ister`_ to generate the
+image.
+
+#. Change directory into your mix.
+
+#. Configure image.
+
+   Edit the ister configuration file for your image to include all of the bundles you want pre-installed in the image. If this is the first time creating an image, first get a copy of the
    :file:`release-image-config.json` template file:
 
    .. code-block:: bash
 
       curl -O https://raw.githubusercontent.com/bryteise/ister/master/release-image-config.json
 
-   For this example, edit :file:`release-image-config.json` so that the root
-   partition size is "5G" and replace the "kernel-native" bundle with
-   "kernel-kvm".
+   For this example, make the following revisions
+   :file:`release-image-config.json`:
 
-   .. code-block:: console
+   * Set root partition size to "5G"
+   * Replace the "kernel-native" bundle with "kernel-kvm"
+   * Set the version to 10 (as an integer)
+
+   .. note::
+      When creating an image, select a subset of the bundles that are part of your mix. All the bundles that are *not* part of this subset are available for consumers of that image to install afterwards via swupd.
+
+   .. code-block:: bash
+      :linenos:
+      :emphasize-lines: 5,11-12
 
       {
-        "DestinationType" : "virtual",
+       "DestinationType" : "virtual",
         "PartitionLayout" : [ { "disk" : "release.img", "partition" : 1, "size" : "32M", "type" : "EFI" },
-                              { "disk" : "release.img", "partition" : 2, "size" : "16M", "type" : "swap" },
-                              { "disk" : "release.img", "partition" : 3, "size" : "5G", "type" : "linux" } ],
-        "FilesystemTypes" : [ { "disk" : "release.img", "partition" : 1, "type" : "vfat" },
-                              { "disk" : "release.img", "partition" : 2, "type" : "swap" },
-                              { "disk" : "release.img", "partition" : 3, "type" : "ext4" } ],
+                                  { "disk" : "release.img", "partition" : 2, "size" : "16M", "type" : "swap" },
+                                  { "disk" : "release.img", "partition" : 3, "size" : "5G", "type" : "linux" } ],
+        "FilesystemTypes" : [   { "disk" : "release.img", "partition" : 1, "type" : "vfat" },
+                                  { "disk" : "release.img", "partition" : 2, "type" : "swap" },
+                                  { "disk" : "release.img", "partition" : 3, "type" : "ext4" } ],
         "PartitionMountPoints" : [ { "disk" : "release.img", "partition" : 1, "mount" : "/boot" },
-                                   { "disk" : "release.img", "partition" : 3, "mount" : "/" } ],
-        "Version": "latest",
+                                       { "disk" : "release.img", "partition" : 3, "mount" : "/" } ],
+        "Version": 10,
         "Bundles": ["kernel-kvm", "os-core", "os-core-update"]
-      }
+       }
 
 #. Build the image.
 
@@ -322,41 +399,15 @@ set to get a smaller kernel image, which will also be faster to load.
 
       sudo mixer build image
 
-   The output from this step will be :file:`release.img`, which is a live image.
+   The output from this step will be :file:`release.img`, which is a live
+   image.
 
-#. Make the next mix. Create a new version of your mix, for the live image to
-   update to. Increment your mix version by 10:
-
-   .. code-block:: bash
-
-      mixer versions update
-
-   Repeat steps 1-3 to add the upstream :command:`curl` bundle to the mix:
-
-   .. code-block:: bash
-
-      mixer bundle add curl
-      mixer build bundles
-      mixer build update
-
-   Build optional delta-packs, which helps reduce client update time:
-
-   .. code-block:: bash
-
-      mixer build delta-packs --from 10 --to 20
-
-   Refresh your \http://localhost site to see the update content for
-   mix version 20.
-
-   Look in ~/mixer/update/www/<mix version> to see the update content in your
-   workspace.
-
-Example 3: Deploy updates to target
+Example 5: Deploy updates to target
 ===================================
 
-The image created in Example 2 is directly bootable in QEMU. In this example,
-we'll boot the image from Example 2 to verify it, and update the image from
-mix version 10 (from which the image was built), to mix version 20.
+The image created in Example 4 is directly bootable in QEMU. In this example,
+we'll boot the image and verify it. Then we'll update the image from
+mix version 10 to mix version 20.
 
 #. Set up the QEMU environment.
 
@@ -366,8 +417,8 @@ mix version 10 (from which the image was built), to mix version 20.
 
       sudo swupd bundle-add kvm-host
 
-   Get the virtual EFI firmware, download the image launch script, and make it
-   executable:
+#. Get the virtual EFI firmware, download the image launch script, and make
+   it executable:
 
    .. code-block:: bash
 
@@ -375,13 +426,29 @@ mix version 10 (from which the image was built), to mix version 20.
       curl -O https://download.clearlinux.org/image/start_qemu.sh
       chmod +x start_qemu.sh
 
-#. Start your VM image (created in Example 2):
+#. Start your VM image (created in Example 4):
 
    .. code-block:: bash
 
       sudo ./start_qemu.sh release.img
 
-#. Log in as root and set a password
+#. Log in as root and set a password.
+
+#. To avoid adding a flag each time, enter:
+
+   .. code-block:: bash
+
+      mkdir -p /etc/swupd
+      cat > /etc/swupd/config << EOF
+      [GLOBAL]
+      allow_insecure_http=true
+      EOF
+
+   .. note:
+
+      By default, the swupd client is designed to communicate with an
+      *\https* server. For development purposes, the swupd client can talk to
+      an *\http* server if you add the flag :command:`--allow-insecure-http`.
 
 #. Try out your mix.
 
@@ -391,19 +458,31 @@ mix version 10 (from which the image was built), to mix version 20.
 
       swupd info
       swupd bundle-list
-      swupd bundle-list -a
 
-#. Now we will add the `editors` bundle that we modified.
+#. List available bundles on your update server.
+
 
    .. code-block:: bash
 
-      swupd bundle add editors
+      swupd bundle-list -a
 
-#. Try to start the `joe` editor.  It should not appear because we removed it
-   from the original `editors` bundle.
+#. Now we will add the :command:`editors` bundle that we modified.
+
+   .. code-block:: bash
+
+      swupd bundle-add editors
+
+#. Try to start the :command:`joe` editor.
+
+   .. code-block:: bash
+
+      joe
+
+   It should not appear. We removed it from the original
+   :command:`editors` bundle.
 
 #. Next we will update from version 10 to 20 to capture the newly
-   available bundles. Use :command:`swupd` to update your mix:
+   available bundles.
 
    .. code-block:: bash
 
@@ -411,7 +490,7 @@ mix version 10 (from which the image was built), to mix version 20.
       swupd update
       swupd bundle-list -a
 
-#. Now your mix should be at version 20 and curl is now available. Try using
+#. Now your mix should be at version 20 and curl is available. Try using
    curl. This will fail because curl is not yet installed:
 
    .. code-block:: console
@@ -419,18 +498,183 @@ mix version 10 (from which the image was built), to mix version 20.
       curl: command not found
       To install curl use: swupd bundle-add curl
 
-   Add the new bundle from your update server to your VM. Retry curl. It works!
+#. Add the new bundle from your update server to your VM. Retry curl.
+   It works!
 
    .. code-block:: bash
 
       swupd bundle-add curl
       curl -O https://download.clearlinux.org/image/start_qemu.sh
 
-   Shutdown your VM:
+#. Shutdown your VM:
 
    .. code-block:: bash
 
       poweroff
+
+Example 6: Remove a bundle from client system
+=============================================
+
+Removing a bundle in a future release requires more steps than deleting the
+bundle description file, as shown in Example 2. After a bundle is built in
+the mix, you must assure all of the files that are part of the bundle are
+removed from the client where that bundle is installed. To do this, create a
+version of this bundle in which all of its content is marked for deletion.
+
+In the following example, we show how to remove the contents of the `editors`
+bundle that we added to our mix in Example 2.
+
+#. First update your mix version. This will set the mix to the next version.
+
+   .. code-block:: bash
+
+      mixer versions update
+
+   .. note::
+      Run this command every time that you want to build a new version.
+
+#. Navigate to local-bundles:
+
+   .. code-block:: bash
+
+      cd local-bundles
+
+#. Open the `editors` bundle with an editor and delete
+   **all lines** that follow after the `[MAINTAINERS]` line.
+
+#. Afterward, it should look like this:
+
+   .. code-block:: console
+
+      # [TITLE]: editors
+      # [DESCRIPTION]: Run popular terminal text editors.
+      # [STATUS]: Active
+      # [CAPABILITIES]:
+      # [TAGS]: Tools and Utilities, Editor
+      # [MAINTAINER]: Developer <developer@intel.com>
+
+#. Save and exit.
+
+#. Next, run a build to capture recently edited bundles and update your mix.
+
+   .. code-block:: bash
+
+      mixer build all
+
+   .. note::
+      :command:`mixer build all` runs both :command:`mixer build bundles` and :command:`mixer build update` in one step.
+
+At this point the new mix, version 30, is complete. All the content of the
+editors bundles is marked as deleted. If any clients of this mix upgraded to
+mix build version 30, the content of the editors bundle would be removed.
+Note that the bundle still exists and is being tracked by :command:`swupd`,
+but it contains no files.
+
+Example 7: Execute a format bump
+================================
+
+As a maintainer of your mix, you must execute a format bump if you wish to:
+
+* Track upstream’s format bump on your downstream derivative
+* Delete any custom bundles that were added
+
+Follow the appropriate use case below depending on your needs.
+
+Basic
+-----
+
+If you maintain your own downstream derivative and you want to track
+upstream, you need to do a format bump when one occurs on upstream. This
+method helps you track the latest changes on upstream; however, it does not
+change any local content that was added or deleted. For example, if you
+deprecated bundles, this method will **not remove the bundle tracking**.
+Refer to `Advanced`_ for help on managing your local mix and removing bundle
+tracking.
+
+In this example, we show a mix version that was initialized to upstream
+version 29740 (format 27). You need to update your mix to upstream version
+30700 (format 28). To do so, you will go through a format bump.
+
+#. Change to your mix location and verify the current version of the mix and
+   its format.
+
+   .. code-block:: bash
+
+      mixer versions
+
+#. Update to upstream version, which has a newer format.
+
+   .. code-block:: bash
+
+      mixer versions update --upstream-version 30700
+
+   The output will look like this:
+
+   .. code-block:: console
+
+      Old mix:      10
+      Old upstream: 29740 (format: 27)
+
+      New mix:      20
+      New upstream: 30700 (format: 28)
+      [...]
+
+   Read the output carefully:
+
+   * The Old mix shows the current version (10) of  your mix.
+
+   * The Old upstream shows the version and format (27) on which it’s based.
+
+   * The New mix shows the new version (20) of your mix.
+
+   * The New upstream shows the version and format (28) on which it’s based.
+
+#. Given that the format in the output differs, you need to run a
+   format bump:
+
+   .. code-block:: bash
+
+       sudo mixer build upstream-format --new-format 28
+
+   .. note::
+
+      You specify the :command:`--new-format` to indicate the format (28) to which you transition.
+
+#. Your mix is now synchronized with the new format (28); however, you must
+   still advance to the desired or latest version.
+
+   .. code-block:: bash
+
+      mixer versions update --upstream-version 30700
+
+Advanced
+--------
+
+To properly remove a bundle from being tracked by :command:`swupd`,
+do a manual format bump. This process can also be used to perform
+customizations during the update, such as:
+
+* Adjustment in the command parameters
+
+* Change the content of the chroot
+
+Tutorial
+--------
+
+Try this tutorial to learn how to manually do a format bump. Read the
+comments above each line for an explanation of each step as you execute
+commands. Use this same process on your mix if you need to remove a bundle
+and its tracking.
+
+The `afb.sh reference script`_ shows an example of how to:
+
+* Create a mix
+
+* Add a bundle
+
+* Deprecate a bundle
+
+* Do a format bump to remove the deprecated bundle
 
 
 .. Example: Create a mix with custom RPM
@@ -560,29 +804,38 @@ other version within that epoch. The compatibility epoch is set as the
 :file:`mixer.state` are used by mixer between executions and should not be
 manually changed.
 
-A format bump is like modifying the foundation of a house to create a new
-level. If `Format` increments to a new epoch (a "format bump"), the OS has
-changed in such a way that updating from build A in format X to build B in
-format Y will not work.
+Format bump
+-----------
 
-A format bump is required when:
+Mixer needs to produce content that is consumable by swupd. For swupd to
+consume the content, it needs a consistent protocol that describes the
+requirements of the Manifest.
 
-* The software updater, :command:`swupd`, or the software is no longer
-  compatible with the previous update scheme
+If the `Format` increments to a new epoch (a "format bump"),  the underlying
+`swupd` protocol has changed such that updating from one build version in an
+old format to a new build version in a new format is **only** allowed if one
+performs a corresponding format bump.
 
-* A package is removed from the update stream and the update must ensure the
-  files associated with that package are removed from the system
+Format bumps are “checkpoints” (see Figure 1). The first release (20) is
+built on the previous format with a `swupd` that is capable of interpreting
+the next format. The second release (30) has the same content, but it’s
+built in the new format.
 
-Using a format increment, we make sure pre- and co-requisite changes flow out
-with proper ordering. The updated client will only update to the latest
-release in its respective format version, unless overridden by command line
-flags. In this way, we can guarantee that all clients update to the final
-version in their given format.
+Suppose you have build version 10, but you need the tools in build version
+40. Whereas version 10 belongs to Format 27, version 40 belongs to Format
+28. The swupd client needs to follow formats sequentially. First, you must
+update to version 20, which effectively enables a format bump to version 30.
+Doing a format bump bridges the gap so your mix can progress to build
+version 40.
 
-The given format *must* contain all the changes needed to understand the content built in the next format. Only after reaching the final release in the old format can a client continue to update to releases in the new format.
+.. figure:: ../../_figures/mixer/format-bump.png
+   :alt: Format bump
 
-The format version is incremented only when a compatibility breakage is
-introduced. Normal updates, such as updating a software package, do not require a format increment.
+   Figure 1: Format bump
+
+.. note::
+   if you update to build 20 and then check which format of the distro is
+   used, the new build version will show 30, and the new format will show 28.
 
 .. rst-class:: content-collapse
 
@@ -840,8 +1093,9 @@ Set up a nginx web server for mixer with the following steps:
 
       sudo systemctl start nginx
 
-#. Verify the web server is running at \http://localhost. At this point
-   you should no longer see a "404 Not Found" message.
+#. Verify the web server is running at \http://<ip-address>,
+   where <ip-address> is the same one that you captured in
+   `Example 1: Mix set up`_.
 
 Related topics
 **************
@@ -856,3 +1110,6 @@ Related topics
 .. _mixer.bundle man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.bundle.1.rst
 .. _mixer.build man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.build.1.rst
 .. _releases: https://github.com/clearlinux/clr-bundles/releases
+.. _afb.sh reference script: https://github.com/clearlinux/mixer-tools/blob/master/afb.sh
+
+.. _ister: https://github.com/bryteise/ister
