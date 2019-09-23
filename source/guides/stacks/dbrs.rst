@@ -22,14 +22,16 @@ functionality of Intel Platforms.
 Stack Features
 ==============
 
-Current supported  database applications are Cassandra* and Redis*, which
+Current supported  database applications are Apache Cassandra* and Redis*, which
 have been enabled for `Intel Optane DC PMM`_.
 
-DBRS with Cassandra can be deployed as a standalone container or inside a
+DBRS with Apache Cassandra can be deployed as a standalone container or inside a
 Kubernetes* cluster.
 
 The Redis stack application is enabled for a multinode Kubernetes
 environment, using AEP persistent memory DIMM in fsdax mode for storage.
+
+The `release announcement`_ for this release provides more detail about the stack features, as well as benchmark results.
 
 .. note::
 
@@ -168,25 +170,25 @@ Configuration Steps
       sudo mount -o dax /dev/pmem0 /mnt/dax0
 
 
-Running DBRS with Cassandra*
-****************************
+Running DBRS with Apache Cassandra*
+***********************************
 
-DBRS with Cassandra can be deployed as a standalone container or inside
+DBRS with Apache Cassandra can be deployed as a standalone container or inside
 Kubernetes\*. Instructions for both cases is included here. Note that you can
-use the released `Docker image with Cassandra`_ (Docker\* examples below).
+use the released `Docker image with Apache Cassandra`_ (Docker\* examples below).
 These instructions provide a baseline for creating your own container image.
 If you are using the released image, skip this section.
 
 .. important::
 
-   At the initial release of DBRS, Cassandra is considered to be Engineering Preview release quality and may not be suitable for production release.  Please take this into consideration when planning your project.
+   At the initial release of DBRS, Apache Cassandra is considered to be Engineering Preview release quality and may not be suitable for production release.  Please take this into consideration when planning your project.
 
 
 
-Build the DBRS with Cassandra container
-=======================================
+Build the DBRS with Apache Cassandra container
+==============================================
 
-To build the container with Cassandra, you must build cassandra-pmem, and then build the container using the :command:`docker build` command. We are using |CL| as our container host as well as the OS in the container.
+To build the container with Apache Cassandra, you must build cassandra-pmem, and then build the container using the :command:`docker build` command. We are using |CL| as our container host as well as the OS in the container.
 
 Build cassandra-pmem
 ====================
@@ -224,13 +226,13 @@ To build the Docker image, run the Dockerfile in the same directory with the :fi
 
 Once it completes, the Docker image is ready to be used.
 
-Deploy Cassandra PMEM as a standalone container
-===============================================
+Deploy Apache Cassandra PMEM as a standalone container
+======================================================
 
 Requirements
 ------------
 
-To deploy Cassandra PMEM, you must meet the following requirements
+To deploy Apache Cassandra PMEM, you must meet the following requirements
 
 * PMEM memory must be configured in `devdax` or `fsdax`    mode. The container image is able to handle both modes and depending on the PMEM mode, the mount points inside the container must be different.
 * In order to make available `devdax` pmem devices inside the container you must use the `--device` directive. Internally the container always uses :command:`/dev/dax0.0`, so the mapping should be: :command:`--device=/dev/<host-device>:/dev/dax0.0`
@@ -308,11 +310,11 @@ When using `fsdax` mode cassandra-pmem creates a pool file on the pmem mountpoin
 
 Where
 * `pmem_path` is the path to the pool file, which should include the path itself and the file name
-* `pool_size` is the size of the pool file in bytes. If you are using the `Docker image with Cassandra`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
+* `pool_size` is the size of the pool file in bytes. If you are using the `Docker image with Apache Cassandra`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
 
 Is important to note that when creating the filesystem in the pmem device certain amount of space of the device is used by the filesystem metadata so the pool_size should be smaller than the total pmem namespace size.
 
-When using the `Docker image with Cassandra`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
+When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
 
 devdax
 ------
@@ -354,7 +356,7 @@ Before using a `devdax` device we need to clear the device:
    sudo pmempool rm -vaf /dev/dax0.0
 
 
-The `jvm.options` configuration for Cassandra should look like the following:
+The `jvm.options` configuration for Apache Cassandra should look like the following:
 
 .. code-block:: console
 
@@ -365,7 +367,7 @@ Where
 * pmem_path is the `devdax` device.
 * pool_size=0 indicates to use the entire `devdax` device.
 
-When using the `Docker image with Cassandra`_, the file `jvm.options` is automatically populated.
+When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated.
 
 
 Run the DBRS Container
@@ -471,10 +473,10 @@ The output should look similar to this:
 Persistence
 ===========
 
-By default you can access the data written to Cassandra  as long as the container exists. In order to persist the data past that, you can mount volumes or bind mounts on :file:`/workspace/cassandra/data` and :file:`/workspace/cassandra/logs` and in this way the data can still be accessed once the container is deleted.
+By default you can access the data written to Apache Cassandra  as long as the container exists. In order to persist the data past that, you can mount volumes or bind mounts on :file:`/workspace/cassandra/data` and :file:`/workspace/cassandra/logs` and in this way the data can still be accessed once the container is deleted.
 
-Deploy A Cassandra-PMEM cluster on Kubernetes*
-**********************************************
+Deploy An Apache Cassandra-PMEM cluster on Kubernetes*
+******************************************************
 
 Many containerized workloads are deployed in clusters and orchestration software like Kubernetes can be useful. We will use the `cassandra-pmem-helm`_ Helm* chart in this example.
 
@@ -497,7 +499,7 @@ Requirements
 Configuration
 =============
 
-In order to configure the Cassandra PMEM cluster some variables and values are provided. These values are set in :file:`test/cassandra-pmem-helm/values.yaml`, and can be modified according to your specific needs. A summary of those parameters is shown below:
+In order to configure the Apache Cassandra PMEM cluster some variables and values are provided. These values are set in :file:`test/cassandra-pmem-helm/values.yaml`, and can be modified according to your specific needs. A summary of those parameters is shown below:
 
 
 * clusterName:  The cluster Name set across all deployed nodes
@@ -620,7 +622,7 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _known issue: https://github.com/spotahome/redis-operator/issues/176
 
-.. _Docker image with Cassandra: https://hub.docker.com/r/clearlinux/stacks-dbrs-cassandra
+.. _Docker image with Apache Cassandra: https://hub.docker.com/r/clearlinux/stacks-dbrs-cassandra
 
 .. _Docker image with Redis: https://hub.docker.com/r/clearlinux/stacks-dbrs-redis
 
@@ -629,3 +631,5 @@ To start a redisfailover instance in Kubernetes run the following
 .. _pmem-csi: https://github.com/intel/pmem-csi/blob/release-0.5/README.md
 
 .. _DBRS Terms of Use: https://clearlinux.org/stacks/database/terms-of-use
+
+.. _release announcement: https://clearlinux.org/news-blogs/database-reference-stack-dbrs-v10-now-available
