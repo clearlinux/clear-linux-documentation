@@ -331,3 +331,4 @@ locale_dirs = ['../locale/'] # path for lang-specific po files.
 gettext_compact = False # optional.
 
 html_baseurl = 'https://docs.01.org/clearlinux/'
+
