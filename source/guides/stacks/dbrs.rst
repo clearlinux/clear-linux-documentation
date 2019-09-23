@@ -31,6 +31,13 @@ Kubernetes* cluster.
 The Redis stack application is enabled for a multinode Kubernetes
 environment, using AEP persistent memory DIMM in fsdax mode for storage.
 
+.. note::
+
+   The Database Reference Stack is a collective work, and each piece
+   of software within the work has its own license.  Please see the
+   `DBRS Terms of Use`_ for more details about licensing and usage of the Database Reference Stack.
+
+
 Hardware Requirements
 *********************
 
@@ -161,7 +168,7 @@ Configuration Steps
       sudo mount -o dax /dev/pmem0 /mnt/dax0
 
 
-Running DBRS with Cassandra
+Running DBRS with Cassandra*
 ***************************
 
 DBRS with Cassandra can be deployed as a standalone container or inside
@@ -620,3 +627,5 @@ To start a redisfailover instance in Kubernetes run the following
 .. _Intel Optane DC PMM: https://www.intel.com/content/www/us/en/architecture-and-technology/optane-technology/optane-for-data-centers.html
 
 .. _pmem-csi: https://github.com/intel/pmem-csi/blob/release-0.5/README.md
+
+.. _DBRS Terms of Use: https://clearlinux.org/stacks/database/terms-of-use
