@@ -169,7 +169,7 @@ Configuration Steps
 
 
 Running DBRS with Cassandra*
-***************************
+****************************
 
 DBRS with Cassandra can be deployed as a standalone container or inside
 Kubernetes\*. Instructions for both cases is included here. Note that you can
