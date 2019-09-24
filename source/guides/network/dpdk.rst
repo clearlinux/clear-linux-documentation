@@ -144,14 +144,14 @@ packet buffers.
 
    .. code-block:: bash
 
-      sudo echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Allocate pages on NUMA machines.
 
    .. code-block:: bash
 
-      sudo echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-      sudo echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 | sudo tee /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Make memory available for DPDK.
 
@@ -302,10 +302,10 @@ machines control the NICs on the host.
 
    .. code-block:: bash
 
-      sudo echo "8086 1521" > /sys/bus/pci/drivers/pci-stub/new_id
-      sudo echo "0000:03:00.0" > /sys/bus/pci/drivers/igb/unbind
-      sudo echo "0000:03:00.0" > /sys/bus/pci/drivers/pci-stub/bind
-      sudo echo "8086 1521" > /sys/bus/pci/drivers/pci-stub/remove_id
+      echo "8086 1521" | sudo tee /sys/bus/pci/drivers/pci-stub/new_id
+      echo "0000:03:00.0" | sudo tee /sys/bus/pci/drivers/igb/unbind
+      echo "0000:03:00.0" | sudo tee /sys/bus/pci/drivers/pci-stub/bind
+      echo "8086 1521" | sudo tee /sys/bus/pci/drivers/pci-stub/remove_id
 
 #. Assign the unbound NICs to the KVM virtual machine (guest).
    Modify the :file:`start_qemu.sh` script in `qemu-system-x86_64` arguments, and
