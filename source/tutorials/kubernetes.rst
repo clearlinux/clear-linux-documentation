@@ -3,9 +3,8 @@
 Kubernetes\*
 ############
 
-This tutorial describes how to install, configure, and run the
-`Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and
-kata-runtime.
+This tutorial describes how to install, configure, and start the
+`Kubernetes container orchestration system`_ on |CL-ATTR| using CRI+O and kata-runtime.
 
 .. contents::
    :local:
@@ -97,7 +96,7 @@ deployment and your security needs.
       .. note::
 
          Swap will be enabled at next reboot, causing failures in
-         your cluster.
+         your cluster if you choose this method.
 
    or:
 
@@ -137,8 +136,7 @@ deployment and your security needs.
 Configure and run Kubernetes
 ****************************
 
-This section describes how to configure and run Kubernetes with CRI-O and
-kata-runtime.
+This section describes how to configure and run Kubernetes with CRI-O and kata-runtime. We will be using  the :command:`kubectl` command-line interface to control Kubernetes.
 
 Configure and run CRI-O + kata-runtime
 ======================================
@@ -149,21 +147,22 @@ Configure and run CRI-O + kata-runtime
 
        sudo systemctl enable crio.service
 
-#.  Enter the commands:
+#.  Enter these commands to restart the system services so that CRI-O will be restarted, and will automatically start with every reboot.
 
     .. code-block:: bash
 
        sudo systemctl daemon-reload
        sudo systemctl restart crio
 
-#.  Initialize the master control plane with the command below and follow the
-    displayed instructions to set up `kubectl`:
+
+
+#.  Initialize the master control plane with the command below and follow the displayed instructions to set up `kubectl`.  The :command:`init` command initializes a Kubernetes `control-plane node`_. If you will be adding a pod network add-on, you will need to add configuration to the :command:`init` command line. see the `Install pod network add-on`_ section for details.
 
     .. code-block:: bash
 
        sudo kubeadm init --cri-socket=/run/crio/crio.sock
 
-#.  Register kata-runtime as a RuntimeClass handler:
+#.  Register kata-runtime as a `RuntimeClass handler`_:
 
     .. code-block:: bash
 
@@ -181,26 +180,23 @@ Configure and run CRI-O + kata-runtime
        handler: kata
        EOF
 
+
 Install pod network add-on
 **************************
 
-You must choose and install a `pod network add-on`_ to allow your pods to
-communicate. Check whether or not your add-on requires special flags when you
-initialize the master control plane.
+You must choose and install a `pod network add-on`_ to allow your pods to communicate. Check whether or not your add-on requires special flags when you initialize the master control plane.
 
 **Notes about flannel add-on**
 
-If you choose the `flannel` add-on, then you must add the following to the
-`kubeadm init` command:
+If you choose the `flannel` add-on, then you must add the following to the :command:`kubeadm init` command:
 
-.. code-block:: bash
+.. code-block:: console
 
    --pod-network-cidr 10.244.0.0/16
 
-Furthermore, if you are using CRI-O and `flannel` and you want to use
-Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
+Furthermore, if you are using CRI-O and `flannel` and you want to use Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
 
-..  code-block:: bash
+.. code-block:: console
 
     [crio.runtime]
     manage_network_ns_lifecycle = true
@@ -208,22 +204,16 @@ Kata Containers, edit the :file:`/etc/crio/crio.conf` file to add:
 Use your cluster
 ****************
 
-Once your master control plane is successfully initialized, instructions on
-how to use your cluster and its *IP*, *token*, and *hash* values are
-displayed. It is important that you record the cluster values because they
-are needed when joining worker nodes to the cluster. Some values have a valid
-period. The values are presented in a format similar to:
+Once your master control plane is successfully initialized, instructions on how to use your cluster and its *IP*, *token*, and *hash* values are displayed. It is important that you record the cluster values because you need them to join worker nodes to the cluster. Some values have a valid period. The values are presented in a format similar to:
 
 .. code-block:: bash
 
    kubeadm join <master-ip>:<master-port> --token <token> --discovery-token-ca-cert-hash <hash>
 
+
 **Congratulations!**
 
-You've successfully installed and set up Kubernetes in |CL| using CRI-O and
-kata-runtime. You are now ready to follow on-screen instructions to deploy a
-pod network to the cluster and join worker nodes with the displayed token
-and IP information.
+You've successfully installed and set up Kubernetes in |CL| using CRI-O and kata-runtime. You are now ready to follow on-screen instructions to deploy a pod network to the cluster and join worker nodes with the displayed token and IP information.
 
 Related topics
 **************
@@ -245,25 +235,16 @@ Read the Kubernetes documentation to learn more about:
 Cloud native setup automation
 *****************************
 
-Optional: Clone the `cloud-native-setup`_ repository on your system and
-follow the instructions. This repository includes helper scripts to automate
-configuration.
+Optional: Clone the `cloud-native-setup`_ repository on your system and follow the instructions. This repository includes helper scripts to automate configuration.
 
 Package configuration customization (optional)
 **********************************************
 
-|CL| is a stateless system that looks for user-defined package configuration
-files in the :file:`/etc/<package-name>` directory to be used as default. If
-user-defined files are not found, |CL| uses the distribution-provided
-configuration files for each package.
+|CL| is a stateless system that looks for user-defined package configuration files in the :file:`/etc/<package-name>` directory to be used as default. If user-defined files are not found, |CL| uses the distribution-provided configuration files for each package.
 
-If you customize any of the default package configuration files, you **must**
-store the customized files in the :file:`/etc/` directory. If you edit any of
-the distribution-provided default files, your changes will be lost in the
-next system update.
+If you customize any of the default package configuration files, you **must** store the customized files in the :file:`/etc/` directory. If you edit any of the distribution-provided default files, your changes will be lost in the next system update as the default files will be overwritten with the updated files.
 
-For example, to customize CRI-O configuration in your system, run the
-following commands:
+For example, to customize CRI-O configuration in your system, run the following commands:
 
 .. code-block:: bash
 
@@ -276,14 +257,9 @@ Learn more about :ref:`stateless` in |CL|.
 Proxy configuration (optional)
 ******************************
 
-If you use a proxy server, you must set your proxy environment variables and
-create an appropriate proxy configuration file for both CRI-O services. Consult
-your IT department if you are behind a corporate proxy for the appropriate
-values. Ensure that your local IP is **explicitly included** in the environment
-variable *NO_PROXY*. (Setting *localhost* is not enough.)
+If you use a proxy server, you must set your proxy environment variables and create an appropriate proxy configuration file for both CRI-O services. Consult your IT department if you are behind a corporate proxy for the appropriate values. Ensure that your local IP is **explicitly included** in the environment variable *NO_PROXY*. (Setting *localhost* is not enough.)
 
-If you have already set your proxy environment variables, run the following
-commands as a shell script to configure all of these services in one step:
+If you have already set your proxy environment variables, run the following commands as a shell script to configure all of these services in one step:
 
 .. code-block:: bash
 
@@ -304,44 +280,33 @@ Troubleshooting
 
 * <HOSTNAME> not found in <IP> message.
 
-  Your DNS server may not be appropriately configured. Try adding an
-  entry to the :file:`/etc/hosts` file with your host's IP and Name.
+  Your DNS server may not be appropriately configured. Try adding an entry to the :file:`/etc/hosts` file with your host's IP and Name.
 
   For example: 100.200.50.20 myhost
 
-  Use the commands :command:`hostname` and :command:`hostname -I`
-  to retrieve them.
+  Use the commands :command:`hostname` and :command:`hostname -I` to retrieve them.
 
 * Images cannot be pulled.
 
-  You may be behind a proxy server. Try configuring your proxy settings,
-  using the environment variables *HTTP_PROXY*, *HTTPS_PROXY*, and *NO_PROXY*
-  as required in your environment.
+  You may be behind a proxy server. Try configuring your proxy settings, using the environment variables *HTTP_PROXY*, *HTTPS_PROXY*, and *NO_PROXY* as required in your environment.
 
 * Connection refused error.
 
-  If you are behind a proxy server, you may need to add the master's IP to
-  the environment variable *NO_PROXY*.
+  If you are behind a proxy server, you may need to add the master's IP to the environment variable *NO_PROXY*.
 
 * Connection timed-out or Access Refused errors.
 
-  You must ensure that the appropriate proxy settings are available from the
-  same terminal where you will initialize the control plane. To verify the
-  proxy settings that Kubernetes will actually use, run the commands:
+  You must ensure that the appropriate proxy settings are available from the same terminal where you will initialize the control plane. To verify the proxy settings that Kubernetes will actually use, run the commands:
 
   .. code-block:: bash
 
-    echo $HTTP_PROXY
-    echo $HTTPS_PROXY
-    echo $NO_PROXY
+     echo $HTTP_PROXY
+     echo $HTTPS_PROXY
+     echo $NO_PROXY
 
-  If the displayed proxy values are different from your assigned values, the
-  cluster initialization will fail. Contact your IT support team to learn how
-  to set the proxy variables permanently, and how to make them available for
-  all the types of access that you will use, such as remote SSH access.
+  If the displayed proxy values are different from your assigned values, the cluster initialization will fail. Contact your IT support team to learn how to set the proxy variables permanently, and how to make them available for all the types of access that you will use, such as remote SSH access.
 
-  If the result of the above commands is blank, you may need to add a
-  ``profile`` to the :file:`/etc` directory. To do so, follow these steps.
+  If the result of the above commands is blank, you may need to add a ``profile`` to the :file:`/etc` directory. To do so, follow these steps.
 
   #. Create a `profile` in :file:`/etc`
 
@@ -349,8 +314,7 @@ Troubleshooting
 
         sudo touch profile
 
-  #. With your preferred editor, open `profile`, and enter your proxy settings.
-     An example is shown below.
+  #. With your preferred editor, open `profile`, and enter your proxy settings. An example is shown below.
 
      .. code-block:: bash
 
@@ -365,8 +329,7 @@ Troubleshooting
 
   #. Save and exit the `profile`.
 
-  #. Update your system's environment settings by executing the following
-     command:
+  #. Update your system's environment settings by executing the following command:
 
      .. code-block:: bash
 
@@ -382,8 +345,7 @@ Troubleshooting
 
 * Missing environment variables.
 
-  If you are behind a proxy server, pass environment variables by adding *-E*
-  to the command that initializes the master control plane.
+  If you are behind a proxy server, pass environment variables by adding *-E* to the command that initializes the master control plane.
 
   .. code-block:: bash
 
@@ -409,3 +371,7 @@ Troubleshooting
 .. _Joining your nodes: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
 
 .. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples
+
+.. _control-plane node: https://kubernetes.io/docs/concepts/#kubernetes-control-plane
+
+.. _RuntimeClass handler: https://kubernetes.io/docs/concepts/containers/runtime-class/
