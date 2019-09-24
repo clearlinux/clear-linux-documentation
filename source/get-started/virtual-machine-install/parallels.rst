@@ -1,14 +1,17 @@
 .. _parallels:
 
-Parallels\* Desktop for Mac\*
-#############################
+|CL-ATTR| on Parallels\* Desktop for Mac\*
+##########################################
 
-This tutorial describes how to run |CL| Server in
-:abbr:`CLI (command-line interface)` mode as a guest OS in Parallels Desktop 14
-for Mac.
+This page explains how to run |CL| Server in :abbr:`CLI (command-line interface)`
+mode as a guest OS in Parallels Desktop 14 for Mac.
 
 Parallels Desktop for Mac is virtualization software that allows other
 operating systems, such as Linux, to run side-by-side with macOS\*.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Prerequisites
 *************
@@ -19,7 +22,7 @@ Download ISO image
 ******************
 
 #. Download a live-server ISO installation file from https://clearlinux.org/downloads.
-   This tutorial uses |CL| Server 30140 as its example.
+   This guide uses |CL| Server 30140 as its example.
 
 #. Unzip the ISO image with the command:
 
