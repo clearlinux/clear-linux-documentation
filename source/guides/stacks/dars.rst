@@ -62,11 +62,27 @@ Launching the Image
 
    This will launch the image and drop you into a bash shell inside the container. The :command:`--ulimit nofile=` parameter is required in order to increase the allowed number of open files for the Apache Spark engine.
 
+   If you need to verify the name of the DARS image, you can use the :command:`docker image ls` command to see which images reside on your system.
+
+   .. code-block:: bash
+
+      docker image ls
+
+
+   .. code-block:: console
+
+      REPOSITORY                                                   TAG                 IMAGE ID            CREATED             SIZE
+      clearlinux/stacks-dars-mkl                                   test-img            49a70a22231f        23 hours ago        2.66GB
+      ubuntu                                                       latest              2ca708c1c9cc        7 days ago          64.2MB
+      katadocker/kata-deploy                                       latest              bd6dc92f8060        7 days ago          673MB
+      clearlinux/stacks-dars-mkl                                   latest              2c9555536d5f        4 weeks ago         2.62GB
+
+
 
 Building DARS images
 ====================
 
-If you choose to build your own DARS container images, you can customize them as needed. Use the :file:`Dockerfile` included in the Github\* repository as your baseline.
+If you choose to build your own DARS container images, you can customize them as needed. Use the :file:`Dockerfile` included in the Github\* repository as your baseline. You can also follow :ref:`custom-app-container` for details on customizing containers on |CL|.
 
 To construct images with |CL|, start with a |CL| development platform that has the :command:`containers-basic-dev` bundle installed. Learn more about bundles and installing them by using :ref:`swupd-guide`.
 
@@ -76,10 +92,11 @@ To construct images with |CL|, start with a |CL| development platform that has t
 
       git clone https://github.com/clearlinux/dockerfiles.git
 
-#. Inside the stacks/dars/mkl directory, use docker with the :file:`Dockerfile` to build the  MKL image.
+#. Inside the :file:`stacks/dars/mkl` directory, use docker with the :file:`Dockerfile` to build the  MKL image.
 
    .. code-block:: bash
 
+      cd ./dockerfiles/stacks/dlrs/mkl
       docker build --no-cache -t clearlinux/stacks-dars-mkl .
 
 
@@ -152,7 +169,7 @@ You can also run python scripts in Apache Spark from the command line.  We'll us
 DARS Usecase example
 ====================
 
-The DARS container is used in conjunction with the Deep Learning Reference Stack container to implement a real world use case.  Refer to the `Github Issue Classification`_ Usecase found in the `stacks-usecase`_ repository for a walkthrough.  This usecase is implemented using the Scala environment, rather than PySpark. 
+The DARS container is used in conjunction with the Deep Learning Reference Stack container to implement a real world use case.  Refer to the `Github Issue Classification`_ Usecase found in the `stacks-usecase`_ repository for a walkthrough.  This usecase is implemented using the Scala environment, rather than PySpark.
 
 
 
