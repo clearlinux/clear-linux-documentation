@@ -82,7 +82,7 @@ Launching the Image
 Building DARS images
 ====================
 
-If you choose to build your own DARS container images, you can customize them as needed. Use the :file:`Dockerfile` included in the Github\* repository as your baseline. You can also follow :ref:`custom-app-container` for details on customizing containers on |CL|.
+If you choose to build your own DARS container images, you can customize them as needed. Use the :file:`Dockerfile` included in the Github\* repository as your baseline. 
 
 To construct images with |CL|, start with a |CL| development platform that has the :command:`containers-basic-dev` bundle installed. Learn more about bundles and installing them by using :ref:`swupd-guide`.
 
