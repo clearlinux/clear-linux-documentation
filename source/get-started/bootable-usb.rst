@@ -31,7 +31,7 @@ Burn the |CL| image onto a USB drive
 
 .. caution::
 
-   Burning an image formats the USB drive, and will destroy all pre-existing
+   Burning an image formats the USB drive and destroys all pre-existing
    content.  Back up your data before proceeding.
 
 #. Open a terminal emulator and get root privilege.
@@ -116,7 +116,7 @@ Burn the |CL| image onto a USB drive
 
 .. caution::
 
-   Burning an image formats the USB drive, and will destroy all pre-existing
+   Burning an image formats the USB drive and destroys all pre-existing
    content.  Back up your data before proceeding.
 
 #. Launch the Terminal app.
@@ -129,7 +129,7 @@ Burn the |CL| image onto a USB drive
 
       diskutil list
 
-   This will list available disks and their partitions, as shown in Figure 1.
+   This lists available disks and their partitions, as shown in Figure 1.
 
    .. figure:: /_figures/bootable-usb/bootable-usb-mac-01.png
       :scale: 100 %
@@ -175,11 +175,12 @@ Burn the |CL| image onto a USB drive
 
 .. caution::
 
-   Burning an image formats the USB drive, and will destroy all pre-existing
+   Burning an image formats the USB drive and destroys all pre-existing
    content.  Back up your data before proceeding.
 
 #. Download the `Rufus`_ utility to burn the image onto a USB drive.
-   We use Rufus 3.5 here. **Only use the latest version of Rufus**.
+   We use Rufus 3.5 for this example.
+   **Only use the latest version of Rufus**.
 
 #. Plug in the USB drive and open Rufus.
 
@@ -204,7 +205,13 @@ Burn the |CL| image onto a USB drive
 
       Figure 3: ISOHybrid image detected
 
-#. Select the Windows taskbar menu for USB and select eject.
+#. Click :guilabel:`OK`.
+
+#. The process make take more than a few minutes. When the process completes,
+   close Rufus.
+
+#. Select the Windows taskbar menu for USB and select
+   :guilabel:`Eject <drive name>`.
 
 .. _Rufus: https://rufus.ie/
 .. _Downloads: https://clearlinux.org/downloads
