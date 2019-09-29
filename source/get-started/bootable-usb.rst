@@ -187,6 +187,8 @@ Burn the |CL| image onto a USB drive
 
 #. Find and select the previously extracted |CL| image file.
 
+#. Check that `Volume label` is set to `CLR_ISO` **Do not change the label as installer relies on it**
+
 #. Click the :guilabel:`START` button. See Figure 2.
 
    .. figure:: /_figures/bootable-usb/bootable-usb-windows-02.png
