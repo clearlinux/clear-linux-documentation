@@ -119,6 +119,8 @@ th,td {
   padding-left: 0 !important;
 }
 
+/*Begin support for collapsbile sections*/
+
 .clps1 {
   font-size: 175%;
 }
@@ -176,6 +178,26 @@ th,td {
   transition: max-height 0.2s ease-out;
 }
 
+/*Fix for permalinks to collapsible sections*/
+
+button a.headerlink {
+  visibility: hidden;
+}
+
+button a.headerlink:after {
+  content: "\f0c1";
+  font-size: 14px;
+  font-family: FontAwesome;
+  font-weight: normal;
+}
+
+button:hover a.headerlink:after {
+  visibility: visible;
+}
+
+/*End support for collapsbile sections*/
+
+/*Begin support for custom Clear Linux header*/
 #header {
     width: 100%;
     display: block;
@@ -278,6 +300,8 @@ th,td {
    line-height: 100px;
 }
 
+/*End support for custom Clear Linux header*/
+
 /*Adds a bit of spacing after the last paragraph in a bulleted list*/
 .wy-plain-list-disc li p:last-child, .rst-content .section ul li p:last-child, .rst-content .toctree-wrapper ul li p:last-child, article ul li p:last-child {
     margin-bottom: 10px;
@@ -291,7 +315,7 @@ div#trademarks {
     color: gray;
 }
 
-
+/*Adds magnifying glass to search box*/
 #clear-docs-search {
   background: url(./mag-glass.png) left no-repeat;
   background-size: 15px 15px;
@@ -312,3 +336,11 @@ div#trademarks {
 .pending-delete-status {
   color:#ce2029; 
 }
+
+/*Begin support for code blocks with $ signs that aren't copied with content*/
+
+.bash-dollar:before {
+  content: '$ ';
+}
+
+/*End support for code blocks with $ signs that aren't copied with content*/
