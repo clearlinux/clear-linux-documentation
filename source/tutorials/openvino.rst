@@ -4,7 +4,7 @@ OpenVINO™ for Deep Learning
 ###########################
 
 This tutorial shows how to install OpenVINO™ on |CL-ATTR|, run an
-OpenVINO Sample Application for image classification, and run a benchmark_app
+OpenVINO sample application for image classification, and run a benchmark_app
 for estimating inference performance---using Squeezenet 1.1.
 
 .. contents::
@@ -19,7 +19,7 @@ Prerequisites
 Install OpenVINO
 ****************
 
-OpenVINO in |CL| offers pre-built OpenVINO Sample Applications with which
+OpenVINO in |CL| offers pre-built OpenVINO sample applications with which
 developers can try inferencing immediately.
 
 #. In |CL| OpenVINO is included in the :command:`computer-vision-basic`
@@ -48,7 +48,7 @@ developers can try inferencing immediately.
 
       ls /usr/share/openvino/model-optimizer
 
-#. To view the OpenVINO Sample Application Executables, enter:
+#. To view the OpenVINO sample application Executables, enter:
 
    .. code-block:: bash
 
@@ -66,15 +66,15 @@ developers can try inferencing immediately.
 
       If bundle installation is successful, the above files should appear.
 
-#. To view the pre-built OpenVINO Sample Application source code, enter:
+#. To view the pre-built OpenVINO sample application source code, enter:
 
    .. code-block:: bash
 
       ls /usr/share/doc/inference_engine/samples
 
-In the next section, you learn how to use an OpenVINO Sample Application.
+In the next section, you learn how to use an OpenVINO sample application.
 
-Run OpenVINO Sample Application
+Run OpenVINO sample application
 *******************************
 
 After installing OpenVINO on |CL|, you need a model against which to test.
@@ -85,7 +85,7 @@ Use model to test
 =================
 
 #. If you don’t have any model, you can download an
-   **intel_model** or a public model using OpenVINVO Model Downloader.
+   **intel_model** or a public model using OpenVINO Model Downloader.
 
    - Check the list of public models you can download from
      :file:`/usr/share/open_model_zoo/models/public`
