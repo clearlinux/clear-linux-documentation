@@ -29,6 +29,10 @@ additional information on using mock.
 For a general understanding of how an RPM works, visit 
 the `rpm website`_ or the `RPM Packaging Guide`_.
 
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/qrUpt1D1YAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="padding:10px; background-color: #fff;"></iframe>
+
 How it works
 ************
 
