@@ -113,6 +113,8 @@ for the OpenVINO software stack:
 The :command:`computer-vision-basic` bundle installs the OpenVINO™ toolkit,
 and the sample models optimized for Intel® edge platforms.
 
+.. _convert-dl-models:
+
 Convert deep learning models
 ============================
 
