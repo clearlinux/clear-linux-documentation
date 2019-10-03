@@ -12,7 +12,8 @@ This guide describes the |CL-ATTR| telemetry solution.
 
 .. note::
 
-   The telemetry functionality adheres to `Intel privacy policies <https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html>`_
+   The telemetry functionality adheres to
+   `Intel privacy policies <https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html>`_
    regarding the collection and use of :abbr:`PII (Personally Identifiable Information)` and is open source.
 
    No intentionally identifiable information about the user or system owner is
@@ -61,7 +62,8 @@ Architecture
 
 |CL| telemetry has two fundamental components, which are shown in Figure 1:
 
-* Client: generates and delivers records to the backend server via the network.
+* Client: generates and delivers records to the backend server via the
+  network.
 
 * Backend: receives records sent from the client and displays the cumulative
   content through a specialized web interface.
@@ -79,7 +81,8 @@ includes the following components:
 * telempostd, which is a daemon that manages spooled telemetry records and
   delivers these records according to configurable settings.
 * probes, which collect specific types of data from the operating system.
-* libtelemetry, which is the API that telemetrics probes use to create records.
+* libtelemetry, which is the API that telemetrics probes use to create
+  records.
 
 The telemetry backend provides the server-side component of the telemetrics
 solution and consists of:
@@ -95,9 +98,10 @@ solution and consists of:
 
 .. note::
 
-   The default telemetry backend server is hosted by the Intel |CL| development
-   team and is not viewable outside the Intel firewall. To collect your own
-   records, you must set up your own telemetry backend server.
+   The default telemetry backend server is hosted by the Intel |CL|
+   development team and is not viewable outside the Intel firewall. To
+   collect your own records, you must set up your own telemetry backend
+   server.
 
 How to use
 **********
@@ -113,7 +117,7 @@ This section describes some of the possible scenarios for configuring
 the |CL| telemetrics system, and suggests which ones make sense according to
 your needs.
 
-For more information on configuring the telemetry client, refer to section 
+For more information on configuring the telemetry client, refer to section
 `Client Configuration`_.
 
 Scenarios
@@ -121,20 +125,20 @@ Scenarios
 
 #. Enable telemetry:
 
-   You must opt-in and start telemetry before probes can generate records. You
-   can configure the client before starting telemetry by creating a custom
-   :file:`telemetrics.conf` file that you place in the :file:`/etc/telemetrics`
-   directory. If you choose to use the built-in default settings, records will
-   be sent to the telemetrics backend server managed by the |CL| development
-   team at Intel. 
+   You must opt-in and start telemetry before probes can generate records.
+   You can configure the client before starting telemetry by creating a
+   custom :file:`telemetrics.conf` file that you place in the
+   :file:`/etc/telemetrics` directory. If you choose to use the built-in
+   default settings, records will be sent to the telemetrics backend server
+   managed by the |CL| development team at Intel.
 
 #. Save record data locally:
 
    You can configure the telemetry client to save records locally. This is
-   convenient when you want instant feedback during a development cycle, or to
-   track system issues if you believe there is a machine specific problem. The
-   client can be set not to send records at all, or to both keep the records
-   locally and send to the backend server.
+   convenient when you want instant feedback during a development cycle, or
+   to track system issues if you believe there is a machine specific problem.
+   The client can be set not to send records at all, or to both keep the
+   records locally and send to the backend server.
 
 #. Set up a server to collect data:
 
@@ -146,10 +150,10 @@ Scenarios
 
 #. Instrument your code with the libtelemetry API:
 
-   The :command:`telemetrics` bundle includes the libtelemetry C library, which
-   exposes an API used by the telemprobd and telempostd daemons. You can use
-   these in your applications as well. The API documentation is found in the
-   :file:`telemetry.h` file in `Telemetrics client`_ repository.
+   The :command:`telemetrics` bundle includes the libtelemetry C library,
+   which exposes an API used by the telemprobd and telempostd daemons. You
+   can use these in your applications as well. The API documentation is found
+   in the :file:`telemetry.h` file in `Telemetrics client`_ repository.
 
 
 Examples
@@ -165,13 +169,14 @@ Enable or disable telemetry
 #. Enabling during installation:
 
    During the initial installation of |CL|, you are requested to join the
-   stability enhancement program and allow |CL| to collect anonymous reports to
-   improve system stability. If you choose not to join this program, then the
-   telemetry software bundle is not added to your system. If you do choose to
-   join the program, the installer will automatically enable telemetry on your
-   system by installing the telemetrics bundle, creating the file
-   :file:`/etc/telemetrics/opt-in`, and enabling the telemtrics systemd
-   services to run after installation is complete and the system is restarted.
+   stability enhancement program and allow |CL| to collect anonymous reports
+   to improve system stability. If you choose not to join this program, then
+   the telemetry software bundle is not added to your system. If you do
+   choose to join the program, the installer will automatically enable
+   telemetry on your system by installing the telemetrics bundle, creating
+   the file :file:`/etc/telemetrics/opt-in`, and enabling the telemtrics
+   systemd services to run after installation is complete and the system is
+   restarted.
 
 #. Enabling after install:
 
@@ -183,9 +188,10 @@ Enable or disable telemetry
       sudo telemctl opt-in
       sudo telemctl start
 
-   This installs the necessary software, enables telemetry by creating the file
-   :file:`/etc/telemetrics/opt-in`, and starts the :command:`telemprobd` and
-   :command:`telempostd` daemons. Your system will begin to send telemetry data to the backend server.
+   This installs the necessary software, enables telemetry by creating the
+   file :file:`/etc/telemetrics/opt-in`, and starts the :command:`telemprobd`
+   and :command:`telempostd` daemons. Your system will begin to send
+   telemetry data to the backend server.
 
 #. Disabling after install:
 
@@ -204,14 +210,14 @@ Enable or disable telemetry
       sudo telemctl opt-in
       sudo telemctl start
 
-   This creates the :file:`/etc/telemetrics/opt-in` file, if it doesn't already
-   exist. You will need to explicitly start the telemetry services after you
-   have opted in.
+   This creates the :file:`/etc/telemetrics/opt-in` file, if it doesn't
+   already exist. You will need to explicitly start the telemetry services
+   after you have opted in.
 
 #. Opt out of telemetry:
 
-   To stop sending telemetrics data from your system, opt out of the telemetry
-   service:
+   To stop sending telemetrics data from your system, opt out of the
+   telemetry service:
 
    .. code-block:: bash
 
@@ -230,12 +236,12 @@ system.
 To change how records are managed, copy the default
 :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file to
 :file:`/etc/telemetrics/telemetrics.conf` and edit it. The changes in the
-:file:`/etc/telemetrics/telemetrics.conf` file will override the built-in 
+:file:`/etc/telemetrics/telemetrics.conf` file will override the built-in
 defaults referenced in the
 :file:`/usr/share/defaults/telemetrics/telemetrics.conf` file.
 You will need root permissions to create and edit files in :file:`/etc`. For
-each example, and for any time you make changes to the configuration file, you
-must restart the client daemons to pick up the changes:
+each example, and for any time you make changes to the configuration file,
+you must restart the client daemons to pick up the changes:
 
 .. code-block:: bash
 
@@ -288,7 +294,7 @@ using the :ref:`bare-metal-install-server` getting started guide and:
    * Create an administrative user named :guilabel:`clear` and add this user
      to sudoers
 
-#. Log in with your administrative user, from your :file:`$HOME` directory, 
+#. Log in with your administrative user, from your :file:`$HOME` directory,
    run :command:`git` to clone the :guilabel:`telemetrics-backend` repository
    into the :file:`$HOME/telemetrics-backend` directory:
 
@@ -301,9 +307,11 @@ using the :ref:`bare-metal-install-server` getting started guide and:
       You may need to set up the :envvar:`https_proxy` environment variable if
       you have issues reaching github.com.
 
-#. Change your current working directory to :file:`telemetrics-backend/scripts`.
-#. Before you install the telemetrics backend with the :file:`deploy.sh` script
-   file in the next step, here is an explanation of the options to be specified:
+#. Change your current working directory to
+   :file:`telemetrics-backend/scripts`.
+#. Before you install the telemetrics backend with the :file:`deploy.sh`
+   script file in the next step, here is an explanation of the options to be
+   specified:
 
    * :command:`-a install` to perform an install
    * :command:`-d clr` to install to a |CL| distro
@@ -342,10 +350,10 @@ using the :ref:`bare-metal-install-server` getting started guide and:
 
    .. note::
 
-      The :file:`deploy.sh` script uses :command:`sudo` to run commands and you
-      may be prompted to enter your user password at any time while the script
-      is executing. If this occurs, enter your user password to execute the
-      :command:`sudo` command.
+      The :file:`deploy.sh` script uses :command:`sudo` to run commands and
+      you may be prompted to enter your user password at any time while the
+      script is executing. If this occurs, enter your user password to
+      execute the :command:`sudo` command.
 
 
 #. After all the server components have been installed, you are prompted to
@@ -363,8 +371,8 @@ using the :ref:`bare-metal-install-server` getting started guide and:
    password, retype it to verify the new password and the
    :guilabel:`PostgreSQL` database password will be updated.
 
-#. After the installation is complete, you can use your web browser to view the
-   new server by opening the browser on the system and typing in localhost
+#. After the installation is complete, you can use your web browser to view
+   the new server by opening the browser on the system and typing in localhost
    in the address bar. You should see a web page similar to the one shown in
    Figure 2 below.
 
@@ -498,9 +506,9 @@ Prerequisites
 -------------
 
 Confirm that the telemetrics header file is located on the system at
-:file:`usr/include/telemetry.h`. The `latest version`_ of the file can also be
-found on github for reference, but installing the :command:`telemetrics` bundle
-will install the header file that matches your |CL| version.
+:file:`usr/include/telemetry.h`. The `latest version`_ of the file can also
+be found on github for reference, but installing the :command:`telemetrics`
+bundle will install the header file that matches your |CL| version.
 
 #. Includes and variables:
 
@@ -544,7 +552,7 @@ will install the header file that matches your |CL| version.
 
    Classification:
      Type: char array
-     Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the 
+     Value: It should have the form, DOMAIN/PROBENAME/REST: DOMAIN is the
      reverse domain to use as a namespace for the probe (e.g. org.clearlinux),
      PROBENAME is the name of the probe, and REST is an arbitrary value that
      the probe should use to classify the record. The maximum length for the
@@ -569,19 +577,20 @@ will install the header file that matches your |CL| version.
            exit(EXIT_FAILURE);
             }
 
-   The functions :command:`asprintf()` and :command:`vasprintf()` are analogs of
-   :command:`sprintf(3)` and :command:`vsprintf(3)`, except that they allocate a
-   string large enough to hold the output including the terminating null byte
-   ('\0'), and return a pointer to it via the first argument. This pointer
-   should be passed to :command:`free(3)` to release the allocated storage when
-   it is no longer needed.
+   The functions :command:`asprintf()` and :command:`vasprintf()` are analogs
+   of :command:`sprintf(3)` and :command:`vsprintf(3)`, except that they
+   allocate a string large enough to hold the output including the
+   terminating null byte ('\0'), and return a pointer to it via the first
+   argument. This pointer should be passed to :command:`free(3)` to release
+   the allocated storage when it is no longer needed.
 
 #. Create the new telemetry record:
 
-   The  function  :command:`tm_create_record()` initializes a telemetry record and
-   sets the severity and classification of that record, as well as the payload
-   version number. The memory needed to store the telemetry record is allocated
-   and should be freed with :command:`tm_free_record()` when no longer needed.
+   The  function  :command:`tm_create_record()` initializes a telemetry
+   record and sets the severity and classification of that record, as well as
+   the payload version number. The memory needed to store the telemetry
+   record is allocated and should be freed with :command:`tm_free_record()`
+   when no longer needed.
 
    .. code-block:: console
 
@@ -593,8 +602,9 @@ will install the header file that matches your |CL| version.
 
 #. Set the payload field of a telemetrics record:
 
-   The function :command:`tm_set_payload()` attaches the provided telemetry record
-   data to the telemetry record. The current maximum payload size is 8192b.
+   The function :command:`tm_set_payload()` attaches the provided telemetry
+   record data to the telemetry record. The current maximum payload size is
+   8192b.
 
    .. code-block:: console
 
@@ -605,8 +615,8 @@ will install the header file that matches your |CL| version.
       }
       free(payload);
 
-   The :command:`free()` function frees the memory space pointed to by `ptr`, which
-   must have been returned by a previous call to :command:`malloc()`,
+   The :command:`free()` function frees the memory space pointed to by `ptr`,
+   which must have been returned by a previous call to :command:`malloc()`,
    :command:`calloc()`, or :command:`realloc()`. Otherwise, or if
    :command:`free(ptr)` has already been called before, undefined behavior
    occurs. If `ptr` is NULL, no operation is performed.
@@ -614,9 +624,9 @@ will install the header file that matches your |CL| version.
 #. Send a record to the telemetrics daemon:
 
    The function :command:`tm_send_record()` delivers the record to the local
-   :command:`telemprobd(1)` service. Since the telemetry record was allocated by
-   the program it should be freed with :command:`tm_free_record()` when it is no
-   longer needed.
+   :command:`telemprobd(1)` service. Since the telemetry record was allocated
+   by the program it should be freed with :command:`tm_free_record()` when it
+   is no longer needed.
 
    .. code-block:: console
 
@@ -731,12 +741,12 @@ Client configuration
 
 The telemetry client will look for the configuration file located at
 :file:`/etc/telemetrics/telemetrics.conf` and use it if it exists. If the
-file does not exist, the client will use the default configuration defined 
+file does not exist, the client will use the default configuration defined
 at build time. There is a sample configuration file located at
 :file:`/usr/share/defaults telemetrics/telemetrics.conf` and represents the
 default values that are used when the programs are built. To modify or
 customize the configuration, copy the file from
-:file:`/usr/share/defaults/telemetrics/telemetrics.conf` to the file 
+:file:`/usr/share/defaults/telemetrics/telemetrics.conf` to the file
 :file:`/etc/telemetrics/telemetrics.conf` and edit it to add your
 customizations.
 
@@ -747,10 +757,10 @@ customizations.
 
 .. note::
 
-   Telemetrics configuration is a layered mechanism since the defaults are 
-   defined at build time and each field can be overwritten individually. 
+   Telemetrics configuration is a layered mechanism since the defaults are
+   defined at build time and each field can be overwritten individually.
    Therefore you only need to add the specific field that you want to change
-   from the default value to your customized value in the 
+   from the default value to your customized value in the
    :file:`/etc/telemetrics/telemetrics.conf` file.
 
 Configuration options
@@ -768,11 +778,11 @@ spool_dir
    This configuration option is related to spooling. If the daemon is not able
    to send the telemetry records to the backend server due to reasons such as
    the network availability, then it stores the records in a spool directory.
-   This option specifies the path of the spool directory. This directory should
-   be owned by the same user as the daemon.
+   This option specifies the path of the spool directory. This directory
+   should be owned by the same user as the daemon.
 record_expiry
-   This is the time, in minutes, after which the records in the spool directory
-   are deleted by the daemon.
+   This is the time, in minutes, after which the records in the spool
+   directory are deleted by the daemon.
 spool_process_time
    This specifies the time interval, in seconds, that the daemon waits for
    before checking the spool directory for records. The daemon picks up the
@@ -788,13 +798,13 @@ rate_limit_enabled
    record bytes sent within a window a time.
 record_burst_limit
    This is the maximum amount of records allowed to be passed by the daemon
-   within the record_window_length of time. If set to -1, the rate-limiting for
-   record bursts is disabled.
+   within the record_window_length of time. If set to -1, the rate-limiting
+   for record bursts is disabled.
 record_window_length
    The time, in minutes (0-59), that establishes the window length for the
    record_burst_limit. For example, if record_burst_window=1000 and
-   record_window_length=15, then no more than 1000 records can be passed within
-   any given fifteen-minute window.
+   record_window_length=15, then no more than 1000 records can be passed
+   within any given fifteen-minute window.
 byte_burst_limit
    This is the maximum amount of bytes that can be passed by the daemon within
    the byte_window_length of time. If set to -1, the rate-limiting for byte
@@ -816,8 +826,9 @@ record_server_delivery_enabled
    This key controls the delivery of records to server; when enabled (default
    value), the record will be posted to the address in the configuration file.
    If this configuration key is disabled (false), records will not be spooled
-   or posted to backend. This configuration key can be used in combination with
-   record_retention_enabled to keep copies of telemetry records locally only.
+   or posted to backend. This configuration key can be used in combination
+   with record_retention_enabled to keep copies of telemetry records locally
+   only.
 
   .. note::
 
