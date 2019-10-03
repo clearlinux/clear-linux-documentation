@@ -33,13 +33,9 @@ Burn the |CL| image onto a USB drive
    Burning an image formats the USB drive and destroys all pre-existing
    content.  Back up your data before proceeding.
 
-#. Open a terminal emulator and get root privilege.
+#. Open a terminal windows. 
 
-   .. code-block:: bash
-
-      sudo -s
-
-#. Go to the directory with the decompressed image.
+#. Change directory to where the image resides.
 
 #. Plug in the USB drive.
 
@@ -58,6 +54,7 @@ Burn the |CL| image onto a USB drive
    Example output:
 
    .. code-block:: console
+      :emphasize-lines: 1-6
 
       NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
       sdd      8:48   1    15G  0 disk
@@ -78,22 +75,23 @@ Burn the |CL| image onto a USB drive
       ├─sda8   8:8    0    30G  0 part /
       └─sda6   8:6    0   7.9G  0 part [SWAP]
 
-#. You must unmount a USB drive before burning an image onto it. Note that
-   some Linux distros automatically mount a USB drive when it is plugged in.
-   Unmount a USB drive with the :command:`umount` command followed by the device
-   identifier/partition. For example:
+   .. note::
+
+      Some Linux distros may automatically mount a USB drive when it is plugged in.
+
+#. If the USB drive you want to use is mounted, it must be umounted before burning an 
+   image onto it.  Use the :command:`umount` command followed by the device
+   identifier/partition. For example, to unmount all /dev/sdd partitions:
 
    .. code-block:: bash
 
-      umount /dev/sdd2
-      umount /dev/sdd3
+      sudo umount /dev/sdd*
 
-#. Burn the image onto the USB drive. The example below burns an uncompressed
-   image onto `<your USB device>`:
+#. Burn the image onto the USB drive. The example below burns an image onto `<your USB device>`:
 
    .. code-block:: bash
 
-      dd if=./clear-[version number]-[image type] of=<your USB device> oflag=sync bs=4M status=progress
+      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=<your USB device> oflag=sync bs=4M status=progress
 
 .. caution::
 
@@ -120,7 +118,7 @@ Burn the |CL| image onto a USB drive
 
 #. Launch the Terminal app.
 
-#. Change directory to where the decompressed image is saved.
+#. Change directory to where the image resides.
 
 #. Plug in a USB drive and get its identifier:
 
@@ -136,21 +134,22 @@ Burn the |CL| image onto a USB drive
 
       Figure 1: macOS - Get USB drive identifier
 
-#. Unmount the USB drive identified in the previous step. For example:
+#. Unmount the USB drive identified in the previous step. For example, to unmount /dev/disk2:
 
    .. code-block:: bash
 
       diskutil umountDisk /dev/disk2
 
 #. Burn the image onto the drive using the :command:`dd` command.
-   This example uses `./`, your current directory, and it shows how to burn an uncompressed image onto `<your USB device>`:
+   This example uses `./`, your current directory, and it shows how to burn an image onto 
+   `<your USB device>`:
 
    .. code-block:: bash
 
-      sudo dd if=./clear-[version number]-[image type] of=<your USB device> bs=4m
+      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=<your USB device> bs=4m
 
    To accelerate the imaging process, add an ‘r’ before the disk identifier.
-   Example: `sudo dd if=./clear-30800-live-server of=/dev/rdisk2 bs=4m`.
+   Example: `sudo dd if=./clear-30800-live-server.iso of=/dev/rdisk2 bs=4m`.
 
    Press :kbd:`<CTRL>-T` to check imaging progress.
 
@@ -181,11 +180,13 @@ Burn the |CL| image onto a USB drive
    We use Rufus 3.5 for this example.
    **Only use the latest version of Rufus**.
 
-#. Plug in the USB drive and open Rufus.
+#. Plug in the USB drive.
+
+#. Launch Rufus.
+
+#. Under `Device`, select the USB drive.
 
 #. Under `Boot selection`, click the :guilabel:`SELECT` button.
-
-#. Find and select the previously extracted |CL| image file.
 
    .. note::
 
