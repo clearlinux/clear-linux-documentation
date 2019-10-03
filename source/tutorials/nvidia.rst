@@ -40,8 +40,8 @@ Prerequisites
    Systems with hybrid graphics commonly found on laptops, known as `NVIDIA
    Optimus technology <https://www.geforce.com/hardware/technology/optimus>`_,
    are designed to allow switching seamlessly between multiple graphics
-   devices sharing the same display buffer for a balanced power and
-   performance profile.
+   devices sharing the same display for a balanced power and performance
+   profile.
    
    Getting NVIDIA Optimus on Linux working well with both graphics devices
    adds an additional level of complexity with platform specific steps and may
@@ -213,14 +213,22 @@ Install the NVIDIA drivers
 
       sudo swupd repair --quick --bundles=lib-opengl
 
-.. note::
+   .. warning:: 
 
-   The NVIDIA software places some files under the :file:`/usr` subdirectory
-   that are not managed by |CL| and conflict with the |CL| stateless design.
+      Although a limited version of :command:`swupd repair` is run above,
+      other uses of the :command:`swupd repair` command should be avoided
+      with the proprietary NVIDIA drivers installed.
 
-   Although a limited version of :command:`swupd repair` is run above,
-   other uses of the :command:`swupd repair` command should be avoided
-   with the proprietary NVIDIA drivers installed.
+      The NVIDIA software places some files under the :file:`/usr` subdirectory
+      that are not managed by |CL| and conflict with the |CL| stateless design.
+
+#. Optional: Create a link for the nvidia-settings desktop entry to
+   :file:`~/.local/share` so that it appears in the launcher for easy access. 
+
+   .. code-block:: bash
+
+      ln -sv /opt/nvidia/share/applications/nvidia-settings.desktop $HOME/.local/share
+
 
 Updating
 ********
@@ -232,7 +240,7 @@ Updating the NVIDIA drivers follows the same steps as initial installation,
 however the desktop environment must first be stopped so that the drivers are
 not in use.
 
-#. Follow the steps in the `Download the NVIDIA Drivers for Linux`_ section
+#. Follow the steps in the `Download the NVIDIA drivers`_ section
    to get the latest NVIDIA drivers.
 
 #. Temporarily set the default boot target to the *multi-user*, which is
@@ -282,7 +290,19 @@ driver restored with the instructions in this section.
 
       sudo rm /etc/X11/xorg.conf.d/nvidia-files-opt.conf
 
-#. Run the :command:`sudo /opt/nvidia/bin/nvidia-uninstall`
+#. Remove the nvidia-settings desktop entry file, if it was linked to
+   :file:`~/.local/share`.
+
+   .. code:: bash
+
+      unlink -v $HOME/.local/share/nvidia-settings.desktop
+
+
+#. Run the :command:`nvidia-uninstall` command.
+
+   .. code:: bash
+
+      sudo /opt/nvidia/bin/nvidia-uninstall
 
 #. Follow the prompts on the screen and reboot the system.
 
