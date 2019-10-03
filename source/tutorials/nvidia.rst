@@ -34,6 +34,23 @@ Prerequisites
 * A |CL| system with a desktop installed
 * An NVIDIA device installed
 
+.. note:: NVIDIA Optimus
+
+
+   Systems with hybrid graphics commonly found on laptops, known as `NVIDIA
+   Optimus technology <https://www.geforce.com/hardware/technology/optimus>`_,
+   are designed to allow switching seamlessly between multiple graphics
+   devices sharing the same display buffer for a balanced power and
+   performance profile.
+   
+   Getting NVIDIA Optimus on Linux working well with both graphics devices
+   adds an additional level of complexity with platform specific steps and may
+   require additional software. Installation for systems with NVIDIA Optimus
+   with both graphics devices operating is not covered by the scope of this
+   documentation. As a simple workaround, some systems can disable one of the
+   graphics devices or NVIDIA Optimus in the system firmware.
+
+
 Installation
 ************
 
@@ -67,15 +84,16 @@ Download the NVIDIA drivers
    appropriate driver based on the NVIDIA GPU model you have with *Linux
    64-bit* selected as the Operating System.
 
+   .. code-block:: bash
+
+      wget https://download.nvidia.com/XFree86/Linux-x86_64/<VERSION>/NVIDIA-Linux-x86_64-<VERSION>.run   
+
    If you already know the appropriate driver version for your device, you can
    also obtain a download link directly from one of the links below:
 
    - https://www.nvidia.com/en-us/drivers/unix/
    - https://download.nvidia.com/XFree86/Linux-x86_64/
 
-   .. code-block:: bash
-
-      wget https://download.nvidia.com/XFree86/Linux-x86_64/<VERSION>/NVIDIA-Linux-x86_64-<VERSION>.run
       
 Disable the nouveau driver
 ==========================
