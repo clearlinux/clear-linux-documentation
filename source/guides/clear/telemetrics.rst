@@ -183,7 +183,7 @@ Enable or disable telemetry
       sudo telemctl opt-in
       sudo telemctl start
 
-   This installs the necassary software, enables telemetry by creating the file
+   This installs the necessary software, enables telemetry by creating the file
    :file:`/etc/telemetrics/opt-in`, and starts the :command:`telemprobd` and
    :command:`telempostd` daemons. Your system will begin to send telemetry data to the backend server.
 
