@@ -26,7 +26,7 @@ require a manual installation.
    be required.
 
 .. contents:: :local:
-    :depth: 1
+    :depth: 2
 
 Prerequisites
 *************
@@ -34,8 +34,11 @@ Prerequisites
 * A |CL| system with a desktop installed
 * An NVIDIA device installed
 
-Install DKMS
+Installation
 ************
+
+Install DKMS
+============
 
 The :ref:`Dynamic Kernel Module System (DKMS)
 <kernel-modules-dkms>` allows the NVIDIA kernel modules to be automatically
@@ -51,11 +54,8 @@ Install the appropriate DKMS bundle using the instructions below:
    :start-after: kernel-modules-dkms-install-begin:
    :end-before: kernel-modules-dkms-install-end:
 
-Download and install the NVIDIA drivers
-***************************************
-
-Download the NVIDIA drivers for Linux
-=====================================
+Download the NVIDIA drivers
+===========================
 
 #. Identify the NVIDIA GPU model that is installed.
 
@@ -65,22 +65,18 @@ Download the NVIDIA drivers for Linux
 
 #. Go to the `NVIDIA Driver Downloads website`_ . Search for and download the
    appropriate driver based on the NVIDIA GPU model you have with *Linux
-   64-bit* selected as the Operating System .
+   64-bit* selected as the Operating System.
 
-#. Open a terminal and navigate to where the
-   :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file was saved. In this
-   example, it was saved in the Downloads folder.
+   If you already know the appropriate driver version for your device, you can
+   also obtain a download link directly from one of the links below:
 
-   .. code-block:: bash
-
-      cd ~/Downloads/
-
-#. Make the :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file executable.
+   - https://www.nvidia.com/en-us/drivers/unix/
+   - https://download.nvidia.com/XFree86/Linux-x86_64/
 
    .. code-block:: bash
 
-      chmod +x :file:`NVIDIA-Linux-x86_64-<VERSION>.run`
-
+      wget https://download.nvidia.com/XFree86/Linux-x86_64/<VERSION>/NVIDIA-Linux-x86_64-<VERSION>.run
+      
 Disable the nouveau driver
 ==========================
 
@@ -146,11 +142,18 @@ Install the NVIDIA drivers
    installation progress. Switch to a secondary virtual terminal by pushing
    :command:`CTRL + ALT + F2` or remotely login over SSH.
 
-#. Navigate to the directory where the NVIDIA installer was downloaded.
+#. Navigate to the directory where the NVIDIA installer was downloaded. In
+   this example, it was saved in the :file:`Downloads` folder.
 
    .. code-block:: bash
 
       cd ~/Downloads/
+
+#. Make the :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file executable.
+
+   .. code-block:: bash
+
+      chmod +x :file:`NVIDIA-Linux-x86_64-<VERSION>.run`   
 
 #. Run the installer with the advanced options below.
 
@@ -201,8 +204,8 @@ Install the NVIDIA drivers
    other uses of the :command:`swupd repair` command should be avoided
    with the proprietary NVIDIA drivers installed.
 
-Updating the NVIDIA drivers
-***************************
+Updating
+********
 
 The proprietary NVIDIA drivers are installed manually outside of
 :ref:`swupd <swupd-guide>` and must be updated manually when needed.
@@ -243,8 +246,8 @@ not in use.
 
       flatpak update
 
-Uninstalling the NVIDIA drivers
-*******************************
+Uninstallation
+**************
 
 The NVIDIA drivers and associated software can be uninstalled and nouveau
 driver restored with the instructions in this section.
@@ -265,8 +268,8 @@ driver restored with the instructions in this section.
 
 #. Follow the prompts on the screen and reboot the system.
 
-Debugging installation of NVIDIA drivers
-****************************************
+Troubleshooting
+***************
 
 * The NVIDIA driver places installer and uninstaller logs under
   :file:`/var/log/nvidia-install` and :file:`/var/log/nvidia-uninstall`.
