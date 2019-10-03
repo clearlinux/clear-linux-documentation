@@ -133,6 +133,7 @@ Additional information
 **********************
 
 * `stateless man page`_
+* :ref:`firmware`
 
 .. _`stateless man page`: https://github.com/clearlinux/clr-man-pages/blob/master/stateless.7.rst
 
