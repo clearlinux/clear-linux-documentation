@@ -13,9 +13,10 @@ USB drive:
 Prerequisites
 *************
 
-* Use an **8GB** or larger USB drive.
 * Download the |CL| live boot image or interactive installer image from the
   `Downloads`_ page.
+* You need a USB drive large enough to feet the live boot image which is currently about 3Gb.
+  Recommended to use **4GB** or larger USB drive.
 
 .. _bootable-usb-linux:
 
@@ -187,6 +188,8 @@ Burn the |CL| image onto a USB drive
 #. Under `Boot selection`, click the :guilabel:`SELECT` button.
 
 #. Find and select the previously extracted |CL| image file.
+
+#. Check that `Volume label` is set to `CLR_ISO` **Do not change the label as installer relies on it**
 
 #. Click the :guilabel:`START` button. See Figure 2.
 
