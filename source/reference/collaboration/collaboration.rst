@@ -76,7 +76,7 @@ our documentation:
 
 
 .. _`code of conduct`: https://clearlinux.org/community/code-of-conduct
-.. _mailing list: https://lists.clearlinux.org/mailman/listinfo/dev
+.. _mailing list: https://lists.clearlinux.org/postorius/lists/dev.lists.clearlinux.org/
 .. _GitHub flow: https://guides.github.com/introduction/flow/
 .. _documentation repository: https://github.com/clearlinux/clear-linux-documentation
 .. _Microsoft Writing Style Guide: https://docs.microsoft.com/en-us/style-guide/welcome/
