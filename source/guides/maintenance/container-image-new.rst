@@ -1,11 +1,11 @@
-.. _custom-clear-container:
+.. _container-image-new:
 
-Build a custom |CL-ATTR| based Docker container image
-#######################################################
+Build a new |CL|-based container image
+######################################
 
-This guide contains the steps to build a custom container image. The official
-base |CL-ATTR| container image is published on Docker\* Hub and is updated on
-a regular basis.
+This guide describes how to build a new |CL-ATTR|-based container image. The
+official base |CL-ATTR| container image is published on Docker\* Hub and is
+updated on a regular basis.
 
 .. contents::
    :local:
