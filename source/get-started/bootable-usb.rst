@@ -3,8 +3,8 @@
 Create a bootable USB drive
 ###########################
 
-Follow the instructions applicable to your system to create a bootable |CL-ATTR|
-USB drive:
+Follow the instructions applicable to your system to create a bootable
+|CL-ATTR| USB drive:
 
 * :ref:`bootable-usb-linux`
 * :ref:`bootable-usb-mac`
@@ -33,7 +33,7 @@ Burn the |CL| image onto a USB drive
    Burning an image formats the USB drive and destroys all pre-existing
    content.  Back up your data before proceeding.
 
-#. Open a terminal windows. 
+#. Open a terminal window.
 
 #. Change directory to where the image resides.
 
@@ -43,7 +43,7 @@ Burn the |CL| image onto a USB drive
    drives attached to the system, including the primary hard disk. In the
    example output below, there are 4 drives
    (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and `/dev/sdd`) attached, where
-   `/dev/sda` is primary drive. The remaining are three USB drives. The output
+   `/dev/sda` is the primary drive. The remaining are three USB drives. The output
    also shows the mounted partitions (under the `MOUNTPOINT` column) for each
    drive.
 
@@ -79,9 +79,10 @@ Burn the |CL| image onto a USB drive
 
       Some Linux distros may automatically mount a USB drive when it is plugged in.
 
-#. If the USB drive you want to use is mounted, it must be umounted before burning an 
-   image onto it.  Use the :command:`umount` command followed by the device
-   identifier/partition. For example, to unmount all /dev/sdd partitions:
+#. If the USB drive you want to use is mounted, it must be umounted before
+   burning an image onto it.  Use the :command:`umount` command followed by
+   the device identifier/partition. For example, to unmount all /dev/sdd
+   partitions:
 
    .. code-block:: bash
 
@@ -116,7 +117,7 @@ Burn the |CL| image onto a USB drive
    Burning an image formats the USB drive and destroys all pre-existing
    content.  Back up your data before proceeding.
 
-#. Launch the Terminal app.
+#. Open a Terminal window.
 
 #. Change directory to where the image resides.
 
@@ -141,8 +142,8 @@ Burn the |CL| image onto a USB drive
       diskutil umountDisk /dev/disk2
 
 #. Burn the image onto the drive using the :command:`dd` command.
-   This example uses `./`, your current directory, and it shows how to burn an image onto 
-   `<your USB device>`:
+   This example uses `./`, your current directory, and it shows how to burn
+   an image onto `<your USB device>`:
 
    .. code-block:: bash
 
