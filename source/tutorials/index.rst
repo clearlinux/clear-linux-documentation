@@ -10,6 +10,7 @@ Explore our tutorials to discover what you can do with |CL|!
    :glob:
 
    *
+   multi-boot/*
 
 Archive
 *******
