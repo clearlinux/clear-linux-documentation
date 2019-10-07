@@ -44,7 +44,9 @@ Our documentation is divided into the following sections:
 
     The FAQ section provides answers to commonly asked questions about |CL|.
 
+:ref:`collaboration`
 
+    This section describes how to contribute to |CL| documentation.
 
 .. toctree::
     :maxdepth: 2
@@ -56,3 +58,4 @@ Our documentation is divided into the following sections:
     tutorials/index
     reference/index
     FAQ/index
+    collaboration/collaboration
