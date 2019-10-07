@@ -132,6 +132,7 @@ html_theme_options = {
   'navigation_depth': 4,
   'display_version': False,
   'collapse_navigation': False,
+  'prev_next_buttons_location': 'None',
   'sticky_navigation': True
 }
 
