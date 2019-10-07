@@ -74,8 +74,7 @@ troubleshoot problems with autoproxy.
 
 Run :command:`pacdiscovery` with no arguments to indicate |br|
 
-
-1. if there is a problem resolving the :command:`WPAD` host name resolution:
+#. if there is a problem resolving the :command:`WPAD` host name resolution:
 
    .. code-block:: bash
 
@@ -88,7 +87,7 @@ Run :command:`pacdiscovery` with no arguments to indicate |br|
       failed getaddrinfo: No address associated with hostname
       Unable to find wpad host
 
-2. or if the :command:`pacrunner` service is disabled (masked).
+#. or if the :command:`pacrunner` service is disabled (masked).
 
    .. code-block:: bash
 
@@ -111,6 +110,19 @@ Unmask the :command:`pacrunner` service by running:
 
 Use :command:`FindProxyForURL` with :command:`busctl` to indicate |br|
 
+#. the URL and port of the proxy server when an external URL and host are
+   provided as arguments:
+
+   .. code-block:: bash
+
+      busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client FindProxyForURL ss "http://www.google.com" "google.com"
+
+   Sample output showing proxy was found:
+
+   .. code-block:: console
+
+      s "PROXY proxy.your.domain.com:<port>"
+
 #. if the :command:`pacrunner.service` is masked:
 
    .. code-block:: bash
@@ -124,19 +136,6 @@ Use :command:`FindProxyForURL` with :command:`busctl` to indicate |br|
       Unit pacrunner.service is masked.
       dig wpad, dig wpad.<domain>
 
-#. the URL and port of the proxy server when an external URL and host are
-   provided as arguments:
-
-   .. code-block:: bash
-
-      busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client FindProxyForURL ss "http://www.google.com" "google.com"
-
-   Sample output:
-
-   .. code-block:: console
-
-      s "PROXY proxy.your.domain.com:<port>"
-
 #. if a proxy server is not available, or if :command:`pacrunner` is running
    without a PAC file:
 
@@ -144,7 +143,7 @@ Use :command:`FindProxyForURL` with :command:`busctl` to indicate |br|
 
       busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client FindProxyForURL ss "http://www.google.com" "google.com"
 
-   Sample output:
+   Sample output, indicating connection made directly, without proxy:
 
    .. code-block:: console
 
