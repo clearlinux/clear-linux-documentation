@@ -78,7 +78,7 @@ Run :command:`pacdiscovery` with no arguments to indicate |br|
 
    .. code-block:: bash
 
-      pacdiscovery
+      sudo pacdiscovery
 
    Sample output:
 
@@ -91,7 +91,7 @@ Run :command:`pacdiscovery` with no arguments to indicate |br|
 
    .. code-block:: bash
 
-      pacdiscovery
+      sudo pacdiscovery
 
    Sample output:
 
@@ -104,7 +104,7 @@ Unmask the :command:`pacrunner` service by running:
 
 .. code-block:: bash
 
-   systemctl unmask pacrunner.service
+   sudo systemctl unmask pacrunner.service
 
 
 
@@ -154,8 +154,8 @@ Once :command:`pacdiscovery` is able to look up :command:`WPAD`, restart the
 
 .. code-block:: bash
 
-   systemctl stop pacrunner
-   systemctl restart pacdiscovery
+   sudo systemctl stop pacrunner
+   sudo systemctl restart pacdiscovery
 
 .. note::
 
