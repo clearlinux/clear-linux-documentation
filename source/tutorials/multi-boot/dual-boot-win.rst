@@ -29,7 +29,7 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
 #. Right-click the primary Windows partition and select :guilabel:`Shrink Volume...`.
 
    .. figure:: ../../_figures/multi-boot/dual-boot-win-01.png
-      :width: 80%
+      :scale: 85%
       :alt: Disk Management > Shrink Volume
 
       Figure 1: Disk Management > Shrink Volume.
@@ -46,7 +46,7 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
 #. We shrink C by about 21 GB, as shown in Figure 2.
 
    .. figure:: ../../_figures/multi-boot/dual-boot-win-02.png
-      :width: 80%
+      :scale: 85%
       :alt: Shrink C
 
       Figure 2: Shrink C.
@@ -72,7 +72,7 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
    system, to launch the :guilabel:`Boot Menu`.
 
    .. figure:: ../../_figures/multi-boot/dual-boot-win-03.png
-      :width: 80%
+      :scale: 85%
       :alt: Boot menu
 
       Figure 3: Boot menu
@@ -118,7 +118,7 @@ Method 2: Add another hard disk to your system where you install |CL|
    system, to launch the :guilabel:`Boot Menu`.
 
    .. figure:: ../../_figures/multi-boot/dual-boot-win-03.png
-      :width: 80%
+      :scale: 85%
       :alt: Boot menu
 
       Figure 4: Boot menu
@@ -238,7 +238,7 @@ If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select 
    below.
 
    .. figure:: ../../_figures/multi-boot/dual-boot-win-04.png
-      :width: 80%
+      :scale: 85%
       :alt: systemd-boot menu
 
       Figure 5: systemd-boot menu
