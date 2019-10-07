@@ -22,16 +22,17 @@ installation:
 Download the latest |CL| live server image
 ******************************************
 
-Get the latest |CL| installer image from the `Downloads`_ page. Look for the
-:file:`clear-[version number]-live-server.iso` file.
+#. Visit our `Downloads`_ page.
 
-#. Verify and decompress the file per your OS.
+#. Download the file :file:`clear-<release number>-live-server.iso`,
+   also called the |CL| Server.
 
-   * :ref:`download-verify-decompress`
+   .. note::
 
-#. Follow your OS instructions to create a bootable USB drive.
+      <release-number> is the latest |CL| auto-numbered release.
 
-   * :ref:`bootable-usb`
+#. Follow your OS instructions to
+   :ref:`create a bootable usb drive <bootable-usb>`.
 
 Install |CL| on your target system
 **********************************
