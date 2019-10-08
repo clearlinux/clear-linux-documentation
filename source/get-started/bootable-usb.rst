@@ -21,9 +21,9 @@ Prerequisites
 Create a bootable USB drive on Linux\*
 **************************************
 
-Make sure you have completed all `Prerequisites`_.
+* Make sure you completed all `Prerequisites`_.
 
-Before burning the image onto your USB drive, :ref:`verify-linux` on Linux.
+* :ref:`verify-linux` on Linux.
 
 Burn the |CL| image onto a USB drive
 ====================================
@@ -54,7 +54,7 @@ Burn the |CL| image onto a USB drive
    Example output:
 
    .. code-block:: console
-      :emphasize-lines: 1-6
+      :emphasize-lines: 1-5
 
       NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
       sdd      8:48   1    15G  0 disk
@@ -105,9 +105,9 @@ Burn the |CL| image onto a USB drive
 Create a bootable USB drive on macOS\*
 **************************************
 
-Make sure you have completed all `Prerequisites`_.
+* Make sure you completed all `Prerequisites`_.
 
-Before burning the image onto your USB drive, :ref:`verify-mac` on macOS.
+* :ref:`verify-mac` on macOS.
 
 Burn the |CL| image onto a USB drive
 ====================================
@@ -162,12 +162,12 @@ Burn the |CL| image onto a USB drive
 
 .. _bootable-usb-windows:
 
-Create a bootable USB drive on Windows\*
-****************************************
+Create a bootable USB drive on Windows
+**************************************
 
-Make sure you have completed all `Prerequisites`_.
+* Make sure you completed all `Prerequisites`_.
 
-Before burning the image onto your USB drive, :ref:`verify-windows` on Windows.
+* :ref:`verify-windows` on Windows\* OS.
 
 Burn the |CL| image onto a USB drive
 ====================================

@@ -31,13 +31,8 @@ Preliminary steps
 
       <release-number> is the latest |CL| auto-numbered release.
 
-#. Verify and decompress the file per your OS.
-
-   * :ref:`download-verify-decompress`
-
-#. Follow your OS instructions to create a bootable USB drive.
-
-   * :ref:`bootable-usb`
+#. Follow your OS instructions to
+   :ref:`create a bootable usb drive <bootable-usb>`.
 
 .. _install-on-target-start:
 
