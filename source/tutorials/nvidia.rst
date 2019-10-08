@@ -26,7 +26,7 @@ require a manual installation.
    be required.
 
 .. contents:: :local:
-    :depth: 2
+    :depth: 1
 
 Prerequisites
 *************
@@ -35,20 +35,20 @@ Prerequisites
 * An NVIDIA device installed
 
 .. note:: NVIDIA Optimus
-
-
-   Systems with hybrid graphics commonly found on laptops, known as `NVIDIA
-   Optimus technology <https://www.geforce.com/hardware/technology/optimus>`_,
-   are designed to allow switching seamlessly between multiple graphics
-   devices sharing the same display for a balanced power and performance
-   profile.
    
-   Getting NVIDIA Optimus on Linux working well with both graphics devices
+   Some systems come with a hybrid graphics configuration for a balanced power
+   and performance profile. This configuration is commonly found on
+   laptops. `NVIDIA Optimus* technology
+   <https://www.geforce.com/hardware/technology/optimus>`_, is designed to
+   allow switching seamlessly between a NVIDIA device and another graphics
+   devices sharing the same display.
+   
+   Getting NVIDIA Optimus* on Linux working well with both graphics devices
    adds an additional level of complexity with platform specific steps and may
-   require additional software. Installation for systems with NVIDIA Optimus
+   require additional software. Installation for systems with NVIDIA Optimus*
    with both graphics devices operating is not covered by the scope of this
    documentation. As a simple workaround, some systems can disable one of the
-   graphics devices or NVIDIA Optimus in the system firmware.
+   graphics devices or NVIDIA Optimus* in the system firmware.
 
 
 Installation
@@ -171,7 +171,7 @@ Install the NVIDIA drivers
 
    .. code-block:: bash
 
-      chmod +x :file:`NVIDIA-Linux-x86_64-<VERSION>.run`   
+      chmod +x NVIDIA-Linux-x86_64-<VERSION>.run
 
 #. Run the installer with the advanced options below.
 
@@ -290,7 +290,7 @@ driver restored with the instructions in this section.
 
       sudo rm /etc/X11/xorg.conf.d/nvidia-files-opt.conf
 
-#. Remove the nvidia-settings desktop entry file, if it was linked to
+#. Remove the nvidia-settings desktop entry file if it was linked to
    :file:`~/.local/share`.
 
    .. code:: bash
@@ -306,6 +306,7 @@ driver restored with the instructions in this section.
 
 #. Follow the prompts on the screen and reboot the system.
 
+
 Troubleshooting
 ***************
 
@@ -319,8 +320,56 @@ Troubleshooting
   installation files into a directory named
   :file:`NVIDIA-Linux-x86_64-<VERSION>`.
 
+
+Brightness control
+==================
+
+If you can't control the screen brightness with the NVIDIA driver installed,
+try one of the solutions below:
+
+- Add a kernel parameter *acpi_osi=* which disables the ACPI Operating System
+  Identification function. Some system firmware may manipulate brightness
+  control keys based on the reported operating system. Disabling the
+  identification mechanism can cause the system firmware to expose brightness
+  controls that are recognizable in Linux.
+
+  .. code:: bash
+
+     sudo mkdir -p /etc/kernel/cmdline.d 
+     echo "acpi_osi=" | sudo tee /etc/kernel/cmdline.d/acpi-backlight.conf   
+     sudo clr-boot-manager update  
+
+
+
+- Add a kernel parameter for the nvidia driver:
+  *NVreg_EnableBacklightHandler=1*. This handler overrides the ACPI-based one
+  provided by the video.ko kernel module. This option is available with NVIDIA
+  driver version 387.22 and above. 
+  
+  .. code:: bash
+
+     sudo mkdir -p /etc/kernel/cmdline.d 
+     echo "nvidia.NVreg_EnableBacklightHandler=1" | sudo tee /etc/kernel/cmdline.d/nvidia-backlight.conf   
+     sudo clr-boot-manager update
+     
+
+- Add the *EnableBrightnessControl=1* options to the *Device*
+  section of your xorg config. Below is an example:
+
+  .. code:: bash
+
+     sudo mkdir -p /etc/X11/xorg.conf.d/
+
+     sudo tee /etc/X11/xorg.conf.d/nvidia-brightness.conf > /dev/null <<'EOF'
+     Section "Device"
+         Identifier     "Device0"
+         Driver         "nvidia"
+         Option         "RegistryDwords" "EnableBrightnessControl=1"
+     EndSection   
+     EOF
+
 Additional resources
-********************
+====================
 
 * `Why aren't the NVIDIA Linux drivers open source? <https://nvidia.custhelp.com/app/answers/detail/a_id/1849/kw/Linux>`_
 
@@ -331,3 +380,5 @@ Additional resources
 .. _`nouveau project`:  https://nouveau.freedesktop.org/wiki/
 
 .. _`NVIDIA Driver Downloads website`: https://www.nvidia.com/download/index.aspx
+
+
