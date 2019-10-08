@@ -139,7 +139,7 @@ Method 2: Add another hard disk to your system where you install |CL|
 Advanced: Use systemd-boot to boot Windows 10 OS and |CL|
 *********************************************************
 
-If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select an OS to boot, you can make :command: `systemd-boot` the default bootloader and add Windows 10 OS to the boot list. This option is also a workaround for BIOSes that don’t support booting more than one partition.
+If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select an OS to boot, you can make :command:`systemd-boot` the default bootloader and add Windows 10 OS to the boot list. This option is also a workaround for BIOSes that don’t support booting more than one partition.
 
 #. Boot up the |CL| installer.
 
