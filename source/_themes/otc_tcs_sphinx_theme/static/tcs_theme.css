@@ -344,3 +344,67 @@ div#trademarks {
 }
 
 /*End support for code blocks with $ signs that aren't copied with content*/
+
+/*Begin support for labeled code-blocks - need to add an entry for every type of code-block that needs to be labeled*/
+
+div.highlight-powershell .highlight:before{
+  background: #909090;
+  color: white;
+  content: " PowerShell ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-python .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Python ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-console .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Console ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-rst, div.highlight-rest .highlight:before{
+  background: #909090;
+  color: white;
+  content: " reStructuredText ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-yaml .highlight:before{
+  background: #909090;
+  color: white;
+  content: " yaml ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-bash .highlight:before{
+  background: #909090;
+  color: white;
+  content: " bash ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.linenodiv:before { /*add extra new line to make sure code and line numbers align*/
+   content: '\00000a';
+   white-space: pre;
+}
+
+/*End support for labeled code-blocks*/
+
