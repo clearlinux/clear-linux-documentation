@@ -401,6 +401,69 @@ div.highlight-bash .highlight:before{
   white-space: pre;
 }
 
+div.highlight-diff .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Diff ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-c .highlight:before{
+  background: #909090;
+  color: white;
+  content: " c ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-json .highlight:before{
+  background: #909090;
+  color: white;
+  content: " json ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-spec .highlight:before{
+  background: #909090;
+  color: white;
+  content: " spec ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-perl .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Perl ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-php .highlight:before{
+  background: #909090;
+  color: white;
+  content: " php ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-xml .highlight:before{
+  background: #909090;
+  color: white;
+  content: " xml ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
 div.linenodiv:before { /*add extra new line to make sure code and line numbers align*/
    content: '\00000a';
    white-space: pre;
