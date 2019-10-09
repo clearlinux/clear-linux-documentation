@@ -90,15 +90,14 @@ Build the base container image
 
    .. code-block:: bash
 
-      swupd os-install --url https://cdn.download.clearlinux.org/update --statedir "$PWD"/swupd-state --no-boot-update  -B os-core-update,editors,network-basic base
+      swupd os-install --url https://cdn.download.clearlinux.org/update --statedir "$PWD"/swupd-state --no-boot-update -B os-core-update,editors,network-basic base
 
 
    The swupd example uses the following flags:
 
    * :command:`os-install` tells swupd to download and install.
    * :command:`--url` specifies the URL of the bundles repository.
-   * :command:`--statedir` specifies the state directory where downloaded bundles
-     and any state information are stored.
+   * :command:`--statedir` specifies the state directory where downloaded bundles and any state information are stored.
    * :command:`--no-boot-update` tells swupd to skip updating boot files because
      boot files are not required for a container.
 
