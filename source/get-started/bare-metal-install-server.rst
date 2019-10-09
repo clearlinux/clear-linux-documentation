@@ -606,6 +606,9 @@ Test Network Settings
 To manually assure network connectivity before installing |CL|,
 select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
+.. note::
+   If using the :command:`off-line installer`, this option is not available.
+
 A progress bar appears as shown in Figure 22.
 
 .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-22.png
@@ -621,10 +624,13 @@ A progress bar appears as shown in Figure 22.
 
 Optional: Skip to `Finish installation`_.
 
-Bundle Selection
-================
+Select Additional Bundles
+=========================
 
-#. On the Advanced menu, select :guilabel:`Bundle Selection`
+This option is only available with a valid network connection.
+Bundle selection is disabled if no network connection exists.
+
+#. On the Advanced menu, select :guilabel:`Select Additional Bundles`.
 
 #. Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows.
 
