@@ -34,7 +34,7 @@ Prerequisites
 
 *  Two platforms using |CL-ATTR| release `31130`_ or higher.
 *  Both images must include the :command:`kernel-native` bundle.
-*  Install the :command:`network-basic-dev` bundle with the command:
+*  Install the following two packages:
 
    .. code-block:: bash
 
@@ -343,7 +343,7 @@ machines control the NICs on the host.
 #. Run the :file:`start_qemu.sh` script.
 
 
-.. _13330: https://cdn.download.clearlinux.org/releases/13330/
+.. _31130: https://cdn.download.clearlinux.org/releases/31130/clear/
 .. _DPDK project: http://dpdk.org
 .. _dpdk.org NICs: http://dpdk.org/doc/nics
 .. _pktgen tar package: http://dpdk.org/browse/apps/pktgen-dpdk/refs
