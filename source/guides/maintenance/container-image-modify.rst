@@ -30,6 +30,12 @@ Prerequisites
 
      git clone https://github.com/clearlinux/dockerfiles.git
 
+* Navigate to and operate from the cloned :file:`dockerfiles` directory.
+
+   .. code-block:: bash   
+
+      cd dockerfiles/
+
 
 Example 1: Add a bundle
 ***********************
@@ -105,7 +111,7 @@ command line.
 
 #. Rebuild the :file:`clearlinux/machine-learning-ui`. Add an extra build
    argument :command:`swupd_args="-m <CL_VERSION>"`; in this case, the build
-   version is 31090.
+   version is 31110.
 
    .. code-block:: bash
       :linenos:
@@ -115,22 +121,22 @@ command line.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/machine-learning-ui:31090 \
-      --build-arg swupd_args="-m 31090" \
+      -t clearlinux/machine-learning-ui:31110 \
+      --build-arg swupd_args="-m 31110" \
       machine-learning-ui/
 
 #. Run the docker container image:
 
    .. code-block:: bash
 
-      docker run clearlinux/machine-learning-ui:31090 swupd info
+      docker run clearlinux/machine-learning-ui:31110 swupd info
 
 #. Sample output shows:
 
    .. code-block:: console
 
       Distribution:      Clear Linux OS
-      Installed version: 31090
+      Installed version: 31110
       Version URL:       https://cdn.download.clearlinux.org/update
       Content URL:       https://cdn.download.clearlinux.org/update
 
@@ -156,7 +162,7 @@ First layer: os-core
 
 #. Rebuild the first layer, *os-core*. Add an extra build argument
    :command:`swupd_args="-m <CL_VERSION>"`; in this case, the build
-   version is 31090.
+   version is 31110.
 
    .. code-block:: bash
       :linenos:
@@ -166,15 +172,15 @@ First layer: os-core
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/os-core:31090 \
-      --build-arg swupd_args="-m 31090" \
+      -t clearlinux/os-core:31110 \
+      --build-arg swupd_args="-m 31110" \
       os-core/
 
 #. Verify the version-specific image is available:
 
    .. code-block:: bash
       
-       docker images clearlinux/os-core:31090
+       docker images clearlinux/os-core:31110
 
 
 Second layer: httpd
@@ -183,7 +189,7 @@ Second layer: httpd
 The next layer is :file:`clearlinux/httpd`.
 
 #. Change the :file:`httpd/Dockerfile` to use the version-specific
-   *os-core:31090* image that was previously built.
+   *os-core:31110* image that was previously built.
 
    .. code-block:: bash
 
@@ -192,7 +198,7 @@ The next layer is :file:`clearlinux/httpd`.
 #. Run :command:`git diff`.
 
    The output shows a diff of a modified :file:`clearlinux/httpd` Dockerfile
-   that uses the previously built clearlinux/os-core:31090.
+   that uses the previously built clearlinux/os-core:31110.
 
    .. code-block:: diff
 
@@ -205,7 +211,7 @@ The next layer is :file:`clearlinux/httpd`.
       # Grab os-release info from the minimal base image so
       # that the new content matches the exact OS version
       -COPY --from=clearlinux/os-core:latest /usr/lib/os-release /
-      +COPY --from=clearlinux/os-core:31090 /usr/lib/os-release /
+      +COPY --from=clearlinux/os-core:31110 /usr/lib/os-release /
 
       # Install additional content in a target directory
       # using the os version from the minimal base
@@ -215,7 +221,7 @@ The next layer is :file:`clearlinux/httpd`.
           find os_core_install | sed -e 's/os_core_install/install_root/' | xargs rm -d &> /dev/null || true
 
       -FROM clearlinux/os-core:latest
-      +FROM clearlinux/os-core:31090
+      +FROM clearlinux/os-core:31110
 
 #. Build Dockerfile.
 
@@ -225,7 +231,7 @@ The next layer is :file:`clearlinux/httpd`.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/httpd:31090 \
+      -t clearlinux/httpd:31110 \
       httpd/
 
 Third layer: cgit
@@ -234,7 +240,7 @@ Third layer: cgit
 The next layer is :file:`clearlinux/cgit`.
 
 #. Change the :file:`cgit/Dockerfile` to use the desired OS
-   version; in this case, the build version is 31090.
+   version; in this case, the build version is 31110.
 
    .. code-block:: bash
 
@@ -255,7 +261,7 @@ The next layer is :file:`clearlinux/cgit`.
       # Grab os-release info from the minimal base image so
       # that the new content matches the exact OS version
       -COPY --from=clearlinux/httpd:latest /usr/lib/os-release /
-      +COPY --from=clearlinux/httpd:31090 /usr/lib/os-release /
+      +COPY --from=clearlinux/httpd:31110 /usr/lib/os-release /
 
       # Install additional content in a target directory
       # using the os version from the minimal base
@@ -264,12 +270,12 @@ The next layer is :file:`clearlinux/cgit`.
       # image size, remove the overlapped files before copy.
       RUN mkdir /os_core_install
       -COPY --from=clearlinux/httpd:latest / /os_core_install/
-      +COPY --from=clearlinux/httpd:31090 / /os_core_install/
+      +COPY --from=clearlinux/httpd:31110 / /os_core_install/
       RUN cd / && \
           find os_core_install | sed -e 's/os_core_install/install_root/' | xargs rm -d &> /dev/null || true
 
       -FROM clearlinux/httpd:latest
-      +FROM clearlinux/httpd:31090
+      +FROM clearlinux/httpd:31110
 
 #. Build Dockerfile.
 
@@ -279,7 +285,7 @@ The next layer is :file:`clearlinux/cgit`.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/cgit:31090 \
+      -t clearlinux/cgit:31110 \
       cgit/
 
 #. Verify the installed OS version by noting the :command:`VERSION_ID` value
@@ -289,12 +295,12 @@ The next layer is :file:`clearlinux/cgit`.
       :linenos:
       :emphasize-lines: 6
 
-      docker run clearlinux/cgit:31090 cat /usr/lib/os-release
+      docker run clearlinux/cgit:31110 cat /usr/lib/os-release
       NAME="Clear Linux OS"
       VERSION=1
       ID=clear-linux-os
       ID_LIKE=clear-linux-os
-      VERSION_ID=31090
+      VERSION_ID=31110
       PRETTY_NAME="Clear Linux OS"
       ANSI_COLOR="1;35"
       HOME_URL="https://clearlinux.org"
