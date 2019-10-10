@@ -83,7 +83,7 @@ Dockerfile.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/redis:wget_added \
+      --tag clearlinux/redis:wget_added \
       redis/
 
 #. Run the Dockerfile with the `wget --version` command to verify that
@@ -115,14 +115,14 @@ command line.
 
    .. code-block:: bash
       :linenos:
-      :emphasize-lines: 6
+      :emphasize-lines: 5
 
       docker build \
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/machine-learning-ui:31110 \
-      --build-arg swupd_args="-m 31110" \
+      --build-arg swupd_args="-m 31110" \      
+      --tag clearlinux/machine-learning-ui:31110 \
       machine-learning-ui/
 
 #. Run the docker container image:
@@ -166,14 +166,14 @@ First layer: os-core
 
    .. code-block:: bash
       :linenos:
-      :emphasize-lines: 6
+      :emphasize-lines: 5
 
       docker build \
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/os-core:31110 \
-      --build-arg swupd_args="-m 31110" \
+      --build-arg swupd_args="-m 31110" \      
+      --tag clearlinux/os-core:31110 \
       os-core/
 
 #. Verify the version-specific image is available:
@@ -231,7 +231,7 @@ The next layer is :file:`clearlinux/httpd`.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/httpd:31110 \
+      --tag clearlinux/httpd:31110 \
       httpd/
 
 Third layer: cgit
@@ -285,7 +285,7 @@ The next layer is :file:`clearlinux/cgit`.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/cgit:31110 \
+      --tag clearlinux/cgit:31110 \
       cgit/
 
 #. Verify the installed OS version by noting the :command:`VERSION_ID` value
