@@ -1,7 +1,7 @@
 .. _collaboration:
 
-How to contribute
-#################
+Contribute
+##########
 
 There are multiple ways to help improve our documentation:
 
@@ -46,8 +46,8 @@ and best practices to write consistent, readable documentation.
 .. toctree::
    :maxdepth: 1
 
-   Writing guide: Describes how we keep our documents clear and concise. <writing-guide>
-   Structure and formatting guide: Explains how we organize content and use reStructuredText and Sphinx. <structure-formatting>
+   Writing guide <writing-guide>
+   Structure and formatting guide <structure-formatting>
 
 .. _references:
 
