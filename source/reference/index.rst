@@ -11,6 +11,5 @@ features.
 
    compatible-hardware
    bundles/bundles
-   collaboration/collaboration
    system-requirements
    image-types
