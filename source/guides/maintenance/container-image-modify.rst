@@ -8,14 +8,15 @@ This guide describes how to customize |CL-ATTR|-based container
 
 .. contents::
    :local:
-   :depth: 2
+   :depth: 1
 
 Overview
 ********
 
-Most of these images utilize a Docker build feature called a
-`multi-stage build to reduce image size`_ while some use single-stage build Dockerfiles. An official base `clearlinux image on Docker Hub`_ is also available. To create a generic |CL| container image, see
-:ref:`our guide <container-image-new>`.
+Most of these images utilize a Docker build feature called a `multi-stage
+build to reduce image size`_ while some use single-stage build Dockerfiles. An
+official base `clearlinux image on Docker Hub`_ is also available. To create a
+generic |CL| container image, see :ref:`our guide <container-image-new>`.
 
 Prerequisites
 *************
@@ -29,29 +30,36 @@ Prerequisites
 
      git clone https://github.com/clearlinux/dockerfiles.git
 
-Examples
-********
+* Navigate to and operate from the cloned :file:`dockerfiles` directory.
+
+   .. code-block:: bash   
+
+      cd dockerfiles/
+
 
 Example 1: Add a bundle
-=======================
+***********************
 
 In this example, we add :command:`wget` to the **clearlinux/redis**
 Dockerfile.
 
-#. Open a Terminal on |CL| and enter the :file:`dockerfiles/redis` directory.
-
 #. Enter :command:`swupd search wget` to discover which |CL| bundle includes
-   the software.
+   the software. The output should tell you that :command:`wget` is available
+   in the *wget* bundle.
 
-#. Open a an editor to modify the Dockerfile with
-   :command:`$EDITOR Dockerfile`.
+#. Open a an editor to modify the Dockerfile.
+
+   .. code-block:: bash   
+
+      $EDITOR redis/Dockerfile
 
 #. Append the :command:`wget` bundle to the :command:`--bundles=` parameter
    of the :command:`swupd os-install` command.
 
 #. Run :command:`git diff`.
 
-   The output shows the edits made after adding :command:`wget` in the clearlinux/redis Dockerfile.
+   The output shows the edits made after adding :command:`wget` in the
+   clearlinux/redis Dockerfile.
 
    .. code-block:: diff
 
@@ -75,7 +83,8 @@ Dockerfile.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/redis:wget_added .
+      --tag clearlinux/redis:wget_added \
+      redis/
 
 #. Run the Dockerfile with the `wget --version` command to verify that
    :command:`wget` has been added to the image.
@@ -93,131 +102,103 @@ Dockerfile.
       -cares +digest -gpgme +https +ipv6 -iri +large-file -metalink +nls
       -ntlm +opie -psl +ssl/openssl
 
-Example 2: Change |CL| version (single-stage Dockerfiles)
-=========================================================
+Example 2: Change |CL| version (single-stage build)
+***************************************************
 
 This example shows how to rebuild single-stage containers against a specific
-OS version, :file:`<CL_VERSION>`, by adding a new argument to the Docker build command line.
-
-#. Open a Terminal on |CL| and enter the
-   :file:`dockerfiles/machine-learning-ui` directory.
+OS version, :file:`<CL_VERSION>`, by adding a new argument to the Docker build
+command line. 
 
 #. Rebuild the :file:`clearlinux/machine-learning-ui`. Add an extra build
-   argument :command:`swupd_args="-m <CL_VERSION>"`; in this case, the build version is 31090.
+   argument :command:`swupd_args="-m <CL_VERSION>"`; in this case, the build
+   version is 31110.
 
    .. code-block:: bash
       :linenos:
-      :emphasize-lines: 6
+      :emphasize-lines: 5
 
       docker build \
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/machine-learning-ui:31090 \
-      --build-arg swupd_args="-m 31090" .
+      --build-arg swupd_args="-m 31110" \      
+      --tag clearlinux/machine-learning-ui:31110 \
+      machine-learning-ui/
 
 #. Run the docker container image:
 
    .. code-block:: bash
 
-      docker run clearlinux/machine-learning-ui:31090 swupd info
+      docker run clearlinux/machine-learning-ui:31110 swupd info
 
 #. Sample output shows:
 
    .. code-block:: console
 
       Distribution:      Clear Linux OS
-      Installed version: 31090
+      Installed version: 31110
       Version URL:       https://cdn.download.clearlinux.org/update
       Content URL:       https://cdn.download.clearlinux.org/update
 
-Example 3: Change Clear Linux OS version (multi-stage Dockerfiles)
-===================================================================
 
-This example shows how to rebuild multi-stage Dockerfiles to use a specific
-OS version.
+Example 3: Change |CL| version (multi-stage build)
+**************************************************
+
+This example shows how to rebuild the cgit Dockerfile to use a specific |CL|
+version. The clearlinux/cgit Dockerfile has a multi-stage build with multiple
+layers: *os-core*, *httpd*, and *cgit*. This can be used as reference for
+building other multi-stage images with any number of layers. 
+
 
 .. important::
 
-   All upper layers of multi-stage Dockerfiles inherit the
-   |CL| version from the base layer. Rebuild the all underlying base layers against the desired OS version. In this example, four base layers must be rebuilt.
+   All upper layers of multi-stage Dockerfiles inherit the |CL| version from
+   the base layer. Rebuild the all underlying base layers against the desired
+   OS version. In this example, four base layers must be rebuilt.
 
-#. Change directory into :file:`dockerfiles`.
 
-First layer
------------
+First layer: os-core
+--------------------
 
 #. Rebuild the first layer, *os-core*. Add an extra build argument
    :command:`swupd_args="-m <CL_VERSION>"`; in this case, the build
-   version is 31090.
+   version is 31110.
 
    .. code-block:: bash
       :linenos:
-      :emphasize-lines: 6
+      :emphasize-lines: 5
 
       docker build \
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/os-core:31090 \
-      --build-arg swupd_args="-m 31090" os-core/
+      --build-arg swupd_args="-m 31110" \      
+      --tag clearlinux/os-core:31110 \
+      os-core/
 
-Second layer
-------------
-
-The next layer is :file:`clearlinux/redis`.
-
-#. Change the :file:`redis/Dockerfile` to use the desired OS
-   version; in this case, the build version is 31090.
-
-#. Run :command:`git diff`.
-
-   The output shows a diff of a modified :file:`clearlinux/redis` Dockerfile that uses the previously built clearlinux/os-core:31090 container image.
-
-   .. code-block:: diff
-
-      diff --git a/redis/Dockerfile b/redis/Dockerfile
-      index af977cb..d666e6e 100644
-      --- a/redis/Dockerfile
-      +++ b/redis/Dockerfile
-       @@ -7,7 +7,7 @@ RUN swupd update --no-boot-update $swupd_args
-
-       # Grab os-release info from the minimal base image so
-       # that the new content matches the exact OS version
-       -COPY --from=clearlinux/os-core:latest /usr/lib/os-release /
-       +COPY --from=clearlinux/os-core:31090 /usr/lib/os-release /
-
-       # Install additional content in a target directory
-       # using the os version from the minimal base
-       @@ -26,7 +26,7 @@ COPY --from=clearlinux/os-core:latest / /
-       os_core_install/
-       RUN cd / && \
-           find os_core_install | sed -e 's/os_core_install/install_root/' | xargs rm -d &> /dev/null || true
-
-       -FROM clearlinux/os-core:latest
-       +FROM clearlinux/os-core:31090
-
-#. Build the Dockerfile.
+#. Verify the version-specific image is available:
 
    .. code-block:: bash
+      
+       docker images clearlinux/os-core:31110
 
-      docker build \
-      --no-cache \
-      --build-arg http_proxy=$http_proxy \
-      --build-arg https_proxy=$https_proxy \
-      -t clearlinux/redis:31090 redis/
 
-Third layer
------------
+Second layer: httpd
+-------------------
 
 The next layer is :file:`clearlinux/httpd`.
 
-#. Change the :file:`httpd/Dockerfile` to use the desired OS
-   version; in this case, the build version is 31090.
+#. Change the :file:`httpd/Dockerfile` to use the version-specific
+   *os-core:31110* image that was previously built.
+
+   .. code-block:: bash
+
+      $EDITOR httpd/Dockerfile
 
 #. Run :command:`git diff`.
 
-   The output shows a diff of a modified :file:`clearlinux/httpd` Dockerfile that uses the previously built clearlinux/os-core:31090.
+   The output shows a diff of a modified :file:`clearlinux/httpd` Dockerfile
+   that uses the previously built clearlinux/os-core:31110.
 
    .. code-block:: diff
 
@@ -230,7 +211,7 @@ The next layer is :file:`clearlinux/httpd`.
       # Grab os-release info from the minimal base image so
       # that the new content matches the exact OS version
       -COPY --from=clearlinux/os-core:latest /usr/lib/os-release /
-      +COPY --from=clearlinux/os-core:31090 /usr/lib/os-release /
+      +COPY --from=clearlinux/os-core:31110 /usr/lib/os-release /
 
       # Install additional content in a target directory
       # using the os version from the minimal base
@@ -240,7 +221,7 @@ The next layer is :file:`clearlinux/httpd`.
           find os_core_install | sed -e 's/os_core_install/install_root/' | xargs rm -d &> /dev/null || true
 
       -FROM clearlinux/os-core:latest
-      +FROM clearlinux/os-core:31090
+      +FROM clearlinux/os-core:31110
 
 #. Build Dockerfile.
 
@@ -250,15 +231,20 @@ The next layer is :file:`clearlinux/httpd`.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/httpd:31090 httpd/
+      --tag clearlinux/httpd:31110 \
+      httpd/
 
-Fourth layer
-------------
+Third layer: cgit
+-----------------
 
 The next layer is :file:`clearlinux/cgit`.
 
 #. Change the :file:`cgit/Dockerfile` to use the desired OS
-   version; in this case, the build version is 31090.
+   version; in this case, the build version is 31110.
+
+   .. code-block:: bash
+
+      $EDITOR cgit/Dockerfile
 
 #. Run :command:`git diff`.
 
@@ -275,7 +261,7 @@ The next layer is :file:`clearlinux/cgit`.
       # Grab os-release info from the minimal base image so
       # that the new content matches the exact OS version
       -COPY --from=clearlinux/httpd:latest /usr/lib/os-release /
-      +COPY --from=clearlinux/httpd:31090 /usr/lib/os-release /
+      +COPY --from=clearlinux/httpd:31110 /usr/lib/os-release /
 
       # Install additional content in a target directory
       # using the os version from the minimal base
@@ -284,12 +270,12 @@ The next layer is :file:`clearlinux/cgit`.
       # image size, remove the overlapped files before copy.
       RUN mkdir /os_core_install
       -COPY --from=clearlinux/httpd:latest / /os_core_install/
-      +COPY --from=clearlinux/httpd:31090 / /os_core_install/
+      +COPY --from=clearlinux/httpd:31110 / /os_core_install/
       RUN cd / && \
           find os_core_install | sed -e 's/os_core_install/install_root/' | xargs rm -d &> /dev/null || true
 
       -FROM clearlinux/httpd:latest
-      +FROM clearlinux/httpd:31090
+      +FROM clearlinux/httpd:31110
 
 #. Build Dockerfile.
 
@@ -299,7 +285,8 @@ The next layer is :file:`clearlinux/cgit`.
       --no-cache \
       --build-arg http_proxy=$http_proxy \
       --build-arg https_proxy=$https_proxy \
-      -t clearlinux/cgit:31090 cgit/
+      --tag clearlinux/cgit:31110 \
+      cgit/
 
 #. Verify the installed OS version by noting the :command:`VERSION_ID` value
    in the :file:`/usr/lib/os-release` file in the container filesystem.
@@ -308,12 +295,12 @@ The next layer is :file:`clearlinux/cgit`.
       :linenos:
       :emphasize-lines: 6
 
-      docker run clearlinux/cgit:31090 cat /usr/lib/os-release
+      docker run clearlinux/cgit:31110 cat /usr/lib/os-release
       NAME="Clear Linux OS"
       VERSION=1
       ID=clear-linux-os
       ID_LIKE=clear-linux-os
-      VERSION_ID=31090
+      VERSION_ID=31110
       PRETTY_NAME="Clear Linux OS"
       ANSI_COLOR="1;35"
       HOME_URL="https://clearlinux.org"
@@ -321,15 +308,19 @@ The next layer is :file:`clearlinux/cgit`.
       BUG_REPORT_URL="mailto:dev@lists.clearlinux.org"
       PRIVACY_POLICY_URL=http://www.intel.com/privacy
 
+
 Example 4: Customize an application image at runtime
-====================================================
+****************************************************
 
 This section describes how to modify a published |CL| container at runtime.
 In this example, we add Tensorflow\* into a :command:`clearlinux/python`
 container. This approach can help accelerate the feature development process.
 
-First console
--------------
+In this example, three separate console windows are used to easily interact
+inside and outside of the container.
+
+First console: Start the container
+----------------------------------
 
 #. Launch the clearlinux/python container.
 
@@ -342,7 +333,8 @@ First console
 
 #. Try to import Tensorflow inside the container using the command:
    :command:`import tensorflow as tf`. The example below shows the expected
-   error message because the Docker image does not yet include the Tensorflow module.
+   error message because the Docker image does not yet include the Tensorflow
+   module.
 
    .. code-block:: bash
 
@@ -352,8 +344,8 @@ First console
       ModuleNotFoundError: No module named 'tensorflow'
       >>>
 
-Second console
---------------
+Second console: Add a bundle
+----------------------------
 
 #. In another console, find the :command:`<Container_ID>` of
    clearlinux/python launched. This example Container ID is d4ce9d526fa6.
@@ -405,8 +397,8 @@ Second console
       >>> tf.__version__
       '1.13.1'
 
-Third console
--------------
+Third console: Save the modified container
+------------------------------------------
 
 #. In a third console, save the container with a new tag. Our example uses
    the tag `tensorflow_added` to identify our modified container.
