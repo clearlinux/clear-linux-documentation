@@ -34,11 +34,11 @@ Prerequisites
 
 *  Two platforms using |CL-ATTR| release `31130`_ or higher.
 *  Both images must include the :command:`kernel-native` bundle.
-*  Install the following two packages:
+*  Install the following packages:
 
    .. code-block:: bash
 
-      sudo swupd bundle-add dpdk devpkgdpdk
+      sudo swupd bundle-add network-basic-dev dpdk devpkg-dpdk
 
 *  Each platform must have at least one :abbr:`NIC (Network Interface Card)`.
    Check the `DPDK project`_ for the list of supported `dpdk.org NICs`_.
