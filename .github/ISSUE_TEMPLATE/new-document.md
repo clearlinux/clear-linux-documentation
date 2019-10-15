@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-**Do you think Clear Linux documentation needs a new document? Please describe.**
+**Do you think Clear Linux documentation needs a new document? Please describe:**
 Please provide a clear and concise description of the title and content. Identify the target audience: Developer; System Administrator; or Basic User.
 
 **Should the new document be a guide, a reference, or a tutorial?**
