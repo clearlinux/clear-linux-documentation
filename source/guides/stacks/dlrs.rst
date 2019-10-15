@@ -59,12 +59,27 @@ Stack features
    software within the work has its own license.  Please see the `DLRS Terms of Use`_
    for more details about licensing and usage of the Deep Learning Reference Stack.
 
+Version compatibility
+=====================
+
+We validated the steps in this guide against the following software package versions:
+
+* |CL| 26240 (Minimum supported version)
+* Docker 18.06.1
+* Kubernetes 1.11.3
+* Go 1.11.12
+
+.. note::
+
+   The Deep Learning Reference Stack was developed to provide the best user experience when executed on a |CL| host.  However, as the stack runs in a container environment, you should be able to complete the following sections of this guide on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
+
+
 Prerequisites
 =============
 
 * :ref:`Install <bare-metal-install-desktop>` |CL| on your host system
-* :command:`containers-basic` bundle
-* :command:`cloud-native-basic` bundle
+* Add the :command:`containers-basic` bundle
+* Add the :command:`cloud-native-basic` bundle
 
 In |CL|, :command:`containers-basic` includes Docker\*, which is required for
 TensorFlow and PyTorch benchmarking. Use the :command:`swupd` utility to
@@ -92,21 +107,42 @@ bundle. To start Docker, enter:
 To ensure that Kubernetes is correctly installed and configured, follow the
 instructions in :ref:`kubernetes`.
 
-Version compatibility
-=====================
 
-We validated these steps against the following software package versions:
 
-* |CL| 26240 (Minimum supported version)
-* Docker 18.06.1
-* Kubernetes 1.11.3
-* Go 1.11.12
+Kubectl
+=======
 
-.. note::
+You can use kubectl to run commands against your Kubernetes cluster.  Refer to
+the `kubectl overview`_ for details on syntax and operations. Once you have a
+working cluster on Kubernetes, use the following YAML script to start a pod with
+a simple shell script, and keep the pod open.
 
-   The Deep Learning Reference Stack was developed to provide the best user
-   experience when executed on a |CL| host.  However, as the stack runs in a
-   container environment, you should be able to complete the following sections of this guide on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
+#. Copy this example.yaml script to your system:
+
+   .. code-block:: yaml
+
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: example-pod
+        labels:
+          app: ex-pod
+      spec:
+        containers:
+        - name: ex-pod-container
+          image: clearlinux/stacks-dlrs-mkl:latest
+          command: ['/bin/bash', '-c', '--']
+          args: [ "while true; do sleep 30; done" ]
+
+#. Execute the script with kubectl:
+
+   .. code-block:: bash
+
+      kubectl apply –f <path-to-yaml-file>/example.yaml
+
+
+This script opens a single pod and is helpful to verify your setup is complete and correct. More robust solutions would create a deployment or inject a python script or larger shell script into the container.
+
 
 TensorFlow single and multi-node benchmarks
 *******************************************
@@ -821,7 +857,7 @@ Related topics
 
 .. _Jupyter Notebook: https://jupyter.org/
 
-.. _Overview of kubectl: https://kubernetes.io/docs/reference/kubectl/overview/
+.. _kubectl overview: https://kubernetes.io/docs/reference/kubectl/overview/
 
 .. _launcher.py: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow
 
