@@ -471,3 +471,28 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 
 /*End support for labeled code-blocks*/
 
+/*Begin support for multi-column sections*/
+
+.column {
+  float: left;
+  width: 350px;
+  padding: 10px;
+  /*height: 500px;*/
+  margin: 10px;
+  border: 10px;
+}
+
+/* Clear floats after the columns */
+.multicolumns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.colh2 {
+  font-size: 150%;
+  font-weight: 700;
+  font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+}
+
+/*End support for multi-column sections*/

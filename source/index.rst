@@ -1,61 +1,72 @@
 .. _clear-linux:
 
-|CL-PRJ|
+|CL-PRJ| Documentation
 #############################################
 
-Welcome to the |CL-ATTR| documentation pages, the source for |CL| documentation.
+.. container:: multicolumns
 
-Our documentation is divided into the following sections:
+   .. container:: column
 
+      .. rst-class:: colh2
 
-:ref:`get-started`
+      Highlights
 
-    If you are new to |CL|, get started quickly with step-by-step instructions
-    for installing |CL| on bare metal, in a virtual environment, or as a live
-    image on a USB stick.
+      :ref:`autospec`
+         **autospec** is a tool to assist in the automated creation and
+         maintenance of RPM packaging in Clear Linux OS. 
 
-:ref:`about`
+      :ref:`dlrs`
+         This tutorial shows you how to run benchmarking workloads in Clear
+         Linux OS using TensorFlow\* or PyTorch\* with the Deep Learning
+         Reference Stack.
 
-    |CL| is different from other Linux distributions.
+      :ref:`docker`
+         Clear Linux OS supports multiple containerization platforms,
+         including a Docker solution.
 
-    Updates, ease of use, and custom derivatives are a few of the differences
-    this section explains. Orient yourself to these differences and why they
-    matter to you.
+      :ref:`developer-workstation`
+         Developer Workstation helps you find the Bundles you need to start
+         your Clear Linux OS development project.
 
-    .. raw:: html
+   .. container:: column
 
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/JFg-_5xihkE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="padding:10px; background-color: #fff;"></iframe>
+      .. rst-class:: colh2
 
-:ref:`guides`
+      Quicklinks
 
-    Guides cover a range of topics from |CL| features and tooling, to system
-    maintenance, network, and stacks.
+      :ref:`get-started`
+         Get up and running fast with Clear Linux\* OS. Use these step-by-step
+         instructions to guide you through the installation of Clear Linux OS
+         from bare metal to live image.
 
-:ref:`Use case tutorials <tutorials>`
+      :ref:`bare-metal-install-desktop`
+         These instructions guide you through the installation of Clear Linux
+         OS on bare metal using a bootable USB drive.
 
-    Sample use cases, with step-by-step instructions, show how to set up
-    third-party tools and software with |CL|.
+      :ref:`architect-lifecycle`
+         This guide provides DevOps with a model to architect the life-cycle
+         of a Clear Linux OS derivative that integrates custom software and
+         content using distinct workflows.
 
-:ref:`reference`
+      :ref:`bundles`
+         Useful bundle commands for working with bundles on the Clear Linux OS.
 
-    This section provides additional reference information on the |CL| project.
+   .. container:: column
 
-:ref:`faq`
+      .. toctree:: 
+         :caption: Documentation Contents
+         :maxdepth: 1
 
-    The FAQ section provides answers to commonly asked questions about |CL|.
+         get-started/index
+         about
+         guides/index
+         tutorials/index
+         reference/index
+         FAQ/index
+         collaboration/collaboration
 
-:ref:`collaboration`
+      **Need some help?**
 
-    This section describes how to contribute to |CL| documentation.
-
-.. toctree::
-    :maxdepth: 2
-    :hidden:
-
-    get-started/index
-    about
-    guides/index
-    tutorials/index
-    reference/index
-    FAQ/index
-    collaboration/collaboration
+      | `Ask the Clear Linux experts <https://clearlinux.org/community/mailing-list>`_
+      | `Clear Linux Forum <https://community.clearlinux.org/>`_
+      | `IRC-based support <https://webchat.freenode.net/>`_
