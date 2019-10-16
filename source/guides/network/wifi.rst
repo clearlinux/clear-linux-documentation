@@ -7,6 +7,8 @@ Configure Wi-Fi
    :local:
    :depth: 1
 
+We recommend using `NetworkManager <https://developer.gnome.org/NetworkManager/stable/NetworkManager.html>`_ to manage network connections.
+
 Desktop GUI
 ***********
 
