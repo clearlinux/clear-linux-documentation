@@ -4,7 +4,7 @@
 ################################
 
 This page explains how to run a |CL-ATTR| :abbr:`VM (virtual machine)` on a
-Microsoft Hyper-V\* hypervisor.
+Microsoft\* Hyper-V\* hypervisor.
 
 .. contents::
    :local:
@@ -15,7 +15,8 @@ Overview
 ********
 
 Hyper-V is a type 1 bare-metal hypervisor that runs directly on system
-hardware. It is available for Windows server and client operating systems.
+hardware. It is available for `Windows\* server`_ and client operating systems,
+including `Windows 10`_.
 
 |CL| provides a virtual disk image for Hyper-V, which also includes
 a :ref:`Hyper-V specific kernel <compatible-kernels>` and drivers.
@@ -45,10 +46,10 @@ Download the |CL| disk image for Hyper-V
 #. Download the :file:`clear-[VERSION]-hyperv.vhdx.gz` for Microsoft* Hyper-V
    from the `downloads`_ website.
 
-#. Verify the image using these instructions: :ref:`download-verify-decompress`.
+#. Verify and extract the image using these instructions:
+   :ref:`download-verify-decompress`.
 
-#. Extract the image. After extraction, the file should be named
-   :file:`clear-[VERSION]-hyperv.vhdx`.
+   After extraction, the file should be named :file:`clear-[VERSION]-hyperv.vhdx`.
 
 
 Create and configure new VM
@@ -134,8 +135,8 @@ Related topics
 
 
 
-.. _`Hyper-V on Windows Server`: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-on-windows-server
-.. _`Hyper-V on Windows 10`: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index
+.. _`Windows\* Server`: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+.. _`Windows 10`: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index
 .. _`Intel® Virtualization Technology`: http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 .. _`Intel® Virtualization Technology for Directed I/O`: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
 .. _`Install the Hyper-V role on Windows Server`: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server
