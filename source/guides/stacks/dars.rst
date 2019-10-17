@@ -66,7 +66,7 @@ Launching the Image
 
    :command:`--name` can be any name of your choice.  This guide is using `mkl`
 
-   :command:`--network host` flag is for simplicity, so the host machine's IP address can be used to access the container.
+   :command:`--network host` enables the host machine's IP address to be used to access the container.
 
    If you need to verify the name of the DARS image for the <name-of-image> flag, you can use the :command:`docker image ls` command to see which images reside on your system.
 
@@ -88,7 +88,7 @@ Launching the Image
 
 .. note::
 
-   All of the DARS components are compiled on Open JDK11\*. The container will have preinstalled JDK11 at :file:`/usr/lib/jvm/java-1.11.0-openjdk/` and it has been set as the default Java version. It is worth mentioning that the containers also contain Open JDK8, but we won't be using it in this guide.
+   All of the DARS components are compiled on Open JDK11\*. The container will have preinstalled JDK11 at :file:`/usr/lib/jvm/java-1.11.0-openjdk/` and it has been set as the default Java version. While the DARS containers also contain Open JDK8, it is not covered in this guide.
 
 
 Building DARS images
@@ -197,12 +197,12 @@ Apache Hadoop is an open source framework allowing for distributed processing of
 Single Node Hadoop Cluster Setup
 ================================
 
-In this mode, all the daemons involved i.e. the DataNode, NameNode, TaskTracker and JobTracker run as Java processes on the same machine. This setup is useful for developing and testing Apache Hadoop applications.
+In this mode, all the daemons involved (e.g., the DataNode, NameNode, TaskTracker, JobTracker) run as Java processes on the same machine. This setup is useful for developing and testing Apache Hadoop applications.
 
 The components of an Apache Hadoop Cluster are described below:
 
 * NameNode manages HDFS storage. HDFS exposes a filesystem namespace and allows user data to be stored in files. Internally a file is split into one or more blocks and these blocks are stored in a set of DataNodes.
-* DataNode is also known as Slave node, it is responsible for storing and managing the data in that node and responds to the NameNode for all filesystem operations.
+* DataNode is also known as Slave node. It is responsible for storing and managing the data in that node and responds to the NameNode for all filesystem operations.
 * JobTracker is a master which creates and runs the job through tasktrackers. It also tracks resource availability and task lifecycle management.
 * TaskTracker manages the processing resources on each worker node and send status updates to the JobTracker periodically.
 
@@ -210,7 +210,7 @@ The components of an Apache Hadoop Cluster are described below:
 Configuration
 =============
 
-#. To setup a single node cluster we need to run a DARS container with the following flags:
+#. To setup a single node cluster, run a DARS container with the following flags:
 
    .. code-block:: bash
 
@@ -319,8 +319,8 @@ Start the Apache Hadoop daemons
       <hostname>:43489            RUNNING <hostname>:8042                      0
 
 
-Run an example
-==============
+Example application
+===================
 
 Apache Hadoop comes packages with a set of example  applications. In this example we will show how to use the cluster to calculate Pi. The JAR file containing the compiled class can be found on your running DARS container at :file:`/usr/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar`
 
@@ -382,7 +382,7 @@ Prerequisites
         EOF
 
 
-#. The Dockerfile requires an entrypoint script, to allow spark-submit to interact with the container using the given arguments. Create the :file:`entrypoint.sh` file:
+#. Create the :file:`entrypoint.sh` file. The Dockerfile requires an entrypoint script, to allow spark-submit to interact with the container. 
 
    .. code-block:: bash
 
@@ -628,7 +628,7 @@ Dropped or refused connection
 If Pyspark / Spark-shell warns of a dropped connection exception or Connection refused, check if the `HADOOP_CONF_DIR` environment variable is set. These APIs assume they will use Hadoop Distributed File System.
 You can unset `HADOOP_CONF_DIR` and use Spark RDDs, or start Hadoop services and then create your directories and files as required using hdfs.
 
-It is also possible to change the file system to local without unsetting `HADOOP_CONF_DIR` as is further described here:
+It is also possible to change the file system to local without unsetting `HADOOP_CONF_DIR` using one of these commands.
 
 .. code-block:: bash
 
@@ -667,7 +667,7 @@ Known issues
 
 #. There is an exception message `Unrecognized Hadoop major version number: 3.2.0 at org.apache.hadoop.hive.shims.ShimLoader.getMajorVersion.`
 
-This exception can be disregarded because DARS does not use hadoop.hive.shims. Hive binaries installed from Apache on |CL| with JDK11 does not work, this is an issue reported on Hive's Jira.
+This exception can be disregarded because DARS does not use hadoop.hive.shims. Hive binaries installed from Apache on |CL| with JDK11 does not work at the time of this writing.
 
 #. There is an exception message `Exception in thread "Thread-3" java.lang.ExceptionInInitializerError at org.apache.hadoop.hive.conf.HiveConf` This is related to the same issue with |CL| and JDK11 noted above, and does not affect DARS for the same reason.
 
