@@ -477,9 +477,18 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   float: left;
   width: 350px;
   padding: 10px;
-  /*height: 500px;*/
   margin: 10px;
   border: 10px;
+  background: white;
+}
+
+.column.featurecard {
+  background: #CCE9F5;
+}
+
+.column.verticalcard {
+  height: 615px;
+  overflow: auto;
 }
 
 /* Clear floats after the columns */
@@ -493,6 +502,12 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   font-size: 150%;
   font-weight: 700;
   font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+}
+
+.video.docutils.container {
+  margin: 10px;
+  width:720px;
+  height:405px;
 }
 
 /*End support for multi-column sections*/

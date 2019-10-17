@@ -5,7 +5,7 @@
 
 .. container:: multicolumns
 
-   .. container:: column
+   .. container:: column verticalcard
 
       .. rst-class:: colh2
 
@@ -24,11 +24,11 @@
          Clear Linux OS supports multiple containerization platforms,
          including a Docker solution.
 
-      :ref:`developer-workstation`
+      :ref:`developer-workstation`      
          Developer Workstation helps you find the Bundles you need to start
          your Clear Linux OS development project.
 
-   .. container:: column
+   .. container:: column verticalcard
 
       .. rst-class:: colh2
 
@@ -51,7 +51,7 @@
       :ref:`bundles`
          Useful bundle commands for working with bundles on the Clear Linux OS.
 
-   .. container:: column
+   .. container:: column featurecard
 
       .. toctree:: 
          :caption: Documentation Contents
@@ -70,3 +70,10 @@
       | `Ask the Clear Linux experts <https://clearlinux.org/community/mailing-list>`_
       | `Clear Linux Forum <https://community.clearlinux.org/>`_
       | `IRC-based support <https://webchat.freenode.net/>`_
+
+
+.. container:: video
+
+   .. raw:: html
+
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JFg-_5xihkE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="padding:10px; background-color: #fff;"></iframe>
