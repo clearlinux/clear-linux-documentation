@@ -49,8 +49,10 @@ shown in figure 2.
 
    Figure 2: Network topology.
 
-Your PXE client must have a boot order where the network boot option is
-prioritized before the disk boot option.
+Your PXE client system must meet the requirements to run |CL| and have a boot
+order where the network boot option is prioritized before the disk boot
+option. To determine if your PXE client system meets the minimum requirements
+for |CL|, review the :ref:`compatibility-check`.
 
 Your PXE server must have:
 
