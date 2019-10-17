@@ -20,11 +20,15 @@ Prerequisites
 *************
 
 * :ref:`Install <bare-metal-install-desktop>` |CL| on your host system
-* Follow :ref:`web-server-install` to install Apache\* and PHP
+* Use :command:`swupd` to install the :file:`php-basic` bundle.
+
+  .. code-block:: bash
+
+     sudo swupd bundle-add php-basic
 
 .. note::
 
-   PHP does not require Apache's httpd service for operation. We use this environment as an example for this tutorial.  If you are not using the httpd service, please adjust accordingly when you encounter instructions that require httpd.
+   PHP does not require a web server for operation.  Refer to :ref:`web-server-install` for instructions on setting up a :abbr:`LAMP (Linux, Apache\*, MySQL, PHP)` server, or use :command:`swupd` to install :file:`nginx` or similar if you need a web server.
 
 
 Configure PHP
@@ -35,14 +39,14 @@ Configure PHP
    This section does not cover configuring the PHP-FPM service. There is a difference between the two configurations. This section is only looking at the PHP configuration directives, not those of PHP-FPM.
 
 
-By default PHP looks for configuration settings in the :file:`php.ini` file, which resides in the `usr/share/defaults/php/` path. Because |CL| is designed to be a :ref:`stateless` operating system, you must create an optional configuration file to override the default values. Every time :command:`swupd` updates the system it will overwrite changes to the `/usr/share/defaults` file structure. To save you configuration options through updates, you must create a PHP configuration file in a location that will not be overwritten. The recommended location is within the :file:`/etc` file structure.  For PHP we will create a :file:`/etc/php.d` directory for all PHP config files.
+By default PHP looks for configuration settings in the :file:`php.ini` file, which resides in the `usr/share/defaults/php/` path. Because |CL| is designed to be a :ref:`stateless` operating system, you must create an optional configuration file to override the default values. Every time :command:`swupd` updates the system it will overwrite changes to the :file:`/usr/share/defaults` file structure. To save you configuration options through updates, you must create a PHP configuration file in a location that will not be overwritten. The recommended location is within the :file:`/etc` file structure.  For PHP we will create a :file:`/etc/php.d` directory for all PHP config files.
 
 Create a :file:`php.ini`.
 
 .. code-block:: bash
 
    sudo mkdir -p /etc/php.d
-   sudo touch /etc/php.d/php.ini
+   sudo touch /etc/php.d/my-php.ini
 
 This file can be edited with any of your specific configuration requirements, and will not be overwritten when swupd performs an update. The `PHP configuration file`_ documentation has complete detail about what you can set in this file.
 
@@ -59,10 +63,10 @@ You should see output like this
    Configuration File (php.ini) Path: /usr/share/defaults/php/
    Loaded Configuration File:         /usr/share/defaults/php/php.ini
    Scan for additional .ini files in: /etc/php.d
-   Additional .ini files parsed:      (none)
+   Additional .ini files parsed:
 
 
-This output indicates that PHP will read the php.ini file from `/usr/share/defaults/php` and will then load any further configuration from :file:`.ini` files in `/etc/php.d/`. We use the :file:`php.ini` file in `/etc/php.d` for our specific needs, and allow the defaults to be read from `/usr/share/defaults/php/`.
+This output indicates that PHP will read the php.ini file from `/usr/share/defaults/php` and will then load any further configuration from :file:`.ini` files in `/etc/php.d/`. We use the :file:`my-php.ini` file in `/etc/php.d` for our specific needs, and allow the defaults to be read from `/usr/share/defaults/php/`. Note that the :file:`my-php.ini` file is not parsed yet -- this is because the file has no content at this point, and is disregarded.
 
 
 Install PHP extensions
@@ -82,18 +86,18 @@ Enable PHP extensions
 
 To enable an installed extension we need to add it to the :file:`php.ini` for the composer to use it.
 
-Create the :file:`php.ini` file, with the directive to load the php-imagick extension
+Create the :file:`my-php.ini` file, with the directive to load the php-imagick extension
 
 .. code-block:: bash
 
-   sudo echo "extension=imagick.so" >> /etc/php.d/php.ini
+   sudo echo "extension=imagick.so" >> /etc/php.d/my-php.ini
 
 
-No further detail is required to load the extension, but you must restart the httpd service for PHP to pick up the modification to the `/etc/php.d/php.ini` file.
+No further detail is required to load the extension, but you must restart the php-fpm service for PHP to pick up the modification to the `/etc/php.d/my-php.ini` file.
 
 .. code-block:: bash
 
-   sudo systemctl restart httpd
+   sudo systemctl restart php-fpm
 
 You can verify that the imagick extension has been loaded by searching through the runtime list of loaded PHP Modules.
 
@@ -104,7 +108,7 @@ You can verify that the imagick extension has been loaded by searching through t
 
 .. note::
 
-   Enabling an extension only requires that it be installed, added to the php.ini file and that the httpd service is restarted. However extensions may have their own configuration options.  These will be documented by the extension maintainer.  The options you need can be added to the :file:`/etc/php.d/php.ini` file as described by the documentation for the extension.  Be sure to restart httpd after making changes to the file.
+   To enable an extension, you must install it, add it to the :file:`php.ini` file, and restart the :file:`php-fpm` service. However, some extensions may have configuration options, which will be documented by the extension maintainer. Add the options you need to the :file:`/etc/php.d/my-php.ini` file as described in the extension's documentation. Be sure to restart :file:`php-fpm` after changing the file.
 
 Configure PHP-FPM
 *****************
@@ -160,13 +164,21 @@ One solution to changing PHP-FPM configuration options in |CL| is to manually ov
 
    .. code-block:: bash
 
-      sudo systemctl show php-fpm.service |grep ExecStart
+      sudo systemctl status php-fpm.service
 
    You should see the new path in the output
 
    .. code-block:: console
 
-      ExecStart={ path=/usr/sbin/php-fpm ; argv[]=/usr/sbin/php-fpm --nodaemonize --fpm-config /etc/php.d/php-fpm.conf ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }
+      ● php-fpm.service - The PHP FastCGI Process Manager
+      Loaded: loaded (/etc/systemd/system/php-fpm.service; enabled; vendor preset: disabled)
+      Active: active (running) since Thu 2019-10-17 13:19:34 PDT; 8min ago
+      Main PID: 14452 (php-fpm)
+      Status: "Processes active: 0, idle: 0, Requests: 0, slow: 0, Traffic: 0req/sec"
+       Tasks: 1
+      Memory: 11.1M
+      CGroup: /system.slice/php-fpm.service
+              └─14452 php-fpm: master process (/etc/php.d/php-fpm.conf)
 
 
 
