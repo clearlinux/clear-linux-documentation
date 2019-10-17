@@ -41,6 +41,11 @@ Prerequisites
 
 Before booting with iPXE, make the following preparations.
 
+Your PXE client system must meet the requirements to run |CL| and have a boot
+order where the network boot option is prioritized before the disk boot
+option. To determine if your PXE client system meets the minimum requirements
+for |CL|, review the :ref:`compatibility-check`.
+
 Connect the PXE server and PXE clients to a switch on a private network, as
 shown in figure 2.
 
@@ -48,9 +53,6 @@ shown in figure 2.
    :alt: Network topology
 
    Figure 2: Network topology.
-
-Your PXE client must have a boot order where the network boot option is
-prioritized before the disk boot option.
 
 Your PXE server must have:
 
