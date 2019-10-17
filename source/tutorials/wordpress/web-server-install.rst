@@ -25,8 +25,8 @@ Apache is an open source HTTP web server application that can run on several
 operating systems, including |CL|. Go to the `Apache HTTP Server Project`_
 for more information.
 
-Install the web-server-basic bundle
-===================================
+Install the httpd bundle
+========================
 
 The **httpd** bundle contains the packages needed to install the
 Apache software bundle on |CL|.
