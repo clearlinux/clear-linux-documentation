@@ -31,13 +31,8 @@ Preliminary steps
 
       <release-number> is the latest |CL| auto-numbered release.
 
-#. Verify and decompress the file per your OS.
-
-   * :ref:`download-verify-decompress`
-
-#. Follow your OS instructions to create a bootable USB drive.
-
-   * :ref:`bootable-usb`
+#. Follow your OS instructions to
+   :ref:`create a bootable usb drive <bootable-usb>`.
 
 .. _install-on-target-start:
 
@@ -111,20 +106,6 @@ Launch the |CL| installer
 
 #. Select :guilabel:`Next`.
 
-Checking prerequisites
-======================
-
-The installer automatically launches :guilabel:`Checking Prerequisites`,
-which checks your target system for compatibility and network connectivity.
-
-After the installer shows `Prerequisites passed`, select :guilabel:`Next` to
-proceed with installation.
-
-.. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-04.png
-   :scale: 100%
-   :alt: Checking Prerequisites
-
-   Figure 4: Checking Prerequisites
 
 Network Proxy (optional)
 ------------------------
@@ -165,16 +146,16 @@ To fulfill minimum installation requirements, complete the
 |CL| Desktop Installer
 **********************
 
-The |CL| Desktop Installer Main Menu appears as shown in Figure 5. To meet
+The |CL| Desktop Installer Main Menu appears as shown in Figure 4. To meet
 the minimum requirements, enter values in all submenus for the
 :guilabel:`Required options`. After you complete them, your selections appear
 below submenus and a check mark appears at right.
 
-.. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-05.png
+.. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-04.png
    :scale: 100%
    :alt: Clear Linux OS Desktop Installer - Main Menu
 
-   Figure 5: Clear Linux OS Desktop Installer - Main Menu
+   Figure 4: Clear Linux OS Desktop Installer - Main Menu
 
 Navigation
 **********
@@ -203,11 +184,11 @@ Select Time Zone
 
 #. Select :guilabel:`Confirm`.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-06.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-05.png
       :scale: 100%
       :alt: Select System Timezone
 
-      Figure 6: Select System Time Zone
+      Figure 5: Select System Time Zone
 
 Select Keyboard
 ===============
@@ -219,11 +200,11 @@ Select Keyboard
 
 #. Select :guilabel:`Confirm`.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-07.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-06.png
       :scale: 100%
       :alt: Select Keyboard menu
 
-      Figure 7: Select Keyboard menu
+      Figure 6: Select Keyboard menu
 
 Select Installation Media
 =========================
@@ -233,11 +214,11 @@ Select Installation Media
 #. Choose an installation method: `Safe Installation`_ or
    `Destructive Installation`_.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-08.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-07.png
       :scale: 100%
       :alt: Select Installation Media
 
-      Figure 8: Select Installation Media
+      Figure 7: Select Installation Media
 
 Safe Installation
 -----------------
@@ -268,21 +249,21 @@ For greater security, disk encryption is supported using LUKS. Encryption is
 optional.
 
 #. To encrypt the root partition, select :guilabel:`Enable Encryption`,
-   as shown in Figure 9.
+   as shown in Figure 8.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-09.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-08.png
       :scale: 100%
       :alt: Enable Encryption
 
-      Figure 9: Enable Encryption
+      Figure 8: Enable Encryption
 
 #. When :guilabel:`Encryption Passphrase` appears, enter a passphrase.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-10.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-09.png
       :scale: 100%
       :alt: Encryption Passphrase
 
-      Figure 10: Encryption Passphrase
+      Figure 9: Encryption Passphrase
 
    .. note::
 
@@ -310,22 +291,22 @@ Our example uses the `Default partition schema`_. The space you allocate for
 
 #. Select :guilabel:`Partition Media`, shown in Figure 11.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-11.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-10.png
       :scale: 100%
       :alt: Advanced Installation
 
-      Figure 11: Advanced Installation
+      Figure 10: Advanced Installation
 
 boot partition
 --------------
 
 #. Select the available target media shown as `unallocated`.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-12.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-11.png
       :scale: 100%
       :alt: Advanced Disk Partitioning
 
-      Figure 12: Advanced Disk Partitioning
+      Figure 11: Advanced Disk Partitioning
 
 #. Choose :menuselection:`Device --> Create Partition Table`.
 
@@ -341,18 +322,18 @@ boot partition
       The `/boot` partition must be `VFAT(FAT32)`.
 
 #. In :guilabel:`Create new Partition`, complete the following fields to
-   match Figure 13. Don't change other default values.
+   match Figure 12. Don't change other default values.
 
    * :guilabel:`New size:`                150
    * :guilabel:`Partition name:`          CLR_BOOT
    * :guilabel:`File system:`             fat32
    * :guilabel:`Label:`                   boot
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-13.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-12.png
       :scale: 100%
       :alt: boot partition
 
-      Figure 13: boot partition
+      Figure 12: boot partition
 
 #. Select :guilabel:`Add`.
 
@@ -363,18 +344,18 @@ swap partition
    :menuselection:`Partition --> New`.
 
 #. In :guilabel:`Create new Partition`, complete the following fields to
-   match Figure 14. Don't change other default values.
+   match Figure 13. Don't change other default values.
 
    * :guilabel:`New size:`                256
    * :guilabel:`Partition name:`          CLR_SWAP
    * :guilabel:`File system:`             linux-swap
    * :guilabel:`Label:`                   swap
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-14.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-13.png
       :scale: 100%
       :alt: swap partition
 
-      Figure 14: swap partition
+      Figure 13: swap partition
 
 #. Select :guilabel:`Add`.
 
@@ -385,7 +366,7 @@ root partition
    :menuselection:`Partition --> New`.
 
 #. In :guilabel:`Create new Partition`, complete the following fields to
-   match Figure 15. Don't change other default values.
+   match Figure 14. Don't change other default values.
 
 #. In :guilabel:`New size`, enter the desired size, or leave as is
    to accept the *default: remaining size*.
@@ -395,20 +376,20 @@ root partition
    * :guilabel:`File system:`             ext[234] or XFS
    * :guilabel:`Label:`                   root
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-15.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-14.png
       :scale: 100%
       :alt: root partition
 
-      Figure 15: root partition
+      Figure 14: root partition
 
 #. After all partitions are defined, verify your partition
-   configuration is similar to Figure 16.
+   configuration is similar to Figure 15.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-16.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-15.png
       :scale: 100%
       :alt: Final partition configuration
 
-      Figure 16: Final partition configuration
+      Figure 15: Final partition configuration
 
 #. Select :menuselection:`Edit --> Apply All Operations`.
 
@@ -431,11 +412,11 @@ Manage User
 
 #. In :guilabel:`User Name`, enter a user name.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-17.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-16.png
       :scale: 100%
       :alt: Manage User
 
-      Figure 17: Manage User
+      Figure 16: Manage User
 
 #. In :guilabel:`Login`, create a login name. It must start with a letter
    and can use numbers, hyphens, and underscores. Maximum length is 31
@@ -485,11 +466,11 @@ team for improvements.
 
 #. Select :kbd:`Yes`.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-18.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-17.png
       :scale: 100%
       :alt: Enable Telemetry
 
-      Figure 18: Enable Telemetry
+      Figure 17: Enable Telemetry
 
 #. If you don't wish to participate, select :kbd:`No`.
 
@@ -505,28 +486,31 @@ after reboot.
 
    You can always add more bundles later with :ref:`swupd-guide`.
 
-Bundle Selection
-================
+Select Additional Bundles
+=========================
 
-#. On the Advanced menu, select :guilabel:`Bundle Selection`
+This option is only available with a valid network connection.
+Bundle selection is disabled if no network connection exists.
+
+#. On the Advanced menu, select :guilabel:`Select Additional Bundles`.
 
 #. Select your desired bundles.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-19.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-18.png
       :scale: 100%
       :alt: Bundle Selection
 
-      Figure 19: Bundle Selection
+      Figure 18: Bundle Selection
 
 #. Select :kbd:`Confirm`.
 
 #. View the bundles that you selected.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-20.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-19.png
       :scale: 100%
-      :alt: Bundle Selections - Advanced Options
+      :alt: Select Additional Bundles
 
-      Figure 20: Bundle Selections - Advanced Options
+      Figure 19: Select Additional Bundles
 
 Optional: Skip to `Finish installation`_.
 
@@ -537,11 +521,11 @@ Assign Hostname
 
 #. In :guilabel:`Hostname`, enter the hostname only (excluding the domain).
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-21.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-20.png
       :scale: 100%
       :alt: Assign Hostname
 
-      Figure 21: Assign Hostname
+      Figure 20: Assign Hostname
 
    .. note::
 
@@ -559,11 +543,11 @@ Kernel Configuration
 #. In :guilabel:`Kernel Configuration`, navigate to select your desired
    kernel. :guilabel:`Native` is selected by default.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-22.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-21.png
       :scale: 100%
       :alt: Kernel Configuration
 
-      Figure 22: Kernel Configuration
+      Figure 21: Kernel Configuration
 
 #. To add arguments, enter the argument in :guilabel:`Add Extra Arguments`.
 
@@ -582,11 +566,11 @@ Software Updater Configuration
 #. :guilabel:`Enable Auto Updates` is selected by default. If you **do not**
    wish to enable automatic software updates, uncheck the box.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-23.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-22.png
       :scale: 100%
       :alt: Software Updater Configuration
 
-      Figure 23: Software Updater Configuration
+      Figure 22: Software Updater Configuration
 
 #. Select :kbd:`Confirm`.
 
@@ -596,11 +580,11 @@ Finish installation
 #. When you are satisfied with your installation configuration, select
    :guilabel:`Install`.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-24.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-23.png
       :scale: 100%
       :alt: Assign Hostname
 
-      Figure 24: Finish installation
+      Figure 23: Finish installation
 
    .. note:
 
@@ -609,13 +593,13 @@ Finish installation
 
 #. If you do not enter a selection for all :guilabel:`Required Options`,
    the :guilabel:`Install` button remains disabled, as shown
-   in Figure 25. Return to `Required Options`_ and make selections.
+   in Figure 24. Return to `Required Options`_ and make selections.
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-25.png
+   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-24.png
       :scale: 100%
       :alt: Required Options - Incomplete
 
-      Figure 25: Required Options - Incomplete
+      Figure 24: Required Options - Incomplete
 
 #. After installation is complete, select :guilabel:`Exit`.
 

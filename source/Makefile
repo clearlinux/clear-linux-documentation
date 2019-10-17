@@ -53,8 +53,9 @@ help:
 
 clean:
 	rm -rf $(BUILDDIR)/*
+	rm -rf reference/bundles/*.txt
 
-htmlall: 
+htmlall:
 	$(SPHINXBUILD) -b html $(ERROROPTS) $(ALLSPHINXOPTS) $(BUILDDIR)/html	
 	$(SPHINXBUILD) -b html $(ERROROPTS) -D language='zh_CN' $(ALLSPHINXOPTS) $(BUILDDIR)/zh_CN 
 

@@ -14,7 +14,7 @@ Overview
 ********
 
 `VMware Workstation Player`_ is a type 2 hypervisor. It runs on top of
-Windows\* or Linux\* operating systems. With VMware ESXi, you can
+Windows\* or Linux\* operating systems. With VMware Workstation Player, you can
 create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
 on your local system.
 

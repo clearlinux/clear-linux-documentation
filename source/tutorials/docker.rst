@@ -19,7 +19,7 @@ This tutorial covers:
    If you want to use |CL| as a Docker container image, refer to the
    official |CL| container image
    `published on Docker* Hub <https://hub.docker.com/_/clearlinux/>`_
-   and our guide to :ref:`custom-clear-container`.
+   and our guide to :ref:`container-image-new`.
 
 Prerequisites
 *************

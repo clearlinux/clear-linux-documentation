@@ -32,13 +32,13 @@ This example uses the following DPDK components:
 Prerequisites
 *************
 
-*  Two platforms using |CL-ATTR| release `13330`_ or higher.
+*  Two platforms using |CL-ATTR| release `31130`_ or higher.
 *  Both images must include the :command:`kernel-native` bundle.
-*  Install the :command:`network-basic-dev` bundle with the command:
+*  Install the following packages:
 
    .. code-block:: bash
 
-      sudo swupd bundle-add network-basic-dev
+      sudo swupd bundle-add network-basic-dev dpdk devpkg-dpdk
 
 *  Each platform must have at least one :abbr:`NIC (Network Interface Card)`.
    Check the `DPDK project`_ for the list of supported `dpdk.org NICs`_.
@@ -65,14 +65,14 @@ Install dpdk and build l3fwd example (Platform B)
 
    .. code-block:: bash
 
-      sudo export RTE_TARGET=x86_64-native-linuxapp-gcc
+      sudo export RTE_TARGET=x86_64-native-linux-gcc
 
 #. Build the `l3fwd` application and add the configuration header to
    the :makevar:`CFLAGS` variable.
 
    .. code-block:: bash
 
-      sudo make CFLAGS+="-include /usr/include/rte_config.h"
+      sudo make
 
 
 Build pktgen (Platform A)
@@ -92,7 +92,7 @@ Build pktgen (Platform A)
 
    .. code-block:: bash
 
-      sudo export RTE_TARGET=x86_64-native-linuxapp-gcc
+      sudo export RTE_TARGET=x86_64-native-linux-gcc
 
 #. Build the `pktgen` project and set the :makevar:`CONFIG_RTE_BUILD_SHARED_LIB` variable
    to "n".
@@ -144,14 +144,14 @@ packet buffers.
 
    .. code-block:: bash
 
-      sudo echo 1024 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 | sudo tee /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Allocate pages on NUMA machines.
 
    .. code-block:: bash
 
-      sudo echo 1024 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-      sudo echo 1024 > /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+      echo 1024 | sudo tee /sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
 
 #. Make memory available for DPDK.
 
@@ -224,7 +224,7 @@ Run pktgen application (Platform A)
 
    .. code-block:: bash
 
-      sudo ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0xf -n 4 -- -p 0xf -P -m "1.0, 2.1"
+      sudo ./app/app/x86_64-native-linux-gcc/pktgen -c 0xf -n 4 -- -p 0xf -P -m "1.0, 2.1"
 
 #. Enable active colorful output (optional).
 
@@ -302,10 +302,10 @@ machines control the NICs on the host.
 
    .. code-block:: bash
 
-      sudo echo "8086 1521" > /sys/bus/pci/drivers/pci-stub/new_id
-      sudo echo "0000:03:00.0" > /sys/bus/pci/drivers/igb/unbind
-      sudo echo "0000:03:00.0" > /sys/bus/pci/drivers/pci-stub/bind
-      sudo echo "8086 1521" > /sys/bus/pci/drivers/pci-stub/remove_id
+      echo "8086 1521" | sudo tee /sys/bus/pci/drivers/pci-stub/new_id
+      echo "0000:03:00.0" | sudo tee /sys/bus/pci/drivers/igb/unbind
+      echo "0000:03:00.0" | sudo tee /sys/bus/pci/drivers/pci-stub/bind
+      echo "8086 1521" | sudo tee /sys/bus/pci/drivers/pci-stub/remove_id
 
 #. Assign the unbound NICs to the KVM virtual machine (guest).
    Modify the :file:`start_qemu.sh` script in `qemu-system-x86_64` arguments, and
@@ -343,7 +343,7 @@ machines control the NICs on the host.
 #. Run the :file:`start_qemu.sh` script.
 
 
-.. _13330: https://cdn.download.clearlinux.org/releases/13330/
+.. _31130: https://cdn.download.clearlinux.org/releases/31130/clear/
 .. _DPDK project: http://dpdk.org
 .. _dpdk.org NICs: http://dpdk.org/doc/nics
 .. _pktgen tar package: http://dpdk.org/browse/apps/pktgen-dpdk/refs

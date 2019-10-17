@@ -3,45 +3,53 @@
 Redis\*
 #######
 
-Redis is an in-memory key:value store designed for quick lookups, accessible
-over the network. In this tutorial, you'll install redis and launch a
-redis-server on |CL|, plus learn a few basic redis commands. We also invite
-you to pull our `Clear Linux Redis instance`_ on dockerhub\* for application
-or infrastructure development.
-
-While the `redis data structure store`_ can serve as a NoSQL database for a Web application, it's also easy to integrate in an existing stack. For example, you could use the Redis caching layer for real-time responses on a leaderboard in a gaming app. Redis offers many client libraries with language-specific bindings for Python, Perl, Ruby, and more.
+In this tutorial, you'll install :abbr:`Redis (REmote DIctionary Server)`
+and launch a `Redis-server` on |CL-ATTR|. We invite you to pull our
+`Clear Linux Redis instance`_ on dockerhub\* for application or
+infrastructure development.
 
 .. contents::
    :local:
    :depth: 1
 
+Description
+***********
+
+Redis is an in-memory key:value store designed for quick lookups, accessible over a network. While the `redis data structure store`_ can serve
+as a NoSQL database for a web application, it's also easy to integrate into an
+existing stack. For example, you could use the Redis caching layer for
+real-time responses on a leaderboard in a gaming app. Redis offers many client
+libraries with language-specific bindings for Python\*, Perl\*, Ruby, and more.
+
 Prerequisites
 *************
-* Install the `redis-native` bundle in |CL|
-* Install the `containers-basic` bundle in |CL| (only required in Example 2)
 
-Install the redis bundle
+* Install the :command:`redis-native` bundle in |CL|
+* Install the :command:`containers-basic` bundle in |CL| (only required in
+  Example 2)
+
+Install the Redis bundle
 ************************
 
-In |CL|, find redis in the `redis-native` bundle.
+In |CL|, find Redis in the :command:`redis-native` bundle.
 
-#. Open a Terminal and login as an administrative user.
+#. Open a terminal and login as an administrative user.
 
-#. Add :file:`redis-native`.
+#. Add :command:`redis-native`.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   sudo swupd bundle-add redis-native
+      sudo swupd bundle-add redis-native
 
-.. note::
+   .. note::
 
-   If the bundle already exists, no action is required.
+      If the bundle already exists, no action is required.
 
-Start the redis-server
+Start the Redis-server
 **********************
 
-A `systemd` service unit is available to control the redis server.
-By default, redis runs on port 6379.
+A :command:`systemd` service unit is available to control the Redis-server.
+By default, Redis runs on port 6379.
 
 #. Start the service.
 
@@ -51,15 +59,15 @@ By default, redis runs on port 6379.
 
    .. note::
 
-      To stop redis run :command:`systemctl stop redis`.
+      To stop Redis, run :command:`systemctl stop redis`.
 
-#. Assure the service is running.
+#. Confirm the service is running.
 
    .. code-block:: bash
 
       systemctl status redis
 
-#. Verify the redis-server sends a reply.
+#. Verify that the Redis-server sends a reply.
 
    .. code-block:: bash
 
@@ -69,24 +77,25 @@ By default, redis runs on port 6379.
 
       Expected output: `PONG`.
 
-#. Optional: If you wish to apply advanced configuration, copy the
+#. Optional: If you wish to apply the advanced configuration, copy the
    `redis.conf` into /etc/ directory.
 
    .. code-block:: bash
 
       sudo cp /usr/share/defaults/etc/redis.conf /etc/
 
-The redis-server is now ready to use on |CL|. Try some examples below.
+The Redis-server is now ready to use on |CL|. Try some of the examples shown
+below.
 
-Example 1: Use the redis-cli and try commands
-*********************************************
+Example 1: Use the redis-cli and commands
+*****************************************
 
-One advantage of redis over other NoSQL databases is that developers can
+One advantage of Redis over other NoSQL databases is that developers can
 easily access data structures like lists, sets, sorted sets, strings, and
 hashes using collection operations commands similar to those found in many
 programming languages. These exercises are inspired by `try redis io`_.
 
-After your `redis-server` is running, try some basic commands.
+After your Redis-server is running, try some basic commands.
 
 #. Enter the `redis-cli`. It provides syntax suggestions as you type.
 
@@ -94,7 +103,8 @@ After your `redis-server` is running, try some basic commands.
 
       redis-cli
 
-#. SET key to hold string value. In the set create connections and increment.
+#. :command:`SET` a key to hold a string value. In the set, create connections
+   and increment.
 
    .. code-block:: bash
 
@@ -137,7 +147,7 @@ After your `redis-server` is running, try some basic commands.
 
       RPUSH friends "Mary"
 
-#. Modify `friends` list, using a common slice method with a 0-index.
+#. Modify the `friends` list, using a common slice method with a 0-index.
 
    .. code-block:: bash
 
@@ -159,8 +169,8 @@ After your `redis-server` is running, try some basic commands.
 
       LLEN friends
 
-#. Consider using a hash, a very useful data type, which maps string fields
-   and string values, offering multiple lookup methods.
+#. Consider using a hash, which maps string fields and string values, and
+   offers multiple lookup methods.
 
    Enter many user key:values with `HMSET`. Then try `HGET` and `HGETALL`.
 
@@ -181,8 +191,8 @@ After your `redis-server` is running, try some basic commands.
       HGETALL user:1000
 
 
-Example 2: Run the |CL| redis docker image
-******************************************
+Example 2: Run the |CL| Redis Docker\* image
+********************************************
 
 We also provide a `Clear Linux Redis instance`_, which is
 updated continuously and maintained by |CL| development.
@@ -204,7 +214,7 @@ Next Steps
 
 * Follow the `redis quickstart tutorial`_ to expand potential uses.
 
-* Learn to :ref:`docker`.
+* Learn how to use :ref:`docker`.
 
 .. _try redis io: https://try.redis.io/
 

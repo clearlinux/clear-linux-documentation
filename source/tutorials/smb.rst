@@ -4,20 +4,27 @@ Samba\* as a host
 #################
 
 This tutorial describes how to enable simple file sharing from a system
-running |CL-ATTR| to a Windows machine using Samba. For more advanced sharing,
-refer to the `Samba guide`_.
+running |CL-ATTR| to a Windows\* computer using Samba. For more advanced
+sharing, refer to the `Samba guide`_.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Prerequisites
 *************
 
-This tutorial assumes you have installed |CL| on your host system. For
-detailed instructions, follow the steps in :ref:`bare-metal-install-desktop`.
+*	|CL| is installed on your host system.
 
-Before you install any new packages, update |CL| with the following command:
+	For detailed instructions, follow the steps in
+	:ref:`bare-metal-install-desktop`.
 
-.. code-block:: bash
+*	Before you install any new packages, update |CL| with the following
+	command:
 
-   sudo swupd update
+	.. code-block:: bash
+
+	   sudo swupd update
 
 
 Set up file sharing
@@ -29,7 +36,7 @@ Set up file sharing
 
 		sudo -s
 
-#.	Add the storage-utils bundle, which includes the Samba binaries.
+#.	Add the :command:`storage-utils` bundle, which includes the Samba binaries.
 
 	.. code-block:: bash
 
@@ -37,20 +44,21 @@ Set up file sharing
 
 	.. note::
 
-		The os-clr-on-clr bundle also includes the Samba binaries.
+		The :command:`os-clr-on-clr` bundle also includes the Samba binaries.
 
-#.	Create a configuration file called :file:`/etc/samba/smb.conf`. In this
-	example, `[Downloads]` enables a folder share with a specific user.
-	`[Documents]` enables a folder share with any user. The example assumes that a
-	user account `clearlinuxuser` already exists.
+#.	Create a configuration file named :file:`/etc/samba/smb.conf`. In this
+	example, :envvar:`[Downloads]` enables a folder share with a specific user.
+	:envvar:`[Documents]` enables a folder share with any user. The example
+	assumes that the user account :envvar:`clearlinuxuser` already exists.
 
-	If `valid users` is not specified, then anyone with a user account on the
-	machine and with their Samba password already set can access the folder.
-	However, the account is only able to access files and folders for which
-	they have appropriate permissions.
+	If :envvar:`valid users` is not specified, then anyone with a user account
+	on the machine and with their Samba password already set can access the
+	folder. However, the account is only able to access files and folders for
+	which they have appropriate permissions.
 
-	Use :command:`chown` or :command:`chmod` to change either the owner of the
-	file or the permissions to allow other users to access the file.
+	Use either :command:`chown` to change the owner of the file or use
+	:command:`chmod` to change the permissions to allow other users to access
+	the file.
 
 	.. code-block:: console
 
@@ -78,17 +86,17 @@ Set up file sharing
 
 #.	Use :command:`smbpasswd` to add the initial password for the user
 	account to access the share. Be aware that Samba maintains its own list of
-	passwords for user accounts. The Samba password list can be different than
+	passwords for user accounts. The Samba password list can be different from
 	the password used to log in.
 
 	.. code-block:: bash
 
 		smbpasswd -a clearlinuxuser
 
-Setup is complete and a Windows machine on the same network can access the
-shares. Windows uses the format :file:`\\\\[server IP or hostname]\\folder` to
-access shares. Access the shares directly with Windows Explorer or by
-mapping a network drive.
+The setup is now complete and a Windows machine on the same network can access
+the shares. Windows uses the format
+:file:`\\\\[server IP or hostname]\\folder` to access shares. Access the shares
+directly with Windows Explorer or by mapping a network drive.
 
 Use the IP address of the |CL| machine for an easy access method. If the
 |CL| machine is behind an Active Directory domain controller or a DNS server,

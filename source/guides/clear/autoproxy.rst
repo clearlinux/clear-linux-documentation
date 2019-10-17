@@ -54,16 +54,16 @@ environment settings are respected and no time is wasted trying to resolve a
 proxy. All these steps happen in the background with no user interaction.
 
 Troubleshooting
-===============
+***************
 
 Autoproxy allows |CL| to operate seamlessly behind a proxy
 because :ref:`swupd <swupd-guide>` and other |CL| tools are implemented on
 top of libcurl. Tools that do not use libcurl, like git, must
-be configured independently. 
+be configured independently.
 
 If you are familiar with PAC files and WPAD, you can use
 :command:`pacdiscovery` and :command:`FindProxyForURL` to
-troubleshoot problems with autproxy.
+troubleshoot problems with autoproxy.
 
 .. note::
 
@@ -71,24 +71,29 @@ troubleshoot problems with autproxy.
 
 .. _findproxyforurl: http://findproxyforurl.com/
 
-Run :command:`pacdiscovery` with no arguments to indicate
 
-1. if there is a problem resolving the :command:`WPAD` host name resolution: 
+Run :command:`pacdiscovery` with no arguments to indicate |br|
+
+#. if there is a problem resolving the :command:`WPAD` host name resolution:
 
    .. code-block:: bash
 
-      pacdiscovery
+      sudo pacdiscovery
+
+   Sample output:
 
    .. code-block:: console
 
       failed getaddrinfo: No address associated with hostname
       Unable to find wpad host
 
-2. or if the :command:`pacrunner` service is disabled (masked).
+#. or if the :command:`pacrunner` service is disabled (masked).
 
    .. code-block:: bash
 
-      pacdiscovery
+      sudo pacdiscovery
+
+   Sample output:
 
    .. code-block:: console
 
@@ -99,55 +104,65 @@ Unmask the :command:`pacrunner` service by running:
 
 .. code-block:: bash
 
-   systemctl unmask pacrunner.service
+   sudo systemctl unmask pacrunner.service
 
-:command:`FindProxyForURL` with :command:`busctl` can also indicate if the
-:command:`pacrunner.service` is masked.
 
-.. code-block:: bash
 
-   busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client 
+Use :command:`FindProxyForURL` with :command:`busctl` to indicate |br|
 
-.. code-block:: console
-   
-   FindProxyForURL ss "http://www.google.com" "google.com"
-   Unit pacrunner.service is masked.
-   dig wpad, dig wpad.<domain>
+#. the URL and port of the proxy server when an external URL and host are
+   provided as arguments:
 
-:command:`FindProxyForURL` returns the URL and port of the proxy server when
-an external URL and host are provided as arguments.
+   .. code-block:: bash
 
-.. code-block:: bash
+      busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client FindProxyForURL ss "http://www.google.com" "google.com"
 
-   busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client 
+   Sample output showing proxy was found:
 
-.. code-block:: console
+   .. code-block:: console
 
-   FindProxyForURL ss "http://www.google.com" "google.com"
-   s "PROXY proxy.your.domain.com:<port>"
+      s "PROXY proxy.your.domain.com:<port>"
 
-If a proxy server is not avialable, or if :command:`pacrunner` is running
-without a PAC file, :command:`FindProxyForURL` will return "DIRECT". 
+#. if the :command:`pacrunner.service` is masked:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client 
+      busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client FindProxyForURL ss "http://www.google.com" "google.com"
 
-.. code-block:: console 
+   Sample output:
 
-   FindProxyForURL ss "http://www.google.com" "google.com"
-   s "DIRECT"
+   .. code-block:: console
+
+      Unit pacrunner.service is masked.
+      dig wpad, dig wpad.<domain>
+
+#. if a proxy server is not available, or if :command:`pacrunner` is running
+   without a PAC file:
+
+   .. code-block:: bash
+
+      busctl call org.pacrunner /org/pacrunner/client org.pacrunner.Client FindProxyForURL ss "http://www.google.com" "google.com"
+
+   Sample output, indicating connection made directly, without proxy:
+
+   .. code-block:: console
+
+      s "DIRECT"
 
 Once :command:`pacdiscovery` is able to look up :command:`WPAD`, restart the
 :command:`pacrunner` service:
 
 .. code-block:: bash
 
-   systemctl stop pacrunner
-   systemctl restart pacdiscovery
+   sudo systemctl stop pacrunner
+   sudo systemctl restart pacdiscovery
 
 .. note::
 
    A "domain" or "search" entry in :file:`/etc/resolv.conf` is required
    for short name lookups to resolve. The :file:`resolv.conf` man page has
    additional details.
+
+.. |br| raw:: html
+
+   <br><br>

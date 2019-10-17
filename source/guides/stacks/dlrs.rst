@@ -59,12 +59,27 @@ Stack features
    software within the work has its own license.  Please see the `DLRS Terms of Use`_
    for more details about licensing and usage of the Deep Learning Reference Stack.
 
+Version compatibility
+=====================
+
+We validated the steps in this guide against the following software package versions:
+
+* |CL| 26240 (Minimum supported version)
+* Docker 18.06.1
+* Kubernetes 1.11.3
+* Go 1.11.12
+
+.. note::
+
+   The Deep Learning Reference Stack was developed to provide the best user experience when executed on a |CL| host.  However, as the stack runs in a container environment, you should be able to complete the following sections of this guide on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
+
+
 Prerequisites
 =============
 
 * :ref:`Install <bare-metal-install-desktop>` |CL| on your host system
-* :command:`containers-basic` bundle
-* :command:`cloud-native-basic` bundle
+* Add the :command:`containers-basic` bundle
+* Add the :command:`cloud-native-basic` bundle
 
 In |CL|, :command:`containers-basic` includes Docker\*, which is required for
 TensorFlow and PyTorch benchmarking. Use the :command:`swupd` utility to
@@ -92,21 +107,42 @@ bundle. To start Docker, enter:
 To ensure that Kubernetes is correctly installed and configured, follow the
 instructions in :ref:`kubernetes`.
 
-Version compatibility
-=====================
 
-We validated these steps against the following software package versions:
 
-* |CL| 26240 (Minimum supported version)
-* Docker 18.06.1
-* Kubernetes 1.11.3
-* Go 1.11.12
+Kubectl
+=======
 
-.. note::
+You can use kubectl to run commands against your Kubernetes cluster.  Refer to
+the `kubectl overview`_ for details on syntax and operations. Once you have a
+working cluster on Kubernetes, use the following YAML script to start a pod with
+a simple shell script, and keep the pod open.
 
-   The Deep Learning Reference Stack was developed to provide the best user
-   experience when executed on a |CL| host.  However, as the stack runs in a
-   container environment, you should be able to complete the following sections of this guide on other Linux* distributions, provided they comply with the Docker*, Kubernetes* and Go* package versions listed above. Look for your distribution documentation on how to update packages and manage Docker services.
+#. Copy this example.yaml script to your system:
+
+   .. code-block:: yaml
+
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: example-pod
+        labels:
+          app: ex-pod
+      spec:
+        containers:
+        - name: ex-pod-container
+          image: clearlinux/stacks-dlrs-mkl:latest
+          command: ['/bin/bash', '-c', '--']
+          args: [ "while true; do sleep 30; done" ]
+
+#. Execute the script with kubectl:
+
+   .. code-block:: bash
+
+      kubectl apply –f <path-to-yaml-file>/example.yaml
+
+
+This script opens a single pod and is helpful to verify your setup is complete and correct. More robust solutions would create a deployment or inject a python script or larger shell script into the container.
+
 
 TensorFlow single and multi-node benchmarks
 *******************************************
@@ -128,8 +164,7 @@ TensorFlow.
 
    .. code-block:: bash
 
-      docker run --name <image name>  --rm -i -t <clearlinux/
-      stacks-dlrs-TYPE> bash
+      docker run --name <image name>  --rm -ti <clearlinux/stacks-dlrs-TYPE> bash
 
    .. note::
 
@@ -141,7 +176,7 @@ TensorFlow.
 
    .. code-block:: bash
 
-      git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.12_compatible
+      git clone http://github.com/tensorflow/benchmarks -b cnn_tf_v1.13_compatible
 
 #. Execute the benchmark script:
 
@@ -193,191 +228,14 @@ single node.
                              --cpu \
                              --model AlexNet
 
-Kubeflow multi-node benchmarks
-******************************
-
-The benchmark workload runs in a Kubernetes cluster. The guide uses
-`Kubeflow`_ for the Machine Learning workload deployment on three nodes.
+TensorFlow Training (TFJob) with Kubeflow and DLRS
+**************************************************
 
 .. warning::
 
    If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform
    must support the Intel® AVX-512 instruction set. Otherwise, an
    *illegal instruction* error may appear, and you won’t be able to complete this guide.
-
-
-Kubernetes setup
-================
-
-Follow the instructions in the :ref:`kubernetes` tutorial to get set up on
-|CL|. The Kubernetes community also has instructions for creating a cluster,
-described in `Creating a single control-plane cluster with kubeadm`_.
-
-Kubernetes networking
-=====================
-
-We used `flannel`_ as the network provider for these tests. If you
-prefer a different network layer, refer to the Kubernetes network documentation
-described in `Creating a single control-plane cluster with kubeadm`_ for setup.
-
-Kubectl
-=======
-
-You can use kubectl to run commands against your Kubernetes cluster.  Refer to
-the `Overview of kubectl`_ for details on syntax and operations. Once you have a
-working cluster on Kubernetes, use the following YAML script to start a pod with
-a simple shell script, and keep the pod open.
-
-#. Copy this example.yaml script to your system:
-
-   .. code-block:: console
-
-      apiVersion: v1
-      kind: Pod
-      metadata:
-        name: example-pod
-        labels:
-          app: ex-pod
-      spec:
-        containers:
-        - name: ex-pod-container
-          image: clearlinux/stacks-dlrs-mkl:latest
-          command: ['/bin/bash', '-c', '--']
-          args: [ "while true; do sleep 30; done" ]
-
-#. Execute the script with kubectl:
-
-   .. code-block:: bash
-
-      kubectl apply –f <path-to-yaml-file>/example.yaml
-
-This script opens a single pod. More robust solutions would create a deployment
-or inject a python script or larger shell script into the container.
-
-Images
-======
-
-You must add `launcher.py`_ to the Docker image to include the Deep
-Learning Reference Stack and put the benchmarks repo in the correct
-location. Note that this guide uses Kubeflow v0.4.0, and cannot guarantee results if you use a different version.
-
-From the Docker image, run the following:
-
-.. code-block:: bash
-
-   mkdir -p /opt
-   git clone https://github.com/tensorflow/benchmarks.git /opt/tf-benchmarks
-   cp launcher.py /opt
-   chmod u+x /opt/*
-
-Your entry point becomes: :file:`/opt/launcher.py`.
-
-This builds an image that can be consumed directly by TFJob from Kubeflow.
-
-ksonnet\*
-=========
-
-Kubeflow uses ksonnet\* to manage deployments, so you must install it
-before setting up Kubeflow.
-
-ksonnet was added to the :command:`cloud-native-basic` bundle in |CL| version
-27550. If you are using an older |CL| version (not recommended), you must
-manually install ksonnet as described below.
-
-On |CL|, follow these steps:
-
-.. code-block:: bash
-
-   swupd bundle-add go-basic-dev
-   export GOPATH=$HOME/go
-   export PATH=$PATH:$GOPATH/bin
-   go get github.com/ksonnet/ksonnet
-   cd $GOPATH/src/github.com/ksonnet/ksonnet
-   make install
-
-After the ksonnet installation is complete, ensure that binary `ks` is
-accessible across the environment.
-
-Kubeflow
-========
-
-Once you have Kubernetes running on your nodes, set up `Kubeflow`_ by
-following these instructions from the `Getting Started with Kubeflow`_ guide.
-
-.. code-block:: bash
-
-   export KUBEFLOW_SRC=$HOME/kflow
-   export KUBEFLOW_TAG="v0.4.1"
-   export KFAPP="kflow_app"
-   export K8S_NAMESPACE="kubeflow"
-
-   mkdir ${KUBEFLOW_SRC}
-   cd ${KUBEFLOW_SRC}
-   ks init ${KFAPP}
-   cd ${KFAPP}
-   ks registry add kubeflow github.com/kubeflow/kubeflow/tree/${KUBEFLOW_TAG}/kubeflow
-   ks pkg install kubeflow/common
-   ks pkg install kubeflow/tf-training
-
-Next, deploy the primary package for our purposes: tf-job-operator.
-
-.. code-block:: bash
-
-   ks env rm default
-   kubectl create namespace ${K8S_NAMESPACE}
-   ks env add default --namespace "${K8S_NAMESPACE}"
-   ks generate tf-job-operator tf-job-operator
-   ks apply default -c tf-job-operator
-
-This creates the CustomResourceDefinition (CRD) endpoint to launch a TFJob.
-
-Run a TFJob
-===========
-
-#. Get the ksonnet registries for deploying TFJobs from `dlrs-tfjob`_.
-
-#. Install the TFJob components as follows:
-
-   .. code-block:: bash
-
-      ks registry add dlrs-tfjob github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
-
-      ks pkg install dlrs-tfjob/dlrs-bench
-
-#. Export the image name to use for the deployment:
-
-   .. code-block:: bash
-
-      export DLRS_IMAGE=<docker_name>
-
-   .. note::
-
-      Replace <docker_name> with the image name you specified in previous steps.
-
-#. Generate Kubernetes manifests for the workloads and apply them using these
-   commands:
-
-   .. code-block:: bash
-
-      ks generate dlrs-resnet50 dlrsresnet50 --name=dlrsresnet50 --image=${DLRS_IMAGE}
-      ks generate dlrs-alexnet dlrsalexnet --name=dlrsalexnet --image=${DLRS_IMAGE}
-      ks apply default -c dlrsresnet50
-      ks apply default -c dlrsalexnet
-
-This replicates and deploys three test setups in your Kubernetes cluster.
-
-Results of running this section
-===============================
-
-You must parse the logs of the Kubernetes pod to retrieve performance
-data. The pods will still exist post-completion and will be in
-‘Completed’ state. You can get the logs from any of the pods to inspect the
-benchmark results. More information about Kubernetes logging is available
-in the Kubernetes `Logging Architecture`_ documentation.
-
-
-TensorFlow Training (TFJob) with Kubeflow and DLRS
-**************************************************
 
 A `TFJob`_  is Kubeflow's custom resource used to run TensorFlow training jobs on Kubernetes. This example shows how to use a TFJob within the DLRS container.
 
@@ -389,7 +247,7 @@ Pre-requisites:
 
 .. note::
 
-   This example proposes a Kubeflow installation with the binary kfctl maintained by `Arrikto`_. Please download the `kfctl tarball`_ to complete the following steps
+   This example proposes a Kubeflow installation using kfctl. Please download the `kfctl tarball`_ to complete the following steps
 
 #. Download, untar and add to your PATH if necessary
 
@@ -400,19 +258,13 @@ Pre-requisites:
       tar -C ${KFCTL_PATH} -xvf ${KFCTL_PATH}/kfctl_v${kfctl_ver}_linux.tar.gz
       export PATH=$PATH:${KFCTL_PATH}
 
-#. Install `MetalLB`_
-
-   .. code-block:: bash
-
-      kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.1/manifests/metallb.yaml
-
 #. Install Kubeflow resource and TFJob operators
 
    .. code-block:: bash
 
       # Env variables needed for your deployment
       export KFAPP="<your choice of application directory name>"
-      export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_existing_arrikto.yaml"
+      export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6.1/bootstrap/config/kfctl_k8s_istio.yaml"
 
       kfctl init ${KFAPP} --config=${CONFIG} -V
       cd ${KFAPP}
@@ -432,8 +284,7 @@ Pre-requisites:
 Submitting TFJobs
 =================
 
-We provide several `DLRS TFJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the containers to run training workloads in your Kubernetes cluster.
-
+We provide `DLRS TFJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the containers to run training workloads in your Kubernetes cluster.
 
 
 Customizing a TFJob
@@ -495,6 +346,15 @@ If you'd like to modify the number and type of replicas, resources, persistent v
                         - --batch_size=32
                         - --training_steps=1000
 
+Results of running this section
+===============================
+
+You must parse the logs of the Kubernetes pod to retrieve performance
+data. The pods will still exist post-completion and will be in
+‘Completed’ state. You can get the logs from any of the pods to inspect the
+benchmark results. More information about Kubernetes logging is available
+in the Kubernetes `Logging Architecture`_ documentation.
+
 For more information, please refer to:
 * `Distributed TensorFlow`_
 * `TFJobs`_
@@ -514,11 +374,8 @@ Pre-requisites:
 Submitting PyTorch Jobs
 =======================
 
-We provide several `DLRS PytorchJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the container(s) that will run training workloads in your Kubernetes cluster.
+We provide `DLRS PytorchJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the container(s) that will run training workloads in your Kubernetes cluster.
 Select one form the list below:
-
-
-
 
 
 Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack
@@ -1000,7 +857,7 @@ Related topics
 
 .. _Jupyter Notebook: https://jupyter.org/
 
-.. _Overview of kubectl: https://kubernetes.io/docs/reference/kubectl/overview/
+.. _kubectl overview: https://kubernetes.io/docs/reference/kubectl/overview/
 
 .. _launcher.py: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow
 

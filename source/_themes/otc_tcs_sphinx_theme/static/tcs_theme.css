@@ -119,6 +119,8 @@ th,td {
   padding-left: 0 !important;
 }
 
+/*Begin support for collapsbile sections*/
+
 .clps1 {
   font-size: 175%;
 }
@@ -176,6 +178,26 @@ th,td {
   transition: max-height 0.2s ease-out;
 }
 
+/*Fix for permalinks to collapsible sections*/
+
+button a.headerlink {
+  visibility: hidden;
+}
+
+button a.headerlink:after {
+  content: "\f0c1";
+  font-size: 14px;
+  font-family: FontAwesome;
+  font-weight: normal;
+}
+
+button:hover a.headerlink:after {
+  visibility: visible;
+}
+
+/*End support for collapsbile sections*/
+
+/*Begin support for custom Clear Linux header*/
 #header {
     width: 100%;
     display: block;
@@ -278,6 +300,8 @@ th,td {
    line-height: 100px;
 }
 
+/*End support for custom Clear Linux header*/
+
 /*Adds a bit of spacing after the last paragraph in a bulleted list*/
 .wy-plain-list-disc li p:last-child, .rst-content .section ul li p:last-child, .rst-content .toctree-wrapper ul li p:last-child, article ul li p:last-child {
     margin-bottom: 10px;
@@ -291,7 +315,7 @@ div#trademarks {
     color: gray;
 }
 
-
+/*Adds magnifying glass to search box*/
 #clear-docs-search {
   background: url(./mag-glass.png) left no-repeat;
   background-size: 15px 15px;
@@ -312,3 +336,178 @@ div#trademarks {
 .pending-delete-status {
   color:#ce2029; 
 }
+
+/*Begin support for code blocks with $ signs that aren't copied with content*/
+
+.bash-dollar:before {
+  content: '$ ';
+}
+
+/*End support for code blocks with $ signs that aren't copied with content*/
+
+/*Begin support for labeled code-blocks - need to add an entry for every type of code-block that needs to be labeled*/
+
+div.highlight-powershell .highlight:before{
+  background: #909090;
+  color: white;
+  content: " PowerShell ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-python .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Python ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-console .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Console ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-rst, div.highlight-rest .highlight:before{
+  background: #909090;
+  color: white;
+  content: " reStructuredText ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-yaml .highlight:before{
+  background: #909090;
+  color: white;
+  content: " yaml ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-bash .highlight:before{
+  background: #909090;
+  color: white;
+  content: " bash ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-diff .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Diff ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-c .highlight:before{
+  background: #909090;
+  color: white;
+  content: " c ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-json .highlight:before{
+  background: #909090;
+  color: white;
+  content: " json ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-spec .highlight:before{
+  background: #909090;
+  color: white;
+  content: " spec ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-perl .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Perl ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-php .highlight:before{
+  background: #909090;
+  color: white;
+  content: " php ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.highlight-xml .highlight:before{
+  background: #909090;
+  color: white;
+  content: " xml ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
+div.linenodiv:before { /*add extra new line to make sure code and line numbers align*/
+   content: '\00000a';
+   white-space: pre;
+}
+
+/*End support for labeled code-blocks*/
+
+/*Begin support for multi-column sections*/
+
+.column {
+  float: left;
+  width: 350px;
+  padding: 10px;
+  margin: 10px;
+  border: 10px;
+  background: white;
+}
+
+.column.featurecard {
+  background: #CCE9F5;
+}
+
+.column.verticalcard {
+  height: 615px;
+  overflow: auto;
+}
+
+/* Clear floats after the columns */
+.multicolumns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.colh2 {
+  font-size: 150%;
+  font-weight: 700;
+  font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+}
+
+.video.docutils.container {
+  margin: 10px;
+  width:720px;
+  height:405px;
+}
+
+/*End support for multi-column sections*/

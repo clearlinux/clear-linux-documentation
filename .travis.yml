@@ -4,12 +4,11 @@ python:
   - "3.6"
 
 # command to install dependencies
-install: 
+install:
   - pip3 install -q -r requirements.txt
-  - pip3 install -q -r source/_scripts/_python/requirements.txt
 
 # command to run tests
-script: 
+script:
   - make py
   - make htmlall
 

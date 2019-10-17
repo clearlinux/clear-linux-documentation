@@ -132,6 +132,7 @@ html_theme_options = {
   'navigation_depth': 4,
   'display_version': False,
   'collapse_navigation': False,
+  'prev_next_buttons_location': 'None',
   'sticky_navigation': True
 }
 
@@ -178,7 +179,7 @@ html_favicon = '_images/favicon.ico'
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-#html_extra_path = []
+html_extra_path = ['_html_extra']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -331,3 +332,4 @@ locale_dirs = ['../locale/'] # path for lang-specific po files.
 gettext_compact = False # optional.
 
 html_baseurl = 'https://docs.01.org/clearlinux/'
+

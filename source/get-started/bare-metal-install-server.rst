@@ -22,16 +22,17 @@ installation:
 Download the latest |CL| live server image
 ******************************************
 
-Get the latest |CL| installer image from the `Downloads`_ page. Look for the
-:file:`clear-[version number]-live-server.iso` file.
+#. Visit our `Downloads`_ page.
 
-#. Verify and decompress the file per your OS.
+#. Download the file :file:`clear-<release number>-live-server.iso`,
+   also called the |CL| Server.
 
-   * :ref:`download-verify-decompress`
+   .. note::
 
-#. Follow your OS instructions to create a bootable USB drive.
+      <release-number> is the latest |CL| auto-numbered release.
 
-   * :ref:`bootable-usb`
+#. Follow your OS instructions to
+   :ref:`create a bootable usb drive <bootable-usb>`.
 
 Install |CL| on your target system
 **********************************
@@ -356,11 +357,16 @@ root partition
 
    .. note::
 
-      You may also append the following labels:
+      You may also append `_F` to the partition name to force the formatting.
 
-      *  `CLR_ROOT_E`: Adds encryption
-      *  `CLR_ROOT_F`: Formats the partition prior to use
-      *  `CLR_ROOT_E_F`: Adds encryption and formats the partition
+      *  `CLR_ROOT_F`: Force the formatting of the root partition prior to
+          use.
+
+      *  `CLR_F_SWAP`: Force the formatting of the swap partition prior to
+          use; helpful when re-using a partition for swap which was previously formatted for a file system.
+
+      *  `CLR_F_MNT_/data`: Force the formatting of the extra data
+          partition prior to use
 
 #. Press :kbd:`Enter`.
 
@@ -401,8 +407,11 @@ Additional partitions (optional)
 
       Figure 15: CLR_MNT
 
+   .. note::
+
+      If formatting is desired, the `_F` **must precede** `_MNT`.
+
 #. Alternatively, you may create `CLR_MNT_/srv` or other partitions.
-   Use of the `_E` or `_F` **must** precede `_MNT`.
 
 Write configuration to disk
 ---------------------------
@@ -597,6 +606,9 @@ Test Network Settings
 To manually assure network connectivity before installing |CL|,
 select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 
+.. note::
+   If using the :command:`off-line installer`, this option is not available.
+
 A progress bar appears as shown in Figure 22.
 
 .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-22.png
@@ -612,10 +624,13 @@ A progress bar appears as shown in Figure 22.
 
 Optional: Skip to `Finish installation`_.
 
-Bundle Selection
-================
+Select Additional Bundles
+=========================
 
-#. On the Advanced menu, select :guilabel:`Bundle Selection`
+This option is only available with a valid network connection.
+Bundle selection is disabled if no network connection exists.
+
+#. On the Advanced menu, select :guilabel:`Select Additional Bundles`.
 
 #. Navigate to the desired bundle using :kbd:`Tab` or :kbd:`Up/Down` arrows.
 

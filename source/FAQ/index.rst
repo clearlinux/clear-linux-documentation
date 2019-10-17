@@ -16,7 +16,7 @@ Why did you make another distro?
 ================================
 
 The |CL| team felt that performance was left on the table with Linux software.
-|CL| takes a holistic approach to improving performance across the stack. We
+|CL| takes a holistic approach to improve performance across the stack. We
 also wanted to take more modern approaches with OS updates and tooling.
 
 |
@@ -31,7 +31,7 @@ Yes, we absolutely love open source reuse and upstreaming improvements.
 How often do you update?
 ========================
 
-The |CL| team puts out multiple releases a week, often releasing 2 or more
+The |CL| team puts out multiple releases a week, often releasing two or more
 times a day. This rolling release approach allows |CL| to remain agile to
 upstream changes and security patches.
 
@@ -137,7 +137,7 @@ Is Microsoft\* Visual Studio Code\* available?
 
 Yes. Find the CLI command for installing `VS Code`_ and other Flatpak apps in
 the `software store`_. Installing Flatpak apps is also covered in our
-:ref:`tutorial <flatpak-tutorial>`. 
+:ref:`tutorial <flatpak-tutorial>`.
 
 The |CL| team is working on a natively packaged version of Visual Studio Code
 for future release.

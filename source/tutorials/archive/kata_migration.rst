@@ -3,12 +3,22 @@
 Migrate Clear Containers to Kata Containers\*
 #############################################
 
-`Clear Containers`_ and `Kata Containers`_ can co-exist in the same system.
-Both can be installed through the :file:`containers-virt bundle`. However, we
-recommend that you migrate to Kata Containers because Clear Containers is no
-longer maintained_ and will soon be deprecated on |CL-ATTR|.
+This tutorial explains how to migrate from Clear Containers to Kata Containers.
 
-This guide describes how to migrate to Kata Containers and assumes that:
+.. contents::
+   :local:
+   :depth: 1
+
+Description
+***********
+
+`Clear Containers`_ and `Kata Containers`_ can co-exist in the same system.
+Both can be installed through the :command:`containers-virt` bundle. However,
+we recommend that you migrate to Kata Containers because Clear Containers is no
+longer `maintained`_ and will soon be deprecated on |CL-ATTR|.
+
+Prerequisites
+*************
 
 *  Clear Containers is on a Docker\* system.
 *  Kata Containers is installed. See :ref:`kata`.

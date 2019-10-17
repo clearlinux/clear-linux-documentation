@@ -34,8 +34,28 @@ Prerequisites
 * A |CL| system with a desktop installed
 * An NVIDIA device installed
 
-Install DKMS
+.. note:: NVIDIA Optimus
+   
+   Some systems come with a hybrid graphics configuration for a balanced power
+   and performance profile. This configuration is commonly found on
+   laptops. `NVIDIA Optimus* technology
+   <https://www.geforce.com/hardware/technology/optimus>`_, is designed to
+   allow switching seamlessly between a NVIDIA device and another graphics
+   devices sharing the same display.
+   
+   Getting NVIDIA Optimus* on Linux working well with both graphics devices
+   adds an additional level of complexity with platform specific steps and may
+   require additional software. Installation for systems with NVIDIA Optimus*
+   with both graphics devices operating is not covered by the scope of this
+   documentation. As a simple workaround, some systems can disable one of the
+   graphics devices or NVIDIA Optimus* in the system firmware.
+
+
+Installation
 ************
+
+Install DKMS
+============
 
 The :ref:`Dynamic Kernel Module System (DKMS)
 <kernel-modules-dkms>` allows the NVIDIA kernel modules to be automatically
@@ -51,11 +71,8 @@ Install the appropriate DKMS bundle using the instructions below:
    :start-after: kernel-modules-dkms-install-begin:
    :end-before: kernel-modules-dkms-install-end:
 
-Download and install the NVIDIA drivers
-***************************************
-
-Download the NVIDIA drivers for Linux
-=====================================
+Download the NVIDIA drivers
+===========================
 
 #. Identify the NVIDIA GPU model that is installed.
 
@@ -65,22 +82,19 @@ Download the NVIDIA drivers for Linux
 
 #. Go to the `NVIDIA Driver Downloads website`_ . Search for and download the
    appropriate driver based on the NVIDIA GPU model you have with *Linux
-   64-bit* selected as the Operating System .
-
-#. Open a terminal and navigate to where the
-   :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file was saved. In this
-   example, it was saved in the Downloads folder.
+   64-bit* selected as the Operating System.
 
    .. code-block:: bash
 
-      cd ~/Downloads/
+      wget https://download.nvidia.com/XFree86/Linux-x86_64/<VERSION>/NVIDIA-Linux-x86_64-<VERSION>.run   
 
-#. Make the :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file executable.
+   If you already know the appropriate driver version for your device, you can
+   also obtain a download link directly from one of the links below:
 
-   .. code-block:: bash
+   - https://www.nvidia.com/en-us/drivers/unix/
+   - https://download.nvidia.com/XFree86/Linux-x86_64/
 
-      chmod +x :file:`NVIDIA-Linux-x86_64-<VERSION>.run`
-
+      
 Disable the nouveau driver
 ==========================
 
@@ -146,11 +160,18 @@ Install the NVIDIA drivers
    installation progress. Switch to a secondary virtual terminal by pushing
    :command:`CTRL + ALT + F2` or remotely login over SSH.
 
-#. Navigate to the directory where the NVIDIA installer was downloaded.
+#. Navigate to the directory where the NVIDIA installer was downloaded. In
+   this example, it was saved in the :file:`Downloads` folder.
 
    .. code-block:: bash
 
       cd ~/Downloads/
+
+#. Make the :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file executable.
+
+   .. code-block:: bash
+
+      chmod +x NVIDIA-Linux-x86_64-<VERSION>.run
 
 #. Run the installer with the advanced options below.
 
@@ -192,17 +213,25 @@ Install the NVIDIA drivers
 
       sudo swupd repair --quick --bundles=lib-opengl
 
-.. note::
+   .. warning:: 
 
-   The NVIDIA software places some files under the :file:`/usr` subdirectory
-   that are not managed by |CL| and conflict with the |CL| stateless design.
+      Although a limited version of :command:`swupd repair` is run above,
+      other uses of the :command:`swupd repair` command should be avoided
+      with the proprietary NVIDIA drivers installed.
 
-   Although a limited version of :command:`swupd repair` is run above,
-   other uses of the :command:`swupd repair` command should be avoided
-   with the proprietary NVIDIA drivers installed.
+      The NVIDIA software places some files under the :file:`/usr` subdirectory
+      that are not managed by |CL| and conflict with the |CL| stateless design.
 
-Updating the NVIDIA drivers
-***************************
+#. Optional: Create a link for the nvidia-settings desktop entry to
+   :file:`~/.local/share` so that it appears in the launcher for easy access. 
+
+   .. code-block:: bash
+
+      ln -sv /opt/nvidia/share/applications/nvidia-settings.desktop $HOME/.local/share
+
+
+Updating
+********
 
 The proprietary NVIDIA drivers are installed manually outside of
 :ref:`swupd <swupd-guide>` and must be updated manually when needed.
@@ -211,7 +240,7 @@ Updating the NVIDIA drivers follows the same steps as initial installation,
 however the desktop environment must first be stopped so that the drivers are
 not in use.
 
-#. Follow the steps in the `Download the NVIDIA Drivers for Linux`_ section
+#. Follow the steps in the `Download the NVIDIA drivers`_ section
    to get the latest NVIDIA drivers.
 
 #. Temporarily set the default boot target to the *multi-user*, which is
@@ -243,8 +272,8 @@ not in use.
 
       flatpak update
 
-Uninstalling the NVIDIA drivers
-*******************************
+Uninstallation
+**************
 
 The NVIDIA drivers and associated software can be uninstalled and nouveau
 driver restored with the instructions in this section.
@@ -261,12 +290,25 @@ driver restored with the instructions in this section.
 
       sudo rm /etc/X11/xorg.conf.d/nvidia-files-opt.conf
 
-#. Run the :command:`sudo /opt/nvidia/bin/nvidia-uninstall`
+#. Remove the nvidia-settings desktop entry file if it was linked to
+   :file:`~/.local/share`.
+
+   .. code:: bash
+
+      unlink -v $HOME/.local/share/nvidia-settings.desktop
+
+
+#. Run the :command:`nvidia-uninstall` command.
+
+   .. code:: bash
+
+      sudo /opt/nvidia/bin/nvidia-uninstall
 
 #. Follow the prompts on the screen and reboot the system.
 
-Debugging installation of NVIDIA drivers
-****************************************
+
+Troubleshooting
+***************
 
 * The NVIDIA driver places installer and uninstaller logs under
   :file:`/var/log/nvidia-install` and :file:`/var/log/nvidia-uninstall`.
@@ -278,8 +320,56 @@ Debugging installation of NVIDIA drivers
   installation files into a directory named
   :file:`NVIDIA-Linux-x86_64-<VERSION>`.
 
+
+Brightness control
+==================
+
+If you can't control the screen brightness with the NVIDIA driver installed,
+try one of the solutions below:
+
+- Add a kernel parameter *acpi_osi=* which disables the ACPI Operating System
+  Identification function. Some system firmware may manipulate brightness
+  control keys based on the reported operating system. Disabling the
+  identification mechanism can cause the system firmware to expose brightness
+  controls that are recognizable in Linux.
+
+  .. code:: bash
+
+     sudo mkdir -p /etc/kernel/cmdline.d 
+     echo "acpi_osi=" | sudo tee /etc/kernel/cmdline.d/acpi-backlight.conf   
+     sudo clr-boot-manager update  
+
+
+
+- Add a kernel parameter for the nvidia driver:
+  *NVreg_EnableBacklightHandler=1*. This handler overrides the ACPI-based one
+  provided by the video.ko kernel module. This option is available with NVIDIA
+  driver version 387.22 and above. 
+  
+  .. code:: bash
+
+     sudo mkdir -p /etc/kernel/cmdline.d 
+     echo "nvidia.NVreg_EnableBacklightHandler=1" | sudo tee /etc/kernel/cmdline.d/nvidia-backlight.conf   
+     sudo clr-boot-manager update
+     
+
+- Add the *EnableBrightnessControl=1* options to the *Device*
+  section of your xorg config. Below is an example:
+
+  .. code:: bash
+
+     sudo mkdir -p /etc/X11/xorg.conf.d/
+
+     sudo tee /etc/X11/xorg.conf.d/nvidia-brightness.conf > /dev/null <<'EOF'
+     Section "Device"
+         Identifier     "Device0"
+         Driver         "nvidia"
+         Option         "RegistryDwords" "EnableBrightnessControl=1"
+     EndSection   
+     EOF
+
 Additional resources
-********************
+====================
 
 * `Why aren't the NVIDIA Linux drivers open source? <https://nvidia.custhelp.com/app/answers/detail/a_id/1849/kw/Linux>`_
 
@@ -290,3 +380,5 @@ Additional resources
 .. _`nouveau project`:  https://nouveau.freedesktop.org/wiki/
 
 .. _`NVIDIA Driver Downloads website`: https://www.nvidia.com/download/index.aspx
+
+

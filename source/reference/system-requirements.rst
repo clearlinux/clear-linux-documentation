@@ -5,7 +5,7 @@ Recommended minimum system requirements
 
 |CL-ATTR| can run on most modern hardware and is capable of running with
 modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1
-GB RAM, and 2 GB of disk space.  
+GB RAM, and 2 GB of disk space.
 
 For use cases requiring minimal resources, |CL| :ref:`about <about>` can
 be used to create a highly customized installation that can even run on a
@@ -29,7 +29,7 @@ System requirements
 *******************
 
 |CL| requires an x86 64-bit processor which supports Intel® Streaming SIMD
-Extensions 4.1 (Intel® SSE 4.1), and it requires a system that supports UEFI.
+Extensions 4.2 (Intel® SSE 4.2), and it requires a system that supports UEFI.
 
 The |CL| installer performs a system compatibility check upon booting. To
 manually verify system compatibility with |CL|, run the :ref:`compatibility
@@ -39,13 +39,12 @@ these features:
 * Instruction Set:
 
   - 64-bit
-  
+
 * Instruction Set Extensions:
 
   - Supplemental Streaming SIMD Extension 3 (Intel® SSSE3)
   - Intel® Streaming SIMD Extensions 4.1 (Intel® SSE 4.1)
   - Intel® Streaming SIMD Extensions 4.2 (Intel® SSE 4.2)
-  - Intel® Advanced Encryption Standard New Instructions (Intel® AES-NI)
   - Carry-less Multiplication (PCLMUL)
 
 The following processor families have been verified to run |CL|:
