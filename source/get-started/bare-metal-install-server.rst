@@ -943,3 +943,4 @@ entering :guilabel:`Configure Installation Media`:
   - macOS\* platform: :command:`diskutil list`
 
 .. _Downloads: https://clearlinux.org/downloads
+
