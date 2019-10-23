@@ -407,7 +407,7 @@ The machine learning platform for this guide is built using the Kubeflow Toolkit
 
       kubectl label namespace kubeflow istio-injection=enabled
 
-      kubectl apply -f - !!!!TODO!! replace ,, with left angle bracket here!!! EOF
+      kubectl apply -f - <<EOF
       apiVersion: "rbac.istio.io/v1alpha1"
       kind: ClusterRbacConfig
       metadata:
@@ -500,7 +500,7 @@ There is a |CL| based image with the OpenVINO Model Server in DLRS v0.4.0, but t
 
    .. code-block:: bash
 
-      cat !!EOF > Dockerfile
+      cat  <<EOF > Dockerfile
       FROM clearlinux/stacks-dlrs-mkl:v0.4.0
       COPY serve.sh /workspace/scripts/serve.sh
       EOF
@@ -509,7 +509,7 @@ There is a |CL| based image with the OpenVINO Model Server in DLRS v0.4.0, but t
 
    .. code-block:: bash
 
-      cat !!EOF > serve.sh
+      cat  <<EOF > serve.sh
       #!/bin/bash
       # temporary workaround
       PY_PATH="/usr/local/lib/openvino/inference_engine/:/usr/local/lib"
@@ -565,6 +565,87 @@ You have now created the inference infrastructure!
 
 
 
+Secure Communication
+====================
+
+You can optionally set up secure communication between the clients and the server.  This is not required for completing this guide, but we will walk through it for completeness.
+
+For this example we will use `10.0.0.1.nip.io` for our domain name.
+
+#. Clone the repository
+
+   .. code-block:: bash
+
+      git clone https://github.com/nicholasjackson/mtls-go-example
+
+#. Generate the certificates.
+
+   This script will generate four directories: 1_root, 2_intermediate, 3_application, and 4_client containing the client and server certificates that will be used in the following procedures. When prompted, select `y` for all questions.
+
+   .. code-block:: bash
+
+      cd mtls-go-example
+      ./generate.sh 10.0.0.1.nip.io password
+      mkdir 10.0.0.1.nip.io && mv 1_root 2_intermediate 3_application 4_client 10.0.0.1.nip.io
+
+#. Create a Kubernetes secret to hold the server's certificate and private key.
+
+   We'll use :command:`kubectl` to create the  secret istio-ingressgateway-certs in namespace istio-system. The Istio gateway will load the secret automatically.
+
+   .. code-block:: bash
+
+      kubectl create -n istio-system secret tls istio-ingressgateway-certs --key 10.0.0.1.nip.io/3_application/private/10.0.0.1.nip.io.key.pem --cert 10.0.0.1.nip.io/3_application/certs/10.0.0.1.nip.io.cert.pem
+
+#. Verify that :file:`tls.crt` and :file:`tls.key` have been mounted in the ingress gateway pod
+
+   .. code-block:: bash
+
+      kubectl exec -it -n istio-system $(kubectl -n istio-system get pods -l istio=ingressgateway -o jsonpath='{.items[0].metadata.name}') -- ls -al /etc/istio/ingressgateway-certs
+
+#. Edit the default kubeflow gateway
+
+   .. code-block:: bash
+
+      kubectl apply -f - <<EOF
+      apiVersion: networking.istio.io/v1alpha3
+      kind: Gateway
+      metadata:
+        name: kubeflow-gateway
+        namespace: kubeflow
+      spec:
+        selector:
+          istio: ingressgateway
+        servers:
+        - hosts:
+          - '*'
+          port:
+            name: http
+            number: 80
+            protocol: HTTP
+        - hosts:
+          - '*'
+          port:
+            name: https
+            number: 443
+            protocol: HTTPS
+          tls:
+            mode: SIMPLE
+            privateKey: /etc/istio/ingressgateway-certs/tls.key
+            serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
+      EOF
+
+
+Seldon autoscaling
+==================
+
+The :file:`ai-inferencing/seldon/templates/deployment.yaml` file includes options for horizontal pod auto-scaling (HPA) in the Seldon deployment.
+
+Auto-scaling automatically increases the number of replicas when resource usage exceeds the given threshold, whic is currently set to 30% CPU utilization. As well, when utilization is low, it decreases the number of instances for efficiency.
+
+Set resource requests in all containers to to enable HPA.  The metrics-server will measure if the targetAverageUtilization has been exceeded.
+
+
+
 Benchmarking
 ************
 
@@ -605,7 +686,19 @@ To verify the script is working, verify with a small images set as follows:
       cd ai-inferencing/clients/standalone
       wget https://github.com/SeldonIO/seldon-core/raw/master/examples/models/openvino_imagenet_ensemble/{imagenet_classes.json,input_images.txt,dog.jpeg,pelican.jpeg,zebra.jpeg}`.
 
-#. Set the `INGRESS_ADDRESS` variable  !!!!!!!!!
+#. Set the `INGRESS_ADDRESS` variable
+
+   The INGRESS_ADDRESS variable should be set with the server IP or domain name and port where Istio is exposed.  In this example, 10.0.0.1.nip.io will be used as a domain name. 31380 is the default nodePort exposed by Istio. It may be checked on the server by running this command:
+
+   .. code-block:: bash
+
+      kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
+
+   Set the INGRESS_ADDRESS:
+
+   .. code-block:: bash
+
+      export INGRESS_ADDRESS=10.0.0.1.nip.io:31380
 
 
 #. Run the script
@@ -682,9 +775,9 @@ This example can be used to model a more "natural" user behavior.  The load is n
 
 #. Build the Docker image:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       docker build -t ${REGISTRY_URL}/seldon-ovms-locust-client:0.1 --network=host .
+      docker build -t ${REGISTRY_URL}/seldon-ovms-locust-client:0.1 --network=host .
 
 #. Push the image to the Docker registry
 
@@ -723,9 +816,28 @@ This example can be used to model a more "natural" user behavior.  The load is n
 
    * In the Locust's landing page you will see 2 fields - Number of users to simulate and Hatch rate. Fill them and press "start swarming"
    * Locust should start the test. You can track the number of requests and fails in the "statistics" tab.
+
+     .. figure:: /_figures/stacks/Locust_statistics.png
+      :alt: Locust statistics
+      :width:     600
+
    * In the "Failures" section you should see the type of errors - there should be only classified errors while running the test. This means that the sent image was classified incorrectly. That's normal behavior - we expect <100% accuracy for this model.
+
+     .. figure:: /_figures/stacks/Locust_failures.png
+      :alt: Locust failures
+      :width:     600
+
    * You can see some simple charts in the "charts" tab. In "Response Times (ms)" chart, the green line is "Median Response Time", yellow line is "95% percentile".
+
+     .. figure:: /_figures/stacks/Locust_charts.png
+      :alt: Locust charts
+      :width:     600
+
    * In the Exceptions tab, there might be some exceptions shown. This might happen when tested environments reach their response limit and some requests start to fail.
+
+     .. figure:: /_figures/stacks/Locust_exception.png
+      :alt: Locust exception
+      :width:     600
 
 
 
@@ -801,7 +913,7 @@ by customizing  the number of clients and Seldon instances.
    * `SSH_USER` - user to be used to connect Kubernetes master host
    * `SSH_IP` - IP of the Kubernetes master host
    * `SCALE_FILE_PATH` - path to downloaded this repository on the Kubernetes master host, for example :file:`/path/to/this/repository/clients/standalone`
-   * `INGRESS_ADDRESS`
+   * `INGRESS_ADDRESS` - server IP or domain name and port where Istio is exposed
 
    ssh settings should be set to Kubernetes master host where kubectl is usable.
 
@@ -812,13 +924,16 @@ The output from this file is shown on stdout and saved to file named
 
 The simplest way to monitor the cores usage is to run `htop` program on each tested node.
 
+.. figure:: /_figures/stacks/htop.png
+ :alt: htop output
+ :width:     600
+
 Results
 =======
 
 The test performed on a 2 node cluster with 48 cores per node showed that there are 2 optimal scenarios:
 
-#.  Low latency
-
+#. Low latency
    2 instances with 24 cores per instance on each node (4 instances on 2 nodes):
 
    .. code-block:: console
