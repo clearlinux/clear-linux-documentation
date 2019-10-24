@@ -47,7 +47,7 @@ Releases
 * `DLRS V4.0`_ release announcement, including benchmark results.
 * `DLRS V3.0`_ release announcement, including benchmark results.
 * `DLRS V2.0`_ including PyTorch benchmark results.
-* `DLRS V1.0`_including TensorFlow benchmark results.
+* `DLRS V1.0`_ including TensorFlow benchmark results.
 * `DLRS Release notes`_  on Github\* for the latest release of Deep Learning
   Reference Stack.
 
