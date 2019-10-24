@@ -228,6 +228,8 @@ This guide is based on the code in the IntelSolutionDev Ai Inferencing repositor
    git clone https://gitlab.devtools.intel.com/Intel-SolutionDev/ai-inferencing.git
 
 
+
+
 Platform Backends
 =================
 
@@ -393,6 +395,22 @@ The machine learning platform for this guide is built using the Kubeflow Toolkit
    .. note::
 
       If istio cannot start because of an OOM (Out of Memory) error, change the limits of all istio-system deployments.  The Default settings should be enough for a small cluster (32GB RAM and less).
+
+#. set the INGRESS_ADDRESS
+
+   Set the `INGRESS_ADDRESS` variable, which is used by both the Standalone and Locust examples in this guide.
+
+   The INGRESS_ADDRESS variable should be set with the server IP or domain name and port where Istio is exposed.  In this example, 10.0.0.1.nip.io will be used as a domain name. 31380 is the default nodePort exposed by Istio. It may be checked on the server by running this command:
+
+   .. code-block:: bash
+
+      kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
+
+   Set the INGRESS_ADDRESS:
+
+   .. code-block:: bash
+
+      export INGRESS_ADDRESS=10.0.0.1.nip.io:31380
 
 
 #. Install the Kubeflow components and wait for all pods in the Kubeflow and istio-system namespace to start.
@@ -644,6 +662,41 @@ Auto-scaling automatically increases the number of replicas when resource usage 
 
 Set resource requests in all containers to to enable HPA.  The metrics-server will measure if the targetAverageUtilization has been exceeded.
 
+Metrics server
+--------------
+
+By default, HPA needs access to the metrics.k8s.io API which is provided by the metrics-server. It can be launched as a cluster addon:
+
+.. code-block:: bash
+
+   cd $DEPLOY_DIR
+   cd ai-inferencing/infra
+   helm install --namespace kube-system --name metricsserver -f metrics-server-values.yaml stable/metrics-server
+
+Enable HPA
+----------
+
+Upgrade Helm  to enable HPA
+
+.. code-block:: bash
+
+   helm upgrade \
+   --install \
+   seldonovms-server-res \
+   --namespace kubeflow \
+   --set transformer.image=$REGISTRY_URL/imagenet_transformer:0.1 \
+   --set openvino.image=$REGISTRY_URL/dlrs-mkl-fixed:v0.4.0 \
+   --set seldon.resource_limiting=1 \
+   --set seldon.average_utilization=50 \
+   --set seldon.hpa_enabled=1 \
+   ai-inferencing/seldon
+
+
+In this example:
+
+seldon.resource_limiting=1 - required for HPA
+seldon.average_utilization - target utilization of pods (values between 50-100% is recommended)
+seldon.hpa_enabled=1 - enable Horizontal Pod Autoscaler
 
 
 Benchmarking
@@ -686,19 +739,7 @@ To verify the script is working, verify with a small images set as follows:
       cd ai-inferencing/clients/standalone
       wget https://github.com/SeldonIO/seldon-core/raw/master/examples/models/openvino_imagenet_ensemble/{imagenet_classes.json,input_images.txt,dog.jpeg,pelican.jpeg,zebra.jpeg}`.
 
-#. Set the `INGRESS_ADDRESS` variable
-
-   The INGRESS_ADDRESS variable should be set with the server IP or domain name and port where Istio is exposed.  In this example, 10.0.0.1.nip.io will be used as a domain name. 31380 is the default nodePort exposed by Istio. It may be checked on the server by running this command:
-
-   .. code-block:: bash
-
-      kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
-
-   Set the INGRESS_ADDRESS:
-
-   .. code-block:: bash
-
-      export INGRESS_ADDRESS=10.0.0.1.nip.io:31380
+#. Verify the `INGRESS_ADDRESS` variable is set according to previous instructions.
 
 
 #. Run the script
