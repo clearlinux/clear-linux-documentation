@@ -4,7 +4,7 @@
 ############################
 
 This page explains how to create a |CL-ATTR| virtual machine using the
-`virt-manager`_ desktop application with |CL| as the guest operating system.
+`virt-mgr`_ desktop application with |CL| as the guest operating system.
 These instructions support the |CL| live-server installer to create the |CL|
 :abbr:`VM (Virtual Machine)`.
 
@@ -225,7 +225,7 @@ Congratulations! You have successfully installed |CL| in your new VM and can
 begin using it immediately. The `virt-manager` tool is maintained on GitHub
 at `virt-manager-github`_.
 
-.. _virt-manager: https://www.virt-manager.org
+.. _virt-mgr: https://www.virt-manager.org
 
 .. _virt-manager-github: https://github.com/virt-manager/virt-manager
 
