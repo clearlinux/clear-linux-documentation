@@ -60,13 +60,11 @@ This example uses the live-server-installer ISO to create a new installation.
    file hash and signatures. Refer to :ref:`validate-signatures` for detailed
    steps.
 
-Launch and setup virt-manager
-*****************************
-
-Virt-manager is a GUI-based virtual machine manager that runs in your desktop
-environment. I'm using the Gnome desktop and will launch the Virtual Machine
-manager from the applications window. You will see the following application
-window:
+Next, we'll set up the virt-manager in preparation to load the ISO from the
+previous section. Virt-manager is a GUI-based virtual machine manager that
+runs in your desktop environment. I'm using the Gnome desktop and will launch
+the Virtual Machine manager from the applications window. You will see the
+following application window:
 
 .. figure:: figures/virtmgr/virt-manager-01.png
    :scale: 100%
@@ -100,14 +98,14 @@ To accept the default values as shown in the figure above, select the
 :guilabel:`Finish` button to create your virtual network.
 
 Now that you have created your virtual network, you can close the 
-`QEMU/KVM Connection details` dialog box and return to the main screen. You 
-are ready to create your VM.
+`QEMU/KVM Connection details` dialog box and return to the Virtual
+Machine Manager main console. You are ready to create your VM.
 
 Create a new virt-manager virtual machine
 *****************************************
 
 To create a new VM you can either select `file > New Virtual Machine` or click 
-on the `Create a new virtual machine` icon on the right side of the ribbon. 
+on the `Create a new virtual machine` icon on the left side of the ribbon. 
 This will launch the `New VM` dialog box, shown in figure 4 below.
 
 .. figure:: figures/virtmgr/virt-manager-04.png
@@ -208,7 +206,7 @@ This will launch the `New VM` dialog box, shown in figure 4 below.
       Figure 11: vm1 on QEMU/KVM dialog box
 
 #. Begin the installation by selecting the :guilabel:`Begin Installation` in
-   the upper right hand corner of the `vm1 on QEMU/KVM` dialog box.
+   the upper left hand corner of the `vm1 on QEMU/KVM` dialog box.
 
 Install |CL| on the virt-manager VM
 ***********************************
