@@ -227,6 +227,8 @@ at `virt-manager-github`_.
 
 .. _virt-mgr: https://www.virt-manager.org
 
+.. _Downloads: https://clearlinux.org/downloads
+
 .. _virt-manager-github: https://github.com/virt-manager/virt-manager
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
