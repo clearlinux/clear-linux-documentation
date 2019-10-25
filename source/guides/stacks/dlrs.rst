@@ -41,15 +41,13 @@ The Deep Learning Reference Stack is available in the following versions:
    * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
    * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
 
-Stack features
-==============
+Releases
+********
 
 * `DLRS V4.0`_ release announcement, including benchmark results.
-* `DLRS V3.0`_ release announcement.
-* Deep Learning Reference Stack v2.0 including current
-  `PyTorch benchmark`_.
-* Deep Learning Reference Stack v1.0 including current
-  `TensorFlow benchmark`_ results.
+* `DLRS V3.0`_ release announcement, including benchmark results.
+* `DLRS V2.0`_ including PyTorch benchmark results.
+* `DLRS V1.0`_ including TensorFlow benchmark results.
 * `DLRS Release notes`_  on Github\* for the latest release of Deep Learning
   Reference Stack.
 
@@ -851,9 +849,9 @@ Related topics
 
 .. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
-.. _TensorFlow benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack
+.. _DLRS V1.0: https://clearlinux.org/stacks/deep-learning-reference-stack
 
-.. _PyTorch benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
+.. _DLRS V2.0: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
 .. _Jupyter Notebook: https://jupyter.org/
 
