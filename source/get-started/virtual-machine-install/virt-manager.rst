@@ -61,7 +61,12 @@ This example uses the live-server-installer ISO to create a new installation.
    steps.
 
 Next, we'll set up the virt-manager in preparation to load the ISO from the
-previous section. Virt-manager is a GUI-based virtual machine manager that
+previous section. 
+
+Launch and setup virt-manager
+*****************************
+
+Virt-manager is a GUI-based virtual machine manager that
 runs in your desktop environment. I'm using the Gnome desktop and will launch
 the Virtual Machine manager from the applications window. You will see the
 following application window:
