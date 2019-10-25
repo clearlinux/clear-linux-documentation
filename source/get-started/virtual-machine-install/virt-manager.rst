@@ -161,8 +161,8 @@ This will launch the `New VM` dialog box, shown in figure 4 below.
          step.
 
 #. In step 3 of the `New VM` wizard you set the memory and CPUs to allocate 
-   for your new VM. Depending on the resources available to you on you host
-   system, select what is appropriate. In this example I will set `Memory` to
+   for your new VM. Depending on the resources available to you on your host
+   system, select what is appropriate. In this example I set `Memory` to
    2048GB and `CPUs` to 1. Once complete, select the :guilabel:`Forward` as 
    shown in figure 8, to go to the next step.
 
@@ -174,9 +174,9 @@ This will launch the `New VM` dialog box, shown in figure 4 below.
 
 #. Step 4 of the `New VM` wizard will set up your storage media for your VM.
    You can create a new disk image or select to use an existing image. For
-   this exercise we will select the `Enable storage for this virtual machine`
-   and then create a 20GB image to go with. Once set as shown in figure 9, 
-   select the :guilabel:`Forward` button.
+   this exercise we select the `Enable storage for this virtual machine` and
+   create a 20GB image to go with. Once set as shown in figure 9, select the
+   :guilabel:`Forward` button.
 
    .. figure:: figures/virtmgr/virt-manager-09.png
       :scale: 100%
@@ -184,10 +184,10 @@ This will launch the `New VM` dialog box, shown in figure 4 below.
 
       Figure 9: New VM Enable storage dialog box
 
-#. Step 5 of the wizard will show you the slections you have made and give you
-   the ability to customize the configuration before running the installation.
-   Select the `Customize configuration before install` check-box and then 
-   select the :guilabel:`Finish` button.
+#. Step 5 of the wizard will show you the selections you have made and give
+   you the ability to customize the configuration before running the
+   installation. Select the `Customize configuration before install` check-box
+   and then select the :guilabel:`Finish` button.
 
    .. figure:: figures/virtmgr/virt-manager-10.png
       :scale: 100%
@@ -195,7 +195,7 @@ This will launch the `New VM` dialog box, shown in figure 4 below.
 
       Figure 10: New VM Ready to begin the installation dialog box
 
-#. Clear Linux requires a UEFI firmware to boot and operate correctly so you
+#. Clear Linux requires an UEFI firmware to boot and operate correctly so you
    need to customize the installation process by changing the firmware from
    `BIOS` to `UEFI x86_64`. In the `Firmware` field, select the
    `UEFI x86_64: /usr/share/qemu/OVMF.fd` entry as shown in figure 11 and 
@@ -214,58 +214,19 @@ Install |CL| on the virt-manager VM
 ***********************************
 
 To install |CL| in your VM, follow the instructions in the getting started
-guide :ref:`bare-metal-install-server`.
+guide :ref:`bare-metal-install-server`. 
 
 .. note::
    You already have the ISO image downloaded and connected to your VM and 
    your network will show up as a wired connection so you do not need to set
    up the network as described in the installation guide.
 
-
-Troubleshooting
-***************
-
-#. **Problem:** On a Microsoft\* Windows\* OS, |VB| encounters an error when
-   trying to start a VM indicating *VT-X/AMD-v hardware acceleration is not
-   available on your system.*
-
-   .. figure:: figures/vbox/virtualbox-cl-installer-12.png
-      :scale: 100%
-      :alt: Remove Disk from Virtual Drive
-
-      Figure 12: VirtualBox hardware acceleration error
-
-   **Solution:** First, double check the `Prerequisites`_ section to make
-   sure *Hardware accelerated virtualization* extensions have been enabled
-   in the host system's EFI/BIOS.
-
-   *Hardware accelerated virtualization*, may get disabled for |VB| when
-   another hypervisor, such as *Hyper-V* is enabled.
-
-   To disable *Hyper-V* execute this command in an
-   **Administrator: Command Prompt or Powershell**, and reboot the system:
-
-   .. code-block:: bash
-
-      bcdedit /set {current} hypervisorlaunchtype off
-
-   To enable Hyper-V again, execute this command in an
-   **Administrator: Command Prompt or Powershell**, and reboot the system:
-
-   .. code-block:: bash
-
-      bcdedit /set {current} hypervisorlaunchtype Auto
-
-.. _VirtualBox Installation Instructions: https://www.virtualbox.org/manual/ch02.html
+Congratulations! You have successfully installed |CL| in your new VM and can
+begin using it immediately. The `virt-manager` tool is maintained on GitHub
+at `virt-manager-github`_.
 
 .. _virt-manager: https://www.virt-manager.org
 
-.. _Downloads: https://clearlinux.org/downloads
-
-.. _`Creating Your First Virtual Machine`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
-
-.. _7zip: http://www.7-zip.org/
+.. _virt-manager-github: https://github.com/virt-manager/virt-manager
 
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
-
-.. _VM VirtualBox User Manual: https://docs.oracle.com/cd/E97728_01/E97727/html/settings-system.html
