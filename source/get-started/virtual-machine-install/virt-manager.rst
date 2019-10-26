@@ -60,15 +60,12 @@ This example uses the live-server-installer ISO to create a new installation.
    file hash and signatures. Refer to :ref:`validate-signatures` for detailed
    steps.
 
-Next, we'll set up the virt-manager in preparation to load the ISO from the
-previous section. 
+Next, we'll set up the virt-manager and load the ISO from this section. 
 
 Launch and setup virt-manager
 *****************************
 
-Virt-manager is a GUI-based virtual machine manager that
-runs in your desktop environment. I'm using the Gnome desktop and will launch
-the Virtual Machine manager from the applications window. You will see the
+Virt-manager is a GUI-based virtual machine manager that runs in your desktop environment. We use the Gnome desktop and launch the Virtual Machine Manager from the applications window. You will see the
 following application window:
 
 .. figure:: figures/virtmgr/virt-manager-01.png
