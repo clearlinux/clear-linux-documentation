@@ -15,7 +15,7 @@ This tutorial covers:
 
 .. note::
 
-   This tutorial focuses on the installaton of the Docker ecosystem.
+   This tutorial focuses on the installation of the Docker ecosystem.
    If you want to use |CL| as a Docker container image, refer to the
    official |CL| container image
    `published on Docker* Hub <https://hub.docker.com/_/clearlinux/>`_
@@ -146,7 +146,7 @@ typically located at :file:`/etc/docker/daemon.json`. |CL| features a
 Pulling and running an image from Docker Hub
 ********************************************
 
-`Docker Hub`_ is a publically available container image repository which
+`Docker Hub`_ is a publicly available container image repository which
 comes pre-configured with Docker. In the example below we will pull and run
 an the official Docker image for nginx\*, an open source reverse proxy server.
 

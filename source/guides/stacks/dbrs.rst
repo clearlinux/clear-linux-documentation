@@ -507,7 +507,7 @@ In order to configure the Apache Cassandra PMEM cluster some variables and value
 * image.repository:  The address of the container registry where the cassandra-pmem image should be pulled
 * image.tag:  The tag of the image to be pulled during deployment
 * image.name:  The name of the image to be pulled during deployment
-* pmem.containerPmemAllocation:  The size of the persistent volume claim to be used as heap, it uses the storage class `pmem-csi-sc-ext4` from pmem-csi  The size of the fsdax pool to be created inside the persistent volume claim, in practice it shuld be `1G` less than pmem.containerPmemAllocation
+* pmem.containerPmemAllocation:  The size of the persistent volume claim to be used as heap, it uses the storage class `pmem-csi-sc-ext4` from pmem-csi  The size of the fsdax pool to be created inside the persistent volume claim, in practice it should be `1G` less than pmem.containerPmemAllocation
 * pmem.fsdaxPoolSizeInGB: The size of the fsdax pool to be created inside the persistent volume claim, in practice it should be 1G less than pmem.containerPmemAllocation
 * enablePersistence: If set to `true`, K8s persistent volumes are deployed to store data and logs
 * persistentVolumes.logsVolumeSize:  The size of the persistent volume used for storing logs on each node, the default is `4G`
@@ -518,7 +518,7 @@ In order to configure the Apache Cassandra PMEM cluster some variables and value
 * exposeJmxPort:  When set to `true` it exposes the JMX port as part of the Kubernetes headless service. It should be used together with `enableAdditionalFilesConfigMap` in order to provide authentication files needed for JMX when the remote connections are allowed. When set to `false` only local access through 127.0.0.1 is granted and no additional authentication is needed.
 * enableClientToolsPod:  If set to `true`, an additional pod independent from the cluster is deployed, this pod contains various Cassandra client tools and mounts test profiles located under `<helm-chart-dir>/files/testProfiles` to `/testProfiles` inside the pod. This pod is useful to test and launch benchmarks
 * enableAdditionalFilesConfigMap:  When set to true, it takes the files located in `<helm-chart-dir>/files/additionalFiles` and mount them in `/etc/cassandra` inside the pods, some additional files for cassandra can be stored here, such as JMX auth files
-* jvmOpts.enabled:  If set to `true` the environment variable `JVM_OPTS` is overriden with the value provided on jvmOpts.value
+* jvmOpts.enabled:  If set to `true` the environment variable `JVM_OPTS` is overridden with the value provided on jvmOpts.value
 * jvmOpts.value: Sets the value of the environment variable `JVM_OPTS`, in this way some java runtime configurations can be provided such as RAM heap usage
 * resources.enabled:  if set to `true`, the resource constraints are set on each pod using the values under resources.requests and resources.limits
 * resources.requests.memory: Initial resource allocation for each pod in the cluster

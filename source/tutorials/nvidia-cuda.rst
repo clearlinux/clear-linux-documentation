@@ -184,7 +184,7 @@ installed.
 
    .. code-block:: bash
 
-      /opt/cuda/bin/nvcc --version
+      /usr/local/cuda/bin/nvcc --version
       
       
 The CUDA Toolkit is now installed and can be used to compile and run CUDA

@@ -155,7 +155,7 @@ Enable X11-forwarding
 *********************
 
 X11 forwarding allows you to securely run graphical applications (that is, X
-clients) over the SSH conection. This enables remote GUI apps without the need
+clients) over the SSH connection. This enables remote GUI apps without the need
 for full VNC or remote desktop setup. To enable X11-forwarding via SSH,
 perform the following steps:
 
