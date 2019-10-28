@@ -4,7 +4,7 @@ Check processor and EFI firmware compatibility
 ##############################################
 
 Before installing |CL-ATTR|, check your host system's processor and EFI firmware
-compatibility. To check Compatibility, choose one of the following paths:
+compatibility. To check compatibility, choose one of the following paths:
 
 * From a system with a Linux\* OS installed, follow the instructions to :ref:`check-compatibility-steps`.
 
