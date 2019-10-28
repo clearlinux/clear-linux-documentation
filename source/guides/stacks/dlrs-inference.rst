@@ -234,7 +234,7 @@ This guide is based on the code in the IntelSolutionDev Ai Inferencing repositor
 
 .. code-block:: bash
 
-   git clone https://gitlab.devtools.intel.com/Intel-SolutionDev/ai-inferencing.git
+   git clone https://<need github URL>
 
 
 
