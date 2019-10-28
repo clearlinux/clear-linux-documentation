@@ -7,10 +7,15 @@ In this guide we explore a solution for using the Deep Learning Reference Stack 
 
 .. contents::
    :local:
-   :depth: 2
+   :depth: 1
 
 Overview
 ********
+
+.. figure:: /_figures/stacks/kubeflow-seldon-dlrs-example-diagram.png
+   :alt: Example diagram with DLRS deployed by Seldon
+   :width:     800
+
 
 The solution covered here uses the following software components:
 
@@ -24,9 +29,7 @@ The solution covered here uses the following software components:
 * Pre and post-processing containers are created using the `Source-to-Image`_ (S2I)toolkit, which builds reproducible container images from source code/
 * `Min.io`_ is used as the distributed object storage for models
 
-.. figure:: /_figures/stacks/kubeflow-seldon-dlrs-example-diagram.png
-   :alt: Example diagram with DLRS deployed by Seldon
-   :width:     600
+
 
 Prerequisites
 *************
@@ -87,26 +90,32 @@ We validated this guide on an `Intel Cascade Lake`_ server and this is recommend
 Required Software
 =================
 
-* :ref:`Install <bare-metal-install-desktop>` |CL| on your host system
-* Add the :command:`containers-basic` bundle
-* Add the :command:`cloud-native-basic` bundle
+#.  :ref:`Install <bare-metal-install-desktop>` |CL| on your host system
 
-To install the :command:`containers-basic` or :command:`cloud-native-basic`
-bundles in |CL|, enter:
 
-.. code-block:: bash
+#. Install the :command:`containers-basic` and :command:`cloud-native-basic` bundles:
 
-   sudo swupd bundle-add containers-basic cloud-native-basic
+   .. code-block:: bash
 
-Docker is not started upon installation of the :command:`containers-basic`
-bundle. To start Docker, enter:
+      sudo swupd bundle-add containers-basic cloud-native-basic
 
-.. code-block:: bash
 
-   sudo systemctl start docker
+#. Start Docker
 
-To ensure that Kubernetes is correctly installed and configured, follow the
-instructions in :ref:`kubernetes`.
+   Docker is not started upon installation of the :command:`containers-basic` bundle. To start Docker, enter:
+
+   .. code-block:: bash
+
+      sudo systemctl start docker
+
+
+#. Install and configure :ref:`kubernetes`.
+
+
+
+
+
+
 
 .. note::
 
@@ -396,21 +405,6 @@ The machine learning platform for this guide is built using the Kubeflow Toolkit
 
       If istio cannot start because of an OOM (Out of Memory) error, change the limits of all istio-system deployments.  The Default settings should be enough for a small cluster (32GB RAM and less).
 
-#. set the INGRESS_ADDRESS
-
-   Set the `INGRESS_ADDRESS` variable, which is used by both the Standalone and Locust examples in this guide.
-
-   The INGRESS_ADDRESS variable should be set with the server IP or domain name and port where Istio is exposed.  In this example, 10.0.0.1.nip.io will be used as a domain name. 31380 is the default nodePort exposed by Istio. It may be checked on the server by running this command:
-
-   .. code-block:: bash
-
-      kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
-
-   Set the INGRESS_ADDRESS:
-
-   .. code-block:: bash
-
-      export INGRESS_ADDRESS=10.0.0.1.nip.io:31380
 
 
 #. Install the Kubeflow components and wait for all pods in the Kubeflow and istio-system namespace to start.
@@ -734,12 +728,27 @@ To verify the script is working, verify with a small images set as follows:
 
 #. Download the basic images set
 
-   code-block:: bash
+   .. code-block:: bash
 
       cd ai-inferencing/clients/standalone
       wget https://github.com/SeldonIO/seldon-core/raw/master/examples/models/openvino_imagenet_ensemble/{imagenet_classes.json,input_images.txt,dog.jpeg,pelican.jpeg,zebra.jpeg}`.
 
-#. Verify the `INGRESS_ADDRESS` variable is set according to previous instructions.
+#. Set the INGRESS_ADDRESS
+
+   Set the `INGRESS_ADDRESS` variable, which is used by both the Standalone and Locust examples in this guide.
+
+   The INGRESS_ADDRESS variable should be set with the server IP or domain name and port where Istio is exposed.  In this example, 10.0.0.1.nip.io will be used as a domain name. 31380 is the default nodePort exposed by Istio. It may be checked on the server by running this command:
+
+   .. code-block:: bash
+
+      kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
+
+   Set the INGRESS_ADDRESS:
+
+   .. code-block:: bash
+
+      export INGRESS_ADDRESS=10.0.0.1.nip.io:31380
+
 
 
 #. Run the script
