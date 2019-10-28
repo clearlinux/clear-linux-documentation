@@ -4,7 +4,7 @@ Get started
 ###########
 
 The Get Started section guides you through the requirements and installation of
-|CL-ATTR|. Follow these step-by-step intructions to get started with |CL|, fast.
+|CL-ATTR|. Follow these step-by-step instructions to get started with |CL|, fast.
 
 Pre-install
 ***********
@@ -15,7 +15,7 @@ There are a couple of things to take care of before you install.
 * :ref:`compatibility-check`
 * :ref:`bootable-usb`
 
-When installing |CL-ATTR| in a VM, consider which kernel to use. 
+When installing |CL-ATTR| in a VM, consider which kernel to use.
 
 * :ref:`Compatible VM kernels <vm-kernels>`
 

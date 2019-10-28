@@ -65,7 +65,7 @@ to view the rendered documentation.
 
 If you want to build the documentation exactly as seen on the website, use
 ``make py`` followed by ``make htmlall``. This builds some
-external dependenices and all supported languages.
+external dependencies and all supported languages.
 
 Additional help
 ***************

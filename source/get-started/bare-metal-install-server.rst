@@ -840,7 +840,7 @@ Optional: Skip to `Finish installation`_.
 Automatic OS Updates
 ====================
 
-Automatical OS updates are enabled by default. In the rare case that you
+Automatic OS updates are enabled by default. In the rare case that you
 need to disable automatic software updates, follow the onscreen instructions,
 shown in Figure 32.
 
@@ -943,4 +943,3 @@ entering :guilabel:`Configure Installation Media`:
   - macOS\* platform: :command:`diskutil list`
 
 .. _Downloads: https://clearlinux.org/downloads
-

@@ -387,7 +387,7 @@ Pre-requisites
 
 .. note::
 
-   Instead of using Arrikto's configuration manifest as shown  in the preceeding example, you should use the manifest provided by `Istio`_, for this example, as Seldon deployments depend on it.
+   Instead of using Arrikto's configuration manifest as shown  in the preceding example, you should use the manifest provided by `Istio`_, for this example, as Seldon deployments depend on it.
 
 #. Install deployment tools
 
@@ -531,7 +531,7 @@ In this example, you will:
 
 #. Run the Model Optimizer
 
-   Running the model optimizer is as simple as calling the appropriate script, however there are many configuration options that are explainedin the documentation
+   Running the model optimizer is as simple as calling the appropriate script, however there are many configuration options that are explained in the documentation
 
    .. code-block:: bash
 

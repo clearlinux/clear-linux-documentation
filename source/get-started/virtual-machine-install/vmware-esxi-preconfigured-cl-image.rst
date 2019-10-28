@@ -20,7 +20,7 @@ and run |CL-ATTR| virtual machines at scale.
 We provide a pre-configured |CL| VMware image that can be run on a VMware ESXi
 6.5 host.
 
-If manuall installation is preferred, refer to :ref:`vmware-esxi-install-cl`.
+If manual installation is preferred, refer to :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
@@ -47,8 +47,8 @@ For more information, refer to :ref:`download-verify-decompress`.
 Upload the |CL| image to the VMware server
 ******************************************
 
-Once the |CL| VMware prebuilt image has been downloaded and 
-decompressed on your local system, it must be uploaded to a datastore 
+Once the |CL| VMware prebuilt image has been downloaded and
+decompressed on your local system, it must be uploaded to a datastore
 on the VMware ESXi server.
 
 The steps in this section can also be referenced from the VMware documentation
@@ -57,11 +57,11 @@ The steps in this section can also be referenced from the VMware documentation
 #. Connect to the VMware ESXi server and login to an account with sufficient
    permission to create and manage VMs.
 
-#. Under the :guilabel:`Navigator` window on the left side, 
+#. Under the :guilabel:`Navigator` window on the left side,
    select :guilabel:`Storage`.
    See Figure 1
 
-#. Under the :guilabel:`Datastores` tab, click 
+#. Under the :guilabel:`Datastores` tab, click
    the :guilabel:`Datastore browser` button.
 
    .. figure:: figures/vmware-esxi/vmware-esxi-preconfigured-cl-image-1.png
@@ -95,8 +95,8 @@ Convert the |CL| image to an ESXi-supported format
 **************************************************
 
 Once the |CL| VMware prebuilt image has been uploaded to the VMware ESXi
-datastore, it must be converted to a format for use with VMware's ESXi 
-hypervisor. 
+datastore, it must be converted to a format for use with VMware's ESXi
+hypervisor.
 
 The steps in this section can also be referenced from the VMware documentation on `Cloning and converting virtual machine disks with vmkfstools`_
 
@@ -105,11 +105,11 @@ The steps in this section can also be referenced from the VMware documentation o
 
    .. note::
 
-      If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or :abbr:`vCLI (vSphere CLI)` configured and available, 
+      If there is no :abbr:`vMA (vSphere Management Assistant)` appliance or :abbr:`vCLI (vSphere CLI)` configured and available,
       you can temporarily enable SSH directly on the ESXi host by following the
       steps described in `Enable the Secure Shell (SSH) in the VMware Host Client`_.
 
-      As a security best practice, remember to disable SSH access after following the steps in this section. 
+      As a security best practice, remember to disable SSH access after following the steps in this section.
 
 
 #. Locate the uploaded image, which is typically found in
@@ -134,10 +134,10 @@ Create and configure a new VM
 *****************************
 
 In this section, you will create a new VM, configure its basic parameters
-such as number of CPUs, memory size, and then attach the converted |CL| 
-VMware image. Also, in order to boot |CL|, you must enable UEFI support. 
+such as number of CPUs, memory size, and then attach the converted |CL|
+VMware image. Also, in order to boot |CL|, you must enable UEFI support.
 
-#. Under the :guilabel:`Navigator` window, select 
+#. Under the :guilabel:`Navigator` window, select
    :guilabel:`Virtual Machines`. See Figure 4.
 
 #. In the right window, click the :guilabel:`Create / Register VM` button.
@@ -165,10 +165,10 @@ VMware image. Also, in order to boot |CL|, you must enable UEFI support.
 
 #. Give the new VM a name in the :guilabel:`Name` field. See Figure 6.
 
-#. Set the :guilabel:`Compatability` option to
+#. Set the :guilabel:`Compatibility` option to
    :guilabel:`ESXi 6.5 virtual machine`.
 #. Set the :guilabel:`Guest OS family` option to :guilabel:`Linux`.
-#. Set the :guilabel:`Guest OS version` option to 
+#. Set the :guilabel:`Guest OS version` option to
    :guilabel:`Other 3.x or later Linux (64-bit)`.
 #. Click the :guilabel:`Next` button.
 
@@ -186,8 +186,8 @@ VMware image. Also, in order to boot |CL|, you must enable UEFI support.
 #. On the :guilabel:`Customize settings` step:
 
    #. Click the :guilabel:`Virtual Hardware` button. See Figure 7.
-   #. Expand the :guilabel:`CPU` setting and enable 
-      :guilabel:`Hardware virtualization` by checking 
+   #. Expand the :guilabel:`CPU` setting and enable
+      :guilabel:`Hardware virtualization` by checking
       :guilabel:`Expose hardware assisted virtualization to the guest OS`.
 
    .. figure:: figures/vmware-esxi/vmware-esxi-preconfigured-cl-image-7.png
@@ -205,8 +205,8 @@ VMware image. Also, in order to boot |CL|, you must enable UEFI support.
 
       Figure 8: VMware ESXi - Remove hard drive
 
-   #. Since a pre-configured image will be used, 
-      the :guilabel:`CD/DVD Drive 1` setting will not be needed.  Disable it 
+   #. Since a pre-configured image will be used,
+      the :guilabel:`CD/DVD Drive 1` setting will not be needed.  Disable it
       by unchecking the :guilabel:`Connect` checkbox. See Figure 9.
 
    .. figure:: figures/vmware-esxi/vmware-esxi-preconfigured-cl-image-9.png
@@ -228,14 +228,14 @@ VMware image. Also, in order to boot |CL|, you must enable UEFI support.
       Figure 10: VMware ESXi - Add an existing hard drive
 
       #. Select the converted :file:`clear-[version number]-esxi.vmdk`
-         file. Do not use the original unconverted 
+         file. Do not use the original unconverted
          :file:`clear-[version number]-vmware.vmdk` file. See Figure 11.
 
    .. figure:: figures/vmware-esxi/vmware-esxi-preconfigured-cl-image-11.png
       :scale: 100 %
       :alt: VMware ESXi - Select the converted `vmdk` file
 
-      Figure 11: VMware ESXi - Select the converted 
+      Figure 11: VMware ESXi - Select the converted
       :file:`clear-[version number]-esxi.vmdk` file
 
 #. |CL| needs UEFI support in order to boot.  Enable UEFI boot support.
@@ -260,7 +260,7 @@ Power on the VM and boot |CL|
 
 After configuring the settings above, power on the VM.
 
-#. Under the :guilabel:`Navigator` window, select 
+#. Under the :guilabel:`Navigator` window, select
    :guilabel:`Virtual Machines`. See Figure 13.
 #. In the right window, select the newly-created VM.
 #. Click the :guilabel:`Power on` button.

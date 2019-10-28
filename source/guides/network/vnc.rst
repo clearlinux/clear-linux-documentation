@@ -59,18 +59,18 @@ your |CL| host:
      - The system administrator sets up a systemd service script for you with
        a pre-assigned display ID.  You make a VNC connection and supply
        your pre-assigned display ID.
-     - The system adminstrator configures GDM to accept connection requests.
+     - The system administrator configures GDM to accept connection requests.
        When you make a VNC connection to the |CL| host, you see
        the GDM login screen and authenticate as if you are local.
    * - Who configures VNC settings?
      - You
-     - System adminstrator
-     - System adminstrator
+     - System administrator
+     - System administrator
    * - Who starts VNC session?
      - You
      - Set to start automatically on boot by system administrator
      - Set to start automatically on boot by system administrator
-   * - Who ends VNC sesssion?
+   * - Who ends VNC session?
      - You
      - You
      - System administrator can disable VNC service altogether
