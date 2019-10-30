@@ -175,7 +175,7 @@ th,td {
 
 .content-collapse {
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  /*transition: max-height 0.2s ease-out;*//*removed as it was breaking nested collapsible sections*/
 }
 
 /*Fix for permalinks to collapsible sections*/
