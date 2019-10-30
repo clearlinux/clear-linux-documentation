@@ -3,8 +3,9 @@
 Configure Wi-Fi
 ###############
 
-We recommend using `NetworkManager <https://developer.gnome.org/NetworkManager/stable/NetworkManager.html>`_ to manage network connections. If you choose to
-connect to Wi-Fi while using the live installer image, your Wi-Fi settings
+We recommend using `NetworkManager <https://developer.gnome.org/NetworkManager/stable/NetworkManager.html>`_ to manage network connections. If you
+choose to connect to Wi-Fi while using the
+:ref:`live installer <bare-metal-install-desktop>` image, your Wi-Fi settings
 will be added to your system during the installation process.
 
 NetworkManager provides three simple methods for configuring Wi-Fi.
