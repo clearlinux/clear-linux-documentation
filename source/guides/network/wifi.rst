@@ -1,11 +1,11 @@
 .. _wi-fi:
 
-Configure Wi-Fi with NetworkManager
-###################################
+Configure Wi-Fi
+###############
 
 We recommend using `NetworkManager <https://developer.gnome.org/NetworkManager/stable/NetworkManager.html>`_ to manage network connections. If you choose to
-connect to Wi-Fi while using the live image, your Wi-Fi settings will be
-added to your system during the installation process.
+connect to Wi-Fi while using the live installer image, your Wi-Fi settings
+will be added to your system during the installation process.
 
 NetworkManager provides three simple methods for configuring Wi-Fi.
 
@@ -67,6 +67,10 @@ CLI (Command Line Interface)
 
       Device 'wlp1s0' successfully activated with 'f2501e67-27a3-4cf2-a8d9-cce3d029b788'.
 
+.. note::
+
+   To avoid having the Wi-Fi password stored in bash history, consider using the TUI.
+
 TUI (Text-based User Interface)
 *******************************
 
@@ -97,3 +101,8 @@ TUI (Text-based User Interface)
 
    .. figure:: /_figures/wifi/nmtui_5.png
 
+Other resources
+***************
+
+* NetworkManager CLI `documentation <https://developer.gnome.org/NetworkManager/stable/nmcli.html>`_.
+* Additional CLI `examples <https://developer.gnome.org/NetworkManager/stable/nmcli-examples.html>`_.
