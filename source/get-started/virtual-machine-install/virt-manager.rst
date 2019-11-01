@@ -116,8 +116,8 @@ new virtual machine` icon. This launches the `New VM` wizard, shown in Figure 4.
 #. In step 2 of the `New VM` wizard, you can choose ISO or CDROM install
    media.
 
-   #. Uncheck the `Automatically detect from the installation media / source` field,
-      then select the :guilabel:`Browse...` button as shown in Figure 5.
+   a. Uncheck `Automatically detect from the installation media / source`
+      field and select the :guilabel:`Browse...` button as shown in Figure 5.
 
       .. figure:: figures/virtmgr/virt-manager-05.png
          :scale: 100%
