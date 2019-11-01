@@ -382,7 +382,7 @@ Prerequisites
         EOF
 
 
-#. Create the :file:`entrypoint.sh` file. The Dockerfile requires an entrypoint script, to allow spark-submit to interact with the container. 
+#. Create the :file:`entrypoint.sh` file. The Dockerfile requires an entrypoint script, to allow spark-submit to interact with the container.
 
    .. code-block:: bash
 
@@ -672,7 +672,7 @@ This exception can be disregarded because DARS does not use hadoop.hive.shims. H
 #. There is an exception message `Exception in thread "Thread-3" java.lang.ExceptionInInitializerError at org.apache.hadoop.hive.conf.HiveConf` This is related to the same issue with |CL| and JDK11 noted above, and does not affect DARS for the same reason.
 
 
-.. _Data Analytics Reference Stack: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dars
+.. _Data Analytics Reference Stack: https://github.com/intel/stacks/tree/master/dars/clearlinux
 
 .. _Docker Hub: https://hub.docker.com/
 
