@@ -102,13 +102,13 @@ To construct images with |CL|, start with a |CL| development platform that has t
 
    .. code-block:: bash
 
-      git clone https://github.com/clearlinux/dockerfiles.git
+      git clone https://github.com/intel/stacks
 
-#. Inside the :file:`stacks/dars/mkl` directory, use docker with the :file:`Dockerfile` to build the  MKL image.
+#. Inside the :file:`stacks/dars/clearlinux/mkl` directory, use docker with the :file:`Dockerfile` to build the  MKL image.
 
    .. code-block:: bash
 
-      cd ./dockerfiles/stacks/dlrs/mkl
+      cd ./stacks/dars/clearlinux/mkl
       docker build --no-cache -t clearlinux/stacks-dars-mkl .
 
 
