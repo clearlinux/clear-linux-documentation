@@ -85,15 +85,14 @@ environment. This example uses the Gnome\* desktop.
 #. On the `Overview` tab, check the `Autoconnect` field. Select the `Virtual
    Networks` tab and in the lower left of the dialog window, select the
    :guilabel:`+` key to add a new network connection. The `Create a new virtual
-   network` dialog window opens as shown in Figure 3.
+   network` dialog window opens as shown in Figure 3. To accept the default
+   values, select the :guilabel:`Finish` button.
 
    .. figure:: figures/virtmgr/virt-manager-03.png
       :scale: 100%
       :alt: Create a new virtual network
 
       Figure 3: Create a new virtual network
-
-   To accept the default values, select the :guilabel:`Finish` button.
 
 #. Close the `QEMU/KVM Connection details` dialog box and return to the Virtual
    Machine Manager main console. You are ready to create your VM.
@@ -109,7 +108,7 @@ new virtual machine` icon. This launches the `New VM` wizard, shown in Figure 4.
    :scale: 100%
    :alt: New VM
 
-   Figure 4: New VM dialog box
+   Figure 4: New VM dialog box, step 1
 
 #. Select `Local install media (ISO image or CDROM)` and select the
    :guilabel:`Forward` button.
@@ -124,7 +123,7 @@ new virtual machine` icon. This launches the `New VM` wizard, shown in Figure 4.
          :scale: 100%
          :alt: New VM
 
-         Figure 5: New VM dialog box
+         Figure 5: New VM dialog box, step 2: Choose media
 
    #. In the `Choose Storage Volume` dialog, select the
       :guilabel:`Browse Local` button as shown in Figure 6. Browse to
@@ -144,7 +143,7 @@ new virtual machine` icon. This launches the `New VM` wizard, shown in Figure 4.
          :scale: 100%
          :alt: New VM
 
-         Figure 7: New VM dialog box
+         Figure 7: New VM dialog box, step 2: Choose operating system
 
       .. note::
 
@@ -161,7 +160,7 @@ new virtual machine` icon. This launches the `New VM` wizard, shown in Figure 4.
       :scale: 100%
       :alt: New VM Choose Memory and CPU settings dialog box
 
-      Figure 8: New VM Choose Memory and CPU settings dialog box
+      Figure 8: New VM dialog box, step 3: Choose Memory and CPU settings
 
 #. Step 4 of the `New VM` wizard sets up the storage media for your VM. You
    can create a new disk image or use an existing image. This example selects
@@ -172,7 +171,7 @@ new virtual machine` icon. This launches the `New VM` wizard, shown in Figure 4.
       :scale: 100%
       :alt: New VM Enable storage dialog box
 
-      Figure 9: New VM Enable storage dialog box
+      Figure 9: New VM dialog box, step 4: Enable storage
 
 #. Step 5 of the `New VM` wizard displays the selections you made and allows
    you to customize the configuration before running the installation. Select the
@@ -183,12 +182,12 @@ new virtual machine` icon. This launches the `New VM` wizard, shown in Figure 4.
       :scale: 100%
       :alt: New VM Ready to begin the installation dialog box
 
-      Figure 10: New VM Ready to begin the installation dialog box
+      Figure 10: New VM dialog box, step 5: Ready to begin the installation
 
 #. Customize the installation process by changing the firmware from `BIOS` to
-   `UEFI x86_64`. In the `Firmware` field, select the :file:`UEFI
-   x86_64:/usr/share/qemu/OVMF.fd` entry as shown in Figure 11 and select the
-   :guilabel:`Apply` button.
+   `UEFI x86_64`. |CL| requires UEFI firmware. In the `Firmware` field, select
+   the :file:`UEFI x86_64:/usr/share/qemu/OVMF.fd` entry as shown in Figure 11
+   and select the :guilabel:`Apply` button.
 
    .. figure:: figures/virtmgr/virt-manager-11.png
       :scale: 100%
