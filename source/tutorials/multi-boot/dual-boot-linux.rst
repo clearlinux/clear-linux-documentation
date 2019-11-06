@@ -43,7 +43,7 @@ Install |CL| with Advanced Installation
 
       Figure 1: Required options  
 
-#. Click :guilabel: `Select Installation Media`.  
+#. Click :guilabel:`Select Installation Media`.  
 
 #. Select the “Advanced Installation” option. See Figure 2.  
 
