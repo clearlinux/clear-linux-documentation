@@ -92,22 +92,22 @@ Install |CL| with Advanced Installation
 
 #. Share the existing EFI system partition by designating as such.
 
-#. Right-click the :guilabel:`EFI System Partition` (e.g., /dev/sda1) and 
-   select :guilabel:`Name Partition`.  
+   a. Right-click the :guilabel:`EFI System Partition` (e.g., /dev/sda1)
+      and select :guilabel:`Name Partition`.  
 
-#. Set the name to “CLR_BOOT”.  See Figure 6 and Figure 7.  
+   #. Set the name to “CLR_BOOT”.  See Figure 6 and Figure 7.  
 
-   .. figure:: ../../_figures/multi-boot/dual-boot-linux-06.png
-      :scale: 100%
-      :alt: Name CLR_BOOT partition
+      .. figure:: ../../_figures/multi-boot/dual-boot-linux-06.png
+         :scale: 100%
+         :alt: Name CLR_BOOT partition
 
-      Figure 6: Name CLR_BOOT partition
+         Figure 6: Name CLR_BOOT partition
 
-   .. figure:: ../../_figures/multi-boot/dual-boot-linux-07.png
-      :scale: 100%
-      :alt: Resulting CLR_BOOT main screen
+      .. figure:: ../../_figures/multi-boot/dual-boot-linux-07.png
+         :scale: 100%
+         :alt: Resulting CLR_BOOT main screen
 
-      Figure 7: Resulting CLR_BOOT main screen
+         Figure 7: Resulting CLR_BOOT main screen
 
 #. Create a swap partition for |CL|.
 
@@ -212,15 +212,15 @@ Make systemd-boot Default Bootloader and chain-boot GRUB
       /dev/sda4  498993152 703281151 204288000  97.4G Linux root (x86-64)
       ...
 
-The above example output contains these partitions:
+   The above example output contains these partitions:
 
-* /dev/sda1 is the EFI system partition originally created by Ubuntu 
-  and shared with |CL|
-* /dev/sda2 is the Ubuntu root partition
-* /dev/sda3 is the swap partition for |CL|
-* /dev/sda4 is the |CL| root partition
+   * /dev/sda1 is the EFI system partition originally created by Ubuntu 
+     and shared with |CL|
+   * /dev/sda2 is the Ubuntu root partition
+   * /dev/sda3 is the swap partition for |CL|
+   * /dev/sda4 is the |CL| root partition
 
-The remaining steps will work with these partitions.
+   The remaining steps will work with these partitions.
 
 #. Mount these partitions
 
