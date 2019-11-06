@@ -55,9 +55,9 @@ Install |CL| with Advanced Installation
 
 #. Click :guilabel:`Partition Media` to start the GParted tool. 
 
-   a. Shrink the Ubuntu root partition to free up some space for |CL|.
+#. Shrink the Ubuntu root partition to free up some space for |CL|.
 
-   #. Select the Ubuntu root partition (in this example: /dev/sda2). 
+   a. Select the Ubuntu root partition (in this example: /dev/sda2). 
       Right-click it and select “Resize/Move”.  See Figure 3.
 
       .. figure:: ../../_figures/multi-boot/dual-boot-linux-03.png
@@ -178,41 +178,39 @@ Although we installed |CL| last, Ubuntu is still the default boot OS.  There are
    boot loader to boot |CL| and chain-boot GRUB; therefore, boot 
    Ubuntu. Follow the next section to implement this.  
 
-Change default bootloader, chain-boot GRUB
-******************************************
+Make systemd-boot Default Bootloader and chain-boot GRUB
+********************************************************
 
-#. Make systemd-boot the Default Bootloader and chain-boot GRUB.
+#. Boot up the |CL| installer image.
+#. Open a terminal window. 
+#. Identify the EFI system partition, Ubuntu root partition, and |CL| root
+   partition. 
 
-   * Boot up the |CL| installer image.
-   * Open a terminal window. 
-   * Identify the EFI system partition, Ubuntu root partition, and |CL| root
-     partition. 
+   .. code-block:: bash
 
-     .. code-block:: bash
+      sudo fdisk -l
 
-        sudo fdisk -l
+   Example output:
 
-     Example output:
+   .. code-block:: console
 
-     .. code-block:: console
+      clrlinux@clr-live~ $ sudo fdisk -l 
+      ... 
 
-        clrlinux@clr-live~ $ sudo fdisk -l 
-        ... 
+      Disk /dev/sda: 335.4 GiB, 360080695296 bytes, 703282608 sectors
+      Disk model: INTEL SSDSCKKF36
+      Units: sectors of 1 * 512 = 512 bytes
+      Sector size (logical/physical): 512 bytes / 512 bytes
+      I/O size (minimum/optimal): 512 bytes / 1048576 bytes
+      Disklabel type: gpt
+      Disk identifier: D5CB69E9-2C27-4A16-9552-3CD6BFA5DA77
 
-        Disk /dev/sda: 335.4 GiB, 360080695296 bytes, 703282608 sectors
-        Disk model: INTEL SSDSCKKF36
-        Units: sectors of 1 * 512 = 512 bytes
-        Sector size (logical/physical): 512 bytes / 512 bytes
-        I/O size (minimum/optimal): 512 bytes / 1048576 bytes
-        Disklabel type: gpt
-        Disk identifier: D5CB69E9-2C27-4A16-9552-3CD6BFA5DA77
-
-        Device         Start       End   Sectors   Size Type
-        /dev/sda1       2048   1050623   1048576   512M EFI System
-        /dev/sda2    1050624 498481151 497430528 237.2G Linux filesystem
-        /dev/sda3  498481152 498993151    512000   250M Linux swap
-        /dev/sda4  498993152 703281151 204288000  97.4G Linux root (x86-64)
-        ...
+      Device         Start       End   Sectors   Size Type
+      /dev/sda1       2048   1050623   1048576   512M EFI System
+      /dev/sda2    1050624 498481151 497430528 237.2G Linux filesystem
+      /dev/sda3  498481152 498993151    512000   250M Linux swap
+      /dev/sda4  498993152 703281151 204288000  97.4G Linux root (x86-64)
+      ...
 
 The above example output contains these partitions:
 
