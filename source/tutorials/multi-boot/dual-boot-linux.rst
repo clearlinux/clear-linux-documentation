@@ -257,7 +257,7 @@ The remaining steps will work with these partitions.
 
    .. code-block:: bash	
      
-      sudo umount  /mnt/clearlinux/boot /mnt/clearlinux
+      sudo umount /mnt/clearlinux/boot /mnt/clearlinux
 
 #. Reboot.
 
