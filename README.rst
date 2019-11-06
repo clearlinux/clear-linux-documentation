@@ -98,6 +98,6 @@ To stop the web server simply use ``ctrl-c``.
 .. _Clear Linux\* OS documentation:  https://docs.01.org/clearlinux/
 .. _Sphinx: http://sphinx-doc.org/
 .. _reStructuredText: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
-.. _contribution guidelines: https://clearlinux.org/documentation/clear-linux/reference/collaboration
+.. _contribution guidelines: https://docs.01.org/clearlinux/latest/collaboration/collaboration.html
 .. _instructions for installing Sphinx: https://www.sphinx-doc.org/en/master/usage/installation.html
 
