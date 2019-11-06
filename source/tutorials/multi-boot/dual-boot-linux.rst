@@ -3,7 +3,7 @@
 Dual-boot |CL-ATTR| with Another GRUB-based Linux\* Distro
 ##########################################################
 
-In this tutorial, we show how to install another grub-based Linux\* distro 
+In this tutorial, we show how to install another GRUB-based Linux\* distro 
 alongside |CL|.  To do so, we resize the existing Linux root partition to 
 make enough room to install |CL|. Then we configure the |CL| bootloader, 
 :command:`systemd-boot`, which enables you to dual-boot |CL| and an existing
@@ -246,7 +246,7 @@ The remaining steps will work with these partitions.
       sudo clr-boot-manager set-timeout 20 --path=/mnt/clearlinux
       sudo clr-boot-manager update --path=/mnt/clearlinux
 
-#. Add a system-boot boot entry for GRUB
+#. Add a system-boot boot entry for GRUB.
    
    .. code-block:: bash	
 
