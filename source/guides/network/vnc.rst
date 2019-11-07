@@ -24,17 +24,13 @@ To configure VNC to work on your |CL| host, install these bundles:
 
 Follow these steps:
 
-#. Log into your |CL| host and get root privileges.
-
-   .. code-block:: bash
-
-      sudo -s
+#. Open a terminal window.
 
 #. Install the |CL| bundles.
 
    .. code-block:: bash
 
-      swupd bundle-add desktop-autostart vnc-server
+      sudo swupd bundle-add desktop-autostart vnc-server
 
 #. Reboot your |CL| host.
 
@@ -92,7 +88,9 @@ Method 1: Manually start a VNC session
 You (and each user) must perform these steps to initialize your VNC settings.
 
 #. Log in.
-#. Open a terminal emulator.
+
+#. Open a terminal window.
+
 #. Start VNC with the :command:`vncserver` command.  Since this is your
    first time starting VNC, it adds default configuration files and asks you
    to set a VNC password.
@@ -154,25 +152,20 @@ To configure VNC for this method, you must have root privileges.  You will
 set up a systemd service file for all intended VNC users with their own
 preassigned unique display ID.
 
-#. Log in and get root privileges.
-
-   .. code-block:: bash
-
-      sudo -s
+#. Log in.
 
 #. Make sure the user accounts already exist.  Use the following command to
    list all users.
 
-
    .. code-block:: bash
 
-      cut -d: -f1 /etc/passwd
+      sudo cut -d: -f1 /etc/passwd
 
 #. Create the path :file:`/etc/systemd/system`.
 
    .. code-block:: bash
 
-      mkdir -p /etc/systemd/system
+      sudo mkdir -p /etc/systemd/system
 
 #. Create a systemd service script file :file:`vncserver@:[X].service`,
    where [X] is the display ID, for each user in :file:`/etc/systemd/system`
@@ -180,9 +173,9 @@ preassigned unique display ID.
    username is entered in the :guilabel:`User` field. The example below shows user
    vnc-user-b who is assigned the display ID 5.
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # cat > /etc/systemd/system/vncserver@:5.service << EOF
+      sudo tee -a /etc/systemd/system/vncserver@:5.service << EOF
 
       [Unit]
       Description=VNC Remote Desktop Service for "vnc-user-b" with display ID "5"
@@ -210,9 +203,9 @@ preassigned unique display ID.
 
    .. code-block:: bash
 
-      systemctl daemon-reload
-      systemctl start vncserver@:[X].service
-      systemctl enable vncserver@:[X].service
+      sudo systemctl daemon-reload
+      sudo systemctl enable vncserver@:[X].service
+      sudo systemctl start vncserver@:[X].service
 
 #. After starting the services, verify they are running.
 
@@ -225,7 +218,7 @@ preassigned unique display ID.
 
    .. code-block:: console
 
-      # systemctl | grep vnc
+      systemctl | grep vnc
 
       vncserver@:5.services   loaded active running  VNC Remote Desktop Service for "vnc-user-b" with display ID "5"
       vncserver@:6.services   loaded active running  VNC Remote Desktop Service for "vnc-user-c" with display ID "6"
@@ -240,23 +233,19 @@ make a VNC connection to your |CL| host, you are presented with the GDM login
 screen and you authenticate as if you are local.  You must have root privileges
 to perform this configuration.
 
-#. Log in and get root privileges.
-
-   .. code-block:: bash
-
-      sudo -s
+#. Log in.
 
 #. Create the path :file:`/etc/systemd/system`.
 
    .. code-block:: bash
 
-      mkdir -p /etc/systemd/system
+      sudo mkdir -p /etc/systemd/system
 
-#. Create a systemd socket file :file:`xvnc.socket` and add the following:
+#. Create a systemd socket file :file:`xvnc.socket` with the following content:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # cat > /etc/systemd/system/xvnc.socket << EOF
+      sudo tee -a /etc/systemd/system/xvnc.socket << EOF
 
       [Unit]
       Description=XVNC Server on port 5900
@@ -270,11 +259,11 @@ to perform this configuration.
 
       EOF
 
-#. Create a systemd service file :file:`xvnc@.service` and add the following:
+#. Create a systemd service file :file:`xvnc@.service` with the following content:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # cat > /etc/systemd/system/xvnc@.service << EOF
+      sudo tee -a  /etc/systemd/system/xvnc@.service << EOF
 
       [Unit]
       Description=Daemon for each XVNC connection
@@ -291,14 +280,14 @@ to perform this configuration.
 
    .. code-block:: bash
 
-      mkdir -p /etc/gdm
+      sudo mkdir -p /etc/gdm
 
 
-#. Create a GDM :file:`custom.conf` file and add the following:
+#. Create a GDM :file:`custom.conf` file with the following content:
 
-   .. code-block:: console
+   .. code-block:: bash
 
-      # cat > /etc/gdm/custom.conf << EOF
+      sudo tee -a /etc/gdm/custom.conf << EOF
 
       [xdmcp]
       Enable=true
@@ -310,9 +299,9 @@ to perform this configuration.
 
    .. code-block:: bash
 
-      systemctl daemon-reload
-      systemctl start xvnc.socket
-      systemctl enable xvnc.socket
+      sudo systemctl daemon-reload
+      sudo systemctl enable xvnc.socket
+      sudo systemctl start xvnc.socket
 
 #. After starting the socket, verify it is running.
 
@@ -324,7 +313,7 @@ to perform this configuration.
 
    .. code-block:: console
 
-      # systemctl | grep vnc
+      systemctl | grep vnc
 
       xvnc.socket 		loaded active listening	XVNC Server on port 5900
       system-xvnc.slice 	loaded active active	system-xvnc.slice
@@ -347,19 +336,19 @@ On |CL|:
 
 .. code-block:: bash
 
-   swupd bundle-add desktop-autostart
+   sudo swupd bundle-add desktop-autostart
 
 On Ubuntu\*, Mint\*:
 
 .. code-block:: bash
 
-   apt-get install xtightvncviewer
+   sudo apt-get install xtightvncviewer
 
 On Fedora\*:
 
 .. code-block:: bash
 
-   dnf install tigervnc
+   sudo dnf install tigervnc
 
 On Windows\*:
 
@@ -397,7 +386,7 @@ SSH into your host and launch VNC
 
 #. SSH into your |CL| host
 
-   #. On Linux distros and macOS:
+   a. On Linux distros and macOS:
 
       .. code-block:: bash
 
@@ -405,7 +394,7 @@ SSH into your host and launch VNC
 
    #. On Windows:
 
-      #. Launch Putty.
+      i. Launch Putty.
       #. Under the :guilabel:`Category` section, select :guilabel:`Session`.
          See Figure 1.
       #. Enter the IP address of your |CL| host in the
@@ -413,7 +402,7 @@ SSH into your host and launch VNC
       #. Set the :guilabel:`Connection type` option to :guilabel:`SSH`.
       #. Click the :guilabel:`Open` button.
 
-         .. figure:: figures/vnc/vnc-1.png
+         .. figure:: ../../_figures/vnc/vnc-1.png
             :scale: 90 %
             :alt: Putty - configure SSH session settings
 
@@ -470,7 +459,7 @@ the instructions below use the fully-qualified VNC port number.
 
 **On Linux distros:**
 
-#. Open a terminal emulator and enter:
+#. Open a terminal window and enter:
 
    .. code-block:: bash
 
@@ -497,7 +486,7 @@ the instructions below use the fully-qualified VNC port number.
    The following screenshot shows connecting to |CL| host
    192.168.25.54 with a fully-qualified VNC port number 5902.
 
-   .. figure:: figures/vnc/vnc-2.png
+   .. figure:: ../../_figures/vnc/vnc-2.png
       :scale: 90 %
       :alt: RealVNC Viewer
 
@@ -526,7 +515,7 @@ value. Follow these steps:
 #. Right-click a connection node and select :guilabel:`Properties...`.
    See Figure 3.
 
-   .. figure:: figures/vnc/vnc-3.png
+   .. figure:: ../../_figures/vnc/vnc-3.png
       :scale: 90 %
       :alt: RealVNC Viewer - change connection node properties
 
@@ -537,7 +526,7 @@ value. Follow these steps:
 #. Select the :guilabel:`ColorLevel` setting and change it to your
    preferred setting.
 
-   .. figure:: figures/vnc/vnc-4.png
+   .. figure:: ../../_figures/vnc/vnc-4.png
       :scale: 90 %
       :alt: RealVNC Viewer - change ColorLevel
 
@@ -551,7 +540,7 @@ on your |CL| host even if you close your VNC viewer app. If you want to
 truly terminate an active VNC session, follow these steps:
 
 #. SSH into your |CL| host.
-#. Open a terminal emulator.
+#. Open a terminal window.
 #. Find the active VNC session display ID with the command
    :command:`vncserver -list`.
 
@@ -571,8 +560,8 @@ truly terminate an active VNC session, follow these steps:
 
    .. code-block:: bash
 
-      systemctl stop xvnc.socket
-      systemctl disable xnvc.socket
+      sudo systemctl stop xvnc.socket
+      sudo systemctl disable xnvc.socket
 
 
 Encrypt VNC traffic through an SSH tunnel
@@ -581,7 +570,7 @@ Encrypt VNC traffic through an SSH tunnel
 By default, VNC traffic is not encrypted.  Figure 6 shows an example warning
 from RealVNC Viewer.
 
-.. figure:: figures/vnc/vnc-6.png
+.. figure:: ../../_figures/vnc/vnc-6.png
    :scale: 90 %
    :alt: RealVNC Viewer - Connection not encrypted warning
 
@@ -650,8 +639,8 @@ For Method 2:
 
    .. code-block:: bash
 
-      systemctl daemon-load
-      systemctl restart vncserver@:5.service
+      sudo systemctl daemon-load
+      sudo systemctl restart vncserver@:5.service
 
 For Method 3:
 
@@ -674,7 +663,7 @@ Figure 7 shows two VNC sessions (5901 and 5905) accepting connections from
 any host as specified by the `0.0.0.0`'s.  This is before the
 :command:`-localhost` option was used.
 
-.. figure:: figures/vnc/vnc-7.png
+.. figure:: ../../_figures/vnc/vnc-7.png
    :scale: 100 %
    :alt: VNC session accepting connection from any host
 
@@ -684,7 +673,7 @@ Figure 8 shows two VNC sessions (5901 and 5905) only accepting connections from
 localhost as specified by `127.0.0.1`'s. This is after the
 :command:`-localhost` option was used.
 
-.. figure:: figures/vnc/vnc-8.png
+.. figure:: ../../_figures/vnc/vnc-8.png
    :scale: 100 %
    :alt: VNC session only accepting connection from localhost
 
@@ -695,7 +684,7 @@ Set up an SSH tunnel from your client system to your |CL| host
 
 **On Linux distros and macOS:**
 
-#. Open terminal emulator and enter:
+#. Open terminal window and enter:
 
    .. code-block:: bash
 
@@ -725,7 +714,7 @@ Set up an SSH tunnel from your client system to your |CL| host
 #. Launch Putty.
 #. Specify the |CL| VNC host to connect to.
 
-   #. Under the :guilabel:`Category` section, select :guilabel:`Session`.
+   a. Under the :guilabel:`Category` section, select :guilabel:`Session`.
       See Figure 1.
    #. Enter the IP address of your |CL| host in the
       :guilabel:`Host Name (or IP address)` field.
@@ -733,7 +722,7 @@ Set up an SSH tunnel from your client system to your |CL| host
 
 #. Configure the SSH tunnel.  See Figure 9 for an example.
 
-   #. Under the :guilabel:`Category` section, go to
+   a. Under the :guilabel:`Category` section, go to
       :guilabel:`Connection` > :guilabel:`SSH` > :guilabel:`Tunnels`.
 
    #. In the :guilabel:`Source port` field, enter an available client
@@ -745,7 +734,7 @@ Set up an SSH tunnel from your client system to your |CL| host
 
    #. Click the :guilabel:`Add` button.
 
-      .. figure:: figures/vnc/vnc-9.png
+      .. figure:: ../../_figures/vnc/vnc-9.png
          :scale: 100 %
          :alt: Putty - configure SSH tunnel
 
@@ -762,7 +751,7 @@ your VNC session.
 
 **On Linux distros:**
 
-#. Open terminal emulator and enter:
+#. Open terminal window and enter:
 
    .. code-block:: bash
 
@@ -774,7 +763,7 @@ your VNC session.
 #. Enter `localhost` and the fully-qualified VNC port number.  See Figure 10
    for an example.
 
-   .. figure:: figures/vnc/vnc-10.png
+   .. figure:: ../../_figures/vnc/vnc-10.png
       :scale: 100 %
       :alt: RealVNC viewer app connecting to localhost:1234
 
