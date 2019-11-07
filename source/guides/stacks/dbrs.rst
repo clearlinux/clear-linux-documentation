@@ -141,33 +141,43 @@ Configuration Steps
    Run the following steps with root privileges (sudo) as shown in the examples
 
 
-#. To configure Optane DIMMs for App direct mode run this command and then reboot the system
+#. To configure Optane DIMMs for App direct mode run this command 
 
    .. code-block:: bash
 
       sudo ipmctl create -goal PersistentMemoryType=AppDirect
 
-
-#. Next, list the pmem devices in the system
+#. Verify the Optane Configuration by showing the defined region, then reboot the system for your changes to take effect
 
    .. code-block:: bash
 
-      sudo ndctl list –N
+      sudo ipmctl show -region
 
 
-#. Create namespaces based on the regions and set mode as fsdax  -- use the names of the regions listed in previous step as the –-region parameter
+#. Next, list the defined namespaces for the pmem devices in the system. If they are not defined, create them as shown in the following step. 
+
+
+   .. code-block:: bash
+
+      sudo ndctl list -N
+
+
+#. Create namespaces based on the regions and set mode as fsdax  -- use the names of the regions listed in previous step as the –-region parameter (default is region0 and region1; one for each CPU socket)
 
    .. code-block:: bash
 
       sudo ndctl create-namespace --region=region0 --mode=fsdax
+      sudo ndctl create-namespace --region=region1 --mode=fsdax
 
 
 #. Create the filesystem and mount it. We are using /mnt/dax{#} as a convention in this guide to mount our devices
 
    .. code-block:: bash
 
-      sudo mkfs.ext4 /dev/pmem{n}
+      sudo mkfs.ext4 /dev/pmem0
       sudo mount -o dax /dev/pmem0 /mnt/dax0
+      sudo mkfs.ext4 /dev/pmem1
+      sudo mount -o dax /dev/pmem1 /mnt/dax1
 
 
 Running DBRS with Apache Cassandra*
