@@ -55,7 +55,7 @@ Hardware configuration used in stacks development
 * BIOS with Reference Code
   * BIOS ID: SE5C620.86B.0D.01.0438.032620191658
   * BMC Firmware: 1.94.6b42b91d
-  * Apache Pass Firmware: 1.2.0.5310
+  * Intel® Optane™ DC Persistent MemoryFirmware: 1.2.0.5310
 * 2x Intel Xeon Platinum 8268 Processor
 * Intel SSD DC S5600 Series 960GB 2.5in SATA Drive
 * 64 GB RAM - Distributed in 4x 16 GB DDR4 DIMM's
@@ -82,7 +82,7 @@ Hardware configuration used in stacks development
      - Slot 0
 
    * -
-     - 256 AEP
+     - 256 GB DCPMM
      -
      - 16 GB DRAM
      -
