@@ -394,7 +394,7 @@ SSH into your host and launch VNC
 
    #. On Windows:
 
-      a. Launch Putty.
+      i. Launch Putty.
       #. Under the :guilabel:`Category` section, select :guilabel:`Session`.
          See Figure 1.
       #. Enter the IP address of your |CL| host in the
