@@ -8,7 +8,7 @@ bootloader. At boot time, you will not be presented with the systemd-boot menu. 
 a menu, you cannot interact with systemd-boot such as selecting a different kernel,
 editing kernel command line parameters, etc. 
 
-To set a timeout value, therefore, enabling the systemd-boot menu, follow these steps:
+To set a timeout value to the systemd-boot menu, follow these steps:
 
 #. Boot up |CL|.
 
