@@ -11,21 +11,6 @@ for (i = 0; i< bashDollarDivs.length; i++) {
     }
 }
 
-//needed for nested collapsible sections - otherwise the top container 
-//won't resize after expanding a child.
-function resetActiveCollapsedSections() {
-
-  var sections = document.getElementsByClassName("content-collapse section");
-
-  //for (i = 0; i < sections.length; i++) {
-  for (i = sections.length -1; i >= 0; i-- ){
-
-    if (sections[i].style.maxHeight != "0px"){
-       sections[i].style.maxHeight = sections[i].scrollHeight + "px";
-    }
-  }
-}
-
 for (i = 0; i < contents.length; i++) {
 
   //Make sure the "content-collapse section" class is occurring in <div>
@@ -65,7 +50,6 @@ for (i = 0; i < contents.length; i++) {
         } else {
           content.style.maxHeight = content.scrollHeight + "px";
         } 
-        resetActiveCollapsedSections(); //reset the size of parent containers
       });
 
       //Add the button to the page and remove the header

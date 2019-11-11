@@ -175,7 +175,7 @@ th,td {
 
 .content-collapse {
   overflow: hidden;
-  /*transition: max-height 0.2s ease-out;*//*removed as it was breaking nested collapsible sections*/
+  transition: max-height 0.2s ease-out;
 }
 
 /*Fix for permalinks to collapsible sections*/
@@ -374,16 +374,7 @@ div.highlight-console .highlight:before{
   white-space: pre;
 }
 
-div.highlight-rst .highlight:before{
-  background: #909090;
-  color: white;
-  content: " reStructuredText ";
-  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
-  font-size: 14px;
-  white-space: pre;
-}
-
-div.highlight-rest .highlight:before{
+div.highlight-rst, div.highlight-rest .highlight:before{
   background: #909090;
   color: white;
   content: " reStructuredText ";
@@ -480,3 +471,43 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 
 /*End support for labeled code-blocks*/
 
+/*Begin support for multi-column sections*/
+
+.column {
+  float: left;
+  width: 350px;
+  padding: 10px;
+  margin: 10px;
+  border: 10px;
+  background: white;
+}
+
+.column.featurecard {
+  background: #CCE9F5;
+}
+
+.column.verticalcard {
+  height: 615px;
+  overflow: auto;
+}
+
+/* Clear floats after the columns */
+.multicolumns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.colh2 {
+  font-size: 150%;
+  font-weight: 700;
+  font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+}
+
+.video.docutils.container {
+  margin: 10px;
+  width:720px;
+  height:405px;
+}
+
+/*End support for multi-column sections*/
