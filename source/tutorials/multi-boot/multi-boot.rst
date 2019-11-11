@@ -17,4 +17,4 @@ Detailed procedures
    :maxdepth: 1
 
    dual-boot-win
-
+   dual-boot-linux
