@@ -98,17 +98,17 @@ If you choose to build your own DARS container images, you can customize them as
 
 To construct images with |CL|, start with a |CL| development platform that has the :command:`containers-basic-dev` bundle installed. Learn more about bundles and installing them by using :ref:`swupd-guide`.
 
-#. The `Data Analytics Reference Stack`_ is part of the |CL| Project GitHub\* repository. Clone the :file:`dockerfiles` repository.
+#. The `Data Analytics Reference Stack`_ is part of the Intel® stacks GitHub\* repository. Clone the :file:`stacks` repository.
 
    .. code-block:: bash
 
-      git clone https://github.com/clearlinux/dockerfiles.git
+      git clone https://github.com/intel/stacks.git
 
-#. Inside the :file:`stacks/dars/mkl` directory, use docker with the :file:`Dockerfile` to build the  MKL image.
+#. Inside the :file:`stacks/dars/clearlinux/mkl` directory, use docker with the :file:`Dockerfile` to build the  MKL image.
 
    .. code-block:: bash
 
-      cd ./dockerfiles/stacks/dlrs/mkl
+      cd ./stacks/dars/clearlinux/mkl
       docker build --no-cache -t clearlinux/stacks-dars-mkl .
 
 
@@ -382,7 +382,7 @@ Prerequisites
         EOF
 
 
-#. Create the :file:`entrypoint.sh` file. The Dockerfile requires an entrypoint script, to allow spark-submit to interact with the container. 
+#. Create the :file:`entrypoint.sh` file. The Dockerfile requires an entrypoint script, to allow spark-submit to interact with the container.
 
    .. code-block:: bash
 
@@ -672,7 +672,7 @@ This exception can be disregarded because DARS does not use hadoop.hive.shims. H
 #. There is an exception message `Exception in thread "Thread-3" java.lang.ExceptionInInitializerError at org.apache.hadoop.hive.conf.HiveConf` This is related to the same issue with |CL| and JDK11 noted above, and does not affect DARS for the same reason.
 
 
-.. _Data Analytics Reference Stack: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dars
+.. _Data Analytics Reference Stack: https://github.com/intel/stacks/tree/master/dars/clearlinux
 
 .. _Docker Hub: https://hub.docker.com/
 
