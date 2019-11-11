@@ -98,11 +98,11 @@ If you choose to build your own DARS container images, you can customize them as
 
 To construct images with |CL|, start with a |CL| development platform that has the :command:`containers-basic-dev` bundle installed. Learn more about bundles and installing them by using :ref:`swupd-guide`.
 
-#. The `Data Analytics Reference Stack`_ is part of the |CL| Project GitHub\* repository. Clone the :file:`dockerfiles` repository.
+#. The `Data Analytics Reference Stack`_ is part of the Intel® stacks GitHub\* repository. Clone the :file:`stacks` repository.
 
    .. code-block:: bash
 
-      git clone https://github.com/intel/stacks
+      git clone https://github.com/intel/stacks.git
 
 #. Inside the :file:`stacks/dars/clearlinux/mkl` directory, use docker with the :file:`Dockerfile` to build the  MKL image.
 
