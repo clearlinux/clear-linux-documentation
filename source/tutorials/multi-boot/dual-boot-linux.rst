@@ -1,16 +1,14 @@
 .. _dual-boot-linux:
 
-Dual-boot |CL-ATTR| with Any GRUB-based Linux\* Distro
+Dual-boot |CL-ATTR| with Another GRUB-based Linux\* Distro
 ##########################################################
 
-In this tutorial, we show how to install |CL| alongside any GRUB-based 
-Linux\* distro. To do so, we resize the existing Linux root partition to 
-make room to install |CL|. Then we show 3 methods to dual-boot |CL| 
-with an existing Linux distro.  
-
-Although we use Ubuntu\* 19.04 Desktop as the example here, 
-these instructions also work for other distros such as Mint Linux, Kubuntu\*, 
-Fedora\*, CentOS\*, among others.
+In this tutorial, we show how to install another GRUB-based Linux\* distro 
+alongside |CL|.  To do so, we resize the existing Linux root partition to 
+make enough room to install |CL|. Then we configure the |CL| bootloader, 
+:command:`systemd-boot`, which enables you to dual-boot |CL| and an existing
+Linux distro.  Although we use Ubuntu\* 19.04 Desktop as the example here, 
+these instructions also work for other distros such as Mint Linux, Kubuntu\*, Fedora\*, CentOS\*, among others.
 
 .. contents::
    :local:
@@ -168,34 +166,23 @@ Install |CL| with Advanced Installation
 #. Complete the remaining steps of :guilabel:`Required Options` to 
    to install |CL|. Complete any :guilabel:`Advanced Options` as desired.
     
-Three Methods to Boot |CL|
-*************(************
+Ways to boot |CL|
+*****************
 
-Although we installed |CL| last, Ubuntu is still the default boot OS.  
-There are three methods to boot |CL|:
-
-#. Make systemd-boot, the boot loader that |CL| uses, the default
-   boot loader to boot |CL| and also chain-boot GRUB; therefore, boot 
-   Ubuntu.  See Method 1.
-
-#. Use GRUB to chain-boot systemd-boot, therefore boot |CL|.
-   See Method 2.
+Although we installed |CL| last, Ubuntu is still the default boot OS.  There are several ways to boot |CL|:
 
 #. Use your BIOS “Boot Menu” to select and boot |CL|.  
-   Refer to your system's manual on how to bring up the "Boot Menu".
+   This is temporary and will not make |CL| the default boot OS.  
 
-Method 1: Use systemd-boot to Boot |CL| and also Chain-boot GRUB
-****************************************************************
+#. Make systemd-boot, the boot loader that |CL| uses, the default
+   boot loader to boot |CL| and chain-boot GRUB; therefore, boot 
+   Ubuntu. Follow the next section to implement this.  
 
-systemd-boot is the bootloader used by |CL|.  Because |CL| was installed
-after a GRUB-based distro, GRUB is still the default bootloader.
-In this method, we make systemd-boot the default bootloader instead and 
-also provide a path to chain-boot GRUB.  
+Make systemd-boot Default Bootloader and chain-boot GRUB
+********************************************************
 
 #. Boot up the |CL| installer image.
-
 #. Open a terminal window. 
-
 #. Identify the EFI system partition, Ubuntu root partition, and |CL| root
    partition. 
 
@@ -288,78 +275,6 @@ also provide a path to chain-boot GRUB.
       :alt: systemd-boot menu showing GRUB
 
       Figure 12: systemd-boot menu showing GRUB
-
-
-Method 2: Use GRUB to Boot |CL|
-*******************************
-
-In this method, we keep GRUB as the default bootloader, but configure it
-to chain-boot systemd-boot, thus allowing us to boot |CL|.  Again, we're using 
-Ubuntu as our working example.
-
-#. Boot up Ubuntu.
-
-#. Set a timeout value for the GRUB menu so it will be visible at boot time and 
-   allow you select one which OS to boot.
-
-   a. sudoedit /etc/defaults/grub
-
-   #. Set the `GRUB_TIMEOUT` variable to a desire time.
-
-#. Create a menu entry for systemd-boot bootloader.
-
-   a. Identify the UUID for EFI system partition that systemd-boot resides on.
-      The example below shows the UUID for the EFI system on /dev/sda1 is "".
-
-      .. code-block:: bash
-
-         sudo blkid 
-
-      Example output:
-    
-      .. code-block:: console
-
-         <ADD EXAMPLE HERE>
-
-   #. sudoedit /etc/grub.d/40_custom and add the menu entry (for example):
-
-      .. code-block:: console
-         :linenos:
-         :emphasize-lines: 7-10
-
-         #!/bin/sh
-    	 exec tail -n +3 $0
-         # This file provides an easy way to add custom menu entries. Simply type the
-         # menu entries you want to add after this comment. Be careful not to change
-         # the 'exec tail' line above.
-
-         menuentry 'Clear Linux OS' {
-            search --fs-uuid --no-floppy --set=root 309E-F4AF
-            chainloader (${root})/EFI/org.clearlinux/bootloaderx64.efi
-         } 
-
-   #. Update GRUB.
-
-      .. code-block:: bash
-
-         sudo update-grub
-
-   #. Reboot.
-
-   .. tip:: 
-      
-      The default installation of |CL| does not set a timeout value for systemd-boot.
-      Thus, you will not see the systemd-boot menu and the default kernel will boot right away.  
-      To set a timeout value, follow these steps:
-
-      #. Boot up |CL|.
-
-      #. Log in.
-
-      #. Set a timeout (for example: 20 seconds).
-
-         sudo clr-boot-manager set-timeout 20
-         sudo clr-boot-manager update
 
 .. _download the live desktop image: https://clearlinux.org/downloads
 
