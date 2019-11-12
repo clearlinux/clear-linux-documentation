@@ -8,7 +8,8 @@ bootloader. At boot time, you will not be presented with the systemd-boot menu. 
 a menu, you cannot interact with systemd-boot such as selecting a different kernel,
 editing kernel command line parameters, etc. 
 
-To set a timeout value to the systemd-boot menu, follow these steps:
+To set a timeout value for the systemd-boot menu, follow these steps:
+
 
 #. Boot up |CL|.
 
@@ -16,7 +17,9 @@ To set a timeout value to the systemd-boot menu, follow these steps:
 
 #. Set a timeout (for example: 20 seconds).
 
-   sudo clr-boot-manager set-timeout 20
-   sudo clr-boot-manager update
+   .. code-block:: bash
+      
+      sudo clr-boot-manager set-timeout 20
+      sudo clr-boot-manager update
 
 #. Reboot.
