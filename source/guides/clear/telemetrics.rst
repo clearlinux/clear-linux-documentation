@@ -176,7 +176,7 @@ Enable or disable telemetry
    the telemetry software bundle is not added to your system. If you do
    choose to join the program, the installer will automatically enable
    telemetry on your system by installing the telemetrics bundle, creating
-   the file :file:`/etc/telemetrics/opt-in`, and enabling the telemtrics
+   the file :file:`/etc/telemetrics/opt-in`, and enabling the telemetrics
    systemd services to run after installation is complete and the system is
    restarted.
 
@@ -282,7 +282,7 @@ Use :command:`-h` or :command:`--help` to view usage options.
 
 
 Set up a backend server to collect telemetry records
-=====================================================
+====================================================
 
 For this example, start with a clean installation of |CL| on a new system
 using the :ref:`bare-metal-install-server` getting started guide and:
@@ -745,7 +745,7 @@ The telemetry client will look for the configuration file located at
 :file:`/etc/telemetrics/telemetrics.conf` and use it if it exists. If the
 file does not exist, the client will use the default configuration defined
 at build time. There is a sample configuration file located at
-:file:`/usr/share/defaults telemetrics/telemetrics.conf` and represents the
+:file:`/usr/share/defaults/telemetrics/telemetrics.conf` and represents the
 default values that are used when the programs are built. To modify or
 customize the configuration, copy the file from
 :file:`/usr/share/defaults/telemetrics/telemetrics.conf` to the file
