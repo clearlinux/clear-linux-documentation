@@ -262,7 +262,7 @@ Pre-requisites:
 
       # Env variables needed for your deployment
       export KFAPP="<your choice of application directory name>"
-      export CONFIG="https://github.com/kubeflow/manifests/blob/master/kfdef/kfctl_k8s_istio.yaml"
+      export CONFIG="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_k8s_istio.yaml"
 
       kfctl init ${KFAPP} --config=${CONFIG} -V
       cd ${KFAPP}
