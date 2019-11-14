@@ -262,7 +262,7 @@ Pre-requisites:
 
       # Env variables needed for your deployment
       export KFAPP="<your choice of application directory name>"
-      export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6.1/bootstrap/config/kfctl_k8s_istio.yaml"
+      export CONFIG="https://github.com/kubeflow/manifests/blob/master/kfdef/kfctl_k8s_istio.yaml"
 
       kfctl init ${KFAPP} --config=${CONFIG} -V
       cd ${KFAPP}
@@ -865,7 +865,7 @@ Related topics
 
 .. _Seldon Core: https://docs.seldon.io/projects/seldon-core/en/latest/
 
-.. _Istio: https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_k8s_istio.yaml
+.. _Istio: https://github.com/kubeflow/manifests/blob/master/kfdef/kfctl_k8s_istio.yaml
 
 .. _Dockerfile_openvino_base: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/kubeflow/dlrs-seldon/docker/Dockerfile_openvino_base
 
