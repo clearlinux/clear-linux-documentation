@@ -24,6 +24,30 @@ general guide for working with applications in the |CL| :ref:`stateless`
 environment.
 
 
+Background
+**********
+
+By default, PHP looks for configuration settings in the :file:`php.ini` file,
+which resides in the :file:`usr/share/defaults/php/` path. Because |CL| is a
+:ref:`stateless` operating system, you must create an optional configuration
+file to override the default values. Every time :command:`swupd` updates the
+system, it overwrites changes to the :file:`/usr/share/defaults` file
+structure. To save your configuration options through updates, you must create
+a PHP configuration file in a location that will not be overwritten. The
+recommended location is within the :file:`/etc` file structure, which is why this
+tutorial creates a :file:`/etc/php.d` directory.
+
+The PHP-FPM configuration file is separate from the :file:`php.ini` file used
+by PHP, however it has a similar default path restriction. |CL| installs the
+default :file:`php-fpm.conf` file in :file:`/usr/share/defaults/php`. This
+file with its default values is overwritten during each software update.
+However, PHP-FPM requires that the configuration file exist in that location,
+and, by design, does not read configuration options from a different path.
+This tutorial describes a solution to changing PHP-FPM configuration options
+in |CL|, by manually  overriding the php-fpm.service unit in systemd to pass
+an explicit location to a custom :file:`php-fpm.conf` file.
+
+
 Prerequisites
 *************
 
@@ -159,7 +183,7 @@ below to configure PHP-FPM.
        sudo cp /usr/share/defaults/php/php-fpm.conf /etc/php.d/php-fpm.conf
 
 #.  Make changes to the :file:`php-fpm.conf` file as needed. The
-    `FPM documentation`_ has detail on the configuration options available
+    `FPM documentation`_ has details on the configuration options available
     to PHP-FPM.
 
 #.  Edit the systemd service unit file:
@@ -168,14 +192,10 @@ below to configure PHP-FPM.
 
        sudo systemctl edit --full php-fpm.service
 
-    This opens the php-fpm.service file for systemd in your editor.
+    This opens the :file:`php-fpm.service` file for systemd in your editor.
 
 #.  Change the :command:`ExecStart` configuration to add the
     :command:`--fpm-config` option to point to the custom location:
-
-    .. code-block:: bash
-
-       sudo systemctl edit --full php-fpm.service
 
     .. code-block:: console
 
@@ -218,29 +238,6 @@ below to configure PHP-FPM.
        Memory: 11.1M
        CGroup: /system.slice/php-fpm.service
                └─14452 php-fpm: master process (/etc/php.d/php-fpm.conf)
-
-Background
-**********
-
-By default, PHP looks for configuration settings in the :file:`php.ini` file,
-which resides in the :file:`usr/share/defaults/php/` path. Because |CL| is a
-:ref:`stateless` operating system, you must create an optional configuration
-file to override the default values. Every time :command:`swupd` updates the
-system, it overwrites changes to the :file:`/usr/share/defaults` file
-structure. To save your configuration options through updates, you must create
-a PHP configuration file in a location that will not be overwritten. The
-recommended location is within the :file:`/etc` file structure, which is why this
-tutorial creates a :file:`/etc/php.d` directory.
-
-The PHP-FPM configuration file is separate from the :file:`php.ini` file used
-by PHP, however it has a similar default path restriction. |CL| installs the
-default :file:`php-fpm.conf` file in :file:`/usr/share/defaults/php`. This
-file with its default values is overwritten during each software update.
-However, PHP-FPM requires that the configuration file exist in that location,
-and, by design, does not read configuration options from a different path.
-This tutorial describes a solution to changing PHP-FPM configuration options
-in |CL|, by manually  overriding the php-fpm.service unit in systemd to pass
-an explicit location to a custom :file:`php-fpm.conf` file.
 
 
 .. _PHP language: https://www.php.net/
