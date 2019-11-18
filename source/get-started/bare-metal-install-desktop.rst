@@ -145,8 +145,8 @@ To fulfill minimum installation requirements, complete the
    * Check marks indicate a selection has been made.
 
    * The installer image contains the default bundles required for  
-     installation. Off-line installation is possible if you do not install
-     additional bundles. 
+     installation. An Internet connection is only required if you install
+     additional bundles from `Advanced options`_.
 
 |CL| Desktop Installer
 **********************
