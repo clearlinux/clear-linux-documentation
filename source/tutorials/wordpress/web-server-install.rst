@@ -25,10 +25,10 @@ Apache is an open source HTTP web server application that can run on several
 operating systems, including |CL|. Go to the `Apache HTTP Server Project`_
 for more information.
 
-Install the web-server-basic bundle
-===================================
+Install the httpd bundle
+========================
 
-The **web-server-basic** bundle contains the packages needed to install the
+The **httpd** bundle contains the packages needed to install the
 Apache software bundle on |CL|.
 
 .. note::
@@ -44,7 +44,7 @@ Apache software bundle on |CL|.
 
    .. code-block:: bash
 
-      sudo swupd bundle-add web-server-basic
+      sudo swupd bundle-add httpd
 
 
 #. To start the Apache service, enter the following commands:

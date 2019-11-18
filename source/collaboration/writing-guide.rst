@@ -18,7 +18,7 @@ Use simple English
 
 Write using simple English: Be brief and communicate only the information that
 is needed. Be friendly and informative. Emphasize clarity and avoid
-unecessary complicated or technical terms. Make the content accessible to
+unnecessary complicated or technical terms. Make the content accessible to
 non-native speakers.
 
 Be brief
@@ -93,7 +93,7 @@ what they need quickly, and to understand the information more efficiently.
   document first, and organize supporting information towards the end of the
   page.
 * **Write scannable headings.** Expect readers of documentation to skim and scan
-  the content, and to leave if they dont find what they need quickly. Good
+  the content, and to leave if they don't find what they need quickly. Good
   headings add organization to your content and help the reader to find and
   understand content more effectively. Follow our guidelines for writing
   effective `Headings`_.

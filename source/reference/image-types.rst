@@ -21,7 +21,7 @@ The naming convention of a |CL| image filename is:
   file format.
 
 * The *[compression type]* field specifies the compression type. Two types of
-  compressions are used: GNU\* zip (*.gz*) and XZ (*.xz*).
+  compression methods are used: GNU\* zip (*.gz*) and XZ (*.xz*).
 
 .. _incl-image-filename-end:
 
@@ -80,8 +80,7 @@ Table 2 lists the currently available images that are platform specific.
      - Image suitable for use with PXE server.
 
    * - vmware.vmdk
-     - Virtual Machine Disk for VMware\* platforms inclduing Player, Workstation, and ESXi.
+     - Virtual Machine Disk for VMware\* platforms including Player, Workstation, and ESXi.
 
 .. _images: https://clearlinux.org/downloads
 .. _`optimized kernel`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
-

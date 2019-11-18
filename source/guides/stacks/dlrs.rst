@@ -41,15 +41,13 @@ The Deep Learning Reference Stack is available in the following versions:
    * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
    * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
 
-Stack features
-==============
+Releases
+********
 
 * `DLRS V4.0`_ release announcement, including benchmark results.
-* `DLRS V3.0`_ release announcement.
-* Deep Learning Reference Stack v2.0 including current
-  `PyTorch benchmark`_.
-* Deep Learning Reference Stack v1.0 including current
-  `TensorFlow benchmark`_ results.
+* `DLRS V3.0`_ release announcement, including benchmark results.
+* `DLRS V2.0`_ including PyTorch benchmark results.
+* `DLRS V1.0`_ including TensorFlow benchmark results.
 * `DLRS Release notes`_  on Github\* for the latest release of Deep Learning
   Reference Stack.
 
@@ -264,7 +262,7 @@ Pre-requisites:
 
       # Env variables needed for your deployment
       export KFAPP="<your choice of application directory name>"
-      export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6.1/bootstrap/config/kfctl_k8s_istio.yaml"
+      export CONFIG="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_k8s_istio.yaml"
 
       kfctl init ${KFAPP} --config=${CONFIG} -V
       cd ${KFAPP}
@@ -389,7 +387,7 @@ Pre-requisites
 
 .. note::
 
-   Instead of using Arrikto's configuration manifest as shown  in the preceeding example, you should use the manifest provided by `Istio`_, for this example, as Seldon deployments depend on it.
+   Instead of using Arrikto's configuration manifest as shown  in the preceding example, you should use the manifest provided by `Istio`_, for this example, as Seldon deployments depend on it.
 
 #. Install deployment tools
 
@@ -533,7 +531,7 @@ In this example, you will:
 
 #. Run the Model Optimizer
 
-   Running the model optimizer is as simple as calling the appropriate script, however there are many configuration options that are explainedin the documentation
+   Running the model optimizer is as simple as calling the appropriate script, however there are many configuration options that are explained in the documentation
 
    .. code-block:: bash
 
@@ -851,9 +849,9 @@ Related topics
 
 .. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
-.. _TensorFlow benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack
+.. _DLRS V1.0: https://clearlinux.org/stacks/deep-learning-reference-stack
 
-.. _PyTorch benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
+.. _DLRS V2.0: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
 .. _Jupyter Notebook: https://jupyter.org/
 
@@ -867,7 +865,7 @@ Related topics
 
 .. _Seldon Core: https://docs.seldon.io/projects/seldon-core/en/latest/
 
-.. _Istio: https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_k8s_istio.yaml
+.. _Istio: https://github.com/kubeflow/manifests/blob/master/kfdef/kfctl_k8s_istio.yaml
 
 .. _Dockerfile_openvino_base: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/kubeflow/dlrs-seldon/docker/Dockerfile_openvino_base
 
