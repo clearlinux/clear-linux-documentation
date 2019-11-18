@@ -55,7 +55,7 @@ Hardware configuration used in stacks development
 * BIOS with Reference Code
   * BIOS ID: SE5C620.86B.0D.01.0438.032620191658
   * BMC Firmware: 1.94.6b42b91d
-  * Apache Pass Firmware: 1.2.0.5310
+  * Intel® Optane™ DC Persistent MemoryFirmware: 1.2.0.5310
 * 2x Intel Xeon Platinum 8268 Processor
 * Intel SSD DC S5600 Series 960GB 2.5in SATA Drive
 * 64 GB RAM - Distributed in 4x 16 GB DDR4 DIMM's
@@ -82,7 +82,7 @@ Hardware configuration used in stacks development
      - Slot 0
 
    * -
-     - 256 AEP
+     - 256 GB DCPMM
      -
      - 16 GB DRAM
      -
@@ -141,33 +141,43 @@ Configuration Steps
    Run the following steps with root privileges (sudo) as shown in the examples
 
 
-#. To configure Optane DIMMs for App direct mode run this command and then reboot the system
+#. To configure Optane DIMMs for App direct mode run this command 
 
    .. code-block:: bash
 
       sudo ipmctl create -goal PersistentMemoryType=AppDirect
 
-
-#. Next, list the pmem devices in the system
+#. Verify the Optane Configuration by showing the defined region, then reboot the system for your changes to take effect
 
    .. code-block:: bash
 
-      sudo ndctl list –N
+      sudo ipmctl show -region
 
 
-#. Create namespaces based on the regions and set mode as fsdax  -- use the names of the regions listed in previous step as the –-region parameter
+#. Next, list the defined namespaces for the pmem devices in the system. If they are not defined, create them as shown in the following step. 
+
+
+   .. code-block:: bash
+
+      sudo ndctl list -N
+
+
+#. Create namespaces based on the regions and set mode as fsdax  -- use the names of the regions listed in previous step as the –-region parameter (default is region0 and region1; one for each CPU socket)
 
    .. code-block:: bash
 
       sudo ndctl create-namespace --region=region0 --mode=fsdax
+      sudo ndctl create-namespace --region=region1 --mode=fsdax
 
 
 #. Create the filesystem and mount it. We are using /mnt/dax{#} as a convention in this guide to mount our devices
 
    .. code-block:: bash
 
-      sudo mkfs.ext4 /dev/pmem{n}
+      sudo mkfs.ext4 /dev/pmem0
       sudo mount -o dax /dev/pmem0 /mnt/dax0
+      sudo mkfs.ext4 /dev/pmem1
+      sudo mount -o dax /dev/pmem1 /mnt/dax1
 
 
 Running DBRS with Apache Cassandra*
@@ -244,130 +254,132 @@ Preparing PMEM for container use
 
 The cassandra-pmem image is capable of using both `fsdax`   and `devdax`, the necessary steps to configure the PMEM to work with cassandra are documented here.
 
-fsdax
------
+.. tabs::
 
-Verify that the PMEM is in `fsdax` mode
+   .. group-tab:: devdax
 
-.. code-block:: bash
+      We need to verify the device we want to use is in `devdax` mode
 
-   sudo ndctl list -u
+      .. code-block:: bash
 
-.. code-block:: console
+         sudo ndctl create-namespace -fe namespace0.0  --mode=devdax
 
-  {
-    "dev":"namespace0.0",
-    "mode":"fsdax",
-    "map":"mem",
-    "size":"4.00 GiB (4.29 GB)",
-    "sector_size":512,
-    "blockdev":"pmem0"
-  }
+      .. code-block:: console
 
-
-If for some reason the device is not in `fsdax` mode you can reconfigure the namespace as follows:
-
-.. code-block:: bash
-
-   sudo `ndctl create-namespace -fe <namespace-name>  --mode=fsdax`
-
-
-Once the PMEM namespace is configured, you will see a device named :file:`/dev/pmem{0-9}`. We will create a filesystem on that device. The filesystem could be `ext4` or `xfs`, for this example we are going to use `ext4`.
-
-.. code-block:: bash
-
-   sudo mkfs.ext4 /dev/pmem0
-
-.. code-block:: console
-
-   mke2fs 1.45.2 (27-May-2019)
-   Creating filesystem with 1031680 4k blocks and 258048 inodes
-   Filesystem UUID: 303c03f5-ac4e-4462-8bf9-bc6b0fae53fe
-   Superblock backups stored on blocks:
-	   32768, 98304, 163840, 229376, 294912, 819200, 884736
-
-   Allocating group tables: done
-   Writing inode tables: done
-   Creating journal (16384 blocks): done
-   Writing superblocks and filesystem accounting information: done
+         {
+           "dev":"namespace0.0",
+           "mode":"devdax",
+           "map":"dev",
+           "size":"3.94 GiB (4.23 GB)",
+           "uuid":"cb738cc7-711d-4578-bebf-1f7ba02ca169",
+           "daxregion":{
+           "id":0,
+           "size":"3.94 GiB (4.23 GB)",
+           "align":2097152,
+           "devices":[
+             {
+               "chardev":"dax0.0",
+               "size":"3.94 GiB (4.23 GB)"
+             }
+           ]
+          },
+          "align":2097152
+         }
 
 
-Once the filesystem is created, we mount it with the dax option
+      If needed, we can reconfigure it using :command:`ndctl create-namespace -fe <namespace-name>  --mode=devdax`.
 
-.. code-block:: bash
+      Before using a `devdax` device we need to clear the device:
 
-   sudo mount /dev/pmem0 /mnt/pmem -o dax
+      .. code-block:: bash
 
-
-When using `fsdax` mode cassandra-pmem creates a pool file on the pmem mountpoint, so the `jvm.options` configuration should look like the output below:
-
-.. code-block:: console
-
-   -Dpmem_path=/mnt/pmem/cassandra_pool
-   -Dpool_size=3221225472
+         sudo pmempool rm -vaf /dev/dax0.0
 
 
+      The `jvm.options` configuration for Apache Cassandra should look like the following:
 
-Where
-* `pmem_path` is the path to the pool file, which should include the path itself and the file name
-* `pool_size` is the size of the pool file in bytes. If you are using the `Docker image with Apache Cassandra`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
+      .. code-block:: console
 
-Is important to note that when creating the filesystem in the pmem device certain amount of space of the device is used by the filesystem metadata so the pool_size should be smaller than the total pmem namespace size.
+         -Dpmem_path=/dev/dax0.0
+         -Dpool_size=0
 
-When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
+      Where
+      * pmem_path is the `devdax` device.
+      * pool_size=0 indicates to use the entire `devdax` device.
 
-devdax
-------
-We need to verify the device we want to use is in `devdax` mode
+      When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated.
 
-.. code-block:: bash
+   .. group-tab:: fsdax
 
-   sudo ndctl create-namespace -fe namespace0.0  --mode=devdax
+      Verify that the PMEM is in `fsdax` mode
 
-.. code-block:: console
+      .. code-block:: bash
 
-   {
-     "dev":"namespace0.0",
-     "mode":"devdax",
-     "map":"dev",
-     "size":"3.94 GiB (4.23 GB)",
-     "uuid":"cb738cc7-711d-4578-bebf-1f7ba02ca169",
-     "daxregion":{
-     "id":0,
-     "size":"3.94 GiB (4.23 GB)",
-     "align":2097152,
-     "devices":[
-       {
-         "chardev":"dax0.0",
-         "size":"3.94 GiB (4.23 GB)"
-       }
-     ]
-    },
-    "align":2097152
-   }
+         sudo ndctl list -u
+
+      .. code-block:: console
+
+        {
+          "dev":"namespace0.0",
+          "mode":"fsdax",
+          "map":"mem",
+          "size":"4.00 GiB (4.29 GB)",
+          "sector_size":512,
+          "blockdev":"pmem0"
+        }
 
 
-If needed, we can reconfigure it using :command:`ndctl create-namespace -fe <namespace-name>  --mode=devdax`.
+      If for some reason the device is not in `fsdax` mode you can reconfigure the namespace as follows:
 
-Before using a `devdax` device we need to clear the device:
+      .. code-block:: bash
 
-.. code-block:: bash
-
-   sudo pmempool rm -vaf /dev/dax0.0
+         sudo `ndctl create-namespace -fe <namespace-name>  --mode=fsdax`
 
 
-The `jvm.options` configuration for Apache Cassandra should look like the following:
+      Once the PMEM namespace is configured, you will see a device named :file:`/dev/pmem{0-9}`. We will create a filesystem on that device. The filesystem could be `ext4` or `xfs`, for this example we are going to use `ext4`.
 
-.. code-block:: console
+      .. code-block:: bash
 
-   -Dpmem_path=/dev/dax0.0
-   -Dpool_size=0
+         sudo mkfs.ext4 /dev/pmem0
 
-Where
-* pmem_path is the `devdax` device.
-* pool_size=0 indicates to use the entire `devdax` device.
+      .. code-block:: console
 
-When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated.
+         mke2fs 1.45.2 (27-May-2019)
+         Creating filesystem with 1031680 4k blocks and 258048 inodes
+         Filesystem UUID: 303c03f5-ac4e-4462-8bf9-bc6b0fae53fe
+         Superblock backups stored on blocks:
+      	   32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+         Allocating group tables: done
+         Writing inode tables: done
+         Creating journal (16384 blocks): done
+         Writing superblocks and filesystem accounting information: done
+
+
+      Once the filesystem is created, we mount it with the dax option
+
+      .. code-block:: bash
+
+         sudo mount /dev/pmem0 /mnt/pmem -o dax
+
+
+      When using `fsdax` mode cassandra-pmem creates a pool file on the pmem mountpoint, so the `jvm.options` configuration should look like the output below:
+
+      .. code-block:: console
+
+         -Dpmem_path=/mnt/pmem/cassandra_pool
+         -Dpool_size=3221225472
+
+
+
+      Where
+      * `pmem_path` is the path to the pool file, which should include the path itself and the file name
+      * `pool_size` is the size of the pool file in bytes. If you are using the `Docker image with Apache Cassandra`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
+
+      Is important to note that when creating the filesystem in the pmem device certain amount of space of the device is used by the filesystem metadata so the pool_size should be smaller than the total pmem namespace size.
+
+      When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
+
 
 
 Run the DBRS Container
@@ -375,18 +387,23 @@ Run the DBRS Container
 
 Replace `<image-id>` in the following commands with the name of the image you are using.
 
-In `devdax` mode:
+.. tabs::
 
-.. code-block:: bash
+   .. group-tab:: devdax
 
-   docker run --device=/<devdax-device>:/dev/dax0.0 --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it --name cassandra-test <image-id>
+      In `devdax` mode:
 
+      .. code-block:: bash
 
-In `fsdax` mode:
+         docker run --device=/<devdax-device>:/dev/dax0.0 --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it --name cassandra-test <image-id>
 
-.. code-block:: bash
+   .. group-tab:: fsdax
 
-   docker run --mount type=bind,source=/<fsdax-mountpoint>,target=/mnt/pmem  --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it -e 'CASSANDRA_FSDAX_POOL_SIZE_GB=<fsdax-pool-size-in-gb>' --name cassandra-test <image-id>
+      In `fsdax` mode:
+
+      .. code-block:: bash
+
+         docker run --mount type=bind,source=/<fsdax-mountpoint>,target=/mnt/pmem  --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it -e 'CASSANDRA_FSDAX_POOL_SIZE_GB=<fsdax-pool-size-in-gb>' --name cassandra-test <image-id>
 
 
 Container Configuration
@@ -507,7 +524,7 @@ In order to configure the Apache Cassandra PMEM cluster some variables and value
 * image.repository:  The address of the container registry where the cassandra-pmem image should be pulled
 * image.tag:  The tag of the image to be pulled during deployment
 * image.name:  The name of the image to be pulled during deployment
-* pmem.containerPmemAllocation:  The size of the persistent volume claim to be used as heap, it uses the storage class `pmem-csi-sc-ext4` from pmem-csi  The size of the fsdax pool to be created inside the persistent volume claim, in practice it shuld be `1G` less than pmem.containerPmemAllocation
+* pmem.containerPmemAllocation:  The size of the persistent volume claim to be used as heap, it uses the storage class `pmem-csi-sc-ext4` from pmem-csi  The size of the fsdax pool to be created inside the persistent volume claim, in practice it should be `1G` less than pmem.containerPmemAllocation
 * pmem.fsdaxPoolSizeInGB: The size of the fsdax pool to be created inside the persistent volume claim, in practice it should be 1G less than pmem.containerPmemAllocation
 * enablePersistence: If set to `true`, K8s persistent volumes are deployed to store data and logs
 * persistentVolumes.logsVolumeSize:  The size of the persistent volume used for storing logs on each node, the default is `4G`
@@ -518,7 +535,7 @@ In order to configure the Apache Cassandra PMEM cluster some variables and value
 * exposeJmxPort:  When set to `true` it exposes the JMX port as part of the Kubernetes headless service. It should be used together with `enableAdditionalFilesConfigMap` in order to provide authentication files needed for JMX when the remote connections are allowed. When set to `false` only local access through 127.0.0.1 is granted and no additional authentication is needed.
 * enableClientToolsPod:  If set to `true`, an additional pod independent from the cluster is deployed, this pod contains various Cassandra client tools and mounts test profiles located under `<helm-chart-dir>/files/testProfiles` to `/testProfiles` inside the pod. This pod is useful to test and launch benchmarks
 * enableAdditionalFilesConfigMap:  When set to true, it takes the files located in `<helm-chart-dir>/files/additionalFiles` and mount them in `/etc/cassandra` inside the pods, some additional files for cassandra can be stored here, such as JMX auth files
-* jvmOpts.enabled:  If set to `true` the environment variable `JVM_OPTS` is overriden with the value provided on jvmOpts.value
+* jvmOpts.enabled:  If set to `true` the environment variable `JVM_OPTS` is overridden with the value provided on jvmOpts.value
 * jvmOpts.value: Sets the value of the environment variable `JVM_OPTS`, in this way some java runtime configurations can be provided such as RAM heap usage
 * resources.enabled:  if set to `true`, the resource constraints are set on each pod using the values under resources.requests and resources.limits
 * resources.requests.memory: Initial resource allocation for each pod in the cluster

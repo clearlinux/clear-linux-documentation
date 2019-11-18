@@ -44,7 +44,7 @@ Ease of Use
   environments without needing to be configured.
 
 * Being :ref:`stateless` means that configuration settings are easier to manage
-  and remain untouched when system sofware is updated.
+  and remain untouched when system software is updated.
 
 * :ref:`swupd-guide` simplifies managing software and maintaining compatibility.
 

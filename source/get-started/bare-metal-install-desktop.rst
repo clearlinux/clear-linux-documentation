@@ -19,6 +19,8 @@ installation:
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
 
+.. _preliminary-steps-install-desktop:
+
 Preliminary steps
 *****************
 
@@ -55,6 +57,8 @@ these steps.
 #. Save these settings, e.g. :kbd:`F10`, and exit.
 
 #. Reboot the target system.
+
+.. _preliminary-steps-install-desktop-end:
 
 #. Select :guilabel:`Clear Linux OS` in the boot menu, shown in Figure 1.
 

@@ -34,20 +34,22 @@ between user-owned areas and |CL|-owned areas.
 
    Figure 2: With stateless, user and system files are separated on the filesystem.
 
-System areas
-============
-File under the :file:`/usr` directory are managed by |CL| as system files.
+System area
+===========
+Files under the :file:`/usr` directory are managed by |CL| as system files
+(except :file:`/usr/local`).
 Files written under the :file:`/usr` directory by users can get removed
 through system updates with :ref:`swupd <swupd-guide>`. This operating
 assumption allows |CL| to verify and maintain integrity of system files.
 
 User areas
 ==========
-Files under the :file:`/etc/`, :file:`/home`, and :file:`/var` directories are
-owned and managed by the user. A freshly installed |CL| system will only have
-a minimal set of files in the :file:`/etc/` directory and software installed
-by |CL| does not write to :file:`/etc`. This operating assumption allows |CL|
-users to clearly identify the configuration that makes their system unique.
+Files under the :file:`/usr/local`, :file:`/etc/`, :file:`/opt`, :file:`/home`,
+and :file:`/var` directories are owned and managed by the user. A freshly
+installed |CL| system will only have a minimal set of files in the
+:file:`/etc/` directory and software installed by |CL| does not write to
+:file:`/etc`. This operating assumption allows |CL| users to clearly identify
+the configuration that makes their system unique.
 
 
 Software configuration

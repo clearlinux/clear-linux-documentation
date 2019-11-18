@@ -55,7 +55,7 @@ For example, the :ref:`collaboration` page toctree looks like:
 Additionally, each page must include a uniquely named reST label directly before
 the page title, to enable the `Sphinx ref role`_ for linking to a page.
 
-For example, this page "Structure and formating" has the label
+For example, this page "Structure and formatting" has the label
 ``.. _structure-formatting``:
 
 .. code-block:: rest
