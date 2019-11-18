@@ -34,7 +34,7 @@ import shlex
 #]
 
 extensions = [
-    'sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx_sitemap'
+    'sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx_sitemap', 'sphinx_tabs.tabs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
