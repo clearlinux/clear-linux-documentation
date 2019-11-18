@@ -144,8 +144,9 @@ To fulfill minimum installation requirements, complete the
 
    * Check marks indicate a selection has been made.
 
-   * An Internet connection is required. You may want to launch a browser
-     prior to installation to verify your Internet connection.
+   * The installer image contains the default bundles required for  
+     installation. An Internet connection is only required if you install
+     additional bundles from `Advanced options`_.
 
 |CL| Desktop Installer
 **********************
