@@ -4,8 +4,7 @@ Media Reference Stack
 #####################
 
 The Media Reference Stack (MeRS) is a highly optimized software stack for
-Intel Architecture to enable media prioritized workloads, such as transcoding
-and analytics.
+Intel® architecture to enable media prioritized workloads, such as transcoding and analytics.
 
 This guide explains how to use the pre-built |MERS| container image, build
 your own |MERS| container image, and use the reference stack.
