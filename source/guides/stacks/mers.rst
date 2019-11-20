@@ -22,13 +22,9 @@ complex standard-compliant encoders, and optimizing across the
 hardware-software stack for efficiency are all engineering and time
 investments for developers.
 
-The Media Reference Stack (MeRS) offers a highly optimized software stack
-for Intel Architecture to enable media prioritized workloads, such as
-transcoding and analytics. |MERS| abstracts away the complexity of integrating
-multiple software components and specifically tunes them for Intel platforms.
-|MERS| allows media and visual cloud developers to deliver experiences using a
-simple containerized solution. 
-
+The Media Reference Stack (MeRS) offers a highly optimized software stack for Intel Architecture to enable media prioritized workloads, such as
+transcoding and analytics. |MERS| abstracts away the complexity of 
+integrating multiple software components and specifically tunes them for Intel platforms. |MERS| allows media and visual cloud developers to deliver experiences using a simple containerized solution. 
 
 Prerequisites
 =============
@@ -47,11 +43,10 @@ The steps in this guide use |CL-ATTR| as the host system.
 .. important:: 
 
    For optimal performance, a processor with Vector Neural Network
-   Instructions (VNNI) should be used. VNNI is an extension of Intel® Advanced
-   Vector Extensions 512 (Intel® AVX-512) and is available starting with the
-   2nd generation of Intel® Xeon® Scalable Platform, providing AI inference
-   acceleration.
-
+   Instructions (VNNI) should be used. VNNI is an extension of Intel® 
+   Advanced Vector Extensions 512 (Intel® AVX-512) and is available starting 
+   with the 2nd generation of Intel® Xeon® Scalable Platform, providing AI 
+   inference acceleration.
 
 Stack Features
 ==============
@@ -60,11 +55,9 @@ The |MERS| provides a `pre-built Docker image available on DockerHub
 <https://hub.docker.com/r/clearlinux/stacks-mers>`_, which includes
 instructions on build the image from source. |MERS| is open-sourced to ensure
 developers have easy access to the source code and are able to customize it.
-|MERS| is built using the *clearlinux:latest* Docker image and aims to support
-the latest |CL| version.
+|MERS| is built using the *clearlinux:latest* Docker image and aims to support the latest |CL| version.
 
 |MERS| provides the following libraries:
-
 
 .. list-table::
    :widths: auto
@@ -97,15 +90,14 @@ Components of the |MERS| include:
 
    The pre-built |MERS| container image configures :command:`FFmpeg` without
    certain elements (specific encoder, decoder, muxer, etc.) that you may
-   require. If you require changes to :command:`FFmpeg` we suggest `rebuilding
-   the image <#building-mers-image>`_.
+   require. If you require changes to :command:`FFmpeg` we suggest 
+   `rebuilding the image <#building-mers-image>`_.
 
 .. note::
 
    The Media Reference Stack is a collective work, and each piece of software
    within the work has its own license. Please see the `MeRS Terms of Use
-   <https://clearlinux.org/stacks/media/terms-of-use>`_ for more details about
-   licensing and usage of the Media Reference Stack.
+   <https://clearlinux.org/stacks/media/terms-of-use>`_ for more details about licensing and usage of the Media Reference Stack.
 
 
 Getting the pre-built |MERS| container image
@@ -129,15 +121,12 @@ To use the |MERS|:
       The |MERS| docker image is large in size and will take some time to
       download depending on your Internet connection.
 
-      If you are on a network with outbound proxies, be sure to configure Docker
-      allow access. See the `Docker service proxy
+      If you are on a network with outbound proxies, be sure to configure Docker allow access. See the `Docker service proxy
       <https://docs.docker.com/config/daemon/systemd/#httphttps-proxy>`_ and
       `Docker client proxy
       <https://docs.docker.com/network/proxy/#configure-the-docker-client>`_
       documentation for more details.
       
-
-
 #. Once you have downloaded the image, run it with:
 
    .. code-block:: bash
@@ -146,12 +135,10 @@ To use the |MERS|:
 
    This will launch the image and drop you into a bash shell inside the
    container. :command:`GStreamer` and :command:`FFmpeg` programs are
-   installed in the container image and accessible in the default $PATH. These
-   programs can be used as you would normally outside of |MERS|.
+   installed in the container image and accessible in the default $PATH. These programs can be used as you would normally outside of |MERS|.
 
-   Paths to media files and video devices, such as cameras, can be shared from
-   the host to the container with the :command:`--volume` switch `using Docker
-   volumes <https://docs.docker.com/storage/volumes/>`_.
+   Paths to media files and video devices, such as cameras, can be shared from the host to the container with the :command:`--volume` switch 
+   `using Docker  volumes <https://docs.docker.com/storage/volumes/>`_.
 
 
 Building the |MERS| container image from source
@@ -169,21 +156,19 @@ can be used for reference.
 
       git clone https://github.com/intel/stacks.git
 
-#. Navigate to the :file:`stacks/mers/clearlinux` directory which contains the
-   Dockerfile for the |MERS|.
+#. Navigate to the :file:`stacks/mers/clearlinux` directory which contains 
+   the Dockerfile for the |MERS|.
    
    .. code-block:: bash
 
       cd ./stacks/mers/clearlinux
-   
-    
+       
 #. Use the :command:`docker build` command with the :file:`Dockerfile` to the
    MeRS container image.
 
    .. code-block:: bash
 
       docker build --no-cache -t clearlinux/stacks-mers .
-
 
 Using the |MERS| container image
 ********************************
@@ -239,12 +224,10 @@ This example shows how to perform transcoding with :command:`FFmpeg`.
       
    Some more generic examples of :command:`FFmpeg` commands can be found in
    the `OpenVisualCloud repository
-   <https://github.com/OpenVisualCloud/Dockerfiles/blob/master/doc/ffmpeg.md>`_
-   and used for reference with |MERS|.
+   <https://github.com/OpenVisualCloud/Dockerfiles/blob/master/doc/ffmpeg.md>`_ and used for reference with |MERS|.
 
    For more information on using :command:`FFmpeg`, refer to the `FFmpeg
    documentation <https://ffmpeg.org/documentation.html>`_.
-
 
 Example 2: Analytics
 ====================
@@ -257,10 +240,8 @@ Guide <https://github.com/opencv/gst-video-analytics/wiki>`_ except simply
 substituting the *gst-video-analytics* docker image for the
 *clearlinux/stacks-mers* image.
 
-The example below shows how to use the |MERS| container image to perform video
-with object detection and attributes recognition of a video using GStreamer
-using pre-trained models and sample video files.
-
+The example below shows how to use the |MERS| container image to perform 
+video with object detection and attributes recognition of a video using GStreamer using pre-trained models and sample video files.
 
 #. On the host system, setup a workspace for data and models:
 
@@ -288,26 +269,24 @@ using pre-trained models and sample video files.
 
       git clone https://github.com/opencv/open_model_zoo.git ~/gva/open_model_zoo
       
-
 #. Use the Model Downloader tool of Open Model Zoo to download ready to use
    pre-trained models in IR format.
 
    .. note::
       
       If you are on a network with outbound proxies, you will need to
-      configure set environment variables with the proxy server. Refer to the
-      documentation on :ref:`proxy` for detailed steps.
+      configure set environment variables with the proxy server. 
+      Refer to the documentation on :ref:`proxy` for detailed steps.
 
-      On |CL| systems you will need the *python-extras* bundle (:command:`sudo
-      swupd bundle-add python-extras`) for the downloader script to work.
-
+      On |CL| systems you will need the *python-extras* bundle. 
+      Use :command:`sudo swupd bundle-add python-extras` for the downloader script to work.
 
    .. code:: bash
 
       cd ~/gva/open_model_zoo/tools/downloader 
       python3 downloader.py --list ~/gva/gst-video-analytics/samples/model_downloader_configs/intel_models_for_samples.LST -o ~/gva/data/models/intel
-      
-      
+  
+  
 #. Copy a video file in h264 or mp4 format to :file:`~/gva/data/video`. Any
    video with cars, pedestrians, human bodies, and/or human faces can be used.
 
@@ -318,7 +297,6 @@ using pre-trained models and sample video files.
    This example simply clones all the video files from the `sample-videos
    repsoitory <https://github.com/intel-iot-devkit/sample-videos>`_.
    
-
 #. From a desktop terminal, allow local access to the X host display. 
 
    .. code:: bash
@@ -331,11 +309,8 @@ using pre-trained models and sample video files.
       export INTEL_MODELS_PATH=~/gva/data/models/intel
       export VIDEO_EXAMPLES_PATH=~/gva/data/video
 
-
-
-#. Run the *clearlinux/stack-mers* docker image, allowing shared access to the
-   X server and workspace on the host:
-
+#. Run the *clearlinux/stack-mers* docker image, allowing shared access to 
+   the X server and workspace on the host:
 
    .. code:: bash
 
@@ -380,13 +355,11 @@ using pre-trained models and sample video files.
    After running the :command:`docker run` command, it will drop you into a
    bash shell inside the container. 
 
-#. From the container shell, run a sample
-   analytics program in :file:`~/gva/gst-video-analytics/samples` against your
-   video source.
+#. From the container shell, run a sample analytics program in 
+   :file:`~/gva/gst-video-analytics/samples` against your video source.
 
    Below are sample analytics that can be run against the sample videos.
    Choose one to run:
-
 
    - Samples with *face detection and classification*:
 
@@ -402,13 +375,13 @@ using pre-trained models and sample video files.
      (bounding boxes around faces with recognized attributes) should be
      played.
      
-      .. figure:: /_figures/stacks/mers-fig-1.png
-         :scale: 60%
-         :align: center
-         :alt: Face detection with the Clear Linux* OS Media Reference Stack
+     .. figure:: /_figures/stacks/mers-fig-1.png
+        :scale: 60%
+        :align: center
+        :alt: Face detection with the Clear Linux* OS Media Reference Stack
 
-         Figure 1: Screenshot of |MERS| running face detection with GSTreamer
-         and OpenVINO.
+        Figure 1: Screenshot of |MERS| running face detection with GSTreamer
+        and OpenVINO.
 
    - Sample with  *vehicle detection*:
 
@@ -420,19 +393,16 @@ using pre-trained models and sample video files.
      (bounding boxes around vehicles with recognized attributes) should be
      played.
 
-      .. figure:: /_figures/stacks/mers-fig-2.png
-         :scale: 60%
-         :align: center
-         :alt: Vehicle detection with the Clear Linux* OS Media Reference Stack
+     .. figure:: /_figures/stacks/mers-fig-2.png
+        :scale: 60%
+        :align: center
+        :alt: Vehicle detection with the Clear Linux* OS Media Reference Stack
         
-         Figure 2: Screenshot of |MERS| running vehicle detection with
-         GSTreamer and OpenVINO.
+        Figure 2: Screenshot of |MERS| running vehicle detection with
+        GSTreamer and OpenVINO.
 
    - Sample with *FPS measurement*:
 
      .. code:: bash
 
        ./gst-video-analytics/samples/shell/console_measure_fps_cpu.sh $VIDEO_EXAMPLES_DIR/bolt-detection.mp4
-
-
-.. |MERS| replace:: :abbr:`MeRS (Media Reference Stack)`
