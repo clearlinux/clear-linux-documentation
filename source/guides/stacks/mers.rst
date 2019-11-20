@@ -89,8 +89,7 @@ Components of the |MERS| include:
 
    The pre-built |MERS| container image configures :command:`FFmpeg` without
    certain elements (specific encoder, decoder, muxer, etc.) that you may
-   require. If you require changes to :command:`FFmpeg` we suggest 
-   `rebuilding the image <#building-mers-image>`_.
+   require. If you require changes to :command:`FFmpeg` we suggest starting at :ref:`building-the-mers-container-image`.
 
 .. note::
 
@@ -139,13 +138,14 @@ To use the |MERS|:
    Paths to media files and video devices, such as cameras, can be shared from the host to the container with the :command:`--volume` switch 
    `using Docker  volumes <https://docs.docker.com/storage/volumes/>`_.
 
+.. _building-the-mers-container-image:
 
 Building the |MERS| container image from source
 ***********************************************
 
 If you choose to build your own MeRS container image, you can optionally add
 customizations as needed. The :file:`Dockerfile` for the MeRS is available on
-`GitHub <https://github.com/clearlinux/dockerfiles/tree/master/stacks>`_ and
+`GitHub <https://github.com/intel/stacks/tree/master/mers>`_ and
 can be used for reference.
 
 #. The |MERS| image is part of the dockerfiles repository inside the |CL|
