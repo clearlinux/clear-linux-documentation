@@ -254,130 +254,132 @@ Preparing PMEM for container use
 
 The cassandra-pmem image is capable of using both `fsdax`   and `devdax`, the necessary steps to configure the PMEM to work with cassandra are documented here.
 
-fsdax
------
+.. tabs::
 
-Verify that the PMEM is in `fsdax` mode
+   .. group-tab:: devdax
 
-.. code-block:: bash
+      We need to verify the device we want to use is in `devdax` mode
 
-   sudo ndctl list -u
+      .. code-block:: bash
 
-.. code-block:: console
+         sudo ndctl create-namespace -fe namespace0.0  --mode=devdax
 
-  {
-    "dev":"namespace0.0",
-    "mode":"fsdax",
-    "map":"mem",
-    "size":"4.00 GiB (4.29 GB)",
-    "sector_size":512,
-    "blockdev":"pmem0"
-  }
+      .. code-block:: console
 
-
-If for some reason the device is not in `fsdax` mode you can reconfigure the namespace as follows:
-
-.. code-block:: bash
-
-   sudo `ndctl create-namespace -fe <namespace-name>  --mode=fsdax`
-
-
-Once the PMEM namespace is configured, you will see a device named :file:`/dev/pmem{0-9}`. We will create a filesystem on that device. The filesystem could be `ext4` or `xfs`, for this example we are going to use `ext4`.
-
-.. code-block:: bash
-
-   sudo mkfs.ext4 /dev/pmem0
-
-.. code-block:: console
-
-   mke2fs 1.45.2 (27-May-2019)
-   Creating filesystem with 1031680 4k blocks and 258048 inodes
-   Filesystem UUID: 303c03f5-ac4e-4462-8bf9-bc6b0fae53fe
-   Superblock backups stored on blocks:
-	   32768, 98304, 163840, 229376, 294912, 819200, 884736
-
-   Allocating group tables: done
-   Writing inode tables: done
-   Creating journal (16384 blocks): done
-   Writing superblocks and filesystem accounting information: done
+         {
+           "dev":"namespace0.0",
+           "mode":"devdax",
+           "map":"dev",
+           "size":"3.94 GiB (4.23 GB)",
+           "uuid":"cb738cc7-711d-4578-bebf-1f7ba02ca169",
+           "daxregion":{
+           "id":0,
+           "size":"3.94 GiB (4.23 GB)",
+           "align":2097152,
+           "devices":[
+             {
+               "chardev":"dax0.0",
+               "size":"3.94 GiB (4.23 GB)"
+             }
+           ]
+          },
+          "align":2097152
+         }
 
 
-Once the filesystem is created, we mount it with the dax option
+      If needed, we can reconfigure it using :command:`ndctl create-namespace -fe <namespace-name>  --mode=devdax`.
 
-.. code-block:: bash
+      Before using a `devdax` device we need to clear the device:
 
-   sudo mount /dev/pmem0 /mnt/pmem -o dax
+      .. code-block:: bash
 
-
-When using `fsdax` mode cassandra-pmem creates a pool file on the pmem mountpoint, so the `jvm.options` configuration should look like the output below:
-
-.. code-block:: console
-
-   -Dpmem_path=/mnt/pmem/cassandra_pool
-   -Dpool_size=3221225472
+         sudo pmempool rm -vaf /dev/dax0.0
 
 
+      The `jvm.options` configuration for Apache Cassandra should look like the following:
 
-Where
-* `pmem_path` is the path to the pool file, which should include the path itself and the file name
-* `pool_size` is the size of the pool file in bytes. If you are using the `Docker image with Apache Cassandra`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
+      .. code-block:: console
 
-Is important to note that when creating the filesystem in the pmem device certain amount of space of the device is used by the filesystem metadata so the pool_size should be smaller than the total pmem namespace size.
+         -Dpmem_path=/dev/dax0.0
+         -Dpool_size=0
 
-When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
+      Where
+      * pmem_path is the `devdax` device.
+      * pool_size=0 indicates to use the entire `devdax` device.
 
-devdax
-------
-We need to verify the device we want to use is in `devdax` mode
+      When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated.
 
-.. code-block:: bash
+   .. group-tab:: fsdax
 
-   sudo ndctl create-namespace -fe namespace0.0  --mode=devdax
+      Verify that the PMEM is in `fsdax` mode
 
-.. code-block:: console
+      .. code-block:: bash
 
-   {
-     "dev":"namespace0.0",
-     "mode":"devdax",
-     "map":"dev",
-     "size":"3.94 GiB (4.23 GB)",
-     "uuid":"cb738cc7-711d-4578-bebf-1f7ba02ca169",
-     "daxregion":{
-     "id":0,
-     "size":"3.94 GiB (4.23 GB)",
-     "align":2097152,
-     "devices":[
-       {
-         "chardev":"dax0.0",
-         "size":"3.94 GiB (4.23 GB)"
-       }
-     ]
-    },
-    "align":2097152
-   }
+         sudo ndctl list -u
+
+      .. code-block:: console
+
+        {
+          "dev":"namespace0.0",
+          "mode":"fsdax",
+          "map":"mem",
+          "size":"4.00 GiB (4.29 GB)",
+          "sector_size":512,
+          "blockdev":"pmem0"
+        }
 
 
-If needed, we can reconfigure it using :command:`ndctl create-namespace -fe <namespace-name>  --mode=devdax`.
+      If for some reason the device is not in `fsdax` mode you can reconfigure the namespace as follows:
 
-Before using a `devdax` device we need to clear the device:
+      .. code-block:: bash
 
-.. code-block:: bash
-
-   sudo pmempool rm -vaf /dev/dax0.0
+         sudo `ndctl create-namespace -fe <namespace-name>  --mode=fsdax`
 
 
-The `jvm.options` configuration for Apache Cassandra should look like the following:
+      Once the PMEM namespace is configured, you will see a device named :file:`/dev/pmem{0-9}`. We will create a filesystem on that device. The filesystem could be `ext4` or `xfs`, for this example we are going to use `ext4`.
 
-.. code-block:: console
+      .. code-block:: bash
 
-   -Dpmem_path=/dev/dax0.0
-   -Dpool_size=0
+         sudo mkfs.ext4 /dev/pmem0
 
-Where
-* pmem_path is the `devdax` device.
-* pool_size=0 indicates to use the entire `devdax` device.
+      .. code-block:: console
 
-When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated.
+         mke2fs 1.45.2 (27-May-2019)
+         Creating filesystem with 1031680 4k blocks and 258048 inodes
+         Filesystem UUID: 303c03f5-ac4e-4462-8bf9-bc6b0fae53fe
+         Superblock backups stored on blocks:
+      	   32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+         Allocating group tables: done
+         Writing inode tables: done
+         Creating journal (16384 blocks): done
+         Writing superblocks and filesystem accounting information: done
+
+
+      Once the filesystem is created, we mount it with the dax option
+
+      .. code-block:: bash
+
+         sudo mount /dev/pmem0 /mnt/pmem -o dax
+
+
+      When using `fsdax` mode cassandra-pmem creates a pool file on the pmem mountpoint, so the `jvm.options` configuration should look like the output below:
+
+      .. code-block:: console
+
+         -Dpmem_path=/mnt/pmem/cassandra_pool
+         -Dpool_size=3221225472
+
+
+
+      Where
+      * `pmem_path` is the path to the pool file, which should include the path itself and the file name
+      * `pool_size` is the size of the pool file in bytes. If you are using the `Docker image with Apache Cassandra`_ you can pass this value as an environment variable to the container runtime in Gb and the calculation is done automatically.
+
+      Is important to note that when creating the filesystem in the pmem device certain amount of space of the device is used by the filesystem metadata so the pool_size should be smaller than the total pmem namespace size.
+
+      When using the `Docker image with Apache Cassandra`_, the file `jvm.options` is automatically populated with the environment variables `CASSANDRA_PMEM_POOL_NAME` and `CASSANDRA_FSDAX_POOL_SIZE_GB`.
+
 
 
 Run the DBRS Container
@@ -385,18 +387,23 @@ Run the DBRS Container
 
 Replace `<image-id>` in the following commands with the name of the image you are using.
 
-In `devdax` mode:
+.. tabs::
 
-.. code-block:: bash
+   .. group-tab:: devdax
 
-   docker run --device=/<devdax-device>:/dev/dax0.0 --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it --name cassandra-test <image-id>
+      In `devdax` mode:
 
+      .. code-block:: bash
 
-In `fsdax` mode:
+         docker run --device=/<devdax-device>:/dev/dax0.0 --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it --name cassandra-test <image-id>
 
-.. code-block:: bash
+   .. group-tab:: fsdax
 
-   docker run --mount type=bind,source=/<fsdax-mountpoint>,target=/mnt/pmem  --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it -e 'CASSANDRA_FSDAX_POOL_SIZE_GB=<fsdax-pool-size-in-gb>' --name cassandra-test <image-id>
+      In `fsdax` mode:
+
+      .. code-block:: bash
+
+         docker run --mount type=bind,source=/<fsdax-mountpoint>,target=/mnt/pmem  --ulimit nofile=262144:262144 -p 9042:9042 -p 7000:7000 -it -e 'CASSANDRA_FSDAX_POOL_SIZE_GB=<fsdax-pool-size-in-gb>' --name cassandra-test <image-id>
 
 
 Container Configuration
