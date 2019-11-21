@@ -35,6 +35,7 @@ Install
    bare-metal-install-desktop
    bare-metal-install-server
    install-configfile
+   ipxe-install
 
 .. _virtual-machine-install:
 

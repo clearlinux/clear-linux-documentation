@@ -86,7 +86,6 @@ Related topics
 **************
 
 * :ref:`mixer`
-* :ref:`bulk-provision`
 
 .. _ister.py: https://github.com/bryteise/ister
 .. _Current release: https://cdn.download.clearlinux.org/current/

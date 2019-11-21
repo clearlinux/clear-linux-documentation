@@ -221,7 +221,7 @@ through the *os-cloudguest* bundles which allow you to configure many Day 1
 tasks such as setting hostname, creating users, or placing
 SSH keys in an automated way at boot. For more information on
 automating configuration during deployment of |CL| endpoints see the
-:ref:`bulk-provision` guide.
+:ref:`ipxe-install` guide.
 
 A configuration management tool is useful for maintaining consistent system
 and application-level configuration. Ansible\* is offered through the
