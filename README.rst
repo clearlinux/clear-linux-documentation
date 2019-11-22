@@ -71,17 +71,16 @@ Use virtualenv
 **************
 
 To develop documentation in a ``virtualenv``, use the ``venv`` target.
-The Clear Linux\* OS documentation make target ``venv`` provides a 
+The Clear Linux OS documentation make target ``venv`` provides a 
 simple development environment that ensures that you have the 
 latest packages and that you manage Python versions separately. Use of the 
 ``virtualenv`` requires **Python 3.6** or higher. For Windows examples below, use Powershell as an Administrator.
 
-The version of Python used to **create the virtual environment** is the 
-default python version **used in the virtual environment**. 
+The **virtual environment** uses the same version of Python that was used to **create the virtual environment**. 
 
 #. Verify ``pip`` is installed. A file path to pip should appear. 
 
-   * On Clear Linux OS and macOS\*:
+   On Clear Linux OS and macOS\*:
 
    .. code-block:: bash
 
@@ -95,13 +94,13 @@ default python version **used in the virtual environment**.
 
 #. If ``pip`` is not installed, install it. 
 
-   * On Clear Linux OS and macOS:
+   On Clear Linux OS and macOS:
 
    .. code-block:: bash
 
       python3 -m pip install --user --upgrade pip
 
-   * On Windows 10 OS: 
+   On Windows 10 OS: 
 
    .. code-block:: bash
 
@@ -116,13 +115,13 @@ Install virtualenv
 
 #. Install ``virtualenv``. 
 
-   * On Clear Linux\* OS and macOS\*:
+   On Clear Linux OS and macOS\*:
 
      .. code-block:: bash
 
         python3 -m pip install --user virtualenv
 
-   * On Windows 10 OS: 
+   On Windows 10 OS: 
 
    .. code-block:: bash
 
@@ -140,7 +139,7 @@ Install virtualenv
 
        source venv/bin/activate
 
-   Follow `Run the build`_ section to start developing documentation.
+    Follow `Run the build`_ section to start developing documentation.
 
 #. Remove the ``venv`` when finished developing.  
 
