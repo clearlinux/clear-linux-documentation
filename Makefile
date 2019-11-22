@@ -34,7 +34,6 @@ clean:
 	rm -rf venv
 
 venv:
-	virtualenv -p python$(PY_VERSION) venv;
+	virtualenv venv;\
 	source venv/bin/activate; \
 	pip3 install -r requirements.txt;
-
