@@ -78,74 +78,74 @@ latest packages and that you manage Python versions separately. Use of the
 
 The **virtual environment** uses the same version of Python that was used to **create the virtual environment**. 
 
-#. Verify ``pip`` is installed. A file path to pip should appear. 
+Verify ``pip`` is installed. A file path to pip should appear. 
 
-   On Clear Linux OS and macOS\*:
+On Clear Linux OS and macOS\*:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      which pip
+   which pip
    
-   On Windows\* 10 OS: 
+On Windows\* 10 OS: 
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      pip --version
+   pip --version
 
-#. If ``pip`` is not installed, install it. 
+If ``pip`` is not installed, install it. 
 
-   On Clear Linux OS and macOS:
+On Clear Linux OS and macOS:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      python3 -m pip install --user --upgrade pip
+   python3 -m pip install --user --upgrade pip
 
-   On Windows 10 OS: 
+On Windows 10 OS: 
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      py -m pip install --upgrade pip
+   py -m pip install --upgrade pip
 
-   .. note::
+.. note::
 
-      This assumes Python was already added to your Windows path. 
+   This assumes Python was already added to your Windows path. 
 
 Install virtualenv 
 ------------------
 
-#. Install ``virtualenv``. 
+Install ``virtualenv``. 
 
-   On Clear Linux OS and macOS\*:
+On Clear Linux OS and macOS\*:
 
-     .. code-block:: bash
+.. code-block:: bash
 
-        python3 -m pip install --user virtualenv
+   python3 -m pip install --user virtualenv
 
-   On Windows 10 OS: 
+On Windows 10 OS: 
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      py -m pip install --user virtualenv
+   py -m pip install --user virtualenv
 
-#. Create the ``virtualenv`` and install the required packages: 
+Create the ``virtualenv`` and install the required packages: 
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      make venv
+   make venv
 
- #. Activate the ``venv``. 
+Activate the ``venv``. 
 
-    .. code-block:: bash
+.. code-block:: bash
 
-       source venv/bin/activate
+   source venv/bin/activate
 
-    Follow `Run the build`_ section to start developing documentation.
+Follow `Run the build`_ section to start developing documentation.
 
-#. Remove the ``venv`` when finished developing.  
+Remove the ``venv`` when finished developing.  
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      deactivate
+   deactivate
 
 Additional help
 ***************
