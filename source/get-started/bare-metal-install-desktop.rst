@@ -651,6 +651,11 @@ Create partitions per requirements in Table 1.
      - /
      - *Size depends upon use case/desired bundles.*
 
+Troubleshooting
+***************
+
+:ref:`erase-lvm-troubleshooting-tip`
+
 .. _Downloads: https://clearlinux.org/downloads
 
 
