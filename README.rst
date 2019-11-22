@@ -111,7 +111,7 @@ On Windows 10 OS:
    This assumes Python was already added to your Windows path. 
 
 Install virtualenv 
-------------------
+==================
 
 Install ``virtualenv``. 
 
