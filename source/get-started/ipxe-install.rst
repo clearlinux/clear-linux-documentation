@@ -553,10 +553,10 @@ Verify setup
 
 Verify you can access these URLs before deploying:
 
-* http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${IPXE_APP_NAME}/ipxe_boot_script.ipxe
-* http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-desktop.yaml
-* http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-server.yaml
-* http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/add-issue.sh
+* \http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${IPXE_APP_NAME}/ipxe_boot_script.ipxe
+* \http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-desktop.yaml
+* \http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-server.yaml
+* \http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/add-issue.sh
 
 Deploy
 ******
