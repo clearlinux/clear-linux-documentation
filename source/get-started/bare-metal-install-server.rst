@@ -947,7 +947,7 @@ entering :guilabel:`Configure Installation Media`:
 Erase LVM Partitions Before Installing |CL|
 ===========================================
 
-If you’re planning to installing |CL| on a drive that has LVM partitions, 
+If you’re planning to install |CL| on a drive that has LVM partitions, 
 you must erase them first before using clr-installer.  
 
 Here is an example of a drive (/dev/sda) with LVMs:
