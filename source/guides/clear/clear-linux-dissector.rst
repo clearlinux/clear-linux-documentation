@@ -1,11 +1,10 @@
 .. _clear-linux-dissector:
 
-Clear Linux Dissector
-#####################
+Clear Linux\* Dissector
+#######################
 
-The Clear Linux Dissector is a web application that compares contents of
-Linux\*-based images.
---> compares contents - what does that mean?
+The Clear Linux\* Dissector tool compares contents of Linux-based images. It
+supports the comparison of |CL| and Yocto Project\* images.
 
 .. contents:: :local:
    :depth: 1
@@ -13,25 +12,36 @@ Linux\*-based images.
 Description
 ***********
 
-If you do not have a Linux image, yet, but you have a pretty good idea of what you want to include in your image, you can `View Distro Data`_.
--->what does view distro data do?
+Clear Linux Dissector provides tools for comparing |CL| images and Yocto Project
+images.
 
-If you already have a Yocto Project image that you would like to build with Clear, you can `Compare Images With Clear`_ to find the necessary packages. You can also compare images in order to find new patches for performance and security enhancements.
---> This is compare Yocto images, yes?
+* **View distribution data.**
 
-You can also `Compare Clear Releases`_ to see the changes between two Clear Linux Releases.
+  View the distribution data of a specific |CL| and Yocto Project distribution
+  side-by-side. Helpful to determine if a |CL| version contains the packages and
+  patches needed to move from a specific Yocto Project distribution to |CL|.
 
-Set Up
-******
+* **Compare images.**
+
+  Compare |CL| and Yocto Project images to identify which packages you will need
+  to move from a Yocto Project image to a |CL| image.
+
+* **Compare releases.**
+
+  Compare different |CL| releases to see changes between |CL| versions.
+
+Prerequisites
+*************
+
+#. Must be on a Linux machine.
+
+Set Up Clear Linux Dissector
+****************************
 
 Clear Linux Dissector is a web application, which means you will need to set up
-an instance of the application in order to use it. This section describes how to
-set up and instance of the Clear Linux Dissector with the necessary data for usage.
+an instance of the application in order to use it.
 
-Set Up Instance
-===============
-
-#. Clone the clear-linux-dissector-web git repo.
+#. First, clone the clear-linux-dissector-web git repository.
 
    .. code-block:: bash
 
@@ -58,217 +68,235 @@ Set Up Instance
 #. After running the dockersetup.py script, the Clear Linux Dissector should be
    up and running on localhost. View the front-end interface at https://localhost:8081.
 
-   Before using the Clear Linux Dissector, you must first import data.
+Before using the Clear Linux Dissector, you must first `Import Data`_.
 
-Import Clear Linux Data
-=======================
+Import Data
+***********
 
-There are two ways to import |CL| data:
+Clear Linux Dissector compares image data from both |CL| and Yocto Project images.
+In order to compare an image, it must first be imported into the Clear Linux
+Dissector tool.
 
-#. From the command line
+Import |CL| Data
+================
 
-#. From the user interface.
+|CL| data is imported from http://download.clearlinux.org/releases.
 
-In either case, the data will be imported from http://download.clearlinux.org/releases.
-
-Import from Command Line
+Import |CL| Data via CLI
 ------------------------
 
-To import the latest |CL| release, run the following command,
-:command:`branchname` refers to the imported |CL| release.
----> Clarify this
+* To import the latest |CL| release, run the following command:
 
-Do not edit the paths in the command, because they are in relation to the
-`layersapp` Docker image that the application runs in.
+  .. code-block:: bash
 
-.. code-block:: bash
+      docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_clear.py -d -p /opt/dissector -o /opt/sources -b <branchname>
 
-    docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_clear.py -d -p /opt/dissector -o /opt/sources -b <branchname>
+  `<branchname>` is the name you assign to the |CL| release being imported. The
+  `<branchname>` you provide will be used in the GUI during compare to refer
+  to this imported release.
+
+  .. note::
+
+      Do not edit the paths in the command, because they are in relation to the
+      `layersapp` Docker image that the application runs in.
+
+* To import a specific |CL| release, use the :command:`-r` flag with the desired
+  release number (for example 31380):
+
+  .. code-block:: bash
+
+      docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_clear.py -d -p /opt/dissector -o /opt/sources -b <branchname> -r 31380
+
+Import |CL| Data via GUI
+------------------------
+
+#. In a browser, navigate to the data import page at
+   https://localhost:8081/layerindex/comparison/import/.
+
+   .. figure:: ../../_figures/clear-linux-dissector/distro-data-import.png
+      :scale: 45%
+      :alt: Distro Data Import page
+
+      Figure 1: Distro Data Import page
+
+#. The first time you import |CL| data, you will need to create a new comparison
+   branch. The branch name you provide will be used in the GUI during compare
+   to refer to this imported release. You can choose to update your branch in
+   later imports.
+
+#. To import the latest |CL| release, check the :guilabel:`Get latest` box.
+
+#. To import a specific release, enter the release number in the
+   :guilabel:`Release` field.
+
+#. Click :guilabel:`IMPORT` and you will be taken to a page that displays the task
+   status. It will take a long time to upload the |CL| data.
+
+#. Once the |CL| data is uploaded, you will see a page similar to the following:
+
+   .. figure:: ../../_figures/clear-linux-dissector/distro-data-import-final.png
+      :scale: 45%
+      :alt: Finished distribution data import
+
+      Figure 2: Finished distribution data import
+
+Import Yocto Project Data
+=========================
+
+Yocto Project data is imported from https://layers.openembedded.org.
+
+Import Yocto Project Data via CLI
+---------------------------------
+
+To import the latest Yocto Project data from the master branch:
+
+* Run the following command:
+
+  .. code-block:: bash
+
+      docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_layers.py https://layers.openembedded.org
+
+To import Yocto Project data from a specific branch:
+
+#. First create a branch object in the admin page.
+
+   #. Navigate to https://localhost:8081/admin/layerindex/branch/add/ and enter the
+      branch name in the :guilabel:`Branch name` field.
+
+   #. Enter the corresponding Bitbake branch name (for example "zeus") in the
+      :guilabel:`Bitbake branch` field.
+
+      .. figure:: ../../_figures/clear-linux-dissector/create-yoctoproject-branch.png
+         :scale: 45%
+         :alt: Importing Yocto Project data from branch
+
+         Figure 3: Importing Yocto Project data from branch
 
 
-To import a specific |CL| release, use the :command:`--release` flag with the
-desired release number (for example 31380):
+#. Run the following command to import a specific Yocto Project branch:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_clear.py -d -p /opt/dissector -o /opt/sources -b clear-31380 -r 31380
+       docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_layers.py https://layers.opnembedded.org -b zeus
 
+To update your Yocto Project branches:
 
-Import from User Interface
---------------------------
+* Run the following command:
 
-In a browser, navigate to the import page at https://localhost:8081/layerindex/comparison/import/.
+  .. code-block:: bash
 
-.. figure:: ../../_figures/clear-linux-dissector/distro-data-import.png
-   :scale: 45%
-   :alt: Distro Data Import
+     docker-compose run --rm layersapp /opt/layerindex/layerindex/update.py
 
-   Figure 1: Distro Data Import Page
+View Distribution Data
+**********************
+View the distribution data of a specific |CL| and Yocto Project distribution
+side-by-side with the `Distro data` tool.
 
-The first time you import |CL| data, you will need to create a new branch. You
-can choose to update your branch in later imports.
-
-To import the latest |CL| release, check the :guilabel:`Get latest` box.
-To import a specific release, enter the release number in the :guilabel:`Release`
-field.
-
-Click :guilabel:`IMPORT` and you will be taken to a page that displays the task
-status. It will take a long time to upload the |CL| data. 
-
-Once the |CL| data is completely uploaded, you will see a page similar to the
-following:
-
-.. figure:: ../../_figures/clear-linux-dissector/distro-data-import-final.png
-   :scale: 45%
-   :alt: Distro Data Import Finished
-
-   Figure 2: Finished Distro Data import
-
-Import Yocto Project Data (for comparing Yocto Project images)
-==============================================================
-
-Currently, you can only import Yocto Project Data from the command line. The
-data will be imported from https://layers.openembedded.org.
-
-To import the latest Yocto Project data from the master branch, run the following
-command:
-
-.. code-block:: bash
-
-   docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_layers.py https://layers.openembedded.org
-
-You can also import Yocto Project data from a specific branch. Before doing so, you must create a branch object in the admin page. Navigate to
-https://localhost:8081/admin/layerindex/branch/add/ and enter the branch name in
-the :guilabel:`Branch name` field and the corresponding Bitbake branch name (for example "zeus") in the :guilabel:`Bitbake branch`.
-
-.. figure:: ../../_figures/clear-linux-dissector/create-yoctoproject-branch.png
-   :scale: 45%
-   :alt: Create Yocto Project Branch
-
-   Figure 3: How to Create Yocto Project Branch
-
-Now, run the following command to import a specific Yocto Project branch:
-
-.. code-block:: bash
-
-   docker-compose run --rm layersapp /opt/layerindex/layerindex/tools/import_layers.py https://layers.opnembedded.org -b zeus
-
-You can also update your Yocto Project branches with the following command:
-
-.. code-block:: bash
-
-   docker-compose run --rm layersapp /opt/layerindex/layerindex/update.py
-
-View Distro Data
-****************
-
-If you have a pretty good idea of what you want in your |CL| image, you can view
-Distro Data to find proper packages.
-
-#. From homepage, click on `Distro Data`.
+#. From the homepage, click on :guilabel:`Distro data`.
 
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-select.png
       :scale: 45%
-      :alt: Distro Data Select
+      :alt: Distro data button
 
-      Select Distro Data
+      Figure 4: Distro data button
 
-#. Select which |CL| distribution you want to search for in the :guilabel:`Branch`
-   section in the top right, and then search for the package you'd like to include.
+#. In the :guilabel:`Branch` section in the top left of the screen, select which
+   imported |CL| distribution you want to search in, then search for the package
+   you'd like to include, as shown in Figure 5:
 
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-form.png
       :scale: 45%
-      :alt: Distro Data Form
+      :alt: Select distribution to search
 
-      Distro Data Form
+      Figure 5: Select distribution to search
 
 #. Select the package you want to include.
 
-#. You can now see the |CL| and corresponding Yocto Project versions of your
-   package side by side, as well as Patches and configure options.
-
-   --> Labels dont match screenshot
+#. The results show the |CL| and corresponding Yocto Project versions of your
+   package side-by-side, as well as Patches and configure options.
 
    .. figure:: ../../_figures/clear-linux-dissector/distro-data.png
       :scale: 45%
-      :alt: Distro Data
+      :alt: Side-by-side distribution data comparison
 
-      Distro Data
+      Figure 6: Side-by-side distribution data comparison
 
 
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-patches.png
       :scale: 45%
-      :alt: Distro Data Patches
+      :alt: Side-by-side distribution patch comparison
 
-      Distro Data Patches
+      Figure 7: Side-by-side distribution patch comparison
 
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-configure-options.png
       :scale: 45%
-      :alt: Distro Data Configure Options
+      :alt: Side-by-side distribution data configuration options comparison
 
-      Distro Data Configure Options
+      Figure 8: Side-by-side distribution data configuration options comparison
 
-Compare Images With Clear
-*************************
+Compare |CL| to Yocto Project image
+***********************************
 
-If you already have a Yocto Project image that you want to build with |CL|, you
-can use Image Comparison to find the necessary packages. Before starting, make
+If you want to migrate from an existing Yocto Project image to |CL|, you can use
+`Image comparison` tool to find the necessary packages. Before starting, make
 sure that you are on the same machine that built the original Yocto Project image.
 
-#. From homepage, click on :guilabel:`Image comparsion`.
+#. From the homepage, click on :guilabel:`Image comparsion`.
 
    .. figure:: ../../_figures/clear-linux-dissector/image-comparison-select.png
       :scale: 45%
-      :alt: Image Comparison Select
+      :alt: Image comparison button
 
-      Image Comparison Select
+      Figure 9: Image comparison button
 
 #. Follow instructions to run the `oe-image-manifest-script`. Upload the
    resulting .tar.gz file and choose which branch you want to compare it to.
 
    .. figure:: ../../_figures/clear-linux-dissector/image-comparison-form.png
       :scale: 45%
-      :alt: Image Comparison Form
+      :alt: Create a new comparison
 
-      Image Comparison Form
+      Figure 10: Create a new comparison
 
 #. The resulting list will show which packages are in the original Yocto Project
    image and the corresponding |CL| packages.
 
    .. figure:: ../../_figures/clear-linux-dissector/image-comparison-result.png
       :scale: 45%
-      :alt: Image Comparison Result
+      :alt: Image comparison result
 
-      Image Comparison Result
+      Figure 11: Image comparison result
 
-Compare Clear Releases
-**********************
+Compare |CL| Releases
+*********************
 
-If you want to view the differences between two |CL| releases, use the Release
-Comparison tool. Before starting, you must import the two |CL| releases that
-you want to compare by following `How to Import Clear Linux Data`_.
+To view the differences between two |CL| releases, use the `Release comparison`
+tool. Before comparing |CL| releases, you must first import the |CL| releases
+that you want to compare by following How to Import Clear Linux Data (TODO link).
+
+Once you have the |CL| releases imported:
 
 #. From the home page, click on :guilabel:`Release comparison`.
 
    .. figure:: ../../_figures/clear-linux-dissector/release-comparison-select.png
       :scale: 45%
-      :alt: Release Comparison Select
+      :alt: Release comparison button
 
-      Release Comparison Select
+      Figure 12: Release comparison button
 
 #. Select the two releases you'd like to compare and click :guilabel:`CREATE COMPARISON`.
 
    .. figure:: ../../_figures/clear-linux-dissector/release-comparison-form.png
       :scale: 45%
-      :alt: Release Comparison Form
+      :alt: Select releases to compare
 
-      Release Comparison Form
+      Figure 13: Select releases to compare
 
 #. The resulting list will show changes between the two releases such as packages
    added, upgraded, and downgraded.
 
    .. figure:: ../../_figures/clear-linux-dissector/release-comparison-result.png
       :scale: 45%
-      :alt: Release Comparison Result
+      :alt: Release comparison result
 
-      Result Comparison Result
+      Figure 14: Release comparison result
