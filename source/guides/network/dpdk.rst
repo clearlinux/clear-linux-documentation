@@ -171,7 +171,7 @@ cables as shown in figure 2.
 
 .. figure:: ./figures/pyshical_net.png
 
-    Figure 2: Physical network environment
+   Figure 2: Physical network environment
 
 
 Run l3fwd application (Platform B)
