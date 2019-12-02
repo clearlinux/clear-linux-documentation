@@ -656,7 +656,7 @@ Your browser displays the following:
    :scale: 50%
    :alt: Jupyter Notebook
 
-Figure 1: Jupyter Notebook
+   Figure 1: Jupyter Notebook
 
 
 To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
@@ -665,7 +665,7 @@ To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
    :scale: 50%
    :alt: Create a new notebook
 
-Figure 2: Create a new notebook
+   Figure 2: Create a new notebook
 
 A new, blank notebook is displayed, with a cell ready for input.
 
@@ -673,7 +673,7 @@ A new, blank notebook is displayed, with a cell ready for input.
    :scale: 50%
    :alt: New blank notebook
 
-Figure 3: New blank notebook
+   Figure 3: New blank notebook
 
 To verify that PyTorch is working, copy the following snippet into the blank
 cell, and run the cell.
@@ -689,7 +689,7 @@ cell, and run the cell.
    :scale: 50%
    :alt: Sample code snippet
 
-Figure 4: Sample code snippet
+   Figure 4: Sample code snippet
 
 When you run the cell, your output will look something like this:
 
@@ -697,7 +697,7 @@ When you run the cell, your output will look something like this:
    :scale: 50%
    :alt: Code output
 
-Figure 5: Code output
+   Figure 5: Code output
 
 
 You can continue working in this notebook, or you can download existing
