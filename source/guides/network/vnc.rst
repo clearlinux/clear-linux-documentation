@@ -574,7 +574,7 @@ from RealVNC Viewer.
    :scale: 90 %
    :alt: RealVNC Viewer - Connection not encrypted warning
 
-   Figure 6: RealVNC Viewer - Connection not encrypted warning
+   Figure 5: RealVNC Viewer - Connection not encrypted warning
 
 To add security, VNC traffic can be routed through an SSH tunnel. This is
 accomplished by following these steps:
@@ -659,7 +659,7 @@ For Method 3:
       Add the |CL| :command:`network-basic` bundle to get the :command:`netstat`
       command.
 
-Figure 7 shows two VNC sessions (5901 and 5905) accepting connections from
+Figure 6 shows two VNC sessions (5901 and 5905) accepting connections from
 any host as specified by the `0.0.0.0`'s.  This is before the
 :command:`-localhost` option was used.
 
@@ -667,9 +667,9 @@ any host as specified by the `0.0.0.0`'s.  This is before the
    :scale: 100 %
    :alt: VNC session accepting connection from any host
 
-   Figure 7: VNC sessions (5901 and 5905) accepting connections from any host
+   Figure 6: VNC sessions (5901 and 5905) accepting connections from any host
 
-Figure 8 shows two VNC sessions (5901 and 5905) only accepting connections from
+Figure 7 shows two VNC sessions (5901 and 5905) only accepting connections from
 localhost as specified by `127.0.0.1`'s. This is after the
 :command:`-localhost` option was used.
 
@@ -677,7 +677,7 @@ localhost as specified by `127.0.0.1`'s. This is after the
    :scale: 100 %
    :alt: VNC session only accepting connection from localhost
 
-   Figure 8: VNC sessions (5901 and 5905) only accepting connections from localhost
+   Figure 7: VNC sessions (5901 and 5905) only accepting connections from localhost
 
 Set up an SSH tunnel from your client system to your |CL| host
 ==============================================================
@@ -720,7 +720,7 @@ Set up an SSH tunnel from your client system to your |CL| host
       :guilabel:`Host Name (or IP address)` field.
    #. Set the :guilabel:`Connection type` option to :guilabel:`SSH`.
 
-#. Configure the SSH tunnel.  See Figure 9 for an example.
+#. Configure the SSH tunnel.  See Figure 8 for an example.
 
    a. Under the :guilabel:`Category` section, go to
       :guilabel:`Connection` > :guilabel:`SSH` > :guilabel:`Tunnels`.
@@ -738,7 +738,7 @@ Set up an SSH tunnel from your client system to your |CL| host
          :scale: 100 %
          :alt: Putty - configure SSH tunnel
 
-         Figure 9: Putty - configure SSH tunnel
+         Figure 8: Putty - configure SSH tunnel
 
 #. Click the :guilabel:`Open` button.
 #. Enter your |CL| account password (not your VNC password).
@@ -760,14 +760,14 @@ your VNC session.
 **On Windows and macOS using `RealVNC`:**
 
 #. Start the RealVNC viewer app.
-#. Enter `localhost` and the fully-qualified VNC port number.  See Figure 10
+#. Enter `localhost` and the fully-qualified VNC port number.  See Figure 9
    for an example.
 
    .. figure:: ../../_figures/vnc/vnc-10.png
       :scale: 100 %
       :alt: RealVNC viewer app connecting to localhost:1234
 
-      Figure 10: RealVNC viewer app connecting to `localhost:1234`
+      Figure 9: RealVNC viewer app connecting to `localhost:1234`
 
       .. note::
 
