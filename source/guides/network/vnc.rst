@@ -567,7 +567,7 @@ truly terminate an active VNC session, follow these steps:
 Encrypt VNC traffic through an SSH tunnel
 *****************************************
 
-By default, VNC traffic is not encrypted.  Figure 6 shows an example warning
+By default, VNC traffic is not encrypted.  Figure 5 shows an example warning
 from RealVNC Viewer.
 
 .. figure:: ../../_figures/vnc/vnc-6.png
