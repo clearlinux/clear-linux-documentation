@@ -21,45 +21,50 @@ After installing the minimum set of bundles required to get started, you can
 add more bundles relevant to your specific use case.
 
 To run any process required for |CL| development, you can add the large 
-bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, given how many 
-packages this bundle contains, you may want to deploy a leaner OS with only 
-bundles relevant to your project.
+bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, you may want to deploy a leaner OS with only bundles relevant to your project.
 
-Use Table 1, *Developer Profiles*, to identify the *minimum
-required bundles* to get started developing based on your developer role or project. Consider using a profile as a starting point.
-
+Use the **Developer Profiles** tabs to start installing *suggested bundles* based on your role or project. Consider these profiles as a starting point.
 
 .. tabs::
 
    .. tab:: AI Developer
 
       .. list-table:: 
-         :widths: 20, 20
+         :widths: 50, 50
          :header-rows: 1
 
          * - Function
            - Bundles
 
-         * - Build and run C/C++ language programs.
-           - `c-basic <https://clearlinux.org/software/bundle/c-basic/>`_
+         * - Build machine learning applications with a full suite of libraries.
+           - `machine-learning-basic <https://clearlinux.org/software/bundle/machine-learning-basic/>`_
 
-         * - API helper for cloud access.
-           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
+         * - Build machine learning applications with PyTorch, an optimized tensor library for deep learning.
+           - `machine-learning-pytorch <https://clearlinux.org/software/bundle/machine-learning-pytorch/>`_
+
+         * - Build machine learning applications using Tensorflow, a library for numerical computation using deep neural networks.
+           - `machine-learning-tensorflow <https://clearlinux.org/software/bundle/machine-learning-tensorflow/>`_
+
+         * - Web-based, interactive tools for machine learning.
+           - `machine-learning-web-ui <https://clearlinux.org/software/bundle/machine-learning-web-ui/>`_
+
+         * - Machine learning Docker container.
+           - `machine-learning <https://clearlinux.org/software/docker/machine-learning/>`_
 
          * - Pre-built Python libraries for Data Science.
            - `python-extras <https://clearlinux.org/software/bundle/python-extras>`_
 
+         * - API helper for cloud access.
+           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
+
    .. tab:: Computer Vision Engineer
 
       .. list-table:: 
-         :widths: 20, 20
+         :widths: 50, 50
          :header-rows: 1
 
          * - Function
            - Bundles
-
-         * - API helper for cloud access.
-           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
 
          * - Build computer vision applications.
            - `computer-vision-basic <https://clearlinux.org/software/bundle/computer-vision-basic/>`_
@@ -70,13 +75,16 @@ required bundles* to get started developing based on your developer role or proj
          * - Basic OpenVINO™ toolkit.
            - `computer-vision-openvino <https://clearlinux.org/software/bundle/computer-vision-openvino/>`_
 
+         * - API helper for cloud access.
+           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
+
          * - All content for pkgconfig file opencv.pc.
            - `devpkg-opencv <https://clearlinux.org/software/bundle/devpkg-opencv/>`_
 
-   .. tab:: Cloud/Container Developer
+   .. tab:: Cloud Orchestration Engineer
 
       .. list-table:: 
-         :widths: 20, 20
+         :widths: 50, 50
          :header-rows: 1
 
          * - Function
@@ -88,121 +96,119 @@ required bundles* to get started developing based on your developer role or proj
          * - Utilities for controlling TCP/IP networking and traffic control.
            - `iproute2 <https://clearlinux.org/software/bundle/iproute2/>`_
 
+         * - API helper for cloud access.
+           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
+
          * - C++ runtime support.
            - `libstdcpp <https://clearlinux.org/software/bundle/libstdcpp/>`_
 
          * - Load and enumerate PKCS#11 modules.
            - `p11-kit <https://clearlinux.org/software/bundle/p11-kit/>`_
 
-         * - API helper for cloud access.
-           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
-
    .. tab:: Game Developer
 
       .. list-table:: 
-         :widths: 20, 20
+         :widths: 50, 50
          :header-rows: 1
 
          * - Function
-           - `Unity Hub <https://clearlinux.org/software/flathub/unity-hub/>`_
+           - Bundles
 
-         * - Godot game engine editor
+         * - All packages required to build the games bundle.
+           - `games-dev <https://clearlinux.org/software/bundle/games-dev/>`_
+
+         * - Godot game engine editor.
            - `Godot <https://clearlinux.org/software/flathub/godot/>`_
-   
-         * - Classic point and click adventure game engine and (Flatpak)
-           - `adventure editor <https://clearlinux.org/software/flathub/adventure-editor/>`_
 
-         * - Example
-           - Example
+         * - Real-time game engine (Flatpak).
+           - `Unity Hub <https://clearlinux.org/software/flathub/unity-hub/>`_
+   
+         * - Classic point and click adventure game engine and (Flatpak).
+           - `adventure editor <https://clearlinux.org/software/flathub/adventure-editor/>`_
 
    .. tab:: Kernel Developer
 
       .. list-table:: 
-         :widths: 20, 20
+         :widths: 50, 50
          :header-rows: 1
 
          * - Function
            - Bundles
 
-         * - Example
-           - Example
+         * - Installs kernel, initrd, kernel config, system map; creates a bootloader entry.
+           - `kernel-install <https://clearlinux.org/software/bundle/kernel-install/>`_
 
+         * - Support module for building/loading via Dynamic Kernel Module System (DKMS) in LTS kernel.
+           - `kernel-lts-dkms <https://clearlinux.org/software/bundle/kernel-lts-dkms/>`_
+
+         * - Support module for building/loading via Dynamic Kernel Module System (DKMS) in native kernel.
+           - `kernel-native-dkms <https://clearlinux.org/software/bundle/kernel-native-dkms/>`_
+
+         * - Support module for building/loading via Dynamic Kernel Module System (DKMS) in AWS kernel.
+           - `kernel-aws-dkms <https://clearlinux.org/software/bundle/kernel-aws-dkms/>`_
+
+         * - Run the Kernel-based Virtual Machine (KVM) specific kernel.
+           - `kernel-kvm <https://clearlinux.org/software/bundle/kernel-kvm/>`_
+
+         * - Run the Intel "PK" kernel and enterprise-style kernel with backports.
+           - `kernel-pk <https://clearlinux.org/software/bundle/kernel-pk/>`_
+
+         * - Run the Intel "PK" kernel, IoT 2019, an enterprise-style kernel with backports.
+           - `kernel-iot-lts2019 <https://clearlinux.org/software/bundle/kernel-iot-lts2019/>`_
+      
    .. tab:: Embedded Systems Developer
 
       .. list-table:: 
-         :widths: 20, 20
+         :widths: 50, 50
          :header-rows: 1
 
          * - Function
            - Bundles
 
-         * - Example
-           - Example
+         * - Basic tools for makers and experimenters.
+           - `maker-basic <https://clearlinux.org/software/bundle/maker-basic/>`_
+
+         * - GIS/Mapping tools for makers.
+           - `maker-gis <https://clearlinux.org/software/bundle/maker-gis/>`_
+
+         * - Run sandboxed desktop application bundles, or build flatpak packages.
+           - `Flatpak <https://clearlinux.org/software/bundle/flatpak/>`_
+
+         * -  Open-source electronics prototyping platform.
+           - `arduino-ide <https://clearlinux.org/software/flathub/arduino-ide/>`_
+
+         * - NetworkManager plugins and desktop integration.
+           - `NetworkManager-extras <https://clearlinux.org/software/bundle/networkmanager-extras/>`_
 
    .. tab:: System Administrator
 
       .. list-table:: 
-         :widths: 20, 20
+         :widths: 50, 50
          :header-rows: 1
 
          * - Function
            - Bundles
 
-         * - Example
-           - Example
+         * - Run popular terminal text editors.
+           - `editors <https://clearlinux.org/software/bundle/editors/>`_
 
-"""
+         * - Run network utilities and modify network settings.
+           - `network-basic <https://clearlinux.org/software/bundle/network-basic/>`_
 
-  .. .. list-table:: **Table 1. Developer Profiles**
-  ..    :widths: 20, 20, 20, 20
-  ..    :header-rows: 1
+         * - Run a secure shell (SSH) server for access from remote machines.
+           - `openssh-server <https://clearlinux.org/software/bundle/openssh-server/>`_
 
-  ..    * - |CL| Bundle
-  ..      - *Internet of Things (IoT)*
-  ..      - *System Administrator*
-  ..      - *Client/Cloud/Web Developer*
+         * - Run a HTTP web server.
+           - `web-server-basic <https://clearlinux.org/software/bundle/web-server-basic>`_
 
-  ..    * - :command:`editors`
-  ..      - ✓
-  ..      - ✓
-  ..      - ✓
+         * - Run an application server via HTTP.
+           - `application-server <https://clearlinux.org/software/bundle/application-server/>`_
 
-  ..    * - :command:`network-basic`
-  ..      - ✓
-  ..      - ✓
-  ..      - ✓
+         * - Run an SQL database.
+           - `database-basic <https://clearlinux.org/software/bundle/database-basic>`_
 
-  ..    * - :command:`openssh-server`
-  ..      - ✓
-  ..      - ✓
-  ..      - ✓
-
-  ..    * - :command:`webserver-basic`
-  ..      -
-  ..      - ✓
-  ..      - ✓
-
-  ..    * - :command:`application-server`
-  ..      -
-  ..      - ✓
-  ..      - ✓
-
-  ..    * - :command:`database-basic`
-  ..      -
-  ..      - ✓
-  ..      - ✓
-
-  ..    * - :command:`desktop-autostart`
-  ..      - ✓
-  ..      - ✓
-  ..      - ✓
-
-  ..    * - :command:`dev-utils`
-  ..      -
-  ..    -
-  ..    - ✓
-
-"""
+         * - Bundle to automatically launch the GUI upon boot.
+           - `desktop-autostart <https://clearlinux.org/software/bundle/desktop-autostart/>`_
 
 swupd search
 ************
@@ -226,8 +232,8 @@ developing your project.
 * :ref:`Mixer <mixer>`
 * :ref:`Autospec <autospec>`
 
-Other resources for developers
------------------------------------
+Related topics
+--------------
 
 * `Developer Tooling Framework`_ for |CL|
 * `Bundle Definition Files`_
