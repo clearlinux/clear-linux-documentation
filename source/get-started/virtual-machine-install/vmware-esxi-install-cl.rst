@@ -273,12 +273,6 @@ After configuring the settings above, power on the VM.
 
       Figure 16: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
-Related topics
-**************
-
-* :ref:`vmware-esxi-preconfigured-cl-image`
-
-
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html
 .. _image: https://cdn.download.clearlinux.org/image/
