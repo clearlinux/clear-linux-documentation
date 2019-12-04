@@ -67,16 +67,6 @@ Install the VMware Workstation Player hypervisor
 
 For additional help, see the `VMware Workstation Player Documentation`_.
 
-Download the latest |CL| installer
-**********************************
-
-Get the latest installer with |CL| OS Desktop  from the `downloads`_ page.
-
-Visit :ref:`image-types` for additional information about all available |CL| images.
-
-We also provide instructions for downloading and verifying a Clear Linux ISO.
-For more information, refer to :ref:`download-verify-decompress`.
-
 Create and configure a new VM
 *****************************
 
@@ -92,18 +82,13 @@ Create and configure a new VM
       Figure 1: VMware Workstation Player - Create a new virtual
       machine
 
-#. On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen,
-   select the :guilabel:`Installer disc image file (iso)` option.
-   See Figure 2.
+#. Select :guilabel:`I will install the operating system later`.
 
-   .. figure:: figures/vmw-player/vmw-player-02.png
+   .. figure:: figures/vmw-player/vmw-player-02X.png
       :scale: 100%
-      :alt: VMware Workstation Player - Select |CL| installer ISO
+      :alt: I will install the operating system later.
 
-      Figure 2: VMware Workstation Player - Select |CL| installer ISO
-
-#. Click the :guilabel:`Browse` button and select the decompressed |CL|
-   installer ISO.
+      Figure 2: I will install the operating system later.
 
 #. Click the :guilabel:`Next` button.
 
@@ -119,7 +104,7 @@ Create and configure a new VM
       type
 
 #. Set the :guilabel:`Version` setting to
-   :guilabel:`Other Linux 4.x or later kernel 64-bit`.
+   :guilabel:`Other Linux 5.x or later kernel 64-bit`.
 
 #. Click the :guilabel:`Next` button.
 
@@ -183,6 +168,9 @@ Create and configure a new VM
       Figure 8: VMware Workstation Player - Set virtualization engine
       option
 
+#. Under :guilabel:`Processors`, :guiilabel:`Number of processor cores`, 
+   enter 4. 
+
 #. Under the :guilabel:`Virtualization engine` section,
    check :guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`.
 
@@ -230,11 +218,118 @@ Install |CL| into the new VM
 
       Figure 10: VMware Workstation Player - Power on virtual machine
 
-#. Follow the :ref:`install-on-target-start` guide to complete the
-   installation of |CL|.
+#. Select the appropriate image type below.
 
-#. After the installation completes, reboot the VM. This reboot restarts the
-   |CL| installer.
+.. tabs::
+
+   .. tab:: |CL| Desktop 
+
+      #. On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen,
+         select the :guilabel:`Installer disc image file (iso)` option.
+         See Figure 2.
+
+         .. figure:: figures/vmw-player/vmw-player-02.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Select |CL| installer ISO
+
+            Figure 2: VMware Workstation Player - Select |CL| installer ISO
+
+      #. Click the :guilabel:`Browse` button and select the decompressed |CL|
+         installer ISO.
+
+      #. Follow the :ref:`install-on-target-start` guide to complete the
+         installation of |CL|.
+
+      #. After the installation completes, reboot the VM. This reboot
+         restarts the |CL| installer.
+
+   .. tab:: |CL| Pre-configured VMWare image
+
+      #. Move the downloaded and decompressed pre-configured |CL| VMware
+         image file :file:`clear-[version number]-basic.vmdk` to the directory where your newly-created VM resides.
+
+         .. note::
+
+            Depending on the OS, you can typically find the VMware VM files under:
+
+            * Linux distros: :file:`/home/username/vmware`
+            * Windows: :file:`C:\Users\username\Documents\Virtual Machines`
+
+      #. On the :guilabel:`VMware Workstation Player` home screen, select
+         your newly-created VM. See figure 9.
+
+         .. figure:: figures/vmw-player-preconf/vmw-player-preconf-09.png
+            :scale: 100%
+            :alt: VMware Workstation 14 Player - Edit virtual machine settings
+
+            Figure 9: VMware Workstation 14 Player - Edit virtual machine settings
+
+      #. Click :guilabel:`Edit virtual machine settings`.
+
+      #. To remove the default hard disk, under the :guilabel:`Device` list, 
+         select :guilabel:`Hard Disk (SCSI)`. See figure 10.
+
+         .. figure:: figures/vmw-player-preconf/vmw-player-preconf-10.png
+            :scale: 100%
+            :alt: VMware Workstation 14 Player - Remove hard drive
+
+            Figure 10: VMware Workstation 14 Player - Remove hard drive
+
+      #. Click the :guilabel:`Remove` button.
+
+      #. To add a new hard disk and attach the pre-configured |CL| VMware image,
+         click the :guilabel:`Add...` button. See Figure 11.
+
+         .. figure:: figures/vmw-player-preconf/vmw-player-preconf-11.png
+            :scale: 100%
+            :alt: VMware Workstation 14 Player - Add new hard drive
+
+            Figure 11: VMware Workstation 14 Player - Add new hard drive
+
+      #. Under the :guilabel:`Hardware types` section, select :guilabel:`Hard Disk`.
+
+      #. Click the :guilabel:`Next` button.
+
+      #. Select your preferred :guilabel:`Virtual disk type`. See figure 12.
+
+         .. figure:: figures/vmw-player-preconf/vmw-player-preconf-12.png
+            :scale: 100%
+            :alt: VMware Workstation 14 Player - Select virtual disk type
+
+            Figure 12: VMware Workstation 14 Player - Select virtual disk type
+
+      #. Select the :guilabel:`Use an existing virtual disk` option. See figure 13.
+
+         .. figure:: figures/vmw-player-preconf/vmw-player-preconf-13.png
+            :scale: 100%
+            :alt: VMware Workstation 14 Player - Use existing virtual disk
+
+            Figure 13: VMware Workstation 14 Player - Use existing virtual disk
+
+      #. Click the :guilabel:`Browse` button and select the pre-configured |CL|
+         VMware image file. See figure 14.
+
+         .. figure:: figures/vmw-player-preconf/vmw-player-preconf-14.png
+            :scale: 100%
+            :alt: VMware Workstation 14 Player - Select ready-made VMware |CL|
+
+            Figure 14: VMware Workstation 14 Player - Select ready-made VMware |CL|
+            image file
+
+      #. Click the :guilabel:`Finish` button.
+
+         .. note::
+
+            When asked to convert the existing virtual disk to a newer format,
+            selecting either option works.
+
+   .. tab:: Custom iso image
+
+      Text
+
+
+
+
 
 Detach the |CL| installer ISO from the VM
 *****************************************
