@@ -24,7 +24,7 @@ Prerequisites
 *************
 
 * Download and install the live desktop image on a USB. 
-* See:ref:`bare-metal-install-desktop` for instructions.
+  See :ref:`bare-metal-install-desktop` for instructions.
 
 Boot a live desktop image to fix target system
 **********************************************
