@@ -43,22 +43,21 @@ Mount root partition, verify, and fix
 
 #. Ensure the system is connected to the network.
 
-#. Mount the system’s root and boot partitions.
+#. Mount the system’s root partition.
 
-   #. To find the root and boot partitions, run:
+   #. To find the root partition, run:
 
       .. code-block:: bash
 
          lsblk -o NAME,LABEL,PARTTYPE,PARTLABEL
 
-      We'll use :file:`/dev/sda3/` as the root partition example and :file:`/dev/sda1/` as the boot partition example.
+      We'll use :file:`/dev/sda3/` as the root partition example.
 
-   #. Next, mount the root partition to the :file:`/mnt` folder and the boot partition to the :file:`/mnt/boot` folder.
+   #. Next, mount the root partition to the :file:`/mnt` folder.
 
       .. code-block:: bash
 
          sudo mount /dev/sda3 /mnt
-         sudo mount /dev/sda1 /mnt/boot
 
 #. Verify that you mounted the correct root partition by checking for some
    files commonly found on |CL| systems.
@@ -76,11 +75,10 @@ Mount root partition, verify, and fix
 
    :ref:`Learn more about how swupd works <swupd-guide>`.
 
-#. After the process is complete, unmount the boot and root partitions:
+#. After the process is complete, unmount the root partition:
 
    .. code-block:: bash
 
-      sudo umount /mnt/boot
       sudo umount /mnt
 
 #. Reboot the system, remove the live desktop USB drive,
