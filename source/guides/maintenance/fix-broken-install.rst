@@ -49,11 +49,11 @@ Mount root partition, verify, and fix
 
       .. code-block:: bash
 
-         lsblk
+         lsblk -o NAME,LABEL,PARTTYPE,PARTLABEL
 
       We'll use :file:`/dev/sda3/` as the root partition example.
 
-   #. Next, mount the partition to the :file:`/mnt` folder.
+   #. Next, mount the root partition to the :file:`/mnt` folder.
 
       .. code-block:: bash
 
