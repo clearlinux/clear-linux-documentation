@@ -25,9 +25,12 @@ bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, you may want to depl
 
 Use the **Developer Profiles** tabs to start installing *suggested bundles* based on your role or project. Consider these profiles as a starting point.
 
+..tip:: Add description on click on bundle to learn.... 
+
+
 .. tabs::
 
-   .. tab:: AI Developer
+   .. tab:: AI/ML Engineer
 
       .. list-table:: 
          :widths: 50, 50
@@ -156,6 +159,9 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          * - Run the Intel "PK" kernel, IoT 2019, an enterprise-style kernel with backports.
            - `kernel-iot-lts2019 <https://clearlinux.org/software/bundle/kernel-iot-lts2019/>`_
       
+         * - Linux Test Project.
+           - `ltp <https://clearlinux.org/software/bundle/ltp/>`_
+
    .. tab:: Embedded Systems Developer
 
       .. list-table:: 
@@ -171,11 +177,11 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          * - GIS/Mapping tools for makers.
            - `maker-gis <https://clearlinux.org/software/bundle/maker-gis/>`_
 
-         * - Run sandboxed desktop application bundles, or build flatpak packages.
-           - `Flatpak <https://clearlinux.org/software/bundle/flatpak/>`_
-
          * -  Open-source electronics prototyping platform.
            - `arduino-ide <https://clearlinux.org/software/flathub/arduino-ide/>`_
+
+         * - Run sandboxed desktop application bundles, or build flatpak packages.
+           - `Flatpak <https://clearlinux.org/software/bundle/flatpak/>`_
 
          * - NetworkManager plugins and desktop integration.
            - `NetworkManager-extras <https://clearlinux.org/software/bundle/networkmanager-extras/>`_
