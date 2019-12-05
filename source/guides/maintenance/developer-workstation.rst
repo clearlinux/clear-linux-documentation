@@ -180,21 +180,6 @@ tools you need to start. Consider these profiles as a starting point.
          * -  Open-source electronics prototyping platform.
            - `arduino-ide <https://clearlinux.org/software/flathub/arduino-ide/>`_
 
-   .. tab:: Embedded Systems Developer
-
-      .. list-table:: 
-         :widths: 50, 50
-         :header-rows: 1
-
-         * - Function
-           - Bundle
-
-         * - Run sandboxed desktop application bundles, or build flatpak packages.
-           - `Flatpak <https://clearlinux.org/software/bundle/flatpak/>`_
-
-         * - NetworkManager plugins and desktop integration.
-           - `NetworkManager-extras <https://clearlinux.org/software/bundle/networkmanager-extras/>`_
-
    .. tab:: System Administrator
 
       .. list-table:: 
