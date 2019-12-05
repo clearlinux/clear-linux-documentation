@@ -23,10 +23,13 @@ add more bundles relevant to your specific use case.
 To run any process required for |CL| development, you can add the large 
 bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, you may want to deploy a leaner OS with only bundles relevant to your project.
 
-Use the **Developer Profiles** tabs to start installing *suggested bundles* based on your role or project. Consider these profiles as a starting point.
+Use the **Developer Profiles** tabs to start installing *suggested bundles*
+based on your role or project. Installing any ``dkms`` bundle gives all the
+tools you need to start. Consider these profiles as a starting point.
 
-..tip:: Add description on click on bundle to learn.... 
-
+.. tip:: 
+   
+   Click on a bundle to learn how to install it using :command:`swupd`. 
 
 .. tabs::
 
@@ -37,7 +40,7 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          :header-rows: 1
 
          * - Function
-           - Bundles
+           - Bundle
 
          * - Build machine learning applications with a full suite of libraries.
            - `machine-learning-basic <https://clearlinux.org/software/bundle/machine-learning-basic/>`_
@@ -67,7 +70,7 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          :header-rows: 1
 
          * - Function
-           - Bundles
+           - Bundle
 
          * - Build computer vision applications.
            - `computer-vision-basic <https://clearlinux.org/software/bundle/computer-vision-basic/>`_
@@ -91,7 +94,7 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          :header-rows: 1
 
          * - Function
-           - Bundles
+           - Bundle
 
          * - Contains Clear Linux\* OS native software for cloud.
            - `ethtool <https://clearlinux.org/software/bundle/ethtool/>`_
@@ -115,7 +118,7 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          :header-rows: 1
 
          * - Function
-           - Bundles
+           - Bundle
 
          * - All packages required to build the games bundle.
            - `games-dev <https://clearlinux.org/software/bundle/games-dev/>`_
@@ -136,7 +139,7 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          :header-rows: 1
 
          * - Function
-           - Bundles
+           - Bundle
 
          * - Installs kernel, initrd, kernel config, system map; creates a bootloader entry.
            - `kernel-install <https://clearlinux.org/software/bundle/kernel-install/>`_
@@ -150,17 +153,32 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          * - Support module for building/loading via Dynamic Kernel Module System (DKMS) in AWS kernel.
            - `kernel-aws-dkms <https://clearlinux.org/software/bundle/kernel-aws-dkms/>`_
 
-         * - Run the Kernel-based Virtual Machine (KVM) specific kernel.
+         * - Run the Kernel-based Virtual Machine (KVM) with |CL| as a guest under KVM.
            - `kernel-kvm <https://clearlinux.org/software/bundle/kernel-kvm/>`_
-
-         * - Run the Intel "PK" kernel and enterprise-style kernel with backports.
-           - `kernel-pk <https://clearlinux.org/software/bundle/kernel-pk/>`_
-
-         * - Run the Intel "PK" kernel, IoT 2019, an enterprise-style kernel with backports.
-           - `kernel-iot-lts2019 <https://clearlinux.org/software/bundle/kernel-iot-lts2019/>`_
       
          * - Linux Test Project.
            - `ltp <https://clearlinux.org/software/bundle/ltp/>`_
+
+   .. tab:: Maker Developer
+
+      .. list-table:: 
+         :widths: 50, 50
+         :header-rows: 1
+
+         * - Function
+           - Bundle
+
+         * - Basic tools for makers and experimenters.
+           - `maker-basic <https://clearlinux.org/software/bundle/maker-basic/>`_
+
+         * - GIS/Mapping tools for makers.
+           - `maker-gis <https://clearlinux.org/software/bundle/maker-gis/>`_
+
+         * - Electronic Design Tool
+           - `Fritzing <https://clearlinux.org/software/flathub/fritzing>`_
+
+         * -  Open-source electronics prototyping platform.
+           - `arduino-ide <https://clearlinux.org/software/flathub/arduino-ide/>`_
 
    .. tab:: Embedded Systems Developer
 
@@ -169,16 +187,7 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          :header-rows: 1
 
          * - Function
-           - Bundles
-
-         * - Basic tools for makers and experimenters.
-           - `maker-basic <https://clearlinux.org/software/bundle/maker-basic/>`_
-
-         * - GIS/Mapping tools for makers.
-           - `maker-gis <https://clearlinux.org/software/bundle/maker-gis/>`_
-
-         * -  Open-source electronics prototyping platform.
-           - `arduino-ide <https://clearlinux.org/software/flathub/arduino-ide/>`_
+           - Bundle
 
          * - Run sandboxed desktop application bundles, or build flatpak packages.
            - `Flatpak <https://clearlinux.org/software/bundle/flatpak/>`_
@@ -193,7 +202,7 @@ Use the **Developer Profiles** tabs to start installing *suggested bundles* base
          :header-rows: 1
 
          * - Function
-           - Bundles
+           - Bundle
 
          * - Run popular terminal text editors.
            - `editors <https://clearlinux.org/software/bundle/editors/>`_
