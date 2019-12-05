@@ -3,8 +3,7 @@
 Fix a broken installation
 #########################
 
-This guide explains how to fix a broken installation of |CL-ATTR| using a live
-desktop image on a USB.
+This guide explains how to fix a broken installation of |CL-ATTR| using a live desktop image on a USB.
 
 .. contents::
    :local:
@@ -17,25 +16,21 @@ This guide assumes you have installed |CL| on a target system, but the OS
 does not boot or function properly.
 
 The process described in this guide can only verify and fix files that
-:ref:`swupd<swupd-guide>` owns in :file:`/usr`. Files outside of this path, such
-as :file:`/home/`, :file:`/etc`, :file:`/var`, etc., cannot be repaired by this
-process.
+:ref:`swupd<swupd-guide>` owns in :file:`/usr` and :file:`/var`. Files outside of this path, such as :file:`/home/`, :file:`/etc`, etc., cannot be repaired by this process.
 
 Prerequisites
 *************
 
-* Download and install the live desktop image on a USB. See
-  :ref:`bare-metal-install-desktop` for install instructions.
+* Download and burn the live desktop image on a USB. 
+  See :ref:`bare-metal-install-desktop` for instructions.
 
 Boot a live desktop image to fix target system
 **********************************************
 
 #. Boot the |CL| live desktop image.
 
-.. include:: ../../get-started/bare-metal-install-desktop.rst
-   :start-after: install-on-target-start:
-   :end-before: install-on-target-end:
-
+#. Select |CL| in the boot menu.
+   
 Mount root partition, verify, and fix
 *************************************
 
