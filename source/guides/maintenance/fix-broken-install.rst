@@ -16,14 +16,12 @@ This guide assumes you have installed |CL| on a target system, but the OS
 does not boot or function properly.
 
 The process described in this guide can only verify and fix files that
-:ref:`swupd<swupd-guide>` owns in :file:`/usr`. Files outside of this path, 
-such as :file:`/home/`, :file:`/etc`, :file:`/var`, etc., cannot be repaired
-by this process.
+:ref:`swupd<swupd-guide>` owns in :file:`/usr` and :file:`/var`. Files outside of this path, such as :file:`/home/`, :file:`/etc`, etc., cannot be repaired by this process.
 
 Prerequisites
 *************
 
-* Download and install the live desktop image on a USB. 
+* Download and burn the live desktop image on a USB. 
   See :ref:`bare-metal-install-desktop` for instructions.
 
 Boot a live desktop image to fix target system
@@ -31,7 +29,7 @@ Boot a live desktop image to fix target system
 
 #. Boot the |CL| live desktop image.
 
-#. Select :guilabel:`|CL|` in the boot menu.
+#. Select |CL| in the boot menu.
    
 Mount root partition, verify, and fix
 *************************************
