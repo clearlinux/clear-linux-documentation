@@ -9,15 +9,18 @@ choose to connect to Wi-Fi while using the
 will be added to your system during the installation process.
 
 NetworkManager provides three simple methods for configuring Wi-Fi: Desktop,
-CLI, and TUI. :command:`wpa_supplicant` is also available if your prefer a
-more lightweight installation.
+CLI, and TUI. NetworkManager uses :command:`wpa_supplicant`, which can also be
+used on its own for a more lightweight installation.
 
 .. contents::
    :local:
    :depth: 1
 
+Using Network Manager
+*********************
+
 Desktop GUI (Graphical User Interface)
-**************************************
+======================================
 
 1. Click anywhere on the icons at the right side of the top of the screen to
    bring up a menu and click on :guilabel:`Wi-Fi Not Connected` then
@@ -45,7 +48,7 @@ Desktop GUI (Graphical User Interface)
    .. figure:: /_figures/wifi/wifi-5.png
 
 CLI (Command Line Interface)
-****************************
+============================
 
 #. List the available Wi-Fi networks
 
@@ -75,7 +78,7 @@ CLI (Command Line Interface)
    To avoid having the Wi-Fi password stored in bash history, consider using the TUI.
 
 TUI (Text-based User Interface)
-*******************************
+===============================
 
 #. Launch the NetworkManager Text User Interface
 
@@ -104,15 +107,16 @@ TUI (Text-based User Interface)
 
    .. figure:: /_figures/wifi/nmtui_5.png
 
-wpa_supplicant
-**************
+Using wpa_supplicant
+********************
 
-Make sure NetworkManager is either disabled or not installed before using
-wpa_supplicant.
+Make sure NetworkManager is either stopped, disabled by maksing the service,
+or not installed before using wpa_supplicant.
 
 .. code-block:: bash
 
    sudo systemctl stop NetworkManager.service
+   sudo systemctl mask NetworkManager.service
 
 #. Create a ``wpa_supplicant`` configuration directory.
 
@@ -120,11 +124,13 @@ wpa_supplicant.
 
       sudo mkdir /etc/wpa_supplicant
 
-#. Create a minimal :file:`/etc/wpa_supplicant/wpa_supplicant.conf` and add the
-   following:
+#. Create a minimal configuration file called
+   :file:`/etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf`
+   and add the following:
 
    .. code-block:: bash
 
+      ctrl_interface_group=wheel
       ctrl_interface=/run/wpa_supplicant
       update_config=1
 
@@ -134,12 +140,22 @@ wpa_supplicant.
 
       iw dev
 
+   Use the name following "Interface" on the first line (eg. wlps0)
+
+   .. code-block:: console
+
+       Interface wlps0
+          ifindex 3
+          wdev 0x1
+          addr 00:xx:xx:38:34:7a
+          type managed
+          txpower 0.00 dBm
+
 #. Complete the configuration process as ``root``.
 
    .. code-block:: bash
 
-      sudo su
-      wpa_supplicant -B -i $INTERFACE -c /etc/wpa_supplicant/wpa_supplicant.conf
+      sudo wpa_supplicant -B -i $INTERFACE_NAME -c /etc/wpa_supplicant/wpa_supplicant.conf
 
 #. Use :command:`wpa_cli` (interactive mode) to scan for available networks.
 
@@ -165,7 +181,8 @@ wpa_supplicant.
       00:xx:xx:26:4a:b9 2412 -79 [WPA2-PSK-CCMP][ESS][P2P] Printer2
       00:xx:xx:b9:0d:d4 2462 -79 [WPA2-PSK-CCMP][ESS] Network5
 
-#. Set up your network connection.
+#. Set up your network connection replacing Network1 with your SSID name and
+   Network1Password with the password for you network.
 
    .. code-block:: bash
 
@@ -186,14 +203,19 @@ wpa_supplicant.
       <3>WPA: Key negotiation completed with 00:xx:xx:5d:d9:26 [PTK=CCMP GTK=CCMP]
       <3>CTRL-EVENT-CONNECTED - Connection to 00:xx:xx:5d:d9:26 completed [id=0 id_str=]
 
-#. Save the configuration, quit :command:`wpa_cli`, and log out of ``root``.
+#. Save the configuration, quit :command:`wpa_cli`. 
 
    .. code-block:: bash
 
       > save_config
       OK
       > quit
-      root@clr-live~ # exit
+
+.. note:: 
+
+   The password is saved as plaintext in
+   :file:`/etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf`. 
+   Use `wpa_passphrase <https://wiki.archlinux.org/index.php/WPA_supplicant#Connecting_with_wpa_passphrase>`_ for a more secure method.
 
 Now, set up ``systemd-networkd.service`` to use this network connection. 
 
@@ -208,11 +230,12 @@ Now, set up ``systemd-networkd.service`` to use this network connection.
       [Network]
       DHCP=ipv4
 
-#. Restart the ``systemd-networkd.service``.
+#. Restart the ``systemd-networkd.service`` and enable for future boots.
 
    .. code-block:: bash
 
       sudo systemctl restart systemd-networkd.service
+      sudo systemctl enable --now wpa_supplicant@$INTERFACE_NAME.service
 
 Other resources
 ***************
