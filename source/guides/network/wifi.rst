@@ -217,7 +217,7 @@ or not installed before using wpa_supplicant.
    :file:`/etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf`. 
    Use `wpa_passphrase <https://wiki.archlinux.org/index.php/WPA_supplicant#Connecting_with_wpa_passphrase>`_ for a more secure method.
 
-Now, set up ``systemd-networkd.service`` to use this network connection. 
+Now, set up ``systemd-networkd.service`` to request an IP address. 
 
 #. Create the :file:`/etc/systemd/network` directory and
    :file:`/etc/systemd/network/25-wireless.network`. Add the following.
