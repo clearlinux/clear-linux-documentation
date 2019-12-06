@@ -260,7 +260,7 @@ Related topics
 
 * :ref:`azure`
 * :ref:`aws-web`
-
+* :ref:`clr-digitalocean`
 
 .. _Google Cloud Platform: https://cloud.google.com/
 
