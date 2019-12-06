@@ -207,11 +207,12 @@ Enable UEFI boot support
 Download the latest |CL| image
 ******************************
 
-Download the appropriate image per the tab below. Visit :ref:`image-types` 
-for additional information about all available |CL| images. We also provide 
-instructions to :ref:`download-verify-decompress`.
+Download the appropriate image per the tab below. We also provide 
+additional information about :ref:`image-types` and instructions on how to 
+:ref:`download-verify-decompress`.
 
-#. Attach the appropriate image type per tab below.
+Attach the appropriate image
+============================
    
    .. tabs::
 
@@ -219,53 +220,60 @@ instructions to :ref:`download-verify-decompress`.
 
          This option provides a live-desktop iso installer. 
 
-         #. Navigate to the `downloads`_ page and select the |CL| Desktop.
+         #. Navigate to the `downloads`_ page and download the |CL| Desktop.
+            After the download is complete, you will attach this image.
 
-         #. On the :guilabel:`Welcome to the New Virtual Machine Wizard` 
-            screen, select the :guilabel:`Installer disc image file (iso)`
-            option. See Figure 11.
+         #. On the :guilabel:`VMware Workstation 15 Player`, right-click the 
+            new VM, created in `Create and configure a new VM`_. 
+
+         #. From the pop-up menu, select :guilabel:`Settings`. 
+
+         #. From :guilabel:`Virtual Machine settings`, 
+            under :guilabel:`Hardware`, select ``CD/DVD``.
+
+         #. Under :guilabel:`Connection` at right, select 
+            :guilabel:`Use ISO image file`. 
+
+         #. Click :guilabel:`Browse` and select the decompressed 
+            |CL| installer ISO. See Figure 10.
             
-            .. figure:: /_figures/vmw-player/vmw-player-11.png
+            .. figure:: /_figures/vmw-player/vmw-player-10.png
                :scale: 100%
                :alt: VMware Workstation Player - Select |CL| installer ISO
 
-               Figure 11: VMware Workstation Player - Select |CL| installer
+               Figure 10: VMware Workstation Player - Select |CL| installer
                ISO   
 
-         #. Click the :guilabel:`Browse` button and select the decompressed 
-            |CL| installer ISO.
-
-         #. Follow the :ref:`install-on-target-start` guide to complete the
+         #. Follow the guide :ref:`install-on-target-start` to complete the
             installation of |CL|.
 
          #. After the installation completes, reboot the VM. This reboot
             restarts the |CL| installer.
-
-         Detach the |CL| installer ISO from the VM
-         *****************************************
 
          #. To enable the mouse pointer so you access VMware Workstation
             Player's menus, press :kbd:`<CTRL>` + :kbd:`<ALT>` on the keyboard.
 
          #. To disconnect the CD/DVD to stop it from booting the |CL|
             installer ISO again, click the :guilabel:`Player` menu. See
-            Figure 17.
+            Figure below.
 
-            .. figure:: /_figures/vmw-player/vmw-player-17.png
+            .. figure:: /_figures/vmw-player/vmw-player-11.png
                :scale: 100%
                :alt: VMware Workstation Player - Edit CD/DVD settings
 
-               Figure 17: VMware Workstation Player - Edit CD/DVD settings
+               Figure 11: VMware Workstation Player - Edit CD/DVD settings
 
          #. Go to :menuselection:`Removable Devices-->CD/DVD 
             (IDE)-->Disconnect`.
 
          #. Click the :guilabel:`OK` button.
 
+         #. Continue below. 
+
       .. tab:: |CL| Pre-configured VMWare image
 
-         #. Navigate to the `downloads`_ page and select the ``VMware``.
-            Look for :file:`clear-[version number]-vmware.vmdk.xz`. 
+         #. Navigate to the `downloads`_ page and select the ``VMware`` 
+            image. Look for :file:`clear-[version number]-vmware.vmdk.xz`. 
 
          #. Move the downloaded and decompressed pre-configured |CL| VMware
             image file :file:`clear-[version number]-basic.vmdk` to the
@@ -279,16 +287,19 @@ instructions to :ref:`download-verify-decompress`.
                * Linux distros :file:`/home/username/vmware`
                * Windows :file:`C:\Users\username\Documents\Virtual Machines`
 
-         #. Click :guilabel:`Edit virtual machine settings`.
+         #. On the :guilabel:`VMware Workstation 15 Player`, right-click the 
+            new VM, created in `Create and configure a new VM`_. 
 
-         #. To remove the default hard disk, under the :guilabel:`Device` 
-            list, select :guilabel:`Hard Disk (SCSI)`. See figure 12.
+         #. From the pop-up menu, select :guilabel:`Settings`. 
+
+         #. Under :guilabel:`Hardware` and :guilabel:`Device` list, select 
+            :guilabel:`Hard Disk (SCSI)`. See figure 12.
 
             .. figure:: /_figures/vmw-player/vmw-player-preconf-12.png
                :scale: 100%
-               :alt: VMware Workstation 14 Player - Remove hard drive
+               :alt: VMware Workstation Player - Remove hard drive
 
-               Figure 12: VMware Workstation 14 Player - Remove hard drive
+               Figure 12: VMware Workstation Player - Remove hard drive
 
          #. Click the :guilabel:`Remove` button.
 
@@ -297,9 +308,9 @@ instructions to :ref:`download-verify-decompress`.
 
             .. figure:: /_figures/vmw-player/vmw-player-preconf-13.png
                :scale: 100%
-               :alt: VMware Workstation 14 Player - Add new hard drive
+               :alt: VMware Workstation Player - Add new hard drive
 
-               Figure 13: VMware Workstation 14 Player - Add new hard drive
+               Figure 13: VMware Workstation Player - Add new hard drive
 
          #. Under the :guilabel:`Hardware types` section, select 
             :guilabel:`Hard Disk`.
@@ -311,27 +322,27 @@ instructions to :ref:`download-verify-decompress`.
 
             .. figure:: /_figures/vmw-player/vmw-player-preconf-14.png
                :scale: 100%
-               :alt: VMware Workstation 14 Player - Select virtual disk type
+               :alt: VMware Workstation Player - Select virtual disk type
 
-            Figure 14: VMware Workstation 14 Player - Select virtual disk type
+            Figure 14: VMware Workstation Player - Select virtual disk type
 
          #. Select the :guilabel:`Use an existing virtual disk` option. 
             See figure 15.
 
             .. figure:: /_figures/vmw-player/vmw-player-preconf-15.png
                :scale: 100%
-               :alt: VMware Workstation 14 Player - Use existing virtual disk
+               :alt: VMware Workstation Player - Use existing virtual disk
 
-               Figure 15: VMware Workstation 14 Player - Use existing virtual disk
+               Figure 15: VMware Workstation Player - Use existing virtual disk
 
          #. Click the :guilabel:`Browse` button and select the
             pre-configured |CL| VMware image file. See figure 16.
 
             .. figure:: ../../_figures/vmw-player/vmw-player-preconf-16.png
                :scale: 100%
-               :alt: VMware Workstation 14 Player-Select ready-made VMware |CL|
+               :alt: VMware Workstation Player - Select ready-made VMware |CL|
 
-               Figure 16: VMware Workstation 14 Player - Select ready-made VMware |CL| image file
+               Figure 16: VMware Workstation Player - Select ready-made VMware |CL| image file
 
          #. Click the :guilabel:`Finish` button.
 
@@ -343,13 +354,13 @@ Install |CL| into the new VM
 ****************************
 
 #. Select the newly-created VM and click the :guilabel:`Play virtual machine`
-   button. See Figure 10.
+   button. See Figure below.
 
-   .. figure:: /_figures/vmw-player/vmw-player-10.png
+   .. figure:: /_figures/vmw-player/vmw-player-17.png
       :scale: 100%
       :alt: VMware Workstation Player - Power on virtual machine
 
-      Figure 10: VMware Workstation Player - Power on virtual machine
+      Figure 17: VMware Workstation Player - Power on virtual machine
       
 Install open-vm-tools
 *********************
