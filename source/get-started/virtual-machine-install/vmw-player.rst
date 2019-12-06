@@ -3,7 +3,7 @@
 |CL-ATTR| on VMware\* Workstation Player
 ########################################
 
-This page explains how to create a new VMware Workstation Player hypervisor and install one of these images: the |CL| Desktop, |CL| Pre-configured VMWare image, or a custom iso image.
+This page explains how to create a new VMware Workstation Player hypervisor and use one of two images: the |CL| Desktop installer iso, or the |CL| Pre-configured VMWare image.
 
 .. contents::
    :local:
@@ -207,38 +207,19 @@ Enable UEFI boot support
 Download the latest |CL| image
 ******************************
 
-Download the appropriate image per tab below. Visit :ref:`image-types` for
-additional information about all available |CL| images. We also provide 
+Download the appropriate image per the tab below. Visit :ref:`image-types` 
+for additional information about all available |CL| images. We also provide 
 instructions to :ref:`download-verify-decompress`.
-
-.. tabs::
-
-   .. tab:: |CL| Desktop 
-
-      Navigate to the `downloads`_ page and select the |CL| Desktop.
-   
-   .. tab:: |CL| Pre-configured VMWare image
-
-      Navigate to the `downloads`_ page and select the ``VMware``.
-      Look for :file:`clear-[version number]-vmware.vmdk.xz`. 
-
-Install |CL| into the new VM
-****************************
-
-#. Select the newly-created VM and click the :guilabel:`Play virtual machine`
-   button. See Figure 10.
-
-   .. figure:: /_figures/vmw-player/vmw-player-10.png
-      :scale: 100%
-      :alt: VMware Workstation Player - Power on virtual machine
-
-      Figure 10: VMware Workstation Player - Power on virtual machine
 
 #. Attach the appropriate image type per tab below.
    
    .. tabs::
 
       .. tab:: |CL| Desktop 
+
+         This option provides a live-desktop iso installer. 
+
+         #. Navigate to the `downloads`_ page and select the |CL| Desktop.
 
          #. On the :guilabel:`Welcome to the New Virtual Machine Wizard` 
             screen, select the :guilabel:`Installer disc image file (iso)`
@@ -249,7 +230,7 @@ Install |CL| into the new VM
                :alt: VMware Workstation Player - Select |CL| installer ISO
 
                Figure 11: VMware Workstation Player - Select |CL| installer
-               ISO
+               ISO   
 
          #. Click the :guilabel:`Browse` button and select the decompressed 
             |CL| installer ISO.
@@ -260,7 +241,31 @@ Install |CL| into the new VM
          #. After the installation completes, reboot the VM. This reboot
             restarts the |CL| installer.
 
+         Detach the |CL| installer ISO from the VM
+         *****************************************
+
+         #. To enable the mouse pointer so you access VMware Workstation
+            Player's menus, press :kbd:`<CTRL>` + :kbd:`<ALT>` on the keyboard.
+
+         #. To disconnect the CD/DVD to stop it from booting the |CL|
+            installer ISO again, click the :guilabel:`Player` menu. See
+            Figure 17.
+
+            .. figure:: /_figures/vmw-player/vmw-player-17.png
+               :scale: 100%
+               :alt: VMware Workstation Player - Edit CD/DVD settings
+
+               Figure 17: VMware Workstation Player - Edit CD/DVD settings
+
+         #. Go to :menuselection:`Removable Devices-->CD/DVD 
+            (IDE)-->Disconnect`.
+
+         #. Click the :guilabel:`OK` button.
+
       .. tab:: |CL| Pre-configured VMWare image
+
+         #. Navigate to the `downloads`_ page and select the ``VMware``.
+            Look for :file:`clear-[version number]-vmware.vmdk.xz`. 
 
          #. Move the downloaded and decompressed pre-configured |CL| VMware
             image file :file:`clear-[version number]-basic.vmdk` to the
@@ -334,30 +339,18 @@ Install |CL| into the new VM
 
                When asked to convert the existing virtual disk to a newer format, selecting either option works.
 
-      .. tab:: Custom iso image
+Install |CL| into the new VM
+****************************
 
-         #. TBD Add more detail here.
+#. Select the newly-created VM and click the :guilabel:`Play virtual machine`
+   button. See Figure 10.
 
-         
-Detach the |CL| installer ISO from the VM
-*****************************************
-
-#. To enable the mouse pointer so you access VMware Workstation Player's
-   menus, press :kbd:`<CTRL>` + :kbd:`<ALT>` on the keyboard.
-
-#. To disconnect the CD/DVD to stop it from booting the |CL| installer ISO
-   again, click the :guilabel:`Player` menu. See Figure 17.
-
-   .. figure:: /_figures/vmw-player/vmw-player-17.png
+   .. figure:: /_figures/vmw-player/vmw-player-10.png
       :scale: 100%
-      :alt: VMware Workstation Player - Edit CD/DVD settings
+      :alt: VMware Workstation Player - Power on virtual machine
 
-      Figure 17: VMware Workstation Player - Edit CD/DVD settings
-
-#. Go to :menuselection:`Removable Devices-->CD/DVD (IDE)-->Disconnect`.
-
-#. Click the :guilabel:`OK` button.
-
+      Figure 10: VMware Workstation Player - Power on virtual machine
+      
 Install open-vm-tools
 *********************
 
