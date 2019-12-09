@@ -84,8 +84,14 @@ tools you need to start. Consider these profiles as a starting point.
          * - API helper for cloud access.
            - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
 
+         * - Run container applications from Dockerhub in lightweight virtual machines.
+           - `containers-virt <https://clearlinux.org/software/bundle/containers-virt>`_
+
          * - All content for pkgconfig file opencv.pc.
            - `devpkg-opencv <https://clearlinux.org/software/bundle/devpkg-opencv/>`_
+
+         * - *Refer also to Cloud Orchestration Engineer*
+           - 
 
    .. tab:: Cloud Orchestration Engineer
 
@@ -153,7 +159,7 @@ tools you need to start. Consider these profiles as a starting point.
          * - GIS/Mapping tools for makers.
            - `maker-gis <https://clearlinux.org/software/bundle/maker-gis/>`_
 
-         * - Electronic Design Tool
+         * - Electronic Design Tool.
            - `Fritzing <https://clearlinux.org/software/flathub/fritzing>`_
 
          * -  Open-source electronics prototyping platform.
