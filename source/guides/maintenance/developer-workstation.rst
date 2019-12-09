@@ -111,27 +111,6 @@ tools you need to start. Consider these profiles as a starting point.
          * - Load and enumerate PKCS#11 modules.
            - `p11-kit <https://clearlinux.org/software/bundle/p11-kit/>`_
 
-   .. tab:: Game Developer
-
-      .. list-table:: 
-         :widths: 50, 50
-         :header-rows: 1
-
-         * - Function
-           - Bundle
-
-         * - All packages required to build the games bundle.
-           - `games-dev <https://clearlinux.org/software/bundle/games-dev/>`_
-
-         * - Godot game engine editor.
-           - `Godot <https://clearlinux.org/software/flathub/godot/>`_
-
-         * - Real-time game engine (Flatpak).
-           - `Unity Hub <https://clearlinux.org/software/flathub/unity-hub/>`_
-   
-         * - Classic point and click adventure game engine and (Flatpak).
-           - `adventure editor <https://clearlinux.org/software/flathub/adventure-editor/>`_
-
    .. tab:: Kernel Developer
 
       .. list-table:: 
