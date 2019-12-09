@@ -117,8 +117,6 @@ Import |CL| Data via GUI
       :scale: 45%
       :alt: Distro Data Import page
 
-      Figure 1: Distro Data Import page
-
 #. The first time you import |CL| data, you will need to create a new comparison
    branch. The branch name you provide will be used in the GUI during compare
    to refer to this imported release. You can choose to update your branch in
@@ -137,8 +135,6 @@ Import |CL| Data via GUI
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-import-final.png
       :scale: 45%
       :alt: Finished distribution data import
-
-      Figure 2: Finished distribution data import
 
 Import Yocto Project Data
 =========================
@@ -170,9 +166,6 @@ To import Yocto Project data from a specific branch:
          :scale: 45%
          :alt: Importing Yocto Project data from branch
 
-         Figure 3: Importing Yocto Project data from branch
-
-
 #. Run the following command to import a specific Yocto Project branch:
 
    .. code-block:: bash
@@ -198,17 +191,13 @@ side-by-side with the `Distro data` tool.
       :scale: 45%
       :alt: Distro data button
 
-      Figure 4: Distro data button
-
 #. In the :guilabel:`Branch` section in the top left of the screen, select which
    imported |CL| distribution you want to search in, then search for the package
-   you'd like to include, as shown in Figure 5:
+   you'd like to include.
 
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-form.png
       :scale: 45%
       :alt: Select distribution to search
-
-      Figure 5: Select distribution to search
 
 #. Select the package you want to include.
 
@@ -219,20 +208,13 @@ side-by-side with the `Distro data` tool.
       :scale: 45%
       :alt: Side-by-side distribution data comparison
 
-      Figure 6: Side-by-side distribution data comparison
-
-
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-patches.png
       :scale: 45%
       :alt: Side-by-side distribution patch comparison
 
-      Figure 7: Side-by-side distribution patch comparison
-
    .. figure:: ../../_figures/clear-linux-dissector/distro-data-configure-options.png
       :scale: 45%
       :alt: Side-by-side distribution data configuration options comparison
-
-      Figure 8: Side-by-side distribution data configuration options comparison
 
 Compare |CL| to Yocto Project image
 ***********************************
@@ -247,8 +229,6 @@ sure that you are on the same machine that built the original Yocto Project imag
       :scale: 45%
       :alt: Image comparison button
 
-      Figure 9: Image comparison button
-
 #. Follow instructions to run the `oe-image-manifest-script`. Upload the
    resulting .tar.gz file and choose which branch you want to compare it to.
 
@@ -256,16 +236,12 @@ sure that you are on the same machine that built the original Yocto Project imag
       :scale: 45%
       :alt: Create a new comparison
 
-      Figure 10: Create a new comparison
-
 #. The resulting list will show which packages are in the original Yocto Project
    image and the corresponding |CL| packages.
 
    .. figure:: ../../_figures/clear-linux-dissector/image-comparison-result.png
       :scale: 45%
       :alt: Image comparison result
-
-      Figure 11: Image comparison result
 
 Compare |CL| Releases
 *********************
@@ -282,15 +258,11 @@ Once you have the |CL| releases imported:
       :scale: 45%
       :alt: Release comparison button
 
-      Figure 12: Release comparison button
-
 #. Select the two releases you'd like to compare and click :guilabel:`CREATE COMPARISON`.
 
    .. figure:: ../../_figures/clear-linux-dissector/release-comparison-form.png
       :scale: 45%
       :alt: Select releases to compare
-
-      Figure 13: Select releases to compare
 
 #. The resulting list will show changes between the two releases such as packages
    added, upgraded, and downgraded.
@@ -298,5 +270,3 @@ Once you have the |CL| releases imported:
    .. figure:: ../../_figures/clear-linux-dissector/release-comparison-result.png
       :scale: 45%
       :alt: Release comparison result
-
-      Figure 14: Release comparison result
