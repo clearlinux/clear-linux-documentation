@@ -557,7 +557,7 @@ This example walks through the basic instructions for using the inference engine
 
    .. code-block:: bash
 
-      docker run -p 8000:8000 stacks-tensorflow-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
+      docker run -p 8000:8000 stacks-dlrs-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
 
 
    Once the server is setup, use a :command:`grpc` client to communicate with served model:
@@ -784,7 +784,7 @@ Compiling AIXPRT with OpenMP on DLRS
 
 To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file.AIXPRT utilizes
 build configuration files, so to build AIXPRT on the image, copy, the build files from the base image, this can be done by adding these commands
-to the end of the stacks-tensorflow-mkl dockerfile:
+to the end of the stacks-dlrs-mkl dockerfile:
 
    .. code-block:: console
 
