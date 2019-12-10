@@ -124,6 +124,30 @@ or not installed before using wpa_supplicant.
 
       sudo mkdir /etc/wpa_supplicant
 
+#. Determine your wireless interface name.
+
+   .. code-block:: bash
+
+      iw dev
+
+   Use the name following "Interface" on the first line (eg. wlp1s0)
+
+   .. code-block:: console
+
+       Interface wlp1s0
+          ifindex 3
+          wdev 0x1
+          addr 00:xx:xx:38:34:7a
+          type managed
+          txpower 0.00 dBm
+
+   Set the $INTERFACE_NAME environment variable to take advantage of copying
+   and pasting commands.
+
+   .. code-block:: bash
+
+      export INTERFACE_NAME=wlp1s0
+
 #. Create a minimal configuration file called
    :file:`/etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf`
    and add the following:
@@ -133,23 +157,6 @@ or not installed before using wpa_supplicant.
       ctrl_interface_group=wheel
       ctrl_interface=/run/wpa_supplicant
       update_config=1
-
-#. Determine your wireless interface name.
-
-   .. code-block:: bash
-
-      iw dev
-
-   Use the name following "Interface" on the first line (eg. wlps0)
-
-   .. code-block:: console
-
-       Interface wlps0
-          ifindex 3
-          wdev 0x1
-          addr 00:xx:xx:38:34:7a
-          type managed
-          txpower 0.00 dBm
 
 #. Complete the configuration process as ``root``.
 
@@ -161,6 +168,7 @@ or not installed before using wpa_supplicant.
 
    .. code-block:: bash
 
+      sudo wpa_cli
       > scan
       OK
       <3>CTRL-EVENT-SCAN-STARTED
@@ -220,12 +228,14 @@ or not installed before using wpa_supplicant.
 Now, set up ``systemd-networkd.service`` to request an IP address. 
 
 #. Create the :file:`/etc/systemd/network` directory and
-   :file:`/etc/systemd/network/25-wireless.network`. Add the following.
+   :file:`/etc/systemd/network/25-wireless.network`. Add the following (you
+   will need to use the actual interface name rather than $INTERFACE_NAME in
+   this case).
 
    .. code-block:: bash
 
       [Match]
-      Name=$INTERFACE
+      Name=$INTERFACE_NAME
 
       [Network]
       DHCP=ipv4
