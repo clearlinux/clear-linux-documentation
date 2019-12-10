@@ -158,11 +158,11 @@ or not installed before using wpa_supplicant.
       ctrl_interface=/run/wpa_supplicant
       update_config=1
 
-#. Complete the configuration process as ``root``.
+#. Complete the configuration process.
 
    .. code-block:: bash
 
-      sudo wpa_supplicant -B -i $INTERFACE_NAME -c /etc/wpa_supplicant/wpa_supplicant.conf
+      sudo wpa_supplicant -B -i $INTERFACE_NAME -c /etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf
 
 #. Use :command:`wpa_cli` (interactive mode) to scan for available networks.
 
