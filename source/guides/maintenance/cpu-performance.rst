@@ -193,6 +193,53 @@ group:
    After adding a new group, you must log out and log back in for the new group
    to take effect.
 
+Thermal configuration
+=====================
+
+Better thermal control and performance can be archived by providing platform
+specified configuration to thermald.
+
+`Linux DPTF Extract Utility`_ is a companion tool to thermald, This tool can
+make use of "Intel ® Dynamic Platform and Thermal Framework (`Intel DPTF`_)"
+technology, and convert to the thermal_conf.xml configuration format used
+by thermald.
+
+First, make sure thermald version is equal or above 1.9.1:
+
+.. code:: bash
+
+   thermald --version
+
+Otherwise, you need to add an option :command:`--ignore-default-control` to
+thermald:
+
+.. code:: bash
+
+   # edit thermald.servcie
+   vim /usr/lib/systemd/system/thermald.service
+   # append --ignore-default-control option to ExecStart line, like below
+   # ExecStart=/usr/bin/thermald --no-daemon --dbus-enable --ignore-default-control
+
+   # reload
+   sudo systemctl daemon-reload
+
+Then, generate thermal configuration as below:
+
+.. code:: bash
+
+   git clone https://github.com/intel/dptfxtract.git
+   cd dptfxtract
+   sudo acpidump > acpi.out
+   acpixtract -a acpi.out
+   sudo ./dptfxtract *.dat
+
+thermald configuration files will be generated and saved to
+:command:`/etc/thermal/` folder. Restart thermald service to take effect.
+
+.. code:: bash
+
+   sudo systemctl restart thermald.service
+
 
 .. _`Intel P-state driver`: https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt
 
@@ -205,3 +252,7 @@ group:
 .. _`ThermalMonitor`: https://github.com/intel/thermal_daemon/tree/master/tools/thermal_monitor
 
 .. _`Intel® Turbo Boost Technology`: https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html
+
+.. _`Linux DPTF Extract Utility`: https://github.com/intel/dptfxtract
+
+.. _`Intel DPTF`: https://software.intel.com/en-us/articles/2-in-1-tablet-mode-game-performance-with-intel-dynamic-platform-and-thermal-framework-intel
