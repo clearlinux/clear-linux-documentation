@@ -173,6 +173,8 @@ Upload image
 
    See Figure 3.
 
+   |
+
 #. Choose your preferred datacenter region.  
 
 #. Click :guilabel:`Upload Image`.
@@ -201,6 +203,8 @@ Create and Deploy a |CL| Instance
 #. Under :guilabel:`Choose an image`, select :guilabel:`Custom images`.
 
    See Figure 5.
+
+   |
 
 #. Select your uploaded |CL| image.
   
@@ -252,6 +256,8 @@ Create and Deploy a |CL| Instance
 
       See Figure 9.
 
+      |
+
    #. Give a name for the SSH key.
 
    #. Click :guilabel:`Add SSH Key`.
@@ -262,8 +268,6 @@ Create and Deploy a |CL| Instance
 
          Figure 9: DigitalOcean - Add public SSH key
    
-   #. Give a name for the SSH key.
-
    .. note::
      
       If you need to add additional users to the instance, you can do that
@@ -304,6 +308,8 @@ Create and Deploy a |CL| Instance
 
    See Figure 10.
 
+   |
+
 #. Click :guilabel:`Create Droplet` to deploy the instance.
 
    .. figure:: ../../_figures/digitalocean/10-digitalocean.png
@@ -318,6 +324,8 @@ Connect to Your |CL| Instance
 #. On DigitalOcean's website, go to :menuselection:`MANAGE --> Droplets`.
 
    See Figure 11.
+
+   |
 
 #. Get the IP address of your |CL| instance.  
 
