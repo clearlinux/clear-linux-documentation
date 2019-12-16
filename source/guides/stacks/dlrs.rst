@@ -557,7 +557,7 @@ This example walks through the basic instructions for using the inference engine
 
    .. code-block:: bash
 
-      docker run -p 8000:8000 stacks-tensorflow-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
+      docker run -p 8000:8000 stacks-dlrs-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
 
 
    Once the server is setup, use a :command:`grpc` client to communicate with served model:
@@ -656,7 +656,7 @@ Your browser displays the following:
    :scale: 50%
    :alt: Jupyter Notebook
 
-Figure 1: Jupyter Notebook
+   Figure 1: Jupyter Notebook
 
 
 To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
@@ -665,7 +665,7 @@ To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
    :scale: 50%
    :alt: Create a new notebook
 
-Figure 2: Create a new notebook
+   Figure 2: Create a new notebook
 
 A new, blank notebook is displayed, with a cell ready for input.
 
@@ -673,7 +673,7 @@ A new, blank notebook is displayed, with a cell ready for input.
    :scale: 50%
    :alt: New blank notebook
 
-Figure 3: New blank notebook
+   Figure 3: New blank notebook
 
 To verify that PyTorch is working, copy the following snippet into the blank
 cell, and run the cell.
@@ -689,7 +689,7 @@ cell, and run the cell.
    :scale: 50%
    :alt: Sample code snippet
 
-Figure 4: Sample code snippet
+   Figure 4: Sample code snippet
 
 When you run the cell, your output will look something like this:
 
@@ -697,7 +697,7 @@ When you run the cell, your output will look something like this:
    :scale: 50%
    :alt: Code output
 
-Figure 5: Code output
+   Figure 5: Code output
 
 
 You can continue working in this notebook, or you can download existing
@@ -784,7 +784,7 @@ Compiling AIXPRT with OpenMP on DLRS
 
 To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file.AIXPRT utilizes
 build configuration files, so to build AIXPRT on the image, copy, the build files from the base image, this can be done by adding these commands
-to the end of the stacks-tensorflow-mkl dockerfile:
+to the end of the stacks-dlrs-mkl dockerfile:
 
    .. code-block:: console
 

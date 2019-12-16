@@ -67,6 +67,86 @@ If you want to build the documentation exactly as seen on the website, use
 ``make py`` followed by ``make htmlall``. This builds some
 external dependencies and all supported languages.
 
+Use virtualenv 
+**************
+
+To develop documentation in a ``virtualenv``, use the ``venv`` target.
+The Clear Linux OS documentation make target ``venv`` provides a 
+simple development environment that ensures that you have the 
+latest packages and that you manage Python versions separately. Use of the 
+``virtualenv`` requires **Python 3.6** or higher. For Windows examples below, use Powershell as an Administrator.
+
+The **virtual environment** uses the same version of Python that was used to **create the virtual environment**. 
+
+Verify ``pip`` is installed. A file path to pip should appear. 
+
+On Clear Linux OS and macOS\*:
+
+.. code-block:: bash
+
+   which pip
+   
+On Windows\* 10 OS: 
+
+.. code-block:: bash
+
+   pip --version
+
+If ``pip`` is not installed, install it. 
+
+On Clear Linux OS and macOS:
+
+.. code-block:: bash
+
+   python3 -m pip install --user --upgrade pip
+
+On Windows 10 OS: 
+
+.. code-block:: bash
+
+   py -m pip install --upgrade pip
+
+.. note::
+
+   This assumes Python was already added to your Windows path. 
+
+Install virtualenv 
+==================
+
+Install ``virtualenv``. 
+
+On Clear Linux OS and macOS\*:
+
+.. code-block:: bash
+
+   python3 -m pip install --user virtualenv
+
+On Windows 10 OS: 
+
+.. code-block:: bash
+
+   py -m pip install --user virtualenv
+
+Create the ``virtualenv`` and install the required packages: 
+
+.. code-block:: bash
+
+   make venv
+
+Activate the ``venv``. 
+
+.. code-block:: bash
+
+   source venv/bin/activate
+
+Follow `Run the build`_ section to start developing documentation.
+
+Remove the ``venv`` when finished developing.  
+
+.. code-block:: bash
+
+   deactivate
+
 Additional help
 ***************
 
@@ -80,7 +160,8 @@ build before building again by running ``make clean``:
 
    make clean
 
-This will completely remove the previous build output.
+This will completely remove the previous build output, including artifacts 
+from the `make venv` target when done outside an active venv.
 
 Convenience script
 ==================

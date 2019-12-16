@@ -519,6 +519,13 @@ For additional information visit the |CL|
 To learn more about the MS Azure CLI 2.0 tool and options that are available,
 visit the `MS Azure documentation and tutorials`_ website.
 
+Related topics
+**************
+
+* :ref:`gce`
+* :ref:`aws-web`
+* :ref:`clr-digitalocean`
+
 .. _`Azure Portal`:
    https://portal.azure.com
 

@@ -942,4 +942,61 @@ entering :guilabel:`Configure Installation Media`:
   - Windows\* OS:  :command:`diskpart`, then :command:`list disk`
   - macOS\* platform: :command:`diskutil list`
 
+.. _erase-lvm-troubleshooting-tip:
+
+Erase LVM Partitions Before Installing |CL|
+===========================================
+
+If you’re planning to install |CL| on a drive that has LVM partitions, 
+you must erase them first before using clr-installer.  
+
+Here is an example of a drive (/dev/sda) with LVMs:
+
+.. code-block:: console
+   :emphasize-lines: 6-9
+
+   NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+   loop0          7:0    0 627.6M  1 loop 
+   sda            8:0    0 335.4G  0 disk 
+   ├─sda1         8:1    0   200M  0 part 
+   ├─sda2         8:2    0     1G  0 part 
+   └─sda3         8:3    0 334.2G  0 part 
+     ├─LVM-root 252:0    0    70G  0 lvm  
+     ├─LVM-home 252:1    0 248.4G  0 lvm  
+     └─LVM-swap 252:2    0  15.7G  0 lvm  
+
+If you do not erase the LVMs first, you will encounter a clr-installer 
+error like this: 
+ 
+.. code-block:: console
+
+   root@clr-live~ # clr-installer
+
+   Please report this crash using GitHub Issues:
+   https://github.com/clearlinux/clr-installer/issues
+
+   Include the following as attachments to enable diagnosis:
+   /root/pre-install-clr-installer.yaml
+   /root/clr-installer.log
+
+   You may need to remove any personal data of concern from the attachments.
+   The Installer will now exit.
+   exit status 1
+
+   Error Trace:
+   errors.Wrap()
+        errors/errors.go:91
+   storage.makeFs()
+        storage/ops.go:79
+
+The quickest and simplest method to erasing the LVMs is to execute these
+commands:
+
+.. code-block:: bash
+
+   sudo sgdisk -Z /dev/<device>
+   sudo partprobe
+   sudo dmsetup remove_all --force
+   sudo partprobe
+
 .. _Downloads: https://clearlinux.org/downloads

@@ -61,7 +61,7 @@ Create and configure new VM
       :scale: 100%
       :alt: Hyper-V Manager from the Start menu
 
-   Figure 1: Hyper-V Manager from the Start menu
+      Figure 1: Hyper-V Manager from the Start menu
 
 
 #. Create a *New Virtual Machine* by clicking the :guilabel:`Action` menu,
@@ -71,7 +71,7 @@ Create and configure new VM
       :scale: 100%
       :alt: New Virtual Machine in Hyper-V Manager
 
-   Figure 2: New Virtual Machine in Hyper-V Manager
+      Figure 2: New Virtual Machine in Hyper-V Manager
 
 #. Follow the *New Virtual Machine Wizard* to create a new virtual machine
    specifying the options below:
@@ -102,7 +102,7 @@ Create and configure new VM
       :scale: 100%
       :alt: |CL| VM Settings in Hyper-V Manager
 
-   Figure 3: |CL| VM Settings page after configuration
+      Figure 3: |CL| VM Settings page after configuration
 
 #. Click :guilabel:`Apply` at the bottom of the VM Settings screen.
 
