@@ -147,6 +147,8 @@ Upload image
 
    See Figure 1.
 
+   .. rst-class:: dropshadow
+
    .. figure:: ../../_figures/digitalocean/01-digitalocean.png
       :scale: 100 %
       :alt: DigitalOcean - Upload custom images
