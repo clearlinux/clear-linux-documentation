@@ -21,13 +21,9 @@ Manually installing |CL| on a new VM gives additional configuration flexibility
 during installation. For example: alternate disk sizes, number of partitions,
 pre-installed bundles, etc.
 
-If you prefer to use a pre-configured |CL| VMware image instead, refer to
-:ref:`vmware-esxi-preconfigured-cl-image`.
-
 .. note::
 
-   VMware also offers a type 2 hypervisor designed for the desktop environment,
-   called `VMware Workstation Player`_. Refer to :ref:`vmw-player-preconf` or
+   VMware also offers a type 2 hypervisor designed for the desktop environment, called `VMware Workstation Player`_. Refer to
    :ref:`vmw-player` for more information.
 
    Visit :ref:`image-types` to learn more about all available images.
@@ -276,12 +272,6 @@ After configuring the settings above, power on the VM.
       :alt: VMware ESXi - Navigator > Virtual Machines > Power on VM
 
       Figure 16: VMware ESXi - Navigator > Virtual Machines > Power on VM
-
-Related topics
-**************
-
-* :ref:`vmware-esxi-preconfigured-cl-image`
-
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 .. _VMware Workstation Player: https://www.vmware.com/products/workstation-player.html

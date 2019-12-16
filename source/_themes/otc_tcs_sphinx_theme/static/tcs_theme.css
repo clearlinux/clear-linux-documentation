@@ -520,3 +520,10 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 /*End support for multi-column sections*/
+
+
+/*Add drop shadow to figures*/
+
+div.figure.dropshadow img {
+  box-shadow: 10px 10px 10px LightGray;
+}
