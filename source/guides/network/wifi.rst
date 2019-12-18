@@ -3,10 +3,11 @@
 Configure Wi-Fi
 ###############
 
-We recommend using `NetworkManager <https://developer.gnome.org/NetworkManager/stable/NetworkManager.html>`_ to manage network connections. If you
-choose to connect to Wi-Fi while using the
-:ref:`live installer <bare-metal-install-desktop>` image, your Wi-Fi settings
-will be added to your system during the installation process.
+We recommend using `NetworkManager
+<https://developer.gnome.org/NetworkManager/stable/NetworkManager.html>`_ to
+manage wireless network connections. If you choose to connect to Wi-Fi while
+using the :ref:`live installer <bare-metal-install-desktop>` image, your Wi-Fi
+settings will be added to your system during the installation process.
 
 NetworkManager provides three simple methods for configuring Wi-Fi: Desktop,
 CLI, and TUI. NetworkManager uses :command:`wpa_supplicant`, which can also be
@@ -23,8 +24,8 @@ Desktop GUI (Graphical User Interface)
 ======================================
 
 1. Click anywhere on the icons at the right side of the top of the screen to
-   bring up a menu and click on :guilabel:`Wi-Fi Not Connected` then
-   choose :guilabel:`Select Network`.
+   bring up a menu and click on :guilabel:`Wi-Fi Not Connected` then choose
+   :guilabel:`Select Network`.
 
    .. figure:: /_figures/wifi/wifi-1.1.png
 
@@ -107,22 +108,37 @@ TUI (Text-based User Interface)
 
    .. figure:: /_figures/wifi/nmtui_5.png
 
+
 Using wpa_supplicant
 ********************
 
-Make sure NetworkManager is either stopped, disabled by maksing the service,
-or not installed before using wpa_supplicant.
+wpa_suppliant can be used  directly, without NetworkManager, to associates a
+wireless adapter with an access point. After association is established, an IP
+address needs to be assigned or obtained. 
+
+
+Associate with a wireless access point
+======================================
+
+#. Make sure NetworkManager is stopped and disabled by masking the service.
 
 .. code-block:: bash
 
    sudo systemctl stop NetworkManager.service
    sudo systemctl mask NetworkManager.service
 
+
+#. Stop the wpa_supplicant.service, which may have been started by NetworkManager. 
+
+.. code-block:: bash
+
+   sudo systemctl stop wpa_supplicant.service
+
 #. Create a ``wpa_supplicant`` configuration directory.
 
    .. code-block:: bash
 
-      sudo mkdir /etc/wpa_supplicant
+      sudo mkdir -p /etc/wpa_supplicant
 
 #. Determine your wireless interface name.
 
@@ -133,6 +149,7 @@ or not installed before using wpa_supplicant.
    Use the name following "Interface" on the first line (eg. wlp1s0)
 
    .. code-block:: console
+      :emphasize-lines: 1
 
        Interface wlp1s0
           ifindex 3
@@ -154,19 +171,23 @@ or not installed before using wpa_supplicant.
 
    .. code-block:: bash
 
+      sudo tee /etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf > /dev/null <<'EOF'
       ctrl_interface_group=wheel
       ctrl_interface=/run/wpa_supplicant
       update_config=1
+      EOF
 
-#. Complete the configuration process.
+#. Start the wpa_supplicant service to complete the configuration process.
 
    .. code-block:: bash
 
-      sudo wpa_supplicant -B -i $INTERFACE_NAME -c /etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf
+      sudo systemctl start wpa_supplicant@$INTERFACE_NAME.service
 
 #. Use :command:`wpa_cli` (interactive mode) to scan for available networks.
+   In this example, our network is named *Network1*.
 
    .. code-block:: bash
+      :emphasize-lines: 1,2,5,7
 
       sudo wpa_cli
       > scan
@@ -176,12 +197,6 @@ or not installed before using wpa_supplicant.
       > scan_results
       bssid / frequency / signal level / flags / ssid
       00:xx:xx:73:7b:46 5180 -55 [WPA2-PSK-CCMP][ESS] Network1
-      00:xx:xx:5d:d9:23 2412 -47 [RSN--CCMP][MESH] 1137e9
-      00:xx:xx:73:7b:43 2412 -49 [RSN--CCMP][MESH] 1137e9
-      00:xx:xx:5d:d9:25 2412 -47 [WPA2-PSK-CCMP][ESS] Network1
-      00:xx:xx:37:25:05 2412 -49 [WPA2-PSK-CCMP][ESS] Network1
-      00:xx:xx:73:7b:45 2412 -59 [WPA2-PSK-CCMP][ESS] Network1
-      00:xx:xx:83:fa:6a 2437 -57 [WPA-EAP-CCMP+TKIP][WPA2-EAP-CCMP+TKIP][ESS]
       00:xx:xx:83:fa:70 5240 -76 [WPA2-EAP-CCMP][ESS] Network2
       00:xx:xx:4f:e9:2c 2412 -67 [WPA2-PSK-CCMP][ESS][P2P] Printer
       00:xx:xx:af:fe:3e 5765 -79 [WPA2-PSK-CCMP][ESS] Network3
@@ -189,10 +204,11 @@ or not installed before using wpa_supplicant.
       00:xx:xx:26:4a:b9 2412 -79 [WPA2-PSK-CCMP][ESS][P2P] Printer2
       00:xx:xx:b9:0d:d4 2462 -79 [WPA2-PSK-CCMP][ESS] Network5
 
-#. Set up your network connection replacing Network1 with your SSID name and
-   Network1Password with the password for you network.
+#. Set up your network connection replacing *Network1* with your wireless 
+   SSID name and *Network1Password* with the password for your network.
 
    .. code-block:: bash
+      :emphasize-lines: 1,3,5,7
 
       > add_network
       0
@@ -211,7 +227,7 @@ or not installed before using wpa_supplicant.
       <3>WPA: Key negotiation completed with 00:xx:xx:5d:d9:26 [PTK=CCMP GTK=CCMP]
       <3>CTRL-EVENT-CONNECTED - Connection to 00:xx:xx:5d:d9:26 completed [id=0 id_str=]
 
-#. Save the configuration, quit :command:`wpa_cli`. 
+#. Save the configuration and quit out of :command:`wpa_cli`. 
 
    .. code-block:: bash
 
@@ -221,31 +237,51 @@ or not installed before using wpa_supplicant.
 
 .. note:: 
 
-   The password is saved as plaintext in
-   :file:`/etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf`. 
-   Use `wpa_passphrase <https://wiki.archlinux.org/index.php/WPA_supplicant#Connecting_with_wpa_passphrase>`_ for a more secure method.
+   The network password is saved as plaintext in
+   :file:`/etc/wpa_supplicant/wpa_supplicant-$INTERFACE_NAME.conf`. Use
+   `wpa_passphrase
+   <https://wiki.archlinux.org/index.php/WPA_supplicant#Connecting_with_wpa_passphrase>`_
+   for a more secure method.
 
-Now, set up ``systemd-networkd.service`` to request an IP address. 
+Assign an IP address 
+====================
 
-#. Create the :file:`/etc/systemd/network` directory and
-   :file:`/etc/systemd/network/25-wireless.network`. Add the following (you
-   will need to use the actual interface name rather than $INTERFACE_NAME in
-   this case).
+After the wireless adapter has been associated with wireless access point, an
+IP address needs to be assigned for access to the network. 
+
+The example below uses ``systemd-networkd`` to request an IP address from the
+access point via DHCP. Another network manager can be used if preferred. If
+there is a static IP address you'd like to assign, see the
+:ref:`assign-static-ip` documentation.
+
+#. Create the :file:`/etc/systemd/network` directory
+
+   .. code-block:: bash
+   
+      sudo mkdir -p /etc/systemd/network
+
+#. Create a :file:`/etc/systemd/network/25-wireless-$INTERFACE_NAME.network` file
+   with a Match and Network section. 
 
    .. code-block:: bash
 
-      [Match]
-      Name=$INTERFACE_NAME
+      printf "[Match]\nName=$INTERFACE_NAME\n\n[Network]\nDHCP=ipv4" | sudo tee /etc/systemd/network/25-wireless-$INTERFACE_NAME.network
 
-      [Network]
-      DHCP=ipv4
-
-#. Restart the ``systemd-networkd.service`` and enable for future boots.
+#. Restart the ``systemd-networkd.service``.
 
    .. code-block:: bash
 
       sudo systemctl restart systemd-networkd.service
-      sudo systemctl enable --now wpa_supplicant@$INTERFACE_NAME.service
+      
+      
+#. Enable the ``systemd-networkd`` and ``wpa_supplicant`` services to start automatically 
+   on future boots.
+
+   .. code-block:: bash
+
+      sudo systemctl enable --now systemd-networkd.service
+      sudo systemctl enable --now wpa_supplicant@$INTERFACE_NAME.service      
+
 
 Other resources
 ***************
