@@ -112,7 +112,7 @@ TUI (Text-based User Interface)
 Using wpa_supplicant
 ********************
 
-wpa_suppliant can be used  directly, without NetworkManager, to associates a
+wpa_suppliant can be used  directly, without NetworkManager, to associate a
 wireless adapter with an access point. After association is established, an IP
 address needs to be assigned or obtained. 
 
@@ -122,17 +122,17 @@ Associate with a wireless access point
 
 #. Make sure NetworkManager is stopped and disabled by masking the service.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   sudo systemctl stop NetworkManager.service
-   sudo systemctl mask NetworkManager.service
+      sudo systemctl stop NetworkManager.service
+      sudo systemctl mask NetworkManager.service
 
 
 #. Stop the wpa_supplicant.service, which may have been started by NetworkManager. 
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   sudo systemctl stop wpa_supplicant.service
+      sudo systemctl stop wpa_supplicant.service
 
 #. Create a ``wpa_supplicant`` configuration directory.
 
