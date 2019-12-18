@@ -196,32 +196,34 @@ group:
 Thermal configuration
 =====================
 
-Better thermal control and performance can be archived by providing platform
-specified configuration to thermald.
+Better thermal control and performance can be achieved by providing platform
+specific configuration to thermald.
 
 `Linux DPTF Extract Utility`_ is a companion tool to thermald, This tool can
-make use of "Intel ® Dynamic Platform and Thermal Framework (`Intel DPTF`_)"
+make use of :abbr:`Intel® Dynamic Platform and Thermal Framework (`Intel DPTF)`
 technology, and convert to the thermal_conf.xml configuration format used
 by thermald.
 
-First, make sure thermald version is equal or above 1.9.1:
+First, make sure thermald version is equal to or above version 1.9.1:
 
 .. code:: bash
 
    thermald --version
 
-Otherwise, you need to add an option :command:`--ignore-default-control` to
+If its version is not updated, append the  :command:`--ignore-default-control` to ``ExecStart``,  as shown below.
 thermald:
 
 .. code:: bash
 
    # edit thermald.servcie
-   vim /usr/lib/systemd/system/thermald.service
+sudo  vim /usr/lib/systemd/system/thermald.service
    # append --ignore-default-control option to ExecStart line, like below
-   # ExecStart=/usr/bin/thermald --no-daemon --dbus-enable --ignore-default-control
+.. code:: bash
+   ExecStart=/usr/bin/thermald --no-daemon --dbus-enable --ignore-default-control
 
    # reload
-   sudo systemctl daemon-reload
+ .. code-block:: bash
+    sudo systemctl daemon-reload
 
 Then, generate thermal configuration as below:
 
