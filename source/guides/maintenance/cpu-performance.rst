@@ -193,8 +193,8 @@ group:
    After adding a new group, you must log out and log back in for the new group
    to take effect.
 
-Thermal configuration
-=====================
+Enhanced thermal configuration
+===============================
 
 Better thermal control and performance can be achieved by providing platform
 specific configuration to thermald.
@@ -202,30 +202,22 @@ specific configuration to thermald.
 `Linux DPTF Extract Utility`_ is a companion tool to thermald, This tool can
 make use of :abbr:`Intel® Dynamic Platform and Thermal Framework (`Intel DPTF)`
 technology, and convert to the thermal_conf.xml configuration format used
-by thermald.
+by thermald. It's a closed-source project, and unable to be packaged as bundle
+in Clear Linux OS, so we need to follow below steps to generate configuration.
 
-First, make sure thermald version is equal to or above version 1.9.1:
+Intel DPTF requires BIOS support, it's typically used by laptop.
+The first step is to make sure your machine's BIOS has DPTF feature
+and is enabled.
+
+Then, check thermald version is equal to or above version 1.9.1:
 
 .. code:: bash
 
    thermald --version
 
-If its version is not updated, append the  :command:`--ignore-default-control` to ``ExecStart``,  as shown below.
-thermald:
+If its version is not up-to-date, please upgrade to latest Clear Linux version.
 
-.. code:: bash
-
-   # edit thermald.servcie
-sudo  vim /usr/lib/systemd/system/thermald.service
-   # append --ignore-default-control option to ExecStart line, like below
-.. code:: bash
-   ExecStart=/usr/bin/thermald --no-daemon --dbus-enable --ignore-default-control
-
-   # reload
- .. code-block:: bash
-    sudo systemctl daemon-reload
-
-Then, generate thermal configuration as below:
+Next step, generate thermal configuration as below:
 
 .. code:: bash
 
@@ -241,6 +233,18 @@ thermald configuration files will be generated and saved to
 .. code:: bash
 
    sudo systemctl restart thermald.service
+
+check whether the configuration is in used.
+
+.. code:: bash
+
+   sudo systemctl status thermald.service
+
+if the output contains below line, it means configuration already applied:
+
+.. code:: bash
+
+   thermald[*]: [WARN]Using generated /etc/thermald/thermal-conf.xml.auto
 
 
 .. _`Intel P-state driver`: https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt
