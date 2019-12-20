@@ -18,7 +18,7 @@ One-Time Password (OTP), Smart card, FIDO2, and Universal 2nd Factor (U2F).
 
 A list of `websites that accept U2F authentication with the YubiKey`_
 is available on the Yubico website. See the Yubico website to learn more about
-the Yubikey: https://www.yubico.com/getstarted/meet-the-yubikey/
+the Yubikey: https://www.yubico.com/getstarted/
 
 Prerequisites
 *************

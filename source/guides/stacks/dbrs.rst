@@ -619,7 +619,7 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _Quick Start Guide: https://software.intel.com/en-us/articles/quick-start-guide-configure-intel-optane-dc-persistent-memory-on-linux
 
-.. _Managing NVDIMMs: https://docs.pmem.io/ndctl-users-guide/managing-nvdimms
+.. _Managing NVDIMMs: https://docs.pmem.io/ndctl-user-guide/managing-nvdimms
 
 .. _Configure, Manage, and Profile: https://software.intel.com/en-us/articles/configure-manage-and-profile-intel-optane-dc-persistent-memory-modules
 
