@@ -378,95 +378,6 @@ We provide `DLRS PytorchJob`_ examples that use the Deep Learning Reference Stac
 
 
 
-Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack
-**************************************************************************
-
-`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster.  Seldon Core is supported in the `DLRS V4.0`_ release.
-
-Pre-requisites
-==============
-* A running :ref:`kubernetes` cluster
-
-.. note::
-
-   Instead of using Arrikto's configuration manifest as shown  in the preceding example, you should use the manifest provided by `Istio`_, for this example, as Seldon deployments depend on it.
-
-#. Install deployment tools
-
-   .. code-block:: bash
-
-      INSTALL_DIR=$HOME/install_dir
-      BIN_DIR=${INSTALL_DIR}/bin
-      SRC_DIR=${INSTALL_DIR}/source
-      export PATH=${BIN_DIR}:$PATH
-
-      mkdir -p ${BIN_DIR} && mkdir ${SRC_DIR}
-      cd ${SRC_DIR}
-
-#. Install Helm*
-
-   .. code-block:: bash
-
-      wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz && tar xf helm-v2.14.3-linux-amd64.tar.gz
-      mv linux-amd64/helm ${BIN_DIR}/helm
-
-
-#. Clean the environment
-
-   .. code-block:: bash
-
-      rm -rf ${SRC_DIR}/*
-
-#. Prepare the DLRS image
-
-   The DLRS base image needs to be rebuilt with the `Dockerfile_openvino_base`_  to add Seldon and the OpenVINO inference engine.
-
-   .. code-block:: bash
-
-      docker build -f Dockerfile_openvino_base -t dlrs_openvino_base:0.1 .
-
-#. Mount pre-trained models into a persistent volume
-
-   This will also apply all PV manifests to the cluster
-
-   .. code-block:: bash
-
-      kubectl apply -f storage/pv-volume.yaml
-      kubectl apply -f storage/model-store-pvc.yaml
-      kubectl apply -f storage/pv-pod.yaml
-
-#. Start a shell for the container used as pv:
-
-   .. code-block:: bash
-
-      kubectl exec -it hostpath-pvc -- /bin/bash
-
-#. Save pre-trained models
-
-   Now that you're inside the running container, fetch your pre-trained models and save them at `/opt/ml`
-
-   .. code-block:: bash
-
-      root@hostpath-pvc:/# cd /opt/ml
-      root@hostpath-pvc:/# # Copy your models here
-      root@hostpath-pvc:/# # exit
-
-#. Deploy the model server
-
-   Now you're ready to deploy the model server using the Helm chart provided.
-
-   .. code-block:: bash
-
-       helm install -- name=seldonov-model-server \
-          --namespace kubeflow \
-          --set openvino.image=dlrs_openvino_base:0.1 \
-          --set openvino.model.path=/opt/ml/<models_directory> \
-          --set openvino.model.name=<model_name> \
-          --set openvino.model.input=data \
-          --set openvino.model.output=prob
-          dlrs-seldon/helm/seldon-model-server
-
-
 
 Using the Intel® OpenVINO Model Optimizer
 *****************************************
@@ -998,7 +909,7 @@ Related topics
 
 .. _DLRS Terms of Use: https://clearlinux.org/stacks/deep-learning/terms-of-use
 
-.. _DLRS Release notes: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
+.. _DLRS Release notes: https://github.com/intel/stacks/tree/master/dlrs
 
 .. _Seldon Core: https://docs.seldon.io/projects/seldon-core/en/latest/
 
