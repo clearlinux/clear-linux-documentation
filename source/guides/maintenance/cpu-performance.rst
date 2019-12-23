@@ -221,6 +221,7 @@ Next step, generate thermal configuration as below:
 
 .. code:: bash
 
+   sudo swupd bundle-add acpica-unix2  # install acpi tools
    git clone https://github.com/intel/dptfxtract.git
    cd dptfxtract
    sudo acpidump > acpi.out
