@@ -78,6 +78,8 @@ CLI (Command Line Interface)
 
    To avoid having the Wi-Fi password stored in bash history, consider using the TUI.
 
+.. _wifi-nm-tui:
+
 TUI (Text-based User Interface)
 ===============================
 
