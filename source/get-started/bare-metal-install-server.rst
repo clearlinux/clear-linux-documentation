@@ -490,7 +490,8 @@ Add New User
 
    .. note:
 
-      The User Name must be alphanumeric and can include spaces, commas, underscores or hyphens. Maximum length is 64 characters.
+      The User Name must be alphanumeric and can include spaces, commas,
+      underscores or hyphens. Maximum length is 64 characters.
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-19.png
       :scale: 100%
