@@ -216,6 +216,9 @@ Then, check thermald version is equal to or above version 1.9.1:
    thermald --version
 
 If its version is not up-to-date, please upgrade to latest Clear Linux version.
+.. code-block:: bash 
+
+   sudo swupd update
 
 Next step, generate thermal configuration as below:
 
