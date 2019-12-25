@@ -48,13 +48,13 @@
 
 #. 在系统选择界面，点击图3中所示的最右侧 **“Clear Linux”** 图标，选择 **Clear Linux OS** ，并点击 **“下一步”** 按钮
 
-      .. figure:: /_figures/qingcloud/QingCloud-3.png
-         :scale: 50 %
-         :alt: 选择 Clear Linux OS
+   .. figure:: /_figures/qingcloud/QingCloud-3.png
+      :scale: 50 %
+      :alt: 选择 Clear Linux OS
 
-         图3: 选择 Clear Linux OS
+      图3: 选择 Clear Linux OS
 
-    之后，您将来到配置选择界面。
+   之后，您将来到配置选择界面。
 
 #. 在配置选择界面，您可以看到不同硬件配置类型的主机，比如调整 CPU 核心数量、内存大小以及硬盘和副本备份策略。这里我们将选择默认配置来进行接下来的演示。
 
