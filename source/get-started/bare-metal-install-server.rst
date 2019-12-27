@@ -38,12 +38,8 @@ Install |CL| on your target system
 **********************************
 
 Ensure that your system is configured to boot UEFI. The installation method
-described below requires a wired Internet connection with DHCP.
+described below requires a wired or wireless Internet connection with DHCP.
 
-.. note::
-
-   Alternatively, you can install |CL| over a wireless connection by first
-   using `nmtui`. Follow the `nmtui` instructions shown in Figure 2.
 
 Follow these steps to install |CL| on the target system:
 
@@ -89,6 +85,12 @@ Launch the |CL| Installer
       :alt: root login
 
       Figure 2: root login
+
+#. .. note::
+
+      If a wireless connection is needed, connect to the network using
+      :command:`nmtui` before lauching the installer. See the documentation on
+      :ref:`configuring Wifi with nmtui <wifi-nm-tui>` for more details.
 
 #. At the :guilabel:`root` prompt, enter :command:`clr-installer` and
    press :kbd:`Enter`.
@@ -488,7 +490,8 @@ Add New User
 
    .. note:
 
-      The User Name must be alphanumeric and can include spaces, commas, underscores or hyphens. Maximum length is 64 characters.
+      The User Name must be alphanumeric and can include spaces, commas,
+      underscores or hyphens. Maximum length is 64 characters.
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-19.png
       :scale: 100%
