@@ -1,53 +1,59 @@
 
+.. _vmware-workstation:
+
 VMware Workstation Pro\*
 ########################
 
 VMware Workstation Pro\* allows you to run multiple operating systems as
-:abbr:`VMs (virtual machines)` on a single host.
+:abbr:`VMs (virtual machines)` on a single host. It is a more advanced version of VMware Workstation Player.
+
+This tutorial shows how to do a manual installation of VMware Workstation
+Pro on a |CL| host using the console plus the VMware Workstation GUI.
 
 VMware Workstation on Linux\* installs two major components:
 
-#. Hypervisor
-#. Kernel modules
+#. VMware hypervisor software
+#. VMware kernel modules
 
-This tutorial shows how to do a manual installation of VMware Workstation
-Pro15.5.0 on a |CL| host using the console plus the VMware Workstation GUI.
 
 .. note::
 
-   |CL| is not an officially supported OS for VMware Workstation. This tutorial
-   follows the generic installation instructions with details specific to a
+   |CL| is not an officially supported host OS for VMware Workstation Pro. This tutorial
+   follows the generic Linux installation instructions with details specific to a
    manual installation on |CL|.
 
 Prerequisites
 *************
 
-Sure virtualization is enabled in the BIOS before installing VMware Workstation.
+Make virtualization  is enabled in the BIOS before installing VMware Workstation.
 
-Install DKMS
-************
 
-.. include:: ../guides/kernel/kernel-modules-dkms.rst
-   :start-after: kernel-modules-dkms-install-begin:
-   :end-before: kernel-modules-dkms-install-end:
-
-Install Hypervisor
-******************
+Install VMware Workstation Pro
+******************************
 
 Use the console installer to install the VMware Workstation hypervisor:
 
 #. Download
-   `Workstation 15.5 Pro for Linux <https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html>`_.
+   `Workstation Pro for Linux <https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html>`_.
+   
+   .. note::
+   
+      The downloaded file is named with a :file:`.bundle` file extension but this is not a |CL| :ref:`bundles`.
 
 #. In a terminal, :command:`cd` to the directory where the `.bundle` installation
    file was saved.
+
+   .. code-block:: console
+
+	  cd ~/Downloads/ 
 
 #. Extract the VMware Workstation installer.
    Substituting the file name, enter the command:
 
    .. code-block:: bash
 
-      sudo sh VMware-Workstation-xxxx-xxxx.architecture.bundle
+      chmod +x ./VMware-Workstation-xxxx-xxxx.architecture.bundle
+      sudo ./VMware-Workstation-xxxx-xxxx.architecture.bundle
 
    .. code-block:: console
 
@@ -80,8 +86,24 @@ Use the console installer to install the VMware Workstation hypervisor:
 	  :command:`systemd`.
 
 
-Finish Installation
-*******************
+Install VMware kernel modules
+*****************************
+
+Kernel headers are required by VMware Workstation Pro to compile and install the necessary kernel modules after installation.
+
+The DKMS bundles come with the Linux headers, necessary tools, and automatically disables the kernel module signature enforcement, which is required to load the required kernel modules.
+
+
+Install DKMS
+============
+
+.. include:: ../guides/kernel/kernel-modules-dkms.rst
+   :start-after: kernel-modules-dkms-install-begin:
+   :end-before: kernel-modules-dkms-install-end:
+   
+
+Install kernel modules
+======================
 
 Launch the VMware Workstation Pro GUI to finish the installation and build the
 needed kernel modules.
@@ -89,11 +111,12 @@ needed kernel modules.
 #. On the |CL| desktop, find the VMware Workstation icon and click to launch.
 
 #. Click through the installation customization screens as directed in the
-   installer.
+   VMware Kernel Module Updater.
 
 #. On the last screen click :guilabel:`Finish`. VMware Workstation will launch.
 
 #. Create and configure a new VM!
+whate
 
 Troubleshooting
 ***************
@@ -105,12 +128,12 @@ This will help direct further troubleshooting.
 Troubleshooting tips:
 
 * If the issue is with compiling the kernel modules and you are running the native
-  kernel, try building VMware using the LTS kernel instead.
+  kernel, try installing the LTS kernel instead.
 
-* To show if modules failed to load, check logs in :file:`tmp/vmware-<username>/*.log`
+* If modules failed to install or load, check logs in :file:`/tmp/vmware-<username>/*.log`
 
 * To try re-installing all VMware modules run the following command:
 
   .. code-block:: bash
 
-     vmware-modconfig --console --install-all
+     sudo vmware-modconfig --console --install-all
