@@ -205,23 +205,11 @@ technology, and convert to the thermal_conf.xml configuration format used
 by thermald. It's a closed-source project, and unable to be packaged as bundle
 in Clear Linux OS, so we need to follow below steps to generate configuration.
 
-Intel DPTF requires BIOS support, it's typically used by laptop.
+Intel DPTF requires BIOS support, it's typically used by laptops.
 The first step is to make sure your machine's BIOS has DPTF feature
 and is enabled.
 
-Then, check thermald version is equal to or above version 1.9.1:
-
-.. code:: bash
-
-   thermald --version
-
-If its version is not up-to-date, please upgrade to latest Clear Linux version.
-
-.. code:: bash
-
-   sudo swupd update
-
-Next step, generate thermal configuration as below:
+Then generate thermal configuration as below:
 
 .. code:: bash
 
