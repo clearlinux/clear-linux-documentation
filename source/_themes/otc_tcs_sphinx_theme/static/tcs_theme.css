@@ -520,3 +520,20 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 /*End support for multi-column sections*/
+
+/*Start fix for changes made to definition lists in sphinx/rtd post version 2.0*/
+
+.rst-content dl:not(.docutils) dt {
+  border-top: none;
+  background: none;
+}
+
+/*end fix to definition lists*/
+
+ul.footer__menu_list {
+  display: inline-flex;
+}
+
+li.footer__menu_list {
+  margin-right: 30px;
+}
