@@ -539,3 +539,11 @@ li.footer__menu_list {
   margin-right: 30px;
 }
 /*end footer bullet list support*/
+
+/*Add drop shadow to figures*/
+
+div.figure.dropshadow img {
+  box-shadow: 10px 10px 10px LightGray;
+}
+
+/*end figure drop shadow*/
