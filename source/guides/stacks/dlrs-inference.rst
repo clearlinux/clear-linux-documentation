@@ -3,7 +3,7 @@
 AI Inference with the Deep Learning Reference Stack
 ###################################################
 
-In this guide we explore a solution for using the Deep Learning Reference Stack with a Seldon Core\* platform that has been deployed on Kubernetes\*.
+In this guide walk through a solution for using the Deep Learning Reference Stack with a Seldon Core\* platform deployed on Kubernetes\*. Seldon Core simplifies deployment of the models we create and use with the Deep Learning Reference Stack. Use this guide to set up your infrastructure and deploy a benchmarking workload on your Kubernetes cluster.
 
 .. contents::
    :local:
@@ -17,7 +17,7 @@ Overview
    :width:     800
 
 
-The solution covered here uses the following software components:
+The solution covered here requires the following software components:
 
 * `Deep Learning Reference Stack`_ which is a |CL-ATTR| based Docker\* container providing deep learning frameworks and is optimized for Intel Xeon Scalable platforms.
 * `Kubeflow`_ is the machine learning toolkit for Kubernetes that helps with deployment of Seldon Core and Istio components.
@@ -705,6 +705,24 @@ To run the following examples, you need:
 * Complete the inference evironment setup shown above
 * Use Python v3.6
 
+Setting the INGRESS_ADDRESS
+---------------------------
+
+The `INGRESS_ADDRESS` environment variable is used in the following examples in this guide and should be set with the server IP or domain name and port where Istio is exposed. Here, 10.0.0.1.nip.io will be used as a domain name.
+
+The default nodePort exposed by Istio is 31380. It may be checked on the server with this command:
+
+.. code-block:: bash
+
+   kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
+
+Set the INGRESS_ADDRESS:
+
+.. code-block:: bash
+
+   export INGRESS_ADDRESS=10.0.0.1.nip.io:31380
+
+
 Standalone Client
 =================
 
@@ -733,21 +751,6 @@ To verify the script is working, verify with a small images set as follows:
       cd ai-inferencing/clients/standalone
       wget https://github.com/SeldonIO/seldon-core/raw/master/examples/models/openvino_imagenet_ensemble/{imagenet_classes.json,input_images.txt,dog.jpeg,pelican.jpeg,zebra.jpeg}`.
 
-#. Set the INGRESS_ADDRESS
-
-   Set the `INGRESS_ADDRESS` variable, which is used by both the Standalone and Locust examples in this guide.
-
-   The INGRESS_ADDRESS variable should be set with the server IP or domain name and port where Istio is exposed.  In this example, 10.0.0.1.nip.io will be used as a domain name. 31380 is the default nodePort exposed by Istio. It may be checked on the server by running this command:
-
-   .. code-block:: bash
-
-      kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}'
-
-   Set the INGRESS_ADDRESS:
-
-   .. code-block:: bash
-
-      export INGRESS_ADDRESS=10.0.0.1.nip.io:31380
 
 
 
