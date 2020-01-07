@@ -296,14 +296,14 @@ inherit upstream bundles.
 
    .. code-block:: bash
 
-      mixer build bundles
+      sudo mixer build bundles
 
 #. First, browse to web server from Example 1. The web page appears yet
    has no update content. Build the update content:
 
    .. code-block:: bash
 
-      mixer build update
+      sudo mixer build update
 
    After that is completed, on your web server, you can see the update
    content for mix version 10.
@@ -330,15 +330,15 @@ Next, let’s create a new version of the mix. We’ll add a new bundle.
 
    .. code-block:: bash
 
-      mixer build bundles
-      mixer build update
+      sudo mixer build bundles
+      sudo mixer build update
 
 #. Optionally, you can build delta-packs, which help reduce client update
    time:
 
    .. code-block:: bash
 
-      mixer build delta-packs --from 10 --to 20
+      sudo mixer build delta-packs --from 10 --to 20
 
 Refresh your web server to see the update content for mix version 20.
 
@@ -559,7 +559,7 @@ bundle that we added to our mix in Example 2.
 
    .. code-block:: bash
 
-      mixer build all
+     sudo mixer build all
 
    .. note::
       :command:`mixer build all` runs both :command:`mixer build bundles` and :command:`mixer build update` in one step.
