@@ -23,21 +23,32 @@ provided as binary blobs which are licensed for free or non-free use.
 In |CL| firmware is loaded during device initialization which typically
 happens at boot time. 
 
+.. _firmware-included-begin:
 
 Included firmware
 *****************
 
 The Linux kernel project contains a repository for firmware binaries that are
-licensed to allow free redistribution. |CL| packages these firmware binaries
-in the `linux-firmware bundles
-<https://clearlinux.org/software?search_api_fulltext=linux-firmware>`_ and
-automatically includes them with the kernel.
-
-The Linux kernel's firmware repository can be found here:
+licensed to allow free redistribution. The Linux kernel's firmware repository
+can be found here:
 https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 
 If the firmware for your device is included upstream, no action is required
 for it to be automatically detected and loaded. 
+
+|CL| packages these firmware binaries
+in the `linux-firmware bundles
+<https://clearlinux.org/software?search_api_fulltext=linux-firmware>`_ and
+automatically includes them with the kernel. 
+
+You can double-check the linux-firmware bundle is installed with the commands below:
+
+   .. code-block:: bash
+
+      sudo swupd bundle-add linux-firmware
+      find /lib/firmware/
+
+
 
 
 Additional firmware loading
