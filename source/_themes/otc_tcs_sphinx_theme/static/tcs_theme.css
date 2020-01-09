@@ -489,10 +489,21 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   margin: 10px;
   border: 10px;
   background: white;
+  position: relative;
 }
 
 .column.featurecard {
   background: #CCE9F5;
+}
+
+.column.squarecard {
+  height: 320px;
+}
+
+.endlink {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 .column.verticalcard {
