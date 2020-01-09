@@ -51,6 +51,10 @@ Burn the |CL| image onto a USB drive
 
       lsblk
 
+   .. note:: 
+
+      Alternatively, enter the command: `lsblk -S`
+
    Example output:
 
    .. code-block:: console
@@ -88,11 +92,11 @@ Burn the |CL| image onto a USB drive
 
       sudo umount /dev/sdd*
 
-#. Burn the image onto the USB drive. The example below burns an image onto `<your USB device>`:
+#. Burn the image onto the USB drive. This example burns an image onto `/dev/sdd`.  The parent drive number of the usb varies. 
 
    .. code-block:: bash
 
-      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=<your USB device> oflag=sync bs=4M status=progress
+      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=/dev/sdd oflag=sync bs=4M status=progress
 
 .. caution::
 
