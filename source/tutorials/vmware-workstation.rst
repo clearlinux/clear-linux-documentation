@@ -89,7 +89,7 @@ software:
    .. note::
 
 	  During installation you will get an error about "No rc*.d style init
-	  script directories" being given. This can be safely ignored as |CL| uses
+	  script directories" being given. This can safely be ignored as |CL| uses
 	  :command:`systemd`.
 
 Install VMware kernel modules
@@ -139,7 +139,7 @@ Troubleshooting tips:
 
 * If modules failed to install or load, check logs in :file:`/tmp/vmware-<username>/*.log`
 
-* To try re-installing all VMware modules run the following command:
+* Try re-installing all VMware modules with the following command:
 
   .. code-block:: bash
 
