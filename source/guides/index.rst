@@ -3,55 +3,75 @@
 Guides
 ######
 
-The following guides provide step-by-step instructions on using |CL|.
+.. rst-class:: colh2
 
-.. note::
+Featured Guides
 
-   As of 22 May 2019 :file:`mixin` is no longer supported.
+.. container:: multicolumns three
 
-.. _cl-guides:
+   .. container:: column smallcard
+      
+      :ref:`stateless`
+         |CL| is stateless is designed to need little to no user
+         configuration. 
 
-Clear Linux
-===========
+   .. container:: column smallcard
+
+      :ref:`mixer`
+          Learn how the |CL| team generates official update content and
+          releases.
+
+   .. container:: column smallcard
+
+      :ref:`dars`
+         Learn how to use the :abbr:`DARS (Data Analytics Reference Stack)`,
+         and build your own DARS container image.
+
+   .. container:: column smallcard
+
+      :ref:`dbrs`
+         Learn about the hardware and installation requirements of
+         :abbr:`DBRS (Database Reference Stack)`, and how to use |CL|
+         to host it.
+
+   .. container:: column smallcard
+
+      :ref:`cpu-performance`
+         Learn how to modify CPU power and performance settings for your
+         usecase. 
+
+   .. container:: column smallcard
+
+      :ref:`developer-workstation`
+         Set your workstation up with all bundles needed to
+         start your |CL| development project.
+
+   .. container:: column smallcard
+
+      :ref:`vnc`
+         Learn how to use VNC to connect to a remote |CL| host.
+
+   .. container:: column smallcard
+
+      :ref:`openssh-server`
+         Learn how to set up the SSH service.
+
+   .. container:: column smallcard
+
+      :ref:`kernel-modules`
+         Learn how to correctly and reliably add kernel modules manually.
+
+   .. container:: column smallcard
+
+     :ref:`kernel-development`
+         Learn how to compile a Linux\* kernel from source using |CL|
+         development tooling.
 
 .. toctree::
-   :maxdepth: 1
-   :glob:
+   :hidden:
 
-   clear/*
-
-Maintenance
-===========
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   maintenance/*
-
-Network
-=======
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   network/*
-
-Kernel
-=======
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   kernel/*
-
-Stacks
-=======
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   stacks/*
+   clear/index
+   maintenance/index
+   network/index
+   kernel/index
+   stacks/index
