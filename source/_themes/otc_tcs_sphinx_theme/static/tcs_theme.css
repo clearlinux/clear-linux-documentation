@@ -500,6 +500,10 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   height: 320px;
 }
 
+.column.smallcard {
+  height: 150px;
+}
+
 .endlink {
   position: absolute;
   bottom: 10px;
@@ -509,6 +513,10 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 .column.verticalcard {
   height: 615px;
   overflow: auto;
+}
+
+.multicolumns.three {
+  max-width: 1200px;
 }
 
 /* Clear floats after the columns */
