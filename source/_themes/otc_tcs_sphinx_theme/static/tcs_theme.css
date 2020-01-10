@@ -506,8 +506,9 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 
 .endlink {
   position: absolute;
-  bottom: 10px;
+  bottom: -20px;
   right: 10px;
+  font-size: 15px;
 }
 
 .column.verticalcard {
@@ -517,6 +518,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 
 .multicolumns.three {
   max-width: 1200px;
+  position: relative;
 }
 
 /* Clear floats after the columns */

@@ -3,11 +3,11 @@
 Guides
 ######
 
-.. rst-class:: colh2
-
-Featured Guides
-
 .. container:: multicolumns three
+
+   .. rst-class:: colh2
+
+   Clear Linux
 
    .. container:: column smallcard
       
@@ -16,10 +16,26 @@ Featured Guides
          configuration. 
 
    .. container:: column smallcard
+      
+      :ref:`debug`
+         Discover how to use :command:`clr-debug-info` to leverage your
+         network to debug system software.
+
+   .. container:: column smallcard
 
       :ref:`mixer`
           Learn how the |CL| team generates official update content and
           releases.
+
+      .. container:: endlink
+
+         :ref:`View all >> <cl-guides>`
+
+.. container:: multicolumns three
+
+   .. rst-class:: colh2
+
+   Stacks
 
    .. container:: column smallcard
 
@@ -28,11 +44,28 @@ Featured Guides
          and build your own DARS container image.
 
    .. container:: column smallcard
+      
+      :ref:`dlrs`
+         Discover how to use the Deep Learning Reference stack to run
+         real-world usecases and benchmark workloads for TensorFlow*,
+         PyTorch*, and Kubeflow*.
+
+   .. container:: column smallcard
 
       :ref:`dbrs`
          Learn about the hardware and installation requirements of
          :abbr:`DBRS (Database Reference Stack)`, and how to use |CL|
          to host it.
+
+      .. container:: endlink
+
+         :ref:`View all >> <stacks-guides>`
+
+.. container:: multicolumns three
+
+   .. rst-class:: colh2
+
+   Maintenance
 
    .. container:: column smallcard
 
@@ -41,10 +74,26 @@ Featured Guides
          usecase. 
 
    .. container:: column smallcard
+      
+      :ref:`fix-broken-install`
+         Find out how to fix a borken installation using a live desktop image
+         on USB. 
+
+   .. container:: column smallcard
 
       :ref:`developer-workstation`
          Set your workstation up with all bundles needed to
          start your |CL| development project.
+
+      .. container:: endlink
+
+         :ref:`View all >> <maintain-guides>`
+
+.. container:: multicolumns three
+
+   .. rst-class:: colh2 
+
+   Network
 
    .. container:: column smallcard
 
@@ -52,9 +101,25 @@ Featured Guides
          Learn how to use VNC to connect to a remote |CL| host.
 
    .. container:: column smallcard
+      
+      :ref:`assign-static-ip`
+         Discover how to identify which program is managing the network
+         interface and set a static IP.
+
+   .. container:: column smallcard
 
       :ref:`openssh-server`
          Learn how to set up the SSH service.
+
+      .. container:: endlink
+
+         :ref:`View all >> <network-guides>`
+
+.. container:: multicolumns three
+
+   .. rst-class:: colh2
+
+   Kernel
 
    .. container:: column smallcard
 
@@ -62,10 +127,20 @@ Featured Guides
          Learn how to correctly and reliably add kernel modules manually.
 
    .. container:: column smallcard
+      
+      :ref:`kernel-modules-dkms`
+         Find out how to add kernel modules with the Dynamic Kernel Module
+         System. 
+
+   .. container:: column smallcard
 
      :ref:`kernel-development`
          Learn how to compile a Linux\* kernel from source using |CL|
          development tooling.
+
+      .. container:: endlink
+
+         :ref:`View all >> <kernel-guides>`
 
 .. toctree::
    :hidden:
