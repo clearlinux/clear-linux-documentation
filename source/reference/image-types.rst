@@ -55,32 +55,37 @@ Table 2 lists the currently available images that are platform specific.
      - Virtual Hard Disk for use on Microsoft\* Azure\* cloud platform.
 
    * - azure-docker.vhd
-     - Virtual Hard Disk for use on Microsoft Azure cloud platform with Docker\* pre-installed.
+     - Virtual Hard Disk for use on Microsoft Azure cloud platform with
+       Docker\* pre-installed.
 
    * - azure-machine-learning.vhd
-     - Virtual Hard Disk for use on Microsoft Azure cloud platform with the `machine-learning-basic` bundle installed.
+     - Virtual Hard Disk for use on Microsoft Azure cloud platform with the
+       `machine-learning-basic` bundle installed.
 
    * - cloudguest.img
-     - Image with generic cloud guest virtual machine (VM) requirements installed.
+     - Image with generic cloud guest virtual machine (VM) requirements
+       installed.
 
    * - gce.tar
      - Image with the Google Compute Engine (GCE) specific kernel.
 
    * - hyperv.vhdx
-     - Virtual Hard Disk for use with Microsoft Hyper-V\* hypervisor. Includes `optimized kernel`_ for Hyper-V.
+     - Virtual Hard Disk for use with Microsoft Hyper-V\* hypervisor. Includes
+       :ref:`optimized kernel <vm-kernels>` for Hyper-V.
 
    * - kvm.img
      - Image for booting in a simple VM with start_qemu.sh. Includes
-       `optimized kernel`_ for KVM.
+       :ref:`optimized kernel <vm-kernels>` for KVM.
 
    * - kvm-legacy.img
-     - Image for booting in a simple VM using legacy BIOS, if using start_qemu.sh make sure to remove -bios parameter.
+     - Image for booting in a simple VM using legacy BIOS, if using
+       start_qemu.sh make sure to remove -bios parameter.
 
    * - pxe.tar
      - Image suitable for use with PXE server.
 
    * - vmware.vmdk
-     - Virtual Machine Disk for VMware\* platforms including Player, Workstation, and ESXi.
+     - Virtual Machine Disk for VMware\* platforms including Player,
+       Workstation, and ESXi.
 
 .. _images: https://clearlinux.org/downloads
-.. _`optimized kernel`: https://clearlinux.org/documentation/clear-linux/reference/compatible-kernels
