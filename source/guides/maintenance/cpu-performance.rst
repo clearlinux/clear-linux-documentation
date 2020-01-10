@@ -193,6 +193,52 @@ group:
    After adding a new group, you must log out and log back in for the new group
    to take effect.
 
+Enhanced thermal configuration
+===============================
+
+Better thermal control and performance can be achieved by providing platform
+specific configuration to thermald.
+
+`Linux DPTF Extract Utility`_ is a companion tool to thermald, This tool can
+make use of :abbr:`Intel® Dynamic Platform and Thermal Framework (`Intel DPTF)`
+technology, and convert to the thermal_conf.xml configuration format used
+by thermald. It's a closed-source project, and unable to be packaged as bundle
+in Clear Linux OS, so we need to follow below steps to generate configuration.
+
+Intel DPTF requires BIOS support, it's typically used by laptops.
+The first step is to make sure your machine's BIOS has DPTF feature
+and is enabled.
+
+Then generate thermal configuration as below:
+
+.. code:: bash
+
+   sudo swupd bundle-add acpica-unix2  # install acpi tools
+   git clone https://github.com/intel/dptfxtract.git
+   cd dptfxtract
+   sudo acpidump > acpi.out
+   acpixtract -a acpi.out
+   sudo ./dptfxtract *.dat
+
+thermald configuration files will be generated and saved to
+:command:`/etc/thermal/` folder. Restart thermald service to take effect.
+
+.. code:: bash
+
+   sudo systemctl restart thermald.service
+
+check whether the configuration is in used.
+
+.. code:: bash
+
+   sudo systemctl status thermald.service
+
+if the output contains below line, it means configuration already applied:
+
+.. code:: bash
+
+   thermald[*]: [WARN]Using generated /etc/thermald/thermal-conf.xml.auto
+
 
 .. _`Intel P-state driver`: https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt
 
@@ -205,3 +251,7 @@ group:
 .. _`ThermalMonitor`: https://github.com/intel/thermal_daemon/tree/master/tools/thermal_monitor
 
 .. _`Intel® Turbo Boost Technology`: https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html
+
+.. _`Linux DPTF Extract Utility`: https://github.com/intel/dptfxtract
+
+.. _`Intel DPTF`: https://software.intel.com/en-us/articles/2-in-1-tablet-mode-game-performance-with-intel-dynamic-platform-and-thermal-framework-intel

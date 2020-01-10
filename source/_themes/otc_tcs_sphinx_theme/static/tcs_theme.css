@@ -489,15 +489,34 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   margin: 10px;
   border: 10px;
   background: white;
+  position: relative;
 }
 
 .column.featurecard {
   background: #CCE9F5;
 }
 
+.column.squarecard {
+  height: 320px;
+}
+
+.column.smallcard {
+  height: 150px;
+}
+
+.endlink {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
 .column.verticalcard {
   height: 615px;
   overflow: auto;
+}
+
+.multicolumns.three {
+  max-width: 1200px;
 }
 
 /* Clear floats after the columns */
@@ -521,9 +540,29 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 
 /*End support for multi-column sections*/
 
+/*Start fix for changes made to definition lists in sphinx/rtd post version 2.0*/
+
+.rst-content dl:not(.docutils) dt {
+  border-top: none;
+  background: none;
+}
+
+/*end fix to definition lists*/
+
+/*start formatting support for horizontal bullet list without bullets in footer*/
+ul.footer__menu_list {
+  display: inline-flex;
+}
+
+li.footer__menu_list {
+  margin-right: 30px;
+}
+/*end footer bullet list support*/
 
 /*Add drop shadow to figures*/
 
 div.figure.dropshadow img {
   box-shadow: 10px 10px 10px LightGray;
 }
+
+/*end figure drop shadow*/
