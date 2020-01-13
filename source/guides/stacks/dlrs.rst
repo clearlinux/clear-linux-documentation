@@ -20,18 +20,15 @@ customized solutions, and enables you to quickly prototype and deploy Deep
 Learning workloads. Use this guide to run benchmarking workloads on your
 solution.
 
-The Deep Learning Reference Stack is available in the following versions:
+The latest release of the Deep Learning Reference Stack (`DLRS V5.0`_ ) supports the following features:
 
-* `Intel MKL-DNN-VNNI`_, which is optimized using Intel® Math Kernel Library
-  for Deep Neural Networks (Intel® MKL-DNN) primitives and introduces support
-  for Intel® AVX-512 Vector Neural Network Instructions (VNNI).
-* `Intel MKL-DNN`_, which includes the TensorFlow framework optimized using
-  Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN)
-  primitives.
-* `Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture.
-* `PyTorch with OpenBLAS`_, which includes PyTorch with OpenBlas.
-* `PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using Intel®
-  Math Kernel Library (Intel® MKL) and Intel MKL-DNN.
+* TensorFlow* 1.15 and TensorFlow* 2.0, an end-to-end open source platform for machine learning (ML).
+* PyTorch* 1.3, an open source machine learning framework that accelerates the path from research prototyping to production deployment.
+* PyTorch Lightning* which is a lightweight wrapper for PyTorch designed to help researchers set up all the boilerplate state-of-the-art training.
+* Transformers* , a state-of-the-art Natural Language Processing (NLP) for TensorFlow 2.0 and PyTorch.
+* Intel® OpenVINO™ model server version 2019_R3, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
+* Intel Deep Learning Boost (DL Boost) with AVX-512 Vector Neural Network Instruction (Intel AVX-512 VNNI) designed to accelerate deep neural network-based algorithms.
+* Deep Learning Compilers (TVM* 0.6), an end-to-end compiler stack.
 
 .. important::
 
@@ -41,15 +38,18 @@ The Deep Learning Reference Stack is available in the following versions:
    * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
    * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
 
-Stack features
-==============
 
+Releases
+********
+
+Refer to the `Deep Learning Reference Stack website`_ for information and download links for the different versions and offerings of the stack.
+
+
+* `DLRS V5.0`_ release announcement.
 * `DLRS V4.0`_ release announcement, including benchmark results.
-* `DLRS V3.0`_ release announcement.
-* Deep Learning Reference Stack v2.0 including current
-  `PyTorch benchmark`_.
-* Deep Learning Reference Stack v1.0 including current
-  `TensorFlow benchmark`_ results.
+* `DLRS V3.0`_ release announcement, including benchmark results.
+* `DLRS V2.0`_ including PyTorch benchmark results.
+* `DLRS V1.0`_ including TensorFlow benchmark results.
 * `DLRS Release notes`_  on Github\* for the latest release of Deep Learning
   Reference Stack.
 
@@ -62,7 +62,7 @@ Stack features
 Version compatibility
 =====================
 
-We validated the steps in this guide against the following software package versions:
+We validated the steps in this guide against the following software package versions, unless otherwise stated:
 
 * |CL| 26240 (Minimum supported version)
 * Docker 18.06.1
@@ -264,7 +264,7 @@ Pre-requisites:
 
       # Env variables needed for your deployment
       export KFAPP="<your choice of application directory name>"
-      export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6.1/bootstrap/config/kfctl_k8s_istio.yaml"
+      export CONFIG="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_k8s_istio.yaml"
 
       kfctl init ${KFAPP} --config=${CONFIG} -V
       cd ${KFAPP}
@@ -375,96 +375,8 @@ Submitting PyTorch Jobs
 =======================
 
 We provide `DLRS PytorchJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the container(s) that will run training workloads in your Kubernetes cluster.
-Select one form the list below:
 
 
-Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack
-**************************************************************************
-
-`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster.  Seldon Core is supported in the `DLRS V4.0`_ release.
-
-Pre-requisites
-==============
-* A running :ref:`kubernetes` cluster
-
-.. note::
-
-   Instead of using Arrikto's configuration manifest as shown  in the preceeding example, you should use the manifest provided by `Istio`_, for this example, as Seldon deployments depend on it.
-
-#. Install deployment tools
-
-   .. code-block:: bash
-
-      INSTALL_DIR=$HOME/install_dir
-      BIN_DIR=${INSTALL_DIR}/bin
-      SRC_DIR=${INSTALL_DIR}/source
-      export PATH=${BIN_DIR}:$PATH
-
-      mkdir -p ${BIN_DIR} && mkdir ${SRC_DIR}
-      cd ${SRC_DIR}
-
-#. Install Helm*
-
-   .. code-block:: bash
-
-      wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz && tar xf helm-v2.14.3-linux-amd64.tar.gz
-      mv linux-amd64/helm ${BIN_DIR}/helm
-
-
-#. Clean the environment
-
-   .. code-block:: bash
-
-      rm -rf ${SRC_DIR}/*
-
-#. Prepare the DLRS image
-
-   The DLRS base image needs to be rebuilt with the `Dockerfile_openvino_base`_  to add Seldon and the OpenVINO inference engine.
-
-   .. code-block:: bash
-
-      docker build -f Dockerfile_openvino_base -t dlrs_openvino_base:0.1 .
-
-#. Mount pre-trained models into a persistent volume
-
-   This will also apply all PV manifests to the cluster
-
-   .. code-block:: bash
-
-      kubectl apply -f storage/pv-volume.yaml
-      kubectl apply -f storage/model-store-pvc.yaml
-      kubectl apply -f storage/pv-pod.yaml
-
-#. Start a shell for the container used as pv:
-
-   .. code-block:: bash
-
-      kubectl exec -it hostpath-pvc -- /bin/bash
-
-#. Save pre-trained models
-
-   Now that you're inside the running container, fetch your pre-trained models and save them at `/opt/ml`
-
-   .. code-block:: bash
-
-      root@hostpath-pvc:/# cd /opt/ml
-      root@hostpath-pvc:/# # Copy your models here
-      root@hostpath-pvc:/# # exit
-
-#. Deploy the model server
-
-   Now you're ready to deploy the model server using the Helm chart provided.
-
-   .. code-block:: bash
-
-       helm install -- name=seldonov-model-server \
-          --namespace kubeflow \
-          --set openvino.image=dlrs_openvino_base:0.1 \
-          --set openvino.model.path=/opt/ml/<models_directory> \
-          --set openvino.model.name=<model_name> \
-          --set openvino.model.input=data \
-          --set openvino.model.output=prob
-          dlrs-seldon/helm/seldon-model-server
 
 
 Using the Intel® OpenVINO Model Optimizer
@@ -533,7 +445,7 @@ In this example, you will:
 
 #. Run the Model Optimizer
 
-   Running the model optimizer is as simple as calling the appropriate script, however there are many configuration options that are explainedin the documentation
+   Running the model optimizer is as simple as calling the appropriate script, however there are many configuration options that are explained in the documentation
 
    .. code-block:: bash
 
@@ -559,7 +471,7 @@ This example walks through the basic instructions for using the inference engine
 
    .. code-block:: bash
 
-      docker run -p 8000:8000 stacks-tensorflow-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
+      docker run -p 8000:8000 stacks-dlrs-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
 
 
    Once the server is setup, use a :command:`grpc` client to communicate with served model:
@@ -618,6 +530,138 @@ This example walks through the basic instructions for using the inference engine
 
 
 
+Using Seldon and OpenVINO* model server with the Deep Learning Reference Stack
+******************************************************************************
+
+`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster. In this section we will walk through using a Seldon server with OpenVINO to serve a model.
+
+Pre-requisites
+==============
+* A running :ref:`kubernetes` cluster
+* An existing Kubeflow deployment
+* Helm
+* A pre-trained model
+
+Please refer to:
+
+* :ref:`kubernetes`
+* `Getting Started with Kubeflow`_
+* `Installing Helm`_
+
+
+.. note::
+
+   This document was validated with Kubernetes v1.14.8, Kubeflow v0.7, and Helm v3.0.1
+
+Prepare the model
+=================
+
+There are several methods to add a model to a Seldon server; we will cover two of them. First a model will be stored in a persistent volume by creating a persistent volume claim and a pod, then copying the model into the pod. Second, a model will be built directly into the base image. Adding a model to a volume is perhaps more traditional in Kubernetes, but some cloud providers have access rules that disallow a private cluster, and adding the model to the image avoids the issue in that scenario.
+
+
+Mount pre-trained models into a persistent volume
+-------------------------------------------------
+
+We will create a small pod to get the model into a volume.
+
+#. Apply all PV manifests to the cluster
+
+   .. code-block:: bash
+
+      kubectl apply -f storage/pv-volume.yaml
+      kubectl apply -f storage/model-store-pvc.yaml
+      kubectl apply -f storage/pv-pod.yaml
+
+#. Use :command:`kubectl cp` to move the model into the pod, and therefore into the volume
+
+   .. code-block:: bash
+
+      kubectl cp ./<your model file> pv-pod:/home
+
+#. In the running container, fetch your pre-trained models and save them in the :file:`/opt/ml` directory path.
+
+   .. code-block:: bash
+
+      root@hostpath-pvc:/# cd /opt/ml
+      root@hostpath-pvc:/# # Copy your models here
+      root@hostpath-pvc:/# # exit
+
+
+
+Add the pre-trained model to the image
+--------------------------------------
+
+A custom DLRS image is provided to serve OpenVINO through Seldon. Add a curl command to download your publicly hosted model and save it in :file:`/opt/ml` in the container filesystem. For example, if you have a model on GCP, use this command:
+
+   .. code-block:: bash
+
+      curl -o "[SAVE_TO_LOCATION]" \
+      "https://storage.googleapis.com/storage/v1/b/[BUCKET_NAME]/o/[OBJECT_NAME]?alt=media"
+
+
+Prepare the DLRS image
+======================
+
+A base image with Seldon and the OpenVINO inference engine should be created using the :file:`Dockerfile_openvino_base` dockerfile.
+
+   .. code-block:: bash
+
+      cd docker
+      docker build -f Dockerfile_openvino_base -t dlrs_openvino_base .
+      cd ..
+
+
+Deploy the model server
+=======================
+
+Now you're ready to deploy the model server using the Helm chart provided.
+
+   .. code-block:: bash
+
+      cd helm
+      helm install dlrs-seldon seldon-model-server \
+          --namespace kubeflow \
+          --set openvino.image=dlrs_openvino_base \
+          --set openvino.model.path=/opt/ml \
+          --set openvino.model.name=<model_name> \
+          --set openvino.model.input=data \
+          --set openvino.model.output=prob
+
+
+This will create your SeldonDeployment
+
+Extended example with Seldon using Source to Image
+==================================================
+
+`Source to Image (s2i)`_ is a tool to create docker images from source code.
+
+#. Install source to image (s2i)
+
+   .. code-block:: bash
+
+      cd ${SRC-DIR}
+      wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+      tar xf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+      mv s2i ${BIN_DIR}/s2i && ln -s s2i ${BIN_DIR}/sti
+
+#. Clone the seldon-core repository
+
+   .. code-block:: bash
+
+      git clone https://github.com/SeldonIO/seldon-core.git ${SRC_DIR}/seldon-core
+
+#. Create the new image
+
+   Using the DLRS image created above, you can build another image for deploying the Image Transformer component that consumes imagenet classificatin models.
+
+    .. code-block:: bash
+
+       cd ${SRC_DIR}/seldon-core/examples/models/openvino_imagenet_ensemble/resources/transformer/
+       s2i -E environment_grpc . dlrs_openvino_base:0.1 imagenet_transformer:0.1
+
+   Use this newly created image for deploying the Image Transformer component of the `OpenVino Imagenet Pipelines`_ example from Seldon.
+
+
 Use Jupyter Notebook
 ********************
 
@@ -658,7 +702,7 @@ Your browser displays the following:
    :scale: 50%
    :alt: Jupyter Notebook
 
-Figure 1: Jupyter Notebook
+   Figure 1: Jupyter Notebook
 
 
 To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
@@ -667,7 +711,7 @@ To create a new notebook, click :guilabel:`New` and select :guilabel:`Python 3`.
    :scale: 50%
    :alt: Create a new notebook
 
-Figure 2: Create a new notebook
+   Figure 2: Create a new notebook
 
 A new, blank notebook is displayed, with a cell ready for input.
 
@@ -675,7 +719,7 @@ A new, blank notebook is displayed, with a cell ready for input.
    :scale: 50%
    :alt: New blank notebook
 
-Figure 3: New blank notebook
+   Figure 3: New blank notebook
 
 To verify that PyTorch is working, copy the following snippet into the blank
 cell, and run the cell.
@@ -691,7 +735,7 @@ cell, and run the cell.
    :scale: 50%
    :alt: Sample code snippet
 
-Figure 4: Sample code snippet
+   Figure 4: Sample code snippet
 
 When you run the cell, your output will look something like this:
 
@@ -699,7 +743,7 @@ When you run the cell, your output will look something like this:
    :scale: 50%
    :alt: Code output
 
-Figure 5: Code output
+   Figure 5: Code output
 
 
 You can continue working in this notebook, or you can download existing
@@ -786,7 +830,7 @@ Compiling AIXPRT with OpenMP on DLRS
 
 To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file.AIXPRT utilizes
 build configuration files, so to build AIXPRT on the image, copy, the build files from the base image, this can be done by adding these commands
-to the end of the stacks-tensorflow-mkl dockerfile:
+to the end of the stacks-dlrs-mkl dockerfile:
 
    .. code-block:: console
 
@@ -831,7 +875,7 @@ Related topics
 
 .. _flannel: https://github.com/coreos/flannel
 
-.. _Getting Started with Kubeflow: https://www.kubeflow.org/docs/started/getting-started/
+.. _Getting Started with Kubeflow: https://github.intel.com/verticals/usecases/blob/56717f4642ecd958dc93bbc361c551dfc578d3ed/kubeflow/README.md#getting-started-with-kubeflow
 
 .. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlrs-oss/
 
@@ -847,13 +891,15 @@ Related topics
 
 .. _DLRS V4.0: https://clearlinux.org/news-blogs/deep-learning-reference-stack-v4
 
+.. _DLRS V5.0: https://clearlinux.org/blogs-news/deep-learning-reference-stack-v50-now-available
+
 .. _dlrs-tfjob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
 .. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
-.. _TensorFlow benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack
+.. _DLRS V1.0: https://clearlinux.org/stacks/deep-learning-reference-stack
 
-.. _PyTorch benchmark: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
+.. _DLRS V2.0: https://clearlinux.org/stacks/deep-learning-reference-stack-pytorch
 
 .. _Jupyter Notebook: https://jupyter.org/
 
@@ -863,11 +909,11 @@ Related topics
 
 .. _DLRS Terms of Use: https://clearlinux.org/stacks/deep-learning/terms-of-use
 
-.. _DLRS Release notes: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/releasenote.md
+.. _DLRS Release notes: https://github.com/intel/stacks/tree/master/dlrs
 
 .. _Seldon Core: https://docs.seldon.io/projects/seldon-core/en/latest/
 
-.. _Istio: https://raw.githubusercontent.com/kubeflow/kubeflow/master/bootstrap/config/kfctl_k8s_istio.yaml
+.. _Istio: https://github.com/kubeflow/manifests/blob/master/kfdef/kfctl_k8s_istio.yaml
 
 .. _Dockerfile_openvino_base: https://github.com/clearlinux/dockerfiles/blob/master/stacks/dlrs/kubeflow/dlrs-seldon/docker/Dockerfile_openvino_base
 
@@ -901,3 +947,11 @@ Related topics
 .. _DLRS TFJob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
 .. _DLRS PytorchJob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-pytorchjob
+
+.. _Installing Helm: https://helm.sh/docs/intro/install/
+
+.. _OpenVino Imagenet Pipelines: https://docs.seldon.io/projects/seldon-core/en/stable/examples/openvino_ensemble.html
+
+.. _Source to Image (s2i): https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/s2i.html
+
+.. _Deep Learning Reference Stack website: https://clearlinux.org/stacks/deep-learning

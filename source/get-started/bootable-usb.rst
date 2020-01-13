@@ -51,6 +51,10 @@ Burn the |CL| image onto a USB drive
 
       lsblk
 
+   .. note:: 
+
+      Alternatively, enter the command: `lsblk -S`
+
    Example output:
 
    .. code-block:: console
@@ -88,11 +92,11 @@ Burn the |CL| image onto a USB drive
 
       sudo umount /dev/sdd*
 
-#. Burn the image onto the USB drive. The example below burns an image onto `<your USB device>`:
+#. Burn the image onto the USB drive. This example burns an image onto `/dev/sdd`.  The device name of the USB may vary.
 
    .. code-block:: bash
 
-      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=<your USB device> oflag=sync bs=4M status=progress
+      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=/dev/sdd oflag=sync bs=4M status=progress
 
 .. caution::
 
@@ -135,7 +139,7 @@ Burn the |CL| image onto a USB drive
 
       Figure 1: macOS - Get USB drive identifier
 
-#. Unmount the USB drive identified in the previous step. For example, to unmount /dev/disk2:
+#. Unmount the USB drive identified in the previous step. For example, to unmount /dev/disk2. The device name of the USB may vary.
 
    .. code-block:: bash
 
@@ -143,14 +147,13 @@ Burn the |CL| image onto a USB drive
 
 #. Burn the image onto the drive using the :command:`dd` command.
    This example uses `./`, your current directory, and it shows how to burn
-   an image onto `<your USB device>`:
+   an image onto `/dev/disk2`:
 
    .. code-block:: bash
 
-      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=<your USB device> bs=4m
+      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=/dev/disk2 bs=4m
 
-   To accelerate the imaging process, add an ‘r’ before the disk identifier.
-   Example: `sudo dd if=./clear-30800-live-server.iso of=/dev/rdisk2 bs=4m`.
+   To accelerate the imaging process, add an ‘r’ before the device identifier. Example: `sudo dd if=./clear-30800-live-server.iso of=/dev/rdisk2 bs=4m`.
 
    Press :kbd:`<CTRL>-T` to check imaging progress.
 

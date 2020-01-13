@@ -38,12 +38,8 @@ Install |CL| on your target system
 **********************************
 
 Ensure that your system is configured to boot UEFI. The installation method
-described below requires a wired Internet connection with DHCP.
+described below requires a wired or wireless Internet connection with DHCP.
 
-.. note::
-
-   Alternatively, you can install |CL| over a wireless connection by first
-   using `nmtui`. Follow the `nmtui` instructions shown in Figure 2.
 
 Follow these steps to install |CL| on the target system:
 
@@ -89,6 +85,12 @@ Launch the |CL| Installer
       :alt: root login
 
       Figure 2: root login
+
+#. .. note::
+
+      If a wireless connection is needed, connect to the network using
+      :command:`nmtui` before lauching the installer. See the documentation on
+      :ref:`configuring Wifi with nmtui <wifi-nm-tui>` for more details.
 
 #. At the :guilabel:`root` prompt, enter :command:`clr-installer` and
    press :kbd:`Enter`.
@@ -468,6 +470,100 @@ be configured post-installation using the ``cryptsetup`` tool.
 
       :guilabel:`Confirm` is only highlighted if passphrases match.
 
+Manage User
+===========
+
+Add New User
+------------
+
+#. In Required Options, select :guilabel:`Manage User`.
+
+#. Select :guilabel:`Add New User` as shown in Figure 18.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-18.png
+      :scale: 100%
+      :alt: Add New User, User Name
+
+      Figure 18: Add New User
+
+#. Optional: Enter a :guilabel:`User Name`.
+
+   .. note:
+
+      The User Name must be alphanumeric and can include spaces, commas,
+      underscores or hyphens. Maximum length is 64 characters.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-19.png
+      :scale: 100%
+      :alt: User Name
+
+      Figure 19: User Name
+
+#. Enter a :guilabel:`Login`.
+
+   .. note::
+
+      The User Login must be alphanumeric and can include hyphens and underscores. Maximum length is 31 characters.
+
+#. Enter a :guilabel:`Password`.
+
+   .. note:
+
+      Minimum length is 8 characters. Maximum length is 255 characters.
+
+#. In :guilabel:`Confirm`, enter the same password.
+
+#. The :guilabel:`Administrator` checkbox is selected by default.
+
+   .. note::
+
+      Selecting Administrator enables sudo privileges for the user. For the installation to proceed, at least one user must be assigned as an Administrator.
+
+#. Select :kbd:`Confirm`. To reset the form, select :guilabel:`Reset`.
+
+#. In :guilabel:`Manage User`, navigate to :guilabel:`Confirm`.
+
+#. With :guilabel:`Confirm` highlighted, select :kbd:`Enter`.
+
+Modify / Delete User
+--------------------
+
+#. In :guilabel:`Manage User`, navigate to the user you wish
+   to modify until highlighted, as shown in Figure 20.
+
+#. Select :kbd:`Enter` to modify the user.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-20.png
+      :scale: 100%
+      :alt: Modify User
+
+      Figure 20: Modify User
+
+#. Modify user details as desired.
+
+#. Navigate to :kbd:`Confirm` until highlighted.
+
+   .. note::
+
+      Optional: Select :guilabel:`Reset` to rest the form.
+
+#. Select :guilabel:`Confirm` to save the changes you made.
+
+#. Optional: In :guilabel:`Modify User`, to delete the user, navigate to
+   the :guilabel:`Delete` button and select :kbd:`Enter`.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-21.png
+      :scale: 100%
+      :alt: Delete User
+
+      Figure 21: Delete User
+
+You are returned to :guilabel:`Manage User`.
+
+#. Navigate to :kbd:`Confirm` until highlighted.
+
+#. Select :guilabel:`Enter` to complete :guilabel:`Manage User` options.
+
 Telemetry
 =========
 
@@ -483,19 +579,18 @@ Select your desired option on whether to participate in telemetry.
 
 #. Select :kbd:`Enter` to confirm.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-18.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-22.png
       :scale: 100%
       :alt: Enable Telemetry
 
-      Figure 18: Enable Telemetry
+      Figure 22: Enable Telemetry
 
 Recommended options
 *******************
 
 After you complete the `Required options`_, we highly recommend completing
-these selected `Advanced options`_ at minimum:
+some `Advanced options`_:
 
-* `Manage User`_ Assign a new user with administrative rights
 * `Assign Hostname`_ Simplify your development environment
 
 Skip to finish installation
@@ -533,22 +628,22 @@ interface settings are automatically applied.
 
    .. note:: Multiple network interfaces may appear.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-19.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-23.png
       :scale: 100%
       :alt: Configure Network Interfaces
 
-      Figure 19: Configure Network Interfaces
+      Figure 23: Configure Network Interfaces
 
 #. Notice :guilabel:`Automatic / dhcp` is selected by default (at bottom).
 
    Optional: Navigate to the checkbox :guilabel:`Automatic / dhcp` and select
    :kbd:`Spacebar` to deselect.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-20.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-24.png
       :scale: 100%
       :alt: Network interface configuration
 
-      Figure 20: Network interface configuration
+      Figure 24: Network interface configuration
 
 #. Navigate to the appropriate fields and assign the desired
    network configuration.
@@ -584,11 +679,11 @@ instruction.
 
 #. Navigate to the field :guilabel:`HTTPS Proxy`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-21.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-25.png
       :scale: 100%
       :alt: Configure the network proxy
 
-      Figure 21: Configure the network proxy
+      Figure 25: Configure the network proxy
 
 #. Enter the desired proxy address and port using conventional syntax,
    such as: \http://address:port.
@@ -609,13 +704,13 @@ select :guilabel:`Test Network Settings` and select :guilabel:`Enter`.
 .. note::
    If using the :command:`off-line installer`, this option is not available.
 
-A progress bar appears as shown in Figure 22.
+A progress bar appears as shown in Figure 26.
 
-.. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-22.png
+.. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-26.png
    :scale: 100%
    :alt: Testing Networking dialog
 
-   Figure 22: Testing Networking dialog
+   Figure 26: Testing Networking dialog
 
 .. note::
 
@@ -636,11 +731,11 @@ Bundle selection is disabled if no network connection exists.
 
 #. Select :kbd:`Spacebar` to select the checkbox for each desired bundle.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-23.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-27.png
       :scale: 100%
       :alt: Bundle Selection
 
-      Figure 23: Bundle Selection
+      Figure 27: Bundle Selection
 
 #. Optional: To start developing with |CL|, we recommend
    adding :file:`os-clr-on-clr`.
@@ -648,107 +743,6 @@ Bundle selection is disabled if no network connection exists.
 #. Navigate to and select :kbd:`Confirm`.
 
    You are returned to the :guilabel:`Advanced options` menu.
-
-Optional: Skip to `Finish installation`_.
-
-Manage User
-===========
-
-Add New User
-------------
-
-#. In Advanced Options, select :guilabel:`Manage User`.
-
-#. Select :guilabel:`Add New User` as shown in Figure 24.
-
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-24.png
-      :scale: 100%
-      :alt: Add New User, User Name
-
-      Figure 24: Add New User
-
-#. Optional: Enter a :guilabel:`User Name`.
-
-   .. note:
-
-      The User Name must be alphanumeric and can include spaces, commas, or
-      hyphens. Maximum length is 64 characters.
-
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-25.png
-      :scale: 100%
-      :alt: User Name
-
-      Figure 25: User Name
-
-#. Enter a :guilabel:`Login`.
-
-   .. note::
-
-      The User Login must be alphanumeric and can include hyphens and underscores. Maximum length is 31 characters.
-
-#. Enter a :guilabel:`Password`.
-
-   .. note:
-
-      Minimum length is 8 characters. Maximum length is 255 characters.
-
-#. In :guilabel:`Confirm`, enter the same password.
-
-#. Optional: Navigate to the :guilabel:`Administrative` checkbox and select
-   :kbd:`Spacebar` to assign administrative rights to the user.
-
-   .. note::
-
-      Selecting this option enables sudo privileges for the user.
-
-#. Select :kbd:`Confirm`.
-
-   .. note::
-
-      If desired, select :guilabel:`Reset` to reset the form.
-
-#. In :guilabel:`Manage User`, navigate to :guilabel:`Confirm`.
-
-#. With :guilabel:`Confirm` highlighted, select :kbd:`Enter`.
-
-Modify / Delete User
---------------------
-
-#. In :guilabel:`Manage User`, navigate to the user you wish
-   to modify until highlighted, as shown in Figure 26.
-
-#. Select :kbd:`Enter` to modify the user.
-
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-26.png
-      :scale: 100%
-      :alt: Modify User
-
-      Figure 26: Modify User
-
-#. Modify user details as desired.
-
-#. Navigate to :kbd:`Confirm` until highlighted.
-
-   .. note::
-
-      Optional: Select :guilabel:`Reset` to rest the form.
-
-#. Select :guilabel:`Confirm` to save the changes you made.
-
-#. Optional: In :guilabel:`Modify User`, to delete the user, navigate to
-   the :guilabel:`Delete` button and select :kbd:`Enter`.
-
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-27.png
-      :scale: 100%
-      :alt: Delete User
-
-      Figure 27: Delete User
-
-You are returned to :guilabel:`Manage User`.
-
-#. Navigate to :kbd:`Confirm` until highlighted.
-
-#. Select :guilabel:`Enter` to complete :guilabel:`Manage User` options.
 
 Optional: Skip to `Finish installation`_.
 
@@ -849,7 +843,7 @@ Optional: Skip to `Finish installation`_.
 Automatic OS Updates
 ====================
 
-Automatical OS updates are enabled by default. In the rare case that you
+Automatic OS updates are enabled by default. In the rare case that you
 need to disable automatic software updates, follow the onscreen instructions,
 shown in Figure 32.
 
@@ -950,5 +944,62 @@ entering :guilabel:`Configure Installation Media`:
   - Linux\* OS: :command:`lsblk -a`
   - Windows\* OS:  :command:`diskpart`, then :command:`list disk`
   - macOS\* platform: :command:`diskutil list`
+
+.. _erase-lvm-troubleshooting-tip:
+
+Erase LVM Partitions Before Installing |CL|
+===========================================
+
+If you’re planning to install |CL| on a drive that has LVM partitions, 
+you must erase them first before using clr-installer.  
+
+Here is an example of a drive (/dev/sda) with LVMs:
+
+.. code-block:: console
+   :emphasize-lines: 6-9
+
+   NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+   loop0          7:0    0 627.6M  1 loop 
+   sda            8:0    0 335.4G  0 disk 
+   ├─sda1         8:1    0   200M  0 part 
+   ├─sda2         8:2    0     1G  0 part 
+   └─sda3         8:3    0 334.2G  0 part 
+     ├─LVM-root 252:0    0    70G  0 lvm  
+     ├─LVM-home 252:1    0 248.4G  0 lvm  
+     └─LVM-swap 252:2    0  15.7G  0 lvm  
+
+If you do not erase the LVMs first, you will encounter a clr-installer 
+error like this: 
+ 
+.. code-block:: console
+
+   root@clr-live~ # clr-installer
+
+   Please report this crash using GitHub Issues:
+   https://github.com/clearlinux/clr-installer/issues
+
+   Include the following as attachments to enable diagnosis:
+   /root/pre-install-clr-installer.yaml
+   /root/clr-installer.log
+
+   You may need to remove any personal data of concern from the attachments.
+   The Installer will now exit.
+   exit status 1
+
+   Error Trace:
+   errors.Wrap()
+        errors/errors.go:91
+   storage.makeFs()
+        storage/ops.go:79
+
+The quickest and simplest method to erasing the LVMs is to execute these
+commands:
+
+.. code-block:: bash
+
+   sudo sgdisk -Z /dev/<device>
+   sudo partprobe
+   sudo dmsetup remove_all --force
+   sudo partprobe
 
 .. _Downloads: https://clearlinux.org/downloads

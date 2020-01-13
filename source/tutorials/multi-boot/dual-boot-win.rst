@@ -6,16 +6,13 @@ Dual-boot |CL-ATTR| and Windows\* 10 OS
 This guide shows how to install |CL-ATTR| adjacent to an existing Windows\*
 10 :abbr:`OS (operating system)`. To add |CL| to an existing Windows installation, follow a method below.
 
-.. contents::
-   :local:
-   :depth: 1
-
-Description
-***********
-
 In this tutorial you'll :ref:`bare-metal-install-desktop` as
 an additional partition. Alternatively, you may also
 :ref:`bare-metal-install-server`.
+
+.. contents::
+   :local:
+   :depth: 1
 
 Method 1: Shrink Windows partition and install |CL|
 ***************************************************
@@ -27,6 +24,8 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
    :guilabel:`Create and format hard disk partitions`.
 
 #. Right-click the primary Windows partition and select :guilabel:`Shrink Volume...`.
+
+   .. rst-class:: dropshadow
 
    .. figure:: ../../_figures/multi-boot/dual-boot-win-01.png
       :scale: 85%
@@ -43,7 +42,9 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
      allow at least 4GB.
 
 
-#. We shrink C by about 21 GB, as shown in Figure 2.
+#. We shrink C by about 21GB, as shown in Figure 2.
+
+   .. rst-class:: dropshadow
 
    .. figure:: ../../_figures/multi-boot/dual-boot-win-02.png
       :scale: 85%
@@ -71,6 +72,8 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
 #. During the BIOS POST stage, press :kbd:`F10`, or the proper F-key for your
    system, to launch the :guilabel:`Boot Menu`.
 
+   .. rst-class:: dropshadow
+
    .. figure:: ../../_figures/multi-boot/dual-boot-win-03.png
       :scale: 85%
       :alt: Boot menu
@@ -86,10 +89,11 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
    .. tip::
 
       If you don't want to use the BIOS boot menu each time to select an OS,
-      follow :ref:`Advanced: Use systemd-boot to boot Windows 10 OS and |CL| <advanced-systemd-boot>`.
+      follow :ref:`Advanced: Use systemd-boot to boot Windows 10 OS and 
+      |CL| <advanced-systemd-boot>`.
 
-Method 2: Add another hard disk to your system where you install |CL|
-*********************************************************************
+Method 2: Add another hard disk to your system where you installed |CL|
+***********************************************************************
 
 #. Shutdown your system.
 
@@ -117,6 +121,8 @@ Method 2: Add another hard disk to your system where you install |CL|
 #. During the BIOS POST stage, press :kbd:`F10`, or the proper F-key for your
    system, to launch the :guilabel:`Boot Menu`.
 
+   .. rst-class:: dropshadow
+
    .. figure:: ../../_figures/multi-boot/dual-boot-win-03.png
       :scale: 85%
       :alt: Boot menu
@@ -141,39 +147,40 @@ Advanced: Use systemd-boot to boot Windows 10 OS and |CL|
 
 If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select an OS to boot, you can make :command:`systemd-boot` the default bootloader and add Windows 10 OS to the boot list. This option is also a workaround for BIOSes that don’t support booting more than one partition.
 
-#. Boot up the |CL| installer.
+#. Boot up a |CL| live image from a USB thumb drive. 
 
-#. Open a Terminal window and enter:
+#. Open a terminal window and enter:
 
    .. code-block:: bash
 
-      lsblk
+      lsblk -po NAME,SIZE,TYPE,PARTLABEL
 
-#. Example output:
+   Example output:
 
    .. code-block:: console
+      :emphasize-lines: 6,8,9,11
 
-      clrlinux@clr-live~ $ lsblk
-      NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-      loop0    7:0    0   2.3G  1 loop
-      sda      8:0    0 335.4G  0 disk
-      ├─sda1   8:1    0   450M  0 part
-      ├─sda2   8:2    0   100M  0 part
-      ├─sda3   8:3    0    16M  0 part
-      ├─sda4   8:4    0   286G  0 part
-      ├─sda5   8:5    0   143M  0 part
-      ├─sda6   8:6    0   244M  0 part
-      └─sda7   8:7    0  48.5G  0 part
+      clrlinux@clr-live~ $ lsblk -po NAME,SIZE,TYPE,PARTLABEL
+      NAME          SIZE TYPE PARTLABEL
+      /dev/loop0    2.3G loop 
+      /dev/sda    335.4G disk
+      ├─/dev/sda1   450M part Basic data partition
+      ├─/dev/sda2   100M part EFI system partition
+      ├─/dev/sda3    16M part Microsoft reserved partition
+      ├─/dev/sda4   286G part Basic data partition
+      ├─/dev/sda5   143M part EFI
+      ├─/dev/sda6   244M part linux-swap
+      └─/dev/sda7  48.5G part /
       sdb      8:16   1     7G  0 disk
       ├─sdb1   8:17   1   2.5G  0 part
       └─sdb2   8:18   1   100M  0 part
 
-#. The example output shows:
+   The example output shows:
 
-   * /dev/sda2 is the EFI system partition created by Windows
+   * /dev/sda2 is the EFI system partition created by Windows 10 OS
    * /dev/sda4 is the primary Windows partition
-   * /dev/sda5 is the EFI system partition created by Clear Linux
-   * /dev/sda7 is the Clear Linux root partition
+   * /dev/sda5 is the EFI system partition created by |CL|
+   * /dev/sda7 is the |CL| root partition
 
 #. Create mount points.
 
@@ -237,10 +244,144 @@ If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select 
 #. You should be presented with the :command:`systemd-boot` menu, as shown
    below.
 
+   .. rst-class:: dropshadow
+
    .. figure:: ../../_figures/multi-boot/dual-boot-win-04.png
       :scale: 85%
       :alt: systemd-boot menu
 
       Figure 5: systemd-boot menu
 
+
+Alternative: Install Windows 10 OS After |CL|
+*********************************************
+
+The following alternative guide shows how to install Windows 10 OS adjacent
+to an existing |CL| installation.
+
+Prerequisites
+*************
+
+* |CL| is already installed.  
+* There is unallocated disk space available. If the entire disk has been
+  allocated to |CL|, then shrink the root partition to make space for 
+  Windows 10 OS.
+
+Install Windows 10 OS
+=====================
+
+#. Start the Windows installer and follow the prompts.
+
+#. At the :guilabel:`What type of installation do you want?` screen, choose 
+   :guilabel:`Custom: Install Windows only (advanced)`. See Figure 6.
+
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/multi-boot/dual-boot-win-06.png
+      :scale: 85%
+      :alt: Windows - Choose installation type
+
+      Figure 6: Windows - Choose installation type
+
+#. Select :guilabel:`Unallocated Space` and create a new partition of 
+   the desired size. For this example, we will use the entire unallocated 
+   space. See Figure 7.
+
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/multi-boot/dual-boot-win-07.png
+      :scale: 85%
+      :alt: Windows - Create new partition
+
+      Figure 7: Windows - Create new partition
+
+   .. note::
+     
+      Normally, Windows creates its own 100MB EFI partition if none exists. 
+      In our case, where an EFI partition was created by |CL|, Windows will 
+      use the previously-created partition.
+
+#. Select the newly-created partition and follow the remaining prompts to 
+   complete the Windows installation. See Figure 8.
+
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/multi-boot/dual-boot-win-08.png
+      :scale: 85%
+      :alt: Windows - Install on newly-created partition
+
+      Figure 8: Windows - Install on newly-created partition
+
+#. Finish the Windows out-of-box-experience process.
+
+#. Restore `systemd-boot` - the bootloader |CL| uses - and add Windows to 
+   its boot menu.
+
+   At this point, you cannot boot |CL| because Windows became the default 
+   bootloader after it was installed.  Follow these steps to restore 
+   `systemd-boot`.
+
+   a. Boot up a |CL| live image from a USB thumb drive. 
+
+   #. Open a terminal window. 
+
+   #. Find the location of the EFI partition. In this example, it is 
+      ``/dev/sda1``.
+
+      .. code-block:: bash
+
+         lsblk -po NAME,SIZE,TYPE,PARTLABEL
+      
+      Example output:
+
+      .. code-block:: console
+         :emphasize-lines: 5
+
+         clrlinux@clr-live~ $ lsblk -po NAME,SIZE,TYPE,PARTLABEL
+         NAME          SIZE TYPE PARTLABEL
+         /dev/loop0    2.3G loop 
+         /dev/sda      100G disk
+         ├─/dev/sda1   150M part CLR_BOOT
+         ├─/dev/sda2   250M part CLR_SWAP
+         ├─/dev/sda3     8G part CLR_ROOT
+         ├─/dev/sda4    16M part Microsoft reserved partition
+         ├─/dev/sda5  91.6G part Basic data partition
+         sdb      8:16   1     7G  0 disk
+         ├─sdb1   8:17   1   2.5G  0 part
+         └─sdb2   8:18   1   100M  0 part
+         
+   #. Make a mount point for |CL|.
+
+      .. code-block:: bash
+         
+         sudo mkdir /mnt/clearlinux
+
+   #. Mount the root and EFI partitions.
+
+      .. code-block:: bash
+
+         sudo mount /dev/sda3 /mnt/clearlinux
+         sudo mount /dev/sda1 /mnt/clearlinux/boot
+
+   #. Re-install systemd-boot to make it the default bootloader.
+      
+      .. code-block:: bash
+      
+         sudo bootctl install --esp-path=/mnt/clearlinux/boot
+
+   #. Add a timeout (for example: 25 seconds) to systemd-boot so that it 
+      will present the menu of bootable OSes and give you time to select 
+      the one you want to boot.
+
+      .. code-block:: bash
+
+         sudo clr-boot-manager set-timeout 25 --path=/mnt/clearlinux
+         sudo clr-boot-manager update --path=/mnt/clearlinux
+
+   #. Unmount the root and EFI partitions.
+
+      .. code-block:: bash
+      
+         sudo umount /mnt/clearlinux/boot
+         sudo umount /mnt/clearlinux
 

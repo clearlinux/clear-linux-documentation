@@ -34,7 +34,7 @@ import shlex
 #]
 
 extensions = [
-    'sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx_sitemap'
+    'sphinx.ext.autodoc', 'sphinx.ext.todo', 'sphinx_sitemap', 'sphinx_tabs.tabs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -54,7 +54,7 @@ master_doc = 'index'
 # General information about the project.
 #project = u'Clear Linux* project'
 project = u'Clear Linux* Project Docs'
-copyright = u'2019.'
+copyright = u'2020.'
 author = u'many'
 
 # The version info for the project you're documenting, acts as replacement for

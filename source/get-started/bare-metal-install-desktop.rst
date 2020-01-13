@@ -19,6 +19,8 @@ installation:
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
 
+.. _preliminary-steps-install-desktop:
+
 Preliminary steps
 *****************
 
@@ -55,6 +57,8 @@ these steps.
 #. Save these settings, e.g. :kbd:`F10`, and exit.
 
 #. Reboot the target system.
+
+.. _preliminary-steps-install-desktop-end:
 
 #. Select :guilabel:`Clear Linux OS` in the boot menu, shown in Figure 1.
 
@@ -140,8 +144,9 @@ To fulfill minimum installation requirements, complete the
 
    * Check marks indicate a selection has been made.
 
-   * An Internet connection is required. You may want to launch a browser
-     prior to installation to verify your Internet connection.
+   * The installer image contains the default bundles required for  
+     installation. An Internet connection is only required if you install
+     additional bundles from `Advanced options`_.
 
 |CL| Desktop Installer
 **********************
@@ -645,6 +650,11 @@ Create partitions per requirements in Table 1.
      - root
      - /
      - *Size depends upon use case/desired bundles.*
+
+Troubleshooting
+***************
+
+:ref:`erase-lvm-troubleshooting-tip`
 
 .. _Downloads: https://clearlinux.org/downloads
 

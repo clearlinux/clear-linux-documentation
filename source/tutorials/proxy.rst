@@ -1,4 +1,4 @@
-.. _tutorial-proxy:
+.. _proxy:
 
 Proxy configuration
 ###################

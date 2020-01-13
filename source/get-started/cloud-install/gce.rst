@@ -229,12 +229,10 @@ Setup |CL| VM on GCP
 
         Figure 18: Set SSH key for remote login
 
-     .. warning::
+     .. note::
 
         The username is assigned from characters preceding ``@`` in the email
-        address, included in the SSH key. The dot symbol "." is not allowed,
-        because it is an invalid character while creating user accounts in
-        |CL|.
+        address, included in the SSH key.
 
    * Click the :guilabel:`Create` button to create the |CL| VM.
 
@@ -260,7 +258,7 @@ Related topics
 
 * :ref:`azure`
 * :ref:`aws-web`
-
+* :ref:`clr-digitalocean`
 
 .. _Google Cloud Platform: https://cloud.google.com/
 

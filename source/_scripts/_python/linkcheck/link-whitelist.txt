@@ -13,3 +13,7 @@ http://www.intel.com/content/www/us/en/nuc/nuc-kit-nuc6i5syh.html
 https://software.intel.com/en-us/mkl
 https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html
 https://www.nvidia.com/download/index.aspx
+https://www.intel.com/content/www/us/en/architecture-and-technology/optane-technology/optane-for-data-centers.html
+https://downloadcenter.intel.com/download/28695/Intel-Server-Board-S2600WF-Family-BIOS-and-Firmware-Update-Package-for-UEFI
+https://software.intel.com/en-us/articles/quick-start-guide-configure-intel-optane-dc-persistent-memory-on-linux
+https://software.intel.com/en-us/articles/configure-manage-and-profile-intel-optane-dc-persistent-memory-modules
