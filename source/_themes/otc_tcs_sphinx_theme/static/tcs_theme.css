@@ -492,6 +492,11 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   position: relative;
 }
 
+.column.threewide {
+  width: 1090px;
+
+}
+
 .column.featurecard {
   background: #CCE9F5;
 }
@@ -506,7 +511,8 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 
 .endlink {
   position: absolute;
-  bottom: -20px;
+  /*bottom: -30px;*/
+  top: -30px;
   right: 10px;
   font-size: 15px;
 }
@@ -532,6 +538,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   font-size: 150%;
   font-weight: 700;
   font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+  margin-bottom: 12px;
 }
 
 .video.docutils.container {

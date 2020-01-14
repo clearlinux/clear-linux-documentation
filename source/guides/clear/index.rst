@@ -3,10 +3,6 @@
 |CL-ATTR|
 #########
 
-.. note::
-
-   As of 22 May 2019 :file:`mixin` is no longer supported.
-
 .. container:: multicolumns three
 
    .. container:: column smallcard featurecard
@@ -25,6 +21,10 @@
       :ref:`telem-guide`
          Learn how you can opt-in to allow |CL| to collect data to identify
          and fix bugs.
+
+-------------------------------
+
+.. container:: multicolumns three
 
    .. container:: column smallcard
       
