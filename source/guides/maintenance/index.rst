@@ -50,7 +50,7 @@ Maintenance
 
    .. container:: column smallcard
 
-      :ref:`download-verify-decompress-linux`
+      :ref:`download-verify-decompress`
          Find out what kind of |CL| images are available and learn how to download, verify, and decompress the one you want. 
 
    .. container:: column smallcard
