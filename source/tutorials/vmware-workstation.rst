@@ -1,10 +1,10 @@
 
 .. _vmware-workstation:
 
-VMware Workstation Pro\*
+VMware\* Workstation Pro
 ########################
 
-VMware Workstation Pro\* allows you to run multiple operating systems as
+VMware Workstation Pro allows you to run multiple operating systems as
 :abbr:`VMs (virtual machines)` on a single host. It is a more advanced version
 of VMware Workstation Player.
 
@@ -25,8 +25,7 @@ VMware Workstation Pro on Linux installs two major components:
 Prerequisites
 *************
 
-Virtualization must be enabled in the BIOS before installing VMware
-Workstation Pro.
+Enable virtualization in the BIOS before installing VMware Workstation Pro.
 
 Install VMware Workstation Pro
 ******************************
@@ -95,13 +94,9 @@ software:
 Install VMware kernel modules
 *****************************
 
-Kernel headers are required by VMware Workstation Pro to compile and install the
-necessary kernel modules after installation. Before installing the VMware kernel
-modules, you must first install the :command:`kernel-native-dkms` or
-:command:`kernel-lts-dkms` bundle to provide the tools and Linux headers needed
-to add out-of-tree kernel modules. Installing the dkms bundle will automatically
-disable the kernel module signature enforcement, which is necessary to load the
-required kernel modules.
+After installing VMware Workstation Pro, additional VMware kernel modules must
+be compiled and installed. Before installing the VMware kernel modules, install
+DKMS, which will provide the necessary tools to add the VMware kernel modules.
 
 Install DKMS
 ============
