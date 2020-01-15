@@ -492,9 +492,9 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   position: relative;
 }
 
-.column.threewide {
-  width: 1090px;
-
+.column.threewidth {
+  width: 98.2%; /*This matches width of three columns at 350px  - use with multicolumns.three*/
+  padding: 15px;
 }
 
 .column.featurecard {
@@ -511,8 +511,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 
 .endlink {
   position: absolute;
-  /*bottom: -30px;*/
-  top: -30px;
+  top: 10px;
   right: 10px;
   font-size: 15px;
 }
@@ -523,7 +522,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 .multicolumns.three {
-  max-width: 1200px;
+  max-width: 1110px;
   position: relative;
 }
 
@@ -539,6 +538,12 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   font-weight: 700;
   font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
   margin-bottom: 12px;
+}
+
+.colh2.underline {
+  border-bottom: 1px solid black;
+  margin-bottom: 7px;
+  padding-bottom: 10px;
 }
 
 .video.docutils.container {
