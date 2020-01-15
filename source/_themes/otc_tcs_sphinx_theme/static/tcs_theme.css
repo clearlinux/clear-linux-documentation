@@ -533,6 +533,10 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   clear: both;
 }
 
+.multicolumns.underline {
+  border-bottom: 1px solid LightGray;  
+}
+
 .colh2 {
   font-size: 150%;
   font-weight: 700;

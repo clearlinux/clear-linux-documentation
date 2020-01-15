@@ -3,7 +3,7 @@
 Network
 #######
 
-.. container:: multicolumns three
+.. container:: multicolumns three underline
 
    .. container:: column smallcard featurecard
 
@@ -20,8 +20,6 @@ Network
 
       :ref:`openssh-server`
          Learn how to set up the SSH service.
-
--------------------------------
 
 .. container:: multicolumns three
 
