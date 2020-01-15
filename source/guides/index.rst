@@ -3,13 +3,15 @@
 Guides
 ######
 
-----------------------
-
 .. container:: multicolumns three
 
-   .. rst-class:: colh2
+   .. rst-class:: colh2 underline
 
    Clear Linux
+
+   .. container:: endlink
+
+      :ref:`View all >> <cl-guides>`
 
    .. container:: column smallcard
       
@@ -29,19 +31,17 @@ Guides
           Learn how the |CL| team generates official update content and
           releases.
 
-      .. container:: endlink
-
-         :ref:`View all >> <cl-guides>`
-
-----------------------
-
 .. container:: multicolumns three
 
-   .. rst-class:: colh2
+   .. rst-class:: colh2 underline
 
    Stacks
 
-   .. container:: column threewide
+   .. container:: endlink
+
+      :ref:`View all >> <stacks-guides>`
+
+   .. container:: column threewidth
 
       Intel System Stacks are a set of production ready containerized reference
       architectures with integrated, highly-performant, open source components
@@ -50,10 +50,6 @@ Guides
       enables developers to quickly prototype by reducing complexity
       associated with integrating multiple software components, while still
       giving users the flexibility to customize their solutions.
-
-      .. container:: endlink
-
-         :ref:`View all >> <stacks-guides>`
 
    .. container:: column smallcard
 
@@ -75,13 +71,15 @@ Guides
          :abbr:`DBRS (Database Reference Stack)`, and how to use |CL|
          to host it.
 
-----------------------
-
 .. container:: multicolumns three
 
-   .. rst-class:: colh2
+   .. rst-class:: colh2 underline
 
    Maintenance
+
+   .. container:: endlink
+
+      :ref:`View all >> <maintain-guides>`
 
    .. container:: column smallcard
 
@@ -101,17 +99,15 @@ Guides
          Set your workstation up with all bundles needed to
          start your |CL| development project.
 
-      .. container:: endlink
-
-         :ref:`View all >> <maintain-guides>`
-
-----------------------
-
 .. container:: multicolumns three
 
-   .. rst-class:: colh2 
+   .. rst-class:: colh2 underline
 
    Network
+
+   .. container:: endlink
+
+      :ref:`View all >> <network-guides>`
 
    .. container:: column smallcard
 
@@ -129,17 +125,15 @@ Guides
       :ref:`openssh-server`
          Learn how to set up the SSH service.
 
-      .. container:: endlink
-
-         :ref:`View all >> <network-guides>`
-
-----------------------
-
 .. container:: multicolumns three
 
-   .. rst-class:: colh2
+   .. rst-class:: colh2 underline
 
    Kernel
+
+   .. container:: endlink
+
+      :ref:`View all >> <kernel-guides>`
 
    .. container:: column smallcard
 
@@ -157,10 +151,6 @@ Guides
      :ref:`kernel-development`
          Learn how to compile a Linux\* kernel from source using |CL|
          development tooling.
-
-      .. container:: endlink
-
-         :ref:`View all >> <kernel-guides>`
 
 .. toctree::
    :hidden:
