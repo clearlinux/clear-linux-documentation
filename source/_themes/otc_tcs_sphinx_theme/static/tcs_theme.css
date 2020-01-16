@@ -545,6 +545,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   text-align: center;
   color: white;
   margin: 0 auto;
+  width: 80%;
 }
 
 .smallcard.content {
