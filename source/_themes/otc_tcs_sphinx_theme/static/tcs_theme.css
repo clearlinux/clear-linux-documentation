@@ -486,13 +486,13 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   float: left;
   width: 350px;
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
   border: 10px;
   background: white;
   position: relative;
 }
 
-.column.threewidth {
+.column.threewide {
   width: 98.2%; /*This matches width of three columns at 350px  - use with multicolumns.three*/
   padding: 15px;
 }
@@ -506,7 +506,59 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 .column.smallcard {
-  height: 150px;
+  height: 200px;
+  padding: 0;
+}
+
+.smallcard.header {
+  border-bottom: 1px solid lightgray;
+  height: 100px;
+  width: 100%;
+  padding:8px;
+}
+
+.smallcard.header.blue{
+  background: #007ab2;
+  background-image: url(./bg_software_small.png);
+  background-size: cover;
+}
+
+.smallcard.header.purple{
+  background: #9570c1;
+  background-image: url(./bg_developer_small.png);
+  background-size: cover;
+}
+
+.smallcard.header p{
+  margin-bottom: 0px;
+  color:white;
+}
+
+.smallcard.header a{
+  color:white;
+  font-weight: normal;
+}
+
+.smallcard.title {
+  margin-top:10px;
+  font-size: 24px;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+}
+
+.smallcard.content {
+  padding:10px;
+}
+
+.smallcard.content a {
+  color: #2980B9;
+}
+
+.smallcard ul {
+  columns: 2;
+
+
 }
 
 .endlink {
@@ -521,8 +573,13 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   overflow: auto;
 }
 
+.multicolumns {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
 .multicolumns.three {
-  max-width: 1110px;
+  max-width: 1170px;
   position: relative;
 }
 
@@ -534,7 +591,9 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 .multicolumns.underline {
-  border-bottom: 1px solid LightGray;  
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+  padding-bottom: 10px;  
 }
 
 .colh2 {
@@ -545,7 +604,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 .colh2.underline {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgray;
   margin-bottom: 7px;
   padding-bottom: 10px;
 }
