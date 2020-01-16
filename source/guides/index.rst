@@ -5,158 +5,243 @@ Guides
 
 .. container:: multicolumns three
 
-   .. rst-class:: colh2 underline
+   .. container:: column smallcard
 
-   Clear Linux
+      .. container:: smallcard header blue
 
-   .. container:: endlink
+         :ref:`cl-guides`
+            
+         .. container:: smallcard title
 
-      :ref:`View all >> <cl-guides>`
+            :ref:`stateless`
+
+      .. container:: smallcard content
+
+         |CL| is designed to need little to no user configuration. 
 
    .. container:: column smallcard
-      
-      :ref:`stateless`
-         |CL| is stateless is designed to need little to no user
-         configuration. 
 
-   .. container:: column smallcard
+      .. container:: smallcard header blue
+
+         :ref:`cl-guides`
+
+         .. container:: smallcard title
+
+            :ref:`debug`
+
+      .. container:: smallcard content
       
-      :ref:`debug`
          Discover how to use :command:`clr-debug-info` to leverage your
          network to debug system software.
 
    .. container:: column smallcard
 
-      :ref:`mixer`
-          Learn how the |CL| team generates official update content and
-          releases.
+      .. container:: smallcard header blue
 
-.. container:: multicolumns three
+         :ref:`cl-guides`
 
-   .. rst-class:: colh2 underline
+         .. container:: smallcard title
 
-   Stacks
+            :ref:`mixer`   
 
-   .. container:: endlink
+      .. container:: smallcard content
 
-      :ref:`View all >> <stacks-guides>`
-
-   .. container:: column threewidth
-
-      Intel System Stacks are a set of production ready containerized reference
-      architectures with integrated, highly-performant, open source components
-      optimized for 2nd generation Intel® Xeon® Scalable Processors.
-      Highly-tuned and built for cloud native environments, the solution
-      enables developers to quickly prototype by reducing complexity
-      associated with integrating multiple software components, while still
-      giving users the flexibility to customize their solutions.
+         Learn how the |CL| team generates official update content and
+         releases.
 
    .. container:: column smallcard
 
-      :ref:`dars`
+      .. container:: smallcard header blue
+
+         :ref:`stacks-guides`
+
+         .. container:: smallcard title
+
+            :ref:`dars`   
+
+      .. container:: smallcard content
+
          Learn how to use the :abbr:`DARS (Data Analytics Reference Stack)`,
          and build your own DARS container image.
 
    .. container:: column smallcard
-      
-      :ref:`dlrs`
-         Discover how to use the Deep Learning Reference stack to run
-         real-world usecases and benchmark workloads for TensorFlow*,
-         PyTorch*, and Kubeflow*.
+
+      .. container:: smallcard header blue
+
+         :ref:`stacks-guides`
+
+         .. container:: smallcard title
+
+            :ref:`dlrs`   
+
+      .. container:: smallcard content
+
+         Use the :abbr:`DLRS (Deep Learning Reference Stack)` to run
+         usecases and workloads for TensorFlow*, PyTorch*, and Kubeflow*.
 
    .. container:: column smallcard
 
-      :ref:`dbrs`
+      .. container:: smallcard header blue
+
+         :ref:`stacks-guides`
+
+         .. container:: smallcard title
+
+            :ref:`dbrs`   
+
+      .. container:: smallcard content
+
          Learn about the hardware and installation requirements of
          :abbr:`DBRS (Database Reference Stack)`, and how to use |CL|
          to host it.
 
-.. container:: multicolumns three
-
-   .. rst-class:: colh2 underline
-
-   Maintenance
-
-   .. container:: endlink
-
-      :ref:`View all >> <maintain-guides>`
-
    .. container:: column smallcard
 
-      :ref:`cpu-performance`
+      .. container:: smallcard header blue
+
+         :ref:`maintain-guides`
+
+         .. container:: smallcard title
+
+            :ref:`cpu-performance`   
+
+      .. container:: smallcard content
+
          Learn how to modify CPU power and performance settings for your
          usecase. 
 
    .. container:: column smallcard
+
+      .. container:: smallcard header blue
+
+         :ref:`maintain-guides`
+
+         .. container:: smallcard title
+
+            :ref:`fix-broken-install`   
+
+      .. container:: smallcard content
       
-      :ref:`fix-broken-install`
-         Find out how to fix a broken installation using a live desktop image
-         on USB. 
+         Find out how to fix a broken installation using a live desktop
+         image on USB. 
 
    .. container:: column smallcard
 
-      :ref:`developer-workstation`
+      .. container:: smallcard header blue
+
+         :ref:`maintain-guides`
+
+         .. container:: smallcard title
+
+            :ref:`developer-workstation`   
+
+      .. container:: smallcard content
+
          Set your workstation up with all bundles needed to
          start your |CL| development project.
 
-.. container:: multicolumns three
-
-   .. rst-class:: colh2 underline
-
-   Network
-
-   .. container:: endlink
-
-      :ref:`View all >> <network-guides>`
-
    .. container:: column smallcard
 
-      :ref:`vnc`
+      .. container:: smallcard header blue
+
+         :ref:`network-guides`
+
+         .. container:: smallcard title
+
+            :ref:`vnc` 
+
+      .. container:: smallcard content
+
          Learn how to use VNC to connect to a remote |CL| host.
 
    .. container:: column smallcard
       
-      :ref:`assign-static-ip`
+      .. container:: smallcard header blue
+
+         :ref:`network-guides`
+
+         .. container:: smallcard title
+
+            :ref:`assign-static-ip`   
+
+      .. container:: smallcard content
+
          Discover how to identify which program is managing the network
          interface and set a static IP.
 
    .. container:: column smallcard
 
-      :ref:`openssh-server`
+      .. container:: smallcard header blue
+
+         :ref:`network-guides`
+
+         .. container:: smallcard title
+
+            :ref:`openssh-server`   
+
+      .. container:: smallcard content
+
          Learn how to set up the SSH service.
-
-.. container:: multicolumns three
-
-   .. rst-class:: colh2 underline
-
-   Kernel
-
-   .. container:: endlink
-
-      :ref:`View all >> <kernel-guides>`
 
    .. container:: column smallcard
 
-      :ref:`kernel-modules`
+      .. container:: smallcard header blue
+
+         :ref:`kernel-guides`
+
+         .. container:: smallcard title
+
+            :ref:`kernel-modules`   
+
+      .. container:: smallcard content
+
          Learn how to correctly and reliably add kernel modules manually.
 
    .. container:: column smallcard
       
-      :ref:`kernel-modules-dkms`
+      .. container:: smallcard header blue
+
+         :ref:`kernel-guides`
+
+         .. container:: smallcard title
+
+            :ref:`kernel-modules-dkms`   
+
+      .. container:: smallcard content
+
          Find out how to add kernel modules with the Dynamic Kernel Module
          System. 
 
    .. container:: column smallcard
 
-     :ref:`kernel-development`
+      .. container:: smallcard header blue
+
+         :ref:`kernel-guides`
+
+         .. container:: smallcard title
+
+            :ref:`kernel-development`   
+
+      .. container:: smallcard content
+
          Learn how to compile a Linux\* kernel from source using |CL|
          development tooling.
 
-.. toctree::
-   :hidden:
+   .. container:: column smallcard
 
-   clear/index
-   maintenance/index
-   network/index
-   kernel/index
-   stacks/index
+      .. container:: smallcard header purple
+
+         .. container:: smallcard title
+
+            Browse the rest of our guides ...
+
+      .. container:: smallcard content
+
+         .. toctree::
+            :maxdepth: 1
+
+            clear/index
+            maintenance/index
+            network/index
+            kernel/index
+            stacks/index
