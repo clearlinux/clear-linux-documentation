@@ -39,45 +39,33 @@ Burn the |CL| image onto a USB drive
 
 #. Plug in the USB drive.
 
-#. Identify the USB drive using the :command:`lsblk` command. This shows all
+#. Identify the USB drive using the :command:`lsblk` command with these options:
+   ``-po NAME,SIZE,TYPE,FSTYPE,PARTLABEL,MOUNTPOINT,VENDOR,MODEL``. This shows all
    drives attached to the system, including the primary hard disk. In the
-   example output below, there are 4 drives
-   (`/dev/sda`, `/dev/sdb`, `/dev/sdc`, and `/dev/sdd`) attached, where
-   `/dev/sda` is the primary drive. The remaining are three USB drives. The output
-   also shows the mounted partitions (under the `MOUNTPOINT` column) for each
-   drive.
+   example output below, there are 3 drives (`/dev/sda`, `/dev/sdb`, and `/dev/sdc`) 
+   attached, where `/dev/sda` is the primary drive and the remaining are USB drives.
 
    .. code-block:: bash
 
-      lsblk
-
-   .. note:: 
-
-      Alternatively, enter the command: `lsblk -S`
+      lsblk -po NAME,SIZE,TYPE,FSTYPE,PARTLABEL,MOUNTPOINT,VENDOR,MODEL
 
    Example output:
 
    .. code-block:: console
-      :emphasize-lines: 1-5
 
-      NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-      sdd      8:48   1    15G  0 disk
-      ├─sdd2   8:50   1     5G  0 part /run/media/user1/960c184f-3bb7-42b7-bcaf-0c1282
-      ├─sdd3   8:51   1     8G  0 part /run/media/user1/704f3382-b26d-4f34-af1b-cb9aab
-      └─sdd1   8:49   1     2G  0 part
-      sdb      8:16   1  14.8G  0 disk
-      └─sdb1   8:17   1  14.8G  0 part /run/media/user1/PATRIOT_USB
-      sdc      8:32   1   7.3G  0 disk
-      └─sdc1   8:33   1   7.3G  0 part /run/media/user1/LINUX MINT
-      sda      8:0    0 335.4G  0 disk
-      ├─sda4   8:4    0    28G  0 part
-      ├─sda2   8:2    0   3.7G  0 part [SWAP]
-      ├─sda7   8:7    0     6G  0 part /home
-      ├─sda5   8:5    0     1G  0 part /boot
-      ├─sda3   8:3    0   954M  0 part /boot/efi
-      ├─sda1   8:1    0    28G  0 part
-      ├─sda8   8:8    0    30G  0 part /
-      └─sda6   8:6    0   7.9G  0 part [SWAP]
+      NAME          SIZE VENDOR   MODEL                    TRAN   TYPE PARTLABEL                    MOUNTPOINT
+      /dev/sda    119.2G ATA      SAMSUNG_MZ7PC128HAFU-000 sata   disk                              
+      ├─/dev/sda1   450M                                          part Basic data partition         
+      ├─/dev/sda2   100M                                          part EFI system partition         
+      ├─/dev/sda3    16M                                          part Microsoft reserved partition 
+      ├─/dev/sda4  97.2G                                          part Basic data partition         
+      ├─/dev/sda5   142M                                          part EFI                          
+      ├─/dev/sda6   245M                                          part linux-swap                   [SWAP]
+      └─/dev/sda7  21.1G                                          part /                            /
+      /dev/sdb      7.5G General  UDisk                    usb    disk                              
+      └─/dev/sdb1   7.5G                                          part Microsoft Basic Data         /run/media/clear/CENA_X64FRE
+      /dev/sdc       15G          Patriot_Memory           usb    disk                              
+      └─/dev/sdc1    15G                                          part                              /run/media/clear/U
 
    .. note::
 
@@ -85,18 +73,19 @@ Burn the |CL| image onto a USB drive
 
 #. If the USB drive you want to use is mounted, it must be umounted before
    burning an image onto it.  Use the :command:`umount` command followed by
-   the device identifier/partition. For example, to unmount all /dev/sdd
-   partitions:
+   the device identifier/partition. For example, to unmount all of the 
+   ``/dev/sdc`` partitions:
 
    .. code-block:: bash
 
-      sudo umount /dev/sdd*
+      sudo umount /dev/sdc*
 
-#. Burn the image onto the USB drive. This example burns an image onto `/dev/sdd`.  The device name of the USB may vary.
+#. Burn the image onto the USB drive. This example burns an image onto ``/dev/sdc``.  
+   The device name of the USB may vary.
 
    .. code-block:: bash
 
-      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=/dev/sdd oflag=sync bs=4M status=progress
+      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=/dev/sdc oflag=sync bs=4M status=progress
 
 .. caution::
 
@@ -195,6 +184,8 @@ Burn the |CL| image onto a USB drive
    .. note::
 
       For other image tools, verify the `Volume label` is set to :guilabel:`CLR_ISO` **Do not change the label as installer relies on it.**
+
+#. In the dialog, navigate to where the |CL| ISO image was downloaded and select it.
 
 #. Click the :guilabel:`START` button. See Figure 2.
 
