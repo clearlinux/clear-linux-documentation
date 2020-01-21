@@ -493,7 +493,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 .column.threewide {
-  width: 98.2%; /*This matches width of three columns at 350px  - use with multicolumns.three*/
+  width: 96.5%; /*This matches width of three columns at 350px  - use with multicolumns.three*/
   padding: 15px;
 }
 
@@ -515,6 +515,7 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   height: 100px;
   width: 100%;
   padding:8px;
+  color: white;
 }
 
 .smallcard.header.blue{
@@ -527,6 +528,17 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   background: #9570c1;
   background-image: url(./bg_developer_small.png);
   background-size: cover;
+}
+
+.smallcard.header.gray{
+  background: lightgray;
+  background-image: url(./bg_about_small_bw.png);
+  background-size: cover;
+  color: black;
+}
+
+.smallcard.header.gray a{
+  color:black;
 }
 
 .smallcard.header p{
@@ -543,7 +555,6 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   margin-top:10px;
   font-size: 24px;
   text-align: center;
-  color: white;
   margin: 0 auto;
   width: 80%;
 }
@@ -611,8 +622,8 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
 }
 
 .video.docutils.container {
-  margin: 10px;
-  width:720px;
+  margin: 20px;
+  width:740px;
   height:405px;
 }
 

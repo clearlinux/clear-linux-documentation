@@ -229,7 +229,7 @@ Guides
 
    .. container:: column smallcard
 
-      .. container:: smallcard header purple
+      .. container:: smallcard header gray
 
          .. container:: smallcard title
 

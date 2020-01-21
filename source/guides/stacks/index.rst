@@ -3,7 +3,7 @@
 Stacks
 ######
 
-.. container:: multicolumns three underline
+.. container:: multicolumns three
 
    .. container:: column threewide
 
@@ -15,49 +15,92 @@ Stacks
       associated with integrating multiple software components, while still
       giving users the flexibility to customize their solutions.
 
-   .. container:: column smallcard featurecard
+   .. container:: column smallcard 
+
+      .. container:: smallcard header blue
+
+         .. raw:: html
+
+            <br>
+            
+         .. container:: smallcard title
+
+            :ref:`dars`
 
       .. container:: smallcard content
 
-         :ref:`dars`
-            Learn how to use the :abbr:`DARS (Data Analytics Reference Stack)`,
-            and build your own DARS container image.
+         Learn how to use the :abbr:`DARS (Data Analytics Reference Stack)`,
+         and build your own DARS container image.
 
-   .. container:: column smallcard featurecard
+   .. container:: column smallcard 
  
+      .. container:: smallcard header blue
+
+         .. raw:: html
+
+            <br>
+            
+         .. container:: smallcard title
+
+            :ref:`dlrs`
+
       .. container:: smallcard content
 
-         :ref:`dlrs`
-            Discover how to use the Deep Learning Reference stack to run
-            real-world usecases and benchmark workloads for TensorFlow*,
-            PyTorch*, and Kubeflow*.
+         Discover how to use the Deep Learning Reference stack to run
+         real-world usecases and benchmark workloads for TensorFlow*,
+         PyTorch*, and Kubeflow*.
 
-   .. container:: column smallcard featurecard
+   .. container:: column smallcard 
+
+      .. container:: smallcard header blue
+
+         .. raw:: html
+
+            <br>
+            
+         .. container:: smallcard title
+
+            :ref:`dbrs`
  
       .. container:: smallcard content
      
-         :ref:`dbrs`
-            Learn about the hardware and installation requirements of
-            :abbr:`DBRS (Database Reference Stack)`, and how to use |CL|
-            to host it.
-
-.. container:: multicolumns three
+         Learn about the hardware and installation requirements of
+         :abbr:`DBRS (Database Reference Stack)`, and how to use |CL|
+         to host it.
 
    .. container:: column smallcard
+
+      .. container:: smallcard header gray
+
+         .. raw:: html
+
+            <br>
+            
+         .. container:: smallcard title
+
+            :ref:`greengrass`
  
       .. container:: smallcard content
            
-         :ref:`greengrass`
-            Find out how to enable AWS Greengrass\* and OpenVINO™ toolkit.
+         Find out how to enable AWS Greengrass\* and OpenVINO™ toolkit.
 
    .. container:: column smallcard
+
+      .. container:: smallcard header gray
+
+         .. raw:: html
+
+            <br>
+            
+         .. container:: smallcard title
+
+            :ref:`mers`
  
       .. container:: smallcard content
 
-         :ref:`mers`
-            Discover how to use the :abbr:`MeRS (Media Reference Stack)` image
-            to enable media prioritized workloads including transcoding and
-            analytics.
+         Discover how to use the :abbr:`MeRS (Media Reference Stack)` image
+         to enable media prioritized workloads including transcoding and
+         analytics.
 
 .. toctree::
    :glob:
