@@ -66,7 +66,7 @@ deployment and your security needs.
 
 #. Enable IP forwarding to avoid kubeadm `preflight check`_ errors:
 
-   Create (or edit if it exists) the file :file:`/etc/sysctl.d/60-k8s.conf`
+   Create (or edit if it exists) the file :file:`/usr/lib/sysctl.d/60-k8s.conf`
    and include the following line:
 
    .. code-block:: bash
