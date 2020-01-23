@@ -153,27 +153,27 @@ If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select 
 
    .. code-block:: bash
 
-      lsblk -po NAME,SIZE,TYPE,PARTLABEL
+      lsblk -po NAME,SIZE,TYPE,FSTYPE,PARTLABEL
 
    Example output:
 
    .. code-block:: console
       :emphasize-lines: 6,8,9,11
 
-      clrlinux@clr-live~ $ lsblk -po NAME,SIZE,TYPE,PARTLABEL
-      NAME          SIZE TYPE PARTLABEL
-      /dev/loop0    2.3G loop 
+      clrlinux@clr-live~ $ lsblk -po NAME,SIZE,TYPE,FSTYPE,PARTLABEL
+      NAME          SIZE TYPE FSTYPE   PARTLABEL
+      /dev/loop0    2.3G loop squashfs 
       /dev/sda    335.4G disk
-      ├─/dev/sda1   450M part Basic data partition
-      ├─/dev/sda2   100M part EFI system partition
-      ├─/dev/sda3    16M part Microsoft reserved partition
-      ├─/dev/sda4   286G part Basic data partition
-      ├─/dev/sda5   143M part EFI
-      ├─/dev/sda6   244M part linux-swap
-      └─/dev/sda7  48.5G part /
-      sdb      8:16   1     7G  0 disk
-      ├─sdb1   8:17   1   2.5G  0 part
-      └─sdb2   8:18   1   100M  0 part
+      ├─/dev/sda1   450M part ntfs     Basic data partition
+      ├─/dev/sda2   100M part vfat     EFI system partition
+      ├─/dev/sda3    16M part          Microsoft reserved partition
+      ├─/dev/sda4   286G part ntfs     Basic data partition
+      ├─/dev/sda5   143M part vfat     EFI
+      ├─/dev/sda6   244M part swap     linux-swap
+      └─/dev/sda7  48.5G part ext4     /
+      sdb             7G disk iso9660
+      ├─/dev/sdb1   2.7G part iso9660
+      └─/dev/sdb2   100M part vfat
 
    The example output shows:
 
@@ -181,6 +181,12 @@ If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select 
    * /dev/sda4 is the primary Windows partition
    * /dev/sda5 is the EFI system partition created by |CL|
    * /dev/sda7 is the |CL| root partition
+
+  .. note::
+
+     To help narrow down a partition even more, you add the ``PARTTYPE`` 
+     option to :command:`lsblk` and cross-reference against the 
+     `partition type GUIDs wiki`_.
 
 #. Create mount points.
 
@@ -330,26 +336,32 @@ Install Windows 10 OS
 
       .. code-block:: bash
 
-         lsblk -po NAME,SIZE,TYPE,PARTLABEL
+         lsblk -po NAME,SIZE,TYPE,FSTYPE,PARTLABEL
       
       Example output:
 
       .. code-block:: console
          :emphasize-lines: 5
 
-         clrlinux@clr-live~ $ lsblk -po NAME,SIZE,TYPE,PARTLABEL
-         NAME          SIZE TYPE PARTLABEL
-         /dev/loop0    2.3G loop 
+         clrlinux@clr-live~ $ lsblk -po NAME,SIZE,TYPE,FSTYPE,PARTLABEL
+         NAME          SIZE TYPE FSTYPE   PARTLABEL
+         /dev/loop0    2.3G loop squashfs 
          /dev/sda      100G disk
-         ├─/dev/sda1   150M part CLR_BOOT
-         ├─/dev/sda2   250M part CLR_SWAP
-         ├─/dev/sda3     8G part CLR_ROOT
-         ├─/dev/sda4    16M part Microsoft reserved partition
-         ├─/dev/sda5  91.6G part Basic data partition
-         sdb      8:16   1     7G  0 disk
-         ├─sdb1   8:17   1   2.5G  0 part
-         └─sdb2   8:18   1   100M  0 part
+         ├─/dev/sda1   150M part vfat     CLR_BOOT
+         ├─/dev/sda2   250M part swap     CLR_SWAP
+         ├─/dev/sda3     8G part ext4     CLR_ROOT
+         ├─/dev/sda4    16M part          Microsoft reserved partition
+         ├─/dev/sda5  91.6G part ntfs     Basic data partition
+         sdb             7G disk iso9660
+         ├─/dev/sdb1   2.7G part iso9660
+         └─/dev/sdb2   100M part vfat
          
+      .. note::
+
+         To help narrow down a partition even more, you add the 
+         ``PARTTYPE`` option to :command:`lsblk` and 
+         cross-reference against the `partition type GUIDs wiki`_.
+
    #. Make a mount point for |CL|.
 
       .. code-block:: bash
@@ -385,3 +397,4 @@ Install Windows 10 OS
          sudo umount /mnt/clearlinux/boot
          sudo umount /mnt/clearlinux
 
+.. _partition type GUIDs wiki: https://en.wikipedia.org/wiki/GUID_Partition_Table#Partition_type_GUIDs
