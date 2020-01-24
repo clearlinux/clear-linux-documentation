@@ -285,7 +285,6 @@ optional.
 
 #. Select :guilabel:`Confirm` in submenu.
 
-
 Advanced Installation
 ---------------------
 
@@ -658,5 +657,3 @@ Troubleshooting
 :ref:`erase-lvm-troubleshooting-tip`
 
 .. _Downloads: https://clearlinux.org/downloads
-
-
