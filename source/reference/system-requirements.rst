@@ -4,8 +4,10 @@ Recommended minimum system requirements
 #######################################
 
 |CL-ATTR| can run on most modern hardware and is capable of running with
-modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1
-GB RAM, and 2 GB of disk space.
+modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1 GB RAM, and minimum of disk space of: 
+
+* 4 GB for the *live server*
+* 20 GB for the *live desktop*
 
 For use cases requiring minimal resources, |CL| :ref:`about <about>` can
 be used to create a highly customized installation that can even run on a

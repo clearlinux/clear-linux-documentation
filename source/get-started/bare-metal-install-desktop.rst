@@ -16,6 +16,7 @@ System requirements
 Before installing |CL|, verify that the host system supports the
 installation:
 
+* Requires 20 GB or more disk space
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
 
