@@ -16,6 +16,7 @@ System requirements
 Before installing |CL|, verify that the host system supports the
 installation:
 
+* Requires 20 GB or more disk space
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
 
@@ -283,7 +284,6 @@ optional.
       :guilabel:`Confirm` is only highlighted if passphrases match.
 
 #. Select :guilabel:`Confirm` in submenu.
-
 
 Advanced Installation
 ---------------------
@@ -657,5 +657,3 @@ Troubleshooting
 :ref:`erase-lvm-troubleshooting-tip`
 
 .. _Downloads: https://clearlinux.org/downloads
-
-
