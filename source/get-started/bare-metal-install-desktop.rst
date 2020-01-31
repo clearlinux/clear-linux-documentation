@@ -83,6 +83,8 @@ Ensure a network connection exists before launching the Software application.
    intended only for exploration. Do not attempt to install applications during
    exploration.
 
+.. _install-clr-desktop-start:
+
 Launch the |CL| installer
 =========================
 
