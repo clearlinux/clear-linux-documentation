@@ -216,7 +216,7 @@ Next Steps
 
 * Learn how to use :ref:`docker`.
 
-.. _try redis io: https://try.redis.io/
+.. _try redis io: http://try.redis.io/
 
 .. _Clear Linux Redis instance: https://hub.docker.com/r/clearlinux/redis
 

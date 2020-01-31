@@ -645,7 +645,7 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _Intel Optane DC PMM: https://www.intel.com/content/www/us/en/architecture-and-technology/optane-technology/optane-for-data-centers.html
 
-.. _pmem-csi: https://github.com/intel/pmem-csi/blob/release-0.5/README.md
+.. _pmem-csi: https://github.com/intel/pmem-csi/blob/release-0.6/README.md
 
 .. _DBRS Terms of Use: https://clearlinux.org/stacks/database/terms-of-use
 
