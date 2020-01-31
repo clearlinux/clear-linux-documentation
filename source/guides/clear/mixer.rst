@@ -658,15 +658,8 @@ customizations during the update, such as:
 
 * Change the content of the chroot
 
-Tutorial
---------
-
-Try this tutorial to learn how to manually do a format bump. Read the
-comments above each line for an explanation of each step as you execute
-commands. Use this same process on your mix if you need to remove a bundle
-and its tracking.
-
-The `afb.sh reference script`_ shows an example of how to:
+Use the `afb.sh reference script`_ to learn how to do a manual format bump.
+The :file:`afb.sh` script shows an example of how to:
 
 * Create a mix
 
@@ -675,6 +668,11 @@ The `afb.sh reference script`_ shows an example of how to:
 * Deprecate a bundle
 
 * Do a format bump to remove the deprecated bundle
+
+Read the comments above each line for an explanation of each step as you
+execute commands. Use this same process on your mix if you need to remove a
+bundle and its tracking.
+
 
 
 .. Example: Create a mix with custom RPM
