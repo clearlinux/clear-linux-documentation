@@ -13,7 +13,7 @@ the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
 
    .. code-block:: bash
 
-      sudo swupd bundle-add sysadmin-basic
+      sudo swupd bundle-add sysadmin-basic polkit
 
 #. Set your time zone. This example uses Los Angeles.
 
