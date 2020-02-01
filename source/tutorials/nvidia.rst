@@ -34,6 +34,13 @@ Prerequisites
 * A |CL| system with a desktop installed
 * An NVIDIA device installed
 
+
+Known issues
+============
+
+Systems with multiple graphics devices, including integrated graphics (iGPU),
+are known to be problematic.
+
 .. note:: NVIDIA Optimus
    
    Some systems come with a hybrid graphics configuration for a balanced power
@@ -51,17 +58,79 @@ Prerequisites
    graphics devices or NVIDIA Optimus* in the system firmware.
 
 
+**See the** `Troubleshooting`_ **section for more known issues and solutions.**
+
+
 Installation
 ************
+
+Configure workarounds
+=====================
+
+Some workarounds are required for the NVIDIA proprietary drivers to be usable
+and sustainable on |CL|.
+
+
+#. Remove the kernel command-line parameter *intel_iommu=igfx_off* or disable
+   input–output memory management unit (IOMMU), also known as Intel®
+   Virtualization Technology for Directed I/O (VT-d), in your system EFI/BIOS.
+   See `this GitHub report
+   <https://github.com/clearlinux/distribution/issues/1274>`_ and the NVIDIA
+   documentation on `DMA issues
+   <https://download.nvidia.com/XFree86/Linux-x86_64/440.44/README/dma_issues.html>`_
+   for more information.
+
+   The *intel_iommu-igfx_off* kernel parameter can be removed with the command
+   below: 
+  
+   .. code-block:: bash
+    
+      echo "intel_iommu=igfx_off" | sudo tee /etc/kernel/cmdline-removal.d/intel-iommu.conf
+    
+#. Create a custom systemd unit that overwrites the :file:`libGL` library
+   after every |CL| update with a pointer to the NVIDIA provided copy instead
+   of the version provided by |CL|. These libraries conflict causing the
+   NVIDIA driver to break when |CL| updates mesa. See the NVIDIA documentation
+   on `installed components
+   <https://download.nvidia.com/XFree86/Linux-x86_64/440.44/README/installedcomponents.html>`_
+   for more information.
+
+   a. Create a systemd service unit to overwrite the |CL| provided
+      :file:`libGL.so.1` files with a symlink to the NVIDIA copies.
+  
+      .. code-block:: bash
+
+         sudo tee /etc/systemd/system/fix-nvidia-libGL-trigger.service > /dev/null <<'EOF'
+         [Unit]
+         Description=Fixes libGL symlinks for the NVIDIA proprietary driver
+         BindsTo=update-triggers.target
+
+         [Service]
+         Type=oneshot
+         ExecStart=/usr/bin/ln -sfv /opt/nvidia/lib/libGL.so.1 /usr/lib/libGL.so.1
+         ExecStart=/usr/bin/ln -sfv /opt/nvidia/lib32/libGL.so.1 /usr/lib32/libGL.so.1
+         EOF
+
+   b. Reload the systemd manager configuration to pickup the new serivce.
+  
+      .. code-block:: bash  
+    
+         sudo systemctl daemon-reload
+       
+   c. Add the service as a depndency to the |CL| updates trigger causing the
+      service to run after every update.
+  
+      .. code-block:: bash  
+      
+         sudo systemctl add-wants update-triggers.target fix-nvidia-libGL-trigger.service
 
 Install DKMS
 ============
 
-The :ref:`Dynamic Kernel Module System (DKMS)
-<kernel-modules-dkms>` allows the NVIDIA kernel modules to be automatically
-integrated when kernel updates occur in |CL|.
-
-Install the appropriate DKMS bundle using the instructions below:
+The :ref:`Dynamic Kernel Module System (DKMS) <kernel-modules-dkms>` allows
+the NVIDIA kernel modules to be automatically integrated when kernel updates
+occur in |CL|. Install the appropriate DKMS bundle using the instructions
+below:
 
 .. note::
    The Long Term Support (LTS) kernel variant is more likely to remain
@@ -206,22 +275,6 @@ Install the NVIDIA drivers
 
       lsmod | grep ^nvidia
 
-#. Run a |CL| system verification to restore files that the NVIDIA installer
-   likely deleted.
-
-   .. code-block:: bash
-
-      sudo swupd repair --quick --bundles=lib-opengl
-
-   .. warning:: 
-
-      Although a limited version of :command:`swupd repair` is run above,
-      other uses of the :command:`swupd repair` command should be avoided
-      with the proprietary NVIDIA drivers installed.
-
-      The NVIDIA software places some files under the :file:`/usr` subdirectory
-      that are not managed by |CL| and conflict with the |CL| stateless design.
-
 #. Optional: Create a link for the nvidia-settings desktop entry to
    :file:`~/.local/share` so that it appears in the launcher for easy access. 
 
@@ -265,18 +318,38 @@ not in use.
 
 #. Reboot the system and log back in.
 
-#. Trigger a flatpak update that will download the runtime corresponding
+#. Trigger a :command:`flatpak update` to download the runtime corresponding
    with the new NVIDIA drivers for the flatpak apps that require it.
 
+   .. important:: 
+
+      Some flatpak applications won't start after updating the NVIDIA drivers
+      until the flatpak runtime is updated with the corresponding driver
+      version.
+      
    .. code-block:: bash
 
-      flatpak update
+      flatpak update 
+
+
+
+      
 
 Uninstallation
 **************
 
 The NVIDIA drivers and associated software can be uninstalled and nouveau
 driver restored with the instructions in this section.
+
+#. Remove the files created for workarounds.
+
+   .. code-block:: bash
+
+      sudo rm /etc/kernel/cmdline-removal.d/intel-iommu.conf
+      sudo rm /etc/systemd/system/fix-nvidia-libGL-trigger.service
+      sudo rm /etc/systemd/system/update-triggers.target.wants/fix-nvidia-libGL-trigger.service
+      sudo systemctl daemon-reload
+      
 
 #. Remove the :file:`modprobe.d` file that prevents nouveau from loading.
 
@@ -319,6 +392,43 @@ Troubleshooting
 * :file:`NVIDIA-Linux-x86_64-<VERSION>.run --extract-only` extracts
   installation files into a directory named
   :file:`NVIDIA-Linux-x86_64-<VERSION>`.
+
+* The X server logs under :file:`/var/log/X*` contain useful
+  information about display and driver loading. Check all the files and
+  timestamps when troubleshooting.
+
+* The DKMS build logs under :file:`/var/lib/dkms/nvidia*` contain information
+  about kernel module builds which can be useful if the NVIDIA driver breaks
+  between kernel upgrades.
+
+
+No display or blank screen
+==========================
+
+Check to see if the display has come up on another graphics device, including
+the integrated graphics device.
+
+You might get a black screen or the login screen might not come up after
+installing the NVIDIA drivers until an Xorg configuration has been defined for
+your monitors.
+
+
+"Oh no! Something has gone wrong" GNOME crash
+=============================================
+
+
+.. figure:: /_figures/nvidia/nvidia-gnome-crash.png
+   :alt: NVIDIA driver GNOME crash on Clear Linux OS
+   :align: center
+
+   NVIDIA driver GNOME crash dialogue on Clear Linux OS.
+
+There have been reports of GNOME crashing with an "Oh no! Something has gone
+wrong" error message with NVIDIA drivers installed while other graphics
+devices are enabled.
+
+Try disabling other graphics devices, including integrated graphics, in your
+system's EFI/BIOS. 
 
 
 Brightness control
