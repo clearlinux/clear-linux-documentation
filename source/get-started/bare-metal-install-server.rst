@@ -73,6 +73,8 @@ Follow these steps to install |CL| on the target system:
 
 #. With :guilabel:`Clear Linux OS` highlighted, select :kbd:`Enter`.
 
+.. _install-clr-server-start:
+
 Launch the |CL| Installer
 *************************
 
