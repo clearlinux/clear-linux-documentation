@@ -345,61 +345,100 @@ Refresh your web server to see the update content for mix version 20.
 You can also look in ~/mixer/update/www/<mix version> to see the update
 content in your workspace.
 
-
 Example 4: Build an image
 =========================
 
 This example shows how to build a bootable image containing the
 :command:`kernel-kvm`, :command:`os-core`, and the :command:`os-core-update`
-bundles from Example 2. Underneath, mixer uses `ister`_ to generate the
+bundles from Example 2. Underneath, mixer uses `clr-installer`_ to generate the
 image.
 
 #. Change directory into your mix.
 
 #. Configure image.
 
-   Edit the ister configuration file for your image to include all of the bundles you want pre-installed in the image. If this is the first time creating an image, first get a copy of the
-   :file:`release-image-config.json` template file:
+   Create a YAML configuration file to specify aspects of your image
+   such as image name, target media, bundles, etc.  See `Installer YAML Syntax`_ 
+   for more information on clr-installer configuration YAML syntax.
+
+   For this example, we will download a sample YAML and modify it.
 
    .. code-block:: bash
 
-      curl -O https://raw.githubusercontent.com/bryteise/ister/master/release-image-config.json
+      curl -O https://raw.githubusercontent.com/clearlinux/clr-installer/master/scripts/kvm.yaml
 
-   For this example, make the following revisions
-   :file:`release-image-config.json`:
+   Make the following revisions to :file:`kvm.yaml`:
 
-   * Set root partition size to "5G"
-   * Replace the "kernel-native" bundle with "kernel-kvm"
-   * Set the version to 10 (as an integer)
+   * Reduce overall image size and root partition size by 5GB.
+   * Remove these bundles from the image: ``editors``, ``network-basic``, 
+     ``openssh-server``, ``sysadmin-basic``
+   * Add ``version: 10`` to tell :command:`mixer` to generate an image based 
+     on mix version 10
 
    .. note::
-      When creating an image, select a subset of the bundles that are part of your mix. All the bundles that are *not* part of this subset are available for consumers of that image to install afterwards via swupd.
 
-   .. code-block:: bash
+      When creating an image, it is not necessary to include all of the bundles
+      that are in your entire mix.  Once you have a working image, you can use 
+      :command:`swupd` to add them as needed.  
+
+   Your :file:`kvm.yaml` should look like below:
+
+   .. code-block:: console
       :linenos:
-      :emphasize-lines: 5,11-12
+      :emphasize-lines: 11,26,29-33
+      
+      #clear-linux-config
 
-      {
-       "DestinationType" : "virtual",
-        "PartitionLayout" : [ { "disk" : "release.img", "partition" : 1, "size" : "32M", "type" : "EFI" },
-                                  { "disk" : "release.img", "partition" : 2, "size" : "16M", "type" : "swap" },
-                                  { "disk" : "release.img", "partition" : 3, "size" : "5G", "type" : "linux" } ],
-        "FilesystemTypes" : [   { "disk" : "release.img", "partition" : 1, "type" : "vfat" },
-                                  { "disk" : "release.img", "partition" : 2, "type" : "swap" },
-                                  { "disk" : "release.img", "partition" : 3, "type" : "ext4" } ],
-        "PartitionMountPoints" : [ { "disk" : "release.img", "partition" : 1, "mount" : "/boot" },
-                                       { "disk" : "release.img", "partition" : 3, "mount" : "/" } ],
-        "Version": 10,
-        "Bundles": ["kernel-kvm", "os-core", "os-core-update"]
-       }
+      # switch between aliases if you want to install to an actuall block device
+      # i.e /dev/sda
+      block-devices: [
+         {name: "bdevice", file: "kvm.img"}
+      ]
+
+      targetMedia:
+      - name: ${bdevice}
+        size: "3.54G"
+        type: disk
+        children:
+        - name: ${bdevice}1
+          fstype: vfat
+          mountpoint: /boot
+          size: "512M"
+          type: part
+        - name: ${bdevice}2
+          fstype: swap
+          size: "32M"
+          type: part
+        - name: ${bdevice}3
+          fstype: ext4
+          mountpoint: /
+          size: "3G"
+          type: part
+
+      bundles: [
+          bootloader,
+          os-core,
+          os-core-update,
+        ]
+
+      autoUpdate: false
+      postArchive: false
+      postReboot: false
+      telemetry: false
+
+      keyboard: us
+      language: en_US.UTF-8
+      kernel: kernel-kvm
+
+      version: 10
 
 #. Build the image.
 
    .. code-block:: bash
 
-      sudo mixer build image
+      sudo mixer build image --template $PWD/kvm.yaml
 
-   The output from this step will be :file:`release.img`, which is a live
+   The output from this step will be :file:`kvm.img`, which is a live
    image.
 
 Example 5: Deploy updates to target
@@ -430,11 +469,15 @@ mix version 10 to mix version 20.
 
    .. code-block:: bash
 
-      sudo ./start_qemu.sh release.img
+      sudo ./start_qemu.sh kvm.img
 
 #. Log in as root and set a password.
 
-#. To avoid adding a flag each time, enter:
+#. By default, the :command:`swupd` client is designed to communicate with an
+   HTTPS server. For development purposes, the swupd client can talk to
+   an HTTP server if you add the flag ``allow-insecure-http``.
+
+   To avoid adding a flag each time when invoking :command:`swupd`, enter:
 
    .. code-block:: bash
 
@@ -444,67 +487,65 @@ mix version 10 to mix version 20.
       allow_insecure_http=true
       EOF
 
-   .. note:
-
-      By default, the swupd client is designed to communicate with an
-      *\https* server. For development purposes, the swupd client can talk to
-      an *\http* server if you add the flag :command:`--allow-insecure-http`.
-
 #. Try out your mix.
 
-   Take a look at the default bundles installed in your mix:
+   a. Show the version and update URLs
 
-   .. code-block:: bash
+      .. clode-block:: bash
 
-      swupd info
-      swupd bundle-list
+         swupd info
 
-#. List available bundles on your update server.
+   #. List the bundles installed in your mix:
 
+      .. code-block:: bash
 
-   .. code-block:: bash
+         swupd bundle-list
 
-      swupd bundle-list -a
+   #. List available bundles on your update server.
 
-#. Now we will add the :command:`editors` bundle that we modified.
+      .. code-block:: bash
 
-   .. code-block:: bash
+         swupd bundle-list -a
 
-      swupd bundle-add editors
+   #. Now we will add the :command:`editors` bundle that we modified.
 
-#. Try to start the :command:`joe` editor.
+      .. code-block:: bash
 
-   .. code-block:: bash
+         swupd bundle-add editors
 
-      joe
+   #. Try to start the :command:`joe` editor.
 
-   It should not appear. We removed it from the original
-   :command:`editors` bundle.
+      .. code-block:: bash
 
-#. Next we will update from version 10 to 20 to capture the newly
-   available bundles.
+         joe
 
-   .. code-block:: bash
+      It should not work because we removed it from the original
+      :command:`editors` bundle.
 
-      swupd check-update
-      swupd update
-      swupd bundle-list -a
+   #. Next we will update from version 10 to 20 to capture the 
+      newly-available bundles.
 
-#. Now your mix should be at version 20 and curl is available. Try using
-   curl. This will fail because curl is not yet installed:
+      .. code-block:: bash
 
-   .. code-block:: console
+         swupd check-update
+         swupd update
+         swupd bundle-list -a
 
-      curl: command not found
-      To install curl use: swupd bundle-add curl
+   #. Now your mix should be at version 20 and :command:`curl` is available. 
+      Try using :command:`curl`. This will fail because it is not yet installed.
 
-#. Add the new bundle from your update server to your VM. Retry curl.
-   It works!
+      .. code-block:: console
 
-   .. code-block:: bash
+         curl: command not found
+         To install curl use: swupd bundle-add curl
 
-      swupd bundle-add curl
-      curl -O https://download.clearlinux.org/image/start_qemu.sh
+   #. Add the new bundle from your update server to your VM. Retry :command:`curl`.
+      It works!
+
+      .. code-block:: bash
+
+         swupd bundle-add curl
+         curl -O https://download.clearlinux.org/image/start_qemu.sh
 
 #. Shutdown your VM:
 
@@ -1111,5 +1152,7 @@ Related topics
 .. _mixer.build man page: https://github.com/clearlinux/mixer-tools/blob/master/docs/mixer.build.1.rst
 .. _releases: https://github.com/clearlinux/clr-bundles/releases
 .. _afb.sh reference script: https://github.com/clearlinux/mixer-tools/blob/master/afb.sh
+.. _clr-installer: https://github.com/clearlinux/clr-installer
+.. _Installer YAML Syntax:
+   https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md
 
-.. _ister: https://github.com/bryteise/ister
