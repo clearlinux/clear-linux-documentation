@@ -350,8 +350,9 @@ Example 4: Build an image
 
 This example shows how to build a bootable image containing the
 :command:`kernel-kvm`, :command:`os-core`, and the :command:`os-core-update`
-bundles from Example 2. Underneath, mixer uses `clr-installer`_ to generate the
-image.
+bundles from `Example 2: Create a simple mix`_. Make sure you complete that example before starting this one.  
+
+Underneath, mixer uses `clr-installer`_ to generate the image.
 
 #. Change directory into your mix.
 
