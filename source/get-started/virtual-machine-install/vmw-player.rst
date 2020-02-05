@@ -296,7 +296,7 @@ in the **Install |CL| using ISO** tab.  Otherwise, follow the
             files under:
 
             * Linux distros :file:`/home/username/vmware`
-            * Windows :file:`C:\Users\username\Documents\Virtual Machines`
+            * Windows :file:`C:\\Users\\username\\Documents\\Virtual Machines`
 
       #. Start the ``VMware Workstation Player`` app.
 
