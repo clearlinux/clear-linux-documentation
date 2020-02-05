@@ -45,7 +45,7 @@ the default :abbr:`NTP (Network Time Protocol)` servers cannot be reached.
 
    .. code-block:: bash
 
-      timedatectl set-ntp true
+      sudo timedatectl set-ntp true
 
 .. note::
 
