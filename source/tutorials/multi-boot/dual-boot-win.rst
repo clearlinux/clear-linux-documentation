@@ -35,11 +35,9 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
 
 #. Shrink the size of the partition by at least the following amount:
 
-   * For :ref:`installing the live desktop <bare-metal-install-desktop>`,
-     allow at least 21GB.
+   * For *Desktop* version, allow at least 21GB.
 
-   * For :ref:`installing the live server <bare-metal-install-server>`,
-     allow at least 4GB.
+   * For *Server* version, allow at least 4GB.
 
 
 #. We shrink C by about 21GB, as shown in Figure 2.
@@ -54,20 +52,19 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
 
 #. Shutdown the Windows 10 OS.
 
-#. Follow the instructions to :ref:`bare-metal-install-desktop`.
+#. Follow one of these guides to install |CL|:
 
-#. After booting from the |CL| image, select the icon to
-   launch the installer.
+   * *Desktop* version: :ref:`bare-metal-install-desktop`
+   * *Server* version: :ref:`bare-metal-install-server`
 
-#. Click :guilabel:`Select Installation Media`.
+   a. In the :guilabel:`Required options` tab, choose :guilabel:`Select
+      Installation Media`.
 
-#. Select :guilabel:`Safe Installation`.
+   #. Within that menu, select :guilabel:`Safe Installation`.
 
-#. Go through the remaining steps to install |CL|.
+   #. Go through remaining steps to complete the installation.
 
-#. Shut down your system and remove the USB.
-
-#. Reboot.
+   #. Reboot.
 
 #. During the BIOS POST stage, press :kbd:`F10`, or the proper F-key for your
    system, to launch the :guilabel:`Boot Menu`.
@@ -92,8 +89,8 @@ For this method, we shrink the Windows 10 OS partition to make space for |CL|.
       follow :ref:`Advanced: Use systemd-boot to boot Windows 10 OS and 
       |CL| <advanced-systemd-boot>`.
 
-Method 2: Add another hard disk to your system where you installed |CL|
-***********************************************************************
+Method 2: Add another hard disk to your system where you installed Windows
+**************************************************************************
 
 #. Shutdown your system.
 
@@ -101,22 +98,24 @@ Method 2: Add another hard disk to your system where you installed |CL|
 
 #. Power up your system.
 
-#. Follow the instructions in :ref:`bare-metal-install-desktop`, and launch
-   the |CL| installer.
+#. Follow one of these guides to install |CL|:
 
-#. In the :guilabel:`Required options` tab, choose :guilabel:`Select
-   Installation Media`.
+   * *Desktop* version: :ref:`bare-metal-install-desktop`
+   * *Server* version: :ref:`bare-metal-install-server`
 
-#. Within that menu, select :guilabel:`Destructive Installation`, and
-   select the new hard drive from the device list.
+   a. In the :guilabel:`Required options` tab, choose :guilabel:`Select
+      Installation Media`.
 
-   .. note::
+   #. Within that menu, select :guilabel:`Destructive Installation`, and
+      select the new hard drive from the device list.
 
-      Make sure you don’t select the drive with your Windows 10 OS.
+      .. warning::
 
-#. Go through remaining steps to complete the installation.
+         Make sure you don’t select the drive with your Windows 10 OS.
 
-#. Reboot.
+    #. Go through remaining steps to complete the installation.
+
+    #. Reboot.
 
 #. During the BIOS POST stage, press :kbd:`F10`, or the proper F-key for your
    system, to launch the :guilabel:`Boot Menu`.
