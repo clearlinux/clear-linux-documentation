@@ -318,7 +318,7 @@ swupd update <version number>
 swupd bundle-list [--all]
    Lists installed bundles.
 
-swupd bundle <search term>
+swupd search <term>
    Finds a bundle that contains your search term.
 
 swupd bundle-add <bundle name>
