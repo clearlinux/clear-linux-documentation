@@ -48,7 +48,7 @@ is in use.
 
 To view the current cpuidle driver run this command in a terminal:
 
-.. code:: bash
+.. code-block:: bash
 
    cat /sys/devices/system/cpu/cpuidle/current_driver
 
@@ -92,7 +92,7 @@ C-states or P-states impact the ability of a process to enter Turbo boost.
 Turbo boost can be disabled in a system's UEFI or BIOS. Turbo boost can also
 be disabled within |CL| with the command:
 
-.. code:: bash
+.. code-block:: bash
 
    echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
 
@@ -114,7 +114,7 @@ UEFI or BIOS.
 
 To view the current CPU frequency scaling driver run this command in a terminal:
 
-.. code:: bash
+.. code-block:: bash
 
    cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_driver
 
@@ -129,7 +129,7 @@ workload.
 
 To view the current CPU frequency scaling governor run this command in a terminal:
 
-.. code:: bash
+.. code-block:: bash
 
    cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
@@ -137,14 +137,14 @@ To change the CPU frequency scaling governor:
 
 #. Disable |CL| enforcement of certain power and performance settings:
 
-   .. code:: bash
+   .. code-block:: bash
 
       sudo systemctl mask clr-power.timer
 
 #. Change the governor. In the example below, the governor is set to
    *performance*:
 
-   .. code:: bash
+   .. code-block:: bash
 
       echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
@@ -167,13 +167,13 @@ By default, thermald is disabled in |CL| and starts automatically if battery
 power is detected. thermald can be manually enabled using the systemd service
 by running the command:
 
-.. code:: bash
+.. code-block:: bash
 
    sudo systemctl enable --now thermald
 
 For more information, see the thermald man page:
 
-.. code:: bash
+.. code-block:: bash
 
    man thermald
 
@@ -182,7 +182,7 @@ temperatures from thermald. To use ThermalMonitor, add the
 :command:`desktop-apps-extras` bundle and add your user account to the power
 group:
 
-.. code:: bash
+.. code-block:: bash
 
    sudo swupd bundle-add desktop-apps-extras
    sudo usermod -a -G power <USER>
@@ -211,7 +211,7 @@ and is enabled.
 
 Then generate thermal configuration as below:
 
-.. code:: bash
+.. code-block:: bash
 
    sudo swupd bundle-add acpica-unix2  # install acpi tools
    git clone https://github.com/intel/dptfxtract.git
@@ -223,19 +223,19 @@ Then generate thermal configuration as below:
 thermald configuration files will be generated and saved to
 :command:`/etc/thermal/` folder. Restart thermald service to take effect.
 
-.. code:: bash
+.. code-block:: bash
 
    sudo systemctl restart thermald.service
 
 check whether the configuration is in used.
 
-.. code:: bash
+.. code-block:: bash
 
    sudo systemctl status thermald.service
 
 if the output contains below line, it means configuration already applied:
 
-.. code:: bash
+.. code-block:: bash
 
    thermald[*]: [WARN]Using generated /etc/thermald/thermal-conf.xml.auto
 
