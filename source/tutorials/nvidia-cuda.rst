@@ -70,7 +70,7 @@ Refer to the `NVIDIA documentation on CUDA system requirements
 <https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#system-requirements>`_
 for the latest kernel and compiler compatibility. 
 
-For example, CUDA 10.1 on a system with the latest Linux kernel requires GCC7,
+For example, CUDA 10.2 on a system with the latest Linux kernel requires GCC8,
 which is older than the default GCC version for |CL|.
 
 Install the compatible version of GCC, if required:
@@ -79,7 +79,7 @@ Install the compatible version of GCC, if required:
 
    .. code:: bash
 
-      sudo swupd bundle-add c-extras-gcc7
+      sudo swupd bundle-add c-extras-gcc8
       
 #. Create the directory :file:`/usr/local/cuda/bin`:
 
@@ -95,8 +95,8 @@ Install the compatible version of GCC, if required:
 
    .. code:: bash
    
-      sudo ln -s /usr/bin/gcc7 /usr/local/cuda/bin/gcc
-      sudo ln -s /usr/bin/g++7 /usr/local/cuda/bin/g++  
+      sudo ln -s /usr/bin/gcc8 /usr/local/cuda/bin/gcc
+      sudo ln -s /usr/bin/g++8 /usr/local/cuda/bin/g++  
 
 
 Downloading and Installation
@@ -173,7 +173,6 @@ installed.
       
       sudo ./cuda_<VERSION>_linux.run \
       --toolkit \
-      --samples \
       --installpath=/opt/cuda \
       --no-man-page \
       --override \
