@@ -1,235 +1,279 @@
 .. _qingcloud:
 
-|CL-ATTR| on QingCloud\* (如何在青云 QingCloud 上创建 |CL| 虚拟主机)
-#########################################################################
+|CL-ATTR| on QingCloud\*
+###########################
 
-本教程介绍如何通过青云 QingCloud\* 控制台创建和启动 |CL| 实例以及完成以下任务：
+This tutorial describes how to create and launch a Clear Linux OS instance from the QingCloud QingCloud\* console.
 
-#. 在 QingCloud 系统镜像中找到并选择 |CL| 操作系统。
-#. 创建新的公钥和私钥对，以便可以安全地连接到 |CL| 虚拟主机。
-#. 启动新的 |CL| 虚拟主机并连接到该主机。
-#. 删除 |CL| 虚拟主机。
-
-.. contents::
+.. contents:: 
    :local:
    :depth: 1
 
-必备条件
-************
 
-本教程假定您已经完成了如下默认配置：
+Prerequisites
+*************
 
-* 您的环境可以运行 SSH 以访问远程 |CL| 虚拟主机。
-* 您知悉浏览器下载文件的绝对路径。
-* 您已设置了 QingCloud 的用户帐户，并确保该账户为启用状态，并且已登录到 QingCloud 控制台。 要了解有关青云和设置账户的更多信息，请访问青云官网，网址为 https://www.qingcloud.com/。
+This tutorial assumes that you have completed the following default
+configurations:
 
-在 QingCloud 控制台中选择并启动 |CL| 虚拟主机
-**********************************************
+*  Your environment can run SSH to access remote Clear Linux OS virtual hosts.
+*  You know the absolute path where the browser downloaded the file.
+*  You have set up a user account for QingCloud and that the account is
+   enabled and logged in to the QingCloud console. To learn more about Qingyun
+   and setting up an account, please visit Qingyun's official
+   `website <https://www.qingcloud.com>`_.
 
-#. 在浏览器中在 QingCloud 控制台主菜单中，依次选择 **“计算”** 、 **“主机”**，之后点击图1中所示的 **“创建”** 选项。
+
+Select and start |CL| virtual host QingCloud console
+*****************************************************
+
+#. In the browser, in the main menu of the QingCloud console, select "Compute"
+   , "Host" , then click the "Create" option.
 
    .. figure:: /_figures/qingcloud/QingCloud-1.png
       :scale: 50 %
-      :alt: QingCloud 控制台
+      :alt: QingCloud console
 
-      图1: QingCloud 控制台
-    
-   选择此选项后，页面将跳转到“创建主机”页面。
+   When you select this option, the page jumps to the Create Host page.
 
-#. 在创建主机页面，先点击图2中所示的 **“系统”** 选项，再点击最右侧 **|CL|** 图标，并点击 **“下一步”** 按钮。 
+#. On the host creation page, first click the "System" option, then click the
+   |CL| icon on the far right , and click the "Next" button.
 
    .. figure:: /_figures/qingcloud/QingCloud-2.png
       :scale: 50 %
-      :alt: 选择 |CL| 创建虚拟主机
+      :alt: Select Clear Linux OS to create virtual host
 
-      图2: 选择 |CL| 创建虚拟主机
+      Select |CL| to create a virtual host
 
-   之后，您将来到配置选择界面。 
+   After that, you will come to the configuration selection interface.
 
-#. 在配置选择界面，您可以看到不同硬件配置类型的虚拟主机，比如调整 CPU 核心数量、内存大小以及硬盘和副本备份策略。这里我们将选择默认配置来进行接下来的演示。
+#. In the configuration selection interface, you can see virtual hosts of
+   different hardware configuration types, such as adjusting the number of CPU
+   cores, memory size, and hard disk and copy backup strategies. Here we will
+   choose the default configuration for the next demonstration.
 
    .. figure:: /_figures/qingcloud/QingCloud-3.png
       :scale: 50 %
-      :alt: 配置选择
+      :alt: Configuration selection
 
-      图3: 配置选择
+      Configuration selection
 
-   在点击 “下一步” 按钮之后，您将来到网络设置界面。
+   After clicking the "Next" button, you will come to the network settings
+   interface.
 
-#. 在网络设置界面，您可以创建私有的 VPC 网络，也可以快速测试 |CL| 选择基础网络。 这里我们选择 **“基础网络”**。
+#. In the network settings interface, you can create a private VPC network or
+   quickly test the Clear Linux OS to select the base network. Here we choose
+   "Basic Network" .
 
    .. figure:: /_figures/qingcloud/QingCloud-4.png
       :scale: 50 %
-      :alt: 网络设置
+      :alt: Network settings
 
-      图4: 网络设置
+      Network Settings
 
-#. 在基本信息设置界面，您需要输入虚拟主机名称，并设置 SSH 密钥登录方式。
+   In the basic information setting interface, you need to enter the virtual
+   host name and set the SSH key login method.
 
-   #. 如果之前没有创建过 SSH 密钥，请点击图5中 **“创建一个”** 按钮以创建 SSH 密钥。
+Create an SSH key (Optional)
+============================
 
-      .. figure:: /_figures/qingcloud/QingCloud-6.png
-         :scale: 50 %
-         :alt: 创建SSH密钥
+#. If you haven't created an SSH key before, click the "Create one" button to
+   create an SSH key.
 
-         图5: 创建SSH密钥
+   .. figure:: /_figures/qingcloud/QingCloud-6.png
+      :scale: 50 %
+      :alt: Create SSH key
 
-      在点击 “创建一个” 按钮之后，页面将跳转到 SSH 密钥创建界面。
+      Create SSH Key
 
-   #. 在 SSH 密钥创建界面中，您可以依照图6填写密钥的名称以便记忆，并且选择您需要的加密方法，确认无误后即可点击 **“提交”** 按钮。
+   After clicking the "Create a" button, the page will jump to the SSH key
+   creation interface.
 
-      .. figure:: /_figures/qingcloud/QingCloud-6.png
-         :scale: 50 %
-         :alt: 新建SSH密钥
+#. In the SSH key creation interface, you can fill in the key name, and select
+   the encryption method you need. After confirming that it is correct, click
+   the "Submit" button.
 
-         图6: 新建SSH密钥
+   .. figure:: /_figures/qingcloud/QingCloud-6.png
+      :scale: 50 %
+      :alt: New SSH key
 
-      提交之后，将跳出密钥下载按钮。
+      New SSH Key
 
-   #. 出现密钥下载按钮后，请在10分钟之内点击下载按钮完成密钥的下载，并将该密钥妥善保存到本地，以便之后连接虚拟主机使用。
+   After submission, the key download button will pop up.
 
-      .. figure:: /_figures/qingcloud/QingCloud-7.png
-         :scale: 50 %
-         :alt: 下载SSH密钥
+#. After the key download button appears, please click the download button
+   within 10 minutes to complete the download of the key, and save the key to
+   a local place for later connection to the virtual host.
 
-         图7: 下载SSH密钥   
+   .. figure:: /_figures/qingcloud/QingCloud-7.png
+      :scale: 50 %
+      :alt: Download SSH key
 
-      在关闭下载对话框之后，界面将跳转到之前的 “基本信息设置” 界面
+      Download SSH Key
 
-#. 在确保 SSH 密钥已妥善下载保存的情况下，如图8检查虚拟主机的基本信息，确认无误后请点击 **“创建”** 按钮。
+   After closing the download dialog, the interface will jump to the previous
+   "Basic Information Settings" interface
+
+After ensuring that the SSH key has been properly downloaded and saved,
+check the basic information of the virtual host. After confirming that it is
+correct, click the "Create" button.
 
    .. figure:: /_figures/qingcloud/QingCloud-8.png
       :scale: 50 %
-      :alt: 确认信息并创建虚拟主机
+      :alt: Confirm the information and create a virtual host
 
-      图8: 确认信息并创建虚拟主机
+      Confirm the information and create a virtual host
 
-   确认后，QingCloud 将会创建 |CL| 虚拟主机，您可以在新的界面中查看当前虚拟主机的状态。
+After confirming, QingCloud will create the Clear Linux OS virtual host. You
+can check the current status of the virtual host in the new interface.
 
+Apply for a public IP and add it to the virtual 
+***********************************************
 
-
-申请公网IP并添加到虚拟主机
-************************************
-   
-#. 由于 QingCloud 不会为使用默认网络创建的虚拟主机自动分配公网IP地址，所以我们需要手动申请，并添加到虚拟主机。如图9点击导航栏左侧的 **“网络与CDN”** 按钮。
+#. Since QingCloud does not automatically assign a public IP address to a
+   virtual host created using the default network, we need to manually apply
+   and add it to the virtual host. Click the "Network and CDN" button on the
+   left side of the navigation bar .
 
    .. figure:: /_figures/qingcloud/QingCloud-9.png
       :scale: 50 %
-      :alt: 网络与CDN
+      :alt: Network and CDN
 
-      图9: 网络与CDN
+      Network and CDN
 
-   点击后，您将来到网络与CDN配置界面。
+   After clicking, you will come to the network and CDN configuration
+   interface.
 
-#. 在新页面中，如图10点击左侧 **“公网IP”** 按钮，并点击中间的 **“申请”** 按钮以进行创建公网IP。
+#. In the new page, as shown in Figure 10, click the "Public IP" button on the
+   left , and click the "Apply" button in the middle to create a public IP.
 
    .. figure:: /_figures/qingcloud/QingCloud-10.png
       :scale: 50 %
-      :alt: 申请创建公网IP
+      :alt: Apply for public IP
 
-      图10: 申请创建公网IP
+      Apply for public IP   
 
-   点击申请后，将跳出提示栏，仔细阅读后按照图11点击 **“继续申请公网IP”** 按钮。
+   After clicking the application, the prompt bar will pop up, read it
+   carefully and click the "Continue to apply for public IP" button.
 
    .. figure:: /_figures/qingcloud/QingCloud-11.png
       :scale: 50 %
-      :alt: 提示栏确认
+      :alt: Confirmation in the prompt bar
 
-      图11: 提示栏确认
+      Confirmation in the prompt bar
 
-   之后将跳转到申请公网IP界面。
+After that, it will jump to the interface for applying for public IP.
 
-#. 在申请公网IP页面中，如图12确认和填写相关信息，包括计费模式和带宽上限（本教程中使用的是流量计费模式并且设置了2Mbps的带宽上限），确认无误后点击 **“提交”** 按钮。
+#. On the application for public network IP page, confirm and fill in the
+   relevant information, including the charging mode and bandwidth limit (the 
+   flow rate mode is used in this tutorial and the 2Mbps bandwidth limit is
+   set). After confirming that it is correct, click "Submit" Button.
+
+   .. figure:: /_figures/qingcloud/QingCloud-12.png
+      :scale: 50 %
+      :alt: Confirmation of Public IP Application
+
+      Confirmation of Public IP Application
+
+#. After that, click the "Calculate" and "Network Card" buttons in the
+   navigation bar to come to the network card interface.
 
    .. figure:: /_figures/qingcloud/QingCloud-13.png
       :scale: 50 %
-      :alt: 确认提交公网IP申请
+      :alt: NIC interface
 
-      图12: 确认提交公网IP申请
+      Network Interface
 
-#. 之后如图13通过导航栏点击 **“计算”**、**“网卡”** 按钮来到网卡界面。
-
-   .. figure:: /_figures/qingcloud/QingCloud-13.png
-      :scale: 50 %
-      :alt: 网卡界面
-
-      图13: 网卡界面
-
-#. 在网卡界面，按照图14选中刚刚创建的 Clear Linux OS 主机的网卡，并点击上方 **“更多操作”** 按钮，再点击 **“绑定公网IPv4”** 按钮。
+#. On the network card interface, select the network card of the |CL| host
+   that you just created, and click the "More Actions" button above , and then
+   click the "Binding Public Network IPv4" button.
 
    .. figure:: /_figures/qingcloud/QingCloud-14.png
       :scale: 50 %
-      :alt: 绑定选中
+      :alt: Bind selected
 
-      图14: 绑定选中
+      Bind selected
 
-#. 在绑定公网IP确认界面，按照图15选择刚刚申请完成的公网IP地址，并点击下方 **“提交”** 按钮。 等待片刻后，状态将会变成图16中所示。
+#. On the binding public network IP confirmation interface, select the public
+   IP address that has just been applied for, and click the "Submit" button below . After waiting a moment, the status will change.
 
    .. figure:: /_figures/qingcloud/QingCloud-15.png
       :scale: 50 %
-      :alt: 提交绑定
+      :alt: Commit binding
 
-      图15: 提交绑定
+      Commit binding
 
    .. figure:: /_figures/qingcloud/QingCloud-16.png
       :scale: 50 %
-      :alt: 公网IP绑定成功
+      :alt: Public network IP binding succeeded
 
-      图16: 公网IP绑定成功
+      Public network IP binding succeeded
 
+Connect to |CL| virtual 
+*********************************
 
-连接到 |CL| 虚拟主机
-*****************************
-
-请您点击导航栏左侧 **“计算”**、**“主机”** 按钮，确认当前虚拟主机处于正在运行状态，且已绑定了公网IP地址。如图17所示。
+Please click the "Calculate" and "Host" buttons on the left side of the
+navigation bar to confirm that the current virtual host is running and has a
+public IP address bound.
 
 .. figure:: /_figures/qingcloud/QingCloud-17.png
    :scale: 50 %
-   :alt: 确认虚拟主机当前处于正常状态
+   :alt: Confirm that the virtual host is currently in a normal state
 
-   图17: 确认虚拟主机当前处于正常状态
+   Confirm that the virtual host is currently in a normal state
 
-#. 复制当前 |CL| 虚拟主机的公网IP地址，并使用 SSH 客户端进行连接。 这里我们需要用到之前保存的 SSH 密钥。
-#. 在此教程中，以 MobaXterm 客户端为例演示登录过程。请如图18检查各项。用户名我们选择 **root**，密钥请选择之前下载并保存到本地的 SSH 密钥。
+#. Copy the public IP address of the current Clear Linux OS virtual host and
+   connect using an SSH client. Here we need to use the previously saved SSH
+   key.
+
+#. In this tutorial, the MobaXterm client is used as an example to demonstrate
+   the login process. Check each item as shown. For the user name, we choose
+   root. For the key, select the SSH key that was downloaded and saved to the
+   local computer .
 
    .. figure:: /_figures/qingcloud/QingCloud-18.png
       :scale: 50 %
-      :alt: SSH 登录虚拟主机设置
+      :alt: SSH login virtual host settings
 
-      图18: SSH 登录虚拟主机设置
+      SSH login virtual host settings
 
-#. 设置成功后，点击登录即可登录到 |CL| 虚拟主机。
-   
+#. After the setting is successful, click Login to log in to the |CL| virtual
+   host.
+
    .. figure:: /_figures/qingcloud/QingCloud-19.png
       :scale: 50 %
-      :alt: SSH 登录成功
+      :alt: SSH login successful
 
-      图19: SSH 登录成功
+      SSH login successful
 
+Remove |CL| virtual host
+************************
 
-删除 |CL| 虚拟主机
-*************************
+This section explains how to delete a |CL| virtual host created on QingCloud.
 
-本章节介绍如何在 QingCloud 上删除所创建的 |CL| 虚拟主机。
-
-#. 通过左侧导航栏依次选择 **“计算”**、**“主机”** 后，找到刚刚创建的 Clear Linux OS 主机，如图20所示选中此主机，再点击上方 **“更多操作”** 按钮选择 **“删除”**，即可删除虚拟主机。
+By the left navigation bar select "Calculate" , "master" , the hosts found |CL|
+you just created, as this host 20 is selected, and then click on the top as
+shown in the "More Actions" button to select "Delete" , you can Delete the
+virtual host.
 
    .. figure:: /_figures/qingcloud/QingCloud-20.png
       :scale: 50 %
-      :alt: |CL| 虚拟主机
+      :alt: Remove Clear Linux OS Virtual Host 
 
-      图20: 删除 |CL| 虚拟主机
+      Remove Clear Linux OS Virtual Host
 
+Delete the applied public IP 
+****************************
 
-删除申请的公网IP
-*****************
+This section explains how to delete the applied public IP address on QingCloud.
 
-本章节介绍如何在 QingCloud 上删除所申请的公网IP地址。
-
-#. 通过左侧导航栏依次选择 **“网络与CDN”**、**“公网IP”** 后，找到刚刚申请的公网IP地址，如图21所示选中此项目，再点击上方 **“更多操作”** 按钮选择 **“删除”**，即可删除。
+Select "Network and CDN" , "Public IP" from the navigation bar on the left ,
+and then find the public IP address just applied. Select this item as shown,
+then click the "More Actions" button above and select "Delete" to delete.
 
    .. figure:: /_figures/qingcloud/QingCloud-21.png
       :scale: 50 %
-      :alt: 删除公网IP地址
+      :alt: Delete public network IP address
 
-      图21: 删除公网IP地址
+      Delete public network IP address
+      
