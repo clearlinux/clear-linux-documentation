@@ -57,6 +57,10 @@ are known to be problematic.
    documentation. As a simple workaround, some systems can disable one of the
    graphics devices or NVIDIA Optimus* in the system firmware.
 
+NVIDIA is known for not keeping up with the kernel release cycle. As such, it 
+is recommended to run the :ref:`LTS kernel <compatible-kernels>` (*kernel-lts*) 
+instead of the native kernel (*kernel-native*) (see `this GitHub 
+issue <https://github.com/clearlinux/distribution/issues/1725>`_).
 
 **See the** `Troubleshooting`_ **section for more known issues and solutions.**
 
