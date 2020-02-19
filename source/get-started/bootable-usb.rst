@@ -1,16 +1,16 @@
 .. _bootable-usb:
 
-Create a bootable USB drive using BalenaEtcher
-##############################################
+Create a bootable USB drive using Etcher*
+#########################################
+
+Add intro. 
 
 Prerequisites
 *************
 
 * Download the |CL| Desktop or Server image from the `Downloads`_ page
 * Recommended minimum **4GB** USB drive or larger
-* Download and install `BalenaEtcher`_
-
-.. _bootable-usb-linux:
+* Download and install `Etcher`_
 
 * Make sure you completed all `Prerequisites`_.
 
@@ -22,90 +22,87 @@ Burn the |CL| image onto a USB drive
    Burning an image formats the USB drive and destroys all pre-existing
    content.  Back up your data before proceeding.
 
-#. Launch balenaEtcher.
+#. Launch Etcher.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_Start.PNG
       :scale: 100%
-      :alt: BalenaEtcher Start
+      :alt: Start screen
          
-      Figure X: BalenaEtcher Start
+      Figure 1: Start screen
  
 #. Press :guilabel:`Select Image`.
 
 #. Change directory to where the image resides.
 
-#. Open the Image.
+#. Select the image and click :guilabel:`Open`.
 
-   .. figure:: /_figures/bootable-usb/balenaEtcher_ImgaeSlect.PNG
+   .. figure:: /_figures/bootable-usb/balenaEtcher_ImageSelect.PNG
       :scale: 100%
-      :alt: 
+      :alt: In Open, select the image
          
-      Figure X: 
+      Figure 2: In Open, select the image
 
 #. Plug in the USB drive.
 
-#. Identify the USB drive using the :guilabel:`Change` under the middel icon.
+#. Identify the USB drive or click :guilabel:`Change` to select a 
+   different USB.
     
    .. note::
+
       This shows all USB drives attached to the system.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_DriveSlect.PNG
       :scale: 100%
-      :alt: 
+      :alt: USB drives attached
          
-      Figure X: 
+      Figure 3: USB drives attached
 
 #. Select the proper drive and press :guilabel:`Continue`.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_ReadyToFlash.PNG
       :scale: 100%
-      :alt: 
+      :alt: USB Flash Device selected
       
-      Figure X: 
+      Figure 4: USB Flash Device selected
 
-#. When ready Press the  :guilabel:`Flash!` Button.
+#. When ready Press the :guilabel:`Flash!` Button.
 
-#. Flashing starting.
+#. The dialog shows :guilabel`:`Flashing` while in progress.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_StartingToFlash.PNG
       :scale: 100%
-      :alt: 
+      :alt: Starting to flash
 
-      Figure X: 
+      Figure 5: Starting to flash
 
 #. Flashing in progress.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_Flashing.PNG
       :scale: 100%
-      :alt: 
+      :alt:  Flashing, percentage complete
       
-      Figure X: 
+      Figure 6: Flashing, percentage complete
 
-#. Flashing complete.
+#. :guilabel:`Flash complete` shows when finished.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_Done.PNG
       :scale: 100%
-      :alt: 
+      :alt: Flash Complete!
       
-      Figure X: 
+      Figure 7: Flash Complete!
 
    .. note::
-      The process can take more than a few minutes. When the process completes, close BalenaEtcher.
-      
 
+      The process may take more than a few minutes. When the process completes, close BalenaEtcher.
+      
 Ejecting the |CL| image USB drive
 =================================
 
 .. caution::
 
-   Not fully unmounting the USB drive before removing the drive could cause
-   file system checksum errors in it. If this happens, burn the image again,
-   ensuring all the USB drive partitions are unmounted first befor removing drive.
+   If you do not properly unnmount the USB drive before removing it, it may cause file system checksum errors in it. If this happens, burn the image again,   ensuring all the USB drive partitions are unmounted first before removing drive.
 
-
-#. Select the Windows taskbar menu for USB and select
-   :guilabel:`Eject <drive name>`.
+Unmount the USB per your platform and then eject it. 
    
- 
 .. _Downloads: https://clearlinux.org/downloads
-.. _BalenaEtcher: https://www.balena.io/etcher/
+.. _Etcher: https://www.balena.io/etcher/
