@@ -37,6 +37,7 @@ Burn the |CL| image onto a USB drive
 #. Plug in the USB drive.
 
 #. Identify the USB drive using the :guilabel:`Change` under the middel icon.
+    
    .. note::
       This shows all USB drives attached to the system.
 
