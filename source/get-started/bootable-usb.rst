@@ -1,7 +1,7 @@
 .. _bootable-usb:
 
 Create a bootable USB drive using BalenaEtcher
-###########################
+##############################################
 
 Prerequisites
 *************
@@ -94,7 +94,7 @@ Burn the |CL| image onto a USB drive
       
 
 Ejecting the |CL| image USB drive
-====================================
+=================================
 
 .. caution::
 
