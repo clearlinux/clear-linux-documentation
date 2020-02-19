@@ -57,7 +57,7 @@ Burn the |CL| image onto a USB drive
          
       Figure 3: USB drives attached
 
-#. Select the proper drive and press :guilabel:`Continue`.
+#. Select the proper device and press :guilabel:`Continue`.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_ReadyToFlash.PNG
       :scale: 100%
