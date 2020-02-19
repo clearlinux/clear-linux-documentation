@@ -3,7 +3,7 @@
 Create a bootable USB drive using Etcher*
 #########################################
 
-Add intro. 
+Use Etcher* software, an open source project from Balena*, to flash a |CL| image to a USB drive on macOS*, Linux\*, or Windows* operating systems. 
 
 Prerequisites
 *************
@@ -67,7 +67,7 @@ Burn the |CL| image onto a USB drive
 
 #. When ready Press the :guilabel:`Flash!` Button.
 
-#. The dialog shows :guilabel`:`Flashing` while in progress.
+#. The dialog shows :guilabel:`Flashing` while in progress.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_StartingToFlash.PNG
       :scale: 100%
@@ -83,7 +83,7 @@ Burn the |CL| image onto a USB drive
       
       Figure 6: Flashing, percentage complete
 
-#. :guilabel:`Flash complete` shows when finished.
+#. :guilabel:`Flash complete` shows when the process is finished.
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_Done.PNG
       :scale: 100%
@@ -100,9 +100,11 @@ Ejecting the |CL| image USB drive
 
 .. caution::
 
-   If you do not properly unnmount the USB drive before removing it, it may cause file system checksum errors in it. If this happens, burn the image again,   ensuring all the USB drive partitions are unmounted first before removing drive.
+   If you do not properly unmount the USB drive before removing it, it may cause file system checksum errors in it. If this happens, burn the image again, ensuring all the USB drive partitions are unmounted first before removing drive.
 
-Unmount the USB per your platform and then eject it. 
+#. Unmount the USB per your OS instructions. 
+
+#. Then eject the USB. 
    
 .. _Downloads: https://clearlinux.org/downloads
 .. _Etcher: https://www.balena.io/etcher/
