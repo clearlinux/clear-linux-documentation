@@ -24,15 +24,23 @@ Burn the |CL| image onto a USB drive
 
 #. Launch balenaEtcher.
 
-.. figure:: /_figures/bootable-usb/balenaEtcher_Start.PNG
-
+   .. figure:: /_figures/bootable-usb/balenaEtcher_Start.PNG
+      :scale: 100%
+      :alt: BalenaEtcher Start
+         
+      Figure X: BalenaEtcher Start
+ 
 #. Press :guilabel:`Select Image`.
 
 #. Change directory to where the image resides.
 
 #. Open the Image.
 
-.. figure:: /_figures/bootable-usb/balenaEtcher_ImgaeSlect.PNG
+   .. figure:: /_figures/bootable-usb/balenaEtcher_ImgaeSlect.PNG
+      :scale: 100%
+      :alt: 
+         
+      Figure X: 
 
 #. Plug in the USB drive.
 
@@ -41,25 +49,45 @@ Burn the |CL| image onto a USB drive
    .. note::
       This shows all USB drives attached to the system.
 
-.. figure:: /_figures/bootable-usb/balenaEtcher_DriveSlect.PNG
+   .. figure:: /_figures/bootable-usb/balenaEtcher_DriveSlect.PNG
+      :scale: 100%
+      :alt: 
+         
+      Figure X: 
 
 #. Select the proper drive and press :guilabel:`Continue`.
 
-.. figure:: /_figures/bootable-usb/balenaEtcher_ReadyToFlash.PNG
+   .. figure:: /_figures/bootable-usb/balenaEtcher_ReadyToFlash.PNG
+      :scale: 100%
+      :alt: 
+      
+      Figure X: 
 
 #. When ready Press the  :guilabel:`Flash!` Button.
 
 #. Flashing starting.
 
-.. figure:: /_figures/bootable-usb/balenaEtcher_StartingToFlash.PNG
+   .. figure:: /_figures/bootable-usb/balenaEtcher_StartingToFlash.PNG
+      :scale: 100%
+      :alt: 
+
+      Figure X: 
 
 #. Flashing in progress.
 
-.. figure:: /_figures/bootable-usb/balenaEtcher_Flashing.PNG
+   .. figure:: /_figures/bootable-usb/balenaEtcher_Flashing.PNG
+      :scale: 100%
+      :alt: 
+      
+      Figure X: 
 
 #. Flashing complete.
 
-.. figure:: /_figures/bootable-usb/balenaEtcher_Done.PNG
+   .. figure:: /_figures/bootable-usb/balenaEtcher_Done.PNG
+      :scale: 100%
+      :alt: 
+      
+      Figure X: 
 
    .. note::
       The process can take more than a few minutes. When the process completes, close BalenaEtcher.
