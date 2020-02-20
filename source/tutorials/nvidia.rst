@@ -57,6 +57,9 @@ are known to be problematic.
    documentation. As a simple workaround, some systems can disable one of the
    graphics devices or NVIDIA Optimus* in the system firmware.
 
+.. note::
+   The :ref:`Long Term Support (LTS) kernel <compatible-kernels>` variant is
+   more likely to be compatible with proprietary NVIDIA drivers.
 
 **See the** `Troubleshooting`_ **section for more known issues and solutions.**
 
