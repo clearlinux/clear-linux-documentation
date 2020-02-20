@@ -25,8 +25,8 @@ This tutorial assumes that you have completed the following configuration steps:
   `website <https://www.qingcloud.com>`_.
 
 
-Select and start |CL| virtual host QingCloud console
-*****************************************************
+Select and start |CL| virtual host with QingCloud console
+*********************************************************
 
 #. Select :guilabel:`计算>主机` (Compute>Host) in the main menu of the
    QingCloud console and click the :guilabel:`创建` (Create) option.
@@ -45,11 +45,11 @@ Select and start |CL| virtual host QingCloud console
 
       Select |CL| to create a virtual host
 
-#. In the configuration selection interface, you can see virtual hosts of
-   different hardware configuration types, such as adjusting the number of CPU
-   cores, memory size, and hard disk and copy backup strategies. Here we will
-   choose the default configuration for the next demonstration. Click the
-   :guilabel:`下一步` (Next) button to go to the network settings interface.
+#. In the configuration selection interface, where you can configure the
+   number of CPU cores, memory size, and the storage backup method.
+   For demonstration purposes, we will choose the default configuration.
+   Click the :guilabel:`下一步` (Next) button to go to the network settings
+   interface.
 
    .. figure:: /_figures/qingcloud/QingCloud-3.png
       :scale: 50 %
@@ -82,7 +82,7 @@ Create an SSH key (Optional)
       Create SSH Key
 
 #. In the SSH key creation interface, you can fill in the key name, and select
-   the encryption method you need. After confirming that it is correct, click
+   encryption method you prefer. After confirming that they are correct, click
    the :guilabel:`提交` (Submit) button.
 
    .. figure:: /_figures/qingcloud/QingCloud-6.png
@@ -91,9 +91,8 @@ Create an SSH key (Optional)
 
       New SSH Key
 
-#. After the key download button appears, please click the download button
-   within 10 minutes to complete the download of the key, and save the key to
-   a local place for later connection to the virtual host.
+#. After the download button appears, please download the key within 10
+   minutes, and save the key locally for connecting to the virtual host later.
 
    .. figure:: /_figures/qingcloud/QingCloud-7.png
       :scale: 50 %
@@ -102,8 +101,8 @@ Create an SSH key (Optional)
       Download SSH Key
 
 #. After ensuring that the SSH key has been properly downloaded and saved,
-   check the basic information of the virtual host. After confirming that it is
-   correct, click the :guilabel:`创建` (Create) button.
+   check the basic information of the virtual host. After confirming that they
+   are correct, click the :guilabel:`创建` (Create) button.
 
    .. figure:: /_figures/qingcloud/QingCloud-8.png
       :scale: 50 %
@@ -111,11 +110,11 @@ Create an SSH key (Optional)
 
       Confirm the information and create a virtual host
 
-After confirming, QingCloud will create the Clear Linux OS virtual host. You
-can check the current status of the virtual host in the new interface.
+QingCloud will now create the Clear Linux OS virtual host. You
+can check the state of the virtual host in the new interface.
 
-Apply for a public IP and add it to the virtual 
-***********************************************
+Apply for a public IP and add it to the virtual host
+****************************************************
 
 #. Since QingCloud does not automatically assign a public IP address to a
    virtual host created using the default network, we need to manually apply
@@ -138,21 +137,21 @@ Apply for a public IP and add it to the virtual
 
       Apply for public IP   
 
-   After clicking the application, the prompt bar will pop up, read it
+   After clicking the apply button, a dialog will pop up, read it
    carefully and click the :guilabel:`继续申请公网IP` (Continue to apply for
    public IP) button.
 
    .. figure:: /_figures/qingcloud/QingCloud-11.png
       :scale: 50 %
-      :alt: Confirmation in the prompt bar
+      :alt: Confirmation dialog
 
-      Confirmation in the prompt bar
+      Confirmation dialog
 
-#. On the application for public network IP page, confirm and fill in the
-   relevant information, including the charging mode and bandwidth limit (the 
-   flow rate mode is used in this tutorial and the 2Mbps bandwidth limit is
-   set). After confirming that it is correct, click :guilabel:`提交` (Submit)
-   button.
+#. On the public network IP application page, confirm and fill in the
+   relevant information, including the charging mode and bandwidth upper limit
+   (the charge-by-bandwidth mode is used in this tutorial and the 2Mbps
+   bandwidth limit is set). After confirming that they are correct, click
+   :guilabel:`提交` (Submit) button.
 
    .. figure:: /_figures/qingcloud/QingCloud-12.png
       :scale: 50 %
@@ -182,7 +181,8 @@ Apply for a public IP and add it to the virtual
 
 #. On the binding public network IP confirmation interface, select the public
    IP address that has just been applied for, and click the :guilabel:`提交`
-   (Submit) button below . After waiting a moment, the status will change.
+   (Submit) button below . After waiting a moment, the state of the |CL|
+   virtual host will change.
 
    .. figure:: /_figures/qingcloud/QingCloud-15.png
       :scale: 50 %
@@ -196,7 +196,7 @@ Apply for a public IP and add it to the virtual
 
       Public network IP binding succeeded
 
-Connect to |CL| virtual 
+Connect to |CL| virtual host
 *********************************
 
 Click the :guilabel:`计算>主机` (Compute>Host) buttons on the left side of the
@@ -209,8 +209,8 @@ navigation bar to confirm that the current virtual host is running and has a pub
    Confirm that the virtual host is currently in a normal state
 
 #. Copy the public IP address of the current |CL| virtual host and
-   connect using an SSH client. Here we need to use the previously saved SSH
-   key.
+   connect to it from an SSH client. Here we need to use the previously saved
+   SSH key.
 
 #. In this tutorial, the MobaXterm client is used as an example to demonstrate
    the login process. Check each item as shown. For the user name, we choose
@@ -223,8 +223,8 @@ navigation bar to confirm that the current virtual host is running and has a pub
 
       SSH login virtual host settings
 
-#. After the setting is successful, click :guilabel:`Login` to log in to the
-   |CL| virtual host.
+#. Click :guilabel:`Login` to log in to the
+   |CL| virtual host after completing the setup process.
 
    .. figure:: /_figures/qingcloud/QingCloud-19.png
       :scale: 50 %
