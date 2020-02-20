@@ -36,14 +36,13 @@ to exit these states when the CPU is needed.
 C-states (idle states)
 ======================
 
-C-states are hardware sleep states that are entered when it is determined that
-the CPU is idle and not executing instructions. C-states reduce power
-utilization by increasingly reducing clock frequency, voltages, and features
-in each state. Although C-states can typically be limited or disabled in a
-system's UEFI or BIOS configuration, these settings are overridden when the
-`intel_idle driver`_ is in use.
+Hardware enters a C-state when the CPU is idle and not executing instructions.
+C-states reduce power utilization by increasingly reducing clock frequency,
+voltages, and features in each state. Although C-states can typically be
+limited or disabled in a system's UEFI or BIOS configuration, these settings
+are overridden when the `intel_idle driver`_ is in use.
 
-To view the current cpuidle driver run this command in a terminal:
+To view the current ``cpuidle`` driver run this command in a terminal:
 
 .. code-block:: bash
 
@@ -66,8 +65,8 @@ or completely disabled with :command:`idle=poll`.
 P-states (performance states)
 =============================
 
-P-states, also known as *Intel SpeedStep® technology* on Intel processors or
-*Cool'n'Quiet* on AMD processors, are states the CPU enters while it is active
+The CPU can enter a P-state, also known as *Intel SpeedStep® technology* on
+Intel processors or *Cool'n'Quiet* on AMD processors, while it is active
 and executing instructions. P-states reduce power utilization by adjusting CPU
 clock frequency and voltages based on CPU demand. P-states can typically be
 limited or disabled in a system's firmware (UEFI/BIOS).
@@ -92,8 +91,8 @@ Turbo boost can be disabled in a system's UEFI/BIOS or disable Turbo boost in
 Linux CPU clock frequency scaling
 *********************************
 
-The CPUFreq subsystem in Linux allows the OS to control :ref:`C-states
-<c-states-section>` and :ref:`P-states <P-states-section>`
+The ``CPUFreq`` subsystem in Linux allows the OS to control
+:ref:`C-states <c-states-section>` and :ref:`P-states <P-states-section>`
 via CPU drivers and governors that provide algorithms that define how and when
 to enter these states.
 
@@ -127,20 +126,15 @@ To view the current CPU frequency scaling governor run this command in a termina
 
    cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
-To change the CPU frequency scaling governor:
+Each core will report its own status. Your output should look similar to this
+example with four cores:
 
-#. Disable |CL| enforcement of certain power and performance settings:
+.. code-block:: console
 
-   .. code-block:: bash
-
-      sudo systemctl mask clr-power.timer
-
-#. Change the governor. In the example below, the governor is set to
-   *performance*:
-
-   .. code-block:: bash
-
-      echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+   performance
+   performance
+   performance
+   performance
 
 The list of all governors can be found in the Linux kernel documentation on
 `CPUFreq Governors`_.
@@ -149,12 +143,27 @@ The list of all governors can be found in the Linux kernel documentation on
 
    The intel_pstate driver only supports *performance* and *powersave* governors.
 
+There are 2 ways to change the CPU frequency scaling governor:
+
+#. Disable |CL| enforcement of certain power and performance settings:
+
+   .. code-block:: bash
+
+      sudo systemctl mask clr-power.timer
+
+#. Change the governor value in :file:`/sys/devices`. In the example below,
+   the governor is set to *performance*:
+
+   .. code-block:: bash
+
+      echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
 Thermal management
 ******************
 
 `thermald`_ is a Linux thermal management daemon used to prevent platforms 
 from overheating. :command:`thermald` forces a C-state by inserting CPU sleep
-cycles and adjusting any  available cooling methods. This can be especially
+cycles and adjusting any available cooling methods. This can be especially
 desirable for laptops.
 
 :command:`thermald` is disabled by default in |CL| and starts automatically
@@ -165,7 +174,7 @@ the systemd service by running the command:
 
    sudo systemctl enable --now thermald
 
-For more information, see the thermald man page:
+For more information, see the :command:`thermald` man page:
 
 .. code-block:: bash
 
@@ -194,13 +203,15 @@ Better thermal control and performance can be achieved by providing platform
 specific configuration to :command:`thermald`.
 
 `Linux DPTF Extract Utility`_ is a companion tool to :command:`thermald`,
-This tool makes use of Intel®
-:abbr:`DPTF (Dynamic Platform and Thermal Framework)` technology, and convert
-to the :file:`thermal_conf.xml` configuration format used by
-:command:`thermald`. Since it's a closed-source project, it cannot be packaged
-as a bundle in Clear Linux OS. Install it as follows.
+This tool uses Intel® 
+:abbr:`DPTF (Dynamic Platform and Thermal Framework)` technology and
+can convert to the :file:`thermal_conf.xml` configuration format used by
+:command:`thermald`. Closed-source projects, like this one, cannot be packaged
+as a bundle in |CL|, so you must install it manually:
 
-#. Make sure your machine's BIOS has DPTF feature and is enabled.
+#. Make sure your machine's BIOS has DPTF feature and is enabled. It will usually be in the :guilabel:`Advanced` or :guilabel:`Advanced>Power` section of the BIOS. 
+
+   .. figure:: /_figures/cpu-perf-guide/dptf_bios.png
 
    .. note:: 
 
@@ -219,7 +230,7 @@ as a bundle in Clear Linux OS. Install it as follows.
       acpixtract -a acpi.out
       sudo ./dptfxtract *.dat
 
-#. Restart thermald service to take effect.
+#. Restart :command:`thermald` service to take effect.
 
    .. code-block:: bash
 
