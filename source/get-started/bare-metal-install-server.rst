@@ -89,7 +89,7 @@ Launch the |CL| Installer
 
       Figure 2: root login
 
-#. .. note::
+  .. note::
 
       If a wireless connection is needed, connect to the network using
       :command:`nmtui` before lauching the installer. See the documentation on
@@ -127,8 +127,7 @@ The |CL| Installer Main Menu appears as shown in Figure 4.
    Figure 4: Clear Linux OS Installer
 
 The |CL| Installer Main Menu has two tabs: :guilabel:`[R] Required options`
-and :guilabel:`[A] Advanced options`. Navigate between tabs using the arrow
-these shortcut keys:
+and :guilabel:`[A] Advanced options`. Navigate between tabs using these shortcut keys:
 
 * :kbd:`Shift+A` for :guilabel:`[A] Advanced options`
 * :kbd:`Shift+R` for :guilabel:`[R] Required options`
@@ -159,8 +158,6 @@ Choose Timezone
 
 #. In :guilabel:`Select System Timezone`, use :kbd:`Up/Down` arrows
    navigate to the desired timezone.
-
-.. todo: User need only select Enter; can only select Confirm with mouse.
 
 #. Press :kbd:`Enter` to confirm.
 
@@ -749,6 +746,31 @@ Bundle selection is disabled if no network connection exists.
 
 Optional: Skip to `Finish installation`_.
 
+Assign Hostname
+===============
+
+#. In Advanced Options, select :guilabel:`Assign Hostname`.
+
+#. In :guilabel:`Hostname`, enter the hostname only (excluding the domain).
+
+   .. note::
+
+      Hostname does not allow empty spaces. Hostname must start with an
+      alphanumeric character but may also contain hyphens. Maximum length of
+      63 characters.
+
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-28.png
+      :scale: 100%
+      :alt: Assign Hostname
+
+      Figure 28: Assign Hostname
+
+#. Navigate to :kbd:`Confirm` until highlighted.
+
+#. Select :kbd:`Confirm`.
+
+Optional: Skip to `Finish installation`_.
+
 Kernel Command Line
 ===================
 
@@ -762,11 +784,11 @@ new kernel.
 
 #. Select :kbd:`Enter`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-28.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-29.png
       :scale: 100%
       :alt: Kernel Command Line
 
-      Figure 28: Kernel Command Line
+      Figure 29: Kernel Command Line
 
 #. Choose from the following options.
 
@@ -783,15 +805,15 @@ Kernel Selection
 ================
 
 #. Select a kernel option. By default, the latest kernel release is
-   selected. Native kernel is shown in Figure 29.
+   selected. Native kernel is shown in Figure 30.
 
 #. To select a different kernel, navigate to it using :guilabel:`Tab`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-29.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-30.png
       :scale: 100%
       :alt: Kernel selection
 
-      Figure 29 Kernel selection
+      Figure 30 Kernel selection
 
 #. Select :kbd:`Spacebar` to select the desired option.
 
@@ -810,36 +832,11 @@ If you have your own custom mirror of |CL|, you can add its URL.
 
 #. Select :kbd:`Confirm`.
 
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-30.png
+   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-31.png
       :scale: 100%
       :alt: Swupd Mirror
 
-      Figure 30: Swupd Mirror
-
-Optional: Skip to `Finish installation`_.
-
-Assign Hostname
-===============
-
-#. In Advanced Options, select :guilabel:`Assign Hostname`.
-
-#. In :guilabel:`Hostname`, enter the hostname only (excluding the domain).
-
-   .. note::
-
-      Hostname does not allow empty spaces. Hostname must start with an
-      alphanumeric character but may also contain hyphens. Maximum length of
-      63 characters.
-
-   .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-31.png
-      :scale: 100%
-      :alt: Assign Hostname
-
-      Figure 31: Assign Hostname
-
-#. Navigate to :kbd:`Confirm` until highlighted.
-
-#. Select :kbd:`Confirm`.
+      Figure 31: Swupd Mirror
 
 Optional: Skip to `Finish installation`_.
 
@@ -872,9 +869,9 @@ Save Configuration Settings
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-33.png
       :scale: 100%
-      :alt: Automatic OS Updates
+      :alt: Save configuration to YAML file
 
-      Figure 33: Automatic OS Updates
+      Figure 33: Save configuration to YAML file
 
 #. Use the :file:`clr-installer.yaml` file to install |CL|, with the same
    configuration, on multiple targets.
@@ -954,7 +951,7 @@ Erase LVM Partitions Before Installing |CL|
 ===========================================
 
 If you’re planning to install |CL| on a drive that has LVM partitions, 
-you must erase them first before using clr-installer.  
+you must erase them first before using the clr-installer.  
 
 Here is an example of a drive (/dev/sda) with LVMs:
 
