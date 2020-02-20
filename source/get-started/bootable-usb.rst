@@ -1,16 +1,17 @@
 .. _bootable-usb:
 
-Create a bootable USB drive using Etcher*
-#########################################
+Create a bootable USB drive using Etcher\*
+##########################################
 
-Use Etcher* software, an open source project from Balena*, to flash a |CL| image to a USB drive on macOS*, Linux\*, or Windows* operating systems. 
+Use Etcher* software from Balena\* to flash the |CL| image to a USB drive. 
+An `Advanced: Linux CLI`_ option is also available.
 
 Prerequisites
 *************
 
 * Download the |CL| Desktop or Server image from the `Downloads`_ page
 * Recommended minimum **4GB** USB drive or larger
-* Download and install `Etcher`_
+* Download and install the `Etcher`_ version per your operating system.
 
 * Make sure you completed all `Prerequisites`_.
 
@@ -95,6 +96,57 @@ Burn the |CL| image onto a USB drive
 
       The process may take more than a few minutes. When the process completes, close BalenaEtcher.
       
+Advanced: Linux CLI
+===================
+
+#. Open a Terminal window
+
+#. Change directory to where the image resides. 
+
+#. Plug in the USB drive.  
+
+#. Identify all drives attached to the system. In the example output below, there are 3 drives (`/dev/sda`, `/dev/sdb`, and `/dev/sdc`) attached, where `/dev/sda` is the primary drive and the remaining are USB drives.   
+
+   .. code-block:: bash 
+
+      lsblk -po NAME,SIZE,TYPE,FSTYPE,PARTLABEL,MOUNTPOINT,VENDOR,MODEL 
+   
+   Example output:   
+
+   .. code-block:: console 
+
+      NAME          SIZE VENDOR   MODEL                    TRAN   TYPE PARTLABEL                    MOUNTPOINT 
+      /dev/sda    119.2G ATA      SAMSUNG_MZ7PC128HAFU-000 sata   disk                                
+      ├─/dev/sda1   450M                                          part Basic data partition           
+      ├─/dev/sda2   100M                                          part EFI system partition           
+      ├─/dev/sda3    16M                                          part Microsoft reserved partition   
+      ├─/dev/sda4  97.2G                                          part Basic data partition           
+      ├─/dev/sda5   142M                                          part EFI                            
+      ├─/dev/sda6   245M                                          part linux-swap                   [SWAP]  
+      └─/dev/sda7  21.1G                                          part /                            / 
+      /dev/sdb      7.5G General  UDisk                    usb    disk                                
+      └─/dev/sdb1   7.5G                                          part Microsoft Basic Data         /run/media/clear/CENA_X64FRE 
+      /dev/sdc       15G          Patriot_Memory           usb    disk                                
+      └─/dev/sdc1    15G                                          part                              /run/media/clear/U  
+
+   .. note::   
+
+      Some Linux distros may automatically mount a USB drive when it is plugged in. 
+
+#. Unmount the USB drive you want to use before burning an image onto it.
+   Use the :command:`umount` command followed by the device identifier/partition. For example, to unmount all ``/dev/sdc`` partitions:   
+
+   .. code-block:: bash 
+
+      sudo umount /dev/sdc*   
+
+#. Burn the image onto the USB drive. This example burns an image onto
+   ``/dev/sdc``. The device name of the USB may vary.   
+
+   .. code-block:: bash
+
+      sudo dd if=./clear-[version number]-live-[desktop | server].iso of=/dev/sdc oflag=sync bs=4M status=progress
+
 Ejecting the |CL| image USB drive
 =================================
 
