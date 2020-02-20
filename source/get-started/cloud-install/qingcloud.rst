@@ -17,8 +17,7 @@ Prerequisites
 This tutorial assumes that you have completed the following configuration steps:
 
 * Your environment can run SSH to access remote Clear Linux OS virtual hosts.
-* You know the absolute path where the browser downloaded the file. -- what
-  is this for?
+* You know the absolute path where the browser downloaded the file.
 * You have set up a user account for QingCloud and that the account is
   enabled and logged in to the QingCloud console. To learn more about
   QingCloud and setting up an account, please visit QingCloud's official
@@ -45,7 +44,7 @@ Select and start |CL| virtual host with QingCloud console
 
       Select |CL| to create a virtual host
 
-#. In the configuration selection interface, where you can configure the
+#. In the configuration selection interface, you can configure the
    number of CPU cores, memory size, and the storage backup method.
    For demonstration purposes, we will choose the default configuration.
    Click the :guilabel:`下一步` (Next) button to go to the network settings
@@ -137,7 +136,7 @@ Apply for a public IP and add it to the virtual host
 
       Apply for public IP   
 
-   After clicking the apply button, a dialog will pop up, read it
+   After clicking the apply button, a dialog will pop up. Read it
    carefully and click the :guilabel:`继续申请公网IP` (Continue to apply for
    public IP) button.
 
@@ -169,7 +168,7 @@ Apply for a public IP and add it to the virtual host
       Network Interface
 
 #. On the network card interface, select the network card of the |CL| host
-   that you just created, and click the :guilabel:`更多操作` (More Actions)
+   that you just created. Click the :guilabel:`更多操作` (More Actions)
    button above, and then click the :guilabel:`绑定公网IPv4` (Binding Public
    Network IPv4) button.
 
