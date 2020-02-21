@@ -13,8 +13,6 @@ Prerequisites
 * Recommended minimum **4GB** USB drive or larger
 * Download and install the `Etcher`_ version per your operating system.
 
-* Make sure you completed all `Prerequisites`_.
-
 Burn the |CL| image onto a USB drive
 ====================================
 
@@ -24,6 +22,8 @@ Burn the |CL| image onto a USB drive
    content.  Back up your data before proceeding.
 
 #. Launch Etcher.
+
+   .. rst-class:: dropshadow
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_Start.PNG
       :scale: 100%
@@ -36,6 +36,8 @@ Burn the |CL| image onto a USB drive
 #. Change directory to where the image resides.
 
 #. Select the image and click :guilabel:`Open`.
+
+   .. rst-class:: dropshadow
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_ImageSelect.PNG
       :scale: 100%
@@ -52,6 +54,8 @@ Burn the |CL| image onto a USB drive
 
       This shows all USB drives attached to the system.
 
+   .. rst-class:: dropshadow
+
    .. figure:: /_figures/bootable-usb/balenaEtcher_DriveSlect.PNG
       :scale: 100%
       :alt: USB drives attached
@@ -60,15 +64,18 @@ Burn the |CL| image onto a USB drive
 
 #. Select the proper device and press :guilabel:`Continue`.
 
+   .. rst-class:: dropshadow
+
    .. figure:: /_figures/bootable-usb/balenaEtcher_ReadyToFlash.PNG
       :scale: 100%
       :alt: USB Flash Device selected
       
       Figure 4: USB Flash Device selected
 
-#. When ready Press the :guilabel:`Flash!` Button.
+#. When ready press the :guilabel:`Flash!` Button. 
+   The dialog shows :guilabel:`Flashing` while in progress.
 
-#. The dialog shows :guilabel:`Flashing` while in progress.
+   .. rst-class:: dropshadow
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_StartingToFlash.PNG
       :scale: 100%
@@ -76,7 +83,7 @@ Burn the |CL| image onto a USB drive
 
       Figure 5: Starting to flash
 
-#. Flashing in progress.
+   .. rst-class:: dropshadow
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_Flashing.PNG
       :scale: 100%
@@ -85,6 +92,8 @@ Burn the |CL| image onto a USB drive
       Figure 6: Flashing, percentage complete
 
 #. :guilabel:`Flash complete` shows when the process is finished.
+
+   .. rst-class:: dropshadow
 
    .. figure:: /_figures/bootable-usb/balenaEtcher_Done.PNG
       :scale: 100%
@@ -99,7 +108,7 @@ Burn the |CL| image onto a USB drive
 Advanced: Linux CLI
 ===================
 
-#. Open a Terminal window
+#. Open a Terminal window.
 
 #. Change directory to where the image resides. 
 
@@ -147,8 +156,8 @@ Advanced: Linux CLI
 
       sudo dd if=./clear-[version number]-live-[desktop | server].iso of=/dev/sdc oflag=sync bs=4M status=progress
 
-Ejecting the |CL| image USB drive
-=================================
+Eject the |CL| image USB drive
+==============================
 
 .. caution::
 
