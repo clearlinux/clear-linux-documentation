@@ -91,7 +91,7 @@ Burn the |CL| image onto a USB drive
       
       Figure 6: Flashing, percentage complete
 
-#. :guilabel:`Flash complete` shows when the process is finished.
+#. :guilabel:`Flash complete!` shows when the process is finished.
 
    .. rst-class:: dropshadow
 
@@ -118,7 +118,7 @@ Advanced: Linux CLI
 
    .. code-block:: bash 
 
-      lsblk -po NAME,SIZE,TYPE,FSTYPE,PARTLABEL,MOUNTPOINT,VENDOR,MODEL 
+      lsblk -po NAME,SIZE,VENDOR,MODEL,TRAN,TYPE,PARTLABEL,MOUNTPOINT 
    
    Example output:   
 
