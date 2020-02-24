@@ -15,7 +15,7 @@ Overview
 Modern x86 :abbr:`CPUs (central processing units)` employ a number of features
 to balance performance, energy, and thermal efficiency.
 
-By default, |CL| prioritizes maximum CPU performance assuming that
+By default, |CL| prioritizes maximum CPU performance, assuming that
 the faster the program finishes execution, the faster the CPU can return to a
 low energy idle state. It is important to understand and evaluate the impact
 of each feature when troubleshooting or considering changing the defaults.
@@ -37,7 +37,7 @@ C-states (idle states)
 ======================
 
 Hardware enters a C-state when the CPU is idle and not executing instructions.
-C-states reduce power utilization by increasingly reducing clock frequency,
+C-states decrease power utilization by reducing clock frequency,
 voltages, and features in each state. Although C-states can typically be
 limited or disabled in a system's UEFI or BIOS configuration, these settings
 are overridden when the `intel_idle driver`_ is in use.
@@ -65,8 +65,8 @@ or completely disabled with :command:`idle=poll`.
 P-states (performance states)
 =============================
 
-The CPU can enter a P-state, also known as *Intel SpeedStep® technology* on
-Intel processors or *Cool'n'Quiet* on AMD processors, while it is active
+The CPU can enter a P-state, also known as Intel SpeedStep® technology on
+Intel processors or AMD\* Cool'n'Quiet\* technology, while it is active
 and executing instructions. P-states reduce power utilization by adjusting CPU
 clock frequency and voltages based on CPU demand. P-states can typically be
 limited or disabled in a system's firmware (UEFI/BIOS).
@@ -77,11 +77,10 @@ Turbo boost
 `Intel® Turbo Boost Technology`_, found on some modern Intel CPUs, allows
 cores on a processor to temporarily operate at a higher than rated CPU clock
 frequency to accommodate demanding workloads if the CPU is under defined power
-and thermal thresholds. Turbo boost is an extension of P-states. As such,
-changing or limiting C-states or P-states impacts the ability of a process to
-enter Turbo boost.
+and thermal thresholds. Intel Turbo Boost Technology is an extension of
+P-states, so it can be impacted by limiting C-states or P-states.
 
-Turbo boost can be disabled in a system's UEFI/BIOS or disable Turbo boost in
+Intel Turbo Boost Technology can be disabled in a system's UEFI/BIOS or in
 |CL|:
 
 .. code-block:: bash
@@ -101,10 +100,10 @@ Scaling driver
 
 Linux uses the `Intel P-state driver`_, :command:`intel_pstate`, for
 modern Intel processors from the Sandy Bridge generation or newer. Other
-processors may default to the :command:`acpi-cpufreq*` driver which reads
+processors may default to the :command:`acpi-cpufreq` driver which reads
 values from the systems UEFI or BIOS.
 
-To view the current CPU frequency scaling driver run this command in a
+To view the current CPU frequency scaling driver, run this command in a
 terminal:
 
 .. code-block:: bash
@@ -114,13 +113,14 @@ terminal:
 Scaling governor
 ================
 
-|CL| sets the CPU governor to *performance* which calls for the CPU to operate
-at maximum clock frequency. In other words, P-state P0. While this may sound
-wasteful at first, it is important to remember that power utilization does not
-increase significantly simply because of a locked clock frequency without a
-workload.
+|CL| sets the CPU governor to ``performance`` which calls for the CPU to
+operate at maximum clock frequency. In other words, P-state P0. While this may
+sound wasteful at first, it is important to remember that power utilization
+does not increase significantly simply because of a locked clock frequency
+without a workload.
 
-To view the current CPU frequency scaling governor run this command in a terminal:
+To view the current CPU frequency scaling governor, run this command in a
+terminal:
 
 .. code-block:: bash
 
