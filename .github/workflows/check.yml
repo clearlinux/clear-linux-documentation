@@ -20,3 +20,4 @@ jobs:
         export PATH="$HOME/.local/bin:$PATH"
         make py
         make htmlall
+        
