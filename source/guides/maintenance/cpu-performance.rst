@@ -13,12 +13,12 @@ Overview
 ********
 
 Modern x86 :abbr:`CPUs (central processing units)` employ a number of features
-and technologies to balance performance, energy, and thermal efficiencies.
+to balance performance, energy, and thermal efficiency.
 
-By default, |CL| prioritizes maximum CPU performance with the philosophy that
+By default, |CL| prioritizes maximum CPU performance, assuming that
 the faster the program finishes execution, the faster the CPU can return to a
-low energy idle state. It is important to understand and evaluate all of these
-technologies when troubleshooting or considering changing the defaults.
+low energy idle state. It is important to understand and evaluate the impact
+of each feature when troubleshooting or considering changing the defaults.
 
 .. contents::
    :local:
@@ -29,26 +29,22 @@ CPU power saving mechanisms
 
 C-states and P-states are both CPU power saving mechanisms that are entered
 under different operating conditions. The tradeoff is a slightly longer time
-to exit these states when the CPU is needed once again.
+to exit these states when the CPU is needed.
 
 .. _c-states-section:
 
 C-states (idle states)
 ======================
 
-C-states are hardware sleep states that are entered when it is determined that
-the CPU is idle and not executing instructions.
+Hardware enters a C-state when the CPU is idle and not executing instructions.
+C-states decrease power utilization by reducing clock frequency,
+voltages, and features in each state. Although C-states can typically be
+limited or disabled in a system's UEFI or BIOS configuration, these settings
+are overridden when the `intel_idle driver`_ is in use.
 
-C-states aim to reduce power utilization by increasingly reducing clock
-frequency, voltages, and features in each state.
+To view the current ``cpuidle`` driver run this command in a terminal:
 
-Although C-states can typically be limited or disabled in a system's UEFI or
-BIOS configuration, these settings are overridden when the `intel_idle driver`_
-is in use.
-
-To view the current cpuidle driver run this command in a terminal:
-
-.. code:: bash
+.. code-block:: bash
 
    cat /sys/devices/system/cpu/cpuidle/current_driver
 
@@ -58,95 +54,87 @@ or completely disabled with :command:`idle=poll`.
 
 .. note::
 
-   * :command:`processor.max_cstate=0` is changed to :command:`processor.max_cstate=1`
-     by the kernel to be a valid value.
+   *  :command:`processor.max_cstate=0` is changed to a valid value by the
+      kernel: :command:`processor.max_cstate=1`.
 
-   * :command:`intel_idle.max_cstate=0` disables the Intel Idle driver, not set
-     it to C-state 0.
+   *  :command:`intel_idle.max_cstate=0` disables the Intel Idle driver rather
+      than set it to C-state 0.
 
 .. _p-states-section:
 
 P-states (performance states)
 =============================
 
-P-states, also known as *Intel SpeedStep® technology* on Intel processors or
-*Cool'n'Quiet* on AMD processors, are states entered while the CPU is active and
-executing instructions.
-
-P-states aim to reduce power utilization by adjusting CPU clock frequency and
-voltages based on CPU demand.
-
-P-states can typically be limited or disabled in a system's firmware (UEFI/BIOS).
+The CPU can enter a P-state, also known as Intel SpeedStep® technology on
+Intel processors or AMD\* Cool'n'Quiet\* technology, while it is active
+and executing instructions. P-states reduce power utilization by adjusting CPU
+clock frequency and voltages based on CPU demand. P-states can typically be
+limited or disabled in a system's firmware (UEFI/BIOS).
 
 Turbo boost
 -----------
 
-`Intel® Turbo Boost Technology`_, found on some modern Intel CPUs, allows core(s) on
-a processor to temporarily operate at a higher than rated CPU clock frequency
-to accommodate demanding workloads if the CPU is under defined power and
-thermal thresholds.
+`Intel® Turbo Boost Technology`_, found on some modern Intel CPUs, allows
+cores on a processor to temporarily operate at a higher than rated CPU clock
+frequency to accommodate demanding workloads if the CPU is under defined power
+and thermal thresholds. Intel Turbo Boost Technology is an extension of
+P-states, so it can be impacted by limiting C-states or P-states.
 
-Turbo boost is an extension of P-states. As such, changing or limiting
-C-states or P-states impact the ability of a process to enter Turbo boost.
+Intel Turbo Boost Technology can be disabled in a system's UEFI/BIOS or in
+|CL|:
 
-Turbo boost can be disabled in a system's UEFI or BIOS. Turbo boost can also
-be disabled within |CL| with the command:
-
-.. code:: bash
+.. code-block:: bash
 
    echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
 
 Linux CPU clock frequency scaling
 *********************************
 
-The CPUFreq subsystem in Linux allows the OS to control :ref:`C-states
-<c-states-section>` and :ref:`P-states <P-states-section>`
+The ``CPUFreq`` subsystem in Linux allows the OS to control
+:ref:`C-states <c-states-section>` and :ref:`P-states <P-states-section>`
 via CPU drivers and governors that provide algorithms that define how and when
 to enter these states.
 
 Scaling driver
 ==============
 
-Linux uses the `Intel P-state driver`_, :command:`intel_pstate`, for modern Intel
-processors from the Sandy Bridge generation or newer. Other processors may
-default to the :command:`acpi-cpufreq*` driver which reads values from the systems
-UEFI or BIOS.
+Linux uses the `Intel P-state driver`_, :command:`intel_pstate`, for
+modern Intel processors from the Sandy Bridge generation or newer. Other
+processors may default to the :command:`acpi-cpufreq` driver which reads
+values from the systems UEFI or BIOS.
 
-To view the current CPU frequency scaling driver run this command in a terminal:
+To view the current CPU frequency scaling driver, run this command in a
+terminal:
 
-.. code:: bash
+.. code-block:: bash
 
    cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_driver
 
 Scaling governor
 ================
 
-|CL| sets the CPU governor to *performance* which calls for the CPU to operate
-at maximum clock frequency. In other words, P-state P0. While this may sound
-wasteful at first, it is important to remember that power utilization does not
-increase significantly simply because of a locked clock frequency without a
-workload.
+|CL| sets the CPU governor to ``performance`` which calls for the CPU to
+operate at maximum clock frequency. In other words, P-state P0. While this may
+sound wasteful at first, it is important to remember that power utilization
+does not increase significantly simply because of a locked clock frequency
+without a workload.
 
-To view the current CPU frequency scaling governor run this command in a terminal:
+To view the current CPU frequency scaling governor, run this command in a
+terminal:
 
-.. code:: bash
+.. code-block:: bash
 
    cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
-To change the CPU frequency scaling governor:
+Each core will report its own status. Your output should look similar to this
+example with four cores:
 
-#. Disable |CL| enforcement of certain power and performance settings:
+.. code-block:: console
 
-   .. code:: bash
-
-      sudo systemctl mask clr-power.timer
-
-#. Change the governor. In the example below, the governor is set to
-   *performance*:
-
-   .. code:: bash
-
-      echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+   performance
+   performance
+   performance
+   performance
 
 The list of all governors can be found in the Linux kernel documentation on
 `CPUFreq Governors`_.
@@ -155,34 +143,49 @@ The list of all governors can be found in the Linux kernel documentation on
 
    The intel_pstate driver only supports *performance* and *powersave* governors.
 
+There are 2 ways to change the CPU frequency scaling governor:
+
+#. Disable |CL| enforcement of certain power and performance settings:
+
+   .. code-block:: bash
+
+      sudo systemctl mask clr-power.timer
+
+#. Change the governor value in :file:`/sys/devices`. In the example below,
+   the governor is set to *performance*:
+
+   .. code-block:: bash
+
+      echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
 Thermal management
 ******************
 
-`thermald`_ is a Linux thermal management daemon used to prevent the
-overheating of platforms. When temperature thresholds are exceeded, thermald
-forces a C-state by inserting CPU sleep cycles and adjusts available cooling
-methods. This can be especially desirable for laptops.
+`thermald`_ is a Linux thermal management daemon used to prevent platforms 
+from overheating. :command:`thermald` forces a C-state by inserting CPU sleep
+cycles and adjusting any available cooling methods. This can be especially
+desirable for laptops.
 
-By default, thermald is disabled in |CL| and starts automatically if battery
-power is detected. thermald can be manually enabled using the systemd service
-by running the command:
+:command:`thermald` is disabled by default in |CL| and starts automatically
+if it detects battery power. Enable :command:`thermald` manually by using
+the systemd service by running the command:
 
-.. code:: bash
+.. code-block:: bash
 
    sudo systemctl enable --now thermald
 
-For more information, see the thermald man page:
+For more information, see the :command:`thermald` man page:
 
-.. code:: bash
+.. code-block:: bash
 
    man thermald
 
 `ThermalMonitor`_ is a GUI application that can visually graph and log
-temperatures from thermald. To use ThermalMonitor, add the
+temperatures from :command:`thermald`. To use ThermalMonitor, add the
 :command:`desktop-apps-extras` bundle and add your user account to the power
 group:
 
-.. code:: bash
+.. code-block:: bash
 
    sudo swupd bundle-add desktop-apps-extras
    sudo usermod -a -G power <USER>
@@ -197,47 +200,63 @@ Enhanced thermal configuration
 ===============================
 
 Better thermal control and performance can be achieved by providing platform
-specific configuration to thermald.
+specific configuration to :command:`thermald`.
 
-`Linux DPTF Extract Utility`_ is a companion tool to thermald, This tool can
-make use of :abbr:`Intel® Dynamic Platform and Thermal Framework (`Intel DPTF)`
-technology, and convert to the thermal_conf.xml configuration format used
-by thermald. It's a closed-source project, and unable to be packaged as bundle
-in Clear Linux OS, so we need to follow below steps to generate configuration.
+`Linux DPTF Extract Utility`_ is a companion tool to :command:`thermald`,
+This tool uses Intel® 
+:abbr:`DPTF (Dynamic Platform and Thermal Framework)` technology and
+can convert to the :file:`thermal_conf.xml` configuration format used by
+:command:`thermald`. Closed-source projects, like this one, cannot be packaged
+as a bundle in |CL|, so you must install it manually:
 
-Intel DPTF requires BIOS support, it's typically used by laptops.
-The first step is to make sure your machine's BIOS has DPTF feature
-and is enabled.
+#. Make sure your machine's BIOS has DPTF feature and is enabled. It will usually be in the :guilabel:`Advanced` or :guilabel:`Advanced>Power` section of the BIOS. 
 
-Then generate thermal configuration as below:
+   .. figure:: /_figures/cpu-perf-guide/dptf_bios.png
 
-.. code:: bash
+   .. note:: 
 
-   sudo swupd bundle-add acpica-unix2  # install acpi tools
-   git clone https://github.com/intel/dptfxtract.git
-   cd dptfxtract
-   sudo acpidump > acpi.out
-   acpixtract -a acpi.out
-   sudo ./dptfxtract *.dat
+      Intel DPTF requires BIOS support and is typically only available on
+      laptops.
 
-thermald configuration files will be generated and saved to
-:command:`/etc/thermal/` folder. Restart thermald service to take effect.
+#. Generate thermal configuration. :command:`thermald` configuration files
+   will be generated and saved to :file:`/etc/thermal/` folder. 
 
-.. code:: bash
+   .. code-block:: bash
 
-   sudo systemctl restart thermald.service
+      sudo swupd bundle-add acpica-unix2  # install acpi tools
+      git clone https://github.com/intel/dptfxtract.git
+      cd dptfxtract
+      sudo acpidump > acpi.out
+      acpixtract -a acpi.out
+      sudo ./dptfxtract *.dat
 
-check whether the configuration is in used.
+#. Restart :command:`thermald` service to take effect.
 
-.. code:: bash
+   .. code-block:: bash
 
-   sudo systemctl status thermald.service
+      sudo systemctl restart thermald.service
 
-if the output contains below line, it means configuration already applied:
+#. Check whether the configuration is in use.
 
-.. code:: bash
+   .. code-block:: bash
+
+      sudo systemctl status thermald.service
+
+The following output means the configuration has already been applied:
+
+.. code-block:: console
 
    thermald[*]: [WARN]Using generated /etc/thermald/thermal-conf.xml.auto
+
+.. admonition:: Disclaimer
+
+   Intel® Turbo Boost Technology requires a PC with a processor with Intel
+   Turbo Boost Technology capability. Intel Turbo Boost Technology performance
+   varies depending on hardware, software and overall system configuration.
+   Check with your PC manufacturer on whether your system delivers Intel Turbo
+   Boost Technology. For more information, see http://www.intel.com/technology/turboboost
+
+   Intel SpeedStep is a trademark of Intel Corporation or its subsidiaries.
 
 
 .. _`Intel P-state driver`: https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt
