@@ -248,6 +248,16 @@ The following output means the configuration has already been applied:
 
    thermald[*]: [WARN]Using generated /etc/thermald/thermal-conf.xml.auto
 
+.. admonition:: Disclaimer
+
+   Intel® Turbo Boost Technology requires a PC with a processor with Intel
+   Turbo Boost Technology capability. Intel Turbo Boost Technology performance
+   varies depending on hardware, software and overall system configuration.
+   Check with your PC manufacturer on whether your system delivers Intel Turbo
+   Boost Technology. For more information, see http://www.intel.com/technology/turboboost
+
+   Intel SpeedStep is a trademark of Intel Corporation or its subsidiaries.
+
 
 .. _`Intel P-state driver`: https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt
 
