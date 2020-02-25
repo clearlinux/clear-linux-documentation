@@ -37,7 +37,7 @@ jobs:
         git add .
         git commit -m "latest html output"
         git push -f https://${GITHUB_ACTOR}:${{secrets.ACCESS_TOKEN}}@github.com/clearlinux/clear-linux-documentation.git HEAD:latestHTML
-#    - name: Publish the docs
-#      run: |
-#        wget ${{secrets.PUBLISH_URL}}
-#        cat clearlinux-latest
+    - name: Publish the docs
+      run: |
+        wget ${{secrets.PUBLISH_URL}}
+        cat clearlinux-latest
