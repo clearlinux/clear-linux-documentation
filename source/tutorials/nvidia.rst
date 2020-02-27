@@ -21,9 +21,9 @@ require a manual installation.
    with |CL| updates and must be updated and maintained manually.
 
    For example, the file :file:`/usr/lib/libGL.so` conflicts with the file
-   provided by the mesa package in |CL| and the file NVIDIA provides. If a |CL|
-   update overwrites these files, a reinstallation of the NVIDIA driver might
-   be required.
+   provided by the mesa package in |CL| and the file NVIDIA provides. If a
+   |CL| update or repair overwrites these files, a reinstallation of the
+   NVIDIA driver might be required.
 
 .. contents:: :local:
     :depth: 1
@@ -83,11 +83,12 @@ and sustainable on |CL|.
    <https://download.nvidia.com/XFree86/Linux-x86_64/440.44/README/dma_issues.html>`_
    for more information.
 
-   The *intel_iommu-igfx_off* kernel parameter can be removed with the command
-   below: 
+   The *intel_iommu-igfx_off* kernel parameter can be removed with the
+   commands below: 
   
    .. code-block:: bash
     
+      sudo mkdir -p /etc/kernel/cmdline-removal.d/
       echo "intel_iommu=igfx_off" | sudo tee /etc/kernel/cmdline-removal.d/intel-iommu.conf
     
 #. Create a custom systemd unit that overwrites the :file:`libGL` library
