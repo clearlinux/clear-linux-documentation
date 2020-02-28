@@ -399,7 +399,7 @@ Building the Image
 
 #. Create the ssh-entrypoint.sh script by copying the following into a file in the stacks/dlrs/clearlinux/tensorflow/mkl directory
 
-   .. code-block:: .sh
+   .. code-block:: console
 
       #! /usr/bin/env bash
       set -o errexit
