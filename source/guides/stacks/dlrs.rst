@@ -107,6 +107,9 @@ bundle. To start Docker, enter:
 To ensure that Kubernetes is correctly installed and configured, follow the
 instructions in :ref:`kubernetes`.
 
+.. warning::
+
+   Note that although the DLRS images and dockerfiles may be modified for your needs, there are some modifications that may cause unexpected or undesirable results.  For example, using the Clear Linux :command:`swupd bundle-add` command to add packages to a Clear Linux based container may overwrite the DLRS core components.  Please use care when modifying the contents of the containers.
 
 
 Kubectl
@@ -376,6 +379,143 @@ Submitting PyTorch Jobs
 
 We provide `DLRS PytorchJob`_ examples that use the Deep Learning Reference Stack as the base image for creating the container(s) that will run training workloads in your Kubernetes cluster.
 
+Working with Horovod* and OpenMPI*
+**********************************
+
+`Horovod`_ is a distributed training framework for TensorFlow, Keras, and PyTorch. The `OpenMPI Project`_ is an open source Message Passing Interface implementation. Running Horovod on OpenMPI will let us enable distributed training on DLRS.
+
+The following deployment uses `Kubeflow OpenMPI instructions`_, meaning you can replace the following variables to have a working Kubernetes cluster with openmpi workers for distributed training.
+
+To begin, refer to the instructions above to set up a Kubernetes cluster on Clear Linux. You will need to build and push the DLRS docker image with Horovod and OpenMPI enabled, modifying the dockerfile to build your image
+
+Building the Image
+==================
+
+#. DLRS is part of the `Intel stacks GitHub repository`_.  Clone the stacks repository.
+
+   .. code-block:: bash
+
+      git clone https://github.com/intel/stacks.git
+
+#. Create the ssh-entrypoint.sh script by copying the following into a file in the stacks/dlrs/clearlinux/tensorflow/mkl directory
+
+   .. code-block:: .sh
+
+      #! /usr/bin/env bash
+      set -o errexit
+
+      mkdir -p /etc/ssh /var/run/sshd
+
+      # Allow OpenSSH to talk to containers without asking for confirmation
+      cat << EOF > /etc/ssh/ssh_config
+      StrictHostKeyChecking no
+      Port 2022
+      UserKnownHostsFile=/dev/null
+      PasswordAuthentication no
+      EOF
+
+      /usr/sbin/ssh-keygen -A
+
+#. Inside the stacks/dlrs/clearlinux/tensorflow/mkl directory, modify the Dockerfile.builder file to add the openssh-server to the container.
+
+    .. code-block:: console
+
+       # update os and add required bundles
+       RUN swupd bundle-add git curl wget \
+           java-basic sysadmin-basic package-utils \
+           devpkg-zlib go-basic devpkg-tbb openssh-server
+
+#. To execute the ssh-entrypoint.sh in the container, add these lines to the Dockerfile.builder file
+
+   .. code-block:: console
+
+      COPY ssh-entrypoint.sh /bin/ssh-entrypoint.sh
+      RUN chmod +x /bin/ssh-entrypoint.sh
+      RUN ssh-entrypoint.sh
+
+   .. note::
+
+     The ssh-entrypoint.sh script will generate ssh host keys for the docker image, but they will be the same every time the image is built.
+
+
+#. Build the container with
+
+   .. code-block:: bash
+
+      make
+
+   .. note::
+
+      More detail on building the container can be found on the `Intel stacks GitHub repository`_
+
+Using the new image with Horovod and OpenMPI
+============================================
+
+To use the new image we will follow the `Kubeflow OpenMPI instructions`_. You will not need to follow the Installation section, as we have just completed that for the DLRS container.
+
+#. Generate and deploy Kubeflow's openmpi component.
+
+   .. code-block:: console
+
+      Create a namespace for kubeflow deployment.
+      kubectl delete namespace kubeflow
+      NAMESPACE=kubeflow
+      kubectl create namespace ${NAMESPACE}
+
+      # Generate one-time ssh keys used by Open MPI.
+      SECRET=openmpi-secret
+      mkdir -p .tmp
+      yes | ssh-keygen -N "" -f .tmp/id_rsa -C ""
+      kubectl delete secret ${SECRET} -n ${NAMESPACE} || true
+      kubectl create secret generic ${SECRET} -n ${NAMESPACE} --from-file=id_rsa=.tmp/id_rsa --from-file=id_rsa.pub=.tmp/id_rsa.pub --from-file=authorized_keys=.tmp/id_rsa.pub
+
+      # Which version of Kubeflow to use.
+      # For a list of releases refer to:
+      # https://github.com/kubeflow/kubeflow/releases
+      VERSION=master
+
+      # Initialize a ksonnet app. Set the namespace for it's default environment.
+      APP_NAME=openmpi
+      ks init ${APP_NAME}
+      cd ${APP_NAME}
+      ks env set default --namespace ${NAMESPACE}
+
+      # Install Kubeflow components.
+      ks registry add kubeflow github.com/kubeflow/kubeflow/tree/${VERSION}/kubeflow
+      ks pkg install kubeflow/openmpi@${VERSION}
+
+      # See the list of supported parameters.
+
+      # Generate openmpi components.
+      COMPONENT=openmpi
+      IMAGE=<image name>
+
+#. Run openmpi workers in containers
+
+   .. code-block:: console
+
+      WORKERS=<set number of workers>
+      MEMORY=<memory>
+      GPU=0
+
+      # We should create a hostfile with the names of each node in the k8s cluster
+      EXEC="mpiexec --allow-run-as-root -np ${WORKERS} --hostfile /kubeflow/openmpi/assets/hostfile -bind-to none -map-by slot sh -c 'python <path_to_benchmarks_scripts> --device=cpu --data_format=NHWC --model=alexnet --variable_update=horovod --horovod_device=cpu'"
+
+      ks generate openmpi ${COMPONENT} --image ${IMAGE} --secret ${SECRET} --workers ${WORKERS} --gpu ${GPU} --exec "${EXEC}" --memory "${MEMORY}"
+
+      # Deploy to your cluster.
+      ks apply default
+      WORKERS=<set number of workers>
+      MEMORY=<memory>
+      GPU=0
+
+      # We should create a hostfile with the names of each node in the k8s cluster
+      EXEC="mpiexec --allow-run-as-root -np ${WORKERS} --hostfile /kubeflow/openmpi/assets/hostfile -bind-to none -map-by slot sh -c 'python <path_to_benchmarks_scripts> --device=cpu --data_format=NHWC --model=alexnet --variable_update=horovod --horovod_device=cpu'"
+
+      ks generate openmpi ${COMPONENT} --image ${IMAGE} --secret ${SECRET} --workers ${WORKERS} --gpu ${GPU} --exec "${EXEC}" --memory "${MEMORY}"
+
+      # Deploy to your cluster.
+      ks apply default
 
 
 
@@ -955,3 +1095,11 @@ Related topics
 .. _Source to Image (s2i): https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/s2i.html
 
 .. _Deep Learning Reference Stack website: https://clearlinux.org/stacks/deep-learning
+
+.. _Horovod: https://github.com/horovod/horovod
+
+.. _OpenMPI Project: https://www.open-mpi.org
+
+.. _Kubeflow OpenMPI instructions: https://github.com/kubeflow/mpi-operator/blob/master/README.md
+
+.. _Intel stacks GitHub repository: https://github.com/intel/stacks.git
