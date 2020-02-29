@@ -638,17 +638,17 @@ Create partitions per requirements in Table 1.
      - Mount Point
      - Default size
 
-   * - **VFAT (FAT32)**
+   * - ``VFAT (FAT32)``
      - boot
      - /boot
      - 150MB
 
-   * - **linux-swap**
+   * - ``linux-swap``
      - swap
      -
      - 256MB
 
-   * - **ext[234], XFS, or f2fs**
+   * - ``ext[234], XFS, or f2fs``
      - root
      - /
      - *Size depends upon use case/desired bundles.*
