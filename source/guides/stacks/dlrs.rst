@@ -474,7 +474,7 @@ To use the new image we will follow the `Kubeflow OpenMPI instructions`_. You wi
       # https://github.com/kubeflow/kubeflow/releases
       VERSION=master
 
-      # Initialize a ksonnet app. Set the namespace for it's default environment.
+      # Initialize a ksonnet app. Set the namespace for its default environment.
       APP_NAME=openmpi
       ks init ${APP_NAME}
       cd ${APP_NAME}
