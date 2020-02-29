@@ -380,7 +380,7 @@ root partition
 
    * :guilabel:`New size:`                <varies>
    * :guilabel:`Partition name:`          CLR_ROOT
-   * :guilabel:`File system:`             ext[234] or XFS
+   * :guilabel:`File system:`             ext[234], XFS, or f2fs
    * :guilabel:`Label:`                   root
 
    .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-14.png
@@ -648,7 +648,7 @@ Create partitions per requirements in Table 1.
      -
      - 256MB
 
-   * - **ext[234] or XFS**
+   * - **ext[234], XFS, or f2fs**
      - root
      - /
      - *Size depends upon use case/desired bundles.*

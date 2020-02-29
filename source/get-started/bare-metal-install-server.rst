@@ -353,7 +353,7 @@ root partition
 #. Enter the hex code `8300` and press :kbd:`Enter`.
 
 #. In :guilabel:`Enter new partition name...`, type: CLR_ROOT.
-   The `/root` partition must be `ext[234]` or `XFS`.
+   The `/root` partition must be `ext[234]`, `XFS`,  or `f2fs`.
    If no filesystem exists, the installer will default to `VFAT(FAT32)`
    for `/boot`, and `ext4` for all others.
 
@@ -921,7 +921,7 @@ Create partitions per requirements in Table 1.
      -
      - 256MB
 
-   * - ``ext[234] or XFS``
+   * - ``ext[234], `XFS`, or f2fs``
      - root
      - /
      - *Size depends upon use case/desired bundles.*
