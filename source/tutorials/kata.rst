@@ -27,7 +27,7 @@ the :ref:`bare metal installation tutorial<bare-metal-install-desktop>`.
 If you have Clear Containers installed on your |CL| system, then follow the
 :ref:`migrate Clear Containers to Kata Containers tutorial<kata_migration>`.
 
-Before you install any new packages, update |CL| with the following command:
+Update |CL| with the following command:
 
 .. code-block:: bash
 
@@ -37,89 +37,98 @@ Install Kata Containers
 ***********************
 
 Kata Containers is included in the :file:`containers-virt` bundle.
-To install the framework, enter the following command:
+To install the framework:
 
-.. code-block:: bash
+#. Install the containers-virt bundle:
 
-   sudo swupd bundle-add containers-virt
+   .. code-block:: bash
 
-Restart the Docker\* and Kata Containers systemd services.
+      sudo swupd bundle-add containers-virt
 
-.. code-block:: bash
+#. Reload and restart the Docker\* systemd service.
 
-   sudo systemctl daemon-reload
-   sudo systemctl restart docker
+   .. code-block:: bash
+
+      sudo systemctl daemon-reload
+      sudo systemctl restart docker
 
 Run Kata Containers
 *******************
 
+To use kata as the runtime for an individual container, add
+:command:`--runtime=kata-runtime` to the :command:`docker run` command. For
+example:
+
 .. code-block:: bash
 
-   sudo docker run -ti busybox sh
+   sudo docker run --runtime=kata-runtime -ti busybox sh
 
-.. note::
 
-   If you use a proxy server and your proxy environment variables are already
-   set, run the following commands as a shell script to configure Docker:
+To use kata as the default runtime for all Docker containers:
+
+#. Set the default runtime for the Docker daemon:
+
+   .. note:: 
+
+      The method below uses a systemd drop-in configuration to add a
+      command-line (CLI) parameter to the Docker daemon for setting the
+      *default-runtime*. Alternatively, the default runtime can be set in the
+      `Docker daemon configuration file
+      <https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file>`_.
+      The Docker daemon will not start if the *default-runtime* configuration
+      in set multiple locations.
 
    .. code-block:: bash
 
-      docker_service_dir="/etc/systemd/system/docker.service.d/"
-      sudo mkdir -p "$docker_service_dir"
-      cat <<EOF | sudo tee "$docker_service_dir/proxy.conf"
+      sudo mkdir -p /etc/systemd/system/docker.service.d/
+
+      cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/50-runtime.conf
       [Service]
-      Environment="HTTP_PROXY=$http_proxy"
-      Environment="HTTPS_PROXY=$https_proxy"
+      Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime kata-runtime"
       EOF
-      echo "Reloading unit files and starting docker service"
+
+#. Reload and restart the Docker\* systemd service.
+
+   .. code-block:: bash
+
       sudo systemctl daemon-reload
       sudo systemctl restart docker
-      sudo docker info
 
-**Congratulations!**
+#. Verify the default runtime reported by docker is **kata-runtime**.
 
-You've successfully installed and set up Kata Containers on |CL|.
+   .. code-block:: bash
 
-More information about Docker
-*****************************
+      sudo docker info | grep "Default Runtime"
+         Default Runtime: kata-runtime
 
-Docker on |CL| provides a :file:`docker.service` file to start the Docker
-daemon. The daemon will use runc or kata-runtime depending on the
-environment:
-
-*  If you are running |CL| on bare metal or on a VM with Nested
-   Virtualization activated, Docker uses kata-runtime as the
-   default runtime.
-*  If you are running |CL| on a VM without Nested Virtualization,
-   Docker uses runc as the default runtime.
-
-You do not need to manually configure the runtime for Docker, because
-it automatically uses the runtime supported by the system.
 
 Troubleshooting
 ===============
 
+- If you are behind a HTTP proxy server, in a corporate setting for
+  example, please refer to the `Docker proxy instructions`_.
+
 - To change the Docker storage driver, see
   :ref:`additional-docker-configuration`.
 
-- For some |CL| versions before 27000, you may need to manually
-  configure Docker\* to use Kata Containers by default.
+- To check the version of |CL| on your system, enter: :command:`sudo swupd
+  info`.
 
-  To do so, enter:
+- |CL| versions before 27000 require manually configure Docker\* to use Kata
+  Containers as shown in this tutorial.
 
-  .. code-block:: bash
-
-     sudo mkdir -p /etc/systemd/system/docker.service.d/
-     cat <<EOF | sudo tee /etc/systemd/system/docker.service.d/50-runtime.conf
-     [Service]
-     Environment="DOCKER_DEFAULT_RUNTIME=--default-runtime kata-runtime"
-     EOF
-
-- To check the version of |CL| on your system, enter:
+- |CL| versions between 27000 and 31930 had a mechanism to automatically set
+  kata as the default runtime for docker. To disable this mechanism run the
+  commands below:
 
   .. code-block:: bash
-
-     sudo swupd info
+     
+     sudo systemctl mask docker-set-runtime.service
+     sudo rm /etc/systemd/system/docker.service.d/50-runtime.conf
+     sudo systemctl daemon-reload
+     sudo systemctl restart docker.service
 
 
 .. _Kata Containers: https://katacontainers.io/
+
+.. _Docker proxy instructions: https://docs.docker.com/config/daemon/systemd/#httphttps-proxy
