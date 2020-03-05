@@ -12,8 +12,17 @@ Below is a list of commonly asked questions with answers sourced from the
 General
 *******
 
-Why did you make another distro?
-================================
+What is |CL|?
+=============
+
+|CL| is an open source, rolling release Linux distribution optimized for
+performance and security. See `the about page <https://clearlinux.org/about>`_
+for more information.
+
+|
+
+Why another Linux distribution?
+===============================
 
 The |CL| team felt that performance was left on the table with Linux software.
 |CL| takes a holistic approach to improve performance across the stack. We
@@ -21,15 +30,23 @@ also wanted to take more modern approaches with OS updates and tooling.
 
 |
 
-Can other distros copy |CL| improvements?
-=========================================
+Is it a derivative of another Linux distribution?
+=================================================
+
+No. |CL| is a new Linux distribution. It is not a fork and does not have a
+parent Linux distribution.
+
+|
+
+Can others copy improvements from |CL|?
+=======================================
 
 Yes, we absolutely love open source reuse and upstreaming improvements.
 
 |
 
-How often do you update?
-========================
+How often does it update?
+=========================
 
 The |CL| team puts out multiple releases a week, often releasing two or more
 times a day. This rolling release approach allows |CL| to remain agile to
@@ -43,15 +60,16 @@ Is telemetry required?
 The telemetry solution provided by |CL| is entirely optional and customizable.
 It is disabled by default. If you do choose to enable telemetry, the data
 helps the |CL| team proactively identify and resolve bugs. See the
-:ref:`telem-guide` guide for more information.
+:ref:`telemetry <telem-guide>` guide for more information.
 
 |
 
 What is the default firewall?
 =============================
 
-|CL| packages :command:`iptables` as a bundle, however, there are no default
-firewall rules. All network traffic is allowed by default.
+|CL| packages :command:`iptables` and :command:`firewalld` as optional
+bundles, however, there are no default firewall rules. All network traffic is
+allowed by default.
 
 |
 
@@ -60,21 +78,35 @@ Where are the files that I usually see under /etc like fstab?
 
 |CL| has a stateless design that maintains a separation between system files
 and user files. Default values are stored under :file:`/usr/share/defaults/`.
-Files under :file:`/etc/` are not created unless you create one.
+|CL| starts with a mostly empty :file:`/etc` directory to store user-defined
+configurations. See the :ref:`stateless <stateless>` page for more information.
 
-A blog post explaining how this is accomplished with :file:`/etc/fstab/`
-specifically is available here:
-https://clearlinux.org/news-blogs/where-etcfstab-clear-linux
+See `this blog post
+<https://clearlinux.org/news-blogs/where-etcfstab-clear-linux>`_ for an
+example explaining how this is accomplished with :file:`/etc/fstab/`
+specifically.
+
 
 |
 
-Software packages
-*****************
+Does it use the Intel Compiler (icc)?
+=====================================
+
+No. |CL| uses open source compilers: :command:`gcc` and :command:`clang`. |CL|
+does not compile any packages with :command:`icc`. 
+
+For a more detailed explanation, see `this discussion on the community forum
+<https://community.clearlinux.org/t/does-clear-linux-os-use-the-intel-compiler-icc-tl-nope/>`_.
+
+|
+
+Software
+********
 
 How is software installed and updated?
 ======================================
 
-|CL| provides software in the form of :ref:`bundles-guide` and
+|CL| provides software in the form of :ref:`bundles <bundles-guide>` and
 updates software with :ref:`swupd <swupd-guide>`.
 
 :ref:`Flatpak\* <flatpak-tutorial>` is an application virtualization solution
@@ -86,15 +118,29 @@ bundles whenever possible.
 
 |
 
-Does |CL| use RPMs like other distros?
-======================================
+Does it use RPMs or DEBs packages like other distros?
+=====================================================
 
-|CL| provides software in the form of :ref:`bundles-guide`. The RPM
-format is used as an intermediary step for packaging and determining software
-dependencies at OS build time.
+No. |CL| provides software to systems in the form of :ref:`bundles-guide`.
+Under the hood, |CL| developers use the RPM format as an intermediary step for
+packaging and determining software dependencies at OS build time.
 
-Individual RPMs can sometimes be manually installed on a |CL| system with the
-right tools, but that is not the intended use case.
+Individual RPMs and DEBs can sometimes be manually extracted and installed on
+a |CL| system with the right tools, but that is not the intended use case.
+
+|
+
+Why does it have a different approach to software management?
+=============================================================
+
+The |CL| team wants software *installation* and *updates* to be as efficient
+and error free as possible. |CL| packages software differently and uses a
+novel updater to solve some of the classic problems with how the software
+packages are on Linux. 
+
+For a more detailed explanation, see `this discussion on our community forum
+<https://community.clearlinux.org/t/why-does-clearlinux-use-swupd-and-not-apt-deb-rpm/>`_.
+
 
 |
 
@@ -127,8 +173,9 @@ Is Google\* Chrome\* available?
 The Google Chrome web browser is not distributed as a bundle in |CL| due to
 copyright and licensing complexities.
 
-A discussion on manually installing and maintaining Google Chrome can be found
-on GitHub: https://github.com/clearlinux/distribution/issues/422
+A `discussion on manually installing and maintaining Google Chrome
+<https://github.com/clearlinux/distribution/issues/422>`_ can be found on
+GitHub.
 
 |
 
@@ -142,8 +189,10 @@ the `software store`_. Installing Flatpak apps is also covered in our
 The |CL| team is working on a natively packaged version of Visual Studio Code
 for future release.
 
-Join a community forum discussion about manually installing and maintaining
-Visual Studio Code: https://community.clearlinux.org/t/need-native-support-for-vs-code-through-swupd/
+Join a community `forum discussion about manually installing and maintaining
+Visual Studio Code
+<https://community.clearlinux.org/t/need-native-support-for-vs-code-through-swupd/>`_.
+
 
 .. _VS Code: https://clearlinux.org/software?search_api_fulltext=vscode
 
@@ -159,13 +208,12 @@ various media encoding/decoding, streaming, and playback.
 complexities (See https://www.ffmpeg.org/legal.html and
 http://blog.pkh.me/p/13-the-ffmpeg-libav-situation.html).
 
-Read more in the |CL| repository, including discussion of an alternative
-hardware-based solution:
-https://github.com/clearlinux/distribution/issues/429.
 
-While |CL| cannot distribute FFmpeg, a manual solution to build and install
-FFmpeg under :file:`/usr/local` has been shared on the community forums:
-https://community.clearlinux.org/t/how-to-h264-etc-support-for-firefox-including-ffmpeg-install.
+While |CL| cannot distribute FFmpeg, solutions for manually building and
+installing FFmpeg have been shared by users `on GitHub
+<https://github.com/clearlinux/distribution/issues/429>`_ and `the community
+forums
+<https://community.clearlinux.org/t/how-to-h264-etc-support-for-firefox-including-ffmpeg-install>`_.
 
 |
 
@@ -176,8 +224,8 @@ ZFS is not available with |CL| because of copyright and licensing
 complexities. BTRFS is an alternative filesystem that is available in |CL|
 natively.
 
-A user on GitHub notes that the ZFS kernel module can be compiled, built, and
-installed manually: https://github.com/clearlinux/distribution/issues/631
+A user on GitHub notes that the `ZFS kernel module can be compiled, built, and
+installed manually <https://github.com/clearlinux/distribution/issues/631>`_.
 
 |
 
