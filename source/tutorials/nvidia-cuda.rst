@@ -95,8 +95,8 @@ Install the compatible version of GCC, if required:
 
    .. code:: bash
    
-      sudo ln -s /usr/bin/gcc8 /usr/local/cuda/bin/gcc
-      sudo ln -s /usr/bin/g++8 /usr/local/cuda/bin/g++  
+      sudo ln -s /usr/bin/gcc-8 /usr/local/cuda/bin/gcc
+      sudo ln -s /usr/bin/g++-8 /usr/local/cuda/bin/g++  
 
 
 Downloading and Installation
