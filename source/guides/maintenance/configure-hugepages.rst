@@ -3,9 +3,9 @@
 Configure Huge Pages
 ########################
 
-In |CL| hugepages are enabled by default for the 2MB. The total number of 
-hugepages is set to 0 by default. This guide shows you how to add hugepages to
-the system and how to change the default hugepage size. 
+In |CL| hugepages are enabled by default. The default hugepage size is 2MB. 
+The total number of hugepages is set to 0 by default. This guide shows you how
+to add hugepages to the system and how to change the default hugepage size. 
 
 #. To check the enabled state, run the following command.
 
