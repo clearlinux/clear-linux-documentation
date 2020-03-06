@@ -226,11 +226,6 @@ server must be configured to use the content under
       EndSection
       EOF
       
-#. Make a place for application profiles to live (previously installed files need to be removed before updating drivers)
-
-   .. code-block:: bash
-   
-      sudo mkdir -p /etc/nvidia/nvidia-application-profiles-rc.d
 Install the NVIDIA drivers
 ==========================
 
