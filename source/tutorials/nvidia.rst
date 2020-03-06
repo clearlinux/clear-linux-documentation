@@ -225,7 +225,12 @@ server must be configured to use the content under
               ModulePath      "/opt/nvidia/lib64/xorg/modules"
       EndSection
       EOF
+      
+#. Make a place for application profiles to live (previously installed files need to be removed before updating drivers)
 
+   .. code-block:: bash
+   
+      sudo mkdir -p /etc/nvidia/nvidia-application-profiles-rc.d
 Install the NVIDIA drivers
 ==========================
 
@@ -260,7 +265,7 @@ Install the NVIDIA drivers
       --x-library-path=/opt/nvidia/lib64 \
       --x-sysconfig-path=/etc/X11/xorg.conf.d \
       --documentation-prefix=/opt/nvidia \
-      --application-profile-path=/etc/nvidia \
+      --application-profile-path=/etc/nvidia/nvidia-application-profiles-rc.d \
       --no-precompiled-interface \
       --no-nvidia-modprobe \
       --no-distro-scripts \
