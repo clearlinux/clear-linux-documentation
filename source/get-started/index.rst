@@ -3,8 +3,9 @@
 Get started
 ###########
 
-The Get Started section guides you through the requirements and installation of
-|CL-ATTR|. Follow these step-by-step instructions to get started with |CL|, fast.
+The Get Started section guides you through the requirements and installation
+of |CL-ATTR|. Follow these step-by-step instructions to get started with |CL|,
+fast.
 
 Pre-install
 ***********
@@ -50,10 +51,19 @@ Install in a virtual machine
    ../../guides/maintenance/increase-virtual-disk-size.rst
 
 Deploy to the cloud
-********************
+*******************
 
 .. toctree::
    :maxdepth: 1
    :glob:
 
    cloud-install/*
+
+Containers
+**********
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   containers/*
