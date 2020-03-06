@@ -260,7 +260,7 @@ Install the NVIDIA drivers
       --x-library-path=/opt/nvidia/lib64 \
       --x-sysconfig-path=/etc/X11/xorg.conf.d \
       --documentation-prefix=/opt/nvidia \
-      --application-profile-path=/etc/nvidia \
+      --application-profile-path=/etc/nvidia/nvidia-application-profiles-rc.d \
       --no-precompiled-interface \
       --no-nvidia-modprobe \
       --no-distro-scripts \
