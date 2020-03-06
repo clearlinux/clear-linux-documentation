@@ -286,6 +286,11 @@ Install the NVIDIA drivers
 
       ln -sv /opt/nvidia/share/applications/nvidia-settings.desktop $HOME/.local/share
 
+#. Optional: Link NVIDIA application profiles to where they are searched for
+
+   .. code-block:: bash
+
+      ln -s /etc/nvidia /usr/share
 
 Updating
 ********
