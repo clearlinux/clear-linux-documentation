@@ -225,7 +225,7 @@ server must be configured to use the content under
               ModulePath      "/opt/nvidia/lib64/xorg/modules"
       EndSection
       EOF
-      
+
 Install the NVIDIA drivers
 ==========================
 
