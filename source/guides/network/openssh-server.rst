@@ -124,11 +124,6 @@ Enable root login
 
 To enable root login via SSH, perform the following steps:
 
-#. Create an *ssh* directory in :file:`/etc`, if it does not already exist.
-
-   .. code-block:: bash
-
-      mkdir /etc/ssh
 
 #. Create the following file, if it does not already exist:
    :file:`/etc/ssh/sshd_config`
@@ -139,6 +134,8 @@ To enable root login via SSH, perform the following steps:
 
       PermitRootLogin yes
 
+You have now enabled root login on your system.  You do not need to restart the sshd service. 
+
 Enable X11-forwarding
 *********************
 
@@ -146,12 +143,6 @@ X11 forwarding allows you to securely run graphical applications (that is, X
 clients) over the SSH connection. This enables remote GUI apps without the need
 for full VNC or remote desktop setup. To enable X11-forwarding via SSH,
 perform the following steps:
-
-#. Create an *ssh* directory in :file:`/etc`, if it does not already exist.
-
-   .. code-block:: bash
-
-      mkdir /etc/ssh
 
 #. Create the following file, if it does not already exist:
    :file:`/etc/ssh/sshd_config`
@@ -165,4 +156,4 @@ perform the following steps:
       X11DisplayOffset 10
       X11Forwarding yes
 
-The sshd service will pick up the changes to the config file without needing a restart.
+You have now enabled X11-forwarding!  You do not need to restart the sshd service.
