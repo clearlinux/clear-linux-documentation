@@ -3,7 +3,7 @@
 Enable and configure SSH service
 ################################
 
-This guide describes how to set up SSH service.
+This guide describes how to set up the SSH service.
 
 .. contents::
    :local:
@@ -14,7 +14,7 @@ Overview
 
 The :command:`openssh-server` bundle provides the OpenSSH package that
 enables an SSH service in |CL-ATTR|. Remote users require an SSH service to be
-able to use an encrypted login shell.
+able to use an encrypted login shell. The SSH daemon has all of its configuration built in and no template configuration file is present on the file system.
 
 |CL| enables the `sshd.socket` unit, which listens on port 22 by default
 and starts the OpenSSH service as required. The first time OpenSSH starts, it
@@ -104,32 +104,20 @@ Enable SFTP
 ***********
 
 |CL| *disables* the :abbr:`SFTP (SSH File Transfer Protocol)` subsystem by
-default due to security considerations. To enable the SFTP subsystem, you must
-configure the :abbr:`SSHD (SSH Daemon)` service file.
+default due to security considerations. To enable the SFTP subsystem, you can
+configure the :file:`/etc/ssh/sshd_config` file.
 
-#. Create a systemd drop-in directory for the SSHD service:
+#. Create the following file, if it does not already exist:
+   :file:`/etc/ssh/sshd_config`
 
-   .. code-block:: bash
-
-      sudo mkdir -p /etc/systemd/system/sshd@.service.d
-
-#. Create the following file:
-   :file:`/etc/systemd/system/sshd@.service.d/sftp.conf`
-
-#. Add the OPTIONS environment variable to the :file:`sftp.conf` file.
+#. Add the the SFTP subsystem in :file:`/etc/ssh/sshd_config`:
 
    .. code-block:: console
 
-      [Service]
-      Environment="OPTIONS=-o Subsystem=\"sftp /usr/libexec/sftp-server\""
+      subsystem sftp /usr/libexec/sftp-server
 
-#. Reload systemd configuration:
 
-   .. code-block:: bash
-
-      sudo systemctl daemon-reload
-
-Congratulations! The SFTP subsystem is enabled.
+Congratulations! The SFTP subsystem is enabled. You do not need to restart the sshd service.
 
 Enable root login
 *****************
@@ -176,3 +164,5 @@ perform the following steps:
       X11UseLocalhost yes
       X11DisplayOffset 10
       X11Forwarding yes
+
+The sshd service will pick up the changes to the config file without needing a restart.
