@@ -240,17 +240,12 @@ Install the NVIDIA drivers
 
       cd ~/Downloads/
 
-#. Make the :file:`NVIDIA-Linux-x86_64-<VERSION>.run` file executable.
-
-   .. code-block:: bash
-
-      chmod +x NVIDIA-Linux-x86_64-<VERSION>.run
 
 #. Run the installer with the advanced options below.
 
    .. code-block:: bash
 
-      sudo ./NVIDIA-Linux-x86_64-<VERSION>.run \
+      sudo sh NVIDIA-Linux-x86_64-<VERSION>.run \
       --utility-prefix=/opt/nvidia \
       --opengl-prefix=/opt/nvidia \
       --compat32-prefix=/opt/nvidia \
