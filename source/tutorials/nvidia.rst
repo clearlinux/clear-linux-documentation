@@ -489,7 +489,11 @@ Settings made through the nvidia-settings control panel persist until they are u
 However saved settings are not loaded by default unless you launch nvidia-settings.  To make them persistent we must call nvidia-settings at the begginging of the session.  To do this:
 
    .. code:: bash
-   echo "nvidia-settings --load-config-only" >> ~/.xinitrc
+
+ .. code:: bash
+    echo "nvidia-settings --load-config-only" >> ~/.xinitrc
+
+    ```
 
 Additional resources
 ====================
@@ -503,5 +507,4 @@ Additional resources
 .. _`nouveau project`:  https://nouveau.freedesktop.org/wiki/
 
 .. _`NVIDIA Driver Downloads website`: https://www.nvidia.com/download/index.aspx
-
 
