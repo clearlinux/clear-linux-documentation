@@ -488,8 +488,6 @@ Settings made through the nvidia-settings control panel persist until they are u
 
 However saved settings are not loaded by default unless you launch nvidia-settings.  To make them persistent we must call nvidia-settings at the begginging of the session.  To do this:
 
-   .. code:: bash
-
  .. code:: bash
     echo "nvidia-settings --load-config-only" >> ~/.xinitrc
 
