@@ -483,7 +483,7 @@ try one of the solutions below:
      EOF
 
 Loading saved settings
-==================
+======================
 Settings made through the nvidia-settings control panel persist until they are unloaded. You may save your settings under the nvidia-settings Configuration item by clicking the button labeled "Save Current Configuration" or if the "write-config" option is enabled in ~/.nvidia-settings-rc settings are saved when the application closes (this behavior is default).
 
 However saved settings are not loaded by default unless you launch nvidia-settings.  To make them persistent we must call nvidia-settings at the begginging of the session.  To do this:
