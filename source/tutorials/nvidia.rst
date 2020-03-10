@@ -280,11 +280,11 @@ Install the NVIDIA drivers
       lsmod | grep ^nvidia
 
 #. Optional: Create a link for the nvidia-settings desktop entry to
-   :file:`~/.local/share` so that it appears in the launcher for easy access. 
+   :file:`~/.local/share/applications` so that it appears in the launcher for easy access. 
 
    .. code-block:: bash
 
-      ln -sv /opt/nvidia/share/applications/nvidia-settings.desktop $HOME/.local/share
+      ln -sv /opt/nvidia/share/applications/nvidia-settings.desktop $HOME/.local/share/applications
 
 
 Updating
@@ -384,11 +384,11 @@ driver restored with the instructions in this section.
       sudo rm /etc/X11/xorg.conf.d/nvidia-files-opt.conf
 
 #. Remove the nvidia-settings desktop entry file if it was linked to
-   :file:`~/.local/share`.
+   :file:`~/.local/share/applications`.
 
    .. code:: bash
 
-      unlink -v $HOME/.local/share/nvidia-settings.desktop
+      unlink -v $HOME/.local/share/applications/nvidia-settings.desktop
 
 
 #. Run the :command:`nvidia-uninstall` command.
