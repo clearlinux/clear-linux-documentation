@@ -491,8 +491,6 @@ However saved settings are not loaded by default unless you launch nvidia-settin
  .. code:: bash
     echo "nvidia-settings --load-config-only" >> ~/.xinitrc
 
-    ```
-
 Additional resources
 ====================
 
