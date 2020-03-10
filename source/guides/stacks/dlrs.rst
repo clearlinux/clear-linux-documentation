@@ -109,7 +109,7 @@ instructions in :ref:`kubernetes`.
 
 .. warning::
 
-   Note that although the DLRS images and dockerfiles may be modified for your needs, there are some modifications that may cause unexpected or undesirable results.  For example, using the Clear Linux :command:`swupd bundle-add` command to add packages to a Clear Linux based container may overwrite the DLRS core components.  Please use care when modifying the contents of the containers.
+   Note that although the DLRS images and dockerfiles may be modified for your needs, there are some modifications that may cause unexpected or undesirable results.  For example, using the Clear Linux :command:`swupd bundle-add` command to add packages to a Clear Linux based container may overwrite the DLRS core components.  Please use care when modifying the contents of the containers. If recaving Errors using the Clear Linux :command:`swupd bundle-add` command try running the Clear Linux :command:`swupd clean` command first.
 
 
 Kubectl
