@@ -360,6 +360,22 @@ driver restored with the instructions in this section.
    .. code-block:: bash
 
       sudo rm /etc/modprobe.d/disable-nouveau.conf
+      
+#. Remove the :file:`nvidia.conf` file so that dynamic linker does not
+   look for cached libraries under :file:`/opt/nvidia/lib` and :file:`/opt/nvidia/lib32`.
+   
+   .. code-block:: bash
+   
+      sudo rm /etc/ld.so.conf.d/nvidia.conf
+      sudo ldconfig
+
+   Optionally, restore :file:`ld.so.conf` to default if no other configuration files under :file:`/etc/ld.so.conf.d`
+   needs to be included.
+
+   .. code-block:: bash
+      
+      sudo sed -i '/^include \/etc\/ld\.so\.conf\.d\/\*\.conf$/d' /etc/ld.so.conf
+
 
 #. Remove the :file:`xorg.conf.d` file that adds a search path for X modules.
 
