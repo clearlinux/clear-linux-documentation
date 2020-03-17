@@ -67,6 +67,36 @@ are known to be problematic.
 Installation
 ************
 
+Verify GCC Compatibility
+========================
+
+The installation requires building a kernel module with GCC, and furthermore
+you should compile the kernel module with the same GCC version that is used
+to compile the kernel.
+
+To get the current GCC version:
+
+.. code-block:: bash
+
+   gcc --version | grep -o '\([0-9]\+\.\?\)\{3\} [0-9]\{8\}'
+
+And to check the GCC version that is used to compile the kernel,
+
+.. code-block:: bash
+
+    grep -o '\([0-9]\+\.\?\)\{3\} [0-9]\{8\}' "/proc/version"
+
+If these two version numbers are different, it is suggested that you should
+wait until the kernel is updated and when it is compiled with the same GCC
+version you currently have.
+
+If you KNOW EXACTLY what you are doing, you can bypass this check by appending
+the following option when you invoke the installer:
+
+.. code-block:: back
+
+   --no-cc-version-check
+
 Configure workarounds
 =====================
 
