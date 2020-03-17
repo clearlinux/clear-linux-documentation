@@ -31,7 +31,16 @@ Kubernetes* cluster.
 The Redis stack application is enabled for a multinode Kubernetes
 environment, using AEP persistent memory DIMM in fsdax mode for storage.
 
-The `release announcement`_ for this release provides more detail about the stack features, as well as benchmark results.
+Releases
+********
+
+Refer to the `Database Reference Stack website`_ for information and download links for the different versions and offerings of the stack.
+
+The release announcement for each release provides more detail about the stack features, as well as benchmark results.
+
+* `DBRS V2.0`_ release announcement.
+* `DBRS V1.0`_ release announcement.
+
 
 .. note::
 
@@ -141,7 +150,7 @@ Configuration Steps
    Run the following steps with root privileges (sudo) as shown in the examples
 
 
-#. To configure Optane DIMMs for App direct mode run this command 
+#. To configure Optane DIMMs for App direct mode run this command
 
    .. code-block:: bash
 
@@ -154,7 +163,7 @@ Configuration Steps
       sudo ipmctl show -region
 
 
-#. Next, list the defined namespaces for the pmem devices in the system. If they are not defined, create them as shown in the following step. 
+#. Next, list the defined namespaces for the pmem devices in the system. If they are not defined, create them as shown in the following step.
 
 
    .. code-block:: bash
@@ -612,6 +621,55 @@ To start a redisfailover instance in Kubernetes run the following
 
    There is a `known issue`_ in which the sentinels do not have enough memory to create the InitContainer. The current workaround is to build the image increasing the limits for the InitContainer memory to 32Mb
 
+Running DBRS with Memcached
+***************************
+
+With DBRS V2.0 you can use the DBRS stack with `Memcached`_, a free and open source, high performance, distributed meory object caching system. This stack is ready to use DCPMM in fsdax for storage.   The source for this application can be found in the `Memcached`_ repository.
+
+.. note::
+
+   The DBRS v2.0 release does not support Redis or Cassandra.
+
+
+
+Build the DBRS Memcached image
+==============================
+
+To build the Memcached enabled image, use the Dockerfile with this command:
+
+.. code-block:: bash
+
+   docker build --force-rm --no-cache -f Dockerfile -t ${DOCKER_IMAGE} .
+
+
+Run DBRS with Memcached as a standalone container
+=================================================
+
+Prior to launching the container, you will need to configure the DCPMM in fsdax mode with a file system, and have it mounted in :file:`/mnt/dax0`. Instructions for configuration can be found in :ref:`Hardware Configuration`.
+
+To launch the container run this command:
+
+.. code-block:: bash
+
+   docker run --mount type=bind,source=/mnt/dax0,target=/mnt/pmem0 -i -d --name pmem-memchached ${DOCKER_IMAGE} -e /mnt/pmem0/memcached.file -m 64 -c 1024 -p 11211
+
+where:
+
+:command:`-m` is the maximum memory limit to use in megabytes
+:command:`-e` is the mmap path for external memory (DCPMM storage).  For this container the DCPMM sould be mounted inside the container on :file:`/mnt/pmem0`
+:command:`-c` is the number of concurrent connections
+:command:`-p` is the TCP connection port.
+
+For more information please refer to this `blog post`_ from `Memcached`_
+
+
+
+
+
+
+
+
+
 
 
 
@@ -649,4 +707,14 @@ To start a redisfailover instance in Kubernetes run the following
 
 .. _DBRS Terms of Use: https://clearlinux.org/stacks/database/terms-of-use
 
-.. _release announcement: https://clearlinux.org/news-blogs/database-reference-stack-dbrs-v10-now-available
+
+
+.. _Database Reference Stack website: https://clearlinux.org/stacks/database-reference
+
+.. _DBRS V1.0: https://clearlinux.org/news-blogs/database-reference-stack-dbrs-v10-now-available
+
+.. _DBRS V2.0: TBD
+
+.. _Memcached: https://memcached.org
+
+.. _blog post: https://memcached.org/blog/persistent-memory/
