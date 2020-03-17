@@ -15,7 +15,7 @@ Overview
 
 The Database Reference Stack is integrated, highly-performant, open source,
 and optimized for 2nd generation Intel® Xeon® Scalable Processors and Intel®
-Optane™ DC Persistent Memory. This open source community release is part of
+Optane™ persistent memory. This open source community release is part of
 an effort to ensure developers have easy access to the features and
 functionality of Intel Platforms.
 
@@ -23,13 +23,13 @@ Stack Features
 ==============
 
 Current supported  database applications are Apache Cassandra* and Redis*, which
-have been enabled for `Intel Optane DC PMM`_.
+have been enabled for `Intel Optane PMM`_.
 
 DBRS with Apache Cassandra can be deployed as a standalone container or inside a
 Kubernetes* cluster.
 
 The Redis stack application is enabled for a multinode Kubernetes
-environment, using AEP persistent memory DIMM in fsdax mode for storage.
+environment, using AEP PMem DIMM in fsdax mode for storage.
 
 Releases
 ********
@@ -52,10 +52,10 @@ The release announcement for each release provides more detail about the stack f
 Hardware Requirements
 *********************
 
-* Intel Xeon Scalable Platform with Intel C620 chipset series
-* 2nd Gen Intel Xeon Scalable processor CPU (Intel Optane DC PMM-enabled stepping) Provides cache & memory control.  Intel Optane DC persistent memory works only on systems powered by 2nd Generation Intel® Xeon® Platinum or Gold processors.
+* Intel® Xeon Scalable Platform with Intel® C620 chipset series
+* 2nd Gen Intel® Xeon Scalable processor CPU (Intel® Optane™ PMM-enabled stepping) Provides cache & memory control.  Intel® Optane™  PMem works only on systems powered by 2nd Generation Intel® Xeon® Platinum or Gold processors.
 * BIOS with Reference Code
-* Intel Optane DC persistent memory
+* Intel®Optane™ PMem
 
 Hardware configuration used in stacks development
 =================================================
@@ -64,12 +64,12 @@ Hardware configuration used in stacks development
 * BIOS with Reference Code
   * BIOS ID: SE5C620.86B.0D.01.0438.032620191658
   * BMC Firmware: 1.94.6b42b91d
-  * Intel® Optane™ DC Persistent MemoryFirmware: 1.2.0.5310
-* 2x Intel Xeon Platinum 8268 Processor
-* Intel SSD DC S5600 Series 960GB 2.5in SATA Drive
+  * Intel® Optane™ PMemFirmware: 1.2.0.5310
+* 2x Intel® Xeon Platinum 8268 Processor
+* Intel® SSD DC S5600 Series 960GB 2.5in SATA Drive
 * 64 GB RAM - Distributed in 4x 16 GB DDR4 DIMM's
-* 2x Intel Optane DC Persistent Memory 256GB Module
-* 1-1-1 Layout 8 Optane : 1 RAM ratio
+* 2x Intel® Optane™ PMem 256GB Module
+* 1-1-1 Layout 8 Optane™ : 1 RAM ratio
 
 
 .. list-table:: **Table 1. IMC**
@@ -117,12 +117,13 @@ Firmware Update Steps
 #. After update BMC firmware, system BIOS, ME firmware,FD, FRUSDR, system will reboot automatically.
 
 
-If Intel Optane DC Persistent Memory is installed, run startup.nsh a second time after the first reboot to upgrade Intel Optane DC Persistent Memory Firmware:
+If Intel® Optane™ PMem is installed, run startup.nsh a second time after the first reboot to upgrade Intel® Optane™ PMem Firmware:
 
 * Boot to EFI shell.
 * Input "fsx(x:0,1,...):" to enter into your usb disk
 * Run "startup.nsh" again to update the corresponding AEP FW.
 
+.. _dbrs-hardware-configuration:
 
 Hardware Configuration
 **********************
@@ -133,14 +134,14 @@ Online Resources
 
 Before going through the configuration steps, we strongly recommend visiting the following resources and wikis to have a broader understanding of what is being done
 
-* `Quick Start Guide`_ Configure Intel Optane DC Persistent Memory Modules on Linux
+* `Quick Start Guide`_ Configure Intel® Optane™ PMem Modules on Linux
 * `Managing NVDIMMs`_
-* `Configure, Manage, and Profile`_ Intel Optane DC Persistent Memory Modules
+* `Configure, Manage, and Profile`_ Intel® Optane™ PMem Modules
 
-Optane DIMM Configuration
-=========================
+Optane™ DIMM Configuration
+==========================
 
-The persistent memory DIMMs can be configured in devdax or fsdax mode. The use case to enable database stack on a kubernetes environment currently only support fsdax mode.
+The PMem DIMMs can be configured in devdax or fsdax mode. The use case to enable database stack on a kubernetes environment currently only support fsdax mode.
 
 Configuration Steps
 ===================
@@ -150,13 +151,13 @@ Configuration Steps
    Run the following steps with root privileges (sudo) as shown in the examples
 
 
-#. To configure Optane DIMMs for App direct mode run this command
+#. To configure Optane™ DIMMs for App direct mode run this command
 
    .. code-block:: bash
 
       sudo ipmctl create -goal PersistentMemoryType=AppDirect
 
-#. Verify the Optane Configuration by showing the defined region, then reboot the system for your changes to take effect
+#. Verify the Optane™ Configuration by showing the defined region, then reboot the system for your changes to take effect
 
    .. code-block:: bash
 
@@ -568,7 +569,7 @@ Eventually all the given nodes will be shown as running using :command:`kubectl 
 Running DBRS with Redis
 ***********************
 
-The Redis stack application is enabled for a multinode Kubernetes environment using Intel Optane DCPMM persistent memory DIMMs in fsdax mode for storage.
+The Redis stack application is enabled for a multinode Kubernetes environment using Intel® Optane™ DCPMM PMem DIMMs in fsdax mode for storage.
 
 The source code used for this application can be found in the `Github repository`_
 
@@ -583,7 +584,7 @@ The following examples will use the `Docker image with Redis`_.  You can also bu
 Single node
 ===========
 
-Prior to starting the container, you will need to have the Intel Optane DCPMM module in fsdax with a file system and mounted in `/mnt/dax0` as shown above.
+Prior to starting the container, you will need to have the Intel® Optane™ DCPMM module in fsdax with a file system and mounted in `/mnt/dax0` as shown above.
 
 Use the following to start the container, replacing ${DOCKER_IMAGE} with the name of the image you are using.
 
@@ -645,7 +646,7 @@ To build the Memcached enabled image, use the Dockerfile with this command:
 Run DBRS with Memcached as a standalone container
 =================================================
 
-Prior to launching the container, you will need to configure the DCPMM in fsdax mode with a file system, and have it mounted in :file:`/mnt/dax0`. Instructions for configuration can be found in :ref:`Hardware Configuration`.
+Prior to launching the container, you will need to configure the DCPMM in fsdax mode with a file system, and have it mounted in :file:`/mnt/dax0`. Instructions for configuration can be found in :ref:`dbrs-hardware-configuration`.
 
 To launch the container run this command:
 
@@ -661,15 +662,6 @@ where:
 :command:`-p` is the TCP connection port.
 
 For more information please refer to this `blog post`_ from `Memcached`_
-
-
-
-
-
-
-
-
-
 
 
 
@@ -701,7 +693,7 @@ For more information please refer to this `blog post`_ from `Memcached`_
 
 .. _Docker image with Redis: https://hub.docker.com/r/clearlinux/stacks-dbrs-redis
 
-.. _Intel Optane DC PMM: https://www.intel.com/content/www/us/en/architecture-and-technology/optane-technology/optane-for-data-centers.html
+.. _Intel Optane PMM: https://www.intel.com/content/www/us/en/architecture-and-technology/optane-technology/optane-for-data-centers.html
 
 .. _pmem-csi: https://github.com/intel/pmem-csi/blob/release-0.6/README.md
 
