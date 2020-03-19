@@ -160,7 +160,7 @@ A mix is created with the following steps:
 #. Create image.
 
    mixer creates a bootable image from your updated content using
-   the :ref:`ister` tool. In this step you can specify which bundles you want
+   the `clr-installer`_ tool. In this step you can specify which bundles you want
    *preinstalled* in the image. Users can later install other bundles available
    in your mix.
 
