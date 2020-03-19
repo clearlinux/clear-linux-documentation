@@ -705,7 +705,7 @@ For more information please refer to this `blog post`_ from `Memcached`_
 
 .. _DBRS V1.0: https://clearlinux.org/news-blogs/database-reference-stack-dbrs-v10-now-available
 
-.. _DBRS V2.0: TBD
+.. _DBRS V2.0: https://clearlinux.org/news-blogs/database-reference-stack-dbrs-v2-now-available
 
 .. _Memcached: https://memcached.org
 
