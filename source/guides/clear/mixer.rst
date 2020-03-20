@@ -1064,58 +1064,57 @@ a firewall.
 
 .. rst-class:: content-collapse
 
+.. _set-up-nginx-web-server-start:
+
 Set up a nginx web server for mixer
 ===================================
 
-A web server is needed to host your update content. In this example, we use
-the nginx web server, which comes with |CL|.
+A web server is needed to host your update content. In this example, 
+the nginx web server is used.
 
-Set up a nginx web server for mixer with the following steps:
-
-#. Install the :command:`nginx` bundle:
+#. Install the :command:`nginx` bundle.
 
    .. code-block:: bash
 
       sudo swupd bundle-add nginx
 
-#. Make the directory where mixer updates will reside:
+#. Create a symbolic link to the mixer update content directory. 
 
    .. code-block:: bash
 
       sudo mkdir -p /var/www
 
-#. Create a symbolic link between your workspace updates and the updates on
-   the local nginx web server. In this example, `$HOME/mixer` is the
-   workspace for the mix.
-
-   .. code-block:: bash
-
       sudo ln -sf $HOME/mixer/update/www /var/www/mixer
 
-#. Set up ``nginx`` configuration:
+#. Set up nginx configuration files.
 
    .. code-block:: bash
 
       sudo mkdir -p  /etc/nginx/conf.d
 
-#. Copy the default example configuration file:
+      sudo cp -f /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
+
+#. Grant ``$USER`` permission to run the web server.
 
    .. code-block:: bash
 
-      sudo cp -f /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
+      sudo tee -a /etc/nginx/nginx.conf << EOF
+      user $USER;
+      EOF
 
-#. Configure the mixer update server. Create and add the following server
-   configuration content to :file:`/etc/nginx/conf.d/mixer.conf` (sudo required):
+#. Configure the mixer update server. 
 
-   .. code-block:: console
+   .. code-block:: bash
 
+      sudo tee -a /etc/nginx/conf.d/mixer-server.conf << EOF
       server {
-           server_name localhost;
-           location / {
-                     root /var/www/mixer;
-                     autoindex on;
-           }
+        server_name localhost;
+        location / {
+          root /var/www/mixer;
+          autoindex on;
+        }
       }
+      EOF
 
 #. Restart the daemon, enable nginx on boot, and start the service.
 
@@ -1123,13 +1122,13 @@ Set up a nginx web server for mixer with the following steps:
 
       sudo systemctl daemon-reload
 
-      sudo systemctl enable nginx
+      sudo systemctl enable nginx --now
 
-      sudo systemctl start nginx
+#. Verify the web server is running at http://<IP-address-of-web-server>.
+   If there's no mix content yet, the expected response from nginx will be 
+   a ``404 Not Found``.
 
-#. Verify the web server is running at \http://<ip-address>,
-   where <ip-address> is the same one that you captured in
-   `Example 1: Mix set up`_.
+.. _set-up-nginx-web-server-end:
 
 Related topics
 **************
