@@ -55,7 +55,7 @@ tools you need to start. Consider these profiles as a starting point.
            - `machine-learning-web-ui <https://clearlinux.org/software/bundle/machine-learning-web-ui/>`_
 
          * - Machine learning Docker container.
-           - `machine-learning <https://clearlinux.org/software/docker/machine-learning/>`_
+           - `machine-learning <https://clearlinux.org/software/docker/machine-learning-ui/>`_
 
          * - Pre-built Python libraries for Data Science.
            - `python-extras <https://clearlinux.org/software/bundle/python-extras>`_
@@ -183,14 +183,14 @@ tools you need to start. Consider these profiles as a starting point.
          * - Run a secure shell (SSH) server for access from remote machines.
            - `openssh-server <https://clearlinux.org/software/bundle/openssh-server/>`_
 
-         * - Run a HTTP web server.
-           - `web-server-basic <https://clearlinux.org/software/bundle/web-server-basic>`_
+         * - Run an HTTP server.
+           - `nginx <https://clearlinux.org/software/bundle/nginx>`_
 
          * - Run an application server via HTTP.
            - `application-server <https://clearlinux.org/software/bundle/application-server/>`_
 
-         * - Run an SQL database.
-           - `database-basic <https://clearlinux.org/software/bundle/database-basic>`_
+         * - Run a SQLite database.
+           - `sqlite <https://clearlinux.org/software/bundle/sqlite>`_
 
          * - Bundle to automatically launch the GUI upon boot.
            - `desktop-autostart <https://clearlinux.org/software/bundle/desktop-autostart/>`_

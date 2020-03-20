@@ -1124,7 +1124,7 @@ the nginx web server is used.
 
       sudo systemctl enable nginx --now
 
-#. Verify the web server is running at http://<IP-address-of-web-server>.
+#. Verify the web server is running at \http://<IP-address-of-web-server>.
    If there's no mix content yet, the expected response from nginx will be 
    a ``404 Not Found``.
 
