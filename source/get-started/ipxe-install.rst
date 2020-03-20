@@ -100,17 +100,27 @@ Setup nginx web server to host iPXE
 
    .. code-block:: bash
 
+      # setup nginx
       sudo mkdir -p /etc/nginx/conf.d
       sudo cp /usr/share/nginx/conf/nginx.conf.example /etc/nginx/nginx.conf
+      
+      # grant $USER permission to run the web server
+      sudo tee -a /etc/nginx/nginx.conf << EOF
+      user $USER;
+      EOF
+
+      # web server config
       sudo tee -a /etc/nginx/conf.d/${IPXE_APP_NAME}.conf << EOF
       server {
         listen ${IPXE_PORT};
         server_name localhost;
+
         # directory to store ipxe
         location /${IPXE_APP_NAME}/ {
           root ${WEB_ROOT_DIR}/${IPXE_APP_NAME};
           rewrite ^/${IPXE_APP_NAME}(/.*)$ \$1 break;
         }
+
         # directory to store clr-installer configs
         location /${CLR_INSTALLER_CONF_DIR}/ {
           root ${WEB_ROOT_DIR}/${CLR_INSTALLER_CONF_DIR};
@@ -123,8 +133,7 @@ Setup nginx web server to host iPXE
 
    .. code-block:: bash
 
-      sudo systemctl enable nginx
-      sudo systemctl start nginx
+      sudo systemctl enable nginx --now
 
 Configure iPXE
 **************
