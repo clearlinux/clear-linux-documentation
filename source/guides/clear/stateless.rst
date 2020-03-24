@@ -4,7 +4,7 @@ Stateless
 #########
 
 In most operating systems, user data, system data, and configuration files
-can become intermingled.
+can become intermingled, which can make them challenging to manage.
 
 .. figure:: figures/stateless-1.png
    :scale: 45%
@@ -24,7 +24,7 @@ ephemeral or non-persistent.
 File-level separation
 *********************
 
-To accomplish a stateless design the Linux Filesystem Hierarchy is separated
+To accomplish a stateless design, the |CL| filesystem hierarchy is separated
 between user-owned areas and |CL|-owned areas.
 
 .. figure:: figures/stateless-2.png
@@ -63,16 +63,17 @@ Default configurations
 ======================
 
 Software in |CL| provides default configuration values so that it is
-immediately functional, whenever it is appropriate to do so.
+immediately functional, except for some that require additional configuration.
 
-|CL| distributed software packages may be directly modified to include default
-configuration values or default configuration files may be provided by |CL|
-under :file:`/usr/share/defaults`. These files can be referenced as templates
-for customization.
+If an upstream software puts default configurations in multiple locations 
+such as :file:`/usr/` and :file:`/etc`, it will be modified by the |CL| 
+distro to comply with the stateless design.  Also, some default configurations 
+may be modified to close security loopholes.  Defaults will reside 
+under :file:`/usr/share/defaults`.  These files can be referenced as 
+templates for customization.
 
-For example, the default configuration that Apache uses when installed can be
-found at :file:`/usr/share/defaults/httpd/httpd.conf` directory.
-
+For example, after installing the `httpd` bundle for Apache web server, its 
+default configurations appear in the :file:`/usr/share/defaults/httpd/` directory.
 
 Overriding configurations
 =========================
@@ -81,30 +82,36 @@ If a configuration needs to be changed, the appropriate file should be
 modified by the user under :file:`/etc/`. If the configuration file does not
 already exist, it can be created in the appropriate location.
 
-User defined configuration files should contain the minimal set of desired
+User-defined configuration files should contain the minimal set of desired
 changes and rely on default configuration for the rest.
 
 For example, a customized Apache configuration can be used instead by:
 
-#. Create the destination directory for the configuration:
+#. Install the Apache web server bundle.
+
+   .. code-block:: bash
+
+      sudo swupd bundle-add httpd
+
+#. Create the destination directory for the configuration.
 
    .. code-block:: bash
 
       sudo mkdir /etc/httpd
 
-#. Copy the default configuration as a reference template:
+#. Copy the default configuration as a reference template.
 
    .. code-block:: bash
 
       sudo cp /usr/share/defaults/httpd/httpd.conf /etc/httpd/
 
-#. Make any desired modifications to the configurations:
+#. Make any desired modifications to the configurations.
 
    .. code-block:: bash
 
       sudoedit /etc/httpd/httpd.conf
 
-#. Reload the service or reboot the system to pickup any changes:
+#. Reload the service or reboot the system to pickup any changes.
 
    .. code-block:: bash
 
@@ -116,7 +123,7 @@ The `stateless man page`_ has application-specific examples.
 System reset
 ************
 
-Once advantage of the stateless design is that the system defaults can be
+One advantage of the stateless design is that the system defaults can be
 easily restored by simply deleting everything under :file:`/etc/` and
 :file:`/var`.
 
@@ -128,8 +135,8 @@ just installed:
    sudo rm -rf /etc
    sudo rm -rf /var
 
-In other Linux distributions, this can be a catastrophic action that renders
-a system unable to boot.
+In other Linux distributions, this can be a catastrophic action that may render
+a system unable to boot and/or inaccessible.
 
 Additional information
 **********************
