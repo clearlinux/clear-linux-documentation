@@ -230,8 +230,6 @@ If you prefer not to use your BIOS to load the :guilabel:`Boot Menu` and select 
 
       sudo clr-boot-manager set-timeout 20 --path=/mnt/clearlinux
 
-      sudo clr-boot-manager update --path=/mnt/clearlinux
-
 #. Umount all partitions.
 
    .. code-block:: bash
