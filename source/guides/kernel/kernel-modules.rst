@@ -56,11 +56,12 @@ following example. See :ref:`swupd-guide` for more information.
 Submit a request to add the module
 ==================================
 
-If the kernel module you need is already open source (for example, in the Linux
-upstream) and likely to be useful to others, consider submitting a request to
-add or enable it in the |CL| kernel.
+If the kernel module you need is already open source (for example, in the
+Linux kernel upstream) and likely to be useful to others, consider submitting
+a request to add or enable it in the |CL| kernel.
 
-Make enhancement requests to the |CL| 'Distribution Project'_ on GitHub.
+Make enhancement requests to the |CL| `Distribution Project on GitHub
+<https://github.com/clearlinux/distribution>`_.
 
 .. _kernel-modules-availability-end:
 
@@ -102,8 +103,9 @@ Build and install kernel module
       5.XX.YY-ZZZZ.native
 
 #. Install the kernel dev bundle corresponding to the installed kernel. The
-   kernel dev bundle contains the kernel headers, which are required for
-   compiling kernel modules. For example:
+   kernel dev bundle contains the kernel headers, which are placed under
+   :file:`/usr/lib/modules/$(uname -r)/build/include/` and are required to
+   compile kernel modules. For example:
 
    * :command:`linux-dev` for developing against the native kernel.
    * :command:`linux-lts-dev` for developing against the LTS kernel.
@@ -111,6 +113,8 @@ Build and install kernel module
    .. code-block:: bash
 
       sudo swupd bundle-add linux-dev
+
+   
 
 #. Follow instructions from the kernel module source code to compile the
    kernel module. For example:
@@ -174,17 +178,19 @@ Optional: Specify module options and aliases
 Use the :command:`modprobe` command to load a module and set options.
 
 :command:`modprobe` may add or remove more than one module due to module
-interdependencies. You can specify which options to use with individual modules,
-by using configuration files under the :file:`/etc/modprobe.d` directory.
+interdependencies. You can specify which options to use with individual
+modules, by using configuration files under the :file:`/etc/modprobe.d`
+directory.
 
 .. code-block:: bash
 
    sudo mkdir /etc/modprobe.d
 
 All files underneath the :file:`/etc/modprobe.d` directory that end with the
-:file:`.conf` extension specify module options to use when loading. You can use
-:file:`.conf` files to create convenient aliases for modules or to override the
-normal loading behavior altogether for those with special requirements.
+:file:`.conf` extension specify module options to use when loading. You can
+use :file:`.conf` files to create convenient aliases for modules or to
+override the normal loading behavior altogether for those with special
+requirements.
 
 Learn more about :command:`modprobe` on the modprobe.d manual page:
 
@@ -220,4 +226,3 @@ Related topic
 
 * :ref:`kernel-modules-dkms`
 
-.. _`Distribution Project`: https://github.com/clearlinux/distribution
