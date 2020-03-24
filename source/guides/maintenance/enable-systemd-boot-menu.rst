@@ -10,7 +10,6 @@ editing kernel command line parameters, etc.
 
 To set a timeout value for the systemd-boot menu, follow these steps:
 
-
 #. Boot up |CL|.
 
 #. Log in.
@@ -20,6 +19,5 @@ To set a timeout value for the systemd-boot menu, follow these steps:
    .. code-block:: bash
       
       sudo clr-boot-manager set-timeout 20
-      sudo clr-boot-manager update
 
 #. Reboot.

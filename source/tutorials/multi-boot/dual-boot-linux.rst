@@ -279,7 +279,6 @@ also provide a path to chain-boot GRUB.
    .. code-block:: bash	
 
       sudo clr-boot-manager set-timeout 20 --path=/mnt/clearlinux
-      sudo clr-boot-manager update --path=/mnt/clearlinux
 
 #. Add a system-boot boot entry for GRUB.
    
