@@ -39,8 +39,9 @@ Install DKMS
 
 .. _kernel-modules-dkms-install-begin:
 
-The :command:`kernel-native-dkms` bundle provides the DKMS program and
-Linux kernel headers, which are required for compiling kernel modules.
+The :command:`kernel-native-dkms` bundle provides the DKMS program and Linux
+kernel headers, which are placed under :file:`/usr/lib/modules/$(uname
+-r)/build/include/` and are required to compile kernel modules.
 
 The :command:`kernel-native-dkms` bundle also:
 
