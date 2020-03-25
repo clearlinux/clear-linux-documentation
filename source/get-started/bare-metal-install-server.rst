@@ -41,7 +41,6 @@ Install |CL| on your target system
 Ensure that your system is configured to boot UEFI. The installation method
 described below requires a wired or wireless Internet connection with DHCP.
 
-
 Follow these steps to install |CL| on the target system:
 
 #. Insert the USB drive into an available USB slot.
