@@ -74,16 +74,15 @@ Components of the |MERS| include:
 
 * |CL| as a base for performance and security
 
-* `Intel® Distribution of OpenVINO™ toolkit
-  <https://software.intel.com/en-us/openvino-toolkit>`_ for inference.
+* `Intel® OpenVINO™ toolkit
+  <https://01.org/openvinotoolkit>`_ for inference.
 
-* `FFmpeg <https://www.ffmpeg.org>`_ with `Scalable Video Technology (SVT)
+* `FFmpeg* <https://www.ffmpeg.org>`_ with `Scalable Video Technology (SVT)
   <https://01.org/svt>`_ plugins for encoding, decoding, and transcoding.
 
-* `GStreamer <https://gstreamer.freedesktop.org/>`_  with `Scalable Video
-  Technology (SVT) <https://01.org/svt>`_ and `OpenVINO™ toolkit
-  <https://software.intel.com/en-us/openvino-toolkit>`_ plugins for
-  analytics.
+* `GStreamer* <https://gstreamer.freedesktop.org/>`_  with `Scalable Video
+  Technology (SVT) <https://01.org/svt>`_ and `Intel® OpenVINO™ toolkit
+  <https://01.org/openvinotoolkit>`_ plugins for analytics.
 
 .. note::
 
