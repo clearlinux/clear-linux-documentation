@@ -21,9 +21,12 @@ complex standard-compliant encoders, and optimizing across the
 hardware-software stack for efficiency are all engineering and time
 investments for developers.
 
-The Media Reference Stack (MeRS) offers a highly optimized software stack for Intel Architecture to enable media prioritized workloads, such as
-transcoding and analytics. |MERS| abstracts away the complexity of 
-integrating multiple software components and specifically tunes them for Intel platforms. |MERS| allows media and visual cloud developers to deliver experiences using a simple containerized solution. 
+The Media Reference Stack (MeRS) offers a highly optimized software stack for
+Intel Architecture to enable media prioritized workloads, such as transcoding
+and analytics. |MERS| abstracts away the complexity of integrating multiple
+software components and specifically tunes them for Intel platforms. |MERS|
+allows media and visual cloud developers to deliver experiences using a simple
+containerized solution. 
 
 Prerequisites
 =============
@@ -54,7 +57,8 @@ The |MERS| provides a `pre-built Docker image available on DockerHub
 <https://hub.docker.com/r/clearlinux/stacks-mers>`_, which includes
 instructions on build the image from source. |MERS| is open-sourced to ensure
 developers have easy access to the source code and are able to customize it.
-|MERS| is built using the *clearlinux:latest* Docker image and aims to support the latest |CL| version.
+|MERS| is built using the *clearlinux:latest* Docker image and aims to support
+the latest |CL| version.
 
 |MERS| provides the following libraries:
 
@@ -72,30 +76,32 @@ developers have easy access to the source code and are able to customize it.
 
 Components of the |MERS| include:
 
-* |CL| as a base for performance and security
+* |CL| as a base for performance and security.
 
-* `Intel® Distribution of OpenVINO™ toolkit
-  <https://software.intel.com/en-us/openvino-toolkit>`_ for inference.
+* `OpenVINO™ toolkit
+  <https://01.org/openvinotoolkit>`_ for inference.
 
-* `FFmpeg <https://www.ffmpeg.org>`_ with `Scalable Video Technology (SVT)
+* `FFmpeg* <https://www.ffmpeg.org>`_ with `Scalable Video Technology (SVT)
   <https://01.org/svt>`_ plugins for encoding, decoding, and transcoding.
 
-* `GStreamer <https://gstreamer.freedesktop.org/>`_  with `Scalable Video
+* `GStreamer* <https://gstreamer.freedesktop.org/>`_  with `Scalable Video
   Technology (SVT) <https://01.org/svt>`_ and `OpenVINO™ toolkit
-  <https://software.intel.com/en-us/openvino-toolkit>`_ plugins for
-  analytics.
+  <https://01.org/openvinotoolkit>`_ plugins for analytics.
+
 
 .. note::
 
    The pre-built |MERS| container image configures :command:`FFmpeg` without
    certain elements (specific encoder, decoder, muxer, etc.) that you may
-   require. If you require changes to :command:`FFmpeg` we suggest starting at :ref:`building-the-mers-container-image`.
+   require. If you require changes to :command:`FFmpeg` we suggest starting at
+   :ref:`building-the-mers-container-image`.
 
 .. note::
 
    The Media Reference Stack is a collective work, and each piece of software
    within the work has its own license. Please see the `MeRS Terms of Use
-   <https://clearlinux.org/stacks/media/terms-of-use>`_ for more details about licensing and usage of the Media Reference Stack.
+   <https://clearlinux.org/stacks/media/terms-of-use>`_ for more details about
+   licensing and usage of the Media Reference Stack.
 
 
 Getting the pre-built |MERS| container image
@@ -119,7 +125,8 @@ To use the |MERS|:
       The |MERS| docker image is large in size and will take some time to
       download depending on your Internet connection.
 
-      If you are on a network with outbound proxies, be sure to configure Docker allow access. See the `Docker service proxy
+      If you are on a network with outbound proxies, be sure to configure
+      Docker allow access. See the `Docker service proxy
       <https://docs.docker.com/config/daemon/systemd/#httphttps-proxy>`_ and
       `Docker client proxy
       <https://docs.docker.com/network/proxy/#configure-the-docker-client>`_
@@ -133,10 +140,12 @@ To use the |MERS|:
 
    This will launch the image and drop you into a bash shell inside the
    container. :command:`GStreamer` and :command:`FFmpeg` programs are
-   installed in the container image and accessible in the default $PATH. These programs can be used as you would normally outside of |MERS|.
+   installed in the container image and accessible in the default $PATH. These
+   programs can be used as you would normally outside of |MERS|.
 
-   Paths to media files and video devices, such as cameras, can be shared from the host to the container with the :command:`--volume` switch 
-   `using Docker  volumes <https://docs.docker.com/storage/volumes/>`_.
+   Paths to media files and video devices, such as cameras, can be shared from
+   the host to the container with the :command:`--volume` switch `using Docker
+   volumes <https://docs.docker.com/storage/volumes/>`_.
 
 .. _building-the-mers-container-image:
 
@@ -239,8 +248,9 @@ Guide <https://github.com/opencv/gst-video-analytics/wiki>`_ except simply
 substituting the *gst-video-analytics* docker image for the
 *clearlinux/stacks-mers* image.
 
-The example below shows how to use the |MERS| container image to perform 
-video with object detection and attributes recognition of a video using GStreamer using pre-trained models and sample video files.
+The example below shows how to use the |MERS| container image to perform video
+with object detection and attributes recognition of a video using GStreamer
+using pre-trained models and sample video files.
 
 #. On the host system, setup a workspace for data and models:
 
@@ -405,3 +415,6 @@ video with object detection and attributes recognition of a video using GStreame
      .. code:: bash
 
        ./gst-video-analytics/samples/shell/console_measure_fps_cpu.sh $VIDEO_EXAMPLES_DIR/bolt-detection.mp4
+
+
+**OpenVINO is a trademark of Intel Corporation or its subsidiaries.**
