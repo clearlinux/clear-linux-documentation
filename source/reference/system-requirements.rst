@@ -9,6 +9,11 @@ modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1 
 * 4 GB for the *live server*
 * 20 GB for the *live desktop*
 
+.. caution::
+   
+   Advanced users who wish to install on a disk with less than the recommended system requirements may use the flag ``--skip-validation-size``. Use of this flag may cause the installation to fail due to inadequate disk space.  
+
+
 For use cases requiring minimal resources, |CL| :ref:`about <about>` can
 be used to create a highly customized installation that can even run on a
 system with a 128MB of memory and 600MB of disk space, for example.
