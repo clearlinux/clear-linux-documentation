@@ -11,7 +11,7 @@ modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1 
 
 .. caution::
    
-   Advanced users who wish to install on a disk with less than the recommended system requirements may use the flag ``--skip-validation-size``. Use of this flag may cause the installation to fail due to inadequate disk space.  
+   Advanced users who wish to install on a disk using less than the recommended space requirements may use the flag ``--skip-validation-size``. Use of this flag may cause the installation to fail due to inadequate disk space.  
 
 
 For use cases requiring minimal resources, |CL| :ref:`about <about>` can
