@@ -198,6 +198,8 @@ Visual Studio Code
 
 |
 
+.. _licensing_restrict:
+
 Is FFmpeg available?
 ====================
 
