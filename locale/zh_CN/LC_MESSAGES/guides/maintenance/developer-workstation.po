@@ -4,46 +4,45 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
 
 #: ../../guides/maintenance/developer-workstation.rst:4
 msgid "Developer Workstation"
-msgstr ""
+msgstr "开发人员工作站"
 
 #: ../../guides/maintenance/developer-workstation.rst:6
 msgid ""
 "This guide helps you find the minimum set of bundles needed to start your"
 " |CL-ATTR| development project."
-msgstr ""
+msgstr "本指南帮助您确定启动您的 |CL-ATTR| 开发项目所需的最小捆绑包集。"
 
 #: ../../guides/maintenance/developer-workstation.rst:9
 msgid ""
 "Before continuing, review the :ref:`swupd <swupd-guide>` guide to learn "
 "more about the swupd tool and how |CL| simplifies software versioning "
 "compared to other Linux\\* distributions."
-msgstr ""
+msgstr "继续之前，请阅读 :ref:`swupd <swupd-guide>` 指南，详细了解 swupd 工具以及 |CL| 相比其他 Linux\\* 发行版如何简化了软件版本控制。"
 
 #: ../../guides/maintenance/developer-workstation.rst:18
 msgid "Workstation Setup"
-msgstr ""
+msgstr "工作站设置"
 
 #: ../../guides/maintenance/developer-workstation.rst:20
 msgid ""
 "After installing the minimum set of bundles required to get started, you "
 "can add more bundles relevant to your specific use case."
-msgstr ""
+msgstr "安装了启动项目所需的最小捆绑包集后，您可以添加更多与您的特定用例相关的捆绑包。"
 
 #: ../../guides/maintenance/developer-workstation.rst:23
 msgid ""
@@ -51,7 +50,7 @@ msgid ""
 "bundle :ref:`*os-clr-on-clr* <enable-user-space>`. However, given how "
 "many packages this bundle contains, you may want to deploy a leaner OS "
 "with only bundles relevant to your project."
-msgstr ""
+msgstr "要运行 |CL| 开发所需的任何进程，您可以添加大型捆绑包 :ref:`*os-clr-on-clr* <enable-user-space>`。但是，考虑到该捆绑包含有大量软件包，您可能希望部署一个更精简的操作系统，只包含与您的项目相关的捆绑包。"
 
 #: ../../guides/maintenance/developer-workstation.rst:28
 msgid ""
@@ -59,31 +58,31 @@ msgid ""
 "bundles* to get started developing based on your role or project. While "
 "your role may not neatly fit in one of these categories, consider Table 1"
 " as a starting point."
-msgstr ""
+msgstr "使用表 1 开发人员配置文件，根据您的角色或项目确定开始开发所需的最少捆绑包。虽然您的角色不一定与表中的类别完全吻合，但不妨在表 1 的基础上确定所需的捆绑包。"
 
 #: ../../guides/maintenance/developer-workstation.rst:33
 msgid "**Table 1. Developer Profiles**"
-msgstr ""
+msgstr "**表 1.开发人员配置文件**"
 
 #: ../../guides/maintenance/developer-workstation.rst:37
 msgid "|CL| Bundle"
-msgstr ""
+msgstr "|CL| 捆绑包"
 
 #: ../../guides/maintenance/developer-workstation.rst:38
 msgid "*Internet of Things (IoT)*"
-msgstr ""
+msgstr "*物联网 (IoT)**"
 
 #: ../../guides/maintenance/developer-workstation.rst:39
 msgid "*System Administrator*"
-msgstr ""
+msgstr "*系统管理员*"
 
 #: ../../guides/maintenance/developer-workstation.rst:40
 msgid "*Client/Cloud/Web Developer*"
-msgstr ""
+msgstr "*客户端/云/Web 开发人员*"
 
 #: ../../guides/maintenance/developer-workstation.rst:42
 msgid ":command:`editors`"
-msgstr ""
+msgstr ":command:`editors`"
 
 #: ../../guides/maintenance/developer-workstation.rst:43
 #: ../../guides/maintenance/developer-workstation.rst:44
@@ -105,93 +104,93 @@ msgstr ""
 #: ../../guides/maintenance/developer-workstation.rst:75
 #: ../../guides/maintenance/developer-workstation.rst:80
 msgid "✓"
-msgstr ""
+msgstr "✓"
 
 #: ../../guides/maintenance/developer-workstation.rst:47
 msgid ":command:`network-basic`"
-msgstr ""
+msgstr ":command:`network-basic`"
 
 #: ../../guides/maintenance/developer-workstation.rst:52
 msgid ":command:`openssh-server`"
-msgstr ""
+msgstr ":command:`openssh-server`"
 
 #: ../../guides/maintenance/developer-workstation.rst:57
 msgid ":command:`webserver-basic`"
-msgstr ""
+msgstr ":command:`webserver-basic`"
 
 #: ../../guides/maintenance/developer-workstation.rst:62
 msgid ":command:`application-server`"
-msgstr ""
+msgstr ":command:`application-server`"
 
 #: ../../guides/maintenance/developer-workstation.rst:67
 msgid ":command:`database-basic`"
-msgstr ""
+msgstr ":command:`database-basic`"
 
 #: ../../guides/maintenance/developer-workstation.rst:72
 msgid ":command:`desktop-autostart`"
-msgstr ""
+msgstr ":command:`desktop-autostart`"
 
 #: ../../guides/maintenance/developer-workstation.rst:77
 msgid ":command:`dev-utils`"
-msgstr ""
+msgstr ":command:`dev-utils`"
 
 #: ../../guides/maintenance/developer-workstation.rst:83
 msgid "swupd search"
-msgstr ""
+msgstr "swupd 搜索"
 
 #: ../../guides/maintenance/developer-workstation.rst:85
 msgid ""
 "We recommend learning about :ref:`swupd <swupd-guide>`, to learn the "
 "commands to search for and add bundles relevant to your project."
-msgstr ""
+msgstr "我们建议您学习 :ref:`swupd <swupd-guide>`，了解搜索和添加与您的项目相关的捆绑包所需的命令。"
 
 #: ../../guides/maintenance/developer-workstation.rst:88
 msgid ""
 "The guide provides an :ref:`example <swupd-guide-example-install-bundle>`"
 " that shows you how to:"
-msgstr ""
+msgstr "本指南提供了一个 :ref:`example <swupd-guide-example-install-bundle>`，向您展示如何："
 
 #: ../../guides/maintenance/developer-workstation.rst:91
 msgid "Use swupd to search for bundles"
-msgstr ""
+msgstr "使用 swupd 搜索捆绑包"
 
 #: ../../guides/maintenance/developer-workstation.rst:92
 msgid "Use swupd to add bundles"
-msgstr ""
+msgstr "使用 swupd 添加捆绑包"
 
 #: ../../guides/maintenance/developer-workstation.rst:95
 msgid "Core Concepts"
-msgstr ""
+msgstr "核心概念"
 
 #: ../../guides/maintenance/developer-workstation.rst:97
 msgid ""
 "We recommend that you understand these core concepts in |CL| *before* "
 "developing your project."
-msgstr ""
+msgstr "我们建议您在开发项目之前先了解 |CL| 中的这些核心概念。"
 
 #: ../../guides/maintenance/developer-workstation.rst:100
 msgid ":ref:`Software update <swupd-guide>`"
-msgstr ""
+msgstr ":ref:`Software update <swupd-guide>`"
 
 #: ../../guides/maintenance/developer-workstation.rst:101
 msgid ":ref:`Mixer <mixer>`"
-msgstr ""
+msgstr ":ref:`Mixer <mixer>`"
 
 #: ../../guides/maintenance/developer-workstation.rst:102
 msgid ":ref:`Autospec <autospec>`"
-msgstr ""
+msgstr ":ref:`Autospec <autospec>`"
 
 #: ../../guides/maintenance/developer-workstation.rst:105
 msgid "Other resources for developers"
-msgstr ""
+msgstr "开发人员可用的其他资源"
 
 #: ../../guides/maintenance/developer-workstation.rst:107
 msgid "`Developer Tooling Framework`_ for |CL|"
-msgstr ""
+msgstr "适用于 |CL| 的 `Developer Tooling Framework`_"
 
 #: ../../guides/maintenance/developer-workstation.rst:108
 msgid "`Bundle Definition Files`_"
-msgstr ""
+msgstr "`Bundle Definition Files`_"
 
 #~ msgid "`Bundle definition files`_"
 #~ msgstr ""
@@ -283,4 +282,6 @@ msgstr ""
 
 #~ msgid ":ref:`Autospec <autospec-about>`"
 #~ msgstr ""
+
+
 

@@ -1,5 +1,8 @@
 # Makefile for Sphinx documentation
-#
+
+SHELL := /bin/bash
+
+PY_VERSION ?= 3.6
 
 all:
 	make -C source html
@@ -28,4 +31,9 @@ help:
 
 clean:
 	make -C source clean
+	rm -rf venv
 
+venv:
+	virtualenv venv;\
+	source venv/bin/activate; \
+	pip3 install -r requirements.txt;

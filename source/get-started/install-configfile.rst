@@ -3,10 +3,11 @@
 Install using clr-installer and a configuration file
 ####################################################
 
-This page explains how to install |CL-ATTR| using the clr-installer tool
-with a configuration file. The configuration file (:file:`clr-installer.yaml`)
-can be reused to duplicate the same installation configuration on additional
-machines.
+In addition to the interactive GUI and text-based modes,
+:command:`clr-installer` also supports an unattended mode where you 
+simply provide it a YAML configuration file.  
+
+This guide shows you two examples of how to use its unattended mode.  
 
 .. contents::
    :local:
@@ -15,67 +16,63 @@ machines.
 Prerequisites
 *************
 
-Ensure that your target system supports the installation:
+For installation onto bare metal, ensure that your target system 
+supports these requirements:
 
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
 
-Process
-*******
+Download and make bootable USB of the live server image
+*******************************************************
 
-This guide describes two methods for using a configuration file with the
-clr-installer tool. You can use either method to achieve the same goal. Choose
-the method that works best for your setup.
+See :ref:`bootable-usb`.
 
-If you are installing |CL| for the first time, we recommend Example 1.
+Example 1: Fresh installation onto bare metal
+*********************************************
 
-To clone an existing |CL| setup on another system, we recommend Example 2.
+This example uses a YAML configuration file to perform a new installation.
 
-Example 1
-=========
+#. Boot up the |CL| Live Server USB thumb drive.
 
-This method uses a configuration file template to perform a new installation.
-
-Perform the following steps:
-
-#. Go to `Downloads`_ and download the latest Clear Linux OS Server image.
-
-   For example:
-   https://download.clearlinux.org/releases/30010/clear/clear-30010-live-server.iso.xz
-
-#. Follow the instructions to :ref:`bootable-usb` based on your OS.
-
-#. Boot up the USB thumb drive.
 #. Select :guilabel:`Clear Linux OS` from the menu.
-#. In the console window, log in as root and set a password.
+
+#. In the console window, log in as `root` and set a password.
+
 #. Verify you have a network connection to the Internet and configure proxy
    settings if you're working behind a firewall.
-#. Download a :file:`live-server.yaml` template.
 
-   For example:
+#. Download a sample YAML configuration file. For example, if you want to 
+   install |CL| with a desktop GUI, you might want to use :file:`live-desktop.yaml`.
+   Or you can use the :file:`live-server.yaml` if you want to install a non-GUI version
+   of |CL|.
 
-   .. code-block:: bash
+   * *Desktop:*
 
-      curl -O https://download.clearlinux.org/releases/30010/clear/config/image/live-server.yaml
+     .. code-block:: bash
 
-#. Edit the template and change the settings as needed.
+        curl -O https://cdn.download.clearlinux.org/current/config/image/live-desktop.yaml
 
-   Commonly-changed settings include:
+   * *Server:*
 
-.. _install-configfile-yaml-begin:
+     .. code-block:: bash
 
-   #. Under *block-devices*, set “file: "/dev/sda"” or enter your preferred device.
-   #. Under *targetMedia*, set the third partition size to “0” to use the entire disk space.
-   #. Under *bundles*, add additional bundles as needed.
+        curl -O https://cdn.download.clearlinux.org/current/config/image/live-server.yaml
+
+#. Edit the YAML configuration file and change the settings as needed.
+
+   Commonly-changed settings include (refer to the example below):
+
+   a. Under *block-devices* (line 15), set your target media.  For example: ``file: "/dev/sda"``.
+   #. Under *targetMedia* (line 34), set the third partition size to “0” to use the entire disk space.
+   #. Under *bundles* (line 37), add additional bundles as needed.
    #. Delete the *post-install* section unless you have post-installation scripts.
-   #. Under *Version*, set a version number. To use the latest version, set to “0”.
+   #. Under *Version* (line 50), set a version number. To use the latest version, set to “0”.
 
-   Commonly-changed settings are shown in lines 15, 34, 37, and 51 below.
    See `Installer YAML Syntax`_ for more details.
 
-   .. code-block:: bash
+   .. code-block:: console
       :linenos:
-      :emphasize-lines: 14,15,34,37,51
+      :emphasize-lines: 14,15,34,37,50
 
 		#clear-linux-config
 
@@ -121,7 +118,6 @@ Perform the following steps:
 		telemetry: false
 		iso: true
 		keepImage: true
-		autoUpdate: false
 
 		keyboard: us
 		language: en_US.UTF-8
@@ -129,56 +125,67 @@ Perform the following steps:
 
 		version: 30010
 
-.. _install-configfile-yaml-end:
-
-Start the installation with the command:
-
-.. code-block:: bash
-
-   clr-installer --config live-server.yaml
-
-Example 2
-=========
-
-This method uses a saved configuration file from a previous installation,
-which you can use to easily duplicate the installation on additional machines.
-
-Perform the following steps:
-
-#. Open a console window on a system where |CL| was installed to retrieve a
-   copy of the configuration file.
-
-#. In the console window, log in as root and enter your password.
-
-#. Change directory to :file:`/root` and copy the :file:`clr-installer.yaml`
-   file to a USB thumb drive.
+#. Start the unattended installation using the `--config` option.
 
    .. code-block:: bash
 
-   	  cd /root
-   	  cp clr-installer.yaml <USB-thumb-drive>
+      clr-installer --config live-server.yaml
 
-Start the installation on the target with the following steps:
+#. Reboot your system after installation is completed.
 
-#. Go to `Downloads`_ and download the latest Clear Linux OS Server image.
+Example 2: Replicate a previous installation
+********************************************
 
-   For example:
-   https://download.clearlinux.org/releases/30010/clear/clear-30010-live-server.iso.xz
+This example uses a saved configuration file from a previous installation,
+which you can use to easily clone the installation on additional machines
+, ideally with the same hardware configuration.
 
-#. Follow the instructions to :ref:`bootable-usb` based on your OS.
+.. warning::
+   
+   Be aware of the following when applying a saved configuration on a new machine:
+   
+   * Make sure the target media on the new machine matches up
+   
+   * The users' credentials will be replicated as well
 
-#. Boot up the USB thumb drive.
-#. Select :guilabel:`Clear Linux OS` from the menu.
-#. In the console window, log in as root and set a password.
-#. Verify you have a network connection to the Internet and configure proxy
-   settings if you're working behind a firewall.
-#. Plug in and mount the USB thumb drive containing the retrieved
-   :file:`clr-installer.yaml` configuration file.
-#. Start the installation with the command:
+#. On a system where |CL| was installed, open a terminal window.
+
+#. Get root privilege.
 
    .. code-block:: bash
 
-      clr-installer --config clr-installer.yaml
+      sudo su
+
+#. Copy the :file:`clr-installer.yaml` from :file:`/root` to a USB thumb drive.
+
+   .. code-block:: bash
+
+      cp /root/clr-installer.yaml <USB-thumb-drive>
+
+#. Install on target system.
+
+   a. Boot up the |CL| Live Server USB thumb drive.
+
+   #. Select :guilabel:`Clear Linux OS` from the menu.
+
+   #. In the console window, log in as `root` and set a password.
+
+   #. Verify you have a network connection to the Internet and configure proxy
+      settings if you're working behind a firewall.
+
+   #. Plug in and mount the USB thumb drive containing the retrieved
+      :file:`clr-installer.yaml` configuration file.
+   
+   #. Doublecheck to make sure the target media in the saved configuration file
+      matches with the target system's. 
+
+   #. Start the installation.
+
+      .. code-block:: bash
+
+         clr-installer --config clr-installer.yaml
+
+   #. Reboot your system after installation is completed.
 
 References
 **********
@@ -186,7 +193,5 @@ References
 * `Clear Linux Installer`_
 * `Installer YAML Syntax`_
 
-.. _Downloads: https://clearlinux.org/downloads
 .. _Clear Linux Installer: https://github.com/clearlinux/clr-installer
-
 .. _Installer YAML Syntax: https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md

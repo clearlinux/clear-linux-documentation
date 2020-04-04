@@ -1,0 +1,603 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 12:54-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../guides/deploy-at-scale.rst:4
+msgid "Deploy at Scale"
+msgstr "大规模部署"
+
+#: ../../guides/deploy-at-scale.rst:6
+msgid ""
+"This guide describes deployment considerations and strategies when "
+"deploying |CL-ATTR| at scale in your environment."
+msgstr "本指南介绍在您的环境中大规模部署 |CL-ATTR| 时的部署注意事项和部署策略。"
+
+#: ../../guides/deploy-at-scale.rst:14
+msgid "Overview"
+msgstr "概述"
+
+#: ../../guides/deploy-at-scale.rst:16
+msgid ""
+"In this guide the term *endpoint* refers to a system targeted for |CL| "
+"installation, whether that is a datacenter system or unit deployed in "
+"field."
+msgstr "在本指南中，“端点”指的是安装 |CL| 的目标系统，而不论它是数据中心系统还是现场部署的单元。"
+
+#: ../../guides/deploy-at-scale.rst:21
+msgid ""
+"This guide is not a replacement or blueprint for designing your own IT "
+"operating environment."
+msgstr "本指南并不能取代您自己的 IT 操作环境设计方案，也不能用作您的 IT 操作环境设计蓝图。"
+
+#: ../../guides/deploy-at-scale.rst:24
+msgid ""
+"Implementation details for a scale deployment are beyond the scope of "
+"this guide."
+msgstr "大规模部署的实施细节超出了本指南的讨论范围。"
+
+#: ../../guides/deploy-at-scale.rst:27
+msgid ""
+"Your |CL| deployment should complement your existing environment and "
+"available tools. It is assumed core IT dependencies of your environment, "
+"such as your network, are healthy and scaled to suit the deployment."
+msgstr "您的 |CL| 部署应该作为您的现有环境和可用工具的有益补充。本指南假设您的环境中的核心 IT 基础设施（如网络）运行状况良好，并可根据部署需要加以扩展。"
+
+#: ../../guides/deploy-at-scale.rst:32
+msgid "Pick a usage and update strategy"
+msgstr "选择使用和更新策略"
+
+#: ../../guides/deploy-at-scale.rst:34
+msgid ""
+"Different business scenarios call for different deployment methodologies."
+" |CL| offers the flexibility to continue consuming the upstream |CL| "
+"distribution or the option to fork away from the |CL| distribution and "
+"act as your own :abbr:`OSV (Operating System Vendor)`."
+msgstr "不同的业务场景需要不同的部署方法。|CL| 十分灵活，既可继续使用上游 |CL| 发行版，也可在 |CL| 发行版的基础上分叉，让您自己成为 :abbr:`OSV (Operating System Vendor)`。"
+
+#: ../../guides/deploy-at-scale.rst:39
+msgid "Below is an overview of some considerations."
+msgstr "以下概述了一些注意事项。"
+
+#: ../../guides/deploy-at-scale.rst:42
+msgid "Create your own Linux distribution (mix)"
+msgstr "创建您自己的 Linux 发行版（混合版）"
+
+#: ../../guides/deploy-at-scale.rst:44
+msgid ""
+"This approach forks away from the |CL| upstream and has you act as your "
+"own :abbr:`OSV (Operating System Vendor)` by leveraging the :ref:`mixer` "
+"process to create customized images based on |CL|. This is a level of "
+"responsibility that requires having more infrastructure and processes to "
+"adopt. In return, this approach *offers you a high degree of control and "
+"customization*. Consider:"
+msgstr "此方法是指利用 :ref:`mixer` 过程在 |CL| 基础上创建自定义映像，从而在上游 |CL| 的基础上分叉，让您自己成为 :abbr:`OSV (Operating System Vendor)`。此举需要采用更多基础设施和过程， 但回报是您可以对 Linux 发行版拥有极高的掌控和定制能力。注意事项："
+
+#: ../../guides/deploy-at-scale.rst:50
+msgid ""
+"Development systems that generate bundles and updates should have "
+"sufficient performance for the task and be separate from the swupd update"
+" webservers that serve update content to production machines."
+msgstr "生成捆绑包和更新的开发系统应该有足够的性能来完成任务，并独立于为生产计算机提供更新内容的 swupd 更新 Web 服务器。"
+
+#: ../../guides/deploy-at-scale.rst:54
+msgid ""
+"swupd update webservers that serve update content to production machines "
+"should be appropriately scaled. Specific implementation details for a "
+"scalable, resilient web server are beyond the scope of this document."
+msgstr "为生产计算机提供更新内容的 swupd 更新 Web 服务器应该进行适当扩展。可扩展的弹性 Web 服务器的具体实现细节超出了本文的讨论范围。"
+
+#: ../../guides/deploy-at-scale.rst:58
+msgid "(See :ref:`mixer` for more information about update servers.)"
+msgstr "（有关更新服务器的更多信息，请参阅 :ref:`mixer`。）"
+
+#: ../../guides/deploy-at-scale.rst:61
+msgid "Adopt an agile methodology"
+msgstr "采用敏捷方法"
+
+#: ../../guides/deploy-at-scale.rst:63
+msgid ""
+"The cloud, and other scaled deployments, are all about flexibility and "
+"speed. It only makes sense that any |CL| deployment strategy should "
+"follow suit."
+msgstr "云部署和其他大规模部署的关键在于灵活性和速度。任何 |CL| 部署策略都应该遵循这两项要求。"
+
+#: ../../guides/deploy-at-scale.rst:66
+msgid ""
+"Manually rebuilding your own bundles or mix for every release is not "
+"sustainable at a large scale. A |CL| deployment pipeline should be agile "
+"enough to validate and produce new versions with speed. Whether or not "
+"those updates actually make their way to your production can be separate "
+"business decision. However this *ability to frequently roll new versions*"
+" of software to your endpoints is an important prerequisite."
+msgstr "对大规模部署来说，为每个版本手动重建您自己的捆绑包或混合版是不可持续的。|CL| 部署流程应该足够敏捷，能够快速验证和快速生成新版本。是否将这些更新实际应用到生产环境属于独立的业务决策。但是，是否有能力将新版本软件频繁滚动推出到端点是一个重要的先决条件。"
+
+#: ../../guides/deploy-at-scale.rst:73
+msgid ""
+"You own the validation and lifecycle of the OS and should treat it like "
+"any other software development lifecycle. Below are some pointers:"
+msgstr "您应负责验证操作系统并确定操作系统的生命周期，而且应该像对待任何其他软件开发生命周期一样对待它。以下是一些建议："
+
+#: ../../guides/deploy-at-scale.rst:76
+msgid ""
+"Thoroughly understand the custom software packages that you will need to "
+"integrate with |CL| and maintain along with their dependencies."
+msgstr "充分了解您需要与 |CL| 集成并维护的自定义软件包及其依赖关系。"
+
+#: ../../guides/deploy-at-scale.rst:79
+msgid ""
+"Setup a path to production for building |CL| based images. At minimum "
+"this should include:"
+msgstr "为构建基于 |CL| 的映像设置生产路径。这至少应包括："
+
+#: ../../guides/deploy-at-scale.rst:82
+msgid ""
+"A development clr-on-clr environment to test building packages and "
+"bundles for |CL| systems."
+msgstr "一个开发 clr-on-clr 环境，用于测试 |CL| 系统的构建包和捆绑包。"
+
+#: ../../guides/deploy-at-scale.rst:85
+msgid "A pre-production environment to deploy |CL| versions to before production"
+msgstr "一个生产前环境，用于在生产前部署 |CL| 版本"
+
+#: ../../guides/deploy-at-scale.rst:88
+msgid ""
+"Employ a continuous integration and continuous deployment (CI/CD) "
+"philosophy in order to:"
+msgstr "采用持续集成和持续部署 (CI/CD) 理念，以便："
+
+#: ../../guides/deploy-at-scale.rst:91
+msgid ""
+"Automatically pull custom packages as they are updated from their "
+"upstream projects or vendors."
+msgstr "在上游项目或供应商推出更新时，自动提取自定义软件包。"
+
+#: ../../guides/deploy-at-scale.rst:94
+msgid ""
+"Generate |CL| bundles and potentially bootable images with your "
+"customizations, if any."
+msgstr "根据您的自定义设置（如果有的话），生成 |CL| 捆绑包和可引导映像（如果需要的话）。"
+
+#: ../../guides/deploy-at-scale.rst:97
+msgid ""
+"Measure against metrics and indicators which are relevant to your "
+"business (e.g. performance, power, etc) from release to release."
+msgstr "根据与业务有关的度量和指标（例如性能、功率等），评估不同版本的表现。"
+
+#: ../../guides/deploy-at-scale.rst:100
+msgid ""
+"Integrate with your organization's governance processes, such as change "
+"control."
+msgstr "与您所在组织的治理流程（例如变更控制）集成。"
+
+#: ../../guides/deploy-at-scale.rst:104
+msgid "Versioning infrastructure"
+msgstr "版本控制基础设施"
+
+#: ../../guides/deploy-at-scale.rst:106
+msgid ""
+"|CL| version numbers are very important as they apply to the whole "
+"infrastructure stack from OS components to libraries and applications."
+msgstr "|CL| 版本号非常重要，因为它们适用于从操作系统组件到库和应用程序在内的整个基础设施堆栈。"
+
+#: ../../guides/deploy-at-scale.rst:109
+msgid ""
+"Good record keeping is important, so you should keep a detailed registry "
+"and history of previously deployed versions and their contents."
+msgstr "妥善保存记录很重要，因此您应该维护一个详细的登记表，记录下以前部署的各个版本及其内容。"
+
+#: ../../guides/deploy-at-scale.rst:112
+msgid ""
+"With a glance at the |CL| version numbers deployed, you should be able to"
+" tell if your Clear systems are patched against a particular security "
+"vulnerability or incorporate a critical new feature."
+msgstr "只要看一眼所部署的 |CL| 版本号，您就应该知道您的 Clear Linux OS 是否为特定安全漏洞打上了补丁或者是否纳入了重要的新功能。"
+
+#: ../../guides/deploy-at-scale.rst:117
+msgid "Pick an image distribution strategy"
+msgstr "选择映像分发策略"
+
+#: ../../guides/deploy-at-scale.rst:119
+msgid ""
+"Once you have decided on a usage and update strategy, you should "
+"understand *how* |CL| will be deployed to your endpoints. In a large "
+"scale deployment, interactive installers should be avoided in favor of "
+"automated installations or prebuilt images."
+msgstr "定下了使用和更新策略后，您就应该知道 |CL| 将如何部署到您的端点。在大规模部署中，应该避免使用交互式安装程序，而是倾向于使用自动化安装或预构建映像。"
+
+#: ../../guides/deploy-at-scale.rst:124
+msgid ""
+"There are many well-known ways to install an operating system at scale. "
+"Each have their own benefits, and one may lend itself easier in your "
+"environment depending on the resources available to you."
+msgstr "大规模安装操作系统有许多广为人知的方法。每种方法都有其优势，但根据您的环境中可用的资源不同，有的方法在您的环境中可能更容易使用。"
+
+#: ../../guides/deploy-at-scale.rst:128
+msgid "See the available :ref:`image-types`."
+msgstr "请参阅可用的 :ref:`image-types`。"
+
+#: ../../guides/deploy-at-scale.rst:130
+msgid "Below are some common ways to install |CL| to systems at scale:"
+msgstr "以下是大规模安装 |CL| 的一些常见方法："
+
+#: ../../guides/deploy-at-scale.rst:133
+msgid "Bare metal"
+msgstr "裸机"
+
+#: ../../guides/deploy-at-scale.rst:135
+msgid ""
+"Preboot Execution Environments (PXE) or other out-of-band booting options"
+" are one way to distribute |CL| to physical bare metal systems on a LAN."
+msgstr "将 |CL| 分发到 LAN 上物理裸机系统的一种方式是使用预引导执行环境 (PXE) 或其他带外引导选项。"
+
+#: ../../guides/deploy-at-scale.rst:138
+msgid ""
+"This option works well if your customizations are fairly small in size "
+"and infrastructure can be stateless."
+msgstr "如果您的自定义软件包非常小，并且使用的是无状态基础设施，那么这种分发方式可取得不错的效果。"
+
+#: ../../guides/deploy-at-scale.rst:141
+msgid ""
+"The |CL| `Downloads`_ page offers a live image that can be deployed as a "
+"PXE boot server if one doesn't already exist in your environment. Also "
+"see documentation on how to :ref:`bare-metal-install-server`."
+msgstr "如果您的环境中并没有可供部署的映像，您可以访问 |CL| `Downloads`_ 页面下载一个实时映像，并将其部署为 PXE 引导服务器。另请参阅关于如何 :ref:`bare-metal-install-server` 的文档。"
+
+#: ../../guides/deploy-at-scale.rst:146
+msgid "Cloud instances or virtual machines"
+msgstr "云实例或虚拟机"
+
+#: ../../guides/deploy-at-scale.rst:148
+msgid ""
+"Image templates in the form of cloneable disks are an effective way to "
+"distribute |CL| for virtual machine environments, whether on-premises or "
+"hosted by a Cloud Solution Provider (CSP)."
+msgstr "无论是在内部部署环境中还是在云解决方案提供商 (CSP) 托管环境中，可克隆磁盘形式的映像模板都是在虚拟机环境中分发 |CL| 的有效方法。"
+
+#: ../../guides/deploy-at-scale.rst:152
+msgid ""
+"When used in concert with cloud VM migration features, this can be a good"
+" option for allowing your applications a degree of high availability and "
+"workload mobility; VMs can be restarted on a cluster of hypervisor host "
+"or moved between datacenters transparently."
+msgstr "与云虚拟机迁移功能配合使用时，此分发方式效果极佳，可实现极高的应用程序可用性和工作负载移动性；届时，虚拟机可以在虚拟机管理程序主机集群上重启，也可以在数据中心之间无缝迁移。"
+
+#: ../../guides/deploy-at-scale.rst:157
+msgid ""
+"The |CL| `Downloads`_ page offers example prebuilt VM images and is "
+"readily available on popular CSPs. Also see documentation on how to :ref"
+":`virtual-machine-install`."
+msgstr "|CL| `Downloads`_ 页面提供了预构建虚拟机映像示例，它可以在主流 CSP 的云环境中即刻部署。另请参阅有关如何 :ref:`virtual-machine-install` 的文档。"
+
+#: ../../guides/deploy-at-scale.rst:162
+msgid "Containers"
+msgstr "容器"
+
+#: ../../guides/deploy-at-scale.rst:164
+msgid ""
+"Containerization platforms allow images to be pulled from a repository "
+"and deployed repeatedly as isolated containers."
+msgstr "容器化平台支持从存储库中提取映像，然后将其作为独立的容器反复部署。"
+
+#: ../../guides/deploy-at-scale.rst:167
+msgid ""
+"Containers with a |CL| image can be a good option to blueprint and ship "
+"your application, including all its dependencies, as an artifact while "
+"allowing you or your customers to dynamically orchestrate and scale "
+"applications."
+msgstr "含有 |CL| 映像的容器是一个不错的分发方式，它可以将应用程序（包括其所有依赖项）设计为蓝图，然后作为对象进行分发，同时也支持您或您的客户动态编排和扩展应用程序。"
+
+#: ../../guides/deploy-at-scale.rst:172
+msgid ""
+"|CL| is capable of running a Docker host, has a container image which can"
+" be pulled from DockerHub, or can be built as a customized container. For"
+" more information visit the `Containers`_ page."
+msgstr "|CL| 能够运行 Docker 主机，具有可以从 DockerHub 中提取的容器映像，或者可以构建为自定义容器。有关详细信息，请访问 `Containers`_ 页面。"
+
+#: ../../guides/deploy-at-scale.rst:177
+msgid "Considerations with stateless systems"
+msgstr "有关无状态系统的注意事项"
+
+#: ../../guides/deploy-at-scale.rst:179
+msgid ""
+"An important |CL| concept is statelessness and partitioning of system "
+"data from user data. This concept can change the way you think about an "
+"at scale deployment."
+msgstr "|CL| 的一个重要概念是无状态以及区分用户数据和系统数据。此概念可能会改变您对大规模部署的认识。"
+
+#: ../../guides/deploy-at-scale.rst:184
+msgid "Backup strategy"
+msgstr "备份策略"
+
+#: ../../guides/deploy-at-scale.rst:186
+msgid ""
+"A |CL| system and its infrastructure should be considered a commodity and"
+" be easily reproducible. Avoid focusing on backing up the operating "
+"system itself or default values."
+msgstr "|CL| 系统及其基础设施应被视为一种商品，而且这种商品很容易复制。避免将注意力放在备份操作系统本身或默认值上，"
+
+#: ../../guides/deploy-at-scale.rst:190
+msgid ""
+"Instead, focus on backing up what's important and unique - the "
+"application and data.  In other words, only focus on backing up critical "
+"areas like :file:`/home`, :file:`/etc`, and :file:`/var`."
+msgstr "而是应该将注意力放在备份重要且独特的应用程序和数据上。换句话说，只关注备份关键区域，如 :file:`/home`、:file:`/etc` 和 :file:`/var`。"
+
+#: ../../guides/deploy-at-scale.rst:195
+msgid "Meaningful logging & telemetry"
+msgstr "日志记录和遥测十分有用"
+
+#: ../../guides/deploy-at-scale.rst:197
+msgid ""
+"Offload logging and telemetry from endpoints to external servers, so it "
+"is persistent and can be accessed on another server when an issue occurs."
+msgstr "将日志记录和遥测数据从端点分流到外部服务器，从而确保它们持久存在，而且在发生问题时便于从另一台服务器访问。"
+
+#: ../../guides/deploy-at-scale.rst:200
+msgid ""
+"Remote syslogging in |CL| is available through the `systemd-journal-"
+"remote.service`_"
+msgstr "|CL| 中的远程系统日志记录可通过 `systemd-journal-remote.service`_ 获得"
+
+#: ../../guides/deploy-at-scale.rst:203
+msgid ""
+"|CL| offers a :ref:`telem-guide`, which can be a powerful tool for a "
+"large deployment to quickly crowdsource issues of interest. Take "
+"advantage of this feature with careful consideration of the target "
+"audience and the kind of data that would be valuable, and expose events "
+"appropriately."
+msgstr "|CL| 提供了 :ref:`telem-guide`，这是一个强大的工具，可用于在大规模部署时以众包的方式快速解决相关问题。利用此功能时需要仔细考虑目标受众以及哪些类型的数据是有价值的，还要适当地公开事件。"
+
+#: ../../guides/deploy-at-scale.rst:209
+msgid ""
+"Like any web server, the telemetry server should be appropriately scaled "
+"and resilient. Specific implementation details for a scalable, resilient "
+"web server are beyond the scope of this document."
+msgstr "像任何 Web 服务器一样，遥测服务器也应该可以适当地扩展并具有适当的弹性。可扩展的弹性 Web 服务器的具体实现细节超出了本文的讨论范围。"
+
+#: ../../guides/deploy-at-scale.rst:214
+msgid "Orchestration and configuration management"
+msgstr "编排和配置管理"
+
+#: ../../guides/deploy-at-scale.rst:216
+msgid ""
+"In cloud environments, where systems can be ephemeral, being able to "
+"configure and maintain generic instances is valuable."
+msgstr "在云环境中，系统的生命周期可能很短暂，因此是否有能力配置和维护通用实例十分重要。"
+
+#: ../../guides/deploy-at-scale.rst:219
+msgid ""
+"|CL| offers an efficient cloud-init style solution, `micro-config-"
+"drive`_, through the *os-cloudguest* bundles which allow you to configure"
+" many Day 1 tasks such as setting hostname, creating users, or placing "
+"SSH keys in an automated way at boot. For more information on automating "
+"configuration during deployment of |CL| endpoints see the :ref:`bulk-"
+"provision` guide."
+msgstr "|CL| 通过 *os-cloudguest* 捆绑包提供了一个高效的云初始化解决方案 `micro-config-drive`_，支持在引导时自动执行许多上线第一天任务，例如设置主机名、创建用户或放置 SSH 密钥。有关在 |CL| 端点部署期间自动配置的更多信息，请参阅 :ref:`bulk-provision` 指南。"
+
+#: ../../guides/deploy-at-scale.rst:226
+msgid ""
+"A configuration management tool is useful for maintaining consistent "
+"system and application-level configuration. Ansible\\* is offered through"
+" the *sysadmin-hostmgmt* bundle as a configuration management and "
+"automation tool."
+msgstr "配置管理工具对于维护一致的系统和应用程序级配置非常有用。*sysadmin-hostmgmt* 捆绑包提供了 Ansible\\* 作为配置管理和自动化工具。"
+
+#: ../../guides/deploy-at-scale.rst:232
+msgid "Cloud-native applications"
+msgstr "云原生应用程序"
+
+#: ../../guides/deploy-at-scale.rst:234
+msgid ""
+"An Infrastructure OS can design for good behavior, but it is ultimately "
+"up to applications to make agile design choices. Applications deployed on"
+" |CL| should aim to be host-aware but not depend on any specific host to "
+"run. References should be relative and dynamic when possible."
+msgstr "基础设施操作系统可以将各种操作和行为都设计得井井有条，但设计是否敏捷最终还是取决于应用程序。部署在 |CL| 上的应用程序应该能够识别主机，但不依赖于任何特定的主机来运行。如果条件允许，应该使用相对和动态引用。"
+
+#: ../../guides/deploy-at-scale.rst:239
+msgid ""
+"The application architecture should incorporate an appropriate tolerance "
+"for infrastructure outages. Don't just keep stateless design as a noted "
+"feature. Continuously test its use; Automate its use by redeploying |CL| "
+"and application on new hosts. This naturally minimizes configuration "
+"drift, challenges your monitoring systems, and business continuity plans."
+msgstr "应用程序架构应该针对基础设施中断具有适当的容错能力。不要仅仅将无状态设计作为一个显著特征。持续测试其使用情况；通过在新主机上反复部署 |CL| 和应用程序来将其使用自动化。这自然会最大限度减少配置偏差，并给监控系统和业务连续性计划带来挑战。"
+
+#~ msgid ""
+#~ "Development systems which are generating "
+#~ "bundles and updates should be "
+#~ "sufficiently performant for the task and"
+#~ " separate from the swupd update "
+#~ "webservers which are serving update "
+#~ "content to production machines."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "swupd update webservers which are "
+#~ "serving update content to production "
+#~ "machines (see `mixer process`_ for more"
+#~ " information) should be appropriately "
+#~ "scaled."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| offers a `native telemetry "
+#~ "solution`_ which can be a powerful "
+#~ "tool for a large deployment to "
+#~ "quickly crowdsource issues of interest. "
+#~ "Take advantage of this feature with "
+#~ "careful consideration of the target "
+#~ "audience and the kind of data that"
+#~ " would be valuable, and expose events"
+#~ " appropriately."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Once you are comfortable with |CL-"
+#~ "ATTR| :ref:`concepts <concepts>`, your next"
+#~ " step as a system administrator is"
+#~ " to understand how to deploy |CL| "
+#~ "at scale in your environment."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this document the term *endpoint* "
+#~ "refers to a system targeted for "
+#~ "|CL| installation, whether that is a "
+#~ "datacenter system or unit deployed in"
+#~ " field."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is not a replacement or "
+#~ "blueprint for designing your own IT "
+#~ "operating environment."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Your |CL| deployment should complement "
+#~ "the existing environment and available "
+#~ "tools. It is assumed foundational core"
+#~ " IT dependencies of your environment, "
+#~ "such as your network, are healthy "
+#~ "and scaled to suit the deployment."
+#~ msgstr ""
+
+#~ msgid "Pick a |CL| usage and update strategy"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This approach forks away from the "
+#~ "|CL| upstream and has you act as"
+#~ " your own :abbr:`OSV (Operating System "
+#~ "Vendor)` by leveraging the `mixer "
+#~ "process`_ to create customized images "
+#~ "based on |CL|. This is a level "
+#~ "of responsibility that requires having "
+#~ "more infrastructure and processes to "
+#~ "adopt. In return, this approach *offers"
+#~ " you a high degree of control "
+#~ "and customization*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Development systems that generate bundles "
+#~ "and updates should have sufficient "
+#~ "performance for the task and separate"
+#~ " from the swupd update webservers "
+#~ "that serve update content to production"
+#~ " machines."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "swupd update webservers that serve "
+#~ "update content to production machines "
+#~ "(see `mixer process`_ for more "
+#~ "information) should be appropriately scaled."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Your swupd update server is just "
+#~ "like any other web application. |WEB-"
+#~ "SERVER-SCALE|"
+#~ msgstr ""
+
+#~ msgid "Versioning Infrastructure"
+#~ msgstr ""
+
+#~ msgid "Baremetal"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Preboot Execution Environments (PXE) or "
+#~ "other out-of-band booting options "
+#~ "are one way to distribute |CL| to"
+#~ " physical baremetal systems on a LAN."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The |CL| `downloads page`_ offers a "
+#~ "live image that can be deployed as"
+#~ " a PXE boot server if one "
+#~ "doesn't already exist in your "
+#~ "environment. Also see documentation on "
+#~ "how to :ref:`bare-metal-install-server`."
+#~ msgstr ""
+
+#~ msgid "Cloud Instances or Virtual Machines"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The |CL| `downloads page`_ offers "
+#~ "example prebuilt VM images and is "
+#~ "readily available on popular CSPs. Also"
+#~ " see documentation on how to :ref"
+#~ ":`virtual-machine-install`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| is capable of running a "
+#~ "Docker host, has a container image "
+#~ "which can be pulled from DockerHub, "
+#~ "or can be built as a customized"
+#~ " container. For more information visit "
+#~ "the `containers page`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Instead, focus on backing up what's "
+#~ "important and unique - the application"
+#~ " and data.  In other words, only "
+#~ "focus on backing up critical areas "
+#~ "like `/home`,  `/etc`,  and `/var`."
+#~ msgstr ""
+
+#~ msgid "Meaningful Logging & Telemetry"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Remote syslogging in |CL| is available"
+#~ " through the `systemd journal-remote "
+#~ "service`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Your telemetry server is just like "
+#~ "any other web application. |WEB-"
+#~ "SERVER-SCALE|"
+#~ msgstr ""
+
+#~ msgid "Orchestration and Configuration Management"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "|CL| offers an efficient cloud-init "
+#~ "style solution, `micro-config-drive`_, "
+#~ "through the *os-cloudguest* bundles "
+#~ "which allow you to configure many "
+#~ "Day 1 tasks such as setting "
+#~ "hostname, creating users, or placing SSH"
+#~ " keys in an automated way at "
+#~ "boot. For more information on automating"
+#~ " configuration during deployment of |CL|"
+#~ " endpoints see the `documentation on "
+#~ "bulk provisioning`_ ."
+#~ msgstr ""
+
+
+

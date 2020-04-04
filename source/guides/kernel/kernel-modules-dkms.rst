@@ -16,7 +16,7 @@ Overview
 Certain kernel modules are enabled by default in |CL-ATTR|. To use additional
 kernel modules that are not part of the Linux source tree, you may need to
 build out-of-tree kernel modules. Use this guide to add kernel modules with
-:abbr:`DKMS (Dynamic Kernel Module System)` or refer to :ref:`kernel-modules`.
+DKMS or refer to :ref:`kernel-modules`.
 
 Description
 ***********
@@ -26,9 +26,9 @@ into the Linux kernel to add functionality, such as a hardware driver.
 Kernel modules may already be part of the Linux source tree (in-tree) or may
 come from an external source, such as directly from a vendor (out-of-tree).
 
-:abbr:`DKMS (Dynamic Kernel Module System)` is a framework that facilitates
-the building and installation of kernel modules. DKMS allows |CL| to provide
-hooks that automatically rebuild modules against new kernel versions.
+DKMS is a framework that facilitates the building and installation of kernel
+modules. DKMS allows |CL| to provide hooks that automatically rebuild modules
+against new kernel versions.
 
 .. include:: kernel-modules.rst
    :start-after: kernel-modules-availability-begin:
@@ -39,8 +39,9 @@ Install DKMS
 
 .. _kernel-modules-dkms-install-begin:
 
-The :command:`kernel-native-dkms` bundle provides the :command:`dkms` program and
-Linux kernel headers, which are required for compiling kernel modules.
+The :command:`kernel-native-dkms` bundle provides the DKMS program and Linux
+kernel headers, which are placed under :file:`/usr/lib/modules/$(uname
+-r)/build/include/` and are required to compile kernel modules.
 
 The :command:`kernel-native-dkms` bundle also:
 

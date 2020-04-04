@@ -34,7 +34,7 @@ Maintaining a |CL| derivative requires:
 * Integrating Quality Assurance for testing and validation
 
 Coordinated infrastructure is deployed to automate the life-cycle
-of your |CL| derivative. We divide deployment of this infrastucture in two
+of your |CL| derivative. We divide deployment of this infrastructure in two
 parts: *Content Workflow*; and *Release Workflow*, shown in Figure 1.
 
 .. figure:: figures/architect-lifecycle-1.png

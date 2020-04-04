@@ -7,7 +7,7 @@ This document provides a current list of available bundles. View the `clr-bundle
 :file:`Name` for more details.
 
 To learn more about how |CL-ATTR| uses bundles for software deployment, visit
-:ref:`bundles-about`.
+:ref:`bundles-guide`.
 
 Bundle list
 ===========

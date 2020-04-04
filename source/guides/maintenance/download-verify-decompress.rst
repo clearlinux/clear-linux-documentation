@@ -142,7 +142,7 @@ checksum file designated with the suffix `-SHA512SUMS`.
 
     .. code-block:: bash
 
-        CertUtil -hashfile ./clear-[version number]-[image type].[compression type] sha512
+        CertUtil -hashfile ./clear-[version number]-[image type].[compression type] SHA512
 
 #.  Manually compare the output with the original checksum value shown in
     the downloaded checksum file and make sure they match.

@@ -1,0 +1,54 @@
+language: python
+
+python:
+  - "3.6"
+
+# command to install dependencies
+install:
+  - pip3 install -q -r requirements.txt
+
+# command to run tests
+script:
+  - make py
+  - make htmlall
+
+before_deploy:
+  - make linkcheck
+  # only deploy the latest tagged release of Simplified Chinese docs
+  - wget https://github.com/clearlinux/clear-linux-documentation-zh-CN/releases/latest/download/clearlinux-docs-zh-CN.tar.gz
+  - mkdir source/_build/html/zh_CN
+  - tar xvzf clearlinux-docs-zh-CN.tar.gz -C source/_build/html/zh_CN
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: latestHTML
+    on:
+      branch: publish
+    local_dir: source/_build/html/
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: developmentHTML
+    on:
+      branch: master
+    local_dir: source/_build/html/
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target-branch: developmentHTML
+    on:
+      branch: development
+    local_dir: source/_build/html/
+  - provider: releases
+    skip_cleanup: true
+    api_key: $GITHUB_TOKEN
+    file: clearlinux-docs-zh-CN.tar.gz
+    on:
+      tags: true
+
+
+after_deploy:
+  - wget $PUBLISH_URL
+  - cat clearlinux-latest

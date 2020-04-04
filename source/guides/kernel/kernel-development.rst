@@ -15,8 +15,8 @@ Overview
 ********
 
 The :ref:`compatible-kernels` available in |CL| aim to be performant and
-practical. In some cases, it may be necessary to modify the kernel to suit your
-specific needs or test new kernel code as a developer.
+practical. In some cases, it may be necessary to modify the kernel to suit
+your specific needs or test new kernel code as a developer.
 
 `Source RPMs (SRPMS)`_ are also available for all |CL| kernels, and can be
 used for development instead.
@@ -49,7 +49,7 @@ Then make changes to the kernel, build it, and install it.
 Install the |CL| development tooling framework
 ==============================================
 
-.. include:: /clear/autospec.rst
+.. include:: ../clear/autospec.rst
    :start-after: install-tooling-after-header:
    :end-before: install-tooling-end:
 
@@ -75,10 +75,10 @@ Clone the existing kernel package repository from |CL| as a starting point.
       cd ~/clearlinux/packages/linux
 
 
-The "linux" package is the kernel that comes with |CL| in the :command:`kernel-native`
-bundle. Alternatively, you can use a different kernel variant as the base for
-modification. For a list of kernel package names which you can clone instead,
-see the `clearlinux-pkgs`_ repo on GitHub.
+The "linux" package is the kernel that comes with |CL| in the
+:command:`kernel-native` bundle. Alternatively, you can use a different kernel
+variant as the base for modification. For a list of kernel package names which
+you can clone instead, see the `clearlinux-pkgs`_ repo on GitHub.
 
 .. note::
 
@@ -92,7 +92,7 @@ Change the kernel version
 |CL| tends to use the latest kernel available from `kernel.org`_, the Linux
 upstream. The kernel version that will be built can be changed in the
 RPM SPEC file. While most packages in Clear Linux are typically packaged
-using :ref:`autospec-about`, the kernel is not. This means control files
+using :ref:`autospec`, the kernel is not. This means control files
 provided by autospec are not available and changes must be made manually.
 
 #. Open the Linux kernel package RPM SPEC file in an editor.
@@ -107,7 +107,9 @@ provided by autospec are not available and changes must be made manually.
    A list of current and available kernel release can be found on
    `kernel.org`_.
 
-   .. code-block:: bash
+   .. code-block:: spec
+      :linenos:
+      :emphasize-lines: 1-3,12
 
       Name:           linux
       Version:        4.20.8
@@ -139,7 +141,8 @@ Pull a copy of the Linux kernel source code
 Obtain a local copy of the source code to make modifications against.
 
 #. Run make sources to pull the kernel source code specified in the RPM
-   SPEC file. In the example, it downloads the :file:`linux-4.20.8.tar.xz` file.
+   SPEC file. In the example, it downloads the :file:`linux-4.20.8.tar.xz`
+   file.
 
    .. code-block:: bash
 
@@ -303,7 +306,9 @@ consider using a patch management tool in addition to Git such as
    In this example, the patch file is called
    :file:`2001-my-patch-for-driver-A.patch`
 
-   .. code-block:: bash
+   .. code-block:: spec
+      :linenos:
+      :emphasize-lines: 13 
 
       #
       # Small Clear Linux Tweaks
@@ -324,7 +329,9 @@ consider using a patch management tool in addition to Git such as
    patch application and append your patch file number used in the step above.
    In this example, patch2001 is added.
 
-   .. code-block:: bash
+   .. code-block:: spec
+      :linenos:
+      :emphasize-lines: 11   
 
       #
       # Small tweaks
@@ -376,7 +383,8 @@ The |CL| development tooling makes use of :command:`mock` environments to
 isolate building of packages in a sanitized workspace.
 
 #. Start the compilation process by issuing the :command:`make build`
-   command. This process is typically resource intensive and will take a while.
+   command. This process is typically resource intensive and will take a
+   while.
 
    .. code-block:: bash
 
@@ -414,11 +422,21 @@ testing. For a more scalable and customizable approach, consider using the
 
       rpm2cpio linux<NAME>-<VERSION>-<RELEASE>.x86_64.rpm | (cd /; sudo cpio -i -d -u -v);
 
+#. Optionally, increase the bootloader timeout to make interrupting the boot
+   process and choosing a different kernel easier.This can be helpful to if
+   you encounter a kernel that does not boot gracefully.
+   
+   .. code-block:: bash
 
-#. Update the |CL| boot manager using :command:`clr-boot-manager` and reboot.
+      sudo clr-boot-manager set-timeout 20
+
+
+#. Update the |CL| boot manager to use the new kernel using
+   :command:`clr-boot-manager` and reboot.
 
    .. code-block:: bash
 
+      sudo clr-boot-manager update
       sudo clr-boot-manager list-kernels
       sudo clr-boot-manager set-kernel org.clearlinux.<TARGET>.<VERSION>-<RELEASE>
 

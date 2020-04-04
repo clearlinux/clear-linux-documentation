@@ -1,0 +1,149 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, many
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: zh-Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
+"Language: zh-Hans\n"
+
+#: ../../about.rst:4
+msgid "About"
+msgstr "关于"
+
+#: ../../about.rst:6
+msgid ""
+"The |CL| delivers a secure, hardware optimized OS. Its easy updates "
+"ensure that software dependencies remain mutually compatible."
+msgstr "|CL| 提供安全的、针对硬件优化的操作系统。它容易更新，这可确保软件依赖项保持相互兼容。"
+
+#: ../../about.rst:9
+msgid ""
+"|CL| does this via custom infrastructure components and process "
+"innovations."
+msgstr "|CL| 通过自定义基础结构组件和流程创新实现这一点。"
+
+#: ../../about.rst:16
+msgid ""
+"For detailed information on these topics, refer to the :ref:`cl-guides` "
+"guides."
+msgstr "有关这些主题的详细信息，请参阅 :ref:`cl-guides` 指南。"
+
+#: ../../about.rst:20
+msgid "Release Cadence"
+msgstr "发行节奏"
+
+#: ../../about.rst:22
+msgid ""
+"|CL| updates are based on a rolling release that can occur daily, up to a"
+" few times per week. Each release has a unique version number that "
+"identifies every component in the OS from kernel, to driver, to tool, to "
+"GUI application. Most components are included in entities called "
+"*bundles*."
+msgstr "|CL| 更新基于每周最多发生几次的滚动发行。每个发行版都有唯一的版本号，用于标识操作系统中的每个组件，包括内核、驱动程序、工具和 GUI 应用程序。大部分组件都包含在称为捆绑包的实体中。"
+
+#: ../../about.rst:28
+msgid "Updates"
+msgstr "更新"
+
+#: ../../about.rst:30
+msgid ""
+"By default, |CL| automatically checks for updates, ensuring that the "
+"latest performance and security fixes are installed as soon as they are "
+"available. :ref:`swupd-guide` is the custom tool designed to manage "
+"updates and bundles."
+msgstr "默认情况下，|CL| 会自动检查更新，以确保尽快安装可用的最新性能修补程序和安全修补程序。:ref:`swupd-guide` 是设计用于管理更新和捆绑包的自定义工具。"
+
+#: ../../about.rst:34
+msgid ""
+"|CL| is :ref:`stateless` to make sure that system components can be "
+"updated without impacting user settings."
+msgstr "|CL| :ref:`stateless`，以确保可以更新系统组件而不影响用户设置。"
+
+#: ../../about.rst:39
+msgid "Ease of Use"
+msgstr "易用性"
+
+#: ../../about.rst:41
+msgid "|CL| makes it easier to manage a number of difficult problems."
+msgstr "使用 |CL| 可以更轻松地管理许多难题。"
+
+#: ../../about.rst:43
+msgid ""
+":ref:`autoproxy` makes it possible for |CL| tools to operate in some "
+"proxy environments without needing to be configured."
+msgstr ":ref:`autoproxy` 使 |CL| 工具无需进行配置便可在某些代理环境中运行。"
+
+#: ../../about.rst:46
+msgid ""
+"Being :ref:`stateless` means that configuration settings are easier to "
+"manage and remain untouched when system sofware is updated."
+msgstr ":ref:`stateless` 意味着更新系统软件时，配置设置更容易管理并且保持不变。"
+
+#: ../../about.rst:49
+msgid ""
+":ref:`swupd-guide` simplifies managing software and maintaining "
+"compatibility."
+msgstr ":ref:`swupd-guide` 简化了软件管理和兼容性维护。"
+
+#: ../../about.rst:52
+msgid "Custom Derivatives"
+msgstr "自定义衍生工具"
+
+#: ../../about.rst:54
+msgid ""
+"The same tools used to build the |CL| are available *in* the OS. These "
+"tools can be used to create a custom distribution that continues to "
+"benefit from upstream rolling releases."
+msgstr "操作系统中提供了用于生成 |CL| 的相同工具。这些工具可用于创建自定义分发版，以持续从上游滚动发行获益。"
+
+#: ../../about.rst:63
+msgid ""
+"Figure 1: Creating and managing a Clear Linux\\* OS version (or "
+"derivative)"
+msgstr "图 1：创建和管理 Clear Linux\\* 操作系统版本（或衍生工具）"
+
+#: ../../about.rst:66
+msgid "Create"
+msgstr "创建"
+
+#: ../../about.rst:68
+msgid ""
+"To create a custom distribution you need to understand how to use the "
+":ref:`autospec` and :ref:`mixer` tools."
+msgstr "要创建自定义分发版，您需要了解如何使用 :ref:`autospec` 和 :ref:`mixer` 工具。"
+
+#: ../../about.rst:71
+msgid ""
+"Additional training materials are available in the `how-to-clear`_ "
+"GitHub\\* project to help you get started with |CL| tools."
+msgstr "`how-to-clear`_ GitHub\\* 项目中提供了其他培训材料，可帮助您开始使用 |CL| 工具。"
+
+#: ../../about.rst:75
+msgid "Deploy"
+msgstr "部署"
+
+#: ../../about.rst:77
+msgid "We also provide training on how to :ref:`deploy-at-scale`."
+msgstr "我们还提供有关如何 :ref:`deploy-at-scale` 的培训。"
+
+#: ../../about.rst:80
+msgid "Administrate"
+msgstr "管理"
+
+#: ../../about.rst:82
+msgid ""
+"|CL| provides a :ref:`telem-guide` solution for collecting useful "
+"information about a deployment, as well as :ref:`debug` capabilities."
+msgstr "|CL| 提供了用于收集有关部署的有用信息的 :ref:`telem-guide` 解决方案，还提供了 :ref:`debug` 功能。"
+

@@ -1,10 +1,11 @@
 .. _vmw-player:
 
-Install |CL-ATTR| as a VMware\* Workstation Player guest OS
-###########################################################
+|CL-ATTR| on VMware\* Workstation Player
+########################################
 
-This page explains how to create a new VM and install |CL| on it with the
-VMware Workstation Player hypervisor.
+This guide explains how to set up the VMware Workstation Player 15.5.1
+hypervisor and instantiate a VM instance of |CL| by installing it using 
+an ISO or using a pre-built image.
 
 .. contents::
    :local:
@@ -14,9 +15,9 @@ Overview
 ********
 
 `VMware Workstation Player`_ is a type 2 hypervisor. It runs on top of
-Windows\* or Linux\* operating systems. With VMware ESXi, you can
-create, configure, manage, and run |CL-ATTR| :abbr:`VMs (Virtual Machines)`
-on your local system.
+Windows\* or Linux\* operating systems. With VMware Workstation Player, 
+you can create, configure, manage, and run |CL-ATTR| 
+:abbr:`VMs (Virtual Machines)` on your local system.
 
 VMware offers a type 1 hypervisor called `VMware ESXi`_ designed for the
 cloud environment. For information on how to install |CL| as guest OS on
@@ -24,12 +25,10 @@ it, see :ref:`vmware-esxi-install-cl`.
 
 .. note::
 
-   The screenshots on this document show the Windows version of the
-   VMware Workstation 15 Player. The menus and prompts are similar to those
-   in other versions and for the Linux OS save some minor wording differences.
-
-If you prefer to use a pre-configured |CL| VMware image instead,
-see our :ref:`vmw-player-preconf` guide.
+   The screenshots in this document show the Windows version of the
+   VMware Workstation Player 15.5.1. The menus and prompts are similar to those
+   in other versions and for the Linux version, save some minor wording 
+   differences.
 
 Install the VMware Workstation Player hypervisor
 ************************************************
@@ -41,77 +40,63 @@ Install the VMware Workstation Player hypervisor
 #. `VMware Workstation Player`_ is available for Windows and Linux.
    Download your preferred version.
 
-   .. note::
-
-      By default, selecting download means you receive the latest version
-      of this application. Commands may differ based on the version.
-
-#. Install VMware Workstation Player following the instructions
+#. Install VMware Workstation Player by following the instructions
    appropriate for your system's OS:
 
    * On supported Linux distros:
 
-     #. Enable a GUI desktop.
+     a. Ensure your Linux distro is running a GUI desktop.
      #. Start a terminal emulator.
      #. Start the installer by issuing the command below and follow the
         guided steps.
 
         .. code-block:: console
 
-           sudo sh ./VMware-Player-[version number].x86_64.bundle
+           sudo sh ./VMware-Player-<version number>.x86_64.bundle
 
    * On Windows:
 
-     #. Start the installer.
+     a. Start the installer.
      #. Follow the setup wizard.
 
 For additional help, see the `VMware Workstation Player Documentation`_.
 
-Download the latest |CL| installer
-**********************************
+Create a blank VM
+*****************
 
-Get the latest installer with |CL| OS Desktop  from the `downloads`_ page.
-
-Visit :ref:`image-types` for additional information about all available |CL| images.
-
-We also provide instructions for downloading and verifying a Clear Linux ISO.
-For more information, refer to :ref:`download-verify-decompress`.
-
-Create and configure a new VM
-*****************************
-
-#. Start the `VMware Workstation Player` app.
+#. Start the ``VMware Workstation Player`` app.
 
 #. On the home screen, click :guilabel:`Create a New Virtual Machine`. See
    Figure 1.
 
-   .. figure:: figures/vmw-player/vmw-player-01.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-01.png
       :scale: 100%
       :alt: VMware Workstation Player - Create a new virtual machine
 
       Figure 1: VMware Workstation Player - Create a new virtual
       machine
 
-#. On the :guilabel:`Welcome to the New Virtual Machine Wizard` screen,
-   select the :guilabel:`Installer disc image file (iso)` option.
-   See Figure 2.
+#. Select :guilabel:`I will install the operating system later`.
 
-   .. figure:: figures/vmw-player/vmw-player-02.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-02.png
       :scale: 100%
-      :alt: VMware Workstation Player - Select |CL| installer ISO
+      :alt: I will install the operating system later.
 
-      Figure 2: VMware Workstation Player - Select |CL| installer ISO
-
-#. Click the :guilabel:`Browse` button and select the decompressed |CL|
-   installer ISO.
+      Figure 2: I will install the operating system later.
 
 #. Click the :guilabel:`Next` button.
 
-#. On the :guilabel:`Select a Guest Operating System`, set the
+#. On the :guilabel:`Select a Guest Operating System` window, set the
    :guilabel:`Guest operating system` setting to :guilabel:`Linux`. See
    Figure 3.
 
-   .. figure:: figures/vmw-player/vmw-player-03.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-03.png
       :scale: 100%
       :alt: VMware Workstation Player - Select guest operating system type
 
@@ -119,14 +104,16 @@ Create and configure a new VM
       type
 
 #. Set the :guilabel:`Version` setting to
-   :guilabel:`Other Linux 4.x or later kernel 64-bit`.
+   :guilabel:`Other Linux 5.x or later kernel 64-bit`.
 
 #. Click the :guilabel:`Next` button.
 
 #. On the :guilabel:`Name the Virtual Machine` screen, name the new VM. See
    Figure 4.
 
-   .. figure:: figures/vmw-player/vmw-player-04.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-04.png
       :scale: 100%
       :alt: VMware Workstation Player - Name virtual machine
 
@@ -135,9 +122,12 @@ Create and configure a new VM
 #. Click the :guilabel:`Next` button.
 
 #. On the :guilabel:`Specify Disk Capacity` screen, set the VM's maximum disk
-   size. See Figure 5.
+   size. If you're planning to use a pre-built image, just use the default
+   size for now. See Figure 5.
 
-   .. figure:: figures/vmw-player/vmw-player-05.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-05.png
       :scale: 100%
       :alt: VMware Workstation Player - Set disk capacity
 
@@ -153,22 +143,27 @@ Create and configure a new VM
 #. On the :guilabel:`Ready to Create Virtual Machine` screen, click the
    :guilabel:`Customize Hardware...` button. See Figure 6.
 
-   .. figure:: figures/vmw-player/vmw-player-06.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-06.png
       :scale: 100%
       :alt: VMware Workstation Player - Customize hardware
 
       Figure 6: VMware Workstation Player - Customize hardware
 
-#. Select :guilabel:`Memory` and set the size to 2GB. See Figure 7.
+#. Select :guilabel:`Memory` and set a desired value. See Figure 7.
 
-   .. figure:: figures/vmw-player/vmw-player-07.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-07.png
       :scale: 100%
       :alt: VMware Workstation Player - Set memory size
 
       Figure 7: VMware Workstation Player - Set memory size
 
    .. note::
-      The |CL| installer ISO needs a minimum of 2GB of RAM.
+
+      The |CL| live installer ISO needs a minimum of 1GB of RAM.
       After completing installation, |CL| can run on as little as
       128MB of RAM. Thus, you can reduce the memory size if needed.
       See :ref:`system-requirements` for more details.
@@ -176,73 +171,33 @@ Create and configure a new VM
 #. Under the :guilabel:`Device` list, select :guilabel:`Processors`. See
    Figure 8.
 
-   .. figure:: figures/vmw-player/vmw-player-08.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../../_figures/vmw-player/vmw-player-08.png
       :scale: 100%
       :alt: VMware Workstation Player - Set virtualization engine option
 
       Figure 8: VMware Workstation Player - Set virtualization engine
       option
 
+#. Under :guilabel:`Processors` and :guilabel:`Number of processor cores`, 
+   enter the desired number of cores. 
+
 #. Under the :guilabel:`Virtualization engine` section,
-   check :guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI`.
+   check the :guilabel:`Virtualize Intel VT-x/EPT or AMD-V/RVI` box.
 
 #. Click the :guilabel:`Close` button.
 
 #. Click the :guilabel:`Finish` button.
 
-Install |CL| into the new VM
-****************************
-
-#. Select the newly-created VM and click the :guilabel:`Play virtual machine`
-   button. See Figure 9.
-
-   .. figure:: figures/vmw-player/vmw-player-09.png
-      :scale: 100%
-      :alt: VMware Workstation Player - Power on virtual machine
-
-      Figure 9: VMware Workstation Player - Power on virtual machine
-
-#. Follow the :ref:`install-on-target-start` guide to complete the
-   installation of |CL|.
-
-#. After the installation completes, reboot the VM. This reboot restarts the
-   |CL| installer.
-
-Detach the |CL| installer ISO from the VM
-*****************************************
-
-#. To enable the mouse pointer so you access VMware Workstation Player's
-   menus, press :kbd:`<CTRL>` + :kbd:`<ALT>` on the keyboard.
-
-#. To disconnect the CD/DVD to stop it from booting the |CL| installer ISO
-   again, click the :guilabel:`Player` menu. See Figure 10.
-
-   .. figure:: figures/vmw-player/vmw-player-10.png
-      :scale: 100%
-      :alt: VMware Workstation Player - Edit CD/DVD settings
-
-      Figure 10: VMware Workstation Player - Edit CD/DVD settings
-
-#. Go to :menuselection:`Removable Devices-->CD/DVD (IDE)-->Disconnect`.
-
-#. Click the :guilabel:`OK` button.
-
 Enable UEFI boot support
 ************************
 
-|CL| needs UEFI support to boot. To enable UEFI:
+|CL| needs UEFI support to boot and work properly. To enable it:
 
-#. Power off the VM. click the :guilabel:`Player` menu. See Figure 11.
+#. Close the ``VMware Workstation Player`` app.
 
-   .. figure:: figures/vmw-player/vmw-player-11.png
-      :scale: 100%
-      :alt: VMware Workstation Player - Power off virtual machine
-
-      Figure 11: VMware Workstation Player - Power off virtual machine
-
-#. Go to :guilabel:`Power` and select :guilabel:`Shut Down Guest`.
-
-#. Add the following line to the end of your VM's :file:`.vmx` file:
+#. Add the following line to the end of your VM's :file:`.vmx` file.
 
    .. code-block:: console
 
@@ -252,36 +207,205 @@ Enable UEFI boot support
 
       Depending on the OS, you can typically find the VMware VM files under:
 
-      * On Linux distros: :file:`/home/username/vmware`
-      * On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`
+        * On Linux distros: :file:`/home/username/vmware`
+        * On Windows: :file:`C:\\Users\\username\\Documents\\Virtual Machines`
+      
+Instantiate |CL| 
+****************
 
+If you want to install |CL| from scratch, following the instructions
+in the **Install |CL| using ISO** tab.  Otherwise, follow the 
+**Use |CL| pre-built VMware image** tab to use our pre-built image.
+ 
+.. tabs::
 
-#. After configuring the settings above, power on your |CL| virtual machine.
-   On the :guilabel:`VMware Workstation Player` home screen, select your
-   VM. See Figure 9.
+   .. tab:: Install |CL| using ISO 
 
-#. Click :guilabel:`Play virtual machine`.
+      #. Navigate to the |CL| `Downloads`_ page and download either the ``Server``
+         or ``Desktop`` ISO image.  After the download is complete, you will 
+         attach this image.
 
-#. Install Open VM Tools. You may want to install the `open-vm-tools` in
-   your virtual machine. The Open Virtual Machine Tools (open-vm-tools) are
-   the open source implementation of VMware Tools for Linux guest operating
-   systems. In |CL| you can use the following to install the bundle in your VM
+      #. Start the ``VMware Workstation Player`` app.
 
-   .. code-block:: console
+      #. Select the VM that was created in section `Create a blank VM`_. 
+         See Figure 9.
 
-      sudo swupd bundle-add os-cloudguest-vmware
-      sudo systemctl enable --now open-vm-tools
+      #. Click :guilabel:`Edit virtual machine settings`.
 
-More information is available on the `VMWare Tools Product Documentation`_ site.
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-09.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Edit virtual machine settings
+
+            Figure 09: VMware Workstation Player - Edit virtual machine settings
+
+      #. In the :guilabel:`Virtual Machine settings` window, 
+         under :guilabel:`Hardware`, select guilabel:`CD/DVD (IDE)`.
+         See Figure 10.
+
+      #. Under :guilabel:`Connection` at the right, select 
+         :guilabel:`Use ISO image file`. 
+
+      #. Click :guilabel:`Browse` and select the 
+         |CL| installer ISO. 
+            
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-10.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Select |CL| installer ISO
+
+            Figure 10: VMware Workstation Player - Select |CL| installer ISO   
+
+      #. Click :guilabel:`OK` to close the :guilabel:`Virtual Machine settings`
+         window.
+
+      #. Start the VM by clicking :guilabel:`Play virtual machine`.
+
+      #. Follow one of these guides to complete the installation of |CL|. 
+         
+         * *Desktop* version: :ref:`install-clr-desktop-start` 
+         * *Server* version: :ref:`install-clr-server-start` 
+
+      #. Reboot the VM after the installation completes.
+
+      #. Install the ``os-cloudguest-vmware`` bundle, the open source
+         VMware Tools for Linux\* guest operating systems, which enables
+         new features and improves general performance.
+
+         .. code-block:: bash
+
+            sudo swupd bundle-add os-cloudguest-vmware
+            sudo systemctl enable --now open-vm-tools
+
+         More information is available on the `VMWare Tools Product Documentation`_
+         site.
+
+   .. tab:: Use |CL| pre-built VMWare image
+
+      #. Navigate to the |CL| `Downloads`_ page and download the ``VMware`` 
+         image. 
+
+      #. Decompress the downloaded file and move it to the
+         directory where your newly-created VM files reside.
+
+         .. note::
+
+            Depending on the OS, you can typically find the VMware VM
+            files under:
+
+            * Linux distros :file:`/home/username/vmware`
+            * Windows :file:`C:\\Users\\username\\Documents\\Virtual Machines`
+
+      #. Start the ``VMware Workstation Player`` app.
+
+      #. Select the VM that was created in section `Create a blank VM`_. 
+         See Figure 9.
+
+      #. Click :guilabel:`Edit virtual machine settings`.
+
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-09.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Edit virtual machine settings
+
+            Figure 9: VMware Workstation Player - Edit virtual machine settings
+
+      #. Under :guilabel:`Hardware` and :guilabel:`Device` list, select 
+         :guilabel:`Hard Disk (SCSI)`. See Figure 11.
+
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-11.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Remove hard drive
+
+            Figure 11: VMware Workstation Player - Remove hard drive
+
+      #. Click the :guilabel:`Remove` button.
+
+      #. To add a new hard disk and attach the pre-built |CL| 
+         VMware image, click the :guilabel:`Add` button. See Figure 12.
+
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-12.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Add new device
+
+            Figure 12: VMware Workstation Player - Add new device
+
+      #. Under the :guilabel:`Hardware types` section, select 
+         :guilabel:`Hard Disk`. See Figure 13.
+
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-13.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Add hard drive
+
+            Figure 13: VMware Workstation Player - Add hard drive
+
+      #. Click the :guilabel:`Next` button.
+
+      #. Select your preferred :guilabel:`Virtual disk type`. 
+         See Figure 14.
+
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-14.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Select virtual disk type
+
+         Figure 14: VMware Workstation Player - Select virtual disk type
+
+      #. Select the :guilabel:`Use an existing virtual disk` option. 
+         See Figure 15.
+
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-15.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Use existing virtual disk
+
+            Figure 15: VMware Workstation Player - Use existing virtual disk
+
+      #. Click the :guilabel:`Browse` button and select the
+         pre-built |CL| VMware image file. See Figure 16.
+
+         .. rst-class:: dropshadow
+
+         .. figure:: ../../_figures/vmw-player/vmw-player-16.png
+            :scale: 100%
+            :alt: VMware Workstation Player - Select pre-built VMware |CL| image file
+
+            Figure 16: VMware Workstation Player - Select pre-built VMware |CL| 
+            image file
+
+      #. Click the :guilabel:`Finish` button.
+
+         .. note::
+
+            When asked to convert the existing virtual disk to a newer format, 
+            selecting either option works.
+
+      #. Click the :guilabel:`OK` button. 
+
+      #. Start the VM by clicking :guilabel:`Play virtual machine`.
+ 
+         .. note::
+
+            If you need to increase the disk size of the pre-built |CL| image, see
+            :ref:`increase-virtual-disk-size`.
 
 Related topics
 **************
 
 For other guides on using the VMWare Player and ESXi, see:
 
-* :ref:`vmw-player-preconf`
 * :ref:`vmware-esxi-install-cl`
-* :ref:`vmware-esxi-preconfigured-cl-image`
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 
@@ -291,6 +415,6 @@ For other guides on using the VMWare Player and ESXi, see:
 .. _VMware Workstation Player Documentation:
    https://docs.vmware.com/en/VMware-Workstation-Player/index.html
 
-.. _downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.org/downloads
 
 .. _VMWare Tools Product Documentation: https://docs.vmware.com/en/VMware-Tools/10.1.0/com.vmware.vsphere.vmwaretools.doc/GUID-8B6EA5B7-453B-48AA-92E5-DB7F061341D1.html

@@ -8,7 +8,7 @@ msgid ""
 msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-17 11:17-0700\n"
-"PO-Revision-Date: 2019-07-25 11:20-0008\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh-Hans\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +105,7 @@ msgstr "启动 U 盘。"
 #: ../../get-started/install-configfile.rst:49
 #: ../../get-started/install-configfile.rst:171
 msgid "Select :guilabel:`Clear Linux OS` from the menu."
-msgstr "从菜单中选择 :guilabel:`Clear Linux 操作系统`。"
+msgstr "从菜单中选择 :guilabel:`Clear Linux OS`。"
 
 #: ../../get-started/install-configfile.rst:50
 #: ../../get-started/install-configfile.rst:172
@@ -139,7 +139,7 @@ msgstr "通常改变的设置包括："
 msgid ""
 "Under *block-devices*, set “file: \"/dev/sda\"” or enter your preferred "
 "device."
-msgstr "在 *块设备* 中，设置 “file: \"/dev/sda\"” 或输入喜欢的设备。"
+msgstr "在块设备中，设置 “file: \"/dev/sda\"” 或输入喜欢的设备。"
 
 #: ../../get-started/install-configfile.rst:68
 msgid ""
@@ -149,19 +149,19 @@ msgstr "在 *targetMedia* 中，将第三分区大小设置为 “0”，以使�
 
 #: ../../get-started/install-configfile.rst:69
 msgid "Under *bundles*, add additional bundles as needed."
-msgstr "在 *bundle 文件* 部分，根据需要添加其他 bundle 文件。"
+msgstr "在 bundle 文件部分，根据需要添加其他 bundle 文件。"
 
 #: ../../get-started/install-configfile.rst:70
 msgid ""
 "Delete the *post-install* section unless you have post-installation "
 "scripts."
-msgstr "删除*安装后*部分，除非您有安装后脚本。"
+msgstr "删除安装后部分（除非您有安装后脚本）。 "
 
 #: ../../get-started/install-configfile.rst:71
 msgid ""
 "Under *Version*, set a version number. To use the latest version, set to "
 "“0”."
-msgstr "在 *版本* 部分，设置版本号。要使用最新版本，设置为 “0”。"
+msgstr "在版本下设置版本号。要使用最新版本，请将版本号设置为 “0”。"
 
 #: ../../get-started/install-configfile.rst:73
 msgid ""

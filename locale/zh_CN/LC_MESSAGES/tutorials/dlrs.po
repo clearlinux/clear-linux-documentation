@@ -1,0 +1,998 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019.
+# This file is distributed under the same license as the Clear Linux*
+# Project Docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Clear Linux* Project Docs latest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-29 17:26-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../tutorials/dlrs.rst:4
+msgid "Deep Learning Reference Stack"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:6
+msgid ""
+"This guide gives examples for using the Deep Learning Reference stack to "
+"run real-world usecases, as well as benchmarking workloads for "
+"TensorFlow\\*, PyTorch\\*, and Kubeflow\\* in |CL-ATTR|."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:14
+msgid "Overview"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:16
+msgid ""
+"We created the Deep Learning Reference Stack to help AI developers "
+"deliver the best experience on Intel® Architecture. This stack reduces "
+"complexity common with deep learning software components, provides "
+"flexibility for customized solutions, and enables you to quickly "
+"prototype and deploy Deep Learning workloads. Use this guide to run "
+"benchmarking workloads on your solution."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:23
+msgid "The Deep Learning Reference Stack is available in the following versions:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:25
+msgid ""
+"`Intel MKL-DNN-VNNI`_, which is optimized using Intel® Math Kernel "
+"Library for Deep Neural Networks (Intel® MKL-DNN) primitives and "
+"introduces support for Intel® AVX-512 Vector Neural Network Instructions "
+"(VNNI)."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:28
+msgid ""
+"`Intel MKL-DNN`_, which includes the TensorFlow framework optimized using"
+" Intel® Math Kernel Library for Deep Neural Networks (Intel® MKL-DNN) "
+"primitives."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:31
+msgid "`Eigen`_, which includes `TensorFlow`_ optimized for Intel® architecture."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:32
+msgid "`PyTorch with OpenBLAS`_, which includes PyTorch with OpenBlas."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:33
+msgid ""
+"`PyTorch with Intel MKL-DNN`_, which includes PyTorch optimized using "
+"Intel® Math Kernel Library (Intel® MKL) and Intel MKL-DNN."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:38
+msgid ""
+"To take advantage of the Intel® AVX-512 and VNNI functionality (including"
+" the MKL-DNN releases)  with the Deep Learning Reference Stack, you must "
+"use the following hardware:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:41
+msgid "Intel® AVX-512 images require an Intel® Xeon® Scalable Platform"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:42
+msgid "VNNI requires a 2nd generation Intel® Xeon® Scalable Platform"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:45
+msgid "Stack features"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:47
+msgid "`DLRS V4.0`_ release announcement, including benchmark results."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:48
+msgid "`DLRS V3.0`_ release announcement."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:49
+msgid "Deep Learning Reference Stack v2.0 including current `PyTorch benchmark`_."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:51
+msgid ""
+"Deep Learning Reference Stack v1.0 including current `TensorFlow "
+"benchmark`_ results."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:53
+msgid ""
+"`DLRS Release notes`_  on Github\\* for the latest release of Deep "
+"Learning Reference Stack."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:58
+msgid ""
+"The Deep Learning Reference Stack is a collective work, and each piece of"
+" software within the work has its own license.  Please see the `DLRS "
+"Terms of Use`_ for more details about licensing and usage of the Deep "
+"Learning Reference Stack."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:63
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:65
+msgid ":ref:`Install <bare-metal-install-desktop>` |CL| on your host system"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:66
+msgid ":command:`containers-basic` bundle"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:67
+msgid ":command:`cloud-native-basic` bundle"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:69
+msgid ""
+"In |CL|, :command:`containers-basic` includes Docker\\*, which is "
+"required for TensorFlow and PyTorch benchmarking. Use the "
+":command:`swupd` utility to check if :command:`containers-basic` and "
+":command:`cloud-native-basic` are present:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:78
+msgid ""
+"To install the :command:`containers-basic` or :command:`cloud-native-"
+"basic` bundles, enter:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:85
+msgid ""
+"Docker is not started upon installation of the :command:`containers-"
+"basic` bundle. To start Docker, enter:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:92
+msgid ""
+"To ensure that Kubernetes is correctly installed and configured, follow "
+"the instructions in :ref:`kubernetes`."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:96
+msgid "Version compatibility"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:98
+msgid "We validated these steps against the following software package versions:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:100
+msgid "|CL| 26240 (Minimum supported version)"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:101
+msgid "Docker 18.06.1"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:102
+msgid "Kubernetes 1.11.3"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:103
+msgid "Go 1.11.12"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:108
+msgid ""
+"The Deep Learning Reference Stack was developed to provide the best user "
+"experience when executed on a |CL| host.  However, as the stack runs in a"
+" container environment, you should be able to complete the following "
+"sections of this guide on other Linux* distributions, provided they "
+"comply with the Docker*, Kubernetes* and Go* package versions listed "
+"above. Look for your distribution documentation on how to update packages"
+" and manage Docker services."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:113
+msgid "TensorFlow single and multi-node benchmarks"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:115
+msgid ""
+"This section describes running the `TensorFlow Benchmarks`_ in single "
+"node. For multi-node testing, replicate these steps for each node. These "
+"steps provide a template to run other benchmarks, provided that they can "
+"invoke TensorFlow."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:122
+msgid ""
+"Performance test results for the Deep Learning Reference Stack and for "
+"this guide were obtained using `runc` as the runtime."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:125
+msgid ""
+"Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image from "
+"`Docker Hub`_."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:128 ../../tutorials/dlrs.rst:170
+msgid "Run the image with Docker:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:137 ../../tutorials/dlrs.rst:178
+msgid ""
+"Launching the Docker image with the :command:`-i` argument starts "
+"interactive mode within the container. Enter the following commands in "
+"the running container."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:141
+msgid "Clone the benchmark repository in the container:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:147 ../../tutorials/dlrs.rst:188
+msgid "Execute the benchmark script:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:155
+msgid ""
+"You can replace the model with one of your choice supported by the "
+"TensorFlow benchmarks."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:158
+msgid ""
+"If you are using an FP32 based model, it can be converted to an int8 "
+"model using `Intel® quantization tools`_."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:162
+msgid "PyTorch single and multi-node benchmarks"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:164
+msgid ""
+"This section describes running the `PyTorch benchmarks`_ for Caffe2 in "
+"single node."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:167
+msgid ""
+"Download either the `PyTorch with OpenBLAS`_ or the `PyTorch with Intel "
+"MKL-DNN`_ Docker image from `Docker Hub`_."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:182
+msgid "Clone the benchmark repository:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:198
+msgid "Kubeflow multi-node benchmarks"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:200
+msgid ""
+"The benchmark workload runs in a Kubernetes cluster. The guide uses "
+"`Kubeflow`_ for the Machine Learning workload deployment on three nodes."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:205
+msgid ""
+"If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your "
+"platform must support the Intel® AVX-512 instruction set. Otherwise, an "
+"*illegal instruction* error may appear, and you won’t be able to complete"
+" this guide."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:211
+msgid "Kubernetes setup"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:213
+msgid ""
+"Follow the instructions in the :ref:`kubernetes` tutorial to get set up "
+"on |CL|. The Kubernetes community also has instructions for creating a "
+"cluster, described in `Creating a single control-plane cluster with "
+"kubeadm`_."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:218
+msgid "Kubernetes networking"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:220
+msgid ""
+"We used `flannel`_ as the network provider for these tests. If you prefer"
+" a different network layer, refer to the Kubernetes network documentation"
+" described in `Creating a single control-plane cluster with kubeadm`_ for"
+" setup."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:225
+msgid "Kubectl"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:227
+msgid ""
+"You can use kubectl to run commands against your Kubernetes cluster.  "
+"Refer to the `Overview of kubectl`_ for details on syntax and operations."
+" Once you have a working cluster on Kubernetes, use the following YAML "
+"script to start a pod with a simple shell script, and keep the pod open."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:232
+msgid "Copy this example.yaml script to your system:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:249
+msgid "Execute the script with kubectl:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:255
+msgid ""
+"This script opens a single pod. More robust solutions would create a "
+"deployment or inject a python script or larger shell script into the "
+"container."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:259
+msgid "Images"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:261
+msgid ""
+"You must add `launcher.py`_ to the Docker image to include the Deep "
+"Learning Reference Stack and put the benchmarks repo in the correct "
+"location. Note that this guide uses Kubeflow v0.4.0, and cannot guarantee"
+" results if you use a different version."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:265
+msgid "From the Docker image, run the following:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:274
+msgid "Your entry point becomes: :file:`/opt/launcher.py`."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:276
+msgid "This builds an image that can be consumed directly by TFJob from Kubeflow."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:279
+msgid "ksonnet\\*"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:281
+msgid ""
+"Kubeflow uses ksonnet\\* to manage deployments, so you must install it "
+"before setting up Kubeflow."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:284
+msgid ""
+"ksonnet was added to the :command:`cloud-native-basic` bundle in |CL| "
+"version 27550. If you are using an older |CL| version (not recommended), "
+"you must manually install ksonnet as described below."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:288
+msgid "On |CL|, follow these steps:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:299
+msgid ""
+"After the ksonnet installation is complete, ensure that binary `ks` is "
+"accessible across the environment."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:303
+msgid "Kubeflow"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:305
+msgid ""
+"Once you have Kubernetes running on your nodes, set up `Kubeflow`_ by "
+"following these instructions from the `Getting Started with Kubeflow`_ "
+"guide."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:323
+msgid "Next, deploy the primary package for our purposes: tf-job-operator."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:333
+msgid ""
+"This creates the CustomResourceDefinition (CRD) endpoint to launch a "
+"TFJob."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:336
+msgid "Run a TFJob"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:338
+msgid "Get the ksonnet registries for deploying TFJobs from `dlrs-tfjob`_."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:340
+msgid "Install the TFJob components as follows:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:348
+msgid "Export the image name to use for the deployment:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:356
+msgid "Replace <docker_name> with the image name you specified in previous steps."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:358
+msgid ""
+"Generate Kubernetes manifests for the workloads and apply them using "
+"these commands:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:368
+msgid "This replicates and deploys three test setups in your Kubernetes cluster."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:371
+msgid "Results of running this section"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:373
+msgid ""
+"You must parse the logs of the Kubernetes pod to retrieve performance "
+"data. The pods will still exist post-completion and will be in "
+"‘Completed’ state. You can get the logs from any of the pods to inspect "
+"the benchmark results. More information about Kubernetes logging is "
+"available in the Kubernetes `Logging Architecture`_ documentation."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:381
+msgid "TensorFlow Training (TFJob) with Kubeflow and DLRS"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:383
+msgid ""
+"A `TFJob`_  is Kubeflow's custom resource used to run TensorFlow training"
+" jobs on Kubernetes. This example shows how to use a TFJob within the "
+"DLRS container."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:385 ../../tutorials/dlrs.rst:509
+msgid "Pre-requisites:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:387 ../../tutorials/dlrs.rst:511
+#: ../../tutorials/dlrs.rst:532
+msgid "A running :ref:`kubernetes` cluster"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:389
+msgid "Deploying Kubeflow with kfctl/kustomize in |CL|"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:393
+msgid ""
+"This example proposes a Kubeflow installation with the binary kfctl "
+"maintained by `Arrikto`_. Please download the `kfctl tarball`_ to "
+"complete the following steps"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:395
+msgid "Download, untar and add to your PATH if necessary"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:404
+msgid "Install `MetalLB`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:410
+msgid "Install Kubeflow resource and TFJob operators"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:425
+msgid "List the resources"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:427
+msgid ""
+"Deployment takes around 15 minutes (or more depending on the hardware) to"
+" be ready to use. After that you can use kubectl to list all the Kubeflow"
+" resources deployed and monitor their status."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:434
+msgid "Submitting TFJobs"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:436
+msgid ""
+"We provide several `DLRS TFJob`_ examples that use the Deep Learning "
+"Reference Stack as the base image for creating the containers to run "
+"training workloads in your Kubernetes cluster."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:441
+msgid "Customizing a TFJob"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:443
+msgid ""
+"A TFJob is a resource with a YAML representation like the one below. Edit"
+" to use the DLRS image containing the code to be executed and modify the "
+"command for your own training code."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:445
+msgid ""
+"If you'd like to modify the number and type of replicas, resources, "
+"persistent volumes and environment variables, please refer to the "
+"`Kubeflow documentation`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:499
+msgid ""
+"For more information, please refer to: * `Distributed TensorFlow`_ * "
+"`TFJobs`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:505
+msgid "PyTorch Training (PyTorch Job) with Kubeflow and DLRS"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:507
+msgid ""
+"A `PyTorch Job`_ is Kubeflow's custom resource used to run PyTorch "
+"training jobs on Kubernetes. This example builds on the framework set up "
+"in the previous example."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:512
+msgid ""
+"Please follow steps 1 - 5 of the previous example to set up your "
+"environment."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:516
+msgid "Submitting PyTorch Jobs"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:518
+msgid ""
+"We provide several `DLRS PytorchJob`_ examples that use the Deep Learning"
+" Reference Stack as the base image for creating the container(s) that "
+"will run training workloads in your Kubernetes cluster. Select one form "
+"the list below:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:526
+msgid "Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:528
+msgid ""
+"`Seldon Core`_  is an open source platform for deploying machine learning"
+" models on a Kubernetes cluster.  Seldon Core is supported in the `DLRS "
+"V4.0`_ release."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:531
+msgid "Pre-requisites"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:536
+msgid ""
+"Instead of using Arrikto's configuration manifest as shown  in the "
+"preceeding example, you should use the manifest provided by `Istio`_, for"
+" this example, as Seldon deployments depend on it."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:538
+msgid "Install deployment tools"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:550
+msgid "Install Helm*"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:558
+msgid "Clean the environment"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:564
+msgid "Prepare the DLRS image"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:566
+msgid ""
+"The DLRS base image needs to be rebuilt with the "
+"`Dockerfile_openvino_base`_  to add Seldon and the OpenVINO inference "
+"engine."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:572
+msgid "Mount pre-trained models into a persistent volume"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:574
+msgid "This will also apply all PV manifests to the cluster"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:582
+msgid "Start a shell for the container used as pv:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:588
+msgid "Save pre-trained models"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:590
+msgid ""
+"Now that you're inside the running container, fetch your pre-trained "
+"models and save them at `/opt/ml`"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:598
+msgid "Deploy the model server"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:600
+msgid "Now you're ready to deploy the model server using the Helm chart provided."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:615
+msgid "Using the Intel® OpenVINO Model Optimizer"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:617
+msgid ""
+"The Intel OpenVINO toolkit has two primary tools for deep learning, the "
+"inference engine and the model optimizer. The inference engine is "
+"integrated into the Deep Learning Reference Stack. It is better to use "
+"the model optimizer after training the model, and before inference "
+"begins. This example will explain how to use the model optimizer by going"
+" through a test case with a pre-trained TensorFlow model."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:619
+msgid ""
+"This example uses resources found in the following OpenVino Toolkit "
+"documentation."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:621
+msgid "`Converting a TensorFlow Model`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:623
+msgid "`Converting TensorFlow Object Detection API Models`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:625
+msgid "In this example, you will:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:627 ../../tutorials/dlrs.rst:632
+msgid "Download a TensorFlow model"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:628 ../../tutorials/dlrs.rst:645
+msgid "Clone the Model Optimizer"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:629
+msgid "Install Prerequisites"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:630 ../../tutorials/dlrs.rst:678
+msgid "Run the Model Optimizer"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:634
+msgid ""
+"We will be using an OpenVINO supported topology with the Model Optimizer."
+" We will use a TensorFlow Inception V2 frozen model."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:636
+msgid ""
+"Navigate to the `OpenVINO TensorFlow Model page`_. Then scroll down to "
+"the second section titled \"Supported Frozen Topologies from TensorFlow "
+"Object Detection Models Zoo\" and download \"SSD Inception V2 COCO.\""
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:638
+msgid ""
+"Unpack the file into your chosen working directory. For example, if the "
+"tar file is in your Downloads folder and you have navigated to the "
+"directory you want to extract it into, run:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:647
+msgid ""
+"Next we need the model optimizer directory, named `dldt`_.  This example"
+"  assumes the parent directory is on the same level as the model "
+"directory, ie:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:656
+msgid "To clone the Model Optimizer, run this from inside the working directory:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:663
+msgid ""
+"If you explore the :file:`dldt` directory, you'll see both the inference "
+"engine and the model optimizer. We are only concerned with the model "
+"optimizer at this stage. Navigating into the model optimizer folder "
+"you'll find several python scripts and text files. These are the scripts "
+"you call to run the model optimizer."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:666
+msgid "Install Prerequisites for Model Optimizer"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:668
+msgid ""
+"Install the Python packages required to run the model optimizer by "
+"running the script dldt/model-"
+"optimizer/install_prerequisites/install_prerequisites_tf.sh."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:680
+msgid ""
+"Running the model optimizer is as simple as calling the appropriate "
+"script, however there are many configuration options that are explainedin"
+" the documentation"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:691
+msgid ""
+"You should now see three files in your working directory, "
+":file:`frozen_inference_graph.bin`, "
+":file:`frozen_inference_graph.mapping`, and "
+":file:`frozen_inference_graph.xml`. These are your new models in the "
+"Intermediate Representation (IR) format and they are ready for use in the"
+" OpenVINO Inference Engine."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:694
+msgid "Using the OpenVino Inference Engine"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:696
+msgid ""
+"This example walks through the basic instructions for using the inference"
+" engine."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:698
+msgid "Starting the Model Server"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:700
+msgid ""
+"The process is similar to how we start `Jupter notebooks` on our "
+"containers"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:702
+msgid "Run this command to spin up a OpenVino model fetched from GCP"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:709
+msgid ""
+"Once the server is setup, use a :command:`grpc` client to communicate "
+"with served model:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:723
+msgid "The results of these commands will look like this:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:766
+msgid "Use Jupyter Notebook"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:768
+msgid ""
+"This example uses the `PyTorch with OpenBLAS`_ container image. After it "
+"is downloaded, run the Docker image with :command:`-p` to specify the "
+"shared port between the container and the host. This example uses port "
+"8888."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:776
+msgid ""
+"After you start the container, launch the Jupyter Notebook. This command "
+"is executed inside the container image."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:783
+msgid ""
+"After the notebook has loaded, you will see output similar to the "
+"following:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:791
+msgid ""
+"From your host system, or any system that can access the host's IP "
+"address, start a web browser with the following. If you are not running "
+"the browser on the host system, replace :command:`127.0.0.1` with the IP "
+"address of the host."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:799
+msgid "Your browser displays the following:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:805
+msgid "Figure 1: :guilabel:`Jupyter Notebook`"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:808
+msgid ""
+"To create a new notebook, click :guilabel:`New` and select "
+":guilabel:`Python 3`."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:814
+msgid "Figure 2: Create a new notebook"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:816
+msgid "A new, blank notebook is displayed, with a cell ready for input."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:823
+msgid ""
+"To verify that PyTorch is working, copy the following snippet into the "
+"blank cell, and run the cell."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:837
+msgid "When you run the cell, your output will look something like this:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:843
+msgid ""
+"You can continue working in this notebook, or you can download existing "
+"notebooks to take advantage of the Deep Learning Reference Stack's "
+"optimized deep learning frameworks. Refer to `Jupyter Notebook`_ for "
+"details."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:848
+msgid "Uninstallation"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:850
+msgid ""
+"To uninstall the Deep Learning Reference Stack, you can choose to stop "
+"the container so that it is not using system resources, or you can stop "
+"the container and delete it to free storage space."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:854
+msgid "To stop the container, execute the following from your host system:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:856
+msgid "Find the container's ID"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:862
+msgid "This will result in output similar to the following:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:869
+msgid ""
+"You can then use the ID or container name to stop the container. This "
+"example uses the name \"oss\":"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:877
+msgid "Verify that the container is not running"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:884
+msgid "To delete the container from your system you need to know the Image ID:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:890
+msgid "This command results in output similar to the following:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:898
+msgid "To remove an image use the image ID:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:914
+msgid ""
+"Note that you can execute the :command:`docker rmi` command using only "
+"the first few characters of the image ID, provided they are unique on the"
+" system."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:916
+msgid "Once you have removed the image, you can verify it has been deleted with:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:923
+msgid "Compiling AIXPRT with OpenMP on DLRS"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:925
+msgid ""
+"To compile AIXPRT for DLRS, you will have to get the community edition of"
+" AIXPRT and update the `compile_AIXPRT_source.sh` file.AIXPRT utilizes "
+"build configuration files, so to build AIXPRT on the image, copy, the "
+"build files from the base image, this can be done by adding these "
+"commands to the end of the stacks-tensorflow-mkl dockerfile:"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:938
+msgid ""
+"AIXPRT requires OpenCV. On |CL|, the OpenCV bundle also installs the DLDT"
+" components. To use AIXPRT in the DLRS environment you need to either "
+"remove the shared libraries for DLDT from :file:`/usr/lib64` before you "
+"run the tests, or ensure that the DLDT components in the "
+":file:`/usr/local/lib` are being used for AIXPRT.  This can be achieved "
+"using adding LD_LIBRARY_PATH environment variable before testing."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:945
+msgid ""
+"The updates to the AIXPRT community edition have been captured in the "
+"diff file :file:`compile_AIXPRT_source.sh.patch`. The core of these "
+"changes relate to the version of model files(2019_R1) we download from "
+"the `OpenCV open model zoo`_ and location of the build files, which in "
+"our case is `/dldt`. Please refer to the patch files and make changes as "
+"necessary to the compile_AIXPRT_source.sh file as required for your "
+"environment."
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:949
+msgid "Related topics"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:951
+msgid "`DLRS V3.0`_ release announcement"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:952
+msgid "`TensorFlow Benchmarks`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:953
+msgid "`PyTorch benchmarks`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:954
+msgid "`Kubeflow`_"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:955
+msgid ":ref:`kubernetes` tutorial"
+msgstr ""
+
+#: ../../tutorials/dlrs.rst:956
+msgid "`Jupyter Notebook`_"
+msgstr ""
+

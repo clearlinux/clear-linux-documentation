@@ -3,3 +3,7 @@ sphinx==1.8
 docutils==0.14
 sphinx_rtd_theme
 sphinx-intl==2.0.0
+sphinx-sitemap==1.0.2
+Jinja2==2.10.1
+GitPython==3.0.8
+sphinx-tabs

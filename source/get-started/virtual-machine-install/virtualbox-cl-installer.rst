@@ -1,7 +1,7 @@
 .. _virtualbox-cl-installer:
 
-Install a |CL-ATTR| VM in VirtualBox\*
-######################################
+|CL-ATTR| on VirtualBox\*
+#########################
 
 This page explains how to create a virtual machine on the `VirtualBox`_
 hypervisor with |CL-ATTR| as the guest operating system. These instructions
@@ -14,10 +14,10 @@ support the |CL| live-server installer to create the |CL| virtual machine (VM).
 Prerequisites
 *************
 
-#. Enable virtualization, such as `Intel® Virtualization Technology`_
+#. Enable virtualization, such as `Intel® Virtualization Technology <https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html>`_
    (Intel® VT), on the host system from EFI/BIOS.
 
-#. Download and install |VB| **version 6.0 or greater** from
+#. Download and install |VB| **version 6.0 or later** from
    `VirtualBox`_ using the  `VirtualBox Installation Instructions`_ for your
    platform.
 
@@ -32,7 +32,7 @@ Download and extract the |CL| installer ISO
 
 #. Decompress the downloaded image.
 
-   - On Windows you can use `7zip`_ to extract the file by right-clicking the
+   - On Windows, you can use `7zip`_ to extract the file by right-clicking the
      file to *Extract Here* (in the same directory)
 
    .. figure:: figures/vbox/virtualbox-cl-installer-01.png
@@ -87,7 +87,7 @@ details about using different settings are available in the VirtualBox manual se
    - **File location**
    - **File size**: **32.00 GB**. Adjust size to your needs.
    - **Hard disk file type**: `VDI (VirtualBox Disk Image)`
-   - **Storage on physical hard disk**:`Dynamically allocated`
+   - **Storage on physical hard disk**: `Dynamically allocated`
 
    .. figure:: figures/vbox/virtualbox-cl-installer-03.png
       :scale: 100%
@@ -224,7 +224,7 @@ virtual hard disk.
    labeled :guilabel:`clear-<VERSION>-live-server.iso` under the
    :guilabel:`Controller: IDE`.
 
-#. From the :guilabel:`Attributes` column at right, in :guilabel:`Optical Drive`,
+#. From the :guilabel:`Attributes` column on the right, in :guilabel:`Optical Drive`,
    select the blue CD icon beside and click
    :guilabel:`Remove Disk from Virtual Drive`.
 

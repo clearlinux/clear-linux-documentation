@@ -4,48 +4,48 @@
 # Project Docs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
-#, fuzzy
 msgid ""
-msgstr ""
-"Project-Id-Version: Clear Linux* Project Docs latest\n"
+msgstr "Project-Id-Version: Clear Linux* Project Docs latest\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 12:54-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-08-09 14:33-0700\n"
+"PO-Revision-Date: 2019-09-04 16:21-0008\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh-Hans\n"
+"Language-Team: zh-Hans\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.7.0\n"
+"Generated-By: Intel® International Developer Studio Version 4.1.273.0\n"
 
 #: ../../guides/maintenance/restart.rst:4
 msgid "Restart system services after an OS update"
-msgstr ""
+msgstr "操作系统更新后重启系统服务"
 
 #: ../../guides/maintenance/restart.rst:6
 msgid "This guide describes how to use the :command:`clr-service-restart` tool."
-msgstr ""
+msgstr "本指南介绍如何使用 :command:`clr-service-restart`。"
 
 #: ../../guides/maintenance/restart.rst:13
 msgid "Overview"
-msgstr ""
+msgstr "概述"
 
 #: ../../guides/maintenance/restart.rst:15
 msgid ""
 "|CL-ATTR| includes a :command:`clr-service-restart` tool that shows which"
 " system daemons require a restart."
-msgstr ""
+msgstr "|CL-ATTR| 包含 :command:`clr-service-restart` 工具，该工具显示哪些系统守护程序需要重新启动。"
 
 #: ../../guides/maintenance/restart.rst:18
 msgid ""
 ":command:`clr-service-restart` reads various files in the :file:`procfs` "
 "filesystem provided by the kernel and relies on :command:`systemd` to "
 "determine which services to restart."
-msgstr ""
+msgstr ":command:`clr-service-restart` 读取内核提供的 :file:`procfs` 文件系统中的各种文件，并依靠 :command:`systemd` 来确定要重新启动哪些服务。"
 
 #: ../../guides/maintenance/restart.rst:24
 msgid "How it works"
-msgstr ""
+msgstr "工作原理"
 
 #: ../../guides/maintenance/restart.rst:26
 msgid ""
@@ -55,21 +55,22 @@ msgid ""
 ":command:`disallow` options for restarting system services. When a "
 "software update occurs, :command:`clr-service-restart` consults the "
 "whitelist to see if a service daemon is allowed to be restarted or not."
-msgstr ""
+msgstr ":command:`clr-service-restart` 会实现一个白名单，以确定哪些守护程序可以重启。系统管理员可以使用 :command:`allow` 或 :command:`disallow` 选项自定义重启系统服务时使用的默认 |CL| 操作系统白名单。执行软件更新时，:command:`clr-service-restart` 会查阅该白名单，确认是否允许重启某个服务守护程序。有关详细信息，请参阅选项部分。"
+
 
 #: ../../guides/maintenance/restart.rst:35
 msgid "Basic options"
-msgstr ""
+msgstr "基本选项"
 
 #: ../../guides/maintenance/restart.rst:37
 msgid ""
 ":command:`clr-service-restart` has three basic options: :command:`allow`,"
 " :command:`disallow`, and :command:`default`."
-msgstr ""
+msgstr ":command:`clr-service-restart` 具有三个基本选项： :command:`allow`、:command:`disallow` 和 :command:`default`。"
 
 #: ../../guides/maintenance/restart.rst:41
 msgid "allow"
-msgstr ""
+msgstr "允许"
 
 #: ../../guides/maintenance/restart.rst:43
 msgid ""
@@ -78,11 +79,12 @@ msgid ""
 "symlink in :file:`/etc/clr-service-restart` as a record. The example "
 "below tells :command:`clr-service-restart` to restart the *tallow* daemon"
 " after an OS software update."
-msgstr ""
+msgstr ":command:`allow` 选项标识操作系统软件更新后要重启的守护程序。:command:`clr-service-restart` 守护程序会在 :file:`/etc/clr-service-restart` 中创建一个符号链接作为记录。下面的示例指示 :command:`clr-service-restart` 在操作系统软件更新后重启 tallow 守护程序。"
+
 
 #: ../../guides/maintenance/restart.rst:54
 msgid "disallow"
-msgstr ""
+msgstr "不允许"
 
 #: ../../guides/maintenance/restart.rst:56
 msgid ""
@@ -93,11 +95,11 @@ msgid ""
 ":file:`/dev/null` as a record. The example below tells :command:`clr-"
 "service-restart` not to restart the *rngd* daemon after an OS software "
 "update."
-msgstr ""
+msgstr ":command:`disallow` 选项指示 :command:`clr-service-restart` 不要重启指定的守护程序，即使操作系统默认允许重启该守护程序。:command:`clr-service-restart` 守护程序会在 :file:`/etc/clr-service-restart` 中创建一个指向 :file:`/dev/null` 的符号链接作为记录。下面的示例指示 :command:`clr-service-restart` 在操作系统软件更新后不要重启 rngd 守护程序。"
 
 #: ../../guides/maintenance/restart.rst:68
 msgid "default"
-msgstr ""
+msgstr "默认"
 
 #: ../../guides/maintenance/restart.rst:70
 msgid ""
@@ -106,18 +108,20 @@ msgid ""
 "service-restart`. The example below  tells :command:`clr-service-restart`"
 " to restart *rngd* automatically again, because *rngd* is whitelisted for"
 " automatic service restarts by default in |CL|."
-msgstr ""
+msgstr ":command:`default` 选项指示 :command:`clr-service-restart` 恢复使用操作系统默认设置，并删除 :file:`/etc/clr-service-restart` 中的任何符号链接。下面的示例指示 :command:`clr-service-restart` 重新自动重启 rngd，因为 |CL| 默认将 rngd 加入了自动重启服务白名单。"
+
 
 #: ../../guides/maintenance/restart.rst:81
 msgid "Monitor options"
-msgstr ""
+msgstr "监控选项"
 
 #: ../../guides/maintenance/restart.rst:83
 msgid ""
 ":command:`clr-service-restart` works in the background and is invoked "
 "with :command:`swupd` automatically. Review the journal output to verify "
 "that services are restarted after an OS software update."
-msgstr ""
+msgstr ":command:`clr-service-restart` 在后台运行，并通过 :command:`swupd` 自动调用。查看日志输出可确认在操作系统软件更新后重启的服务。"
+
 
 #: ../../guides/maintenance/restart.rst:87
 msgid ""
@@ -125,11 +129,12 @@ msgid ""
 "below, :command:`clr-service-restart` displays a complete list of system "
 "services that require a restart. Use both options to verify that all "
 "desired daemons are restarted."
-msgstr ""
+msgstr "如果同时传递两个选项（:command:`-a` 和 :command:`-n`），:command:`clr-service-restart` 会显示需要重启的系统服务的完整清单。使用这两个选项可确认所有所需的守护程序都已重启。"
+
 
 #: ../../guides/maintenance/restart.rst:94
 msgid "-n option"
-msgstr ""
+msgstr "-n option"
 
 #: ../../guides/maintenance/restart.rst:96
 msgid ""
@@ -137,27 +142,28 @@ msgid ""
 "restarts. Instead it displays the services that could potentially be "
 "restarted. When used, :command:`clr-service-restart` outputs a list of "
 "messages showing:"
-msgstr ""
+msgstr "此选项指示 :command:`clr-service-restart` 不执行任何重启，而是显示可能要重启的服务。使用该选项时，:command:`clr-service-restart` 会输出一个消息列表，显示："
+
 
 #: ../../guides/maintenance/restart.rst:100
 msgid "Which service needs a restart."
-msgstr ""
+msgstr "哪个服务需要重启。"
 
 #: ../../guides/maintenance/restart.rst:101
 msgid "What unit it is."
-msgstr ""
+msgstr "它是什么单元。"
 
 #: ../../guides/maintenance/restart.rst:102
 msgid "Why it needs a restart."
-msgstr ""
+msgstr "为什么它需要重启。"
 
 #: ../../guides/maintenance/restart.rst:103
 msgid "Which command is required to restart the unit."
-msgstr ""
+msgstr "重启该单元需要哪个命令。"
 
 #: ../../guides/maintenance/restart.rst:106
 msgid "-a option"
-msgstr ""
+msgstr "-a option"
 
 #: ../../guides/maintenance/restart.rst:108
 msgid ""
@@ -165,30 +171,31 @@ msgid ""
 "all system services, not only the ones that are whitelisted. Because the "
 "default whitelist in |CL| is relatively short, you can use this option to"
 " restart all impacted services when you log in on the system."
-msgstr ""
+msgstr "此选项指示 :command:`clr-service-restart` 考虑所有系统服务，而不仅仅是白名单中的服务。因为 |CL| 中的默认白名单相对较短，所以您可以在登录系统时使用此选项重启所有受影响的服务。"
+
 
 #: ../../guides/maintenance/restart.rst:114
 msgid "Example"
-msgstr ""
+msgstr "示例"
 
 #: ../../guides/maintenance/restart.rst:116
 msgid ""
 "In the example below, :command:`clr-service-restart` is invoked with both"
 " the :command:`-a` and :command:`-n` options, which displays a complete "
 "list of system services that require a restart."
-msgstr ""
+msgstr "在下面的示例中，:command:`clr-service-restart` 使用 :command:`-a` 和 :command:`-n` 两个选项进行了调用，显示了需要重新启动的系统服务的完整列表。"
 
 #: ../../guides/maintenance/restart.rst:120
 msgid "Command:"
-msgstr ""
+msgstr "命令："
 
 #: ../../guides/maintenance/restart.rst:126
 msgid "Sample output:"
-msgstr ""
+msgstr "示例输出："
 
 #: ../../guides/maintenance/restart.rst:138
 msgid "Telemetry"
-msgstr ""
+msgstr "遥测技术"
 
 #: ../../guides/maintenance/restart.rst:140
 msgid ""
@@ -197,17 +204,18 @@ msgid ""
 "properly restart. To minimize issues, :command:`clr-service-restart` "
 "creates a telemetry record and sends it to the optional |CL| telemetry "
 "service if both conditions below are met:"
-msgstr ""
+msgstr ":command:`clr-service-restart` 可能会导致一些问题，例如守护程序重启时服务短暂中断，或者守护程序未能正确重启。为了最大限度减少这些问题，:command:`clr-service-restart` 会创建遥测记录，并在满足以下两个条件时将其发送到可选的 |CL| 遥测服务："
+
 
 #: ../../guides/maintenance/restart.rst:146
 msgid "If a unit fails to automatically restart after an OS update."
-msgstr ""
+msgstr "如果某个单元在操作系统更新后无法自动重启。"
 
 #: ../../guides/maintenance/restart.rst:147
 msgid ""
 "If that unit resides in the system location "
 ":file:`/usr/lib/systemd/system`."
-msgstr ""
+msgstr "如果该单元位于系统位置 :file:`/usr/lib/systemd/system`。"
 
 #: ../../guides/maintenance/restart.rst:149
 msgid ""
@@ -216,11 +224,12 @@ msgid ""
 "then the system unit name is sent to the |CL| telemetry service. We "
 "evaluate the report and update the whitelist to remove services that are "
 "not safe to restart."
-msgstr ""
+msgstr "如果未安装 |CL| 遥测捆绑包，该数据将被丢弃。如果安装了遥测捆绑包并选择发送遥测数据，则该系统单元名称将发送到 |CL| 遥测服务。我们会评估报告并更新白名单，移除出无法正常重启的服务。"
+
 
 #: ../../guides/maintenance/restart.rst:157
 msgid "Conclusion"
-msgstr ""
+msgstr "总结"
 
 #: ../../guides/maintenance/restart.rst:159
 msgid ""
@@ -229,9 +238,181 @@ msgid ""
 "service-restart` and we invite you to look at the code, share your "
 "thoughts, and work with us on improving the project. You can find the "
 "project at:"
-msgstr ""
+msgstr "|CL| 团队喜欢想出简单但有效的解决方案，让您的工作变得更轻松。我们为 :command:`clr-service-restart` 创建了一个 github 项目，并邀请您查看代码，分享您的想法，并与我们一起改进该项目。您可以在以下网址找到该项目："
+
 
 #: ../../guides/maintenance/restart.rst:164
 msgid "https://github.com/clearlinux/clr-service-restart"
-msgstr ""
+msgstr "https://github.com/clearlinux/clr-service-restart"
+
+#~ msgid ""
+#~ "The software life cycle describes how"
+#~ " software is created, developed, and "
+#~ "deployed, and includes how to replace"
+#~ " or update software. A good OS "
+#~ "provides tools for the entire software"
+#~ " life cycle. These tools must include"
+#~ " ways to remove software components "
+#~ "properly when replaced with something "
+#~ "else."
+#~ msgstr "软件生命周期是指软件是如何创建、开发和部署的，包括如何替换或更新软件。优秀的操作系统需要提供适用于整个软件生命周期的工具。这些工具必须有办法在某些软件组件被替换后将其妥善移除掉。"
+
+#~ msgid ""
+#~ "Most of the work on software "
+#~ "update code in |CL| was focused on"
+#~ " adding new software to the system."
+#~ " We recommended that users reboot "
+#~ "their system once in a while, but"
+#~ " we did not provide any tools "
+#~ "to restart services easily, until now."
+#~ msgstr ""
+#~ "|CL| "
+#~ "中的软件更新代码所做的大部分工作是为系统增添新软件。我们建议用户偶尔重启他们的系统，但是直到现在我们还没有提供任何工具来轻松地重启各项服务。"
+
+#~ msgid "User challenges"
+#~ msgstr "用户面临的挑战"
+
+#~ msgid ""
+#~ "It is difficult to determine which "
+#~ "services to restart. You can either "
+#~ "evaluate each system and reboot "
+#~ "manually, or figure out which services"
+#~ " to restart based on documentation "
+#~ "like the |CL| release notes. Since "
+#~ "neither option solves the issue "
+#~ "completely, the |CL| team created a "
+#~ "solution."
+#~ msgstr ""
+#~ "很难确定要重启哪些服务。用户要么是评估每个系统并手动重启，要么是根据 |CL| "
+#~ "发行说明之类文档确定要重启哪些服务。由于这两个方案都不能彻底解决问题，所以 |CL| 团队为此打造了一个解决方案。"
+
+#~ msgid ""
+#~ "Over the years, several OSes approached"
+#~ " the problem and created partial "
+#~ "solutions such as the following:"
+#~ msgstr "多年来，不少操作系统都在解决此问题，并提出了并不算彻底的解决方案，例如："
+
+#~ msgid "Automatically restart services during an upgrade."
+#~ msgstr "升级期间自动重启服务。"
+
+#~ msgid "Evaluate services using these steps:"
+#~ msgstr "使用以下步骤评估服务："
+
+#~ msgid "Mark updates requiring a reboot, such as kernel updates."
+#~ msgstr "标记需要重启的更新，例如内核更新。"
+
+#~ msgid "Inform the user of those updates."
+#~ msgstr "向用户通知这些更新。"
+
+#~ msgid "Ask the user to restart the OS."
+#~ msgstr "要求用户重启操作系统。"
+
+#~ msgid ""
+#~ "Both solutions are acceptable for many"
+#~ " OSes. However, |CL| updates software "
+#~ "automatically and users do not see "
+#~ "notices from the updater unless they "
+#~ "review the journal. |CL| requires a "
+#~ "completely different solution, with the "
+#~ "following requirements:"
+#~ msgstr ""
+#~ "这两种解决方案对于许多操作系统都是可以接受的。但是，|CL| "
+#~ "会自动更新软件，除非用户查看日志，否则不会看到更新程序的通知。因此，|CL| 需要一个完全不同的解决方案，具体要求如下："
+
+#~ msgid ""
+#~ "Eliminate the guesswork about what to"
+#~ " restart and under what circumstances."
+#~ msgstr "明确确定要重启什么以及在什么情况下重启，而不是靠猜测。"
+
+#~ msgid ""
+#~ "Cannot restart everything. Many service "
+#~ "daemons do not support an automatic "
+#~ "background restart."
+#~ msgstr "不能什么都重启。许多服务守护程序不支持自动在后台重启。"
+
+#~ msgid "Fit into the |CL| architectural perspective: be small, quick, and lean."
+#~ msgstr "契合 |CL| 架构的特点：小、快、精简。"
+
+#~ msgid "clr-service-restart functionality"
+#~ msgstr "clr-service-restart 功能"
+
+#~ msgid "Typical reasons to restart a service daemon include:"
+#~ msgstr "重启服务守护程序的常见原因包括："
+
+#~ msgid "A new version replaces the executable file itself."
+#~ msgstr "新版本替换了可执行文件本身。"
+
+#~ msgid "A new version replaces a library component used by a service daemon."
+#~ msgstr "新版本替换了服务守护程序使用的库组件。"
+
+#~ msgid ""
+#~ "Our method restarts daemons when it "
+#~ "is really needed, especially in the "
+#~ "case of security updates. The tool "
+#~ "restarts daemons by reading various "
+#~ "files in the :file:`procfs` filesystem "
+#~ "provided by the kernel."
+#~ msgstr ""
+#~ "我们的方法是在真正需要时重启守护程序，尤其是在安装安全更新时。该工具通过读取内核提供的 :file:`procfs` "
+#~ "文件系统中的各种文件来重启守护程序。"
+
+#~ msgid ""
+#~ "The second part of the problem is"
+#~ " to determine whether or not running"
+#~ " processes are part of a system "
+#~ "service. The tool focuses on system "
+#~ "services because most system services "
+#~ "are background tasks with no direct "
+#~ "user interaction. Fortunately, :command:`systemd`"
+#~ " provides a simple way to:"
+#~ msgstr ""
+#~ "接下来的问题是确定正在运行的进程是否是系统服务的一部分。该工具侧重于系统服务，因为大多数系统服务都是后台任务，并不会与用户直接交互。幸运的是，:command:`systemd`"
+#~ " 提供了一种简单的方法："
+
+#~ msgid "Determine which active tasks are within the system domain."
+#~ msgstr "确定哪些活动任务在系统域内。"
+
+#~ msgid "Determine which tasks map to which service."
+#~ msgstr "确定哪些任务映射到哪个服务。"
+
+#~ msgid ""
+#~ "We combined both solutions into a "
+#~ "low-overhead tool that shows which "
+#~ "system daemons require a restart, as "
+#~ "shown below:"
+#~ msgstr "我们将这两种解决方案融合成一个开销很低的工具，用来显示哪些系统守护程序需要重启，如下所示："
+
+#~ msgid "Options for clr-service-restart"
+#~ msgstr "clr-service-restart 的选项"
+
+#~ msgid ""
+#~ "The *disallow* option tells :command:`clr-"
+#~ "service-restart` not to restart the "
+#~ "specified daemon even if the OS "
+#~ "defaults permit the daemon to be "
+#~ "restarted. The :command:`clr-service-restart`"
+#~ " daemon creates a symlink in "
+#~ ":file:`/etc/clr-service-restart` that points"
+#~ " to :file:`/dev/null` as a record. "
+#~ "The example below tells :command:`clr-"
+#~ "service-restart` not to restart the "
+#~ "*rngd* daemon after an OS software "
+#~ "update."
+#~ msgstr ""
+#~ "*disallow* 选项指示 :command:`clr-service-restart`"
+#~ " 不要重启指定的守护程序，即使操作系统默认允许重启该守护程序。:command:`clr-service-"
+#~ "restart` 守护程序会在 :file:`/etc/clr-service-"
+#~ "restart` 中创建一个指向 :file:`/dev/null` 的符号链接作为记录。下面的示例指示"
+#~ " :command:`clr-service-restart` 在操作系统软件更新后不要重启"
+#~ " *rngd* 守护程序。"
+
+#~ msgid "Monitor options for clr-service-restart"
+#~ msgstr "clr-service-restart 的监控选项"
+
+#~ msgid ""
+#~ "To monitor :command:`clr-service-restart`, "
+#~ "use one or both options described "
+#~ "below."
+#~ msgstr "要监控 :command:`clr-service-restart`，请使用下述一个或两个选项。"
+
 
