@@ -19,5 +19,6 @@ jobs:
       run: |
         export PATH="$HOME/.local/bin:$PATH"
         make py
+        make man
         make htmlall
         
