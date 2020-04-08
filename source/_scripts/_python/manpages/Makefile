@@ -1,5 +1,10 @@
 man:
-	./clone-man-repos.sh
+	git clone git@github.com:clearlinux/clr-man-pages.git
+	git clone git@github.com:clearlinux/clr-power-tweaks.git
+	git clone git@github.com:clearlinux/clrtrust.git
+	git clone git@github.com:clearlinux/mixer-tools.git
+	git clone git@github.com:clearlinux/swupd-client.git
+	git clone git@github.com:clearlinux/telemetrics-client.git
 	python3 manpages.py
 	- mkdir ../../../reference/manpages
 	cp *.rst ../../../reference/manpages
