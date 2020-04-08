@@ -25,6 +25,12 @@ linkcheck:
 py:
 	make -C source py
 
+man:
+	make -C source man
+
+clean-man:
+	make -C source clean-man
+
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  html       to make standalone HTML files"

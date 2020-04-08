@@ -50,6 +50,7 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
 	@echo "  py         to trigger an update of bundle content"
+	@echo "  clrman     to pull and create manpage rst files in reference section"
 
 clean:
 	rm -rf $(BUILDDIR)/*
@@ -210,3 +211,9 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+man:
+	$(MAKE) -C $(SCRIPTDIR)/manpages man
+
+clean-man:
+	$(MAKE) -C $(SCRIPTDIR)/manpages clean-man
