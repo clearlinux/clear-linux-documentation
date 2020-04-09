@@ -517,6 +517,52 @@ To use the new image we will follow the `Kubeflow OpenMPI instructions`_. You wi
       # Deploy to your cluster.
       ks apply default
 
+Using Transformers* for Natural Language Processing
+***************************************************
+
+The DLRS v5.0 release includes `Transformers`_, a state-of-the-art Natural Language Processing (NLP) library for TensorFlow 2.0 and PyTorch. The library is configured to work within the container environment.
+
+In this section we will using Jupyter Notebook from inside the container to walk through one of the notebooks shown in the `Transformers`_ repository.
+
+To run the notebook, you will need to run the Deep Learning Reference Stack, mount it to disk and connect a Jupyter Notebook port.
+
+
+#. Run the DLRS image with Docker:
+
+   .. code-block:: bash
+
+      docker run -it -v ${PWD}:/workspace -p 8888:8888 clearlinux/stacks-dlrs-oss
+
+
+#. From within the container, navigate to the workspace, and clone the transformers repository in the container:
+
+  .. code-block:: bash
+
+      cd workspace
+      git clone https://github.com/huggingface/transformers.git
+
+
+
+#.  Navigate to the Transformers notebook directory, and start a Jupyter Notebook that is linked to the exterior port.  Be sure to copy the token from the output of starting  Jupyter Notebook.
+
+   .. code-block:: bash
+
+      cd transformers/notebooks
+      jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+
+#. Open a browser and navigate to `localhost:8888`.  If the notebook asks for a token, paste the token from the previous step and submit.  The notebook will also be available at the URL of the system serving the notebook.  For example if you are running on 192.168.1.10, you will be able to access the notebook from other systems on that subnet by navigating to http://192.168.1.10:8888
+
+   From the browser, you will see the following notebooks.
+
+   .. figure:: ../../_figures/stacks/dlrs-transformers-1.png
+      :scale: 80%
+      :alt: Transformers Jupyter Notebooks
+
+      Figure 1: Transformers Jupyter Notebooks
+
+   The first notebook, `01-training-tokenizers.ipynb` uses a relatively small dataset that makes for a quick download, and can be run with any of the DLRS v5.0 containers. 
+
+This example along with the other notebooks show how to get up and running with Transformers.  More detail on using Transformers* is available through the `Transformers`_ github repository.
 
 
 Using the Intel® OpenVINO Model Optimizer
@@ -597,6 +643,8 @@ In this example, you will:
 
 
    You should now see three files in your working directory, :file:`frozen_inference_graph.bin`, :file:`frozen_inference_graph.mapping`, and :file:`frozen_inference_graph.xml`. These are your new models in the Intermediate Representation (IR) format and they are ready for use in the OpenVINO Inference Engine.
+
+
 
 Using the OpenVino Inference Engine
 ***********************************
@@ -1103,3 +1151,7 @@ Related topics
 .. _Kubeflow OpenMPI instructions: https://github.com/kubeflow/mpi-operator/blob/master/README.md
 
 .. _Intel stacks GitHub repository: https://github.com/intel/stacks.git
+
+.. _Transformers: https://github.com/huggingface/transformers
+
+.. _Jupyter Notebook Transformers:
