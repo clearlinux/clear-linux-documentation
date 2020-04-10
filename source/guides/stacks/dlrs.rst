@@ -531,7 +531,7 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
 
    .. code-block:: bash
 
-      docker run -it -v ${PWD}:/workspace -p 8888:8888 clearlinux/stacks-dlrs-oss
+      docker run -it -v ${PWD}:/workspace -p 8888:8888 clearlinux/stacks-pytorch-mkl:latest
 
 
 #. From within the container, navigate to the workspace, and clone the
@@ -540,15 +540,14 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
    .. code-block:: bash
 
       cd workspace
-      git clone https://github.com/huggingface/transformers.git
+      git clone https://gist.github.com/16d38f2c9c688963c166c000330a3c11.git
 
 
 
-#. Navigate to the Transformers notebook directory, and start a Jupyter Notebook that is linked to the exterior port.  Be sure to copy the token from the output of starting  Jupyter Notebook.
+#. Start a Jupyter Notebook that is linked to the exterior port.  Be sure to copy the token from the output of starting  Jupyter Notebook.
 
    .. code-block:: bash
-
-      cd transformers/notebooks
+      pip install jupyter --upgrade
       jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 
 
@@ -569,7 +568,6 @@ From the browser, you will see the following notebooks.
 
    Figure 1: Transformers Jupyter Notebooks
 
-The first notebook, `01-training-tokenizers.ipynb` uses a relatively small dataset that makes for a quick download, and can be run with any of the DLRS v5.0 containers.
 
 This example along with the other notebooks show how to get up and running with Transformers.  More detail on using Transformers* is available through the `Transformers`_ github repository.
 
