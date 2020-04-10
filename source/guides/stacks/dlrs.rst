@@ -544,16 +544,18 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
 
 
 
-#. Start a Jupyter Notebook that is linked to the exterior port.  Be sure to copy the token from the output of starting  Jupyter Notebook.
+#. Start a Jupyter Notebook that is linked to the exterior port. 
+   Be sure to copy the token from the output of starting  Jupyter Notebook.
 
    .. code-block:: bash
+
       pip install jupyter --upgrade
       jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 
-
 #. To access the Jupyter Notebook, open a browser.
 
-#. Return to the Terminal where you launched Jupyter Notebook. Copy one of the URLs that appears after "Or copy and paste on of these URLs."
+#. Return to the Terminal where you launched Jupyter Notebook. 
+   Copy one of the URLs that appears after "Or copy and paste on of these URLs."
 
 #. Paste the URL (with embedded token) into the browser window.
 
