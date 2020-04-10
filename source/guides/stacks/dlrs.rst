@@ -522,7 +522,7 @@ Using Transformers* for Natural Language Processing
 
 The DLRS v5.0 release includes `Transformers`_, a state-of-the-art Natural Language Processing (NLP) library for TensorFlow 2.0 and PyTorch. The library is configured to work within the container environment.
 
-In this section we will using Jupyter Notebook from inside the container to walk through one of the notebooks shown in the `Transformers`_ repository.
+In this section we use a Jupyter Notebook from inside the container to walk through one of the notebooks shown in the `Transformers`_ repository.
 
 To run the notebook, you will need to run the Deep Learning Reference Stack, mount it to disk and connect a Jupyter Notebook port.
 
