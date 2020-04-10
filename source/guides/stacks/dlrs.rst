@@ -534,33 +534,42 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
       docker run -it -v ${PWD}:/workspace -p 8888:8888 clearlinux/stacks-dlrs-oss
 
 
-#. From within the container, navigate to the workspace, and clone the transformers repository in the container:
+#. From within the container, navigate to the workspace, and clone the
+   transformers repository in the container:
 
-  .. code-block:: bash
+   .. code-block:: bash
 
       cd workspace
       git clone https://github.com/huggingface/transformers.git
 
 
 
-#.  Navigate to the Transformers notebook directory, and start a Jupyter Notebook that is linked to the exterior port.  Be sure to copy the token from the output of starting  Jupyter Notebook.
+#. Navigate to the Transformers notebook directory, and start a Jupyter Notebook that is linked to the exterior port.  Be sure to copy the token from the output of starting  Jupyter Notebook.
 
    .. code-block:: bash
 
       cd transformers/notebooks
       jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 
-#. Open a browser and navigate to `localhost:8888`.  If the notebook asks for a token, paste the token from the previous step and submit.  The notebook will also be available at the URL of the system serving the notebook.  For example if you are running on 192.168.1.10, you will be able to access the notebook from other systems on that subnet by navigating to http://192.168.1.10:8888
 
-   From the browser, you will see the following notebooks.
+#. To access the Jupyter Notebook, open a browser.
 
-   .. figure:: ../../_figures/stacks/dlrs-transformers-1.png
-      :scale: 80%
-      :alt: Transformers Jupyter Notebooks
+#. Return to the Terminal where you launched Jupyter Notebook. Copy one of the URLs that appears after "Or copy and paste on of these URLs."
 
-      Figure 1: Transformers Jupyter Notebooks
+#. Paste the URL (with embedded token) into the browser window.
 
-   The first notebook, `01-training-tokenizers.ipynb` uses a relatively small dataset that makes for a quick download, and can be run with any of the DLRS v5.0 containers. 
+
+The notebook will also be available at the URL of the system serving the notebook.  For example if you are running on 192.168.1.10, you will be able to access the notebook from other systems on that subnet by navigating to http://192.168.1.10:8888
+
+From the browser, you will see the following notebooks.
+
+.. figure:: ../../_figures/stacks/dlrs-transformers-1.png
+   :scale: 80%
+   :alt: Transformers Jupyter Notebooks
+
+   Figure 1: Transformers Jupyter Notebooks
+
+The first notebook, `01-training-tokenizers.ipynb` uses a relatively small dataset that makes for a quick download, and can be run with any of the DLRS v5.0 containers.
 
 This example along with the other notebooks show how to get up and running with Transformers.  More detail on using Transformers* is available through the `Transformers`_ github repository.
 
