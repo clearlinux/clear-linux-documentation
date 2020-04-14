@@ -5,6 +5,7 @@ man:
 	git clone https://github.com/clearlinux/mixer-tools.git
 	git clone https://github.com/clearlinux/swupd-client.git
 	git clone https://github.com/clearlinux/telemetrics-client.git
+	git clone https://github.com/clearlinux/tallow.git
 	python3 manpages.py
 	- mkdir ../../../reference/manpages
 	cp *.rst ../../../reference/manpages
@@ -16,5 +17,6 @@ clean-man:
 	- rm -rf mixer-tools
 	- rm -rf swupd-client
 	- rm -rf telemetrics-client
+	- rm -rf tallow
 	- rm *.rst
 	- rm ../../../reference/manpages/*.rst

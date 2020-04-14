@@ -5,7 +5,8 @@ from os import listdir
 from os.path import join
 from shutil import copyfile
 
-paths = ["mixer-tools/docs","swupd-client/docs","telemetrics-client/docs/man","clr-man-pages","clr-power-tweaks/man","clrtrust/man"]
+paths = ["mixer-tools/docs","swupd-client/docs","telemetrics-client/docs/man","clr-man-pages","clr-power-tweaks/man","clrtrust/man","tallow/man"]
+pathToRefSection = "../../../reference/"
 manPageRegex = '.[0-9]+.rst'
 mdManPageRegex = '.[0-9]+.md'
 mdBoldItalicRegex = '\\*\\*\\`[a-z-._]+\\`\\*\\*'
@@ -114,6 +115,12 @@ def addTOC(manContent,file):
     for line in manContentLines:
         output = output + line + "\n"
     return output
+
+def createManpagesRST():
+    rest = ""
+    filePath = join(pathToRefSection,"man-pages.rst")
+    with open(filePath,'w') as f:
+        f.write(rest)
 
 getPages(paths)
 updateManPages()
