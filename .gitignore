@@ -17,3 +17,7 @@ bundles.html.txt
 
 # ignore the venv, used for running make py
 venv
+
+#ignore for reDocs GUI
+.tox
+MANIFEST
