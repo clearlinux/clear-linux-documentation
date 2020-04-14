@@ -2,9 +2,9 @@
 
 from distutils.core import setup
 
-setup(name='Sphinx GUI Utility',
-      version='0.1',
-      description='Build Sphinx docs from a GUI',
+setup(name='Clear Linux Documentation',
+      version='',
+      description='Sphinx build of Clear Linux documentation',
       author='Many',
       author_email='kevin.putnam@intel.com',
       url='https://github.com/clearlinux/clear-linux-documentation/',
