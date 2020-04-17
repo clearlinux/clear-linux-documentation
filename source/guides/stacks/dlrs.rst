@@ -20,15 +20,16 @@ customized solutions, and enables you to quickly prototype and deploy Deep
 Learning workloads. Use this guide to run benchmarking workloads on your
 solution.
 
-The latest release of the Deep Learning Reference Stack (`DLRS V5.0`_ ) supports the following features:
+The latest release of the Deep Learning Reference Stack (`DLRS V6.0`_ ) supports the following features:
 
-* TensorFlow* 1.15 and TensorFlow* 2.0, an end-to-end open source platform for machine learning (ML).
+* TensorFlow* 1.15 and TensorFlow* 2.2.0, an end-to-end open source platform for machine learning (ML).
 * PyTorch* 1.3, an open source machine learning framework that accelerates the path from research prototyping to production deployment.
 * PyTorch Lightning* which is a lightweight wrapper for PyTorch designed to help researchers set up all the boilerplate state-of-the-art training.
-* Transformers* , a state-of-the-art Natural Language Processing (NLP) for TensorFlow 2.0 and PyTorch.
-* Intel® OpenVINO™ model server version 2019_R3, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
+* Transformers* , a state-of-the-art Natural Language Processing (NLP) for TensorFlow 2.0 and Flair for PyTorch.
+* OpenVINO™ model server version 2020.1, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
 * Intel Deep Learning Boost (DL Boost) with AVX-512 Vector Neural Network Instruction (Intel AVX-512 VNNI) designed to accelerate deep neural network-based algorithms.
 * Deep Learning Compilers (TVM* 0.6), an end-to-end compiler stack.
+
 
 .. important::
 
@@ -44,7 +45,7 @@ Releases
 
 Refer to the `Deep Learning Reference Stack website`_ for information and download links for the different versions and offerings of the stack.
 
-
+* `DLRS V6.0`_ release announcement.
 * `DLRS V5.0`_ release announcement.
 * `DLRS V4.0`_ release announcement, including benchmark results.
 * `DLRS V3.0`_ release announcement, including benchmark results.
@@ -64,7 +65,7 @@ Version compatibility
 
 We validated the steps in this guide against the following software package versions, unless otherwise stated:
 
-* |CL| 26240 (Minimum supported version)
+* |CL| 31290 (Minimum supported version)
 * Docker 18.06.1
 * Kubernetes 1.11.3
 * Go 1.11.12
@@ -544,7 +545,7 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
 
 
 
-#. Start a Jupyter Notebook that is linked to the exterior port. 
+#. Start a Jupyter Notebook that is linked to the exterior port.
    Be sure to copy the token from the output of starting  Jupyter Notebook.
 
    .. code-block:: bash
@@ -554,7 +555,7 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
 
 #. To access the Jupyter Notebook, open a browser.
 
-#. Return to the Terminal where you launched Jupyter Notebook. 
+#. Return to the Terminal where you launched Jupyter Notebook.
    Copy one of the URLs that appears after "Or copy and paste on of these URLs."
 
 #. Paste the URL (with embedded token) into the browser window.
@@ -574,12 +575,12 @@ From the browser, you will see the following notebooks.
 This example along with the other notebooks show how to get up and running with Transformers.  More detail on using Transformers* is available through the `Transformers`_ github repository.
 
 
-Using the Intel® OpenVINO Model Optimizer
-*****************************************
+Using the OpenVINO™ Model Optimizer
+***********************************
+.
+The OpenVINO™ toolkit has two primary tools for deep learning, the inference engine and the model optimizer. The inference engine is integrated into the Deep Learning Reference Stack. It is better to use the model optimizer after training the model, and before inference begins. This example will explain how to use the model optimizer by going through a test case with a pre-trained TensorFlow model.
 
-The Intel OpenVINO toolkit has two primary tools for deep learning, the inference engine and the model optimizer. The inference engine is integrated into the Deep Learning Reference Stack. It is better to use the model optimizer after training the model, and before inference begins. This example will explain how to use the model optimizer by going through a test case with a pre-trained TensorFlow model.
-
-This example uses resources found in the following OpenVino Toolkit documentation.
+This example uses resources found in the following OpenVINO™ toolkit documentation.
 
 `Converting a TensorFlow Model`_
 
@@ -594,7 +595,7 @@ In this example, you will:
 
 #. Download a TensorFlow model
 
-   We will be using an OpenVINO supported topology with the Model Optimizer. We will use a TensorFlow Inception V2 frozen model.
+   We will be using an OpenVINO™ toolkit supported topology with the Model Optimizer. We will use a TensorFlow Inception V2 frozen model.
 
    Navigate to the `OpenVINO TensorFlow Model page`_. Then scroll down to the second section titled "Supported Frozen Topologies from TensorFlow Object Detection Models Zoo" and download "SSD Inception V2 COCO."
 
@@ -651,12 +652,12 @@ In this example, you will:
       --reverse_input_channels
 
 
-   You should now see three files in your working directory, :file:`frozen_inference_graph.bin`, :file:`frozen_inference_graph.mapping`, and :file:`frozen_inference_graph.xml`. These are your new models in the Intermediate Representation (IR) format and they are ready for use in the OpenVINO Inference Engine.
+   You should now see three files in your working directory, :file:`frozen_inference_graph.bin`, :file:`frozen_inference_graph.mapping`, and :file:`frozen_inference_graph.xml`. These are your new models in the Intermediate Representation (IR) format and they are ready for use in the OpenVINO™ Inference Engine.
 
 
 
-Using the OpenVino Inference Engine
-***********************************
+Using the OpenVINO™ toolkit Inference Engine
+********************************************
 
 This example walks through the basic instructions for using the inference engine.
 
@@ -664,7 +665,7 @@ This example walks through the basic instructions for using the inference engine
 
    The process is similar to how we start `Jupter notebooks` on our containers
 
-   Run this command to spin up a OpenVino model fetched from GCP
+   Run this command to spin up a OpenVINO™ toolkit model fetched from GCP
 
    .. code-block:: bash
 
@@ -727,10 +728,10 @@ This example walks through the basic instructions for using the inference engine
 
 
 
-Using Seldon and OpenVINO* model server with the Deep Learning Reference Stack
-******************************************************************************
+Using Seldon and OpenVINO™ model server with the Deep Learning Reference Stack
+*************************************************************************************
 
-`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster. In this section we will walk through using a Seldon server with OpenVINO to serve a model.
+`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster. In this section we will walk through using a Seldon server with OpenVINO™ model server.
 
 Pre-requisites
 ==============
@@ -788,7 +789,7 @@ We will create a small pod to get the model into a volume.
 Add the pre-trained model to the image
 --------------------------------------
 
-A custom DLRS image is provided to serve OpenVINO through Seldon. Add a curl command to download your publicly hosted model and save it in :file:`/opt/ml` in the container filesystem. For example, if you have a model on GCP, use this command:
+A custom DLRS image is provided to serve OpenVINO™ model server through Seldon. Add a curl command to download your publicly hosted model and save it in :file:`/opt/ml` in the container filesystem. For example, if you have a model on GCP, use this command:
 
    .. code-block:: bash
 
@@ -799,7 +800,7 @@ A custom DLRS image is provided to serve OpenVINO through Seldon. Add a curl com
 Prepare the DLRS image
 ======================
 
-A base image with Seldon and the OpenVINO inference engine should be created using the :file:`Dockerfile_openvino_base` dockerfile.
+A base image with Seldon and the OpenVINO™ inference engine should be created using the :file:`Dockerfile_openvino_base` dockerfile.
 
    .. code-block:: bash
 
@@ -1058,6 +1059,9 @@ Related topics
 * :ref:`kubernetes` tutorial
 * `Jupyter Notebook`_
 
+
+OpenVINO is a trademark of Intel Corporation or its subsidiaries
+
 .. _TensorFlow: https://www.tensorflow.org/
 
 .. _Kubeflow: https://www.kubeflow.org/
@@ -1089,6 +1093,8 @@ Related topics
 .. _DLRS V4.0: https://clearlinux.org/news-blogs/deep-learning-reference-stack-v4
 
 .. _DLRS V5.0: https://clearlinux.org/blogs-news/deep-learning-reference-stack-v50-now-available
+
+.. _DLRS V6.0: https://clearlinux.org/blogs-news/deep-learning-reference-stack-v6.0-now-available
 
 .. _dlrs-tfjob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
 
