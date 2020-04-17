@@ -67,7 +67,7 @@ Version compatibility
 We validated the steps in this guide against the following software package versions, unless otherwise stated:
 
 * |CL| 31290 (Minimum supported version)
-* Docker 18.06.1
+* Docker 19.03
 * Kubernetes 1.11.3
 * Go 1.11.12
 
