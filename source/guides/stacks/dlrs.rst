@@ -22,12 +22,13 @@ solution.
 
 The latest release of the Deep Learning Reference Stack (`DLRS V6.0`_ ) supports the following features:
 
-* TensorFlow* 1.15 and TensorFlow* 2.2.0, an end-to-end open source platform for machine learning (ML).
-* PyTorch* 1.3, an open source machine learning framework that accelerates the path from research prototyping to production deployment.
+* TensorFlow* 1.15 and TensorFlow* 2.2.0(rc1), an end-to-end open source platform for machine learning (ML).
+* PyTorch* 1.4, an open source machine learning framework that accelerates the path from research prototyping to production deployment.
 * PyTorch Lightning* which is a lightweight wrapper for PyTorch designed to help researchers set up all the boilerplate state-of-the-art training.
-* Transformers* , a state-of-the-art Natural Language Processing (NLP) for TensorFlow 2.0 and Flair for PyTorch.
+* Transformers* which is a state-of-the-art Natural Language Processing (NLP) library for TensorFlow 2.0 and PyTorch
+* Flair*, a PyTorch NLP framework
 * OpenVINO™ model server version 2020.1, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
-* Intel Deep Learning Boost (DL Boost) with AVX-512 Vector Neural Network Instruction (Intel AVX-512 VNNI) designed to accelerate deep neural network-based algorithms.
+* Intel Deep Learning Boost (DL Boost) with AVX-512 Vector Neural Network Instruction (Intel® AVX-512 VNNI), designed to accelerate deep neural network-based algorithms.
 * Deep Learning Compilers (TVM* 0.6), an end-to-end compiler stack.
 
 
