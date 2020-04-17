@@ -135,7 +135,7 @@ a simple shell script, and keep the pod open.
       spec:
         containers:
         - name: ex-pod-container
-          image: clearlinux/stacks-dlrs-mkl:latest
+          image: sysstacks/dlrs-tensorflow-clearlinux:latest
           command: ['/bin/bash', '-c', '--']
           args: [ "while true; do sleep 30; done" ]
 
@@ -169,7 +169,7 @@ TensorFlow.
 
    .. code-block:: bash
 
-      docker run --name <image name>  --rm -ti <clearlinux/stacks-dlrs-TYPE> bash
+      docker run --name <image name>  --rm -ti <sysstacks/dlrs-tensorflow-clearlinux> bash
 
    .. note::
 
@@ -670,7 +670,7 @@ This example walks through the basic instructions for using the inference engine
 
    .. code-block:: bash
 
-      docker run -p 8000:8000 stacks-dlrs-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
+      docker run -p 8000:8000 stacks-dlrs-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://public-artifacts/intelai_public_models/resnet_50_i8 --port 8000"
 
 
    Once the server is setup, use a :command:`grpc` client to communicate with served model:
@@ -969,7 +969,7 @@ To stop the container, execute the following from your host system:
    .. code-block:: console
 
       CONTAINER ID        IMAGE                        COMMAND               CREATED             STATUS              PORTS               NAMES
-      e131dc71d339        clearlinux/stacks-dlrs-oss   "/bin/sh -c 'bash'"   23 seconds ago      Up 21 seconds                           oss
+      e131dc71d339        sysstacks/dlrs-tensorflow-clearlinux   "/bin/sh -c 'bash'"   23 seconds ago      Up 21 seconds                           oss
 
 #. You can then use the ID or container name to stop the container. This example
    uses the name "oss":
@@ -997,8 +997,8 @@ To stop the container, execute the following from your host system:
    .. code-block:: console
 
       REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-      clearlinux/stacks-dlrs-oss   latest              82757ec1648a        4 weeks ago         3.43GB
-      clearlinux/stacks-dlrs-mkl   latest              61c178102228        4 weeks ago         2.76GB
+      sysstacks/dlrs-tensorflow-clearlinux   latest              82757ec1648a        4 weeks ago         3.43GB
+      sysstacks/dlrs-tensorflow-clearlinux   latest              61c178102228        4 weeks ago         2.76GB
 
 #. To remove an image use the image ID:
 
@@ -1009,8 +1009,8 @@ To stop the container, execute the following from your host system:
    .. code-block:: console
 
       # docker rmi 827
-      Untagged: clearlinux/stacks-dlrs-oss:latest
-      Untagged: clearlinux/stacks-dlrs-oss@sha256:381f4b604537b2cb7fb5b583a8a847a50c4ed776f8e677e2354932eb82f18898
+      Untagged: sysstacks/dlrs-tensorflow-clearlinux:latest
+      Untagged: sysstacks/dlrs-tensorflow-clearlinux@sha256:381f4b604537b2cb7fb5b583a8a847a50c4ed776f8e677e2354932eb82f18898
       Deleted: sha256:82757ec1648a906c504e50e43df74ad5fc333deee043dbfe6559c86908fac15e
       Deleted: sha256:e47ecc039d48409b1c62e5ba874921d7f640243a4c3115bb41b3e1009ecb48e4
       Deleted: sha256:50c212235d3c33a3c035e586ff14359d03895c7bc701bb5dfd62dbe0e91fb486
@@ -1079,15 +1079,15 @@ OpenVINO is a trademark of Intel Corporation or its subsidiaries
 
 .. _Getting Started with Kubeflow: https://github.intel.com/verticals/usecases/blob/56717f4642ecd958dc93bbc361c551dfc578d3ed/kubeflow/README.md#getting-started-with-kubeflow
 
-.. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlrs-oss/
+.. _Eigen: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux/
 
-.. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl/
+.. _Intel MKL-DNN: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux/
 
 .. _PyTorch with OpenBLAS: https://hub.docker.com/r/clearlinux/stacks-pytorch-oss
 
 .. _PyTorch with Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-pytorch-mkl
 
-.. _Intel MKL-DNN-VNNI: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl-vnni
+.. _Intel MKL-DNN-VNNI: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux
 
 .. _DLRS V3.0:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
 
