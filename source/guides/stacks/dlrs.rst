@@ -34,7 +34,7 @@ The latest release of the Deep Learning Reference Stack (`DLRS V6.0`_ ) supports
 
 .. important::
 
-   To take advantage of the Intel® AVX-512 and VNNI functionality (including the MKL-DNN releases)  with the Deep
+   To take advantage of the Intel® AVX-512 and VNNI functionality (including the `oneDNN`_ releases)  with the Deep
    Learning Reference Stack, you must use the following hardware:
 
    * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
@@ -162,7 +162,7 @@ TensorFlow.
    Performance test results for the Deep Learning Reference Stack and for this
    guide were obtained using `runc` as the runtime.
 
-#. Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image
+#. Download either the `TensorFlow Eigen`_ or the `TensorFlow oneDNN`_ Docker image
    from `Docker Hub`_.
 
 #. Run the image with Docker:
@@ -204,7 +204,7 @@ This section describes running the `PyTorch benchmarks`_ for Caffe2 in
 single node.
 
 #. Download either the `PyTorch with OpenBLAS`_ or the `PyTorch with Intel
-   MKL-DNN`_ Docker image from `Docker Hub`_.
+   oneDNN`_ Docker image from `Docker Hub`_.
 
 #. Run the image with Docker:
 
@@ -238,7 +238,7 @@ TensorFlow Training (TFJob) with Kubeflow and DLRS
 
 .. warning::
 
-   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform
+   If you choose the Intel® oneDNN image, your platform
    must support the Intel® AVX-512 instruction set. Otherwise, an
    *illegal instruction* error may appear, and you won’t be able to complete this guide.
 
@@ -1079,15 +1079,15 @@ OpenVINO is a trademark of Intel Corporation or its subsidiaries
 
 .. _Getting Started with Kubeflow: https://github.intel.com/verticals/usecases/blob/56717f4642ecd958dc93bbc361c551dfc578d3ed/kubeflow/README.md#getting-started-with-kubeflow
 
-.. _Eigen: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux/
+.. _TensorFlow Eigen: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux:v0.6.0-oss
 
-.. _Intel MKL-DNN: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux/
+.. _TensorFlow oneDNN: https://hub.docker.com/r/sysstacks/dlrs-tensorflow2-clearlinux:v0.6.0
 
-.. _PyTorch with OpenBLAS: https://hub.docker.com/r/clearlinux/stacks-pytorch-oss
+.. _PyTorch with OpenBLAS: https://hub.docker.com/r/sysstacks/dlrs-pytorch-clearlinux:v0.6.0-oss
 
-.. _PyTorch with Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-pytorch-mkl
+.. _PyTorch with Intel oneDNN: https://hub.docker.com/r/sysstacks/dlrs-pytorch-clearlinux:v0.6.0
 
-.. _Intel MKL-DNN-VNNI: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux
+.. _Intel oneDNN: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux
 
 .. _DLRS V3.0:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
 
@@ -1097,7 +1097,7 @@ OpenVINO is a trademark of Intel Corporation or its subsidiaries
 
 .. _DLRS V6.0: https://clearlinux.org/blogs-news/deep-learning-reference-stack-v6.0-now-available
 
-.. _dlrs-tfjob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
+.. _dlrs-tfjob: github.com/intel/stacks
 
 .. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
@@ -1170,4 +1170,4 @@ OpenVINO is a trademark of Intel Corporation or its subsidiaries
 
 .. _Transformers: https://github.com/huggingface/transformers
 
-.. _Jupyter Notebook Transformers:
+.. _oneDNN: https://github.com/oneapi-src/oneDNN
