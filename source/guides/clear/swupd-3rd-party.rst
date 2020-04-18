@@ -23,6 +23,8 @@ client system.
    :local:
    :depth: 1
 
+Also, see our `general guidelines`_ on sharing 3rd-party bundles.  
+
 Prerequisite
 *************
 
@@ -198,7 +200,7 @@ All installed 3rd-party bundles reside in :file:`/opt/3rd-party/bundles/<repo-na
 
       tree /opt/3rd-party
 
-   Example out:
+   Example output:
    
    .. code-block:: console
 
@@ -245,6 +247,11 @@ On the client side:
 
 #. Run :command:`sudo swupd 3rd-party update` to update to the latest version of your mix.
 
+   .. note::
+      
+      If `swupd autoupdate` is enabled, 3rd-party repositories will update 
+      automatically as well during regular swupd update.  
+
 #. Now, you can see and add the new bundles.
 
 Some limitations of 3rd-party bundles
@@ -270,4 +277,5 @@ Related topics
    https://clearlinux.org/software
 .. _bundle definition:
    https://docs.01.org/clearlinux/latest/guides/clear/mixer.html#id16
-
+.. _general guidelines:
+   https://community.clearlinux.org/t/about-the-3rd-party-sw-category/4072
