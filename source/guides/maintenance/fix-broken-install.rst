@@ -37,7 +37,8 @@ Boot a live desktop image to fix target system
 Mount root partition, verify, and fix
 *************************************
 
-#. Ensure the system is connected to the network.
+#. Ensure the system is connected to the Internet in order to access the 
+   the |CL| update server.
 
 #. Open a terminal window.
 
@@ -51,9 +52,8 @@ Mount root partition, verify, and fix
    Example output:
 
    .. code-block:: console
-      :emphasize-lines: 10
+      :emphasize-lines: 9 
 
-      clrlinux@clr-live~ $ lsblk -po NAME,SIZE,LABEL,PARTTYPE,PARTLABEL
       NAME          SIZE LABEL       PARTTYPE                             PARTLABEL
       /dev/loop0  643.6M                                                  
       /dev/sda     14.3G CLR_ISO                                          
@@ -73,7 +73,7 @@ Mount root partition, verify, and fix
       sudo mount /dev/sdb3 /mnt
 
 #. Verify that you mounted the correct root partition by verifying the content
-   of ``/usr/lib/os-release`` looks similar to the example below.  
+   of ``/mnt/usr/lib/os-release`` looks similar to the example below.  
 
    .. code-block:: bash
 
@@ -83,7 +83,6 @@ Mount root partition, verify, and fix
 
    .. code-block:: console
 
-      clrlinux@clr-live~ $ cat /mnt/usr/lib/os-release 
       NAME="Clear Linux OS"
       VERSION=1
       ID=clear-linux-os
@@ -96,15 +95,15 @@ Mount root partition, verify, and fix
       BUG_REPORT_URL="mailto:dev@lists.clearlinux.org"
       PRIVACY_POLICY_URL="http://www.intel.com/privacy"
 
-#. Next, run :command:`swupd` to fix any issues on the target system.
+#. Next, run :command:`swupd repair` to fix any issues on the target system.
 
    .. code-block:: bash
 
-      sudo swupd repair --picky --path=/mnt
+      sudo swupd repair --picky --path=/mnt --statedir=/mnt/var/lib/swupd
 
    :ref:`Learn more about how swupd works <swupd-guide>`.
 
-#. After the process is complete, unmount the root partition:
+#. After the process is complete, unmount the root partition.
 
    .. code-block:: bash
 
