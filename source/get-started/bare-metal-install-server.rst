@@ -338,7 +338,6 @@ prefer to create a swap partition, follow the steps below.
 
 #. Press :kbd:`Enter`.
 
-
 root partition
 --------------
 
