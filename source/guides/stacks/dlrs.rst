@@ -28,17 +28,16 @@ The latest release of the Deep Learning Reference Stack (`DLRS V6.0`_ ) supports
 * Transformers* which is a state-of-the-art Natural Language Processing (NLP) library for TensorFlow 2.0 and PyTorch
 * Flair*, a PyTorch NLP framework
 * OpenVINO™ model server version 2020.1, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
-* Intel Deep Learning Boost (DL Boost) with AVX-512 Vector Neural Network Instruction (Intel® AVX-512 VNNI), designed to accelerate deep neural network-based algorithms.
+* Intel® Deep Learning Boost (Intel® DL Boost) with AVX-512 Vector Neural Network Instruction (Intel® AVX-512 VNNI), designed to accelerate deep neural network-based algorithms.
 * Deep Learning Compilers (TVM* 0.6), an end-to-end compiler stack.
 
 
 .. important::
 
-   To take advantage of the Intel® AVX-512 and VNNI functionality (including the `oneDNN`_ releases)  with the Deep
-   Learning Reference Stack, you must use the following hardware:
+   To take advantage of the Intel® AVX-512 and VNNI functionality (including the Intel® oneAPI Deep Neural Network Library (oneDNN), found at  `oneDNN`_.  with the Deep Learning Reference Stack, you must use the following hardware:
 
-   * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
-   * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
+   * Intel® AVX-512 images require an Intel® Xeon® Scalable processor
+   * VNNI requires a 2nd generation Intel® Xeon® Scalable processor
 
 
 Releases
@@ -578,7 +577,7 @@ This example along with the other notebooks show how to get up and running with 
 
 Using the OpenVINO™ Model Optimizer
 ***********************************
-.
+
 The OpenVINO™ toolkit has two primary tools for deep learning, the inference engine and the model optimizer. The inference engine is integrated into the Deep Learning Reference Stack. It is better to use the model optimizer after training the model, and before inference begins. This example will explain how to use the model optimizer by going through a test case with a pre-trained TensorFlow model.
 
 This example uses resources found in the following OpenVINO™ toolkit documentation.
@@ -1024,11 +1023,11 @@ To stop the container, execute the following from your host system:
 
        docker images
 
-Compiling AIXPRT with OpenMP on DLRS
-************************************
+Compiling AIXPRT for DLRS
+*************************
 
-To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file.AIXPRT utilizes
-build configuration files, so to build AIXPRT on the image, copy, the build files from the base image, this can be done by adding these commands
+To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file. AIXPRT utilizes
+build configuration files, so to build AIXPRT in the DLRS image, copy the build files from the base image by adding these commands
 to the end of the stacks-dlrs-mkl dockerfile:
 
    .. code-block:: console
