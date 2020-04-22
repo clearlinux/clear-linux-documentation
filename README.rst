@@ -63,8 +63,13 @@ running ``make html``:
 Open one of the HTML pages found in ``source/_build/html`` in a web browser
 to view the rendered documentation.
 
-If you want to build the documentation exactly as seen on the website, use
-``make py`` followed by ``make htmlall``. This builds some
+This build will generate several warnings as there are two other optional make commands required to build the full documentation.
+
+1. ``make py`` to generate the bundle reference material.
+2. ``make man`` to generate man page reference material.
+
+To build the documentation exactly as seen on the website, use
+``make man``, ``make py``, and ``make htmlall``. This builds both
 external dependencies and all supported languages.
 
 Use virtualenv 
@@ -162,6 +167,9 @@ build before building again by running ``make clean``:
 
 This will completely remove the previous build output, including artifacts 
 from the `make venv` target when done outside an active venv.
+
+Before running ``make man``, please run ``make clean-man`` to clear out any
+previous attempts.
 
 Convenience script
 ==================
