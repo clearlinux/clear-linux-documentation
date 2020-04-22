@@ -6,6 +6,7 @@ man:
 	git clone https://github.com/clearlinux/swupd-client.git
 	git clone https://github.com/clearlinux/telemetrics-client.git
 	git clone https://github.com/clearlinux/tallow.git
+	git clone https://github.com/clearlinux/micro-config-drive.git
 	python3 manpages.py
 	- mkdir ../../../reference/manpages
 	cp *.rst ../../../reference/manpages
@@ -18,5 +19,7 @@ clean-man:
 	- rm -rf swupd-client
 	- rm -rf telemetrics-client
 	- rm -rf tallow
+	- rm -rf micro-config-drive
 	- rm *.rst
 	- rm ../../../reference/manpages/*.rst
+	- rm ../../../reference/man-pages.rst

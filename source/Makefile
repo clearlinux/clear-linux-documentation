@@ -50,7 +50,8 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
 	@echo "  py         to trigger an update of bundle content"
-	@echo "  clrman     to pull and create manpage rst files in reference section"
+	@echo "  man        to pull and create manpage rst files in reference section"
+	@echo "  clean-man  to clean up manpage generation"
 
 clean:
 	rm -rf $(BUILDDIR)/*
