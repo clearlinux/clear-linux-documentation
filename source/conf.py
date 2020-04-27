@@ -54,7 +54,7 @@ master_doc = 'index'
 # General information about the project.
 #project = u'Clear Linux* project'
 project = u'Clear Linux* Project Docs'
-copyright = u'2020'
+copyright = u'2020 Intel Corporation. All Rights Reserved.'
 author = u'many'
 
 # The version info for the project you're documenting, acts as replacement for
