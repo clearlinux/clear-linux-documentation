@@ -494,6 +494,11 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   background: white;
 }
 
+.column.narrow {
+  width: 300px;
+  height: 450px;
+}
+
 .column.featurecard {
   background: #CCE9F5;
   width: 300px;
@@ -509,6 +514,12 @@ div.linenodiv:before { /*add extra new line to make sure code and line numbers a
   content: "";
   display: table;
   clear: both;
+}
+
+.colh3 {
+  font-size: 125%;
+  font-weight: 700;
+  font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
 }
 
 .colh2 {
