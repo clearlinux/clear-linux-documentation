@@ -4,7 +4,7 @@ Tutorials
 #########
 
 Explore our tutorials to discover what you can do with |CL|! Now conveniently
-sorted by experience level!
+sorted by difficulty level!
 
 .. container:: multicolumns
 
