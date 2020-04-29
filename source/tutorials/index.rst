@@ -3,8 +3,8 @@
 Tutorials
 #########
 
-Explore our tutorials to discover what you can do with |CL|! Now conveniently
-sorted by difficulty level!
+Explore our tutorials to discover what you can do with |CL|, conveniently
+sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutorial-ratings>`.
 
 .. container:: multicolumns
 

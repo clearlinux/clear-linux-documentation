@@ -41,7 +41,7 @@ Contribution guidelines
 ***********************
 
 The |CL| documentation is written using reStructuredText. Use our guidelines
-and best practices to write consistent, readable documentation.
+and best practices to write consistent, readable documentation. If you're writing a tutorial, review our skill levels to better target a user group.
 
 .. toctree::
    :maxdepth: 1
