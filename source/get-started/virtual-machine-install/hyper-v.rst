@@ -15,8 +15,8 @@ Overview
 ********
 
 Hyper-V is a type 1 bare-metal hypervisor that runs directly on system
-hardware. It is available for `Windows\* server`_ and client operating systems,
-including `Windows 10`_.
+hardware. It is available for `Windows\* server`_ and client operating 
+systems, including `Windows 10`_.
 
 |CL| provides a virtual disk image for Hyper-V, which also includes
 a :ref:`Hyper-V specific kernel <compatible-kernels>` and drivers.
@@ -43,14 +43,16 @@ Prerequisites
 Download the |CL| disk image for Hyper-V
 ****************************************
 
-#. Download the :file:`clear-[VERSION]-hyperv.vhdx.gz` for Microsoft* Hyper-V
-   from the `downloads`_ website.
+#. Download the :file:`clear-[VERSION]-azure-hyperv.vhd.gz` for Microsoft* 
+   Hyper-V from the `downloads`_ website.
 
 #. Verify and extract the image using these instructions:
    :ref:`download-verify-decompress`.
 
-   After extraction, the file should be named :file:`clear-[VERSION]-hyperv.vhdx`.
+#. Extract the compressed file using software such as the 
+   7-Zip\* tool or the WinZip\* tool. 
 
+   After extraction, the file should be named :file:`clear-[VERSION]-azure-hyperv.vhd`.
 
 Create and configure new VM
 ****************************
@@ -63,6 +65,10 @@ Create and configure new VM
 
       Figure 1: Hyper-V Manager from the Start menu
 
+   .. note::
+
+      You may need to manually enable Hyper-V on a Windows\* machine. Review 
+      ``Windows Features``.
 
 #. Create a *New Virtual Machine* by clicking the :guilabel:`Action` menu,
    then selecting :guilabel:`New` and :guilabel:`Virtual Machine...`.
@@ -77,23 +83,22 @@ Create and configure new VM
    specifying the options below:
 
    - **Name**: Choose name (for example, ClearLinuxOS-VM)
-   - **Generation**: Generation 2
+   - **Specify Generation**: Generation 1
    - **Startup memory**: 2048 MB or more
+   - **Configure Networking**: Change :guilabel:`Connection` to `Default Switch`
    - **Connect Virtual Hard Disk**: Select :guilabel:`Use an existing virtual
-     hard disk` and browse to find the :file:`clear-[VERSION]-hyperv.vhdx`
-     file.
+     hard disk` and browse to find the 
+     :file:`clear-[VERSION]-azure-hyperv.vhd` file.
 
    After finishing the wizard, the VM will be created but not powered on.
 
 #. Configure the VM by right-clicking it in the Hyper-V Manager and selecting
-   :guilabel:`Settings...`.
-   Figure 3 shows the Settings page after configuration selections.
+   :guilabel:`Settings...`. Figure 3 shows the Settings page after configuration selections.
 
-   - Under :guilabel:`Firmware`, select the Virtual disk and click
-     :guilabel:`Move Up...` until it is at the top of the list.
+   **Optional**
 
-   - Under :guilabel:`Security`, uncheck the :guilabel:`Enable Secure Boot`
-     checkbox.
+   - If you wish to `Encrypt state and virtual machine traffic, under 
+     :guilabel:`Security`, select :guilabel:`Add Key Storage Drive`.
 
    - Under :guilabel:`Processor`, consider increasing the number of virtual
      processors assigned to the |CL| VM to improve performance.
@@ -112,12 +117,12 @@ Create and configure new VM
 Start the VM
 ************
 
-#. Start the |CL| VM by right-clicking the VM in Hyper-V Manager and selecting
-   :guilabel:`Start`.
+#. Start the |CL| VM by right-clicking the VM in Hyper-V Manager and 
+   selecting :guilabel:`Start`.
 
 #. Connect to the VM console by right-clicking the VM in Hyper-V Manager and
-   selecting :guilabel:`Connect...`. A new *Virtual Machine Connection* window
-   is displayed.
+   selecting :guilabel:`Connect...`. A new *Virtual Machine Connection* 
+   window is displayed.
 
 #. After |CL| is booted, log in to the console with user *root*. You are
    prompted to set a new password immediately.
