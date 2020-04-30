@@ -51,17 +51,6 @@ Table 2 lists the currently available images that are platform specific.
    * - aws.img
      - Image suitable for use with Amazon\* AWS\*.
 
-   * - azure.vhd
-     - Virtual Hard Disk for use on Microsoft\* Azure\* cloud platform.
-
-   * - azure-docker.vhd
-     - Virtual Hard Disk for use on Microsoft Azure cloud platform with
-       Docker\* pre-installed.
-
-   * - azure-machine-learning.vhd
-     - Virtual Hard Disk for use on Microsoft Azure cloud platform with the
-       `machine-learning-basic` bundle installed.
-
    * - cloudguest.img
      - Image with generic cloud guest virtual machine (VM) requirements
        installed.
@@ -69,8 +58,8 @@ Table 2 lists the currently available images that are platform specific.
    * - gce.tar
      - Image with the Google Compute Engine (GCE) specific kernel.
 
-   * - hyperv.vhdx
-     - Virtual Hard Disk for use with Microsoft Hyper-V\* hypervisor. Includes
+   * - azure-hyperv.vhd
+     - Image for Microsoft* Azure and Hyper-V generation 1 VMs. Includes
        :ref:`optimized kernel <vm-kernels>` for Hyper-V.
 
    * - kvm.img
