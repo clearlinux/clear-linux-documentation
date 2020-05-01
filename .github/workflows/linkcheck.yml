@@ -1,0 +1,22 @@
+name: Linkcheck
+
+on:
+  schedule:
+    - cron: '0 0 * * Mon,Wed,Fri'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        sudo apt-get install -y python3-setuptools
+        pip3 install --user -r requirements.txt
+    - name: CheckLinks
+      run: |
+        export PATH="$HOME/.local/bin:$PATH"
+        make linkcheck
