@@ -13,3 +13,4 @@ features.
    bundles/bundles
    system-requirements
    image-types
+   man-pages
