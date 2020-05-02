@@ -21,10 +21,6 @@ optimizations across hardware and software. |CL| shows the performance potential
 of this approach on Linux, using Intel hardware with optimizations across the
 full stack.
 
-Performance almost always comes with a trade-off. For example, you can trade
-time or power for performance results. Engineers must decide the appropriateness
-of a performance trade-off on a case-by-case basis.
-
 |CL| optimizes for runtime performance. In general, |CL| will trade the one-time
 cost of longer build time and larger storage footprint for the repeated benefit
 of improved runtime performance. |CL| users benefit from the optimized software
@@ -64,8 +60,8 @@ A benchmark approach to compiler performance
 
 |CL| chooses the compiler used to build each software package on a case-by-case
 basis to maximize performance. Typically, |CL| uses the open source `GNU Compiler
-Collection <https://gcc.gnu.org/>`_ (GCC) which includes the standard low-level
-libraries: `Glibc <https://www.gnu.org/software/libc/>`_ / 
+Collection <https://gcc.gnu.org/>`_ (GCC) with the standard low-level
+libraries `Glibc <https://www.gnu.org/software/libc/>`_ and
 `libstdc++ <https://gcc.gnu.org/onlinedocs/libstdc++/>`_ for C and C++
 programming languages. If there is a performance advantage, |CL| will build
 packages with `Clang / LLVM <https://clang.llvm.org/>`_.
@@ -94,20 +90,23 @@ optimize software builds for runtime performance. Some significant flags that
 
 	|CL| defines it's minimum hardware requirements to be second-generation
 	Intel® microarchitecture code name Westmere (released in 2010) or later.
-	This enables the OS to build on newer CPU architecture features. Whenever
-	possible, |CL| tunes code for the Haswell generation processors or newer.
+	This enables compiler optimizations that are available only on newer
+	architectures. Whenever possible, |CL| tunes code for the Haswell generation
+	processors or newer.
 
 	|CL| sets	:command:`march=westmere` and :command:`mtune=haswell`.
 
 	.. note::
-		|CL| doesn't require Advanced Encryption Standard (AES), so it may run
-		on some Intel CPUs from the first generation of Intel® microarchitecture
-		code name Nehalem (released in 2008). Refer to the
+		|CL| doesn't require Advanced Encryption Standard (AES), so it should
+		run on some Intel CPUs from the first generation of Intel® microarchitecture code name Nehalem (released in 2008). Refer to the
 		`recommended minimum system requirements <https://docs.01.org/clearlinux/latest/reference/system-requirements.html>`_ for specific requirements.
 
 `O3 <https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html>`_
 	The largest preset of compiler options optimizations for performance. O3
 	favors runtime performance.
+
+	View the "Optimize Options" section of the GCC man page for additional
+	information: :command:`man gcc`
 
 `LTO <https://gcc.gnu.org/onlinedocs/gccint/LTO.html>`_
 	Link-time optimization that performs an optimization between compiled object
@@ -132,8 +131,9 @@ User flags
 	.. note::
 		Source code may come with software build systems that
 		override these values. This will cause a difference in expected flags.
-		The |CL| autospec tooling will ignore these overrides, but a manual
-		build won't.
+		The |CL| autospec tooling will attempt to ignore these overrides, but
+		the build system may still need patching. A manual build will not ignore
+		the build system override values if they exist.
 
 Global flags
 	Compiler flags applied at a global level for all packages. The |CL| RPM
