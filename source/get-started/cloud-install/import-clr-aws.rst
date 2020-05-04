@@ -63,7 +63,7 @@ Create an S3 bucket
    See Figure 1. 
 
    .. figure:: ../../_figures/aws/import-clr-aws-01.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS Services - S3 Management Console
 
       Figure 1: AWS Services - S3 Management Console
@@ -71,7 +71,7 @@ Create an S3 bucket
 #. Click :guilabel:`+ Create bucket`.
 
    .. figure:: ../../_figures/aws/import-clr-aws-02.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Create bucket
 
       Figure 2: AWS S3 - Create bucket
@@ -80,22 +80,22 @@ Create an S3 bucket
    See Figure 3.
 
    .. figure:: ../../_figures/aws/import-clr-aws-03.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Create bucket - Set bucket name and region
 
       Figure 3: AWS S3 - Create bucket - Set bucket name and region
 
-#. Leave the :guilabel:`Configure options" and :guilabel:`Set permissions`
+#. Leave the :guilabel:`Configure options` and :guilabel:`Set permissions`
    settings as is or configure as desired.  See Figure 4 and 5.
 
    .. figure:: ../../_figures/aws/import-clr-aws-04.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Create bucket - Configure options
 
       Figure 4: AWS S3 - Create bucket - Configure options
 
    .. figure:: ../../_figures/aws/import-clr-aws-05.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Create bucket - Set permissions
 
       Figure 5: AWS S3 - Create bucket - Set permissions
@@ -103,7 +103,7 @@ Create an S3 bucket
 #. At the :guilabel:`Review` screen, click :guilabel:`Create bucket`.
 
    .. figure:: ../../_figures/aws/import-clr-aws-06.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Create bucket - Review
 
       Figure 6: AWS S3 - Create bucket - Review
@@ -111,7 +111,7 @@ Create an S3 bucket
    The created bucket should appear.  See Figure 7.
 
    .. figure:: ../../_figures/aws/import-clr-aws-07.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Created bucket
 
       Figure 7: AWS S3 - Created bucket
@@ -123,7 +123,7 @@ Upload the |CL| image into the bucket
    See Figure 8.
 
    .. figure:: ../../_figures/aws/import-clr-aws-08.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Select bucket
 
       Figure 8: AWS S3 - Select bucket
@@ -132,7 +132,7 @@ Upload the |CL| image into the bucket
    See Figure 9.
 
    .. figure:: ../../_figures/aws/import-clr-aws-09.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Upload
 
       Figure 9: AWS S3 - Upload
@@ -141,7 +141,7 @@ Upload the |CL| image into the bucket
    See Figure 10.
 
    .. figure:: ../../_figures/aws/import-clr-aws-10.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Add files
 
       Figure 10: AWS S3 - Add files
@@ -150,19 +150,19 @@ Upload the |CL| image into the bucket
    See Figure 11, Figure 12, and Figure 13.
 
    .. figure:: ../../_figures/aws/import-clr-aws-11.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Add files
 
       Figure 11: AWS S3 - Add files
 
    .. figure:: ../../_figures/aws/import-clr-aws-12.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Set permissions
 
       Figure 12: AWS S3 - Set permissions
 
    .. figure:: ../../_figures/aws/import-clr-aws-13.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Set properties
 
       Figure 13: AWS S3 - Set properties
@@ -171,7 +171,7 @@ Upload the |CL| image into the bucket
    See Figure 14.
 
    .. figure:: ../../_figures/aws/import-clr-aws-14.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS S3 - Upload
 
       Figure 14: AWS S3 - Upload
@@ -183,8 +183,8 @@ Add a user to IAM with AWS_CLI privilege
    and select :guilabel:`IAM`.
    See Figure 15. 
 
-   .. figure:: ../../_figures/aws/import-clr-aws-08.png
-      :scale: 100%
+   .. figure:: ../../_figures/aws/import-clr-aws-15.png
+      :scale: 70%
       :alt: AWS Services - IAM
 
       Figure 15: AWS Services - IAM
@@ -194,7 +194,7 @@ Add a user to IAM with AWS_CLI privilege
    See Figure 16.
 
    .. figure:: ../../_figures/aws/import-clr-aws-16.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS AIM - Access management
 
       Figure 16: AWS AIM - Access management
@@ -203,7 +203,7 @@ Add a user to IAM with AWS_CLI privilege
    See Figure 17.
    
    .. figure:: ../../_figures/aws/import-clr-aws-17.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS AIM - Add user
 
       Figure 17: AWS AIM - Add user
@@ -212,7 +212,7 @@ Add a user to IAM with AWS_CLI privilege
    See Figure 18.
 
    .. figure:: ../../_figures/aws/import-clr-aws-18.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS AIM - Enter user name and select access type
 
       Figure 18: AWS AIM - Enter user name and select access type
@@ -227,7 +227,7 @@ Add a user to IAM with AWS_CLI privilege
    See Figure 19.
 
    .. figure:: ../../_figures/aws/import-clr-aws-19.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS AIM - Set user permissions
 
       Figure 19: AWS AIM - Set user permissions
@@ -244,7 +244,7 @@ Add a user to IAM with AWS_CLI privilege
    See Figure 20.
 
    .. figure:: ../../_figures/aws/import-clr-aws-20.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS AIM - Create user
 
       Figure 20: AWS AIM - Create user
@@ -255,7 +255,7 @@ Add a user to IAM with AWS_CLI privilege
    See Figure 21.
 
    .. figure:: ../../_figures/aws/import-clr-aws-21.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS AIM - Access key ID and secret access key
 
       Figure 21: AWS AIM - Access key ID and secret access key
@@ -401,29 +401,29 @@ There are 2 methods to create an AMI from the snapshot.
      :guilabel:`EC2`.
      See Figure 22. 
 
-   .. figure:: ../../_figures/aws/import-clr-aws-22.png
-      :scale: 100%
-      :alt: AWS Services - EC2
+     .. figure:: ../../_figures/aws/import-clr-aws-22.png
+        :scale: 70%
+        :alt: AWS Services - EC2
 
-      Figure 22: AWS Services - EC2
+        Figure 22: AWS Services - EC2
     
   #. Click :guilabel:`Snapshots`.
      See Figure 23. 
 
-   .. figure:: ../../_figures/aws/import-clr-aws-23.png
-      :scale: 100%
-      :alt: AWS Services - Snapshots
+     .. figure:: ../../_figures/aws/import-clr-aws-23.png
+        :scale: 70%
+        :alt: AWS Services - Snapshots
 
-      Figure 23: AWS Services - Snapshots
+        Figure 23: AWS Services - Snapshots
 
   #. Locate the snaphot using the `Snapshot ID`.
      See Figure 24.
 
-   .. figure:: ../../_figures/aws/import-clr-aws-24.png
-      :scale: 100%
-      :alt: AWS Services - Snapshots
+     .. figure:: ../../_figures/aws/import-clr-aws-24.png
+        :scale: 70%
+        :alt: AWS Services - Snapshots
 
-      Figure 24: AWS Services - Snapshots
+        Figure 24: AWS Services - Snapshots
     
   #. Right-click it and select :guilabel:`Create Image`.
 
@@ -438,7 +438,7 @@ There are 2 methods to create an AMI from the snapshot.
      See Figure 25.
 
      .. figure:: ../../_figures/aws/import-clr-aws-25.png
-        :scale: 100%
+        :scale: 70%
         :alt: AWS Services - Snapshots
 
         Figure 25: AWS Services - Snapshots
@@ -453,7 +453,7 @@ Launch an instance
    See Figure 26. 
 
    .. figure:: ../../_figures/aws/import-clr-aws-26.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS Services - EC2
 
       Figure 26: AWS Services - EC2
@@ -463,7 +463,7 @@ Launch an instance
    See Figure 27. 
 
    .. figure:: ../../_figures/aws/import-clr-aws-27.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS Services - Launch instance
 
       Figure 27: AWS Services - Launch instance
@@ -472,7 +472,7 @@ Launch an instance
    See Figure 28. 
 
    .. figure:: ../../_figures/aws/import-clr-aws-28.png
-      :scale: 100%
+      :scale: 70%
       :alt: AWS Services - Select AMI
 
       Figure 28: AWS Services - Select AMI
