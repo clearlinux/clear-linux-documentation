@@ -4,7 +4,8 @@ Media Reference Stack
 #####################
 
 The Media Reference Stack (MeRS) is a highly optimized software stack for
-Intel® architecture to enable media prioritized workloads, such as transcoding and analytics.
+Intel® Architecture Processors (the CPU) and Intel® Processor Graphics (the
+GPU) to enable media prioritized workloads, such as transcoding and analytics.
 
 This guide explains how to use the pre-built |MERS| container image, build
 your own |MERS| container image, and use the reference stack.
@@ -16,24 +17,42 @@ your own |MERS| container image, and use the reference stack.
 Overview
 ********
 
-Finding the balance between quality and performance, understanding all of the
-complex standard-compliant encoders, and optimizing across the
-hardware-software stack for efficiency are all engineering and time
-investments for developers.
+Developers face challenges due to the complexity of software integration for
+media tasks that require investing time and engineering effort.
+For example:
 
-The Media Reference Stack (MeRS) offers a highly optimized software stack for
-Intel Architecture to enable media prioritized workloads, such as transcoding
-and analytics. |MERS| abstracts away the complexity of integrating multiple
-software components and specifically tunes them for Intel platforms. |MERS|
-allows media and visual cloud developers to deliver experiences using a simple
-containerized solution. 
+   * Finding the balance between quality and performance.
+   * Understanding available standard-compliant encoders.
+   * Optimizing across the hardware-software stack for efficiency.
+
+|MERS| abstracts away the complexity of integrating multiple software
+components and specifically tunes them for Intel platforms. |MERS| enables
+media and visual cloud developers to deliver experiences using a simple
+containerized solution.
+
+
+Releases
+********
+
+Refer to the `System Stacks for Linux* OS repository
+<https://github.com/intel/stacks>`_ for information and download links for the
+different versions and offerings of the stack.
+
+* MeRS V0.2.0 release announcement including media processing on GPU and
+  analytics on CPU. 
+
+* MeRS V0.1.0 including media processing and analytics CPU.
+
+* `MeRS Release notes on Github*
+  <https://github.com/intel/stacks/blob/master/mers/NEWS.md>`_ for the
+  latest release of Deep Learning Reference Stack
+
 
 Prerequisites
 =============
 
-|MERS| can run on any host system that supports Docker\*.
-
-The steps in this guide use |CL-ATTR| as the host system.
+|MERS| can run on any host system that supports Docker\*. This guide uses
+|CL-ATTR| as the host system.
 
 - To install |CL| on a host system, see how to 
   :ref:`install Clear Linux* OS from the live desktop
@@ -44,35 +63,48 @@ The steps in this guide use |CL-ATTR| as the host system.
 
 .. important:: 
 
-   For optimal performance, a processor with Vector Neural Network
-   Instructions (VNNI) should be used. VNNI is an extension of Intel® 
-   Advanced Vector Extensions 512 (Intel® AVX-512) and is available starting 
-   with the 2nd generation of Intel® Xeon® Scalable Platform, providing AI 
+   For optimal media analytics performance, a processor with Vector Neural
+   Network Instructions (VNNI) should be used. VNNI is an extension of Intel®
+   Advanced Vector Extensions 512 (Intel® AVX-512) and is available starting
+   with the 2nd generation of Intel® Xeon® Scalable processors, providing AI
    inference acceleration.
 
-Stack Features
+Stack features
 ==============
 
 The |MERS| provides a `pre-built Docker image available on DockerHub
-<https://hub.docker.com/r/clearlinux/stacks-mers>`_, which includes
-instructions on build the image from source. |MERS| is open-sourced to ensure
-developers have easy access to the source code and are able to customize it.
-|MERS| is built using the *clearlinux:latest* Docker image and aims to support
-the latest |CL| version.
+<https://hub.docker.com/r/sysstacks/mers-clearlinux>`_, which includes
+instructions on building the image from source. |MERS| is open-sourced to
+make sure developers have easy access to the source code and are able to
+customize it. |MERS| is built using the latest *clearlinux/os-core* Docker
+image and aims to support the latest |CL| version.
 
-|MERS| provides the following libraries:
+|MERS| provides the following libraries and drivers:
 
 .. list-table::
    :widths: auto
 
-   * - SVT-HEVC
+   * - SVT-HEVC*
      - Scalable Video Technology for HEVC encoding, also known as H.265
    * - SVT-AV1
      - Scalable Video Technology for AV1 encoding
    * - x264
      - x264 for H.264/MPEG-4 AVC encoding
-   * - MKL-DNN
-     - `Intel® Math Kernel Library for Deep Neural Networks <https://01.org/mkl-dnn>`_
+   * - dav1d
+     - `dav1d <https://code.videolan.org/videolan/dav1d>`_ for AV1 decoding
+   * - libVA
+     - `VAAPI (Video Acceleration API) open-source library (LibVA),
+       <https://github.com/intel/libva>`_ which provides access to graphics
+       hardware acceleration capabilities.
+   * - media-driver
+     - `Intel® Media Driver for VAAPI <https://github.com/intel/media-driver/>`_
+       for supporting hardware acceleration on Intel® Gen graphics hardware
+       platforms.
+   * - gmmlib
+     - `Intel® Graphics Memory Management Library
+       <https://github.com/intel/gmmlib>`_ provides device specific and buffer
+       management for the Intel® Graphics Compute Runtime for OpenCL(TM) and
+       the Intel® Media Driver for VAAPI.
 
 Components of the |MERS| include:
 
@@ -81,19 +113,31 @@ Components of the |MERS| include:
 * `OpenVINO™ toolkit
   <https://01.org/openvinotoolkit>`_ for inference.
 
-* `FFmpeg* <https://www.ffmpeg.org>`_ with `Scalable Video Technology (SVT)
-  <https://01.org/svt>`_ plugins for encoding, decoding, and transcoding.
+* `FFmpeg* <https://www.ffmpeg.org>`_ with plugins for:
 
-* `GStreamer* <https://gstreamer.freedesktop.org/>`_  with `Scalable Video
-  Technology (SVT) <https://01.org/svt>`_ and `OpenVINO™ toolkit
-  <https://01.org/openvinotoolkit>`_ plugins for analytics.
+   - `Scalable Video Technology (SVT)
+     <https://01.org/svt>`_
 
+* `GStreamer* <https://gstreamer.freedesktop.org/>`_  with plugins for:
+
+   - `Scalable Video
+     Technology (SVT) <https://01.org/svt>`_
+   - `OpenVINO™ toolkit
+     <https://01.org/openvinotoolkit>`_
+   - `VAAPI <https://github.com/GStreamer/gstreamer-vaapi>`_
+
+* `Intel® Media SDK <https://github.com/Intel-Media-SDK/MediaSDK>`_ 
 
 .. note::
 
-   The pre-built |MERS| container image configures :command:`FFmpeg` without
-   certain elements (specific encoder, decoder, muxer, etc.) that you may
-   require. If you require changes to :command:`FFmpeg` we suggest starting at
+   The |MERS| is validated on 11th generation Intel® Processor Graphics and
+   newer. Older generations should work but are not tested against.
+
+.. note::
+
+   The pre-built |MERS| container image configures FFmpeg without certain
+   elements (specific encoder, decoder, muxer, etc.) that you may require. If
+   you require changes to FFmpeg we suggest starting at
    :ref:`building-the-mers-container-image`.
 
 .. note::
@@ -104,21 +148,21 @@ Components of the |MERS| include:
    licensing and usage of the Media Reference Stack.
 
 
-Getting the pre-built |MERS| container image
-********************************************
+Get the pre-built |MERS| container image
+****************************************
 
-Pre-built |MERS| Docker images are available on DockerHub at
-https://hub.docker.com/r/clearlinux/stacks-mers
+Pre-built |MERS| Docker images are available on DockerHub* at
+https://hub.docker.com/r/sysstacks/mers-clearlinux
 
 
 To use the |MERS|:
 
 #. Pull the image directly from `Docker Hub
-   <https://hub.docker.com/r/clearlinux/stacks-mers>`_. 
+   <https://hub.docker.com/r/sysstacks/mers-clearlinux>`_. 
 
    .. code-block:: bash
 
-      docker pull clearlinux/stacks-mers
+      docker pull sysstacks/mers-clearlinux
 
    .. note ::
 
@@ -126,22 +170,22 @@ To use the |MERS|:
       download depending on your Internet connection.
 
       If you are on a network with outbound proxies, be sure to configure
-      Docker allow access. See the `Docker service proxy
+      Docker to allow access. See the `Docker service proxy
       <https://docs.docker.com/config/daemon/systemd/#httphttps-proxy>`_ and
       `Docker client proxy
       <https://docs.docker.com/network/proxy/#configure-the-docker-client>`_
       documentation for more details.
       
-#. Once you have downloaded the image, run it with:
+#. Once you have downloaded the image, run it using the following command:
 
    .. code-block:: bash
 
-      docker run -it clearlinux/stacks-mers
+      docker run -it sysstacks/mers-clearlinux
 
    This will launch the image and drop you into a bash shell inside the
-   container. :command:`GStreamer` and :command:`FFmpeg` programs are
-   installed in the container image and accessible in the default $PATH. These
-   programs can be used as you would normally outside of |MERS|.
+   container. GStreamer and FFmpeg programs are installed in the container
+   image and accessible in the default $PATH. Use these programs as you would
+   outside of |MERS|.
 
    Paths to media files and video devices, such as cameras, can be shared from
    the host to the container with the :command:`--volume` switch `using Docker
@@ -149,13 +193,13 @@ To use the |MERS|:
 
 .. _building-the-mers-container-image:
 
-Building the |MERS| container image from source
-***********************************************
+Build the |MERS| container image from source
+********************************************
 
 If you choose to build your own MeRS container image, you can optionally add
 customizations as needed. The :file:`Dockerfile` for the MeRS is available on
-`GitHub <https://github.com/intel/stacks/tree/master/mers>`_ and
-can be used for reference.
+`GitHub <https://github.com/intel/stacks/tree/master/mers>`_ and can be used
+as a reference when creating your own container image.
 
 #. The |MERS| image is part of the dockerfiles repository inside the |CL|
    organization on GitHub. Clone the :file:`stacks` repository.
@@ -171,28 +215,28 @@ can be used for reference.
 
       cd ./stacks/mers/clearlinux
        
-#. Use the :command:`docker build` command with the :file:`Dockerfile` to the
-   MeRS container image.
+#. Use the :command:`docker build` command with the :file:`Dockerfile` to
+   build the MeRS container image.
 
    .. code-block:: bash
 
-      docker build --no-cache -t clearlinux/stacks-mers .
+      docker build --no-cache -t sysstacks/mers-clearlinux .
 
-Using the |MERS| container image
-********************************
+Use the |MERS| container image
+******************************
 
-Below are some examples of how the |MERS| container image can be used to
+This section shows examples of how the |MERS| container image can be used to
 process media files.
 
 The models and video source can be substituted from your use-case. Some
-publicly licensed sample videos are available at `sample-videos repsoitory
+publicly licensed sample videos are available at `sample-videos repository
 <https://github.com/intel-iot-devkit/sample-videos>`_ for testing.
 
 
-Example 1: Transcoding
-======================
+Media Transcoding
+=================
 
-This example shows how to perform transcoding with :command:`FFmpeg`.
+The examples below show transcoding using the GPU or CPU for processing.
 
 #. On the host system, setup a workspace for data and models:
 
@@ -208,45 +252,93 @@ This example shows how to perform transcoding with :command:`FFmpeg`.
 
       cp </path/to/video> ~/ffmpeg/input
 
-#. Run the *clearlinux/stack-mers* docker image, allowing shared access to the
-   workspace on the host:
-
+#. Run the *sysstacks/mers-clearlinux* Docker image, allowing shared access to
+   the workspace on the host:
 
    .. code:: bash
 
       docker run -it \
-      -v ~/ffmpeg:/home/mers-user:ro \
-      clearlinux/stacks-mers:latest
+      --volume ~/ffmpeg:/home/mers-user:ro \
+      --device=/dev/dri \
+      --env QSV_DEVICE=/dev/dri/renderD128 \
+      sysstacks/mers-clearlinux:latest
+
+   .. note::
+
+      The :command:`--device` parameter and the **GSV_DEVICE** environment
+      variable allow shared access to the GPU on the host system. The values
+      needed may be different depending on host's graphics configuration.      
 
    After running the :command:`docker run` command, you enter a bash shell
    inside the container. 
 
-#. From the container shell, you can run :command:`FFmpeg` against the videos
-   in :file:`/home/mers-user/input` as you would normally outside of |MERS|.
+#. From the container shell, you can run FFmpeg and
+   GStreamer commands against the videos in :file:`/home/mers-user/input` as
+   you would normally outside of |MERS|.
 
-   For example, to transcode raw yuv420 content to SVT-HEVC and mp4:
+   Some sample commands are provided for reference. 
 
-   .. code:: bash
-
-      ffmpeg -f rawvideo -vcodec rawvideo -s 320x240 -r 30 -pix_fmt yuv420p -i </home/mers-user/input/test.yuv> -c:v libsvt_hevc -y </home/mers-user/output/test.mp4>
-      
-   Some more generic examples of :command:`FFmpeg` commands can be found in
-   the `OpenVisualCloud repository
-   <https://github.com/OpenVisualCloud/Dockerfiles/blob/master/doc/ffmpeg.md>`_ and used for reference with |MERS|.
-
-   For more information on using :command:`FFmpeg`, refer to the `FFmpeg
+   For more information on using the *FFmpeg* commands, refer to the `FFmpeg
    documentation <https://ffmpeg.org/documentation.html>`_.
 
-Example 2: Analytics
-====================
+   For more information on using the *GStreamer* commands, refer to the
+   `GStreamer documentation
+   <https://gstreamer.freedesktop.org/documentation>`_.
 
-This example shows how to perform analytics and inferences with
-:command:`GStreamer`.
+
+Example: Transcoding using GPU
+-------------------------------
+
+The examples below show transcoding using the GPU for processing.
+
+
+Using a FFmpeg to transcode raw content to SVT-HEVC and mp4:
+
+.. code:: bash
+
+   ffmpeg -y -vaapi_device /dev/dri/renderD128 -f rawvideo -video_size 320x240 -r 30 -i </home/mers-user/input/test.yuv> -vf 'format=nv12, hwupload' -c:v h264_vaapi -y </home/mers-user/output/test.mp4>
+
+Using a GStreamer to transcode H264 to H265:
+
+.. code:: bash
+
+   gst-launch-1.0 filesrc location=</home/mers-user/input/test.264> ! h264parse ! vaapih264dec ! vaapih265enc rate-control=cbr bitrate=5000 ! video/x-h265,profile=main ! h265parse ! filesink location=</home/mers-user/output/test.265>
+
+|MERS| builds FFmpeg with `HWAccel
+<https://trac.ffmpeg.org/wiki/HWAccelIntro>`_ enabled which supports VAAPI.
+Refer to the `FFmpeg wiki on VAAPI
+<https://trac.ffmpeg.org/wiki/Hardware/VAAPI>`_ and `GStreamer with Media-SDK
+wiki
+<https://github.com/Intel-Media-SDK/MediaSDK/wiki/Build-and-use-GStreamer-with-MediaSDK#usage-examples>`_
+for more usage examples and compatibility information.
+
+
+Example: Transcoding using CPU
+------------------------------
+
+The example below shows transcoding of raw yuv420 content to SVT-HEVC and mp4,
+using the CPU for processing.
+
+.. code:: bash
+
+   ffmpeg -f rawvideo -vcodec rawvideo -s 320x240 -r 30 -pix_fmt yuv420p -i </home/mers-user/input/test.yuv> -c:v libsvt_hevc -y </home/mers-user/output/test.mp4>
+
+Additional generic examples of FFmpeg commands can be found in the
+`OpenVisualCloud repository
+<https://github.com/OpenVisualCloud/Dockerfiles/blob/master/doc/ffmpeg.md>`_
+and used for reference with |MERS|.
+
+
+Media Analytics
+===============
+
+This example shows how to perform analytics and inferences with GStreamer
+using the CPU for processing.
 
 The steps here are referenced from the `gst-video-analytics Getting Started
 Guide <https://github.com/opencv/gst-video-analytics/wiki>`_ except simply
 substituting the *gst-video-analytics* docker image for the
-*clearlinux/stacks-mers* image.
+*sysstacks/mers-clearlinux* image.
 
 The example below shows how to use the |MERS| container image to perform video
 with object detection and attributes recognition of a video using GStreamer
@@ -318,8 +410,8 @@ using pre-trained models and sample video files.
       export INTEL_MODELS_PATH=~/gva/data/models/intel
       export VIDEO_EXAMPLES_PATH=~/gva/data/video
 
-#. Run the *clearlinux/stack-mers* docker image, allowing shared access to 
-   the X server and workspace on the host:
+#. Run the *sysstacks/mers-clearlinux* docker image, allowing shared access 
+   to the X server and workspace on the host:
 
    .. code:: bash
 
@@ -337,7 +429,7 @@ using pre-trained models and sample video files.
       -v $VIDEO_EXAMPLES_PATH:/home/mers-user/video-examples \
       -e MODELS_PATH=/home/mers-user/intel_models:/home/mers-user/models \      
       -e VIDEO_EXAMPLES_DIR=/home/mers-user/video-examples \
-      clearlinux/stacks-mers:latest
+      sysstacks/mers-clearlinux:latest
 
    .. note:: 
 
@@ -347,18 +439,19 @@ using pre-trained models and sample video files.
         *runc* for this container. It is needed for correct interaction with X
         server.
 
-      - :command:`--net=host` provides host network access to container. It is
-        needed for correct interaction with X server.
+      - :command:`--net=host` provides host network access to the container.
+        It is needed for correct interaction with X server.
       
       - Files :file:`~/.Xauthority` and :file:`/tmp/.X11-unix` mapped to the
         container are needed to ensure smooth authentication with X server.
       
       - :command:`-v` instances are needed to map host system directories
-        inside Docker container.
+        inside the Docker container.
       
-      - :command:`-e` instances set Docker container environment variables.
-        Samples need them some of them set correctly to operate. Proxy variables
-        are needed if host is behind firewall.
+      - :command:`-e` instances set the Docker container environment
+        variables. Some examples need these variables set correctly in order
+        to operate correctly. Proxy variables are needed if host is behind a
+        firewall.
       
 
    After running the :command:`docker run` command, it will drop you into a
@@ -417,4 +510,54 @@ using pre-trained models and sample video files.
        ./gst-video-analytics/samples/shell/console_measure_fps_cpu.sh $VIDEO_EXAMPLES_DIR/bolt-detection.mp4
 
 
-**OpenVINO is a trademark of Intel Corporation or its subsidiaries.**
+Add AOM support
+***************
+
+The current version of |MERS| does not include the `Alliance for Open Media
+<https://aomedia.org/>`_ Video Codec (AOM). AOM can be built from source on an
+individual basis.
+
+To add AOM support to the |MERS| image:
+
+
+#. The following programs are needed to add AOM support to |MERS|: **docker,
+   git, patch**. On |CL| these can be  installed with the commands below. For
+   other operating systems, install the appropriate packages. 
+
+   .. code:: bash
+
+      sudo swupd bundle-add containers-basic dev-utils
+
+
+#. Clone the Intel Stacks repository from GitHub.
+
+   .. code:: bash
+
+      git clone https://github.com/intel/stacks.git 
+
+#. Navigate to the directory for the |MERS| image.
+
+   .. code:: bash 
+
+      cd stacks/mers/clearlinux/
+
+#. Apply the patch to the :file:`Dockerfile`.
+
+   .. code:: bash
+
+      patch -p1 < aom-patches/stacks-mers-v2-include-aom.diff
+
+#. Use the :command:`docker build` command to build a local copy of the
+   MeRS container image tagged as *aom*.
+
+   .. code-block:: bash
+
+      docker build --no-cache -t sysstacks/mers-clearlinux:aom .
+
+Once the build has completed successfully, the local image can be used
+following the same steps in this tutorial by substituting the image name with
+*sysstacks/mers-clearlinux:aom*.
+
+
+**Intel, Xeon, OpenVINO, and the Intel logo are trademarks of Intel
+Corporation or its subsidiaries.**
