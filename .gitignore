@@ -21,3 +21,9 @@ venv
 #ignore for reDocs GUI
 .tox
 MANIFEST
+
+# ignore artifacts of man page generation
+source/_scripts/_python/manpages/*.rst
+source/reference/manpages
+source/_scripts/_python/manpages/*/
+source/reference/man-pages.rst

@@ -57,19 +57,6 @@ Kernel Hyper-V\*
     for more information. The optimization patches are found in our
     `Linux-HyperV`_ GitHub repo.
 
-Kernel Hyper-V LTS
-    The *kernel-hyperv-lts* bundle focuses on running Linux on Microsoft
-    Hyper-V but uses the latest :abbr:`LTS (Long Term Support)` Linux kernel.
-    It is optimized for fast booting and performs best on Virtual
-    Machines running on the Intel® architectures described on the
-    :ref:`supported hardware list<system-requirements>`.
-    Use this kernel when running |CL| as the guest OS of **Cloud Instances** in
-    projects such as Microsoft `Azure`_. This kernel can be used in a
-    standalone |CL| VM, see our :ref:`instructions on using Hyper-V<hyper-v>`
-    for more information. The optimization patches are found in our
-    `Linux-HyperV-LTS`_ GitHub repo.
-
-
 .. _Linux: https://github.com/clearlinux-pkgs/linux
 .. _Linux-LTS: https://github.com/clearlinux-pkgs/linux-lts
 .. _Linux-KVM: https://github.com/clearlinux-pkgs/linux-kvm

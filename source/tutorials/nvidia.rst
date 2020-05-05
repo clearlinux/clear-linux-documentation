@@ -446,6 +446,26 @@ Try disabling other graphics devices, including integrated graphics, in your
 system's EFI/BIOS. 
 
 
+Slow boot times
+===============
+
+
+There have been reports of slow boot times with NVIDIA drivers installed.
+Normally, when GDM detects NVIDIA proprietary drivers, it will disable Wayland
+and enable X11. Should GDM fail to disbale Wayland, it may results in slow boot
+times, according to `this GitHub reprot
+<https://github.com/clearlinux/distribution/issues/1780>`_.
+
+To manually disable Wayland:
+
+.. code-block:: bash
+
+      sudo tee /etc/gdm/custom.conf > /dev/null <<'EOF'
+      [daemon]
+      WaylandEnable=false
+      EOF
+
+
 Brightness control
 ==================
 

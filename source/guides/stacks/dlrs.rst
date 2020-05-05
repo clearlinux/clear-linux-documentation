@@ -20,23 +20,24 @@ customized solutions, and enables you to quickly prototype and deploy Deep
 Learning workloads. Use this guide to run benchmarking workloads on your
 solution.
 
-The latest release of the Deep Learning Reference Stack (`DLRS V5.0`_ ) supports the following features:
+The latest release of the Deep Learning Reference Stack (`DLRS V6.0`_ ) supports the following features:
 
-* TensorFlow* 1.15 and TensorFlow* 2.0, an end-to-end open source platform for machine learning (ML).
-* PyTorch* 1.3, an open source machine learning framework that accelerates the path from research prototyping to production deployment.
+* TensorFlow* 1.15 and TensorFlow* 2.2.0(rc1), an end-to-end open source platform for machine learning (ML).
+* PyTorch* 1.4, an open source machine learning framework that accelerates the path from research prototyping to production deployment.
 * PyTorch Lightning* which is a lightweight wrapper for PyTorch designed to help researchers set up all the boilerplate state-of-the-art training.
-* Transformers* , a state-of-the-art Natural Language Processing (NLP) for TensorFlow 2.0 and PyTorch.
-* Intel® OpenVINO™ model server version 2019_R3, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
-* Intel Deep Learning Boost (DL Boost) with AVX-512 Vector Neural Network Instruction (Intel AVX-512 VNNI) designed to accelerate deep neural network-based algorithms.
+* Transformers* which is a state-of-the-art Natural Language Processing (NLP) library for TensorFlow 2.0 and PyTorch
+* Flair*, a PyTorch NLP framework
+* OpenVINO™ model server version 2020.1, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
+* Intel® Deep Learning Boost (Intel® DL Boost) with AVX-512 Vector Neural Network Instruction (Intel® AVX-512 VNNI), designed to accelerate deep neural network-based algorithms.
 * Deep Learning Compilers (TVM* 0.6), an end-to-end compiler stack.
+
 
 .. important::
 
-   To take advantage of the Intel® AVX-512 and VNNI functionality (including the MKL-DNN releases)  with the Deep
-   Learning Reference Stack, you must use the following hardware:
+   To take advantage of the Intel® AVX-512 and VNNI functionality (including the Intel® oneAPI Deep Neural Network Library (oneDNN), found at  `oneDNN`_.  with the Deep Learning Reference Stack, you must use the following hardware:
 
-   * Intel® AVX-512 images require an Intel® Xeon® Scalable Platform
-   * VNNI requires a 2nd generation Intel® Xeon® Scalable Platform
+   * Intel® AVX-512 images require an Intel® Xeon® Scalable processor
+   * VNNI requires a 2nd generation Intel® Xeon® Scalable processor
 
 
 Releases
@@ -44,7 +45,7 @@ Releases
 
 Refer to the `Deep Learning Reference Stack website`_ for information and download links for the different versions and offerings of the stack.
 
-
+* `DLRS V6.0`_ release announcement.
 * `DLRS V5.0`_ release announcement.
 * `DLRS V4.0`_ release announcement, including benchmark results.
 * `DLRS V3.0`_ release announcement, including benchmark results.
@@ -64,8 +65,8 @@ Version compatibility
 
 We validated the steps in this guide against the following software package versions, unless otherwise stated:
 
-* |CL| 26240 (Minimum supported version)
-* Docker 18.06.1
+* |CL| 31290 (Minimum supported version)
+* Docker 19.03
 * Kubernetes 1.11.3
 * Go 1.11.12
 
@@ -133,7 +134,7 @@ a simple shell script, and keep the pod open.
       spec:
         containers:
         - name: ex-pod-container
-          image: clearlinux/stacks-dlrs-mkl:latest
+          image: sysstacks/dlrs-tensorflow-clearlinux:latest
           command: ['/bin/bash', '-c', '--']
           args: [ "while true; do sleep 30; done" ]
 
@@ -160,14 +161,14 @@ TensorFlow.
    Performance test results for the Deep Learning Reference Stack and for this
    guide were obtained using `runc` as the runtime.
 
-#. Download either the `Eigen`_ or the `Intel MKL-DNN`_ Docker image
+#. Download either the `TensorFlow Eigen`_ or the `TensorFlow oneDNN`_ Docker image
    from `Docker Hub`_.
 
 #. Run the image with Docker:
 
    .. code-block:: bash
 
-      docker run --name <image name>  --rm -ti <clearlinux/stacks-dlrs-TYPE> bash
+      docker run --name <image name>  --rm -ti <sysstacks/dlrs-tensorflow-clearlinux> bash
 
    .. note::
 
@@ -202,7 +203,7 @@ This section describes running the `PyTorch benchmarks`_ for Caffe2 in
 single node.
 
 #. Download either the `PyTorch with OpenBLAS`_ or the `PyTorch with Intel
-   MKL-DNN`_ Docker image from `Docker Hub`_.
+   oneDNN`_ Docker image from `Docker Hub`_.
 
 #. Run the image with Docker:
 
@@ -236,7 +237,7 @@ TensorFlow Training (TFJob) with Kubeflow and DLRS
 
 .. warning::
 
-   If you choose the Intel® MKL-DNN or Intel® MKL-DNN-VNNI image, your platform
+   If you choose the Intel® oneDNN image, your platform
    must support the Intel® AVX-512 instruction set. Otherwise, an
    *illegal instruction* error may appear, and you won’t be able to complete this guide.
 
@@ -544,7 +545,7 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
 
 
 
-#. Start a Jupyter Notebook that is linked to the exterior port. 
+#. Start a Jupyter Notebook that is linked to the exterior port.
    Be sure to copy the token from the output of starting  Jupyter Notebook.
 
    .. code-block:: bash
@@ -554,7 +555,7 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
 
 #. To access the Jupyter Notebook, open a browser.
 
-#. Return to the Terminal where you launched Jupyter Notebook. 
+#. Return to the Terminal where you launched Jupyter Notebook.
    Copy one of the URLs that appears after "Or copy and paste on of these URLs."
 
 #. Paste the URL (with embedded token) into the browser window.
@@ -574,12 +575,12 @@ From the browser, you will see the following notebooks.
 This example along with the other notebooks show how to get up and running with Transformers.  More detail on using Transformers* is available through the `Transformers`_ github repository.
 
 
-Using the Intel® OpenVINO Model Optimizer
-*****************************************
+Using the OpenVINO™ Model Optimizer
+***********************************
 
-The Intel OpenVINO toolkit has two primary tools for deep learning, the inference engine and the model optimizer. The inference engine is integrated into the Deep Learning Reference Stack. It is better to use the model optimizer after training the model, and before inference begins. This example will explain how to use the model optimizer by going through a test case with a pre-trained TensorFlow model.
+The OpenVINO™ toolkit has two primary tools for deep learning, the inference engine and the model optimizer. The inference engine is integrated into the Deep Learning Reference Stack. It is better to use the model optimizer after training the model, and before inference begins. This example will explain how to use the model optimizer by going through a test case with a pre-trained TensorFlow model.
 
-This example uses resources found in the following OpenVino Toolkit documentation.
+This example uses resources found in the following OpenVINO™ toolkit documentation.
 
 `Converting a TensorFlow Model`_
 
@@ -594,7 +595,7 @@ In this example, you will:
 
 #. Download a TensorFlow model
 
-   We will be using an OpenVINO supported topology with the Model Optimizer. We will use a TensorFlow Inception V2 frozen model.
+   We will be using an OpenVINO™ toolkit supported topology with the Model Optimizer. We will use a TensorFlow Inception V2 frozen model.
 
    Navigate to the `OpenVINO TensorFlow Model page`_. Then scroll down to the second section titled "Supported Frozen Topologies from TensorFlow Object Detection Models Zoo" and download "SSD Inception V2 COCO."
 
@@ -651,12 +652,12 @@ In this example, you will:
       --reverse_input_channels
 
 
-   You should now see three files in your working directory, :file:`frozen_inference_graph.bin`, :file:`frozen_inference_graph.mapping`, and :file:`frozen_inference_graph.xml`. These are your new models in the Intermediate Representation (IR) format and they are ready for use in the OpenVINO Inference Engine.
+   You should now see three files in your working directory, :file:`frozen_inference_graph.bin`, :file:`frozen_inference_graph.mapping`, and :file:`frozen_inference_graph.xml`. These are your new models in the Intermediate Representation (IR) format and they are ready for use in the OpenVINO™ Inference Engine.
 
 
 
-Using the OpenVino Inference Engine
-***********************************
+Using the OpenVINO™ toolkit Inference Engine
+********************************************
 
 This example walks through the basic instructions for using the inference engine.
 
@@ -664,11 +665,11 @@ This example walks through the basic instructions for using the inference engine
 
    The process is similar to how we start `Jupter notebooks` on our containers
 
-   Run this command to spin up a OpenVino model fetched from GCP
+   Run this command to spin up a OpenVINO™ toolkit model fetched from GCP
 
    .. code-block:: bash
 
-      docker run -p 8000:8000 stacks-dlrs-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://intelai_public_models/resnet_50_i8 --port 8000"
+      docker run -p 8000:8000 stacks-dlrs-mkl:latest bash -c ". /workspace/scripts/serve.sh && ie_serving model --model_name resnet --model_path gs://public-artifacts/intelai_public_models/resnet_50_i8 --port 8000"
 
 
    Once the server is setup, use a :command:`grpc` client to communicate with served model:
@@ -727,10 +728,10 @@ This example walks through the basic instructions for using the inference engine
 
 
 
-Using Seldon and OpenVINO* model server with the Deep Learning Reference Stack
-******************************************************************************
+Using Seldon and OpenVINO™ model server with the Deep Learning Reference Stack
+*************************************************************************************
 
-`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster. In this section we will walk through using a Seldon server with OpenVINO to serve a model.
+`Seldon Core`_  is an open source platform for deploying machine learning models on a Kubernetes cluster. In this section we will walk through using a Seldon server with OpenVINO™ model server.
 
 Pre-requisites
 ==============
@@ -788,7 +789,7 @@ We will create a small pod to get the model into a volume.
 Add the pre-trained model to the image
 --------------------------------------
 
-A custom DLRS image is provided to serve OpenVINO through Seldon. Add a curl command to download your publicly hosted model and save it in :file:`/opt/ml` in the container filesystem. For example, if you have a model on GCP, use this command:
+A custom DLRS image is provided to serve OpenVINO™ model server through Seldon. Add a curl command to download your publicly hosted model and save it in :file:`/opt/ml` in the container filesystem. For example, if you have a model on GCP, use this command:
 
    .. code-block:: bash
 
@@ -799,7 +800,7 @@ A custom DLRS image is provided to serve OpenVINO through Seldon. Add a curl com
 Prepare the DLRS image
 ======================
 
-A base image with Seldon and the OpenVINO inference engine should be created using the :file:`Dockerfile_openvino_base` dockerfile.
+A base image with Seldon and the OpenVINO™ inference engine should be created using the :file:`Dockerfile_openvino_base` dockerfile.
 
    .. code-block:: bash
 
@@ -967,7 +968,7 @@ To stop the container, execute the following from your host system:
    .. code-block:: console
 
       CONTAINER ID        IMAGE                        COMMAND               CREATED             STATUS              PORTS               NAMES
-      e131dc71d339        clearlinux/stacks-dlrs-oss   "/bin/sh -c 'bash'"   23 seconds ago      Up 21 seconds                           oss
+      e131dc71d339        sysstacks/dlrs-tensorflow-clearlinux   "/bin/sh -c 'bash'"   23 seconds ago      Up 21 seconds                           oss
 
 #. You can then use the ID or container name to stop the container. This example
    uses the name "oss":
@@ -995,8 +996,8 @@ To stop the container, execute the following from your host system:
    .. code-block:: console
 
       REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-      clearlinux/stacks-dlrs-oss   latest              82757ec1648a        4 weeks ago         3.43GB
-      clearlinux/stacks-dlrs-mkl   latest              61c178102228        4 weeks ago         2.76GB
+      sysstacks/dlrs-tensorflow-clearlinux   latest              82757ec1648a        4 weeks ago         3.43GB
+      sysstacks/dlrs-tensorflow-clearlinux   latest              61c178102228        4 weeks ago         2.76GB
 
 #. To remove an image use the image ID:
 
@@ -1007,8 +1008,8 @@ To stop the container, execute the following from your host system:
    .. code-block:: console
 
       # docker rmi 827
-      Untagged: clearlinux/stacks-dlrs-oss:latest
-      Untagged: clearlinux/stacks-dlrs-oss@sha256:381f4b604537b2cb7fb5b583a8a847a50c4ed776f8e677e2354932eb82f18898
+      Untagged: sysstacks/dlrs-tensorflow-clearlinux:latest
+      Untagged: sysstacks/dlrs-tensorflow-clearlinux@sha256:381f4b604537b2cb7fb5b583a8a847a50c4ed776f8e677e2354932eb82f18898
       Deleted: sha256:82757ec1648a906c504e50e43df74ad5fc333deee043dbfe6559c86908fac15e
       Deleted: sha256:e47ecc039d48409b1c62e5ba874921d7f640243a4c3115bb41b3e1009ecb48e4
       Deleted: sha256:50c212235d3c33a3c035e586ff14359d03895c7bc701bb5dfd62dbe0e91fb486
@@ -1022,11 +1023,11 @@ To stop the container, execute the following from your host system:
 
        docker images
 
-Compiling AIXPRT with OpenMP on DLRS
-************************************
+Compiling AIXPRT for DLRS
+*************************
 
-To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file.AIXPRT utilizes
-build configuration files, so to build AIXPRT on the image, copy, the build files from the base image, this can be done by adding these commands
+To compile AIXPRT for DLRS, you will have to get the community edition of AIXPRT and update the `compile_AIXPRT_source.sh` file. AIXPRT utilizes
+build configuration files, so to build AIXPRT in the DLRS image, copy the build files from the base image by adding these commands
 to the end of the stacks-dlrs-mkl dockerfile:
 
    .. code-block:: console
@@ -1051,12 +1052,14 @@ The updates to the AIXPRT community edition have been captured in the diff file 
 Related topics
 **************
 
-* `DLRS V3.0`_ release announcement
 * `TensorFlow Benchmarks`_
 * `PyTorch benchmarks`_
 * `Kubeflow`_
 * :ref:`kubernetes` tutorial
 * `Jupyter Notebook`_
+
+
+OpenVINO is a trademark of Intel Corporation or its subsidiaries
 
 .. _TensorFlow: https://www.tensorflow.org/
 
@@ -1074,15 +1077,15 @@ Related topics
 
 .. _Getting Started with Kubeflow: https://github.intel.com/verticals/usecases/blob/56717f4642ecd958dc93bbc361c551dfc578d3ed/kubeflow/README.md#getting-started-with-kubeflow
 
-.. _Eigen: https://hub.docker.com/r/clearlinux/stacks-dlrs-oss/
+.. _TensorFlow Eigen: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux:v0.6.0-oss
 
-.. _Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl/
+.. _TensorFlow oneDNN: https://hub.docker.com/r/sysstacks/dlrs-tensorflow2-clearlinux:v0.6.0
 
-.. _PyTorch with OpenBLAS: https://hub.docker.com/r/clearlinux/stacks-pytorch-oss
+.. _PyTorch with OpenBLAS: https://hub.docker.com/r/sysstacks/dlrs-pytorch-clearlinux:v0.6.0-oss
 
-.. _PyTorch with Intel MKL-DNN: https://hub.docker.com/r/clearlinux/stacks-pytorch-mkl
+.. _PyTorch with Intel oneDNN: https://hub.docker.com/r/sysstacks/dlrs-pytorch-clearlinux:v0.6.0
 
-.. _Intel MKL-DNN-VNNI: https://hub.docker.com/r/clearlinux/stacks-dlrs-mkl-vnni
+.. _Intel oneDNN: https://hub.docker.com/r/sysstacks/dlrs-tensorflow-clearlinux
 
 .. _DLRS V3.0:  https://clearlinux.org/stacks/deep-learning-reference-stack-v3
 
@@ -1090,7 +1093,9 @@ Related topics
 
 .. _DLRS V5.0: https://clearlinux.org/blogs-news/deep-learning-reference-stack-v50-now-available
 
-.. _dlrs-tfjob: https://github.com/clearlinux/dockerfiles/tree/master/stacks/dlrs/kubeflow/dlrs-tfjob
+.. _DLRS V6.0: https://clearlinux.org/blogs-news/deep-learning-reference-stack-v6-now-available
+
+.. _dlrs-tfjob: github.com/intel/stacks
 
 .. _Logging Architecture: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 
@@ -1163,4 +1168,4 @@ Related topics
 
 .. _Transformers: https://github.com/huggingface/transformers
 
-.. _Jupyter Notebook Transformers:
+.. _oneDNN: https://github.com/oneapi-src/oneDNN
