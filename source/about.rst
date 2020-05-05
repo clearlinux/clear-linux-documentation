@@ -47,8 +47,13 @@ build a unique Linux distro. Developing a distro in house allows us to experimen
 
 We leverage the pool of knowledge and skills at Intel to drive improvements to |CL|.
 
-Intel has worked with the Linux community and other distros for many years. Understanding what it takes to integrate features in our own Linux distro helps us collaborate with other distro owners and submit enhancements to upstream. We demonstrate the value of our distro by offering users the same tools we use. For example, :ref:`mixer`, a tool unique to |CL|, allows users to build custom derivatives and act as their own 
-:abbr:`OSV (Operating System Vendor)`. 
+Intel has worked with the Linux community and other distros for many years.
+Understanding what it takes to integrate features in our own Linux distro
+helps us collaborate with other distro owners and submit enhancements to
+upstream. We demonstrate the value of our distro by offering users the same
+tools we use. For example, :ref:`mixer`, a tool unique to |CL|, allows users
+to build custom derivatives and act as their own :abbr:`OSV (Operating System
+Vendor)`. 
 
 For more details on |CL| features, visit our :ref:`cl-guides` guides.
 
@@ -112,7 +117,8 @@ Ease of Use
 * :ref:`stateless` means that configuration settings are easier to manage
   and remain untouched when system software is updated.
 
-* :ref:`swupd-guide` simplifies managing software and maintaining compatibility.
+* :ref:`swupd-guide` simplifies managing software and maintaining
+  compatibility.
 
 Custom Derivatives
 ==================
@@ -224,7 +230,7 @@ Which Components are used in Clear Linux?
 
    * - Display manager 
      - `GNOME`_
-     - ``KDE``, ``i3``, ``XFCE`` ``LXQt`` (see`Clear Linux store`_)
+     - ``KDE``, ``Xfce``, ``lightdm``, ``sddm``  (see `Clear Linux store`_)
 
    * - Display services (Desktop installed)
      - `X.Org`_
