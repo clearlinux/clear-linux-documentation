@@ -38,6 +38,10 @@ extensions = [
     'sphinx_tabs.tabs', 'sphinx_copybutton'
 ]
 
+#copybutton_prompt_text = "#"
+
+#copybutton_remove_prompts = False
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
