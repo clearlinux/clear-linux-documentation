@@ -13,23 +13,26 @@ and software building techniques.
 Overview
 ********
 
-The |CL|  philosophy is to do everything with performance in mind. The |CL| team
+The |CL| philosophy is to do everything with performance in mind. The |CL| team
 applies this philosophy in the project's codebase and operating culture.
 
-The |CL| approach to performance is holistic - it considers performance
-optimizations across hardware and software. |CL| shows the performance potential
-of this approach on Linux, using Intel hardware with optimizations across the
-full stack.
+Below are some examples of the |CL| philosophy:
 
-|CL| optimizes for runtime performance. In general, |CL| will trade the one-time
-cost of longer build time and larger storage footprint for the repeated benefit
-of improved runtime performance. |CL| users benefit from the optimized software
-but aren't affected by the increased build time because the |CL| team builds
-the software before distributing it to |CL| clients.
+**Consider performance holistically.**
+  Performance optimizations are considered across hardware and software. |CL|
+  shows the performance potential of a holistic approach on Linux, using Intel
+  hardware with optimizations across the full stack.
 
-|CL| optimizes performance for server and cloud use cases first.
-Design decisions that optimize for server and cloud also benefit other use cases,
-such as IoT devices and desktop clients.
+**Optimize for runtime performance.**
+  In general, |CL| will trade the one-time cost of longer build time and larger
+  storage footprint for the repeated benefit of improved runtime performance.
+  |CL| users benefit from the optimized software but aren't affected by the
+  increased build time because the |CL| team builds the software before
+  distributing it to |CL| clients.
+
+**Optimize performance for server and cloud use cases first.**
+  Design decisions that optimize performance for server and cloud also benefit
+  other use cases, such as IoT devices and desktop clients.
 
 |CL| has become well-known for the performance it can deliver.
 `Phoronix publishes
@@ -192,7 +195,7 @@ Utility to enforce kernel runtime parameters
 
 The Linux kernel exposes parameters for tuning the behavior of drivers and
 devices such as certain buffers and resource management strategies. |CL| uses a
-small utility, `lr-power-tweaks <https://github.com/clearlinux-pkgs/clr-power-tweaks>`_,
+small utility, `clr-power-tweaks <https://github.com/clearlinux-pkgs/clr-power-tweaks>`_,
 to set and enforce kernel parameter values weighted towards performance upon
 boot. View the set performance values by running :command:`sudo clr_power --debug`.
 
