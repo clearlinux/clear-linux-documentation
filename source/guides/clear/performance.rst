@@ -20,8 +20,8 @@ Below are some examples of the |CL| philosophy:
 
 **Consider performance holistically.**
   Performance optimizations are considered across hardware and software. |CL|
-  shows the performance potential of a holistic approach on Linux, using Intel
-  hardware with optimizations across the full stack.
+  shows the performance potential of a holistic approach on Linux, using Intel®
+  architecture with optimizations across the full stack.
 
 **Optimize for runtime performance.**
   In general, |CL| will trade the one-time cost of longer build time and larger
@@ -237,3 +237,5 @@ Related topics
 * `The Performance Race <https://clearlinux.org/news-blogs/performance-race>`_
 * `Boosting Python* from profile-guided to platform-specific optimizations <https://clearlinux.org/news-blogs/boosting-python-profile-guided-platform-specific-optimizations>`_
 * `Transparent use of library packages optimized for Intel® architecture <https://clearlinux.org/news-blogs/transparent-use-library-packages-optimized-intel-architecture>`_
+
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
