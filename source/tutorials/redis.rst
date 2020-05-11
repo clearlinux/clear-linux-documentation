@@ -15,35 +15,31 @@ infrastructure development.
 Description
 ***********
 
-Redis is an in-memory key:value store designed for quick lookups, accessible over a network. While the `redis data structure store`_ can serve
+Redis is an in-memory key:value store designed for quick lookups, accessible 
+over a network. While the `redis data structure store`_ can serve
 as a NoSQL database for a web application, it's also easy to integrate into an
 existing stack. For example, you could use the Redis caching layer for
 real-time responses on a leaderboard in a gaming app. Redis offers many client
 libraries with language-specific bindings for Python\*, Perl\*, Ruby, and more.
 
-Prerequisites
-*************
-
-* Install the :command:`redis-native` bundle in |CL|
-* Install the :command:`containers-basic` bundle in |CL| (only required in
-  Example 2)
-
 Install the Redis bundle
 ************************
 
-In |CL|, find Redis in the :command:`redis-native` bundle.
+#. Log in as a user with administrative privilege.
 
-#. Open a terminal and login as an administrative user.
+#. Open a terminal.
 
-#. Add :command:`redis-native`.
+#. Update your |CL| to the latest version.
+
+   .. code-block:: bash
+
+      sudo swupd update
+
+#. Install the `redis-native` bundle.
 
    .. code-block:: bash
 
       sudo swupd bundle-add redis-native
-
-   .. note::
-
-      If the bundle already exists, no action is required.
 
 Start the Redis-server
 **********************
@@ -51,21 +47,17 @@ Start the Redis-server
 A :command:`systemd` service unit is available to control the Redis-server.
 By default, Redis runs on port 6379.
 
-#. Start the service.
+#. Start the service and set it to start automatically on boot.
 
    .. code-block:: bash
 
-      systemctl start redis
-
-   .. note::
-
-      To stop Redis, run :command:`systemctl stop redis`.
+      sudo systemctl enable --now redis
 
 #. Confirm the service is running.
 
    .. code-block:: bash
 
-      systemctl status redis
+      sudo systemctl status redis
 
 #. Verify that the Redis-server sends a reply.
 
@@ -73,16 +65,21 @@ By default, Redis runs on port 6379.
 
       redis-cli ping
 
-   .. note::
+   Expected output: 
 
-      Expected output: `PONG`.
+   .. code-block:: console
 
-#. Optional: If you wish to apply the advanced configuration, copy the
-   `redis.conf` into /etc/ directory.
+      PONG
+
+.. note::
+
+   If you wish to customize settings for Redis, copy the
+   default :file:`/usr/share/defaults/etc/redis.conf` file into the 
+   /etc/ directory, make changes as needed, and restart the service.
 
    .. code-block:: bash
 
-      sudo cp /usr/share/defaults/etc/redis.conf /etc/
+      sudo cp -v /usr/share/defaults/etc/redis.conf /etc/
 
 The Redis-server is now ready to use on |CL|. Try some of the examples shown
 below.
@@ -97,7 +94,7 @@ programming languages. These exercises are inspired by `try redis io`_.
 
 After your Redis-server is running, try some basic commands.
 
-#. Enter the `redis-cli`. It provides syntax suggestions as you type.
+#. Start `redis-cli`. It provides syntax suggestions as you type.
 
    .. code-block:: bash
 
@@ -106,66 +103,67 @@ After your Redis-server is running, try some basic commands.
 #. :command:`SET` a key to hold a string value. In the set, create connections
    and increment.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       SET server:name "clearlinux"
 
-   .. code-block:: bash
+   .. code-block:: none
 
       MGET server:name
 
    .. note::
+
       If the key does not exist or hold a key value, `nil` is returned.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       SET connections 100
 
-   .. code-block:: bash
+   .. code-block:: none
 
       INCR connections
 
-   .. code-block:: bash
+   .. code-block:: none
 
       INCR connections
 
-   .. code-block:: bash
+   .. code-block:: none
 
       DEL connections
 
 #. Create a `friends` list and insert new values at the end of the list.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       RPUSH friends "Deb"
 
-   .. code-block:: bash
+   .. code-block:: none
 
       RPUSH friends "David"
 
-   .. code-block:: bash
+   .. code-block:: none
 
       RPUSH friends "Mary"
 
 #. Modify the `friends` list, using a common slice method with a 0-index.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       LRANGE friends 0 1
 
-   .. code-block:: bash
+   .. code-block:: none
 
       LLEN friends
 
-   .. code-block:: bash
+   .. code-block:: none
 
       LPOP friends
 
-   .. code-block:: bash
+   .. code-block:: none
 
       RPOP friends
 
-   .. code-block:: bash
+   .. code-block:: none
 
       LLEN friends
 
@@ -174,19 +172,19 @@ After your Redis-server is running, try some basic commands.
 
    Enter many user key:values with `HMSET`. Then try `HGET` and `HGETALL`.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       HMSET user:1000 name "Robert Noyce" password "SuperEngi9eer" email "robert.noyce@intel.com"
 
-   .. code-block:: bash
+   .. code-block:: none
 
       HGET user:1000 name
 
-   .. code-block:: bash
+   .. code-block:: none
 
       HGET user:1000 email
 
-   .. code-block:: bash
+   .. code-block:: none
 
       HGETALL user:1000
 
