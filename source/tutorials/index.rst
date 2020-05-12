@@ -33,7 +33,6 @@ sorted by difficulty level!
       -  :ref:`spark`
       -  :ref:`broadcom`
       -  :ref:`fmv`
-      -  :ref:`kubernetes`
       -  :ref:`kubernetes-bp`
       -  :ref:`nvidia-cuda`
       -  :ref:`openvino`
@@ -47,6 +46,7 @@ sorted by difficulty level!
 
       High
 
+      -  :ref:`kubernetes`
       -  :ref:`nvidia`
       -  :ref:`openfaas`
       -  :ref:`machine-learning`
