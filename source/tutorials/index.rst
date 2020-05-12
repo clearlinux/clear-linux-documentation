@@ -17,10 +17,11 @@ sorted by difficulty level!
       -  :ref:`docker`
       -  :ref:`flatpak-tutorial`
       -  :ref:`kata`
+      -  :ref:`lamp-server-install`
       -  :ref:`proxy`
       -  :ref:`redis`
       -  :ref:`smb-desktop`
-      -  :ref:`clear-samba-share-to-Windows`
+      -  :ref:`smb-server`
       -  :ref:`yubikey-u2f`
 
    .. container:: column narrow
@@ -33,12 +34,13 @@ sorted by difficulty level!
       -  :ref:`spark`
       -  :ref:`broadcom`
       -  :ref:`fmv`
+      -  :ref:`hpc`
       -  :ref:`kubernetes-bp`
       -  :ref:`nvidia-cuda`
       -  :ref:`openvino`
       -  :ref:`php`
       -  :ref:`vmware-workstation`
-      -  :ref:`wordpress`
+      -  :ref:`wp-install`
 
    .. container:: column narrow
 
