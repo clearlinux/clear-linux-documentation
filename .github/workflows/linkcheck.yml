@@ -1,7 +1,8 @@
-name: Check
+name: Linkcheck
 
-on: [pull_request]
-
+on:
+  schedule:
+    - cron: '0 0 * * Mon,Wed,Fri'
 
 jobs:
   build:
@@ -13,12 +14,9 @@ jobs:
     - name: Install dependencies
       run: |
         export PATH="$HOME/.local/bin:$PATH"
-        sudo apt-get install -y python3-setuptools pandoc
+        sudo apt-get install -y python3-setuptools
         pip3 install --user -r requirements.txt
-    - name: Build the docs
+    - name: CheckLinks
       run: |
         export PATH="$HOME/.local/bin:$PATH"
-        make py
-        make man
-        make htmlall
-        
+        make linkcheck

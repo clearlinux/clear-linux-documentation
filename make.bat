@@ -5,7 +5,7 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
-set BUILDDIR=build
+set BUILDDIR=source\_build
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% source
 set I18NSPHINXOPTS=%SPHINXOPTS% source
 if NOT "%PAPER%" == "" (
@@ -30,6 +30,7 @@ if "%1" == "help" (
 	echo.  latex      to make LaTeX files, you can set PAPER=a4 or PAPER=letter
 	echo.  text       to make text files
 	echo.  man        to make manual pages
+	echo.  clean-man  to clean up after man page generation
 	echo.  texinfo    to make Texinfo files
 	echo.  gettext    to make PO message catalogs
 	echo.  changes    to make an overview over all changed/added/deprecated items
@@ -186,10 +187,14 @@ if "%1" == "text" (
 )
 
 if "%1" == "man" (
-	%SPHINXBUILD% -b man %ALLSPHINXOPTS% %BUILDDIR%/man
-	if errorlevel 1 exit /b 1
-	echo.
-	echo.Build finished. The manual pages are in %BUILDDIR%/man.
+    cd source/_scripts/_python/manpages
+    man.bat man
+	goto end
+)
+
+if "%1" == "clean-man" (
+	cd source/_scripts/_python/manpages
+	man.bat clean-man
 	goto end
 )
 
