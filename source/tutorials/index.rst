@@ -20,7 +20,7 @@ sorted by difficulty level!
       -  :ref:`proxy`
       -  :ref:`redis`
       -  :ref:`smb-desktop`
-      -  :ref:`clear-samba-share-to-Windows`
+      -  :doc:`smb`
       -  :ref:`yubikey-u2f`
 
    .. container:: column narrow
@@ -38,7 +38,7 @@ sorted by difficulty level!
       -  :ref:`openvino`
       -  :ref:`php`
       -  :ref:`vmware-workstation`
-      -  :ref:`wordpress`
+      -  :doc:`wordpress`
 
    .. container:: column narrow
 
