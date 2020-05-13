@@ -138,7 +138,7 @@ def updateManPages():
     #makeSeeAlsoReplacements()
     for file in manFiles:
         manFile = ""
-        with open(file,'r') as f:
+        with open(file,'r',encoding="utf8") as f:
             manFile = f.read()
             #manFile = addTOC(manFile,file) # Not convinced adding TOC adds value.
             #
@@ -153,7 +153,7 @@ def updateManPages():
                     manFile = manFile.replace(perm,buildManName(nameAndSection[0],nameAndSection[1]))
             for manName, doNotUse in manNamePerms.items():
                 manFile = manFile.replace(buildManName(manName[0],manName[1]),linkToMan(manName[0],manName[1]))
-        with open(file,'w') as w:
+        with open(file,'w',encoding="utf8") as w:
             w.write(manFile)
 
 def addTOC(manContent,file):

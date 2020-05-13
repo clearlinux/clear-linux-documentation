@@ -5,6 +5,8 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
+
+set SCRIPTDIR=source\_scripts\_python
 set BUILDDIR=source\_build
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% source
 set I18NSPHINXOPTS=%SPHINXOPTS% source
@@ -78,6 +80,16 @@ if "%1" == "html" (
 	if errorlevel 1 exit /b 1
 	echo.
 	echo.Build finished. The HTML pages are in %BUILDDIR%/html.
+	goto end
+)
+
+if "%1" == "py" (
+	cd %SCRIPTDIR%
+	python.exe bundle_lister.py
+	copy bundles.html.txt ..\..\reference\bundles
+	for /d %%i in (cloned_repo\*) do rmdir /q /s %%i
+	del /q /s bundles.html.txt
+	echo "Python bundle script finished successfully!"
 	goto end
 )
 

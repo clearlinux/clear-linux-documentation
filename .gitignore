@@ -18,6 +18,10 @@ bundles.html.txt
 # ignore the venv, used for running make py
 venv
 
+#ignore for reDocs GUI
+.tox
+MANIFEST
+
 # ignore artifacts of man page generation
 source/_scripts/_python/manpages/*.rst
 source/reference/manpages
