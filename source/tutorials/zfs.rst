@@ -10,8 +10,10 @@ steps to get up and running with ZFS on Clear.
 If you use this document, YMMV and you might break stuff. Be
 careful.
 
-.. contents:: Contents
+.. contents:: 
+   :local:
    :depth: 2
+
 
 Background
 **********
