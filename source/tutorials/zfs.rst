@@ -346,6 +346,8 @@ in order to rebuild kernel modules.**
 ZFS on root (/)
 ***************
 
+WIP
+
 Since there is a lag between kernel releases and ZFS support, I recommend
 that you use a long term support kernel along with the latest ZFS driver
 if you are going to run ZFS on root.
@@ -354,6 +356,23 @@ If you choose to use a native kernel and ZFS on root, clr-boot-manager
 will refuse to update your kernels, so you will have to get comfortable
 with installing new kernels to systemd-boot, which is a good skill to
 have in any case.
+
+Secondary Drive installation 
+============================
+Since you ahve a working Clear Linux installation, presumably on an
+ext4 or xfs partition, you can facilitate a ZFS-on-root installtion
+by installing a new root partition on a second device (or, move your 
+current partition to the second device and start over with ZFS on 
+your primary device). 
+
+Clear ISO installation
+======================
+Alternately, you can assemble a Clear Linux ISO with ZFS support 
+built-in, and use that ISO to (re)install new Clear Linux. 
+
+** NOTE -- you should not redistribute this ISO unless you understand and
+are comfortable with the implications of redistributing CDDL and GPL 
+binaries together. You should build this ISO for personal use only.
 
 Installing new kernels with ZFS root   
 ====================================
@@ -380,6 +399,15 @@ issues are worth reading to understand the issue better (where they reference bt
 https://github.com/clearlinux/clr-boot-manager/issues/61  
 https://github.com/clearlinux/clr-boot-manager/issues/182  
 https://github.com/clearlinux/clr-boot-manager/issues/193  
+
+Until these bugs with clr-boot-manager are fixed (and since ZFS is unsupported, it's likely to be a wait) you'll need to install new kernels manually. 
+
+@TODO: 
+
+- Mount /boot
+- Copy /usr/lib/kernel/org.clearlinux..... to /boot/EFI/org.clearlinux/kernel-org.clearlinux.....
+- Create an entry file in /boot/loader/entries/Clear......conf
+- Run dkms against the new kernel
 
 Acknowledgements: 
 *****************
