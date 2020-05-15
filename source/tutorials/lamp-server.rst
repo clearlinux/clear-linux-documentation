@@ -1,7 +1,7 @@
 .. _lamp-server-install:
 
-Set up a LAMP web server on |CL-ATTR|
-#####################################
+LAMP Web Server
+###############
 
 This tutorial provides instructions on how to set up a
 :abbr:`LAMP (Linux, Apache\*, MySQL, PHP)` web server on |CL-ATTR| and how

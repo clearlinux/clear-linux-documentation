@@ -1,7 +1,7 @@
 .. _wp-install:
 
-Set up WordPress\* on a LAMP web server
-#######################################
+WordPress\* Server
+##################
 
 This tutorial shows you how to install the WordPress\* components on your |CL|
 :abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of
