@@ -3,17 +3,12 @@
 ZFS
 ###
 
-This tutorial is not quite ready for prime-time. I think
-a reasonably skilled Linux user will be able to use these
-steps to get up and running with ZFS on Clear.
-
-If you use this document, YMMV and you might break stuff. Be
-careful.
+This tutorial covers the setup of ZFS-on-Linux under Clear Linux, 
+using a non-root device for your zpools. ZFS on root is a work-in-progress. 
 
 .. contents:: 
    :local:
    :depth: 2
-
 
 Background
 **********
@@ -30,9 +25,8 @@ Some distributions of Linux take a different read of the
 CDDL / GPL issue -- most notably Canonical's Ubuntu -- and
 argue that distributing a binary kernel module alongside Linux
 does not infringe on the GPL nor the CDDL, since no derivative
-work has been created. The Clear Linux team does not share
-that optimistic view, and therefore zfs.ko must be built by
-the user under Clear Linux.
+work has been created. Clear Linux does not share that view, 
+and therefore zfs.ko must be built by the user under Clear Linux.
 
 To read the argument against shipping zfs.ko along with Linux:
 https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/
@@ -71,41 +65,12 @@ a lag between a new kernel release and a supprted ZFS driver.
 Installation Types
 ******************
 
-Root installations
-==================
+ZFS can be easily installed for use on non-root devices. It is substantially
+harder to get ZFS to work on a root partition, but it is possible if that's what
+you want. 
 
-Since there is a lag between kernel releases and ZFS support, I recommend
-that you use a long term support kernel along with the latest ZFS driver
-if you are going to run ZFS on root.
-
-If you choose to use a native kernel and ZFS on root, clr-boot-manager
-will refuse to update your kernels, so you will have to get comfortable
-with installing new kernels to systemd-boot, which is a good skill to
-have in any case.
-
-We will explore ZFS on root after we get a working ZFS driver for non-root disks.
-
-Non-Root installation
-=====================
-
-Before making the decision to run your CLR_ROOT partition
-on a ZFS dataset, you should verify that you can get ZFS working
-for a data-only partition.
-
-If you use ZFS on a partition other than CLR_ROOT, with a root
-partition that is ext4, xfs, or f2fs you may run into problems mounting
-ZFS when a new kernel is released (until I have DKMS working).
-
-In this configuration, clr-boot-manager will install your new kernel,
-which may or may not work with zfs.ko.
-
-- DKMS may not have rebuilt the module
-- DKMS may not have autoinstalled the module
-- The new kernel might introduce breaking changes that prevent zfs from compiling
-
-You may end up having to manually recompile zfs.ko with the new kernel code, and zfs *might*
-not compile at all with the new kernel. **So, be sure you don't put anything on that ZFS pool that you would need
-in order to rebuild kernel modules.**
+A non-root build and installation is a prerequisite to a root installation, so 
+we will cover the non-root install first. 
 
 Prerequisites
 *************
@@ -356,30 +321,39 @@ Then create the configuration file with:
 
 When you reboot, zfs should be loaded by the kernel automatically.
 
-Using on a Non-Root device
-**************************
 
 You're ready to create zpools and datasets.
 
-Enable automatic import of a pool by zfs-import-cache.service with:
+Potential Issues on a Non-Root device
+*************************************
+When the Clear Linux kernel is upgraded, DKMS will attempt to rebuild your
+zfs module for use with the new kernel. If you boot a new kernel and cannot
+find your zpools:
 
-.. code-block:: bash
+- DKMS may not have rebuilt the module
+- DKMS may not have autoinstalled the module
+- The new kernel might introduce breaking changes that prevent zfs from compiling
 
-   zpool set cachefile=/etc/zfs/zpool.cache <pool>
+You may end up having to manually recompile zfs.ko with the new kernel code, and zfs *might*
+not compile at all with the new kernel. 
+
+**So, be sure you don't put anything on that ZFS pool that you would need
+in order to rebuild kernel modules.**
 
 ZFS on root (/)
 ***************
-WIP
 
-Installing new kernels with ZFS root   systemctl enable zfs-import-cache
-   systemctl enable zfs-import.target
+Since there is a lag between kernel releases and ZFS support, I recommend
+that you use a long term support kernel along with the latest ZFS driver
+if you are going to run ZFS on root.
+
+If you choose to use a native kernel and ZFS on root, clr-boot-manager
+will refuse to update your kernels, so you will have to get comfortable
+with installing new kernels to systemd-boot, which is a good skill to
+have in any case.
+
+Installing new kernels with ZFS root   
 ====================================
-If you use ZFS for your CLR_ROOT, then clr-boot-manager will no longer
-automatically install new kernels for you: you'll have to set them up
-manually when updated kernels are available.
-
-Hopefully, by now you understand why *this is a good thing*.
-
 When a new kernel is available, you will find that the Clear Linux tools will refuse to install your new kernel
 with an error similar to this:
 
