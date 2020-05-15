@@ -1,4 +1,4 @@
-.. _zfs 
+.. _zfs: 
 
 ZFS
 ###
@@ -10,11 +10,11 @@ steps to get up and running with ZFS on Clear.
 If you use this document, YMMV and you might break stuff. Be
 careful.
 
-.. contents:: :local:
-    :depth: 1
+.. contents:: Contents
+   :depth: 2
 
 Background
-##########
+**********
 
 Clear Linux does not, and will likely never, ship with a
 binary kernel module to support ZFS (zfs.ko). There is a
@@ -66,6 +66,8 @@ invariably break *something* in ZFS. The ZFS-on-Linux team is
 very good about catching up quickly, but on occasion you will find
 a lag between a new kernel release and a supprted ZFS driver.
 
+Installation Types
+******************
 
 Root installations
 ==================
@@ -104,7 +106,7 @@ not compile at all with the new kernel. **So, be sure you don't put anything on 
 in order to rebuild kernel modules.**
 
 Prerequisites
-#############
+*************
 
 Before building ZFS, you need:
 
@@ -145,7 +147,7 @@ you need a dkms.conf file, which is not included in the zfs source.
 TODO -- Using DKMS to rebuild ZFS against new kernels. (./configure --enable-systemd)
   
 Bundles
-#######
+=======
 
 You need several build tools before you can install ZFS.
 
@@ -168,7 +170,7 @@ You also need these bundles:
     sudo swupd bundle-add os-core-dev devpkg-openssl devpkg-util-linux
 
 Installing and Running ZFS
-##########################
+**************************
 
 Get the ZFS code
 ================
@@ -206,7 +208,7 @@ your native kernel, try an lts kernel.
 
 
 Building
-########
+********
 
 Once you have fetched the zfs codebase as described in the previous
 section, you can build using the following commands:
@@ -219,14 +221,14 @@ section, you can build using the following commands:
     make -s -j$(nproc)
 
 Testing your build
-##################
+******************
 
 You can -- and SHOULD -- test-drive zfs before installing it.
 
 See ./scripts/zfs-tests.sh
 
 Installing
-##########
+**********
 
 If you are satisfied with your build, you can now run:
 
@@ -275,8 +277,42 @@ And it will deliver the zfs kernel modules to:
 
 Fortunately, `swupd repair` will not delete kernel modules from this location.
 
+Systemd 
+-------
+To use ZFS automatic zpool import and filesystem mounting, copy the systemd.unit files 
+into /etc:
+
+.. code-block:: bash 
+   
+   sudo cp ./etc/systemd/system/*.service /etc/systemd/system/
+   sudo cp ./contrib/dracut/90zfs/zfs-env-bootfs.service /etc/systemd/system/
+
+You should now have these unit files available: 
+
+```
+zfs-env-bootfs.service
+zfs-zed.service
+zfs-import-cache.service
+zfs-import-scan.service
+zfs-mount.service
+zfs-share.service
+zfs-volume-wait.service
+```
+
+Enable the zfs-import-cache and zfs-mount services:
+
+.. code-block:: bash
+   
+   systemctl enable zfs-import-cache
+   systemctl enable zfs-import.target
+
+   systemctl enable zfs-mount
+   systemctl enable zfs.target
+
+@TODO: Detail installation of zfs-mount-generator instead of zfs-mount
+
 Staying up-to-date
-##################
+******************
 
 **IMPORTANT** When you install a new kernel, you've got to reinstall the zfs modules. 
 That can be automated in most cases with a dkms.conf file.
@@ -304,15 +340,22 @@ Then create the configuration file with:
 When you reboot, zfs should be loaded by the kernel automatically.
 
 Using on a Non-Root device
-##########################
+**************************
 
 You're ready to create zpools and datasets.
 
+Enable automatic import of a pool by zfs-import-cache.service with:
+
+.. code-block:: bash
+
+   zpool set cachefile=/etc/zfs/zpool.cache <pool>
+
 ZFS on root (/)
-###############
+***************
 WIP
 
-Installing new kernels with ZFS root
+Installing new kernels with ZFS root   systemctl enable zfs-import-cache
+   systemctl enable zfs-import.target
 ====================================
 If you use ZFS for your CLR_ROOT, then clr-boot-manager will no longer
 automatically install new kernels for you: you'll have to set them up
@@ -340,6 +383,14 @@ The root cause is that clr-boot-manager does not understand the ZFS partition ty
 bug is not unique to ZFS -- it also occurs with a BTRFS root partition. These github
 issues are worth reading to understand the issue better (where they reference btrfs, think 'zfs'):
 
-https://github.com/clearlinux/clr-boot-manager/issues/61
-https://github.com/clearlinux/clr-boot-manager/issues/182
-https://github.com/clearlinux/clr-boot-manager/issues/193
+https://github.com/clearlinux/clr-boot-manager/issues/61  
+https://github.com/clearlinux/clr-boot-manager/issues/182  
+https://github.com/clearlinux/clr-boot-manager/issues/193  
+
+Acknowledgements: 
+*****************
+
+https://wiki.archlinux.org/index.php/ZFS#Configuration
+
+
+
