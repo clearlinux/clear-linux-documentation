@@ -1,7 +1,7 @@
 .. _hpc:
 
-A Simple HPC Cluster on |CL|
-############################
+HPC Cluster 
+###########
 
 This tutorial demonstrates how to set a simple :abbr:`HPC (High
 Performance Computing)` cluster using `Slurm`_, `MUNGE`_, and 
