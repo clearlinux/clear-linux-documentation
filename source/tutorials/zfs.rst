@@ -205,8 +205,9 @@ can rebuild it when kernel updates occur. We'll build the code from there:
     cd /usr/src/zfs-0.8.4
 
 
-**OPTIONAL** -- you can skip this and go right to DKMS configuration, or you 
-can compile by hand wihtout using the DKMS tooling first: 
+**OPTIONAL** -- you can skip the next code block and go right to 
+DKMS configuration, or you can compile by hand wihtout using the 
+DKMS tooling first: 
 
 ..code-block:: bash
  
@@ -215,8 +216,10 @@ can compile by hand wihtout using the DKMS tooling first:
     make -s -j$(nproc)
     sudo make install 
 
-The ZFS distribution provides a script to build a suitable dkms.conf file. We'll build 
-dkms.conf and install it into the DKMS tree. 
+
+DKMS Configuration -- The ZFS distribution provides a script to build 
+a suitable dkms.conf file. We'll build dkms.conf and install it into 
+the DKMS tree. 
 
 ..code-block:: bash
 
