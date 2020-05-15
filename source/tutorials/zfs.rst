@@ -208,35 +208,64 @@ Generally speaking, you want to download the latest ZFS release, and you *might*
 to use a kernal that is behind by a dot-release or two. If you cannot get ZFS to build against
 your native kernel, try an lts kernel.
 
+So, with all of that said, let's fetch the code via git: 
+
+.. code-block:: bash
+
+   git clone https://github.com/openzfs/zfs.git /opt/src/zfs
+
+You'll want to keep the git repository in a working location. I have chosen /opt/src/zfs, but you can choose any workspace you like -- we will be copying the source code into a directory where DKMS can find it in the next step. 
 
 Building
 ********
+We're going to build the module using DKMS, which will help 
+us keep the module up to date later when new kernels are released. 
 
 Once you have fetched the zfs codebase as described in the previous
-section, you can build using the following commands:
+section, you will want to check out the tagged version that you plan to use. 
+Building from `master` is optimistic -- but you'll want a tagged 
+version for DKMS to pick up on later. As of the time of this writing, 
+the latest released tag is `0.8.4`:
 
 .. code-block:: bash
 
-    cd zfs
+    cd /opt/src/zfs
+    git checkout 0.8.4
+
+Next, we will copy the source code into `/usr/src/zfs-0.8.4` so that DKMS 
+can rebuild it when kernel updates occur. We'll build the code from there: 
+
+.. code-block:: bash
+    sudo cp -Rv /opt/src/zfs /usr/src/zfs-0.8.4 
+    cd /usr/src/zfs-0.8.4
+
+
+**OPTIONAL** -- you can skip this and go right to DKMS configuration, or you 
+can compile by hand wihtout using the DKMS tooling first: 
+
+..code-block:: bash
+ 
     ./autogen.sh
     ./configure
     make -s -j$(nproc)
+    sudo make install 
 
-Testing your build
-******************
+The ZFS distribution provides a script to build a suitable dkms.conf file. We'll build 
+dkms.conf and install it into the DKMS tree. 
 
-You can -- and SHOULD -- test-drive zfs before installing it.
+..code-block:: bash
 
-See ./scripts/zfs-tests.sh
+   cd /usr/src/zfs-0.8.4
+   scripts/dkms.mkconf -n zfs -v 0.8.4 -f dkms.conf 
+   sudo dkms add -m zfs -v 0.8.4
+   sudo dkms build -m zfs -v 0.8.4
+   sudo dkms install -m zfs -v 0.8.4
 
-Installing
-**********
+   sudo modprobe zfs
 
-If you are satisfied with your build, you can now run:
+This will deliver the zfs kernel modules to:
 
-.. code-block:: bash
-
-    sudo make install
+    /usr/lib/modules/<kernel-name>/extra/zfs 
 
 This will install the zfs userspace tools to:
 ::
@@ -273,12 +302,6 @@ This will install the zfs userspace tools to:
       |--+ zfs-0.8.4/
       |--+ spl-0.8.4/
 
-And it will deliver the zfs kernel modules to:
-
-    /usr/lib/modules/<kernel-name>/extra/zfs 
-
-Fortunately, `swupd repair` will not delete kernel modules from this location.
-
 Systemd 
 -------
 To use ZFS automatic zpool import and filesystem mounting, copy the systemd.unit files 
@@ -312,14 +335,6 @@ Enable the zfs-import-cache and zfs-mount services:
    systemctl enable zfs.target
 
 @TODO: Detail installation of zfs-mount-generator instead of zfs-mount
-
-Staying up-to-date
-******************
-
-**IMPORTANT** When you install a new kernel, you've got to reinstall the zfs modules. 
-That can be automated in most cases with a dkms.conf file.
-
-@TODO: Insert DKMS details here
 
 Loading the new kernel module at boot
 =====================================
