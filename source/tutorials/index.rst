@@ -12,7 +12,7 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
 
       .. rst-class:: colh3
 
-      Low
+      Easy
 
       -  :ref:`docker`
       -  :ref:`flatpak-tutorial`
@@ -46,7 +46,7 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
 
       .. rst-class:: colh3
 
-      High
+      Difficult
 
       -  :ref:`kubernetes`
       -  :ref:`nvidia`
