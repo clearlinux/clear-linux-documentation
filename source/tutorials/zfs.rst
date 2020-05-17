@@ -8,7 +8,7 @@ using a non-root device for your zpools. ZFS on root is a work-in-progress.
 
 .. contents:: 
    :local:
-   :depth: 2
+   :depth: 1
 
 Background
 **********
