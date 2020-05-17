@@ -14,30 +14,29 @@ Background
 **********
 
 Clear Linux does not, and will likely never, ship with a
-binary kernel module to support ZFS (zfs.ko). There is a
-copyright issue that arises from ZFS being licensed under
-the CDDL while Linux is licensed under the GPL. Because of
-that incompatibilty, most Linux kernel developers assert
+binary kernel module to support ZFS (zfs.ko). ZFS is licensed 
+under the CDDL while Linux is licensed under the GPL. These 
+licenses are not compatible. Most Linux kernel developers assert
 that zfs.ko cannot be distributed in binary form alongside
 the kernel.
 
 Some distributions of Linux take a different read of the
 CDDL / GPL issue -- most notably Canonical's Ubuntu -- and
-argue that distributing a binary kernel module alongside Linux
-does not infringe on the GPL nor the CDDL, since no derivative
-work has been created. Clear Linux does not share that view, 
-and therefore zfs.ko must be built by the user under Clear Linux.
+argue that a binary kernel module can be distributed alongside 
+Linux without infringement Clear Linux does not share that view. 
+Therefore zfs.ko must be built by the user under Clear Linux.
 
-To read the argument against shipping zfs.ko along with Linux:
-https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/
+It is worth understanding the `argument against shipping zfs.ko along 
+with Linux`_ in addition to `the argument in favor`_.
 
-To read the argument in favor of shipping zfs.ko along with Linux:
-https://ubuntu.com/blog/zfs-licensing-and-linux
+.. `argument against shipping zfs.ko along 
+with Linux`: https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/
 
-Suffice it to say, if you follow this tutorial and get zfs.ko
-built and installed on your system, *you should not redistribute
-that work in binary form* unless you consult an intellectual
-property lawyer. I am not your lawyer.
+.. `the argument in favor`: https://ubuntu.com/blog/zfs-licensing-and-linux
+
+If you follow this tutorial and build zfs.ko on your system, 
+*you should not redistribute that work in binary form* unless 
+you consult an intellectual property lawyer.
 
 Please note that there is no issue with distributing ZFS in
 *source* form alongside Linux. According to those who argue
@@ -45,7 +44,7 @@ both against and in favor of binary distribution, the CDDL and
 GPL are not incompatible with respect to redistribution of
 source code.
 
-So What?
+So what?
 ========
 
 Since it is legal to use ZFS with Linux, there is nothing
@@ -54,39 +53,36 @@ them, then installing them for their own use. This is no different
 from downloading and using proprietary drivers like the Nvidia
 Graphics drivers.
 
-But, since the binaries for ZFS cannot be distributed with the
-Linux kernel binaries (again, depending on who you ask), you'll
-have some work to do when new kernels come out to ensure compatbility.
+Since the binaries for ZFS cannot be distributed with the
+Linux kernel binaries, you'll have some work to  ensure compatbility 
+when new kernels are released.
+
 This is not always trivial, since new kernel release candidates will
 invariably break *something* in ZFS. The ZFS-on-Linux team is
 very good about catching up quickly, but on occasion you will find
-a lag between a new kernel release and a supprted ZFS driver.
+a lag between a new kernel release and a supported ZFS driver.
 
-Installation Types
+Installation types
 ******************
 
-ZFS can be easily installed for use on non-root devices. It is substantially
-harder to get ZFS to work on a root partition, but it is possible if that's what
-you want. 
-
-A non-root build and installation is a prerequisite to a root installation, so 
-we will cover the non-root install first. 
+It is easiest to install ZFS for use on non-root devices. It is substantially
+harder to get ZFS working on a root partition. A non-root build and installation 
+is a prerequisite to a root installation, so we cover the non-root install first. 
 
 Prerequisites
 *************
 
-Before building ZFS, you need:
+In order to build ZFS, you need:
 
-A DKMS Kernel
-=============
+DKMS kernel
+===========
 
 This tutorial assumes you are using a DKMS kernel. In theory, it
 should be possible to compile the ZFS module into your kernel, but
 
-1) I didn't do this, so I can't help you and
-2) you'll have to compile all of your new kernels from now on, which is likely to lead to problems.
+You should read and understand the `Clear Linux tutorial on DKMS`_.
 
-You should read and understand the [Clear Linux tutorial on DKMS](https://docs.01.org/clearlinux/latest/guides/kernel/kernel-modules-dkms.html?highlight=dkms).
+.. `Clear Linux tutorial on DKMS`: https://docs.01.org/clearlinux/latest/guides/kernel/kernel-modules-dkms.html?highlight=dkms
 
 To check whether you have an lts or native kernel:  
 
@@ -108,7 +104,7 @@ If 'lts' appears in the kernel name:
   
 Reboot and make sure you can start the new kernel.
   
-In order to make Clear Linux rebuild ZFS against new kernels using DKMS,
+To make Clear Linux rebuild ZFS against new kernels using DKMS,
 you need a dkms.conf file, which is not included in the zfs source.
   
 TODO -- Using DKMS to rebuild ZFS against new kernels. (./configure --enable-systemd)
