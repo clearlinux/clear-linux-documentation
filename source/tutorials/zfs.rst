@@ -132,7 +132,7 @@ You also need these bundles:
 
     sudo swupd bundle-add os-core-dev devpkg-openssl devpkg-util-linux
 
-Installing and Running ZFS
+Installing and running ZFS
 **************************
 
 Get the ZFS code
@@ -300,8 +300,8 @@ Enable the zfs-import-cache and zfs-mount services:
 
 @TODO: Detail installation of zfs-mount-generator instead of zfs-mount
 
-Loading the new kernel module at boot
-=====================================
+Loading the kernel module at boot
+=================================
 
 The zfs module will not load automatically at boot. To make it do so -- in a non-root configuration -- you can load the zfs.ko module at boot time by specifying to systemd that you want the out-of-tree module to be loaded.
 
@@ -323,7 +323,7 @@ When you reboot, zfs should be loaded by the kernel automatically.
 
 You're ready to create zpools and datasets.
 
-Potential Issues on a Non-Root device
+Potential issues on a non-root device
 *************************************
 When the Clear Linux kernel is upgraded, DKMS will attempt to rebuild your
 zfs module for use with the new kernel. If you boot a new kernel and cannot
