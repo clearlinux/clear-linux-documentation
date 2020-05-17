@@ -52,6 +52,7 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
       -  :ref:`nvidia`
       -  :ref:`openfaas`
       -  :ref:`machine-learning`
+      -  :ref: `zfs`
 
 .. toctree::
    :hidden:
