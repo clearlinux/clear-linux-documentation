@@ -13,17 +13,15 @@ using a non-root device for your zpools. ZFS on root is a work-in-progress.
 Background
 **********
 
-Clear Linux does not, and will likely never, ship with a
-binary kernel module to support ZFS (zfs.ko). ZFS is licensed 
-under the CDDL while Linux is licensed under the GPL. These 
-licenses are not compatible. Most Linux kernel developers assert
-that zfs.ko cannot be distributed in binary form alongside
-the kernel.
+Clear Linux will not ship with a binary kernel module to support ZFS (zfs.ko). 
+ZFS is licensed under the CDDL while Linux is licensed under the GPL. These 
+licenses are not compatible. Most Linux kernel developers assert that zfs.ko 
+cannot be distributed in binary form alongside the kernel.
 
-Some distributions of Linux take a different read of the
+Some distributions of Linux have a different opinion of the
 CDDL / GPL issue -- most notably Canonical's Ubuntu -- and
 argue that a binary kernel module can be distributed alongside 
-Linux without infringement Clear Linux does not share that view. 
+Linux without infringement. Clear Linux does not share that view. 
 Therefore zfs.ko must be built by the user under Clear Linux.
 
 It is worth understanding the `argument against shipping zfs.ko along 
@@ -38,7 +36,7 @@ If you follow this tutorial and build zfs.ko on your system,
 *you should not redistribute that work in binary form* unless 
 you consult an intellectual property lawyer.
 
-Please note that there is no issue with distributing ZFS in
+Note that there is no issue with distributing ZFS in
 *source* form alongside Linux. According to those who argue
 both against and in favor of binary distribution, the CDDL and
 GPL are not incompatible with respect to redistribution of
@@ -77,42 +75,37 @@ In order to build ZFS, you need:
 DKMS kernel
 ===========
 
-This tutorial assumes you are using a DKMS kernel. In theory, it
-should be possible to compile the ZFS module into your kernel, but
-
-You should read and understand the `Clear Linux tutorial on DKMS`_.
+This tutorial assumes you are using a DKMS kernel. You should read and 
+understand the `Clear Linux tutorial on DKMS`_.
 
 .. `Clear Linux tutorial on DKMS`: https://docs.01.org/clearlinux/latest/guides/kernel/kernel-modules-dkms.html?highlight=dkms
 
-To check whether you have an lts or native kernel:  
+If you do not currently use a DKMS kernel, you can install it with the following steps. 
+
+Check whether you have an lts or native kernel:  
 
 .. code-block:: bash
 
     uname -r
 
-If 'native' appears in the kernel name:  
+If 'native' appears in the kernel name, then install a native kernel with DKMS support:  
 
 .. code-block:: bash
    
     sudo swupd bundle-add kernel-native-dkms
 
-If 'lts' appears in the kernel name:  
+If 'lts' appears in the kernel name, then install the latest TLS kernel with DKMS support:  
 
 .. code-block:: bash
 
     sudo swupd bundle-add kernel-lts-dkms 
   
 Reboot and make sure you can start the new kernel.
-  
-To make Clear Linux rebuild ZFS against new kernels using DKMS,
-you need a dkms.conf file, which is not included in the zfs source.
-  
-TODO -- Using DKMS to rebuild ZFS against new kernels. (./configure --enable-systemd)
-  
+    
 Bundles
 =======
 
-You need several build tools before you can install ZFS.
+Install these build tools before you install ZFS.
 
 If you are using a native kernel:   
 
@@ -126,7 +119,7 @@ If you are using an LTS kernel:
 
     sudo swupd bundle-add linux-lts-dev
    
-You also need these bundles: 
+Finally, install need these bundles, no matter which kernel you are using: 
 
 .. code-block:: bash
 
@@ -175,47 +168,32 @@ So, with all of that said, let's fetch the code via git:
 
    git clone https://github.com/openzfs/zfs.git /opt/src/zfs
 
-You'll want to keep the git repository in a working location. I have chosen /opt/src/zfs, but you can choose any workspace you like -- we will be copying the source code into a directory where DKMS can find it in the next step. 
+Remember where you check-out the git repository, because you will need it when you upgrade ZFS. 
+I have chosen /opt/src/zfs, but you can choose any workspace you like. ZFS will not run from this location -- we will be copying the source code into a directory where DKMS can find it in the next step. 
 
 Building
 ********
-We're going to build the module using DKMS, which will help 
-us keep the module up to date later when new kernels are released. 
+We will build the module using DKMS. This will help us keep the 
+module up to date later as new kernels are released. 
 
-Once you have fetched the zfs codebase as described in the previous
-section, you will want to check out the tagged version that you plan to use. 
-Building from `master` is optimistic -- but you'll want a tagged 
-version for DKMS to pick up on later. As of the time of this writing, 
-the latest released tag is `0.8.4`:
+You have already fetched the zfs codebase. Check out the tagged version 
+that you plan to use. As of the time of this writing, the latest release
+tag is `0.8.4`:
 
-.. code-block:: bash
+.. code-block:: command
 
     cd /opt/src/zfs
     git checkout 0.8.4
 
-Next, we will copy the source code into `/usr/src/zfs-0.8.4` so that DKMS 
-can rebuild it when kernel updates occur. We'll build the code from there: 
+Copy the source code into `/usr/src/zfs-0.8.4`. This exposes the source 
+code to DKMS. We will build the code from the new location: 
 
-.. code-block:: bash
+.. code-block:: command
     sudo cp -Rv /opt/src/zfs /usr/src/zfs-0.8.4 
     cd /usr/src/zfs-0.8.4
 
-
-**OPTIONAL** -- you can skip the next code block and go right to 
-DKMS configuration, or you can compile by hand wihtout using the 
-DKMS tooling first: 
-
-..code-block:: bash
- 
-    ./autogen.sh
-    ./configure
-    make -s -j$(nproc)
-    sudo make install 
-
-
-DKMS Configuration -- The ZFS distribution provides a script to build 
-a suitable dkms.conf file. We'll build dkms.conf and install it into 
-the DKMS tree. 
+The ZFS distribution provides a script to build a suitable dkms.conf file. 
+Build dkms.conf and install it into the DKMS tree. 
 
 ..code-block:: bash
 
@@ -225,9 +203,7 @@ the DKMS tree.
    sudo dkms build -m zfs -v 0.8.4
    sudo dkms install -m zfs -v 0.8.4
 
-   sudo modprobe zfs
-
-This will deliver the zfs kernel modules to:
+This will install the zfs kernel modules to:
 
     /usr/lib/modules/<kernel-name>/extra/zfs 
 
@@ -266,15 +242,16 @@ This will install the zfs userspace tools to:
       |--+ zfs-0.8.4/
       |--+ spl-0.8.4/
 
+
+Load the new kernel module: 
+
+.. code-block: command
+
+   sudo modprobe zfs
+
+
 Systemd 
 -------
-To use ZFS automatic zpool import and filesystem mounting, copy the systemd.unit files 
-into /etc:
-
-.. code-block:: bash 
-   
-   sudo cp ./etc/systemd/system/*.service /etc/systemd/system/
-   sudo cp ./contrib/dracut/90zfs/zfs-env-bootfs.service /etc/systemd/system/
 
 You should now have these unit files available: 
 
@@ -288,9 +265,13 @@ zfs-share.service
 zfs-volume-wait.service
 ```
 
-Enable the zfs-import-cache and zfs-mount services:
+If you want to use ZFS automatic zpool import and filesystem 
+mount services, copy the systemd.unit files into /etc and enable them:
 
-.. code-block:: bash
+.. code-block:: command
+   
+   sudo cp ./etc/systemd/system/*.service /etc/systemd/system/
+   sudo cp ./contrib/dracut/90zfs/zfs-env-bootfs.service /etc/systemd/system/
    
    systemctl enable zfs-import-cache
    systemctl enable zfs-import.target
@@ -303,25 +284,25 @@ Enable the zfs-import-cache and zfs-mount services:
 Loading the kernel module at boot
 =================================
 
-The zfs module will not load automatically at boot. To make it do so -- in a non-root configuration -- you can load the zfs.ko module at boot time by specifying to systemd that you want the out-of-tree module to be loaded.
+The ZFS module will not load automatically at boot. Load the zfs.ko module 
+at boot time by with systemd.
 
-First, make sure your system will allow unsigned modules: 
+First, allow unsigned modules: 
 
     echo "module.sig_unenforce" | sudo tee /etc/kernel/cmdline.d/allow-unsigned-modules.conf
 
-Clear Linux and systemd use the `/etc/modules-load.d/` directory to load
-out-of-tree kernel modules. Make sure that the directory exists:
+Systemd uses the `/etc/modules-load.d/` directory to load out-of-tree kernel modules. 
+Make sure that the directory exists:
 
     sudo mkdir -p /etc/modules-load.d
 
-Then create the configuration file with:
+Create the configuration file:
 
     sudo echo "zfs" | sudo tee /etc/modules-load.d/01-zfs.conf 
 
-When you reboot, zfs should be loaded by the kernel automatically.
+Reboot -- zfs.ko should be loaded automatically.
 
-
-You're ready to create zpools and datasets.
+You are ready to create zpools and datasets!
 
 Potential issues on a non-root device
 *************************************
