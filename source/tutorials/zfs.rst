@@ -241,7 +241,8 @@ mount services, copy the systemd.unit files into /etc and enable them:
    systemctl enable zfs-mount
    systemctl enable zfs.target
 
-@TODO: Detail installation of zfs-mount-generator instead of zfs-mount
+If you prefer to use the zfs-mount-generator instead of zfs-mount, refer to the
+Arch Linux Guide's `ZFS Mount Generator`_ section for details. 
 
 Load the kernel module at boot
 ==============================
@@ -292,6 +293,7 @@ Acknowledgements:
 *****************
 .. _FreeBSD Handbook chapter on ZFS: https://www.freebsd.org/doc/handbook/zfs.html
 .. _Arch Linux ZFS Guide: https://wiki.archlinux.org/index.php/ZFS
+.. _ZFS Mount Generator: https://wiki.archlinux.org/index.php/ZFS#Using_zfs-mount-generator
 .. _argument against shipping zfs.ko along with Linux: https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/
 .. _the argument in favor: https://ubuntu.com/blog/zfs-licensing-and-linux
 .. _ZFS-on-Linux issue tracker: https://github.com/openzfs/zfs/issues/10068
