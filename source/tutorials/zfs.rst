@@ -302,8 +302,6 @@ Create the configuration file:
 
 Reboot -- zfs.ko should be loaded automatically.
 
-You are ready to create zpools and datasets!
-
 Caution
 *******
 When the Clear Linux kernel is upgraded, DKMS will attempt to rebuild your
@@ -319,6 +317,16 @@ ZFS *might* not compile at all with the new kernel.
 
 **So, be sure you don't put anything on that ZFS pool that you would need
 in order to rebuild kernel modules.**
+
+Next steps
+**********
+You are ready to create zpools and datasets! For more information on using ZFS: 
+
+`FreeBSD Handbook chapter on ZFS`_
+`Arch Linux ZFS Guide`_
+
+_ `FreeBSD Handbook chapter on ZFS`: https://www.freebsd.org/doc/handbook/zfs.html
+_ `Arch Linux ZFS Guide`: https://wiki.archlinux.org/index.php/ZFS
 
 Acknowledgements: 
 *****************
