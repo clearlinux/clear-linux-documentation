@@ -27,10 +27,10 @@ Therefore zfs.ko must be built by the user under Clear Linux.
 It is worth understanding the `argument against shipping zfs.ko along
 with Linux`_ in addition to `the argument in favor`_.
 
-.. `argument against shipping zfs.ko along
-with Linux`: https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/
+.. _argument against shipping zfs.ko along
+with Linux: https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/
 
-.. `the argument in favor`: https://ubuntu.com/blog/zfs-licensing-and-linux
+.. _the argument in favor: https://ubuntu.com/blog/zfs-licensing-and-linux
 
 If you follow this tutorial and build zfs.ko on your system,
 *you should not redistribute that work in binary form* unless
@@ -78,25 +78,25 @@ DKMS kernel
 This tutorial assumes you are using a DKMS kernel. You should read and
 understand the `Clear Linux tutorial on DKMS`_.
 
-.. `Clear Linux tutorial on DKMS`: https://docs.01.org/clearlinux/latest/guides/kernel/kernel-modules-dkms.html?highlight=dkms
+.. _Clear Linux tutorial on DKMS: https://docs.01.org/clearlinux/latest/guides/kernel/kernel-modules-dkms.html?highlight=dkms
 
-If you do not currently use a DKMS kernel, you can install it with the following steps.
+If you do not currently use a DKMS kernel, install it with the following steps.
 
 Check whether you have an lts or native kernel:
 
-.. code-block:: bash
+.. code-block:: command
 
     uname -r
 
 If 'native' appears in the kernel name, then install a native kernel with DKMS support:
 
-.. code-block:: bash
+.. code-block:: command
 
     sudo swupd bundle-add kernel-native-dkms
 
 If 'lts' appears in the kernel name, then install the latest TLS kernel with DKMS support:
 
-.. code-block:: bash
+.. code-block:: command
 
     sudo swupd bundle-add kernel-lts-dkms
 
@@ -109,19 +109,19 @@ Install these build tools before you install ZFS.
 
 If you are using a native kernel:
 
-.. code-block:: bash
+.. code-block:: command
 
     sudo swupd bundle-add linux-dev
 
 If you are using an LTS kernel:
 
-.. code-block:: bash
+.. code-block:: command
 
     sudo swupd bundle-add linux-lts-dev
 
 Finally, install need these bundles, no matter which kernel you are using:
 
-.. code-block:: bash
+.. code-block:: command
 
     sudo swupd bundle-add os-core-dev devpkg-openssl devpkg-util-linux
 
@@ -164,15 +164,15 @@ your native kernel, try an lts kernel.
 
 So, with all of that said, let's fetch the code via git:
 
-.. code-block:: bash
+.. code-block:: command
 
    git clone https://github.com/openzfs/zfs.git /opt/src/zfs
 
 Remember where you check-out the git repository, because you will need it when you upgrade ZFS.
 I have chosen /opt/src/zfs, but you can choose any workspace you like. ZFS will not run from this location -- we will be copying the source code into a directory where DKMS can find it in the next step.
 
-Building
-********
+Compile the module
+******************
 We will build the module using DKMS. This will help us keep the
 module up to date later as new kernels are released.
 
@@ -195,7 +195,7 @@ code to DKMS. We will build the code from the new location:
 The ZFS distribution provides a script to build a suitable dkms.conf file.
 Build dkms.conf and install it into the DKMS tree.
 
-..code-block:: bash
+..code-block:: command
 
    cd /usr/src/zfs-0.8.4
    scripts/dkms.mkconf -n zfs -v 0.8.4 -f dkms.conf
@@ -325,8 +325,8 @@ You are ready to create zpools and datasets! For more information on using ZFS:
 `FreeBSD Handbook chapter on ZFS`_
 `Arch Linux ZFS Guide`_
 
-.. _`FreeBSD Handbook chapter on ZFS`: https://www.freebsd.org/doc/handbook/zfs.html
-.. _`Arch Linux ZFS Guide`: https://wiki.archlinux.org/index.php/ZFS
+.. _FreeBSD Handbook chapter on ZFS: https://www.freebsd.org/doc/handbook/zfs.html
+.. _Arch Linux ZFS Guide: https://wiki.archlinux.org/index.php/ZFS
 
 Acknowledgements:
 *****************
