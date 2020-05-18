@@ -12,7 +12,7 @@ Tutorial difficulty ratings provide a simple way to start using and developing w
 The sum total of these metrics, the rating shown in Figure 1, represents the
 ability to successfully complete a tutorial based on skill level, balanced against the risk of failure.   
 
-.. figure:: /_figures/reference/tutorial-ratings-01.png
+.. figure:: /_figures/reference/tutorial-ratings-01.svg
    :scale: 100%
    :alt: Tutorial difficulty ratings
 
