@@ -36,6 +36,7 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
       -  :ref:`fmv`
       -  :ref:`hpc`
       -  :ref:`kubernetes-bp`
+      -  :ref:`mirror-upstream-server`
       -  :ref:`nvidia-cuda`
       -  :ref:`openvino`
       -  :ref:`php`
@@ -51,7 +52,9 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
       -  :ref:`kubernetes`
       -  :ref:`nvidia`
       -  :ref:`openfaas`
+      -  :ref:`multi-boot`
       -  :ref:`machine-learning`
+
 
 .. toctree::
    :hidden:
