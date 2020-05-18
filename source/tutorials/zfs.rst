@@ -325,8 +325,8 @@ You are ready to create zpools and datasets! For more information on using ZFS:
 `FreeBSD Handbook chapter on ZFS`_
 `Arch Linux ZFS Guide`_
 
-_ `FreeBSD Handbook chapter on ZFS`: https://www.freebsd.org/doc/handbook/zfs.html
-_ `Arch Linux ZFS Guide`: https://wiki.archlinux.org/index.php/ZFS
+.. _`FreeBSD Handbook chapter on ZFS`: https://www.freebsd.org/doc/handbook/zfs.html
+.. _`Arch Linux ZFS Guide`: https://wiki.archlinux.org/index.php/ZFS
 
 Acknowledgements: 
 *****************
