@@ -281,8 +281,8 @@ mount services, copy the systemd.unit files into /etc and enable them:
 
 @TODO: Detail installation of zfs-mount-generator instead of zfs-mount
 
-Loading the kernel module at boot
-=================================
+Load the kernel module at boot
+==============================
 
 The ZFS module will not load automatically at boot. Load the zfs.ko module 
 at boot time by with systemd.
@@ -304,87 +304,21 @@ Reboot -- zfs.ko should be loaded automatically.
 
 You are ready to create zpools and datasets!
 
-Potential issues on a non-root device
-*************************************
+Caution
+*******
 When the Clear Linux kernel is upgraded, DKMS will attempt to rebuild your
-zfs module for use with the new kernel. If you boot a new kernel and cannot
-find your zpools:
+zfs module for the new kernel. If you boot a new kernel and cannot find 
+your zpools:
 
 - DKMS may not have rebuilt the module
 - DKMS may not have autoinstalled the module
 - The new kernel might introduce breaking changes that prevent zfs from compiling
 
-You may end up having to manually recompile zfs.ko with the new kernel code, and zfs *might*
-not compile at all with the new kernel. 
+To fix this situation, you may have to recompile zfs.ko with the new kernel code. 
+ZFS *might* not compile at all with the new kernel. 
 
 **So, be sure you don't put anything on that ZFS pool that you would need
 in order to rebuild kernel modules.**
-
-ZFS on root (/)
-***************
-
-WIP
-
-Since there is a lag between kernel releases and ZFS support, I recommend
-that you use a long term support kernel along with the latest ZFS driver
-if you are going to run ZFS on root.
-
-If you choose to use a native kernel and ZFS on root, clr-boot-manager
-will refuse to update your kernels, so you will have to get comfortable
-with installing new kernels to systemd-boot, which is a good skill to
-have in any case.
-
-Secondary Drive installation 
-============================
-Since you ahve a working Clear Linux installation, presumably on an
-ext4 or xfs partition, you can facilitate a ZFS-on-root installtion
-by installing a new root partition on a second device (or, move your 
-current partition to the second device and start over with ZFS on 
-your primary device). 
-
-Clear ISO installation
-======================
-Alternately, you can assemble a Clear Linux ISO with ZFS support 
-built-in, and use that ISO to (re)install new Clear Linux. 
-
-** NOTE -- you should not redistribute this ISO unless you understand and
-are comfortable with the implications of redistributing CDDL and GPL 
-binaries together. You should build this ISO for personal use only.
-
-Installing new kernels with ZFS root   
-====================================
-When a new kernel is available, you will find that the Clear Linux tools will refuse to install your new kernel
-with an error similar to this:
-
-.. code-block:: bash
-
-    Calling post-update helper scripts
-    External command: none
-    External command: [ERROR] cbm (../src/lib/system_stub.c:L31): Invalid block device: 0:29
-    External command: Out of memory
-    External command: [FATAL] cbm (../src/bootman/sysconfig.c:L277): sysconfig insane: Missing root device
-    External command: [FATAL] cbm (../src/bootman/update.c:L389): Failed to install bootloader
-    External command: [FATAL] cbm (../src/bootman/sysconfig.c:L277): sysconfig insane: Missing root device
-    External command: [ERROR] cbm (../src/bootman/update.c:L218): Failed to repair running kernel
-    External command: [FATAL] cbm (../src/bootman/sysconfig.c:L277): sysconfig insane: Missing root device
-    External command: [FATAL] cbm (../src/bootman/update.c:L250): Failed to install default-native kernel: ///usr/lib/kernel/org.clearlinux.native.5.6.12-950
-
-The root cause is that clr-boot-manager does not understand the ZFS partition type. This
-bug is not unique to ZFS -- it also occurs with a BTRFS root partition. These github
-issues are worth reading to understand the issue better (where they reference btrfs, think 'zfs'):
-
-https://github.com/clearlinux/clr-boot-manager/issues/61  
-https://github.com/clearlinux/clr-boot-manager/issues/182  
-https://github.com/clearlinux/clr-boot-manager/issues/193  
-
-Until these bugs with clr-boot-manager are fixed (and since ZFS is unsupported, it's likely to be a wait) you'll need to install new kernels manually. 
-
-@TODO: 
-
-- Mount /boot
-- Copy /usr/lib/kernel/org.clearlinux..... to /boot/EFI/org.clearlinux/kernel-org.clearlinux.....
-- Create an entry file in /boot/loader/entries/Clear......conf
-- Run dkms against the new kernel
 
 Acknowledgements: 
 *****************
