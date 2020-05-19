@@ -93,20 +93,6 @@ Bundles
 
 Install these build tools before you install ZFS.
 
-If you are using a native kernel:
-
-.. code-block:: bash
-
-    sudo swupd bundle-add linux-dev
-
-If you are using an LTS kernel:
-
-.. code-block:: bash
-
-    sudo swupd bundle-add linux-lts-dev
-
-Finally, install need these bundles, no matter which kernel you are using:
-
 .. code-block:: bash
 
     sudo swupd bundle-add os-core-dev devpkg-openssl devpkg-util-linux
