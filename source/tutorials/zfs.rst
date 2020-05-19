@@ -248,7 +248,7 @@ Load the kernel module at boot
 ==============================
 
 The ZFS module will not load automatically at boot. Load the zfs.ko module
-at boot time by with systemd.
+at boot time with systemd.
 
 First, allow unsigned modules:
 
