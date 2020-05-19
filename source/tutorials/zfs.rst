@@ -76,7 +76,7 @@ If 'native' appears in the kernel name, then install a native kernel with DKMS s
 
     sudo swupd bundle-add kernel-native-dkms
 
-If 'lts' appears in the kernel name, then install the latest TLS kernel with DKMS support:
+If 'lts' appears in the kernel name, then install the latest LTS kernel with DKMS support:
 
 .. code-block:: bash
 
