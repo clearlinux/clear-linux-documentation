@@ -37,7 +37,6 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
       -  :ref:`hpc`
       -  :ref:`kubernetes-bp`
       -  :ref:`nvidia-cuda`
-      -  :ref:`openvino`
       -  :ref:`php`
       -  :ref:`vmware-workstation`
       -  :ref:`wp-install`

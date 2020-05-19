@@ -78,9 +78,6 @@ tools you need to start. Consider these profiles as a starting point.
          * - Work with deep learning and edge-optimized models.
            - `computer-vision-models <https://clearlinux.org/software/bundle/computer-vision-models/>`_
 
-         * - Basic OpenVINO™ toolkit.
-           - `computer-vision-openvino <https://clearlinux.org/software/bundle/computer-vision-openvino/>`_
-
          * - API helper for cloud access.
            - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
 
