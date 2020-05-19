@@ -49,7 +49,11 @@ when new kernels are released.
 This is not always trivial, since new kernel release candidates will
 invariably break *something* in ZFS. The ZFS-on-Linux team is
 very good about catching up quickly, but on occasion you will find
-a lag between a new kernel release and a supported ZFS driver.
+a lag between a new kernel release and a supported ZFS driver. It is
+safest to use a long-term-support (LTS) kernel if you run ZFS: you
+are much less likely to run into incompatabilities with and LTS kernel.
+When new kernels or new versions of ZFS are releases, users should
+test those releases carefully before deploying any updates.
 
 Prerequisites
 *************
@@ -242,7 +246,7 @@ mount services, copy the systemd.unit files into /etc and enable them:
    systemctl enable zfs.target
 
 If you prefer to use the zfs-mount-generator instead of zfs-mount, refer to the
-Arch Linux Guide's `ZFS Mount Generator`_ section for details. 
+Arch Linux Guide's `ZFS Mount Generator`_ section for details.
 
 Load the kernel module at boot
 ==============================
