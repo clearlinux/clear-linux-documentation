@@ -243,10 +243,6 @@ Load the kernel module at boot
 The ZFS module will not load automatically at boot. Load the zfs.ko module
 at boot time with systemd.
 
-First, allow unsigned modules:
-
-    echo "module.sig_unenforce" | sudo tee /etc/kernel/cmdline.d/allow-unsigned-modules.conf
-
 Systemd uses the `/etc/modules-load.d/` directory to load out-of-tree kernel modules.
 Make sure that the directory exists:
 
