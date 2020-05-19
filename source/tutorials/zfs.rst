@@ -43,7 +43,7 @@ different from downloading and using proprietary drivers like the Nvidia
 Graphics or Broadcom wireless drivers.
 
 Since the binaries for ZFS cannot be distributed with the
-Linux kernel binaries, you'll have some work to  ensure compatbility
+Linux kernel binaries, you'll have some work to ensure compatibility
 when new kernels are released.
 
 This is not always trivial, since new kernel release candidates will
