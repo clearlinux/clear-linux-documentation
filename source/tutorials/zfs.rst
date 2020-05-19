@@ -261,7 +261,7 @@ Make sure that the directory exists:
 
 Create the configuration file:
 
-    sudo echo "zfs" | sudo tee /etc/modules-load.d/01-zfs.conf
+    echo "zfs" | sudo tee /etc/modules-load.d/01-zfs.conf
 
 Reboot -- zfs.ko should be loaded automatically.
 
