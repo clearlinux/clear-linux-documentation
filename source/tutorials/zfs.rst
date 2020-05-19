@@ -64,7 +64,7 @@ understand how to :ref:`kernel-modules-dkms`.
 
 If you do not currently use a DKMS kernel, install it with the following steps.
 
-Check whether you have an lts or native kernel:
+Check whether you have an LTS or native kernel:
 
 .. code-block:: bash
 
