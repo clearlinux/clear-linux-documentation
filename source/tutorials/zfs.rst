@@ -104,16 +104,17 @@ Get the ZFS code
 ================
 
 The ZFS codebase moves quickly, just like the kernel codebase. Therefore
-it's best that you get the source code from the ZFS on Linux repository,
+it's best that you get the source code from the `ZFS on Linux repository`_,
 hosted on Github.
 
 Fetch the ZFS repository via git:
 
 .. code-block:: bash
 
+   mkdir -p /opt/src/zfs
    git clone https://github.com/openzfs/zfs.git /opt/src/zfs
 
-Remember where you check-out the git repository, because you will need it
+Remember where you clone the git repository, because you will need it
 when you upgrade ZFS. I have chosen /opt/src/zfs, but you can choose any
 workspace you like. ZFS will not run from this location -- we copy the
 source code into a DKMS directory in the next step.
@@ -303,3 +304,4 @@ Acknowledgements:
 .. _argument against shipping zfs.ko along with Linux: https://sfconservancy.org/blog/2016/feb/25/zfs-and-linux/
 .. _the argument in favor: https://ubuntu.com/blog/zfs-licensing-and-linux
 .. _ZFS-on-Linux issue tracker: https://github.com/openzfs/zfs/issues/10068
+.. _ZFS on Linux repository: https://github.com/openzfs/zfs
