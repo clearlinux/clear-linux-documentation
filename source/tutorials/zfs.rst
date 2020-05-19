@@ -246,9 +246,13 @@ at boot time with systemd.
 Systemd uses the `/etc/modules-load.d/` directory to load out-of-tree kernel modules.
 Make sure that the directory exists:
 
+.. code-block:: bash
+
     sudo mkdir -p /etc/modules-load.d
 
 Create the configuration file:
+
+.. code-block:: bash
 
     echo "zfs" | sudo tee /etc/modules-load.d/01-zfs.conf
 
@@ -269,6 +273,19 @@ ZFS *might* not compile at all with the new kernel.
 
 **So, be sure you don't put anything on that ZFS pool that you would need
 in order to rebuild kernel modules.**
+
+If you suspect an issue with DKMS rebuilding your module, you can check two places
+for information. The dkms-new-kernel service will show status that may help in troubleshooting:
+
+.. code-block:: bash
+
+   systemctl status dkms-new-kernel.service
+
+Also, the systemd journal may have important information:
+
+.. code-block:: bash
+
+  journalctl -xe
 
 Next steps
 **********
