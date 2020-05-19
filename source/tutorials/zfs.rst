@@ -218,18 +218,21 @@ zfs-volume-wait.service
 ```
 
 If you want to use ZFS automatic zpool import and filesystem
-mount services, copy the systemd.unit files into /etc and enable them:
+mount services, link the systemd.unit files into /etc and enable them.
 
 .. code-block:: bash
 
-   sudo cp ./etc/systemd/system/*.service /etc/systemd/system/
-   sudo cp ./contrib/dracut/90zfs/zfs-env-bootfs.service /etc/systemd/system/
+   sudo ln -s ./etc/systemd/system/zfs-import-cache.service /etc/systemd/system/
+   sudo ln -s ./etc/systemd/system/zfs-mount.service /etc/systemd/system/
 
    systemctl enable zfs-import-cache
    systemctl enable zfs-import.target
 
    systemctl enable zfs-mount
    systemctl enable zfs.target
+
+ZFS requires you to explicitly install and enable the services you want. If you
+want to use other ZFS service units, symlink them similarly to the example above.
 
 If you prefer to use the zfs-mount-generator instead of zfs-mount, refer to the
 Arch Linux Guide's `ZFS Mount Generator`_ section for details.
