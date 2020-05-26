@@ -80,10 +80,14 @@ configure and check proxy settings.
 
 #. Load the changes and restart the service.
 
-   .. code-block:: bash
+   .. code-block:: ShellSession
 
-      sudo systemctl daemon-reload
-      sudo systemctl restart docker
+      $ sudo systemctl daemon-reload >> EOF
+      This is a bunch of other output
+
+      This is too. 
+      EOF
+      $ sudo systemctl restart docker
 
 #. Verify that changes have loaded.
 
@@ -93,7 +97,10 @@ configure and check proxy settings.
 
    .. code-block:: console
 
-      Environment=HTTP_PROXY=http://your.http-proxy.url:port/ HTTPS_PROXY=http://your.https-proxy.url:port/
+      $ Environment=HTTP_PROXY=http://your.http-proxy.url:port/ HTTPS_PROXY=http://your.https-proxy.url:port/ >> EOF
+      More lines
+      this too
+      EOF
 
 .. note::
 
