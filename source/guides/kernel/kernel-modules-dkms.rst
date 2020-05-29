@@ -71,7 +71,7 @@ bundle:
    and *lts* kernels are enabled to build and load out-of-tree kernel modules
    with DKMS.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ uname -r
       5.XX.YY-ZZZZ.native
@@ -225,9 +225,9 @@ The instructions below show a generic example:
 #. Create or modify the :file:`dkms.conf` file inside of the extracted source
    code directory.
 
-   .. code-block:: bash
+   .. code-block:: ShellSession
 
-      $EDITOR dkms.conf
+      $ EDITOR dkms.conf
 
       MAKE="make -C src/ KERNELDIR=/lib/modules/${kernelver}/build"
       CLEAN="make -C src/ clean"
