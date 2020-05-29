@@ -594,6 +594,7 @@ Related topics
 **************
 
 * :ref:`Mixer tool <mixer>`
+* :ref:`Proxy Configuration <proxy>`
 
 .. _contributing to an existing software package: https://github.com/clearlinux/distribution/blob/master/contributing.md#contributing-to-an-existing-software-package
 

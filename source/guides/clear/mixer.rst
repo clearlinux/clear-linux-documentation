@@ -52,6 +52,9 @@ Prerequisites
   Add the mixer tool by installing the :command:`mixer` bundle. Refer to
   :ref:`swupd-guide` for more information on installing bundles.
 
+* If you're working behind a corporate proxy, configure proxy settings using
+  the :ref:`General proxy settings for many applications <proxy>` steps.
+
 * Location to host the update content and images
 
   In order for :command:`swupd` to make use of your mix, the update content for your mix must be hosted on a web server. Your mix will be configured with an update location URL, which :command:`swupd` will use to pull down updates.

@@ -14,3 +14,4 @@ features.
    system-requirements
    image-types
    man-pages
+   tutorial-ratings

@@ -1,7 +1,7 @@
-.. _web-server-install:
+.. _lamp-server-install:
 
-Set up a LAMP web server on |CL-ATTR|
-#####################################
+LAMP Web Server
+###############
 
 This tutorial provides instructions on how to set up a
 :abbr:`LAMP (Linux, Apache\*, MySQL, PHP)` web server on |CL-ATTR| and how
@@ -46,13 +46,12 @@ Apache software bundle on |CL|.
 
       sudo swupd bundle-add httpd
 
-
-#. To start the Apache service, enter the following commands:
+#. Start the Apache service and set it start automatically on boot, 
+   enter the following commands:
 
    .. code-block:: bash
 
-      sudo systemctl enable httpd.service
-      sudo systemctl start httpd.service
+      sudo systemctl enable --now httpd.service
 
 #. To verify that the Apache server application is running, open a web
    browser and navigate to: \http://localhost.
@@ -60,7 +59,9 @@ Apache software bundle on |CL|.
    If the service is running, a confirmation message will appear, similar to the
    message shown in figure 1.
 
-   .. figure:: /_figures/wordpress/web-server-install-1.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../_figures/wordpress/web-server-install-1.png
       :alt: This web server is operational from host.
       :scale: 50%
 
@@ -150,12 +151,11 @@ default values, and define a custom DocumentRoot for your web server.
 
    "It works from its new location!"
 
-#. Stop and then restart ``httpd.service``.
+#. Restart ``httpd.service``.
 
    .. code-block:: bash
 
-      sudo systemctl stop httpd.service
-      sudo systemctl start httpd.service
+      sudo systemctl restart httpd.service
 
 #. Go to \http://localhost to view the new screen. You should see your updated
    default message from step 5.
@@ -168,12 +168,11 @@ default values, and define a custom DocumentRoot for your web server.
 
       sudo nano /etc/httpd/conf.d/httpd.conf
 
-#. Stop and then restart ``httpd.service``.
+#. Restart ``httpd.service``.
 
    .. code-block:: bash
 
-      sudo systemctl stop httpd.service
-      sudo systemctl start httpd.service
+      sudo systemctl restart httpd.service
 
 #. Go to \http://localhost and verify that you can see the default screen
    again.
@@ -198,12 +197,12 @@ functionality to your web server, install PHP on your system.
 
       sudo swupd bundle-add php-basic
 
-#. To enable PHP, enter the following commands:
+#. To enable PHP and set it to start automatically on boot, enter the 
+   following commands:
 
    .. code-block:: bash
 
-      sudo systemctl enable php-fpm.service
-      sudo systemctl start php-fpm.service
+      sudo systemctl enable --now php-fpm.service
       sudo systemctl restart httpd.service
 
    After restarting the Apache service, test your PHP installation.
@@ -225,7 +224,9 @@ functionality to your web server, install PHP on your system.
 
 #. Verify that the PHP information screen appears, similar to figure 2:
 
-   .. figure:: /_figures/wordpress/web-server-install-2.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../_figures/wordpress/web-server-install-2.png
       :alt: PHP information screen
       :width: 600
 
@@ -247,12 +248,12 @@ and is available in the database-basic |CL| bundle.
 
       sudo swupd bundle-add database-basic
 
-#. To start MariaDB after it is installed, enter the following commands:
+#. To start MariaDB after it is installed and set it to start automatically on
+   boot, enter the following commands:
 
    .. code-block:: bash
 
-      sudo systemctl enable mariadb
-      sudo systemctl start mariadb
+      sudo systemctl enable --now mariadb
 
 #. To check the status of MariaDB, enter the following command:
 
@@ -280,7 +281,7 @@ hardening.
 
       Our suggested responses follow each question.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       Enter current password for root (enter for none):
 
@@ -288,7 +289,7 @@ hardening.
    user. For a newly installed MariaDB without a set root password, the
    password is blank. Thus, press enter to continue.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       OK, successfully used password, moving on...
 
@@ -299,19 +300,19 @@ hardening.
    Set the root password to prevent unauthorized MariaDB root user logins.
    To set a root password, type 'y'.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       New password:
 
    Type the desired password for the root user.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       Re-enter new password:
 
    Re-type the desired password for the root user.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       Password updated successfully!
       Reloading privilege tables..
@@ -324,7 +325,7 @@ hardening.
    is intended only for testing and for a smoother installation. To remove
    the anonymous user and make your database more secure, type 'y'.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       ... Success!
       Disallow root login remotely? [Y/n]
@@ -333,7 +334,7 @@ hardening.
    ensures that someone cannot guess the root password from the network. To
    block any remote root login, type 'y'.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       ... Success!
       Remove test database and access to it? [Y/n]
@@ -342,7 +343,7 @@ hardening.
    This database is also intended only for testing and should be removed. To
    remove the test database, type 'y'.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       - Dropping test database...
       ... Success!
@@ -353,7 +354,7 @@ hardening.
    Reloading the privilege tables ensures all changes made so far take
    effect immediately. To reload the privilege tables, type 'y'.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       ... Success!
 
@@ -415,7 +416,9 @@ steps below for setting up a database called "WordPress".
    :ref:`mysql_secure_installation command <set-password>`. Enter your
    credentials and select :guilabel:`Go` to log in:
 
-   .. figure:: /_figures/wordpress/web-server-install-3.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../_figures/wordpress/web-server-install-3.png
       :alt: phpMyAdmin login page
       :width:     600
 
@@ -424,7 +427,9 @@ steps below for setting up a database called "WordPress".
 #. Verify a successful login by confirming that the main phpMyAdmin page
    displays, as shown in figure 4:
 
-   .. figure:: /_figures/wordpress/web-server-install-4.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../_figures/wordpress/web-server-install-4.png
       :alt: phpMyAdmin dashboard
       :width:     600
 
@@ -441,7 +446,9 @@ steps below for setting up a database called "WordPress".
 
 #. Click :guilabel:`Create`.
 
-   .. figure:: /_figures/wordpress/web-server-install-5.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../_figures/wordpress/web-server-install-5.png
       :alt: Databases tab
       :width:     600
 
@@ -452,7 +459,9 @@ steps below for setting up a database called "WordPress".
 
 #. Select the :guilabel:`Privileges` tab. Figure 6 shows its contents.
 
-   .. figure:: /_figures/wordpress/web-server-install-6.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../_figures/wordpress/web-server-install-6.png
       :alt: Privileges tab
       :width:     600
 
@@ -462,7 +471,9 @@ steps below for setting up a database called "WordPress".
    :guilabel:`Privileges` tab. The `Add user account` page appears, as shown
    in figure 7.
 
-   .. figure:: /_figures/wordpress/web-server-install-7.png
+   .. rst-class:: dropshadow
+
+   .. figure:: ../_figures/wordpress/web-server-install-7.png
       :alt: User accounts tab
       :width:     600
 
@@ -484,7 +495,9 @@ steps below for setting up a database called "WordPress".
 
 If successful, you should see the screen shown in figure 8:
 
-.. figure:: /_figures/wordpress/web-server-install-8.png
+.. rst-class:: dropshadow
+
+.. figure:: ../_figures/wordpress/web-server-install-8.png
    :alt: User added successfully
    :width:     600
 

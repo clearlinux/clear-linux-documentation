@@ -561,7 +561,7 @@ To run the notebook, you will need to run the Deep Learning Reference Stack, mou
 #. Paste the URL (with embedded token) into the browser window.
 
 
-The notebook will also be available at the URL of the system serving the notebook.  For example if you are running on 192.168.1.10, you will be able to access the notebook from other systems on that subnet by navigating to http://192.168.1.10:8888
+The notebook will also be available at the URL of the system serving the notebook.  For example if you are running on 192.168.1.10, you will be able to access the notebook from other systems on that subnet by navigating to \http://192.168.1.10:8888
 
 From the browser, you will see the following notebooks.
 
