@@ -20,8 +20,8 @@ installation:
 * :ref:`system-requirements`
 * :ref:`compatibility-check`
 
-Download the latest |CL| live server image
-******************************************
+Preliminary steps
+*****************
 
 #. Visit our `Downloads`_ page.
 
@@ -62,7 +62,14 @@ Follow these steps to install |CL| on the target system:
 
 #. Reboot the target system.
 
-#. This action launches the |CL| installer boot menu, shown in Figure 1.
+Choose boot menu option
+=======================
+
+#. Choose one of the options shown in Figure 1.
+
+   a. Follow `Verify integrity of installer media (optional)`_.
+
+   #. Select :guilabel:`Clear Linux OS` in the boot menu.
 
    .. figure:: /_figures/bare-metal-install-server/bare-metal-install-server-01.png
       :scale: 100%
@@ -70,7 +77,27 @@ Follow these steps to install |CL| on the target system:
 
       Figure 1: Clear Linux OS Installer boot menu
 
-#. With :guilabel:`Clear Linux OS` highlighted, select :kbd:`Enter`.
+   .. note::
+
+      If no action is taken, installation starts by default.
+
+Verify integrity of installer media (optional)
+==============================================
+
+Use :guilabel:`Verify ISO Integrity` to verify the checksum of 
+the image burned to the installer media. The checksum ensures that the ISO 
+is uncorrupted (see Figure 1). For every ISO generated, the 
+:guilabel:`clr-installer` implants checksums, which are verified during 
+early boot stage as part of :command:`initrd`. 
+ 
+#. Select :guilabel:`Verify ISO Integrity`. The media will be validated. 
+
+#. If the check passes, it will boot into the live image. Continue in 
+   the next section.
+
+#. If the check fails, a failure message appears. 
+   
+   * Restart the process at `Preliminary Steps`_. 
 
 .. _install-clr-server-start:
 
