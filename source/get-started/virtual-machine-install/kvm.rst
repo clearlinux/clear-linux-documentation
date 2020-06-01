@@ -218,6 +218,8 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
    corner).
 
 
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
+
 .. _Intel® Virtualization Technology: https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html
 .. _Intel® Virtualization Technology for Directed I/O: https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices
 .. _start_qemu.sh: https://cdn.download.clearlinux.org/image/start_qemu.sh
