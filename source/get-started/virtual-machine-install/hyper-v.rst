@@ -138,7 +138,7 @@ Related topics
 
 * :ref:`increase-virtual-disk-size`
 
-
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _`Windows\* Server`: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-on-windows-server
 .. _`Windows 10`: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index

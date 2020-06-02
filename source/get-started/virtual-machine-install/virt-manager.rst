@@ -214,6 +214,8 @@ Congratulations! You have successfully installed |CL| in your new VM and can
 begin using it immediately. The `virt-manager` tool is maintained on GitHub\*
 at `virt-manager-github`_.
 
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
+
 .. _virt-mgr: https://www.virt-manager.org
 
 .. _Downloads: https://clearlinux.org/downloads

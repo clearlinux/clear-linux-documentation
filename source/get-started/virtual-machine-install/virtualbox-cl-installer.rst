@@ -389,6 +389,9 @@ Troubleshooting
 
       bcdedit /set {current} hypervisorlaunchtype Auto
 
+
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
+
 .. _VirtualBox Installation Instructions: https://www.virtualbox.org/manual/ch02.html
 
 .. _VirtualBox: https://www.virtualbox.org

@@ -3,7 +3,7 @@
 |CL-ATTR| on VMware\* Workstation Player
 ########################################
 
-This guide explains how to set up the VMware Workstation Player 15.5.1
+This guide explains how to set up the VMware\* Workstation Player 15.5.1
 hypervisor and instantiate a VM instance of |CL| by installing it using 
 an ISO or using a pre-built image.
 
@@ -33,8 +33,8 @@ it, see :ref:`vmware-esxi-install-cl`.
 Install the VMware Workstation Player hypervisor
 ************************************************
 
-#. Enable :abbr:`Intel® VT (Intel® Virtualization Technology)` and
-   :abbr:`Intel® VT-d (Intel® Virtualization Technology for Directed I/O)` in
+#. Enable Intel® Virtualization Technology (Intel® VT) and
+   Intel® Virtualization Technology for Directed I/O (Intel® VT-d) in
    your system's BIOS.
 
 #. `VMware Workstation Player`_ is available for Windows and Linux.
@@ -406,6 +406,8 @@ Related topics
 For other guides on using the VMWare Player and ESXi, see:
 
 * :ref:`vmware-esxi-install-cl`
+
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _VMware ESXi: https://www.vmware.com/products/esxi-and-esx.html
 
