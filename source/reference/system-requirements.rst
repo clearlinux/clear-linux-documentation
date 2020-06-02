@@ -4,14 +4,17 @@ Recommended minimum system requirements
 #######################################
 
 |CL-ATTR| can run on most modern hardware and is capable of running with
-modest hardware resources. Out of the box, |CL| can run on a single CPU core, 1 GB RAM, and minimum of disk space of: 
+modest hardware resources. Out of the box, |CL| can run on a single CPU core,
+1 GB RAM, and minimum of disk space of:
 
 * 4 GB for the *live server*
 * 20 GB for the *live desktop*
 
 .. caution::
-   
-   Advanced users who wish to install on a disk using less than the recommended space requirements may use the flag ``--skip-validation-size``. Use of this flag may cause the installation to fail due to inadequate disk space.  
+
+   Advanced users who wish to install on a disk using less than the recommended
+   space requirements may use the flag ``--skip-validation-size``. Use of this
+   flag may cause the installation to fail due to inadequate disk space.
 
 
 For use cases requiring minimal resources, |CL| :ref:`about <about>` can
@@ -49,19 +52,19 @@ these features:
 
 * Instruction Set Extensions:
 
-  - Supplemental Streaming SIMD Extension 3 (Intel® SSSE3)
+  - Supplemental Streaming SIMD Extension 3 (SSSE3)
   - Intel® Streaming SIMD Extensions 4.1 (Intel® SSE 4.1)
   - Intel® Streaming SIMD Extensions 4.2 (Intel® SSE 4.2)
   - Carry-less Multiplication (PCLMUL)
 
 The following processor families have been verified to run |CL|:
 
-* Intel® Core™ Processor Family (2nd generation or greater)
+* Intel® Core™ processor family (2nd generation or greater)
 * Intel® Xeon® E3-xxxx processor
 * Intel® Xeon® E5-xxxx processor
 * Intel® Xeon® E7-xxxx processor
-* Intel® Atom® processor C Series
-* Intel® Atom® processor E Series
+* Intel Atom® processor C Series
+* Intel Atom® processor E Series
 
 
 Recommended configurations
@@ -83,3 +86,6 @@ Graphics     Device with openGL support (e.g. Intel HD/UHD Graphics)
 Network      Active Internet connection
 =========    ===============================
 
+
+*Intel, Intel Core, Xeon, Intel Atom, and the Intel logo are trademarks of
+Intel Corporation or its subsidiaries.*
