@@ -80,6 +80,7 @@ if "%1" == "html" (
 	if errorlevel 1 exit /b 1
 	echo.
 	echo.Build finished. The HTML pages are in %BUILDDIR%/html.
+	copy source\_scripts\js\copybutton.js %BUILDDIR%\html\_static
 	goto end
 )
 

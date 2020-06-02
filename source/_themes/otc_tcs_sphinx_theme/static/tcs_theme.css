@@ -368,6 +368,15 @@ div.highlight-python .highlight:before{
   white-space: pre;
 }
 
+div.highlight-ShellSession .highlight:before{
+  background: #909090;
+  color: white;
+  content: " Shell ";
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 14px;
+  white-space: pre;
+}
+
 div.highlight-console .highlight:before{
   background: #909090;
   color: white;
