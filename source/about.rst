@@ -241,7 +241,7 @@ Which Components are used in Clear Linux?
      - `Wayland`_ compositor
 
    * - Network services
-     - `NetworkManager`_ by default*, `systemd-networkd`_
+     - `NetworkManager`_ by default, `systemd-networkd`_ See Note below.
      - 
 
    * - SSH Port scanning blocker
