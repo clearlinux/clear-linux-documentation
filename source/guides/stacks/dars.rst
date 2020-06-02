@@ -24,7 +24,8 @@ The Data Analytics Reference Stack provides two pre-built Docker images,
 available on `Docker Hub`_:
 
 * A |CL|-derived `DARS with OpenBlas`_ stack optimized for `OpenBLAS`_
-* A |CL|-derived  `DARS with Intel® MKL`_ stack optimized for `MKL`_ (Intel® Math Kernel Library)
+* A |CL|-derived  `DARS with Intel® MKL`_ stack optimized for
+ `Intel® Math Kernel Library`_ (Intel® MKL)
 
 We recommend you view the latest component versions for each image in the
 :file:`releasenote` found in the `Data Analytics Reference Stack`_ GitHub\*
@@ -98,7 +99,7 @@ If you choose to build your own DARS container images, you can customize them as
 
 To construct images with |CL|, start with a |CL| development platform that has the :command:`containers-basic-dev` bundle installed. Learn more about bundles and installing them by using :ref:`swupd-guide`.
 
-#. The `Data Analytics Reference Stack`_ is part of the Intel® stacks GitHub\* repository. Clone the :file:`stacks` repository.
+#. The `Data Analytics Reference Stack`_ is part of the Intel stacks GitHub\* repository. Clone the :file:`stacks` repository.
 
    .. code-block:: bash
 
@@ -671,6 +672,7 @@ This exception can be disregarded because DARS does not use hadoop.hive.shims. H
 
 #. There is an exception message `Exception in thread "Thread-3" java.lang.ExceptionInInitializerError at org.apache.hadoop.hive.conf.HiveConf` This is related to the same issue with |CL| and JDK11 noted above, and does not affect DARS for the same reason.
 
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _Data Analytics Reference Stack: https://github.com/intel/stacks/tree/master/dars/clearlinux
 
@@ -678,7 +680,7 @@ This exception can be disregarded because DARS does not use hadoop.hive.shims. H
 
 .. _OpenBLAS: http://www.openblas.net/
 
-.. _MKL: https://software.intel.com/en-us/mkl
+.. _Intel® Math Kernel Library: https://software.intel.com/en-us/mkl
 
 .. _CentOS: https://www.centos.org/
 

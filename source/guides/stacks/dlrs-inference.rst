@@ -19,7 +19,7 @@ Overview
 
 The solution covered here requires the following software components:
 
-* `Deep Learning Reference Stack`_ which is a |CL-ATTR| based Docker\* container providing deep learning frameworks and is optimized for Intel Xeon Scalable platforms.
+* `Deep Learning Reference Stack`_ which is a |CL-ATTR| based Docker\* container providing deep learning frameworks and is optimized for Intel® Xeon® platforms.
 * `Kubeflow`_ is the machine learning toolkit for Kubernetes that helps with deployment of Seldon Core and Istio components.
 * `Seldon Core`_ is a software platform for deploying machine learning models. We use the DLRS container to serve the OpenVino\* framework for inference with the Seldon Core.
 * The OpenVino Model Server is included in DLRS and provides the OpenVino framework for inference. From OpenVino, the `OpenVino Toolkit`_ provides improved neural network performance on a variety of Intel processors. For this guide, we converted pre-trained Caffe models into the `Intermediate Representation(IR)`_ of ResNet50 with the OpenVino toolkit.
@@ -85,7 +85,7 @@ Although this guide assumes a |CL| host system, it has also been validated with 
 Recommended Hardware
 ====================
 
-We validated this guide on an `Intel Cascade Lake`_ server and this is recommended to get optimal performance and take advantage of the built in  Intel® Deep Learning Boost functionality.
+We validated this guide on a server with a 2nd Generation Intel Xeon Scalable processor, formerly Cascade Lake, and this is recommended to get optimal performance and take advantage of the built in Intel® Deep Learning Boost (Intel® DL Boost) functionality.
 
 Required Software
 =================
@@ -917,7 +917,7 @@ To find out how to assign the cores and memory properly run :command:`numactl -H
      1:  21  10
 
 
-In this case, the tests are run on Intel(R) Xeon(R) Platinum 6260L with 2 sockets(nodes) and 24 cores (CPUs) on each socket.
+In this case, the tests are run on Intel® Xeon® Platinum 6260L processor with 2 sockets(nodes) and 24 cores (CPUs) on each socket.
 Running the inference serving the application with :command:`numactl --membind=0 --cpubind=0-3` forces the system to use 0,1,2,3 cores and memory located on the same socket (0). To use all available cores there is a need to create more service deployments assigned to the remaining cores.
 
 The `ai-inferencing` repository contains an example deployment script with 2 cores per instance assignment.
@@ -1029,7 +1029,7 @@ The test performed on a 2 node cluster with 48 cores per node showed that there 
       KMP_BLOCKTIME=1
 
 
-
+*Intel, Xeon, and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 
 .. _Deep Learning Reference Stack: https://clearlinux.org/stacks/deep-learning
@@ -1040,7 +1040,7 @@ The test performed on a 2 node cluster with 48 cores per node showed that there 
 .. _Istio: https://istio.io/
 .. _Source-to-Image: https://github.com/openshift/source-to-image
 .. _Min.io: https://min.io/
-.. _Intel Cascade Lake: https://www.intel.com/content/www/us/en/design/products-and-solutions/processors-and-chipsets/cascade-lake/2nd-gen-intel-xeon-scalable-processors.html
+.. _2nd Generation Intel® Xeon® Scalable processor: https://www.intel.com/content/www/us/en/design/products-and-solutions/processors-and-chipsets/cascade-lake/2nd-gen-intel-xeon-scalable-processors.html
 .. _Docker 18.09: https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 .. _Kubernetes 1.15.3: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 .. _gsutil: https://cloud.google.com/storage/docs/gsutil_install#linux

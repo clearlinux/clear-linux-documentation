@@ -103,8 +103,8 @@ image and aims to support the latest |CL| version.
    * - gmmlib
      - `Intel® Graphics Memory Management Library
        <https://github.com/intel/gmmlib>`_ provides device specific and buffer
-       management for the Intel® Graphics Compute Runtime for OpenCL(TM) and
-       the Intel® Media Driver for VAAPI.
+       management for the Intel® Graphics Compute Runtime for oneAPI Level Zero 
+       and OpenCL™ Driver and the Intel Media Driver for VAAPI.
 
 Components of the |MERS| include:
 
@@ -130,7 +130,7 @@ Components of the |MERS| include:
 
 .. note::
 
-   The |MERS| is validated on 11th generation Intel® Processor Graphics and
+   The |MERS| is validated on 11th generation Intel Processor Graphics and
    newer. Older generations should work but are not tested against.
 
 .. note::
@@ -559,5 +559,6 @@ following the same steps in this tutorial by substituting the image name with
 *sysstacks/mers-clearlinux:aom*.
 
 
-**Intel, Xeon, OpenVINO, and the Intel logo are trademarks of Intel
-Corporation or its subsidiaries.**
+*Intel, Xeon, OpenVINO, and the Intel logo are trademarks of Intel
+Corporation or its subsidiaries. OpenCL and the OpenCL logo are trademarks of
+Apple Inc. used by permission by Khronos.*

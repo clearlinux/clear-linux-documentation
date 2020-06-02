@@ -14,7 +14,7 @@ Overview
 ********
 
 We created the Deep Learning Reference Stack to help AI developers deliver
-the best experience on Intel® Architecture. This stack reduces complexity
+the best experience on Intel® architecture. This stack reduces complexity
 common with deep learning software components, provides flexibility for
 customized solutions, and enables you to quickly prototype and deploy Deep
 Learning workloads. Use this guide to run benchmarking workloads on your
@@ -28,16 +28,18 @@ The latest release of the Deep Learning Reference Stack (`DLRS V6.0`_ ) supports
 * Transformers* which is a state-of-the-art Natural Language Processing (NLP) library for TensorFlow 2.0 and PyTorch
 * Flair*, a PyTorch NLP framework
 * OpenVINO™ model server version 2020.1, delivering improved neural network performance on Intel processors, helping unlock cost-effective, real-time vision applications.
-* Intel® Deep Learning Boost (Intel® DL Boost) with AVX-512 Vector Neural Network Instruction (Intel® AVX-512 VNNI), designed to accelerate deep neural network-based algorithms.
+* Intel® Deep Learning Boost (Intel® DL Boost) with Intel® Advanced Vector
+  Extensions 512 (Intel® AVX-512) Vector Neural Network Instruction , designed to
+  accelerate deep neural network-based algorithms.
 * Deep Learning Compilers (TVM* 0.6), an end-to-end compiler stack.
 
 
 .. important::
 
-   To take advantage of the Intel® AVX-512 and VNNI functionality (including the Intel® oneAPI Deep Neural Network Library (oneDNN), found at  `oneDNN`_.  with the Deep Learning Reference Stack, you must use the following hardware:
+   To take advantage of the Intel AVX-512 and VNNI functionality (including the Intel® oneAPI Deep Neural Network Library (oneDNN), found at  `oneDNN`_,  with the Deep Learning Reference Stack, you must use the following hardware:
 
-   * Intel® AVX-512 images require an Intel® Xeon® Scalable processor
-   * VNNI requires a 2nd generation Intel® Xeon® Scalable processor
+   * Intel AVX-512 images require an Intel® Xeon® Scalable processor
+   * VNNI requires a 2nd generation Intel Xeon Scalable processor
 
 
 Releases
@@ -194,7 +196,7 @@ TensorFlow.
    TensorFlow benchmarks.
 
    If you are using an FP32 based model, it can be converted to an int8 model
-   using `Intel® quantization tools`_.
+   using `Intel® AI Quantization Tools for TensorFlow`_.
 
 PyTorch single and multi-node benchmarks
 ****************************************
@@ -237,8 +239,8 @@ TensorFlow Training (TFJob) with Kubeflow and DLRS
 
 .. warning::
 
-   If you choose the Intel® oneDNN image, your platform
-   must support the Intel® AVX-512 instruction set. Otherwise, an
+   If you choose the Intel oneDNN image, your platform
+   must support the Intel AVX-512 instruction set. Otherwise, an
    *illegal instruction* error may appear, and you won’t be able to complete this guide.
 
 A `TFJob`_  is Kubeflow's custom resource used to run TensorFlow training jobs on Kubernetes. This example shows how to use a TFJob within the DLRS container.
@@ -1059,7 +1061,7 @@ Related topics
 * `Jupyter Notebook`_
 
 
-OpenVINO is a trademark of Intel Corporation or its subsidiaries
+*Intel, OpenVINO, Xeon, and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _TensorFlow: https://www.tensorflow.org/
 
@@ -1132,7 +1134,7 @@ OpenVINO is a trademark of Intel Corporation or its subsidiaries
 .. _Distributed TensorFlow: https://www.tensorflow.org/deploy/distributed
 .. _TFJobs:  https://www.kubeflow.org/docs/components/tftraining/
 
-.. _Intel® quantization tools:  https://github.com/IntelAI/tools/blob/master/tensorflow_quantization/README.md#quantization-tools
+.. _Intel® AI Quantization Tools for TensorFlow:  https://github.com/IntelAI/tools/blob/master/tensorflow_quantization/README.md#quantization-tools
 
 .. _OpenCV open model zoo: https://github.com/opencv/open_model_zoo
 
