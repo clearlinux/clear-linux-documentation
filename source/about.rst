@@ -3,9 +3,9 @@
 About
 #####
 
-|CL-ATTR| does things differently. Our software architecture provides a 
+|CL-ATTR| does things differently. Our software architecture provides a
 unique and innovative platform for Linux* developers focused on
-performance and security for compute, server, and the cloud. 
+performance and security for compute, server, and the cloud.
 
 .. contents::
    :local:
@@ -14,7 +14,11 @@ performance and security for compute, server, and the cloud.
 What is |CL|?
 *************
 
-|CL| is an open source, rolling-release Linux* distribution, optimized for performance and security from the cloud to the Edge. Designed from the ground up, |CL| provides an industry blueprint on how to incorporate Intel® architecture features for a modern, modular Linux* OS. |CL| is not based on any other Linux distro. 
+|CL| is an open source, rolling-release Linux distribution, optimized for
+performance and security from the cloud to the Edge. Designed from the ground up,
+|CL| provides an industry blueprint on how to incorporate Intel® architecture
+features for a modern, modular Linux OS. |CL| is not based on any other Linux
+distro.
 
 What |CL| isn't?
 ****************
@@ -237,7 +241,7 @@ Which Components are used in Clear Linux?
      - `Wayland`_ compositor
 
    * - Network services
-     - `NetworkManager`_ by default*, `systemd-networkd`_
+     - `NetworkManager`_ by default, `systemd-networkd`_ See Note below.
      - 
 
    * - SSH Port scanning blocker
@@ -250,10 +254,10 @@ Which Components are used in Clear Linux?
 
    * - Antivirus
      - *NA*
-     - `ClamAV®`_
+     - `ClamAV*`_
 
    * - Web browser
-     - `Lynx`_ or `links`_ for text environments, `Firefox`_ for GUI
+     - `Lynx`_ or `links`_ for text environments, `Firefox*`_ for GUI
      - 
 
    * - Additional Software
@@ -266,6 +270,8 @@ Which Components are used in Clear Linux?
    ``systemd-networkd`` to manage network connections.  In earlier |CL|, 
    ``systemd-networkd`` was used to manage Ethernet interfaces and NetworkManager was used for wireless interfaces.
 
+
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _third party alternatives: https://community.clearlinux.org/t/about-the-3rd-party-sw-category/4072
 .. _how-to-clear: https://github.com/clearlinux/how-to-clear
@@ -295,10 +301,10 @@ Which Components are used in Clear Linux?
 .. _systemd-networkd: https://www.freedesktop.org/software/systemd/man/systemd.network.html
 .. _Tallow: https://github.com/clearlinux/tallow
 .. _firewalld: https://docs.01.org/clearlinux/latest/guides/network/firewall.html#firewalld
-.. _ClamAV®: https://www.clamav.net/
+.. _ClamAV*: https://www.clamav.net/
 .. _Lynx: https://lynx.invisible-island.net/
 .. _links: http://links.twibright.com/
-.. _Firefox: https://www.mozilla.org/en-US/firefox/
+.. _Firefox*: https://www.mozilla.org/en-US/firefox/
 .. _Supplied Bundles: https://clearlinux.org/software
 .. _micro-config-drive: https://github.com/clearlinux/micro-config-drive
 .. _Telemetrics: https://github.com/clearlinux/telemetrics-backend
