@@ -79,7 +79,7 @@ Choose boot menu option
 
    .. note::
 
-      If no action is taken, installation starts by default.
+      If no action is taken, the live image starts by default.
 
 Verify integrity of installer media (optional)
 ==============================================
