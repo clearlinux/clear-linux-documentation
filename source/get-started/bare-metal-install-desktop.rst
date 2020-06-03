@@ -37,6 +37,7 @@ Preliminary steps
 #. Follow your OS instructions to
    :ref:`create a bootable usb drive <bootable-usb>`.
 
+
 .. _install-on-target-start:
 
 Install from live image
@@ -61,28 +62,44 @@ these steps.
 
 .. _preliminary-steps-install-desktop-end:
 
-#. Select :guilabel:`Clear Linux OS` in the boot menu, shown in Figure 1.
+Choose boot menu option
+=======================
 
-   .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-01.png
-      :scale: 100%
-      :alt: Clear Linux OS in boot menu
+#. Choose one of the options shown in Figure 1.
 
-      Figure 1: Clear Linux OS in boot menu
+   a. Follow `Verify integrity of installer media (optional)`_.
+
+   #. Select :guilabel:`Clear Linux OS` in the boot menu.
+
+      .. figure:: /_figures/bare-metal-install-desktop/bare-metal-install-desktop-01.png
+         :scale: 100%
+         :alt: Clear Linux OS in boot menu
+
+         Figure 1: Clear Linux OS in boot menu
+
+      .. note::
+
+         If no action is taken, the live image starts by default.
 
 .. _install-on-target-end:
 
-Software (optional)
-===================
+Verify integrity of installer media (optional)
+==============================================
 
-Explore |CL| bundles and other software. Double-click the
-:guilabel:`Software` icon from the Activities menu, shown in Figure 2.
-Ensure a network connection exists before launching the Software application.
+Use :guilabel:`Verify ISO Integrity` to verify the checksum of 
+the image burned to the installer media. The checksum ensures that the ISO 
+is uncorrupted (see Figure 1). For every ISO generated, the 
+:guilabel:`clr-installer` implants checksums, which are verified during 
+early boot stage as part of :command:`initrd`. 
+ 
+#. Select :guilabel:`Verify ISO Integrity`. The media will be validated.
 
-.. note::
+#. If the check passes, it will boot into the live image. Continue in 
+   the next section.
 
-   While running the |CL| live desktop image, the Software application is
-   intended only for exploration. Do not attempt to install applications during
-   exploration.
+#. If the check fails, a failure message appears. 
+   
+   * Restart the process at `Preliminary Steps`_. 
 
 .. _install-clr-desktop-start:
 
