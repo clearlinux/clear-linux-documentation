@@ -25,7 +25,7 @@ available on `Docker Hub`_:
 
 * A |CL|-derived `DARS with OpenBlas`_ stack optimized for `OpenBLAS`_
 * A |CL|-derived  `DARS with Intel® MKL`_ stack optimized for
- `Intel® Math Kernel Library`_ (Intel® MKL)
+  `Intel® Math Kernel Library`_ (Intel® MKL)
 
 We recommend you view the latest component versions for each image in the
 :file:`releasenote` found in the `Data Analytics Reference Stack`_ GitHub\*

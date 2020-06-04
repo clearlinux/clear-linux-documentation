@@ -82,9 +82,9 @@ image and aims to support the latest |CL| version.
 |MERS| provides the following libraries and drivers:
 
 .. list-table::
-   :widths: auto
+   :widths: 15 85
 
-   * - SVT-HEVC*
+   * - SVT-HEVC
      - Scalable Video Technology for HEVC encoding, also known as H.265
    * - SVT-AV1
      - Scalable Video Technology for AV1 encoding
