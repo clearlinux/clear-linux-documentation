@@ -4,7 +4,9 @@ Install |CL-ATTR| from the live desktop
 #######################################
 
 This page explains how to boot the |CL-ATTR| live desktop image, from which
-you can install |CL| or explore without modifying the host system.
+you can install |CL| or explore without modifying the host system. 
+Alternatively, use a :ref:`YAML configuration file <install-configfile>` 
+to install |CL|. 
 
 .. contents::
    :local:
@@ -36,7 +38,6 @@ Preliminary steps
 
 #. Follow your OS instructions to
    :ref:`create a bootable usb drive <bootable-usb>`.
-
 
 .. _install-on-target-start:
 
@@ -676,5 +677,10 @@ Troubleshooting
 ***************
 
 :ref:`erase-lvm-troubleshooting-tip`
+
+Related topics
+**************
+
+* :ref:`install-configfile`
 
 .. _Downloads: https://clearlinux.org/downloads
