@@ -4,7 +4,7 @@ Install |CL-ATTR| from the live server
 ######################################
 
 This page explains how to install |CL-ATTR| on bare metal from a bootable USB
-drive using a live server image.
+drive using a live server image. Alternatively, use a :ref:`YAML configuration file <install-configfile>` to install |CL|. 
 
 .. contents::
    :local:
@@ -1031,4 +1031,12 @@ commands:
    sudo dmsetup remove_all --force
    sudo partprobe
 
+Related topics
+**************
+
+* :ref:`install-configfile`
+
+
 .. _Downloads: https://clearlinux.org/downloads
+
+
