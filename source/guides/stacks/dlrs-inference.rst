@@ -85,7 +85,7 @@ Although this guide assumes a |CL| host system, it has also been validated with 
 Recommended Hardware
 ====================
 
-We validated this guide on a server with a 2nd Generation Intel Xeon Scalable processor, formerly Cascade Lake, and this is recommended to get optimal performance and take advantage of the built in Intel® Deep Learning Boost (Intel® DL Boost) functionality.
+We validated this guide on a server with a `2nd Generation Intel Xeon Scalable processor`_, formerly Cascade Lake, and this is recommended to get optimal performance and take advantage of the built in Intel® Deep Learning Boost (Intel® DL Boost) functionality.
 
 Required Software
 =================
@@ -1040,7 +1040,7 @@ The test performed on a 2 node cluster with 48 cores per node showed that there 
 .. _Istio: https://istio.io/
 .. _Source-to-Image: https://github.com/openshift/source-to-image
 .. _Min.io: https://min.io/
-.. _2nd Generation Intel® Xeon® Scalable processor: https://www.intel.com/content/www/us/en/design/products-and-solutions/processors-and-chipsets/cascade-lake/2nd-gen-intel-xeon-scalable-processors.html
+.. _2nd Generation Intel Xeon Scalable processor: https://www.intel.com/content/www/us/en/design/products-and-solutions/processors-and-chipsets/cascade-lake/2nd-gen-intel-xeon-scalable-processors.html
 .. _Docker 18.09: https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 .. _Kubernetes 1.15.3: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 .. _gsutil: https://cloud.google.com/storage/docs/gsutil_install#linux

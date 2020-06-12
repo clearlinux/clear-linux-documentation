@@ -101,7 +101,7 @@ optimize software builds for runtime performance. Some significant flags that
 
 	.. note::
 		|CL| doesn't require Advanced Encryption Standard (AES), so it should
-		run on some Intel CPUs from the first generation of Intel microarchitecture code name Nehalem (released in 2008). Refer to the
+		run on some Intel CPUs from the first generation of Intel® microarchitecture code name Nehalem (released in 2008). Refer to the
 		`recommended minimum system requirements <https://docs.01.org/clearlinux/latest/reference/system-requirements.html>`_ for specific requirements.
 
 `O3 <https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html>`_
