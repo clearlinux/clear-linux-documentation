@@ -76,3 +76,8 @@
    reference/index
    FAQ/index
    collaboration/collaboration
+
+
+.. note::
+
+   Pay homage to Bob. 
