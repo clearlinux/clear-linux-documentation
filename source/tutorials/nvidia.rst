@@ -41,21 +41,21 @@ Known issues
 Systems with multiple graphics devices, including integrated graphics (iGPU),
 are known to be problematic.
 
-.. note:: NVIDIA Optimus
+.. note:: NVIDIA Optimus\*
    
    Some systems come with a hybrid graphics configuration for a balanced power
    and performance profile. This configuration is commonly found on
-   laptops. `NVIDIA Optimus* technology
+   laptops. `NVIDIA Optimus technology
    <https://www.geforce.com/hardware/technology/optimus>`_, is designed to
    allow switching seamlessly between a NVIDIA device and another graphics
    devices sharing the same display.
    
-   Getting NVIDIA Optimus* on Linux working well with both graphics devices
+   Getting NVIDIA Optimus on Linux working well with both graphics devices
    adds an additional level of complexity with platform specific steps and may
-   require additional software. Installation for systems with NVIDIA Optimus*
+   require additional software. Installation for systems with NVIDIA Optimus
    with both graphics devices operating is not covered by the scope of this
    documentation. As a simple workaround, some systems can disable one of the
-   graphics devices or NVIDIA Optimus* in the system firmware.
+   graphics devices or NVIDIA Optimus in the system firmware.
 
 .. note::
    The :ref:`Long Term Support (LTS) kernel <compatible-kernels>` variant is
@@ -76,7 +76,7 @@ and sustainable on |CL|.
 
 #. Remove the kernel command-line parameter *intel_iommu=igfx_off* or disable
    input–output memory management unit (IOMMU), also known as Intel®
-   Virtualization Technology for Directed I/O (VT-d), in your system EFI/BIOS.
+   Virtualization Technology (Intel® VT) for Directed I/O (Intel® VT-d), in your system EFI/BIOS.
    See `this GitHub report
    <https://github.com/clearlinux/distribution/issues/1274>`_ and the NVIDIA
    documentation on `DMA issues
@@ -428,8 +428,8 @@ installing the NVIDIA drivers until an Xorg configuration has been defined for
 your monitors.
 
 
-"Oh no! Something has gone wrong" GNOME crash
-=============================================
+"Oh no! Something has gone wrong" GNOME\* crash
+===============================================
 
 
 .. figure:: /_figures/nvidia/nvidia-gnome-crash.png
@@ -521,6 +521,8 @@ Additional resources
 * `Where can I get support for NVIDIA Linux drivers? <https://nvidia.custhelp.com/app/answers/detail/a_id/44/kw/linux>`_
 
 * `NVIDIA Accelerated Linux Graphics Driver Installation Guides <https://download.nvidia.com/XFree86/Linux-x86_64/>`_
+
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _`nouveau project`:  https://nouveau.freedesktop.org/wiki/
 

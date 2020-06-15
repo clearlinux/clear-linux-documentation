@@ -196,7 +196,7 @@ In this example, we'll imagine a FaaS solution where: a user provides a URL to
 a pictures, which invokes a function to do image classification and outputs
 the result.
 
-We will use the `OpenVINO Deep Learning Deployment Toolkit (DLDT)
+We will use the `OpenVINO™ toolkit - Deep Learning Deployment Toolkit (DLDT)
 <https://software.intel.com/en-us/openvino-toolkit/>`_ to do the image
 inference. As inference development is not the focus of this example, we will
 just use the built-in sample "`classification_sample_async
@@ -208,7 +208,7 @@ We'll use the *python3-clearlinux* template as a base and customize it by:
 
 * Adding additional |CL| bundles (*bundles.txt*)
 * Adding additional required python packages (*requirements.txt*)
-* Adding a script to download and convert dldt models (*helper_script.sh*)
+* Adding a script to download and convert DLDT models (*helper_script.sh*)
 * Finally, we'll develop the python function to be run (*handler.py*)
 
 More ways to customize the |CL| based OpenFaaS templates can be found in the
@@ -385,3 +385,4 @@ More ways to customize the |CL| based OpenFaaS templates can be found in the
 
       Figure 3: OpenFaaS web interface invoke function
       
+*Intel, OpenVINO, and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*

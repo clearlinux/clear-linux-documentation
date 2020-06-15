@@ -4,7 +4,7 @@ WordPress\* Server
 ##################
 
 This tutorial shows you how to install the WordPress\* components on your |CL|
-:abbr:`LAMP (Linux, Apache, MySQL, PHP)` server. At the end of
+:abbr:`LAMP (Linux, Apache\*, MySQL\*, PHP)` server. At the end of
 :ref:`lamp-server-install`, you created a WordPress-ready database using
 phpMyAdmin\* and MariaDB\*. Now that the LAMP server is up and running, you
 can add the WordPress components needed to host a WordPress website on your system.
@@ -204,6 +204,8 @@ To check out your blog as it is seen by the outside world, enter:
 You have successfully installed WordPress on a host system.
 
 Add new entries to your blog and share them with the world using |CL|!
+
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _`step-by-step guide`:
    https://codex.wordpress.org/Installing_WordPress#Famous_5-Minute_Install

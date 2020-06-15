@@ -5,7 +5,7 @@ Redis\*
 
 In this tutorial, you'll install :abbr:`Redis (REmote DIctionary Server)`
 and launch a `Redis-server` on |CL-ATTR|. We invite you to pull our
-`Clear Linux Redis instance`_ on dockerhub\* for application or
+`Clear Linux Redis instance`_ on Docker Hub\* for application or
 infrastructure development.
 
 .. contents::

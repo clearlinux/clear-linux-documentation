@@ -62,7 +62,7 @@ Prerequisites
 
    PHP does not require a web server for operation. If you need a web
    server, refer to :ref:`lamp-server-install` for instructions on setting
-   up a :abbr:`LAMP (Linux, Apache\*, MySQL, PHP)` server, or use
+   up a :abbr:`LAMP (Linux, Apache\*, MySQL\*, PHP)` server, or use
    :command:`swupd` to install :file:`nginx` or similar.
 
 
