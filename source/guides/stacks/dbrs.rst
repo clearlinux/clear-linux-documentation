@@ -104,7 +104,7 @@ Firmware configuration
 
    When updating DCPMM Firmware, all DCPMM parts must be in the same mode (you cannot mix 1LM and 2LM parts).
 
-The latest firmware download for the Intel Server System S2600WF is available at the `Intel Download Center`_
+The latest firmware download for the Intel Server Board S2600WF Family is available at the `Intel Download Center`_
 
 Firmware Update Steps
 =====================

@@ -19,7 +19,7 @@ Overview
 
 The solution covered here requires the following software components:
 
-* `Deep Learning Reference Stack`_ which is a |CL-ATTR| based Docker\* container providing deep learning frameworks and is optimized for Intel® Xeon® platforms.
+* `Deep Learning Reference Stack`_ which is a |CL-ATTR| based Docker\* container providing deep learning frameworks and is optimized for Intel® Xeon® Scalable processors.
 * `Kubeflow`_ is the machine learning toolkit for Kubernetes that helps with deployment of Seldon Core and Istio components.
 * `Seldon Core`_ is a software platform for deploying machine learning models. We use the DLRS container to serve the OpenVino\* framework for inference with the Seldon Core.
 * The OpenVino Model Server is included in DLRS and provides the OpenVino framework for inference. From OpenVino, the `OpenVino Toolkit`_ provides improved neural network performance on a variety of Intel processors. For this guide, we converted pre-trained Caffe models into the `Intermediate Representation(IR)`_ of ResNet50 with the OpenVino toolkit.
