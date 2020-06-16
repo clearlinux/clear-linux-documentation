@@ -12,7 +12,7 @@ This tutorial shows how to set up `OpenZFS* file system and volume manager`_ on 
 Background
 **********
 
-The OpenZFS storage platform provides volume management, snapshot capabilities, and redundancy detection. |CL| not ship with a binary ZFS kernel module (zfs.ko). |CL| users who wish to incorporate the zfs.ko kernel module must build and maintain this work themselves.
+The OpenZFS storage platform provides volume management, snapshot capabilities, and redundancy detection. |CL| **does not** ship with a binary ZFS kernel module (zfs.ko). |CL| users who wish to incorporate the zfs.ko kernel module must build and maintain this work themselves.
 
 .. CAUTION::
 
@@ -83,13 +83,14 @@ In this section, you download the source code directly from the `ZFS on Linux re
 
    .. code-block:: bash
 
-      sudo mkdir -p /opt/src/zfs
+      sudo mkdir -p /tmp/zfs/ 
 
 #. Clone the repository.
 
    .. code-block:: bash
 
-      git clone https://github.com/openzfs/zfs.git /opt/src/zfs
+      git clone https://github.com/openzfs/zfs.git /tmp/zfs
+      sudo cp -Rv /tmp/zfs /opt/src/zfs
 
 Remember where you clone the git repository because you will need it
 when you upgrade ZFS. Do not delete the source location when you have completed this tutorial. You will need it later.
@@ -188,9 +189,10 @@ You should now have these unit files available.
    zfs-share.service
    zfs-volume-wait.service
   
+OpenZFS requires you to explicitly install and enable the services you want. 
+If you want to use other ZFS service units, you could create symlinks for them, similar to the example below.
 
-If you want to use ZFS automatic zpool import and filesystem
-mount services, link the systemd.unit files into /etc and enable them.
+To use ZFS automatic zpool import and filesystem mount services, link the systemd.unit files into :file:`/etc` and enable them.
 
 .. code-block:: bash
 
@@ -203,8 +205,6 @@ mount services, link the systemd.unit files into /etc and enable them.
    sudo systemctl enable zfs-mount
    sudo systemctl enable zfs.target
 
-OpenZFS requires you to explicitly install and enable the services you want. 
-If you want to use other ZFS service units, you might create symlinks for them, similar to the example shown above.
 
 Load the kernel module at boot
 ==============================
@@ -232,11 +232,10 @@ The OpenZFS module will not load automatically at boot. Load the zfs.ko module a
 
    - DKMS may not have rebuilt the module
    - DKMS may not have auto-installed the module
-   - The new kernel might introduce breaking changes that prevent zfs from 
-     compiling
+   - The new kernel might introduce breaking changes that prevent zfs
+     from compiling
 
 To fix this situation, you may have to recompile zfs.ko with the new kernel code. OpenZFS *might* not compile at all with the new kernel.
-
 
 .. CAUTION::
    
