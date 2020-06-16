@@ -463,8 +463,8 @@ Kubernetes container runtime:
 Add the Kata runtime to Kubernetes
 -----------------------------------
 
-For information on Kata as a container runtime, see `What is Kata
-Containers?`_. Using Kata Containers is optional.
+For information on Kata as a container runtime, see `What is Kata Containers\*?`_.
+Using Kata Containers is optional.
 
 You can use *kata-deploy* to install all the necessary parts of Kata
 Containers after you have a Kubernetes cluster running with one of the CRI's
