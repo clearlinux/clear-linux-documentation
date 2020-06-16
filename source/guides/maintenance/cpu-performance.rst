@@ -203,11 +203,10 @@ Better thermal control and performance can be achieved by providing platform
 specific configuration to :command:`thermald`.
 
 `Linux DPTF Extract Utility`_ is a companion tool to :command:`thermald`,
-This tool uses Intel® 
-:abbr:`DPTF (Dynamic Platform and Thermal Framework)` technology and
-can convert to the :file:`thermal_conf.xml` configuration format used by
-:command:`thermald`. Closed-source projects, like this one, cannot be packaged
-as a bundle in |CL|, so you must install it manually:
+This tool uses Intel® Dynamic Platform and Thermal Framework (Intel® DPTF)
+technology and can convert to the :file:`thermal_conf.xml` configuration format
+used by :command:`thermald`. Closed-source projects, like this one, cannot be
+packaged as a bundle in |CL|, so you must install it manually:
 
 #. Make sure your machine's BIOS has DPTF feature and is enabled. It will usually be in the :guilabel:`Advanced` or :guilabel:`Advanced>Power` section of the BIOS. 
 
@@ -248,15 +247,13 @@ The following output means the configuration has already been applied:
 
    thermald[*]: [WARN]Using generated /etc/thermald/thermal-conf.xml.auto
 
-.. admonition:: Disclaimer
+*Intel® Turbo Boost Technology requires a PC with a processor with Intel Turbo
+Boost Technology capability. Intel Turbo Boost Technology performance varies
+depending on hardware, software and overall system configuration. Check with
+your PC manufacturer on whether your system delivers Intel Turbo Boost Technology.
+For more information, see http://www.intel.com/technology/turboboost*
 
-   Intel® Turbo Boost Technology requires a PC with a processor with Intel
-   Turbo Boost Technology capability. Intel Turbo Boost Technology performance
-   varies depending on hardware, software and overall system configuration.
-   Check with your PC manufacturer on whether your system delivers Intel Turbo
-   Boost Technology. For more information, see http://www.intel.com/technology/turboboost
-
-   Intel SpeedStep is a trademark of Intel Corporation or its subsidiaries.
+*Intel, Intel SpeedStep, and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 
 .. _`Intel P-state driver`: https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt

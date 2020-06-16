@@ -14,7 +14,7 @@ Overview
 ********
 
 The Database Reference Stack is integrated, highly-performant, open source,
-and optimized for 2nd generation Intel® Xeon® Scalable Processors and Intel®
+and optimized for 2nd generation Intel® Xeon® Scalable processors and Intel®
 Optane™ persistent memory. This open source community release is part of
 an effort to ensure developers have easy access to the features and
 functionality of Intel Platforms.
@@ -52,10 +52,10 @@ The release announcement for each release provides more detail about the stack f
 Hardware Requirements
 *********************
 
-* Intel® Xeon Scalable Platform with Intel® C620 chipset series
-* 2nd Gen Intel® Xeon Scalable processor CPU (Intel® Optane™ PMM-enabled stepping) Provides cache & memory control.  Intel® Optane™  PMem works only on systems powered by 2nd Generation Intel® Xeon® Platinum or Gold processors.
+* Intel Xeon Scalable platform with Intel® C620 series chipset
+* 2nd Gen Intel Xeon Scalable processor CPU (Intel® Optane™ PMem-enabled stepping). Provides cache & memory control.  Intel Optane PMem works only on systems powered by 2nd Generation Intel® Xeon® Platinum or Intel® Xeon® Gold processors.
 * BIOS with Reference Code
-* Intel®Optane™ PMem
+* Intel Optane PMem
 
 Hardware configuration used in stacks development
 =================================================
@@ -64,12 +64,12 @@ Hardware configuration used in stacks development
 * BIOS with Reference Code
   * BIOS ID: SE5C620.86B.0D.01.0438.032620191658
   * BMC Firmware: 1.94.6b42b91d
-  * Intel® Optane™ PMemFirmware: 1.2.0.5310
-* 2x Intel® Xeon Platinum 8268 Processor
-* Intel® SSD DC S5600 Series 960GB 2.5in SATA Drive
+  * Intel Optane PMem Firmware: 1.2.0.5310
+* 2x Intel Xeon Platinum 8268 Processor
+* Intel® SSD Data Center Family S5600 Series 960GB 2.5in SATA Drive
 * 64 GB RAM - Distributed in 4x 16 GB DDR4 DIMM's
-* 2x Intel® Optane™ PMem 256GB Module
-* 1-1-1 Layout 8 Optane™ : 1 RAM ratio
+* 2x Intel Optane PMem 256GB Module
+* 1-1-1 Layout 8 Intel Optane : 1 RAM ratio
 
 
 .. list-table:: **Table 1. IMC**
@@ -104,7 +104,7 @@ Firmware configuration
 
    When updating DCPMM Firmware, all DCPMM parts must be in the same mode (you cannot mix 1LM and 2LM parts).
 
-The latest firmware download for the Intel® Server System S2600WF Family is available at the `Intel Download Center`_
+The latest firmware download for the Intel® Server Board S2600WF Family is available at the `Intel Download Center`_
 
 Firmware Update Steps
 =====================
@@ -117,7 +117,7 @@ Firmware Update Steps
 #. After update BMC firmware, system BIOS, ME firmware,FD, FRUSDR, system will reboot automatically.
 
 
-If Intel® Optane™ PMem is installed, run startup.nsh a second time after the first reboot to upgrade Intel® Optane™ PMem Firmware:
+If Intel Optane PMem is installed, run startup.nsh a second time after the first reboot to upgrade Intel Optane PMem Firmware:
 
 * Boot to EFI shell.
 * Input "fsx(x:0,1,...):" to enter into your usb disk
@@ -134,9 +134,9 @@ Online Resources
 
 Before going through the configuration steps, we strongly recommend visiting the following resources and wikis to have a broader understanding of what is being done
 
-* `Quick Start Guide`_ Configure Intel® Optane™ PMem Modules on Linux
+* `Quick Start Guide`_ Configure Intel Optane PMem Modules on Linux
 * `Managing NVDIMMs`_
-* `Configure, Manage, and Profile`_ Intel® Optane™ PMem Modules
+* `Configure, Manage, and Profile`_ Intel Optane PMem Modules
 
 Optane™ DIMM Configuration
 ==========================
@@ -569,7 +569,7 @@ Eventually all the given nodes will be shown as running using :command:`kubectl 
 Running DBRS with Redis
 ***********************
 
-The Redis stack application is enabled for a multinode Kubernetes environment using Intel® Optane™ DCPMM PMem DIMMs in fsdax mode for storage.
+The Redis stack application is enabled for a multinode Kubernetes environment using Intel Optane DCPMM PMem DIMMs in fsdax mode for storage.
 
 The source code used for this application can be found in the `Github repository`_
 
@@ -584,7 +584,7 @@ The following examples will use the `Docker image with Redis`_.  You can also bu
 Single node
 ===========
 
-Prior to starting the container, you will need to have the Intel® Optane™ DCPMM module in fsdax with a file system and mounted in `/mnt/dax0` as shown above.
+Prior to starting the container, you will need to have the Intel Optane DCPMM module in fsdax with a file system and mounted in `/mnt/dax0` as shown above.
 
 Use the following to start the container, replacing ${DOCKER_IMAGE} with the name of the image you are using.
 
@@ -663,6 +663,8 @@ where:
 
 For more information please refer to this `blog post`_ from `Memcached`_
 
+
+*Intel, Xeon, Intel Optane, and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 
 .. _Intel Download Center: https://downloadcenter.intel.com/download/28695/Intel-Server-Board-S2600WF-Family-BIOS-and-Firmware-Update-Package-for-UEFI

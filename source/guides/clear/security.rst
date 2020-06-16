@@ -138,6 +138,8 @@ some examples:
 * `Tallow`_, a lightweight service which monitors and blocks suspicious SSH
   login patterns, is installed with the :command:`openssh-server` bundle.
 
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
+
 .. _`Security for software update in Clear Linux* OS`: https://clearlinux.org/blogs/security-software-update-clear-linux-os-intel-architecture
 .. _`Recent GNU* C library improvements`: https://clearlinux.org/blogs/recent-gnu-c-library-improvements
 .. _`rolling release`: https://en.wikipedia.org/wiki/Rolling_release

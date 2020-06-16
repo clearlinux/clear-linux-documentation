@@ -6,7 +6,7 @@ Enable AWS Greengrass\* and OpenVINO™ toolkit
 This guide explains how to enable AWS Greengrass\* and OpenVINO™ toolkit.
 Specifically, the guide demonstrates how to:
 
-* Set up the Intel® edge device with |CL-ATTR|
+* Set up the Intel edge device with |CL-ATTR|
 * Install the OpenVINO™ toolkit and Amazon Web Services\* (AWS\*)
   Greengrass\* software stacks
 * Use AWS Greengrass\* and AWS Lambda\* to deploy the FaaS samples from
@@ -20,19 +20,19 @@ Overview
 ********
 
 Hardware accelerated Function-as-a-Service (FaaS) enables cloud developers to
-deploy inference functionalities [1] on Intel® IoT edge devices with
+deploy inference functionalities [1] on Intel IoT edge devices with
 accelerators (CPU, Integrated GPU, Intel® FPGA, and Intel® Movidius™
 technology). These functions provide a great developer experience and
 seamless migration of visual analytics from cloud to edge in a secure manner
 using a containerized environment. Hardware-accelerated FaaS provides the
 best-in-class performance by accessing optimized deep learning libraries on
-Intel® IoT edge devices with accelerators.
+Intel IoT edge devices with accelerators.
 
 Supported platforms
 *******************
 
 *	Operating System: |CL| latest release
-*	Hardware:	Intel® core platforms (that support inference on CPU only)
+*	Hardware:	Intel® Core™ processors (that support inference on CPU only)
 
 Sample description
 ==================
@@ -111,7 +111,7 @@ for the OpenVINO software stack:
    Learn more about how to :ref:`swupd-guide`.
 
 The :command:`computer-vision-basic` bundle installs the OpenVINO™ toolkit,
-and the sample models optimized for Intel® edge platforms.
+and the sample models optimized for Intel edge platforms.
 
 .. _convert-dl-models:
 
@@ -130,7 +130,7 @@ download the BVLC AlexNet model files `bvlc_alexnet.caffemodel`_ and
 :file:`/usr/share/openvino/models`. Any custom pre-trained classification models
 can be used with the classification sample.
 
-For object detection, the sample models optimized for Intel® edge platforms
+For object detection, the sample models optimized for Intel edge platforms
 are included with the computer-vision-basic bundle installation at
 :file:`/usr/share/openvino/models`. These models are provided as an example;
 you may also use a custom SSD model with the Greengrass object detection sample.
@@ -181,7 +181,7 @@ In these examples:
 Configure AWS Greengrass group
 ******************************
 
-For each Intel® edge platform, you must create a new AWS Greengrass group
+For each Intel edge platform, you must create a new AWS Greengrass group
 and install AWS Greengrass core software to establish the connection between
 cloud and edge.
 
@@ -278,7 +278,8 @@ configuring the Lambda function for AWS Greengrass.
         - Value
       * - PARAM_MODEL_XML
         - <MODEL_DIR>/<IR.xml>, where <MODEL_DIR> is user specified and
-          contains IR.xml, the Intermediate Representation file from Intel® Model Optimizer.
+          contains IR.xml, the Intermediate Representation file from the
+          OpenVINO™ Model Optimizer.
           For this guide, <MODEL_DIR> should be set to '/usr/share/openvino/models'
           or one of its subdirectories.
       * - PARAM_INPUT_SOURCE
@@ -395,6 +396,10 @@ References
 #. AWS Greengrass: https://aws.amazon.com/greengrass/
 #. AWS Lambda: https://aws.amazon.com/lambda/
 #. AWS Kinesis: https://aws.amazon.com/kinesis/
+
+
+*Intel, OpenVINO, and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
+
 
 .. _Edge-Analytics-FaaS: https://github.com/intel/Edge-Analytics-FaaS/tree/v1.0/AWS%20Greengrass
 
