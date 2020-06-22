@@ -209,7 +209,7 @@ To use ZFS automatic zpool import and filesystem mount services, link the system
 Load the kernel module at boot
 ==============================
 
-The OpenZFS module will not load automatically at boot. Load the zfs.ko module at boot time with systemd.
+OpenZFS kernel modules must be loaded before any OpenZFS filesystems are mounted. For convenience, load the kernel modules at boot.
 
 #. Systemd uses the `/etc/modules-load.d/` directory to load out-of-tree
    kernel modules. Make sure that the directory exists:
