@@ -96,7 +96,7 @@ and has to be built as an out-of-tree kernel module.
    It is recommended to use the :ref:`LTS kernel <compatible-kernels>` if you
    have to use this driver.
 
-#. See if your device is supported and download the **Linux* STA 64-bit
+#. See if your device is supported and download the **Linux\* STA 64-bit
    driver** from
    `Broadcom's download website
    <https://www.broadcom.com/support/download-search?pg=&pf=Wireless+LAN+Infrastructure>`_
