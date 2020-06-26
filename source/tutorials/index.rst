@@ -53,6 +53,7 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
       -  :ref:`openfaas`
       -  :ref:`multi-boot`
       -  :ref:`machine-learning`
+      -  :ref:`zfs`
 
 
 .. toctree::
