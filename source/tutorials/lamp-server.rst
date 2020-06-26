@@ -4,7 +4,7 @@ LAMP Web Server
 ###############
 
 This tutorial provides instructions on how to set up a
-:abbr:`LAMP (Linux, Apache\*, MySQL, PHP)` web server on |CL-ATTR| and how
+:abbr:`LAMP (Linux\*, Apache\*, MySQL\*, PHP)` web server on |CL-ATTR| and how
 to use phpMyAdmin\* to manage an associated database. Note that this
 tutorial installs MariaDB\*, which is a drop-in replacement for MySQL\*.
 

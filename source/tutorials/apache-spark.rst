@@ -1,7 +1,7 @@
   .. _spark:
 
-Apache\* Spark\*
-################
+Apache\* Spark
+##############
 
 This tutorial describes how to install, configure, and run Apache Spark on
 |CL-ATTR| on a single machine running the master daemon and a worker daemon.

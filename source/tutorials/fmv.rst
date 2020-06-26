@@ -277,8 +277,10 @@ application code.
 
 You have successfully installed an FMV development environment on |CL|.
 Furthermore, you used cutting edge compiler technology to improve the
-performance of your application based on Intel® architecture technology and
+performance of your application based on Intel® architecture and
 profiling of the specific execution of your application.
+
+*Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
 .. _GCC:  https://gcc.gnu.org
 .. _make-fmv-patch: https://github.com/clearlinux/make-fmv-patch

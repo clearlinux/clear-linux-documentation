@@ -35,7 +35,7 @@ For more background information see:
 
   * `What is Docker?`_
 
-* `What is Kata Containers?`_
+* `What is Kata Containers\*?`_
 
 Prerequisites
 *************
@@ -463,8 +463,8 @@ Kubernetes container runtime:
 Add the Kata runtime to Kubernetes
 -----------------------------------
 
-For information on Kata as a container runtime, see `What is Kata
-Containers?`_. Using Kata Containers is optional.
+For information on Kata as a container runtime, see `What is Kata Containers\*?`_.
+Using Kata Containers is optional.
 
 You can use *kata-deploy* to install all the necessary parts of Kata
 Containers after you have a Kubernetes cluster running with one of the CRI's
@@ -733,15 +733,15 @@ limitation of using Dockershim is that all pods on the Kubernetes node will
 inherit and use the default runtime that Docker is set to use. To be able to
 specify a container runtime per-Kerbernetes service, use CRI+O or containerd. 
 
-What is Kata Containers?
-========================
+What is Kata Containers\*?
+==========================
 
 `Kata Containers`_ is an alternative OCI compatible runtime that secures
 container workloads in a lightweight virtual machine. It provides stronger
 workloads isolation using hardware virtualization technology as a second layer
 of defense for untrusted workloads or multi-tenant scenarios.
 
-The Kata Containers\* (kata-runtime) adheres to :abbr:`OCI (Open Container
+The Kata Containers (kata-runtime) adheres to :abbr:`OCI (Open Container
 Initiative*)` guidelines and works seamlessly with Kubernetes through Docker,
 containerd, or CRI+O.
 

@@ -143,8 +143,8 @@ typically located at :file:`/etc/docker/daemon.json`. |CL| features a
 
       sudo systemctl restart docker
 
-Pulling and running an image from Docker Hub
-********************************************
+Pulling and running an image from Docker Hub\*
+**********************************************
 
 `Docker Hub`_ is a publicly available container image repository which
 comes pre-configured with Docker. In the example below we will pull and run

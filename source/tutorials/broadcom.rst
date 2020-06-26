@@ -4,7 +4,7 @@ Broadcom\* Drivers
 ##################
 
 Broadcom manufactures wireless network interfaces, including devices that
-support WiFi and Bluetooth. 
+support WiFi and Bluetooth® technology.
 
 Broadcom wireless devices on Linux\* have a lot of different combinations of
 possible required software depending on the exact model of your device. These
@@ -96,7 +96,7 @@ and has to be built as an out-of-tree kernel module.
    It is recommended to use the :ref:`LTS kernel <compatible-kernels>` if you
    have to use this driver.
 
-#. See if your device is supported and download the **Linux® STA 64-bit
+#. See if your device is supported and download the **Linux\* STA 64-bit
    driver** from
    `Broadcom's download website
    <https://www.broadcom.com/support/download-search?pg=&pf=Wireless+LAN+Infrastructure>`_
@@ -236,3 +236,4 @@ Troubleshooting
   different path than expected. Check the output of :command:`sudo dmesg |
   grep -i firmware` for firmware loading issues.
 
+*The Bluetooth® word mark and logos are registered trademarks owned by Bluetooth SIG, Inc. and any use of such marks by Intel Corporation is under license.*

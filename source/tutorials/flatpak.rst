@@ -3,7 +3,7 @@
 Flatpak\*
 #########
 
-This tutorial shows how to install a `Flatpak`_ app on |CL| using Gnome\* Software
+This tutorial shows how to install a `Flatpak`_ app on |CL| using GNOME\* Software
 and the command line.
 
 .. contents::
@@ -37,21 +37,21 @@ Prerequisites
 
      sudo swupd bundle-add desktop-autostart
 
-Install a Flatpak app with Gnome Software
+Install a Flatpak app with GNOME Software
 *****************************************
 
-|CL| desktop comes with Gnome Software installed. Flatpak apps can be
-installed from within Gnome Software.
+|CL| desktop comes with GNOME Software installed. Flatpak apps can be
+installed from within GNOME Software.
 
-#. Launch Gnome Software from your desktop.
+#. Launch GNOME Software from your desktop.
 
 #. Search for the Flatpak app that you want to install, as shown in Figure 1.
 
    .. figure:: /_figures/flatpak/flatpak-01.png
       :scale: 50%
-      :alt: Searching for Filezilla app in Gnome Software
+      :alt: Searching for Filezilla app in GNOME Software
 
-      Figure 1: Searching for Filezilla app in Gnome Software
+      Figure 1: Searching for Filezilla\* app in GNOME Software
 
 #. When you find the app you want to install, click it to view application
    details.
@@ -61,12 +61,12 @@ installed from within Gnome Software.
 
    .. figure:: /_figures/flatpak/flatpak-02.png
       :scale: 50%
-      :alt: Filezilla Flatpak detail page in Gnome Software
+      :alt: Filezilla Flatpak detail page in GNOME Software
 
-      Figure 2: Filezilla Flatpak detail page in Gnome Software
+      Figure 2: Filezilla Flatpak detail page in GNOME Software
 
 #. After installation is complete, the new application will be in your
-   Gnome applications list, as shown in Figure 3.
+   GNOME applications list, as shown in Figure 3.
 
    .. figure:: /_figures/flatpak/flatpak-03.png
       :scale: 50%
@@ -81,7 +81,7 @@ Install a Flatpak with the command line
 
 Both Flathub and the Clear Linux Store provide the command line instructions
 for installing a Flatpak. Figure 4 shows the command line instructions to
-install Filezilla from the Clear Linux Store:
+install Filezilla\* from the Clear Linux Store:
 
 .. figure:: /_figures/flatpak/flatpak-04.png
    :scale: 50%
