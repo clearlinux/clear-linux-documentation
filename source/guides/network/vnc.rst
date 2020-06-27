@@ -639,7 +639,7 @@ For Method 2:
 
    .. code-block:: bash
 
-      sudo systemctl daemon-load
+      sudo systemctl daemon-reload
       sudo systemctl restart vncserver@:5.service
 
 For Method 3:
