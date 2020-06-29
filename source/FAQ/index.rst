@@ -226,8 +226,8 @@ ZFS is not available with |CL| because of copyright and licensing
 complexities. BTRFS is an alternative filesystem that is available in |CL|
 natively.
 
-A user on GitHub notes that the `ZFS kernel module can be compiled, built, and
-installed manually <https://github.com/clearlinux/distribution/issues/631>`_.
+A community contributed tutorial has been shared on how to :ref:`manually
+install ZFS <zfs>`.
 
 |
 
