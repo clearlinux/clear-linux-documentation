@@ -452,8 +452,15 @@ Kubernetes container runtime:
    .. code:: bash
 
       sudo kubeadm init \
-      --pod-network-cidr 10.244.0.0/16 
-
+      --pod-network-cidr 10.244.0.0/16
+   .. important::
+   
+      We need to install the pod network before the cluster can come up. The following will install the latest yaml file that flannel provides. 
+   
+   .. code:: bash
+   
+      kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
+   
 
 #. Once the cluster initialization is complete, continue reading about how to
    `Use your cluster`_.
