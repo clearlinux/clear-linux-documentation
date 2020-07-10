@@ -32,29 +32,9 @@ Prerequisites
 Install the DKMS kernel
 =======================
 
-If you do not currently use a DKMS kernel, install it by using one of the options below.
-
-#.  Check whether you have an LTS or native kernel:
-
-    .. code-block:: bash
-  
-       uname -r
-
-    a. If 'native' appears in the kernel name, then install a native
-       kernel with DKMS support:
-
-       .. code-block:: bash
-
-          sudo swupd bundle-add kernel-native-dkms
-
-    #. If 'lts' appears in the kernel name, then install the latest LTS
-       kernel with DKMS support:
-
-       .. code-block:: bash
-
-          sudo swupd bundle-add kernel-lts-dkms
-
-#. Reboot and make sure you can start the new kernel.
+.. include:: ../guides/kernel/kernel-modules-dkms.rst
+   :start-after: kernel-modules-dkms-install-begin-alt:
+   :end-before: kernel-modules-dkms-install-end:
 
 Bundles
 =======

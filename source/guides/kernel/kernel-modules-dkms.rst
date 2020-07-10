@@ -64,8 +64,10 @@ The :command:`kernel-native-dkms` bundle also:
    kernel. This is especially important for systems where a successful boot
    relies on a kernel module.
 
+.. _kernel-modules-dkms-install-begin-alt:
+
 Install the :command:`kernel-native-dkms` or :command:`kernel-lts-dkms`
-bundle:
+bundle.
 
 #. Determine which kernel variant is running on |CL|. Only the *native*
    and *lts* kernels are enabled to build and load out-of-tree kernel modules
@@ -93,7 +95,8 @@ bundle:
       sudo swupd bundle-add kernel-lts-dkms
 
 
-#. Update the |CL| bootloader and reboot.
+#. Update the |CL| bootloader and reboot, and 
+   ensure that you can start the new kernel.
 
    .. code-block:: bash
 
