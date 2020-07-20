@@ -91,7 +91,7 @@ optimize software builds for runtime performance. Some significant flags that
 	Options used to tune generated code with optimized instructions for specific
 	CPU types instead of creating generic code for maximum compatibility.
 
-	|CL| defines it's minimum hardware requirements to be second-generation
+	|CL| defines its minimum hardware requirements to be second-generation
 	Intel® microarchitecture code name Westmere (released in 2010) or later.
 	This enables compiler optimizations that are available only on newer
 	architectures. Whenever possible, |CL| tunes code for the Haswell generation
