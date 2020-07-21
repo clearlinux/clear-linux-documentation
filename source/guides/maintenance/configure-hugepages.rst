@@ -23,7 +23,7 @@ to add hugepages to the system and how to change the default hugepage size.
       
       The active option is enclosed in brackets. In this case, always is active, 
       which means hugepages are enabled for every process. The `madvise` 
-      option means that hugepages are enabled for processes that explicitely 
+      option means that hugepages are enabled for processes that explicitly 
       call `madvise`_. 
 
 #. To check the size of hugepages, run the below command.
