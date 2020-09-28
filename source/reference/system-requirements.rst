@@ -39,7 +39,7 @@ System requirements
 *******************
 
 |CL| requires an x86 64-bit processor which supports Intel® Streaming SIMD
-Extensions 4.2 (Intel® SSE 4.2), and it requires a system that supports UEFI.
+Extensions 4.2 (Intel® SSE 4.2).
 
 The |CL| installer performs a system compatibility check upon booting. To
 manually verify system compatibility with |CL|, run the :ref:`compatibility
