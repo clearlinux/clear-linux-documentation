@@ -31,7 +31,6 @@ sorted by difficulty level! Learn about :ref:`how we evaluate tutorials <tutoria
       Moderate
 
       -  :ref:`hadoop`
-      -  :ref:`spark`
       -  :ref:`broadcom`
       -  :ref:`fmv`
       -  :ref:`hpc`
