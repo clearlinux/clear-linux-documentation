@@ -39,7 +39,9 @@ System requirements
 *******************
 
 |CL| requires an x86 64-bit processor which supports Intel® Streaming SIMD
-Extensions 4.2 (Intel® SSE 4.2).
+Extensions 4.2 (Intel® SSE 4.2). 
+
+For information on the boot loader, see the `clr-boot-manager readme`_ .
 
 The |CL| installer performs a system compatibility check upon booting. To
 manually verify system compatibility with |CL|, run the :ref:`compatibility
@@ -89,3 +91,5 @@ Network      Active Internet connection
 
 *Intel, Intel Core, Xeon, Intel Atom, and the Intel logo are trademarks of
 Intel Corporation or its subsidiaries.*
+
+.. _clr-boot-manager readme: https://github.com/clearlinux/clr-boot-manager
