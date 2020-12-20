@@ -41,7 +41,7 @@ Bundles
 
 Before installing OpenZFS, install the bundles that contain the build dependencies.
 
-.. code-block:: bash
+.. code-block:: console
 
     sudo swupd bundle-add wget devpkg-openssl devpkg-util-linux
 
@@ -53,9 +53,9 @@ Download OpenZFS release
 
 In this section, we download release 2.0.0 directly from the `OpenZFS repository` (the latest available as of the latest revision of this page).
 
-#. Download release 2.0.0
+Download release 2.0.0
 
-   .. code-block:: bash
+   .. code-block:: console
    
       cd /usr/src
       sudo wget https://github.com/openzfs/zfs/releases/download/zfs-2.0.0/zfs-2.0.0.tar.gz
@@ -66,10 +66,11 @@ Compile the module
 
 We will build the module using DKMS. This will enable us to keep the module up to date as new kernels are released in the future.
 
-#. The ZFS distribution provides a script to build a suitable dkms.conf file.
+The ZFS distribution provides a script to build a suitable dkms.conf file.
+
    Build dkms.conf and install it into the DKMS tree.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       cd /usr/src/zfs-2.0.0
       sudo scripts/dkms.mkconf -n zfs -v 2.0.0 -f dkms.conf
@@ -77,19 +78,22 @@ We will build the module using DKMS. This will enable us to keep the module up t
       sudo dkms build -m zfs -v 2.0.0
       sudo dkms install -m zfs -v 2.0.0
       
-#. Observe that this install the zfs kernel modules to: 
+Observe that this install the zfs kernel modules to: 
+
    :file:`/usr/lib/modules/<kernel-name>/extra/zfs`
    
 Compile userspace tools
 =======================
 
-   .. code-block:: bash
+Here we compile and install the zfs userspace tools (e.g., zpool, zfs, etc.).
 
+   .. code-block:: console
+   
+      cd /usr/src/zfs-2.0.0
       sudo ./configure
       sudo ./make install
 
-
-   This installs the zfs userspace tools (e.g., zpool, zfs, etc.) to:
+The binaries are installed at the following directory. While not required, it's recommended to add :file:`/usr/local/sbin` to your path variable.
 
    .. code-block:: console
 
@@ -126,13 +130,6 @@ Compile userspace tools
          |--+ spl-2.0.0/
 
 
-#. Load the new kernel module:
-
-   .. code-block: bash
-
-      sudo modprobe zfs
-
-
 Set up systemd
 ==============
 
@@ -148,11 +145,12 @@ We now have these unit files available.
    zfs-share.service
    zfs-volume-wait.service
   
+  
 OpenZFS requires that we  explicitly install and enable the services desired. 
 
 To use ZFS automatic zpool import and filesystem mount services, enable them.
 
-.. code-block:: bash
+.. code-block:: console
 
    sudo systemctl enable zfs-import-cache
    sudo systemctl enable zfs-import.target
@@ -166,20 +164,19 @@ Load the kernel module at boot
 
 OpenZFS kernel modules must be loaded before any OpenZFS filesystems are mounted. For convenience, load the kernel modules at boot.
 
-#. Systemd uses the `/etc/modules-load.d/` directory to load out-of-tree
-   kernel modules. Make sure that the directory exists:
+Systemd uses the `/etc/modules-load.d/` directory to load out-of-tree kernel modules. Make sure that the directory exists:
 
    .. code-block:: bash
 
       sudo mkdir -p /etc/modules-load.d
 
-#. Create the configuration file:
+Create the configuration file:
 
    .. code-block:: bash
 
       echo "zfs" | sudo tee /etc/modules-load.d/01-zfs.conf
 
-#. Reboot your system. zfs.ko should be loaded automatically (the module should appear in the out of command :file:`lsmod`).
+Reboot your system. zfs.ko should be loaded automatically (the module should appear in the outout of command :file:`lsmod`).
 
 .. CAUTION::
 
@@ -201,13 +198,13 @@ Troubleshooting
 
 If you suspect an issue with DKMS rebuilding your module, you can check two places for information. The dkms-new-kernel service will show status that may help in troubleshooting:
 
-.. code-block:: bash
+.. code-block:: console
 
    systemctl status dkms-new-kernel.service
 
 The systemd journal may also have important information:
 
-.. code-block:: bash
+.. code-block:: console
 
    journalctl -xe
 
