@@ -121,7 +121,7 @@ and sustainable on |CL|.
     
          sudo systemctl daemon-reload
        
-   c. Add the service as a depndency to the |CL| updates trigger causing the
+   c. Add the service as a dependency to the |CL| updates trigger causing the
       service to run after every update.
   
       .. code-block:: bash  
