@@ -91,7 +91,8 @@ Here we compile and install the zfs userspace tools (e.g., zpool, zfs, etc.).
    
       cd /usr/src/zfs-2.0.0
       sudo ./configure
-      sudo ./make install
+      sudo make
+      sudo make install
 
 The binaries are installed at the following directory. While not required, it's recommended to add :file:`/usr/local/sbin` to your path variable.
 
@@ -154,7 +155,7 @@ To use ZFS automatic zpool import and filesystem mount services, enable them.
 
    sudo systemctl enable zfs-import-cache
    sudo systemctl enable zfs-import.target
-
+   sudo systemctl enable zfs-import-scan
    sudo systemctl enable zfs-mount
    sudo systemctl enable zfs.target
 
