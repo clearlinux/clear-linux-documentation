@@ -115,6 +115,14 @@ running quickly.
 
       sudo systemctl stop docker
       sudo systemctl stop containerd
+      
+
+#. Install git as it's a dependency of the :file:`create_stack.sh`.
+
+   .. code-block:: bash
+
+      sudo swupd bundle-add git
+
 
 #. Run the :file:`create_stack.sh` script to initialize the Kubernetes node
    and setup a container network plugin.
