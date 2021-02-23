@@ -1,18 +1,16 @@
-.. _kubernetes:
+.. _kubernetes-migration:
 
-Kubernetes\* Migration
+Kubernetes\* migration
 ######################
 
-This guide describes how to migrate
-`Kubernetes container orchestration system`_ on |CL-ATTR|
-from 1.17.x to 1.19.x.
+This guide describes how to migrate `Kubernetes container orchestration system`_ on |CL-ATTR| from 1.17.x to 1.19.x.
 
 .. contents::
    :local:
    :depth: 1
 
 Background
-==========
+**********
 
 The version of Kubernetes\* was bumped from 1.17.7 to 1.19.4 in |CL-ATTR|
 release 34090. This guide and the |CL| bundle `k8s-migration` were created
@@ -21,7 +19,7 @@ to help facilitate migration of a cluster from 1.17.x to the latest 1.19.x .
 The new |CL| bundle `k8s-migration` was added in |CL-ATTR| release 34270.
 
 Prerequisites
-=============
+*************
 
 * Make sure you check any updates to kubernetes upgrade doc for caveats related to the version that is running in the cluster.
 * Make sure ALL the nodes are in Ready state. Without that, the cluster cannot be upgraded.
@@ -31,8 +29,8 @@ Prerequisites
    :local:
    :depth: 1
 
-Upgrade Steps
-=============
+Upgrade steps
+*************
 
 #. Upgrade Control Node to 1.18.15 first
 
@@ -52,57 +50,59 @@ Upgrade Steps
       Note: PLEASE DO NOT REBOOT YOUR SYSTEM AT THIS TIME. |CL| is awesome and
       your stuff will work just fine.
 
-Add the new Kubernetes migration bundle which contains the 1.18.15 binaries.
+#. Add the new Kubernetes migration bundle which contains the 1.18.15 binaries.
 
    .. code-block:: bash
 
       sudo -E swupd bundle-add k8s-migration
 
-Find the upgrade version of kubeadm that can used. This should be 1.18.15.
+#. Find the upgrade version of kubeadm that can used. This should be 1.18.15.
 
    .. code-block:: bash
 
       sudo -E /usr/k8s-migration/bin/kubeadm upgrade plan
 
-This command will show the command and possible jumps that can be made from the current kubernetes version.
-Sample output:
+#. This command will show the command and possible jumps that can be made from the current kubernetes version.
+
+   Sample output:
 
    .. code-block:: console
-    [upgrade/config] Making sure the configuration is correct:
-    [upgrade/config] Reading configuration from the cluster...
-    [upgrade/config] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
-    [preflight] Running pre-flight checks.
-    [upgrade] Running cluster health checks
-    [upgrade] Fetching available versions to upgrade to
-    [upgrade/versions] Cluster version: v1.17.17
-    [upgrade/versions] kubeadm version: v1.18.15
-    I0209 21:12:49.868786  832739 version.go:252] remote version is much newer: v1.20.2; falling back to: stable-1.18
-    [upgrade/versions] Latest stable version: v1.18.15
-    [upgrade/versions] Latest stable version: v1.18.15
-    [upgrade/versions] Latest version in the v1.17 series: v1.17.17
-    [upgrade/versions] Latest version in the v1.17 series: v1.17.17
-    
-    Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
-    COMPONENT   CURRENT       AVAILABLE
-    Kubelet     3 x v1.17.7   v1.18.15
-    
-    Upgrade to the latest stable version:
-    
-    COMPONENT            CURRENT    AVAILABLE
-    API Server           v1.17.17   v1.18.15
-    Controller Manager   v1.17.17   v1.18.15
-    Scheduler            v1.17.17   v1.18.15
-    Kube Proxy           v1.17.17   v1.18.15
-    CoreDNS              1.6.5      1.6.7
-    Etcd                 3.4.3      3.4.3-0
-    
-    You can now apply the upgrade by executing the following command:
-    
-    	kubeadm upgrade apply v1.18.15
-    
-    _____________________________________________________________________
 
-Upgrade the node to the intermediate 1.18.15 version of Kubernetes.
+      [upgrade/config] Making sure the configuration is correct:
+      [upgrade/config] Reading configuration from the cluster...
+      [upgrade/config] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
+      [preflight] Running pre-flight checks.
+      [upgrade] Running cluster health checks
+      [upgrade] Fetching available versions to upgrade to
+      [upgrade/versions] Cluster version: v1.17.17
+      [upgrade/versions] kubeadm version: v1.18.15
+      I0209 21:12:49.868786  832739 version.go:252] remote version is much newer: v1.20.2; falling back to: stable-1.18
+      [upgrade/versions] Latest stable version: v1.18.15
+      [upgrade/versions] Latest stable version: v1.18.15
+      [upgrade/versions] Latest version in the v1.17 series: v1.17.17
+      [upgrade/versions] Latest version in the v1.17 series: v1.17.17
+
+      Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
+      COMPONENT   CURRENT       AVAILABLE
+      Kubelet     3 x v1.17.7   v1.18.15
+
+      Upgrade to the latest stable version:
+
+      COMPONENT            CURRENT    AVAILABLE
+      API Server           v1.17.17   v1.18.15
+      Controller Manager   v1.17.17   v1.18.15
+      Scheduler            v1.17.17   v1.18.15
+      Kube Proxy           v1.17.17   v1.18.15
+      CoreDNS              1.6.5      1.6.7
+      Etcd                 3.4.3      3.4.3-0
+
+#. You can now apply the upgrade by executing the following command:
+
+   .. code-block:: bash
+
+    	kubeadm upgrade apply v1.18.15
+
+#. Upgrade the node to the intermediate 1.18.15 version of Kubernetes.
 
    .. code-block:: bash
 
@@ -113,48 +113,48 @@ Upgrade the node to the intermediate 1.18.15 version of Kubernetes.
 
 #. Upgrade Additional Control Nodes to 1.18.15
 
-In multi-node control plane, verify all the control plane nodes are updated prior to upgrading the worker nodes/SUTs.
+#. In multi-node control plane, verify all the control plane nodes are updated prior to upgrading the worker nodes/SUTs.
 
 #. Upgrade Other Nodes to 1.18.15
 
-For each of the other notes, ...
+   a. For each of the other nodes:
 
-   Update |CL| to the latest release to update the kubernetes version.
+      Update |CL| to the latest release to update the kubernetes version.
 
-   .. code-block:: bash
+      .. code-block:: bash
 
-      sudo -E swupd update
+         sudo -E swupd update
 
-    Add the new Kubernetes migration bundle which contains the 1.18.15 binaries.
+   #. Add the new Kubernetes migration bundle which contains the 1.18.15 binaries.
 
-   .. code-block:: bash
+       .. code-block:: bash
 
-      sudo -E swupd bundle-add k8s-migration
+          sudo -E swupd bundle-add k8s-migration
 
-   *On the admin node, drain the client FIRST*
+   #. *On the admin node, drain the client FIRST*
 
-   .. code-block:: bash
+       .. code-block:: bash
 
-      /usr/k8s-migration/bin/kubectl drain <NODE_NAME> --ignore-daemonsets --delete-local-data
+          /usr/k8s-migration/bin/kubectl drain <NODE_NAME> --ignore-daemonsets --delete-local-data
 
-   *Back on the client node, upgrade Kubernetes on the client*
+   #. *Back on the client node, upgrade Kubernetes on the client*
 
-   .. code-block:: bash
+       .. code-block:: bash
 
-      sudo -E /usr/k8s-migration/bin/kubeadm upgrade node
+          sudo -E /usr/k8s-migration/bin/kubeadm upgrade node
 
-   *On the admin node, reenable the client*
+   #. *On the admin node, reenable the client*
 
-   .. code-block:: bash
+       .. code-block:: bash
 
-      /usr/k8s-migration/bin/kubectl uncordon <NODE_NAME>
+          /usr/k8s-migration/bin/kubectl uncordon <NODE_NAME>
 
 
-   *Back on the client node, restart Kubernetes on the client*
+   #. *Back on the client node, restart Kubernetes on the client*
 
-   .. code-block:: bash
+       .. code-block:: bash
 
-      sudo -E systemctl restart kubelet
+          sudo -E systemctl restart kubelet
 
 #. Restart Kubernetes on the admin node(s) to finish the 1.18.x upgrade
 
@@ -171,122 +171,136 @@ For each of the other notes, ...
 
    Now that systems are upgraded to the intermediate release of 1.18.15
    each of the nodes can be upgraded to the latest 1.19.x release.
-   
-Find the upgrade version of kubeadm that can used. This should be 1.19.x.
+
+#. Find the upgrade version of kubeadm that can used. This should be 1.19.x.
 
    .. code-block:: bash
 
       sudo -E kubeadm upgrade plan
 
-This command will show the command and possible jumps that can be made from the current kubernetes version.
-Sample output:
+#. This command will show the command and possible jumps that can be made from the current kubernetes version.
+
+   Sample output:
 
    .. code-block:: console
-    [upgrade/config] Making sure the configuration is correct:
-    [upgrade/config] Reading configuration from the cluster...
-    [upgrade/config] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
-    [preflight] Running pre-flight checks.
-    [upgrade] Running cluster health checks
-    [upgrade] Fetching available versions to upgrade to
-    [upgrade/versions] Cluster version: v1.18.15
-    [upgrade/versions] kubeadm version: v1.19.7
-    I0209 23:08:23.810900  925910 version.go:252] remote version is much newer: v1.20.2; falling back to: stable-1.19
-    [upgrade/versions] Latest stable version: v1.19.7
-    [upgrade/versions] Latest stable version: v1.19.7
-    [upgrade/versions] Latest version in the v1.18 series: v1.18.15
-    [upgrade/versions] Latest version in the v1.18 series: v1.18.15
-    
-    Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
-    COMPONENT   CURRENT       AVAILABLE
-    kubelet     3 x v1.17.7   v1.19.7
-    
-    Upgrade to the latest stable version:
-    
-    COMPONENT                 CURRENT    AVAILABLE
-    kube-apiserver            v1.18.15   v1.19.7
-    kube-controller-manager   v1.18.15   v1.19.7
-    kube-scheduler            v1.18.15   v1.19.7
-    kube-proxy                v1.18.15   v1.19.7
-    CoreDNS                   1.6.7      1.7.0
-    etcd                      3.4.3-0    3.4.13-0
-    
-    You can now apply the upgrade by executing the following command:
-    
-    	kubeadm upgrade apply v1.19.7
-    
-    _____________________________________________________________________
-    
-    
-    The table below shows the current state of component configs as understood by this version of kubeadm.
-    Configs that have a "yes" mark in the "MANUAL UPGRADE REQUIRED" column require manual config upgrade or
-    resetting to kubeadm defaults before a successful upgrade can be performed. The version to manually
-    upgrade to is denoted in the "PREFERRED VERSION" column.
-    
-    API GROUP                 CURRENT VERSION   PREFERRED VERSION   MANUAL UPGRADE REQUIRED
-    kubeproxy.config.k8s.io   v1alpha1          v1alpha1            no
-    kubelet.config.k8s.io     v1beta1           v1beta1             no
-    _____________________________________________________________________
 
-Upgrade the node to the latest 1.19.x version of Kubernetes.
+      [upgrade/config] Making sure the configuration is correct:
+      [upgrade/config] Reading configuration from the cluster...
+      [upgrade/config] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -oyaml'
+      [preflight] Running pre-flight checks.
+      [upgrade] Running cluster health checks
+      [upgrade] Fetching available versions to upgrade to
+      [upgrade/versions] Cluster version: v1.18.15
+      [upgrade/versions] kubeadm version: v1.19.7
+      I0209 23:08:23.810900  925910 version.go:252] remote version is much newer: v1.20.2; falling back to: stable-1.19
+      [upgrade/versions] Latest stable version: v1.19.7
+      [upgrade/versions] Latest stable version: v1.19.7
+      [upgrade/versions] Latest version in the v1.18 series: v1.18.15
+      [upgrade/versions] Latest version in the v1.18 series: v1.18.15
+
+      Components that must be upgraded manually after you have upgraded the control plane with 'kubeadm upgrade apply':
+      COMPONENT   CURRENT       AVAILABLE
+      kubelet     3 x v1.17.7   v1.19.7
+
+      Upgrade to the latest stable version:
+
+      COMPONENT                 CURRENT    AVAILABLE
+      kube-apiserver            v1.18.15   v1.19.7
+      kube-controller-manager   v1.18.15   v1.19.7
+      kube-scheduler            v1.18.15   v1.19.7
+      kube-proxy                v1.18.15   v1.19.7
+      CoreDNS                   1.6.7      1.7.0
+      etcd                      3.4.3-0    3.4.13-0
+
+#. You can now apply the upgrade by executing the following command:
+
+   .. code-block:: bash
+
+      kubeadm upgrade apply v1.19.7
+
+   The table below shows the current state of component configs as understood by this version of kubeadm.
+   Configs that have a "yes" mark in the "MANUAL UPGRADE REQUIRED" column require manual config upgrade or
+   resetting to kubeadm defaults before a successful upgrade can be performed. The version to manually
+   upgrade to is denoted in the "PREFERRED VERSION" column.
+
+   .. list-table::
+      :widths: auto
+      :header-rows: 1
+
+      * - API GROUP
+        - CURRENT VERSION
+        - PREFERRED VERSION
+        - MANUAL UPGRADE REQUIRED
+
+      * - kubeproxy.config.k8s.io
+        - v1alpha1
+        - v1alpha1
+        - no
+
+      * - kubelet.config.k8s.io
+        - v1beta1
+        - v1beta1
+        - no
+
+#. Upgrade the node to the latest 1.19.x version of Kubernetes.
 
    .. code-block:: bash
 
       sudo -E /usr/bin/kubeadm upgrade apply v1.19.7
 
    .. note::
+
       Note: Do **not** reboot the system yet.
 
 #. Upgrade Additional Control Nodes to 1.19.x
 
-In multi-node control plane, verify all the control plane nodes are updated prior to upgrading the worker nodes/SUTs.
+   In multi-node control plane, verify all the control plane nodes are updated prior to upgrading the worker nodes/SUTs.
 
 #. Upgrade Other Nodes to 1.19.x
 
-For each of the other notes, ...
+   For each of the other nodes:
 
-   *On the admin node, drain the client FIRST*
+   a. *On the admin node, drain the client FIRST*
 
-   .. code-block:: bash
+      .. code-block:: bash
 
-      kubectl drain <NODE_NAME> --ignore-daemonsets
+         kubectl drain <NODE_NAME> --ignore-daemonsets
 
-    *Back on the client node, upgrade Kubernetes on the client*
+   #. *Back on the client node, upgrade Kubernetes on the client*
 
-   .. code-block:: bash
+      .. code-block:: bash
 
-      sudo -E kubeadm upgrade node
+         sudo -E kubeadm upgrade node
 
-   *On the admin node, reenable the client*
+   #. *On the admin node, reenable the client*
 
-   .. code-block:: bash
+       .. code-block:: bash
 
-      kubectl uncordon <NODE_NAME>
+          kubectl uncordon <NODE_NAME>
 
-    *Back on the client node, if you wish reboot the client, it is now safe to do so.*
+   #. *Back on the client node, if you wish reboot the client, it is now safe to do so.*
 
-   .. code-block:: bash
+       .. code-block:: bash
 
-      sudo reboot
+          sudo reboot
 
 #. Reboot the Control Node (optional)
 
-    *If you wish reboot the nodes, it is now safe to do so.*
+  *If you wish reboot the nodes, it is now safe to do so.*
 
    .. code-block:: bash
 
       sudo reboot
-
 
 **Congratulations!**
 
 You've successfully installed and set up Kubernetes in |CL| using CRI-O and kata-runtime. You are now ready to follow on-screen instructions to deploy a pod network to the cluster and join worker nodes with the displayed token and IP information.
 
-#. Clean up: Remove the migration bundle for each node
+Clean up: Remove the migration bundle for each node
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      sudo -E swupd bundle-remove k8s-migration
-
+   sudo -E swupd bundle-remove k8s-migration
 
 Related topics
 **************
@@ -295,9 +309,9 @@ Read the Kubernetes documentation to learn more about:
 
 *  :ref:`Kubernetes tutorial <kubernetes>`
 
-*  Deploying Kubernetes with a `cloud-native-setup`_
-
 *  :ref:`Kubernetes best practices <kubernetes-bp>`
+
+*  Deploying Kubernetes with a `cloud-native-setup`_
 
 * `Understanding basic Kubernetes architecture`_
 
