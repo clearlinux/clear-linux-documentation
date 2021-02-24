@@ -29,15 +29,15 @@ Prerequisites
    :local:
    :depth: 1
 
-Upgrade steps
-*************
+Upgrade 1.17.x ---> 1.18.15
+***************************
 
 #. Upgrade Control Node to 1.18.15 first
 
    First step would be to upgrade one of the main control node and
    update kubernetes components on them. You will need to have a newer
    version of :command:`kubeadm` for the upgrade to work. Please consult
-   `kubeadm upgrade guide <https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/>`_
+   `kubeadm upgrade guide`_
    for any caveats from your current version to the new one.
 
    Update |CL| to the latest release to update the kubernetes version.
@@ -58,11 +58,11 @@ Upgrade steps
 
 #. Find the upgrade version of kubeadm that can used. This should be 1.18.15.
 
+   This command will show the command and possible jumps that can be made from the current kubernetes version.
+
    .. code-block:: bash
 
       sudo -E /usr/k8s-migration/bin/kubeadm upgrade plan
-
-#. This command will show the command and possible jumps that can be made from the current kubernetes version.
 
    Sample output:
 
@@ -96,11 +96,9 @@ Upgrade steps
       CoreDNS              1.6.5      1.6.7
       Etcd                 3.4.3      3.4.3-0
 
-#. You can now apply the upgrade by executing the following command:
+      You can now apply the upgrade by executing the following command:
 
-   .. code-block:: bash
-
-    	kubeadm upgrade apply v1.18.15
+        kubeadm upgrade apply v1.18.15
 
 #. Upgrade the node to the intermediate 1.18.15 version of Kubernetes.
 
@@ -113,13 +111,13 @@ Upgrade steps
 
 #. Upgrade Additional Control Nodes to 1.18.15
 
-#. In multi-node control plane, verify all the control plane nodes are updated prior to upgrading the worker nodes/SUTs.
+   In multi-node control plane, verify all the control plane nodes are updated prior to upgrading the worker nodes/SUTs.
 
 #. Upgrade Other Nodes to 1.18.15
 
-   a. For each of the other nodes:
+   For each of the other nodes:
 
-      Update |CL| to the latest release to update the kubernetes version.
+   a. Update |CL| to the latest release to update the kubernetes version.
 
       .. code-block:: bash
 
@@ -127,36 +125,36 @@ Upgrade steps
 
    #. Add the new Kubernetes migration bundle which contains the 1.18.15 binaries.
 
-       .. code-block:: bash
+      .. code-block:: bash
 
-          sudo -E swupd bundle-add k8s-migration
+         sudo -E swupd bundle-add k8s-migration
 
-   #. *On the admin node, drain the client FIRST*
+   #. On the **Admin node**, drain the Client node *FIRST*
 
-       .. code-block:: bash
+      .. code-block:: bash
 
-          /usr/k8s-migration/bin/kubectl drain <NODE_NAME> --ignore-daemonsets --delete-local-data
+         /usr/k8s-migration/bin/kubectl drain <CLIENT_NODE_NAME> --ignore-daemonsets --delete-local-data
 
-   #. *Back on the client node, upgrade Kubernetes on the client*
+   #. Back on the **Client node**, upgrade Kubernetes on the Client
 
-       .. code-block:: bash
+      .. code-block:: bash
 
-          sudo -E /usr/k8s-migration/bin/kubeadm upgrade node
+         sudo -E /usr/k8s-migration/bin/kubeadm upgrade node
 
-   #. *On the admin node, reenable the client*
+   #. On the **Admin node**, re-enable the Client
 
-       .. code-block:: bash
+      .. code-block:: bash
 
-          /usr/k8s-migration/bin/kubectl uncordon <NODE_NAME>
+         /usr/k8s-migration/bin/kubectl uncordon <CLIENT_NODE_NAME>
 
 
-   #. *Back on the client node, restart Kubernetes on the client*
+   #. Back on the **Client node**, restart Kubernetes on the Client
 
-       .. code-block:: bash
+      .. code-block:: bash
 
-          sudo -E systemctl restart kubelet
+         sudo -E systemctl restart kubelet
 
-#. Restart Kubernetes on the admin node(s) to finish the 1.18.x upgrade
+#. Restart Kubernetes on the Admin node(s) to finish the 1.18.x upgrade
 
    .. code-block:: bash
 
@@ -167,6 +165,9 @@ Upgrade steps
       This version will now show as it is the released version the
       service files will see and use, but the Nodes are *not* upgraded yet.
 
+Upgrade 1.18.15 ---> 1.19.x
+***************************
+
 #. Upgrade Control Node to 1.19.x
 
    Now that systems are upgraded to the intermediate release of 1.18.15
@@ -174,11 +175,11 @@ Upgrade steps
 
 #. Find the upgrade version of kubeadm that can used. This should be 1.19.x.
 
+   This command will show the command and possible jumps that can be made from the current kubernetes version.
+
    .. code-block:: bash
 
       sudo -E kubeadm upgrade plan
-
-#. This command will show the command and possible jumps that can be made from the current kubernetes version.
 
    Sample output:
 
@@ -212,35 +213,18 @@ Upgrade steps
       CoreDNS                   1.6.7      1.7.0
       etcd                      3.4.3-0    3.4.13-0
 
-#. You can now apply the upgrade by executing the following command:
+      You can now apply the upgrade by executing the following command:
 
-   .. code-block:: bash
+        kubeadm upgrade apply v1.19.7
 
-      kubeadm upgrade apply v1.19.7
+      The table below shows the current state of component configs as understood by this version of kubeadm.
+      Configs that have a "yes" mark in the "MANUAL UPGRADE REQUIRED" column require manual config upgrade or
+      resetting to kubeadm defaults before a successful upgrade can be performed. The version to manually
+      upgrade to is denoted in the "PREFERRED VERSION" column.
 
-   The table below shows the current state of component configs as understood by this version of kubeadm.
-   Configs that have a "yes" mark in the "MANUAL UPGRADE REQUIRED" column require manual config upgrade or
-   resetting to kubeadm defaults before a successful upgrade can be performed. The version to manually
-   upgrade to is denoted in the "PREFERRED VERSION" column.
-
-   .. list-table::
-      :widths: auto
-      :header-rows: 1
-
-      * - API GROUP
-        - CURRENT VERSION
-        - PREFERRED VERSION
-        - MANUAL UPGRADE REQUIRED
-
-      * - kubeproxy.config.k8s.io
-        - v1alpha1
-        - v1alpha1
-        - no
-
-      * - kubelet.config.k8s.io
-        - v1beta1
-        - v1beta1
-        - no
+      API GROUP                 CURRENT VERSION   PREFERRED VERSION   MANUAL UPGRADE REQUIRED
+      kubeproxy.config.k8s.io   v1alpha1          v1alpha1            no
+      kubelet.config.k8s.io     v1beta1           v1beta1             no
 
 #. Upgrade the node to the latest 1.19.x version of Kubernetes.
 
@@ -260,29 +244,29 @@ Upgrade steps
 
    For each of the other nodes:
 
-   a. *On the admin node, drain the client FIRST*
+   a. On the **Admin node**, drain the Client *FIRST*
 
       .. code-block:: bash
 
-         kubectl drain <NODE_NAME> --ignore-daemonsets
+         kubectl drain <CLIENT_NODE_NAME> --ignore-daemonsets
 
-   #. *Back on the client node, upgrade Kubernetes on the client*
+   #. Back on the **Client node**, upgrade Kubernetes on the Client
 
       .. code-block:: bash
 
          sudo -E kubeadm upgrade node
 
-   #. *On the admin node, reenable the client*
+   #. On the **Admin node**, re-enable the Client
 
-       .. code-block:: bash
+      .. code-block:: bash
 
-          kubectl uncordon <NODE_NAME>
+         kubectl uncordon <CLIENT_NODE_NAME>
 
-   #. *Back on the client node, if you wish reboot the client, it is now safe to do so.*
+   #. Back on the **Client node**, if you wish reboot the Client, it is now safe to do so.
 
-       .. code-block:: bash
+      .. code-block:: bash
 
-          sudo reboot
+         sudo reboot
 
 #. Reboot the Control Node (optional)
 
@@ -307,9 +291,9 @@ Related topics
 
 Read the Kubernetes documentation to learn more about:
 
-*  :ref:`Kubernetes tutorial <kubernetes>`
+*  `Kubernetes tutorial <tutorials/kubernetes>`_
 
-*  :ref:`Kubernetes best practices <kubernetes-bp>`
+*  `Kubernetes best practices <tutorials/kubernetes-bp>`_
 
 *  Deploying Kubernetes with a `cloud-native-setup`_
 
@@ -321,3 +305,17 @@ Read the Kubernetes documentation to learn more about:
 
 * `Joining your nodes`_
 
+
+.. _kubeadm upgrade guide: https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
+
+.. _Kubernetes container orchestration system: https://kubernetes.io/
+
+.. _Understanding basic Kubernetes architecture: https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-3
+
+.. _Deploying an application to your cluster: https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-2
+
+.. _pod network add-on: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network
+
+.. _Joining your nodes: https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes
+
+.. _cloud-native-setup: https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples
