@@ -57,7 +57,7 @@
 
       | `Ask the Clear Linux experts <https://clearlinux.org/community/mailing-list>`_
       | `Clear Linux Forum <https://community.clearlinux.org/>`_
-      | `Freenode IRC: #clearlinux <https://webchat.freenode.net/#clearlinux>`_
+      | `irc.libera.chat IRC: #clearlinux <https://kiwiirc.com/client/irc.libera.chat/?nick=web_guest|?#clearlinux>`_
 
 
 .. container:: video
