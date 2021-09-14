@@ -132,7 +132,7 @@ running quickly.
       sudo /usr/share/clr-k8s-examples/create_stack.sh minimal
 
 #. Follow the output on the screen and continue onto the section on `using
-   your cluster <Use your cluster>`_.
+   your cluster <#use-your-cluster>`_.
 
 
 Uninstalling
