@@ -41,13 +41,13 @@ Download and launch the virtual machine image
 
    .. code-block:: bash
 
-      curl -O https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images.json | grep -o clear-'[0-9]'*-kvm.img.xz | head -1)
+      curl -o clear.img.xz https://cdn.download.clearlinux.org/image/$(curl https://cdn.download.clearlinux.org/image/latest-images.json | grep -o clear-'[0-9]'*-kvm.img.xz | head -1)
 
 #. Uncompress the downloaded image:
 
    .. code-block:: bash
 
-      unxz -v clear-<version>-kvm.img.xz
+      xz -dv clear.img.xz
 
 #. Download the 3 OVMF files (`OVMF.fd`, `OVMF_CODE.fd`, `OVMF_VARS.fd`) that
    provides UEFI  support for virtual machines.
@@ -75,17 +75,11 @@ Download and launch the virtual machine image
 
       curl -O https://cdn.download.clearlinux.org/image/start_qemu.sh
 
-#. Make the script executable:
-
-   .. code-block:: bash
-
-      chmod +x start_qemu.sh
-
 #. Start the |CL| KVM virtual machine:
 
    .. code-block:: bash
 
-      sudo ./start_qemu.sh clear-<version>-kvm.img
+      sudo bash ./start_qemu.sh clear.img
 
 #. Log in as ``root`` user and set a new password.
 
@@ -178,7 +172,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
 
    .. code-block:: bash
 
-      sudo ./start_qemu.sh clear-<version>-kvm.img
+      sudo ./start_qemu.sh clear.img
 
 #. Determine the IP address of the host on which you will launch the VM.
    Substitute <ip-addr-of-kvm-host> in the next step with this information.
@@ -186,6 +180,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
    .. code-block:: bash
 
       ip a
+      
 
 #. From the local host or remote system, open a new terminal emulator window
    and connect into the |CL| VM using the Spice viewer:
