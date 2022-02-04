@@ -64,7 +64,7 @@ msgstr ":ref:`guides`"
 #: ../../index.rst:31
 msgid ""
 "Guides cover a range of topics from |CL| features and tooling, to system "
-"maintenance, network, and stacks."
+"maintenance, and network."
 msgstr "指南页面涵盖了从 |CL| 功能和工具到系统维护、网络和堆栈的一系列主题。"
 
 #: ../../index.rst:34

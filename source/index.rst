@@ -15,11 +15,6 @@
          **autospec** is a tool to assist in the automated creation and
          maintenance of RPM packaging in Clear Linux OS. 
 
-      :ref:`dlrs`
-         This tutorial shows you how to run benchmarking workloads in Clear
-         Linux OS using TensorFlow\* or PyTorch\* with the Deep Learning
-         Reference Stack.
-
       :ref:`docker`
          Clear Linux OS supports multiple containerization platforms,
          including a Docker solution.
