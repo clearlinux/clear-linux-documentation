@@ -47,11 +47,3 @@ Kernel
 
    kernel/*
 
-Stacks
-=======
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   stacks/*
