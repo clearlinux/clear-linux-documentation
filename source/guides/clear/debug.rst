@@ -70,7 +70,6 @@ The implementation of the |CL| debug system is open source and available on
 GitHub at: https://github.com/clearlinux/clr-debug-info/
 
 .. figure:: figures/debug-diagram.png
-   :width: 400px
    :alt: Debug system communication flow
 
    Figure 1: The communication flow of the |CL| debug system
