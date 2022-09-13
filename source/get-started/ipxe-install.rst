@@ -285,12 +285,12 @@ YAML syntax.
       - login: clrlinux
         username: Clear Linux
         # Password is "clear123"
-        password: \$6\$SJJMfnInWQg.CvMA\$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/        
+        password: $6$SJJMfnInWQg.CvMA$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/        
         admin: true
       - login: root
         username: Root Root
         # Password is "clear123"
-        password: \$6\$SJJMfnInWQg.CvMA\$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/        
+        password: $6$SJJMfnInWQg.CvMA$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/        
         admin: true
 
       pre-install: [
