@@ -159,12 +159,12 @@ html_context = {
     "github_version": "master", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
     "current_version": current_version,
-    "languages": ( ("English", "/clearlinux/latest"),
-                   ("简体中文 (Simplified Chinese)", "/clearlinux/latest/zh_CN")
+    "languages": ( ("English", "/clear-linux-documentation"),
+                   ("简体中文 (Simplified Chinese)", "/clear-linux-documentation/zh_CN")
                    #("Chinese", "/clearlinux/latest/zh_CN")
                  ),
-    "versions": ( ("latest", "/clearlinux/latest"),
-                  ("Future versions", "/clearlinux/latest"))
+    "versions": ( ("latest", "/clear-linux-documentation"),
+                  ("future versions","/clear-linux-documentation"))
                   #("L19.01", "/clearlinux/L19.01"))
 }
 
@@ -348,5 +348,5 @@ texinfo_documents = [
 locale_dirs = ['../locale/'] # path for lang-specific po files.
 gettext_compact = False # optional.
 
-html_baseurl = 'https://docs.01.org/clearlinux/'
+html_baseurl = 'https://clearlinux.github.io/clear-linux-documentation'
 
