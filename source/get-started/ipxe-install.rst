@@ -382,7 +382,7 @@ YAML syntax.
 
       echo "Welcome to the Clear Linux* OS 
 
-      * Documentation:     https://clearlinux.org/documentation
+      * Documentation:     https://clearlinux.github.io/documentation
       * Community Support: https://community.clearlinux.org
 
       " >> \$1/etc/issue

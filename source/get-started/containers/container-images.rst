@@ -13,7 +13,7 @@ Browse all |CL| container images on `the Docker Hub* website
 Dockerfiles used to build |CL| container images `on GitHub
 <https://github.com/clearlinux/dockerfiles>`_.
 
-See the `containers <https://clearlinux.org/downloads/containers>`_ page for
+See the `containers <https://clearlinux.github.io/downloads/containers>`_ page for
 the benefits of using |CL| containers and using |CL| as a container host.
 
 Container image types

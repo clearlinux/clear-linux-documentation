@@ -356,7 +356,7 @@ Related topics
 
 .. _DigitalOcean's SSH key creation guide: https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/create-with-openssh/
 
-.. _downloads: https://clearlinux.org/downloads
+.. _downloads: https://clearlinux.github.io/downloads
 
 .. _Installer YAML Syntax:
    https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md

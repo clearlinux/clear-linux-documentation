@@ -140,8 +140,8 @@ some examples:
 
 *Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*
 
-.. _`Security for software update in Clear Linux* OS`: https://clearlinux.org/blogs/security-software-update-clear-linux-os-intel-architecture
-.. _`Recent GNU* C library improvements`: https://clearlinux.org/blogs/recent-gnu-c-library-improvements
+.. _`Security for software update in Clear Linux* OS`: https://clearlinux.github.io/news-blogs/security-software-update-clear-linux-os.html
+.. _`Recent GNU* C library improvements`: https://clearlinux.github.io/news-blogs/recent-gnu-c-library-improvements.html
 .. _`rolling release`: https://en.wikipedia.org/wiki/Rolling_release
 .. _`clrtrust`: https://github.com/clearlinux/clrtrust
 .. _`Address space layout randomization (ASLR)`: https://en.wikipedia.org/wiki/Address_space_layout_randomization

@@ -206,4 +206,4 @@ Start VM and Install |CL| on Promox
 #. Follow the instructions in the :ref:`bare-metal-install-server` guide 
    starting at the `Launch the Clear Linux OS Installer` section.
 
-.. _Downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.github.io/downloads

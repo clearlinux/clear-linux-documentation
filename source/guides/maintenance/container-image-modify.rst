@@ -303,8 +303,8 @@ The next layer is :file:`clearlinux/cgit`.
       VERSION_ID=31110
       PRETTY_NAME="Clear Linux OS"
       ANSI_COLOR="1;35"
-      HOME_URL="https://clearlinux.org"
-      SUPPORT_URL="https://clearlinux.org"
+      HOME_URL="https://clearlinux.github.io"
+      SUPPORT_URL="https://clearlinux.github.io"
       BUG_REPORT_URL="mailto:dev@lists.clearlinux.org"
       PRIVACY_POLICY_URL=http://www.intel.com/privacy
 
@@ -464,6 +464,6 @@ Related topics
 
 .. _multi-stage build: https://docs.docker.com/develop/develop-images/multistage-build/
 
-.. _Minimizing Clear Linux OS container sizes: https://clearlinux.org/blogs-news/minimizing-clear-linux-os-container-sizes
+.. _Minimizing Clear Linux OS container sizes: https://clearlinux.github.io/blogs-news/minimizing-clear-linux-os-container-sizes
 
-.. _multi-stage build to reduce image size: https://clearlinux.org/blogs-news/minimizing-clear-linux-os-container-sizes
+.. _multi-stage build to reduce image size: https://clearlinux.github.io/blogs-news/minimizing-clear-linux-os-container-sizes

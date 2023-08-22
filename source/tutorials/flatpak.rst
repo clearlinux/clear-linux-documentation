@@ -132,4 +132,4 @@ In this example, we install Filezilla.
 
 .. _Flatpak: https://flatpak.org
 .. _Flathub: https://flathub.org
-.. _Clear Linux Store: https://clearlinux.org/software
+.. _Clear Linux Store: https://clearlinux.github.io/software

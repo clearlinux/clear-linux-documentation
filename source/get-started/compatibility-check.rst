@@ -101,4 +101,4 @@ Option 2: Use a |CL| live image on a non-Linux system
    https://cdn.download.clearlinux.org/current/clear-linux-check-config.sh
 
 .. _Download:
-   https://clearlinux.org/downloads   
+   https://clearlinux.github.io/downloads   

@@ -275,7 +275,7 @@ Which Components are used in Clear Linux?
 
 .. _third party alternatives: https://community.clearlinux.org/t/about-the-3rd-party-sw-category/4072
 .. _how-to-clear: https://github.com/clearlinux/how-to-clear
-.. _Clear Linux store: https://clearlinux.org/software
+.. _Clear Linux store: https://clearlinux.github.io/software
 .. _source code: https://github.com/clearlinux
 .. _swupd post: https://community.clearlinux.org/t/why-does-clearlinux-use-swupd-and-not-apt-deb-rpm/
 .. _swupd: https://github.com/clearlinux/swupd-client
@@ -305,7 +305,7 @@ Which Components are used in Clear Linux?
 .. _Lynx: https://lynx.invisible-island.net/
 .. _links: http://links.twibright.com/
 .. _Firefox*: https://www.mozilla.org/en-US/firefox/
-.. _Supplied Bundles: https://clearlinux.org/software
+.. _Supplied Bundles: https://clearlinux.github.io/software
 .. _micro-config-drive: https://github.com/clearlinux/micro-config-drive
 .. _Telemetrics: https://github.com/clearlinux/telemetrics-backend
 .. _packages source code: https://github.com/clearlinux-pkgs/

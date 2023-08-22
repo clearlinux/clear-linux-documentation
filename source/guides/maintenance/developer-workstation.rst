@@ -43,25 +43,25 @@ tools you need to start. Consider these profiles as a starting point.
            - Bundle
 
          * - Build machine learning applications with a full suite of libraries.
-           - `machine-learning-basic <https://clearlinux.org/software/bundle/machine-learning-basic/>`_
+           - `machine-learning-basic <https://clearlinux.github.io/software/bundle/machine-learning-basic>`_
 
          * - Build machine learning applications with PyTorch, an optimized tensor library for deep learning.
-           - `machine-learning-pytorch <https://clearlinux.org/software/bundle/machine-learning-pytorch/>`_
+           - `machine-learning-pytorch <https://clearlinux.github.io/software/bundle/machine-learning-pytorch>`_
 
          * - Build machine learning applications using Tensorflow, a library for numerical computation using deep neural networks.
-           - `machine-learning-tensorflow <https://clearlinux.org/software/bundle/machine-learning-tensorflow/>`_
+           - `machine-learning-tensorflow <https://clearlinux.github.io/software/bundle/machine-learning-tensorflow>`_
 
          * - Web-based, interactive tools for machine learning.
-           - `machine-learning-web-ui <https://clearlinux.org/software/bundle/machine-learning-web-ui/>`_
+           - `machine-learning-web-ui <https://clearlinux.github.io/software/bundle/machine-learning-web-ui>`_
 
          * - Machine learning Docker container.
-           - `machine-learning <https://clearlinux.org/software/docker/machine-learning-ui/>`_
+           - `machine-learning <https://clearlinux.github.io/software/docker/machine-learning-ui>`_
 
          * - Pre-built Python libraries for Data Science.
-           - `python-extras <https://clearlinux.org/software/bundle/python-extras>`_
+           - `python-extras <https://clearlinux.github.io/software/bundle/python-extras>`_
 
          * - API helper for cloud access.
-           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
+           - `cloud-api <https://clearlinux.github.io/software/bundle/cloud-api>`_
 
    .. tab:: Computer Vision Engineer
 
@@ -73,19 +73,19 @@ tools you need to start. Consider these profiles as a starting point.
            - Bundle
 
          * - Build computer vision applications.
-           - `computer-vision-basic <https://clearlinux.org/software/bundle/computer-vision-basic/>`_
+           - `computer-vision-basic <https://clearlinux.github.io/software/bundle/computer-vision-basic>`_
 
          * - Work with deep learning and edge-optimized models.
-           - `computer-vision-models <https://clearlinux.org/software/bundle/computer-vision-models/>`_
+           - `computer-vision-models <https://clearlinux.github.io/software/bundle/computer-vision-models>`_
 
          * - API helper for cloud access.
-           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
+           - `cloud-api <https://clearlinux.github.io/software/bundle/cloud-api>`_
 
          * - Run container applications from Dockerhub in lightweight virtual machines.
-           - `containers-virt <https://clearlinux.org/software/bundle/containers-virt>`_
+           - `containers-virt <https://clearlinux.github.io/software/bundle/containers-virt>`_
 
          * - All content for pkgconfig file opencv.pc.
-           - `devpkg-opencv <https://clearlinux.org/software/bundle/devpkg-opencv/>`_
+           - `devpkg-opencv <https://clearlinux.github.io/software/bundle/devpkg-opencv>`_
 
          * - *Refer also to Cloud Orchestration Engineer*
            - 
@@ -100,19 +100,19 @@ tools you need to start. Consider these profiles as a starting point.
            - Bundle
 
          * - Contains Clear Linux\* OS native software for cloud.
-           - `ethtool <https://clearlinux.org/software/bundle/ethtool/>`_
+           - `ethtool <https://clearlinux.github.io/software/bundle/ethtool>`_
 
          * - Utilities for controlling TCP/IP networking and traffic control.
-           - `iproute2 <https://clearlinux.org/software/bundle/iproute2/>`_
+           - `iproute2 <https://clearlinux.github.io/software/bundle/iproute2>`_
 
          * - API helper for cloud access.
-           - `cloud-api <https://clearlinux.org/software/bundle/cloud-api/>`_
+           - `cloud-api <https://clearlinux.github.io/software/bundle/cloud-api>`_
 
          * - C++ runtime support.
-           - `libstdcpp <https://clearlinux.org/software/bundle/libstdcpp/>`_
+           - `libstdcpp <https://clearlinux.github.io/software/bundle/libstdcpp>`_
 
          * - Load and enumerate PKCS#11 modules.
-           - `p11-kit <https://clearlinux.org/software/bundle/p11-kit/>`_
+           - `p11-kit <https://clearlinux.github.io/software/bundle/p11-kit>`_
 
    .. tab:: Kernel Developer
 
@@ -124,22 +124,22 @@ tools you need to start. Consider these profiles as a starting point.
            - Bundle
 
          * - Installs kernel, initrd, kernel config, system map; creates a bootloader entry.
-           - `kernel-install <https://clearlinux.org/software/bundle/kernel-install/>`_
+           - `kernel-install <https://clearlinux.github.io/software/bundle/kernel-install>`_
 
          * - Support module for building/loading via Dynamic Kernel Module System (DKMS) in LTS kernel.
-           - `kernel-lts-dkms <https://clearlinux.org/software/bundle/kernel-lts-dkms/>`_
+           - `kernel-lts-dkms <https://clearlinux.github.io/software/bundle/kernel-lts-dkms>`_
 
          * - Support module for building/loading via Dynamic Kernel Module System (DKMS) in native kernel.
-           - `kernel-native-dkms <https://clearlinux.org/software/bundle/kernel-native-dkms/>`_
+           - `kernel-native-dkms <https://clearlinux.github.io/software/bundle/kernel-native-dkms>`_
 
          * - Support module for building/loading via Dynamic Kernel Module System (DKMS) in AWS kernel.
-           - `kernel-aws-dkms <https://clearlinux.org/software/bundle/kernel-aws-dkms/>`_
+           - `kernel-aws-dkms <https://clearlinux.github.io/software/bundle/kernel-aws-dkms>`_
 
          * - Run the Kernel-based Virtual Machine (KVM) with |CL| as a guest under KVM.
-           - `kernel-kvm <https://clearlinux.org/software/bundle/kernel-kvm/>`_
+           - `kernel-kvm <https://clearlinux.github.io/software/bundle/kernel-kvm>`_
       
          * - Linux Test Project.
-           - `ltp <https://clearlinux.org/software/bundle/ltp/>`_
+           - `ltp <https://clearlinux.github.io/software/bundle/ltp>`_
 
    .. tab:: Maker Developer
 
@@ -151,16 +151,16 @@ tools you need to start. Consider these profiles as a starting point.
            - Bundle
 
          * - Basic tools for makers and experimenters.
-           - `maker-basic <https://clearlinux.org/software/bundle/maker-basic/>`_
+           - `maker-basic <https://clearlinux.github.io/software/bundle/maker-basic>`_
 
          * - GIS/Mapping tools for makers.
-           - `maker-gis <https://clearlinux.org/software/bundle/maker-gis/>`_
+           - `maker-gis <https://clearlinux.github.io/software/bundle/maker-gis>`_
 
          * - Electronic Design Tool.
-           - `Fritzing <https://clearlinux.org/software/flathub/fritzing>`_
+           - `Fritzing <https://clearlinux.github.io/software/flathub/fritzing>`_
 
          * -  Open-source electronics prototyping platform.
-           - `arduino-ide <https://clearlinux.org/software/flathub/arduino-ide/>`_
+           - `arduino-ide <https://clearlinux.github.io/software/flathub/arduino-ide>`_
 
    .. tab:: System Administrator
 
@@ -172,25 +172,25 @@ tools you need to start. Consider these profiles as a starting point.
            - Bundle
 
          * - Run popular terminal text editors.
-           - `editors <https://clearlinux.org/software/bundle/editors/>`_
+           - `editors <https://clearlinux.github.io/software/bundle/editors>`_
 
          * - Run network utilities and modify network settings.
-           - `network-basic <https://clearlinux.org/software/bundle/network-basic/>`_
+           - `network-basic <https://clearlinux.github.io/software/bundle/network-basic>`_
 
          * - Run a secure shell (SSH) server for access from remote machines.
-           - `openssh-server <https://clearlinux.org/software/bundle/openssh-server/>`_
+           - `openssh-server <https://clearlinux.github.io/software/bundle/openssh-server>`_
 
          * - Run an HTTP server.
-           - `nginx <https://clearlinux.org/software/bundle/nginx>`_
+           - `nginx <https://clearlinux.github.io/software/bundle/nginx>`_
 
          * - Run an application server via HTTP.
-           - `application-server <https://clearlinux.org/software/bundle/application-server/>`_
+           - `application-server <https://clearlinux.github.io/software/bundle/application-server>`_
 
          * - Run a SQLite database.
-           - `sqlite <https://clearlinux.org/software/bundle/sqlite>`_
+           - `sqlite <https://clearlinux.github.io/software/bundle/sqlite>`_
 
          * - Bundle to automatically launch the GUI upon boot.
-           - `desktop-autostart <https://clearlinux.org/software/bundle/desktop-autostart/>`_
+           - `desktop-autostart <https://clearlinux.github.io/software/bundle/desktop-autostart>`_
 
 swupd search
 ************

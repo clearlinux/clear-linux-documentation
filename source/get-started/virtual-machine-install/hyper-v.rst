@@ -148,5 +148,5 @@ Related topics
 .. _Install Hyper-V on Windows 10: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v
 .. _`Create a virtual network on Windows Server`: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines
 .. _`Create a virtual network on Windows 10`: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network
-.. _downloads: https://clearlinux.org/downloads
+.. _downloads: https://clearlinux.github.io/downloads
 

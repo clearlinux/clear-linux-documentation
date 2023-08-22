@@ -233,9 +233,9 @@ Related topics
 **************
 
 * :ref:`cpu-performance`
-* `A Linux* OS for Linux Developers <https://clearlinux.org/blogs-news/linux-os-linux-developers>`_
-* `The Performance Race <https://clearlinux.org/news-blogs/performance-race>`_
-* `Boosting Python* from profile-guided to platform-specific optimizations <https://clearlinux.org/news-blogs/boosting-python-profile-guided-platform-specific-optimizations>`_
-* `Transparent use of library packages optimized for Intel® architecture <https://clearlinux.org/news-blogs/transparent-use-library-packages-optimized-intel-architecture>`_
+* `A Linux* OS for Linux Developers <https://clearlinux.github.io/blogs-news/linux-os-linux-developers>`_
+* `The Performance Race <https://clearlinux.github.io/news-blogs/performance-race>`_
+* `Boosting Python* from profile-guided to platform-specific optimizations <https://clearlinux.github.io/news-blogs/boosting-python-profile-guided-platform-specific-optimizations>`_
+* `Transparent use of library packages optimized for Intel® architecture <https://clearlinux.github.io/news-blogs/transparent-use-library-packages-optimized-intel-architecture>`_
 
 *Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.*

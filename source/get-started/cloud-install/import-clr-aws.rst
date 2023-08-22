@@ -495,7 +495,7 @@ Related topics
 * :ref:`clr-digitalocean`
 
 .. _Downloads: 
-   https://clearlinux.org/downloads
+   https://clearlinux.github.io/downloads
 .. _aws.yaml: 
    https://cdn.download.clearlinux.org/current/config/image/aws.yaml
 .. _AWS image post-install script:

@@ -417,6 +417,6 @@ For other guides on using the VMWare Player and ESXi, see:
 .. _VMware Workstation Player Documentation:
    https://docs.vmware.com/en/VMware-Workstation-Player/index.html
 
-.. _Downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.github.io/downloads
 
 .. _VMWare Tools Product Documentation: https://docs.vmware.com/en/VMware-Tools/10.1.0/com.vmware.vsphere.vmwaretools.doc/GUID-8B6EA5B7-453B-48AA-92E5-DB7F061341D1.html

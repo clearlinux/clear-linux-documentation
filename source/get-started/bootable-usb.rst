@@ -167,5 +167,5 @@ Eject the |CL| image USB drive
 
 #. Then eject the USB. 
    
-.. _Downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.github.io/downloads
 .. _Etcher: https://www.balena.io/etcher/

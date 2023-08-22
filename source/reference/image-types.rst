@@ -77,4 +77,4 @@ Table 2 lists the currently available images that are platform specific.
      - Virtual Machine Disk for VMware\* platforms including Player,
        Workstation, and ESXi.
 
-.. _images: https://clearlinux.org/downloads
+.. _images: https://clearlinux.github.io/downloads

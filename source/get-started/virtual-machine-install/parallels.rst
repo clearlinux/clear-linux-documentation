@@ -20,7 +20,7 @@ Prerequisites
 Download ISO image
 ******************
 
-#. Download a live-server ISO installation file from https://clearlinux.org/downloads.
+#. Download a live-server ISO installation file from https://clearlinux.github.io/downloads.
    This guide uses |CL| Server 30140 as its example.
 
 #. Unzip the ISO image with the command:

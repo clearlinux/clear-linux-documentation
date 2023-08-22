@@ -244,9 +244,9 @@ below to configure PHP-FPM.
 
 .. _PHP-FPM: https://php-fpm.org/
 
-.. _php-extras: https://clearlinux.org/software/bundle/php-extras
+.. _php-extras: https://clearlinux.github.io/software/bundle/php-extras
 
-.. _Store: https://clearlinux.org/software/
+.. _Store: https://clearlinux.github.io/software/
 
 .. _PHP configuration file: https://www.php.net/manual/en/configuration.file.php
 

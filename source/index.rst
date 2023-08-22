@@ -50,7 +50,7 @@
 
       **Community**
 
-      | `Ask the Clear Linux experts <https://clearlinux.org/community/mailing-list>`_
+      | `Ask the Clear Linux experts <https://clearlinux.github.io/community/mailing-list>`_
       | `Clear Linux Forum <https://community.clearlinux.org/>`_
       | `irc.libera.chat IRC: #clearlinux <https://kiwiirc.com/client/irc.libera.chat/?nick=web_guest|?#clearlinux>`_
 

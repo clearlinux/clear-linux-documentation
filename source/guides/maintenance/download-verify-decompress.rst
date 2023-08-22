@@ -173,4 +173,4 @@ Image types
 .. include:: ../../reference/image-types.rst
    :start-after: incl-image-filename-end:
 
-.. _image: https://clearlinux.org/downloads
+.. _image: https://clearlinux.github.io/downloads

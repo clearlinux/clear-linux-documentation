@@ -38,7 +38,7 @@ for it to be automatically detected and loaded.
 
 |CL| packages these firmware binaries
 in the `linux-firmware bundles
-<https://clearlinux.org/software?search_api_fulltext=linux-firmware>`_ and
+<https://clearlinux.github.io/software?search_api_fulltext=linux-firmware>`_ and
 automatically includes them with the kernel. 
 
 You can double-check the linux-firmware bundle is installed with the commands below:

@@ -683,4 +683,4 @@ Related topics
 
 * :ref:`install-configfile`
 
-.. _Downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.github.io/downloads

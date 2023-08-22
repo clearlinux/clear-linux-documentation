@@ -90,8 +90,8 @@ Mount root partition, verify, and fix
       VERSION_ID=32150
       PRETTY_NAME="Clear Linux OS"
       ANSI_COLOR="1;35"
-      HOME_URL="https://clearlinux.org"
-      SUPPORT_URL="https://clearlinux.org"
+      HOME_URL="https://clearlinux.github.io"
+      SUPPORT_URL="https://clearlinux.github.io"
       BUG_REPORT_URL="mailto:dev@lists.clearlinux.org"
       PRIVACY_POLICY_URL="http://www.intel.com/privacy"
 

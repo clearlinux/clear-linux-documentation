@@ -218,7 +218,7 @@ at `virt-manager-github`_.
 
 .. _virt-mgr: https://www.virt-manager.org
 
-.. _Downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.github.io/downloads
 
 .. _virt-manager-github: https://github.com/virt-manager/virt-manager
 

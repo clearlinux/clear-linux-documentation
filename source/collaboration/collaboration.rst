@@ -63,7 +63,7 @@ We use the following references for grammar, style, and formatting:
 * Read Me First!, Oracle Technical Publications
 
 
-.. _`code of conduct`: https://clearlinux.org/community/code-of-conduct
+.. _`code of conduct`: https://clearlinux.github.io/community/code-of-conduct
 .. _Make a suggestion: https://lists.clearlinux.org/postorius/lists/dev.lists.clearlinux.org/
 .. _GitHub flow: https://guides.github.com/introduction/flow/
 .. _Log an issue: https://github.com/clearlinux/clear-linux-documentation/issues

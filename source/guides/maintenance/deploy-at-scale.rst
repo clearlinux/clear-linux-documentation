@@ -242,8 +242,8 @@ Continuously test its use; Automate its use by redeploying |CL| and
 application on new hosts. This naturally minimizes configuration drift,
 challenges your monitoring systems, and business continuity plans.
 
-.. _`Downloads`: https://clearlinux.org/downloads/
-.. _`Containers`: https://clearlinux.org/downloads/containers
+.. _`Downloads`: https://clearlinux.github.io/downloads/
+.. _`Containers`: https://clearlinux.github.io/downloads/containers
 .. _`systemd-journal-remote.service`: https://www.freedesktop.org/software/systemd/man/systemd-journal-remote.service.html
 .. _`micro-config-drive`: https://github.com/clearlinux/micro-config-drive
 

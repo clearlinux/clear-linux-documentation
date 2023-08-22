@@ -416,7 +416,7 @@ Ubuntu as our working example.
 
       sudo clr-boot-manager set-timeout 25
 
-.. _download the live desktop image: https://clearlinux.org/downloads
+.. _download the live desktop image: https://clearlinux.github.io/downloads
 
-.. _Downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.github.io/downloads
 

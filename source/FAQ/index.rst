@@ -16,7 +16,7 @@ What is |CL|?
 =============
 
 |CL| is an open source, rolling release Linux distribution optimized for
-performance and security. See `the about page <https://clearlinux.org/about>`_
+performance and security. See `the about page <https://clearlinux.github.io/about>`_
 for more information.
 
 |
@@ -82,7 +82,7 @@ and user files. Default values are stored under :file:`/usr/share/defaults/`.
 configurations. See the :ref:`stateless <stateless>` page for more information.
 
 See `this blog post
-<https://clearlinux.org/news-blogs/where-etcfstab-clear-linux>`_ for an
+<https://clearlinux.github.io/news-blogs/where-etcfstab-clear-linux>`_ for an
 example explaining how this is accomplished with :file:`/etc/fstab/`
 specifically.
 
@@ -182,7 +182,7 @@ GitHub.
 Is Microsoft\* Visual Studio Code\* available?
 ==============================================
 
-Yes. Find the CLI command for installing `VS Code`_ and other Flatpak apps in
+Yes. Find the CLI command for installing VS Code and other Flatpak apps in
 the `software store`_. Installing Flatpak apps is also covered in our
 :ref:`tutorial <flatpak-tutorial>`.
 
@@ -194,7 +194,6 @@ Visual Studio Code
 <https://community.clearlinux.org/t/need-native-support-for-vs-code-through-swupd/>`_.
 
 
-.. _VS Code: https://clearlinux.org/software?search_api_fulltext=vscode
 
 |
 
@@ -251,5 +250,5 @@ Kernel modules can be individually built and installed on |CL|. See the
 
 
 .. _`Clear Linux community forums`: https://community.clearlinux.org
-.. _`Software Store`: https://clearlinux.org/software
+.. _`Software Store`: https://clearlinux.github.io/software/software.html
 .. _`FFmpeg`: https://ffmpeg.org/

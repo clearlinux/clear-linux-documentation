@@ -32,7 +32,7 @@ persistent storage.
 For hardware with less resources, use the *live server* installer because it
 has a smaller memory footprint.
 
-See https://clearlinux.org/downloads for more download options.
+See https://clearlinux.github.io/downloads for more download options.
 
 
 System requirements

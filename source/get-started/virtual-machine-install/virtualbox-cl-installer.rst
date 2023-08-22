@@ -396,7 +396,7 @@ Troubleshooting
 
 .. _VirtualBox: https://www.virtualbox.org
 
-.. _Downloads: https://clearlinux.org/downloads
+.. _Downloads: https://clearlinux.github.io/downloads
 
 .. _`Creating Your First Virtual Machine`: https://www.virtualbox.org/manual/UserManual.html#gui-createvm
 

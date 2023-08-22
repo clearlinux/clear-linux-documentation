@@ -1,3 +1,4 @@
+MarkupSafe==2.0.1
 breathe==4.9.1
 sphinx==2.2.0
 docutils==0.14

@@ -274,7 +274,7 @@ Related topics
 * :ref:`swupd-guide`
 
 .. _bundles: 
-   https://clearlinux.org/software
+   https://clearlinux.github.io/software
 .. _bundle definition:
    https://docs.01.org/clearlinux/latest/guides/clear/mixer.html#id16
 .. _general guidelines:
