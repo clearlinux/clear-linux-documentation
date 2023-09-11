@@ -28,6 +28,7 @@ jobs:
         wget https://github.com/clearlinux/clear-linux-documentation-zh-CN/releases/latest/download/clearlinux-docs-zh-CN.tar.gz
         mkdir source/_build/html/zh_CN
         tar xvzf clearlinux-docs-zh-CN.tar.gz -C source/_build/html/zh_CN
+        touch source/_build/html/.nojekyll
         mv source/_build/html $HOME/output
     - name: Deploy the docs
       run: |
