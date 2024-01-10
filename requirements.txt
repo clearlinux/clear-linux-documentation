@@ -5,6 +5,6 @@ sphinx_rtd_theme
 sphinx-intl==2.0.0
 sphinx-sitemap==1.0.2
 Jinja2==2.11.3
-GitPython==3.1.37
+GitPython==3.1.41
 sphinx-tabs
 sphinx-copybutton
