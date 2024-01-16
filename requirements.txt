@@ -6,5 +6,5 @@ sphinx-intl
 sphinx-sitemap
 Jinja2
 GitPython
-sphinx-tabs
+sphinx-tabs>1
 sphinx-copybutton
