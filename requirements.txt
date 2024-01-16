@@ -1,10 +1,10 @@
-breathe==4.35.0
-sphinx==7.2.6
-docutils==0.20.1
+breathe
+sphinx
+docutils
 sphinx_rtd_theme
-sphinx-intl==2.1.0
-sphinx-sitemap==2.5.1
-Jinja2==3.1.3
-GitPython==3.1.41
+sphinx-intl
+sphinx-sitemap
+Jinja2
+GitPython
 sphinx-tabs
 sphinx-copybutton
