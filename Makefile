@@ -5,38 +5,38 @@ SHELL := /bin/bash
 PY_VERSION ?= 3.6
 
 all:
-	make -C source html
+	$(MAKE) -C source html
 
 htmlall:
-	make -C source htmlall
+	$(MAKE) -C source htmlall
 
 htmlzh:
-	make -C source htmlzh
+	$(MAKE) -C source htmlzh
 
 htmlde:
-	make -C source htmlde
+	$(MAKE) -C source htmlde
 
 html:
-	make -C source html
+	$(MAKE) -C source html
 
 linkcheck:
-	make -C source linkcheck
+	$(MAKE) -C source linkcheck
 
 py:
-	make -C source py
+	$(MAKE) -C source py
 
 man:
-	make -C source man
+	$(MAKE) -C source man
 
 clean-man:
-	make -C source clean-man
+	$(MAKE) -C source clean-man
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  html       to make standalone HTML files"
 
 clean:
-	make -C source clean
+	$(MAKE) -C source clean
 	rm -rf venv
 
 venv:
