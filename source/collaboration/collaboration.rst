@@ -9,7 +9,7 @@ There are multiple ways to help improve our documentation:
   repository.
 * `Log an issue`_: Enter an issue in the documentation repository for
   minor issues such as typos.
-* `Make a suggestion`_: Send your documentation suggestion to the mailing list.
+* `Make a suggestion`_: Send your documentation suggestion to the dev email inbox.
 * Test documentation: Step through our guides and tutorials to verify the
   instructions. `Log an issue`_ or `submit a pull request`_ with your findings.
 
@@ -64,7 +64,7 @@ We use the following references for grammar, style, and formatting:
 
 
 .. _`code of conduct`: https://clearlinux.org/community/code-of-conduct
-.. _Make a suggestion: https://lists.clearlinux.org/postorius/lists/dev.lists.clearlinux.org/
+.. _Make a suggestion: mailto:dev@clearlinux.discoursemail.com
 .. _GitHub flow: https://guides.github.com/introduction/flow/
 .. _Log an issue: https://github.com/clearlinux/clear-linux-documentation/issues
 .. _Contribute via GitHub: https://github.com/clearlinux/clear-linux-documentation
