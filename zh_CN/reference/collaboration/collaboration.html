@@ -1,0 +1,1114 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-61272224-1", {"cookieDomain":"auto","allowLinker":true});ga("require", "linker");ga("linker:autoLink", [/(community\.|www\.|^)clearlinux\.org/gi], true);ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
+
+
+  <title>Documentation guidelines &mdash; Documentation for Clear Linux* project</title>
+  
+
+
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="docs.01.org/clearlinux/reference/collaboration/collaboration.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="关于这些文档" href="../../about.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Writing guide" href="writing-guide.html" />
+    <link rel="prev" title="可用的捆绑包" href="../bundles/bundles.html" />
+
+<link rel="stylesheet" href="../../_static/tcs_theme.css" type="text/css" />
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #007ab2" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Clear Linux* Project Docs
+          
+
+          
+            
+            <img src="../../_static/clearlinux.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" id="clear-docs-search" placeholder="Search documentation" results="0"/>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Clear Linux</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Language Versions</dt>
+        
+          <dd><a href="/clearlinux/latest/reference/collaboration/collaboration.html">English</a></dd>
+        
+          <dd><a href="/clearlinux/latest/zh_CN/reference/collaboration/collaboration.html">简体中文 (Simplified Chinese)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Document Versions</dt>
+        
+          <dd><a href="/clearlinux/latest/reference/collaboration/collaboration.html">latest</a></dd>
+        
+          <dd><a href="/clearlinux/latest/reference/collaboration/collaboration.html">Future versions</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>clearlinux.org links</dt>
+          <dd>
+            <a href="https://www.clearlinux.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/clearlinux/clear-linux-documentation">GitHub</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+  
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#pre-install">安装前</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/compatibility-check.html">检查处理器和 EFI 固件的兼容性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/compatibility-check.html#check-compatibility">检查兼容性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bootable-usb.html">创建可引导 U 盘</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#create-a-bootable-usb-drive-on-linux">在 Linux* 上创建可引导 U 盘</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#create-a-bootable-usb-drive-on-macos">在 macOS* 上创建可引导 U 盘</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#create-a-bootable-usb-drive-on-windows">在 Windows* 上创建可引导 U 盘</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#install">安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html">从实时桌面安装 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#system-requirements">系统要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#preliminary-steps">初始步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#install-from-live-image">从实时映像安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#minimum-installation-requirements">最低安装要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#cl-desktop-installer">Clear Linux OS 桌面安装程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#navigation">导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#required-options">必填选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#advanced-options">高级选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#finish-installation">完成安装</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bare-metal-install-server.html">使用实时服务器将 Clear Linux* OS 安装在裸机上</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#system-requirements">系统要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#download-the-latest-cl-live-server-image">下载最新的 Clear Linux OS 实时服务器映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#install-cl-on-your-target-system">在目标系统上安装 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#launch-the-cl-installer">启动 Clear Linux OS 安装程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#minimum-installation-requirements">最低安装要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#main-menu">主菜单</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#navigation">导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#required-options">必填选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#recommended-options">推荐选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#advanced-options">高级选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#finish-installation">完成安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#troubleshooting">故障检修</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/install-configfile.html">利用 clr-installer 和配置文件安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#process">流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#references">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#install-in-a-virtual-machine">在虚拟机上安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html">Microsoft Hyper-V* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#enable-hyper-v">启用 Hyper-V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#create-a-virtual-network">创建虚拟网络</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#create-a-virtual-machine">创建虚拟机</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html">KVM 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#install-qemu-kvm">安装 QEMU-KVM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#download-and-launch-the-virtual-machine">下载并开启虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#ssh-access-into-the-virtual-machine">通过 SSH 访问虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#optional-add-the-gnome-display-manager-gdm">可选：添加 GNOME Display Manager (GDM)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html">VirtualBox* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#download-and-extract-the-cl-installer-iso">下载并解压缩 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#create-a-new-vb-virtual-machine">创建新的 VirtualBox 虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#install-cl-on-the-vb-vm">在 VirtualBox 虚拟机上安装 Clear Linux OS。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#troubleshooting">故障检修</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html">VMware* Workstation Player 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-the-vmware-workstation-player-hypervisor">安装 VMware Workstation Player 虚拟机管理程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#download-the-latest-cl-installer">下载最新的 Clear Linux OS 安装程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#enable-uefi-boot-support">启用 UEFI 引导支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-cl-into-the-new-vm">将 Clear Linux OS 安装至新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#detach-the-cl-installer-iso-from-the-vm">从虚拟机断开 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-open-vm-tools">安装 open-vm-tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html">VMware* Workstation Player （预配置映像）上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#install-the-vmware-workstation-player-hypervisor">安装 VMware Workstation Player 虚拟机管理程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#download-the-latest-cl-vmware-image">下载最新的 Clear Linux OS VMware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#decompress-and-verify-the-image">解压缩并验证映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#attach-the-pre-configured-cl-vmware-image">挂载预配置的 Clear Linux OS Vmware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#enable-uefi-boot-support">启用 UEFI 引导支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#power-on-the-vm">开启虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html">VMware* ESXi 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#download-the-latest-cl-installer-iso">下载最新的 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#upload-the-cl-installer-iso-to-the-vmware-server">将 Clear Linux OS 安装程序 ISO 上传至 VMware 服务器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#install-cl-into-the-new-vm">将 Clear Linux OS 安装至新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl">重新配置虚拟机设置，以引导新安装的 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#power-on-the-vm-and-boot-cl">开启虚拟机，引导 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html">VMware* ESXi（预配置映像）上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#download-the-latest-cl-vmware-image">下载最新的 Clear Linux OS VMware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#upload-the-cl-image-to-the-vmware-server">将 Clear Linux OS 映像上传至 VMware 服务器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#convert-the-cl-image-to-an-esxi-supported-format">将 Clear Linux OS 映像转换为 ESXi 支持的格式。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#power-on-the-vm-and-boot-cl">开启虚拟机，引导 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html">增加映像的虚拟磁盘大小</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html#determine-the-partition-order-and-sizes-of-the-prebuilt-image">确定预构建映像的分区顺序和大小。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html#id2">增加虚拟盘大小</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#deploy-to-the-cloud">部署到云</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html">Amazon Web Services* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#locate-select-and-launch-the-cl-basic-ami">找到、选择并启动 Clear Linux OS 基本 AMI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#connect-to-your-clear-linux-os-basic-instance">连接到 Clear Linux 操作系统基本实例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#update-the-cl-instance">更新 Clear Linux OS 实例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#stop-the-cl-instance">停止 Clear Linux OS 实例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/azure.html">Microsoft* Azure* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#install-ms-azure-cli-2-0-on-cl">在 Clear Linux OS 中安装 Microsoft Azure CLI 2.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#log-into-your-microsoft-azure-account">登录到您的 Microsoft Azure 帐户</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#create-a-ms-azure-resource-group">创建 Microsoft Azure 资源组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#create-and-log-into-the-cl-virtual-machine">创建 Clear Linux OS 虚拟机并登录到该虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#stop-and-deallocate-the-cl-vm-and-resources">停止并取消分配 Clear Linux OS 虚拟机和资源</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#next-steps">后续步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/gce.html">Google Cloud Platform* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/gce.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/gce.html#setup-cl-vm-on-gcp">在 GCP 上安装 Clear Linux OS 虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/gce.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html">Clear Linux* OS on QingCloud* (如何在青云 QingCloud 上创建 Clear Linux OS 虚拟主机)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#id2">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#qingcloud-cl">在 QingCloud 控制台中选择并启动 Clear Linux OS 虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#ip">申请公网IP并添加到虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#cl">连接到 Clear Linux OS 虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#id3">删除 Clear Linux OS 虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#id4">删除申请的公网IP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">关于</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#release-cadence">发行节奏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#updates">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#ease-of-use">易用性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#custom-derivatives">自定义衍生工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../about.html#create">创建</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about.html#deploy">部署</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about.html#administrate">管理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/index.html#clear-linux">Clear Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/autoproxy.html">Autoproxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autoproxy.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autoproxy.html#how-it-works">工作原理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/autospec.html">autospec</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autospec.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autospec.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autospec.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autospec.html#test-packaged-software">测试封装后的软件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autospec.html#references">参考</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/autospec.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/bundles.html">bundle 文件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/bundles.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/compatible-kernels.html">内核</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/compatible-kernels.html#bare-metal-only">仅限裸机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/compatible-kernels.html#also-compatible-with-vms">也与虚拟机兼容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/compatible-kernels.html#vm-only">仅限虚拟机</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/debug.html">调试系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/debug.html#background">后台</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/debug.html#usage">用途</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/debug.html#implementation">实施</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/ister.html">ister.py image builder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/ister.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/ister.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/ister.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/mixer.html">mixer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/mixer.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/mixer.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/mixer.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/mixer.html#references">参考</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/mixer.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/security.html">操作系统安全性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/security.html#security-in-updates">更新方面的安全举措</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/security.html#security-in-software">软件方面的安全举措</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/security.html#security-in-system-design">系统设计方面的安全举措</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/stateless.html">无状态</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/stateless.html#file-level-separation">文件级隔离</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/stateless.html#software-configuration">软件配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/stateless.html#system-reset">系统重置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/stateless.html#additional-information">附加说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/swupd.html">swupd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/swupd.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/swupd.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/swupd.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/swupd.html#quick-reference">快速参考</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/swupd.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/clear/telemetrics.html">遥测</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/telemetrics.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/telemetrics.html#how-to-use">使用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/telemetrics.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/clear/telemetrics.html#reference">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/index.html#maintenance">维护</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/architect-lifecycle.html">设计 Clear Linux* OS 生命周期</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/architect-lifecycle.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/architect-lifecycle.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/architect-lifecycle.html#content-workflow">内容工作流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/architect-lifecycle.html#release-workflow">版本工作流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/architect-lifecycle.html#implementation">实施</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/assign-static-ip.html">分配静态 IP 地址</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/assign-static-ip.html#identify-which-program-is-managing-the-interface">确定哪个程序正在管理接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/assign-static-ip.html#using-networkmanager">使用 NetworkManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/assign-static-ip.html#using-systemd-networkd">使用 systemd-networkd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/bulk-provision.html">批量供应</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/bulk-provision.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/bulk-provision.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/bulk-provision.html#configuration">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/cpu-performance.html">CPU 功率和性能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/cpu-performance.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/cpu-performance.html#cpu-power-saving-mechanisms">CPU 节能机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/cpu-performance.html#linux-cpu-clock-frequency-scaling">Linux CPU 时钟频率缩放</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/cpu-performance.html#thermal-management">散热管理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/deploy-at-scale.html">大规模部署</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/deploy-at-scale.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/deploy-at-scale.html#pick-a-usage-and-update-strategy">选择使用和更新策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/deploy-at-scale.html#pick-an-image-distribution-strategy">选择映像分发策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/deploy-at-scale.html#considerations-with-stateless-systems">有关无状态系统的注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/developer-workstation.html">开发人员工作站</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/developer-workstation.html#workstation-setup">工作站设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/developer-workstation.html#swupd-search">swupd 搜索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/developer-workstation.html#core-concepts">核心概念</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/download-verify-decompress.html">下载、验证并解压缩 Clear Linux* OS 映像，</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/download-verify-decompress.html#linux-os-steps">Linux 操作系统步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/download-verify-decompress.html#macos-steps">macOS* 步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/download-verify-decompress.html#windows-os-steps">Windows* 操作系统步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/download-verify-decompress.html#image-types">映像类型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/enable-user-space.html">创建并启用新的用户空间</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/enable-user-space.html#create-a-new-user">创建新用户</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/enable-user-space.html#add-the-new-user-to-the-wheel-group">将新用户添加到 wheel 组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/enable-user-space.html#install-and-update-the-os-software-to-its-current-version">安装操作系统软件并将其更新到最新版本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/enable-user-space.html#add-a-bundle">添加捆绑包</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/enable-user-space.html#next-steps">后续步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/fix-broken-install.html">修复损坏的安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/fix-broken-install.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/fix-broken-install.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/fix-broken-install.html#boot-a-live-desktop-image-to-fix-target-system">引导实时桌面映像来修复目标系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/fix-broken-install.html#install-from-live-image">从实时映像安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/fix-broken-install.html#mount-root-partition-verify-and-fix">挂载根分区，然后验证并修复</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/hostname.html">修改主机名</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/hostname.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/hostname.html#set-your-hostname">设置主机名</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/hostname.html#view-your-hostname">查看主机名</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html">增加映像的虚拟磁盘大小</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html#determine-the-partition-order-and-sizes-of-the-prebuilt-image">确定预构建映像的分区顺序和大小。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html#id2">增加虚拟盘大小</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/query-upstream.html">从上游存储库查询软件包信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/query-upstream.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/query-upstream.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/query-upstream.html#configure-dnf">配置 DNF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/query-upstream.html#dnf-command-usage-examples">DNF 命令用法示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/resource-limits.html">资源限制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/resource-limits.html#system-wide-limits">系统范围限制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/resource-limits.html#per-user-limits">每用户限制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/resource-limits.html#service-limits">服务限制</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/restart.html">操作系统更新后重启系统服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/restart.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/restart.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/restart.html#basic-options">基本选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/restart.html#monitor-options">监控选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/restart.html#example">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/restart.html#telemetry">遥测技术</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/restart.html#conclusion">总结</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/time.html">设置时间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/maintenance/validate-signatures.html">验证签名</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/validate-signatures.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/validate-signatures.html#image-content-validation">映像内容验证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/maintenance/validate-signatures.html#update-content-validation">更新内容验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/index.html#network">网络</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/network/custom-clear-container.html">根据 Docker 容器映像构建一个自定义 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/custom-clear-container.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/custom-clear-container.html#build-the-base-container-image">构建基础容器映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/custom-clear-container.html#manage-bundles-in-a-container">管理容器中的捆绑包</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/network/dpdk.html">使用 DPDK 在平台之间发送数据包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#install-dpdk-and-build-l3fwd-example-platform-b">安装 dpdk 并构建 l3fwd 示例（平台 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#build-pktgen-platform-a">构建 pktgen（平台 A）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b">将网卡绑定到 DPDK 内核驱动程序（平台 A 和平台 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#set-hugepages-platforms-a-and-b">设置大页（平台 A 和 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#set-up-the-physical-environment-platforms-a-and-b">设置物理环境（平台 A 和 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#run-l3fwd-application-platform-b">运行 l3fwd 应用程序（平台 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#run-pktgen-application-platform-a">运行 pktgen 应用程序（平台 A）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/dpdk.html#appendix-a-use-pass-through-for-virtual-machines">附录 A：为虚拟机使用直通</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/network/ipxe-install.html">使用 iPXE 通过网络安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/ipxe-install.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/ipxe-install.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/ipxe-install.html#configuration">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/network/network-bonding.html">使用网络捆绑聚合多个接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/network/openssh-server.html">启用并配置 SSH 服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/openssh-server.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/openssh-server.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/openssh-server.html#change-default-port">更改默认端口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/openssh-server.html#enable-sftp">启用 SFTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/openssh-server.html#enable-root-login">启用 root 登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/openssh-server.html#enable-x11-forwarding">启用 X11 转发</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/network/vnc.html">使用 VNC 通过远程桌面连接到主机</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/vnc.html#install-the-vnc-server-and-misc-components-on-your-host">在主机上安装 VNC 服务器和其他组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/vnc.html#configure-a-vnc-server-start-method-on-your-host">在主机上配置 VNC-server-start 方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/vnc.html#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system">在客户端系统上安装一个 VNC 查看器应用程序和一个 SSH 客户端</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/vnc.html#establish-a-vnc-connection-to-your-host">与主机建立 VNC 连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/vnc.html#terminate-a-vnc-connection-to-your-host">终止与主机的 VNC 连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/network/vnc.html#encrypt-vnc-traffic-through-an-ssh-tunnel">通过 SSH 隧道加密 VNC 流量</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/index.html#kernel">内核</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/kernel/kernel-development.html">内核开发</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-development.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-development.html#request-changes-be-included-with-the-cl-kernel">Clear Linux OS 内核中包含了请求变更</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-development.html#set-up-kernel-development-environment">设置内核开发环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-development.html#customize-the-linux-kernel-source">自定义 Linux 内核源代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-development.html#build-and-install-the-kernel">构建并安装内核</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-development.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/kernel/kernel-modules.html">手动添加内核模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules.html#kernel-module-availability">内核模块可用性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules.html#build-install-and-load-an-out-of-tree-module">构建、安装和加载树外模块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules.html#related-topic">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html">使用 DKMS 添加内核模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html#kernel-module-availability">内核模块可用性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html#install-dkms">安装 DKMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html#build-install-and-load-an-out-of-tree-module">构建、安装和加载树外模块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/kernel/kernel-modules-dkms.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/index.html#stacks">堆栈</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/stacks/dars.html">数据分析参考堆栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dars.html#the-data-analytics-reference-stack-release">数据分析参考堆栈版本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dars.html#using-the-docker-images">使用 Docker 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dars.html#building-dars-images">构建 DARS 映像</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/stacks/greengrass.html">启用 AWS Greengrass* 和 OpenVINO™ 工具包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#supported-platforms">支持的平台</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#install-the-os-on-the-edge-device">在边缘设备上安装操作系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#configure-aws-greengrass-group">配置 AWS Greengrass 组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#create-and-package-lambda-function">创建并打包 Lambda 函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#configure-lambda-function">配置 Lambda 函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#deploy-lambda-function">部署 Lambda 函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/greengrass.html#references">参考</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html">深度学习参考堆栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html#tensorflow-single-and-multi-node-benchmarks">TensorFlow 单节点和多节点基准测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html#pytorch-single-and-multi-node-benchmarks">PyTorch 单节点和多节点基准测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html#kubeflow-multi-node-benchmarks">Kubeflow 多节点基准测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html#use-jupyter-notebook">使用 Jupyter Notebook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html#uninstallation">卸载</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/stacks/dlrs/dlrs.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/apache-hadoop.html">Apache* Hadoop*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#install-apache-hadoop">Install Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#configure-apache-hadoop">Configure Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#configure-your-ssh-key">Configure your SSH key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#run-the-hadoop-daemons">Run the Hadoop daemons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#run-the-mapreduce-wordcount-example">Run the MapReduce wordcount example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/apache-spark.html">Apache* Spark*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#install-apache-spark">Install Apache Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#configure-apache-spark">Configure Apache Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#start-the-master-server-and-a-worker-daemon">Start the master server and a worker daemon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#run-the-spark-wordcount-example">Run the Spark wordcount example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/dlrs.html">Deep Learning Reference Stack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#stack-features">Stack features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#version-compatibility">Version compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#tensorflow-single-and-multi-node-benchmarks">TensorFlow single and multi-node benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#pytorch-single-and-multi-node-benchmarks">PyTorch single and multi-node benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#kubeflow-multi-node-benchmarks">Kubeflow multi-node benchmarks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubernetes-setup">Kubernetes setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubernetes-networking">Kubernetes networking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubectl">Kubectl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#ksonnet">ksonnet*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubeflow">Kubeflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#run-a-tfjob">Run a TFJob</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#results-of-running-this-section">Results of running this section</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#tensorflow-training-tfjob-with-kubeflow-and-dlrs">TensorFlow Training (TFJob) with Kubeflow and DLRS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#submitting-tfjobs">Submitting TFJobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#customizing-a-tfjob">Customizing a TFJob</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#pytorch-training-pytorch-job-with-kubeflow-and-dlrs">PyTorch Training (PyTorch Job) with Kubeflow and DLRS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#submitting-pytorch-jobs">Submitting PyTorch Jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#using-kubeflow-seldon-and-openvino-with-the-deep-learning-reference-stack">Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#pre-requisites">Pre-requisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#using-the-intel-openvino-model-optimizer">Using the Intel® OpenVINO Model Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#using-the-openvino-inference-engine">Using the OpenVino Inference Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#use-jupyter-notebook">Use Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#uninstallation">Uninstallation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#compiling-aixprt-with-openmp-on-dlrs">Compiling AIXPRT with OpenMP on DLRS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/docker.html">Docker*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#install-the-containers-basic-bundle">Install the containers-basic bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#integration-with-kata-containers-optional">Integration with Kata Containers* (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#additional-docker-configuration">Additional Docker configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#pulling-and-running-an-image-from-docker-hub">Pulling and running an image from Docker Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#creating-a-docker-swarm-cluster">Creating a Docker swarm cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/flatpak.html">Flatpak*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/flatpak.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/flatpak.html#install-a-flatpak-app-with-gnome-software">Install a Flatpak app with Gnome Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/flatpak.html#install-a-flatpak-with-the-command-line">Install a Flatpak with the command line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/fmv.html">Function multi-versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#install-and-configure-a-cl-host-on-bare-metal">Install and configure a Clear Linux OS host on bare metal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#detect-loop-vectorization-candidates">Detect loop vectorization candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#generate-the-fmv-patch">Generate the FMV patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#fft-project-example-using-fftw">FFT project example using FFTW</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kata.html">Kata Containers*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#install-kata-containers">Install Kata Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#run-kata-containers">Run Kata Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#more-information-about-docker">More information about Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/kata.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kubernetes.html">Kubernetes*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#install-kubernetes-and-cri-runtimes">Install Kubernetes and CRI runtimes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#configure-kubernetes">Configure Kubernetes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#configure-and-run-kubernetes">Configure and run Kubernetes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/kubernetes.html#configure-and-run-cri-o-kata-runtime">Configure and run CRI-O + kata-runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#install-pod-network-add-on">Install pod network add-on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#use-your-cluster">Use your cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#related-topics">Related topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#cloud-native-setup-automation">Cloud native setup automation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#package-configuration-customization-optional">Package configuration customization (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#proxy-configuration-optional">Proxy configuration (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kubernetes-bp.html">Kubernetes* Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#use-swupd-to-update-clusters">Use swupd to update clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#update-the-control-plane">Update the control plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#update-worker-nodes">Update worker nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/nvidia.html">NVIDIA* Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#install-dkms">Install DKMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#download-and-install-the-nvidia-drivers">Download and install the NVIDIA drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#download-the-nvidia-drivers-for-linux">Download the NVIDIA drivers for Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#disable-the-nouveau-driver">Disable the nouveau driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#configure-alternative-software-paths">Configure alternative software paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#install-the-nvidia-drivers">Install the NVIDIA drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#updating-the-nvidia-drivers">Updating the NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#uninstalling-the-nvidia-drivers">Uninstalling the NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#debugging-installation-of-nvidia-drivers">Debugging installation of NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/nvidia-cuda.html">NVIDIA* CUDA Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#compatibility">Compatibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#check-compatibility-of-nvidia-components">Check compatibility of NVIDIA components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#check-gcc-compatibility">Check GCC compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#downloading-and-installation">Downloading and Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#download-the-nvidia-cuda-toolkit">Download the NVIDIA CUDA Toolkit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#install-the-nvidia-cuda-toolkit">Install the NVIDIA CUDA Toolkit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#using-the-nvidia-cuda-toolkit">Using the NVIDIA CUDA Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/parallels.html">Parallels* Desktop for Mac*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#download-iso-image">Download ISO image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#initialize-new-vm">Initialize new VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#install-cl-on-vm">Install Clear Linux OS on VM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/proxy.html">Proxy configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#shells-and-programs-in-a-desktop-session">Shells and programs in a desktop session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/proxy.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#wget">wget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#system-service-docker">System service (Docker)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#git-over-ssh">git over ssh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/redis.html">Redis*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#install-the-redis-bundle">Install the redis bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#start-the-redis-server">Start the redis-server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#example-1-use-the-redis-cli-and-try-commands">Example 1: Use the redis-cli and try commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#example-2-run-the-cl-redis-docker-image">Example 2: Run the Clear Linux OS redis docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/smb.html">Samba* as a host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb.html#set-up-file-sharing">Set up file sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb.html#map-cl-drive-in-windows">Map Clear Linux OS drive in Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/smb-desktop.html">Samba* as a client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb-desktop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb-desktop.html#connect-to-windows-shared-location-with-nautilus">Connect to Windows shared location with Nautilus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html">TensorFlow* machine learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#set-up-a-jupyter-notebook">Set up a Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#run-the-jupyter-machine-learning-example-code">Run the Jupyter machine learning example code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/wordpress.html">WordPress*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html">Set up a LAMP web server on Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-apache">Install Apache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#change-the-default-configuration-and-data-directory">Change the default configuration and data directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-php">Install PHP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-mariadb">Install MariaDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-phpmyadmin">Install phpMyAdmin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#use-phpmyadmin-to-manage-a-database">Use phpMyAdmin to manage a database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html">Set up WordPress* on a LAMP web server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html#before-you-begin">Before you begin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html#create-a-wordpress-server">Create a WordPress server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/yubikey-u2f.html">YubiKey* Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#enable-linux-udev-rules-for-yubikey">Enable Linux udev rules for YubiKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#enable-u2f-in-mozilla-firefox">Enable U2F in Mozilla Firefox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#archive">Archive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/archive/kata_migration.html">Migrate Clear Containers to Kata Containers*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#stop-clear-containers-instances">Stop Clear Containers instances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#manually-migrate-customized-configuration-files">Manually migrate customized configuration files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#enable-kata-containers-as-default">Enable Kata Containers as default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#run-kata-containers">Run Kata Containers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../compatible-hardware.html">Compatible Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bundles/bundles.html">可用的捆绑包</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../bundles/bundles.html#bundle-list">捆绑包列表</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Documentation guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#contribution-guidelines">Contribution guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="writing-guide.html">Writing guide: Describes the style we use to keep our documents clear and concise.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structure-formatting.html">Structure and formatting guide: Explains how we organize and format content, using reStructuredText and Sphinx.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contribute-via-github">Contribute via GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../system-requirements.html">建议的最低系统要求</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../system-requirements.html#installer-requirements">安装程序要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system-requirements.html#id1">系统要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system-requirements.html#recommended-configurations">建议配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../image-types.html">Clear Linux* OS image types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/index.html#general">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#why-did-you-make-another-distro">Why did you make another distro?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#can-other-distros-copy-cl-improvements">Can other distros copy Clear Linux OS improvements?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#how-often-do-you-update">How often do you update?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-telemetry-required">Is telemetry required?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#what-is-the-default-firewall">What is the default firewall?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#where-are-the-files-that-i-usually-see-under-etc-like-fstab">Where are the files that I usually see under /etc like fstab?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/index.html#software-packages">Software packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#how-is-software-installed-and-updated">How is software installed and updated?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#does-cl-use-rpms-like-other-distros">Does Clear Linux OS use RPMs like other distros?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#can-i-install-a-software-package-from-another-os-on-cl">Can I install a software package from another OS on Clear Linux OS?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/index.html#software-availability">Software availability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#what-software-is-available-on-cl">What software is available on Clear Linux OS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-google-chrome-available">Is Google* Chrome* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-microsoft-visual-studio-code-available">Is Microsoft* Visual Studio Code* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-ffmpeg-available">Is FFmpeg available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-zfs-available">Is ZFS* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#can-you-add-a-driver-that-i-need">Can you add a driver that I need?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Clear Linux* Project Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+<header id="header">
+  <div class="padding-md--left-right">
+
+    <div class="header__site_info">
+           <div class="header__site_info_name">
+           </div>
+    </div>
+    <nav class="header__menu">
+        <ul class="header__menu_list">
+              <li class="header__menu_list_item yellow  ">
+                <a tabindex='1' href="https://clearlinux.org">Home</a>
+              </li>
+              <li class="header__menu_list_item green  ">
+                <a tabindex='1' href="https://clearlinux.org/about">About</a>
+              </li>
+              <li class="header__menu_list_item purple  ">
+                <a tabindex='1' href="https://clearlinux.org/developer">Developer</a>
+              </li>
+              <li class="header__menu_list_item blue  ">
+                <a tabindex='1' href="https://clearlinux.org/software">Software</a>
+              </li>
+        </ul>
+    </nav>
+
+  </div>
+
+</header>
+
+
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Reference</a> &raquo;</li>
+        
+      <li>Documentation guidelines</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/clearlinux/clear-linux-documentation/blob/master/source/reference/collaboration/collaboration.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentation-guidelines">
+<span id="collaboration"></span><h1>Documentation guidelines<a class="headerlink" href="#documentation-guidelines" title="永久链接至标题">¶</a></h1>
+<p>See a missing topic in the documentation? Find an existing document that could
+be improved? Help us out by contributing! If you haven’t contributed before,
+take a moment to review our <a class="reference internal" href="#contribution-guidelines">Contribution guidelines</a>.</p>
+<p>Do you have questions about the documentation that were not answered by these
+guidelines? Send your question to the <a class="reference external" href="https://lists.clearlinux.org/mailman/listinfo/dev">mailing list</a>.</p>
+<div class="section" id="contribution-guidelines">
+<h2>Contribution guidelines<a class="headerlink" href="#contribution-guidelines" title="永久链接至标题">¶</a></h2>
+<p>The Clear Linux OS documentation is hosted in GitHub and is written using
+reStructuredText. Use our guidelines and best practices to write consistent,
+readable documentation.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="writing-guide.html">Writing guide: Describes the style we use to keep our documents clear and concise.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure-formatting.html">Structure and formatting guide: Explains how we organize and format content, using reStructuredText and Sphinx.</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-contribute">
+<h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="永久链接至标题">¶</a></h2>
+<p>There are multiple ways to contribute and help improve our documentation:</p>
+<ul class="simple">
+<li><strong>Make a suggestion</strong>: Have a documentation suggestion but no time to write it
+yourself? Send your suggestion to the <a class="reference external" href="https://lists.clearlinux.org/mailman/listinfo/dev">mailing list</a>.</li>
+<li><strong>Log an issue</strong>: If you find a problem in our documentation (such as typos or
+out-of-date information), log an issue in the <a class="reference external" href="https://github.com/clearlinux/clear-linux-documentation">documentation repository</a>.</li>
+<li><strong>Contribute directly via GitHub</strong>: Whether you’ve found a typo, have better
+instructions or examples, or have a new page to add, submit your improvement
+or addition as a pull request on the <a class="reference external" href="https://github.com/clearlinux/clear-linux-documentation">documentation repository</a>.</li>
+<li><strong>Test documentation</strong>: Step through our instructional guides and tutorials to
+verify the instructions. Log or correct any out-of-date information.</li>
+</ul>
+<p>All contributions must follow our <a class="reference external" href="https://clearlinux.org/community/code-of-conduct">code of conduct</a>.</p>
+</div>
+<div class="section" id="contribute-via-github">
+<h2>Contribute via GitHub<a class="headerlink" href="#contribute-via-github" title="永久链接至标题">¶</a></h2>
+<p>Our documentation is hosted in GitHub and we follow the standard <a class="reference external" href="https://guides.github.com/introduction/flow/">GitHub flow</a>:</p>
+<ol class="arabic simple">
+<li>Clone the <a class="reference external" href="https://github.com/clearlinux/clear-linux-documentation">documentation repository</a>.</li>
+<li>Create your own fork of the repository.</li>
+<li>Create a branch for your contribution.</li>
+<li>Add your commits.</li>
+<li>Open a pull request.</li>
+<li>Discuss, review, and update your contributions.</li>
+<li>Once the maintainer approves, your contribution is merged and published as
+part of the documentation.</li>
+</ol>
+</div>
+<div class="section" id="references">
+<span id="id1"></span><h2>References<a class="headerlink" href="#references" title="永久链接至标题">¶</a></h2>
+<p>We use the following references to guide the grammar, style, and formatting of
+our documentation:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.microsoft.com/en-us/style-guide/welcome/">Microsoft Writing Style Guide</a></li>
+<li><a class="reference external" href="https://www.merriam-webster.com/">Merriam-Webster Dictionary</a></li>
+<li>The Chicago Manual of Style (15th edition), The University of Chicago Press</li>
+<li>Microsoft Press Computer Dictionary, Microsoft Press</li>
+<li>Read Me First!, Oracle Technical Publications</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="writing-guide.html" class="btn btn-neutral float-right" title="Writing guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../bundles/bundles.html" class="btn btn-neutral float-left" title="可用的捆绑包" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019.
+      <span class="lastupdated">
+        最后更新于 1月 17, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+
+<div id="trademarks">
+  <p>*Other names and brands may be claimed as the property of others.</p>
+</div>
+
+
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script type="text/javascript" src="../../_static/tcs_theme.js"></script>
+
+
+
+</body>
+</html>

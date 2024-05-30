@@ -1,0 +1,1713 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-61272224-1", {"cookieDomain":"auto","allowLinker":true});ga("require", "linker");ga("linker:autoLink", [/(community\.|www\.|^)clearlinux\.org/gi], true);ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
+
+
+  <title>使用 VNC 通过远程桌面连接到主机 &mdash; Documentation for Clear Linux* project</title>
+  
+
+
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="docs.01.org/clearlinux/guides/network/vnc.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="关于这些文档" href="../../about.html" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="内核开发" href="../kernel/kernel-development.html" />
+    <link rel="prev" title="启用并配置 SSH 服务" href="openssh-server.html" />
+
+<link rel="stylesheet" href="../../_static/tcs_theme.css" type="text/css" />
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #007ab2" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Clear Linux* Project Docs
+          
+
+          
+            
+            <img src="../../_static/clearlinux.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" id="clear-docs-search" placeholder="Search documentation" results="0"/>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Clear Linux</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Language Versions</dt>
+        
+          <dd><a href="/clearlinux/latest/guides/network/vnc.html">English</a></dd>
+        
+          <dd><a href="/clearlinux/latest/zh_CN/guides/network/vnc.html">简体中文 (Simplified Chinese)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Document Versions</dt>
+        
+          <dd><a href="/clearlinux/latest/guides/network/vnc.html">latest</a></dd>
+        
+          <dd><a href="/clearlinux/latest/guides/network/vnc.html">Future versions</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>clearlinux.org links</dt>
+          <dd>
+            <a href="https://www.clearlinux.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/clearlinux/clear-linux-documentation">GitHub</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+  
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">开始使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#pre-install">安装前</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/compatibility-check.html">检查处理器和 EFI 固件的兼容性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/compatibility-check.html#check-compatibility">检查兼容性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bootable-usb.html">创建可引导 U 盘</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#create-a-bootable-usb-drive-on-linux">在 Linux* 上创建可引导 U 盘</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#create-a-bootable-usb-drive-on-macos">在 macOS* 上创建可引导 U 盘</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bootable-usb.html#create-a-bootable-usb-drive-on-windows">在 Windows* 上创建可引导 U 盘</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#install">安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html">从实时桌面安装 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#system-requirements">系统要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#preliminary-steps">初始步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#install-from-live-image">从实时映像安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#minimum-installation-requirements">最低安装要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#cl-desktop-installer">Clear Linux OS 桌面安装程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#navigation">导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#required-options">必填选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#advanced-options">高级选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#finish-installation">完成安装</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/bare-metal-install-server.html">使用实时服务器将 Clear Linux* OS 安装在裸机上</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#system-requirements">系统要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#download-the-latest-cl-live-server-image">下载最新的 Clear Linux OS 实时服务器映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#install-cl-on-your-target-system">在目标系统上安装 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#launch-the-cl-installer">启动 Clear Linux OS 安装程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#minimum-installation-requirements">最低安装要求</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#main-menu">主菜单</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#navigation">导航</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#required-options">必填选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#recommended-options">推荐选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#advanced-options">高级选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#finish-installation">完成安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/bare-metal-install-server.html#troubleshooting">故障检修</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/install-configfile.html">利用 clr-installer 和配置文件安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#process">流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/install-configfile.html#references">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#install-in-a-virtual-machine">在虚拟机上安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html">Microsoft Hyper-V* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#enable-hyper-v">启用 Hyper-V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#create-a-virtual-network">创建虚拟网络</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/hyper-v.html#create-a-virtual-machine">创建虚拟机</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html">KVM 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#install-qemu-kvm">安装 QEMU-KVM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#download-and-launch-the-virtual-machine">下载并开启虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#ssh-access-into-the-virtual-machine">通过 SSH 访问虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/kvm.html#optional-add-the-gnome-display-manager-gdm">可选：添加 GNOME Display Manager (GDM)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html">VirtualBox* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#download-and-extract-the-cl-installer-iso">下载并解压缩 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#create-a-new-vb-virtual-machine">创建新的 VirtualBox 虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#install-cl-on-the-vb-vm">在 VirtualBox 虚拟机上安装 Clear Linux OS。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/virtualbox-cl-installer.html#troubleshooting">故障检修</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html">VMware* Workstation Player 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-the-vmware-workstation-player-hypervisor">安装 VMware Workstation Player 虚拟机管理程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#download-the-latest-cl-installer">下载最新的 Clear Linux OS 安装程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#enable-uefi-boot-support">启用 UEFI 引导支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-cl-into-the-new-vm">将 Clear Linux OS 安装至新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#detach-the-cl-installer-iso-from-the-vm">从虚拟机断开 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#install-open-vm-tools">安装 open-vm-tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html">VMware* Workstation Player （预配置映像）上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#install-the-vmware-workstation-player-hypervisor">安装 VMware Workstation Player 虚拟机管理程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#download-the-latest-cl-vmware-image">下载最新的 Clear Linux OS VMware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#decompress-and-verify-the-image">解压缩并验证映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#attach-the-pre-configured-cl-vmware-image">挂载预配置的 Clear Linux OS Vmware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#enable-uefi-boot-support">启用 UEFI 引导支持</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#power-on-the-vm">开启虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmw-player-preconf.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html">VMware* ESXi 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#download-the-latest-cl-installer-iso">下载最新的 Clear Linux OS 安装程序 ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#upload-the-cl-installer-iso-to-the-vmware-server">将 Clear Linux OS 安装程序 ISO 上传至 VMware 服务器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#install-cl-into-the-new-vm">将 Clear Linux OS 安装至新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl">重新配置虚拟机设置，以引导新安装的 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#power-on-the-vm-and-boot-cl">开启虚拟机，引导 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-install-cl.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html">VMware* ESXi（预配置映像）上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#download-the-latest-cl-vmware-image">下载最新的 Clear Linux OS VMware 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#upload-the-cl-image-to-the-vmware-server">将 Clear Linux OS 映像上传至 VMware 服务器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#convert-the-cl-image-to-an-esxi-supported-format">将 Clear Linux OS 映像转换为 ESXi 支持的格式。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#create-and-configure-a-new-vm">创建并配置新虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#power-on-the-vm-and-boot-cl">开启虚拟机，引导 Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/virtual-machine-install/vmware-esxi-preconfigured-cl-image.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html">增加映像的虚拟磁盘大小</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#determine-the-partition-order-and-sizes-of-the-prebuilt-image">确定预构建映像的分区顺序和大小。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#id2">增加虚拟盘大小</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../get-started/index.html#deploy-to-the-cloud">部署到云</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html">Amazon Web Services* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#locate-select-and-launch-the-cl-basic-ami">找到、选择并启动 Clear Linux OS 基本 AMI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#connect-to-your-clear-linux-os-basic-instance">连接到 Clear Linux 操作系统基本实例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#update-the-cl-instance">更新 Clear Linux OS 实例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/aws-web.html#stop-the-cl-instance">停止 Clear Linux OS 实例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/azure.html">Microsoft* Azure* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#install-ms-azure-cli-2-0-on-cl">在 Clear Linux OS 中安装 Microsoft Azure CLI 2.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#log-into-your-microsoft-azure-account">登录到您的 Microsoft Azure 帐户</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#create-a-ms-azure-resource-group">创建 Microsoft Azure 资源组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#create-and-log-into-the-cl-virtual-machine">创建 Clear Linux OS 虚拟机并登录到该虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#stop-and-deallocate-the-cl-vm-and-resources">停止并取消分配 Clear Linux OS 虚拟机和资源</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/azure.html#next-steps">后续步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/gce.html">Google Cloud Platform* 上的 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/gce.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/gce.html#setup-cl-vm-on-gcp">在 GCP 上安装 Clear Linux OS 虚拟机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/gce.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html">Clear Linux* OS on QingCloud* (如何在青云 QingCloud 上创建 Clear Linux OS 虚拟主机)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#id2">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#qingcloud-cl">在 QingCloud 控制台中选择并启动 Clear Linux OS 虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#ip">申请公网IP并添加到虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#cl">连接到 Clear Linux OS 虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#id3">删除 Clear Linux OS 虚拟主机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../get-started/cloud-install/qingcloud.html#id4">删除申请的公网IP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">关于</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#release-cadence">发行节奏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#updates">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#ease-of-use">易用性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about.html#custom-derivatives">自定义衍生工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../about.html#create">创建</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about.html#deploy">部署</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about.html#administrate">管理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#clear-linux">Clear Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../clear/autoproxy.html">Autoproxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autoproxy.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autoproxy.html#how-it-works">工作原理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/autospec.html">autospec</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#test-packaged-software">测试封装后的软件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#references">参考</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/autospec.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/bundles.html">bundle 文件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/bundles.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/compatible-kernels.html">内核</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/compatible-kernels.html#bare-metal-only">仅限裸机</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/compatible-kernels.html#also-compatible-with-vms">也与虚拟机兼容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/compatible-kernels.html#vm-only">仅限虚拟机</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/debug.html">调试系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/debug.html#background">后台</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/debug.html#usage">用途</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/debug.html#implementation">实施</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/ister.html">ister.py image builder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/ister.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/ister.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/ister.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/mixer.html">mixer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#references">参考</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/mixer.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/security.html">操作系统安全性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-updates">更新方面的安全举措</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-software">软件方面的安全举措</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/security.html#security-in-system-design">系统设计方面的安全举措</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/stateless.html">无状态</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#file-level-separation">文件级隔离</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#software-configuration">软件配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#system-reset">系统重置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/stateless.html#additional-information">附加说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/swupd.html">swupd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd.html#quick-reference">快速参考</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/swupd.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clear/telemetrics.html">遥测</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../clear/telemetrics.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/telemetrics.html#how-to-use">使用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/telemetrics.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clear/telemetrics.html#reference">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#maintenance">维护</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/architect-lifecycle.html">设计 Clear Linux* OS 生命周期</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#content-workflow">内容工作流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#release-workflow">版本工作流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/architect-lifecycle.html#implementation">实施</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/assign-static-ip.html">分配静态 IP 地址</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/assign-static-ip.html#identify-which-program-is-managing-the-interface">确定哪个程序正在管理接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/assign-static-ip.html#using-networkmanager">使用 NetworkManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/assign-static-ip.html#using-systemd-networkd">使用 systemd-networkd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/bulk-provision.html">批量供应</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/bulk-provision.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/bulk-provision.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/bulk-provision.html#configuration">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/cpu-performance.html">CPU 功率和性能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#cpu-power-saving-mechanisms">CPU 节能机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#linux-cpu-clock-frequency-scaling">Linux CPU 时钟频率缩放</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/cpu-performance.html#thermal-management">散热管理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/deploy-at-scale.html">大规模部署</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/deploy-at-scale.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/deploy-at-scale.html#pick-a-usage-and-update-strategy">选择使用和更新策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/deploy-at-scale.html#pick-an-image-distribution-strategy">选择映像分发策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/deploy-at-scale.html#considerations-with-stateless-systems">有关无状态系统的注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/developer-workstation.html">开发人员工作站</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/developer-workstation.html#workstation-setup">工作站设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/developer-workstation.html#swupd-search">swupd 搜索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/developer-workstation.html#core-concepts">核心概念</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/download-verify-decompress.html">下载、验证并解压缩 Clear Linux* OS 映像，</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#linux-os-steps">Linux 操作系统步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#macos-steps">macOS* 步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#windows-os-steps">Windows* 操作系统步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/download-verify-decompress.html#image-types">映像类型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/enable-user-space.html">创建并启用新的用户空间</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#create-a-new-user">创建新用户</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#add-the-new-user-to-the-wheel-group">将新用户添加到 wheel 组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#install-and-update-the-os-software-to-its-current-version">安装操作系统软件并将其更新到最新版本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#add-a-bundle">添加捆绑包</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/enable-user-space.html#next-steps">后续步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/fix-broken-install.html">修复损坏的安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#boot-a-live-desktop-image-to-fix-target-system">引导实时桌面映像来修复目标系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#install-from-live-image">从实时映像安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/fix-broken-install.html#mount-root-partition-verify-and-fix">挂载根分区，然后验证并修复</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/hostname.html">修改主机名</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/hostname.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/hostname.html#set-your-hostname">设置主机名</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/hostname.html#view-your-hostname">查看主机名</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html">增加映像的虚拟磁盘大小</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#determine-the-partition-order-and-sizes-of-the-prebuilt-image">确定预构建映像的分区顺序和大小。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/increase-virtual-disk-size.html#id2">增加虚拟盘大小</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/query-upstream.html">从上游存储库查询软件包信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#configure-dnf">配置 DNF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/query-upstream.html#dnf-command-usage-examples">DNF 命令用法示例</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/resource-limits.html">资源限制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/resource-limits.html#system-wide-limits">系统范围限制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/resource-limits.html#per-user-limits">每用户限制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/resource-limits.html#service-limits">服务限制</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/restart.html">操作系统更新后重启系统服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#how-it-works">工作原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#basic-options">基本选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#monitor-options">监控选项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#example">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#telemetry">遥测技术</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/restart.html#conclusion">总结</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/time.html">设置时间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maintenance/validate-signatures.html">验证签名</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/validate-signatures.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/validate-signatures.html#image-content-validation">映像内容验证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../maintenance/validate-signatures.html#update-content-validation">更新内容验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#network">网络</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="custom-clear-container.html">根据 Docker 容器映像构建一个自定义 Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="custom-clear-container.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="custom-clear-container.html#build-the-base-container-image">构建基础容器映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="custom-clear-container.html#manage-bundles-in-a-container">管理容器中的捆绑包</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dpdk.html">使用 DPDK 在平台之间发送数据包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#install-dpdk-and-build-l3fwd-example-platform-b">安装 dpdk 并构建 l3fwd 示例（平台 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#build-pktgen-platform-a">构建 pktgen（平台 A）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b">将网卡绑定到 DPDK 内核驱动程序（平台 A 和平台 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#set-hugepages-platforms-a-and-b">设置大页（平台 A 和 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#set-up-the-physical-environment-platforms-a-and-b">设置物理环境（平台 A 和 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#run-l3fwd-application-platform-b">运行 l3fwd 应用程序（平台 B）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#run-pktgen-application-platform-a">运行 pktgen 应用程序（平台 A）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dpdk.html#appendix-a-use-pass-through-for-virtual-machines">附录 A：为虚拟机使用直通</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ipxe-install.html">使用 iPXE 通过网络安装</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#configuration">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network-bonding.html">使用网络捆绑聚合多个接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openssh-server.html">启用并配置 SSH 服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="openssh-server.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="openssh-server.html#prerequisites">必备条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="openssh-server.html#change-default-port">更改默认端口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="openssh-server.html#enable-sftp">启用 SFTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="openssh-server.html#enable-root-login">启用 root 登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="openssh-server.html#enable-x11-forwarding">启用 X11 转发</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">使用 VNC 通过远程桌面连接到主机</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-the-vnc-server-and-misc-components-on-your-host">在主机上安装 VNC 服务器和其他组件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-a-vnc-server-start-method-on-your-host">在主机上配置 VNC-server-start 方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system">在客户端系统上安装一个 VNC 查看器应用程序和一个 SSH 客户端</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#establish-a-vnc-connection-to-your-host">与主机建立 VNC 连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#terminate-a-vnc-connection-to-your-host">终止与主机的 VNC 连接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#encrypt-vnc-traffic-through-an-ssh-tunnel">通过 SSH 隧道加密 VNC 流量</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#kernel">内核</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kernel/kernel-development.html">内核开发</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#request-changes-be-included-with-the-cl-kernel">Clear Linux OS 内核中包含了请求变更</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#set-up-kernel-development-environment">设置内核开发环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#customize-the-linux-kernel-source">自定义 Linux 内核源代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#build-and-install-the-kernel">构建并安装内核</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-development.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kernel/kernel-modules.html">手动添加内核模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#kernel-module-availability">内核模块可用性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#build-install-and-load-an-out-of-tree-module">构建、安装和加载树外模块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules.html#related-topic">相关主题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kernel/kernel-modules-dkms.html">使用 DKMS 添加内核模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#description">描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#kernel-module-availability">内核模块可用性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#install-dkms">安装 DKMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#build-install-and-load-an-out-of-tree-module">构建、安装和加载树外模块</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#examples">示例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kernel/kernel-modules-dkms.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#stacks">堆栈</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../stacks/dars.html">数据分析参考堆栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dars.html#the-data-analytics-reference-stack-release">数据分析参考堆栈版本</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dars.html#using-the-docker-images">使用 Docker 映像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dars.html#building-dars-images">构建 DARS 映像</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../stacks/greengrass.html">启用 AWS Greengrass* 和 OpenVINO™ 工具包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#supported-platforms">支持的平台</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#install-the-os-on-the-edge-device">在边缘设备上安装操作系统</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#configure-aws-greengrass-group">配置 AWS Greengrass 组</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#create-and-package-lambda-function">创建并打包 Lambda 函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#configure-lambda-function">配置 Lambda 函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#deploy-lambda-function">部署 Lambda 函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/greengrass.html#references">参考</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../stacks/dlrs/dlrs.html">深度学习参考堆栈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#overview">概述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#tensorflow-single-and-multi-node-benchmarks">TensorFlow 单节点和多节点基准测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#pytorch-single-and-multi-node-benchmarks">PyTorch 单节点和多节点基准测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#kubeflow-multi-node-benchmarks">Kubeflow 多节点基准测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#use-jupyter-notebook">使用 Jupyter Notebook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#uninstallation">卸载</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stacks/dlrs/dlrs.html#related-topics">相关主题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/apache-hadoop.html">Apache* Hadoop*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#install-apache-hadoop">Install Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#configure-apache-hadoop">Configure Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#configure-your-ssh-key">Configure your SSH key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#run-the-hadoop-daemons">Run the Hadoop daemons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-hadoop.html#run-the-mapreduce-wordcount-example">Run the MapReduce wordcount example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/apache-spark.html">Apache* Spark*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#install-apache-spark">Install Apache Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#configure-apache-spark">Configure Apache Spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#start-the-master-server-and-a-worker-daemon">Start the master server and a worker daemon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/apache-spark.html#run-the-spark-wordcount-example">Run the Spark wordcount example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/dlrs.html">Deep Learning Reference Stack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#stack-features">Stack features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#version-compatibility">Version compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#tensorflow-single-and-multi-node-benchmarks">TensorFlow single and multi-node benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#pytorch-single-and-multi-node-benchmarks">PyTorch single and multi-node benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#kubeflow-multi-node-benchmarks">Kubeflow multi-node benchmarks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubernetes-setup">Kubernetes setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubernetes-networking">Kubernetes networking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubectl">Kubectl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#images">Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#ksonnet">ksonnet*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#kubeflow">Kubeflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#run-a-tfjob">Run a TFJob</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#results-of-running-this-section">Results of running this section</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#tensorflow-training-tfjob-with-kubeflow-and-dlrs">TensorFlow Training (TFJob) with Kubeflow and DLRS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#submitting-tfjobs">Submitting TFJobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#customizing-a-tfjob">Customizing a TFJob</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#pytorch-training-pytorch-job-with-kubeflow-and-dlrs">PyTorch Training (PyTorch Job) with Kubeflow and DLRS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#submitting-pytorch-jobs">Submitting PyTorch Jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#using-kubeflow-seldon-and-openvino-with-the-deep-learning-reference-stack">Using Kubeflow Seldon and OpenVINO* with the Deep Learning Reference Stack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/dlrs.html#pre-requisites">Pre-requisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#using-the-intel-openvino-model-optimizer">Using the Intel® OpenVINO Model Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#using-the-openvino-inference-engine">Using the OpenVino Inference Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#use-jupyter-notebook">Use Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#uninstallation">Uninstallation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#compiling-aixprt-with-openmp-on-dlrs">Compiling AIXPRT with OpenMP on DLRS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/dlrs.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/docker.html">Docker*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#install-the-containers-basic-bundle">Install the containers-basic bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#integration-with-kata-containers-optional">Integration with Kata Containers* (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#additional-docker-configuration">Additional Docker configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#pulling-and-running-an-image-from-docker-hub">Pulling and running an image from Docker Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#creating-a-docker-swarm-cluster">Creating a Docker swarm cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/docker.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/flatpak.html">Flatpak*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/flatpak.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/flatpak.html#install-a-flatpak-app-with-gnome-software">Install a Flatpak app with Gnome Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/flatpak.html#install-a-flatpak-with-the-command-line">Install a Flatpak with the command line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/fmv.html">Function multi-versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#install-and-configure-a-cl-host-on-bare-metal">Install and configure a Clear Linux OS host on bare metal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#detect-loop-vectorization-candidates">Detect loop vectorization candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#generate-the-fmv-patch">Generate the FMV patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/fmv.html#fft-project-example-using-fftw">FFT project example using FFTW</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kata.html">Kata Containers*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#install-kata-containers">Install Kata Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#run-kata-containers">Run Kata Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kata.html#more-information-about-docker">More information about Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/kata.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kubernetes.html">Kubernetes*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#install-kubernetes-and-cri-runtimes">Install Kubernetes and CRI runtimes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#configure-kubernetes">Configure Kubernetes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#configure-and-run-kubernetes">Configure and run Kubernetes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/kubernetes.html#configure-and-run-cri-o-kata-runtime">Configure and run CRI-O + kata-runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#install-pod-network-add-on">Install pod network add-on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#use-your-cluster">Use your cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#related-topics">Related topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#cloud-native-setup-automation">Cloud native setup automation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#package-configuration-customization-optional">Package configuration customization (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#proxy-configuration-optional">Proxy configuration (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/kubernetes-bp.html">Kubernetes* Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#use-swupd-to-update-clusters">Use swupd to update clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#update-the-control-plane">Update the control plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/kubernetes-bp.html#update-worker-nodes">Update worker nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/nvidia.html">NVIDIA* Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#install-dkms">Install DKMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#download-and-install-the-nvidia-drivers">Download and install the NVIDIA drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#download-the-nvidia-drivers-for-linux">Download the NVIDIA drivers for Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#disable-the-nouveau-driver">Disable the nouveau driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#configure-alternative-software-paths">Configure alternative software paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia.html#install-the-nvidia-drivers">Install the NVIDIA drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#updating-the-nvidia-drivers">Updating the NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#uninstalling-the-nvidia-drivers">Uninstalling the NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#debugging-installation-of-nvidia-drivers">Debugging installation of NVIDIA drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia.html#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/nvidia-cuda.html">NVIDIA* CUDA Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#compatibility">Compatibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#check-compatibility-of-nvidia-components">Check compatibility of NVIDIA components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#check-gcc-compatibility">Check GCC compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#downloading-and-installation">Downloading and Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#download-the-nvidia-cuda-toolkit">Download the NVIDIA CUDA Toolkit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#install-the-nvidia-cuda-toolkit">Install the NVIDIA CUDA Toolkit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#using-the-nvidia-cuda-toolkit">Using the NVIDIA CUDA Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/nvidia-cuda.html#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/parallels.html">Parallels* Desktop for Mac*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#download-iso-image">Download ISO image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#initialize-new-vm">Initialize new VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/parallels.html#install-cl-on-vm">Install Clear Linux OS on VM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/proxy.html">Proxy configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#shells-and-programs-in-a-desktop-session">Shells and programs in a desktop session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/proxy.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#wget">wget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#system-service-docker">System service (Docker)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/proxy.html#git-over-ssh">git over ssh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/redis.html">Redis*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#install-the-redis-bundle">Install the redis bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#start-the-redis-server">Start the redis-server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#example-1-use-the-redis-cli-and-try-commands">Example 1: Use the redis-cli and try commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#example-2-run-the-cl-redis-docker-image">Example 2: Run the Clear Linux OS redis docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/redis.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/smb.html">Samba* as a host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb.html#set-up-file-sharing">Set up file sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb.html#map-cl-drive-in-windows">Map Clear Linux OS drive in Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/smb-desktop.html">Samba* as a client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb-desktop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/smb-desktop.html#connect-to-windows-shared-location-with-nautilus">Connect to Windows shared location with Nautilus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html">TensorFlow* machine learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#set-up-a-jupyter-notebook">Set up a Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#run-the-jupyter-machine-learning-example-code">Run the Jupyter machine learning example code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/tensorflow-machine-learning.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/wordpress.html">WordPress*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html">Set up a LAMP web server on Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-apache">Install Apache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#change-the-default-configuration-and-data-directory">Change the default configuration and data directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-php">Install PHP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-mariadb">Install MariaDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#install-phpmyadmin">Install phpMyAdmin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#use-phpmyadmin-to-manage-a-database">Use phpMyAdmin to manage a database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/web-server-install.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html">Set up WordPress* on a LAMP web server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html#before-you-begin">Before you begin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/wordpress/wp-install.html#create-a-wordpress-server">Create a WordPress server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/yubikey-u2f.html">YubiKey* Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#enable-linux-udev-rules-for-yubikey">Enable Linux udev rules for YubiKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#enable-u2f-in-mozilla-firefox">Enable U2F in Mozilla Firefox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/yubikey-u2f.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#archive">Archive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/archive/kata_migration.html">Migrate Clear Containers to Kata Containers*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#stop-clear-containers-instances">Stop Clear Containers instances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#manually-migrate-customized-configuration-files">Manually migrate customized configuration files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#enable-kata-containers-as-default">Enable Kata Containers as default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/archive/kata_migration.html#run-kata-containers">Run Kata Containers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/compatible-hardware.html">Compatible Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bundles/bundles.html">可用的捆绑包</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/bundles/bundles.html#bundle-list">捆绑包列表</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/collaboration/collaboration.html">Documentation guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#contribution-guidelines">Contribution guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/collaboration/writing-guide.html">Writing guide: Describes the style we use to keep our documents clear and concise.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reference/collaboration/structure-formatting.html">Structure and formatting guide: Explains how we organize and format content, using reStructuredText and Sphinx.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#contribute-via-github">Contribute via GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/collaboration/collaboration.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/system-requirements.html">建议的最低系统要求</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/system-requirements.html#installer-requirements">安装程序要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/system-requirements.html#id1">系统要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../reference/system-requirements.html#recommended-configurations">建议配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/image-types.html">Clear Linux* OS image types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/index.html#general">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#why-did-you-make-another-distro">Why did you make another distro?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#can-other-distros-copy-cl-improvements">Can other distros copy Clear Linux OS improvements?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#how-often-do-you-update">How often do you update?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-telemetry-required">Is telemetry required?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#what-is-the-default-firewall">What is the default firewall?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#where-are-the-files-that-i-usually-see-under-etc-like-fstab">Where are the files that I usually see under /etc like fstab?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/index.html#software-packages">Software packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#how-is-software-installed-and-updated">How is software installed and updated?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#does-cl-use-rpms-like-other-distros">Does Clear Linux OS use RPMs like other distros?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#can-i-install-a-software-package-from-another-os-on-cl">Can I install a software package from another OS on Clear Linux OS?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../FAQ/index.html#software-availability">Software availability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#what-software-is-available-on-cl">What software is available on Clear Linux OS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-google-chrome-available">Is Google* Chrome* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-microsoft-visual-studio-code-available">Is Microsoft* Visual Studio Code* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-ffmpeg-available">Is FFmpeg available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#is-zfs-available">Is ZFS* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FAQ/index.html#can-you-add-a-driver-that-i-need">Can you add a driver that I need?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Clear Linux* Project Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+<header id="header">
+  <div class="padding-md--left-right">
+
+    <div class="header__site_info">
+           <div class="header__site_info_name">
+           </div>
+    </div>
+    <nav class="header__menu">
+        <ul class="header__menu_list">
+              <li class="header__menu_list_item yellow  ">
+                <a tabindex='1' href="https://clearlinux.org">Home</a>
+              </li>
+              <li class="header__menu_list_item green  ">
+                <a tabindex='1' href="https://clearlinux.org/about">About</a>
+              </li>
+              <li class="header__menu_list_item purple  ">
+                <a tabindex='1' href="https://clearlinux.org/developer">Developer</a>
+              </li>
+              <li class="header__menu_list_item blue  ">
+                <a tabindex='1' href="https://clearlinux.org/software">Software</a>
+              </li>
+        </ul>
+    </nav>
+
+  </div>
+
+</header>
+
+
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+      <li>使用 VNC 通过远程桌面连接到主机</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/clearlinux/clear-linux-documentation/blob/master/source/guides/network/vnc.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="remote-desktop-to-a-host-using-vnc">
+<span id="vnc"></span><h1>使用 VNC 通过远程桌面连接到主机<a class="headerlink" href="#remote-desktop-to-a-host-using-vnc" title="永久链接至标题">¶</a></h1>
+<p>本指南介绍如何使用 <abbr title="Virtual Network Computing">VNC</abbr> 连接到远程 Clear Linux* OS 主机。</p>
+<p>VNC 是一个基于 GUI 的客户端-服务器工具，使用它可以通过远程桌面连接到 Clear Linux OS 主机。</p>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><a class="reference internal" href="#install-the-vnc-server-and-misc-components-on-your-host" id="id11">在主机上安装 VNC 服务器和其他组件</a></li>
+<li><a class="reference internal" href="#configure-a-vnc-server-start-method-on-your-host" id="id12">在主机上配置 VNC-server-start 方法</a></li>
+<li><a class="reference internal" href="#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system" id="id13">在客户端系统上安装一个 VNC 查看器应用程序和一个 SSH 客户端</a></li>
+<li><a class="reference internal" href="#establish-a-vnc-connection-to-your-host" id="id14">与主机建立 VNC 连接</a></li>
+<li><a class="reference internal" href="#terminate-a-vnc-connection-to-your-host" id="id15">终止与主机的 VNC 连接</a></li>
+<li><a class="reference internal" href="#encrypt-vnc-traffic-through-an-ssh-tunnel" id="id16">通过 SSH 隧道加密 VNC 流量</a></li>
+</ul>
+</div>
+<div class="section" id="install-the-vnc-server-and-misc-components-on-your-host">
+<h2><a class="toc-backref" href="#id11">在主机上安装 VNC 服务器和其他组件</a><a class="headerlink" href="#install-the-vnc-server-and-misc-components-on-your-host" title="永久链接至标题">¶</a></h2>
+<p>要配置 VNC，使其能在 Clear Linux OS 主机上正常工作，请安装以下捆绑包：</p>
+<ul class="simple">
+<li><strong class="command">desktop-autostart</strong>：安装 <abbr title="Gnome Desktop Manager">GDM</abbr>，将其设置为在引导时自动启动，并安装 TigerVNC 查看器。</li>
+<li><strong class="command">vnc-server</strong>：安装 TigerVNC 服务器。</li>
+</ul>
+<p>遵照这些步骤操作：</p>
+<ol class="arabic">
+<li><p class="first">登录 Clear Linux OS 主机并获得 root 特权。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">安装 Clear Linux OS 捆绑包。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swupd bundle-add desktop-autostart vnc-server
+</pre></div>
+</div>
+</li>
+<li><p class="first">重新引导 Clear Linux OS 主机。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-a-vnc-server-start-method-on-your-host">
+<h2><a class="toc-backref" href="#id12">在主机上配置 VNC-server-start 方法</a><a class="headerlink" href="#configure-a-vnc-server-start-method-on-your-host" title="永久链接至标题">¶</a></h2>
+<p>有三种方法可以用来在 Clear Linux OS 主机上配置和启动 VNC 服务器：</p>
+<table border="1" class="colwidths-given docutils" id="vnc-server-start">
+<caption><span class="caption-text">表 1：VNC-server-start 配置方法</span><a class="headerlink" href="#vnc-server-start" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="14%" />
+<col width="29%" />
+<col width="29%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">属性</th>
+<th class="head">方法 1：手动启动 VNC 会话</th>
+<th class="head">方法 2：通过 systemd 服务脚本自动启动 VNC 会话</th>
+<th class="head">方法 3：通过 GDM 身份验证创建多用户登录</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>描述</td>
+<td>这里使用的是传统方法，即通过 SSH 登录 Clear Linux OS 主机，手动启动 VNC 会话以获取显示 ID，并通过提供显示 ID 来连接到它。</td>
+<td>系统管理员使用预先分配的显示 ID 来设置 systemd 服务脚本。建立一个 VNC 连接，并提供预先分配的显示 ID。</td>
+<td>系统管理员将 GDM 配置为接受连接请求。与 Clear Linux OS 主机建立 VNC 连接时，您会看到 GDM 登录屏幕，并像本地用户一样进行身份验证。</td>
+</tr>
+<tr class="row-odd"><td>谁来配置 VNC 设置？</td>
+<td>您</td>
+<td><em>系统管理员</em></td>
+<td><em>系统管理员</em></td>
+</tr>
+<tr class="row-even"><td>谁来启动 VNC 会话？</td>
+<td>您</td>
+<td>设置为由系统管理员在引导时自动启动</td>
+<td>设置为由系统管理员在引导时自动启动</td>
+</tr>
+<tr class="row-odd"><td>谁来终止 VNC 会话？</td>
+<td>您</td>
+<td>您</td>
+<td>系统管理员可以完全禁用 VNC 服务</td>
+</tr>
+<tr class="row-even"><td>是否需要提供 VNC 密码以执行身份验证？</td>
+<td>是</td>
+<td>是</td>
+<td>不需要。通过 GDM 使用 Clear Linux OS 帐户用户名和密码</td>
+</tr>
+</tbody>
+</table>
+<p>虽然这三种方法可以在同一个 Clear Linux OS 主机上共存，但我们建议您选择一种适合您的需求的方法。</p>
+<p>为简单起见，本指南的其余部分将这些方法称为方法 1、方法 2 和方法 3。</p>
+<div class="section" id="method-1-manually-start-a-vnc-session">
+<h3>方法 1：手动启动 VNC 会话<a class="headerlink" href="#method-1-manually-start-a-vnc-session" title="永久链接至标题">¶</a></h3>
+<p>您（和每个用户）必须执行这些步骤来初始化 VNC 设置。</p>
+<ol class="arabic">
+<li><p class="first">登录。</p>
+</li>
+<li><p class="first">打开一个终端模拟器。</p>
+</li>
+<li><p class="first">使用 <strong class="command">vncserver</strong> 命令启动 VNC。由于这是您第一次启动 VNC，它会添加默认配置文件，并要求您设置 VNC 密码。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver
+</pre></div>
+</div>
+<p>结果示例：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">You will require a password to access your desktops.</span>
+
+<span class="go">Password:</span>
+<span class="go">Verify:</span>
+<span class="go">Would you like to enter a view-only password (y/n)? n</span>
+<span class="go">xauth:  file /home/vnc-user-a/.Xauthority does not exist</span>
+
+<span class="go">New &#39;clr-linux:2 (vnc-user-a)&#39; desktop is clr-linux:2</span>
+
+<span class="go">Creating default startup script /home/vnc-user-a/.vnc/xstartup</span>
+<span class="go">Creating default config /home/vnc-user-a/.vnc/config</span>
+<span class="go">Starting applications specified in /home/vnc-user-a/.vnc/xstartup</span>
+<span class="go">Log file is /home/vnc-user-a/.vnc/clr-linux:2.log</span>
+</pre></div>
+</div>
+<p>完成后，您可以在主目录中的 <code class="file docutils literal notranslate"><span class="pre">.vnc</span></code> 目录中找到隐藏的默认配置文件和密码文件。</p>
+<p>VNC 会话启动并显示一个唯一的显示 ID，该 ID 是主机名和冒号 “:” 后面的数字。在上面的例子中，显示 ID 是 2。在稍后的步骤中，您将向 VNC 查看器应用程序提供显示 ID 以建立连接。</p>
+</li>
+<li><p class="first">使用 <strong class="command">vncserver -kill :[display ID]</strong> 命令暂时终止活动的 VNC 会话。使用您的活动 VNC 会话显示 ID 替换 [display ID]。例如：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver -kill :2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">如果您不记得活动会话显示 ID，请使用 <strong class="command">vncserver -list</strong> 命令查找它。</p>
+</div>
+</li>
+<li><p class="first">可选配置：</p>
+<ul class="simple">
+<li>要自定义屏幕大小、安全类型等设置，请修改 <code class="file docutils literal notranslate"><span class="pre">$HOME/.vnc/config</span></code> 文件。</li>
+<li>要自定义启动时运行的应用程序，请修改 <code class="file docutils literal notranslate"><span class="pre">$HOME/.vnc/xstartup</span></code> 文件。</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="method-2-automatically-start-a-vnc-session-via-a-systemd-service-script">
+<h3>方法 2：通过 systemd 服务脚本自动启动 VNC 会话<a class="headerlink" href="#method-2-automatically-start-a-vnc-session-via-a-systemd-service-script" title="永久链接至标题">¶</a></h3>
+<p>要使用此方法配置 VNC，您必须具有 root 特权。您将为所有潜在的 VNC 用户设置一个 systemd 服务文件，而且这些用户拥有自己预先指定的唯一显示 ID。</p>
+<ol class="arabic">
+<li><p class="first">登录并获得 root 特权。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">确保用户帐户已经存在。使用以下命令列出所有用户。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cut -d: -f1 /etc/passwd
+</pre></div>
+</div>
+</li>
+<li><p class="first">创建路径 <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p /etc/systemd/system
+</pre></div>
+</div>
+</li>
+<li><p class="first">创建 systemd 服务脚本文件 <code class="file docutils literal notranslate"><span class="pre">vncserver&#64;:[X].service</span></code>，其中 [X] 是显示 ID。对于 <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code> 中的每个用户，必须为每个用户分配一个唯一的显示 ID。请确保在 <span class="guilabel">User</span> 字段中输入正确的用户名。以下示例显示了用户 vnc-user-b 已分配了显示 ID 5。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> cat &gt; /etc/systemd/system/vncserver@:5.service &lt;&lt; EOF
+
+<span class="go">[Unit]</span>
+<span class="go">Description=VNC Remote Desktop Service for &quot;vnc-user-b&quot; with display ID &quot;5&quot;</span>
+<span class="go">After=syslog.target network.target</span>
+
+<span class="go">[Service]</span>
+<span class="go">Type=simple</span>
+<span class="go">User=vnc-user-b</span>
+<span class="go">PAMName=login</span>
+<span class="go">PIDFile=/home/%u/.vnc/%H%i.pid</span>
+<span class="go">ExecStartPre=/bin/sh -c &#39;/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :&#39;</span>
+<span class="go">ExecStart=/usr/bin/vncserver %i -geometry 2000x1200 -alwaysshared -fg</span>
+<span class="go">ExecStop=/usr/bin/vncserver -kill %i</span>
+
+<span class="go">[Install]</span>
+<span class="go">WantedBy=multi-user.target</span>
+
+<span class="go">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">让每个用户登录他们的帐户，并使用 <strong class="command">vncpasswd</strong> 命令设置 VNC 密码，然后继续下一步。</p>
+</li>
+<li><p class="first">启动 VNC 服务脚本，并为每个用户将其设置在引导时自动启动。使用显示 ID 替换 [X]。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl daemon-reload
+systemctl start vncserver@:<span class="o">[</span>X<span class="o">]</span>.service
+systemctl <span class="nb">enable</span> vncserver@:<span class="o">[</span>X<span class="o">]</span>.service
+</pre></div>
+</div>
+</li>
+<li><p class="first">启动服务后，确认它们是否正在运行。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl <span class="p">|</span> grep vnc
+</pre></div>
+</div>
+<p>以下示例显示了已成功为显示 ID 为 5 的用户 vnc-user-b 以及显示 ID 为 6 的用户 vnc-user-c 启动两个 VNC 会话。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> systemctl <span class="p">|</span> grep vnc
+
+<span class="go">vncserver@:5.services   loaded active running  VNC Remote Desktop Service for &quot;vnc-user-b&quot; with display ID &quot;5&quot;</span>
+<span class="go">vncserver@:6.services   loaded active running  VNC Remote Desktop Service for &quot;vnc-user-c&quot; with display ID &quot;6&quot;</span>
+<span class="go">system-vncserver.slice  loaded active active system-vncserver.slice</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="method-3-multi-user-logins-with-authentication-through-gdm">
+<h3>方法 3：通过 GDM 身份验证实现多用户登录<a class="headerlink" href="#method-3-multi-user-logins-with-authentication-through-gdm" title="永久链接至标题">¶</a></h3>
+<p>使用此方法时，系统将 VNC 配置为监听端口 5900 的 systemd 服务，并将 GDM 配置为接受来自 VNC 的访问请求。与 Clear Linux OS 主机建立 VNC 连接时，您会看到 GDM 登录屏幕，并像本地用户一样进行身份验证。您必须具有 root 特权才能执行此配置。</p>
+<ol class="arabic">
+<li><p class="first">登录并获得 root 特权。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo -s
+</pre></div>
+</div>
+</li>
+<li><p class="first">创建路径 <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p /etc/systemd/system
+</pre></div>
+</div>
+</li>
+<li><p class="first">创建 systemd 套接字文件 <code class="file docutils literal notranslate"><span class="pre">xvnc.socket</span></code>，并添加以下内容：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> cat &gt; /etc/systemd/system/xvnc.socket &lt;&lt; EOF
+
+<span class="go">[Unit]</span>
+<span class="go">Description=XVNC Server on port 5900</span>
+
+<span class="go">[Socket]</span>
+<span class="go">ListenStream=5900</span>
+<span class="go">Accept=yes</span>
+
+<span class="go">[Install]</span>
+<span class="go">WantedBy=sockets.target</span>
+
+<span class="go">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">创建 systemd 服务文件 <code class="file docutils literal notranslate"><span class="pre">xvnc&#64;.service</span></code>，并添加以下内容：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> cat &gt; /etc/systemd/system/xvnc@.service &lt;&lt; EOF
+
+<span class="go">[Unit]</span>
+<span class="go">Description=Daemon for each XVNC connection</span>
+
+<span class="go">[Service]</span>
+<span class="go">ExecStart=-/usr/bin/Xvnc -inetd -query localhost -geometry 2000x1200 -once -SecurityTypes=None</span>
+<span class="go">User=nobody</span>
+<span class="go">StandardInput=socket</span>
+<span class="go">StandardError=syslog</span>
+
+<span class="go">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">创建路径 <code class="file docutils literal notranslate"><span class="pre">/etc/gdm</span></code>。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p /etc/gdm
+</pre></div>
+</div>
+</li>
+<li><p class="first">创建一个 GDM <code class="file docutils literal notranslate"><span class="pre">custom.conf</span></code> 文件，并添加以下内容：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> cat &gt; /etc/gdm/custom.conf &lt;&lt; EOF
+
+<span class="go">[xdmcp]</span>
+<span class="go">Enable=true</span>
+<span class="go">Port=177</span>
+
+<span class="go">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">启动 VNC 套接字脚本，并将其设置为在引导时自动启动。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl daemon-reload
+systemctl start xvnc.socket
+systemctl <span class="nb">enable</span> xvnc.socket
+</pre></div>
+</div>
+</li>
+<li><p class="first">启动套接字后，确认它是否正在运行。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl <span class="p">|</span> grep vnc
+</pre></div>
+</div>
+<p>下面的示例显示 xvnc.socket 正在运行。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> systemctl <span class="p">|</span> grep vnc
+
+<span class="go">xvnc.socket               loaded active listening XVNC Server on port 5900</span>
+<span class="go">system-xvnc.slice         loaded active active    system-xvnc.slice</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>有关更多信息，请参阅 vncserver 手册页。</p>
+</div>
+</div>
+<div class="section" id="install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system">
+<h2><a class="toc-backref" href="#id13">在客户端系统上安装一个 VNC 查看器应用程序和一个 SSH 客户端</a><a class="headerlink" href="#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system" title="永久链接至标题">¶</a></h2>
+<p>客户端系统上需要具有 VNC 查看器应用程序才能连接到 Clear Linux OS 主机。仅当选择使用方法 1 或打算加密 VNC 流量（这将在本指南后文讨论）时才需要 SSH 客户端。</p>
+<p>执行以下步骤将这些应用程序添加到客户端系统。</p>
+<div class="section" id="install-a-vnc-viewer-app">
+<h3>安装一个 VNC 查看器应用程序<a class="headerlink" href="#install-a-vnc-viewer-app" title="永久链接至标题">¶</a></h3>
+<p>在 Clear Linux OS 上：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swupd bundle-add desktop-autostart
+</pre></div>
+</div>
+<p>在 Ubuntu*、Mint* 上：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get install xtightvncviewer
+</pre></div>
+</div>
+<p>在 Fedora* 上：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dnf install tigervnc
+</pre></div>
+</div>
+<p>在 Windows* 上：</p>
+<ul class="simple">
+<li>安装 <a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/windows/">RealVNC for Windows</a></li>
+</ul>
+<p>在 macOS* 上：</p>
+<ul class="simple">
+<li>安装 <a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/macos/">RealVNC for macOS</a></li>
+</ul>
+</div>
+<div class="section" id="install-an-ssh-client">
+<h3>安装一个 SSH 客户端<a class="headerlink" href="#install-an-ssh-client" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>大多数 Linux 发行版（Clear Linux OS、Ubuntu、Mint、Fedora 等）和 macOS 都内置了 SSH，因此无需进行安装。</li>
+<li>在 Windows 上，您可以安装 <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>。</li>
+</ul>
+</div>
+</div>
+<div class="section" id="establish-a-vnc-connection-to-your-host">
+<h2><a class="toc-backref" href="#id14">与主机建立 VNC 连接</a><a class="headerlink" href="#establish-a-vnc-connection-to-your-host" title="永久链接至标题">¶</a></h2>
+<p>根据所选的 VNC-server-configuration 方法，使用适当的 VNC 连接：</p>
+<ul class="simple">
+<li>如果选择方法 1，必须采取一些额外的步骤，即使用 SSH 连接到 Clear Linux OS 主机，然后手动启动 VNC。</li>
+<li>如果选择方法 2，请先从系统管理员处获取预先分配的 VNC 显示 ID，然后转到下面的 <a class="reference internal" href="#connect-to-vnc-session"><span class="std std-ref">连接到 VNC 会话</span></a> 一节。</li>
+<li>如果选择方法 3，请转到下面的 <a class="reference internal" href="#connect-to-vnc-session"><span class="std std-ref">连接到 VNC 会话</span></a>。</li>
+</ul>
+<div class="section" id="ssh-into-your-host-and-launch-vnc">
+<h3>使用 SSH 连接到主机并启动 VNC<a class="headerlink" href="#ssh-into-your-host-and-launch-vnc" title="永久链接至标题">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">使用 SSH 连接到 Clear Linux OS 主机</p>
+<ol class="arabic">
+<li><p class="first">在 Linux 发行版和 macOS 上：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh <span class="o">[</span>username<span class="o">]</span>@<span class="o">[</span>clear-linux-host-ip-address<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">在 Windows 上：</p>
+<ol class="arabic">
+<li><p class="first">启动 Putty。</p>
+</li>
+<li><p class="first">在 <span class="guilabel">Category</span> 部分下，选择 <span class="guilabel">Session</span>。请参阅图 1。</p>
+</li>
+<li><p class="first">在 <span class="guilabel">Host Name (or IP address)</span> 字段中输入 Clear Linux OS 主机的 IP 地址。</p>
+</li>
+<li><p class="first">将 <span class="guilabel">Connection type</span> 选项设置为 <span class="guilabel">SSH</span>。</p>
+</li>
+<li><p class="first">点击 <span class="guilabel">Open</span> 按钮。</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/vnc-1.png"><img alt="Putty - configure SSH session settings" src="../../_images/vnc-1.png" style="width: 813.6px; height: 763.2px;" /></a>
+<p class="caption"><span class="caption-text">图 1：Putty - 配置 SSH 会话设置</span></p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p class="first">使用您的 Clear Linux OS 用户名和密码登录。不要使用您的 VNC 密码。</p>
+</li>
+<li><p class="first">启动一个 VNC 会话。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver
+</pre></div>
+</div>
+<p>结果示例：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">New &#39;clr-linux:3 (vnc-user-c)&#39; desktop is clr-linux:3</span>
+
+<span class="go">Starting applications specified in /home/vnc-user-c/.vnc/xstartup</span>
+<span class="go">Log file is /home/vnc-user-c/.vnc/clr-linux:3.log</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">记下生成的显示 ID，稍后需要将它输入到 VNC 查看器应用程序来建立连接。上述示例中显示的显示 ID 为 3。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>除非自行指定，否则 VNC 会自动选择唯一的显示 ID。要指定显示 ID，请在冒号后输入尚未使用的唯一数字。例如：</p>
+<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver :8
+</pre></div>
+</div>
+</div>
+</li>
+<li><p class="first">现在，您可以通过注销来终止 SSH 连接。这不会终止您的活动 VNC 会话。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="connect-to-your-vnc-session">
+<span id="connect-to-vnc-session"></span><h3>连接到 VNC 会话<a class="headerlink" href="#connect-to-your-vnc-session" title="永久链接至标题">¶</a></h3>
+<p>使用方法 1 和方法 2 时，您必须使用以下两个选项之一连接到特定的活动会话或显示 ID：</p>
+<ul class="simple">
+<li>使用完全限定的 VNC 端口号，该端口号由默认 VNC 服务器端口 (5900) 加上显示 ID 组成</li>
+<li>使用显示 ID</li>
+</ul>
+<p>例如，如果显示 ID 为 3，可以指定为 5903 或 3。使用方法 3 时，VNC 不期望显示 ID。使用 5900。为简单起见，以下说明使用完全限定的 VNC 端口号。</p>
+<p><strong>在 Linux 发行版上：</strong></p>
+<ol class="arabic">
+<li><p class="first">打开终端仿真器并输入：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncviewer <span class="o">[</span>clear-linux-host-ip-address<span class="o">]</span>:<span class="o">[</span>fully-qualified VNC port  number<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">输入您的凭证。</p>
+<ul>
+<li><p class="first">使用方法 1 和方法 2 时，请输入您的 VNC 密码。不需要输入用户名。</p>
+</li>
+<li><p class="first">使用方法 3 时，通过 GDM 输入您的 Clear Linux OS 帐户用户名和密码。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">使用方法 3 时，如果已在本地登录，则不能通过 VNC 远程登录 Clear Linux OS 主机，反之亦然。</p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>在使用 RealVNC 应用程序的 Windows 和 macOS 上：</strong></p>
+<ol class="arabic">
+<li><p class="first">启动 RealVNC 查看器应用程序。见图 2。</p>
+</li>
+<li><p class="first">输入 Clear Linux OS 主机的 IP 地址和完全限定的 VNC 端口号。</p>
+<p>以下屏幕截图显示使用完全限定的 VNC 端口号 5902 连接到 Clear Linux OS 主机 192.168.25.54。</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/vnc-2.png"><img alt="RealVNC Viewer" src="../../_images/vnc-2.png" style="width: 717.3000000000001px; height: 437.40000000000003px;" /></a>
+<p class="caption"><span class="caption-text">图 2：RealVNC 查看器</span></p>
+</div>
+</li>
+<li><p class="first">按 <kbd class="kbd docutils literal notranslate">Enter</kbd> 键。</p>
+</li>
+<li><p class="first">输入您的凭证。</p>
+<ul>
+<li><p class="first">使用方法 1 和方法 2 时，请输入您的 VNC 密码。不需要输入用户名。</p>
+</li>
+<li><p class="first">使用方法 3 时，通过 GDM 输入您的 Clear Linux OS 帐户用户名和密码。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">使用方法 3 时，如果已在本地登录，则不能通过 VNC 远程登录 Clear Linux OS 主机，反之亦然。</p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<div class="section" id="optional-configure-realvnc-image-quality">
+<h4>可选：配置 RealVNC 图像质量<a class="headerlink" href="#optional-configure-realvnc-image-quality" title="永久链接至标题">¶</a></h4>
+<p>要提高 RealVNC 查看器的图像质量，请手动更改 <span class="guilabel">ColorLevel</span> 值。遵照这些步骤操作：</p>
+<ol class="arabic">
+<li><p class="first">右键点击连接节点并选择 <span class="guilabel">Properties…</span>。请参阅图 3。</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/vnc-3.png"><img alt="RealVNC Viewer - change connection node properties" src="../../_images/vnc-3.png" style="width: 522.0px; height: 425.7px;" /></a>
+<p class="caption"><span class="caption-text">图 3：RealVNC 查看器 - 更改连接节点属性</span></p>
+</div>
+</li>
+<li><p class="first">选择 <span class="guilabel">Expert</span> 选项卡。见图 4。</p>
+</li>
+<li><p class="first">选择 <span class="guilabel">ColorLevel</span> 设置，并将其更改为您的首选设置。</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/vnc-4.png"><img alt="RealVNC Viewer - change ColorLevel" src="../../_images/vnc-4.png" style="width: 630.0px; height: 855.0px;" /></a>
+<p class="caption"><span class="caption-text">图 4：RealVNC 查看器 - 更改 <span class="guilabel">ColorLevel</span></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="terminate-a-vnc-connection-to-your-host">
+<h2><a class="toc-backref" href="#id15">终止与主机的 VNC 连接</a><a class="headerlink" href="#terminate-a-vnc-connection-to-your-host" title="永久链接至标题">¶</a></h2>
+<p>使用方法 1 和方法 2 时，VNC 会话一旦启动，即会在 Clear Linux OS 主机上保持活动状态，即便关闭了 VNC 查看器应用程序也是如此。如果要真正终止活动的 VNC 会话，请按照下列步骤操作：</p>
+<ol class="arabic">
+<li><p class="first">使用 SSH 连接到 Clear Linux OS 主机。</p>
+</li>
+<li><p class="first">打开一个终端模拟器。</p>
+</li>
+<li><p class="first">使用 <strong class="command">vncserver -list</strong> 命令查找活动的 VNC 会话显示 ID。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver -list
+</pre></div>
+</div>
+</li>
+<li><p class="first">使用 <strong class="command">vncserver -kill</strong> 命令且后跟冒号和显示 ID 来终止 VNC 会话。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver -kill :<span class="o">[</span>display ID<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">使用方法 3 时，只有系统管理员可以使用以下命令停止和禁用 VNC 服务：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl stop xvnc.socket
+systemctl disable xnvc.socket
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="encrypt-vnc-traffic-through-an-ssh-tunnel">
+<h2><a class="toc-backref" href="#id16">通过 SSH 隧道加密 VNC 流量</a><a class="headerlink" href="#encrypt-vnc-traffic-through-an-ssh-tunnel" title="永久链接至标题">¶</a></h2>
+<p>默认情况下，VNC 流量不加密。图 6 显示了 RealVNC 查看器的警告示例。</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../_images/vnc-6.png"><img alt="RealVNC Viewer - Connection not encrypted warning" src="../../_images/vnc-6.png" style="width: 563.4px; height: 375.3px;" /></a>
+<p class="caption"><span class="caption-text">图 6：RealVNC 查看器 - 连接未加密警告</span></p>
+</div>
+<p>为了增加安全性，VNC 流量可以通过 SSH 隧道路由。这是通过以下步骤实现的：</p>
+<ol class="arabic simple">
+<li>通过添加 <strong class="command">-localhost</strong> 选项，将 VNC 服务器配置为仅接受来自 localhost 的连接。</li>
+<li>在您的客户端系统和您的 Clear Linux OS 主机之间设置一个 SSH 隧道。您的客户端系统将从 localhost（客户端）将发往（客户端上）指定的完全限定 VNC 端口号的流量转发到 Clear Linux OS 主机上相同的端口号。</li>
+<li>客户端系统上的 VNC 查看器应用程序现在将连接到 localhost，而不是 Clear Linux OS 主机的 IP 地址。</li>
+</ol>
+<div class="section" id="configure-vnc-to-only-accept-connection-from-localhost">
+<h3>将 VNC 配置为仅接受来自 localhost 的连接<a class="headerlink" href="#configure-vnc-to-only-accept-connection-from-localhost" title="永久链接至标题">¶</a></h3>
+<p>使用方法 1 时：</p>
+<ol class="arabic">
+<li><p class="first">编辑 <code class="file docutils literal notranslate"><span class="pre">$HOME/.vnc</span></code> 中的 <code class="file docutils literal notranslate"><span class="pre">config</span></code> 文件，并将 <cite># localhost</cite> 行注释掉。编辑后的内容应该如下所示：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1"># Supported server options to pass to vncserver upon invocation can be listed</span>
+<span class="gp">#</span><span class="c1"># in this file. See the following manpages for more: vncserver(1)</span>
+<span class="go">Xvnc(1).</span>
+<span class="gp">#</span><span class="c1"># Several common ones are shown below. Uncomment and modify to your liking.</span>
+<span class="gp">#</span><span class="c1">#</span>
+<span class="gp">#</span> <span class="nv">securitytypes</span><span class="o">=</span>vncauth,tlsvnc
+<span class="gp">#</span> <span class="nv">desktop</span><span class="o">=</span>sandbox
+<span class="gp">#</span> <span class="nv">geometry</span><span class="o">=</span>2000x1200
+<span class="go">localhost</span>
+<span class="gp">#</span> alwaysshared
+</pre></div>
+</div>
+</li>
+<li><p class="first">如果存在活动会话，请将其终止，然后重新启动。</p>
+</li>
+</ol>
+<p>使用方法 2 时：</p>
+<ol class="arabic">
+<li><p class="first">编辑 <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code> 中的 systemd 服务脚本 <code class="file docutils literal notranslate"><span class="pre">vncserver&#64;:[X].service</span></code>，并将 <strong class="command">-localhost</strong> 添加到 <cite>ExecStart</cite> 行。以下示例使用 vncserver&#64;:5.service：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[Unit]</span>
+<span class="go">Description=VNC Remote Desktop Service for &quot;vnc-user-b&quot; with display ID &quot;5&quot;</span>
+<span class="go">After=syslog.target network.target</span>
+
+<span class="go">[Service]</span>
+<span class="go">Type=simple</span>
+<span class="go">User=vnc-user-b</span>
+<span class="go">PAMName=login</span>
+<span class="go">PIDFile=/home/%u/.vnc/%H%i.pid</span>
+<span class="go">ExecStartPre=/bin/sh -c &#39;/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :&#39;</span>
+<span class="go">ExecStart=/usr/bin/vncserver %i -geometry 2000x1200 -localhost -alwaysshared -fg</span>
+<span class="go">ExecStop=/usr/bin/vncserver -kill %i</span>
+
+<span class="go">[Install]</span>
+<span class="go">WantedBy=multi-user.target</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">重新启动服务脚本：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl daemon-load
+systemctl restart vncserver@:5.service
+</pre></div>
+</div>
+</li>
+</ol>
+<p>使用方法 3 时：</p>
+<ol class="arabic">
+<li><p class="first">不需要更改 <code class="file docutils literal notranslate"><span class="pre">xvnc&#64;service</span></code> 脚本。</p>
+<p>重新启动 VNC 会话后，您可以使用以下 <strong class="command">netstat</strong> 命令验证它是否只接受来自 localhost 的连接：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netstat -plant
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">添加 Clear Linux OS <strong class="command">network-basic</strong> 捆绑包以获得 <strong class="command">netstat</strong> 命令。</p>
+</div>
+</li>
+</ol>
+<p>图 7 显示了两个 VNC 会话（5901 和 5905），它们接受来自由 <cite>0.0.0.0</cite> 指定的任何主机的连接。这是在使用 <strong class="command">-localhost</strong> 选项之前的情况。</p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../_images/vnc-7.png"><img alt="VNC session accepting connection from any host" src="../../_images/vnc-7.png" style="width: 878.0px; height: 170.0px;" /></a>
+<p class="caption"><span class="caption-text">图 7：VNC 会话（5901 和 5905）接受来自任何主机的连接</span></p>
+</div>
+<p>图 8 显示了两个 VNC 会话（5901 和 5905），它们只接受来自由 <cite>127.0.0.1</cite> 指定的 localhost 的连接。这是在使用 <strong class="command">-localhost</strong> 选项之后的情况。</p>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../_images/vnc-8.png"><img alt="VNC session only accepting connection from localhost" src="../../_images/vnc-8.png" style="width: 877.0px; height: 170.0px;" /></a>
+<p class="caption"><span class="caption-text">图 8：VNC 会话（5901 和 5905）仅接受来自 localhost 的连接</span></p>
+</div>
+</div>
+<div class="section" id="set-up-an-ssh-tunnel-from-your-client-system-to-your-cl-host">
+<h3>设置从客户端系统到 Clear Linux OS 主机的 SSH 隧道<a class="headerlink" href="#set-up-an-ssh-tunnel-from-your-client-system-to-your-cl-host" title="永久链接至标题">¶</a></h3>
+<p><strong>在 Linux 发行版和 macOS 上：</strong></p>
+<ol class="arabic">
+<li><p class="first">打开终端仿真器并输入：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -L <span class="o">[</span>client port number<span class="o">]</span>:localhost:<span class="o">[</span>fully-qualified VNC port number<span class="o">]</span> <span class="se">\</span>
+-N -f -l <span class="o">[</span>username<span class="o">]</span> <span class="o">[</span>clear-linux-host-ip-address<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">输入 Clear Linux OS 帐户密码（不是 VNC 密码）。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<ul class="last simple">
+<li><cite>-L</cite> 指定（客户端侧）localhost 上的 [client port number] 会转发到（服务器侧）[fully-qualified VNC port number]。</li>
+<li>将 <cite>[client port number]</cite> 替换为可用的客户端端口号（例如：1234）。为简单起见，您可以将 <cite>[client port number]</cite> 设置为与 <cite>[fully-qualified VNC port number]</cite> 相同。</li>
+<li>将 <cite>[fully-qualified VNC port number]</cite> 替换为 5900（默认 VNC 端口）加上显示 ID。例如，如果显示 ID 为 2，则完全限定的 VNC 端口号为 5902。</li>
+<li><cite>-N</cite> 指示 SSH 只转发端口，不执行远程命令。</li>
+<li><cite>-f</cite> 指示 SSH 在命令执行前进入后台。</li>
+<li><cite>-l</cite> 指定登录的用户名。</li>
+</ul>
+</div>
+</li>
+</ol>
+<p><strong>在 Windows 上：</strong></p>
+<ol class="arabic">
+<li><p class="first">启动 Putty。</p>
+</li>
+<li><p class="first">指定要连接到的 Clear Linux OS VNC 主机。</p>
+<ol class="arabic simple">
+<li>在 <span class="guilabel">Category</span> 部分下，选择 <span class="guilabel">Session</span>。请参阅图 1。</li>
+<li>在 <span class="guilabel">Host Name (or IP address)</span> 字段中输入 Clear Linux OS 主机的 IP 地址。</li>
+<li>将 <span class="guilabel">Connection type</span> 选项设置为 <span class="guilabel">SSH</span>。</li>
+</ol>
+</li>
+<li><p class="first">配置 SSH 隧道。请参阅图 9 的示例。</p>
+<ol class="arabic">
+<li><p class="first">在 <span class="guilabel">Category</span> 部分下，转到 <span class="guilabel">Connection</span> &gt; <span class="guilabel">SSH</span> &gt; <span class="guilabel">Tunnels</span>。</p>
+</li>
+<li><p class="first">在 <span class="guilabel">Source port</span> 字段中，输入可用的客户端端口号（例如：1234）。为简单起见，您可以将 <cite>Source port</cite> 设置为与完全限定的 VNC 端口号相同。</p>
+</li>
+<li><p class="first">在 <span class="guilabel">Destination</span> 字段中，输入 <cite>localhost:</cite> 加上完全限定的 VNC 端口号。</p>
+</li>
+<li><p class="first">点击 <span class="guilabel">Add</span> 按钮。</p>
+<div class="figure" id="id9">
+<a class="reference internal image-reference" href="../../_images/vnc-9.png"><img alt="Putty - configure SSH tunnel" src="../../_images/vnc-9.png" style="width: 677.0px; height: 676.0px;" /></a>
+<p class="caption"><span class="caption-text">图 9：Putty - 配置 SSH 隧道</span></p>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">点击 <span class="guilabel">Open</span> 按钮。</p>
+</li>
+<li><p class="first">输入 Clear Linux OS 帐户密码（不是 VNC 密码）。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="connect-to-a-vnc-session-through-an-ssh-tunnel">
+<h3>通过 SSH 隧道连接到 VNC 会话<a class="headerlink" href="#connect-to-a-vnc-session-through-an-ssh-tunnel" title="永久链接至标题">¶</a></h3>
+<p>设置 SSH 隧道后，请按照以下说明连接到您的 VNC 会话。</p>
+<p><strong>在 Linux 发行版上：</strong></p>
+<ol class="arabic">
+<li><p class="first">打开终端仿真器并输入：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncviewer localhost:<span class="o">[</span>client port number<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>在使用 <cite>RealVNC</cite> 的 Windows 和 macOS 上：</p>
+<ol class="arabic">
+<li><p class="first">启动 RealVNC 查看器应用程序。</p>
+</li>
+<li><p class="first">输入 <cite>localhost</cite> 和完全限定的 VNC 端口号。请参阅图 10 的示例。</p>
+<div class="figure" id="id10">
+<a class="reference internal image-reference" href="../../_images/vnc-10.png"><img alt="RealVNC viewer app connecting to localhost:1234" src="../../_images/vnc-10.png" style="width: 797.0px; height: 486.0px;" /></a>
+<p class="caption"><span class="caption-text">图 10：连接至 <cite>localhost:1234</cite> 的 RealVNC 查看器应用程序</span></p>
+<div class="legend">
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">即使流量通过 SSH 隧道传输，RealVNC 仍会警告连接未加密。您可以忽略此警告。</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../kernel/kernel-development.html" class="btn btn-neutral float-right" title="内核开发" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="openssh-server.html" class="btn btn-neutral float-left" title="启用并配置 SSH 服务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019.
+      <span class="lastupdated">
+        最后更新于 1月 17, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+
+<div id="trademarks">
+  <p>*Other names and brands may be claimed as the property of others.</p>
+</div>
+
+
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<script type="text/javascript" src="../../_static/tcs_theme.js"></script>
+
+
+
+</body>
+</html>
