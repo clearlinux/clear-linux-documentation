@@ -1,4 +1,4 @@
-.. _change_kernel_boot:
+.. _change-kernel-boot:
 
 Change Kernel Boot
 ########################
