@@ -147,7 +147,7 @@ Configure iPXE
         https://cdn.download.clearlinux.org/latest)-pxe.tar.xz
       sudo mkdir -p ${IPXE_ROOT_DIR}
       sudo tar -xJf /tmp/clear-pxe.tar.xz -C ${IPXE_ROOT_DIR}
-      sudo ln -sf $(ls ${IPXE_ROOT_DIR} | grep 'org.clearlinux.*') ${IPXE_ROOT_DIR}/linux
+      sudo ln -sf ${IPXE_ROOT_DIR}/$(ls ${IPXE_ROOT_DIR} | grep 'org.clearlinux.*') ${IPXE_ROOT_DIR}/linux
 
    .. note::
 
