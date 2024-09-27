@@ -30,7 +30,7 @@ jobs:
         tar xvzf clearlinux-docs-zh-CN.tar.gz -C source/_build/html/zh_CN
         touch source/_build/html/.nojekyll
         mv source/_build/html $HOME/output
-    - name: Deploy the docs
+    - name: Deploy and publish docs
       run: |
         cd $HOME/output
         git init
@@ -39,7 +39,3 @@ jobs:
         git add .
         git commit -m "latest html output"
         git push -f https://${GITHUB_ACTOR}:${{secrets.ACCESS_TOKEN}}@github.com/clearlinux/clear-linux-documentation.git HEAD:latestHTML
-    - name: Publish the docs
-      run: |
-        wget ${{secrets.PUBLISH_URL}}
-        cat clearlinux-latest
