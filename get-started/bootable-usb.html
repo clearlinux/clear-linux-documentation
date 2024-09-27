@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-61272224-1", {"cookieDomain":"auto","allowLinker":true});ga("require", "linker");ga("linker:autoLink", [/(community\.|www\.|^)clearlinux\.org/gi], true);ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
+
+
+  <title>Create a bootable USB drive using Etcher* &mdash; Documentation for Clear Linux* project</title>
+
+
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/bootable-usb.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Clear Linux* OS from the live desktop" href="bare-metal-install-desktop.html" />
+    <link rel="prev" title="Check Processor Compatibility" href="compatibility-check.html" />
+
+<link rel="stylesheet" href="../_static/tcs_theme.css" type="text/css" />
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #007ab2" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Clear Linux* Project Docs
+              <img src="../_static/clearlinux.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" id="clear-docs-search" placeholder="Search documentation" results="0"/>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Clear Linux</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Language Versions</dt>
+        
+          <dd><a href="/clear-linux-documentation/get-started/bootable-usb.html">English</a></dd>
+        
+          <dd><a href="/clear-linux-documentation/zh_CN/get-started/bootable-usb.html">简体中文 (Simplified Chinese)</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Document Versions</dt>
+        
+          <dd><a href="/clear-linux-documentation/get-started/bootable-usb.html">latest</a></dd>
+        
+          <dd><a href="/clear-linux-documentation/get-started/bootable-usb.html">future versions</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>clearlinux.org links</dt>
+          <dd>
+            <a href="https://www.clearlinux.org/">Project Home</a>
+          </dd>
+          <dd>
+            <a href="https://github.com/clearlinux/clear-linux-documentation">GitHub</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+  
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Get started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#pre-install">Pre-install</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="compatibility-check.html">Check Processor Compatibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="compatibility-check.html#option-1-use-the-clear-linux-check-config-sh-script-on-an-existing-linux-system">Option 1: Use the <strong class="command">clear-linux-check-config.sh</strong> script on an existing Linux system</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Create a bootable USB drive using Etcher*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#install">Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bare-metal-install-desktop.html">Install Clear Linux* OS from the live desktop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#system-requirements">System requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#preliminary-steps">Preliminary steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#install-from-live-image">Install from live image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#minimum-installation-requirements">Minimum installation requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#cl-desktop-installer">Clear Linux OS Desktop Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#navigation">Navigation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#required-options">Required options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#advanced-options">Advanced options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#finish-installation">Finish installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-desktop.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bare-metal-install-server.html">Install Clear Linux* OS from the live server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#system-requirements">System requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#preliminary-steps">Preliminary steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#install-cl-on-your-target-system">Install Clear Linux OS on your target system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#launch-the-cl-installer">Launch the Clear Linux OS Installer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#minimum-installation-requirements">Minimum installation requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#main-menu">Main Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#navigation">Navigation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#required-options">Required options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#recommended-options">Recommended options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#advanced-options">Advanced options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#finish-installation">Finish installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bare-metal-install-server.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install-configfile.html">Install using clr-installer and a configuration file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install-configfile.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install-configfile.html#download-and-make-bootable-usb-of-the-live-server-image">Download and make bootable USB of the live server image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install-configfile.html#example-1-fresh-installation-onto-bare-metal">Example 1: Fresh installation onto bare metal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install-configfile.html#example-2-replicate-a-previous-installation">Example 2: Replicate a previous installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install-configfile.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ipxe-install.html">Install Clear Linux OS Over the Network with iPXE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#install-cl-on-server">Install Clear Linux OS on server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#setup-nginx-web-server-to-host-ipxe">Setup nginx web server to host iPXE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#configure-ipxe">Configure iPXE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#add-clr-installer-yaml-configuration-files">Add clr-installer YAML configuration files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#configure-network">Configure network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#setup-nat">Setup NAT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#setup-dnsmaq-for-dhcp-dns-and-tftp-functionalities">Setup dnsmaq for DHCP, DNS, and TFTP functionalities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#verify-setup">Verify setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ipxe-install.html#deploy">Deploy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#install-in-a-virtual-machine">Install in a virtual machine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/hyper-v.html">Clear Linux* OS on Microsoft Hyper-V*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/hyper-v.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/hyper-v.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/hyper-v.html#download-the-cl-disk-image-for-hyper-v">Download the Clear Linux OS disk image for Hyper-V</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/hyper-v.html#create-and-configure-new-vm">Create and configure new VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/hyper-v.html#start-the-vm">Start the VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/hyper-v.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/kvm.html">Clear Linux* OS on KVM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/kvm.html#install-qemu-kvm">Install QEMU-KVM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/kvm.html#download-and-launch-the-virtual-machine-image">Download and launch the virtual machine image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/kvm.html#optional-enable-ssh-access">Optional: Enable SSH access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/kvm.html#optional-install-a-graphical-user-interface-gui">Optional: Install a graphical user interface (GUI)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/parallels.html">Clear Linux* OS on Parallels* Desktop for Mac*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/parallels.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/parallels.html#download-iso-image">Download ISO image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/parallels.html#initialize-new-vm">Initialize new VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/parallels.html#install-cl-on-vm">Install Clear Linux OS on VM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/proxmox.html">Clear Linux* OS on Proxmox* Virtual Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/proxmox.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/proxmox.html#download-the-latest-cl-live-server-image">Download the Latest Clear Linux OS Live Server Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/proxmox.html#upload-cl-live-server-image-to-promox-server">Upload Clear Linux OS Live Server Image to Promox Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/proxmox.html#create-vm-on-proxmox">Create VM on Proxmox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/proxmox.html#start-vm-and-install-cl-on-promox">Start VM and Install Clear Linux OS on Promox</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/virt-manager.html">Clear Linux* OS using virt-manager</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virt-manager.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virt-manager.html#download-the-cl-installer-iso">Download the Clear Linux OS installer ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virt-manager.html#launch-and-set-up-virt-manager">Launch and set up virt-manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virt-manager.html#create-a-new-virt-manager-virtual-machine">Create a new virt-manager virtual machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virt-manager.html#install-cl-in-the-virt-manager-vm">Install Clear Linux OS in the virt-manager VM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/virtualbox-cl-installer.html">Clear Linux* OS on VirtualBox*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virtualbox-cl-installer.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virtualbox-cl-installer.html#download-and-extract-the-cl-installer-iso">Download and extract the Clear Linux OS installer ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virtualbox-cl-installer.html#create-a-new-vb-virtual-machine">Create a new VirtualBox virtual machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virtualbox-cl-installer.html#install-cl-on-the-vb-vm">Install Clear Linux OS on the VirtualBox VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/virtualbox-cl-installer.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/vmw-player.html">Clear Linux* OS on VMware* Workstation Player</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmw-player.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmw-player.html#install-the-vmware-workstation-player-hypervisor">Install the VMware Workstation Player hypervisor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmw-player.html#create-a-blank-vm">Create a blank VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmw-player.html#enable-uefi-boot-support">Enable UEFI boot support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmw-player.html#instantiate-cl">Instantiate Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmw-player.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html">Clear Linux* OS on VMware* ESXi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html#download-the-latest-cl-installer-iso">Download the latest Clear Linux OS installer ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html#upload-the-cl-installer-iso-to-the-vmware-server">Upload the Clear Linux OS installer ISO to the VMware server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html#create-and-configure-a-new-vm">Create and configure a new VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html#install-cl-into-the-new-vm">Install Clear Linux OS into the new VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html#reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl">Reconfigure the VM’s settings to boot the newly-installed Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="virtual-machine-install/vmware-esxi-install-cl.html#power-on-the-vm-and-boot-cl">Power on the VM and boot Clear Linux OS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/increase-virtual-disk-size.html">Increase Virtual Disk Size of an Image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/increase-virtual-disk-size.html#determine-disk-size-and-list-of-partitions">Determine disk size and list of partitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/increase-virtual-disk-size.html#id1">Increase virtual disk size</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#deploy-to-the-cloud">Deploy to the cloud</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloud-install/aws-web.html">Clear Linux* OS on Amazon Web Services*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/aws-web.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/aws-web.html#locate-select-and-launch-the-cl-basic-ami">Locate, select, and launch the Clear Linux OS Basic AMI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/aws-web.html#connect-to-your-clear-linux-os-basic-instance">Connect to your Clear Linux OS basic instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/aws-web.html#update-the-cl-instance">Update the Clear Linux OS instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/aws-web.html#stop-the-cl-instance">Stop the Clear Linux OS instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/aws-web.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloud-install/azure.html">Clear Linux* OS on Microsoft* Azure*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#install-ms-azure-cli-2-0-on-cl">Install MS Azure CLI 2.0 on Clear Linux OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#log-into-your-microsoft-azure-account">Log into your Microsoft Azure account</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#create-a-ms-azure-resource-group">Create a MS Azure resource group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#create-and-log-into-the-cl-virtual-machine">Create and log into the Clear Linux OS virtual machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#stop-and-deallocate-the-cl-vm-and-resources">Stop and deallocate the Clear Linux OS VM and resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#next-steps">Next steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/azure.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloud-install/digitalocean.html">Clear Linux* OS on DigitalOcean*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/digitalocean.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/digitalocean.html#add-cl-image-to-digitalocean">Add Clear Linux OS Image to DigitalOcean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/digitalocean.html#create-and-deploy-a-cl-instance">Create and Deploy a Clear Linux OS Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/digitalocean.html#connect-to-your-cl-instance">Connect to Your Clear Linux OS Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/digitalocean.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloud-install/gce.html">Clear Linux* OS on Google Cloud Platform*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/gce.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/gce.html#setup-cl-vm-on-gcp">Setup Clear Linux OS VM on GCP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/gce.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloud-install/import-clr-aws.html">Import Clear Linux Image and Launch Instance on AWS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#download-or-create-a-cl-image-for-aws">Download or create a Clear Linux OS image for AWS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#create-an-s3-bucket">Create an S3 bucket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#upload-the-cl-image-into-the-bucket">Upload the Clear Linux OS image into the bucket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#add-a-user-to-iam-with-aws-cli-privilege">Add a user to IAM with AWS_CLI privilege</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#install-and-configure-the-aws-cli-tool-on-your-system">Install and configure the AWS CLI tool on your system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#import-a-snapshot-of-the-cl-image">Import a snapshot of the Clear Linux OS image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#create-an-ami-from-the-snapshot">Create an AMI from the snapshot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#launch-an-instance">Launch an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#connect-to-your-cl-instance">Connect to your Clear Linux OS instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/import-clr-aws.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloud-install/qingcloud.html">Clear Linux* OS on QingCloud*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/qingcloud.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/qingcloud.html#select-and-start-cl-virtual-host-with-qingcloud-console">Select and start Clear Linux OS virtual host with QingCloud console</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/qingcloud.html#apply-for-a-public-ip-and-add-it-to-the-virtual-host">Apply for a public IP and add it to the virtual host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/qingcloud.html#connect-to-cl-virtual-host">Connect to Clear Linux OS virtual host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/qingcloud.html#remove-cl-virtual-host">Remove Clear Linux OS virtual host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud-install/qingcloud.html#delete-the-applied-public-ip">Delete the applied public IP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#containers">Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="containers/container-images.html">Clear Linux* OS container images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="containers/container-images.html#container-image-types">Container image types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#what-is-cl">What is Clear Linux OS?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#what-cl-isn-t">What Clear Linux OS isn’t?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#is-cl-completely-open-source">Is Clear Linux OS completely Open Source?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#who-is-the-target-audience">Who is the target audience?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#how-does-cl-address-security">How does Clear Linux OS address security?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#whats-the-thinking-around-server-vs-desktop">What’s the thinking around Server vs. Desktop?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#what-makes-cl-different">What makes Clear Linux OS different?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about.html#release-cadence">Release Cadence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about.html#updates">Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about.html#ease-of-use">Ease of Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about.html#custom-derivatives">Custom Derivatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about.html#create">Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about.html#deploy">Deploy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about.html#administrate">Administrate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#why-create-new-components-rather-than-modifying-existing-projects">Why create new components rather than modifying existing projects?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about.html#which-components-are-used-in-clear-linux">Which Components are used in Clear Linux?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/index.html#clear-linux">Clear Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/autoproxy.html">Autoproxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autoproxy.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autoproxy.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autoproxy.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/autospec.html">autospec</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autospec.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autospec.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autospec.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autospec.html#test-packaged-software">Test packaged software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autospec.html#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/autospec.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/bundles.html">Bundles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/bundles.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/compatible-kernels.html">Kernels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/compatible-kernels.html#bare-metal-only">Bare metal only</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/compatible-kernels.html#also-compatible-with-vms">Also compatible with VMs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/compatible-kernels.html#vm-only">VM only</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/debug.html">Debug system</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/debug.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/debug.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/debug.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/k8s-migration.html">Kubernetes* migration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/k8s-migration.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/k8s-migration.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/k8s-migration.html#upgrade-1-17-x-1-18-15">Upgrade 1.17.x —&gt; 1.18.15</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/k8s-migration.html#upgrade-1-18-15-1-19-x">Upgrade 1.18.15 —&gt; 1.19.x</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/k8s-migration.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/mixer.html">mixer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/mixer.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/mixer.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/mixer.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/mixer.html#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/mixer.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/performance.html">Performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/performance.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/performance.html#software-build-toolchain">Software build toolchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/performance.html#kernel">Kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/performance.html#operating-system">Operating system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/performance.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/security.html">OS Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/security.html#security-in-updates">Security in updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/security.html#security-in-software">Security in software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/security.html#security-in-system-design">Security in system design</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/stateless.html">Stateless</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/stateless.html#file-level-separation">File-level separation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/stateless.html#software-configuration">Software configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/stateless.html#system-reset">System reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/stateless.html#additional-information">Additional information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/swupd.html">swupd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd.html#quick-reference">Quick reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html">swupd 3rd-party</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html#prerequisite">Prerequisite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html#create-directory-to-hold-3rd-party-app">Create directory to hold 3rd-party app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html#create-bundle-of-3rd-party-app-with-mixer">Create bundle of 3rd-party app with mixer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html#install-and-manage-3rd-party-bundle-on-client-system">Install and manage 3rd-party bundle on client system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html#create-more-bundles-and-add-to-client">Create more bundles and add to client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html#some-limitations-of-3rd-party-bundles">Some limitations of 3rd-party bundles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/swupd-3rd-party.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/clear/telemetrics.html">Telemetrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/telemetrics.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/telemetrics.html#how-to-use">How to use</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/telemetrics.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/clear/telemetrics.html#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/index.html#maintenance">Maintenance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/architect-lifecycle.html">Architect the life-cycle of Clear Linux* OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/architect-lifecycle.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/architect-lifecycle.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/architect-lifecycle.html#content-workflow">Content Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/architect-lifecycle.html#release-workflow">Release Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/architect-lifecycle.html#implementation">Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/configure-hugepages.html">Configure Huge Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/container-image-modify.html">Modify a Clear Linux OS-based container image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#example-1-add-a-bundle">Example 1: Add a bundle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#example-2-change-cl-version-single-stage-build">Example 2: Change Clear Linux OS version (single-stage build)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#example-3-change-cl-version-multi-stage-build">Example 3: Change Clear Linux OS version (multi-stage build)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#example-4-customize-an-application-image-at-runtime">Example 4: Customize an application image at runtime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-modify.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/container-image-new.html">Build a new Clear Linux OS-based container image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-new.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-new.html#build-the-base-container-image">Build the base container image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/container-image-new.html#manage-bundles-in-a-container">Manage bundles in a container</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/cpu-performance.html">CPU Power and Performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/cpu-performance.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/cpu-performance.html#cpu-power-saving-mechanisms">CPU power saving mechanisms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/cpu-performance.html#linux-cpu-clock-frequency-scaling">Linux CPU clock frequency scaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/cpu-performance.html#thermal-management">Thermal management</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/deploy-at-scale.html">Deploy at Scale</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/deploy-at-scale.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/deploy-at-scale.html#pick-a-usage-and-update-strategy">Pick a usage and update strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/deploy-at-scale.html#pick-an-image-distribution-strategy">Pick an image distribution strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/deploy-at-scale.html#considerations-with-stateless-systems">Considerations with stateless systems</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/developer-workstation.html">Developer Workstation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/developer-workstation.html#workstation-setup">Workstation Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/developer-workstation.html#swupd-search">swupd search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/developer-workstation.html#core-concepts">Core Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/download-verify-decompress.html">Download, verify, and decompress a Clear Linux* OS image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/download-verify-decompress.html#linux-os-steps">Linux OS steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/download-verify-decompress.html#macos-steps">macOS* steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/download-verify-decompress.html#windows-os-steps">Windows* OS steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/download-verify-decompress.html#image-types">Image types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/enable-systemd-boot-menu.html">Enable systemd-boot Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/enable-user-space.html">Create and enable a new user space</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/enable-user-space.html#create-a-new-user">Create a new user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/enable-user-space.html#add-the-new-user-to-the-wheel-group">Add the new user to the <em>wheel</em> group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/enable-user-space.html#install-and-update-the-os-software-to-its-current-version">Install and update the OS software to its current version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/enable-user-space.html#add-a-bundle">Add a bundle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/enable-user-space.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/fix-broken-install.html">Fix a broken installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/fix-broken-install.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/fix-broken-install.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/fix-broken-install.html#boot-a-live-desktop-image-to-fix-target-system">Boot a live desktop image to fix target system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/fix-broken-install.html#mount-root-partition-verify-and-fix">Mount root partition, verify, and fix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/hostname.html">Modify hostname</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/hostname.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/hostname.html#set-your-hostname">Set your hostname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/hostname.html#view-your-hostname">View your hostname</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/increase-virtual-disk-size.html">Increase Virtual Disk Size of an Image</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/increase-virtual-disk-size.html#determine-disk-size-and-list-of-partitions">Determine disk size and list of partitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/increase-virtual-disk-size.html#id1">Increase virtual disk size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/query-upstream.html">Query package info from upstream repository</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/query-upstream.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/query-upstream.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/query-upstream.html#configure-dnf">Configure DNF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/query-upstream.html#dnf-command-usage-examples">DNF command usage examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/resource-limits.html">Resource limits</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/resource-limits.html#system-wide-limits">System-wide limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/resource-limits.html#per-user-limits">Per-user limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/resource-limits.html#service-limits">Service limits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/restart.html">Restart system services after an OS update</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/restart.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/restart.html#how-it-works">How it works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/restart.html#basic-options">Basic options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/restart.html#monitor-options">Monitor options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/restart.html#example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/restart.html#telemetry">Telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/restart.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/maintenance/validate-signatures.html">Validate signatures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/validate-signatures.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/validate-signatures.html#image-content-validation">Image content validation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/maintenance/validate-signatures.html#update-content-validation">Update content validation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/index.html#network">Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/assign-static-ip.html">Assign a static IP address</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/assign-static-ip.html#identify-which-program-is-managing-the-interface">Identify which program is managing the interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/assign-static-ip.html#using-networkmanager">Using NetworkManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/assign-static-ip.html#using-systemd-networkd">Using systemd-networkd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/dpdk.html">Use DPDK to send packets between platforms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#install-dpdk-and-build-l3fwd-example-platform-b">Install dpdk and build l3fwd example (Platform B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#build-pktgen-platform-a">Build pktgen (Platform A)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b">Bind NICs to DPDK kernel drivers (Platforms A and B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#set-hugepages-platforms-a-and-b">Set hugepages (Platforms A and B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#set-up-the-physical-environment-platforms-a-and-b">Set up the physical environment (Platforms A and B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#run-l3fwd-application-platform-b">Run l3fwd application (Platform B)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#run-pktgen-application-platform-a">Run pktgen application (Platform A)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/dpdk.html#appendix-a-use-pass-through-for-virtual-machines">Appendix A: Use pass-through for virtual machines</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/firewall.html">Firewall</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/firewall.html#default-ruleset">Default ruleset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/firewall.html#firewall-software">Firewall software</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/firewall.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/network-bonding.html">Combine multiple interfaces with network bonding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/openssh-server.html">Enable and configure SSH service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/openssh-server.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/openssh-server.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/openssh-server.html#change-default-port">Change default port</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/openssh-server.html#enable-sftp">Enable SFTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/openssh-server.html#enable-root-login">Enable root login</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/openssh-server.html#enable-x11-forwarding">Enable X11-forwarding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/proxy.html">Proxy Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/proxy.html#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/time.html">Set system time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/vnc.html">Remote-desktop to a host using VNC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/vnc.html#install-the-vnc-server-and-misc-components-on-your-host">Install the VNC server and misc. components on your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/vnc.html#configure-a-vnc-server-start-method-on-your-host">Configure a VNC-server-start method on your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/vnc.html#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system">Install a VNC viewer app and an SSH client on your client system</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/vnc.html#establish-a-vnc-connection-to-your-host">Establish a VNC connection to your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/vnc.html#terminate-a-vnc-connection-to-your-host">Terminate a VNC connection to your host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/vnc.html#encrypt-vnc-traffic-through-an-ssh-tunnel">Encrypt VNC traffic through an SSH tunnel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/network/wifi.html">Configure Wi-Fi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/wifi.html#using-network-manager">Using Network Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/wifi.html#using-wpa-supplicant">Using wpa_supplicant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/network/wifi.html#other-resources">Other resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/index.html#kernel">Kernel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/kernel/change-kernel-boot.html">Change Kernel Boot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/change-kernel-boot.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/change-kernel-boot.html#get-the-current-boot-status">Get the current boot status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/change-kernel-boot.html#get-the-kernel-list-installed">Get the kernel list installed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/change-kernel-boot.html#set-default-kernel-to-boot">Set default kernel to boot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/kernel/firmware.html">Firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/firmware.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/firmware.html#included-firmware">Included firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/firmware.html#additional-firmware-loading">Additional firmware loading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/firmware.html#cpu-microcode-loading">CPU microcode loading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/firmware.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/kernel/kernel-boot-msg.html">Capture Kernel Boot Messages in the Journal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-boot-msg.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-boot-msg.html#enable-journaling-of-kernel-boot-messages">Enable journaling of kernel boot messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-boot-msg.html#alternative">Alternative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/kernel/kernel-development.html">Kernel development</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-development.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-development.html#request-changes-be-included-with-the-cl-kernel">Request changes be included with the Clear Linux OS kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-development.html#set-up-kernel-development-environment">Set up kernel development environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-development.html#customize-the-linux-kernel-source">Customize the Linux kernel source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-development.html#build-and-install-the-kernel">Build and install the kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-development.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/kernel/kernel-modules.html">Add kernel modules manually</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules.html#kernel-module-availability">Kernel module availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules.html#build-install-and-load-an-out-of-tree-module">Build, install, and load an out-of-tree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules.html#related-topic">Related topic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html">Add kernel modules with DKMS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#kernel-module-availability">Kernel module availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#install-dkms">Install DKMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#build-install-and-load-an-out-of-tree-module">Build, install, and load an out-of-tree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/apache-hadoop.html">Apache* Hadoop*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/apache-hadoop.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/apache-hadoop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/apache-hadoop.html#install-apache-hadoop">Install Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/apache-hadoop.html#configure-apache-hadoop">Configure Apache Hadoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/apache-hadoop.html#configure-your-ssh-key">Configure your SSH key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/apache-hadoop.html#run-the-hadoop-daemons">Run the Hadoop daemons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/apache-hadoop.html#run-the-mapreduce-wordcount-example">Run the MapReduce wordcount example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/broadcom.html">Broadcom* Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/broadcom.html#identify-your-device-model">Identify your device model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/broadcom.html#drivers">Drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/broadcom.html#brcmfmac-and-brcmsmac">brcmfmac and brcmsmac</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/broadcom.html#b43-and-b43legacy">b43 and b43legacy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/broadcom.html#broadcom-wl">broadcom-wl</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/broadcom.html#firmware">Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/broadcom.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/docker.html">Docker*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/docker.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/docker.html#install-the-containers-basic-bundle">Install the containers-basic bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/docker.html#integration-with-kata-containers-optional">Integration with Kata Containers* (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/docker.html#additional-docker-configuration">Additional Docker configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/docker.html#pulling-and-running-an-image-from-docker-hub">Pulling and running an image from Docker Hub*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/docker.html#creating-a-docker-swarm-cluster">Creating a Docker swarm cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/docker.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/flatpak.html">Flatpak*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/flatpak.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/flatpak.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/flatpak.html#install-a-flatpak-app-with-gnome-software">Install a Flatpak app with GNOME Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/flatpak.html#install-a-flatpak-with-the-command-line">Install a Flatpak with the command line</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/fmv.html">Function Multi-Versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fmv.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fmv.html#install-and-configure-a-cl-host-on-bare-metal">Install and configure a Clear Linux OS host on bare metal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fmv.html#detect-loop-vectorization-candidates">Detect loop vectorization candidates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fmv.html#generate-the-fmv-patch">Generate the FMV patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/fmv.html#fft-project-example-using-fftw">FFT project example using FFTW</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/hpc.html">HPC Cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#set-up-controller-node">Set up controller node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#set-up-worker-nodes">Set up worker nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#set-up-password-less-ssh-access-and-pdsh-on-all-nodes">Set up password-less SSH access and pdsh on all nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#create-slurm-conf-configuration-file">Create <code class="file docutils literal notranslate"><span class="pre">slurm.conf</span></code> configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#copy-munge-key-and-slurm-conf-to-all-worker-nodes">Copy MUNGE key and <code class="file docutils literal notranslate"><span class="pre">slurm.conf</span></code> to all worker nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#verify-controller-can-run-jobs-on-all-nodes">Verify controller can run jobs on all nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/hpc.html#create-and-run-example-scripts">Create and run example scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/hpc.html#example-1-return-the-hostname-of-each-worker-and-output-to-show-hostnames-out">Example 1: Return the hostname of each worker and output to <code class="file docutils literal notranslate"><span class="pre">show-hostnames.out</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/hpc.html#example-2-an-mpi-hello-world-program">Example 2: An MPI “Hello, World!” program</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kata.html">Kata Containers*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kata.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kata.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kata.html#install-kata-containers">Install Kata Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kata.html#run-kata-containers">Run Kata Containers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kata.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kubernetes.html">Kubernetes*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#set-up-kubernetes-automatically">Set up Kubernetes automatically</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#uninstalling">Uninstalling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#set-up-kubernetes-manually">Set up Kubernetes manually</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#configure-host-system">Configure host system</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#initialize-the-master-node">Initialize the master node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#choose-a-pod-network-add-on">Choose a pod network add-on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#choose-a-container-runtime">Choose a container runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#use-your-cluster">Use your cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#package-configuration-customization">Package configuration customization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#logs">Logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#setting-proxy-servers-for-kubernetes">Setting proxy servers for Kubernetes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#dns-issues">DNS issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes.html#reference">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#what-is-kubernetes">What is Kubernetes?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#what-is-a-container-network-interface-cni">What is a Container Network Interface (CNI)?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#what-is-a-container-runtime-interface-cri">What is a Container Runtime Interface (CRI)?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#what-is-kata-containers">What is Kata Containers*?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/kubernetes.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kubernetes-bp.html">Kubernetes* Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes-bp.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes-bp.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes-bp.html#update-the-control-plane">Update the control plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kubernetes-bp.html#update-worker-nodes">Update worker nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/lamp-server.html">LAMP Web Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/lamp-server.html#install-apache">Install Apache</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/lamp-server.html#install-the-httpd-bundle">Install the httpd bundle</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/lamp-server.html#change-the-default-configuration-and-data-directory">Change the default configuration and data directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/lamp-server.html#install-php">Install PHP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/lamp-server.html#install-mariadb">Install MariaDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/lamp-server.html#security-hardening">Security hardening</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/lamp-server.html#install-phpmyadmin">Install phpMyAdmin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/lamp-server.html#use-phpmyadmin-to-manage-a-database">Use phpMyAdmin to manage a database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/lamp-server.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/mirror-upstream-server.html">Mirror Upstream Clear Linux OS Update Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/mirror-upstream-server.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/mirror-upstream-server.html#install-up-cl-server-to-host-updates">Install up Clear Linux OS server to host updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/mirror-upstream-server.html#clone-the-cl-update-content">Clone the Clear Linux OS update content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/mirror-upstream-server.html#setup-a-web-server-to-host-the-mirrored-content">Setup a web server to host the mirrored content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/mirror-upstream-server.html#test-your-mirror">Test your mirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/mirror-upstream-server.html#keep-your-mirror-in-sync-with-upstream">Keep your mirror in sync with upstream</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/nvidia.html">NVIDIA* Drivers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#known-issues">Known issues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#configure-workarounds">Configure workarounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#install-dkms">Install DKMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#download-the-nvidia-drivers">Download the NVIDIA drivers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#disable-the-nouveau-driver">Disable the nouveau driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#configure-alternative-software-paths">Configure alternative software paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#install-the-nvidia-drivers">Install the NVIDIA drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia.html#updating">Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia.html#uninstallation">Uninstallation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#no-display-or-blank-screen">No display or blank screen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#oh-no-something-has-gone-wrong-gnome-crash">“Oh no! Something has gone wrong” GNOME* crash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#slow-boot-times">Slow boot times</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#brightness-control">Brightness control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia.html#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/nvidia-cuda.html">NVIDIA* CUDA Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia-cuda.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia-cuda.html#compatibility">Compatibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia-cuda.html#check-compatibility-of-nvidia-components">Check compatibility of NVIDIA components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia-cuda.html#check-gcc-compatibility">Check GCC compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia-cuda.html#downloading-and-installation">Downloading and Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia-cuda.html#download-the-nvidia-cuda-toolkit">Download the NVIDIA CUDA Toolkit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/nvidia-cuda.html#install-the-nvidia-cuda-toolkit">Install the NVIDIA CUDA Toolkit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia-cuda.html#using-the-nvidia-cuda-toolkit">Using the NVIDIA CUDA Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia-cuda.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia-cuda.html#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/nvidia-cuda.html#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/openfaas.html">OpenFaaS*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/openfaas.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/openfaas.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/openfaas.html#deploy-openfaas">Deploy OpenFaaS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/openfaas.html#openfaas-templates">OpenFaaS templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/openfaas.html#example-develop-a-function">Example: Develop a function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/php.html">PHP and PHP-FPM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/php.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/php.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/php.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/php.html#configure-php">Configure PHP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/php.html#install-php-extensions">Install PHP extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/php.html#enable-php-extensions">Enable PHP extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/php.html#configure-php-fpm">Configure PHP-FPM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/redis.html">Redis*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/redis.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/redis.html#install-the-redis-bundle">Install the Redis bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/redis.html#start-the-redis-server">Start the Redis-server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/redis.html#example-1-use-the-redis-cli-and-commands">Example 1: Use the redis-cli and commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/redis.html#example-2-run-the-cl-redis-docker-image">Example 2: Run the Clear Linux OS Redis Docker* image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/redis.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/smb-desktop.html">Samba* as a client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/smb-desktop.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/smb-desktop.html#connect-to-windows-shared-location-with-nautilus">Connect to Windows shared location with Nautilus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/smb-server.html">Samba Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/smb-server.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/smb-server.html#set-up-file-sharing">Set up file sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/smb-server.html#access-the-shared-drive">Access the shared drive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tensorflow-machine-learning.html">TensorFlow* machine learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/tensorflow-machine-learning.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/tensorflow-machine-learning.html#set-up-a-jupyter-notebook">Set up a Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/tensorflow-machine-learning.html#run-the-jupyter-machine-learning-example-code">Run the Jupyter machine learning example code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/tensorflow-machine-learning.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/vmware-workstation.html">VMware* Workstation Pro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/vmware-workstation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/vmware-workstation.html#install-vmware-workstation-pro">Install VMware Workstation Pro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/vmware-workstation.html#install-vmware-kernel-modules">Install VMware kernel modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/vmware-workstation.html#install-dkms">Install DKMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/vmware-workstation.html#install-kernel-modules">Install kernel modules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/vmware-workstation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/wordpress.html">WordPress* Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wordpress.html#before-you-begin">Before you begin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/wordpress.html#create-a-wordpress-server">Create a WordPress server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/wordpress.html#download-wordpress-and-manage-directories">Download WordPress and manage directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/wordpress.html#set-up-wordpress-with-web-based-gui">Set up WordPress with web-based GUI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/wordpress.html#complete-successful-login">Complete successful login</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/yubikey-u2f.html">YubiKey* Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/yubikey-u2f.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/yubikey-u2f.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/yubikey-u2f.html#enable-linux-udev-rules-for-yubikey">Enable Linux udev rules for YubiKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/yubikey-u2f.html#enable-u2f-in-mozilla-firefox">Enable U2F in Mozilla Firefox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/yubikey-u2f.html#related-topics">Related topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/zfs.html">OpenZFS*</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/zfs.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/zfs.html#known-issues">Known Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/zfs.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#install-the-dkms-kernel">Install the DKMS kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#bundles">Bundles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/zfs.html#install">Install</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#download-openzfs-release">Download OpenZFS release</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#compile-the-module">Compile the module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#compile-userspace-tools">Compile userspace tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#set-up-systemd">Set up systemd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#load-the-kernel-module-at-boot">Load the kernel module at boot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/zfs.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/zfs.html#next-steps">Next steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html">Dual-boot Clear Linux* OS with Any GRUB-based Linux* Distro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html#preliminary-steps">Preliminary steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html#install-cl-with-advanced-installation">Install Clear Linux OS with Advanced Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html#boot-cl-using-one-of-three-methods">Boot Clear Linux OS Using One of Three Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html#method-1-use-systemd-boot-to-boot-cl-and-also-chain-boot-grub">Method 1: Use systemd-boot to Boot Clear Linux OS and also Chain-boot GRUB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html#method-2-use-grub-to-boot-cl">Method 2: Use GRUB to Boot Clear Linux OS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html">Dual-boot Clear Linux* OS and Windows* 10 OS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html#method-1-shrink-windows-partition-and-install-cl">Method 1: Shrink Windows partition and install Clear Linux OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html#method-2-add-another-hard-disk-to-your-system-where-you-installed-windows">Method 2: Add another hard disk to your system where you installed Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html#advanced-use-systemd-boot-to-boot-windows-10-os-and-cl">Advanced: Use systemd-boot to boot Windows 10 OS and Clear Linux OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html#alternative-install-windows-10-os-after-cl">Alternative: Install Windows 10 OS After Clear Linux OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html#install-windows-10-os">Install Windows 10 OS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/multi-boot/multi-boot.html">Multi-boot Clear Linux* OS with other operating systems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/multi-boot/multi-boot.html#detailed-procedures">Detailed procedures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-win.html">Dual-boot Clear Linux* OS and Windows* 10 OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/multi-boot/dual-boot-linux.html">Dual-boot Clear Linux* OS with Any GRUB-based Linux* Distro</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/index.html#archive">Archive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/archive/kata_migration.html">Migrate Clear Containers to Kata Containers*</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/archive/kata_migration.html#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/archive/kata_migration.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/archive/kata_migration.html#stop-clear-containers-instances">Stop Clear Containers instances</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/archive/kata_migration.html#manually-migrate-customized-configuration-files">Manually migrate customized configuration files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/archive/kata_migration.html#enable-kata-containers-as-default">Enable Kata Containers as default</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/archive/kata_migration.html#run-kata-containers">Run Kata Containers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/compatible-hardware.html">Compatible Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/bundles/bundles.html">Available bundles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/bundles/bundles.html#bundle-list">Bundle list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/system-requirements.html">Recommended minimum system requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system-requirements.html#installer-requirements">Installer requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system-requirements.html#id1">System requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/system-requirements.html#recommended-configurations">Recommended configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/image-types.html">Clear Linux* OS image types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/man-pages.html">Man pages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#clr-man-pages">clr-man-pages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/stateless.7.html">stateless</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/os-format.7.html">OS Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/os-core.7.html">os-core</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#clr-power-tweaks">clr-power-tweaks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/clr-power-tweaks.conf.5.html">clr-power-tweaks.conf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/clr_power.1.html">clr_power</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#clrtrust">clrtrust</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/clrtrust.1.html">clrtrust</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#micro-config-drive">micro-config-drive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/ucd-data-fetch.1.html">ucd-data-fetch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/cloud-config.5.html">cloud-config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/ucd.1.html">ucd</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#mixer-tools">mixer-tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.build.1.html">mixer.build</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.versions.1.html">mixer.versions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.add-rpms.1.html">mixer.add-rpms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.repo.1.html">mixer.repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.bundle.1.html">mixer.bundle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.1.html">mixer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.init.1.html">mixer.init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/mixer.config.1.html">mixer.config</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#swupd-client">swupd-client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/swupd-update.timer.4.html">swupd-update.timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/swupd.1.html">swupd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/swupd-update.service.4.html">swupd-update.service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/update-triggers.target.4.html">update-triggers.target</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#tallow">tallow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/tallow.patterns.5.html">tallow.patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/tallow.conf.5.html">tallow.conf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/tallow.1.html">tallow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/man-pages.html#telemetrics-client">telemetrics-client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/telemprobd.1.html">telemprobd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/telempostd.1.html">telempostd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/telemetry.3.html">telemetry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/telem-record-gen.1.html">telem-record-gen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/telemctl.1.html">telemctl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reference/manpages/telemetrics.conf.5.html">telemetrics.conf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/tutorial-ratings.html">Tutorial difficulty ratings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tutorial-ratings.html#time-and-complexity">Time and complexity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tutorial-ratings.html#user-experience-level">User experience level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/tutorial-ratings.html#impact-of-failure">Impact of failure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ/index.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FAQ/index.html#general">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#what-is-cl">What is Clear Linux OS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#why-another-linux-distribution">Why another Linux distribution?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#is-it-a-derivative-of-another-linux-distribution">Is it a derivative of another Linux distribution?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#can-others-copy-improvements-from-cl">Can others copy improvements from Clear Linux OS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#how-often-does-it-update">How often does it update?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#is-telemetry-required">Is telemetry required?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#what-is-the-default-firewall">What is the default firewall?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#where-are-the-files-that-i-usually-see-under-etc-like-fstab">Where are the files that I usually see under /etc like fstab?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#does-it-use-the-intel-compiler-icc">Does it use the Intel Compiler (icc)?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../FAQ/index.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#how-is-software-installed-and-updated">How is software installed and updated?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#does-it-use-rpms-or-debs-packages-like-other-distros">Does it use RPMs or DEBs packages like other distros?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#why-does-it-have-a-different-approach-to-software-management">Why does it have a different approach to software management?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#can-i-install-a-software-package-from-another-os-on-cl">Can I install a software package from another OS on Clear Linux OS?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../FAQ/index.html#software-availability">Software availability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#what-software-is-available-on-cl">What software is available on Clear Linux OS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#is-google-chrome-available">Is Google* Chrome* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#is-microsoft-visual-studio-code-available">Is Microsoft* Visual Studio Code* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#is-ffmpeg-available">Is FFmpeg available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#is-zfs-available">Is ZFS* available?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FAQ/index.html#can-you-add-a-driver-that-i-need">Can you add a driver that I need?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../collaboration/collaboration.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../collaboration/collaboration.html#contribute-via-github">Contribute via GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collaboration/collaboration.html#contribution-guidelines">Contribution guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../collaboration/writing-guide.html">Writing guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/writing-guide.html#use-simple-english">Use simple English</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/writing-guide.html#make-content-scannable">Make content scannable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/writing-guide.html#use-strong-verbs">Use strong verbs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/writing-guide.html#avoid-long-noun-phrases">Avoid long noun phrases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/writing-guide.html#parallelism">Parallelism</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/writing-guide.html#grammar-and-punctuation">Grammar and punctuation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../collaboration/structure-formatting.html">Structure and formatting guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#markup">Markup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#documentation-organization">Documentation organization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#inline-text-formatting">Inline text formatting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#code-blocks-and-examples">Code blocks and examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#lists-and-instructions">Lists and instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#notices">Notices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#links">Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../collaboration/structure-formatting.html#images">Images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../collaboration/collaboration.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #007ab2" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Clear Linux* Project Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+
+<header id="header">
+  <div class="padding-md--left-right">
+
+    <div class="header__site_info">
+           <div class="header__site_info_name">
+           </div>
+    </div>
+    <nav class="header__menu">
+        <ul class="header__menu_list">
+              <li class="header__menu_list_item yellow  ">
+                <a tabindex='1' href="https://clearlinux.org">Home</a>
+              </li>
+              <li class="header__menu_list_item green  ">
+                <a tabindex='1' href="https://clearlinux.org/about">About</a>
+              </li>
+              <li class="header__menu_list_item purple  ">
+                <a tabindex='1' href="https://clearlinux.org/developer">Developer</a>
+              </li>
+              <li class="header__menu_list_item blue  ">
+                <a tabindex='1' href="https://clearlinux.org/software">Software</a>
+              </li>
+        </ul>
+    </nav>
+
+  </div>
+
+</header>
+
+
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Get started</a></li>
+      <li class="breadcrumb-item active">Create a bootable USB drive using Etcher*</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/clearlinux/clear-linux-documentation/blob/master/source/get-started/bootable-usb.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="create-a-bootable-usb-drive-using-etcher">
+<span id="bootable-usb"></span><h1>Create a bootable USB drive using Etcher*<a class="headerlink" href="#create-a-bootable-usb-drive-using-etcher" title="Link to this heading"></a></h1>
+<p>Use Etcher* software from Balena* to flash the Clear Linux OS image to a USB drive.
+An <a class="reference internal" href="#advanced-linux-cli">Advanced: Linux CLI</a> option is also available.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Download the Clear Linux OS Desktop or Server image from the <a class="reference external" href="https://clearlinux.org/downloads">Downloads</a> page</p></li>
+<li><p>Recommended minimum <strong>4GB</strong> USB drive or larger</p></li>
+<li><p>Download and install the <a class="reference external" href="https://www.balena.io/etcher/">Etcher</a> version per your operating system.</p></li>
+</ul>
+<section id="burn-the-cl-image-onto-a-usb-drive">
+<h3>Burn the Clear Linux OS image onto a USB drive<a class="headerlink" href="#burn-the-cl-image-onto-a-usb-drive" title="Link to this heading"></a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Burning an image formats the USB drive and destroys all pre-existing
+content.  Back up your data before proceeding.</p>
+</div>
+<ol class="arabic">
+<li><p>Launch Etcher.</p>
+<figure class="dropshadow align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_Start.PNG"><img alt="Start screen" src="../_images/balenaEtcher_Start.PNG" style="width: 625.0px; height: 375.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Start screen</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Press <span class="guilabel">Select Image</span>.</p></li>
+<li><p>Change directory to where the image resides.</p></li>
+<li><p>Select the image and click <span class="guilabel">Open</span>.</p>
+<figure class="dropshadow align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_ImageSelect.PNG"><img alt="In Open, select the image" src="../_images/balenaEtcher_ImageSelect.PNG" style="width: 625.0px; height: 376.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 2: In Open, select the image</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Plug in the USB drive.</p></li>
+<li><p>Identify the USB drive or click <span class="guilabel">Change</span> to select a
+different USB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This shows all USB drives attached to the system.</p>
+</div>
+<figure class="dropshadow align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_DriveSlect.PNG"><img alt="USB drives attached" src="../_images/balenaEtcher_DriveSlect.PNG" style="width: 625.0px; height: 375.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 3: USB drives attached</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select the proper device and press <span class="guilabel">Continue</span>.</p>
+<figure class="dropshadow align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_ReadyToFlash.PNG"><img alt="USB Flash Device selected" src="../_images/balenaEtcher_ReadyToFlash.PNG" style="width: 625.0px; height: 375.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 4: USB Flash Device selected</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>When ready press the <span class="guilabel">Flash!</span> Button.
+The dialog shows <span class="guilabel">Flashing</span> while in progress.</p>
+<figure class="dropshadow align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_StartingToFlash.PNG"><img alt="Starting to flash" src="../_images/balenaEtcher_StartingToFlash.PNG" style="width: 625.0px; height: 375.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 5: Starting to flash</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="dropshadow align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_Flashing.PNG"><img alt="Flashing, percentage complete" src="../_images/balenaEtcher_Flashing.PNG" style="width: 625.0px; height: 375.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Flashing, percentage complete</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><span class="guilabel">Flash complete!</span> shows when the process is finished.</p>
+<figure class="dropshadow align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_Done.PNG"><img alt="Flash Complete!" src="../_images/balenaEtcher_Done.PNG" style="width: 625.0px; height: 375.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 7: Flash Complete!</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The process may take more than a few minutes. When the process completes, close BalenaEtcher.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="advanced-linux-cli">
+<h3>Advanced: Linux CLI<a class="headerlink" href="#advanced-linux-cli" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Open a Terminal window.</p></li>
+<li><p>Change directory to where the image resides.</p></li>
+<li><p>Plug in the USB drive.</p></li>
+<li><p>Identify all drives attached to the system. In the example output below, there are 3 drives (<cite>/dev/sda</cite>, <cite>/dev/sdb</cite>, and <cite>/dev/sdc</cite>) attached, where <cite>/dev/sda</cite> is the primary drive and the remaining are USB drives.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lsblk<span class="w"> </span>-po<span class="w"> </span>NAME,SIZE,VENDOR,MODEL,TRAN,TYPE,PARTLABEL,MOUNTPOINT
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NAME          SIZE VENDOR   MODEL                    TRAN   TYPE PARTLABEL                    MOUNTPOINT</span>
+<span class="go">/dev/sda    119.2G ATA      SAMSUNG_MZ7PC128HAFU-000 sata   disk</span>
+<span class="go">├─/dev/sda1   450M                                          part Basic data partition</span>
+<span class="go">├─/dev/sda2   100M                                          part EFI system partition</span>
+<span class="go">├─/dev/sda3    16M                                          part Microsoft reserved partition</span>
+<span class="go">├─/dev/sda4  97.2G                                          part Basic data partition</span>
+<span class="go">├─/dev/sda5   142M                                          part EFI</span>
+<span class="go">├─/dev/sda6   245M                                          part linux-swap                   [SWAP]</span>
+<span class="go">└─/dev/sda7  21.1G                                          part /                            /</span>
+<span class="go">/dev/sdb      7.5G General  UDisk                    usb    disk</span>
+<span class="go">└─/dev/sdb1   7.5G                                          part Microsoft Basic Data         /run/media/clear/CENA_X64FRE</span>
+<span class="go">/dev/sdc       15G          Patriot_Memory           usb    disk</span>
+<span class="go">└─/dev/sdc1    15G                                          part                              /run/media/clear/U</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some Linux distros may automatically mount a USB drive when it is plugged in.</p>
+</div>
+</li>
+<li><p>Unmount the USB drive you want to use before burning an image onto it.
+Use the <strong class="command">umount</strong> command followed by the device identifier/partition. For example, to unmount all <code class="docutils literal notranslate"><span class="pre">/dev/sdc</span></code> partitions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>umount<span class="w"> </span>/dev/sdc*
+</pre></div>
+</div>
+</li>
+<li><p>Burn the image onto the USB drive. This example burns an image onto
+<code class="docutils literal notranslate"><span class="pre">/dev/sdc</span></code>. The device name of the USB may vary.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>./clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-live-<span class="o">[</span>desktop<span class="w"> </span><span class="p">|</span><span class="w"> </span>server<span class="o">]</span>.iso<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sdc<span class="w"> </span><span class="nv">oflag</span><span class="o">=</span>sync<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>4M<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="eject-the-cl-image-usb-drive">
+<h3>Eject the Clear Linux OS image USB drive<a class="headerlink" href="#eject-the-cl-image-usb-drive" title="Link to this heading"></a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If you do not properly unmount the USB drive before removing it, it may cause file system checksum errors in it. If this happens, burn the image again, ensuring all the USB drive partitions are unmounted first before removing drive.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Unmount the USB per your OS instructions.</p></li>
+<li><p>Then eject the USB.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      <span class="lastupdated">Last updated on Sep 27, 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+
+<div id="trademarks">
+  <p>*Other names and brands may be claimed as the property of others.</p>
+  <ul class="footer__menu_list">
+    <li class="footer__menu_list"><a href="https://www.intel.com/content/www/us/en/legal/trademarks.html">*Trademarks</a></li>
+    <li class="footer__menu_list"><a href="https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html">Cookies</a></li>
+    <li class="footer__menu_list"><a href="https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html">Privacy Terms</a></li>
+</div>
+
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+<script type="text/javascript" src="../_static/tcs_theme.js"></script>
+
+
+
+</body>
+</html>
